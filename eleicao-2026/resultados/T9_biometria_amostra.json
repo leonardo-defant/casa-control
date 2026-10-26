@@ -1,0 +1,31 @@
+{
+ "secoes": 827,
+ "totais": {
+  "hab1": 204336,
+  "bio1": 177707,
+  "hab2": 207017,
+  "bio2": 179347
+ },
+ "pct_bio_1t": 86.96803304361444,
+ "pct_bio_2t": 86.63394793664288,
+ "var_comparecimento": 2746.0,
+ "var_biometricos": 1640.0,
+ "var_nao_biometricos": 1041.0,
+ "nao_bio_por_eleitor_a_mais": {
+  "coef": 0.12462517613603546,
+  "ep": 0.0391231606599838,
+  "n": 711,
+  "locais": 148
+ },
+ "ganho_lula_por_habilitacao": {
+  "coef": {
+   "var_nao_biometricos": 0.6923335201376579,
+   "var_biometricos": 0.6640596097271572
+  },
+  "ep": {
+   "var_nao_biometricos": 0.05429679878149253,
+   "var_biometricos": 0.04310402361553637
+  },
+  "n": 711
+ }
+}

@@ -1,0 +1,282 @@
+{
+ "AL|27910": {
+  "secoes_lista": 26,
+  "secoes_com_bu": 26,
+  "completo": true,
+  "boletins": {
+   "L": 5062,
+   "R": 1437,
+   "B": 49,
+   "N": 191,
+   "comp": 6739
+  },
+  "oficial": {
+   "L": 5062,
+   "R": 1437,
+   "B": 49,
+   "N": 191,
+   "comp": 6739
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "26",
+  "secoes_oficial": "26"
+ },
+ "BA|34193": {
+  "secoes_lista": 208,
+  "secoes_com_bu": 208,
+  "completo": true,
+  "boletins": {
+   "L": 32453,
+   "R": 14238,
+   "B": 456,
+   "N": 1109,
+   "comp": 48256
+  },
+  "oficial": {
+   "L": 32453,
+   "R": 14238,
+   "B": 456,
+   "N": 1109,
+   "comp": 48256
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "208",
+  "secoes_oficial": "208"
+ },
+ "CE|13382": {
+  "secoes_lista": 56,
+  "secoes_com_bu": 56,
+  "completo": true,
+  "boletins": {
+   "L": 9903,
+   "R": 2606,
+   "B": 86,
+   "N": 170,
+   "comp": 12765
+  },
+  "oficial": {
+   "L": 9903,
+   "R": 2606,
+   "B": 86,
+   "N": 170,
+   "comp": 12765
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "56",
+  "secoes_oficial": "56"
+ },
+ "GO|94790": {
+  "secoes_lista": 14,
+  "secoes_com_bu": 14,
+  "completo": true,
+  "boletins": {
+   "L": 1254,
+   "R": 1600,
+   "B": 23,
+   "N": 42,
+   "comp": 2919
+  },
+  "oficial": {
+   "L": 1254,
+   "R": 1600,
+   "B": 23,
+   "N": 42,
+   "comp": 2919
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "14",
+  "secoes_oficial": "14"
+ },
+ "MA|8540": {
+  "secoes_lista": 17,
+  "secoes_com_bu": 17,
+  "completo": true,
+  "boletins": {
+   "L": 3002,
+   "R": 570,
+   "B": 25,
+   "N": 78,
+   "comp": 3675
+  },
+  "oficial": {
+   "L": 3002,
+   "R": 570,
+   "B": 25,
+   "N": 78,
+   "comp": 3675
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "17",
+  "secoes_oficial": "17"
+ },
+ "MG|46078": {
+  "secoes_lista": 16,
+  "secoes_com_bu": 16,
+  "completo": true,
+  "boletins": {
+   "L": 2380,
+   "R": 2316,
+   "B": 44,
+   "N": 124,
+   "comp": 4864
+  },
+  "oficial": {
+   "L": 2380,
+   "R": 2316,
+   "B": 44,
+   "N": 124,
+   "comp": 4864
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "16",
+  "secoes_oficial": "16"
+ },
+ "MG|46337": {
+  "secoes_lista": 277,
+  "secoes_com_bu": 277,
+  "completo": true,
+  "boletins": {
+   "L": 39545,
+   "R": 31906,
+   "B": 1075,
+   "N": 2317,
+   "comp": 74843
+  },
+  "oficial": {
+   "L": 39545,
+   "R": 31906,
+   "B": 1075,
+   "N": 2317,
+   "comp": 74843
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "277",
+  "secoes_oficial": "277"
+ },
+ "PB|22357": {
+  "secoes_lista": 42,
+  "secoes_com_bu": 42,
+  "completo": true,
+  "boletins": {
+   "L": 7779,
+   "R": 1902,
+   "B": 100,
+   "N": 164,
+   "comp": 9945
+  },
+  "oficial": {
+   "L": 7779,
+   "R": 1902,
+   "B": 100,
+   "N": 164,
+   "comp": 9945
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "42",
+  "secoes_oficial": "42"
+ },
+ "RS|89575": {
+  "secoes_lista": 67,
+  "secoes_com_bu": 67,
+  "completo": true,
+  "boletins": {
+   "L": 6359,
+   "R": 10144,
+   "B": 223,
+   "N": 284,
+   "comp": 17010
+  },
+  "oficial": {
+   "L": 6359,
+   "R": 10144,
+   "B": 223,
+   "N": 284,
+   "comp": 17010
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "67",
+  "secoes_oficial": "67"
+ },
+ "SC|80993": {
+  "secoes_lista": 11,
+  "secoes_com_bu": 11,
+  "completo": true,
+  "boletins": {
+   "L": 666,
+   "R": 2140,
+   "B": 32,
+   "N": 55,
+   "comp": 2893
+  },
+  "oficial": {
+   "L": 666,
+   "R": 2140,
+   "B": 32,
+   "N": 55,
+   "comp": 2893
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "11",
+  "secoes_oficial": "11"
+ }
+}

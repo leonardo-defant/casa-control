@@ -1,0 +1,5 @@
+2018 turno 1: BN 8.79% | Z0 obs 535 esp 555 R0 0.965 | R0 nulo 0.593 (dp 0.018) | Rc0 1.627 | Z1 R1 0.966 R1 nulo 0.716 Rc1 1.349
+2018 turno 2: BN 9.57% | Z0 obs 405 esp 427 R0 0.948 | R0 nulo 0.504 (dp 0.026) | Rc0 1.879 | Z1 R1 0.994 R1 nulo 0.677 Rc1 1.468
+2022 turno 1: BN 4.41% | Z0 obs 2020 esp 2646 R0 0.763 | R0 nulo 0.614 (dp 0.007) | Rc0 1.243 | Z1 R1 0.825 R1 nulo 0.748 Rc1 1.102
+2022 turno 2: BN 4.59% | Z0 obs 1739 esp 2366 R0 0.735 | R0 nulo 0.607 (dp 0.016) | Rc0 1.211 | Z1 R1 0.801 R1 nulo 0.749 Rc1 1.070
+2026 turno 1: BN 4.77% | Z0 obs 1319 esp 1813 R0 0.727 | R0 nulo 0.595 (dp 0.016) | Rc0 1.223 | Z1 R1 0.792 R1 nulo 0.728 Rc1 1.088
