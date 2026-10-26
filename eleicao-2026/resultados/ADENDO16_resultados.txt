@@ -1,0 +1,45 @@
+Adendo 16, resultados (26/10, noite). Amostra de 3.897 seções; totais oficiais por UF; pesquisas verificadas (nacionais_2026_pesquisas_verificadas.txt).
+
+T38 (descritivo), por UF: em NENHUMA das 27 UFs, nem no exterior, Flávio ganhou mais votos ou mais pontos que Lula entre os turnos.
+  Flávio perdeu votos absolutos em 6 UFs: AC -15.092, AP -13.604, RR -11.647, MA -9.069, AM -1.519, TO -1.405.
+  Em Goiás, terra de Caiado (12,3% dos válidos no 1º turno, apoiou Flávio): Lula +9,28 pontos, Flávio +6,06.
+  No Rio, estado de Flávio (senador): Lula +872 mil (+7,48 pontos), Flávio +202 mil (+0,09 ponto), a maior diferença do país.
+  A diferença foi menor nos redutos de Flávio (RO -2,3, AC -2,7, SC -2,8, GO -3,2, RR -3,3) e maior no Nordeste, em SP e no RJ (-6 a -7,4).
+  Tabela completa: T38_pontos_por_uf.txt. Por município: falta baixar os totais do 2º turno por município.
+  Leitura para a tese: uma troca proporcional aos votos de Flávio (forma B pura) mexeria MAIS onde Flávio é forte (RR, RO, SC); aconteceu o
+  contrário. O desenho por UF combina mais com algo proporcional à força de Lula ou ao branco e nulo (forma A), ou com o movimento natural.
+
+Pesquisas, mesmo instituto nos dois turnos (descritivo, contexto de 2026):
+  instituto | 1T erro Flávio | 1T erro Lula | 2T erro Flávio | 2T erro Lula   (erro = resultado - pesquisa, votos válidos)
+  Datafolha | +5,0 | +0,2 | -2,8 | +2,8
+  Quaest    | +2,0 | -0,8 | -2,8 | +2,8
+  AtlasIntel| +2,9 | -1,8 | -2,6 | +2,6
+  CNT/MDA   | +4,9 | -2,6 | -2,5 | +2,5
+  PoderData | +4,0 | +0,2 | -2,8 | +2,8
+  Nexus     | +8,0 | +1,2 | -2,3 | +2,3
+  RTBD      | +6,0 | -0,8 | -3,8 | +3,8
+  Futura    | +2,2 | +2,6 | -1,9 | +1,9
+  Gerp      | +1,0 | +1,2 | -3,8 | +3,8
+  Veritá    | +0,0 | +0,2 | -3,3 | +3,3
+  Ipespe    | n/d  | n/d  | -2,3 | +2,3
+  Vox Brasil| n/d  | n/d  | -1,2 | +1,2
+  1º turno: os institutos acertaram Lula (mediana +0,2; de -2,6 a +2,6) e erraram Flávio para baixo porque davam aos demais 8 a 17%
+  (foram 7,8%): o voto útil de última hora foi para Flávio. 2º turno: os 12 subestimaram Lula, todos (mediana +2,7; de +1,2 a +3,8).
+  A última semana das pesquisas não mostrava Lula subindo (Datafolha 50 x 50 em 20 a 22/10 e 51 x 49 Flávio em 23 e 24/10).
+  Em votos: levar Flávio de 51% para 48,21% dos válidos são 3,46 milhões de votos. Para virar o resultado oficial bastariam 2,22 milhões.
+  Leituras: (a) desvio na contagem do 2º turno de cerca de 3,5 milhões; (b) erro sistemático das pesquisas só no 2º turno (eleitor de
+  Lula que não responde, modelo de eleitor provável); (c) virada nas últimas 24 a 48 horas que as pesquisas não pegaram.
+  O branco e nulo declarado não sustenta bem a forma A: Datafolha declarava 3% e o registrado foi 3,24%.
+
+T36 (nulo por suspensão no log x boletim): 1º turno, 253 seções com o evento, zero com menos nulos no boletim que no log. 2º turno: só 3
+  seções com o evento (no 2º turno o presidente é votado logo, quase ninguém sai antes), zero violações. Veredito: SEM PODER no 2º turno.
+
+T37 (eliminados, urna x declarado): ERRO DE DESENHO NO REGISTRO. Na especificação do T8, para cada grupo b_L + b_F = 1 por identidade
+  (a soma das duas equações é a variação dos votos dos finalistas, que é comparecimento + queda do branco/nulo + outros do 1º turno). A
+  urna não identifica o "nenhum" dos eleitores dos eliminados. Pela letra do critério, com a Quaest: dL = 0,522 - 0,264 = +0,26 e
+  dF = 0,478 - 0,385 = +0,09, que não é nenhum dos padrões: INCONCLUSIVO, e a medida não se interpreta.
+  Comparação corrigida, POST HOC (feita depois de ver b_F): divisão entre os que escolheram um finalista. Urna 52,2% Lula (EP 1,7);
+  Quaest 40,7% (l / (l + f), pesos do 1º turno). Lula com 11,5 pontos a mais do que os eleitores dos eliminados declararam, cerca de 0,7
+  milhão de votos. A forma B (s de 3 a 4%) explicaria cerca de 2 pontos disso; a forma A, se metade do "nenhum" declarado virasse 13,
+  levaria a 53%. Também combina com voto escondido em Lula entre esses eleitores. Os cruzamentos dos demais institutos estão sendo
+  buscados.

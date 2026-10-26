@@ -1,0 +1,37 @@
+{
+ "secoes_com_log": 3897,
+ "1": {
+  "secoes": 3897,
+  "secoes_com_S": 253,
+  "eventos_S": 334,
+  "nulos_N_nas_secoes_com_S": 2470,
+  "violacoes_N_menor_que_S": [],
+  "N_igual_S": 3,
+  "distribuicao_N_menos_S": {
+   "0": 3,
+   "1": 7,
+   "2": 9,
+   "3": 15,
+   "4": 21,
+   "5": 27,
+   "6": 30,
+   "7": 14,
+   "8": 18,
+   "9": 23,
+   "10": 86
+  }
+ },
+ "2": {
+  "secoes": 3897,
+  "secoes_com_S": 3,
+  "eventos_S": 3,
+  "nulos_N_nas_secoes_com_S": 37,
+  "violacoes_N_menor_que_S": [],
+  "N_igual_S": 0,
+  "distribuicao_N_menos_S": {
+   "9": 1,
+   "10": 2
+  }
+ },
+ "veredito_2t": "SEM PODER (menos de 100 seções com S)"
+}
