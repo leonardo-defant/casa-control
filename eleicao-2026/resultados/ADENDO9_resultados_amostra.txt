@@ -1,7 +1,8 @@
 Resultados dos testes do Adendo 9 que rodam sem o bweb do 2º turno (26/10/2026, tarde)
 Critérios registrados antes: commits 6d9a849 (Adendo 9), b4bbb5c (Adendo 10), 36df151 (Adendo 11) e e3de91b (Adendo 12).
 Versão revisada depois de uma revisão adversarial independente do código (19 agentes): ver o fim do arquivo.
-Amostra: 3.897 seções com boletim do 2º turno (625 locais); 835 delas com RDV, log e arquivo de assinatura.
+Amostra: 3.897 seções com boletim do 2º turno, em 741 locais (625 com 2 ou mais seções); 835 delas com RDV, log e arquivo de assinatura
+(as 823 seções do estrato M baixadas primeiro mais 12 de teste do AC; não são aleatórias). O estrato G não entrou na amostra.
 Tudo é preliminar até o bweb completo, pela regra 4 do pré-registro.
 
 T18. Assinatura digital dos arquivos de cada seção (835 seções)
@@ -144,8 +145,11 @@ Amostra inteira com logs (Adendos 12 e 13; logs das 3.897 seções; mesmos códi
     integridade do sistema"), foi desligada e religada 2 minutos depois com a mesma mídia, agora verificada com
     sucesso; no mesmo dia a mídia de votação foi regerada depois de um erro de sincronização. Daí em diante todas as
     verificações deram SUCESSO, inclusive nos dois dias de votação, com a mesma mídia nos dois turnos. A urna fez o
-    que deve fazer diante de uma falha de verificação. Lida como explicada pelo próprio log.
-  T20, pendências do T10 ampliado (3.897 urnas): 426 pendências, 426 explicadas no próprio log.
+    que deve fazer diante de uma falha de verificação. Pelo critério registrado (Adendo 5), é BANDEIRA VERMELHA em 1 de
+    3.897 urnas; o log mostra a causa, mas aceitá-la como explicação é leitura posterior, não estava no registro.
+  T20, pendências do T10 ampliado (3.897 urnas): 426 urnas com pendência (438 itens; 12 urnas têm dois), todas com
+    explicação no próprio log; 103 fecham com as regras já usadas nas 835 primeiras e 323 só com as duas regras
+    posteriores descritas abaixo.
     42 sem o 1º turno no log: em todas, o número da urna mudou entre os turnos (troca); 27 também foram carregadas
       como contingência no período do 2º turno.
     13 com mídia de votação diferente ou sem leitura no dia: 12 leram a mesma mídia na véspera; 1 teve contingência
@@ -157,7 +161,9 @@ Amostra inteira com logs (Adendos 12 e 13; logs das 3.897 seções; mesmos códi
       zona fora da sessão das outras urnas (ma/09113/0060/0060, mesma manhã, outra estação da zona; sp/62499/0026/
       0044, preparada 3 dias depois das outras, pelo mesmo computador). As duas últimas regras (sessão da zona e
       computador da própria zona) foram definidas depois de ver estes dados, e isso fica registrado.
-    Votáveis: presidente só 13 e 22 nos 3.897 boletins. Pelo critério: SEM SINAL. Faltam as atas de carga.
+    Votáveis: presidente só 13 e 22 nos 3.897 boletins. Pelo critério literal, EM ABERTO: as 323 urnas fechadas só pelas
+    regras posteriores não têm o evento de substituição, contingência ou recarga que o Adendo 9 pede. Não é sinal, porque
+    nada mostra que as datas de 16 a 24/10 estejam fora do calendário oficial das zonas; faltam as atas de carga.
   T30, horário (3.874 seções, 410 municípios), como registrado (efeito fixo de município):
     12h: +3,7 (1,3), z 2,9; 14h: +5,0 (1,4), z 3,6; 16h: +11,3 (2,7), z 4,2 (CV3: z 2,7, 3,4 e 3,9).
     Às 14h e às 16h a inclinação passa a parte de valor e de z do critério de sinal; o placebo como registrado
@@ -175,7 +181,7 @@ Amostra inteira com logs (Adendos 12 e 13; logs das 3.897 seções; mesmos códi
     contra 17% no 1º, que teve fila). Ganho de Lula por habilitação a mais na janela: 0,47 sem biometria e 0,47 com.
 
 Revisão adversarial independente (19 agentes, 4 frentes, cada achado verificado por outro agente)
-  Nenhum achado muda um veredito relatado. Corrigido depois dela:
+  Nenhum teste passou a sinal. Os pares de um modelo só do T17 passaram de SEM SINAL a SEM PODER. Corrigido depois dela:
   T18: o vsc verificado passou a ser o listado no -aux.json, com o SHA-256 conferido contra o hash do aux; todo
     arquivo baixado tem de estar na lista do vsc; seção sem BU vira falha; o texto do que a assinatura prova foi
     reescrito; a cadeia das urnas antigas foi checada por recuperação da chave da AC.

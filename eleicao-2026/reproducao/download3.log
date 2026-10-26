@@ -1,0 +1,25 @@
+== M10 2T
+89/734 secoes, 34 req, 0.5 req/s, erros 0, 429 2, falhas 0, bloqueios 0, 2 MB
+112/734 secoes, 125 req, 1.0 req/s, erros 0, 429 2, falhas 0, bloqueios 0, 6 MB
+161/734 secoes, 220 req, 1.2 req/s, erros 0, 429 2, falhas 0, bloqueios 0, 11 MB
+178/734 secoes, 296 req, 1.1 req/s, erros 0, 429 3, falhas 0, bloqueios 0, 14 MB
+189/734 secoes, 330 req, 1.0 req/s, erros 0, 429 5, falhas 0, bloqueios 0, 16 MB
+212/734 secoes, 427 req, 1.1 req/s, erros 0, 429 5, falhas 0, bloqueios 0, 21 MB
+230/734 secoes, 493 req, 1.0 req/s, erros 0, 429 7, falhas 0, bloqueios 0, 24 MB
+252/734 secoes, 584 req, 1.1 req/s, erros 0, 429 8, falhas 0, bloqueios 0, 28 MB
+277/734 secoes, 679 req, 1.1 req/s, erros 0, 429 8, falhas 0, bloqueios 0, 33 MB
+300/734 secoes, 771 req, 1.1 req/s, erros 0, 429 8, falhas 0, bloqueios 0, 38 MB
+308/734 secoes, 804 req, 1.1 req/s, erros 0, 429 10, falhas 0, bloqueios 0, 40 MB
+324/734 secoes, 869 req, 1.1 req/s, erros 0, 429 11, falhas 0, bloqueios 0, 44 MB
+329/734 secoes, 891 req, 1.0 req/s, erros 0, 429 14, falhas 0, bloqueios 0, 45 MB
+333/734 secoes, 904 req, 1.0 req/s, erros 0, 429 16, falhas 0, bloqueios 0, 45 MB
+349/734 secoes, 966 req, 1.0 req/s, erros 0, 429 17, falhas 0, bloqueios 0, 49 MB
+371/734 secoes, 1056 req, 1.0 req/s, erros 0, 429 17, falhas 0, bloqueios 0, 53 MB
+386/734 secoes, 1126 req, 1.0 req/s, erros 0, 429 18, falhas 0, bloqueios 0, 57 MB
+411/734 secoes, 1214 req, 1.0 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 62 MB
+433/734 secoes, 1305 req, 1.0 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 66 MB
+456/734 secoes, 1400 req, 1.0 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 70 MB
+687/734 secoes, 1491 req, 1.1 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 74 MB
+709/734 secoes, 1581 req, 1.1 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 78 MB
+726/734 secoes, 1644 req, 1.1 req/s, erros 0, 429 20, falhas 0, bloqueios 0, 81 MB
+734/734 secoes, 1673 req, 1.1 req/s, erros 0, 429 20, falhas 0, bloqueios 0, 82 MB

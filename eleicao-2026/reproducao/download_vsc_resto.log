@@ -1,0 +1,9 @@
+79/3062 secoes, 79 req, 1.3 req/s, erros 0, 429 0, falhas 0, bloqueios 0, 5 MB
+104/3062 secoes, 110 req, 0.6 req/s, erros 0, 429 4, falhas 0, bloqueios 0, 7 MB
+133/3062 secoes, 136 req, 0.6 req/s, erros 0, 429 6, falhas 0, bloqueios 0, 9 MB
+165/3062 secoes, 192 req, 0.6 req/s, erros 0, 429 7, falhas 0, bloqueios 0, 12 MB
+223/3062 secoes, 230 req, 0.6 req/s, erros 0, 429 9, falhas 0, bloqueios 0, 14 MB
+231/3062 secoes, 241 req, 0.5 req/s, erros 0, 429 11, falhas 0, bloqueios 0, 15 MB
+267/3062 secoes, 269 req, 0.5 req/s, erros 0, 429 13, falhas 0, bloqueios 0, 17 MB
+291/3062 secoes, 296 req, 0.5 req/s, erros 0, 429 16, falhas 0, bloqueios 0, 19 MB
+311/3062 secoes, 325 req, 0.5 req/s, erros 0, 429 19, falhas 0, bloqueios 0, 20 MB

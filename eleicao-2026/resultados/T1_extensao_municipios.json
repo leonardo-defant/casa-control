@@ -1,0 +1,80 @@
+{
+ "AL|28177": {
+  "secoes": 15,
+  "boletins": {
+   "L": 2908,
+   "R": 789,
+   "B": 27,
+   "N": 48,
+   "comp": 3772
+  },
+  "oficial": {
+   "L": 2908,
+   "R": 789,
+   "B": 27,
+   "N": 48,
+   "comp": 3772
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "15",
+  "secoes_oficial": "15"
+ },
+ "AL|28231": {
+  "secoes": 14,
+  "boletins": {
+   "L": 2811,
+   "R": 697,
+   "B": 22,
+   "N": 65,
+   "comp": 3595
+  },
+  "oficial": {
+   "L": 2811,
+   "R": 697,
+   "B": 22,
+   "N": 65,
+   "comp": 3595
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "14",
+  "secoes_oficial": "14"
+ },
+ "AL|28436": {
+  "secoes": 34,
+  "boletins": {
+   "L": 7185,
+   "R": 1475,
+   "B": 80,
+   "N": 202,
+   "comp": 8942
+  },
+  "oficial": {
+   "L": 7185,
+   "R": 1475,
+   "B": 80,
+   "N": 202,
+   "comp": 8942
+  },
+  "diferenca": {
+   "L": 0,
+   "R": 0,
+   "B": 0,
+   "N": 0,
+   "comp": 0
+  },
+  "secoes_totalizadas_oficial": "34",
+  "secoes_oficial": "34"
+ }
+}

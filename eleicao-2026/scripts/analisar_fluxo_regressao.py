@@ -2,7 +2,7 @@
 y = votos(2T) - votos(1T) do candidato; X = votos de cada grupo de outros candidatos no 1T, queda do branco+nulo,
 variação do comparecimento, votos do adversário no 1T e do próprio candidato no 1T.
 Efeito fixo de local, sem peso (a regressão é em votos), erro agrupado por local.
-Uso: python3 -I analisar_fluxo_regressao.py <secoes.json.gz> <L|R> [--chaves lista] [--candidatos cand.json.gz --grupos 'Renan:30;Caiado:55;...']
+Uso: python3 -I analisar_fluxo_regressao.py <secoes.json.gz> <L|R> [--chaves lista] [--candidatos cand.json.gz --grupos 'Cury:70;Renan:14;Caiado:55;Zema:30']
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))

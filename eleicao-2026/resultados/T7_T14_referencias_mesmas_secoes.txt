@@ -1,0 +1,10 @@
+Robustez fora do pré-registro (26/10, depois da conferência independente): T7 e T8/T14 de 2018 e 2022 restritos às mesmas seções da amostra de 2026 (chaves UF|mun|zona|seção presentes nas duas bases).
+2018: 3.425 das 3.897 chaves; 2022: 3.628.
+== T7
+2018 Haddad: {"secoes": 3425, "ganho_total": 116861, "bolo_total": 211583, "pct_secoes_excesso": 0.40875912408759124, "excesso_total": 20, "pct_ganho_em_excesso": 0.017114349526360376, "pct_secoes_adversario_perdeu_votos": 3.6496350364963503, "secoes_sem_bolo": 0, "ganho_nas_secoes_sem_bolo": 0}
+2022 Bolsonaro: {"secoes": 3628, "ganho_total": 54234, "bolo_total": 92232, "pct_secoes_excesso": 7.056229327453142, "excesso_total": 918, "pct_ganho_em_excesso": 1.692665117822768, "pct_secoes_adversario_perdeu_votos": 21.719955898566703, "secoes_sem_bolo": 13, "ganho_nas_secoes_sem_bolo": 2}
+== T8/T14
+2018 L: {"candidato": "L", "n": 3256, "locais": 565, "coef": {"outros_1T": 0.67, "queda_branco_nulo": 0.649, "var_comparecimento": 0.539, "adversario_1T": 0.01, "proprio_1T": -0.036}, "ep": {"outros_1T": 0.021, "queda_branco_nulo": 0.022, "var_comparecimento": 0.025, "adversario_1T": 0.009, "proprio_1T": 0.011}}
+2018 R: {"candidato": "R", "n": 3256, "locais": 565, "coef": {"outros_1T": 0.33, "queda_branco_nulo": 0.351, "var_comparecimento": 0.461, "adversario_1T": 0.036, "proprio_1T": -0.01}, "ep": {"outros_1T": 0.021, "queda_branco_nulo": 0.022, "var_comparecimento": 0.025, "adversario_1T": 0.011, "proprio_1T": 0.009}}
+2022 L: {"candidato": "L", "n": 3491, "locais": 590, "coef": {"outros_1T": 0.509, "queda_branco_nulo": 0.572, "var_comparecimento": 0.508, "adversario_1T": 0.021, "proprio_1T": -0.048}, "ep": {"outros_1T": 0.018, "queda_branco_nulo": 0.025, "var_comparecimento": 0.04, "adversario_1T": 0.008, "proprio_1T": 0.007}}
+2022 R: {"candidato": "R", "n": 3491, "locais": 590, "coef": {"outros_1T": 0.491, "queda_branco_nulo": 0.428, "var_comparecimento": 0.492, "adversario_1T": 0.048, "proprio_1T": -0.021}, "ep": {"outros_1T": 0.018, "queda_branco_nulo": 0.025, "var_comparecimento": 0.04, "adversario_1T": 0.007, "proprio_1T": 0.008}}

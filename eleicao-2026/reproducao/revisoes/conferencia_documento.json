@@ -1,0 +1,1087 @@
+{
+  "summary": "Confere cada número e afirmação do documento de passagem contra os arquivos de resultado e o pré-registro",
+  "agentCount": 25,
+  "logs": [],
+  "result": {
+    "partes": [
+      {
+        "parte": "secoes_1_2_3",
+        "conferidos": 53,
+        "baixas": [
+          {
+            "trecho": "Seção 3: \"somar_oficial.py | montam as bases por seção a partir do bweb\"",
+            "afirmado": "somar_oficial.py monta base por seção.",
+            "encontrado": "somar_oficial.py não monta base. Ele soma uma base já pronta por UF e Brasil e compara com o total oficial baixado do site de resultados (critério 1 da seção 7). É um teste de soma, não uma etapa de montagem.",
+            "fonte": "/home/user/casa-control/eleicao-2026/scripts/somar_oficial.py",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 2, Cuidados: \"O baixador (baixar_arquivos_urna.py) tem limitador global (cerca de 1,3 requisição por segundo) e recuo após 429.\"",
+            "afirmado": "O limitador do baixador fica em cerca de 1,3 requisição por segundo.",
+            "encontrado": "O limitador global e o recuo após 429 existem, mas o padrão do código é TAXA = 3 requisições por segundo. 1,3 só vale quando se passa TAXA=1.3 no ambiente. As levas registradas rodaram entre 0,5 e 1,5 req/s, mas a primeira tentativa do estrato M (download.log, 10:59 UTC, versão anterior sem o campo de 429) rodou a 8,3 req/s, com 33 erros. Seções dessa tentativa parecem estar na amostra (BA 36250 incompleto).",
+            "fonte": "/home/user/casa-control/eleicao-2026/scripts/baixar_arquivos_urna.py (TAXA padrão '3'); /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/download.log, download3.log, download4.log",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 2: \"Delas, 835 têm também RDV, log e arquivo de assinatura. Depois vieram mais duas levas\"",
+            "afirmado": "O arquivo de assinatura das 835 veio no download inicial, e depois houve só duas levas.",
+            "encontrado": "Os -vota.vsc das 835 foram baixados numa leva própria, das 13:48 às 14:03 UTC (Adendo 9), depois do download inicial (10:56 a 13:28). Houve ainda uma quarta leva, os vsc das outras 3.062 seções (Adendo 13), iniciada às 15:58 e incompleta: cerca de 376 a 382 seções com vsc fora das 835 no momento da conferência. O documento não a menciona. Os números finais (835 e 3.897) conferem.",
+            "fonte": "datas dos arquivos em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/arq; download_vsc.log, download_vsc_resto.log, download_vsc_resto2.log; PRE-REGISTRO, Adendos 9 e 13",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Preâmbulo: \"Estado em 26/10/2026, fim da tarde (UTC): os boletins de urna do 2º turno em formato aberto (bweb) ainda não estavam publicados\"",
+            "afirmado": "A ausência do bweb do 2º turno foi verificada no fim da tarde.",
+            "encontrado": "A última consulta registrada ao CKAN é das 14:42 UTC (trab/ckan.json e n2t.txt = 0; o portal só tinha os 28 zips do 1º turno, metadata_modified 06/10). Não há consulta registrada mais perto do commit do documento (16:10). A afirmação vale para as 14:42, não para o fim da tarde.",
+            "fonte": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab/ckan.json e trab/n2t.txt",
+            "gravidade": "baixa"
+          }
+        ],
+        "confirmadas": [
+          {
+            "trecho": "Seção 2, Amostra: \"Ficaram 3.897 seções com boletim, em 625 locais.\"",
+            "afirmado": "As 3.897 seções com boletim estão em 625 locais de votação.",
+            "encontrado": "As 3.897 seções estão em 741 locais (chave UF|município|zona|local, a mesma de lib.chave_local, com o local do boletim do 2º turno ou do bweb do 1º, dá o mesmo número). 625 é só o número de locais com 2 ou mais seções, os que entram na regressão de efeito fixo: são 3.781 seções (T7_T8_T14_amostra.txt traz n 3781, locais 625). O número vem da contagem de grupos da regressão, não da amostra.",
+            "fonte": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/saida/secoes2026_2t_amostra.json.gz (contagem em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/locais.py); /home/user/casa-control/eleicao-2026/resultados/T7_T8_T14_amostra.txt",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Refiz a conta. Rodei /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/locais.py com python3 -I sobre /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/saida/secoes2026_2t_amostra.json.gz (3.897 chaves) e secoes2026_amostra.json.gz. Saída: \"uf|mun|zona|loc(2t) 741 com >=2 secoes 625\" e \"uf|mun|zona|loc(1t) 741 com >=2 625 secoes com par 1t 3897\". A chave é a mesma de lib.chave_local (uf|mun|zona|s['loc']). Sem a zona, o número fica em 738, e com ela em 741. Nas duas versões nunca dá 625 locais com todas as seções. Em lib.fe_ols (linhas 33 a 36) o código descarta os grupos com uma observação só (\"só grupos com 2 ou mais observações informam\", ok = cnt[g] >= 2). Por isso T7_T8_T14_amostra.txt traz T8 com n 3781 e locais 625, enquanto o T7 traz secoes 3897. Fecha certo: 741 menos 625 dá 116 locais com uma seção só, e 3.897 menos 116 dá 3.781. Logo 625 é a contagem de grupos da regressão, não a de locais da amostra. ADENDO9_resultados_amostra.txt (linha 4) repete \"(625 locais)\", mas os dados não o sustentam. O mesmo erro aparece em PARA-O-REVISOR.md, linha 178 (item 6, \"Amostra: são 625 locais\"), e deve ser corrigido junto.",
+              "texto_corrigido": "O download parou no limite de 2 horas da tarefa em segundo plano. Ficaram 3.897 seções com boletim, em 741 locais. Destes, 625 têm 2 ou mais seções (3.781 seções) e são os que entram na regressão de efeito fixo. Das 3.897, 835 têm também RDV, log e arquivo de assinatura. (No item 6 da linha 178: \"Amostra: são 741 locais, 625 com 2 ou mais seções.\")"
+            }
+          },
+          {
+            "trecho": "Seção 2, Amostra: \"em três estratos: M: 120 municípios inteiros. L: 1.500 locais de votação. G: metade dos locais das 6 UFs com 2º turno de governador.\" seguido de \"Ficaram 3.897 seções\"",
+            "afirmado": "A amostra de 3.897 seções vem dos três estratos sorteados (o texto não diz o contrário, e a seção 7, item 6, fala que os estratos M e G pesam municípios específicos).",
+            "encontrado": "O desenho confere (semente 20261026, 120 municípios, 1.500 locais, 2.881 locais em G). Mas a amostra que existe tem 823 seções de M (14 dos 120 municípios, 13 completos), 3.062 de L (476 dos 1.500 locais, todos completos), nenhuma baixada de G (a única seção da lista G presente, AC|1392|1|7, é uma das 12 seções de teste do AC) e 11 seções de teste do AC fora de qualquer estrato. As 835 com RDV, log e assinatura são exatamente as 823 de M mais as 12 de teste. O estrato G não entrou na amostra, e o documento não diz isso.",
+            "fonte": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/estrato_M.txt, estrato_L.txt, estrato_G.txt, teste.txt e amostra.json contra a pasta amostra2t/arq e saida/secoes2026_2t_amostra.json.gz",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui. Refiz a conta com python3 -I (scripts em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/estratos/conta.py e locais.py). O desenho confere com scripts/sortear_amostra.py e amostra2t/amostra.json: semente 20261026, 120 municípios em M (7.106 seções), 1.500 locais em L (9.806 seções), 2.881 locais em G (18.748 seções), sem interseção entre os estratos. Cruzei as 3.897 chaves de amostra2t/saida/secoes2026_2t_amostra.json.gz com as listas: 823 estão em M, 3.062 em L, 0 só em G, 11 só em teste.txt e 1 (AC|1392|1|7) em G e em teste.txt ao mesmo tempo. De M estão presentes 14 dos 120 municípios, 13 completos (BA|36250 tem 26 de 28). De L estão presentes 476 dos 1.500 locais (agrupados por chave_local com a base do 1º turno), os 476 completos. amostra2t/lista_vsc.txt (835) é exatamente as 823 de M mais as 12 de teste, e lista_logs_resto.txt (3.062) é exatamente a parte de L. Logo o estrato G não entrou na amostra, e PARA-O-REVISOR.md (seção 2, linhas 36 a 41, e seção 7, item 6) não diz isso. Pior: o item 6 diz que \"os estratos M e G pesam municípios específicos\", mas os dois exemplos dados (MG 46337 e BA 34193) são de M, e G não contribui com nenhuma seção. Achado lateral: as 3.897 seções estão em 741 locais. O número 625 do documento é só dos locais com duas ou mais seções (3.781 seções, o mesmo n do T7).",
+              "texto_corrigido": "Seção 2: \"Amostra do 2º turno (`sortear_amostra.py`, semente 20261026), desenhada em três estratos: M: 120 municípios inteiros. L: 1.500 locais de votação. G: metade dos locais das 6 UFs com 2º turno de governador (2.881 locais). O download parou no limite de 2 horas da tarefa em segundo plano e não chegou ao estrato G. Ficaram 3.897 seções com boletim, em 741 locais (625 com duas ou mais seções): 823 de M (14 dos 120 municípios, 13 completos), 3.062 de L (476 dos 1.500 locais, todos completos) e 12 seções de teste do AC, fora do sorteio (uma delas, AC|1392|1|7, também está na lista de G). Delas, 835 (as 823 de M e as 12 de teste) têm também RDV, log e arquivo de assinatura.\" Seção 7, item 6: \"Amostra: só M e L foram baixados; o estrato G ficou de fora. M pesa municípios específicos (por exemplo, MG 46337 e BA 34193 têm muitas seções). Os testes por seção usam efeito fixo de local, mas a generalização para o país é de amostra.\""
+            }
+          },
+          {
+            "trecho": "Seção 1, regra 1: \"Todo teste tem critério registrado num commit com horário antes de olhar o dado correspondente (PRE-REGISTRO-2026-10-26.md, adendos 1 a 13).\"",
+            "afirmado": "Todo critério foi registrado antes de olhar o dado do teste.",
+            "encontrado": "Os 13 adendos existem, cada um no seu commit, mas o \"todo\" não se sustenta. (1) T14: o critério (Adendo 8, commit 494833f, 12:57 UTC) veio depois de o coeficiente 0,056 (0,012) em 1.709 seções ter sido calculado e versionado (T7_T8_amostra_parcial.txt, commit d513e12, 12:10). O próprio adendo admite isso. O limite de \"sem sinal\" ficou em 0,051, exatamente o valor depois obtido com as 3.897. (2) T12: o Adendo 7 (ed3441c, 12:20) diz \"antes de coletar os dados\", mas o erro de cada instituto no 2º turno de 2026 já estava calculado e versionado em erro_pesquisas_2t.txt (0fdb7d3, 11:53). (3) T20: duas regras de explicação foram definidas depois de ver os dados, e a janela de 10 a 15/10 veio das 835 primeiras urnas. (4) T30: a especificação R2 foi fixada depois de ver as 835. Os itens 3 e 4 o documento admite em outras seções; os itens 1 e 2 não aparecem como exceção à regra.",
+            "fonte": "git log de /home/user/casa-control/eleicao-2026 (commits d513e12, 494833f, 0fdb7d3, ed3441c); PRE-REGISTRO-2026-10-26.md, Adendos 7 e 8; resultados/T7_T8_amostra_parcial.txt; resultados/erro_pesquisas_2t.txt; resultados/ADENDO9_resultados_amostra.txt (T20)",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Conferi na fonte e a divergência se confirma. (1) T14: o arquivo resultados/T7_T8_amostra_parcial.txt entrou no commit d513e12, às 12:10:02 UTC, já com \"candidato\": \"L\", \"n\": 1709, \"adversario_1T\": 0.056, ep 0.012. O Adendo 8, que cria o critério do T14, só veio no commit 494833f, às 12:57:51 UTC. O próprio texto do adendo admite: \"na amostra parcial (1.709 seções) este coeficiente já foi visto: 0,056 (erro-padrão 0,012)\". O limite de \"sem sinal\" ficou em 0,051, e resultados/T7_T8_T14_amostra.txt (commit c2a3159, 13:30, n=3781 na regressão) dá exatamente 0,051 (0,007). As 1.709 seções já vistas fazem parte dessa amostra. (2) T12: o Adendo 7 (commit ed3441c, 12:20:35) traz no título \"antes de coletar os dados\". Só que resultados/erro_pesquisas_2t.txt já estava versionado no commit 0fdb7d3, às 11:53:27, com o erro de cada instituto no 2º turno de 2026 (Datafolha +2,32, Quaest +2,34, AtlasIntel +2,55, CNT/MDA +2,50, Veritá +3,34, Gerp +3,79, Futura +1,89) e com os de 2018 e 2022. São esses os erros que o T12 usa como entrada em T11_T12_T13.txt. (3) T20: em ADENDO9_resultados_amostra.txt (linhas 153 e 158 a 159) está escrito que a janela de 10 a 15/10 \"veio só das 835 primeiras urnas\" e que as duas últimas regras foram definidas depois de ver os dados. (4) T30: a especificação R2 foi fixada depois de ver as 835 seções, como a seção 7 do PARA-O-REVISOR admite. O PARA-O-REVISOR reconhece os itens 3 e 4: a tabela traz a ressalva das 2 regras do T20, embora não mencione a janela, e a seção 7 traz a do T30. Já os itens 1 e 2 não aparecem em lugar nenhum do documento. Busquei \"0,056\", \"1.709\", \"antes de coletar\" e T12 e não achei nada além da linha da tabela. A segunda frase da regra 1 não cobre esses casos, porque fala de correção de registro errado, e os Adendos 7 e 8 criam testes novos. Logo, o \"Todo teste\" da regra 1 não se sustenta.",
+              "texto_corrigido": "1. Critério antes do dado, com exceções declaradas. Os critérios estão em commits com horário (`PRE-REGISTRO-2026-10-26.md`, adendos 1 a 13), mas quatro testes viram parte do dado antes do registro. T14: o Adendo 8 (12:57 UTC) veio depois de o coeficiente 0,056 (0,012) das 1.709 primeiras seções ter sido versionado (12:10), e o adendo diz isso; o limite de \"sem sinal\" (0,051) é o valor depois obtido com as 3.897. T12: o Adendo 7 (12:20) veio depois de o erro de cada instituto no 2º turno de 2026 estar versionado em `erro_pesquisas_2t.txt` (11:53). T20: duas regras de explicação e a janela de 10 a 15/10 vieram das 835 primeiras urnas. T30: a especificação R2 foi fixada depois de ver as 835. Quando o registro estava errado, corrigi num adendo novo, dizendo o que já tinha sido visto."
+            }
+          },
+          {
+            "trecho": "Seção 2, tabela, linha 1 (bases secoes2022.json.gz e secoes2018.json.gz \"a partir do bweb\") e seção 3: \"extrair_bweb.py, extrair_candidatos.py, juntar.py, somar_oficial.py | montam as bases por seção a partir do bweb\"",
+            "afirmado": "As bases de 2018 e 2022 saem do bweb pelos scripts do repositório, e a seção 8 diz que se refazem \"a partir do bweb (ver cabeçalho de cada script)\".",
+            "encontrado": "secoes2018.json.gz (modificado às 10:34 UTC) e secoes2022.json.gz (01:47) são anteriores a extrair_bweb.py (primeiro commit 6d02438, 11:10). O pré-registro indica que vieram de um pacote anterior. Além disso, extrair_bweb.py fixa ESQ, DIR = 13, 22 e manda qualquer outro número para O. Em 2018 Bolsonaro era o 17, e a base de 2018 tem R do 1º turno = 49.276.990 (os votos dele). O script do repositório poria esses votos em O, com R zerado. A base de 2018 não pode ser refeita com o código do repositório, e a origem das duas bases de referência não está documentada.",
+            "fonte": "/home/user/casa-control/eleicao-2026/scripts/extrair_bweb.py (linha ESQ, DIR = 13, 22); /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados/eleicao-2026/auditoria/secoes2018.json.gz e secoes2022.json.gz (datas e totais); git log de scripts/extrair_bweb.py; PRE-REGISTRO-2026-10-26.md, situação no momento do registro",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui. Conferi cada ponto na fonte.\n\n1) Datas. Os dois arquivos em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados/eleicao-2026/auditoria/ têm data de modificação 01:47:55 (secoes2022.json.gz) e 10:34:05 (secoes2018.json.gz), as duas com fração de segundo zerada, o que sugere arquivos extraídos de um pacote. A pasta foi criada às 10:39:36, no início da sessão. A primeira versão de extrair_bweb.py no scratchpad é das 10:49:31. O primeiro commit que contém o script (6d02438) é das 11:10:37. Esse é o único commit que toca o arquivo, e ele não mudou depois. As duas bases são, portanto, anteriores ao script.\n\n2) Downloads da sessão. bweb1t/urls.txt e bweb1t/zips têm só os 28 bweb_1t_*_051020261403 de 2026 (56 linhas contando os .sha512). Não há zip de bweb de 2018 nem de 2022 em lugar nenhum do disco. O pré-registro diz que \"a parte 1 do pacote (código e base do 1º turno de 2026) não chegou nesta sessão\". Ou seja, as outras partes chegaram, e as bases de referência vieram prontas.\n\n3) Código. extrair_bweb.py fixa ESQ, DIR = 13, 22. Qualquer outro número nominal cai em O. O cabeçalho diz \"L = 13, R = 22 (2026)\" e não traz nenhuma instrução para 2018.\n\n4) Contas. Somei as bases (conferencia/bweb_origem/totais.py). Na de 2018, 1º turno: L = 31.342.005 e R = 49.276.990, que são os votos de Haddad (13) e de Bolsonaro (17). No 2º turno, R = 57.797.847 e O = 0. Na de 2022, R = 51.072.345 no 1º turno, os votos do 22, então nesse ano o mapeamento coincide.\n\n5) Simulação. Rodei o processa() do próprio script num CSV sintético copiado da seção AC|1007|9|1 de 2018 (13 com 55 votos, 17 com 169, outros com 36), em conferencia/bweb_origem/sim17.py. O script devolve R = 0 e O = 205. A base existente tem, para essa mesma seção, R = 169 e O = 36.\n\nConclusão: a base de 2018 não se refaz com o código do repositório, e a origem das duas bases de referência não está documentada. A divergência é real.",
+              "texto_corrigido": "Seção 2, tabela: trocar a linha 1 por duas.\n| bweb do 1º turno de 2026 | portal de dados abertos do TSE (CKAN), arquivos por UF | base por seção `secoes2026_1t.json.gz`, montada nesta sessão com `extrair_bweb.py` (fora do repositório, no scratchpad da sessão) |\n| bases de referência de 2018 e 2022 | recebidas prontas, de um pacote anterior à sessão (`secoes2022.json.gz` às 01:47 UTC, `secoes2018.json.gz` às 10:34 UTC, antes do primeiro commit dos scripts) | origem e código de extração não documentados; `extrair_bweb.py` fixa R = 22 e não refaz a base de 2018, em que R é o 17 (Bolsonaro) |\n\nSeção 3, tabela: \"`extrair_bweb.py`, `extrair_candidatos.py`, `juntar.py`, `somar_oficial.py` | montam as bases de 2026 a partir do bweb; as bases de 2018 e 2022 não saíram deles\"\n\nSeção 8, primeira linha do bloco: \"# base do 1º turno de 2026 a partir do bweb. As bases de 2018 e 2022 vieram prontas e não se refazem com estes scripts (em 2018 o candidato de direita é o 17, e o script põe esse número em O).\""
+            }
+          },
+          {
+            "trecho": "Seção 3: \"rodar_2026.sh | rotina completa para quando o bweb do 2º turno sair (sai com código 2 enquanto não sai)\"",
+            "afirmado": "O script é a rotina completa dos testes que dependem do bweb.",
+            "encontrado": "O código 2 confere (n2t.txt = 0 às 14:42 UTC leva a exit 2). Mas o script só baixa e extrai o bweb, junta as bases e roda somar_oficial.py (só Brasil e UF, sem a conferência por município nem o cadastro de seções que o T15 exige), analisar_modelos, analisar_bn_secao, analisar_gov, analisar_zeros (T4) e analisar_pres_gov_nivel (T5). Não roda T7, T8 e T14 com o bweb, nem T16, T21 a T23, T27 a T29, T31 e T32: esses nem têm script no repositório. A seção 5 lista todos eles como dependentes do bweb.",
+            "fonte": "/home/user/casa-control/eleicao-2026/rodar_2026.sh; /home/user/casa-control/eleicao-2026/scripts/ (nenhum script para T15 completo, T16, T21 a T23, T27 a T29, T31, T32); PARA-O-REVISOR.md, seção 5",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Não consegui refutar. Na linha 65, a tabela da seção 3 de /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md chama o script de \"rotina completa para quando o bweb do 2º turno sair\". O código de saída confere: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab/n2t.txt contém 0 (gravado às 14:42), urls2t.txt está vazio e, como 0 é menor que 28, o script sai com exit 2. O que ele faz, porém, é parcial. Depois do download, /home/user/casa-control/eleicao-2026/rodar_2026.sh roda só extrair_bweb.py, juntar.py, somar_oficial.py, analisar_modelos.py, analisar_bn_secao.py, analisar_gov.py, analisar_zeros.py (T4) e analisar_pres_gov_nivel.py (T5). O somar_oficial.py (37 linhas) compara só o total do Brasil e de cada UF (L, R, B, N, comp). O T15 pré-registrado pede mais que isso: comparação por município, conjunto de 499.206 seções, aptos seção a seção e saldo das seções especiais. O script não chama analisar_fluxos.py nem analisar_fluxo_regressao.py, então T7, T8 e T14 não são refeitos com o bweb, embora a regra 5 do documento diga que serão. Procurei T16, T22, T23, T27, T28, T29, T31, T32 e Q10 nos arquivos rastreados pelo git e em scripts/: não existe script para nenhum deles. Para o T21 só há analisar_biometria_tarde.py, que faz a parte (c) com os logs da amostra; as partes (a) e (b), que usam o bweb, não têm script. Ainda assim, a linha 117 (seção 5) lista T15, T16, T21 a T23, T27 a T29, T31 e T32 como dependentes do bweb. Há uma atenuação: o item 1 da seção 9 manda \"rodar rodar_2026.sh e os testes que dependem dele\", o que admite que o script não cobre tudo. Mas a palavra \"completa\" na seção 3 continua errada.",
+              "texto_corrigido": "| `rodar_2026.sh` | rotina parcial para quando o bweb do 2º turno sair (sai com código 2 enquanto não sai): baixa o bweb, monta a base, compara a soma do Brasil e de cada UF com o total oficial e roda T4 e T5 do 2º turno e os testes da seção 7 do documento original. T7, T8 e T14 com o bweb rodam à parte; T15 completo, T16, T21 a T23 (exceto o T21(c)), T27 a T29, T31 e T32 ainda não têm script |"
+            }
+          }
+        ]
+      },
+      {
+        "parte": "tabela_T1_T14",
+        "conferidos": 64,
+        "baixas": [
+          {
+            "trecho": "T9 | 3.873 seções: 0,139 (0,016) dos eleitores a mais sem biometria, como a base de 12,2%; ganho de Lula por habilitação a mais 0,56 sem biometria e 0,51 com | sem sinal",
+            "afirmado": "Veredito sem sinal pelo critério pré-registrado. Os eleitores a mais teriam a mesma proporção sem biometria da base.",
+            "encontrado": "Os números batem com o arquivo. Mas o T9 pré-registrado só define Sinal ('aumento da habilitação não biométrica que acompanhe, dentro do mesmo local, o aumento do comparecimento e o ganho de Lula'), sem limite numérico e sem definição de sem sinal. Lido ao pé da letra, o aumento acompanha os dois: 0,139 com z perto de 8,7 e 0,56 com z perto de 23. As réguas usadas no veredito (proporção da base, coeficiente perto de 1 para voto inserido) não estão no registro do T9; aparecem só no critério do T21, escrito depois. Além disso, 0,139 é a inclinação dentro do local. No agregado do mesmo arquivo, 4.583 das 20.651 habilitações a mais foram sem biometria (22,2%, contra 12,2% da base). Cerca de metade desse saldo vem de uma alta geral de 0,21 ponto na fração sem biometria, não ligada ao aumento do comparecimento. A frase 'dos eleitores a mais sem biometria, como a base' vale para a inclinação, não para o total.",
+            "fonte": "/home/user/casa-control/eleicao-2026/resultados/T9_biometria_amostra_inteira.json; /home/user/casa-control/eleicao-2026/scripts/analisar_biometria.py; /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md, T9 (linhas 131 a 136)",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T8 | Lula recebeu 0,53 dos outros, 0,667 da queda de branco/nulo, 0,605 do aumento do comparecimento",
+            "afirmado": "Três coeficientes de uma mesma regressão.",
+            "encontrado": "Os coeficientes vêm de duas especificações diferentes. 0,53 ('outros_1T') vem da regressão sem separar candidatos, onde a queda do branco/nulo dá 0,668. O 0,667 vem da regressão com os eliminados separados, que não tem coeficiente único de outros. Recalculei sem arredondar: separada 0,66720; sem separar 0,52988 e 0,66807. A diferença não muda o sentido.",
+            "fonte": "/home/user/casa-control/eleicao-2026/resultados/T7_T8_T14_amostra.txt",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T1 | 10 municípios inteiros (734 seções): diferença zero em todos os campos",
+            "afirmado": "T1 feito nos municípios baixados por inteiro.",
+            "encontrado": "O número bate com o T1_soma_municipios.json (10 municípios, 734 seções, diferença zero). Mas a amostra tem 13 municípios com todas as seções baixadas. Três do estrato M_resto ficaram fora da comparação: AL 28231 (14 seções), AL 28177 (15) e AL 28436 (34), 63 seções no total, cada um com o mesmo número de seções do bweb do 1º turno. O pré-registro manda comparar os municípios baixados por inteiro. Sem rede, não consegui comparar esses três com o total oficial.",
+            "fonte": "/home/user/casa-control/eleicao-2026/resultados/T1_soma_municipios.json; /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/M_resto.txt contra amostra2t/arq (script /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t1_extra.py)",
+            "gravidade": "baixa"
+          }
+        ],
+        "confirmadas": [
+          {
+            "trecho": "T6 branco/nulo declarado contra registrado | Datafolha: registrado menos declarado +1,57 (2018), +0,59 (2022), +0,24 (2026) | sem sinal",
+            "afirmado": "Veredito sem sinal pelo critério pré-registrado, calculado só com o Datafolha.",
+            "encontrado": "O critério do T6 manda calcular a diferença MÉDIA entre os institutos com votos totais na última pesquisa (Datafolha, Quaest, AtlasIntel e outros com série), com o mesmo instituto e o mesmo tratamento de não sabe. A própria fonte traz esses institutos e avisa: 'Com Quaest e MDA 2026 também ficou bem abaixo'. Declarado menos registrado, em pontos: Datafolha -1,57 / -0,59 / -0,24 (2026 fica 0,35 acima do maior); CNT/MDA +0,73 / +1,01 / +2,56 (1,55 acima); Quaest, só 2022 e 2026, +1,41 / +4,76 (3,35 acima); AtlasIntel, só 2022 e 2026, -2,69 / -1,54 (1,15 acima). Média das diferenças por instituto: 1,60. Média por ano com os 4 institutos de 2026: 2026 +1,39 contra 2022 -0,22, ou seja 1,60. As duas leituras caem entre 1,0 e 2,0, que é INCONCLUSIVO. Só a média dos dois institutos com série completa (Datafolha e MDA) dá sem sinal: 0,95, a 0,05 do limite. O veredito sem sinal depende de olhar só o Datafolha e não sai do critério de forma robusta. Isso também pesa na seção 5, que conta o T6 como sem sinal contra a conversão de branco/nulo.",
+            "fonte": "/home/user/casa-control/eleicao-2026/resultados/pesquisa_externa_verificada.txt (linhas 3 a 5 e itens 3, 5, 8, 17, 18, 19, 25); /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md, T6 (linhas 68 a 74)",
+            "gravidade": "alta",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui. O pré-registro (PRE-REGISTRO-2026-10-26.md, linhas 70 a 73) manda fazer a conta \"para cada instituto com votos totais na última pesquisa (Datafolha, Quaest, AtlasIntel e outros com série em 2018, 2022 e 2026)\" e julgar pela diferença MÉDIA, \"com o mesmo instituto e o mesmo tratamento de não sabe\". Nenhum dos adendos 1 a 13 muda o T6, e nenhum deles restringe a conta ao Datafolha. O arquivo resultados/pesquisa_externa_verificada.txt traz os dados: Datafolha (linha 5, itens 0, 15 e 23), Quaest (itens 3 e 17), AtlasIntel (itens 5 e 18) e CNT/MDA (itens 8, 19 e 25). O registrado é 9,57, 4,59 e 3,24. A linha 5 também avisa que \"com Quaest e MDA 2026 também ficou bem abaixo\".\n\nRefiz a conta em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t6_check.py (declarado menos registrado; depois, 2026 menos o maior valor entre 2018 e 2022):\n- Datafolha: -1,57, -0,59, -0,24, o que dá +0,35.\n- MDA: +0,73, +1,01, +2,56, o que dá +1,55.\n- Quaest: +1,41, +4,76, o que dá +3,35.\n- AtlasIntel: -2,69, -1,54, o que dá +1,15.\n\nA média por instituto dá 1,60. A média por ano também dá 1,60 (2026 +1,385 contra 2022 -0,215). As duas caem entre 1,0 e 2,0, a faixa de inconclusivo. Testei também o tratamento que a própria fonte sugere para o \"não sabe\" (linha 6): redistribuído, a média dá 1,54 por instituto e 1,45 por ano, de novo inconclusivo. Só a soma do \"não sabe\" ao branco/nulo dá sem sinal (-0,16), e esse não é o tratamento que a fonte propõe.\n\nCom a leitura mais restrita, só os institutos com série nos três anos (Datafolha e MDA), o resultado é 0,95: sem sinal, mas a 0,05 do limite. Ibope/Ipec ficam de fora por falta de 2026. Futura e PoderData não têm 2018, e a última rodada do PoderData de 2026 só saiu em votos válidos.\n\nConclusão: o sem sinal sai só do Datafolha. Pelo critério como foi escrito, com os institutos nomeados e o mesmo tratamento bruto que o documento usou, o resultado é inconclusivo. Por isso a seção 5, que inclui o T6 entre os testes sem sinal na linha \"T5, T6 e T8 sem sinal\", também precisa mudar.\n\nRessalva: a categoria da Quaest inclui \"não vai votar\" e é ela que mais pesa na média. Como o tratamento é o mesmo nos dois anos, o critério não permite tirá-la.",
+              "texto_corrigido": "Seção 4, linha do T6:\n| T6 branco/nulo declarado contra registrado | branco/nulo \"sumido\" | declarado menos registrado, 2026 menos o maior de 2018 e 2022: Datafolha +0,35, CNT/MDA +1,55, Quaest +3,35, AtlasIntel +1,15 (Quaest e AtlasIntel só com 2022); média +1,60 (com o \"não sabe\" redistribuído, +1,54); só Datafolha e MDA, +0,95 | inconclusivo; sem sinal só com Datafolha e MDA, a 0,05 do limite |\n\nSeção 5, em \"Conversão de branco/nulo como explicação única\":\n  - T5 e T8 sem sinal; T6 inconclusivo (média dos institutos 1,60; sem sinal só com Datafolha e MDA, 0,95)."
+            }
+          }
+        ]
+      },
+      {
+        "parte": "tabela_T17_T33",
+        "conferidos": 48,
+        "baixas": [
+          {
+            "trecho": "T33 ... Flávio abaixo do que as pesquisas davam em 8 de 9 institutos, 1,6 ponto em média além do histórico",
+            "afirmado": "Flávio ficou abaixo do que as pesquisas davam em 8 de 9 institutos.",
+            "encontrado": "Na distância bruta (real menos previsto), Flávio ficou abaixo em 7 de 9: Quaest deu +0,14 e Vox Brasil +0,23, os dois com Flávio acima da pesquisa. O '8 de 9' só vale para a distância além da histórica, em que só a Vox é positiva (+1,11). A média de -1,61 além do histórico confere.",
+            "fonte": "resultados/T33_pesquisas_votos_totais.txt (bloco 2026 e bloco 'além da histórica'); conferido também rodando scripts/analisar_pesquisas_totais.py, com saída idêntica",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T30 gatilho por contagem | troca depois de N votos | -1,4 a -2,5 | sem sinal",
+            "afirmado": "Veredito 'sem sinal' para o teste por contagem inteiro.",
+            "encontrado": "O critério de sem sinal é 'até 1,5 ponto em valor absoluto'. Para N = 50 o coeficiente é -2,51 (1,79), fora desse limite. O JSON marca sem_sinal=false para N = 50, e o ADENDO9 diz 'SEM SINAL para N de 100 a 200; para N = 50, inconclusivo pelo tamanho (negativo)'. A linha deveria dizer 'sem sinal para N de 100 a 200; N = 50 inconclusivo (negativo)'. O sentido não muda, porque o desvio é contra a tese.",
+            "fonte": "resultados/T30_gatilhos_amostra_inteira.json (contagem_2026.cortes.50: coef -2,505, sem_sinal false); ADENDO9_resultados_amostra.txt linhas 117 a 119; PRE-REGISTRO T30 (linha 339)",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T18 ... 835 seções, 9.185 arquivos e 835 blocos válidos",
+            "afirmado": "9.185 arquivos válidos.",
+            "encontrado": "Os 9.185 são entradas listadas nos vsc cuja assinatura sobre o resumo listado é válida. Só 2.505 arquivos foram baixados e tiveram o resumo conferido contra o conteúdo (arquivos_baixados_conferidos 2505, resumo_ok 2505). A linha pode levar a crer que o conteúdo de 9.185 arquivos foi conferido. O ADENDO9 separa as duas contagens, a tabela não.",
+            "fonte": "resultados/T18_assinaturas_amostra.json (arquivos_listados 9185, assinatura_arquivo_ok 9185, arquivos_baixados_conferidos 2505); ADENDO9_resultados_amostra.txt linhas 15 a 17",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T20 ... 426 explicadas no próprio log",
+            "afirmado": "Todas as 426 pendências têm explicação no próprio log.",
+            "encontrado": "Das 42 urnas sem o 1º turno no log, 15 têm como única explicação a diferença entre o número da urna no bweb do 1º turno e o do boletim do 2º (troca entre os turnos). Essa diferença vem do bweb e do boletim, não de um evento do log. Em 6 delas (por exemplo am/02550/0062/0426, ce/13382/0006/0404, pe/23094/0064/0017) não há nenhuma nota de log. A explicação é razoável, mas 'no próprio log' não vale para essas 15.",
+            "fonte": "resultados/T20_pendencias_amostra_inteira.json (detalhe com sem_1t_no_log e uma única explicação); scripts/analisar_pendencias.py, explica_sem_1t (linhas 83 a 93)",
+            "gravidade": "baixa"
+          }
+        ],
+        "confirmadas": [
+          {
+            "trecho": "T17 modelo da urna no mesmo prédio | troca restrita a um modelo ou às urnas novas | ... | sem sinal",
+            "afirmado": "A linha diz que o teste pegaria troca 'restrita a um modelo ou às urnas novas' e dá veredito único 'sem sinal'.",
+            "encontrado": "Só o contraste antigas contra novas nos 119 locais tem veredito SEM SINAL (T17_maquina.json, adendo10_11_antigas_contra_novas: -0,0164 (0,1405), SEM SINAL). Os contrastes de um modelo só estão como SEM PODER: UE2020 contra UE2022, -0,04 (0,22), efeito mínimo detectável 0,61; UE2013 contra UE2015, +0,34 (0,24), efeito mínimo detectável 0,67 (adendo11_um_modelo). Urna trocada entre os turnos e contingência no 2º turno também estão SEM PODER (adendo9_amostra.leitura). Pelo critério do Adendo 9 (sem sinal só com todos os coeficientes abaixo de 0,5 e contribuição somada abaixo de 0,15), a amostra deu contribuição somada de 0,80. Para 'troca restrita a um modelo' o veredito certo é 'sem poder', como a própria seção 6 do documento reconhece ('Os pares do T17 eram sem poder, não sem sinal').",
+            "fonte": "resultados/T17_maquina.json (adendo11_um_modelo, adendo9_amostra.leitura, contribuicao_somada_abs); ADENDO9_resultados_amostra.txt linhas 77 a 97; PRE-REGISTRO Adendo 9 T17 (linhas 264 a 266) e Adendo 11 (linha 383)",
+            "gravidade": "media",
+            "verificacao": {
+              "evidencia": "Divergência confirmada. A frase entre aspas é paráfrase do conferente, não texto do documento. O que ela descreve está na linha 87 de PARA-O-REVISOR.md: a coluna \"O que pegaria\" diz \"troca restrita a um modelo ou às urnas novas\" e a coluna de veredito diz só \"sem sinal\". Refiz as contas a partir de resultados/T17_maquina.json. (1) adendo10_11_antigas_contra_novas: -0,0164 (0,1405), efeito mínimo detectável 2,8 x 0,1405 = 0,39, veredito SEM SINAL. Isso bate com o critério do Adendo 10 (diferença abaixo de 0,5 com erro-padrão até 0,2), e 1,79/0,80 = 2,24 confirma o \"cerca de 2,2\". (2) adendo11_um_modelo: UE2020 contra UE2022 dá -0,037 (0,216), efeito mínimo detectável 0,606; UE2013 contra UE2015 dá +0,343 (0,241), efeito mínimo detectável 0,674. Os dois estão SEM PODER pela regra do Adendo 9 (linha 266: efeito mínimo detectável acima de 0,5 deixa o grupo sem poder), que o Adendo 11 (linha 383) manda aplicar a esses pares. (3) adendo9_amostra.leitura: os cinco grupos (UE2013, UE2015, UE2020, urna trocada entre os turnos, contingência no 2º turno) estão SEM PODER. Os coeficientes -3,18 e -3,35 passam de 0,5, e a contribuição somada em valor absoluto é 0,7997, acima de 0,15. Logo, o \"sem sinal\" do Adendo 9 (linha 265) não vale para esses grupos. ADENDO9_resultados_amostra.txt, linhas 77 a 97, traz o mesmo: \"SEM SINAL\" só para antigas contra novas e \"SEM PODER nos dois\" pares de um modelo só. A seção 6 do próprio documento (linha 151) diz \"Os pares do T17 eram 'sem poder', não 'sem sinal'\". Portanto, para a troca restrita a um modelo, o veredito único \"sem sinal\" da linha 87 está errado.",
+              "real": true,
+              "texto_corrigido": "| T17 modelo da urna no mesmo prédio | troca restrita às urnas novas ou a um modelo | antigas menos novas nos 119 locais: -0,016 (0,140); seria preciso cerca de 2,2. Um modelo só: UE2020 contra UE2022 -0,04 (0,22) e UE2013 contra UE2015 +0,34 (0,24), efeito mínimo detectável 0,61 e 0,67 | sem sinal para antigas contra novas (vale para SP); sem poder para um modelo só |"
+            }
+          },
+          {
+            "trecho": "T20 ... 426 pendências, 426 explicadas no próprio log (2 regras definidas depois de ver os dados: sessão de geração da zona e computador da própria zona) | sem sinal (faltam as atas de carga)",
+            "afirmado": "Todas as 426 pendências foram casadas com explicação, o que dá 'sem sinal' pelo critério; as duas regras posteriores aparecem só como ressalva entre parênteses.",
+            "encontrado": "Em T20_pendencias_amostra_inteira.json, 323 das 383 pendências de MR fora da janela são explicadas só pelas duas regras definidas depois de ver os dados (321 pela sessão de geração da zona, 2 pelo computador da própria zona). Isso dá 322 das 426 urnas (cerca de 76%) explicadas apenas por essas regras. O critério do T20 manda casar cada pendência com 'o evento de substituição, contingência ou recarga no próprio log', e a sessão de geração da zona não é nenhum desses eventos. A própria janela de 10 a 15/10 também saiu das 835 primeiras urnas, não de um calendário oficial. O 'sem sinal' depende sobretudo de regras posteriores, e a linha não diz quanto elas pesam. Pelo critério literal, o veredito teria de vir qualificado, por exemplo 'sem sinal com regras posteriores em 322 de 426'.",
+            "fonte": "resultados/T20_pendencias_amostra_inteira.json (detalhe, explicacao.mr_fora); PRE-REGISTRO Adendo 9 T20 (linhas 286 a 289); ADENDO9_resultados_amostra.txt linhas 153 a 159",
+            "gravidade": "media",
+            "verificacao": {
+              "evidencia": "Não consegui refutar. Refiz a conta a partir de /home/user/casa-control/eleicao-2026/resultados/T20_pendencias_amostra_inteira.json, sem editar o repositório. São 426 urnas com pendência: 383 mr_fora, 42 sem_1t_no_log e 13 midia_diferente. Todas aparecem como explicada=true. Separei as 383 explicações de mr_fora por categoria: 321 só pela sessão de geração da zona, 2 só pelo computador da própria zona, 43 só por MR só de aplicativos, 7 por aplicativos e sessão ao mesmo tempo, 5 por contingência e 5 por carga nova. Portanto 323 das 383 MR fora da janela dependem apenas das duas regras posteriores. Em urnas: 322 têm essa como única pendência, e 1 (pr/74950/0016/0178) tem também midia_diferente, que fecha por outra regra, mas a MR dela só fecha pela sessão da zona. Assim, 323 das 426 urnas (75,8%) só ficam explicadas graças às regras posteriores. A conta do conferente (322, cerca de 76%) está certa na substância; a diferença de 1 é essa urna. O número 328 que aparece em ADENDO9_resultados_amostra.txt (linha 155) inclui 7 urnas que já fechavam pela regra de aplicativos. Em /home/user/casa-control/eleicao-2026/scripts/analisar_pendencias.py (linhas 17 a 19 e 138 a 151), as duas regras estão marcadas como acrescentadas depois de ver a amostra inteira. A regra da sessão da zona olha outra urna sorteada da mesma zona, então não é um evento do próprio log da urna. O critério do PRE-REGISTRO (linha 286 e sem sinal na 289) exige casar cada pendência com evento de substituição, contingência ou recarga no próprio log, e nenhuma das duas regras é um desses eventos. A janela de 10 a 15/10 saiu das 835 primeiras urnas: está dito em ADENDO9_resultados_amostra.txt (linha 153) e no docstring do script, e o Adendo 5 não fixa janela de data para a MR. Nenhum adendo posterior (10 a 13) registra as novas regras antes da rodada. Em PARA-O-REVISOR.md, a linha 90 cita as regras só entre parênteses, sem dizer quanto pesam, e a linha 109 diz 'com todas as pendências explicadas no log' sem nenhuma ressalva. A divergência é real.",
+              "real": true,
+              "texto_corrigido": "Linha 90: | T20 pendências do T10 | carga ou programa fora do oficial | 3.897 urnas: 426 pendências; 103 fechadas pelas regras já usadas nas 835 primeiras; 323 só por 2 regras definidas depois de ver os dados (321 pela sessão de geração da zona, 2 pelo computador da própria zona), nenhuma delas evento de substituição, contingência ou recarga; a janela de 10 a 15/10 também saiu das 835 primeiras; votáveis 13 e 22 em 3.897 boletins | sem sinal só com regras posteriores (323 de 426, 76%); pelo critério literal, não fechado; faltam as atas de carga |\nLinha 109: - **Programa ou carga fora do oficial:** T10 nas 3.897 urnas; no T20, 323 das 426 pendências só se fecham com regras definidas depois de ver os dados."
+            }
+          },
+          {
+            "trecho": "T33 ... só 1 passou de 3 | inconclusivo; pesa contra a tese 'só conversão de branco/nulo'",
+            "afirmado": "O resultado pesa contra a tese de conversão pura de branco/nulo.",
+            "encontrado": "O critério do T33(a) só autoriza a leitura 'a conversão pura de branco/nulo não explica o resultado (pesa contra essa tese específica)' se Flávio ficar 3 pontos ou mais abaixo, além da distância histórica, em pelo menos 5 institutos. Isso ocorreu em 1 de 9, e esse único é a AtlasIntel, marcada como ambígua. O 'inconclusivo' segue o critério, mas o 'pesa contra a tese' aplica a consequência de um critério que não foi atingido. Pelo registro, é só uma direção descritiva.",
+            "fonte": "resultados/T33_pesquisas_votos_totais.txt (linhas finais: 1 de 9; critério pelo menos 5); PRE-REGISTRO Adendo 9 T33 (linha 352)",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Refiz a conta a partir de resultados/T33_pesquisas_votos_totais.txt (script em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t33_conta.py). Os valores de \"além da histórica\" são -2,87; -1,05; -4,39 (AtlasIntel, ambígua); -0,94; -1,64; -1,47; -1,23 (Nexus, ambígua); -1,98; +1,11. Dá 8 de 9 abaixo, média -1,61, e só 1 de 9 em -3 ou menos (a AtlasIntel). A linha final do arquivo bate: \"1 de 9 (critério: pelo menos 5)\".\n\nO PRE-REGISTRO (Adendo 9, T33(a), linha 352) diz que a leitura \"a conversão pura de branco/nulo não explica o resultado (isso pesa contra essa tese específica...)\" vale só se o critério for atingido, ou seja, pelo menos 5 institutos. Os Adendos 10 a 13 não mudam o T33. O ADENDO9_resultados_amostra.txt (linhas 121 a 128) registra \"INCONCLUSIVO\" e trata os 8 de 9 apenas como direção, sem dizer \"pesa contra\".\n\nEm PARA-O-REVISOR.md, linha 94, a frase exata citada pelo conferente não aparece. O que está lá é \"inconclusivo; pesa contra a tese 'só conversão de branco/nulo'\", que afirma a mesma coisa: aplica a consequência de um critério que não foi atingido. A própria seção 7 do documento avisa que vários totais são ambíguos (indecisos somados a branco/nulo), e a distância histórica varia de -9,09 a +2,93, o que reforça que isso é só direção. A divergência é real.\n\nAlém disso, a linha 107 põe o T33 entre o que \"excluem ou enfraquecem muito\" e diz \"não no branco/nulo\", quando a fonte diz \"não só no branco/nulo\". Ela merece o mesmo ajuste, por exemplo: \"T33 é inconclusivo (1 de 9; o critério pedia 5); na direção, 8 de 9 põem parte do erro das pesquisas nos votos de Flávio, não só no branco/nulo.\"",
+              "texto_corrigido": "| T33 pesquisas em votos totais | separar conversão de troca | Flávio abaixo do que as pesquisas davam em 8 de 9 institutos, 1,6 ponto em média além do histórico; só 1 passou de 3 (a AtlasIntel, ambígua), e o critério pedia 5 | inconclusivo; a direção contra a tese \"só conversão de branco/nulo\" é só descritiva |"
+            }
+          }
+        ]
+      },
+      {
+        "parte": "secoes_5_6_7",
+        "conferidos": 80,
+        "baixas": [
+          {
+            "trecho": "Seção 5: \"Alteração depois da urna: totalização (T1), arquivo trocado (T18) ...\"",
+            "afirmado": "Os testes excluem ou enfraquecem muito a alteração depois da urna.",
+            "encontrado": "O T1 cobre 10 municípios (734 seções). O T18 cobre só 835 das 3.897 seções (3.068 sem vsc baixado), com a cadeia até a raiz não verificada. O próprio ADENDO9 diz que a assinatura não exclui um pacote inteiro trocado com certificado forjado, e para as urnas Ed521 (443 das 835) a chave da AC não é recuperável. A totalização completa (T15) depende do bweb.",
+            "fonte": "resultados/T18_assinaturas_amostra.json (secoes_sem_vsc_baixado 3068); resultados/ADENDO9_resultados_amostra.txt (T18, \"O que a assinatura prova\")",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5: \"O branco+nulo do 2º turno foi de 4,15 milhões, menos que a margem.\"",
+            "afirmado": "Branco+nulo registrado menor que a margem, apresentado como argumento contra a conversão.",
+            "encontrado": "Os números estão certos: 1.430.496 + 2.723.305 = 4.153.801, contra 4.430.191. Mas, pela tese, o registrado é o que sobra depois da conversão, então a comparação não enfraquece nada. O pré-registro (T5 e T6) faz a conta certa: X de pelo menos 52%, ou branco/nulo verdadeiro de pelo menos 6,7% do comparecimento (cerca de 8,58 milhões), contra 4,77% no 1º turno.",
+            "fonte": "PRE-REGISTRO, T5 e T6; PARA-O-REVISOR.md, seção 1",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5: \"Votos em nome de faltosos em grande escala: T9 e T3, ambos com as 3.897 seções.\"",
+            "afirmado": "T9 com 3.897 seções.",
+            "encontrado": "O T9 usa 3.873 seções (as que têm o log dos dois dias completo), e a regressão usa 3.756. Só o T3 tem 3.897.",
+            "fonte": "resultados/T9_biometria_amostra_inteira.json; resultados/T2_T3_amostra_inteira.txt",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5: \"T7 (inconclusivo) e T14 (no limite) são compatíveis com ... cerca de 4,5% quando a base é 2018.\"",
+            "afirmado": "Os 4,5% com base em 2018 valem para o T7 e para o T14.",
+            "encontrado": "Só o T14 tem calibração de troca com 2018. O T7 tem calibração só com 2022 (cerca de 1,3% a 1,5%). Contra a referência de 2018 (Haddad: 0,34% das seções e 0,02% do ganho), o T7 de 2026 (10,57% e 1,71%) implicaria troca bem maior, sem número calculado.",
+            "fonte": "resultados/T7_calibracao_troca.txt; resultados/T7_referencias.txt; resultados/T14_calibracao.txt",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5: \"O que não tem teste com dado público: Lógica maliciosa dentro do programa oficial assinado, agindo por igual em todas as urnas.\"",
+            "afirmado": "A troca uniforme feita pelo programa assinado não tem teste com dado público.",
+            "encontrado": "O Adendo 9 registra que mesmo ela tem teto pela cauda inferior da troca por estrato (T16, com o bweb, que é público) e pela contagem física (T25, T31). A própria seção 5 diz, linhas antes, que o T16 é o teste desenhado para a troca uniforme pequena. As duas afirmações não se conciliam.",
+            "fonte": "PRE-REGISTRO, Adendo 9 (princípio) e T16",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5, leitura de conjunto (listas do que está excluído e do que continua aberto)",
+            "afirmado": "As listas cobrem o estado dos testes da tabela.",
+            "encontrado": "O T30 por horário não aparece em nenhuma das listas. Ele está SEM PODER pelo critério, a especificação registrada passa valor e z às 14h e às 16h, e a leitura de composição às 16h ficou a 0,01 do limite. Pela tabela, deveria constar em \"O que continua aberto\".",
+            "fonte": "PARA-O-REVISOR.md, seção 4 (linha T30); resultados/T30_gatilhos_amostra_inteira.json",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 5: \"Veritá e Gerp, as que mais acertaram o 1º turno, foram as que mais erraram o 2º (+3,35 e +3,79).\"",
+            "afirmado": "As que mais acertaram o 1º turno (Veritá e Gerp) foram as que mais erraram o 2º.",
+            "encontrado": "Os erros +3,35 (verita_gerp.txt; erro_pesquisas_2t.txt dá +3,34) e +3,79 estão certos e são os dois maiores. Mas a fonte sobre o 1º turno cita três institutos (Gerp, Futura e Veritá), e a Futura teve o menor erro do 2º turno (+1,89). Deixar a Futura de fora cria um padrão que a fonte não sustenta.",
+            "fonte": "resultados/nacionais_2026_pesquisas_verificadas.txt, linha 22; resultados/erro_pesquisas_2t.txt",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 7, item 4: \"Às 14h e às 16h, a inclinação sem controles passa o valor e o z do critério de sinal.\"",
+            "afirmado": "Inclinação sem controles.",
+            "encontrado": "É a especificação registrada: controla f1 e a variação do comparecimento, com efeito fixo de município. Não é uma regressão sem controles.",
+            "fonte": "scripts/analisar_gatilhos.py, linha 97; PRE-REGISTRO, T30",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 7, item 4: \"O efeito máximo plausível às 16h é de cerca de 0,2 ponto\"",
+            "afirmado": "0,2 ponto como efeito máximo plausível.",
+            "encontrado": "0,2 é a estimativa pontual de R2: 4,10 x 5,3% dos votos depois das 16h = 0,22. A fonte diz \"mesmo que a inclinação de 4,1 fosse toda causal\", não \"máximo\". O limite de 95% de R2 daria cerca de 0,44 ponto, e a especificação registrada (11,3) cerca de 0,6. A conclusão (abaixo de 1,79) se mantém, mas o rótulo é errado.",
+            "fonte": "resultados/T30_gatilhos_amostra_inteira.json (16h: media_f2 0,0530; R2 4,096, ep 2,105); resultados/ADENDO9_resultados_amostra.txt",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Seção 7, item 6: \"Amostra: são 625 locais.\"",
+            "afirmado": "625 locais na amostra.",
+            "encontrado": "As 3.897 seções estão em 741 locais (chave UF, município, zona e local). 625 são os locais com 2 ou mais seções, que são os únicos que entram nas regressões com efeito fixo (3.781 seções). MG 46337 (277 seções) e BA 34193 (208) estão certos, mas SP 71072 (262) também está entre os maiores.",
+            "fonte": "resultados/T17_maquina.json (adendo9_amostra/locais 741); scripts/lib.py (fe_ols descarta grupos com 1 observação); recontagem em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s567/locais_amostra.py",
+            "gravidade": "baixa"
+          }
+        ],
+        "confirmadas": [
+          {
+            "trecho": "Seção 7, item 1: \"Nesse caso, a troca equivalente se aproxima dos 3,6% que decidiriam a eleição.\"",
+            "afirmado": "Com a base de 2018, a troca equivalente do T14 \"se aproxima\" dos 3,6% que decidiriam a eleição.",
+            "encontrado": "Com a base de 2018, o coeficiente 0,05072 (refeito sem arredondar; ep 0,00695) equivale a cerca de 4,5% de troca: interpolação entre 0,0063 (0%) e 0,0261 (2%), ou entre 0,0460 (4%) e 0,0709 (6,5%). Isso passa dos 3,6% do Adendo 9 (2,2 milhões de votos de Flávio). A estimativa pontual não chega perto do limiar: fica acima dele. A seção 5 repete os 4,5% sem dizer isso.",
+            "fonte": "resultados/T14_calibracao.txt; resultados/T7_T8_T14_amostra.txt; PRE-REGISTRO-2026-10-26.md, Adendo 9 (3,6%); refeito em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s567/t14_precisao.py",
+            "gravidade": "alta",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui; a divergência se confirma. Rodei de novo /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s567/t14_precisao.py com python3 -I, usando amostra2t/saida/secoes2026_amostra.json.gz, amostra2t/saida/chaves2t.txt (3.897 chaves) e base/candidatos2026_1t.json.gz. Resultado: n=3781, 625 locais, adversario_1T = 0,05072 (ep 0,00695). Sem separar os candidatos, 0,05042 (0,00700). Isso confere com o 0,051 (0,007) de resultados/T7_T8_T14_amostra.txt. A calibração de 2018 em resultados/T14_calibracao.txt dá 0,0063 (0%), 0,0261 (2%), 0,0460 (4%) e 0,0709 (6,5%), cerca de 0,0099 por ponto de troca. A interpolação entre 4% e 6,5% dá 4,47%, e a reta a partir de 0% dá 4,49%. Os dois cálculos dão cerca de 4,5%, o mesmo número que o próprio documento cita na linha anterior (linha 158). O Adendo 9 do pré-registro (linha 237) fixa 3,6% dos votos de Flávio (2,2 milhões) para virar a margem. A unidade é a mesma do Adendo 8: a fração s dos votos de Flávio trocada para Lula. Na base de 2018, 3,6% corresponde a um coeficiente de cerca de 0,042. O de 2026 (0,0507) fica acima dele, cerca de 1,25 erro-padrão; a diferença de uns 0,9 ponto de troca contra um ep de uns 0,7 ponto. Então a estimativa pontual passa do limiar e não apenas \"se aproxima\" dele. Pela incerteza, 3,6% ainda cabe no intervalo, mas o verbo \"se aproxima\" sugere que o valor fica abaixo do limiar, e isso é falso. A seção 5 (linha 113) repete os 4,5% da base de 2018 sem dizer que eles passam dos 3,6%. Não achei no repositório nem no scratchpad o código da calibração (a busca por \"troca simulada\" não deu nada), por isso usei os coeficientes como estão no arquivo de resultado.",
+              "texto_corrigido": "Nesse caso, a troca equivalente (cerca de 4,5%) passa dos 3,6% que decidiriam a eleição. Com erro-padrão de cerca de 0,7 ponto, os 3,6% ainda cabem na incerteza."
+            }
+          },
+          {
+            "trecho": "Seção 5, fatos de contexto: \"na prática, as seções fecharam às 17h e o último voto foi às 17h03\"",
+            "afirmado": "Último voto às 17h03; seções fechadas às 17h.",
+            "encontrado": "Nos próprios logs das 3.897 seções da amostra (T3, Adendos 12 e 13), já convertidos para o horário de Brasília: 16 seções têm o último voto depois das 17h05; RJ 60011 zona 7, seções 130 e 132, têm votos até 18h33 e 18h37; 7 seções encerraram depois das 18h, 4 delas por volta das 19h (RJ 60011/7/130, 7/132, 119/405 e SP 71072/372/554). Na imprensa, 17h03 é a hora em que a decisão de Zanin foi divulgada (Aos Fatos), não a do último voto. Segundo o Poder360, as seções ainda abertas seguiram até as 19h.",
+            "fonte": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/todos_logs/amostra/T3_logs.json (campos ultimo_voto e encerramento; script em conferencia/s567/encerramento.py); resultados/pesquisa_externa_verificada.txt, itens 12 e 40",
+            "gravidade": "alta",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui; a divergência se confirma. Refiz a conta com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s5_17h03/refaz.py (python3 -I) sobre /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/todos_logs/amostra/T3_logs.json, turno 2, 3.897 seções, todas com ultimo_voto e encerramento. Os campos estão em hora local da urna: no AC, por exemplo, pronta é 06:00:01. Converti para Brasília de dois jeitos: pela tabela de fuso por UF e pelo horário de pronta arredondado em relação às 8h, como no pré-registro. Pela tabela de UF: 236 seções têm último voto depois das 17h00, 38 depois das 17h03, 16 depois das 17h05 e 2 depois das 18h00. Os dois casos depois das 18h são RJ 60011/7/130, às 18:33:56, e RJ 60011/7/132, às 18:37:35. No RJ o fuso é o de Brasília, então essas horas não dependem de conversão. As duas são urnas sem contingência, com pronta às 08:00:01 e computados iguais ao BU. Encerramentos: 1.164 depois das 17h05, 38 depois das 17h30 e 7 depois das 18h. Desses 7, 4 foram por volta das 19h: RJ 60011/119/405 às 19:01:32, RJ 60011/7/132 às 19:02:06, SP 71072/372/554 às 19:02:25 e RJ 60011/7/130 às 19:03:38. Pelo método do horário de pronta, as contagens caem para 15 e 6. A única diferença é MG 54070/280/217, que só abriu às 09:01. Isso parece abertura atrasada e não fuso diferente, então o método da UF é o correto para ela. Nos dois métodos, o último voto às 17h03 e o fechamento de todas as seções às 17h são falsos. Na imprensa, o item 12 de pesquisa_externa_verificada.txt (Aos Fatos) diz que \"a decisão foi divulgada às 17h03\", e o item 40 (Poder360) também dá 17h03 como a hora da decisão. O item 40 diz ainda que \"as seções ainda abertas permanecessem em funcionamento até as 19h\" e que as urnas já fechadas não foram reabertas. Ou seja, 17h03 é a hora da decisão, não a do último voto. Observação fora do escopo desta conferência: na mesma linha 130 do PARA-O-REVISOR.md, o \"O TSE pausou a totalização às 17h20\" não tem fonte. O item 39 (Agência Brasil) dá a suspensão às 17h06, com 1.225 seções apuradas, e \"17h20\" não aparece em nenhum arquivo de resultados.",
+              "texto_corrigido": "**Prorrogação do horário:** a decisão de Zanin foi divulgada às 17h03 e só valeu para as seções ainda abertas. Na amostra (3.897 seções, logs em hora de Brasília), quase todas encerraram até 17h30 (só 38 depois disso), 16 tiveram o último voto depois das 17h05 e 7 encerraram depois das 18h; o último voto foi às 18h37 (RJ 60011, zona 7, seção 132) e 4 seções encerraram por volta das 19h."
+            }
+          },
+          {
+            "trecho": "Seção 5, fatos de contexto: \"O TSE pausou a totalização às 17h20\"",
+            "afirmado": "Totalização pausada às 17h20.",
+            "encontrado": "A fonte registrada (Agência Brasil) dá 17h06: totalização suspensa com 1.225 das 499.248 seções apuradas e retomada às 19h. Nenhum arquivo do projeto traz 17h20.",
+            "fonte": "resultados/pesquisa_externa_verificada.txt, item 39 e verificação 39",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "PARA-O-REVISOR.md, linha 130, diz: \"O TSE pausou a totalização às 17h20\". A fonte do próprio projeto dá outro horário. Em resultados/pesquisa_externa_verificada.txt, o item 39 (linha 117) diz \"A totalização foi suspensa às 17h06, com 1.225 das 499.248 seções apuradas\" e a verificação 39 (linha 215) cita a Agência Brasil: \"A contagem dos votos foi suspensa às 17h06\". Procurei \"17h20\" e \"17:20\" no repositório inteiro e só aparece no próprio PARA-O-REVISOR.md. No scratchpad, os \"17:20\" que existem são horários de outras coisas, como a gravação de mídias em setembro (T10_software.json), e nenhum tem relação com a pausa. Tentei refutar com os dados brutos: refiz a conta com os horários de totalização por seção (tse/cs2t/*-cs.json, 27 UFs, 497.897 seções) no script /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/pausa_totalizacao.py. A última seção totalizada antes da pausa é das 17:08:53, e a seguinte só aparece às 19:09:11. Entre 17h10 e 19h00 não há nenhuma seção, ou seja, nada foi totalizado às 17h20. Esses dados confirmam os 17h06 da fonte, com alguns arquivos ainda entrando até 17h08, e não sustentam 17h20. Uma ressalva: a retomada \"às 19h\" vem da Mixvale (item 41), não da Agência Brasil, e nos dados a totalização volta às 19h09.",
+              "texto_corrigido": "Prorrogação do horário: na prática, as seções fecharam às 17h e o último voto foi às 17h03. O TSE pausou a totalização às 17h06 (Agência Brasil), com 1.225 das 499.248 seções apuradas, e só a retomou depois das 19h. Uma segunda decisão estreitou o alcance da prorrogação. Isso corrige o \"99,8% fecharam às 19h\" do documento original."
+            }
+          },
+          {
+            "trecho": "Seção 6: \"Os pares do T17 eram 'sem poder', não 'sem sinal'. ... Nenhum veredito mudou.\"",
+            "afirmado": "A revisão adversarial não mudou nenhum veredito.",
+            "encontrado": "Antes da revisão (commit f07e3e1), os contrastes de um modelo só (UE2020 contra UE2022 e UE2013 contra UE2015) estavam marcados SEM SINAL. Depois (commit 2f5ed5a) passaram a SEM PODER. Isso é uma mudança de veredito, e a própria frase anterior do documento a descreve. O ADENDO9 tem a mesma contradição (\"Nenhum achado muda um veredito relatado\").",
+            "fonte": "git show f07e3e1:eleicao-2026/resultados/ADENDO9_resultados_amostra.txt, linhas 52 a 56; resultados/ADENDO9_resultados_amostra.txt (seção T17 e fim do arquivo)",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Não consegui refutar. A divergência é real. Em `git show f07e3e1:eleicao-2026/resultados/ADENDO9_resultados_amostra.txt` (linhas 52 a 56) os dois pares de um modelo só do T17 levam o rótulo \"SEM SINAL\". O de UE2020 contra UE2022 tem efeito mínimo detectável de 0,61, e o arquivo põe \"SEM SINAL\" logo depois desse número. O de UE2013 contra UE2015 também está \"SEM SINAL\". O `git diff f07e3e1 2f5ed5a` troca os dois para \"SEM PODER pelos dois lados (regra do Adendo 9: efeito mínimo detectável acima de 0,5)\". O próprio pré-registro trata \"sem poder\" como desfecho separado de \"sem sinal\" (PRE-REGISTRO linha 266: \"Se ele passar de 0,5 ponto num grupo, aquele grupo fica sem poder na amostra\"). O `resultados/T17_maquina.json` grava esses rótulos no campo \"veredito\" (\"SEM PODER (efeito mínimo detectável acima de 0,5)\"). Logo houve, sim, mudança de veredito relatado. Duas outras leituras também passaram a ter rótulo SEM PODER: a urna trocada entre os turnos, que antes saía sem rótulo, e a leitura preliminar, antes \"Sem leitura\". Em PARA-O-REVISOR.md, a linha 151 (\"Os pares do T17 eram 'sem poder', não 'sem sinal'\") descreve essa mudança, e a linha 153 (\"Nenhum veredito mudou\") a contradiz. O ADENDO9 atual repete a contradição na linha 178 (\"Nenhum achado muda um veredito relatado\"), ao lado da linha 185 (\"pares marcados SEM PODER\"). A defesa só se sustenta no nível do teste e não salva a frase como está escrita. O veredito de cada teste ficou igual: T17 antigas contra novas continua SEM SINAL (linha 21 da tabela da seção 4), T30 continua SEM PODER e T18 e T20 continuam com os mesmos rótulos no diff.",
+              "texto_corrigido": "PARA-O-REVISOR.md, seção 6, no lugar de \"Nenhum veredito mudou.\": \"O veredito de cada teste ficou igual. Só os pares de um modelo só do T17 mudaram de rótulo, de \"sem sinal\" para \"sem poder\". Tudo está corrigido e listado no fim de `ADENDO9_resultados_amostra.txt`.\" ADENDO9_resultados_amostra.txt, linha 178, no lugar de \"Nenhum achado muda um veredito relatado.\": \"Nenhum achado muda o veredito de um teste. Os pares de um modelo só do T17 passaram de SEM SINAL a SEM PODER.\""
+            }
+          },
+          {
+            "trecho": "Seção 5: \"Troca concentrada em parte das urnas: um modelo (T17 ...), um lote ou urnas de contingência.\"",
+            "afirmado": "Os testes já excluem ou enfraquecem muito a troca concentrada num lote ou em urnas de contingência.",
+            "encontrado": "Nenhum teste trata de lote: a palavra só aparece nesta linha do repositório. No T17, o indicador de contingência no 2º turno se identifica em 2 locais e está marcado SEM PODER, e a urna trocada entre os turnos também está SEM PODER. O T7 citado como apoio é inconclusivo, com a parte (a) 5,3 pontos acima da referência. O teste de integridade (T26) depende de dado externo que não foi obtido.",
+            "fonte": "resultados/T17_maquina.json (contingencia_2t: locais_identificadores 2); resultados/ADENDO9_resultados_amostra.txt (T17); PRE-REGISTRO, T26",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Fui às fontes e não consegui refutar o conferente. 1) A palavra \"lote\" aparece em um único arquivo do repositório, PARA-O-REVISOR.md, linha 102 (grep -ril em todo o repositório, sem .git). Nenhum teste do PRE-REGISTRO, nenhum script e nenhum resultado trata de lote. 2) Em resultados/T17_maquina.json, adendo9_amostra.leitura.contingencia_2t traz: coef 0,516, ep 0,976, locais_identificadores 2, efeito mínimo detectável 2,73, placebo 3,80, veredito \"SEM PODER (poucos locais)\". O coeficiente de 0,52 também passa do teto de 0,5 que o pré-registro exige para \"sem sinal\". Já urna_diferente_entre_turnos traz: coef 0,017, ep 0,26, 37 locais, efeito mínimo detectável 0,73, veredito \"SEM PODER (efeito mínimo detectável acima de 0,5)\". O ADENDO9_resultados_amostra.txt, nas linhas 79 e 80, diz o mesmo: urna trocada SEM PODER e contingência no 2º turno (2 locais) SEM PODER. 3) Refiz a conta do T7 com resultados/T7_T8_T14_amostra.txt e T7_referencias.txt. Na parte (a), 10,572 menos 5,269 (2022) dá 5,30 pontos, acima do limite de 5. Na parte (b), 1,708 menos 1,086 dá 0,62. Pelo critério do PRE-REGISTRO, o resultado é inconclusivo, e um teste inconclusivo não pode servir de apoio para excluir saltos locais. 4) Pelo PRE-REGISTRO, o T26 (urnas sorteadas para o teste de integridade) depende de dado externo. O próprio PARA-O-REVISOR o lista entre os testes que dependem de dado externo (linha 121) e entre as pendências (seção 9, item 3). O que existe em pesquisa_externa_verificada.txt são notícias de imprensa sobre o teste em algumas UFs; o T26 como foi registrado não foi feito. A parte do modelo no T17 (antigas contra novas sem sinal nos 119 locais, 113 em SP) se sustenta, e o conferente não a contesta. O erro está em pôr lote e contingência entre os cenários excluídos.",
+              "texto_corrigido": "Em \"O que os testes já excluem ou enfraquecem muito\", trocar o item por: \"- **Troca concentrada num modelo de urna:** T17, antigas contra novas sem sinal nos 119 locais (113 em SP).\" Em \"O que continua aberto\", incluir: \"- **Troca concentrada num lote ou em urnas de contingência:** nenhum teste trata de lote. No T17, a contingência no 2º turno (2 locais) e a urna trocada entre os turnos (37 locais) estão SEM PODER. O T7, que pegaria saltos locais, é inconclusivo, e o T26 (teste de integridade) depende de dado externo ainda não obtido.\""
+            }
+          },
+          {
+            "trecho": "Seção 5: \"T33 indica que parte do erro das pesquisas está nos votos de Flávio, não no branco/nulo.\"",
+            "afirmado": "O T33 é usado entre os testes que excluem ou enfraquecem muito a conversão de branco/nulo como explicação única.",
+            "encontrado": "Pelo critério do Adendo 9, o T33(a) só pesa contra a conversão pura se houver pelo menos 5 institutos com Flávio 3 pontos ou mais abaixo. Houve 1 de 9: INCONCLUSIVO. A fonte diz \"não só no branco/nulo\", e o documento diz \"não no branco/nulo\", o que reforça uma leitura que o critério não sustenta.",
+            "fonte": "resultados/T33_pesquisas_votos_totais.txt; resultados/ADENDO9_resultados_amostra.txt (T33); PRE-REGISTRO, T33",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Tentei refutar e não consegui. Refiz a conta do T33(a) a partir de resultados/T33_pesquisas_votos_totais.txt. Os nove valores de 2026 \"além da histórica\" são -2,87; -1,05; -4,39; -0,94; -1,64; -1,47; -1,23; -1,98 e +1,11. A média dá -1,61, há 8 negativos em 9 e só 1 de 9 fica 3 pontos ou mais abaixo (AtlasIntel, -4,39, e ainda marcada como ambígua). O script de conferência está em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t33_check.py. A contagem bate com a do script do repositório (scripts/analisar_pesquisas_totais.py, que testa ex <= -3).\n\nO critério do PRE-REGISTRO para o T33(a), no Adendo 9, diz que a conversão pura de branco/nulo deixa de explicar o resultado só se Flávio ficar 3 pontos ou mais abaixo, além da distância histórica, em pelo menos 5 institutos. Ficou em 1 de 9. A faixa de \"sem sinal\" (até 1 ponto) também não foi atingida, porque só 1 de 9 ficou nela. O próprio ADENDO9_resultados_amostra.txt classifica o resultado como INCONCLUSIVO e lê a direção como \"parte do erro das pesquisas está nos votos do próprio Flávio, não só no branco/nulo\".\n\nO PARA-O-REVISOR.md tem dois problemas. Primeiro, a seção 5 põe o T33 sob o título \"O que os testes já excluem ou enfraquecem muito\", no item \"Conversão de branco/nulo como explicação única\". Um teste que deu inconclusivo pelo critério pré-registrado não sustenta essa colocação. Segundo, o documento cita a fonte sem o \"só\" (\"não no branco/nulo\"). Isso troca \"não apenas\" por \"não\", e a leitura fica mais forte do que a fonte autoriza. Os números do documento (8 de 9, 1,6 ponto, só 1 passou de 3) estão certos; o erro está na conclusão tirada deles.",
+              "texto_corrigido": "- T33 é inconclusivo pelo critério do Adendo 9: só 1 de 9 institutos teve Flávio 3 pontos ou mais abaixo, e o critério pedia 5. A direção, em 8 de 9, sugere que parte do erro das pesquisas está nos votos de Flávio, não só no branco/nulo, mas isso não basta para excluir a conversão."
+            }
+          },
+          {
+            "trecho": "Seção 5: \"Programa ou carga fora do oficial: T10 e T20 nas 3.897 urnas, com todas as pendências explicadas no log.\"",
+            "afirmado": "Todas as pendências explicadas, como exclusão forte, sem ressalva.",
+            "encontrado": "Em 323 das 426 urnas com pendência, a única explicação vem das duas regras definidas depois de ver os dados (sessão de geração da zona e computador da própria zona). São 328 mais 2 explicações de MR. A seção 4 menciona as regras, mas a seção 5 as usa como exclusão sem ressalva, e a seção 7 não lista esse ponto. As contas internas do ADENDO9 também não fecham: 42 + 13 + 383 = 438 itens em 426 urnas (12 urnas têm duas pendências), e as explicações de MR somam 392 para 383 MR.",
+            "fonte": "resultados/T20_pendencias_amostra_inteira.json (detalhe/explicacao); resultados/ADENDO9_resultados_amostra.txt (T20 ampliado)",
+            "gravidade": "media",
+            "verificacao": {
+              "evidencia": "Fui à fonte e refiz as contas com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t20_secao5c.py e t20_secao5d.py, lendo resultados/T20_pendencias_amostra_inteira.json. Não consegui refutar. A divergência é real, e o número exato é um pouco maior que o do conferente.\n\n1) Itens e urnas. Por tipo são 42 sem o 1º turno no log, 383 com MR fora da janela e 13 com mídia diferente: 438 itens em 426 urnas. São 414 urnas com uma pendência e 12 com duas (11 com MR fora e sem 1º turno, 1 com MR fora e mídia diferente). O campo \"pendencias\": 426 conta urnas, não pendências. O texto \"426 pendências, 426 explicadas\", nas seções 4 e no ADENDO9, troca uma coisa pela outra.\n\n2) Explicações de MR. São 392 explicações para 383 urnas: 375 urnas com uma MR fora da janela, 7 com duas e 1 com três (383 + 7 + 2 = 392). Por tipo: 50 de aplicativos (50 urnas), 7 de contingência (5 urnas; sp/70572/0307/0417 tem 3), 5 de carga nova, 328 da sessão da zona e 2 do computador da zona. O ADENDO9 soma 392 sob o título \"383 com MR\" sem dizer que conta MR, não urnas.\n\n3) Peso das regras definidas depois de ver os dados. No código (scripts/analisar_pendencias.py, explica_mr), cada MR fora da janela precisa da própria explicação. As regras da sessão da zona e do computador da zona são as últimas tentadas antes de \"SEM EXPLICACAO\". As 330 explicações dessas regras (328 + 2) caem em 330 urnas distintas. Sem as duas regras, essas 330 das 426 urnas (77%) ficariam sem explicação. Em 323 delas a pendência de MR só se explica por essas regras. Em 322, essas regras são a única explicação da urna inteira. Nas outras 7, a regra a posteriori explica uma segunda MR, diferente da que tem explicação de aplicativos. Ou seja, 330 é a conta que mede a dependência.\n\n4) Critério registrado. O PRE-REGISTRO (T20) pede casar cada pendência com evento de \"substituição, contingência ou recarga no próprio log\", e o \"sem sinal\" exige \"todas as pendências casadas com eventos registrados\". A sessão de geração da zona não é nenhum desses eventos. Além disso, a própria janela de 10 a 15/10 saiu das 835 primeiras urnas, não de um calendário oficial (dito no ADENDO9).\n\n5) Documento. A seção 4 cita as duas regras entre parênteses. A seção 5 coloca T20 em \"O que os testes já excluem ou enfraquecem muito\", com \"todas as pendências explicadas no log\", sem ressalva. A seção 7 (itens 1 a 8) não fala do T20.\n\nContra-argumento possível: como a janela é empírica, uma MR fora dela pode não ser anomalia nenhuma. Isso enfraquece o peso da pendência, mas não sustenta usar o fechamento como exclusão sem ressalva.",
+              "texto_corrigido": "Seção 5, item: **Programa ou carga fora do oficial:** T10 e T20 nas 3.897 urnas enfraquecem esse cenário, com ressalva. As 426 urnas com pendência (438 itens; 12 urnas têm dois) têm explicação no log. Mas 330 delas só fecham com duas regras definidas depois de ver os dados (sessão de geração da zona e computador da própria zona), e a janela de 10 a 15/10 veio das 835 primeiras urnas. Até as atas de carga, é leitura provisória, não exclusão.\n\nSeção 7, novo item 9: **T20:** sem as duas regras definidas depois de ver os dados, 330 das 426 urnas com pendência ficariam sem explicação pelo critério registrado, que pedia substituição, contingência ou recarga no log. Conferir com as atas de carga dos TREs.\n\nSeções 4 e ADENDO9: trocar \"426 pendências, 426 explicadas\" por \"426 urnas com pendência (438 itens), todas com explicação no log, 330 delas só pelas regras definidas depois\". No ADENDO9, trocar \"383 com MR gerada fora de 10 a 15/10\" por \"383 urnas com 392 MR geradas fora de 10 a 15/10\", seguido da divisão por MR.",
+              "real": true
+            }
+          }
+        ]
+      },
+      {
+        "parte": "adendo9_resultados",
+        "conferidos": 330,
+        "baixas": [
+          {
+            "trecho": "T20: \"as 21 têm explicação registrada no próprio log\" (835) e \"426 pendências, 426 explicadas no próprio log\" (amostra inteira)",
+            "afirmado": "Toda pendência tem explicação num evento do log.",
+            "encontrado": "Em várias urnas sem o 1º turno no log, a única explicação é o número da urna ser diferente entre o bweb do 1º turno e o BU do 2º, e esse dado vem do bweb e do boletim, não do log. Nas 835: ce/13382/0006/0404 e ce/13382/0006/0442. Na amostra inteira, além dessas duas: am/02550/0062/0426, pe/23094/0064/0017 e pe/23353/0108/0029, sem nenhum evento de log associado.",
+            "fonte": "resultados/T20_pendencias_amostra.json e T20_pendencias_amostra_inteira.json (campos explicacao e notas)",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T20 (amostra inteira): \"383 com MR gerada fora de 10 a 15/10 ... 50 são mídias só de aplicativos; 7 ... contingência; 5 depois de carga nova; 328 ... sessão de geração da própria zona; 2 ... computador da própria zona\"",
+            "afirmado": "As 383 urnas se dividem nessas cinco categorias.",
+            "encontrado": "As categorias somam 392, não 383. Elas contam MR (explicações), não urnas. Sete urnas têm uma MR só de aplicativos e outra MR da sessão da zona, e sp/70572/0307/0417 tem 3 cargas de contingência. Por urna, a divisão é 43 só de aplicativos, 7 mistas, 321 só da sessão, 5 de contingência, 5 de carga nova e 2 de computador da zona.",
+            "fonte": "resultados/T20_pendencias_amostra_inteira.json (375 urnas com 1 explicação de MR, 7 com 2, 1 com 3); conferência minha por categoria",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T20 (amostra inteira): \"zonas inteiras do AM, do MA e de outras UFs geraram as MR entre 16 e 24/10, todas pelo mesmo computador da zona\"",
+            "afirmado": "Zonas inteiras geraram as MR com um único computador por zona.",
+            "encontrado": "Quatro zonas da sessão usaram 2 ou 3 computadores: MA 54 (ZMA054WKS70944 e ZMA054WKS71010), PR 89 (STD02, STD03 e STD04), SP 211 (STD03 e STD16) e TO 29 (WKS43 e WKS44). As 328 MR da sessão vão de 16 a 22/10. \"Zonas inteiras\" é inferência feita só a partir das urnas sorteadas de cada zona.",
+            "fonte": "resultados/T20_pendencias_amostra_inteira.json (textos \"sessão de geração da zona (computador ...)\")",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T10 (amostra inteira): \"Foi em 22/09, na preparação, um mês antes do 1º turno\"",
+            "afirmado": "A falha de verificação ocorreu um mês antes do 1º turno.",
+            "encontrado": "O 1º turno foi em 04/10/2026 (data usada nos scripts e nos logs). 22/09 fica 12 dias antes do 1º turno, e 33 dias antes do 2º.",
+            "fonte": "Log de pb/21873/0033/0098 (22/09/2026 10:16:58); scripts/analisar_gatilhos.py (dia '04/10/2026')",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T17, antigas contra novas nos 119 locais: \"branco+nulo: +0,02 (0,10)\"",
+            "afirmado": "+0,02 (0,10)",
+            "encontrado": "Nos 119 locais: +0,0149 (0,101) sem as variáveis de fila, o que arredonda para +0,01, e -0,012 com elas. O +0,02 só aparece na robustez da união com fila (0,0212), que não é a estimativa relatada.",
+            "fonte": "resultados/T17_maquina.json, adendo10_11_antigas_contra_novas.versoes.sem_fila.var_branco_nulo",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T30 (835): \"Placebo como registrado ...: +13,0 (3,2), +16,0 (3,3) e +16,2 (3,6)\"",
+            "afirmado": "Placebo às 16h de +16,2",
+            "encontrado": "16,149, que arredonda para +16,1 (o mesmo número errado está no Adendo 12).",
+            "fonte": "resultados/T30_gatilhos_amostra_835.json, cortes.16h.placebo_1t_inclinacao_f1",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T30 (amostra inteira): \"R2, R1 mais a fatia de Lula no 1º turno: +1,1 (0,9), +1,1 (1,2), +4,1 (2,1)\"",
+            "afirmado": "Erro-padrão de 0,9 às 12h",
+            "encontrado": "ep 0,847, que arredonda para 0,8.",
+            "fonte": "resultados/T30_gatilhos_amostra_inteira.json, cortes.12h.R2_local_e_fatia_1t.ep",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "Cabeçalho: \"Amostra: 3.897 seções com boletim do 2º turno (625 locais)\"",
+            "afirmado": "As 3.897 seções estão em 625 locais.",
+            "encontrado": "As 3.897 seções estão em 741 locais. 625 é o número de locais com 2 ou mais seções (3.781 seções), que são os que entram nas regressões com efeito fixo de local.",
+            "fonte": "resultados/T17_maquina.json (adendo9_amostra.locais = 741; regressões n = 3.781 em 625 locais); conferencia/a9/t17_check.py",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T19 \"(835 seções)\", item (c): \"37,2% no 1º turno e 33,8% no 2º, nas mesmas seções\"",
+            "afirmado": "O item (c) usa as 835 seções com RDV do cabeçalho do T19.",
+            "encontrado": "O item (c) foi calculado com os boletins das 3.897 seções da amostra: 11.202 brancos no 2º turno, contra 2.322 brancos de presidente no RDV das 835. As seções são as mesmas nos dois turnos, mas não são as 835.",
+            "fonte": "scripts/analisar_nulos_rdv.py (bloco c usa a amostra inteira); resultados/T19_nulos_rdv_amostra.json (c); conferencia/a9/t19_extra.py",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T33 (b): \"Só a AtlasIntel (6 UFs) e a Paraná Pesquisas (só TO) fizeram as duas perguntas à mesma amostra.\"",
+            "afirmado": "Só esses dois institutos fizeram presidente e governador na mesma amostra.",
+            "encontrado": "A própria fonte registra a Quaest de 9 a 12/10 no AM com governador e presidente na mesma amostra (registros 7 e 8 e resumo). O T33(b) pede todos os institutos. O veredito não muda: é uma UF só, e numa conta rápida D fica perto de -1,45.",
+            "fonte": "resultados/estaduais_gov_pres_pesquisas_verificadas.txt (linha 1 e registros 7 e 8)",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T33 (a): \"Distância além da histórica do mesmo instituto: ... Ipespe -1,47; Nexus -1,23; Real Time Big Data -1,98; Vox +1,11\"",
+            "afirmado": "Os nove valores usam a distância histórica do mesmo instituto.",
+            "encontrado": "Ipespe, Nexus, Real Time Big Data e Vox não têm histórico próprio e usam a média geral (-0,89) como referência.",
+            "fonte": "resultados/T33_pesquisas_votos_totais.txt (\"referência -0.89 (média geral)\")",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T17, um modelo só: \"O ponto é zero, e os intervalos excluem com folga ...\"",
+            "afirmado": "A estimativa pontual é zero nos dois contrastes.",
+            "encontrado": "Só UE2020 contra UE2022 fica perto de zero (-0,04). UE2013 contra UE2015 dá +0,34 (0,24), e o intervalo inclui zero.",
+            "fonte": "resultados/T17_maquina.json, adendo11_um_modelo.pares",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T18: \"Controle negativo (40 seções sorteadas): 40 de 40 originais aceitos, 40 de 40 arquivos com 1 byte trocado rejeitados, 40 de 40 assinaturas trocadas entre arquivos rejeitadas.\"",
+            "afirmado": "Um controle negativo foi feito em 40 seções sorteadas.",
+            "encontrado": "Não há script nem saída desse controle de 40 seções em scripts/, resultados/ ou no scratchpad. O controle da revisão (revisao/neg.py) não tinha saída salva, mas reproduz quando rodado de novo: 100% rejeitado e originais aceitos. O de 40 seções fica sem fonte.",
+            "fonte": "Busca em scripts/ e no scratchpad; conferencia/a9/neg_out.txt (nova execução de neg.py)",
+            "gravidade": "baixa"
+          },
+          {
+            "trecho": "T18: \"(para as urnas antigas, exigiria a chave privada da AC, porque os 392 certificados conferem com uma chave só)\" e na revisão: \"a cadeia das urnas antigas foi checada por recuperação da chave da AC\"",
+            "afirmado": "A cadeia das urnas antigas foi checada e a chave recuperada é a da AC.",
+            "encontrado": "A chave foi recuperada das próprias assinaturas e não foi comparada com o certificado da AC URNA. O próprio texto diz \"daqui não deu\", e as listas de revogação e de política devolveram 403. O T18 do Adendo 9 manda relatar \"cadeia não verificada\", sem inferência. \"Checada\" e \"chave da AC\" afirmam mais do que o dado sustenta: a chave comum só mostra que os 392 certificados foram assinados pela mesma chave.",
+            "fonte": "PRE-REGISTRO T18 (Adendo 9); resultados/T18_chave_da_ac_urna_recuperada.json; scratchpad/cadeia/*.crl e *.PDF (páginas Access Denied da Akamai)",
+            "gravidade": "baixa"
+          }
+        ],
+        "confirmadas": [
+          {
+            "trecho": "Revisão adversarial independente: \"Nenhum achado muda um veredito relatado.\"",
+            "afirmado": "A revisão não mudou nenhum veredito já relatado.",
+            "encontrado": "Antes da revisão (commit f07e3e1), os dois contrastes de um modelo só do T17 saíam como SEM SINAL (UE2020 contra UE2022 e UE2013 contra UE2015). Na versão revisada os dois passaram a SEM PODER, pela regra do efeito mínimo detectável (0,61 e 0,67, acima de 0,5). A própria lista de correções diz \"pares marcados SEM PODER pela regra do efeito mínimo\". Dois vereditos mudaram.",
+            "fonte": "git show f07e3e1:./resultados/ADENDO9_resultados_amostra.txt (bloco T17); resultados/T17_maquina.json, adendo11_um_modelo.pares.*.veredito",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Não consegui refutar o conferente. Ele tem razão.\n\n1. O que diz o documento. Em PARA-O-REVISOR.md, linha 153, está escrito \"Nenhum veredito mudou.\" O fim de resultados/ADENDO9_resultados_amostra.txt (linha 178) diz o mesmo: \"Nenhum achado muda um veredito relatado.\"\n\n2. O que dizia o arquivo antes da revisão. No commit f07e3e1 e no e3de91b, que é o último antes das correções (2f5ed5a), o bloco T17 do ADENDO9_resultados_amostra.txt trazia:\n   - UE2020 contra UE2022: \"Efeito mínimo detectável 0,61. SEM SINAL.\"\n   - UE2013 contra UE2015: \"SEM SINAL.\"\n\n3. O que diz depois da revisão. Na versão atual, as linhas 92 a 94 dizem: \"Pela regra do Adendo 9 (efeito mínimo detectável acima de 0,5): SEM PODER nos dois.\" Em resultados/T17_maquina.json, os campos adendo11_um_modelo.pares.UE2020_contra_UE2022.veredito e adendo11_um_modelo.pares.UE2013_contra_UE2015.veredito valem os dois \"SEM PODER (efeito mínimo detectável acima de 0,5)\". Esse arquivo foi criado no próprio commit de correção.\n\n4. A conta refeita. O PRE-REGISTRO, linha 266, define o efeito mínimo detectável como 2,8 erros-padrão e diz que acima de 0,5 o grupo fica sem poder.\n   - Com o erro-padrão de 0,2164: 2,8 × 0,2164 = 0,606.\n   - Com o erro-padrão de 0,2406: 2,8 × 0,2406 = 0,674.\n   - Os dois passam de 0,5. Pela regra, SEM PODER sempre foi o veredito certo. O SEM SINAL de antes estava errado.\n\n5. O que mais mudou. Comparei os rótulos de veredito do ADENDO9 em e3de91b e em 2f5ed5a. Só esses dois pares mudaram.\n   - T18, T20, o contraste antigas contra novas do T17, T30 e T33 ficaram como estavam.\n   - A urna trocada entre os turnos não tinha veredito antes e ganhou SEM PODER. É um acréscimo, não uma troca.\n\n6. O documento se contradiz. Duas linhas antes da frase (linha 151), ele próprio diz que os pares do T17 eram \"sem poder\", não \"sem sinal\". A lista de correções do ADENDO9 (linha 185) diz o mesmo: \"pares marcados SEM PODER pela regra do efeito mínimo\".\n\n7. O que se salva da frase. Nenhum veredito passou para sinal, e o teste que decide, antigas contra novas, continua SEM SINAL. Mas sem sinal e sem poder são categorias diferentes no pré-registro. Então \"nenhum veredito mudou\" está errado ao pé da letra para esses dois pares.\n\nA mesma frase do fim do ADENDO9_resultados_amostra.txt (linha 178) precisa da mesma correção. Não editei o repositório.",
+              "texto_corrigido": "  - Dois vereditos mudaram: os pares de um modelo só do T17 (UE2020 contra UE2022 e UE2013 contra UE2015) passaram de SEM SINAL a SEM PODER, porque o efeito mínimo detectável (0,61 e 0,67) passa de 0,5. Nenhum veredito passou a sinal. Tudo está corrigido e listado no fim de `ADENDO9_resultados_amostra.txt`."
+            }
+          },
+          {
+            "trecho": "T10 (amostra inteira): \"Bandeira do critério literal: 1 urna com verificação de assinatura sem SUCESSO (pb/21873/0033/0098) ... Lida como explicada pelo próprio log.\"",
+            "afirmado": "A falha de verificação de assinatura fica explicada pelo próprio log e não pesa no resultado.",
+            "encontrado": "O critério do Adendo 5 trata \"qualquer verificação de assinatura sem SUCESSO\" como bandeira vermelha, sem exceção por explicação. A cláusula \"sem explicação\" vale só para versão diferente e para mídia regerada. O Adendo 13 manda refazer o teste com os critérios sem mudança. Pelo critério registrado, o T10 da amostra inteira tem uma bandeira vermelha. Considerá-la \"explicada\" é uma regra que não foi registrada. O log confirma os fatos (ERRO às 10:16:58, SUCESSO às 10:19:42 com a mesma mídia, mídia regerada às 10:33 depois do erro de sincronização), mas o veredito não segue o critério.",
+            "fonte": "PRE-REGISTRO Adendo 5 e Adendo 13; resultados/T10_software_amostra_inteira.txt; log de amostra2t/arq/pb/21873/0033/0098 (conferencia/a9/log_pb.py)",
+            "gravidade": "media",
+            "verificacao": {
+              "evidencia": "Tentei refutar e não consegui. O conferente está certo no essencial.\n\n1) O critério registrado não traz exceção. No PRE-REGISTRO, Adendo 5, linha 163, a medida V3 é \"alguma etapa de verificação de assinatura sem SUCESSO, em qualquer data\". A linha 167 lista como bandeira vermelha \"qualquer verificação de assinatura sem SUCESSO\". A cláusula \"sem explicação\" aparece só para versão diferente e para mídia regerada depois do 1º turno. O git (commit 0fdb7d3) mostra que esse texto não mudou desde o registro. O Adendo 13 (linha 403) manda refazer o T10 \"com os mesmos critérios\" e repete \"Critérios sem mudança\".\n\n2) A conta bate. resultados/T10_software_amostra_inteira.txt mostra 1 urna com verificação sem SUCESSO: pb/21873/0033/0098, em 22/09/2026 às 10:16:58, Etapa [26] infomidia.vsc com [ERRO]. O scripts/analisar_software.py (linhas 27, 28 e 40) marca qualquer linha sem \"[SUCESSO]\" e não tem regra de explicação.\n\n3) Os fatos do log se confirmam. Rodei conferencia/a9/log_pb.py sobre amostra2t/arq/pb/21873/0033/0098. Saíram:\n- ERRO às 10:16:58, com a mensagem \"Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga\";\n- religada às 10:19:16 com a mesma mídia (gerada em 17/09 às 11:37:36) e SUCESSO às 10:19:42;\n- erro de sincronização MI para MV (GAP erro 16) às 10:28:39;\n- mídia regerada às 10:33:07 por outro computador (ZPB203WKS01) e SUCESSO às 10:35:18.\n\n4) Nenhum teste registrado cobre essa explicação. O T20 trata só das pendências de mídia, de 1º turno e de MR, e a urna da PB não está em T20_pendencias_amostra_inteira.json. A leitura \"explicada pelo próprio log\" só existe no ADENDO9_resultados_amostra.txt (linha 147), escrita depois de ver o dado.\n\n5) O documento se contradiz. A linha 69 diz \"Veredito pelo critério pré-registrado\". A linha 82 dá como veredito \"bandeira literal em 1 urna, explicada pelo log\" e não avisa que essa regra é posterior. Na linha 90, para o T20, o documento avisa as regras posteriores. A linha 109 resume \"T10 e T20 nas 3.897 urnas, com todas as pendências explicadas no log\", e a linha 101 conta o T10 entre os testes que excluem programa diferente do lacrado.\n\nA palavra \"literal\" mostra o problema só em parte. Pelo critério registrado, o veredito do T10 é bandeira vermelha em 1 urna. Considerá-la explicada é regra não registrada e deve aparecer como tal.",
+              "real": true,
+              "texto_corrigido": "Linha do T10, coluna Veredito: \"bandeira vermelha pelo critério registrado em 1 urna (pb/21873/0033/0098). Ler a falha como explicada pelo log é regra definida depois de ver o dado e não estava no registro.\"\n\nSeção 5, item \"Programa ou carga fora do oficial\": \"T10 e T20 nas 3.897 urnas. O T10 tem 1 bandeira vermelha pelo critério registrado: verificação de assinatura com ERRO em 22/09, na preparação. O log mostra a urna recusando a mídia e verificando com sucesso ao ser religada, mas tratar isso como explicado é leitura posterior ao dado. As 426 pendências do T20 foram explicadas no log.\""
+            }
+          },
+          {
+            "trecho": "T20 (amostra inteira): \"Pelo critério: SEM SINAL\"; cabeçalho \"mesmos códigos e critérios\"",
+            "afirmado": "As 426 pendências foram fechadas pelo critério e com o mesmo código.",
+            "encontrado": "Das 383 urnas com MR fora da janela, 330 só se fecham com duas regras criadas depois de ver os dados: sessão de geração da zona (328 MR) e computador da própria zona (2). Essas regras foram acrescentadas ao analisar_pendencias.py. Nenhuma das duas é o \"evento de substituição, contingência ou recarga no próprio log\" que o T20 do Adendo 9 exige para o sem sinal. O texto reconhece que as regras vieram depois dos dados, mas o veredito SEM SINAL e o cabeçalho \"mesmos códigos\" não seguem o critério literal.",
+            "fonte": "PRE-REGISTRO T20 (Adendo 9); scripts/analisar_pendencias.py (docstring e linhas 139 a 151); resultados/T20_pendencias_amostra_inteira.json",
+            "gravidade": "media",
+            "verificacao": {
+              "real": true,
+              "evidencia": "Refiz a conta a partir dos dados e a divergência se confirma. A frase \"As 426 pendências foram fechadas pelo critério e com o mesmo código\" não aparece literalmente. O que o documento afirma é equivalente. Em PARA-O-REVISOR.md, a linha 69 diz \"Veredito pelo critério pré-registrado\", a linha 90 dá ao T20 o veredito \"sem sinal\" e a linha 109 diz \"com todas as pendências explicadas no log\". Em resultados/ADENDO9_resultados_amostra.txt, o cabeçalho da linha 134 diz \"mesmos códigos e critérios\" e a linha 160 diz \"Pelo critério: SEM SINAL\".\n\nO critério está em PRE-REGISTRO-2026-10-26.md, T20 (linhas 286 e 289). Cada pendência tem de casar \"com o evento de substituição, contingência ou recarga no próprio log\". O \"Sem sinal\" exige \"todas as pendências casadas com eventos registrados\". Além disso, o Adendo 13 não lista o T20 entre os testes refeitos com o mesmo código.\n\nRecontei com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t20_regras.py sobre resultados/T20_pendencias_amostra_inteira.json, que é idêntico a todos_logs/T20.json no scratchpad:\n- São 426 pendências: 42 sem o 1º turno no log, 13 com mídia diferente e 383 com MR fora da janela.\n- Das 383 urnas com MR fora da janela, as regras anteriores fecham 50 (só aplicativos), 5 (contingência), 5 (carga nova) e nenhuma por recuperador.\n- As outras 330 urnas só fecham com as duas regras novas: sessão de geração da zona (328 MR) e computador da própria zona (2).\n- Sem essas regras, o código anterior marcaria as 330 como SEM EXPLICACAO.\n\nTambém procurei, nos logs dessas 330 urnas, qualquer evento do 2º turno (a partir de 05/10) com a função ler() do próprio script. Usei o script t20_eventos.py, na mesma pasta conferencia. Em 328 delas não há nenhum evento de substituição, contingência, recarga, recuperador ou troca no bweb. As outras 2 só têm recuperador, e fora do intervalo entre a geração e a leitura.\n\nO commit 77bfcb8 mostra que as duas regras entraram em scripts/analisar_pendencias.py junto com o resultado (linhas 138 a 152 e docstring). Portanto, para o T20, a afirmação \"mesmos códigos\" é falsa.\n\nO veredito literal também não é SINAL. O critério de sinal exige mídia \"fora do oficial\", e a janela de 10 a 15/10 veio das 835 primeiras urnas, não de um calendário oficial. Pelo critério literal, o T20 fica em aberto, e não SEM SINAL. O documento declara que as regras vieram depois dos dados, mas mantém o veredito como se fosse do critério.",
+              "texto_corrigido": "PARA-O-REVISOR.md, linha do T20 na tabela: \"3.897 urnas: 426 pendências. 96 se fecham pelas regras anteriores. As outras 330 só se fecham com 2 regras criadas depois de ver os dados (sessão de geração da zona, 328; computador da própria zona, 2), e nenhuma delas é evento de substituição, contingência ou recarga. Votáveis 13 e 22 em 3.897 boletins. | Em aberto pelo critério literal (330 sem o evento exigido); não é sinal, porque a janela de 10 a 15/10 não é calendário oficial; faltam as atas de carga.\"\n\nSeção 5, item \"Programa ou carga fora do oficial\": \"T10 nas 3.897 urnas. No T20, 330 pendências só se explicam por regras posteriores aos dados e esperam as atas de carga.\"\n\nADENDO9_resultados_amostra.txt, cabeçalho: \"Amostra inteira com logs (Adendos 12 e 13; logs das 3.897 seções; mesmos critérios; no T20, código com duas regras novas)\". Fecho do T20: \"Pelo critério literal, não é SEM SINAL: 330 das 383 só fecham com as duas regras novas, que não são evento de substituição, contingência ou recarga. Também não é SINAL, porque a janela não é oficial. Fica em aberto até as atas de carga.\""
+            }
+          }
+        ]
+      }
+    ],
+    "lacunas": "**Lacunas do PARA-O-REVISOR.md para um revisor que precisa refazer tudo sem falar com o autor**\n\n**1. Fontes não citadas ou fora do repositório**\n- **Documento original ausente.** O CONTEXTO-ELEICAO-2026.md não está no repositório, e muita coisa depende dele:\n  - os critérios de T1 a T3 (\"critérios 1, 3 e 4 da seção 7\");\n  - os testes da seção 7 (modelo, bn_secao, governador);\n  - as faixas de número de série usadas pelo modelos.py (\"seção 3.3\");\n  - a calibração 6.10 e a pendência 8.2;\n  - as referências de 2018 e 2022 que a regra 4 manda reproduzir.\n\n  Sem ele, a regra 4 não pode ser conferida.\n- **bweb de 2018, 2022 e do 1º turno de 2026:** faltam o id do pacote CKAN, as URLs, a data do download e os SHA-512 dos zips usados.\n- **Lista de seções do 2º turno:** os -cs.json, entrada do sortear_amostra.py, não têm origem citada.\n- **Caminho do -aux.json:** é montado por um padrão (p00{pleito}-{uf}-m...-aux.json), o que contradiz \"nenhum caminho foi adivinhado\". Falta dizer onde esse padrão está documentado.\n- **Totais oficiais da seção 1:**\n  - não há script nem arquivo salvo, e o T1 busca os JSON oficiais na rede durante a análise, sem arquivá-los;\n  - os números diferem dos da imprensa em resultados/pesquisa_externa_verificada.txt: brancos 1.430.493 contra 1.430.496, nulos 2.723.298 contra 2.723.305;\n  - o documento não diz se \"nulos\" é o campo tvn, que inclui anulados.\n- **Fatos sem fonte:**\n  - \"último voto às 17h03\": não diz se vale para a amostra ou para o país;\n  - \"pausa da totalização às 17h20\";\n  - a série de 2002 a 2014 em historico_comparecimento_bn.txt;\n  - os finalistas de governador por UF usados no T20;\n  - a janela de mídia de resultado de 10 a 15/10, que saiu das 835 primeiras urnas e não de um calendário oficial.\n- **Prova de horário dos commits.** O documento não cita:\n  - o remoto (github.com/leonardo-defant/casa-control, ramo claude/new-session-5cnflo);\n  - o hash de commit de cada adendo;\n  - os eventos de push do GitHub.\n\n  Também não estão no repositório os logs de download com horário (amostra2t/download*.log). São a única prova externa da ordem entre dado e critério.\n\n**2. Reprodução (seção 8) conferida contra o cabeçalho de cada script**\n- **Comandos incompletos.** extrair_candidatos.py e sortear_amostra.py aparecem com \"...\". Os cabeçalhos pedem `<saida.json.gz> <zip>...` e `<pasta_cs2t> <secoes2026_1t.json.gz> <pasta_saida>`.\n- **Bases de 2018 e 2022:** faltam o extrair_bweb.py dos turnos 1 e 2 e o juntar.py.\n- **Ordem do download fora do repositório.** Entre o sorteio e o download houve um passo sem script e sem semente: ordem_M.json, ordem_L.json, ordem_G.json, M10.txt e L_ordem.txt. O corte de 2 horas fez da amostra o prefixo dessa ordem. Sem a lista das 3.897 seções, ninguém refaz a mesma amostra.\n- **Download diferente do comando citado.** `baixar_arquivos_urna.py ... bu,rdv,log,vota 3` não é o que foi feito:\n  - M10 foi baixado com bu, rdv e log;\n  - o estrato L só com bu; os logs vieram depois, por lista_logs_resto.txt, e os vsc por lista_vsc.txt;\n  - os arquivos do 1º turno (pleito 3220, as 80 seções de val1t.txt usadas para validar o decodificador) não têm comando;\n  - o primeiro lote rodou a 8,3 req/s com 33 erros (download.log), não a 1,3.\n- **Falta o analisar_software.py,** que gera o T10_software.json exigido pelo analisar_pendencias.py.\n- **T7, T8 e T14 sem comando.** Faltam o juntar.py que gera secoes2026_amostra.json.gz, o arquivo de `--chaves` (chaves2t.txt), `--candidatos` e `--grupos`. O exemplo no cabeçalho de analisar_fluxo_regressao.py ('Renan:30') contradiz analisar_nulos_rdv.py, onde 14 é Renan Santos e 30 é Zema.\n- **Outros passos sem comando:**\n  - analisar_biometria.py (T9) e analisar_biometria_tarde.py (T21c);\n  - as rodadas de referência: analisar_zeros.py com --sims, analisar_pres_gov_nivel.py nos dois turnos, analisar_bn_secao.py e analisar_gov.py com --simular;\n  - a seleção dos locais do T17: a permutação dos 7.828 locais, o prefixo de 264 seções e as 1.335 seções dos 119 locais.\n- **Arquivos ambíguos.** O documento não diz se `<amostra_2t>` é secoes2026_2t_amostra.json.gz (só o 2º turno) ou secoes2026_amostra.json.gz (os dois turnos unidos). Também não diz se o `<T3_logs.json>` do T17 é o das 835 ou o das 3.897 seções.\n- **Quebra fora deste ambiente.** analisar_amostra.py e somar_oficial.py fixam cafile='/root/.ccr/ca-bundle.crt' ao importar e quebram em outra máquina; o rodar_2026.sh quebra junto. As versões de Python e numpy não estão registradas.\n- **rodar_2026.sh não é \"rotina completa\".**\n  - Roda só a soma, modelos, bn_secao, gov, T4 e T5 do 2º turno.\n  - Não roda T7, T8 nem T14, embora o critério do T14 valha só para o bweb completo.\n  - T15, T16, T21 a T23, T27 a T29, T31 e T32 não têm script.\n\n**3. Teste citado sem arquivo ou sem código**\n- T6, T11, T12 e T13 não têm script. O T6 só existe numa frase de pesquisa_externa_verificada.txt.\n- As calibrações de troca do T7 (Adendo 4) e do T14 (Adendo 8) não têm código: analisar_fluxos.py e analisar_fluxo_regressao.py não têm opção de simulação.\n- T18: os controles negativos (40 seções, e as 835 da revisão) e a busca da variante Ed521 não estão no repositório.\n- \"modelos.py conferido em 835 de 835\", a validação da base do 1º turno contra o total oficial e a frota do 1º turno (40,2% etc.) não têm script nem arquivo de resultado.\n- A revisão dos 19 agentes não tem nenhum arquivo.\n- resultados/T4_referencias.txt começa com um erro de execução (math domain error). E o 1º turno de 2026 dá Z0 1.323 nesse arquivo contra 1.319 em T4_referencias_calibradas.txt, sem explicação.\n\n**4. Afirmações sem teste ou além do que o teste mostra**\n- **Seção 5, \"troca num lote ou em urnas de contingência\" dada como excluída:**\n  - não há teste de lote;\n  - no T17, contingência (2 locais, 719 seções), urna trocada (37 locais) e os pares de um modelo só saíram todos SEM PODER;\n  - a contingência não foi refeita com os 3.897 logs (52 contingências).\n- **\"Precisaria escapar das urnas sorteadas para o teste de integridade\":** o T26 não tem dado.\n- **\"Totalização (T1)\":** são 10 municípios, 734 seções (0,15% do país). Três municípios completos da amostra ficaram fora do T1 (AL 28177, 28231 e 28436).\n- **Regra 1 (\"critério antes do dado\") tem exceções que o documento não lista:**\n  - o limite \"sem sinal até 0,051\" do T14 foi fixado depois de ver 0,056 (Adendo 8);\n  - o fuso do T30 passou a vir da UF depois de ver os dados;\n  - a releitura do T10 é posterior;\n  - as duas regras do T20 vieram depois (o documento cita).\n- **T10:** o Adendo 5 não abre exceção para \"verificação de assinatura sem SUCESSO\". Pelo registro, é bandeira vermelha. Mesmo assim, a seção 5 usa o T10 para excluir programa fora do oficial.\n- **\"Branco+nulo de 4,15 milhões, menos que a margem\":** não contraria a conversão, porque o voto convertido sai do branco/nulo. A conta que importa é o branco/nulo verdadeiro de 6,7% (Adendo 9, T6).\n- **\"Queda de 32% dentro da faixa de 2002 a 2014\":** omite que o branco/nulo subiu em 2018 (+9%) e em 2022 (+4%). Omite também que 2026 tem o maior aumento de comparecimento (+1,86) e de válidos sobre o eleitorado (+3,01) da série.\n- **T5:** o do 1º turno é usado contra uma conversão que, pela tese, ocorre só no 2º turno. O T5 do 2º turno está pendente.\n- **T33 \"pesa contra a tese\":** o critério pedia 5 institutos e só 1 chegou a 3 pontos. Esse único (AtlasIntel, -4,39) está marcado como ambíguo.\n- **T9 \"como a base de 12,2%\":** no mesmo arquivo, 4.583 das 20.651 habilitações a mais (22%) foram sem biometria. O 0,139 é a relação dentro do local; a diferença entre os dois números não é discutida.\n- **T30 por contagem \"sem sinal\":** pelo ADENDO9, N = 50 é inconclusivo.\n- **\"Bolsonaro precisaria de 237%\":** usa a transferência declarada no PoderData em 2022 e na Quaest em 2026, institutos diferentes.\n\n**5. Riscos de interpretação que o documento não menciona**\n- **A amostra não é a descrita.**\n  - O estrato G tem 1 seção, mas a seção 7.6 fala em \"estratos M e G\".\n  - As 835 seções com RDV, log e vsc são o M10 (734) mais 101 seções não aleatórias: 12 de teste escolhidas no AC (as únicas com nulos de governador no T19) e 89 dos primeiros municípios do M em ordem alfabética.\n  - 6 seções ficaram só com o aux, sem boletim; duas delas em BA 36250, que por isso saiu do T1.\n- **T7 e T14 comparam bases diferentes.** As referências de 2018 e 2022 são do país inteiro; 2026 é uma amostra concentrada (SP 71072 com 262 seções, MG 46337 com 277, BA 34193 com 208). Falta a referência nos mesmos locais ou ponderada.\n- **T14 sem arredondar.** Recalculei com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t14_sem_arredondar.py: 0,0507 (erro-padrão 0,0070). O intervalo de 95% vai de 0,037 a 0,064. O topo equivale a cerca de 2,6% de troca na base de 2022 e 5,8% na de 2018, acima dos 3,6% que decidem a eleição.\n- **T12 é frágil.**\n  - A média de -1,32 depende do PoderData, cujo histórico tem um delta de -21,9 vindo da pesquisa de 03 e 04/10/2018 (Bolsonaro com 33% dos válidos).\n  - Sem o PoderData, Datafolha, MDA e AtlasIntel dão -3,65, que é SINAL pelo critério.\n  - A AtlasIntel tem um único delta histórico.\n- **T6 usa só o Datafolha.**\n  - O CNT/MDA tem série nos três anos, com branco/nulo declarado de 10,3, 5,6 e 5,8.\n  - O declarado menos o registrado dá +0,73, +1,01 e +2,56: 2026 fica 1,55 acima da maior referência, faixa inconclusiva.\n  - A média de Datafolha e MDA fica 0,95 acima, a 0,05 do limite.\n  - O Datafolha publica porcentagens inteiras, então a resolução é de 1 ponto.\n- **T4 com limite pouco sensível.** O limite calibrado é puxado pelo Rc0 de 2018 (1,879). Sinal só acima de 2,03, contra 1,21 no 2º turno de 2022 e 1,22 no 1º turno de 2026. Um Rc0 de 1,9 em 2026 sairia \"sem sinal\".\n- **T30:**\n  - o Adendo 12 diz \"perder significância\" sem fixar limiar; o 1,96 foi escolhido depois;\n  - o fuso por UF erra o oeste do AM (UTC-5) e Fernando de Noronha, e esse desvio do registro não aparece no documento;\n  - o placebo também falha em R1 (+7,7, +7,2 e +5,2), e R2 não tem placebo.\n- **T20:** 322 das 426 urnas com pendência só se explicam pelas duas regras criadas depois de ver os dados (330 usam alguma delas). O documento não dá essa proporção.\n- **Biometria no 2º turno.** O T21(c), +0,49 ponto (erro-padrão 0,13, z perto de 3,7), e os 22% brutos do T9 apontam para um pouco mais de habilitação sem biometria no 2º turno. Os dois não são lidos juntos.\n- **Direção comum dos resultados no limite.** T7(a) +5,3 pontos, T14 no limite, T30 positivo em todos os cortes e especificações, T21(c), o T9 bruto, o T12 sem PoderData e o T6 com MDA puxam todos para o mesmo lado. Falta uma avaliação conjunta dessa direção e de testes múltiplos, nos dois sentidos.\n- **T18:**\n  - o hash do aux e o vsc vêm do mesmo servidor, então a igualdade não é verificação independente;\n  - o documento não diz em que pé está o download dos vsc das 3.062 seções restantes (Adendo 13; no scratchpad já há 2.009 de 3.897), nem se algum resultado parcial foi visto.\n- **Ordem entre dado e critério:**\n  - o registro inicial diz que uma seção do AC já tinha sido decodificada, e o Adendo 2 diz \"antes de abrir qualquer boletim do 2º turno dos 6 estados\";\n  - a base parcial unida (amostra2t/parcial, 11h23 UTC) é anterior ao Adendo 4 (11h34 UTC), que não diz se o T7 parcial já tinha sido visto."
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Conferir"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Confirmar"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Lacunas"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "conferir:secoes_1_2_3",
+      "phaseIndex": 1,
+      "phaseTitle": "Conferir",
+      "agentId": "a06981463386c215d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793031086309,
+      "queuedAt": 1793031086248,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793031803159,
+      "tokens": 238762,
+      "toolCalls": 53,
+      "durationMs": 716847,
+      "resultPreview": "{\"divergencias\":[{\"trecho\":\"Seção 2, Amostra: \\\"Ficaram 3.897 seções com boletim, em 625 locais.\\\"\",\"afirmado\":\"As 3.897 seções com boletim estão em 625 locais de votação.\",\"encontrado\":\"As 3.897 seções estão em 741 locais (chave UF|município|zona|local, a mesma de lib.chave_local, com o local do boletim do 2º turno ou do bweb do 1º, dá o mesmo número). 625 é só o número de locais com 2 ou mais se…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "conferir:tabela_T1_T14",
+      "phaseIndex": 1,
+      "phaseTitle": "Conferir",
+      "agentId": "a53dc8d945269e59f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793031086310,
+      "queuedAt": 1793031086248,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793031790800,
+      "tokens": 249890,
+      "toolCalls": 37,
+      "durationMs": 700206,
+      "resultPreview": "{\"divergencias\":[{\"trecho\":\"T6 branco/nulo declarado contra registrado | Datafolha: registrado menos declarado +1,57 (2018), +0,59 (2022), +0,24 (2026) | sem sinal\",\"afirmado\":\"Veredito sem sinal pelo critério pré-registrado, calculado só com o Datafolha.\",\"encontrado\":\"O critério do T6 manda calcular a diferença MÉDIA entre os institutos com votos totais na última pesquisa (Datafolha, Quaest, Atl…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "conferir:tabela_T17_T33",
+      "phaseIndex": 1,
+      "phaseTitle": "Conferir",
+      "agentId": "af65d9de7972e982d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793031791955,
+      "queuedAt": 1793031086249,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032116668,
+      "tokens": 174606,
+      "toolCalls": 23,
+      "durationMs": 324713,
+      "resultPreview": "{\"divergencias\":[{\"trecho\":\"T17 modelo da urna no mesmo prédio | troca restrita a um modelo ou às urnas novas | ... | sem sinal\",\"afirmado\":\"A linha diz que o teste pegaria troca 'restrita a um modelo ou às urnas novas' e dá veredito único 'sem sinal'.\",\"encontrado\":\"Só o contraste antigas contra novas nos 119 locais tem veredito SEM SINAL (T17_maquina.json, adendo10_11_antigas_contra_novas: -0,01…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "conferir:secoes_5_6_7",
+      "phaseIndex": 1,
+      "phaseTitle": "Conferir",
+      "agentId": "aaf7917ccead5028e",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793031804058,
+      "queuedAt": 1793031086249,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032421332,
+      "tokens": 229406,
+      "toolCalls": 40,
+      "durationMs": 617273,
+      "resultPreview": "{\"conferidos\":80,\"divergencias\":[{\"trecho\":\"Seção 7, item 1: \\\"Nesse caso, a troca equivalente se aproxima dos 3,6% que decidiriam a eleição.\\\"\",\"afirmado\":\"Com a base de 2018, a troca equivalente do T14 \\\"se aproxima\\\" dos 3,6% que decidiriam a eleição.\",\"encontrado\":\"Com a base de 2018, o coeficiente 0,05072 (refeito sem arredondar; ep 0,00695) equivale a cerca de 4,5% de troca: interpolação ent…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "conferir:adendo9_resultados",
+      "phaseIndex": 1,
+      "phaseTitle": "Conferir",
+      "agentId": "a050b15433729a6b5",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032117524,
+      "queuedAt": 1793031086249,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033220147,
+      "tokens": 296736,
+      "toolCalls": 62,
+      "durationMs": 1102622,
+      "resultPreview": "{\"divergencias\":[{\"trecho\":\"Revisão adversarial independente: \\\"Nenhum achado muda um veredito relatado.\\\"\",\"afirmado\":\"A revisão não mudou nenhum veredito já relatado.\",\"encontrado\":\"Antes da revisão (commit f07e3e1), os dois contrastes de um modelo só do T17 saíam como SEM SINAL (UE2020 contra UE2022 e UE2013 contra UE2015). Na versão revisada os dois passaram a SEM PODER, pela regra do efeito m…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "confirmar:tabela_T1_T14",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "aa71c8dc581818a34",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032422255,
+      "queuedAt": 1793031792020,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui. O pré-registro (PRE-REGISTRO…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032526284,
+      "tokens": 103208,
+      "toolCalls": 8,
+      "durationMs": 104029,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui. O pré-registro (PRE-REGISTRO-2026-10-26.md, linhas 70 a 73) manda fazer a conta \\\"para cada instituto com votos totais na última pesquisa (Datafolha, Quaest, AtlasIntel e outros com série em 2018, 2022 e 2026)\\\" e julgar pela diferença MÉDIA, \\\"com o mesmo instituto e o mesmo tratamento de não sabe\\\". Nenhum dos adendos 1 a 13 muda o T6, e n…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "confirmar:secoes_1_2_3",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "acf71bf10b23fb218",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032527167,
+      "queuedAt": 1793031804133,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Refiz a conta. Rodei /tmp/claude-0/-home-user-casa-control/…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032569655,
+      "tokens": 81886,
+      "toolCalls": 6,
+      "durationMs": 42487,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Refiz a conta. Rodei /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/locais.py com python3 -I sobre /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/saida/secoes2026_2t_amostra.json.gz (3.897 chaves) e secoes2026_amostra.json.gz. Saída: \\\"uf|mun|zona|loc(2t) 741 com >=2 secoes…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "confirmar:secoes_1_2_3",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "aa858aaebae93cf67",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032570540,
+      "queuedAt": 1793031804133,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui. Refiz a conta com python3 -I…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032679403,
+      "tokens": 102660,
+      "toolCalls": 14,
+      "durationMs": 108862,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui. Refiz a conta com python3 -I (scripts em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/estratos/conta.py e locais.py). O desenho confere com scripts/sortear_amostra.py e amostra2t/amostra.json: semente 20261026, 120 municípios em M (7.106 seções), 1.500 locais em L (9.806 seções), 2.881 loc…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "confirmar:secoes_1_2_3",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a37bbbb16f4ac79dc",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032680370,
+      "queuedAt": 1793031804133,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Conferi na fonte e a divergência se confirma. (1) T14: o ar…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032774716,
+      "tokens": 102171,
+      "toolCalls": 13,
+      "durationMs": 94345,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Conferi na fonte e a divergência se confirma. (1) T14: o arquivo resultados/T7_T8_amostra_parcial.txt entrou no commit d513e12, às 12:10:02 UTC, já com \\\"candidato\\\": \\\"L\\\", \\\"n\\\": 1709, \\\"adversario_1T\\\": 0.056, ep 0.012. O Adendo 8, que cria o critério do T14, só veio no commit 494833f, às 12:57:51 UTC. O próprio texto do adendo admite: \\\"na amostra parcial (1.709 seçõe…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "confirmar:secoes_1_2_3",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a240587fe8dbe1ab3",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032775659,
+      "queuedAt": 1793031804134,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui. Conferi cada ponto na fonte.…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032918094,
+      "tokens": 110120,
+      "toolCalls": 11,
+      "durationMs": 142435,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui. Conferi cada ponto na fonte.\\n\\n1) Datas. Os dois arquivos em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados/eleicao-2026/auditoria/ têm data de modificação 01:47:55 (secoes2022.json.gz) e 10:34:05 (secoes2018.json.gz), as duas com fração de segundo zerada, o que sugere arquivos extraídos de um pa…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 11,
+      "label": "confirmar:secoes_1_2_3",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a57bc78cd1319ca5e",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032919491,
+      "queuedAt": 1793031804134,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Não consegui refutar. Na linha 65, a tabela da seção 3 de /…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793032972570,
+      "tokens": 102882,
+      "toolCalls": 10,
+      "durationMs": 53079,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Não consegui refutar. Na linha 65, a tabela da seção 3 de /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md chama o script de \\\"rotina completa para quando o bweb do 2º turno sair\\\". O código de saída confere: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab/n2t.txt contém 0 (gravado às 14:42), urls2t.txt está vazio e, como 0…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 12,
+      "label": "confirmar:tabela_T17_T33",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "af1c26ac30b8be734",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793032973417,
+      "queuedAt": 1793032117596,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Divergência confirmada. A frase entre aspas é paráfrase do …",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033027202,
+      "tokens": 101882,
+      "toolCalls": 7,
+      "durationMs": 53784,
+      "resultPreview": "{\"evidencia\":\"Divergência confirmada. A frase entre aspas é paráfrase do conferente, não texto do documento. O que ela descreve está na linha 87 de PARA-O-REVISOR.md: a coluna \\\"O que pegaria\\\" diz \\\"troca restrita a um modelo ou às urnas novas\\\" e a coluna de veredito diz só \\\"sem sinal\\\". Refiz as contas a partir de resultados/T17_maquina.json. (1) adendo10_11_antigas_contra_novas: -0,0164 (0,14…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 13,
+      "label": "confirmar:tabela_T17_T33",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a1e20b9b720eaddd1",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033028431,
+      "queuedAt": 1793032117597,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Não consegui refutar. Refiz a conta a partir de /home/user/…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033136178,
+      "tokens": 102982,
+      "toolCalls": 11,
+      "durationMs": 107747,
+      "resultPreview": "{\"evidencia\":\"Não consegui refutar. Refiz a conta a partir de /home/user/casa-control/eleicao-2026/resultados/T20_pendencias_amostra_inteira.json, sem editar o repositório. São 426 urnas com pendência: 383 mr_fora, 42 sem_1t_no_log e 13 midia_diferente. Todas aparecem como explicada=true. Separei as 383 explicações de mr_fora por categoria: 321 só pela sessão de geração da zona, 2 só pelo computad…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 14,
+      "label": "confirmar:tabela_T17_T33",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a29030c9daf6f0155",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033137140,
+      "queuedAt": 1793032117597,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Refiz a conta a partir de resultados/T33_pesquisas_votos_to…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033201778,
+      "tokens": 87397,
+      "toolCalls": 6,
+      "durationMs": 64637,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Refiz a conta a partir de resultados/T33_pesquisas_votos_totais.txt (script em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t33_conta.py). Os valores de \\\"além da histórica\\\" são -2,87; -1,05; -4,39 (AtlasIntel, ambígua); -0,94; -1,64; -1,47; -1,23 (Nexus, ambígua); -1,98; +1,11. Dá 8 de 9 abaixo, média -1,61, e só 1 de…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 15,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "ae245fdb8657c5035",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033202704,
+      "queuedAt": 1793032422329,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui; a divergência se confirma. R…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033316295,
+      "tokens": 90570,
+      "toolCalls": 14,
+      "durationMs": 113590,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui; a divergência se confirma. Rodei de novo /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s567/t14_precisao.py com python3 -I, usando amostra2t/saida/secoes2026_amostra.json.gz, amostra2t/saida/chaves2t.txt (3.897 chaves) e base/candidatos2026_1t.json.gz. Resultado: n=3781, 625 locais, adversa…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 16,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "aaa9993f32ef3bf08",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033221304,
+      "queuedAt": 1793032422329,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui; a divergência se confirma. R…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033312618,
+      "tokens": 97868,
+      "toolCalls": 12,
+      "durationMs": 91313,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui; a divergência se confirma. Refiz a conta com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/s5_17h03/refaz.py (python3 -I) sobre /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/todos_logs/amostra/T3_logs.json, turno 2, 3.897 seções, todas com ultimo_voto…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 17,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a7dd2af028c5b2464",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033313609,
+      "queuedAt": 1793032422330,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "PARA-O-REVISOR.md, linha 130, diz: \"O TSE pausou a totaliza…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033383614,
+      "tokens": 92016,
+      "toolCalls": 8,
+      "durationMs": 70005,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"PARA-O-REVISOR.md, linha 130, diz: \\\"O TSE pausou a totalização às 17h20\\\". A fonte do próprio projeto dá outro horário. Em resultados/pesquisa_externa_verificada.txt, o item 39 (linha 117) diz \\\"A totalização foi suspensa às 17h06, com 1.225 das 499.248 seções apuradas\\\" e a verificação 39 (linha 215) cita a Agência Brasil: \\\"A contagem dos votos foi suspensa às 17h06\\\".…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 18,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "aaa656549f847bc8b",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033317350,
+      "queuedAt": 1793032422330,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Não consegui refutar. A divergência é real. Em `git show f0…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033385644,
+      "tokens": 88150,
+      "toolCalls": 9,
+      "durationMs": 68292,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Não consegui refutar. A divergência é real. Em `git show f07e3e1:eleicao-2026/resultados/ADENDO9_resultados_amostra.txt` (linhas 52 a 56) os dois pares de um modelo só do T17 levam o rótulo \\\"SEM SINAL\\\". O de UE2020 contra UE2022 tem efeito mínimo detectável de 0,61, e o arquivo põe \\\"SEM SINAL\\\" logo depois desse número. O de UE2013 contra UE2015 também está \\\"SEM SINAL…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 19,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a0aec1bc9b2ad1148",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033384561,
+      "queuedAt": 1793032422330,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Fui às fontes e não consegui refutar o conferente. 1) A pal…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033476009,
+      "tokens": 103261,
+      "toolCalls": 10,
+      "durationMs": 91446,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Fui às fontes e não consegui refutar o conferente. 1) A palavra \\\"lote\\\" aparece em um único arquivo do repositório, PARA-O-REVISOR.md, linha 102 (grep -ril em todo o repositório, sem .git). Nenhum teste do PRE-REGISTRO, nenhum script e nenhum resultado trata de lote. 2) Em resultados/T17_maquina.json, adendo9_amostra.leitura.contingencia_2t traz: coef 0,516, ep 0,976, lo…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 20,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a70d63382eefbd200",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033386611,
+      "queuedAt": 1793032422330,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui. Refiz a conta do T33(a) a pa…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033442606,
+      "tokens": 87476,
+      "toolCalls": 7,
+      "durationMs": 55995,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Tentei refutar e não consegui. Refiz a conta do T33(a) a partir de resultados/T33_pesquisas_votos_totais.txt. Os nove valores de 2026 \\\"além da histórica\\\" são -2,87; -1,05; -4,39; -0,94; -1,64; -1,47; -1,23; -1,98 e +1,11. A média dá -1,61, há 8 negativos em 9 e só 1 de 9 fica 3 pontos ou mais abaixo (AtlasIntel, -4,39, e ainda marcada como ambígua). O script de conferên…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 21,
+      "label": "confirmar:secoes_5_6_7",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a6305b80281361de0",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033443601,
+      "queuedAt": 1793032422330,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Fui à fonte e refiz as contas com /tmp/claude-0/-home-user-…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033590458,
+      "tokens": 116562,
+      "toolCalls": 15,
+      "durationMs": 146856,
+      "resultPreview": "{\"evidencia\":\"Fui à fonte e refiz as contas com /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia/t20_secao5c.py e t20_secao5d.py, lendo resultados/T20_pendencias_amostra_inteira.json. Não consegui refutar. A divergência é real, e o número exato é um pouco maior que o do conferente.\\n\\n1) Itens e urnas. Por tipo são 42 sem o 1º turno no log, 383 com …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 22,
+      "label": "confirmar:adendo9_resultados",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "aab7edfc903828417",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033476909,
+      "queuedAt": 1793033221361,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Não consegui refutar o conferente. Ele tem razão. 1. O que …",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033563455,
+      "tokens": 94295,
+      "toolCalls": 13,
+      "durationMs": 86546,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Não consegui refutar o conferente. Ele tem razão.\\n\\n1. O que diz o documento. Em PARA-O-REVISOR.md, linha 153, está escrito \\\"Nenhum veredito mudou.\\\" O fim de resultados/ADENDO9_resultados_amostra.txt (linha 178) diz o mesmo: \\\"Nenhum achado muda um veredito relatado.\\\"\\n\\n2. O que dizia o arquivo antes da revisão. No commit f07e3e1 e no e3de91b, que é o último antes da…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 23,
+      "label": "confirmar:adendo9_resultados",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "a025488012da8c4aa",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033564450,
+      "queuedAt": 1793033221361,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Tentei refutar e não consegui. O conferente está certo no e…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033683756,
+      "tokens": 106635,
+      "toolCalls": 16,
+      "durationMs": 119305,
+      "resultPreview": "{\"evidencia\":\"Tentei refutar e não consegui. O conferente está certo no essencial.\\n\\n1) O critério registrado não traz exceção. No PRE-REGISTRO, Adendo 5, linha 163, a medida V3 é \\\"alguma etapa de verificação de assinatura sem SUCESSO, em qualquer data\\\". A linha 167 lista como bandeira vermelha \\\"qualquer verificação de assinatura sem SUCESSO\\\". A cláusula \\\"sem explicação\\\" aparece só para ver…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 24,
+      "label": "confirmar:adendo9_resultados",
+      "phaseIndex": 2,
+      "phaseTitle": "Confirmar",
+      "agentId": "ab6d2bb69f771df8a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033591310,
+      "queuedAt": 1793033221362,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Refiz a conta a partir dos dados e a divergência se confirm…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793033742086,
+      "tokens": 116162,
+      "toolCalls": 15,
+      "durationMs": 150776,
+      "resultPreview": "{\"real\":true,\"evidencia\":\"Refiz a conta a partir dos dados e a divergência se confirma. A frase \\\"As 426 pendências foram fechadas pelo critério e com o mesmo código\\\" não aparece literalmente. O que o documento afirma é equivalente. Em PARA-O-REVISOR.md, a linha 69 diz \\\"Veredito pelo critério pré-registrado\\\", a linha 90 dá ao T20 o veredito \\\"sem sinal\\\" e a linha 109 diz \\\"com todas as pendênc…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 25,
+      "label": "lacunas",
+      "phaseIndex": 3,
+      "phaseTitle": "Lacunas",
+      "agentId": "a20bbc0a1400ab42a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1793033742954,
+      "queuedAt": 1793033742947,
+      "attempt": 1,
+      "lastToolName": "Bash",
+      "lastToolSummary": "cd /home/user/casa-control/eleicao-2026/resultados && pytho…",
+      "promptPreview": "Projeto: auditoria estatística do 2º turno presidencial de 2026 em /home/user/casa-control/eleicao-2026. Documento a conferir: /home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md. Fontes: /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (critérios, adendos 1 a 13), /home/user/casa-control/eleicao-2026/resultados/ (todos os arquivos de resultado, inclusive ADENDO9_resultados_amost…",
+      "promptFramed": true,
+      "lastProgressAt": 1793034596401,
+      "tokens": 254855,
+      "toolCalls": 41,
+      "durationMs": 853446,
+      "resultPreview": "**Lacunas do PARA-O-REVISOR.md para um revisor que precisa refazer tudo sem falar com o autor**\n\n**1. Fontes não citadas ou fora do repositório**\n- **Documento original ausente.** O CONTEXTO-ELEICAO-2026.md não está no repositório, e muita coisa depende dele:\n  - os critérios de T1 a T3 (\"critérios 1, 3 e 4 da seção 7\");\n  - os testes da seção 7 (modelo, bn_secao, governador);\n  - as faixas de núm…"
+    }
+  ],
+  "totalTokens": 3332438,
+  "totalToolCalls": 461
+}
