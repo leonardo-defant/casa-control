@@ -72,3 +72,19 @@ Ideia: se a urna converte uma fração X do branco+nulo verdadeiro de presidente
 - **Sinal a favor da tese:** diferença média de 2026 maior que a maior diferença média de 2018 e 2022 em 2,0 pontos ou mais, com o mesmo instituto e o mesmo tratamento de "não sabe".
 - **Sem sinal:** até 1,0 ponto acima.
 - **Limites:** pesquisa mede intenção, inclui quem não vai votar e tem erro próprio (em 2026 o erro de candidato foi de cerca de 2,7 pontos). Se a fraude também existisse em 2018 e 2022, a comparação entre anos perde força; nesse caso vale olhar o nível da diferença em cada ano.
+
+## Adendo 1 (antes de ver qualquer dado do 2º turno por seção): calibração da pista do branco/nulo por seção
+
+O script reescrito (`scripts/analisar_bn_secao.py`) reproduz exatamente as referências do documento: 2018 -0,060 (0,002), 2022 -0,071 (0,002), com 427.541 e 448.165 seções em 66.849 e 68.662 locais, e os outros dois coeficientes também batem (2018 +0,231 e -0,399; 2022 -0,075 e -0,177).
+
+A calibração da seção 6.10 do documento (+0,15 para 1,82 milhão; +0,35 a +0,40 para 4,43 milhões) só se reproduz quando a conversão simulada é proporcional ao branco/nulo do **1º turno** da seção, que é a própria variável da regressão. A tese diz que a urna converte o branco/nulo digitado no **2º turno**. Simulando em 2022 uma conversão proporcional ao branco/nulo do 2º turno de cada seção, na mesma fração do comparecimento de 2026:
+
+| Conversão (escala de 2026) | Proporcional ao BN do 2º turno (o que a tese descreve) | Proporcional ao BN do 1º turno (calibração do documento) | Mesma taxa por eleitor |
+|---|---|---|---|
+| 1,82 milhão | +0,061 (coeficiente vai a -0,009) | +0,153 | -0,005 |
+| 4,43 milhões | +0,142 (coeficiente vai a +0,071) | +0,353 | -0,011 |
+
+Consequências, registradas antes dos dados:
+- O critério da seção 7 fica como está (sinal acima de +0,04 e a mais de 3 erros-padrão disso; sem sinal entre -0,07 e +0,04).
+- Mas o patamar "compatível com inversão, +0,29 ou mais" está mal calibrado: na versão realista, uma conversão que inverte o resultado leva o coeficiente para cerca de +0,07, não +0,29.
+- Um resultado "sem sinal" (entre -0,07 e +0,04) não descarta conversões de até cerca de 2,5 milhões de votos. Este teste tem pouco poder contra a tese e precisa ser lido junto com os outros.
