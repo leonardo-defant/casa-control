@@ -397,3 +397,9 @@ Leituras de robustez fixadas agora, relatadas ao lado do critério e sem substit
 - Escala: uma troca de uma fração q dos votos de Flávio dados depois do corte daria inclinação de cerca de 50 vezes q, em pontos. Uma inclinação de 7,4 equivaleria a q de cerca de 15% e a cerca de 1,6 ponto na média nacional. Por isso a leitura de composição contra gatilho importa.
 
 Com os mesmos logs: T21(c), fração das habilitações sem biometria nos últimos 90 minutos, 2º contra 1º turno na mesma urna, só descritivo.
+
+## Adendo 13 (26/10, tarde, antes de baixar os arquivos de assinatura das demais seções): T18, T10, T3 e T9 em toda a amostra
+
+Com os logs das 3.897 seções da amostra (Adendo 12), refazer pelo mesmo código e com os mesmos critérios: T10 (versão, mídia, assinaturas no log, componentes novos), T3 (horários e ritmo) e T9 (biometria). Depois, baixar o `-vota.vsc` listado no `-aux.json` das outras 3.062 seções e refazer o T18 em todas (boletim e log de cada uma conferidos contra a assinatura da urna). Critérios sem mudança. Resultados das 835 já relatados; os das 3.062 ainda não foram olhados.
+
+T21(c), descritivo: fração das habilitações sem biometria das 15h30 de Brasília em diante, 2º contra 1º turno na mesma urna (analisar_biometria_tarde.py, escrito antes de rodar).
