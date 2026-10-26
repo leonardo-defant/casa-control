@@ -1,0 +1,3 @@
+2018: quem mais ganhou (Haddad) | virada media +5.01, desvio entre UFs 3.32 | var. comparecimento media -2.00 | correlacao virada x comparecimento +0.43 | inclinacao +0.74
+2022: quem mais ganhou (Bolsonaro) | virada media +1.81, desvio entre UFs 0.52 | var. comparecimento media -0.63 | correlacao virada x comparecimento -0.22 | inclinacao -0.05
+2026: quem mais ganhou (Lula) | virada media +2.74, desvio entre UFs 0.67 | var. comparecimento media +0.46 | correlacao virada x comparecimento +0.06 | inclinacao +0.01

@@ -1,0 +1,35 @@
+UF | fatia Flavio entre os 2: 1T -> previsto so com os outros -> real | Flavio % validos 1T -> 2T | resto de Lula (% do comp.) | var comparecimento (% eleit.) | queda BN (% comp.)
+AC |  69.2 ->  68.7 ->  66.6 |  64.6 ->  66.6 | Lula +0.19 Flavio -5.96 | -5.65 | -0.78
+AL |  42.5 ->  43.0 ->  39.2 |  40.4 ->  39.2 | Lula +6.77 Flavio -1.24 | +0.54 | +3.35
+AM |  48.3 ->  48.6 ->  46.0 |  45.0 ->  46.0 | Lula +2.53 Flavio -2.56 | -1.52 | -0.39
+AP |  50.0 ->  50.4 ->  47.1 |  45.7 ->  47.1 | Lula -0.22 Flavio -6.66 | -8.08 | +0.51
+BA |  30.1 ->  31.1 ->  28.7 |  28.5 ->  28.7 | Lula +7.36 Flavio -0.06 | +3.26 | +1.96
+CE |  33.1 ->  34.0 ->  31.1 |  31.3 ->  31.1 | Lula +6.57 Flavio -0.86 | +1.63 | +2.14
+DF |  57.4 ->  57.6 ->  54.3 |  51.3 ->  54.3 | Lula +5.42 Flavio -0.25 | +1.63 | -0.20
+ES |  59.2 ->  59.2 ->  56.4 |  54.8 ->  56.4 | Lula +4.42 Flavio -0.12 | +1.90 | -0.38
+GO |  63.3 ->  63.3 ->  59.7 |  53.6 ->  59.7 | Lula +6.23 Flavio +1.18 | +1.49 | +0.74
+MA |  32.6 ->  33.4 ->  30.5 |  30.9 ->  30.5 | Lula +4.49 Flavio -2.11 | -0.63 | +1.42
+MG |  52.7 ->  53.0 ->  49.6 |  48.2 ->  49.6 | Lula +6.75 Flavio +0.60 | +2.49 | +1.77
+MS |  62.8 ->  62.6 ->  59.6 |  58.6 ->  59.6 | Lula +5.32 Flavio +1.02 | +2.63 | +0.94
+MT |  69.1 ->  68.7 ->  66.1 |  65.1 ->  66.1 | Lula +3.93 Flavio +0.42 | +1.26 | +0.94
+PA |  47.1 ->  47.5 ->  45.0 |  44.5 ->  45.0 | Lula +3.74 Flavio -1.33 | -1.23 | +2.02
+PB |  35.0 ->  35.8 ->  32.5 |  33.1 ->  32.5 | Lula +7.73 Flavio -0.67 | +1.83 | +3.27
+PE |  32.8 ->  33.8 ->  30.8 |  31.0 ->  30.8 | Lula +7.78 Flavio -0.36 | +2.98 | +2.36
+PI |  25.3 ->  26.4 ->  24.1 |  24.1 ->  24.1 | Lula +4.49 Flavio -1.38 | -0.04 | +1.54
+PR |  65.8 ->  65.4 ->  62.6 |  59.9 ->  62.6 | Lula +5.04 Flavio +1.69 | +2.53 | +0.89
+RJ |  57.4 ->  57.4 ->  53.1 |  53.0 ->  53.1 | Lula +6.75 Flavio -0.71 | +1.69 | +1.56
+RN |  36.8 ->  37.5 ->  34.3 |  34.8 ->  34.3 | Lula +6.41 Flavio -1.13 | +2.32 | +0.90
+RO |  72.3 ->  71.6 ->  69.6 |  67.4 ->  69.6 | Lula +2.65 Flavio -0.33 | -0.20 | +0.33
+RR |  75.7 ->  74.9 ->  72.5 |  71.1 ->  72.5 | Lula +1.17 Flavio -6.20 | -6.02 | +0.41
+RS |  60.9 ->  60.8 ->  57.8 |  55.6 ->  57.8 | Lula +5.54 Flavio +1.25 | +2.19 | +1.40
+SC |  72.7 ->  71.9 ->  69.4 |  66.7 ->  69.4 | Lula +4.04 Flavio +1.60 | +1.99 | +0.56
+SE |  32.8 ->  33.9 ->  30.5 |  30.6 ->  30.5 | Lula +7.33 Flavio -1.28 | +1.58 | +2.18
+SP |  57.6 ->  57.7 ->  53.8 |  51.9 ->  53.8 | Lula +7.14 Flavio +1.00 | +2.73 | +1.81
+TO |  53.7 ->  53.9 ->  51.4 |  50.4 ->  51.4 | Lula +2.43 Flavio -2.45 | -0.88 | -1.00
+ZZ |  47.8 ->  48.3 ->  46.1 |  43.5 ->  46.1 | Lula +8.97 Flavio +4.30 | +4.33 | +0.58
+
+estados em que a fatia prevista de Flavio (so com os outros) cai em relacao ao 1T: 10 de 27
+estados em que Flavio sobe em % dos validos: 20 de 27
+correlacao entre os estados: resto de Lula x variacao do comparecimento = 0.87; resto de Lula x queda do BN = 0.72
+resto de Lula: media 4.89, desvio 2.23, minimo -0.22, maximo 7.78 (pontos do comparecimento)
+resto de Flavio: media -1.00, desvio 2.19
