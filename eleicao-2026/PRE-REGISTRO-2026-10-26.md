@@ -134,3 +134,19 @@ Pergunta: a soma nacional não diz quem entrou e quem saiu. Dentro de cada seç�
 - Se o comparecimento extra viesse de votos inseridos sem o eleitor, ele apareceria como habilitação não biométrica a mais no 2º turno.
 - **Sinal:** aumento da habilitação não biométrica do 1º para o 2º turno que acompanhe, dentro do mesmo local, o aumento do comparecimento e o ganho de Lula.
 - **Limite:** a amostra de logs é pequena (10 municípios); o bweb completo traz só parte desses campos.
+
+## Adendo 4 (26/10, antes da amostra nacional de locais): calibração do T7 para troca de votos
+
+Se as pesquisas Veritá (Flávio 51,56% dos válidos) ou Gerp (52%) estivessem certas, a fraude teria de ser troca de voto de Flávio para Lula (4,15 a 4,70 milhões, cerca de 6,5% dos votos de Flávio), porque a versão por branco/nulo exigiria um branco/nulo verdadeiro de 9,5% a 10,3%, contra 1,43% declarado na própria Veritá. O T7 é o teste por seção que reage a troca.
+
+Simulação em 2022 (troca uniforme de uma fração dos votos do adversário para quem mais ganhou):
+
+| Troca | Seções com excesso | Ganho em excesso |
+|---|---|---|
+| 0 | 5,27% | 1,09% |
+| 1% | 8,83% | 1,51% |
+| 2% | 12,43% | 2,09% |
+| 3,5% | 19,81% | 3,40% |
+| 6% | 35,76% | 6,92% |
+
+Leitura registrada antes dos dados: na amostra nacional de 2026, um resultado perto de 35% das seções e 7% do ganho seria compatível com a troca que a Veritá implica; perto de 5% a 9% das seções e 1% a 1,5% do ganho, incompatível. O critério do adendo 3 continua valendo.

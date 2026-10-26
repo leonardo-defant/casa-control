@@ -1,0 +1,5 @@
+2022 sem troca: 5.27% das secoes com excesso; 1.09% do ganho em excesso
+troca de 1.0% dos votos do adversario: 8.83% das secoes; 1.51% do ganho em excesso (votos trocados 0.60 mi)
+troca de 2.0% dos votos do adversario: 12.43% das secoes; 2.09% do ganho em excesso (votos trocados 1.21 mi)
+troca de 3.5% dos votos do adversario: 19.81% das secoes; 3.40% do ganho em excesso (votos trocados 2.11 mi)
+troca de 6.0% dos votos do adversario: 35.76% das secoes; 6.92% do ganho em excesso (votos trocados 3.62 mi)
