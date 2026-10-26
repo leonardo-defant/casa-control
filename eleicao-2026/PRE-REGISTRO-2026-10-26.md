@@ -408,7 +408,7 @@ T21(c), descritivo: fração das habilitações sem biometria das 15h30 de Bras�
 
 Contexto: o T8 e o T14 mostram que, dentro de cada seção, Flávio perdeu em termos líquidos cerca de 5% dos próprios eleitores do 1º turno (coeficiente -0,050, erro-padrão 0,007), e esse é o termo que fecha a conta do ganho de Lula. Duas leituras: (a) eleitores de Flávio do 1º turno que faltaram ou anularam no 2º, substituídos por outros; (b) troca só no voto de presidente, feita pelo eleitor ou pelo programa. Quem falta não vota em nenhum cargo; a troca só no presidente não mexe no governador.
 
-Dados: prefixo de 2.400 seções do estrato G (ordem aleatória do sorteio original), só o `-bu.dat`, em download desde as 18h40 UTC; nenhum boletim aberto até este registro. Votos por candidato a governador no 1º turno extraídos do bweb do 1º turno das mesmas UFs.
+Dados: prefixo de 2.400 seções do estrato G (ordem aleatória do sorteio original), só o `-bu.dat`, em download desde as 20h33 UTC (corrigido; a primeira versão deste adendo dizia 18h40 por engano); nenhum boletim aberto até este registro. Votos por candidato a governador no 1º turno extraídos do bweb do 1º turno das mesmas UFs.
 
 Campos fixados antes, com fontes conferidas por dois agentes independentes (arquivo `resultados/alinhamento_governadores_2t_2026.json`):
 - AM: campo de Flávio 22 (Professora Maria do Carmo, PL); campo de Lula 55 (Omar Aziz, PSD). Claro.
