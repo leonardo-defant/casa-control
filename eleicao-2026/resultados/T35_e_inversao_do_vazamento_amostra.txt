@@ -1,0 +1,36 @@
+T35 (Adendo 15), PRELIMINAR na amostra de 3.897 seções (o decisivo é com o bweb). Rodado em 26/10 ~21h25 UTC, depois do registro (f793d16).
+
+1) Vazamento líquido entre os finalistas, mesmas seções, regressão do T8 sem grupos (coeficiente dos próprios votos do 1º turno;
+   pela identidade das duas equações, o que um perde dos próprios eleitores é o que o outro ganha: próprio(A) = -adversário(B))
+   ano  | direita -> esquerda (perda própria da direita) | esquerda -> direita (perda própria da esquerda)
+   2018 | Bolsonaro -> Haddad  1,0% (EP 0,9)            | Haddad -> Bolsonaro 3,6% (EP 1,1)
+   2022 | Bolsonaro -> Lula    2,1% (EP 0,8)            | Lula -> Bolsonaro   4,8% (EP 0,7)
+   2026 | Flávio -> Lula       5,0% (EP 0,7)            | Lula -> Flávio      1,1% (EP 0,6)
+   Leitura: nas duas eleições anteriores, quem vazava para o outro lado era o eleitor do PT do 1º turno; o da direita era fiel.
+   Em 2026 inverteu dos dois lados. É a "falta de lógica" apontada pelo Léo, na forma mais limpa que os dados permitem.
+   O que cada cenário precisa para produzir isso:
+   - desvio proporcional aos votos de Flávio (s·F): explica Flávio 5,0% com s de 3 a 4%, mas não mexe na fidelidade do eleitor de
+     Lula (o termo de Lula muda só s x 0,04, cerca de 0,002). Lula 1,1% contra 3,6 a 4,8% de antes ficaria sem explicação.
+   - desvio proporcional aos votos de Lula (k·L, tirados de Flávio): explica Lula 1,1% com k de 2,5 a 3,7%, mas não a perda de Flávio.
+   - os dois termos juntos: explicam as duas pontas; cerca de 3 milhões de votos movidos, margem invertida (sem eles, Flávio
+     venceria por cerca de 2 milhões). Conta de ordem de grandeza, não estimativa.
+   - mudança de humor do eleitorado entre os turnos: explica as duas pontas com um mecanismo só.
+   Nada aqui separa os cenários; o T22b (governador na mesma urna), o T34 (divisa) e o T16 (piso por UF) separam.
+
+2) Curva por força local do adversário (coeficiente próprio por faixa da fatia do adversário no 1º turno, no local)
+   faixa      | Haddad18 Bolso18 | Lula22  Bolso22 | Lula26  Flávio26
+   <35%       | -0,026  -0,004   | -0,040  -0,001  | -0,008  -0,012
+   35-50%     | -0,081  -0,064   | -0,046  -0,026  | -0,019  -0,059
+   50-65%     | -0,093  -0,150   | -0,084  -0,040  | -0,039  -0,071
+   >=65%      | -0,075  -0,126   | -0,075  -0,067  | -0,006  -0,091
+   Todos perdem mais onde o adversário é forte. Flávio 2026 fica dentro da faixa dos outros cinco em cada faixa (entre Bolsonaro 2022 e
+   Bolsonaro 2018). O ponto fora da curva de 2026 é Lula, que quase não perdeu os próprios eleitores em nenhuma faixa.
+   A (direita menos esquerda, mesma faixa): 2018 +0,012 (0,012); 2022 +0,034 (0,009); 2026 -0,025 (0,009).
+   A(2026) - A(2018) = -0,037 (0,015), 2,45 erros-padrão.
+   Veredito pelo critério do Adendo 15: INCONCLUSIVO (A(2026) não chega a -0,03; a diferença para 2018 fica a 0,05 erro-padrão do limiar).
+   Inclina para o lado da tese: a vantagem de fidelidade da direita em 2018 e 2022 virou desvantagem em 2026, com tamanho parecido com o
+   de um desvio de 3 a 4%. Também é o que uma mudança de humor faria.
+
+3) Pesquisas (T33, já registrado): a mediana dos 9 institutos tinha Flávio 1,5 ponto do comparecimento acima do resultado, além do erro
+   histórico do próprio instituto; um desvio de s dos votos de Flávio tira cerca de 49·s pontos, então 1,5 ponto equivale a s perto de 3%.
+   Mesma direção da tese, mesmo tamanho de ordem; pesquisa encerrada dias antes também erra assim quando há movimento de última hora.
