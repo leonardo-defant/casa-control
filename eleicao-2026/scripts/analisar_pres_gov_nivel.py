@@ -2,6 +2,8 @@
 contra o branco+nulo de governador na mesma urna. Peso pelo comparecimento, erro agrupado por local.
 Uso: python3 -I analisar_pres_gov_nivel.py <secoes.json.gz> <turno 1|2> [--ufs AC,AM] [--chaves lista.txt]
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import json, sys, warnings
 import numpy as np
 from lib import carregar, chave_local, fe_ols

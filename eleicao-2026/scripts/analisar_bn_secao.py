@@ -10,6 +10,8 @@ Uso: python3 -I analisar_bn_secao.py <secoes.json.gz> <ano> [--simular f1,f2,...
 --simular injeta no 2º turno uma conversão de uma fração f do branco+nulo de cada seção para o 13
 (calibração do tamanho do sinal).
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import json, sys, warnings
 import numpy as np
 from lib import carregar, chave_local, fe_ols

@@ -167,3 +167,18 @@ Medidas por urna da amostra:
 **Bandeira vermelha:** versão diferente entre urnas ou entre turnos sem explicação (urna de contingência ou recarga registrada); mídia de votação regerada depois do 1º turno sem explicação; qualquer verificação de assinatura sem SUCESSO; componente de programa novo no 2º turno.
 
 **Limite:** o log é escrito pelo próprio programa; um programa malicioso assinado com a chave oficial passaria neste teste. O teste só pega troca de programa, não código malicioso já embutido na versão oficial. Isso só se testa com inspeção de código, teste de integridade e teste de autenticidade.
+
+## Adendo 6 (26/10, antes de rodar o T4 no 2º turno de 2026): correções da revisão independente
+
+Uma revisão adversarial independente do código encontrou defeitos, corrigidos antes de relatar qualquer resultado final:
+- `rodar_2026.sh` falharia em silêncio (módulo `lib` não achado com `python3 -I` e sem `set -e`). Corrigido: caminho de importação em cada script e `set -euo pipefail`.
+- T3: o leitor de log ignorava o log da urna original quando há urna de contingência (fica num pacote interno). Corrigido; com isso os casos de contingência fecham exatamente.
+- T2: comparava totais agrupados; agora compara candidato por candidato, como este pré-registro manda.
+- T1: município com seção ainda não baixada aparecia como "diferença". Agora só municípios completos entram.
+- Decodificador: agora filtra só cargo constitucional majoritário. Foi validado contra o bweb do 1º turno em 80 seções sorteadas: 80 de 80 idênticas em todos os campos, inclusive voto por candidato.
+
+T4 (branco+nulo zerado): a revisão mostrou que o estimador do esperado usa a taxa estimada como se fosse a verdadeira e superestima a superdispersão. Por isso R fica abaixo de 1 mesmo sem fraude e depende do nível de branco+nulo. Correção registrada antes dos dados:
+- O critério original (R bruto contra o maior R das referências) continua sendo relatado como foi registrado.
+- Leitura calibrada, que passa a ser a principal: para cada eleição e turno, simular branco+nulo sob a hipótese nula (beta-binomial em torno da taxa do local, ou do município para local de seção única, com a superdispersão ajustada para que o estimador aplicado aos dados simulados reproduza a superdispersão observada), aplicar exatamente o mesmo estimador e obter R_nulo (média de 5 simulações). Estatística calibrada: Rc = R / R_nulo.
+- Sinal: Rc do 2º turno de 2026 acima do maior Rc das referências mais 0,15, com excesso acima de 3 vezes a raiz do esperado. Sem sinal: até o maior Rc das referências mais 0,05.
+- Votos do candidato 28 (candidatura anulada) entram como nulos, como no total oficial.

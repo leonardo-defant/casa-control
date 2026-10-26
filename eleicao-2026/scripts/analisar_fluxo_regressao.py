@@ -4,6 +4,8 @@ variação do comparecimento, votos do adversário no 1T e do próprio candidato
 Efeito fixo de local, sem peso (a regressão é em votos), erro agrupado por local.
 Uso: python3 -I analisar_fluxo_regressao.py <secoes.json.gz> <L|R> [--chaves lista] [--candidatos cand.json.gz --grupos 'Renan:30;Caiado:55;...']
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import json, sys, warnings
 import numpy as np
 from lib import carregar, chave_local, fe_ols

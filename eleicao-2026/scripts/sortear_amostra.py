@@ -7,6 +7,8 @@ Estratos:
   G: metade dos locais com 2 ou mais seções nos 6 estados com 2º turno de governador (fora de M e L)
 Uso: python3 -I sortear_amostra.py <pasta_cs2t> <secoes2026_1t.json.gz> <pasta_saida>
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, json, os, random, sys
 from lib import carregar, chave_local
 

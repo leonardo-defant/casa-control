@@ -2,6 +2,8 @@
 Uso: python3 -I somar_oficial.py <secoes.json.gz> <turno 1|2>
 Consulta os arquivos oficiais no site de resultados do TSE (Brasil e 27 UFs mais exterior).
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, json, os, ssl, sys, time, urllib.request
 from lib import carregar
 CTX = ssl.create_default_context(cafile='/root/.ccr/ca-bundle.crt')

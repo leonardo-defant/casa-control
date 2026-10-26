@@ -2,6 +2,8 @@
 bolo = outros do 1º turno + queda do branco+nulo (se positiva) + aumento do comparecimento (se positivo)
 Uso: python3 -I analisar_fluxos.py <secoes.json.gz> <campo L|R> [--chaves lista.txt]
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import json, sys
 from lib import carregar
 

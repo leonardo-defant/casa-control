@@ -2,7 +2,7 @@
 # Rotina para quando o TSE publicar os boletins (bweb) do 2º turno de 2026.
 # Código 2 = ainda não publicado. Requer: python3 com numpy, curl, unzip; ~6 GB livres.
 # Uso: DADOS=<pasta com secoes2018/2022/2026_1t.json.gz> TRAB=<pasta de trabalho> ./rodar_2026.sh
-set -u
+set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"; SC="$AQUI/scripts"; RES="$AQUI/resultados"
 DADOS="${DADOS:?defina DADOS}"; TRAB="${TRAB:?defina TRAB}"; mkdir -p "$TRAB/zips2t" "$RES"
 curl -sS --max-time 60 "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-2026-boletim-de-urna" -o "$TRAB/ckan.json" || exit 1

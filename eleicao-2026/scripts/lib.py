@@ -36,6 +36,8 @@ def fe_ols(y, X, grupos, w=None, nomes=None):
     ok = cnt[g] >= 2
     y, X, w, g = y[ok], X[ok], w[ok], g[ok]
     _, g = np.unique(g, return_inverse=True)
+    if len(g) == 0:
+        raise ValueError('nenhum grupo com 2 ou mais observacoes')
     Z = demean(np.column_stack([y, X]), g, w)
     yd, Xd = Z[:, 0], Z[:, 1:]
     sw = np.sqrt(w)
@@ -50,7 +52,7 @@ def fe_ols(y, X, grupos, w=None, nomes=None):
     meat = S.T @ S
     inv = np.linalg.inv(XtX)
     N = len(y)
-    c = G / (G - 1) * (N - 1) / (N - k)
+    c = G / (G - 1) * (N - 1) / (N - k) if G > 1 else float('nan')  # com 1 grupo não há erro agrupado
     V = c * inv @ meat @ inv
     se = np.sqrt(np.diag(V))
     nomes = nomes or [f'x{j}' for j in range(k)]

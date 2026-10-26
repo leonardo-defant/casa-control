@@ -7,6 +7,8 @@ Peso = votos no 13 + direita no 2º turno; erro agrupado pelo grupo do efeito fi
 --simular f: injeta no 2º turno a conversão de uma fração f do branco+nulo de presidente de cada seção para o 13.
 Uso: python3 -I analisar_gov.py <secoes.json.gz> <ano> [--simular f1,f2] [--ufs AC,AM,...]
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import json, sys, warnings
 import numpy as np
 from lib import carregar, chave_local, fe_ols

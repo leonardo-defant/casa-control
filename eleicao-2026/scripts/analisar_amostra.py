@@ -8,6 +8,8 @@ Saídas:
   T2_rdv_bu.json                  RDV contra boletim, por seção e turno
   T3_logs.json                    métricas de log por seção e turno
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, gzip, json, os, ssl, sys, time, urllib.request
 from decodificar import ler_bu, bu_para_secao, ler_rdv, rdv_para_bu, ler_log
 from lib import carregar
@@ -15,6 +17,8 @@ from lib import carregar
 arq2, arq1, base1, lista_mun, saida = sys.argv[1:6]
 os.makedirs(saida, exist_ok=True)
 d1 = carregar(base1)
+_cp = os.path.join(os.path.dirname(base1), 'candidatos2026_1t.json.gz')
+CAND = carregar(_cp)['secoes'] if os.path.exists(_cp) else None
 CTX = ssl.create_default_context(cafile='/root/.ccr/ca-bundle.crt')
 
 
@@ -62,6 +66,12 @@ def processar(pasta, turno, data):
                 rc = r.get(cargo, collections.Counter())
                 campos = ('L', 'R', 'O', 'B', 'N') if cargo == 1 else ('V', 'B', 'N')
                 dd = {c: rc.get(c, 0) - ref[c] for c in campos if rc.get(c, 0) != ref[c]}
+                nums = set(ref.get('cand', {})) | {x[4:] for x in rc if x.startswith('num:')}
+                for n in nums:
+                    a_, b_ = rc.get('num:' + n, 0), ref.get('cand', {}).get(n, 0)
+                    if a_ != b_: dd['cand' + n] = a_ - b_
+                for x in rc:
+                    if x.startswith('tipo'): dd[x] = rc[x]
                 if rc.get('total', 0) != ref['comp']: dd['total_vs_comp'] = rc.get('total', 0) - ref['comp']
                 if dd: dif[cargo] = dd
             t2[k] = dif
@@ -90,6 +100,10 @@ for k, v in b1.items():
     val['secoes'] += 1
     campos = ('L', 'R', 'O', 'B', 'N', 'comp', 'apt', 'urna', 'loc')
     dd = {c: (s[c], r[c]) for c in campos if s[c] != r[c]}
+    if CAND is not None:
+        ref_c = {n: q for n, q in CAND.get(k, {}).items()}
+        for n in set(ref_c) | set(s.get('cand', {})):
+            if ref_c.get(n, 0) != s.get('cand', {}).get(n, 0): dd['cand' + n] = (s.get('cand', {}).get(n, 0), ref_c.get(n, 0))
     g1, gr = v.get('1g'), d1[k].get('1g')
     if g1 and gr:
         dd.update({'g' + c: (g1[c], gr[c]) for c in ('B', 'N', 'V', 'comp') if g1[c] != gr[c]})
@@ -97,6 +111,8 @@ for k, v in b1.items():
     else: val['iguais'] += 1
 json.dump(val, open(os.path.join(saida, 'validacao_decodificador_1t.json'), 'w'), ensure_ascii=False, indent=1)
 print('validacao 1T: secoes', val['secoes'], 'iguais', val['iguais'], 'diferentes', len(val['diferentes']))
+if val['secoes'] == 0:
+    print('AVISO: decodificador NAO validado contra o bweb (nenhum boletim do 1T); T1 a T3 sao provisorios pela regra 3 do pre-registro')
 
 # T1: municípios inteiros
 t1 = {}
@@ -116,8 +132,10 @@ if lista_mun != '-':
                 o = json.load(r)
             c = {x['n']: int(x['vap']) for a in o['carg'][0]['agr'] for p in a['par'] for x in p['cand']}
             of = {'L': c.get('13', 0), 'R': c.get('22', 0), 'B': int(o['v']['vb']), 'N': int(o['v']['tvn']), 'comp': int(o['e']['c'])}
-            t1[mu] = {'secoes_lista': len(lista_sec[mu]), 'secoes_com_bu': len(tem), 'boletins': dict(soma), 'oficial': of,
-                      'diferenca': {c: soma[c] - of[c] for c in of}, 'secoes_totalizadas_oficial': o['s']['st'], 'secoes_oficial': o['s']['ts']}
+            completo = len(tem) == len(lista_sec[mu])
+            t1[mu] = {'secoes_lista': len(lista_sec[mu]), 'secoes_com_bu': len(tem), 'completo': completo, 'boletins': dict(soma), 'oficial': of,
+                      'diferenca': ({c: soma[c] - of[c] for c in of} if completo else 'INCOMPLETO: faltam boletins baixados'),
+                      'secoes_totalizadas_oficial': o['s']['st'], 'secoes_oficial': o['s']['ts']}
         except Exception as e:
             t1[mu] = {'erro': str(e)}
         time.sleep(1)

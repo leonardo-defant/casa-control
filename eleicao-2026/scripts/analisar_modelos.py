@@ -7,6 +7,8 @@ branco+nulo (% do comparecimento, mesma seção e mesmo modelo) e fatia do 13 no
 Reproduz 2022 do documento: 10.748 locais, 82.758 seções; virada -0,16 a -0,18 (0,12); fatia +0,24 a +0,37 (0,30).
 Uso: python3 -I analisar_modelos.py <secoes.json.gz> <ano> [--chaves lista.txt]
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, json, sys, warnings
 import numpy as np
 from lib import carregar, chave_local, fe_ols
@@ -22,7 +24,8 @@ for k, v in d.items():
     a, b = v['1'], v['2']
     rows.append((chave_local(k, b), modelo(a['urna'], ano), modelo(b['urna'], ano), a, b))
 porloc = collections.defaultdict(set)
-for r in rows: porloc[r[0]].add(r[2])
+for r in rows:
+    if r[2] is not None: porloc[r[0]].add(r[2])
 sel = [r for r in rows if len(porloc[r[0]]) >= 2 and r[2] is not None]
 mods = sorted({r[2] for r in sel} - {ref})
 loc = np.array([r[0] for r in sel])

@@ -3,6 +3,8 @@
 Estrutura inferida do BER e validada contra o bweb do 1º turno (mesmas seções).
 BU, tipo de voto: 1 nominal, 2 branco, 3 nulo. RDV, tipo de voto: 2 nominal, 3 branco, 4 nulo (com os dígitos digitados).
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, re, zipfile
 from ber import parse
 
@@ -53,9 +55,12 @@ def ler_bu(caminho):
             rec = {'apt': _int(f[1][2]), 'cargos': {}}
             for rv in _filhos(f[4]):  # resultadosVotacao
                 g = _filhos(rv)
+                tipo_cargo = _int(g[0][2])  # 1 majoritário, 2 proporcional, 3 consulta
                 comp = _int(g[1][2])
                 for tc in _filhos(g[2]):  # totaisVotosCargo
                     h = _filhos(tc)
+                    if tipo_cargo != 1 or (h[0][0], h[0][1]) != (2, 1):  # só cargo constitucional majoritário
+                        continue
                     cargo = _int(h[0][2])
                     votos = collections.Counter()
                     for vv in _filhos(h[2]):
@@ -85,10 +90,12 @@ def bu_para_secao(b):
                      'O': sum(q for (t, n), q in v.items() if t == 1 and n not in (ESQ, DIR)),
                      'B': sum(q for (t, n), q in v.items() if t == 2),
                      'N': sum(q for (t, n), q in v.items() if t == 3),
-                     'tipos_extra': sorted({t for (t, n) in v if t not in (1, 2, 3)})}
+                     'tipos_extra': sorted({t for (t, n) in v if t not in (1, 2, 3)}),
+                     'cand': {str(n): q for (t, n), q in v.items() if t == 1}}
             elif cargo == 3:
                 g = {'B': sum(q for (t, n), q in v.items() if t == 2), 'N': sum(q for (t, n), q in v.items() if t == 3),
-                     'V': sum(q for (t, n), q in v.items() if t not in (2, 3)), 'comp': c['comp']}
+                     'V': sum(q for (t, n), q in v.items() if t not in (2, 3)), 'comp': c['comp'],
+                     'cand': {str(n): q for (t, n), q in v.items() if t == 1}}
     return s, g
 
 
@@ -119,6 +126,7 @@ def rdv_para_bu(c):
         if tipo == 2:
             n = int(dig)
             r['L' if (cod == 1 and n == ESQ) else 'R' if (cod == 1 and n == DIR) else 'O' if cod == 1 else 'V'] += q
+            r['num:' + str(n)] += q
         elif tipo == 3: r['B'] += q
         elif tipo == 4: r['N'] += q
         elif tipo == 6:  # nulo sem dígitos (o boletim conta como nulo); contado também à parte
@@ -131,11 +139,25 @@ def rdv_para_bu(c):
 RX = re.compile(r'^(\d\d/\d\d/\d{4}) (\d\d):(\d\d):(\d\d)$')
 
 
-def ler_log(caminho, data):
-    """Métricas do pré-registro (T3) para o dia da eleição `data` (dd/mm/aaaa)."""
-    z = zipfile.ZipFile(caminho)
-    nome = [n for n in z.namelist() if n.startswith('logd')][0]
-    linhas = z.read(nome).decode('latin1').splitlines()
+def _linhas_log(caminho):
+    """Linhas de todos os logd.dat do pacote, inclusive os .jez aninhados (log da urna original quando há contingência)."""
+    import io
+    z = zipfile.ZipFile(caminho); blocos = []
+    for n in z.namelist():
+        if n.startswith('logd'):
+            blocos.append(z.read(n).decode('latin1').splitlines())
+        elif n.endswith('.jez'):
+            try:
+                zz = zipfile.ZipFile(io.BytesIO(z.read(n)))
+                for m in zz.namelist():
+                    if m.startswith('logd'):
+                        blocos.append(zz.read(m).decode('latin1').splitlines())
+            except zipfile.BadZipFile:
+                pass
+    return blocos
+
+
+def _metricas(linhas, data):
     ev = []
     for l in linhas:
         p = l.split('\t')
@@ -144,50 +166,56 @@ def ler_log(caminho, data):
         m = RX.match(p[0])
         if not m:
             continue
-        t = int(m.group(2)) * 3600 + int(m.group(3)) * 60 + int(m.group(4))
-        ev.append((t, p[3], p[4]))
-    out = {'n_eventos': len(ev), 'urnas_no_log': len({l.split('\t')[2] for l in linhas if l.count('\t') >= 4 and l.startswith(data)})}
-    pronta = [t for t, a, m in ev if m == 'Urna pronta para receber votos']
-    enc = [t for t, a, m in ev if m.startswith('Inicio do Encerramento') or m.startswith('Início do Encerramento')]
-    comp = [t for t, a, m in ev if m == 'O voto do eleitor foi computado']
-    out['computados'] = len(comp)
-    out['habilitados'] = sum(1 for t, a, m in ev if m == 'Eleitor foi habilitado')
-    out['pronta'] = pronta[0] if pronta else None
-    out['encerramento'] = enc[-1] if enc else None
-    out['A2_antes'] = sum(1 for t in comp if pronta and t < pronta[0])
-    out['A2_depois'] = sum(1 for t in comp if enc and t > enc[-1])
-    # A3 e A4: percorre a sequência
-    hab_pend = None; a3 = 0; a4 = 0; dur = []
-    for t, a, m in ev:
+        ev.append((int(m.group(2)) * 3600 + int(m.group(3)) * 60 + int(m.group(4)), p[3], p[4], p[2]))
+    pronta = [t for t, a, m, u in ev if m == 'Urna pronta para receber votos']
+    enc = [t for t, a, m, u in ev if m.startswith('Inicio do Encerramento') or m.startswith('Início do Encerramento')]
+    comp = [t for t, a, m, u in ev if m == 'O voto do eleitor foi computado']
+    o = {'computados': len(comp), 'habilitados': sum(1 for t, a, m, u in ev if m == 'Eleitor foi habilitado'),
+         'urnas': {u for t, a, m, u in ev},
+         'A2_antes': sum(1 for t in comp if pronta and t < pronta[0]),
+         'A2_depois': sum(1 for t in comp if enc and t > enc[-1]),
+         'contingencia': any(m.startswith('Modo de carga da UE - Urna de contingência') or m.startswith('Contingência executada') for t, a, m, u in ev),
+         'erros': sum(1 for l in linhas if l.startswith(data) and '\tERRO\t' in l)}
+    hab = None; a3 = a4 = 0; dur = []
+    for t, a, m, u in ev:
         if m == 'Eleitor foi habilitado':
-            hab_pend = t
+            hab = t
         elif m == 'O voto do eleitor foi computado':
-            if hab_pend is None:
-                a3 += 1
+            if hab is None: a3 += 1
             else:
-                dur.append(t - hab_pend)
-                if t - hab_pend < 2:
-                    a4 += 1
-            hab_pend = None
-    out['A3_sem_habilitacao'] = a3
-    out['A4_menos_2s'] = a4
-    # A5: rajadas de 10+ votos com menos de 15 s entre votos computados
-    run = 1; a5 = 0; maior = 1
+                dur.append(t - hab)
+                if t - hab < 2: a4 += 1
+            hab = None
+    run = 1; a5 = 0; maior = 1 if comp else 0
     for i in range(1, len(comp)):
-        if comp[i] - comp[i - 1] < 15:
-            run += 1
+        if comp[i] - comp[i - 1] < 15: run += 1
         else:
             if run >= 10: a5 += 1
             run = 1
         maior = max(maior, run)
     if run >= 10: a5 += 1
-    out['A5_rajadas'] = a5
-    out['maior_sequencia_rapida'] = maior
-    dur.sort()
+    o.update({'A3_sem_habilitacao': a3, 'A4_menos_2s': a4, 'A5_rajadas': a5, 'maior_sequencia_rapida': maior,
+              'dur': dur, 'primeiro_voto': comp[0] if comp else None, 'ultimo_voto': comp[-1] if comp else None,
+              'pronta': pronta[0] if pronta else None, 'encerramento': enc[-1] if enc else None})
+    return o
+
+
+def ler_log(caminho, data):
+    """Métricas do pré-registro (T3) para o dia da eleição `data` (dd/mm/aaaa), somando todos os logs do pacote."""
+    partes = [_metricas(b, data) for b in _linhas_log(caminho)]
+    partes = [p for p in partes if p['computados'] or p['habilitados'] or p['pronta']]
+    out = {'logs_no_pacote': len(partes)}
+    for k in ('computados', 'habilitados', 'A2_antes', 'A2_depois', 'A3_sem_habilitacao', 'A4_menos_2s', 'A5_rajadas', 'erros'):
+        out[k] = sum(p[k] for p in partes)
+    out['urnas_no_log'] = len(set().union(*[p['urnas'] for p in partes])) if partes else 0
+    out['contingencia'] = any(p['contingencia'] for p in partes)
+    out['maior_sequencia_rapida'] = max([p['maior_sequencia_rapida'] for p in partes] or [0])
+    dur = sorted(x for p in partes for x in p['dur'])
     out['dur_mediana'] = dur[len(dur) // 2] if dur else None
     out['dur_min'] = dur[0] if dur else None
-    out['primeiro_voto'] = comp[0] if comp else None
-    out['ultimo_voto'] = comp[-1] if comp else None
-    out['msgs_contingencia'] = sum(1 for t, a, m in ev if 'conting' in m.lower() or 'substitu' in m.lower() or 'cédula' in m.lower())
-    out['erros'] = sum(1 for l in linhas if l.startswith(data) and '\tERRO\t' in l)
+    vs = [p for p in partes if p['computados']]
+    out['primeiro_voto'] = min((p['primeiro_voto'] for p in vs), default=None)
+    out['ultimo_voto'] = max((p['ultimo_voto'] for p in vs), default=None)
+    out['encerramento'] = max((p['encerramento'] for p in partes if p['encerramento'] is not None), default=None)
+    out['pronta'] = min((p['pronta'] for p in partes if p['pronta'] is not None), default=None)
     return out

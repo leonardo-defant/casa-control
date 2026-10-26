@@ -4,6 +4,8 @@ Esperado por seção: beta-binomial com média igual à taxa das outras seções
 (ou do município, se o local tiver uma seção só) e superdispersão rho por método dos momentos.
 Uso: python3 -I analisar_zeros.py <secoes.json.gz> <turno 1|2> [--ufs AC,AM] [--chaves lista.txt]
 """
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, json, math, sys
 import numpy as np
 from lib import carregar, chave_local
