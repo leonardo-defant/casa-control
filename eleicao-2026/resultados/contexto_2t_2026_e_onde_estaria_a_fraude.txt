@@ -1,0 +1,61 @@
+Contexto do 2º turno de 2026 e onde a fraude deixaria marca (26/10, noite). Pesquisa em 4 frentes com verificador independente por frente
+(147 afirmações conferidas: 144 confirmadas ou só com fonte inacessível, 3 não confirmadas em detalhe, 1 contradita e corrigida).
+Fontes completas em contexto_2t_2026_pesquisa_verificada.json.
+
+1) O contexto, conferido
+- Câmara: PL 121 deputados, a maior bancada de um partido desde 1988 (não da história: o PMDB fez 260 em 1986). Agência Brasil, Congresso em Foco.
+- Senado 2027: PL 29 de 81 (maior bancada em início de legislatura desde 1988); PL+PP+União+Republicanos+Novo+Podemos = 50 de 81; o
+  Poder360 classifica 49 de 81 como "mais à direita". Agência Senado 25/10; Poder360.
+- Governadores eleitos no 1º turno (21 UFs, com o RJ): 12 apoiaram Flávio (GO, MT, MS, MG, PA, PR, RJ, RS, RO, RR, SC, SP), 5 apoiaram
+  Lula (BA, CE, PB, PI, SE), 4 neutros (AL, AP, MA, PE). O Povo 16/10.
+- Eliminados: Zema (05/10), Caiado (06/10), Clariana (07/10), Cury (08/10, condicionado a 8 compromissos; em 05/10 tinha dito neutralidade)
+  e Grassi apoiaram Flávio; Renan Santos liberou os eleitores; Samara, Hertz e Edmilson foram de Lula (voto crítico); o PCO, nulo.
+- Temer apoiou Flávio (05/10). União+PP, Novo, Republicanos e Podemos com Flávio; MDB dividido (17 de 27 diretórios com Flávio).
+- Trackings: os "4 a 6 pontos" vêm de um interlocutor anônimo no Metrópoles (21/10); no dia seguinte o mesmo jornal deu o tracking
+  principal do PL com Flávio +3. Os do PT davam 50 x 50, Lula +1 (Edinho Silva, 23/10) e Lula 50,6 x 49,4 (Rafael Fonteles, 24/10).
+- Pesquisas da véspera: 11 de 12 institutos com Flávio à frente nos válidos (50,1 a 52); só o Vox Brasil com Lula.
+- Prorrogação: o PT pediu na Bahia às 13h22 e ampliou às 15h42; a campanha de Flávio pediu às 15h50 em 19 cidades de SP, PR e SC. A
+  coligação de Lula foi ao STF (Reclamação 101.673, falta de ônibus em Salvador, Feira e Lauro de Freitas); relator sorteado às 16h33:
+  Cristiano Zanin, ex-advogado de Lula na Lava Jato, indicado por ele ao STF. Liminar às 17h03 até as 19h, só nas seções ainda abertas.
+  O TSE (presidente Nunes Marques, indicado por Bolsonaro) suspendeu a divulgação às 17h06 com 1.225 de 499.248 seções (0,25%; Lula
+  57,66% nessa parcial do exterior, BA, GO, CE, MA, PA) e retomou às 19h.
+- Votos depois das 17h no 2º turno: cerca de 34 a 35,5 mil (0,027% dos votantes; levantamentos da Setup News/CNN e do g1 nos logs). No 1º
+  turno, sem prorrogação, 3,72 milhões votaram depois das 17h (filas).
+- Depois: Flávio disse em 25/10 que pediria a anulação (prorrogação e fiscais "retirados da sala-cofre", sem estado, seção ou número);
+  o jurídico descartou a anulação em 26/10. O TSE diz que dois fiscais do PL acompanharam o teste de integridade e a totalização.
+
+2) As anomalias que ficam de pé dentro de 2026
+(a) Lula ganhou mais votos e mais pontos que Flávio em todas as 27 UFs (T38).
+(b) Os 12 institutos subestimaram Lula no 2º turno (mediana +2,7 pontos), depois de acertá-lo no 1º (mediana +0,2).
+(c) Entre as bases do 1º turno dos dois finalistas, a urna mostra um saldo de cerca de 2,2 milhões para Lula (5,0% dos eleitores de Flávio
+    para Lula, 1,1% dos de Lula para Flávio; regressão do T8, amostra). As pesquisas declaravam vazamento simétrico: PoderData 23-24/10
+    5% e 5%; 19-21/10 3% e 4%; Ipespe 13-15/10 2% e 1%; Nexus 98% de fidelidade dos dois lados. Saldo declarado: de 0 a 0,6 milhão.
+(d) Eleitores dos eliminados que escolheram um finalista: urna 52,2% Lula (EP 1,7); declarado 32% (Ipespe 13-15/10), 37% (Datafolha
+    13-14/10 e PoderData 23-24/10), 41% (Quaest 17-20/10), 44% (AtlasIntel 13-18/10). A urna fica acima de todos, por 8 a 20 pontos.
+(e) Em contrapartida, onde a urna e a declaração CONCORDAM: eleitores que não votaram no 1º turno (urna 60% Lula; PoderData 59%) e quem
+    votou branco/nulo no 1º turno (urna 67%; PoderData 66%).
+    Ou seja: a diferença entre o resultado e as pesquisas está toda no eleitorado de direita do 1º turno (base de Flávio e eleitores dos
+    eliminados, cerca de 3 milhões somados) e não no branco/nulo nem nos novos votantes.
+
+3) Onde a fraude deixaria marca, e o que apareceu
+- Na totalização (a pausa das 17h06 às 19h): os boletins de cada seção saem assinados pela urna e somam o total oficial (T1, 13
+  municípios inteiros, diferença zero; T18, 3.897 assinaturas válidas). Mudar números ali quebraria assinatura ou soma. Nada. A conta
+  completa (todos os boletins contra o total) roda quando sair o bweb.
+- Na prorrogação: cerca de 35 mil votos depois das 17h não mexem numa margem de 4,43 milhões.
+- Forma A (branco/nulo virando 13): onde a urna e a declaração concordam é justamente no branco/nulo do 1º turno (item e). Nas 6 UFs com
+  governador no 2º turno, o branco/nulo de presidente não encolheu frente ao de governador do 1º para o 2º turno (T5: 0,305 para 0,328;
+  T39: razão subiu nas 6). Datafolha declarava 3% de branco/nulo; foram 3,24%.
+- Forma B (troca de Flávio para Lula no programa): a diferença está mesmo na base de direita (item e), que é onde a forma B atuaria. Mas
+  (i) T22b: na mesma urna, o candidato a governador do campo de Flávio perdeu tantos eleitores do 1º turno quanto ele (5,9% contra 4,8%);
+  uma troca só no presidente pouparia o governador; (ii) entre UFs a virada foi menor onde Flávio é mais forte, o contrário da forma B;
+  (iii) nenhum efeito de modelo de urna (T17), de horário ou de contagem (T30), e o mesmo programa em todas (T10).
+- O que explica o item (e) sem fraude, e precisa ser testado: troca de eleitores entre turnos. Cerca de 11% dos votantes do 2º turno não
+  tinham votado no 1º (PoderData), o que dá cerca de 11 milhões que votaram no 1º e não no 2º. Se os que saíram eram mais de direita e
+  os que entraram mais de Lula (PoderData: 50 x 35), a regressão vê isso como "eleitor de Flávio que foi para Lula", e a pergunta de
+  fidelidade das pesquisas não vê (só entrevista quem vai votar). A ponderação pelo resultado do 1º turno que o PoderData passou a usar em
+  13/10 puxaria as pesquisas para Flávio nesse caso. Indício na amostra (exploratório): dentro do mesmo local, o comparecimento subiu
+  menos onde Flávio era mais forte (-0,022 ponto do eleitorado por ponto da fatia de Flávio, EP 0,010).
+  Isso também explica o T22b: quem falta não vota para governador.
+- O que sobra para a tese: um desvio que poupasse os 6 estados com governador no 2º turno, ou que agisse também no governador. O T16 (piso
+  por UF), o T34 (divisa) e a conta completa dos boletins (bweb) olham isso. E a divergência do teste de integridade do DF, cuja direção
+  não foi divulgada.
