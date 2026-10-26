@@ -43,3 +43,13 @@ T37 (eliminados, urna x declarado): ERRO DE DESENHO NO REGISTRO. Na especificaç
   milhão de votos. A forma B (s de 3 a 4%) explicaria cerca de 2 pontos disso; a forma A, se metade do "nenhum" declarado virasse 13,
   levaria a 53%. Também combina com voto escondido em Lula entre esses eleitores. Os cruzamentos dos demais institutos estão sendo
   buscados.
+
+Desenho entre UFs (descritivo, 27 UFs, totais oficiais): variação da margem de Flávio entre turnos (pontos) contra a composição do 1º turno.
+  correlação com a fatia de Lula no 1T -0,70; com a de Flávio +0,70; com o branco+nulo do 1T (% do comparecimento) -0,70;
+  com a fatia dos eliminados +0,30; com a variação do comparecimento -0,25.
+  Regressão margem ~ Flávio 1T + branco/nulo 1T + eliminados: branco/nulo -0,54 por ponto; Flávio +0,04; eliminados +0,03 (R2 0,62).
+  Leitura para a tese: a forma B pura (troca proporcional aos votos de Flávio) mexeria mais onde Flávio é forte, e foi o contrário. O que
+  explica a virada entre UFs é o tamanho do branco e nulo do 1º turno: onde havia mais, Lula virou mais. É o que a forma A faria
+  (converter branco e nulo em 13) e também o que faria o eleitor de branco e nulo do 1º turno votando em Lula no 2º. Não separa as duas.
+  O branco e nulo de presidente SUBIU entre turnos em 5 das 6 UFs com 2º turno de governador (AM, DF, ES, TO, AC; caiu no RN) e caiu nas 21
+  sem. O comparecimento caiu forte no AP (-9,8%), RR (-7,3%) e AC (-7,1%), o que explica Flávio perder votos absolutos ali.
