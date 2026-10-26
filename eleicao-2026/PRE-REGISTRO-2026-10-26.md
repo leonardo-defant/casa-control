@@ -105,3 +105,32 @@ Consequências, registradas antes dos dados:
 - O "perto de +0,5" do documento só vale se a conversão variar muito de urna para urna (por exemplo, concentrada em parte delas). Uma conversão uniforme quase não mexe neste coeficiente, porque a variação natural da queda do branco/nulo de governador domina.
 - Critério mantido para conversão concentrada: coeficiente acima de +0,25 e a mais de 3 erros-padrão da referência de 2022 é sinal a favor da tese.
 - Para conversão uniforme, este teste é fraco. Um coeficiente de 2026 até +0,10 (município) ou +0,06 (local) não distingue conversão uniforme grande de ausência de conversão.
+
+## Adendo 3 (26/10, a pedido do Léo, antes de olhar fluxos do 2º turno de 2026 por seção): de onde vieram os votos, seção por seção
+
+Pergunta: a soma nacional não diz quem entrou e quem saiu. Dentro de cada seção, os eleitores são os mesmos inscritos, na mesma urna, nos dois turnos. Isso permite medir se o ganho de um candidato cabe no "bolo" disponível naquela seção.
+
+### T7. Ganho além do bolo da seção
+
+- Para cada seção com os dois turnos: bolo = votos dos outros candidatos no 1º turno + queda do branco+nulo (se houver) + aumento do comparecimento (se houver).
+- Excesso do candidato que mais ganhou = ganho dele na seção menos o bolo. Excesso positivo só é possível se eleitores do adversário no 1º turno mudaram de lado, ou se houve troca de eleitores (gente que votou no 1º e faltou no 2º, substituída por gente que faltou no 1º e votou no 2º).
+- Estatísticas: (a) % das seções com excesso positivo; (b) soma dos excessos positivos como % do ganho total do candidato.
+- Referências: 2018 (Haddad, que mais ganhou) e 2022 (Bolsonaro, que mais ganhou). 2026: Lula.
+- **Sinal:** (a) e (b) de 2026 acima do maior valor das referências em mais de 5 pontos.
+- **Sem sinal:** (a) e (b) até 2 pontos acima do maior valor das referências.
+- Entre os dois: inconclusivo.
+- **Limite:** não testa a tese do branco/nulo (voto convertido aparece como queda do branco/nulo, que está dentro do bolo). Testa a pergunta "Lula precisaria de mais do que havia para ganhar".
+
+### T8. Regressão de fluxo por seção, dentro do mesmo local
+
+- Ganho de votos do candidato na seção contra: votos de cada outro candidato no 1º turno (2026: Renan Santos, Caiado, Zema, Cury e demais, separados), queda do branco+nulo, variação do comparecimento e votos do próprio adversário no 1º turno; efeito fixo de local, erro agrupado por local.
+- Leitura: cada coeficiente estima a fração daquele grupo que foi para o candidato (inferência ecológica, não comportamento individual). Coeficientes fora de 0 a 1 por mais de 3 erros-padrão indicam que o modelo não descreve os dados.
+- **Sinal:** ganho de Lula que só se explica com coeficiente de queda do branco+nulo acima de 1 ou com coeficiente acima de 1 para algum grupo, ou um ganho grande em seções sem bolo (constante).
+- **Limite:** inferência ecológica; dois grupos que moram nas mesmas seções não se separam bem.
+
+### T9. Os eleitores a mais do 2º turno (comparecimento)
+
+- Nas seções da amostra com log e boletim dos dois turnos: habilitações biométricas e não biométricas no 1º e no 2º turno.
+- Se o comparecimento extra viesse de votos inseridos sem o eleitor, ele apareceria como habilitação não biométrica a mais no 2º turno.
+- **Sinal:** aumento da habilitação não biométrica do 1º para o 2º turno que acompanhe, dentro do mesmo local, o aumento do comparecimento e o ganho de Lula.
+- **Limite:** a amostra de logs é pequena (10 municípios); o bweb completo traz só parte desses campos.
