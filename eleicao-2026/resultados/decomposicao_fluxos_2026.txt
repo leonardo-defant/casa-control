@@ -1,0 +1,14 @@
+Cury                                  3.45 mi -> Flavio 1.14  Lula 1.28  nenhum 1.03
+Renan                                 2.68 mi -> Flavio 1.11  Lula 0.41  nenhum 1.15
+Caiado                                2.61 mi -> Flavio 1.12  Lula 0.63  nenhum 0.86
+Zema                                  0.33 mi -> Flavio 0.14  Lula 0.08  nenhum 0.11
+esquerda (PSTU, PCB, PCO)             0.08 mi -> Flavio 0.00  Lula 0.06  nenhum 0.01
+demais (Samara, Clariana, Grassi)     0.18 mi -> Flavio 0.07  Lula 0.07  nenhum 0.04
+total dos outros                      9.32 mi -> Flavio 3.59  Lula 2.53  nenhum 3.20
+
+ganho real: Flavio 3.72 mi, Lula 10.38 mi
+parte do ganho fora dos outros: Flavio +0.14 mi, Lula +7.85 mi
+saldo de eleitores que saíram de branco/nulo/abstenção para um candidato: 7.98 mi (queda BN 1.82 + comparecimento 2.96 + outros que foram para nenhum 3.20)
+fatia desse saldo que teria ido para Lula: 98%  (Flavio 2%)
+se Flavio tivesse -12 pontos entre os outros: Lula precisaria de 84% do saldo de eleitores que saíram de BN/abstenção
+se Flavio tivesse +12 pontos entre os outros: Lula precisaria de 112% do saldo de eleitores que saíram de BN/abstenção
