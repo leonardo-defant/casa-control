@@ -121,6 +121,8 @@ def rdv_para_bu(c):
             r['L' if (cod == 1 and n == ESQ) else 'R' if (cod == 1 and n == DIR) else 'O' if cod == 1 else 'V'] += q
         elif tipo == 3: r['B'] += q
         elif tipo == 4: r['N'] += q
+        elif tipo == 6:  # nulo sem dígitos (o boletim conta como nulo); contado também à parte
+            r['N'] += q; r['nulo_tipo6'] += q
         else: r[f'tipo{tipo}'] += q
         r['total'] += q
     return res
