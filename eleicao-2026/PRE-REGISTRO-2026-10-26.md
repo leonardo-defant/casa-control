@@ -150,3 +150,20 @@ Simulação em 2022 (troca uniforme de uma fração dos votos do adversário par
 | 6% | 35,76% | 6,92% |
 
 Leitura registrada antes dos dados: na amostra nacional de 2026, um resultado perto de 35% das seções e 7% do ganho seria compatível com a troca que a Veritá implica; perto de 5% a 9% das seções e 1% a 1,5% do ganho, incompatível. O critério do adendo 3 continua valendo.
+
+## Adendo 5 (26/10, antes de rodar): T10, o programa da urna mudou entre os turnos?
+
+Tese do Léo nesta etapa: o sistema da urna foi corrompido com um desvio programado previamente, que aparece como alteração entre o 1º e o 2º turno.
+
+O log de cada urna do 2º turno traz o histórico dela desde a carga (verificado numa seção do Acre): carga em setembro, votação do 1º turno, transição para o 2º turno e votação do 2º turno. Em cada inicialização, o log registra a versão do aplicativo, a data de geração da mídia de votação, a verificação de assinatura de cada componente e, na transição, a data de geração da mídia de resultado com a informação de candidatura do 2º turno.
+
+Medidas por urna da amostra:
+- V1: versões do aplicativo registradas (todas as inicializações).
+- V2: data de geração da mídia de votação usada no dia do 1º turno e no dia do 2º turno.
+- V3: alguma etapa de verificação de assinatura sem SUCESSO, em qualquer data.
+- V4: componentes verificados no dia do 2º turno que não foram verificados no dia do 1º turno (arquivo novo).
+- V5: data de geração da mídia de resultado do 2º turno.
+
+**Bandeira vermelha:** versão diferente entre urnas ou entre turnos sem explicação (urna de contingência ou recarga registrada); mídia de votação regerada depois do 1º turno sem explicação; qualquer verificação de assinatura sem SUCESSO; componente de programa novo no 2º turno.
+
+**Limite:** o log é escrito pelo próprio programa; um programa malicioso assinado com a chave oficial passaria neste teste. O teste só pega troca de programa, não código malicioso já embutido na versão oficial. Isso só se testa com inspeção de código, teste de integridade e teste de autenticidade.

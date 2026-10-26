@@ -1,0 +1,30 @@
+2018: resultado do candidato de esquerda 44.87% dos validos
+   Datafolha          45.35%  erro -0.48 (positivo = esquerda teve mais que a pesquisa)
+   Ibope              46.59%  erro -1.72 (positivo = esquerda teve mais que a pesquisa)
+   CNT/MDA            43.27%  erro +1.60 (positivo = esquerda teve mais que a pesquisa)
+   erro medio -0.20 pontos
+
+2022: resultado do candidato de esquerda 50.90% dos validos
+   Datafolha          52.13%  erro -1.23 (positivo = esquerda teve mais que a pesquisa)
+   Ipec               53.76%  erro -2.86 (positivo = esquerda teve mais que a pesquisa)
+   Quaest             51.69%  erro -0.79 (positivo = esquerda teve mais que a pesquisa)
+   AtlasIntel         53.41%  erro -2.51 (positivo = esquerda teve mais que a pesquisa)
+   CNT/MDA            51.09%  erro -0.19 (positivo = esquerda teve mais que a pesquisa)
+   Parana Pesquisas   50.43%  erro +0.47 (positivo = esquerda teve mais que a pesquisa)
+   erro medio -1.18 pontos
+
+2026: resultado do candidato de esquerda 51.79% dos validos
+   Datafolha          49.47%  erro +2.32 (positivo = esquerda teve mais que a pesquisa)
+   Quaest             49.45%  erro +2.34 (positivo = esquerda teve mais que a pesquisa)
+   AtlasIntel         49.24%  erro +2.55 (positivo = esquerda teve mais que a pesquisa)
+   CNT/MDA            49.29%  erro +2.50 (positivo = esquerda teve mais que a pesquisa)
+   Nexus/BTG          49.46%  erro +2.33 (positivo = esquerda teve mais que a pesquisa)
+   Verita             48.45%  erro +3.34 (positivo = esquerda teve mais que a pesquisa)
+   Gerp (validos)     48.00%  erro +3.79 (positivo = esquerda teve mais que a pesquisa)
+   Futura (validos)   49.90%  erro +1.89 (positivo = esquerda teve mais que a pesquisa)
+   erro medio +2.63 pontos
+
+2026 menor previsao (Gerp 48%): Lula previsto 59.56 mi -> ganho previsto entre turnos +5.68 mi; real +10,38 mi; parte nao prevista 4.70 mi
+2026 Verita 48,44%: Lula previsto 60.11 mi -> ganho previsto entre turnos +6.23 mi; real +10,38 mi; parte nao prevista 4.15 mi
+2026 Datafolha 49%: Lula previsto 60.80 mi -> ganho previsto entre turnos +6.92 mi; real +10,38 mi; parte nao prevista 3.46 mi
+2026 maior previsao (Futura 49,9%): Lula previsto 61.92 mi -> ganho previsto entre turnos +8.04 mi; real +10,38 mi; parte nao prevista 2.34 mi
