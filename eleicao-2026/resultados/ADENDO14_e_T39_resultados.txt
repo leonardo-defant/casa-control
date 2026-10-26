@@ -1,0 +1,35 @@
+Adendo 14 e T39, estrato G (2.400 seções de AC, AM, DF, ES, RN, TO; todas com boletim e com 1º turno). Rodado em 26/10 ~21h50 UTC com
+o script fixado antes de abrir os boletins (commits 05a2a30 e f793d16). Download 20h33 a 21h45 UTC, zero erros.
+
+T22b (troca só no voto de presidente?), AM 22, DF 11, ES 10, 1.499 seções, 202 locais:
+  perda dos próprios eleitores do 1º turno: Flávio -0,048 (EP 0,009); candidato a governador do campo dele -0,059 (EP 0,025).
+  D = +0,011 (EP 0,022). Veredito pela letra: SEM SINAL (|D| até 0,015). Intervalo de 95%: -0,032 a +0,054. Uma troca de 3 a 4% só no
+  presidente daria D perto de -0,03 a -0,04, a 1,9 a 2,3 erros-padrão do observado: pesa contra, sem excluir.
+  Por UF: AM Flávio -0,094, aliado -0,132; DF -0,046 e -0,039; ES -0,033 e -0,073. O aliado perdeu tanto quanto Flávio, ou mais.
+  Leitura: na mesma urna, os eleitores do campo de Flávio no 1º turno saíram também do governador do campo dele. É o que acontece quando
+  o eleitor muda (ou falta); uma troca feita pelo programa só no presidente deixaria o governador intacto.
+
+T5 no 2º turno (6 UFs): beta 0,328 (EP 0,017), gama -0,047 (EP 0,050). Referências de 2º turno 0,468 (2018) e 0,401 (2022): 0,6 x 0,401 =
+  0,241 e 0,85 x 0,401 = 0,341. Veredito pela letra: INCONCLUSIVO (entre os dois).
+  Mesmo teste no 1º turno das MESMAS seções (descritivo, comparação dentro de 2026): beta 0,305 (EP 0,014), gama -0,064 (EP 0,047).
+  Uma conversão uniforme de uma fração X do branco e nulo de presidente em 13 só no 2º turno multiplica beta por (1 - X) e sobe gama
+  em cerca de X vezes beta. Para virar o resultado, X teria de ser pelo menos 52% (T5): beta cairia para cerca de 0,15 e gama subiria
+  cerca de 0,16. Observado: beta 0,305 para 0,328 (razão 1,08) e gama -0,064 para -0,047. Nas 6 UFs, nada disso aconteceu.
+
+T39 (descritivo), branco+nulo de presidente / de governador nas mesmas seções:
+  UF | pres 1T | gov 1T | R(1) | pres 2T | gov 2T | R(2) | R(2)/R(1)
+  AC | 4,39 | 10,68 | 0,411 | 4,91 | 9,42 | 0,521 | 1,27
+  AM | 2,76 | 7,16 | 0,386 | 3,23 | 5,06 | 0,640 | 1,66
+  DF | 3,10 | 8,29 | 0,379 | 3,36 | 6,88 | 0,493 | 1,30
+  ES | 4,33 | 10,39 | 0,417 | 4,72 | 8,36 | 0,564 | 1,35
+  RN | 4,45 | 8,36 | 0,532 | 3,68 | 5,30 | 0,694 | 1,30
+  TO | 3,46 | 12,04 | 0,288 | 4,42 | 8,58 | 0,515 | 1,79
+  todas | 3,71 | 9,10 | 0,409 | 3,92 | 6,82 | 0,576 | 1,41
+  A conversão só no presidente baixaria R(2). Subiu nas 6.
+
+T22 (descritivo, AM e DF): virada média de Lula +2,6 (AM) e +3,0 (DF) pontos; do governador do campo de Lula -0,5 (Omar Aziz) e +1,8
+  (Leandro Grass); inclinação 0,14 (EP 0,03) e 0,26 (EP 0,04).
+
+O que sobra para a tese nestas 6 UFs: um desvio que poupasse justamente os estados com 2º turno de governador (onde a mesma urna dá
+referência), ou que mexesse também no voto de governador a favor do campo de Lula. Os dois deixariam outra marca: o primeiro, uma diferença
+entre estes 6 e os outros 21 que o T16 e o T34 (com o bweb) podem ver; o segundo, governadores do campo de Lula ganhando além do esperado.
