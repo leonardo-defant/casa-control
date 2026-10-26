@@ -1,0 +1,5 @@
+2T: secoes com boletim 3897 com rdv 835 com log 3897 problemas 6
+validacao 1T: secoes 80 iguais 80 diferentes 0
+T2 turno 2: secoes 835, com diferenca 0
+T2 turno 1: secoes 0, com diferenca 0
+T3 turno 2: secoes 3897; secoes com cada anomalia: {'A1_dif_comp': 0, 'A2_antes': 0, 'A2_depois': 0, 'A3_sem_habilitacao': 0, 'A4_menos_2s': 0, 'A5_rajadas': 0}; total A4 0

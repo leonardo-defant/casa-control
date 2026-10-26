@@ -1,0 +1,45 @@
+{
+ "urnas": 3873,
+ "urnas_fora_por_log_incompleto": 24,
+ "totais": {
+  "hab1": 975952,
+  "nb1": 119424,
+  "jan1": 168236,
+  "nbjan1": 20304,
+  "hab2": 996603,
+  "nb2": 124027,
+  "jan2": 89443,
+  "nbjan2": 11292
+ },
+ "turno1": {
+  "pct_sem_biometria_no_dia": 12.23666737708412,
+  "pct_sem_biometria_na_janela": 12.068760550655032,
+  "pct_das_sem_biometria_que_caem_na_janela": 17.0016077170418,
+  "pct_das_habilitacoes_na_janela": 17.238142859484892
+ },
+ "turno2": {
+  "pct_sem_biometria_no_dia": 12.444975582052232,
+  "pct_sem_biometria_na_janela": 12.624800152052146,
+  "pct_das_sem_biometria_que_caem_na_janela": 9.104469188160643,
+  "pct_das_habilitacoes_na_janela": 8.974787352636907
+ },
+ "pareado_janela": {
+  "urnas_com_5_ou_mais_na_janela_nos_dois": 3843,
+  "media_pontos": 0.49318447425942286,
+  "ep": 0.13166961479846165
+ },
+ "ganho_lula_por_habilitacao": {
+  "coef": {
+   "var_sem_bio_janela": 0.4726507770511446,
+   "var_bio_janela": 0.4734151280938849,
+   "var_antes_da_janela": 0.5092607617559353
+  },
+  "ep": {
+   "var_sem_bio_janela": 0.04163973241544905,
+   "var_bio_janela": 0.020934298742705762,
+   "var_antes_da_janela": 0.018434080964957817
+  },
+  "n": 3756,
+  "locais": 623
+ }
+}

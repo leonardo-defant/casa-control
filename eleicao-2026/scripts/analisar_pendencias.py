@@ -13,7 +13,10 @@ que guardam papéis anteriores da urna, são blocos diferentes):
                      nova; ou mídia nova com contingência de mídia de votação registrada em 24 ou 25/10.
   mr_fora            MR só de aplicativos (sem VOTA); MR lida numa carga de urna de contingência do 2º turno;
                      carga nova (SCUE) da urna no mesmo bloco entre a geração da MR e a primeira leitura; recuperador
-                     de dados no mesmo bloco entre a geração e a leitura.
+                     de dados no mesmo bloco entre a geração e a leitura. Duas regras acrescentadas depois de ver a
+                     amostra inteira (a janela de 10 a 15/10 veio só das 835 primeiras urnas): sessão de geração da
+                     zona (outra urna sorteada da zona com MR do mesmo computador, até 1 dia de diferença) e MR gerada
+                     por computador da própria zona (nome Z + UF + zona).
 Depois confere, em todos os boletins da amostra, que os únicos votáveis de presidente são 13 e 22 e que os de
 governador formam o mesmo par dentro de cada UF.
 Uso: python3 -I analisar_pendencias.py <pasta_arq_2t> <T10_software.json> <secoes2026_1t.json.gz> <amostra_2t.json.gz>
@@ -45,7 +48,7 @@ def ler(caminho):
     for bl in _linhas_log(caminho):
         b = {'modo_carga': [], 'contingencia_mv': [], 'contingencia_executada': [], 'recuperador': [], 'carga_scue': [],
              'midias': collections.defaultdict(set), 'mrs': []}
-        modo = None; apps = None
+        modo = None; apps = None; comp = None
         for l in bl:
             x = l.split('\t')
             if len(x) < 5:
@@ -67,9 +70,12 @@ def ler(caminho):
                 b['midias'][x[0][:10]].add(msg[len(MIDIA):])
             if msg.startswith(APPS):
                 apps = msg.split('MR', 1)[1].strip()
+            if msg.startswith('MR gerada pelo computador: '):
+                comp = msg.split(': ', 1)[1]
             if msg.startswith(MR):
                 ger = msg.split(': ', 1)[-1]
-                b['mrs'].append({'gerada': ger, 'gerada_dh': dh(ger), 'lida': t, 'apps': apps, 'modo': modo}); apps = None
+                b['mrs'].append({'gerada': ger, 'gerada_dh': dh(ger), 'lida': t, 'apps': apps, 'modo': modo, 'computador': comp})
+                apps = None; comp = None
         blocos.append(b)
     return blocos
 
@@ -106,7 +112,7 @@ def explica_midia(blocos):
     return ['SEM EXPLICACAO: mídia nova sem contingência de mídia de votação']
 
 
-def explica_mr(blocos, fora, u1, u2):
+def explica_mr(blocos, fora, u1, u2, sessoes=None, zona=None, urna=None):
     e = []
     for g in fora:
         lid = [(i, r) for i, b in enumerate(blocos) for r in b['mrs'] if r['gerada'] == g]
@@ -129,6 +135,21 @@ def explica_mr(blocos, fora, u1, u2):
         rec = [t for t in blocos[i0]['recuperador'] if gdh and gdh <= t <= r0['lida']]
         if rec:
             e.append(f'MR de {g[:10]} com recuperador de dados no mesmo bloco antes da leitura'); continue
+        # regra acrescentada depois de ver a amostra inteira (a janela de 10 a 15/10 veio só das 835 primeiras):
+        # a MR faz parte da sessão de geração da zona se outra urna sorteada da mesma zona tem MR de votação do
+        # mesmo computador gerada até 1 dia antes ou depois
+        if sessoes is not None and gdh:
+            outras = [u for u, c, d in sessoes.get(zona, []) if u != urna and c == r0['computador'] and abs((d - gdh).days) <= 1]
+            if outras:
+                e.append(f'MR de {g[:10]} da sessão de geração da zona (computador {r0["computador"]}, mais {len(set(outras))} urna(s) da amostra)')
+                continue
+        # última regra, também acrescentada depois de ver a amostra inteira: MR gerada por computador da própria zona
+        # (convenção de nome Z + UF + número da zona, por exemplo ZSP026STD11 para a zona 26 de SP)
+        if zona and r0['computador']:
+            uf_, _, zn = zona.split('/')
+            if r0['computador'].upper().startswith(f'Z{uf_.upper()}{int(zn):03d}'):
+                e.append(f'MR de {g[:10]} gerada por computador da própria zona ({r0["computador"]}), fora da sessão das outras urnas')
+                continue
         e.append(f'SEM EXPLICACAO: MR de {g[:10]} com {sorted(map(str, apps))}')
     return e
 
@@ -137,6 +158,16 @@ def main():
     pasta, t10, base1, amostra = sys.argv[1:5]
     por = json.load(open(t10))['por_urna']
     d1 = carregar(base1); am = carregar(amostra)
+    # primeira passada: sessões de geração de MR de votação por zona (computador e data), para todas as urnas
+    sessoes = collections.defaultdict(list); cache = {}
+    for k in por:
+        p = os.path.join(pasta, k)
+        lg = sorted(f for f in os.listdir(p) if f.endswith('-log.jez'))
+        cache[k] = ler(os.path.join(p, lg[-1]))
+        for b in cache[k]:
+            for r in b['mrs']:
+                if r['apps'] and 'VOTA' in r['apps'] and r['gerada_dh'] and r['gerada_dh'] >= datetime.datetime(2026, 10, 5):
+                    sessoes['/'.join(k.split('/')[:3])].append((k, r['computador'], r['gerada_dh']))
     linhas = []
     for k, v in sorted(por.items()):
         tipos = []
@@ -147,9 +178,7 @@ def main():
         if fora: tipos.append('mr_fora')
         if not tipos:
             continue
-        p = os.path.join(pasta, k)
-        lg = sorted(f for f in os.listdir(p) if f.endswith('-log.jez'))
-        blocos = ler(os.path.join(p, lg[-1]))
+        blocos = cache[k]
         uf, mun, zona, sec = k.split('/')
         chave = f'{uf.upper()}|{int(mun)}|{int(zona)}|{int(sec)}'
         u1 = d1.get(chave, {}).get('1', {}).get('urna'); u2 = am.get(chave, {}).get('2', {}).get('urna')
@@ -160,7 +189,7 @@ def main():
         if 'midia_diferente' in tipos:
             expl['midia_diferente'] = explica_midia(blocos)
         if 'mr_fora' in tipos:
-            expl['mr_fora'] = explica_mr(blocos, fora, u1, u2)
+            expl['mr_fora'] = explica_mr(blocos, fora, u1, u2, sessoes, '/'.join(k.split('/')[:3]), k)
         ok = all(expl[t] and not any(x.startswith('SEM EXPLICACAO') for x in expl[t]) for t in tipos)
         linhas.append({'secao': k, 'pendencias': tipos, 'explicacao': expl, 'notas': notas, 'explicada': ok,
                        'urna_1t_bweb': u1, 'urna_2t_bu': u2, 'blocos_de_log': len(blocos)})

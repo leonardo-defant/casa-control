@@ -1,0 +1,7 @@
+logs analisados: {'urnas': 3897, 'com_1t_no_log': 3855, 'contingencia': 52}
+versoes do aplicativo: {'10.23.0.0 - Praia da Barra do Cahy': 3897}
+midia de votacao igual no dia do 1T e do 2T (igual, midia lida no dia do 1T, 1T no log): {(True, True, True): 3842, (False, False, False): 42, (False, False, True): 10, (False, True, True): 2, (True, False, True): 1}
+datas de geracao das midias de resultado (dia): {'02/10/2026': 1, '04/10/2026': 2, '10/10/2026': 335, '11/10/2026': 274, '12/10/2026': 391, '13/10/2026': 943, '14/10/2026': 952, '15/10/2026': 693, '16/09/2026': 1, '16/10/2026': 182, '17/09/2026': 11, '17/10/2026': 36, '18/09/2026': 8, '18/10/2026': 35, '19/09/2026': 3, '19/10/2026': 27, '20/09/2026': 3, '20/10/2026': 27, '21/09/2026': 3, '21/10/2026': 21, '22/09/2026': 2, '22/10/2026': 14, '23/09/2026': 3, '23/10/2026': 1, '24/09/2026': 4, '24/10/2026': 1, '25/09/2026': 2, '27/09/2026': 1, '28/09/2026': 1, '29/09/2026': 3}
+urnas com verificacao de assinatura sem SUCESSO: 1 [('pb/21873/0033/0098', ['22/09/2026 10:16:58 Verificação de assinatura - Etapa [26] - [/dsk/fe/estatico/infomidia.vsc] - [ERRO]'])]
+urnas com componente novo no 2T: 0 []
+logs ilegiveis: 0

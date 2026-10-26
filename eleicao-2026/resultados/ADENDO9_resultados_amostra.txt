@@ -131,6 +131,49 @@ T33. Pesquisas em votos totais (ver T33_pesquisas_votos_totais.txt)
 Pendentes: T15, T16, T21, T22,
 T23, T27, T28, T29, T31 e T32 dependem do bweb; T24, T25 e T26 dependem de dado externo.
 
+Amostra inteira com logs (Adendos 12 e 13; logs das 3.897 seções; mesmos códigos e critérios)
+  T3, horários e ritmo (3.897 seções): zero voto computado diferente do comparecimento, zero antes da abertura ou
+    depois do encerramento, zero sem habilitação, zero com menos de 2 segundos, zero rajada. SEM SINAL.
+  T9, biometria (3.873 seções com o log dos dois dias completo): sem biometria 12,2% das habilitações no 1º turno e
+    12,4% no 2º. Por eleitor a mais, 0,139 (0,016) sem biometria, a mesma proporção da base. Ganho de Lula por
+    habilitação a mais: 0,56 (0,02) sem biometria e 0,51 (0,02) com; votos inseridos levariam o primeiro para perto
+    de 1. SEM SINAL.
+  T10, programa (3.897 urnas): versão 10.23.0.0 em todas; nenhum componente novo no 2º turno; 52 com contingência.
+    Bandeira do critério literal: 1 urna com verificação de assinatura sem SUCESSO (pb/21873/0033/0098). Foi em
+    22/09, na preparação, um mês antes do 1º turno: a urna recusou a mídia externa ("Erro na verificação de
+    integridade do sistema"), foi desligada e religada 2 minutos depois com a mesma mídia, agora verificada com
+    sucesso; no mesmo dia a mídia de votação foi regerada depois de um erro de sincronização. Daí em diante todas as
+    verificações deram SUCESSO, inclusive nos dois dias de votação, com a mesma mídia nos dois turnos. A urna fez o
+    que deve fazer diante de uma falha de verificação. Lida como explicada pelo próprio log.
+  T20, pendências do T10 ampliado (3.897 urnas): 426 pendências, 426 explicadas no próprio log.
+    42 sem o 1º turno no log: em todas, o número da urna mudou entre os turnos (troca); 27 também foram carregadas
+      como contingência no período do 2º turno.
+    13 com mídia de votação diferente ou sem leitura no dia: 12 leram a mesma mídia na véspera; 1 teve contingência
+      de mídia de votação.
+    383 com MR gerada fora de 10 a 15/10. Essa janela veio só das 835 primeiras urnas, não de um calendário oficial.
+      50 são mídias só de aplicativos; 7 foram lidas em cargas de contingência do 2º turno; 5 depois de carga nova
+      da urna; 328 fazem parte da sessão de geração da própria zona (zonas inteiras do AM, do MA e de outras UFs
+      geraram as MR entre 16 e 24/10, todas pelo mesmo computador da zona); 2 foram geradas por computador da própria
+      zona fora da sessão das outras urnas (ma/09113/0060/0060, mesma manhã, outra estação da zona; sp/62499/0026/
+      0044, preparada 3 dias depois das outras, pelo mesmo computador). As duas últimas regras (sessão da zona e
+      computador da própria zona) foram definidas depois de ver estes dados, e isso fica registrado.
+    Votáveis: presidente só 13 e 22 nos 3.897 boletins. Pelo critério: SEM SINAL. Faltam as atas de carga.
+  T30, horário (3.874 seções, 410 municípios), como registrado (efeito fixo de município):
+    12h: +3,7 (1,3), z 2,9; 14h: +5,0 (1,4), z 3,6; 16h: +11,3 (2,7), z 4,2 (CV3: z 2,7, 3,4 e 3,9).
+    Às 14h e às 16h a inclinação passa a parte de valor e de z do critério de sinal; o placebo como registrado
+    continua falhando (+14,2 (3,4), +16,1 (4,8), +16,4 (5,3)), e por isso não é SINAL. Erro-padrão acima de 0,6:
+    SEM PODER pelo critério (o limite de 0,6 não é alcançável nem com 3.874 seções).
+    Robustez do Adendo 12, fixada antes desta rodada:
+      R1, efeito fixo de local (623 locais): +1,8 (0,9), +1,9 (1,2), +5,8 (2,2); placebo por local +7,7, +7,2, +5,2.
+      R2, R1 mais a fatia de Lula no 1º turno: +1,1 (0,9), +1,1 (1,2), +4,1 (2,1), z 1,3, 0,9 e 1,95.
+      Leitura registrada: COMPOSIÇÃO nos três cortes. Às 16h por pouco: o z de 1,95 fica 0,01 abaixo do limite de
+      1,96 da regra. Escala às 16h: só 5,3% dos votos do 2º turno vieram depois das 16h de Brasília; mesmo que a
+      inclinação de 4,1 fosse toda causal, o efeito médio seria de cerca de 0,2 ponto (perto de 270 mil votos),
+      contra 1,79 ponto necessário para decidir.
+  T21(c), descritivo (3.873 urnas): das 15h30 de Brasília em diante, 12,1% das habilitações foram sem biometria no
+    1º turno e 12,6% no 2º; na mesma urna, +0,49 ponto (0,13). A janela pesa menos no 2º turno (9% das habilitações,
+    contra 17% no 1º, que teve fila). Ganho de Lula por habilitação a mais na janela: 0,47 sem biometria e 0,47 com.
+
 Revisão adversarial independente (19 agentes, 4 frentes, cada achado verificado por outro agente)
   Nenhum achado muda um veredito relatado. Corrigido depois dela:
   T18: o vsc verificado passou a ser o listado no -aux.json, com o SHA-256 conferido contra o hash do aux; todo

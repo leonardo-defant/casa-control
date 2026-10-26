@@ -1,0 +1,6961 @@
+{
+ "pendencias": 426,
+ "por_tipo": {
+  "sem_1t_no_log": 42,
+  "mr_fora": 383,
+  "midia_diferente": 13
+ },
+ "explicadas": 426,
+ "nao_explicadas": [],
+ "detalhe": [
+  {
+   "secao": "ac/01473/0005/0015",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2262995) diferente da do 2º (2283919): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 24/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2262995,
+   "urna_2t_bu": 2283919,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "al/27014/0039/0004",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1768436,
+   "urna_2t_bu": 1768436,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "al/28231/0011/0001",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 04/10, 24/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1774022,
+   "urna_2t_bu": 1774022,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "al/28436/0050/0023",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1804257,
+   "urna_2t_bu": 1804257,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "al/28436/0050/0037",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1807867) diferente da do 2º (1674280): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1807867,
+   "urna_2t_bu": 1674280,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "am/02275/0007/0011",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2083023,
+   "urna_2t_bu": 2083023,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0012",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2088303,
+   "urna_2t_bu": 2088303,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0013",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2016862,
+   "urna_2t_bu": 2016862,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0014",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2085452,
+   "urna_2t_bu": 2085452,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0015",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2088368,
+   "urna_2t_bu": 2088368,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0057",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2082984,
+   "urna_2t_bu": 2082984,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0059",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2039525,
+   "urna_2t_bu": 2039525,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0061",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2018148,
+   "urna_2t_bu": 2018148,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02275/0007/0063",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM007WKS44031, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2039435,
+   "urna_2t_bu": 2039435,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02550/0062/0426",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1789395) diferente da do 2º (1843809): troca entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1789395,
+   "urna_2t_bu": 1843809,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02690/0004/0067",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZAM004WKS44061, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2358974,
+   "urna_2t_bu": 2358974,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02690/0004/0068",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZAM004WKS44061, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2349328,
+   "urna_2t_bu": 2349328,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02690/0004/0069",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZAM004WKS44061, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2352754,
+   "urna_2t_bu": 2352754,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02690/0004/0070",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZAM004WKS44061, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2339689,
+   "urna_2t_bu": 2339689,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/02690/0004/0071",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZAM004WKS44061, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2355946,
+   "urna_2t_bu": 2355946,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/98396/0023/0172",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM023WKS44055, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2339294,
+   "urna_2t_bu": 2339294,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/98396/0023/0173",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM023WKS44055, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2350301,
+   "urna_2t_bu": 2350301,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/98396/0023/0174",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM023WKS44055, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2345015,
+   "urna_2t_bu": 2345015,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "am/98396/0023/0187",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZAM023WKS44055, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2350552,
+   "urna_2t_bu": 2350552,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ap/06017/0001/0018",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2016181) diferente da do 2º (2016368): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 01/10/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2016181,
+   "urna_2t_bu": 2016368,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ap/06076/0005/0076",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2237750,
+   "urna_2t_bu": 2237750,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ba/30007/0205/0223",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2225763,
+   "urna_2t_bu": 2225763,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ba/34070/0031/0812",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1764597,
+   "urna_2t_bu": 1764597,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ba/34193/0053/0220",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2424958) diferente da do 2º (2393632): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 19/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2424958,
+   "urna_2t_bu": 2393632,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ba/34193/0053/0223",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2413885) diferente da do 2º (2425383): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 16/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2413885,
+   "urna_2t_bu": 2425383,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ba/34193/0053/0239",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mídia nova (1) com contingência de mídia de votação em 25/10/2026 08:07,25/10/2026 08:08"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2305282,
+   "urna_2t_bu": 2305282,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ba/34193/0053/0274",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2396010) diferente da do 2º (2415284): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 19/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2396010,
+   "urna_2t_bu": 2415284,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ba/34193/0053/0298",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2407010) diferente da do 2º (2425268): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 23/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2407010,
+   "urna_2t_bu": 2425268,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ba/35750/0044/0027",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2233935) diferente da do 2º (2234503): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 01/10/2026,04/10/2026,29/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2233935,
+   "urna_2t_bu": 2234503,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ba/36692/0047/0001",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2255650,
+   "urna_2t_bu": 2255650,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ce/13382/0006/0404",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2248454) diferente da do 2º (2233361): troca entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2248454,
+   "urna_2t_bu": 2233361,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ce/13382/0006/0442",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2207809) diferente da do 2º (2232471): troca entre os turnos"
+    ],
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2207809,
+   "urna_2t_bu": 2232471,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ce/13897/0003/0405",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[VPP]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2335690,
+   "urna_2t_bu": 2335690,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ce/13951/0025/0239",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1657020,
+   "urna_2t_bu": 1657020,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ce/14052/0054/0131",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2240948) diferente da do 2º (2210043): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 20/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2240948,
+   "urna_2t_bu": 2210043,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ce/14478/0028/0333",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/09/2026 só de aplicativos ['[RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2042144,
+   "urna_2t_bu": 2042144,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "es/56235/0048/0240",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2005608,
+   "urna_2t_bu": 2005608,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "go/92029/0141/0280",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2362520) diferente da do 2º (2376361): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 13/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2362520,
+   "urna_2t_bu": 2376361,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "go/94790/0088/0061",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1761818,
+   "urna_2t_bu": 1761818,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "go/96695/0110/0065",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1757514,
+   "urna_2t_bu": 1757514,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "go/96695/0110/0066",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1841895,
+   "urna_2t_bu": 1841895,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07277/0022/0123",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA022WKS71039, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2093950,
+   "urna_2t_bu": 2093950,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07277/0022/0190",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA022WKS71039, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2136512,
+   "urna_2t_bu": 2136512,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07722/0098/0006",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA098WKS70901, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2093239,
+   "urna_2t_bu": 2093239,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07722/0098/0007",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2045111) diferente da do 2º (2099456): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 22/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 21/10/2026 lida numa carga de urna de contingência do 2º turno (22/10 10:35)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2045111,
+   "urna_2t_bu": 2099456,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "ma/07722/0098/0008",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA098WKS70901, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2130200,
+   "urna_2t_bu": 2130200,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07722/0098/0210",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA098WKS70901, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2125516,
+   "urna_2t_bu": 2125516,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07838/0064/0119",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA064WKS71163, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2303586,
+   "urna_2t_bu": 2303586,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07838/0064/0151",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA064WKS71163, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2305923,
+   "urna_2t_bu": 2305923,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07838/0064/0182",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA064WKS71163, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2215212,
+   "urna_2t_bu": 2215212,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/07838/0064/0211",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA064WKS71163, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2284036,
+   "urna_2t_bu": 2284036,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08079/0016/0083",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMA016WKS72364, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1814673,
+   "urna_2t_bu": 1814673,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08079/0016/0255",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMA016WKS72364, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1809940,
+   "urna_2t_bu": 1809940,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08079/0016/0303",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMA016WKS72364, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1815190,
+   "urna_2t_bu": 1815190,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08117/0054/0149",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS70944, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2311728,
+   "urna_2t_bu": 2311728,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08117/0054/0150",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS70944, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2253211,
+   "urna_2t_bu": 2253211,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08117/0054/0151",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS70944, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2251061,
+   "urna_2t_bu": 2251061,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08214/0062/0013",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA062WKS71119, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2082516,
+   "urna_2t_bu": 2082516,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08214/0062/0024",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA062WKS71119, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2093888,
+   "urna_2t_bu": 2093888,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08214/0062/0034",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA062WKS71119, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2136568,
+   "urna_2t_bu": 2136568,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08214/0062/0052",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA062WKS71119, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2125469,
+   "urna_2t_bu": 2125469,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08699/0037/0235",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA037WKS71133, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2091968,
+   "urna_2t_bu": 2091968,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08699/0037/0264",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA037WKS71133, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2125404,
+   "urna_2t_bu": 2125404,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08699/0037/0305",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA037WKS71133, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2022251,
+   "urna_2t_bu": 2022251,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08699/0037/0338",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/10/2026 da sessão de geração da zona (computador ZMA037WKS71133, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2027278,
+   "urna_2t_bu": 2027278,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08753/0061/0149",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA061WKS70954, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2128027,
+   "urna_2t_bu": 2128027,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08753/0061/0167",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZMA061WKS70954, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2075077,
+   "urna_2t_bu": 2075077,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0006",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2270181,
+   "urna_2t_bu": 2270181,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0007",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2306649,
+   "urna_2t_bu": 2306649,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0008",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2267000,
+   "urna_2t_bu": 2267000,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0166",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2312161,
+   "urna_2t_bu": 2312161,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0207",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2262834,
+   "urna_2t_bu": 2262834,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0227",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2311854,
+   "urna_2t_bu": 2311854,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0234",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2254462,
+   "urna_2t_bu": 2254462,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0261",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2271799,
+   "urna_2t_bu": 2271799,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0268",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2300114,
+   "urna_2t_bu": 2300114,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0275",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2306794,
+   "urna_2t_bu": 2306794,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/08796/0054/0283",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/10/2026 da sessão de geração da zona (computador ZMA054WKS71010, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2298628,
+   "urna_2t_bu": 2298628,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09113/0060/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 gerada por computador da própria zona (ZMA060WKS71175), fora da sessão das outras urnas"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2130232,
+   "urna_2t_bu": 2130232,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09113/0060/0086",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA060WKS70831, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2123181,
+   "urna_2t_bu": 2123181,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09113/0060/0112",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA060WKS70831, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2013458,
+   "urna_2t_bu": 2013458,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09113/0060/0143",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA060WKS70831, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2139072,
+   "urna_2t_bu": 2139072,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09474/0050/0087",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA050WKS70836, mais 1 urna(s) da amostra)",
+     "MR de 28/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2266271,
+   "urna_2t_bu": 2266271,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ma/09474/0050/0117",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZMA050WKS70836, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2267645,
+   "urna_2t_bu": 2267645,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0024",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2075943,
+   "urna_2t_bu": 2075943,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0025",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2056179,
+   "urna_2t_bu": 2056179,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0026",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2062880,
+   "urna_2t_bu": 2062880,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0061",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2085434,
+   "urna_2t_bu": 2085434,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0068",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2134886,
+   "urna_2t_bu": 2134886,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0074",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2084904,
+   "urna_2t_bu": 2084904,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42315/0065/0090",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG065STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2012225,
+   "urna_2t_bu": 2012225,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42650/0069/0198",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2131876,
+   "urna_2t_bu": 2131876,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42650/0069/0203",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2100283,
+   "urna_2t_bu": 2100283,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42650/0069/0208",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2078193,
+   "urna_2t_bu": 2078193,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/42650/0069/0211",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2077125,
+   "urna_2t_bu": 2077125,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/44814/0108/0026",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG108STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1836239,
+   "urna_2t_bu": 1836239,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/44814/0108/0027",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG108STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1770281,
+   "urna_2t_bu": 1770281,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/44814/0108/0173",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG108STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1781776,
+   "urna_2t_bu": 1781776,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45055/0069/0120",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2056883,
+   "urna_2t_bu": 2056883,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45055/0069/0121",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2128903,
+   "urna_2t_bu": 2128903,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45055/0069/0122",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2089314,
+   "urna_2t_bu": 2089314,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45055/0069/0200",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG069STD03, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2067195,
+   "urna_2t_bu": 2067195,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45632/0225/0044",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG225STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2256980,
+   "urna_2t_bu": 2256980,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/45632/0225/0045",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG225STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2266810,
+   "urna_2t_bu": 2266810,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0131/0284",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG131STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2402515,
+   "urna_2t_bu": 2402515,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0131/0296",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG131STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2348180,
+   "urna_2t_bu": 2348180,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0078",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2458680,
+   "urna_2t_bu": 2458680,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0079",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2406056,
+   "urna_2t_bu": 2406056,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0080",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2419008,
+   "urna_2t_bu": 2419008,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0081",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2406273,
+   "urna_2t_bu": 2406273,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0082",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2291665,
+   "urna_2t_bu": 2291665,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0083",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2332028,
+   "urna_2t_bu": 2332028,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0084",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2463853,
+   "urna_2t_bu": 2463853,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0085",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2446969,
+   "urna_2t_bu": 2446969,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0086",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2334784,
+   "urna_2t_bu": 2334784,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0087",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2414812,
+   "urna_2t_bu": 2414812,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0088",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2426616,
+   "urna_2t_bu": 2426616,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0189",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2281427,
+   "urna_2t_bu": 2281427,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0196",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2418460,
+   "urna_2t_bu": 2418460,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46256/0348/0200",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG348STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2253643,
+   "urna_2t_bu": 2253643,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46337/0132/0025",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1652094) diferente da do 2º (1840360): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1652094,
+   "urna_2t_bu": 1840360,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "mg/46337/0132/0026",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1673903) diferente da do 2º (1754281): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1673903,
+   "urna_2t_bu": 1754281,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "mg/46337/0132/0065",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1752183) diferente da do 2º (1653361): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 19/10/2026 lida numa carga de urna de contingência do 2º turno (21/10 17:09)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1752183,
+   "urna_2t_bu": 1653361,
+   "blocos_de_log": 3
+  },
+  {
+   "secao": "mg/46337/0132/0069",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1751185,
+   "urna_2t_bu": 1751185,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46337/0132/0072",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1652474) diferente da do 2º (1847496): troca entre os turnos"
+    ],
+    "mr_fora": [
+     "MR de 19/10/2026 lida depois de carga nova da urna no mesmo bloco (19/10 16:24), urna trocada entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 22/09/2026,26/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 1652474,
+   "urna_2t_bu": 1847496,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "mg/46337/0132/0078",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1653361) diferente da do 2º (1776744): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 22/09/2026,26/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 1653361,
+   "urna_2t_bu": 1776744,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "mg/46612/0137/0037",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2069583,
+   "urna_2t_bu": 2069583,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46698/0139/0034",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1752112,
+   "urna_2t_bu": 1752112,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/46990/0098/0225",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1754471,
+   "urna_2t_bu": 1754471,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0054",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2124448,
+   "urna_2t_bu": 2124448,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0055",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2100443,
+   "urna_2t_bu": 2100443,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0056",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2076038,
+   "urna_2t_bu": 2076038,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0057",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2009983,
+   "urna_2t_bu": 2009983,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0058",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2129082,
+   "urna_2t_bu": 2129082,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2131741,
+   "urna_2t_bu": 2131741,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0066",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2128153,
+   "urna_2t_bu": 2128153,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0082",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2122337,
+   "urna_2t_bu": 2122337,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/48810/0189/0093",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG189STD03, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2121300,
+   "urna_2t_bu": 2121300,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0082",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2421966,
+   "urna_2t_bu": 2421966,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0083",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2464503,
+   "urna_2t_bu": 2464503,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0097",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2414255,
+   "urna_2t_bu": 2414255,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0098",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2418476,
+   "urna_2t_bu": 2418476,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0217",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2321975,
+   "urna_2t_bu": 2321975,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0227",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2444933,
+   "urna_2t_bu": 2444933,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0233",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2427007,
+   "urna_2t_bu": 2427007,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0237",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2414945,
+   "urna_2t_bu": 2414945,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0241",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2458819,
+   "urna_2t_bu": 2458819,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0246",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2401598,
+   "urna_2t_bu": 2401598,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0267",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2413444,
+   "urna_2t_bu": 2413444,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0292",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2418100,
+   "urna_2t_bu": 2418100,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0303",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2297505,
+   "urna_2t_bu": 2297505,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54070/0280/0305",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG280STD03, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2323258,
+   "urna_2t_bu": 2323258,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0084",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2414975,
+   "urna_2t_bu": 2414975,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0085",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2449140,
+   "urna_2t_bu": 2449140,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0086",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2331438,
+   "urna_2t_bu": 2331438,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0117",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2441971,
+   "urna_2t_bu": 2441971,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0134",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2272259,
+   "urna_2t_bu": 2272259,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0138",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2459063,
+   "urna_2t_bu": 2459063,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0164",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2416235,
+   "urna_2t_bu": 2416235,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0170",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2267784,
+   "urna_2t_bu": 2267784,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0176",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2303056,
+   "urna_2t_bu": 2303056,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0184",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2253176,
+   "urna_2t_bu": 2253176,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mg/54259/0311/0193",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZMG311STD02, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2269970,
+   "urna_2t_bu": 2269970,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "ms/91278/0026/0082",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2009697,
+   "urna_2t_bu": 2009697,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "mt/90336/0013/0007",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2266864) diferente da do 2º (2454964): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 24/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2266864,
+   "urna_2t_bu": 2454964,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "mt/98710/0032/0255",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 22/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2009494,
+   "urna_2t_bu": 2009494,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pa/04154/0043/0001",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2161219,
+   "urna_2t_bu": 2161219,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pa/04154/0043/0003",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2187107,
+   "urna_2t_bu": 2187107,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pa/04154/0043/0304",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2149649) diferente da do 2º (2169859): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 22/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2149649,
+   "urna_2t_bu": 2169859,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pa/04278/0076/0473",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2169885,
+   "urna_2t_bu": 2169885,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pa/04278/0076/0475",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2148669) diferente da do 2º (2026654): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 18/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2148669,
+   "urna_2t_bu": 2026654,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pa/04650/0006/0031",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2169847) diferente da do 2º (2181989): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 24/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 24/10/2026 lida depois de carga nova da urna no mesmo bloco (24/10 12:34), urna trocada entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2169847,
+   "urna_2t_bu": 2181989,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pa/04707/0075/0672",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2187576) diferente da do 2º (2156500): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 15/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2187576,
+   "urna_2t_bu": 2156500,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pb/22357/0030/0086",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2453987,
+   "urna_2t_bu": 2453987,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/23094/0064/0017",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1814022) diferente da do 2º (1767367): troca entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1814022,
+   "urna_2t_bu": 1767367,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/23353/0108/0029",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2357726) diferente da do 2º (2342289): troca entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2357726,
+   "urna_2t_bu": 2342289,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/23930/0059/0001",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/09/2026 só de aplicativos ['[VPP]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1773585,
+   "urna_2t_bu": 1773585,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/25194/0070/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/09/2026 só de aplicativos ['[VPP]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2320795,
+   "urna_2t_bu": 2320795,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/25437/0075/0034",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/09/2026 só de aplicativos ['[VPP]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2347715,
+   "urna_2t_bu": 2347715,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/26018/0061/0089",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPE056WST01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1775380,
+   "urna_2t_bu": 1775380,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pe/26018/0061/0106",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1672340) diferente da do 2º (1672426): troca entre os turnos"
+    ],
+    "mr_fora": [
+     "MR de 17/10/2026 lida depois de carga nova da urna no mesmo bloco (17/10 09:23), urna trocada entre os turnos"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1672340,
+   "urna_2t_bu": 1672426,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10014/0030/0047",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI030STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1800212,
+   "urna_2t_bu": 1800212,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10014/0030/0074",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI030STD02, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1802170,
+   "urna_2t_bu": 1802170,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pi/10871/0035/0050",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2346447,
+   "urna_2t_bu": 2346447,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0056",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2391221,
+   "urna_2t_bu": 2391221,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0057",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2469259,
+   "urna_2t_bu": 2469259,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0077",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2469497,
+   "urna_2t_bu": 2469497,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0080",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2357881,
+   "urna_2t_bu": 2357881,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0085",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2340337,
+   "urna_2t_bu": 2340337,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/10871/0035/0177",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI035STD02, mais 6 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2345773,
+   "urna_2t_bu": 2345773,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/11754/0043/0023",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI043STD01, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2034077,
+   "urna_2t_bu": 2034077,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/11754/0043/0064",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI043STD01, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2206254,
+   "urna_2t_bu": 2206254,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/11754/0043/0075",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI043STD01, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2193710,
+   "urna_2t_bu": 2193710,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/11916/0074/0062",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI074STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1801424,
+   "urna_2t_bu": 1801424,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pi/11916/0074/0063",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZPI074STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1800479,
+   "urna_2t_bu": 1800479,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0091",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008812,
+   "urna_2t_bu": 2008812,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0092",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008665,
+   "urna_2t_bu": 2008665,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0136",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2020140,
+   "urna_2t_bu": 2020140,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0178",
+   "pendencias": [
+    "midia_diferente",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ],
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2004160,
+   "urna_2t_bu": 2004160,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0199",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008783,
+   "urna_2t_bu": 2008783,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/74950/0016/0244",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR016STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2019482,
+   "urna_2t_bu": 2019482,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0111",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2316472,
+   "urna_2t_bu": 2316472,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0112",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2281817,
+   "urna_2t_bu": 2281817,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0113",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2281871,
+   "urna_2t_bu": 2281871,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0114",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2310825,
+   "urna_2t_bu": 2310825,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0115",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2316619,
+   "urna_2t_bu": 2316619,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75027/0162/0119",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZPR162STD02, mais 5 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2335704,
+   "urna_2t_bu": 2335704,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/75299/0086/0145",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR086STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1755743,
+   "urna_2t_bu": 1755743,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pr/75299/0086/0147",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR086STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1839265,
+   "urna_2t_bu": 1839265,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/76678/0041/0173",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2436118,
+   "urna_2t_bu": 2436118,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/76678/0041/0415",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2412746,
+   "urna_2t_bu": 2412746,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0001",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2319880,
+   "urna_2t_bu": 2319880,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0002",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2326772,
+   "urna_2t_bu": 2326772,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0003",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2320770,
+   "urna_2t_bu": 2320770,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0004",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)",
+     "MR de 16/10/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2320600,
+   "urna_2t_bu": 2320600,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0005",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2320353,
+   "urna_2t_bu": 2320353,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0006",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2319833,
+   "urna_2t_bu": 2319833,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0007",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2326953,
+   "urna_2t_bu": 2326953,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0008",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2275266,
+   "urna_2t_bu": 2275266,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0120",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2319743,
+   "urna_2t_bu": 2319743,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0124",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2320381,
+   "urna_2t_bu": 2320381,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0136",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2317460,
+   "urna_2t_bu": 2317460,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0143",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2319624,
+   "urna_2t_bu": 2319624,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0182",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2327023,
+   "urna_2t_bu": 2327023,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77011/0114/0197",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR114STD02, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2326510,
+   "urna_2t_bu": 2326510,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77674/0027/0041",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR027STD01, mais 3 urna(s) da amostra)",
+     "MR de 27/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2007565,
+   "urna_2t_bu": 2007565,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77674/0027/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR027STD01, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008775,
+   "urna_2t_bu": 2008775,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77674/0027/0064",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR027STD01, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008013,
+   "urna_2t_bu": 2008013,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77674/0027/0066",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR027STD01, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2008823,
+   "urna_2t_bu": 2008823,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/77712/0038/0028",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 21/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2407652,
+   "urna_2t_bu": 2407652,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/78999/0119/0023",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2064956) diferente da do 2º (2127594): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 15/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2064956,
+   "urna_2t_bu": 2127594,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pr/79359/0089/0186",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1842478,
+   "urna_2t_bu": 1842478,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0187",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD03, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1847250,
+   "urna_2t_bu": 1847250,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0188",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1753413,
+   "urna_2t_bu": 1753413,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0216",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD02, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1776977,
+   "urna_2t_bu": 1776977,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0229",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1662141,
+   "urna_2t_bu": 1662141,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pr/79359/0089/0245",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1662995,
+   "urna_2t_bu": 1662995,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "pr/79359/0089/0257",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD03, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1779692,
+   "urna_2t_bu": 1779692,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0263",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD02, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1776896,
+   "urna_2t_bu": 1776896,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0293",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1770261,
+   "urna_2t_bu": 1770261,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0294",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1663469,
+   "urna_2t_bu": 1663469,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0295",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD02, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1778779,
+   "urna_2t_bu": 1778779,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0296",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1661565,
+   "urna_2t_bu": 1661565,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0297",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1778166,
+   "urna_2t_bu": 1778166,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0298",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1847176,
+   "urna_2t_bu": 1847176,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0299",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1659066,
+   "urna_2t_bu": 1659066,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0409",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD02, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1660229,
+   "urna_2t_bu": 1660229,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79359/0089/0412",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZPR089STD04, mais 10 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1780907,
+   "urna_2t_bu": 1780907,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79774/0097/0078",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR097STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1809700,
+   "urna_2t_bu": 1809700,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/79774/0097/0080",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR097STD01, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1841109,
+   "urna_2t_bu": 1841109,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0154",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2399200,
+   "urna_2t_bu": 2399200,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0155",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2291862,
+   "urna_2t_bu": 2291862,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0156",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2399259,
+   "urna_2t_bu": 2399259,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0157",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2383986,
+   "urna_2t_bu": 2383986,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0158",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2382005,
+   "urna_2t_bu": 2382005,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0159",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2384207,
+   "urna_2t_bu": 2384207,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0160",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2387941,
+   "urna_2t_bu": 2387941,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0161",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2394491,
+   "urna_2t_bu": 2394491,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0162",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2392990,
+   "urna_2t_bu": 2392990,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "pr/84514/0203/0163",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZPR203STD02, mais 9 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2392067,
+   "urna_2t_bu": 2392067,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rj/58181/0034/0049",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2433887,
+   "urna_2t_bu": 2433887,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rj/58190/0075/0021",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2465091,
+   "urna_2t_bu": 2465091,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rj/58378/0104/0357",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2444375,
+   "urna_2t_bu": 2444375,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rj/58599/0112/0016",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2435101,
+   "urna_2t_bu": 2435101,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rn/16870/0030/0154",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2064140) diferente da do 2º (2064110): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 14/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2064140,
+   "urna_2t_bu": 2064110,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "rn/17612/0003/0495",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1789131,
+   "urna_2t_bu": 1789131,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rn/17612/0003/0503",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1790893,
+   "urna_2t_bu": 1790893,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rs/85898/0066/0002",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2226626,
+   "urna_2t_bu": 2226626,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rs/85995/0016/0057",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2150599) diferente da do 2º (2152599): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 14/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2150599,
+   "urna_2t_bu": 2152599,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "rs/85995/0169/0035",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2149747,
+   "urna_2t_bu": 2149747,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rs/86770/0070/0082",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2415767,
+   "urna_2t_bu": 2415767,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "rs/89575/0162/0010",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2175956) diferente da do 2º (2176328): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,24/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2175956,
+   "urna_2t_bu": 2176328,
+   "blocos_de_log": 3
+  },
+  {
+   "secao": "rs/89575/0162/0357",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2176067,
+   "urna_2t_bu": 2176067,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80284/0083/0090",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 24/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2195906,
+   "urna_2t_bu": 2195906,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80284/0083/0093",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 24/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2003343,
+   "urna_2t_bu": 2003343,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80373/0102/0022",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC102W055480, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2023690,
+   "urna_2t_bu": 2023690,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80373/0102/0023",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC102W055480, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2190819,
+   "urna_2t_bu": 2190819,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2180251,
+   "urna_2t_bu": 2180251,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0070",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2195848,
+   "urna_2t_bu": 2195848,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0071",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2197501,
+   "urna_2t_bu": 2197501,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0072",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2048553,
+   "urna_2t_bu": 2048553,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0073",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2190968,
+   "urna_2t_bu": 2190968,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0074",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2046284) diferente da do 2º (2022953): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 16/10/2026 lida numa carga de urna de contingência do 2º turno (25/10 07:40)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2046284,
+   "urna_2t_bu": 2022953,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sc/80578/0006/0075",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2007329,
+   "urna_2t_bu": 2007329,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0078",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2178115,
+   "urna_2t_bu": 2178115,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0079",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2190728,
+   "urna_2t_bu": 2190728,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0080",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2022153,
+   "urna_2t_bu": 2022153,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0081",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2003531,
+   "urna_2t_bu": 2003531,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0108",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2191161,
+   "urna_2t_bu": 2191161,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sc/80578/0006/0118",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2191001,
+   "urna_2t_bu": 2191001,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80578/0006/0149",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC006W057518, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2192086,
+   "urna_2t_bu": 2192086,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/80993/0014/0137",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 23/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1771487,
+   "urna_2t_bu": 1771487,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0028",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)",
+     "MR de 25/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2174149,
+   "urna_2t_bu": 2174149,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0029",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2050222,
+   "urna_2t_bu": 2050222,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0030",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2021772,
+   "urna_2t_bu": 2021772,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0065",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2047209,
+   "urna_2t_bu": 2047209,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0072",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2004786,
+   "urna_2t_bu": 2004786,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0081",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2178090,
+   "urna_2t_bu": 2178090,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0110",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2176738,
+   "urna_2t_bu": 2176738,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0122",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2195833,
+   "urna_2t_bu": 2195833,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81078/0077/0169",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC077W058300, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2046296,
+   "urna_2t_bu": 2046296,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81116/0002/0099",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC002W058302, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2191418,
+   "urna_2t_bu": 2191418,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81116/0002/0160",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC002W058302, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2023001,
+   "urna_2t_bu": 2023001,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81116/0002/0210",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC002W058302, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2179501,
+   "urna_2t_bu": 2179501,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81752/0087/0100",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC087W057328, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2459629,
+   "urna_2t_bu": 2459629,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81752/0087/0212",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC087W057328, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2369584,
+   "urna_2t_bu": 2369584,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81779/0018/0170",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC018W052273, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2048614,
+   "urna_2t_bu": 2048614,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81779/0018/0197",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC018W052273, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2176464,
+   "urna_2t_bu": 2176464,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81779/0018/0198",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC018W052273, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2020903,
+   "urna_2t_bu": 2020903,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81779/0018/0248",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador CSC018W052273, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2179134,
+   "urna_2t_bu": 2179134,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81795/0095/0193",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2437016) diferente da do 2º (2430355): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 15/10/2026,19/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2437016,
+   "urna_2t_bu": 2430355,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sc/81850/0020/0072",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador CSC020W057414, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2192785,
+   "urna_2t_bu": 2192785,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/81850/0020/0073",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador CSC020W057414, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2005138,
+   "urna_2t_bu": 2005138,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/83119/0030/0092",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC030W057371, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1780359,
+   "urna_2t_bu": 1780359,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/83119/0030/0093",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC030W057371, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1777754,
+   "urna_2t_bu": 1777754,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/83119/0030/0103",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC030W057371, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1831465,
+   "urna_2t_bu": 1831465,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sc/83119/0030/0210",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador CSC030W057371, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1757325,
+   "urna_2t_bu": 1757325,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0046",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1784347,
+   "urna_2t_bu": 1784347,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0047",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 14 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1795643,
+   "urna_2t_bu": 1795643,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0048",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1793784,
+   "urna_2t_bu": 1793784,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0049",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1768821,
+   "urna_2t_bu": 1768821,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0062",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1774290,
+   "urna_2t_bu": 1774290,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0063",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1756364,
+   "urna_2t_bu": 1756364,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0137",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1765783,
+   "urna_2t_bu": 1765783,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0138",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1768826,
+   "urna_2t_bu": 1768826,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0139",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1768497,
+   "urna_2t_bu": 1768497,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0140",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1792355,
+   "urna_2t_bu": 1792355,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0231",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1767299) diferente da do 2º (1670953): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 17/10/2026,22/10/2026,25/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 16/10/2026 lida numa carga de urna de contingência do 2º turno (25/10 11:00)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1767299,
+   "urna_2t_bu": 1670953,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "se/31054/0001/0237",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1788567,
+   "urna_2t_bu": 1788567,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0245",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1770107,
+   "urna_2t_bu": 1770107,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0250",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1793776,
+   "urna_2t_bu": 1793776,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31054/0001/0351",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 15 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1784089,
+   "urna_2t_bu": 1784089,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "se/31119/0002/0440",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador RSEWGM07, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2202337,
+   "urna_2t_bu": 2202337,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/61743/0360/0264",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 29/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2263136,
+   "urna_2t_bu": 2263136,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/61743/0360/0265",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2262919,
+   "urna_2t_bu": 2262919,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/61743/0360/0272",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 23/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2285869,
+   "urna_2t_bu": 2285869,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/62499/0026/0044",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 gerada por computador da própria zona (ZSP026STD11), fora da sessão das outras urnas"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2073677,
+   "urna_2t_bu": 2073677,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/62936/0344/0156",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 29/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2161969,
+   "urna_2t_bu": 2161969,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/64416/0297/0177",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2375131) diferente da do 2º (2145415): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 17/10/2026,24/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2375131,
+   "urna_2t_bu": 2145415,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/64491/0169/0083",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 24/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2285840,
+   "urna_2t_bu": 2285840,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/64777/0185/0162",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2124615) diferente da do 2º (2471688): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 20/10/2026,21/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2124615,
+   "urna_2t_bu": 2471688,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/64777/0185/0281",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1669067) diferente da do 2º (1803959): troca entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 04/10/2026,27/09/2026,28/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 1669067,
+   "urna_2t_bu": 1803959,
+   "blocos_de_log": 3
+  },
+  {
+   "secao": "sp/64777/0185/0420",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 04/10/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação",
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZSP185STD13, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1802681,
+   "urna_2t_bu": 1802681,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/64777/0185/0431",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 04/10/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação",
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZSP185STD13, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1803519,
+   "urna_2t_bu": 1803519,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0055",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1782845,
+   "urna_2t_bu": 1782845,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0056",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1784876,
+   "urna_2t_bu": 1784876,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0057",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD03, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1779326,
+   "urna_2t_bu": 1779326,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0058",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1834188,
+   "urna_2t_bu": 1834188,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0059",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1782855,
+   "urna_2t_bu": 1782855,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0060",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1779009,
+   "urna_2t_bu": 1779009,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0061",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1783964,
+   "urna_2t_bu": 1783964,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0136",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1782710,
+   "urna_2t_bu": 1782710,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0146",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD03, mais 1 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1779747,
+   "urna_2t_bu": 1779747,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0383",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1779497,
+   "urna_2t_bu": 1779497,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65110/0211/0384",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP211STD16, mais 8 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1782962,
+   "urna_2t_bu": 1782962,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65714/0026/0180",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP026STD11, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1827308,
+   "urna_2t_bu": 1827308,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65714/0026/0250",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP026STD11, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1836924,
+   "urna_2t_bu": 1836924,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65714/0026/0300",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP026STD11, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1810403,
+   "urna_2t_bu": 1810403,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/65714/0026/0325",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP026STD11, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1842009,
+   "urna_2t_bu": 1842009,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/66230/0223/0001",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 23/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1841723,
+   "urna_2t_bu": 1841723,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/66770/0290/0183",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 24/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2298692,
+   "urna_2t_bu": 2298692,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0283",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2278628,
+   "urna_2t_bu": 2278628,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0306",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2318401,
+   "urna_2t_bu": 2318401,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0327",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2318067,
+   "urna_2t_bu": 2318067,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0328",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2317350,
+   "urna_2t_bu": 2317350,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0329",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2270190,
+   "urna_2t_bu": 2270190,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0330",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2277687,
+   "urna_2t_bu": 2277687,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0348",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2277469,
+   "urna_2t_bu": 2277469,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/67172/0075/0382",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP075STD01, mais 7 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2331394,
+   "urna_2t_bu": 2331394,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/68870/0096/0176",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP096STD04, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2210828,
+   "urna_2t_bu": 2210828,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/68870/0096/0177",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP096STD04, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2325485,
+   "urna_2t_bu": 2325485,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/68870/0096/0178",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP096STD04, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2210887,
+   "urna_2t_bu": 2210887,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/69213/0317/0263",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2145212) diferente da do 2º (2056262): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 20/10/2026,23/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2145212,
+   "urna_2t_bu": 2056262,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/70050/0221/0250",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 25/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2123786,
+   "urna_2t_bu": 2123786,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/70572/0307/0417",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2376809) diferente da do 2º (2379397): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 16/10/2026,23/10/2026,25/10/2026"
+    ],
+    "mr_fora": [
+     "MR de 16/10/2026 lida numa carga de urna de contingência do 2º turno (25/10 08:48)",
+     "MR de 16/10/2026 lida numa carga de urna de contingência do 2º turno (16/10 14:55)",
+     "MR de 23/10/2026 lida numa carga de urna de contingência do 2º turno (23/10 16:23)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2376809,
+   "urna_2t_bu": 2379397,
+   "blocos_de_log": 4
+  },
+  {
+   "secao": "sp/71072/0253/0652",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 29/09/2026 só de aplicativos ['[RED]'], sem o aplicativo de votação"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2364517,
+   "urna_2t_bu": 2364517,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0320/0454",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZSP320STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1669969,
+   "urna_2t_bu": 1669969,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0320/0470",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZSP320STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1669882,
+   "urna_2t_bu": 1669882,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0320/0511",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 02/10/2026 só de aplicativos ['[ADH]'], sem o aplicativo de votação",
+     "MR de 17/10/2026 da sessão de geração da zona (computador ZSP320STD02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1665876,
+   "urna_2t_bu": 1665876,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/71072/0348/0252",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2073094) diferente da do 2º (2073559): troca entre os turnos"
+    ],
+    "mr_fora": [
+     "MR de 16/10/2026 lida depois de carga nova da urna no mesmo bloco (16/10 15:43), urna trocada entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 03/10/2026,27/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2073094,
+   "urna_2t_bu": 2073559,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/71072/0381/0288",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2304616,
+   "urna_2t_bu": 2304616,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0302",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2048421,
+   "urna_2t_bu": 2048421,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0315",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2258818,
+   "urna_2t_bu": 2258818,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0340",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2057477,
+   "urna_2t_bu": 2057477,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0358",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2317014,
+   "urna_2t_bu": 2317014,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0388",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2050271,
+   "urna_2t_bu": 2050271,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0411",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2043756,
+   "urna_2t_bu": 2043756,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0436",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2362489,
+   "urna_2t_bu": 2362489,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0454",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2035109,
+   "urna_2t_bu": 2035109,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0469",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2361212,
+   "urna_2t_bu": 2361212,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0486",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2056333,
+   "urna_2t_bu": 2056333,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0504",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2276140,
+   "urna_2t_bu": 2276140,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0545",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2304771,
+   "urna_2t_bu": 2304771,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0381/0574",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 18/10/2026 da sessão de geração da zona (computador ZSP381STD16, mais 13 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2257016,
+   "urna_2t_bu": 2257016,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71072/0389/0573",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10, 25/10 (urna ligada na véspera quando falta o dia)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2251133,
+   "urna_2t_bu": 2251133,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71293/0109/0146",
+   "pendencias": [
+    "sem_1t_no_log"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (1781755) diferente da do 2º (1669296): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 16/10/2026,24/10/2026,25/10/2026"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1781755,
+   "urna_2t_bu": 1669296,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "sp/71579/0324/0308",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP324STD19, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1833857,
+   "urna_2t_bu": 1833857,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71579/0324/0315",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP324STD19, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1834138,
+   "urna_2t_bu": 1834138,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71579/0324/0316",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP324STD19, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1834128,
+   "urna_2t_bu": 1834128,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71579/0324/0331",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP324STD19, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1833868,
+   "urna_2t_bu": 1833868,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/71579/0324/0343",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP324STD19, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 1783418,
+   "urna_2t_bu": 1783418,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/72095/0144/0093",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP144STD03, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2325871,
+   "urna_2t_bu": 2325871,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/72095/0144/0151",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP144STD03, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2325187,
+   "urna_2t_bu": 2325187,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/72095/0144/0198",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP144STD03, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2334219,
+   "urna_2t_bu": 2334219,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/72095/0144/0225",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP144STD03, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2324154,
+   "urna_2t_bu": 2324154,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "sp/72095/0144/0244",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 16/10/2026 da sessão de geração da zona (computador ZSP144STD03, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2297089,
+   "urna_2t_bu": 2297089,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0393",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS43, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2465168,
+   "urna_2t_bu": 2465168,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0394",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS43, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2028128,
+   "urna_2t_bu": 2028128,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0397",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS44, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2028193,
+   "urna_2t_bu": 2028193,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0416",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS44, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2153271,
+   "urna_2t_bu": 2153271,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0424",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS44, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2028296,
+   "urna_2t_bu": 2028296,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0455",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS43, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2030234,
+   "urna_2t_bu": 2030234,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/73440/0029/0521",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO029WKS43, mais 3 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2153045,
+   "urna_2t_bu": 2153045,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/92576/0011/0039",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZTO011WKS02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2264385,
+   "urna_2t_bu": 2264385,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/92576/0011/0076",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZTO011WKS02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2261895,
+   "urna_2t_bu": 2261895,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/92576/0011/0080",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 20/10/2026 da sessão de geração da zona (computador ZTO011WKS02, mais 2 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2251126,
+   "urna_2t_bu": 2251126,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/93653/0015/0052",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO015WKS04, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2029193,
+   "urna_2t_bu": 2029193,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/93653/0015/0054",
+   "pendencias": [
+    "sem_1t_no_log",
+    "mr_fora"
+   ],
+   "explicacao": {
+    "sem_1t_no_log": [
+     "urna do 1º turno no bweb (2262810) diferente da do 2º (2029789): troca entre os turnos"
+    ],
+    "mr_fora": [
+     "MR de 19/10/2026 lida depois de carga nova da urna no mesmo bloco (24/10 10:00), urna trocada entre os turnos"
+    ]
+   },
+   "notas": [
+    "foi urna de contingência (reserva) em 02/10/2026,23/09/2026, depois recarregada para votação"
+   ],
+   "explicada": true,
+   "urna_1t_bweb": 2262810,
+   "urna_2t_bu": 2029789,
+   "blocos_de_log": 2
+  },
+  {
+   "secao": "to/93653/0015/0058",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO015WKS04, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2028107,
+   "urna_2t_bu": 2028107,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/93653/0015/0062",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO015WKS04, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2029518,
+   "urna_2t_bu": 2029518,
+   "blocos_de_log": 1
+  },
+  {
+   "secao": "to/93653/0015/0074",
+   "pendencias": [
+    "mr_fora"
+   ],
+   "explicacao": {
+    "mr_fora": [
+     "MR de 19/10/2026 da sessão de geração da zona (computador ZTO015WKS04, mais 4 urna(s) da amostra)"
+    ]
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2029997,
+   "urna_2t_bu": 2029997,
+   "blocos_de_log": 1
+  }
+ ],
+ "votaveis_presidente_nos_boletins": {
+  "13": 3897,
+  "22": 3897
+ },
+ "votaveis_governador_por_uf": {
+  "AC": {
+   "10": 29,
+   "11": 29
+  },
+  "AM": {
+   "22": 29,
+   "55": 29
+  },
+  "DF": {
+   "11": 44,
+   "13": 44
+  },
+  "ES": {
+   "10": 26,
+   "15": 26
+  },
+  "RN": {
+   "13": 44,
+   "44": 44
+  },
+  "TO": {
+   "44": 15,
+   "45": 15
+  }
+ },
+ "secoes_2t_na_amostra": 3897
+}
