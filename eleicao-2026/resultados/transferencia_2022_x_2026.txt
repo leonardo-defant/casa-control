@@ -1,0 +1,15 @@
+2022 (Lula x Bolsonaro), transferencia declarada no PoderData
+   0% dos outros para BN/abstencao: previsto Lula +6.54 mi, Bolsonaro +3.36 mi | real Lula +3.09, Bolsonaro +7.13 | resto: Lula -3.45 mi, Bolsonaro +3.77 mi
+  15% dos outros para BN/abstencao: previsto Lula +5.56 mi, Bolsonaro +2.85 mi | real Lula +3.09, Bolsonaro +7.13 | resto: Lula -2.47 mi, Bolsonaro +4.28 mi
+  30% dos outros para BN/abstencao: previsto Lula +4.58 mi, Bolsonaro +2.35 mi | real Lula +3.09, Bolsonaro +7.13 | resto: Lula -1.49 mi, Bolsonaro +4.78 mi
+
+2026 (Lula x Flavio), transferencia declarada na Quaest (calculo em decomposicao_fluxos_2026.txt)
+  previsto Lula +2.53 mi, Flavio +3.59 mi | real Lula +10.38, Flavio +3.72 | resto: Lula +7.85 mi, Flavio +0.14 mi
+
+Fatia dos votos dos outros candidatos que o candidato de direita ganhou entre turnos:
+  2018: +8.52 mi de 26.43 mi = 32%
+  2022: +7.13 mi de 9.90 mi = 72%
+  2026: +3.72 mi de 9.32 mi = 40%
+  2018, so o bloco de direita e centro-direita (Alckmin, Amoedo, Daciolo, Meirelles, Alvaro Dias = 11,27 mi): Bolsonaro +8,52 mi = 76%
+  2026, so Caiado, Renan e Zema (5,61 mi), sem Cury: Flavio +3,72 mi = 66%; com Cury (9,06 mi): 41%
+  2006: Alckmin perdeu cerca de 2,4 mi de votos entre os turnos (39,97 mi -> cerca de 37,5 mi)
