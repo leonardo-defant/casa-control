@@ -1,7 +1,7 @@
 #!/bin/bash
 # Rotina para quando o TSE publicar os boletins (bweb) do 2º turno de 2026.
 # Código 2 = ainda não publicado. Requer: python3 com numpy, curl, unzip; ~6 GB livres.
-# Uso: DADOS=<pasta com secoes2018/2022/2026_1t.json.gz> TRAB=<pasta de trabalho> ./rodar_2026.sh
+# Uso: DADOS=<pasta com secoes2018/2022/2026_1t.json.gz> TRAB=<pasta de trabalho> [LOCAIS=<pasta CSV locais 2026>] ./rodar_2026.sh
 set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"; SC="$AQUI/scripts"; RES="$AQUI/resultados"
 DADOS="${DADOS:?defina DADOS}"; TRAB="${TRAB:?defina TRAB}"; mkdir -p "$TRAB/zips2t" "$RES"
@@ -27,4 +27,10 @@ python3 -I analisar_bn_secao.py "$TRAB/secoes2026.json.gz" 2026 > "$RES/bn_secao
 python3 -I analisar_gov.py "$TRAB/secoes2026.json.gz" 2026 > "$RES/gov_2026.json"
 python3 -I analisar_zeros.py "$TRAB/secoes2026.json.gz" 2 > "$RES/zeros_2026_2t.json"
 python3 -I analisar_pres_gov_nivel.py "$TRAB/secoes2026.json.gz" 2 > "$RES/T5_2026_2t.json"
+python3 -I analisar_fluxo_regressao.py "$TRAB/secoes2026.json.gz" L > "$RES/T8_2026_bweb_L.json"
+python3 -I analisar_fluxo_regressao.py "$TRAB/secoes2026.json.gz" R > "$RES/T8_2026_bweb_R.json"
+# T35 (Adendo 15): perda própria por força local do adversário, todas as seções
+python3 -I analisar_curva_forca.py "$TRAB/secoes2026.json.gz" "$DADOS/secoes2022.json.gz" "$DADOS/secoes2018.json.gz" > "$RES/T35_curva_forca_bweb.json"
+# T34 (Adendo 15): divisa Sul/não Sul; LOCAIS = pasta com os CSV de eleitorado_local_votacao_2026 (PR SC RS SP MS MG GO MT RJ)
+if [ -n "${LOCAIS:-}" ]; then python3 -I analisar_divisa.py "$TRAB/secoes2026.json.gz" "$LOCAIS" "$RES/T34_divisa_2026.json" > "$RES/T34_divisa_2026.txt"; fi
 echo "pronto: resultados em $RES"
