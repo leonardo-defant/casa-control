@@ -456,3 +456,35 @@ Já a leitura natural ("o eleitor se aproxima da maioria do lugar", vista com Lu
 - Entre os dois: inconclusivo.
 - Descritivo: os seis coeficientes por faixa, lado a lado, para ver se Flávio 2026 cai na curva comum.
 - Limites: a ideia nasceu de um recorte já visto (regional); a amostra tem poucas seções por faixa e ano, então o veredito da amostra é preliminar e o do bweb é o que vale.
+
+## Adendo 16 (26/10, noite, ~22h UTC, antes de rodar os testes abaixo): a fraude pelo lado do branco e nulo, no contexto de 2026
+
+Pedido do Léo: partir da hipótese de que houve fraude e procurar onde ela deixaria marca, olhando o contexto de 2026 (apoios a Flávio depois do 1º turno, pesquisas, pausa da totalização) e não outras eleições. Duas formas de desvio pelo programa, com marcas diferentes:
+- (A) conversão de branco e nulo em 13: o eleitor anula ou vota em branco e a urna grava 13 no boletim e no RDV. A contagem de Flávio fica intocada; Lula ganha o que seria branco e nulo.
+- (B) troca de uma fração s dos votos de Flávio para Lula (Adendos 9 e 14).
+
+O que já vi antes deste registro: a transferência declarada na Quaest por candidato eliminado (resultados/decomposicao_fluxos_2026.txt) e os coeficientes de Lula por candidato eliminado na amostra (T8 com grupos: Cury 0,54, Renan 0,49, Caiado 0,54, Zema 0,42). NÃO vi: os coeficientes de Flávio por candidato eliminado, os cruzamentos (voto no 1º turno contra voto no 2º) dos demais institutos, a comparação dos nulos por suspensão no log com os boletins, a tabela por UF de pontos ganhos entre turnos, nem nada por município do 2º turno.
+
+### T36. Nulo atribuído por suspensão no log contra os nulos do boletim (amostra, já baixada)
+- O log da urna registra "Atribuido voto nulo por suspensão [Presidente]" quando o eleitor sai sem concluir. É o único registro do log que diz o tipo do voto. Esse nulo tem de estar no boletim.
+- Por seção, no dia 25/10, somando todos os logs do pacote: S = número desses eventos para Presidente; N = nulos de presidente no boletim do 2º turno. O mesmo no 1º turno (04/10), com N do bweb do 1º turno.
+- Sinal de conversão de nulos (forma A ingênua, que converte todo nulo ou converte depois de gravar o log): pelo menos uma seção com N menor que S, sem explicação por contingência (pacote com mais de uma urna), conferida à mão.
+- Sem sinal: nenhuma seção com N menor que S entre pelo menos 100 seções com S de 1 ou mais.
+- Limite: uma conversão de só uma fração dos nulos, ou que poupe os nulos por suspensão, não deixa essa marca. É o teste da forma ingênua.
+
+### T37. O que a urna diz que os eleitores dos eliminados fizeram, contra o que eles declararam (amostra agora; bweb depois)
+- Urna: regressão do T8 com os grupos Cury (70), Renan (14), Caiado (55), Zema (30) e demais, para Lula e para Flávio, empilhada (efeito fixo de local por candidato, erro agrupado por local). b_L e b_F = fração dos eleitores de cada grupo no 1º turno que a urna põe em Lula e em Flávio no 2º; o resto (1 - b_L - b_F) é quem não votou num finalista.
+- Declarado: cruzamento voto no 1º turno contra intenção no 2º turno na última pesquisa de cada instituto que publicar esse cruzamento (Quaest já conhecida; os demais buscados depois deste registro). Referência = mediana dos institutos para l (Lula), f (Flávio) e n (nenhum) de cada grupo.
+- Medidas, com os quatro grupos somados pelo voto do 1º turno: dF = b_F - f; dL = b_L - l.
+- Padrão da forma A (conversão de branco e nulo): |dF| até 0,07 e dL de 0,15 ou mais, a mais de 2,5 erros-padrão (erro da urna; a pesquisa entra como fixa e o texto diz isso).
+- Padrão da forma B (troca de Flávio para Lula): dF de -0,07 ou menos e dL de +0,07 ou mais, os dois a mais de 2,5 erros-padrão.
+- Sem padrão de fraude: |dF| e |dL| até 0,07.
+- Qualquer outro resultado: inconclusivo.
+- Limites: o lado de Lula (dL) já foi visto; o que separa A de B é dF, que não foi visto. Regressão ecológica entre seções e declaração em pesquisa erram, cada uma do seu jeito. Um padrão A também aparece se quem disse "nenhum" na pesquisa votou em Lula de fato (voto escondido ou decisão de última hora).
+
+### T38. Pontos ganhos entre turnos, por UF e por município (descritivo)
+- Para cada UF e cada município: ganho de Flávio e de Lula entre turnos em votos e em pontos da fatia dos válidos. Conta em quantos Flávio ganhou mais votos e mais pontos que Lula.
+- Corte por força dos eliminados: o mesmo ganho relativo (Flávio menos Lula, em pontos) contra a fatia de Caiado, Renan, Cury e Zema no 1º turno do município. Descritivo.
+
+### T39. Branco e nulo de presidente contra o de governador, 1º contra 2º turno, nas 6 UFs (estrato G, descritivo)
+- R(t) = branco+nulo de presidente / branco+nulo de governador nas mesmas seções, no turno t. A forma A só no presidente baixa R(2) em relação a R(1). Sem referência de 2026 fora destas UFs; relatado com o T5 (beta de 0,468 em 2018 e 0,401 em 2022) e com R de 2018 e 2022 se as bases tiverem governador no 2º turno.
