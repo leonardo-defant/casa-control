@@ -1,0 +1,32 @@
+1) Numeros do video contra o oficial (TSE, boletins do 1T conferidos e total nacional do 2T)
+   soma dos quatro 9056092 (video 9.056.092) | menores 260655 (video 260.655)
+   Lula 53.879.538 -> 64.256.232 (+10.38 mi); Flavio 56.104.503 -> 59.826.041 (+3.72 mi)
+
+2) "3 em 1000": pesquisa Lula 49%% dos validos, margem +-2 pontos, resultado 51,79%%
+   margem como intervalo de 95%% (o significado correto da margem): desvio 2/1,96: z = 2.73, P = 0.0031 (3.1 em 1000)
+   margem tratada como um desvio-padrao: z = 1.39, P = 0.0815 (81.5 em 1000)
+
+3) O mesmo metodo aplicado a outras eleicoes (so erro amostral, margem como 95%)
+   2022 1T, Datafolha: Bolsonaro 36% dos validos, teve 43,20%: z = 7.1, P = 8.57e-13
+   2022 2T, Ipec: Lula 53,76% dos validos, teve 50,90%: z = 2.8, P = 2.53e-03
+   2022 2T, AtlasIntel (margem 1): Lula 53,41%, teve 50,90%: z = 4.9, P = 4.34e-07
+   2026 1T, Datafolha: Flavio 43,0% dos validos, teve 47,03%: z = 3.9, P = 3.92e-05
+   2026 2T, AtlasIntel (margem 1): Lula 49,24%, teve 51,79%: z = 5.0, P = 2.90e-07
+   2026 2T, Futura: Lula 49,9%, teve 51,79%: z = 1.9, P = 3.20e-02
+
+4) Usando o erro real das pesquisas brasileiras (erros do instituto mais citado, Datafolha, na fatia da direita nos validos)
+   erros: {'2018 1T': 6.03, '2018 2T': 0.13, '2022 1T': 7.2, '2022 2T': 1.23, '2026 1T': 4.03} | raiz do erro quadratico medio 4.60 pontos
+   erro de 2026 2T (2,79) / erro tipico (4.60) = 0.61 -> P = 0.27 (cerca de 27%)
+
+5) O metodo do video aplicado a 2022 (Bolsonaro, que mais ganhou)
+   ganho de Bolsonaro +7,13 mi; "melhor cenario": todos os eleitores novos (0.57 mi); faltam 6.56 mi = 66% dos eleitores de Tebet, Ciro e demais (que apoiaram Lula)
+
+6) Margem do 1o turno nas 7 viradas possiveis (pontos dos validos)
+   1989: 13.3
+   2002: 23.2
+   2006: 7.0
+   2010: 14.3
+   2014: 8.0
+   2018: 16.8
+   2022: 5.2
+   2026: 1.9
