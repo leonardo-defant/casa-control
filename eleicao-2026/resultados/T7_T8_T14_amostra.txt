@@ -1,0 +1,6 @@
+== T7
+{"secoes": 3897, "ganho_total": 82655, "bolo_total": 117242, "pct_secoes_excesso": 10.572235052604567, "excesso_total": 1412, "pct_ganho_em_excesso": 1.7083056076462404, "pct_secoes_adversario_perdeu_votos": 17.757249166025147, "secoes_sem_bolo": 5, "ganho_nas_secoes_sem_bolo": 9}
+== T8 e T14 (coeficiente adversario_1T)
+{"candidato": "L", "n": 3781, "locais": 625, "coef": {"Cury": 0.54, "Renan": 0.493, "Caiado": 0.542, "Zema": 0.418, "demais_outros": 0.889, "queda_branco_nulo": 0.667, "var_comparecimento": 0.605, "adversario_1T": 0.051, "proprio_1T": -0.011}, "ep": {"Cury": 0.03, "Renan": 0.031, "Caiado": 0.033, "Zema": 0.084, "demais_outros": 0.115, "queda_branco_nulo": 0.022, "var_comparecimento": 0.015, "adversario_1T": 0.007, "proprio_1T": 0.006}}
+== T8 sem separar candidatos (comparavel com as referencias)
+{"candidato": "L", "n": 3781, "locais": 625, "coef": {"outros_1T": 0.53, "queda_branco_nulo": 0.668, "var_comparecimento": 0.605, "adversario_1T": 0.05, "proprio_1T": -0.011}, "ep": {"outros_1T": 0.017, "queda_branco_nulo": 0.022, "var_comparecimento": 0.016, "adversario_1T": 0.007, "proprio_1T": 0.006}}
