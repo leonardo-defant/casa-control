@@ -1,0 +1,74 @@
+# Pré-registro dos testes novos (26/10/2026, manhã, horário de Cuiabá)
+
+Este arquivo foi escrito e versionado no git **antes** de rodar os testes abaixo nos dados de 2026. O horário do commit é a prova. Os critérios da seção 7 do CONTEXTO-ELEICAO-2026.md continuam valendo como estão; aqui só entram os testes que ainda não tinham critério.
+
+Situação no momento do registro:
+- Boletins (bweb) do 2º turno de 2026 ainda não publicados no portal de dados abertos (só os 28 do 1º turno, de 06/10).
+- Os arquivos por seção do 2º turno (`-bu.dat`, `-rdv.dat`, `-log.jez`) estão acessíveis no site de resultados pelo caminho `/arquivo-urna/3221/dados/{uf}/{mun}/{zona}/{secao}/{hash}/{arquivo}`, com o hash lido do `-aux.json` da seção (mesmo padrão de 2022). Uma seção do Acre (01074, zona 4, seção 1) foi baixada e decodificada para validar o formato. Nenhum outro dado do 2º turno por seção foi olhado.
+- A parte 1 do pacote (código e base do 1º turno de 2026) não chegou nesta sessão. Os scripts estão sendo reescritos e só serão usados depois de reproduzirem os números de referência de 2018 e 2022 do documento.
+
+## Regras gerais
+
+1. Fato confirmado, indício, evidência e prova são coisas diferentes. Um "sinal" abaixo é indício e pede cruzamento com outro teste independente.
+2. Para cada teste: o que foi testado, o critério, o número, se apoia ou contraria a tese e o que fica sem teste.
+3. Se um script reescrito não reproduzir a referência do documento, o teste correspondente não é relatado como resultado até a diferença ser explicada.
+4. Resultados da amostra do 2º turno são provisórios. Quando o bweb completo sair, o teste é refeito com todas as seções e vale o resultado completo, com o mesmo critério.
+
+## T1. Soma dos boletins da amostra contra o total oficial por município (critério 1 da seção 7)
+
+- Para os municípios baixados por inteiro: soma, seção por seção, de votos no 13, no 22, brancos, nulos e comparecimento nos `-bu.dat`, contra o arquivo oficial do município no site de resultados (`{uf}{mun}-c0001-e006258-u.json`).
+- **Evidência forte de fraude na totalização:** qualquer diferença que não seja explicada por seção não instalada, seção anulada ou voto anulado registrado pelo TSE.
+- **Limite:** não pega uma urna que já registre errado (o boletim sai do mesmo software).
+
+## T2. RDV contra boletim (critério 4 da seção 7)
+
+- Para cada seção da amostra com `-rdv.dat`: contagem de votos por cargo e tipo (nominal por número, branco, nulo) no RDV contra o `-bu.dat`.
+- **Evidência forte:** qualquer diferença em qualquer seção.
+- **Limite:** os dois arquivos saem do mesmo software; igualdade não descarta software que grave errado nos dois.
+
+## T3. Logs da urna: horários impossíveis e ritmo não humano (critério 3 da seção 7)
+
+Medidas por seção, contando só o dia da eleição e só a aplicação de votação:
+- A1: número de mensagens "O voto do eleitor foi computado" diferente do comparecimento do boletim.
+- A2: voto computado antes de "Urna pronta para receber votos" ou depois de "Inicio do Encerramento".
+- A3: voto computado sem "Eleitor foi habilitado" desde o voto anterior.
+- A4: intervalo entre "Eleitor foi habilitado" e "O voto do eleitor foi computado" menor que 2 segundos.
+- A5: rajada de 10 ou mais votos seguidos com menos de 15 segundos entre um voto computado e o seguinte.
+
+Referência: as mesmas medidas nos logs do 1º turno de 2026 (pleito 3220) das mesmas seções.
+- **Bandeira vermelha:** qualquer A1, A2 ou A3 sem explicação documentada no próprio log (urna substituída, votação por cédula, reinício), ou taxa de A4 ou A5 no 2º turno acima de 3 vezes a do 1º turno nas mesmas seções e em mais de 0,5% das seções.
+- **Limite:** um software malicioso poderia gravar log falso; o log não registra o conteúdo do voto.
+
+## T4. Excesso de seções com branco+nulo de presidente zerado (pendência 8.2, item 8)
+
+- Para cada seção com comparecimento de 50 ou mais: indicador de branco+nulo de presidente igual a zero (Z0) e menor ou igual a 1 (Z1).
+- Esperado de cada seção: probabilidade de zero (ou de no máximo 1) numa beta-binomial com média igual à taxa de branco+nulo das outras seções do mesmo local de votação no mesmo turno (se o local só tiver uma seção, as outras seções do município) e superdispersão estimada pelo método dos momentos dentro de cada eleição e turno.
+- Estatística: R = observados / esperados, para Z0 e Z1.
+- Referências: 2018 (1º e 2º turnos), 2022 (1º e 2º turnos) e 2026 (1º turno).
+- **Sinal a favor da tese (2º turno de 2026):** R acima do maior R das referências mais 0,15 **e** excesso (observados menos esperados vezes o maior R das referências) acima de 3 vezes a raiz desse esperado.
+- **Sem sinal:** R até o maior R das referências mais 0,05.
+- Entre os dois: inconclusivo.
+- Escala: quando houver excesso, somar o branco+nulo esperado dessas seções para ver quantos votos uma conversão total nelas renderia, contra os 4,43 milhões necessários para inverter o resultado.
+- **Limite:** só pega conversão total em parte das urnas. Conversão parcial e uniforme não gera zeros em excesso.
+
+## T5. Versão "valor desconhecido", nos dois turnos: presidente contra governador no 1º turno (todas as 27 UFs tiveram governador no 1º turno)
+
+Ideia: se a urna converte uma fração X do branco+nulo verdadeiro de presidente em voto no 13 em todas as eleições, a comparação entre turnos não vê nada, mas a relação, dentro do mesmo local de votação, entre o branco+nulo de presidente e o de governador na mesma urna encolhe pelo fator (1 menos X), e a relação entre a fatia do 13 e o branco+nulo de governador sobe.
+
+- (a) Inclinação beta: branco+nulo de presidente (% do comparecimento) contra branco+nulo de governador (% do comparecimento), com efeito fixo do local de votação, peso pelo comparecimento, erro-padrão agrupado por local. 1º turno de 2018, 2022 e 2026.
+- (b) Inclinação gama: fatia do 13 (% do comparecimento) contra branco+nulo de governador, mesma especificação.
+- Conta da tese: para inverter o resultado do 2º turno, X teria de ser de pelo menos cerca de 52% (4,43 milhões contra 4,15 milhões registrados mais 4,43 milhões convertidos).
+- **Sinal a favor da tese:** beta de 2026 abaixo de 0,6 vez o menor beta das referências e a mais de 3 erros-padrão abaixo dele.
+- **Sem sinal:** beta de 2026 de pelo menos 0,85 vez o menor beta das referências.
+- Entre os dois: inconclusivo.
+- Gama é lido junto, como confirmação de direção, sem critério próprio.
+- **Limites:** se X for igual nos três anos, este teste não vê nada (a tese diz que a fraude é recorrente). O comportamento muda de um ano para outro (2018 teve branco+nulo de 8,8%). Por isso só uma queda grande de beta conta.
+- O mesmo teste é repetido no 2º turno nos estados com 2º turno de governador (2026: AC, AM, DF, ES, RN, TO; referências 2018 e 2022 com os estados que tiveram 2º turno de governador em cada ano), com o mesmo critério.
+
+## T6. Branco/nulo declarado nas pesquisas contra o registrado (pendência 8.2, item 9)
+
+- Para cada instituto com votos totais publicados na última pesquisa antes do 2º turno (Datafolha, Quaest, AtlasIntel e outros com série em 2018, 2022 e 2026): diferença entre o branco/nulo declarado e o registrado (% do comparecimento).
+- Conta da tese: para inverter o resultado, o branco/nulo verdadeiro do 2º turno teria de ser de pelo menos 6,7% do comparecimento, contra 3,24% registrados, uma diferença de cerca de 3,5 pontos que não existiria em 2018 e 2022 se a fraude fosse nova, ou seria menor nesses anos.
+- **Sinal a favor da tese:** diferença média de 2026 maior que a maior diferença média de 2018 e 2022 em 2,0 pontos ou mais, com o mesmo instituto e o mesmo tratamento de "não sabe".
+- **Sem sinal:** até 1,0 ponto acima.
+- **Limites:** pesquisa mede intenção, inclui quem não vai votar e tem erro próprio (em 2026 o erro de candidato foi de cerca de 2,7 pontos). Se a fraude também existisse em 2018 e 2022, a comparação entre anos perde força; nesse caso vale olhar o nível da diferença em cada ano.
