@@ -382,3 +382,18 @@ Mudança, registrada antes de baixar:
 - Contraste antigas contra novas: o mesmo do Adendo 10, nesses 119 locais (é o universo inteiro, não uma amostra). Critérios iguais. Se o erro-padrão passar de 0,3, o teste fica com poder limitado e o resultado sai junto com o efeito mínimo detectável (2,8 erros-padrão).
 - Contrastes de um modelo só (UE2020 contra UE2022; UE2013 contra UE2015): com a amostra atual mais o prefixo de 264 seções, como no T17 do Adendo 9.
 - Limite de generalização: 113 dos 119 locais estão em SP. Um efeito encontrado vale para SP; ausência de efeito não exclui alteração restrita a outra UF.
+
+## Adendo 12 (26/10, tarde, antes de baixar os logs das demais seções da amostra): T30 com todos os logs da amostra
+
+Transparência: o T30 por horário já foi visto nas 835 seções com log (16 municípios; 2 deles com 481 seções). Inclinação da virada na fração de votos depois de 12h, 14h e 16h: +6,6 (2,6), +7,4 (1,6) e +14,9 (4,9), com efeito fixo de município. A revisão independente mostrou que o placebo rodado tinha uma covariável fora do registro (log dos aptos); o placebo como registrado (y = fatia de Lula no 1º turno, x = f1, efeito fixo de município) dá +13,0 (3,2), +16,0 (3,3) e +16,2 (3,6) e continua falhando. Com correções para poucos grupos (jackknife CV3), os z caem para 1,7, 3,1 e 2,2. O placebo em nível falha por composição: dentro do município, quem vota mais tarde já votava mais em Lula no 1º turno.
+
+Extensão: baixar o `-log.jez` listado no `-aux.json` das outras 3.062 seções da amostra (todas já têm o `-aux.json`), pelo mesmo limitador. O T30 é refeito com todas as seções com log dos dois turnos, com o critério do Adendo 9 sem mudança.
+
+Leituras de robustez fixadas agora, relatadas ao lado do critério e sem substituí-lo:
+- R1: efeito fixo de local no lugar de município.
+- R2: R1 mais a fatia de Lula no 1º turno como controle, que trata a composição que fez o placebo falhar.
+- R3: erro-padrão CV3 (jackknife por grupo) ao lado do CR1.
+- Leitura: se, em algum corte, a inclinação ficar em 4 pontos ou mais com z acima de 2,93 em R2 com CR1 e CV3, o horário passa a ser indício a cruzar com T21 e T25, mesmo com o placebo em nível falhando. Se em R2 a inclinação cair abaixo de 1,5 ou perder significância, a associação é lida como composição.
+- Escala: uma troca de uma fração q dos votos de Flávio dados depois do corte daria inclinação de cerca de 50 vezes q, em pontos. Uma inclinação de 7,4 equivaleria a q de cerca de 15% e a cerca de 1,6 ponto na média nacional. Por isso a leitura de composição contra gatilho importa.
+
+Com os mesmos logs: T21(c), fração das habilitações sem biometria nos últimos 90 minutos, 2º contra 1º turno na mesma urna, só descritivo.
