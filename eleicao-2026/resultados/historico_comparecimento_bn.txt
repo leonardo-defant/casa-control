@@ -1,0 +1,21 @@
+ano  | comparec. 1T -> 2T (var) | branco+nulo 1T -> 2T (var, var relativa) | validos em % do eleitorado 1T -> 2T (var)
+2002 | 82.26 -> 79.53 (-2.73) | 10.36 ->  5.99 (-4.37, -42%) | 73.74 -> 74.77 (+1.03)
+2006 | 83.25 -> 81.01 (-2.24) |  8.41 ->  6.04 (-2.37, -28%) | 76.25 -> 76.12 (-0.13)
+2010 | 81.88 -> 78.50 (-3.38) |  8.64 ->  6.70 (-1.94, -22%) | 74.81 -> 73.24 (-1.57)
+2014 | 80.61 -> 78.90 (-1.71) |  9.64 ->  6.34 (-3.30, -34%) | 72.84 -> 73.90 (+1.06)
+2018 | 79.67 -> 78.70 (-0.97) |  8.79 ->  9.57 (+0.78, +9%) | 72.67 -> 71.17 (-1.50)
+2022 | 79.05 -> 79.41 (+0.36) |  4.41 ->  4.59 (+0.18, +4%) | 75.56 -> 75.77 (+0.20)
+2026 | 78.92 -> 80.78 (+1.86) |  4.77 ->  3.24 (-1.53, -32%) | 75.16 -> 78.16 (+3.01)
+
+tendencia da variacao do comparecimento entre turnos (2010 a 2022): +1.20 ponto por eleicao; previsto para 2026 +1.57; real +1.86
+
+"Quase 100%": fracao do saldo de quem saiu de BN/abstencao que teria ido para Lula, conforme a transferencia dos outros
+  (a = fracao dos outros que foi para Lula; n = fracao dos outros que foi para BN/abstencao)
+  a=0.27: n=0.00: 165% | n=0.15: 127% | n=0.33: 100%
+  a=0.35: n=0.00: 149% | n=0.15: 115% | n=0.33: 91%
+  a=0.45: n=0.00: 129% | n=0.15: 100% | n=0.33: 79%
+  a=0.55: n=0.00: 110% | n=0.15: 85% | n=0.33: 67%
+  com troca de eleitores (Flavio perde 2 mi e Lula 1 mi de eleitores do 1T para a abstencao, repostos por quem nao votou), a=0,45, n=0,20: 75%
+
+Mesma conta em 2022 (Bolsonaro), transferencia declarada no PoderData (Tebet 92/8 e Ciro 46/54 nos validos), 15% dos outros para BN/abstencao
+  Bolsonaro tirou dos outros cerca de 2.85 mi; precisaria de 4.28 mi do saldo de quem saiu de BN/abstencao, que foi de 1.81 mi: 237% (impossivel sem troca de eleitores ou de lado)

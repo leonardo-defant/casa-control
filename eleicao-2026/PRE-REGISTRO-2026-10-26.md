@@ -211,3 +211,20 @@ Se o erro das pesquisas no 2º turno de 2026 for anômalo, a mudança do erro en
 - Teto = 100 menos a rejeição (em % dos entrevistados). Comparar com o voto do candidato em % do comparecimento.
 - **Sinal:** Lula acima do próprio teto em mais de 3 pontos, quando nenhum vencedor de 2018 e 2022 ultrapassou o teto pelos mesmos institutos.
 - **Sem sinal:** Lula abaixo do teto ou acima dele no mesmo tamanho dos vencedores anteriores.
+
+## Adendo 8 (26/10, antes do bweb do 2º turno): T14, marca de troca de votos por seção
+
+Se a urna trocasse uma fração s dos votos de Flávio por votos de Lula, o ganho de Lula em cada seção ficaria proporcional aos votos de Flávio daquela seção. Na regressão do T8 (dentro do mesmo local), o coeficiente dos votos do adversário no 1º turno sobe em cerca de s.
+
+Calibração (troca uniforme simulada sobre os dados reais):
+- 2018, Haddad como ganhador: 0,006 sem troca; 0,026 com 2%; 0,046 com 4%; 0,071 com 6,5%.
+- 2022, Bolsonaro como ganhador: 0,038 sem troca; 0,057 com 2%; 0,076 com 4%; 0,100 com 6,5%.
+- Sem troca, o coeficiente variou de 0,006 a 0,041 entre os candidatos de 2018 e 2022 (comportamento real: eleitores que mudam de lado e troca de eleitores).
+
+Critério para o 2º turno de 2026, com todas as seções do bweb:
+- **Sinal:** coeficiente acima de 0,071 (o maior valor sem troca, 0,041, mais 0,03, o equivalente a cerca de 3% de troca) e a mais de 3 erros-padrão disso.
+- **Compatível com a troca que a pesquisa Veritá implicaria (cerca de 6,5%):** 0,10 ou mais.
+- **Sem sinal:** até 0,051.
+- Entre os dois: inconclusivo.
+
+Transparência: na amostra parcial (1.709 seções) este coeficiente já foi visto: 0,056 (erro-padrão 0,012). O critério acima vale para os dados completos, que ainda não existem.

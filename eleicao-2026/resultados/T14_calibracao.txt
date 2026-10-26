@@ -1,0 +1,12 @@
+Fracao do saldo de BN/abstencao que foi para Lula, por fatia de Flavio entre os outros (f) e fracao dos outros que nao votou em ninguem (n):
+  f=0.20: n=0.15: 70% | n=0.25: 74% | n=0.33: 76%
+  f=0.30: n=0.15: 85% | n=0.25: 87% | n=0.33: 88%
+  f=0.39: n=0.15: 99% | n=0.25: 99% | n=0.33: 99%
+2018 ganhador L, troca simulada 0.0%: coef. adversario_1T = +0.0063 (ep 0.0007)
+2018 ganhador L, troca simulada 2.0%: coef. adversario_1T = +0.0261 (ep 0.0007)
+2018 ganhador L, troca simulada 4.0%: coef. adversario_1T = +0.0460 (ep 0.0007)
+2018 ganhador L, troca simulada 6.5%: coef. adversario_1T = +0.0709 (ep 0.0007)
+2022 ganhador R, troca simulada 0.0%: coef. adversario_1T = +0.0377 (ep 0.0006)
+2022 ganhador R, troca simulada 2.0%: coef. adversario_1T = +0.0569 (ep 0.0006)
+2022 ganhador R, troca simulada 4.0%: coef. adversario_1T = +0.0762 (ep 0.0006)
+2022 ganhador R, troca simulada 6.5%: coef. adversario_1T = +0.1002 (ep 0.0006)
