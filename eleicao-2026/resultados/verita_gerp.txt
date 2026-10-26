@@ -1,0 +1,11 @@
+oficial: Flavio 48.21% dos validos; branco+nulo 3.24% do comparecimento
+
+instituto                  | erro em Flavio | se a pesquisa estivesse certa: votos trocados de Flavio p/ Lula | ou BN convertido necessario -> BN verdadeiro | BN declarado
+Gerp (22 a 24/10)          | +3.79 pts |  4.70 mi |  9.03 mi -> BN verdadeiro  10.3% | nao divulgado
+Verita (divulgada 24/10)   | +3.35 pts |  4.15 mi |  8.05 mi -> BN verdadeiro   9.5% | 1.43%
+Datafolha (23 e 24/10)     | +2.79 pts |  3.46 mi |  6.78 mi -> BN verdadeiro   8.5% | 3.00%
+Quaest (23 e 24/10)        | +2.79 pts |  3.46 mi |  6.78 mi -> BN verdadeiro   8.5% | 8.00%
+AtlasIntel (18 a 23/10)    | +2.59 pts |  3.21 mi |  6.31 mi -> BN verdadeiro   8.2% | nao divulgado
+CNT/MDA (21 a 23/10)       | +2.49 pts |  3.08 mi |  6.08 mi -> BN verdadeiro   8.0% | 5.80%
+Nexus/BTG (23 e 24/10)     | +2.29 pts |  2.84 mi |  5.61 mi -> BN verdadeiro   7.6% | 5.20%
+Futura (23 e 24/10)        | +1.89 pts |  2.34 mi |  4.67 mi -> BN verdadeiro   6.9% | nao divulgado
