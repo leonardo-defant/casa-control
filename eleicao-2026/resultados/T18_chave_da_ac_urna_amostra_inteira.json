@@ -1,0 +1,15 @@
+{
+ "certificados_ecdsa": 1059,
+ "algoritmo_da_assinatura": {
+  "1.2.840.10045.4.3.4": 1059
+ },
+ "candidatos_comuns": 1,
+ "certificados_verificados_com_a_chave_recuperada": 1059,
+ "falhas": [],
+ "sha256_da_chave_da_ac": "5d4c7e3a00234e6ee1400c07730f16402b775e7a326a660dba71c3556722260e",
+ "sha1_do_ponto_da_chave (convencao usual do identificador de chave)": "cdaaf4b29701b3f0deb2b54258594a6d34ada48a",
+ "identificador_da_ac_nos_certificados": {
+  "cdaaf4b29701b3f0deb2b54258594a6d34ada48a": 1059
+ },
+ "identificador_bate_com_a_chave": true
+}

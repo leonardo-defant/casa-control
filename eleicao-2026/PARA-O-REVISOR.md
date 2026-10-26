@@ -51,7 +51,7 @@ O download parou no limite de 2 horas da tarefa em segundo plano e não chegou a
 
 As 835 seções com RDV, log e arquivo de assinatura são as 823 de M mais as 12 de teste. Os arquivos de assinatura dessas 835 vieram numa leva própria (Adendo 9). Depois vieram mais três levas:
 - **Logs das outras 3.062 seções** (Adendo 12).
-- **Arquivos de assinatura das outras 3.062** (Adendo 13), em andamento.
+- **Arquivos de assinatura das outras 3.062** (Adendo 13).
 - **Extensão dirigida do T17** (Adendos 10 e 11):
   - 264 seções sorteadas entre os locais com modelos misturados;
   - todas as 1.335 seções dos 119 locais do país que têm urnas antigas e novas juntas.
@@ -98,7 +98,7 @@ Veredito pelo critério pré-registrado. "Amostra" quer dizer provisório.
 | T13 teto de Lula pela rejeição | voto acima do possível | Lula abaixo do próprio teto nos 8 institutos | sem sinal |
 | T14 marca de troca de votos | troca proporcional dos votos de Flávio | 0,0507 (0,0070), intervalo de 0,037 a 0,064; limite de "sem sinal" era 0,051. Referências sem troca: país 0,006 a 0,041; mesmas seções da amostra (robustez posterior) 2022 Bolsonaro 0,048 (0,007), 2018 Haddad 0,010 (0,009) | sem sinal no limite; a leitura depende da referência (ver seções 5 e 7) |
 | T17 modelo da urna no mesmo prédio | troca restrita às urnas novas ou a um modelo | antigas menos novas nos 119 locais: -0,016 (0,140); seria preciso cerca de 2,2. Um modelo só: UE2020 contra UE2022 -0,04 (0,22) e UE2013 contra UE2015 +0,34 (0,24), efeito mínimo detectável 0,61 e 0,67 | sem sinal para antigas contra novas (vale para SP); sem poder para um modelo só |
-| T18 assinatura digital | arquivo trocado depois da urna | 835 seções, 9.185 arquivos e 835 blocos válidos; SHA-256 do vsc igual ao hash do aux em 835 (o aux e o vsc vêm do mesmo servidor, então isso é coerência, não verificação independente) | sem sinal (as 3.062 restantes em download) |
+| T18 assinatura digital | arquivo trocado depois da urna | 3.897 seções: 42.867 arquivos e 3.897 blocos com assinatura válida; 8.629 arquivos baixados iguais ao resumo assinado; número da urna igual ao do certificado em todas; os 1.059 certificados das urnas antigas conferem com uma única chave de AC (SHA-256 do vsc igual ao hash do aux, mas os dois vêm do mesmo servidor: coerência, não verificação independente) | sem sinal |
 | T19 conteúdo dos nulos | candidato contado como nulo | zero nulos de presidente digitados 13 ou 22 em 5.087 | sem sinal no item forte; (b) sem referência |
 | T20 pendências do T10 | carga ou programa fora do oficial | 3.897 urnas: 426 com pendência (438 itens). 103 fecham com as regras já usadas nas 835 primeiras. 323 só fecham com 2 regras definidas depois de ver os dados (sessão de geração da zona e computador da própria zona), que não são o evento de substituição, contingência ou recarga exigido. A janela de 10 a 15/10 também saiu das 835 primeiras. Votáveis 13 e 22 em 3.897 boletins | em aberto pelo critério literal; não é sinal, porque não há calendário oficial que torne as datas "fora do oficial"; faltam as atas de carga |
 | T30 gatilho por horário | troca depois de certa hora | 3.874 seções: +5,0 (1,4) às 14h e +11,3 (2,7) às 16h passam valor e z, mas o placebo falha (+16); com local e fatia do 1º turno: +1,1, +1,1 e +4,1 (2,1), z 1,95 às 16h | sem poder pelo critério; leitura de composição, às 16h no limite (ver seção 7) |
@@ -233,7 +233,7 @@ Fatos de contexto já checados:
    - Um revisor deve propor um placebo melhor que o nível do 1º turno.
 5. **T18:**
    - A cadeia até a raiz do TSE não foi verificada.
-   - Para as urnas antigas, mostrei que os 392 certificados conferem com uma única chave de AC.
+   - Para as urnas antigas, mostrei que os 1.059 certificados da amostra conferem com uma única chave de AC.
    - A impressão digital SHA-256 da chave é 5d4c7e3a00234e6ee1400c07730f16402b775e7a326a660dba71c3556722260e. Alguém no Brasil deve compará-la com o certificado da AC URNA publicado pelo TSE.
    - Para as urnas novas (Ed521), a chave da AC não pode ser recuperada.
    - A variante Ed521 foi identificada por tentativa. Ela verifica tudo e o controle negativo rejeita tudo, mas não há especificação publicada à mão.
