@@ -1,0 +1,18 @@
+EXPLORATÓRIO, fora do pré-registro (26/10, depois de ver T8 e T14). Amostra do 2º turno (3.897 seções), por região.
+Coeficiente "proprio_1T" da regressão do T8 (ganho do candidato na seção contra os votos dele mesmo no 1º turno,
+efeito fixo de local): fração líquida dos próprios eleitores do 1º turno que o candidato perdeu entre os turnos.
+Uma troca uniforme feita pelo programa de uma fração s dos votos de Flávio baixaria esse coeficiente de Flávio em
+cerca de s em TODAS as regiões (é o piso que o T16 procura, com o bweb e por UF).
+
+região | 2026 Flávio (perdendo terreno)      | 2022 Lula, mesmas seções (perdendo terreno)
+N      | -0,048 (0,028), 263 seções, 42 locais | -0,032 (0,030)
+NE     | -0,063 (0,012), 1.189 seções          | -0,032 (0,008)
+CO     | -0,051 (0,015), 240 seções            | -0,104 (0,032)
+SE     | -0,055 (0,013), 1.554 seções          | -0,068 (0,013)
+S      | -0,005 (0,016), 535 seções, 103 locais| -0,079 (0,014)
+Brasil | -0,050 (0,007)                        | -0,038 no país (2022 nacional)
+
+Leitura: no Sul, Flávio não perdeu os próprios eleitores (cerca de 0); uma troca uniforme de cerca de 5% exigiria
+cerca de -0,05 também ali, a 2,8 erros-padrão do observado. Pesa contra uma troca uniforme pelo programa, ou indica
+que, se houve troca, ela não foi uniforme. Amostra pequena por região, escolha de recorte posterior aos dados.
+O teste que decide é o T16 (Adendo 9), com todas as seções por UF.
