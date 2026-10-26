@@ -14,11 +14,27 @@ from concurrent.futures import ThreadPoolExecutor
 BASE = 'https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna'
 CTX = ssl.create_default_context(cafile=os.environ.get('SSL_CERT_FILE', '/root/.ccr/ca-bundle.crt'))
 lock = threading.Lock()
-stats = {'req': 0, 'erro': 0, 'bloqueio': 0, 'secoes': 0, 'bytes': 0}
+stats = {'req': 0, 'erro': 0, 'bloqueio': 0, 'r429': 0, 'secoes': 0, 'bytes': 0, 'falhou': 0}
+TAXA = float(os.environ.get('TAXA', '3'))  # requisições por segundo, no total
+_prox = [0.0]
+pausa_ate = [0.0]
 
 
-def get(url, tent=5):
+def espera_vez():
+    """Limitador global: espaça as requisições e respeita a pausa após um 429."""
+    while True:
+        with lock:
+            agora = time.time()
+            alvo = max(_prox[0], pausa_ate[0])
+            if agora >= alvo:
+                _prox[0] = agora + 1.0 / TAXA
+                return
+        time.sleep(min(alvo - agora, 1.0))
+
+
+def get(url, tent=12):
     for t in range(tent):
+        espera_vez()
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'auditoria-eleicao-2026 (pesquisa)'})
             with urllib.request.urlopen(req, timeout=60, context=CTX) as r:
@@ -30,13 +46,20 @@ def get(url, tent=5):
                 time.sleep(30 * (t + 1)); continue
             return b
         except urllib.error.HTTPError as e:
-            with lock: stats['erro'] += 1
             if e.code == 404:
+                with lock: stats['erro'] += 1
                 return None
+            if e.code == 429:
+                with lock:
+                    stats['r429'] += 1
+                    pausa_ate[0] = max(pausa_ate[0], time.time() + 20 * min(t + 1, 6))
+                continue
+            with lock: stats['erro'] += 1
             time.sleep(5 * (t + 1))
         except Exception:
             with lock: stats['erro'] += 1
             time.sleep(5 * (t + 1))
+    with lock: stats['falhou'] += 1
     return None
 
 
@@ -75,8 +98,10 @@ if __name__ == '__main__':
     t0 = time.time()
     with ThreadPoolExecutor(conc) as ex:
         futs = [ex.submit(secao, pleito, l, saida, tipos) for l in linhas]
+        ult = [time.time()]
         for i, f in enumerate(futs):
             f.result()
-            if (i + 1) % 200 == 0 or i + 1 == len(futs):
+            if time.time() - ult[0] > 60 or i + 1 == len(futs):
+                ult[0] = time.time()
                 dt = time.time() - t0
-                print(f"{i+1}/{len(futs)} secoes, {stats['req']} req, {stats['req']/dt:.1f} req/s, erros {stats['erro']}, bloqueios {stats['bloqueio']}, {stats['bytes']/1e6:.0f} MB", flush=True)
+                print(f"{i+1}/{len(futs)} secoes, {stats['req']} req, {stats['req']/dt:.1f} req/s, erros {stats['erro']}, 429 {stats['r429']}, falhas {stats['falhou']}, bloqueios {stats['bloqueio']}, {stats['bytes']/1e6:.0f} MB", flush=True)

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/user/casa-control/eleicao-2026/scripts/analisar_zeros.py", line 67, in <module>
+    print(json.dumps(calcular(d, turno, ufs, chaves)))
+                     ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/casa-control/eleicao-2026/scripts/analisar_zeros.py", line 53, in calcular
+    lb = lbeta(a, b)
+  File "/home/user/casa-control/eleicao-2026/scripts/analisar_zeros.py", line 15, in lbeta
+    return math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
+                            ~~~~~~~~~~~^^^
+ValueError: math domain error
+== T4 2018 turno 1 
+== T4 2018 turno 2 {"secoes": 453006, "bn_medio": 9.570198361376836, "rho": 0.0010443649791536248, "Z0_obs": 405, "Z0_esp": 427.3714512376562, "R0": 0.9476533793427964, "Z1_obs": 1473, "Z1_esp": 1481.5198098759913, "R1": 0.9942492771144893}
+== T4 2022 turno 1 {"secoes": 471400, "bn_medio": 4.40877477804637, "rho": 0.000913350640566396, "Z0_obs": 2020, "Z0_esp": 2646.268717525172, "R0": 0.7633389559504495, "Z1_obs": 7275, "Z1_esp": 8823.317831505843, "R1": 0.8245197712387521}
+== T4 2022 turno 2 {"secoes": 471373, "bn_medio": 4.587949997878398, "rho": 0.0006054916441937097, "Z0_obs": 1739, "Z0_esp": 2366.3141295079167, "R0": 0.7348982023623513, "Z1_obs": 6391, "Z1_esp": 7975.105238888025, "R1": 0.8013687354038104}
+== T4 2026 turno 1 {"secoes": 498563, "bn_medio": 4.765408360731056, "rho": 0.0008538616946722517, "Z0_obs": 1323, "Z0_esp": 1821.311226092391, "R0": 0.7263997394001058, "Z1_obs": 5263, "Z1_esp": 6643.532910077132, "R1": 0.7921989807587023}
+== T4 2018 turno 1 {"secoes": 453182, "bn_medio": 8.787693186254444, "rho": 0.0017931798005654939, "Z0_obs": 535, "Z0_esp": 554.5279820945592, "R0": 0.9647844964995306, "Z1_obs": 1869, "Z1_esp": 1934.7250165291068, "R1": 0.9660287555246392}
