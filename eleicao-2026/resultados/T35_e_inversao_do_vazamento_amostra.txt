@@ -11,9 +11,10 @@ T35 (Adendo 15), PRELIMINAR na amostra de 3.897 seções (o decisivo é com o bw
    O que cada cenário precisa para produzir isso:
    - desvio proporcional aos votos de Flávio (s·F): explica Flávio 5,0% com s de 3 a 4%, mas não mexe na fidelidade do eleitor de
      Lula (o termo de Lula muda só s x 0,04, cerca de 0,002). Lula 1,1% contra 3,6 a 4,8% de antes ficaria sem explicação.
+     Tamanho: 1,9 a 2,5 milhões de votos, perto dos 2,22 milhões que bastam para virar a margem oficial de 4,43 milhões.
    - desvio proporcional aos votos de Lula (k·L, tirados de Flávio): explica Lula 1,1% com k de 2,5 a 3,7%, mas não a perda de Flávio.
-   - os dois termos juntos: explicam as duas pontas; cerca de 3 milhões de votos movidos, margem invertida (sem eles, Flávio
-     venceria por cerca de 2 milhões). Conta de ordem de grandeza, não estimativa.
+   - os dois termos juntos: explicam as duas pontas; 3,4 a 4,8 milhões de votos movidos, de 1,5 a 2 vezes o necessário para virar
+     (sem eles, Flávio venceria por 2,4 a 5,2 milhões). Seria o "errou a mão" da tese. Conta de ordem de grandeza, não estimativa.
    - mudança de humor do eleitorado entre os turnos: explica as duas pontas com um mecanismo só.
    Nada aqui separa os cenários; o T22b (governador na mesma urna), o T34 (divisa) e o T16 (piso por UF) separam.
 
@@ -23,8 +24,8 @@ T35 (Adendo 15), PRELIMINAR na amostra de 3.897 seções (o decisivo é com o bw
    35-50%     | -0,081  -0,064   | -0,046  -0,026  | -0,019  -0,059
    50-65%     | -0,093  -0,150   | -0,084  -0,040  | -0,039  -0,071
    >=65%      | -0,075  -0,126   | -0,075  -0,067  | -0,006  -0,091
-   Todos perdem mais onde o adversário é forte. Flávio 2026 fica dentro da faixa dos outros cinco em cada faixa (entre Bolsonaro 2022 e
-   Bolsonaro 2018). O ponto fora da curva de 2026 é Lula, que quase não perdeu os próprios eleitores em nenhuma faixa.
+   Todos perdem mais onde o adversário é forte. Flávio 2026 fica dentro da faixa dos outros cinco em cada faixa (em três das quatro,
+   entre Bolsonaro 2022 e Bolsonaro 2018; na mais fraca, um pouco abaixo dos dois). O ponto fora da curva de 2026 é Lula, que quase não perdeu os próprios eleitores em nenhuma faixa.
    A (direita menos esquerda, mesma faixa): 2018 +0,012 (0,012); 2022 +0,034 (0,009); 2026 -0,025 (0,009).
    A(2026) - A(2018) = -0,037 (0,015), 2,45 erros-padrão.
    Veredito pelo critério do Adendo 15: INCONCLUSIVO (A(2026) não chega a -0,03; a diferença para 2018 fica a 0,05 erro-padrão do limiar).
