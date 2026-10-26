@@ -1,5 +1,6 @@
 Resultados dos testes do Adendo 9 que rodam sem o bweb do 2º turno (26/10/2026, tarde)
-Critérios registrados antes: commits 6d9a849 (Adendo 9), b4bbb5c (Adendo 10) e 36df151 (Adendo 11).
+Critérios registrados antes: commits 6d9a849 (Adendo 9), b4bbb5c (Adendo 10), 36df151 (Adendo 11) e e3de91b (Adendo 12).
+Versão revisada depois de uma revisão adversarial independente do código (19 agentes): ver o fim do arquivo.
 Amostra: 3.897 seções com boletim do 2º turno (625 locais); 835 delas com RDV, log e arquivo de assinatura.
 Tudo é preliminar até o bweb completo, pela regra 4 do pré-registro.
 
@@ -12,14 +13,27 @@ T18. Assinatura digital dos arquivos de cada seção (835 seções)
     prefixo "SigEd521", mensagem = SHA-512 do resumo do arquivo. Uma variante errada não verifica nada, e a certa
     verificou todas.
   Resultado: assinatura de hardware válida em 9.185 de 9.185 arquivos listados e em 835 de 835 blocos; resumo SHA-512
-    igual ao do arquivo baixado em 2.505 de 2.505 (boletim, RDV e log); blocos de software e de hardware com os mesmos
-    resumos em todos; número da urna no certificado igual ao do boletim em 835 de 835. Zero falhas.
+    igual ao do arquivo baixado em 2.505 de 2.505 (todos os boletins, RDV e logs baixados dessas seções, cada um
+    exigido na lista do vsc); blocos de software e de hardware com os mesmos resumos em todos; número da urna no
+    certificado igual ao do boletim em 835 de 835. O vsc verificado é o que o -aux.json lista, e o SHA-256 dele é o
+    hash que o próprio TSE publica no -aux.json em 835 de 835. Zero falhas.
   Controle negativo (40 seções sorteadas): 40 de 40 originais aceitos, 40 de 40 arquivos com 1 byte trocado
     rejeitados, 40 de 40 assinaturas trocadas entre arquivos rejeitadas.
+  Controle negativo da revisão independente (todas as 835): 1 bit trocado em R ou S, S+L, assinatura aleatória,
+    chave de outra urna, resumo trocado, bloco adulterado e variante Ed521 sem o SHA-512 externo: 100% rejeitados.
   Pelo critério: SEM SINAL.
-  Fica sem verificar: a cadeia até a raiz (os certificados das três AC não vêm no pacote) e a assinatura de software
-    (formato e chave não publicados aqui). A assinatura prova que o arquivo não mudou depois de sair da urna; não diz
-    nada sobre o que a urna gravou.
+  Robustez fora do pré-registro, cadeia das urnas antigas: a chave pública de quem assinou os 392 certificados ECDSA
+    foi recuperada das próprias assinaturas (verificar_ac_ecdsa.py). É uma só chave para os 392, e o identificador
+    dela bate com o campo de AC de todos. SHA-256 da chave (SubjectPublicKeyInfo): 5d4c7e3a00234e6ee1400c07730f1640
+    2b775e7a326a660dba71c3556722260e; identificador: cdaaf4b29701b3f0deb2b54258594a6d34ada48a. Comparar com o
+    certificado da AC URNA publicado pelo TSE fecha a cadeia; daqui não deu: os endereços de lista de revogação e de
+    política citados nos certificados devolvem 403 (Akamai) a partir deste ambiente. Para as urnas novas (Ed521) a
+    chave da AC não pode ser recuperada das assinaturas.
+  O que a assinatura prova: o arquivo não mudou desde que foi assinado com a chave do certificado que vem no pacote.
+    Sem o certificado da AC, isso não exclui um pacote inteiro trocado com certificado forjado (para as urnas antigas,
+    exigiria a chave privada da AC, porque os 392 certificados conferem com uma chave só), nem ação de quem tem a
+    chave da AC do TSE. Não diz nada sobre o que a urna gravou. A assinatura de software (formato próprio, chave SEVIN
+    fora do pacote) não foi verificada; só o resumo.
 
 T19. Conteúdo dos votos nulos no RDV (835 seções)
   (a) 5.087 nulos de presidente com dígitos: nenhum digitado 13 ou 22. 163 nulos de governador (AC, as únicas seções
@@ -32,50 +46,74 @@ T19. Conteúdo dos votos nulos no RDV (835 seções)
   (c) brancos sobre brancos mais nulos: 37,2% no 1º turno e 33,8% no 2º, nas mesmas seções. Descritivo.
   (d) nenhuma seção com um número nulo raro repetido 5 vezes ou mais.
   Observação: os nulos mais digitados foram 00 (2.405), 11 (534), 31 (267), 12 (226) e 14 (206). O 31 é o 13
-    invertido e aparece espalhado (no máximo 4 por seção), o que parece erro de quem queria votar em Lula.
+    invertido e aparece espalhado (no máximo 4 por seção), o que parece erro de quem queria votar em Lula. No
+    governador do AC há 45 nulos 13 e 49 nulos 22: o número do presidenciável digitado na tela errada.
+  Nota da revisão: a base de 2022 disponível não tem votos por candidato no 1º turno; mesmo com o RDV de 2022, a
+    referência do item (b) exigiria antes extrair Ciro e Tebet do bweb de 2022.
 
 T20. Pendências do T10 e identidade dos candidatos
-  As 20 pendências têm explicação registrada no próprio log:
-    13 urnas sem o 1º turno no log: 11 carregadas como urna de contingência e 2 trocadas entre os turnos (número
-      diferente no bweb do 1º turno e no boletim do 2º).
-    2 com mídia de votação "diferente": uma foi ligada na véspera (24/10) com a mesma mídia do 1º turno; a outra teve
-      contingência de mídia de votação registrada no dia 25.
+  São 21 pendências, não 20 (a primeira versão deixou de fora rs/89575/0162/0357; o item "1 com mídia igual e sem o
+  1º turno" do Adendo 9 veio de um rótulo errado na saída do T10: a urna tem o 1º turno no log, mas não leu a mídia
+  no dia de nenhum dos turnos). Com regras que ligam cada explicação ao evento no bloco de log certo, as 21 têm
+  explicação registrada no próprio log:
+    13 urnas sem o 1º turno no log: em todas, o número da urna no bweb do 1º turno é diferente do boletim do 2º
+      (troca entre os turnos); 8 delas foram carregadas como urna de contingência no período do 2º turno, e 3 só
+      tinham sido reserva em setembro antes de serem recarregadas para votação.
+    3 com mídia de votação "diferente" ou sem leitura no dia: duas leram a mesma mídia do 1º turno na véspera (urna
+      ligada no dia anterior: al/28231/0011/0001 em 24/10; rs/89575/0162/0357 em 03/10 e 24/10); a terceira
+      (ba/34193/0053/0239) leu uma mídia nova no dia 25 com contingência de mídia de votação registrada.
     8 com MR fora de 10 a 15/10: 6 são a mídia só de aplicativos [SA,RED,VPP,ATUE], sem o programa de votação, usada
-      por exemplo para a verificação de assinaturas; 2 são MR de 19/10 de urnas carregadas como contingência.
+      por exemplo para a verificação de assinaturas; 1 é MR de 19/10 lida numa carga de contingência do 2º turno
+      (mg/46337/0132/0065); 1 é MR de 19/10 lida depois de carga nova da urna no mesmo bloco, urna trocada entre os
+      turnos (mg/46337/0132/0072).
   Votáveis nos 3.897 boletins: presidente só 13 e 22, em todos; governador com um único par por UF
     (AC 10 e 11; AM 22 e 55; DF 11 e 13; ES 10 e 15; RN 13 e 44; TO 44 e 45).
   Pelo critério: SEM SINAL. Falta conferir as atas de carga dos TREs.
 
 T17. Atributo da máquina dentro do mesmo prédio
-  Preliminar (3.897 seções): os coeficientes de UE2013 e UE2015 (cerca de -3,2 e -3,3 pontos na virada) vinham de um
-    único local com urnas antigas e novas juntas, e o placebo falhou (+4,0 e +4,5). Sem leitura. Ver Adendo 11.
-  Contrastes de um modelo só (amostra mais 264 seções da extensão do Adendo 10; primeira leitura):
-    UE2020 contra UE2022, 48 locais: virada -0,04 (0,22); comparecimento +0,13 (0,19); placebo -0,50 (0,49).
-      Se só a UE2022 (40% da frota) estivesse alterada, precisaria de cerca de 4,5 pontos para decidir sozinha.
-      Efeito mínimo detectável 0,61. SEM SINAL.
-    UE2013 contra UE2015, 55 locais: virada +0,34 (0,24); comparecimento -0,12 (0,26); placebo +0,01 (0,45). SEM SINAL.
-  Urna trocada entre os turnos (42 seções): +0,02 (0,26). Contingência no 2º turno (5 seções no log): +0,52 (0,98),
-    sem poder.
-  Antigas contra novas (Adendo 11): só 119 locais no país têm os dois grupos (113 em SP, 3 no AM, 3 no MT). Todas as
-    1.335 seções desses locais foram baixadas (universo inteiro, não amostra). Análise com a amostra, as 264 seções
-    do Adendo 10 e as 1.335 (5.486 seções no total; o contraste se identifica nos 119 locais):
-    virada das antigas menos novas: +0,002 (0,142) sem as variáveis de fila e -0,002 (0,142) com elas.
-    branco+nulo: +0,01 (0,10); comparecimento: -0,02 (0,16); placebo (fatia de Lula no 1º turno): +0,72 (0,30);
-    encerramento no 1º turno: +0,06 hora (0,015), as antigas fecharam um pouco mais tarde.
-    Se as urnas novas (80% da frota) estivessem alteradas, a virada delas teria de ficar cerca de 2,2 pontos acima
-    das antigas no mesmo prédio. Ficou 0,0, com efeito mínimo detectável de 0,40. Pelo critério: SEM SINAL.
+  Contribuição nacional calculada com a fração de cada modelo na frota do 1º turno (UE2020 40,2%; UE2022 39,8%;
+    UE2015 17,6%; UE2013 2,4%), não com a da amostra. Cada coeficiente sai com o número de locais que o identificam;
+    abaixo de 30, SEM PODER.
+  Amostra (3.897 seções; Adendo 9): os coeficientes de UE2013 e UE2015 contra UE2022 (-3,2 e -3,3 na virada, placebo
+    +4,0 e +4,5) se identificam em 0 e 1 local com o modelo e a referência juntos; UE2020 contra UE2022, -0,32 (0,22),
+    em 26 locais. Todos SEM PODER na amostra. Urna trocada entre os turnos (37 locais): +0,02 (0,26), efeito mínimo
+    detectável 0,73, SEM PODER. Contingência no 2º turno (2 locais): SEM PODER.
+  Antigas contra novas (Adendos 10 e 11; o teste que decide se as urnas novas estavam alteradas): só 119 locais no
+    país têm os dois grupos (113 em SP, 3 no AM, 3 no MT). Todas as 1.335 seções desses locais foram baixadas (universo
+    inteiro). Estimado só nesses 119 locais, como registrado:
+    virada das antigas menos novas: -0,016 (0,140) sem as variáveis de fila e -0,012 (0,139) com elas.
+    branco+nulo: +0,02 (0,10); comparecimento: -0,02 (0,17); placebo (fatia de Lula no 1º turno): +0,58 (0,30);
+    encerramento no 1º turno: +0,05 hora (0,014), as antigas fecharam um pouco mais tarde.
+    Se as urnas novas (80% da frota) estivessem alteradas a ponto de decidir sozinhas, a virada delas teria de ficar
+    cerca de 2,2 pontos acima das antigas no mesmo prédio. Ficou em 0,0, com efeito mínimo detectável de 0,39.
+    Pelo critério: SEM SINAL. Na união inteira (robustez, 890 locais): +0,002 (0,142), o mesmo.
     O efeito de -3,3 da leitura preliminar era de um único local e não se repete no universo dos 119.
-    Com mais locais, UE2020 contra UE2022 (79 locais): +0,11 (0,18); UE2013 contra UE2015 (67 locais): +0,21 (0,22).
-    Limites: o contraste vale para SP (113 dos 119 locais); uma alteração igual em todos os modelos não aparece em
-    nenhum contraste entre modelos.
+  Um modelo só (Adendo 11, amostra mais 264 seções da extensão):
+    UE2020 contra UE2022, 48 locais: -0,04 (0,22), intervalo de 95% de -0,46 a +0,39; efeito mínimo detectável 0,61.
+    UE2013 contra UE2015, 55 locais: +0,34 (0,24), intervalo de -0,13 a +0,81; efeito mínimo detectável 0,67.
+    Pela regra do Adendo 9 (efeito mínimo detectável acima de 0,5): SEM PODER nos dois. O ponto é zero, e os
+    intervalos excluem com folga o que um modelo sozinho precisaria para decidir (4,5 pontos para UE2020 ou UE2022;
+    10 para UE2015). Com todos os locais baixados (robustez): UE2020 contra UE2022, 79 locais, +0,11 (0,18);
+    UE2013 contra UE2015, 67 locais, +0,21 (0,22).
+  Limites: o contraste antigas contra novas vale para SP (113 dos 119 locais); 34 dos 48 locais do par UE2020 contra
+    UE2022 também são de SP; uma alteração igual em todos os modelos não aparece em nenhum contraste entre modelos.
 
 T30. Gatilho por horário ou por contagem
-  Horário (828 seções com log dos dois turnos, 16 municípios): inclinação da virada na fração de votos depois das
-    12h, 14h e 16h de Brasília: +6,6 (2,6), +7,4 (1,6) e +14,9 (4,9) com efeito fixo de município; com efeito fixo
-    de local (robustez, fora do pré-registro): +2,6 (2,1), +5,7 (2,9) e +7,3 (4,8). O placebo no 1º turno também
-    falha (a fração de votos à tarde já se associa à fatia de Lula no 1º turno: +35 a +47 por município, +8,5 a +9,3
-    por local). Erro-padrão acima de 0,6 em todos os cortes: SEM PODER na amostra. Desvio registrado: o fuso passou
-    a vir da UF porque 3 urnas abriram depois das 8h30 no 1º turno.
+  Horário (828 seções com log dos dois turnos, 16 municípios, 2 deles com 481 seções): inclinação da virada na
+    fração de votos depois das 12h, 14h e 16h de Brasília, efeito fixo de município: +6,6 (2,6), +7,4 (1,6) e
+    +14,9 (4,9). Às 14h e às 16h a inclinação já passa a parte de valor e de z do critério de sinal (4 pontos, z acima
+    de 2,93); o que barra o sinal é o placebo. Placebo como registrado (fatia de Lula no 1º turno em f1, efeito fixo de
+    município): +13,0 (3,2), +16,0 (3,3) e +16,2 (3,6); a primeira versão relatada (+35 a +47) tinha uma covariável
+    fora do registro. Com erro-padrão acima de 0,6 em todos os cortes: SEM PODER, e sem sinal pelo placebo.
+  Erro com poucos grupos (CV3, jackknife por município): 3,8, 2,4 e 6,7; z de 1,7, 3,1 e 2,2.
+  Robustez do Adendo 12 (fixada depois de ver estes números; a rodada decisiva é a com todos os logs):
+    R1, efeito fixo de local (148 locais): +2,6 (2,1), +5,7 (2,9) e +7,3 (4,8); placebo por local +6,5, +7,8 e +8,1.
+    R2, R1 mais a fatia de Lula no 1º turno: +0,6 (1,9), +2,4 (2,6) e +3,0 (4,8); z de 0,3 a 0,9. Leitura registrada:
+    COMPOSIÇÃO (quem vota mais tarde já votava mais em Lula, e a associação some quando isso entra no modelo).
+  Escala, para leitura: uma troca de uma fração q dos votos de Flávio dados depois do corte daria inclinação de cerca
+    de 50 vezes q. A de 7,4 equivaleria a q de 15% e a cerca de 1,6 ponto na média nacional; por isso a rodada com
+    todos os logs (Adendo 12, download em andamento) é necessária.
+  Desvio registrado: o fuso passou a vir da UF porque 3 urnas abriram depois das 8h30 no 1º turno.
   Contagem (3.897 seções): coeficiente na fração de votantes acima de N: -2,5 (1,8) para N = 50, -1,5 (0,9) para 100,
     -1,4 (0,8) para 150 e -1,4 (0,9) para 200. Placebo de 2022 (todas as seções): +0,9 a +1,5. Nenhum chega ao sinal
     (+4 a 3 erros-padrão). SEM SINAL para N de 100 a 200; para N = 50, inconclusivo pelo tamanho (negativo).
@@ -92,3 +130,17 @@ T33. Pesquisas em votos totais (ver T33_pesquisas_votos_totais.txt)
 
 Pendentes: T15, T16, T21, T22,
 T23, T27, T28, T29, T31 e T32 dependem do bweb; T24, T25 e T26 dependem de dado externo.
+
+Revisão adversarial independente (19 agentes, 4 frentes, cada achado verificado por outro agente)
+  Nenhum achado muda um veredito relatado. Corrigido depois dela:
+  T18: o vsc verificado passou a ser o listado no -aux.json, com o SHA-256 conferido contra o hash do aux; todo
+    arquivo baixado tem de estar na lista do vsc; seção sem BU vira falha; o texto do que a assinatura prova foi
+    reescrito; a cadeia das urnas antigas foi checada por recuperação da chave da AC.
+  T20: faltava 1 pendência (21, não 20); as regras de explicação ficaram ligadas ao evento no bloco certo; a divisão
+    das 13 urnas sem o 1º turno e a explicação de 2 das 8 MR foram corrigidas; o rótulo da saída do T10 foi corrigido.
+  T17: contraste restrito aos 119 locais, como registrado; contribuição com a fração da frota; contagem de locais
+    identificadores e piso de 30; descarte de colunas colineares; pares marcados SEM PODER pela regra do efeito mínimo.
+  T30: placebo sem a covariável fora do registro; texto explicita que só o placebo barra o sinal às 14h e 16h; erro
+    CV3 relatado.
+  Conferido sem problema pela revisão: números do T19 e do T33 contra os arquivos; ausência de dupla contagem de
+    votos entre blocos de log; fuso; decodificação dos boletins igual à base usada nos outros testes.

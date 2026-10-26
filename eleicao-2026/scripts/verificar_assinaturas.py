@@ -15,7 +15,7 @@ Uso: python3 -I verificar_assinaturas.py <pasta_arq_2t>
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-import collections, hashlib, json, os, sys
+import base64, collections, hashlib, json, os, sys
 from cryptography import x509
 from cryptography.exceptions import InvalidSignature, UnsupportedAlgorithm
 from cryptography.hazmat.primitives import hashes
@@ -93,15 +93,55 @@ def main():
     chaves_sw = collections.Counter(); extras = collections.Counter(); tipos_chave = collections.Counter(); modo = collections.Counter(); bloco2 = collections.Counter(); validade = []
     for k, p in secoes(pasta):
         fs = os.listdir(p)
-        vs = sorted(f for f in fs if f.endswith('-vota.vsc'))
-        if not vs:
-            continue
-        cont['secoes_com_vsc'] += 1
-        pre = vs[-1].split('-o')[0] + '-'  # índice do hash no aux, para casar os arquivos do mesmo pacote
+        uf, mun, zona, sec = k.split('|')
+        ident = f'{uf.lower()}{int(mun):05d}{int(zona):04d}{int(sec):04d}'
         try:
-            v = ler_vsc(os.path.join(p, vs[-1]))
+            aux = json.load(open(os.path.join(p, 'aux.json')))
+        except Exception:
+            aux = None
+        # o arquivo de assinatura a verificar sai do aux.json (índice do hash e nome listado), não da ordem alfabética
+        listados = {}
+        for i, h in enumerate((aux or {}).get('hashes', [])):
+            for a in h.get('arq', []):
+                if a.get('tp') == 'vota':
+                    listados[f'{i}-' + a['nm']] = (i, h.get('hash', ''))
+        vs_disco = sorted(f for f in fs if f.endswith('-vota.vsc'))
+        for f in vs_disco:
+            if f not in listados:
+                falhas.append((k, 'vsc no disco que o aux.json nao lista', f))
+        dados_disco = [f for f in fs if f.endswith(('-bu.dat', '-rdv.dat', '-log.jez'))]
+        presentes = [f for f in listados if f in fs]
+        if not presentes:
+            # fora do universo do T18 (vsc não baixado); só contado, para o denominador ficar explícito
+            cont['secoes_sem_vsc_baixado'] += 1
+            continue
+        if len(presentes) > 1:
+            falhas.append((k, 'mais de um vsc listado e baixado', presentes))
+        nome_vsc = presentes[-1]; i_hash, hash_aux = listados[nome_vsc]
+        cont['secoes_com_vsc'] += 1
+        pre = f'{i_hash}-'
+        bruto = open(os.path.join(p, nome_vsc), 'rb').read()
+        try:
+            esperado = bytes.fromhex(hash_aux).decode()
+            calc = base64.b64encode(hashlib.sha256(bruto).digest()).decode().replace('/', '-')
+            if calc == esperado: cont['vsc_sha256_igual_ao_aux'] += 1
+            else: falhas.append((k, 'SHA-256 do vsc diferente do hash do aux.json')); cont['vsc_sha256_FALHA'] += 1
+        except ValueError:
+            falhas.append((k, 'hash do aux.json em formato inesperado'))
+        try:
+            v = ler_vsc(os.path.join(p, nome_vsc))
         except Exception as e:
             falhas.append((k, 'vsc ilegivel', str(e))); continue
+        fora_da_secao = [nm for nm in v['hw_entradas'] if ident not in nm]
+        if fora_da_secao:
+            falhas.append((k, 'vsc com arquivos de outra secao', fora_da_secao[:3]))
+        # todo bu, rdv e log baixado com este prefixo tem de estar listado no vsc
+        for f in dados_disco:
+            if not f.startswith(pre):
+                falhas.append((k, 'arquivo baixado de outro indice de hash', f)); continue
+            cont['arquivos_baixados_no_disco'] += 1
+            if f[len(pre):] not in v['hw_entradas']:
+                falhas.append((k, 'arquivo baixado fora da lista do vsc', f))
         cb = v['hw_cert']  # em parte das urnas o certificado vem em PEM, nas outras em DER
         if cb.startswith(b'-----'):
             cert = x509.load_pem_x509_certificate(cb)
@@ -160,7 +200,9 @@ def main():
             else: cont['assinatura_arquivo_FALHA'] += 1; falhas.append((k, 'assinatura do arquivo', nm, os.path.exists(local)))
         # número da urna
         bus = sorted(f for f in fs if f.endswith('-bu.dat') and f.startswith(pre))
-        if bus:
+        if not bus:
+            falhas.append((k, 'bu ausente na secao com vsc')); cont['bu_ausente'] += 1
+        else:
             serie = ler_bu(os.path.join(p, bus[-1]))['urna']
             n_cert = int(cn[4:]) if cn.lower().startswith('ueao') and cn[4:].isdigit() else None
             if n_cert != serie:

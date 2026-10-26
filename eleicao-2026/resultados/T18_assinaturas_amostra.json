@@ -1,6 +1,8 @@
 {
  "contagem": {
   "secoes_com_vsc": 835,
+  "vsc_sha256_igual_ao_aux": 835,
+  "arquivos_baixados_no_disco": 2505,
   "cert_pem": 443,
   "titular_so_prefixo": 443,
   "bloco_hw_assinatura_ok": 835,
@@ -9,6 +11,7 @@
   "resumo_ok": 2505,
   "assinatura_arquivo_ok": 9185,
   "urna_cert_igual_bu": 835,
+  "secoes_sem_vsc_baixado": 3068,
   "cert_der": 392,
   "cert_der_com_bytes_extras": 159
  },

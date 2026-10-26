@@ -35,14 +35,14 @@ for raiz, dirs, arqs in os.walk(pasta):
     res[k] = r
     agg['urnas'] += 1; agg['com_1t_no_log'] += r['tem_1t_no_log']; agg['contingencia'] += r['contingencia']
     for v in r['versoes']: versoes[v] += 1
-    midias_dia[(tuple(r['midia_1t']) == tuple(r['midia_2t']), bool(r['midia_1t']))] += 1
+    midias_dia[(tuple(r['midia_1t']) == tuple(r['midia_2t']), bool(r['midia_1t']), r['tem_1t_no_log'])] += 1
     for m in r['mr']: mr[m[:10]] += 1
     if r['assinaturas_sem_sucesso']: falhas_assin.append((k, r['assinaturas_sem_sucesso'][:3]))
     if r['componentes_novos_2t']: novos.append((k, r['componentes_novos_2t']))
 json.dump({'por_urna': res, 'problemas': problemas}, open(saida, 'w'), ensure_ascii=False)
 print('logs analisados:', dict(agg))
 print('versoes do aplicativo:', dict(versoes))
-print('midia de votacao igual no dia do 1T e do 2T (igual, tem_1T):', dict(midias_dia))
+print('midia de votacao igual no dia do 1T e do 2T (igual, midia lida no dia do 1T, 1T no log):', dict(midias_dia))
 print('datas de geracao das midias de resultado (dia):', dict(sorted(mr.items())))
 print('urnas com verificacao de assinatura sem SUCESSO:', len(falhas_assin), falhas_assin[:5])
 print('urnas com componente novo no 2T:', len(novos), novos[:5])

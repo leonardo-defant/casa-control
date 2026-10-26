@@ -43,19 +43,31 @@
     "inclinacao_f2": 6.571010634931443,
     "ep": 2.579728990896345,
     "z": 2.5471709075333133,
-    "placebo_1t_inclinacao_f1": 46.11376018791664,
-    "placebo_ep": 11.015419842882602,
+    "ep_cv3": 3.7590360008484374,
+    "z_cv3": 1.7480573831823705,
+    "placebo_1t_inclinacao_f1": 13.022096473395381,
+    "placebo_ep": 3.217629499450642,
     "sinal": false,
     "sem_sinal": false,
     "sem_poder": true,
-    "robustez_local": {
-     "n": 712,
+    "parte_de_valor_e_z_do_sinal": false,
+    "R1_local": {
      "locais": 148,
      "inclinacao_f2": 2.612437216582796,
      "ep": 2.1105471127415556,
-     "placebo_1t": 8.523644695227844,
-     "placebo_ep": 3.387060175125402
-    }
+     "ep_cv3": 2.1347116789784617,
+     "placebo_1t": 6.53373236602944,
+     "placebo_ep": 3.4977837405691017
+    },
+    "R2_local_e_fatia_1t": {
+     "locais": 148,
+     "inclinacao_f2": 0.6161863401651294,
+     "ep": 1.8790983157408825,
+     "ep_cv3": 1.9027565321810291,
+     "z": 0.3279159663991196,
+     "z_cv3": 0.3238387727192967
+    },
+    "leitura_adendo12": "composição"
    },
    "14h": {
     "media_f1": 0.35509392639194826,
@@ -65,19 +77,31 @@
     "inclinacao_f2": 7.4206383175748,
     "ep": 1.5980396199536722,
     "z": 4.643588447318926,
-    "placebo_1t_inclinacao_f1": 40.60732607641108,
-    "placebo_ep": 8.431329957435166,
+    "ep_cv3": 2.391412483086215,
+    "z_cv3": 3.1030357038189265,
+    "placebo_1t_inclinacao_f1": 15.979010357720737,
+    "placebo_ep": 3.3252361159569364,
     "sinal": false,
     "sem_sinal": false,
     "sem_poder": true,
-    "robustez_local": {
-     "n": 712,
+    "parte_de_valor_e_z_do_sinal": true,
+    "R1_local": {
      "locais": 148,
      "inclinacao_f2": 5.682923855392382,
      "ep": 2.897032508181802,
-     "placebo_1t": 9.253295046139327,
-     "placebo_ep": 2.957147864552244
-    }
+     "ep_cv3": 2.926640491851546,
+     "placebo_1t": 7.786989446077799,
+     "placebo_ep": 3.0455420832452806
+    },
+    "R2_local_e_fatia_1t": {
+     "locais": 148,
+     "inclinacao_f2": 2.355773101681536,
+     "ep": 2.6349895117321,
+     "ep_cv3": 2.6684672429726413,
+     "z": 0.8940350962281357,
+     "z_cv3": 0.8828188196371609
+    },
+    "leitura_adendo12": "composição"
    },
    "16h": {
     "media_f1": 0.14580936385938004,
@@ -87,19 +111,31 @@
     "inclinacao_f2": 14.916818063736764,
     "ep": 4.890033937366272,
     "z": 3.050452871043024,
-    "placebo_1t_inclinacao_f1": 34.96902621779847,
-    "placebo_ep": 7.2713574067586935,
+    "ep_cv3": 6.710381775517488,
+    "z_cv3": 2.2229462589088556,
+    "placebo_1t_inclinacao_f1": 16.149365616313805,
+    "placebo_ep": 3.6433749130650566,
     "sinal": false,
     "sem_sinal": false,
     "sem_poder": true,
-    "robustez_local": {
-     "n": 712,
+    "parte_de_valor_e_z_do_sinal": true,
+    "R1_local": {
      "locais": 148,
      "inclinacao_f2": 7.2949382005984935,
      "ep": 4.766953971100599,
-     "placebo_1t": 9.349303650629075,
-     "placebo_ep": 2.863861209328305
-    }
+     "ep_cv3": 4.817832597545217,
+     "placebo_1t": 8.077150630225255,
+     "placebo_ep": 2.9798859936698063
+    },
+    "R2_local_e_fatia_1t": {
+     "locais": 148,
+     "inclinacao_f2": 2.957287315165658,
+     "ep": 4.774941580105596,
+     "ep_cv3": 4.838098160036799,
+     "z": 0.6193347636936448,
+     "z_cv3": 0.6112499617294174
+    },
+    "leitura_adendo12": "composição"
    }
   }
  },

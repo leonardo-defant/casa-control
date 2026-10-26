@@ -5,7 +5,7 @@ O fuso de cada urna sai da UF (o pré-registro previa tirá-lo do horário em qu
 abriram depois das 8h30 no 1º turno e teriam o fuso errado por essa regra, por isso a UF).
 Regressão da variação da fatia de Lula em f2, controlando f1 e a variação do comparecimento, efeito fixo de município.
 Contagem: variação da fatia de Lula em max(0, votantes - N) / votantes, N = 50, 100, 150, 200, efeito fixo de local.
-Uso: python3 -I analisar_gatilhos.py <pasta_arq_2t> <secoes2026_1t.json.gz> <amostra_2t.json.gz> [<secoes2022.json.gz>]
+Uso: python3 -I analisar_gatilhos.py <pasta_arq_2t> <secoes2026_1t.json.gz> <amostra_2t.json.gz> [<secoes2022.json.gz>] [--chaves lista.txt]
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
@@ -46,6 +46,19 @@ def fracoes(votos, pronta, uf):
     return {h: float((v >= h).mean()) for h in CORTES_H}, desloc
 
 
+def jackknife(y, X, grupos, w):
+    """Erro-padrão CV3 do primeiro coeficiente: jackknife deixando um grupo de fora de cada vez."""
+    g = np.array(grupos); us = np.unique(g); bs = []
+    for u in us:
+        m = g != u
+        try:
+            bs.append(fe_ols(y[m], X[m], g[m], w[m])['coef']['x0'])
+        except (ValueError, np.linalg.LinAlgError):
+            continue
+    bs = np.array(bs); G = len(bs)
+    return float(np.sqrt((G - 1) / G * np.sum((bs - bs.mean()) ** 2))) if G > 1 else float('nan')
+
+
 def secoes(pasta):
     for uf in sorted(os.listdir(pasta)):
         for m in sorted(os.listdir(os.path.join(pasta, uf))):
@@ -54,11 +67,11 @@ def secoes(pasta):
                     yield f'{uf.upper()}|{int(m)}|{int(z)}|{int(s)}', os.path.join(pasta, uf, m, z, s)
 
 
-def horario(pasta, d1, am):
+def horario(pasta, d1, am, chaves=None):
     rows = []; sem = 0; deslocs = {}
     for k, p in secoes(pasta):
         lg = sorted(f for f in os.listdir(p) if f.endswith('-log.jez'))
-        if not lg or k not in am or '2' not in am[k] or '1' not in d1.get(k, {}):
+        if not lg or k not in am or '2' not in am[k] or '1' not in d1.get(k, {}) or (chaves is not None and k not in chaves):
             continue
         v2, p2 = horarios(os.path.join(p, lg[-1]), '25/10/2026')
         v1, p1 = horarios(os.path.join(p, lg[-1]), '04/10/2026')
@@ -78,23 +91,33 @@ def horario(pasta, d1, am):
     fat2 = np.array([100 * r[4]['L'] / (r[4]['L'] + r[4]['R']) for r in rows])
     dcomp = np.array([100 * (r[4]['comp'] - r[3]['comp']) / r[4]['apt'] for r in rows])
     w = np.array([r[4]['L'] + r[4]['R'] for r in rows], float)
-    lapt = np.log([r[4]['apt'] for r in rows])
     for h in CORTES_H:
         F1 = np.array([r[1][h] for r in rows]); F2 = np.array([r[2][h] for r in rows])
         X = np.column_stack([F2, F1, dcomp])
         r2 = fe_ols(fat2 - fat1, X, mun, w, ['f2', 'f1', 'dcomp'])
-        rp = fe_ols(fat1, np.column_stack([F1, lapt]), mun, w, ['f1', 'lapt'])
+        rp = fe_ols(fat1, F1, mun, w, ['f1'])  # placebo como registrado: y = fatia no 1º turno, x = f1
         b, se = r2['coef']['f2'], r2['ep']['f2']
-        out['cortes'][f'{h}h'] = {'media_f1': float(F1.mean()), 'media_f2': float(F2.mean()), 'n': r2['n'], 'municipios': r2['grupos'],
-                                  'inclinacao_f2': b, 'ep': se, 'z': b / se,
-                                  'placebo_1t_inclinacao_f1': rp['coef']['f1'], 'placebo_ep': rp['ep']['f1'],
-                                  'sinal': bool(b >= 4 and b / se > 2.93 and abs(rp['coef']['f1']) < 2 * rp['ep']['f1']),
-                                  'sem_sinal': bool(abs(b) <= 1.5 and se <= 0.6), 'sem_poder': bool(se > 0.6)}
-        # robustez (fora do pré-registro): efeito fixo de local, mais grupos para o erro agrupado
-        rl = fe_ols(fat2 - fat1, X, loc, w, ['f2', 'f1', 'dcomp'])
-        rlp = fe_ols(fat1, np.column_stack([F1, lapt]), loc, w, ['f1', 'lapt'])
-        out['cortes'][f'{h}h']['robustez_local'] = {'n': rl['n'], 'locais': rl['grupos'], 'inclinacao_f2': rl['coef']['f2'],
-                                                    'ep': rl['ep']['f2'], 'placebo_1t': rlp['coef']['f1'], 'placebo_ep': rlp['ep']['f1']}
+        cv3 = jackknife(fat2 - fat1, X, mun, w)
+        o = {'media_f1': float(F1.mean()), 'media_f2': float(F2.mean()), 'n': r2['n'], 'municipios': r2['grupos'],
+             'inclinacao_f2': b, 'ep': se, 'z': b / se, 'ep_cv3': cv3, 'z_cv3': b / cv3,
+             'placebo_1t_inclinacao_f1': rp['coef']['f1'], 'placebo_ep': rp['ep']['f1'],
+             'sinal': bool(b >= 4 and b / se > 2.93 and abs(rp['coef']['f1']) < 2 * rp['ep']['f1']),
+             'sem_sinal': bool(abs(b) <= 1.5 and se <= 0.6), 'sem_poder': bool(se > 0.6),
+             'parte_de_valor_e_z_do_sinal': bool(b >= 4 and b / se > 2.93)}
+        # leituras de robustez do Adendo 12 (relatadas ao lado, sem substituir o critério)
+        r1 = fe_ols(fat2 - fat1, X, loc, w, ['f2', 'f1', 'dcomp'])
+        X2 = np.column_stack([F2, F1, dcomp, fat1])
+        r2b = fe_ols(fat2 - fat1, X2, loc, w, ['f2', 'f1', 'dcomp', 'fat1'])
+        rp1 = fe_ols(fat1, F1, loc, w, ['f1'])
+        cv3_r1 = jackknife(fat2 - fat1, X, loc, w); cv3_r2 = jackknife(fat2 - fat1, X2, loc, w)
+        o['R1_local'] = {'locais': r1['grupos'], 'inclinacao_f2': r1['coef']['f2'], 'ep': r1['ep']['f2'], 'ep_cv3': cv3_r1,
+                         'placebo_1t': rp1['coef']['f1'], 'placebo_ep': rp1['ep']['f1']}
+        b2, s2 = r2b['coef']['f2'], r2b['ep']['f2']
+        o['R2_local_e_fatia_1t'] = {'locais': r2b['grupos'], 'inclinacao_f2': b2, 'ep': s2, 'ep_cv3': cv3_r2,
+                                    'z': b2 / s2, 'z_cv3': b2 / cv3_r2}
+        o['leitura_adendo12'] = ('indício a cruzar com T21 e T25' if b2 >= 4 and b2 / s2 > 2.93 and b2 / cv3_r2 > 2.93 else
+                                 'composição' if abs(b2) < 1.5 or b2 / max(s2, cv3_r2) < 1.96 else 'intermediária')
+        out['cortes'][f'{h}h'] = o
     return out
 
 
@@ -125,8 +148,9 @@ def contagem(d1, d2, turno_a='1', turno_b='2'):
 def main():
     pasta, base1, amostra = sys.argv[1:4]
     d1 = carregar(base1); am = carregar(amostra)
-    res = {'horario': horario(pasta, d1, am), 'contagem_2026': contagem(d1, am)}
-    if len(sys.argv) > 4:
+    ch = set(open(sys.argv[sys.argv.index('--chaves') + 1]).read().split()) if '--chaves' in sys.argv else None
+    res = {'horario': horario(pasta, d1, am, ch), 'contagem_2026': contagem(d1, am)}
+    if len(sys.argv) > 4 and not sys.argv[4].startswith('--'):
         d22 = carregar(sys.argv[4])
         res['contagem_2022_placebo'] = contagem(d22, d22)
         for N, c in res['contagem_2026']['cortes'].items():

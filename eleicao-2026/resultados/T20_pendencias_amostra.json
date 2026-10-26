@@ -1,6 +1,11 @@
 {
- "pendencias": 20,
- "explicadas": 20,
+ "pendencias": 21,
+ "por_tipo": {
+  "midia_diferente": 3,
+  "mr_fora": 8,
+  "sem_1t_no_log": 13
+ },
+ "explicadas": 21,
  "nao_explicadas": [],
  "detalhe": [
   {
@@ -10,15 +15,14 @@
    ],
    "explicacao": {
     "midia_diferente": [
-     "mesma mídia do 1º turno, lida na véspera do 2º turno (urna ligada no dia anterior)"
+     "mesma mídia nos dois turnos; leituras em 03/10, 04/10, 24/10 (urna ligada na véspera quando falta o dia)"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1774022,
    "urna_2t_bu": 1774022,
-   "eventos": {
-    "contingencia_mv": []
-   }
+   "blocos_de_log": 1
   },
   {
    "secao": "al/28436/0050/0023",
@@ -30,10 +34,11 @@
      "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1804257,
    "urna_2t_bu": 1804257,
-   "eventos": {}
+   "blocos_de_log": 1
   },
   {
    "secao": "al/28436/0050/0037",
@@ -42,21 +47,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 18/09/2026,22/09/2026,23/09/2026,21/10/2026",
-     "urna do 1º turno no bweb (1807867) diferente da do 2º (1674280)"
+     "urna do 1º turno no bweb (1807867) diferente da do 2º (1674280): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1807867,
    "urna_2t_bu": 1674280,
-   "eventos": {
-    "carga_contingencia": [
-     "18/09/2026",
-     "22/09/2026",
-     "23/09/2026",
-     "21/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "ba/34193/0053/0220",
@@ -65,23 +64,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 01/10/2026,19/10/2026,25/10/2026",
-     "urna do 1º turno no bweb (2424958) diferente da do 2º (2393632)"
+     "urna do 1º turno no bweb (2424958) diferente da do 2º (2393632): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 19/10/2026,25/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2424958,
    "urna_2t_bu": 2393632,
-   "eventos": {
-    "carga_contingencia": [
-     "01/10/2026",
-     "19/10/2026",
-     "25/10/2026"
-    ],
-    "contingencia_executada": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "ba/34193/0053/0223",
@@ -90,19 +81,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 23/09/2026,16/10/2026",
-     "urna do 1º turno no bweb (2413885) diferente da do 2º (2425383)"
+     "urna do 1º turno no bweb (2413885) diferente da do 2º (2425383): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 16/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2413885,
    "urna_2t_bu": 2425383,
-   "eventos": {
-    "carga_contingencia": [
-     "23/09/2026",
-     "16/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "ba/34193/0053/0239",
@@ -111,18 +98,14 @@
    ],
    "explicacao": {
     "midia_diferente": [
-     "mesma mídia do 1º turno, lida na véspera do 2º turno (urna ligada no dia anterior)",
-     "contingência de mídia de votação em 25/10/2026"
+     "mídia nova (1) com contingência de mídia de votação em 25/10/2026 08:07,25/10/2026 08:08"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2305282,
    "urna_2t_bu": 2305282,
-   "eventos": {
-    "contingencia_mv": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 1
   },
   {
    "secao": "ba/34193/0053/0274",
@@ -131,23 +114,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 23/09/2026,19/10/2026,25/10/2026",
-     "urna do 1º turno no bweb (2396010) diferente da do 2º (2415284)"
+     "urna do 1º turno no bweb (2396010) diferente da do 2º (2415284): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 19/10/2026,25/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2396010,
    "urna_2t_bu": 2415284,
-   "eventos": {
-    "carga_contingencia": [
-     "23/09/2026",
-     "19/10/2026",
-     "25/10/2026"
-    ],
-    "contingencia_executada": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "ba/34193/0053/0298",
@@ -156,18 +131,16 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 23/09/2026",
-     "urna do 1º turno no bweb (2407010) diferente da do 2º (2425268)"
+     "urna do 1º turno no bweb (2407010) diferente da do 2º (2425268): troca entre os turnos"
     ]
    },
+   "notas": [
+    "foi urna de contingência (reserva) em 23/09/2026, depois recarregada para votação"
+   ],
    "explicada": true,
    "urna_1t_bweb": 2407010,
    "urna_2t_bu": 2425268,
-   "eventos": {
-    "carga_contingencia": [
-     "23/09/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "ce/13382/0006/0404",
@@ -176,15 +149,14 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "urna do 1º turno no bweb (2248454) diferente da do 2º (2233361)"
+     "urna do 1º turno no bweb (2248454) diferente da do 2º (2233361): troca entre os turnos"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2248454,
    "urna_2t_bu": 2233361,
-   "eventos": {
-    "carga_contingencia": []
-   }
+   "blocos_de_log": 1
   },
   {
    "secao": "ce/13382/0006/0442",
@@ -194,18 +166,17 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "urna do 1º turno no bweb (2207809) diferente da do 2º (2232471)"
+     "urna do 1º turno no bweb (2207809) diferente da do 2º (2232471): troca entre os turnos"
     ],
     "mr_fora": [
      "MR de 17/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2207809,
    "urna_2t_bu": 2232471,
-   "eventos": {
-    "carga_contingencia": []
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "go/94790/0088/0061",
@@ -217,10 +188,11 @@
      "MR de 22/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1761818,
    "urna_2t_bu": 1761818,
-   "eventos": {}
+   "blocos_de_log": 1
   },
   {
    "secao": "mg/46337/0132/0025",
@@ -229,23 +201,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 26/09/2026,21/10/2026,25/10/2026",
-     "urna do 1º turno no bweb (1652094) diferente da do 2º (1840360)"
+     "urna do 1º turno no bweb (1652094) diferente da do 2º (1840360): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1652094,
    "urna_2t_bu": 1840360,
-   "eventos": {
-    "carga_contingencia": [
-     "26/09/2026",
-     "21/10/2026",
-     "25/10/2026"
-    ],
-    "contingencia_executada": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "mg/46337/0132/0026",
@@ -254,24 +218,15 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 22/09/2026,26/09/2026,21/10/2026,25/10/2026",
-     "urna do 1º turno no bweb (1673903) diferente da do 2º (1754281)"
+     "urna do 1º turno no bweb (1673903) diferente da do 2º (1754281): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1673903,
    "urna_2t_bu": 1754281,
-   "eventos": {
-    "carga_contingencia": [
-     "22/09/2026",
-     "26/09/2026",
-     "21/10/2026",
-     "25/10/2026"
-    ],
-    "contingencia_executada": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "mg/46337/0132/0065",
@@ -281,25 +236,18 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 21/10/2026,25/10/2026",
-     "urna do 1º turno no bweb (1752183) diferente da do 2º (1653361)"
+     "urna do 1º turno no bweb (1752183) diferente da do 2º (1653361): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,25/10/2026"
     ],
     "mr_fora": [
-     "MR de 19/10/2026 em urna com contingência registrada"
+     "MR de 19/10/2026 lida numa carga de urna de contingência do 2º turno (21/10 17:09)"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1752183,
    "urna_2t_bu": 1653361,
-   "eventos": {
-    "carga_contingencia": [
-     "21/10/2026",
-     "25/10/2026"
-    ],
-    "contingencia_executada": [
-     "25/10/2026"
-    ]
-   }
+   "blocos_de_log": 3
   },
   {
    "secao": "mg/46337/0132/0069",
@@ -311,14 +259,11 @@
      "MR de 19/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1751185,
    "urna_2t_bu": 1751185,
-   "eventos": {
-    "recuperador": [
-     "04/10/2026"
-    ]
-   }
+   "blocos_de_log": 1
   },
   {
    "secao": "mg/46337/0132/0072",
@@ -328,22 +273,19 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 22/09/2026,26/09/2026",
-     "urna do 1º turno no bweb (1652474) diferente da do 2º (1847496)"
+     "urna do 1º turno no bweb (1652474) diferente da do 2º (1847496): troca entre os turnos"
     ],
     "mr_fora": [
-     "MR de 19/10/2026 em urna com contingência registrada"
+     "MR de 19/10/2026 lida depois de carga nova da urna no mesmo bloco (19/10 16:24), urna trocada entre os turnos"
     ]
    },
+   "notas": [
+    "foi urna de contingência (reserva) em 22/09/2026,26/09/2026, depois recarregada para votação"
+   ],
    "explicada": true,
    "urna_1t_bweb": 1652474,
    "urna_2t_bu": 1847496,
-   "eventos": {
-    "carga_contingencia": [
-     "22/09/2026",
-     "26/09/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "mg/46337/0132/0078",
@@ -352,19 +294,16 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 22/09/2026,26/09/2026",
-     "urna do 1º turno no bweb (1653361) diferente da do 2º (1776744)"
+     "urna do 1º turno no bweb (1653361) diferente da do 2º (1776744): troca entre os turnos"
     ]
    },
+   "notas": [
+    "foi urna de contingência (reserva) em 22/09/2026,26/09/2026, depois recarregada para votação"
+   ],
    "explicada": true,
    "urna_1t_bweb": 1653361,
    "urna_2t_bu": 1776744,
-   "eventos": {
-    "carga_contingencia": [
-     "22/09/2026",
-     "26/09/2026"
-    ]
-   }
+   "blocos_de_log": 2
   },
   {
    "secao": "pb/22357/0030/0086",
@@ -376,10 +315,11 @@
      "MR de 18/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2453987,
    "urna_2t_bu": 2453987,
-   "eventos": {}
+   "blocos_de_log": 1
   },
   {
    "secao": "rs/89575/0162/0010",
@@ -388,24 +328,31 @@
    ],
    "explicacao": {
     "sem_1t_no_log": [
-     "carregada como urna de contingência em 24/09/2026,30/09/2026,21/10/2026,24/10/2026",
-     "urna do 1º turno no bweb (2175956) diferente da do 2º (2176328)"
+     "urna do 1º turno no bweb (2175956) diferente da do 2º (2176328): troca entre os turnos",
+     "carregada como urna de contingência no período do 2º turno em 21/10/2026,24/10/2026"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 2175956,
    "urna_2t_bu": 2176328,
-   "eventos": {
-    "carga_contingencia": [
-     "24/09/2026",
-     "30/09/2026",
-     "21/10/2026",
-     "24/10/2026"
-    ],
-    "contingencia_executada": [
-     "24/10/2026"
+   "blocos_de_log": 3
+  },
+  {
+   "secao": "rs/89575/0162/0357",
+   "pendencias": [
+    "midia_diferente"
+   ],
+   "explicacao": {
+    "midia_diferente": [
+     "mesma mídia nos dois turnos; leituras em 03/10, 24/10 (urna ligada na véspera quando falta o dia)"
     ]
-   }
+   },
+   "notas": [],
+   "explicada": true,
+   "urna_1t_bweb": 2176067,
+   "urna_2t_bu": 2176067,
+   "blocos_de_log": 1
   },
   {
    "secao": "sc/80993/0014/0137",
@@ -417,10 +364,11 @@
      "MR de 23/09/2026 só de aplicativos ['[SA,RED,VPP,ATUE]'], sem o aplicativo de votação"
     ]
    },
+   "notas": [],
    "explicada": true,
    "urna_1t_bweb": 1771487,
    "urna_2t_bu": 1771487,
-   "eventos": {}
+   "blocos_de_log": 1
   }
  ],
  "votaveis_presidente_nos_boletins": {
