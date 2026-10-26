@@ -88,3 +88,20 @@ Consequências, registradas antes dos dados:
 - O critério da seção 7 fica como está (sinal acima de +0,04 e a mais de 3 erros-padrão disso; sem sinal entre -0,07 e +0,04).
 - Mas o patamar "compatível com inversão, +0,29 ou mais" está mal calibrado: na versão realista, uma conversão que inverte o resultado leva o coeficiente para cerca de +0,07, não +0,29.
 - Um resultado "sem sinal" (entre -0,07 e +0,04) não descarta conversões de até cerca de 2,5 milhões de votos. Este teste tem pouco poder contra a tese e precisa ser lido junto com os outros.
+
+## Adendo 2 (antes de abrir qualquer boletim do 2º turno dos 6 estados): calibração do teste presidente contra governador por seção
+
+O script reescrito (`scripts/analisar_gov.py`) reproduz a referência de 2022 do documento (+0,04) com efeito fixo de **município**: +0,044 (0,005), 249.040 seções em 2.710 municípios dos 12 estados com 2º turno de governador. Com efeito fixo de **local de votação** (mais rigoroso), o mesmo teste dá -0,005 (0,002). Os dois serão relatados.
+
+Simulação em 2022 de uma conversão uniforme (mesma fração f do branco+nulo de presidente do 2º turno em todas as seções):
+
+| f | Votos convertidos (12 estados) | Efeito fixo de município | Efeito fixo de local |
+|---|---|---|---|
+| 0 | 0 | +0,044 | -0,005 |
+| 0,309 | 1,13 milhão | +0,029 | -0,011 |
+| 0,753 | 2,75 milhões | +0,076 | +0,052 |
+
+Consequências, registradas antes dos dados:
+- O "perto de +0,5" do documento só vale se a conversão variar muito de urna para urna (por exemplo, concentrada em parte delas). Uma conversão uniforme quase não mexe neste coeficiente, porque a variação natural da queda do branco/nulo de governador domina.
+- Critério mantido para conversão concentrada: coeficiente acima de +0,25 e a mais de 3 erros-padrão da referência de 2022 é sinal a favor da tese.
+- Para conversão uniforme, este teste é fraco. Um coeficiente de 2026 até +0,10 (município) ou +0,06 (local) não distingue conversão uniforme grande de ausência de conversão.
