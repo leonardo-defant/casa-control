@@ -1,0 +1,107 @@
+{
+ "locais_com_votos": 45382,
+ "divisas": {
+  "PR-SP+MS": {
+   "pares": 185,
+   "faixa": 2913,
+   "municipios_lado_a": 27,
+   "J": 0.005493998145366797,
+   "ep": 0.002356032550278584,
+   "r2_modelo": 0.9891454534571127
+  },
+  "PR-SP": {
+   "pares": 169,
+   "faixa": 2610,
+   "municipios_lado_a": 26,
+   "J": 0.006264871898993135,
+   "ep": 0.0025787331688156873,
+   "r2_modelo": 0.9882189556091636
+  },
+  "PR-MS": {
+   "pares": 16,
+   "faixa": 383,
+   "fora": "menos de 50 pares"
+  },
+  "PR-SC": {
+   "pares": 425,
+   "faixa": 3504,
+   "municipios_lado_a": 29,
+   "J": 0.001415532748580947,
+   "ep": 0.001910551188227068,
+   "r2_modelo": 0.9925407803748927
+  },
+  "SC-RS": {
+   "pares": 453,
+   "faixa": 3248,
+   "municipios_lado_a": 38,
+   "J": -0.0009700622880162687,
+   "ep": 0.0031765571484985724,
+   "r2_modelo": 0.9885522352346748
+  },
+  "SP-MS": {
+   "pares": 60,
+   "faixa": 435,
+   "municipios_lado_a": 5,
+   "J": -0.019933600283049933,
+   "ep": 0.00856559550770136,
+   "r2_modelo": 0.9918413726092878
+  },
+  "SP-MG": {
+   "pares": 3158,
+   "faixa": 9812,
+   "municipios_lado_a": 83,
+   "J": 0.009715789771909272,
+   "ep": 0.0026179736225257215,
+   "r2_modelo": 0.9939925153238633
+  },
+  "SP-RJ": {
+   "pares": 162,
+   "faixa": 2970,
+   "municipios_lado_a": 6,
+   "J": -0.009511826002217921,
+   "ep": 0.003991552438433739,
+   "r2_modelo": 0.9823168334375153
+  },
+  "MS-MT": {
+   "pares": 0,
+   "faixa": 37,
+   "fora": "menos de 50 pares"
+  },
+  "MS-GO": {
+   "pares": 3,
+   "faixa": 105,
+   "fora": "menos de 50 pares"
+  },
+  "MS-MG": {
+   "pares": 0,
+   "faixa": 37,
+   "fora": "menos de 50 pares"
+  },
+  "MG-GO": {
+   "pares": 151,
+   "faixa": 1161,
+   "municipios_lado_a": 12,
+   "J": -0.003077312295120051,
+   "ep": 0.006055550122985797,
+   "r2_modelo": 0.9909620658550722
+  },
+  "GO-MT": {
+   "pares": 49,
+   "faixa": 156,
+   "fora": "menos de 50 pares"
+  },
+  "MG-RJ": {
+   "pares": 1664,
+   "faixa": 6024,
+   "municipios_lado_a": 33,
+   "J": 0.04674204961993293,
+   "ep": 0.020112567428703237,
+   "r2_modelo": 0.9893957446351744
+  }
+ },
+ "J_sul_nao_sul": [
+  0.005493998145366797,
+  0.002356032550278584
+ ],
+ "mediana_abs_J_placebo": 0.009511826002217921
+}
