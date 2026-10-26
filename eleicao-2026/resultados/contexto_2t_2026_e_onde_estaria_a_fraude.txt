@@ -59,3 +59,49 @@ Fontes completas em contexto_2t_2026_pesquisa_verificada.json.
 - O que sobra para a tese: um desvio que poupasse os 6 estados com governador no 2º turno, ou que agisse também no governador. O T16 (piso
   por UF), o T34 (divisa) e a conta completa dos boletins (bweb) olham isso. E a divergência do teste de integridade do DF, cuja direção
   não foi divulgada.
+
+4) Trump e Musk (acrescentado em 26/10, noite, a pedido do Léo). Pesquisa em 2 frentes com verificador independente; 53 afirmações
+   confirmadas, 8 contraditas em detalhe (corrigidas abaixo), 4 não confirmadas. Fontes em trump_musk_2t_2026_verificado.json.
+
+Trump acusou a eleição de fraude, com palavras próprias, sem apresentar prova.
+- 26/10/2026, a repórteres na Joint Base Andrews (Maryland), antes de um comício no Mississippi: "It looked like another rigged election,
+  frankly" ("pareceu mais uma eleição fraudada, francamente"); "it looked so corrupt, so terrible"; "I thought it had a very bad look, the
+  way it was tabulated"; "The extension given was very strange" ("a prorrogação concedida foi muito estranha"). AFP, AP, Reuters,
+  Telegraph, CNN Brasil, Gazeta do Povo, Poder360. A Casa Branca repostou o vídeo (perfil Rapid Response 47, segundo o Poder360).
+- Na mesma fala: "I didn't take sides", "I like Lula, I get along with him very well" e, perguntado se faria algo, "I'm not running
+  Brazil. I'm running the US".
+- O único fato concreto que ele citou foi a prorrogação. Não citou Zanin pelo nome, números, estados, urnas, pesquisas nem a pausa.
+- Governo dos EUA: segundo a Folha (26/10), o Departamento de Estado tinha nota de felicitação pronta e a Casa Branca mandou adiar. Rubio
+  não se pronunciou. Nenhuma sanção ou não reconhecimento formal encontrado (a tarifa de 25% da Seção 301 é de 22/07/2026, anterior).
+  Contexto: a Reuters (24/10) relatou que nomeados políticos do Departamento de Estado (Darren Beattie, Ricardo Pita) lideraram uma
+  campanha para devolver os Bolsonaro ao poder; Steve Bannon chamou o resultado de "ilegítimo" no podcast dele.
+- Antes: Trump recebeu Flávio na Casa Branca em maio; não declarou apoio formal. Em 05/10, na Truth Social, elogiou a apuração do 1º
+  turno brasileiro sair "NO MESMO DIA" para criticar a apuração americana (primeiro escreveu Índia no lugar de Brasil).
+- Reação: Alckmin chamou a fala de "totalmente equivocada". Nenhuma checagem de agência sobre Trump encontrada.
+
+Musk questionou o resultado endossando posts de terceiros; não escreveu "fraud" nem "rigged" com palavras próprias.
+- Sete posts em 26/10 (00h23 a 14h02, Brasília), cerca de 14 milhões de visualizações somadas, nenhum com Nota da Comunidade:
+  "Wow", citando o advogado Martin De Luca, que fala em "blatant rigging" e compara Lula a Maduro (5,6 milhões de visualizações);
+  "Math doesn't add up", citando o perfil End Wokeness (4,3 milhões); "Yeah, that was shady", a Robby Starbuck; repost de Jack
+  Posobiec ("A judge loyal to Lula ordered voting extended"); "True", a Rothmus; "Interesting question", a Geiger Capital; e um emoji
+  para Ursula von der Leyen. O Jornal Razão cita ainda um repost de Tommy Robinson e um "Indeed" (posts primários não localizados).
+- Antes, em 2026: "Not quite yet, but it's coming" sobre a prisão de Moraes (12/03), "Wow" ao Polymarket com Flávio a 58% (20/09),
+  "Yes" ao "Tick tock" de Moraes e post sobre interferência da USAID (05/10).
+
+As alegações concretas dos posts endossados, testadas nos dados:
+- "A conta não fecha" (Lula +10,2 milhões contra 9,33 milhões dos eliminados), a mesma conta que o Léo fez: a soma fecha por identidade.
+  Lula +10,38 e Flávio +3,72 = 14,10 milhões = eliminados 9,32 + aumento do comparecimento 2,96 + queda do branco/nulo 1,82. O que não
+  bate com as pesquisas não é a soma, é a composição: o saldo de cerca de 2,2 milhões da base de Flávio para Lula e a fatia dos eliminados
+  (item 2 deste arquivo).
+- "Zanin mandou prorrogar 3 minutos antes do fechamento" (Rothmus, "True"): errado; a liminar saiu às 17h03, depois das 17h.
+- "Prorrogou só nos condados amigos" (Starbuck, "shady"): falso; valeu para o país todo, só nas seções ainda abertas.
+- "Às 17h em ponto um código trava as urnas, de forma irreversível" (Geiger Capital, "Interesting question"), e "80% das seções já
+  estavam fechadas" (Robinson): testados nos logs das 3.897 urnas da amostra (1,0 milhão de votos). 225 seções (5,8%) registraram voto
+  a partir das 17h; só 31,4% tinham iniciado o encerramento antes das 17h03 (hora local; nos 6 estados com fuso diferente, 17h03 de
+  Brasília é mais cedo no local); nenhuma seção tem voto depois do último encerramento, ou seja, nenhuma urna foi reaberta. Votos a
+  partir das 17h: 0,026% (cerca de 33 mil no país, contra 34 a 35,5 mil divulgados); a partir das 17h03: 0,0047% (cerca de 6 mil).
+  Último voto da amostra: 18h37 local. Os "80%" são um número de São Paulo (TRE-SP), não do país.
+- "213 cidades que deram Flávio no 1º turno votaram Lula no 2º" (número da CNN Brasil, repetido por Robinson): a testar com os totais
+  por município do 2º turno (download em andamento).
+Para a tese: as falas de Trump e os posts endossados por Musk não trazem dado novo além da prorrogação e da conta dos totais. A
+prorrogação foi de cerca de 6 mil votos depois da liminar, contra uma margem de 4,43 milhões. A anomalia real continua sendo a do item 2.

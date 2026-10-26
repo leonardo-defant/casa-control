@@ -1,0 +1,1132 @@
+[
+ {
+  "frente": "trump",
+  "pesquisa": {
+   "resumo": "Trump acusou a eleição de fraude. Em 26/10/2026, um dia depois do 2º turno, ele disse a repórteres na Joint Base Andrews (Maryland), antes de voar para um comício no Mississippi, que a eleição \"looked like another rigged election, frankly\" (\"pareceu mais uma eleição fraudada, francamente\"). Não apresentou nenhuma prova. Os únicos elementos concretos que ele citou foram a prorrogação (\"The extension given was very strange\") e, de forma vaga, \"the way it was tabulated\". Não citou Zanin pelo nome, números, estados, urnas, pesquisas nem a pausa da divulgação do TSE. Na mesma fala disse \"I didn't take sides\", \"I like Lula, I get along with him very well\" e, perguntado se faria algo, respondeu \"I'm not running Brazil. I'm running the US\". Não achei post na Truth Social nem nota oficial da Casa Branca sobre o resultado do 2º turno. O vídeo foi repostado pela conta Rapid Response 47 da Casa Branca, segundo o Poder360, mas não achei o link do post. Musk, em 26/10, questionou o resultado sem usar as palavras fraude, rigged ou stolen. Ele repostou um post de terceiro que comparava os votos de Lula no 1º e no 2º turno (53,9 mi para 64,1 mi) com o comentário \"Math doesn't add up\". Repostou também o advogado Martin De Luca, sobre a prorrogação, com \"Wow\", e comentou \"Verdade\" num post que dizia que Zanin foi indicado por Lula. A imprensa mostra que a conta ignora a queda da abstenção (de 21,08% para 19,21%) e de brancos e nulos (de 5,98 mi para 4,15 mi). Governo dos EUA: segundo a Folha (26/10), o Departamento de Estado tinha uma nota de felicitação pronta e a administração Trump mandou adiar a publicação \"para avaliar a situação política no Brasil\". Rubio não se pronunciou. Não achei sanção, tarifa nova nem decisão formal de não reconhecer o resultado ligada ao 2º turno; a tarifa de 25% da Seção 301 está em vigor desde 22/07/2026 e é anterior. Antes do 2º turno, Trump não declarou apoio formal a Flávio, mas o recebeu na Casa Branca em maio. Em 05/10 chamou o resultado do 1º turno de \"grande vitória, bem apertada\"; em post na Truth Social elogiou a rapidez da apuração brasileira (primeiro escrevendo Índia no lugar de Brasil) para atacar a votação nos EUA; e em 25/10 disse \"Não quero entrar nesse assunto, mas estamos monitorando\". Reações: o vice Geraldo Alckmin chamou a fala de \"totalmente equivocada\" e disse que Trump \"não tem nenhum referencial pra dizer isso\". O Planalto vê como irrelevante a falta de reconhecimento formal por Trump e Milei. Não achei nota oficial do Itamaraty sobre Trump; o Itamaraty rebateu Milei em 20/10. O TSE (Nunes Marques) defendeu o processo e disse que a prorrogação não alterou o resultado: cerca de 34,3 mil votos depois das 17h, 0,027% do total. Não achei checagem da Lupa, do Aos Fatos, do Comprova nem do Estadão Verifica sobre as falas de Trump ou Musk sobre o 2º turno; o domínio do Estadão não estava acessível para mim.",
+   "achados": [
+    {
+     "item": "(1) Declaração de Trump sobre o 2º turno: acusação de eleição 'rigged'",
+     "valor": "Em 26/10/2026, Trump disse a repórteres: \"I didn't take sides but it looked like another rigged election frankly... it was a terrible look for the world.\" e \"Elections have to be indisputable and it looked very bad to me.\" Também disse: \"I didn't endorse anybody or anything, but I watched the election and it looked so corrupt, so terrible.\" Ele falou ao deixar Washington para um comício de campanha das midterms.",
+     "url": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+     "data_publicacao": "2026-10-26 20:21 UTC (AFP, Danny Kemp)",
+     "trecho": "I didn't take sides but it looked like another rigged election frankly... it was a terrible look for the world.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Local da fala de Trump e ausência de provas (AP)",
+     "valor": "A AP relata que Trump falou na segunda-feira a repórteres antes de voar para um comício no Mississippi; a legenda da foto situa a fala na Joint Base Andrews, Maryland, em 26/10/2026. Citações: \"It looked like another rigged election, frankly.\" e \"I thought it had a very bad look, the way it was tabulated.\" A AP diz que ele não apresentou provas.",
+     "url": "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/",
+     "data_publicacao": "2026-10-26 (AP, Washington; horário não informado)",
+     "trecho": "It looked like another rigged election, frankly.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1)/(2) Trump cita a prorrogação (Reuters)",
+     "valor": "Segundo a Reuters, Trump disse: \"I just think it had a very bad look, the election, the way it was tabulated,\" e \"The extension given was very strange.\" A Reuters diz que ele não deu provas e que menos de 35 mil votos (cerca de 0,03%) foram dados nas duas horas extras, segundo Pedro Burgos (Insper).",
+     "url": "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html",
+     "data_publicacao": "2026-10-26 21:16 UTC (Reuters, Oliver Griffin e Eduardo Simões)",
+     "trecho": "The extension given was very strange.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Trump diz que não vai agir e que gosta de Lula",
+     "valor": "Perguntado se faria algo: \"I'm not running Brazil. I'm running the US. I like Lula.\" e \"but the extension given was very strange.\" (Telegraph republicado no Yahoo). A AFP registra a forma \"I'm not running for Brazil, i'm running for the USA\".",
+     "url": "https://www.yahoo.com/news/politics/articles/white-house-blocks-congratulation-lula-191039931.html",
+     "data_publicacao": "2026-10-26 19:10 UTC (Telegraph, Emily Smith)",
+     "trecho": "I'm not running Brazil. I'm running the US. I like Lula.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Versão em português e repostagem pela Rapid Response 47",
+     "valor": "O Poder360 informa que o trecho foi compartilhado pelo perfil Rapid Response 47, da Casa Branca. Traduções: \"Parecia mais uma eleição fraudada, francamente.\" e \"Eu não estou governando o Brasil, eu estou governando os Estados Unidos.\" Não achei o link do post da Rapid Response 47 nem um post de Trump na Truth Social sobre o 2º turno.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/trump-afirma-que-eleicoes-brasileiras-parecem-fraudadas/",
+     "data_publicacao": "2026-10-26 17h31 (Brasília)",
+     "trecho": "Parecia mais uma eleição fraudada, francamente.",
+     "confianca": "media"
+    },
+    {
+     "item": "(1) Cobertura brasileira com a fala sobre a prorrogação",
+     "valor": "Gazeta do Povo: \"Não tomei partido [na eleição], mas pareceu mais uma eleição fraudada\" e \"Eu só acho que a eleição passou uma impressão muito ruim. Sabe, a prorrogação concedida foi muito estranha\". CNN Brasil (16h42) traz \"Eu gosto do Lula, me dou muito bem com ele.\"",
+     "url": "https://www.gazetadopovo.com.br/mundo/trump-diz-que-eleicao-no-brasil-pareceu-fraudada-mas-afirma-ter-boa-relacao-com-lula/",
+     "data_publicacao": "2026-10-26 16h56 (Brasília)",
+     "trecho": "a prorrogação concedida foi muito estranha",
+     "confianca": "alta"
+    },
+    {
+     "item": "(2) Fatos concretos citados por Trump",
+     "valor": "Os únicos elementos concretos foram a prorrogação (\"The extension given was very strange\") e a forma de apuração (\"the way it was tabulated\"), esta sem detalhes. Ele não citou Zanin pelo nome, números, estados, horários, urnas, pesquisas nem a suspensão da divulgação pelo TSE. AP, Reuters e CNN Brasil registram que não houve prova.",
+     "url": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eleicao-do-brasil-pareceu-fraudada-mas-que-gosta-de-lula/",
+     "data_publicacao": "2026-10-26 16h42, atualizado 17h53 (Brasília)",
+     "trecho": "pareceu mais uma eleição fraudada",
+     "confianca": "alta"
+    },
+    {
+     "item": "Musk: post 'Math doesn't add up' (pedido do usuário: Trump e Musk)",
+     "valor": "Em 26/10/2026, Musk repostou um post de terceiro que comparava os votos de Lula no 1º turno (53,9 mi) e no 2º (64,1 mi) e dizia que os outros candidatos somaram só 9,33 mi no 1º turno. Comentário de Musk: \"Math doesn't add up\". Ele não usou as palavras fraud, rigged ou stolen. Post: x.com/elonmusk/status/2114717848518144177 (horário não obtido; X bloqueou o acesso).",
+     "url": "https://revistaoeste.com/mundo/elon-musk-questiona-resultado-da-eleicao-no-brasil/",
+     "data_publicacao": "2026-10-26 16h43 (Brasília); Metrópoles publicou às 12h00",
+     "trecho": "Math doesn't add up",
+     "confianca": "alta"
+    },
+    {
+     "item": "Musk: repost de Martin De Luca e comentários sobre Zanin e o horário",
+     "valor": "Musk repostou o advogado Martin De Luca (que representa empresas ligadas a Trump), que questionava a prorrogação e comparava Lula a Maduro, com o comentário \"Wow\" (x.com/elonmusk/status/2114559155642282081). Comentou \"Verdade\" num post que dizia que Zanin foi indicado por Lula (x.com/elonmusk/status/2114762534372917746) e \"Questão interessante\" num post que dizia que a decisão do STF saiu depois das 17h.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/",
+     "data_publicacao": "2026-10-26 14h26 (Brasília)",
+     "trecho": "Musk comentou: \"Verdade\"",
+     "confianca": "alta"
+    },
+    {
+     "item": "Musk: dados que contradizem a conta",
+     "valor": "A abstenção caiu de 21,08% no 1º turno para 19,2% no 2º, com 2,83 milhões de eleitores a mais. Brancos e nulos caíram de 5,98 mi para 4,15 mi. O questionamento \"desconsidera a dinâmica de migração do eleitorado\". O Correio Braziliense classifica o post como \"incompleto\".",
+     "url": "https://www.correiobraziliense.com.br/politica/2026/10/7528018-musk-questiona-eleicao-de-lula-com-post-incompleto-sobre-votacao.html",
+     "data_publicacao": "2026-10-26 14h29 (Brasília)",
+     "trecho": "Musk questiona eleição de Lula com post incompleto sobre votação",
+     "confianca": "alta"
+    },
+    {
+     "item": "(3) EUA adiam nota de felicitação",
+     "valor": "Segundo a Folha (reproduzida pela Tribuna do Norte), o Departamento de Estado tinha uma nota preparada e a administração Trump decidiu adiar a divulgação \"para avaliar a situação política no Brasil\" depois da contestação de Flávio. Questionada, a Embaixada dos EUA não disse quando a nota sairá. Não achei o texto original da Folha.",
+     "url": "https://tribunadonorte.com.br/tn-nas-eleicoes-2026/governo-trump-adia-comunicado-sobre-vitoria-de-lula-apos-contestacao-de-flavio-bolsonaro/",
+     "data_publicacao": "2026-10-26 15h10 (Brasília)",
+     "trecho": "para avaliar a situação política no Brasil",
+     "confianca": "media"
+    },
+    {
+     "item": "(3) Departamento de Estado: resposta de Katherine Bowles",
+     "valor": "A BPMoney cita resposta do Departamento de Estado assinada por Katherine Bowles (Assuntos Legislativos), não por Rubio: \"Os EUA apoiam o direito do povo brasileiro a um processo eleitoral livre e justo\" e \"Continuaremos a dialogar com o povo brasileiro, o setor privado e o governo eleito\". A data da resposta não está clara; ela parece responder a senadores democratas (Sanders, Shaheen) e pode ser anterior ao 2º turno.",
+     "url": "https://bpmoney.com.br/politica/musk-questiona-vitoria-lula-casa-branca-silencio/",
+     "data_publicacao": "2026-10-26 13h38 (Brasília)",
+     "trecho": "Os EUA apoiam o direito do povo brasileiro a um processo eleitoral livre e justo",
+     "confianca": "baixa"
+    },
+    {
+     "item": "(3) Nenhuma sanção ou tarifa nova ligada ao resultado",
+     "valor": "Não houve ação oficial além da fala. AFP: \"None announced\" (Trump se recusou a se comprometer). A tarifa adicional de 25% da Seção 301 (USTR, 15/07, em vigor desde 22/07/2026) e a de 50% de julho de 2025 são anteriores e não estão ligadas ao resultado. O agrément do embaixador indicado por Trump, Daniel Perez, segue pendente; Lula disse em agosto que só o daria depois da eleição.",
+     "url": "https://ndmais.com.br/mundo/lula-vence-e-leva-ao-quarto-mandato-um-impasse-com-os-eua-tarifa-de-25-embaixador-sem-aval-e-dialogo-travado-com-o-departamento-de-estado/",
+     "data_publicacao": "2026-10-26 12h12 (Brasília), coluna de opinião",
+     "trecho": "impôs tarifa adicional de 25%, em vigor desde o dia 22",
+     "confianca": "media"
+    },
+    {
+     "item": "(4) Dia do 2º turno: 'estamos monitorando'",
+     "valor": "Em 25/10/2026, perguntado se apoiava Flávio ou Lula: \"Não quero entrar nesse assunto, mas estamos monitorando\".",
+     "url": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-monitora-segundo-turno-da-eleicao-presidencial-no-brasil/",
+     "data_publicacao": "2026-10-25 13h51, atualizado 16h27 (Brasília)",
+     "trecho": "Não quero entrar nesse assunto, mas estamos monitorando",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) Depois do 1º turno: 'grande vitória' de Flávio",
+     "valor": "Em 05/10/2026, a jornalistas ao deixar a Casa Branca, Trump disse sobre a liderança de Flávio no 1º turno: \"é uma grande vitória, bem apertada, mas uma grande, grande vitória\" e \"Incrível\".",
+     "url": "https://www.jornaldocomercio.com/internacional/2026/10/1265868-grande-vitoria-diz-trump-sobre-vantagem-de-flavio-bolsonaro-no-1-turno-das-eleicoes.html",
+     "data_publicacao": "2026-10-05 17h56 (Brasília)",
+     "trecho": "é uma grande vitória, bem apertada, mas uma grande, grande vitória",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) Post na Truth Social sobre o 1º turno (com Brasil trocado por Índia)",
+     "valor": "Na madrugada de 05/10/2026, Trump postou na Truth Social: \"125 milhões de pessoas votaram hoje no primeiro turno da eleição presidencial do Brasil. Os resultados saíram logo após o encerramento da votação, NO MESMO DIA!\". Disse que nos EUA os resultados \"levam semanas para serem manipulados\" e chamou a votação americana de \"CORRUPTA!!!\". A versão original dizia Índia e foi editada horas depois. O texto original em inglês e o link do post não foram obtidos.",
+     "url": "https://www.cnnbrasil.com.br/internacional/trump-eleicoes-brasil-india-confunde/",
+     "data_publicacao": "2026-10-05 09h36 (Brasília)",
+     "trecho": "Os resultados saíram logo após o encerramento da votação, NO MESMO DIA!",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) Sem apoio formal a Flávio, mas encontro na Casa Branca",
+     "valor": "Trump não declarou apoio formal; Reuters e Telegraph dizem que a equipe de Flávio pediu que ele não o fizesse. Segundo o Metrópoles, Flávio se reuniu com Trump na Casa Branca em 26/05/2026. A AFP registra fala de Trump na semana anterior ao 2º turno: \"In South America, it was all leaning big left -- it's all right now\".",
+     "url": "https://www.metropoles.com/mundo/trump-diz-que-monitora-eleicao-no-brasil-mas-evita-apoiar-lula-ou-flavio",
+     "data_publicacao": "2026-10 (data exata não verificada)",
+     "trecho": "Trump diz que monitora eleição no Brasil, mas evita apoiar Lula ou Flávio",
+     "confianca": "media"
+    },
+    {
+     "item": "(4) Junho de 2026: Trump fala do Brasil 'perigoso politicamente'; Lula responde",
+     "valor": "Trump: \"o Brasil está se tornando um país duro politicamente, um pouco perigoso politicamente. Está meio desagradável\". Lula respondeu: \"Agora, não se meta nas eleições do Brasil, porque isso é um problema do Brasil\".",
+     "url": "https://www.metropoles.com/colunas/milena-teixeira/planalto-reage-a-fala-de-trump-e-defende-contra-ataque",
+     "data_publicacao": "2026-06-17 17h46 (Brasília)",
+     "trecho": "não se meta nas eleições do Brasil, porque isso é um problema do Brasil",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) Contexto do governo dos EUA antes do pleito (Rubio, vistos)",
+     "valor": "Em carta de 23/06/2026, Rubio agradeceu a Flávio pela oferta de uma \"equipe de transição\". Em 24/07/2026, o Itamaraty negou visto a dois funcionários do Departamento de Estado (Riley Barnes e Samuel Samson) que viriam discutir integridade eleitoral; o Departamento de Estado negou intenção de interferir. Em 21/10, o chanceler Mauro Vieira disse que o governo Trump \"tomaram parte, tomaram um lado, fizeram fotografias\".",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/governo-trump-tomou-parte-na-eleicao-brasileira-diz-mauro-vieira/",
+     "data_publicacao": "2026-10-21 07h34 (Brasília)",
+     "trecho": "tomaram parte, tomaram um lado, fizeram fotografias",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Reação do governo: Alckmin",
+     "valor": "Em entrevista à Rede Vanguarda, o vice-presidente Geraldo Alckmin disse: \"Olha, totalmente equivocada, né? Primeiro não se interfere na política de outro país.\" e \"Segundo não tem nenhum referencial pra dizer isso. Aliás, o Brasil é um exemplo pro mundo. De urna eletrônica, de segurança jurídica.\"",
+     "url": "https://oantagonista.com.br/brasil/alckmin-rebate-declaracao-de-trump-sobre-eleicao-totalmente-equivocada/",
+     "data_publicacao": "2026-10-26 18h41 (Brasília)",
+     "trecho": "totalmente equivocada, né? Primeiro não se interfere na política de outro país.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Reação do Planalto e de diplomatas",
+     "valor": "O Planalto considera irrelevante a falta de reconhecimento formal por Trump e Milei e avalia que isso \"não interfere\" na validade do resultado (Poder360). Diplomatas ouvidos sob reserva esperam que não haja mudanças na relação bilateral (Terra/BBC, 17h01). Não achei nota oficial do Itamaraty sobre a fala de Trump. O Itamaraty rebateu Milei em 20/10, chamando a fala dele de interferência \"inaceitável\".",
+     "url": "https://www.terra.com.br/noticias/brasil/trump-diz-que-eleicao-no-brasil-pareceu-ter-fraude-mas-afirma-gostar-de-lula,3a723bcc4e6b84d72b644e1ffe7559fft0iztkb8.html",
+     "data_publicacao": "2026-10-26 17h01 (Brasília)",
+     "trecho": "com ou sem reconhecimento, os canais diplomáticos seguem ativos",
+     "confianca": "media"
+    },
+    {
+     "item": "(5) Reação do TSE",
+     "valor": "O presidente do TSE, Kassio Nunes Marques, disse que \"não houve irregularidades\" e \"Temos absoluta confiança em todo o processo eleitoral\"; segundo a CNN Brasil, disse também que \"não houve nenhuma alteração advinda da decisão judicial\". Pelos dados do TSE citados pela imprensa, foram cerca de 34,3 mil votos depois das 17h (0,027% de 127,8 mi). Não é uma resposta direta a Trump ou Musk.",
+     "url": "https://www.cnnbrasil.com.br/internacional/musk-e-bannon-aliados-de-trump-questionam-vitoria-de-lula-ilegitimo/",
+     "data_publicacao": "2026-10-26 18h04 (Brasília)",
+     "trecho": "não houve nenhuma alteração advinda da decisão judicial",
+     "confianca": "alta"
+    }
+   ],
+   "alegacoes_especificas": [
+    {
+     "alegacao": "Trump (26/10/2026): \"The extension given was very strange\". Refere-se à prorrogação da votação até 19h determinada por Zanin, embora Trump não cite o nome dele.",
+     "url": "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html"
+    },
+    {
+     "alegacao": "Trump (26/10/2026): \"I thought it had a very bad look, the way it was tabulated\". Crítica à apuração, sem dizer o que estaria errado.",
+     "url": "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/"
+    },
+    {
+     "alegacao": "Trump (26/10/2026): \"I watched the election and it looked so corrupt, so terrible\". Diz que acompanhou a eleição, sem fato específico.",
+     "url": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html"
+    },
+    {
+     "alegacao": "Trump (Truth Social, madrugada de 05/10/2026, 1º turno): 125 milhões votaram e os resultados saíram \"NO MESMO DIA\". Usou isso para dizer que os resultados nos EUA levam semanas para serem \"manipulados\".",
+     "url": "https://www.cnnbrasil.com.br/internacional/trump-eleicoes-brasil-india-confunde/"
+    },
+    {
+     "alegacao": "Musk (X, 26/10/2026), ao repostar um post de terceiro: Lula passou de 53,9 mi votos no 1º turno para 64,1 mi no 2º (+10,3 mi), enquanto os outros candidatos somaram 9,33 mi no 1º. Comentário: \"Math doesn't add up\".",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/"
+    },
+    {
+     "alegacao": "Musk (X, 26/10/2026) comentou \"Verdade\" num post que dizia que Zanin, autor da prorrogação, foi indicado ao STF por Lula.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/"
+    },
+    {
+     "alegacao": "Musk (X, 26/10/2026) comentou \"Questão interessante\" num post que dizia que a decisão do STF saiu depois das 17h.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/"
+    },
+    {
+     "alegacao": "Musk (X, 26/10/2026) repostou Martin De Luca, que questionava a prorrogação e comparava Lula a Maduro, com o comentário \"Wow\".",
+     "url": "https://revistaoeste.com/mundo/elon-musk-questiona-resultado-da-eleicao-no-brasil/"
+    }
+   ],
+   "nao_encontrado": [
+    "Post de Trump na Truth Social sobre o resultado do 2º turno (25/10/2026): não achei. A acusação foi feita oralmente a repórteres em 26/10.",
+    "Nota ou comunicado oficial da Casa Branca sobre o resultado: não achei. Só o vídeo repostado pela Rapid Response 47 (segundo o Poder360), cujo link não obtive.",
+    "Horário exato da fala de Trump em 26/10. A publicação mais antiga com as citações é de 19h10 UTC (16h10 de Brasília).",
+    "Texto original da Folha sobre o adiamento da nota do Departamento de Estado. Só achei reproduções (Tribuna do Norte, Telegraph/Yahoo).",
+    "Declaração pública de Marco Rubio sobre o resultado do 2º turno: não achei.",
+    "Sanções, tarifas novas ou decisão formal dos EUA de não reconhecer o resultado, ligadas ao 2º turno: não achei.",
+    "Nota oficial do Itamaraty ou declaração do próprio Lula respondendo à fala de Trump de 26/10: não achei.",
+    "Resposta do TSE dirigida especificamente a Trump ou a Musk: não achei. As falas de Nunes Marques defendem o processo de forma geral.",
+    "Checagens da Lupa, do Aos Fatos, do Comprova ou do Estadão Verifica sobre as falas de Trump ou Musk sobre o 2º turno: não achei (o domínio do Estadão não estava acessível para mim).",
+    "Horário dos posts de Musk no X e texto integral dos posts repostados: o X bloqueou o acesso (HTTP 402).",
+    "Texto original em inglês e link do post de Trump na Truth Social de 05/10/2026."
+   ]
+  },
+  "verificacao": {
+   "conferidos": [
+    {
+     "item": "(1) AFP/Yahoo: Trump chama a eleição de 'rigged' (26/10)",
+     "valor_dado": "\"I didn't take sides but it looked like another rigged election frankly... it was a terrible look for the world.\" e \"Elections have to be indisputable...\" e \"I watched the election and it looked so corrupt, so terrible\"; 20h21 UTC, Danny Kemp",
+     "status": "confirmado",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+     "valor_na_fonte": "As três citações estão lá, literais. Data: Mon, October 26, 2026, 8:21 PM UTC. Byline: Danny KEMP. A AFP diz que ele falou ao deixar Washington para um comício das midterms e não nomeia o local do comício. A AFP registra ainda: \"I just thought it was a very bad look, the way it was tabulated -- with the extension.\"",
+     "nota": "Na versão da AFP, Trump liga a crítica à apuração diretamente à prorrogação."
+    },
+    {
+     "item": "(1) AP/Boston Globe: local da fala e ausência de provas",
+     "valor_dado": "\"It looked like another rigged election, frankly.\" e \"I thought it had a very bad look, the way it was tabulated.\"; Joint Base Andrews; sem provas",
+     "status": "confirmado",
+     "url_usada": "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/",
+     "valor_na_fonte": "Ambas as citações estão lá, literais. Legenda: \"President Trump answers questions from the press before boarding Air Force One on October 26, 2026 in Joint Base Andrews, Maryland.\" O texto diz \"before flying to Mississippi for a rally\" e \"without providing evidence\".",
+     "nota": "A página não informa horário de publicação, só a dateline 'WASHINGTON (AP)'. A Euronews (26/10, 22h37 GMT+1) confirma o local: Joint Base Andrews."
+    },
+    {
+     "item": "(1)/(2) Reuters: 'The extension given was very strange' e o dado de Pedro Burgos",
+     "valor_dado": "\"I just think it had a very bad look, the election, the way it was tabulated\" / \"The extension given was very strange.\"; menos de 35 mil votos (0,03%); 21h16 UTC",
+     "status": "confirmado",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html",
+     "valor_na_fonte": "Citações literais presentes. Data: Mon, October 26, 2026 at 9:16 PM UTC. Autores: Oliver Griffin e Eduardo Simões. Trecho: \"Fewer than 35,000 votes, or some 0.03% of the total, were cast in the extra two hours of voting ordered by the Supreme Court\", segundo análise de Pedro Burgos (Insper). Também diz \"without providing any evidence\".",
+     "nota": ""
+    },
+    {
+     "item": "(1) Telegraph/Yahoo: 'I'm not running Brazil... I like Lula'",
+     "valor_dado": "\"I'm not running Brazil. I'm running the US. I like Lula.\"; 19h10 UTC, Emily Smith; forma da AFP: \"I'm not running for Brazil, i'm running for the USA\"",
+     "status": "confirmado",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/white-house-blocks-congratulation-lula-191039931.html",
+     "valor_na_fonte": "Duas citações separadas: \"I'm not running Brazil. I'm running the US.\" e \"I like Lula. I get along with him very well, but the extension given was very strange.\" Data: Mon, October 26, 2026, 7:10 PM UTC. Autora: Emily Smith. A forma da AFP também confere.",
+     "nota": "O trecho do pesquisador junta duas citações distintas numa só."
+    },
+    {
+     "item": "(1) Poder360: tradução e Rapid Response 47",
+     "valor_dado": "\"Parecia mais uma eleição fraudada, francamente.\"; compartilhado pela Rapid Response 47; 17h31",
+     "status": "confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/trump-afirma-que-eleicoes-brasileiras-parecem-fraudadas/",
+     "valor_na_fonte": "Publicado em 26.out.2026, 17h31, por Julia Amoêdo. Citação literal presente. O texto diz que a fala foi \"compartilhada pelo perfil Rapid Response 47, da Casa Branca\", sem link. Não menciona post na Truth Social.",
+     "nota": "O link do post da Rapid Response 47 continua sem localização."
+    },
+    {
+     "item": "(1) Gazeta do Povo e CNN Brasil (versões em português)",
+     "valor_dado": "\"a prorrogação concedida foi muito estranha\" (Gazeta, 16h56); \"Eu gosto do Lula, me dou muito bem com ele.\" (CNN, 16h42)",
+     "status": "confirmado",
+     "url_usada": "https://www.gazetadopovo.com.br/mundo/trump-diz-que-eleicao-no-brasil-pareceu-fraudada-mas-afirma-ter-boa-relacao-com-lula/",
+     "valor_na_fonte": "Gazeta: \"Eu só acho que a eleição passou uma impressão muito ruim. Sabe, a prorrogação concedida foi muito estranha\". Publicado em 26/10/2026 às 16h56, atualizado às 17h18, por John Lucas. CNN Brasil (16h42, atualizado 17h53): \"Eu gosto do Lula, me dou muito bem com ele.\"",
+     "nota": "Em outra citação, a Gazeta insere entre colchetes '[a prorrogação da votação]'. Esse trecho é do jornal, não de Trump."
+    },
+    {
+     "item": "(2) Fatos concretos citados por Trump",
+     "valor_dado": "Só a prorrogação e 'the way it was tabulated'; sem Zanin, números, estados, urnas ou pausa do TSE",
+     "status": "confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eleicao-do-brasil-pareceu-fraudada-mas-que-gosta-de-lula/",
+     "valor_na_fonte": "Em nenhuma das versões conferidas (AFP, AP, Reuters, Telegraph, Euronews, CNN Brasil, Gazeta, BBC/Terra, Poder360) Trump cita Zanin, números, estados, horários, urnas, pesquisas ou a pausa da divulgação. A CNN Brasil diz que ele falou sem apresentar evidências.",
+     "nota": "Ressalva: na versão da AFP ('the way it was tabulated -- with the extension'), a crítica à apuração está ligada à prorrogação, não é totalmente sem objeto."
+    },
+    {
+     "item": "Musk: 'Math doesn't add up'",
+     "valor_dado": "Post de 26/10/2026 que cita terceiro (Lula 53,9 mi no 1º turno e 64,1 mi no 2º; outros candidatos 9,33 mi); sem as palavras fraud/rigged/stolen; x.com/elonmusk/status/2114717848518144177; Revista Oeste 16h43; Metrópoles 12h00",
+     "status": "confirmado",
+     "url_usada": "https://api.fxtwitter.com/elonmusk/status/2114717848518144177",
+     "valor_na_fonte": "Fonte primária (espelho fxtwitter do X): texto \"Math doesn’t add up\", created_at \"Mon Oct 26 13:56:39 +0000 2026\" (10h56 de Brasília). É um quote-post de @EndWokeness (status 2114539258572865606, 26/10 02:07 UTC = 23h07 de 25/10 em Brasília), não um repost simples. O post citado diz: \"Lula: 64.1 million votes (+10.2M)\" e \"all the eliminated candidates from round 1 got 9.33M VOTES COMBINED\". A Revista Oeste (Victória Batalha) publicou em 26/10 às 16h43.",
+     "nota": "O horário 'Metrópoles 12h00' não foi verificado. Nenhuma palavra de fraude no texto de Musk. O 64,1 mi do post citado é menor que o total oficial (64.256.232)."
+    },
+    {
+     "item": "Musk: repost de De Luca e comentários sobre Zanin e o horário (achado agregado)",
+     "valor_dado": "\"Wow\" (2114559155642282081); \"Verdade\" (2114762534372917746); \"Questão interessante\"; Poder360 14h26; trecho 'Musk comentou: \"Verdade\"'",
+     "status": "confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/",
+     "valor_na_fonte": "Poder360, 26.out.2026, 14h26: \"O empresário diz apenas o seguinte: “Verdade”\" e \"Eis o comentário de Musk: “Questão interessante”\". Não há Martin De Luca nem 'Wow' nesse texto; esses estão na Revista Oeste. Nos posts primários, Musk escreveu em inglês: \"Wow\" e \"True\".",
+     "nota": "O trecho do pesquisador não é literal: o Poder360 escreve 'diz apenas o seguinte: “Verdade”'. 'Verdade' é tradução do Poder360 para 'True'. O 'Questão interessante' não tem link nem confirmação primária (ver alegações)."
+    },
+    {
+     "item": "Musk: dados que contradizem a conta (abstenção, brancos e nulos, 'desconsidera a dinâmica')",
+     "valor_dado": "Abstenção 21,08% → 19,2%; 2,83 mi eleitores a mais; brancos e nulos 5,98 mi → 4,15 mi; \"desconsidera a dinâmica de migração do eleitorado\" — atribuídos ao Correio Braziliense",
+     "status": "confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/",
+     "valor_na_fonte": "Os números e a frase estão no Poder360 (14h26): \"a taxa de ausentes recuou de 21,08% no 1º turno para 19,2% no 2º turno\", \"2,83 milhões de eleitores a mais\", \"o grupo caiu de 5,98 milhões para 4,15 milhões\" e \"O questionamento, contudo, desconsidera a dinâmica de migração do eleitorado na 2ª etapa.\"",
+     "nota": "FONTE ERRADA: esses números e a frase NÃO estão na URL do Correio Braziliense indicada pelo pesquisador. Estão no Poder360. A Revista Oeste dá 19,21%."
+    },
+    {
+     "item": "Musk: título do Correio Braziliense ('incompleto')",
+     "valor_dado": "\"Musk questiona eleição de Lula com post incompleto sobre votação\"; 14h29",
+     "status": "contradito",
+     "url_usada": "https://www.correiobraziliense.com.br/politica/2026/10/7528018-musk-questiona-eleicao-de-lula-com-post-incompleto-sobre-votacao.html",
+     "valor_na_fonte": "Título real: \"Musk questiona reeleição de Lula com post incompleto sobre votação\" (Francisco Artur de Lima, 26/10/2026, 14h29). O post citado, reproduzido no artigo, diz: \"Lula: 64,1 milhões de votos (+10,2 mi)\".",
+     "nota": "O trecho não é literal ('reeleição', não 'eleição'). A substância confere: o Correio classifica o post como incompleto."
+    },
+    {
+     "item": "(3) EUA adiam a nota de felicitação (Folha via Tribuna do Norte)",
+     "valor_dado": "Departamento de Estado tinha nota pronta; adiamento \"para avaliar a situação política no Brasil\"; Embaixada não disse quando sai; 15h10",
+     "status": "confirmado",
+     "url_usada": "https://tribunadonorte.com.br/tn-nas-eleicoes-2026/governo-trump-adia-comunicado-sobre-vitoria-de-lula-apos-contestacao-de-flavio-bolsonaro/",
+     "valor_na_fonte": "Tribuna do Norte (Redação), 26/10/2026, 15h10: \"a administração Trump determinou o adiamento da publicação para avaliar a situação política no Brasil\" e \"Questionada pela Folha, a Embaixada dos Estados Unidos no Brasil não informou quando o comunicado oficial será divulgado.\" O Telegraph (19h10 UTC) corrobora citando a Folha: \"guidance was issued to postpone publication and 'evaluate' the situation\".",
+     "nota": "Também não achei o texto original da Folha (busca restrita ao domínio sem resultado)."
+    },
+    {
+     "item": "(3) Departamento de Estado: resposta de Katherine Bowles (BPMoney)",
+     "valor_dado": "\"Os EUA apoiam o direito do povo brasileiro a um processo eleitoral livre e justo\"; assinada por Katherine Bowles; data incerta, talvez anterior ao 2º turno",
+     "status": "confirmado",
+     "url_usada": "https://bpmoney.com.br/politica/musk-questiona-vitoria-lula-casa-branca-silencio/",
+     "valor_na_fonte": "BPMoney (Anna Muradi), 26/10/2026, 13h38. Título real: \"Elon Musk põe em dúvida vitória de Lula e Casa Branca evita reconhecer resultado\". As duas frases estão lá. Bowles é citada como sub-secretária para Assuntos Legislativos. A data é dada só como \"nesta quinta-feira\".",
+     "nota": "Como o texto é de segunda-feira (26/10), 'quinta-feira' indica 22/10, antes do 2º turno. Não é reação ao resultado. Fonte única e secundária; manter confiança baixa."
+    },
+    {
+     "item": "(3) Tarifas e embaixador (ndmais)",
+     "valor_dado": "Tarifa de 25% (Seção 301) imposta em 15/07, \"em vigor desde o dia 22\"; 50% de julho de 2025; Daniel Perez sem agrément; Lula só daria o agrément depois da eleição",
+     "status": "confirmado",
+     "url_usada": "https://ndmais.com.br/mundo/lula-vence-e-leva-ao-quarto-mandato-um-impasse-com-os-eua-tarifa-de-25-embaixador-sem-aval-e-dialogo-travado-com-o-departamento-de-estado/",
+     "valor_na_fonte": "João Alfredo Nyegray, 26/10/2026, 12h12. O texto confere nos pontos citados: USTR em 1º de junho; tarifa em 15 de julho \"em vigor desde o dia 22\"; 50% (10% + 40%); Daniel Perez; agrément só depois da eleição.",
+     "nota": "É texto analítico/opinativo, sem rótulo formal de coluna. Nada disso está ligado ao resultado do 2º turno."
+    },
+    {
+     "item": "(3) Citação da AFP: 'None announced'",
+     "valor_dado": "AFP: \"None announced\" (Trump se recusou a se comprometer)",
+     "status": "contradito",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+     "valor_na_fonte": "A expressão 'None announced' não aparece no texto da AFP. O texto diz: \"But Trump demurred when asked if he planned to take any action over the Brazilian result.\"",
+     "nota": "A substância (nenhuma ação anunciada) se mantém, mas a citação literal é inventada ou não localizada. Usar a frase 'demurred'."
+    },
+    {
+     "item": "(4) Dia do 2º turno: 'estamos monitorando'",
+     "valor_dado": "\"Não quero entrar nesse assunto, mas estamos monitorando\"; 25/10, 13h51, atualizado 16h27",
+     "status": "confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-monitora-segundo-turno-da-eleicao-presidencial-no-brasil/",
+     "valor_na_fonte": "CNN Brasil (Malu Baccarin e Mariana Janjácomo), 25/10/26, 13h51, atualizado 16h27. Citação literal. A pergunta era se ele apoiava Flávio ou Lula.",
+     "nota": "A matéria não informa onde Trump falou."
+    },
+    {
+     "item": "(4) Depois do 1º turno: 'grande vitória' de Flávio",
+     "valor_dado": "\"é uma grande vitória, bem apertada, mas uma grande, grande vitória\"; 05/10, ao deixar a Casa Branca; 17h56",
+     "status": "confirmado",
+     "url_usada": "https://www.jornaldocomercio.com/internacional/2026/10/1265868-grande-vitoria-diz-trump-sobre-vantagem-de-flavio-bolsonaro-no-1-turno-das-eleicoes.html",
+     "valor_na_fonte": "Jornal do Comércio (Agências), 05/10/2026, 17h56. Citações literais \"é uma grande vitória, bem apertada, mas uma grande, grande vitória\" e \"Incrível\". Trump falou ao deixar a Casa Branca.",
+     "nota": "A Reuters (24/10) dá o original em inglês: \"Close, but a very, very big victory.\""
+    },
+    {
+     "item": "(4) Post na Truth Social sobre o 1º turno (Índia/Brasil)",
+     "valor_dado": "Madrugada de 05/10: \"125 milhões... NO MESMO DIA!\"; resultados nos EUA levam semanas para serem 'manipulados'; 'CORRUPTA!!!'; versão original dizia Índia",
+     "status": "confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/internacional/trump-eleicoes-brasil-india-confunde/",
+     "valor_na_fonte": "CNN Brasil, 05/10/26, 09h36 (atualizado 21h18): \"...muitas vezes levam semanas para serem manipulados, quer dizer, calculados.\" e \"A votação nos Estados Unidos é CORRUPTA!!!\". A legenda diz que a primeira postagem confundia o Brasil com a Índia.",
+     "nota": "A paráfrase do pesquisador omite o 'quer dizer, calculados' (no original, 'Rig, I mean, calculate'). O texto em inglês e o link foram localizados (ver faltou_e_achei)."
+    },
+    {
+     "item": "(4) Metrópoles: 'monitora mas evita apoiar'; encontro em 26/05",
+     "valor_dado": "Sem apoio formal; Flávio se reuniu com Trump na Casa Branca em 26/05/2026; data da matéria não verificada",
+     "status": "confirmado",
+     "url_usada": "https://www.metropoles.com/mundo/trump-diz-que-monitora-eleicao-no-brasil-mas-evita-apoiar-lula-ou-flavio",
+     "valor_na_fonte": "Metrópoles (Manuela de Moura), 25/10/2026, 14h51. Legenda: \"Senador Flávio Bolsonaro se encontrou com o presidente Donald Trump em 26 de maio\" (o ano não é explícito). Também: \"Acho que vai ser uma eleição muito apertada\".",
+     "nota": "A data da matéria agora está verificada: 25/10/2026, 14h51. A Common Dreams (26/10) confirma: 'Trump hosted Bolsonaro at the White House in May'. A citação da AFP \"In South America, it was all leaning big left -- it's all right now\" confere ('told reporters last week')."
+    },
+    {
+     "item": "(4) 'Reuters e Telegraph dizem que a equipe de Flávio pediu que Trump não o apoiasse'",
+     "valor_dado": "Reuters e Telegraph",
+     "status": "contradito",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html",
+     "valor_na_fonte": "A Reuters diz apenas: \"Trump did not endorse Bolsonaro ahead of the vote.\" Só o Telegraph diz: \"with the Brazilian's team reportedly asking the president not to.\"",
+     "nota": "Atribuir isso só ao Telegraph."
+    },
+    {
+     "item": "(4) Junho de 2026: 'perigoso politicamente' e resposta de Lula",
+     "valor_dado": "Trump: \"o Brasil está se tornando um país duro politicamente, um pouco perigoso politicamente...\"; Lula: \"não se meta nas eleições do Brasil...\"; 17/06, 17h46",
+     "status": "confirmado",
+     "url_usada": "https://www.metropoles.com/colunas/milena-teixeira/planalto-reage-a-fala-de-trump-e-defende-contra-ataque",
+     "valor_na_fonte": "Milena Teixeira, 17/06/2026, 17h46 (atualizado 18h21). As duas citações estão literais.",
+     "nota": "A coluna não dá a data exata da fala de Trump. Outras fontes situam a fala e a resposta de Lula no G7 (França). A Al Jazeera é de 17/06/2026."
+    },
+    {
+     "item": "(4) Rubio, vistos e Mauro Vieira",
+     "valor_dado": "Carta de Rubio de 23/06 ('equipe de transição'); vistos negados em 24/07 a Riley Barnes e Samuel Samson; Vieira em 21/10: \"tomaram parte, tomaram um lado, fizeram fotografias\"",
+     "status": "confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/governo-trump-tomou-parte-na-eleicao-brasileira-diz-mauro-vieira/",
+     "valor_na_fonte": "Poder360, 21.out.2026, 07h34: \"Olha, tomaram parte, tomaram um lado, fizeram fotografias.\" (entrevista ao Estadão). Esse texto menciona a carta e a 'equipe de transição', mas sem data, e NÃO menciona os vistos. Data da carta (\"em 23 de junho\"): Times Brasil, 27/06/2026, 16h57. Vistos: Revista Oeste, 27/07/2026, 22h37 (\"na última sexta-feira, 24\"). O Departamento de Estado chamou a insinuação de interferência de \"uma mentira infundada\".",
+     "nota": "Os três fatos conferem, mas dois deles vêm de URLs diferentes da indicada."
+    },
+    {
+     "item": "(5) Alckmin: 'totalmente equivocada'",
+     "valor_dado": "\"Olha, totalmente equivocada, né? Primeiro não se interfere na política de outro país.\"; Rede Vanguarda; 18h41",
+     "status": "confirmado",
+     "url_usada": "https://oantagonista.com.br/brasil/alckmin-rebate-declaracao-de-trump-sobre-eleicao-totalmente-equivocada/",
+     "valor_na_fonte": "O Antagonista, 26.10.2026, 18h41. Citações literais, mais: \"Essa é uma regra basilar. Segundo não tem nenhum referencial pra dizer isso.\" e \"o Brasil é um exemplo pro mundo. De urna eletrônica, de segurança jurídica.\"",
+     "nota": ""
+    },
+    {
+     "item": "(5) Terra/BBC: trecho 'com ou sem reconhecimento, os canais diplomáticos seguem ativos'",
+     "valor_dado": "\"com ou sem reconhecimento, os canais diplomáticos seguem ativos\"; 17h01",
+     "status": "contradito",
+     "url_usada": "https://www.terra.com.br/noticias/brasil/trump-diz-que-eleicao-no-brasil-pareceu-ter-fraude-mas-afirma-gostar-de-lula,3a723bcc4e6b84d72b644e1ffe7559fft0iztkb8.html",
+     "valor_na_fonte": "BBC News Brasil (Leandro Prazeres), 26/10/2026, 17h01, atualizado 18h09. Texto real: \"com ou sem reconhecimento, os canais diplomáticos entre os dois países continuam ativos\". O texto não cita o Planalto, o Itamaraty como instituição nem Milei.",
+     "nota": "O trecho não é literal. A substância (diplomatas ouvidos sob reserva, sem expectativa de mudança) confere."
+    },
+    {
+     "item": "(5) Planalto: falta de reconhecimento 'não interfere'",
+     "valor_dado": "Planalto considera irrelevante a falta de reconhecimento formal por Trump e Milei (Poder360)",
+     "status": "confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-governo/planalto-nao-ve-impacto-de-silencio-de-trump-e-milei-na-eleicao/",
+     "valor_na_fonte": "Poder360 (Lara Brito), 26.out.2026, 16h44: \"considera irrelevante a falta de reconhecimento formal da reeleição do petista\" e \"o reconhecimento de governos estrangeiros não interfere na validade do resultado eleitoral nem na relação atual com os países.\"",
+     "nota": "A URL não estava no achado; está localizada aqui. Esse texto não traz nota do Itamaraty sobre Trump."
+    },
+    {
+     "item": "(5) Itamaraty x Milei em 20/10: 'inaceitável'",
+     "valor_dado": "Itamaraty rebateu Milei em 20/10, chamando a fala de interferência 'inaceitável'",
+     "status": "confirmado",
+     "url_usada": "https://diariodocomercio.com.br/politica/itamaraty-acusa-milei-eleicao/",
+     "valor_na_fonte": "Diário do Comércio, 21/10/2026, 12h26. A nota de terça-feira (20) diz: \"constituem nova e inaceitável tentativa de ingerência externa no processo democrático brasileiro\".",
+     "nota": "Continua sem nota do Itamaraty sobre a fala de Trump de 26/10."
+    },
+    {
+     "item": "(5) TSE: falas de Nunes Marques",
+     "valor_dado": "\"Temos absoluta confiança em todo o processo eleitoral\"; \"não houve nenhuma alteração advinda da decisão judicial\"; CNN 18h04",
+     "status": "confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/internacional/musk-e-bannon-aliados-de-trump-questionam-vitoria-de-lula-ilegitimo/",
+     "valor_na_fonte": "CNN Brasil (Tomás Braga), 26/10/26, 18h04: \"Volto a dizer: não houve nenhuma alteração advinda da decisão judicial.\" e \"Temos absoluta confiança em todo o processo eleitoral\".",
+     "nota": "Não é uma resposta dirigida a Trump ou a Musk."
+    },
+    {
+     "item": "(5) TSE: 'não houve irregularidades' e 34,3 mil votos depois das 17h",
+     "valor_dado": "Nunes Marques: \"não houve irregularidades\"; cerca de 34,3 mil votos depois das 17h (0,027% de 127,8 mi), atribuídos à URL da CNN sobre Musk e Bannon",
+     "status": "nao_confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eleicao-do-brasil-pareceu-fraudada-mas-que-gosta-de-lula/",
+     "valor_na_fonte": "A frase \"não houve irregularidades\" não está na matéria da CNN sobre Musk e Bannon, e não a achei em outra fonte. Os números estão em OUTRA matéria da CNN (sobre Trump, 16h42): \"34.330 votos computados após as 17h\", \"0,027% dos 127,8 milhões\".",
+     "nota": "Os números conferem, mas na URL errada. A frase 'não houve irregularidades' não foi confirmada; não usar como citação literal."
+    },
+    {
+     "item": "Alegação: Trump, 'The extension given was very strange'",
+     "valor_dado": "26/10/2026; refere-se à prorrogação de Zanin, sem citar o nome dele",
+     "status": "confirmado",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html",
+     "valor_na_fonte": "Reuters: \"The extension given was very strange.\" Telegraph: \"...but the extension given was very strange.\" A AFP registra: \"the way it was tabulated -- with the extension.\" Zanin não é nomeado em nenhuma versão.",
+     "nota": ""
+    },
+    {
+     "item": "Alegação: Trump, 'I thought it had a very bad look, the way it was tabulated'",
+     "valor_dado": "Crítica à apuração, sem dizer o que estaria errado (AP)",
+     "status": "confirmado",
+     "url_usada": "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/",
+     "valor_na_fonte": "AP: \"I thought it had a very bad look, the way it was tabulated.\" Reuters: \"I just think it had a very bad look, the election, the way it was tabulated\". AFP: \"I just thought it was a very bad look, the way it was tabulated -- with the extension.\"",
+     "nota": "A frase confere. Ressalva: pela AFP, ele associa a apuração à prorrogação, então dizer 'sem dizer o que estaria errado' é exagerado. O único elemento concreto é a prorrogação."
+    },
+    {
+     "item": "Alegação: Trump, 'I watched the election and it looked so corrupt, so terrible'",
+     "valor_dado": "26/10/2026; diz que acompanhou a eleição, sem fato específico",
+     "status": "confirmado",
+     "url_usada": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+     "valor_na_fonte": "AFP: \"I didn't endorse anybody or anything, but I watched the election and it looked so corrupt, so terrible.\" A CNN Brasil traduz: \"Não apoiei ninguém nem nada, mas acompanhei a eleição\" e \"ela pareceu tão corrupta\".",
+     "nota": ""
+    },
+    {
+     "item": "Alegação: Truth Social, madrugada de 05/10/2026: 125 milhões e 'NO MESMO DIA'",
+     "valor_dado": "Resultados nos EUA levam semanas para serem 'manipulados'",
+     "status": "confirmado",
+     "url_usada": "https://news.meaww.com/often-takes-weeks-to-rig-trump-points-to-what-us-corrupt-system-lacks-compared-with-brazil",
+     "valor_na_fonte": "Original: \"125 Million People voted today in the first round of Brazil's Presidential Election. The results came out shortly after the vote closed, on the SAME DAY!\" e \"...will often take weeks to Rig, I mean, calculate\". Postado às 11:32 PM ET de 04/10 (00h32 de Brasília, 05/10). Link: truthsocial.com/@realDonaldTrump/posts/117386191183722432 (Lead Stories).",
+     "nota": "A frase é 'Rig, I mean, calculate' ('manipulados, quer dizer, calculados'): uma autocorreção irônica, não uma afirmação seca de 'manipulados'. Truth Social bloqueou o acesso direto (Cloudflare)."
+    },
+    {
+     "item": "Alegação: Musk, 'Math doesn't add up' (53,9 mi → 64,1 mi, +10,3 mi; outros 9,33 mi)",
+     "valor_dado": "X, 26/10/2026, ao repostar post de terceiro",
+     "status": "confirmado",
+     "url_usada": "https://api.fxtwitter.com/elonmusk/status/2114717848518144177",
+     "valor_na_fonte": "Primária: \"Math doesn’t add up\", 26/10/2026 13:56:39 UTC (10h56 de Brasília), quote-post de @EndWokeness. O texto citado traz \"Lula: 53.9 million votes\" no round 1, \"Lula: 64.1 million votes (+10.2M)\" no round 2 e \"all the eliminated candidates from round 1 got 9.33M VOTES COMBINED\".",
+     "nota": "Correções: o post original diz +10.2M (os +10,3 mi são do Poder360); é um quote-post, não um repost simples; Musk não usou fraud, rigged ou stolen."
+    },
+    {
+     "item": "Alegação: Musk comentou 'Verdade' em post sobre Zanin indicado por Lula",
+     "valor_dado": "X, 26/10/2026",
+     "status": "confirmado",
+     "url_usada": "https://api.fxtwitter.com/elonmusk/status/2114762534372917746",
+     "valor_na_fonte": "Primária: Musk escreveu \"True\" (em inglês), 26/10/2026 16:54:13 UTC (13h54 de Brasília), citando @Rothmus (status 2114758484181049844): \"Lula packed Brazil’s Supreme Court with his own lawyer...\", \"he named Cristiano Zanin and Flávio Dino to the court\".",
+     "nota": "'Verdade' é tradução do Poder360. O post citado também admite: \"Both sides had asked\"."
+    },
+    {
+     "item": "Alegação: Musk comentou 'Questão interessante' sobre decisão do STF depois das 17h",
+     "valor_dado": "X, 26/10/2026",
+     "status": "nao_confirmado",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/",
+     "valor_na_fonte": "O Poder360 (14h26) diz: \"Em outra publicação, Musk compartilhou o post de um usuário que afirma que a decisão do Supremo saiu depois das 17h\" e \"Eis o comentário de Musk: “Questão interessante”\". Não dá link nem status ID.",
+     "nota": "Só uma fonte secundária. Não localizei o post primário, o texto original em inglês nem o horário. Não é falso, mas não está confirmado."
+    },
+    {
+     "item": "Alegação: Musk repostou Martin De Luca (prorrogação, Lula comparado a Maduro) com 'Wow'",
+     "valor_dado": "X, 26/10/2026",
+     "status": "confirmado",
+     "url_usada": "https://api.fxtwitter.com/elonmusk/status/2114559155642282081",
+     "valor_na_fonte": "Primária: \"Wow\", 26/10/2026 03:26:03 UTC (00h26 de Brasília), citando @emd_worldwide (Martin De Luca), status 2114471038218055900, 25/10 21:35:55 UTC (18h35 de Brasília). Trechos do post citado: \"If this blatant rigging of the elections will be used to announce that Lula won...\" e \"...Lula becomes the next Nicolas Maduro?\"",
+     "nota": "A Revista Oeste confirma o 'Wow' e De Luca, mas não a comparação com Maduro; a comparação está no post primário. A palavra 'rigging' é de De Luca, não de Musk."
+    }
+   ],
+   "faltou_e_achei": [
+    {
+     "item": "Horário e autoria primária dos posts de Musk (o X dava HTTP 402)",
+     "valor": "'Wow': 26/10 03:26 UTC (00h26 BRT), quote de Martin De Luca. 'Math doesn't add up': 26/10 13:56 UTC (10h56 BRT), quote de @EndWokeness, 4,3 mi de visualizações. 'True': 26/10 16:54 UTC (13h54 BRT), quote de @Rothmus. Os três são anteriores à fala de Trump (a publicação mais antiga dela é de 19h10 UTC).",
+     "url": "https://api.fxtwitter.com/elonmusk/status/2114717848518144177",
+     "trecho": "\"text\":\"Math doesn’t add up\" ... \"created_at\":\"Mon Oct 26 13:56:39 +0000 2026\""
+    },
+    {
+     "item": "Texto original em inglês, link e horário do post de Trump na Truth Social sobre o 1º turno",
+     "valor": "Postado às 11:32 PM ET de 04/10/2026 (00h32 BRT de 05/10). Link: truthsocial.com/@realDonaldTrump/posts/117386191183722432. Versão pré-edição dizia 'India's Presidential Election' (arquivada às 04:32 UTC de 05/10); às 07:16 UTC a Newsweek já via a versão com Brazil.",
+     "url": "https://leadstories.com/hoax-alert/2026/10/fact-check-real-screenshots-show-trump-confused-brazil-and-india-in-post-about-presidential-elections.html",
+     "trecho": "\"125 Million People voted today in the first round of India's Presidential Election.\" / \"will often take weeks to Rig, I mean, calculate\""
+    },
+    {
+     "item": "AFP: Trump não quis se comprometer com ação e a prorrogação é descrita como pedido de Lula",
+     "valor": "A AFP registra que Trump 'demurred' quando perguntado se faria algo. Descreve a prorrogação como feita a pedido de Lula, mas a CNN Brasil diz que as campanhas de Lula e de Flávio pediram a medida ao TSE e que o PT acionou o STF.",
+     "url": "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+     "trecho": "But Trump demurred when asked if he planned to take any action over the Brazilian result."
+    },
+    {
+     "item": "Cronologia da liminar de Zanin e votos depois das 17h (CNN Brasil)",
+     "valor": "Zanin sorteado às 16h30, acatou o pedido às 16h57, decisão nos sistemas às 17h01. Apuração paralisada por volta das 17h06. Nunes Marques referendou às 18h. 34.330 votos computados após as 17h (0,027% dos 127,8 mi).",
+     "url": "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eleicao-do-brasil-pareceu-fraudada-mas-que-gosta-de-lula/",
+     "trecho": "34.330 votos computados após as 17h"
+    },
+    {
+     "item": "Steve Bannon, aliado de Trump, chama o resultado de ilegítimo e pede rompimento",
+     "valor": "Em seu podcast, Bannon chamou o resultado de 'ilegítimo' e de 'governo marxista ilegal' e pediu que Trump e o secretário de Estado cortassem relações com o Brasil. Não é declaração do governo dos EUA.",
+     "url": "https://www.cnnbrasil.com.br/internacional/musk-e-bannon-aliados-de-trump-questionam-vitoria-de-lula-ilegitimo/",
+     "trecho": "O Secretário de Estado e o Presidente (Trump) precisam sair agora, cortar as relações diplomáticas e fechar tudo com o Brasil"
+    },
+    {
+     "item": "Reuters (24/10): funcionários do Departamento de Estado lideraram campanha pró-Bolsonaro",
+     "valor": "Gabriel Stargardter (Reuters, 24/10/2026) relata que Darren Beattie e Ricardo Pita, nomeados políticos do Departamento de Estado, lideraram uma campanha para devolver os Bolsonaro ao poder. Em maio de 2026, Flávio se reuniu com Beattie e com o vice-secretário Christopher Landau.",
+     "url": "https://www.spokesman.com/stories/2026/oct/24/inside-the-trump-administration-campaign-to-return/",
+     "trecho": "Two U.S. State Department officials led a campaign to restore the right-wing Bolsonaro clan to power in Brazil"
+    },
+    {
+     "item": "Suspensão dos serviços consulares dos EUA no Brasil antes do 1º turno",
+     "valor": "Alerta de segurança da Missão dos EUA de 01/10/2026 suspendeu os serviços consulares a partir de 02/10, dois dias antes do 1º turno, sem data de retorno. Segundo uma fonte do governo dos EUA ouvida pela TV Globo, havia possível ameaça de bomba. Retorno relatado em 05/10, sem confirmação oficial.",
+     "url": "https://static.poder360.com.br/uploads/2026/10/Security-Alert_-Consular-Services-Suspended-U.S.-Embassy-Consulates-in-Brazil.pdf",
+     "trecho": "Consular Services in the U.S. Embassy and Consulates in Brazil will be suspended"
+    },
+    {
+     "item": "Outras falas de Trump citadas pela Euronews",
+     "valor": "Sobre Flávio: 'smart young man who loves his country, Brazil, very much'. Da semana anterior: 'I endorsed many of those people. Every single one that I endorsed won.'",
+     "url": "https://www.euronews.com/2026/10/26/trump-says-brazil-election-looked-rigged-without-giving-evidence",
+     "trecho": "\"In South America, it was all leaning big left. It's all right now,\" Trump said last week. \"I endorsed many of those people. Every single one that I endorsed won.\""
+    },
+    {
+     "item": "Rubio e a Casa Branca em silêncio sobre o resultado",
+     "valor": "A Common Dreams (26/10) diz que Rubio não comentou publicamente o resultado e defende que o governo Trump reconheça a vitória de Lula (CEPR). Nenhuma nota oficial da Casa Branca ou do Departamento de Estado sobre o resultado foi localizada.",
+     "url": "https://www.commondreams.org/news/flavio-bolsonaro-rejects-results",
+     "trecho": "governments—including the Trump administration—should immediately recognize the outcome"
+    }
+   ],
+   "resumo": "Conferi os 22 achados e as 8 alegações. A acusação central se sustenta. Trump disse em 26/10/2026, oralmente, a repórteres em Joint Base Andrews antes de embarcar para um comício no Mississippi, que a eleição 'looked like another rigged election' e 'so corrupt'. Confirmam AFP (20h21 UTC), AP, Reuters (21h16 UTC), Telegraph (19h10 UTC, a publicação mais antiga), Euronews, CNN Brasil, Gazeta, BBC/Terra e Poder360. Ninguém registrou prova. O único fato concreto citado por ele foi a prorrogação ('The extension given was very strange'; na AFP, 'the way it was tabulated -- with the extension'). Não achei post de Trump na Truth Social sobre o 2º turno, nem nota oficial da Casa Branca ou de Rubio, nem sanção ligada ao resultado.\n\nMusk: obtive os posts primários pelo espelho fxtwitter, com horários. 'Wow' (00h26 BRT) cita Martin De Luca, que fala em 'blatant rigging' e compara Lula a Maduro. 'Math doesn't add up' (10h56 BRT) cita @EndWokeness, cujo post diz +10.2M (não +10,3). 'True' (13h54 BRT) cita @Rothmus; 'Verdade' é tradução do Poder360. Musk não usou as palavras fraud, rigged ou stolen; endossou posts de terceiros. 'Questão interessante' só aparece no Poder360, sem link: não confirmado.\n\nCorreções:\n- A frase 'None announced' não está na AFP; o texto diz que Trump 'demurred'.\n- Os números de abstenção, brancos e nulos e a frase 'desconsidera a dinâmica...' estão no Poder360, não no Correio. O título do Correio diz 'reeleição'.\n- O trecho da BBC/Terra não é literal: o texto diz 'continuam ativos'.\n- 'Não houve irregularidades' (Nunes Marques) não foi localizada.\n- A Reuters não diz que a equipe de Flávio pediu a Trump que não o apoiasse; só o Telegraph diz.\n- A resposta de Katherine Bowles parece ser de 22/10, antes do 2º turno.\n- O post de 04/10 diz 'Rig, I mean, calculate'.\n\nDatas que faltavam: Metrópoles 25/10, 14h51. Carta de Rubio de 23/06 (Times Brasil) e vistos negados em 24/07 (Revista Oeste), fatos que não estão na URL do Poder360 indicada. Não achei checagens de Lupa, Aos Fatos ou Comprova; o domínio do Estadão está bloqueado para mim. Truth Social (Cloudflare) e web.archive.org ficaram inacessíveis."
+  }
+ },
+ {
+  "frente": "musk",
+  "pesquisa": {
+   "achados": [
+    {
+     "item": "(1) Post de Musk 1/7: resposta a Robby Starbuck",
+     "valor": "Musk respondeu \"Yeah, that was shady\" (\"É, isso foi suspeito\") a Robby Starbuck. O post de Starbuck (00:47 UTC de 26/10, 21:47 BRT de 25/10, https://x.com/robbystarbuck/status/2114519162387325159) dizia: \"...asking them to extend voting hours in friendly counties after your opponents good counties shut their polls. Sounds like he'd be cool with Trump doing the same thing Lula did to steal this election!\". Métricas às 22:34 UTC de 26/10: 277.941 visualizações, 1.160 reposts, 15.689 curtidas. Sem Nota da Comunidade.",
+     "url": "https://x.com/elonmusk/status/2114558386003980390",
+     "data_publicacao": "26/10/2026 03:23:00 UTC (00:23 BRT)",
+     "trecho": "@robbystarbuck @AlexanderSoros @realDonaldTrump Yeah, that was shady",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Post de Musk 2/7: \"Wow\" citando Martin De Luca (prorrogação de Zanin)",
+     "valor": "Musk citou o post do advogado Martin De Luca (@emd_worldwide, 25/10 21:35:55 UTC, 18:35 BRT, https://x.com/emd_worldwide/status/2114471038218055900) com a palavra \"Wow\". O post de De Luca diz que Lula pediu ao TSE duas horas a mais, citando \"transportation problems\", que depois pediu diretamente a Zanin, que ordenou a prorrogação \"within minutes\", e lembra que Zanin foi advogado de Lula. Também diz: \"If this blatant rigging of the elections will be used to announce that Lula won, is Lula seriously expecting anyone in the international community to recognize that as a free and fair election?\" e pergunta se Lula será \"the next Nicolas Maduro\". Métricas às 22:34 UTC de 26/10: 5.590.627 visualizações, 12.437 reposts, 85.636 curtidas. O post original de De Luca tinha 7,09 milhões de visualizações.",
+     "url": "https://x.com/elonmusk/status/2114559155642282081",
+     "data_publicacao": "26/10/2026 03:26:03 UTC (00:26 BRT)",
+     "trecho": "Wow",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Post de Musk 3/7: repost de Jack Posobiec",
+     "valor": "Repost simples, sem comentário, do post de Jack Posobiec (01:27:08 UTC de 26/10, 22:27 BRT de 25/10, https://x.com/JackPosobiec/status/2114529225956823457). O post original tinha 432.362 visualizações.",
+     "url": "https://x.com/elonmusk/status/2114559494495805609",
+     "data_publicacao": "26/10/2026 03:27:24 UTC (00:27 BRT), horário decodificado do ID do repost",
+     "trecho": "RT @JackPosobiec: A judge loyal to Lula ordered voting extended - an result like this in Brazil is unprecedented",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Post de Musk 4/7, o principal: \"Math doesn't add up\" citando End Wokeness",
+     "valor": "Musk citou o post do perfil End Wokeness (02:07 UTC de 26/10, 23:07 BRT de 25/10, https://x.com/EndWokeness/status/2114539258572865606, 5,96 milhões de visualizações). O post diz: \"Round 1: Bolsonaro: 56.1 million votes / Lula: 53.9 million votes / Round 2: Lula: 64.1 million votes (+10.2M) / Bolsonaro: 59.8 million votes (+3.7M) / To give you an idea of how unlikely this is: all the eliminated candidates from round 1 got 9.33M VOTES COMBINED\". Métricas às 22:34 UTC de 26/10: 4.309.677 visualizações, 14.328 reposts, 92.905 curtidas, 6.360 respostas, 775 citações. Sem Nota da Comunidade.",
+     "url": "https://x.com/elonmusk/status/2114717848518144177",
+     "data_publicacao": "26/10/2026 13:56:39 UTC (10:56 BRT)",
+     "trecho": "Math doesn't add up",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Post de Musk 5/7: emoji de olhos revirados para Ursula von der Leyen",
+     "valor": "Musk respondeu só com um emoji de olhos revirados ao post em que Ursula von der Leyen parabeniza Lula (05:32:56 UTC de 26/10, https://x.com/vonderleyen/status/2114591085368365081). O post dela diz: \"Congratulations to my friend @LulaOficial on his electoral victory. Democracy and multilateralism have won in Brazil.\" A resposta de Musk tinha 523.598 visualizações e 55.400 curtidas.",
+     "url": "https://x.com/elonmusk/status/2114718538858725380",
+     "data_publicacao": "26/10/2026 13:59:23 UTC (10:59 BRT)",
+     "trecho": "@vonderleyen @zerohedge @LulaOficial [emoji de olhos revirados]",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1) Post de Musk 6/7: \"True\" citando Rothmus (Zanin e Dino no STF)",
+     "valor": "Musk citou o post de @Rothmus (16:38:07 UTC de 26/10, https://x.com/Rothmus/status/2114758484181049844) com \"True\" (\"Verdade\"). O post diz que Lula \"packed Brazil's Supreme Court with his own lawyer and justice minister\", que \"On election day, Zanin ordered the polls kept open another 2 hours, 3 minutes before they were supposed to close. Both sides had asked, but the call came from Lula's former defense lawyer\", que Lula \"still trailed Flávio 45–47 in the first round\" e termina com \"Voters barely picked him. The court cleared the path.\" Métricas às 22:34 UTC de 26/10: 1.531.335 visualizações, 9.380 reposts, 48.163 curtidas.",
+     "url": "https://x.com/elonmusk/status/2114762534372917746",
+     "data_publicacao": "26/10/2026 16:54:13 UTC (13:54 BRT)",
+     "trecho": "True",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1)(2) Post de Musk 7/7: \"Interesting question\" citando Geiger Capital (urnas travadas às 17h)",
+     "valor": "Musk citou o post de @Geiger_Capital (23:43:36 UTC de 25/10, 20:43 BRT, https://x.com/Geiger_Capital/status/2114503174241615963) com \"Interesting question\" (\"Questão interessante\"). O post diz: \"At exactly 5pm, a code is supposed to be entered that closes and locks the voting machines. Once a machine is locked, it can't accept any more votes. It's irreversible. The Supreme Court extension was relayed a few minutes after polls were supposed to be closed and machines locked. So… which machines were kept open? In what districts were those machines? And why weren't they locked at 5pm?\" É o único post endossado por Musk que trata do funcionamento das urnas eletrônicas. Métricas às 22:34 UTC de 26/10: 1.791.379 visualizações, 4.471 reposts.",
+     "url": "https://x.com/elonmusk/status/2114764520552051185",
+     "data_publicacao": "26/10/2026 17:02:06 UTC (14:02 BRT)",
+     "trecho": "Interesting question",
+     "confianca": "alta"
+    },
+    {
+     "item": "(1)(2) Repost de Tommy Robinson e resposta \"Indeed\", sem link primário",
+     "valor": "Segundo o Jornal Razão, às 14h01 BRT de 26/10 Musk repostou o ativista britânico Tommy Robinson, que afirma que cerca de 80% das seções já estavam fechadas quando a votação foi prorrogada e que 213 cidades que deram vitória a Flávio no 1º turno votaram em Lula no 2º. O mesmo jornal diz que, também às 14h01, Musk respondeu \"Indeed\" (\"De fato\") a um usuário que escreveu que \"todas as piores pessoas do mundo estão animadas com a vitória de Lula\". Não encontrei o link de nenhum dos dois posts. Pelos dados do TSE reunidos pelo próprio jornal, foram 211 cidades (não 213) que viraram de Flávio para Lula.",
+     "url": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno",
+     "data_publicacao": "26/10/2026 16:38 BRT (atualizada 16:46)",
+     "trecho": "Um minuto antes, Musk tinha repostado o ativista britânico Tommy Robinson, que diz que cerca de 80% das seções já estavam fechadas quando o horário foi estendido",
+     "confianca": "media"
+    },
+    {
+     "item": "(1) Frase \"pretty weird\" atribuída a Musk pela BRICS News",
+     "valor": "A conta BRICS News publicou \"JUST IN: Elon Musk says Brazil's presidential election results are 'pretty weird.'\" 54 segundos depois do \"Wow\" de Musk, com 291.240 visualizações. Não encontrei nenhum post de Musk com essas palavras. Parece uma paráfrase do \"Wow\" e não uma citação literal. O site Life News Agency reproduziu a frase com base nesse post.",
+     "url": "https://x.com/BRICSinfo/status/2114559380431470985",
+     "data_publicacao": "26/10/2026 03:26:57 UTC (00:26 BRT)",
+     "trecho": "JUST IN: Elon Musk says Brazil's presidential election results are \"pretty weird.\"",
+     "confianca": "baixa"
+    },
+    {
+     "item": "(2) Confirmação da imprensa e contestação dos números",
+     "valor": "O Jornal Razão confirma toda a cronologia acima com horários em BRT. Segundo os dados oficiais do TSE citados pelo jornal, do 1º para o 2º turno Lula ganhou 10,38 milhões de votos e Flávio 3,72 milhões (14,10 milhões no total). Os eliminados no 1º turno somavam 9,32 milhões, 2,96 milhões de eleitores a mais foram votar e brancos e nulos caíram 1,82 milhão. Isso fecha a conta que o post endossado por Musk omite. A Metrópoles fala em 2,83 milhões a mais de eleitores, com abstenção caindo de 21,08% para 19,21%.",
+     "url": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno",
+     "data_publicacao": "26/10/2026 16:38 BRT",
+     "trecho": "No mesmo período, segundo o TSE, 2,96 milhões de eleitores a mais foram votar e os votos brancos e nulos caíram 1,82 milhão.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(2) Outras matérias que confirmam os posts (Metrópoles, Poder360, Correio Braziliense, CNN Brasil, O Tempo/Folhapress)",
+     "valor": "A Metrópoles (26/10, 12:00, Caio Ramos) cita os posts 2114717848518144177 e 2114559155642282081. O Poder360 (26/10, 14:26) cita \"Verdade\" (2114762534372917746) e \"Questão interessante\". O Correio Braziliense (26/10, 14:29, Francisco Artur de Lima) chama o post de \"incompleto\" por ignorar a queda da abstenção e os brancos e nulos. A CNN Brasil (26/10, 18:04) escreve \"ganho de 9,3 milhões de votos\", número que não aparece no post: o post fala em +10,2 milhões e em 9,33 milhões dos eliminados. A O Tempo/Folhapress (26/10, 15:52) diz que Musk agiu \"sem apresentar provas\".",
+     "url": "https://www.correiobraziliense.com.br/politica/2026/10/7528018-musk-questiona-eleicao-de-lula-com-post-incompleto-sobre-votacao.html",
+     "data_publicacao": "26/10/2026 14:29 BRT",
+     "trecho": "Musk questiona eleição de Lula com post incompleto sobre votação",
+     "confianca": "alta"
+    },
+    {
+     "item": "(3) Alcance informado pela imprensa",
+     "valor": "O Jornal Razão diz que o \"Math doesn't add up\" \"passou de 3,3 milhões de visualizações até a tarde\" e que o \"Wow\" \"passou de 4,7 milhões\". O NDmais (26/10, 13:38) cita 241,5 milhões de seguidores. O Slate (26/10, 18:16, Molly Olmstead) diz que Musk \"posted about the election several times, implying to his 241 million followers\" que houve fraude. A ICL Notícias (26/10, 11:17) diz que Donald Trump Jr. compartilhou o post de Musk. A Kalshi também amplificou (https://x.com/Kalshi/status/2114725920007131231, 14:28 UTC, 164 mil visualizações). Em contagem própria às 22:34 UTC, os 7 posts somavam cerca de 14,4 milhões de visualizações.",
+     "url": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno",
+     "data_publicacao": "26/10/2026 16:38 BRT",
+     "trecho": "A publicação de Musk passou de 3,3 milhões de visualizações até a tarde desta segunda.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) 2026 anterior: Moraes e Banco Master (12/03/2026)",
+     "valor": "Musk respondeu a Glenn Greenwald, que falava da possível prisão de Alexandre de Moraes no caso Banco Master: \"Not quite yet, but it's coming. Why pick fights with me? So silly.\" O post tem 655 mil visualizações. Segundo a InfoMoney, Moraes tinha arquivado o inquérito contra Musk em 10/03/2026.",
+     "url": "https://x.com/elonmusk/status/2032028927410249931",
+     "data_publicacao": "12/03/2026 09:40:24 UTC (InfoMoney: 12/03/2026 16:16)",
+     "trecho": "@ggreenwald Not quite yet, but it's coming.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(4) 2026 anterior: \"Wow\" ao Polymarket com Flávio à frente (20/09/2026)",
+     "valor": "Musk respondeu \"Wow\" a um gráfico do Polymarket com Flávio em 58% e Lula em 42%, duas semanas antes do 1º turno. O Poder360 publicou só a imagem do post, sem link.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/musk-reage-com-wow-a-subida-de-flavio-na-polymarket/",
+     "data_publicacao": "20/09/2026 22:29 BRT (matéria)",
+     "trecho": "Musk reage com \"wow\" à subida de Flávio na Polymarket",
+     "confianca": "media"
+    },
+    {
+     "item": "(4) 2026 anterior: após o 1º turno (05/10/2026), \"Yes\" ao \"Tick tock\" de Moraes e post sobre a USAID",
+     "valor": "Em 05/10, Musk respondeu \"Yes\" a um post com foto de Moraes e a legenda \"Tick tock\", que citava a suspensão do X em 2024 e a Lei Magnitsky (NDmais, 05/10, 17:19). Segundo O Antagonista (05/10, 11:50), ele também comentou um post de Mike Benz: \"A USAID se envolveu em interferência eleitoral e mudança de regime em todo o mundo, causando imensos conflitos\". A frase está na tradução do site. A Gazeta do Povo (05/10, 12:14) diz que Musk atribuiu o bom desempenho da direita à menor interferência da USAID. Não encontrei os links desses posts.",
+     "url": "https://ndmais.com.br/politica/elon-musk-reage-a-posts-contra-moraes-stf-x-alexandre/",
+     "data_publicacao": "05/10/2026 17:19 BRT",
+     "trecho": "Ele respondeu \"Yes\" a uma publicação com a foto de Moraes e a legenda \"Tick tock\"",
+     "confianca": "media"
+    },
+    {
+     "item": "(4) Urnas eletrônicas: nenhuma fala nova de Musk sobre o Brasil em 2026 antes de 26/10",
+     "valor": "O único material de 2026 sobre urnas é um vídeo antigo que Eduardo Bolsonaro republicou (https://x.com/BolsonaroSP/status/2081530414636683686): um discurso de Musk de 17/10/2024, na Pensilvânia, contra máquinas de votação nos EUA. No vídeo Musk não fala do Brasil. Para contexto, em 16/11/2024 Musk escreveu \"They will lose the next election\" depois da fala de Janja no G20 (https://x.com/elonmusk/status/1857898378849300672).",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/eduardo-bolsonaro-critica-urna-eletronica-com-video-de-elon-musk/",
+     "data_publicacao": "27/07/2026 17:03 BRT",
+     "trecho": "E estou dizendo não, sem máquinas para votar",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Reação do TSE (não dirigida a Musk)",
+     "valor": "O presidente do TSE, Kassio Nunes Marques, disse em 25/10 que a prorrogação não alterou a totalização: \"Não houve nenhuma alteração advinda da decisão judicial\" e \"Nunca na história do TSE houve qualquer prorrogação\". Também afirmou ter \"absoluta segurança de todo o processo eleitoral\". Não encontrei manifestação do TSE que cite Musk. A manchete da Midiamax diz \"TSE nega\", mas a página retornou 403 e não pude ler.",
+     "url": "https://www.bandab.com.br/politica/eleicoes-2026/nunes-marques-diz-extensao-votacao-nao-afetou-eleicao/",
+     "data_publicacao": "26/10/2026 11:46 BRT",
+     "trecho": "Não houve nenhuma alteração advinda da decisão judicial.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Dado oficial que contradiz os posts de Geiger e Tommy Robinson",
+     "valor": "Segundo dados do TSE levantados pela setup.news, parceira da CNN Brasil, 34.330 eleitores votaram depois das 17h, contra uma margem de cerca de 4,43 milhões de votos. A Gazeta do Povo contou 35.521 votos para presidente depois das 17h. Zanin e o TSE esclareceram que a prorrogação valia só para seções ainda abertas.",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/dados-tse-votacao-apos-prorrogacao/",
+     "data_publicacao": "26/10/2026 12:10 BRT (atualizada 13:50)",
+     "trecho": "34.330 eleitores votaram após as 17h no segundo turno",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Reação do governo Lula e de aliados",
+     "valor": "Não encontrei resposta do Planalto, de ministros ou da AGU a Musk. No discurso da vitória, em 25/10, Lula falou das big techs sem citar Musk: \"Vamos ter que regulá-las\" e criticou empresas \"tentando direcionar o resultado eleitoral deste País\". O deputado André Janones respondeu a Musk no X: \"Como assim [a conta] não fecha? 10 milhões de soldados = 10 milhões de votos\" (Brasil 247, 26/10, 15:40). O vice Geraldo Alckmin chamou de \"totally wrong\" e \"unfounded\" a fala de Trump, não a de Musk.",
+     "url": "https://teletime.com.br/26/10/2026/lula-big-techs-discurso/",
+     "data_publicacao": "26/10/2026 18:23 BRT",
+     "trecho": "Vamos ter que regulá-las.",
+     "confianca": "alta"
+    },
+    {
+     "item": "(5) Checadores e medidas contra o X",
+     "valor": "Até cerca de 19:30 BRT de 26/10, não encontrei checagem de Lupa, Aos Fatos, Comprova ou Estadão Verifica sobre os posts de Musk. Nenhum dos 7 posts tinha Nota da Comunidade às 22:34 UTC. Também não encontrei medida contra o X ligada aos posts. As medidas encontradas são anteriores e sem relação com Musk: em 23/10 o corregedor do TSE, Cueva, deu 24h para Meta e X explicarem remoções e a distribuição de conteúdo político, incluindo o Grok, a pedido da campanha de Lula. Em 12/10 a coligação de Lula entrou com representação contra o X por restrição de posts. Em 10/10 houve liminar a pedido do MP Eleitoral para remover posts com suspeita de fraude no Instagram, Threads e X.",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-da-24h-para-meta-e-x-explicarem-distribuicao-de-material-politico",
+     "data_publicacao": "23/10/2026 10:04 BRT",
+     "trecho": "Cueva afirmou que os elementos apresentados não permitem concluir que houve tratamento diferenciado",
+     "confianca": "media"
+    },
+    {
+     "item": "Contexto (Trump, fora do escopo Musk): Trump fala em eleição \"rigged\"",
+     "valor": "Na segunda-feira, 26/10, Trump disse a repórteres: \"It looked like another rigged election, frankly\". Mais cedo tinha dito \"Não quero entrar nesse assunto, mas estamos monitorando\" (O Tempo/Folhapress, 15:52 BRT). O HuffPost atribui a frase a declarações a repórteres. O Slate aponta como fonte um post do perfil Clash Report. A Washington Times diz que a fala foi na Joint Base Andrews.",
+     "url": "https://www.huffpost.com/entry/bolsonaro-bombs-right-wing-says-rigged_n_6adf7b1ee4b059999c61022b",
+     "data_publicacao": "26/10/2026 13:52 EDT",
+     "trecho": "It looked like another rigged election, frankly",
+     "confianca": "media"
+    }
+   ],
+   "alegacoes_especificas": [
+    {
+     "alegacao": "Números do End Wokeness, endossados por Musk com \"Math doesn't add up\": 1º turno Bolsonaro 56,1 mi e Lula 53,9 mi; 2º turno Lula 64,1 mi (+10,2 mi) e Bolsonaro 59,8 mi (+3,7 mi); todos os eliminados do 1º turno somaram 9,33 mi, logo a virada seria improvável. A conta omite o aumento do comparecimento (+2,96 mi segundo o Jornal Razão; +2,83 mi segundo a Metrópoles) e a queda de brancos e nulos (-1,82 mi).",
+     "url": "https://x.com/EndWokeness/status/2114539258572865606"
+    },
+    {
+     "alegacao": "De Luca, citado por Musk com \"Wow\": Lula pediu ao TSE duas horas a mais no país inteiro citando \"transportation problems\", depois pediu a Zanin sem esperar o TSE, e Zanin ordenou \"within minutes\". Zanin foi advogado criminal de Lula. Seria \"blatant rigging of the elections\".",
+     "url": "https://x.com/emd_worldwide/status/2114471038218055900"
+    },
+    {
+     "alegacao": "Starbuck, a quem Musk respondeu \"Yeah, that was shady\": a votação foi estendida \"in friendly counties after your opponents good counties shut their polls\", e Lula teria feito isso \"to steal this election\".",
+     "url": "https://x.com/robbystarbuck/status/2114519162387325159"
+    },
+    {
+     "alegacao": "Posobiec, repostado por Musk: \"A judge loyal to Lula ordered voting extended - an result like this in Brazil is unprecedented\".",
+     "url": "https://x.com/JackPosobiec/status/2114529225956823457"
+    },
+    {
+     "alegacao": "Rothmus, endossado por Musk com \"True\": Zanin mandou manter as urnas abertas mais 2 horas \"3 minutes before they were supposed to close\", ambos os lados tinham pedido, Lula perdia para Flávio por 45 a 47 no 1º turno e venceu por menos de 4 pontos, e Zanin e Dino votaram para condenar Bolsonaro a 27 anos. \"The court cleared the path\".",
+     "url": "https://x.com/Rothmus/status/2114758484181049844"
+    },
+    {
+     "alegacao": "Geiger Capital, a quem Musk respondeu \"Interesting question\": \"At exactly 5pm, a code is supposed to be entered that closes and locks the voting machines... It's irreversible\". A ordem do STF teria chegado minutos depois. O post pergunta quais urnas ficaram abertas, em que distritos, e por que não foram travadas às 17h. Dado oficial: 34.330 votos depois das 17h (CNN/setup.news).",
+     "url": "https://x.com/Geiger_Capital/status/2114503174241615963"
+    },
+    {
+     "alegacao": "Tommy Robinson, repostado por Musk às 14h01 BRT segundo o Jornal Razão, sem link primário: cerca de 80% das seções já estavam fechadas quando a votação foi estendida, e 213 cidades que deram vitória a Flávio no 1º turno votaram em Lula no 2º. Pelos dados do TSE reunidos pelo Jornal Razão, foram 211 cidades.",
+     "url": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno"
+    },
+    {
+     "alegacao": "Textos do próprio Musk, sem nenhum dado próprio: \"Yeah, that was shady\", \"Wow\", \"Math doesn't add up\", emoji de olhos revirados, \"True\", \"Interesting question\" e, segundo o Jornal Razão, \"Indeed\". Musk não usou as palavras \"fraud\" ou \"rigged\" em texto próprio. \"rigging\" e \"steal\" estão nos posts de terceiros que ele endossou.",
+     "url": "https://x.com/elonmusk/status/2114717848518144177"
+    }
+   ],
+   "nao_encontrado": [
+    "Post de Musk com as palavras \"fraud\", \"fraude\" ou \"rigged\" em texto próprio sobre o 2º turno de 2026: a acusação vem só dos posts de terceiros que ele endossou ou repostou.",
+    "Menção de Musk à suspensão da divulgação dos resultados pelo TSE (17h06 às 19h), a código-fonte, auditoria, teste de integridade ou a algum estado específico.",
+    "Entrevista ou declaração de Musk fora do X sobre o resultado do 2º turno.",
+    "Links primários do repost de Tommy Robinson e da resposta \"Indeed\", ambos das 14h01 BRT de 26/10: só aparecem no Jornal Razão.",
+    "Post de Musk com a expressão \"pretty weird\": só existe a atribuição da BRICS News, sem fonte primária.",
+    "Links primários do \"Wow\" ao Polymarket (20/09/2026), do \"Yes\" ao \"Tick tock\" de Moraes e do post sobre a USAID (05/10/2026).",
+    "Fala nova de Musk em 2026 especificamente sobre as urnas eletrônicas brasileiras antes de 26/10, além do vídeo de 2024 republicado por Eduardo Bolsonaro.",
+    "Resposta direta do Planalto, de ministros ou da AGU aos posts de Musk.",
+    "Nota ou declaração do TSE dirigida especificamente a Musk: a matéria da Midiamax (\"TSE nega\") retornou 403 e não pôde ser lida.",
+    "Reação do STF (Zanin ou outros ministros) aos posts de Musk.",
+    "Checagem de Lupa, Aos Fatos, Comprova ou Estadão Verifica sobre os posts de Musk ou sobre a conta dos 9,33 milhões, até cerca de 19:30 BRT de 26/10.",
+    "Nota da Comunidade em qualquer um dos 7 posts identificados, verificado às 22:34 UTC de 26/10.",
+    "Medida judicial ou administrativa contra o X no Brasil ligada aos posts de Musk sobre o resultado.",
+    "Cobertura direta de Reuters, AP, Folha, Estadão, g1 e BBC: esses domínios estão bloqueados para a ferramenta de busca. A Folha aparece só via O Tempo/Folhapress.",
+    "Posts de Musk de 27/10/2026: a varredura cobre até cerca de 19:30 BRT de 26/10."
+   ],
+   "resumo": "Musk não fez uma acusação de fraude com palavras próprias. Fez 7 posts verificados sobre o 2º turno, todos em 26/10/2026, entre 00:23 e 14:02 BRT, e com eles endossou e amplificou posts de terceiros que falam em \\\"rigging\\\", \\\"steal this election\\\" e números que \\\"não fecham\\\". Os textos dele são curtos: \\\"Yeah, that was shady\\\" (a Robby Starbuck), \\\"Wow\\\" (citando o advogado Martin De Luca sobre a prorrogação de Zanin), um repost de Jack Posobiec (\\\"A judge loyal to Lula ordered voting extended\\\"), \\\"Math doesn't add up\\\" (citando a conta do perfil End Wokeness), um emoji de olhos revirados para Ursula von der Leyen, \\\"True\\\" (a um post de Rothmus sobre Zanin e Dino no STF) e \\\"Interesting question\\\" (a um post de Geiger Capital sobre urnas que deveriam travar às 17h). O Jornal Razão relata mais dois, sem link: um repost de Tommy Robinson (80% das seções fechadas, 213 cidades viradas) e um \\\"Indeed\\\".\\n\\nOs posts e métricas foram lidos via API pública fxtwitter, que espelha os dados do X, porque o x.com retornou 402. Às 22:34 UTC de 26/10 os 7 posts somavam cerca de 14,4 milhões de visualizações. O principal era o \\\"Wow\\\", com 5,59 milhões, seguido do \\\"Math doesn't add up\\\", com 4,31 milhões e 92,9 mil curtidas. Nenhum tinha Nota da Comunidade.\\n\\nOs dados concretos vêm só dos posts de terceiros: totais de votos dos dois turnos, os 9,33 milhões dos eliminados, a prorrogação de Zanin \\\"3 minutes before\\\" o fechamento, o \\\"código\\\" que trava as urnas às 17h e as 213 cidades. Nenhum deles cita a pausa da divulgação pelo TSE, código-fonte ou auditoria. A conta \\\"não fecha\\\" omite o aumento do comparecimento (+2,96 milhões) e a queda de brancos e nulos (-1,82 milhão), que fecham a diferença (dados do TSE citados pelo Jornal Razão). Pelos dados do TSE levantados pela setup.news (CNN), só 34.330 votos foram registrados depois das 17h, contra uma margem de cerca de 4,43 milhões.\\n\\nAntes do 2º turno, em 2026: em 12/03 Musk escreveu sobre a prisão de Moraes (\\\"Not quite yet, but it's coming\\\"), em 20/09 reagiu com \\\"Wow\\\" ao Polymarket com Flávio a 58%, e em 05/10 respondeu \\\"Yes\\\" ao \\\"Tick tock\\\" de Moraes e falou de interferência da USAID. Não encontrei fala nova dele sobre as urnas brasileiras em 2026.\\n\\nReações: o TSE (Nunes Marques) disse que a prorrogação não alterou o resultado, sem citar Musk. Lula prometeu regular as big techs, também sem citá-lo. Janones respondeu no X. Não encontrei reação do STF, checagens de Lupa, Aos Fatos, Comprova ou Estadão Verifica, nem medida contra o X ligada a esses posts. Como contexto, Trump disse \\\"It looked like another rigged election, frankly\\\"."
+  },
+  "verificacao": {
+   "conferidos": [
+    {
+     "item": "(1) Post de Musk 1/7: resposta a Robby Starbuck",
+     "valor_dado": "\"Yeah, that was shady\", 26/10 03:23:00 UTC (00:23 BRT), em resposta ao post de Starbuck de 00:47 UTC",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114558386003980390 (lido via api.fxtwitter.com)",
+     "valor_na_fonte": "Conta verificada @elonmusk (ID 44196397). Texto: \"@robbystarbuck @AlexanderSoros @realDonaldTrump Yeah, that was shady\". Publicado em 26/10/2026 03:23:00 UTC. É resposta ao post 2114519162387325159. Às 22:37 UTC tinha 278.133 visualizações, 1.160 reposts e 15.698 curtidas, sem Nota da Comunidade. O post de Starbuck (00:47:08 UTC) tem o texto citado e responde a @AlexanderSoros.",
+     "nota": "Data, autor e texto batem. A palavra \"steal\" é de Starbuck, não de Musk."
+    },
+    {
+     "item": "(1) Post de Musk 2/7: \"Wow\" citando Martin De Luca",
+     "valor_dado": "\"Wow\", 26/10 03:26:03 UTC, citando @emd_worldwide (25/10 21:35:55 UTC)",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114559155642282081",
+     "valor_na_fonte": "Texto \"Wow\", 26/10/2026 03:26:03 UTC. Cita https://x.com/emd_worldwide/status/2114471038218055900 (25/10 21:35:55 UTC = 18:35 BRT), com as frases \"transportation problems\", \"Within minutes\", \"blatant rigging of the elections\" e \"the next Nicolas Maduro\". O post de De Luca, por sua vez, cita um post de O Globo das 20:07 UTC. Às 22:37 UTC o post de Musk tinha 5.601.611 visualizações e o de De Luca 7.116.380.",
+     "nota": "Confirmado. O Jornal Razão escreve que \"Essa publicação de Musk passou de 4,7 milhões\" e a Metrópoles (Caio Ramos) cita o mesmo ID."
+    },
+    {
+     "item": "(1) Post de Musk 3/7: repost de Jack Posobiec",
+     "valor_dado": "Repost sem comentário às 03:27:24 UTC de \"A judge loyal to Lula ordered voting extended - an result like this in Brazil is unprecedented\"",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114559494495805609",
+     "valor_na_fonte": "O fxtwitter devolve o post de @JackPosobiec (01:27:08 UTC) com reposted_by = elonmusk. O snowflake do ID decodifica para 26/10/2026 03:27:24.760 UTC. O texto bate.",
+     "nota": "Faltou dizer que o post de Posobiec traz uma imagem: um print do Grok respondendo \"Only one: Lula in 2026. He trailed Flávio Bolsonaro 45.16% to 47.03%... In the prior seven presidential runoffs since 1989, the first-round leader always won\". O \"unprecedented\" se refere à virada, não à prorrogação. Um repost não tem visualizações próprias."
+    },
+    {
+     "item": "(1) Post de Musk 4/7: \"Math doesn't add up\" citando End Wokeness",
+     "valor_dado": "\"Math doesn't add up\", 26/10 13:56:39 UTC (10:56 BRT)",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114717848518144177",
+     "valor_na_fonte": "Texto \"Math doesn’t add up\" (com apóstrofo tipográfico), 26/10/2026 13:56:39 UTC. Cita https://x.com/EndWokeness/status/2114539258572865606 (02:07:00 UTC, texto igual ao relatado, 6.066.264 visualizações às 22:37 UTC). Às 22:37 UTC o post de Musk tinha 4.336.992 visualizações, 14.352 reposts e 93.137 curtidas, sem Nota da Comunidade.",
+     "nota": "Confirmado. É o mesmo ID que aparece em Correio Braziliense, Poder360, Metrópoles e VEJA."
+    },
+    {
+     "item": "(1) Post de Musk 5/7: emoji para von der Leyen",
+     "valor_dado": "Emoji de olhos revirados, 26/10 13:59:23 UTC",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114718538858725380",
+     "valor_na_fonte": "\"@vonderleyen @zerohedge @LulaOficial 🙄\", 26/10/2026 13:59:23 UTC, em resposta a https://x.com/vonderleyen/status/2114591085368365081 (05:32:56 UTC; \"Congratulations to my friend @LulaOficial on his electoral victory. Democracy and multilateralism have won in Brazil.\"). Às 22:37 UTC: 524.990 visualizações e 55.520 curtidas.",
+     "nota": "Confirmado."
+    },
+    {
+     "item": "(1) Post de Musk 6/7: \"True\" citando Rothmus",
+     "valor_dado": "\"True\", 26/10 16:54:13 UTC (13:54 BRT)",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114762534372917746",
+     "valor_na_fonte": "Texto \"True\", 26/10/2026 16:54:13 UTC. Cita https://x.com/Rothmus/status/2114758484181049844 (16:38:07 UTC), que tem um vídeo de 40 segundos. As frases citadas estão no texto de Rothmus. Às 22:37 UTC: 1.538.434 visualizações e 9.434 reposts. O Poder360 (14h26 BRT) cita esse ID.",
+     "nota": "Confirmado. Veja na alegação de Rothmus por que o horário de \"3 minutes before\" está errado."
+    },
+    {
+     "item": "(1)(2) Post de Musk 7/7: \"Interesting question\" citando Geiger Capital",
+     "valor_dado": "\"Interesting question\", 26/10 17:02:06 UTC (14:02 BRT)",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114764520552051185",
+     "valor_na_fonte": "Texto \"Interesting question\", 26/10/2026 17:02:06 UTC. Cita https://x.com/Geiger_Capital/status/2114503174241615963 (25/10 23:43:36 UTC), que começa com \"The major question in Brazil…\" e segue com o texto relatado. Às 22:37 UTC: 1.800.467 visualizações e 4.493 reposts.",
+     "nota": "Confirmado. O Poder360 e o Jornal Razão chamam de \"questão interessante\"."
+    },
+    {
+     "item": "(1)(2) Repost de Tommy Robinson e resposta \"Indeed\"",
+     "valor_dado": "Segundo o Jornal Razão, às 14h01 BRT Musk repostou Tommy Robinson (80% das seções fechadas, 213 cidades) e respondeu \"Indeed\"",
+     "status": "nao_confirmado",
+     "url_usada": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno",
+     "valor_na_fonte": "O Jornal Razão (26/10 16h38, atualizado 16h46) traz literalmente \"Um minuto antes, Musk tinha repostado o ativista britânico Tommy Robinson, que diz que cerca de 80% das seções já estavam fechadas...\" e \"Às 14h01, respondeu 'De fato' ('Indeed') a um usuário que escreveu que 'todas as piores pessoas do mundo estão animadas com a vitória de Lula'\".",
+     "nota": "A matéria diz o que o pesquisador relatou, mas não achei os posts primários. A linha do tempo de Musk está bloqueada por rate limit e as buscas não acharam nada. Ressalvas: (a) o número 213 não é necessariamente erro de Robinson. A CNN Brasil publicou em 26/10 00h43 \"213 cidades que escolheram Flávio no 1º turno deram vitória a Lula no 2º\", e Mario Nawfal repetiu o número. A diferença é entre fontes: 213 na CNN, 211 no painel do Jornal Razão. (b) O número de 80% aparece no Poder360 de 25/10 20h32 como fala do presidente do TRE-SP sobre São Paulo (\"80% das urnas de São Paulo fecharam às 17h\"), não sobre o país."
+    },
+    {
+     "item": "(1) \"pretty weird\" atribuído a Musk pela BRICS News",
+     "valor_dado": "BRICS News publicou a frase 54 segundos depois do \"Wow\"; não há post de Musk com essas palavras",
+     "status": "confirmado",
+     "url_usada": "https://x.com/BRICSinfo/status/2114559380431470985",
+     "valor_na_fonte": "\"JUST IN: 🇺🇸🇧🇷 Elon Musk says Brazil's presidential election results are \\\"pretty weird.\\\"\", 26/10 03:26:57 UTC, 53,6 segundos depois do \"Wow\" (03:26:03,97). 291.485 visualizações. A Life News Agency (04:24 UTC) cita como fonte \"according to BRICS News\".",
+     "nota": "Também não achei post de Musk com \"pretty weird\". A atribuição se espalhou: o Jornal da Cidade Online (26/10 07:57 BRT) afirma que Musk \"escreveu apenas duas palavras... 'Pretty weird'\", sem link. É paráfrase tratada como citação."
+    },
+    {
+     "item": "(2) Contas do Jornal Razão sobre os votos",
+     "valor_dado": "Lula +10,38 mi; Flávio +3,72 mi; eliminados 9,32 mi; +2,96 mi eleitores; brancos e nulos -1,82 mi; Metrópoles: +2,83 mi",
+     "status": "confirmado",
+     "url_usada": "https://jornalrazao.com/politica/elon-musk-conta-nao-fecha-10-milhoes-votos-lula-2-turno",
+     "valor_na_fonte": "Trecho literal: \"No mesmo período, segundo o TSE, 2,96 milhões de eleitores a mais foram votar e os votos brancos e nulos caíram 1,82 milhão.\" Os números somam: 9,32 + 2,96 + 1,82 = 14,10 = 10,38 + 3,72. A Metrópoles, o Poder360 (14h26) e a Super Rádio Tupi falam em 2,83 milhões, com a abstenção indo de 21,08% para 19,21%.",
+     "nota": "Confirmado nas fontes de imprensa. Não pude conferir no TSE (domínio vetado). A diferença entre 2,96 e 2,83 milhões continua entre os veículos."
+    },
+    {
+     "item": "(2) Outras matérias (Metrópoles, Poder360, Correio, CNN, O Tempo/Folhapress)",
+     "valor_dado": "Metrópoles 12:00 (Caio Ramos); Poder360 14:26; Correio 14:29; CNN 18:04 \"9,3 milhões\"; O Tempo 15:52 \"sem apresentar provas\"",
+     "status": "confirmado",
+     "url_usada": "https://www.correiobraziliense.com.br/politica/2026/10/7528018-musk-questiona-eleicao-de-lula-com-post-incompleto-sobre-votacao.html ; https://www.metropoles.com/mundo/elon-musk-questiona-numeros-da-reeleicao-de-lula-matematica-nao-fecha ; https://www.poder360.com.br/poder-eleicoes-2026/musk-questiona-das-eleicoes-no-brasil-matematica-nao-fecha/ ; https://www.cnnbrasil.com.br/internacional/musk-e-bannon-aliados-de-trump-questionam-vitoria-de-lula-ilegitimo/ ; https://www.otempo.com.br/mundo/2026/10/26/sem-apresentar-provas-elon-musk-questiona-vitoria-de-lula",
+     "valor_na_fonte": "Correio: autor Francisco Artur de Lima, \"postado em 26/10/2026 14:29\". O título da página é igual ao trecho; o H1 diz \"Musk questiona reeleição de Lula...\". Metrópoles: Caio Ramos, 12:00, atualizada 13:15, cita 2114717848518144177 e 2114559155642282081. Poder360: 26.out 14h26, cita 2114717848518144177 e 2114762534372917746, com \"Verdade\" e \"Questão interessante\". CNN: 26/10 18:04, \"O dono da Tesla questionou o ganho de 9,3 milhões de votos\". O Tempo: 15:52, \"Sem apresentar provas\".",
+     "nota": "Tudo confirmado. A Folha também está acessível direto: https://www1.folha.uol.com.br/mundo/2026/10/sem-apresentar-provas-elon-musk-e-steve-bannon-questionam-vitoria-de-lula.shtml (26.out.2026 às 15h21), que é o texto original da Folhapress. Na CNN, \"Ilegítimo\" é palavra de Steve Bannon, não de Musk."
+    },
+    {
+     "item": "(3) Alcance informado pela imprensa",
+     "valor_dado": "Razão: 3,3 mi e 4,7 mi; NDmais: 241,5 mi de seguidores; Slate: 241 mi; ICL: Trump Jr. compartilhou o post de Musk; Kalshi: 164 mil; soma própria de 14,4 mi",
+     "status": "contradito",
+     "url_usada": "https://iclnoticias.com.br/musk-questiona-vitoria-de-lula-e-casa-branca-mantem-silencio/ ; https://ndmais.com.br/politica/elon-musk-coloca-vitoria-de-lula-em-duvida-sem-apresentar-provas-a-matematica-nao-fecha/ ; https://slate.com/news-and-politics/2026/10/brazil-election-results-lula-bolsonaro-far-right-maga.html ; https://x.com/Kalshi/status/2114725920007131231",
+     "valor_na_fonte": "Razão, NDmais (26/10 13h38, \"241,5 milhões de seguidores\"), Slate (Molly Olmstead, 22:16 UTC = 18:16 EDT, \"implying to his 241 million followers\") e Kalshi (14:28:43 UTC, \"do not 'add up'\", 167.790 visualizações) estão confirmados. Na ICL (26/10 11h17) a sequência é: o parágrafo sobre De Luca, depois \"A publicação também foi compartilhada por Elon Musk... 'wow'\", depois \"Donald Trump Junior... também compartilhou a publicação\".",
+     "nota": "Só o detalhe sobre Trump Jr. está contradito. Pela ICL, ele compartilhou o post de De Luca (\"próximo Maduro\"), não o post de Musk. O índice lateral do Jornal Razão confirma: \"filho do presidente dos EUA compartilha: 'próximo Maduro'\". Sobre os 14,4 milhões: a conta inclui as 432 mil visualizações do post original de Posobiec, que Musk só repostou. Um repost não tem métrica própria. Somando só os 6 posts autorais de Musk, eram cerca de 14,0 milhões às 22:34 UTC."
+    },
+    {
+     "item": "(4) Moraes e Banco Master, 12/03/2026",
+     "valor_dado": "\"Not quite yet, but it's coming. Why pick fights with me? So silly.\", 12/03 09:40:24 UTC; Moraes arquivou o inquérito em 10/03",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2032028927410249931 ; https://www.infomoney.com.br/politica/elon-musk-diz-que-prisao-de-moraes-esta-a-caminho-por-envolvimento-com-banco-master/",
+     "valor_na_fonte": "\"@ggreenwald Not quite yet, but it’s coming.\\n\\nWhy pick fights with me? So silly.\", Thu Mar 12 09:40:24 UTC 2026, 655.485 visualizações, em resposta a @ggreenwald (2031817240291512631). Segundo o resumo da busca, InfoMoney e Seu Dinheiro dizem que Moraes arquivou o inquérito contra Musk na terça-feira, 10/03.",
+     "nota": "Não conferi o horário de 16:16 da InfoMoney. O NDmais embute o post de Greenwald de 11/03, não a resposta de Musk."
+    },
+    {
+     "item": "(4) \"Wow\" ao Polymarket, 20/09/2026",
+     "valor_dado": "Musk respondeu \"Wow\" a gráfico com Flávio 58% x Lula 42%; sem link primário",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2101780447042912754 ; https://www.poder360.com.br/poder-eleicoes-2026/musk-reage-com-wow-a-subida-de-flavio-na-polymarket/",
+     "valor_na_fonte": "Achei o link primário: \"@Geiger_Capital Wow\", Sun Sep 20 21:08:02 UTC 2026 (18:08 BRT), 669.532 visualizações, em resposta ao post 2101753690780495931 de @Geiger_Capital. O Poder360 (20.set.2026 22h29) diz \"dá 58% de chance de vitória ao candidato do PL contra 42% do petista\". O link primário apareceu na Revista Oeste.",
+     "nota": "O post de Geiger Capital com o gráfico retorna 404 (NOT_FOUND) no fxtwitter. Pode ter sido apagado. Por isso o 58/42 está confirmado só pela imprensa."
+    },
+    {
+     "item": "(4) Após o 1º turno, 05/10/2026: \"Yes\" ao \"Tick tock\" e post sobre a USAID",
+     "valor_dado": "\"Yes\" a foto de Moraes com \"Tick tock\" (NDmais 17:19); comentário sobre a USAID em post de Mike Benz (O Antagonista 11:50); sem links",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2107064214103961880 ; https://x.com/elonmusk/status/2107029927589470636 ; https://ndmais.com.br/politica/elon-musk-reage-a-posts-contra-moraes-stf-x-alexandre/",
+     "valor_na_fonte": "Achei os dois links. (a) \"@Rothmus Yes\", Mon Oct 05 11:03:50 UTC 2026 (08:03 BRT), 467.216 visualizações, em resposta a https://x.com/Rothmus/status/2106907186177650985 (\"Tick tock\", com foto, 05/10 00:39:52 UTC), que cita um post de Rothmus sobre o bloqueio do X em 2024, os R$ 28,6 milhões e a Lei Magnitsky. (b) \"USAID engaged in election interference and regime change around the world, causing massive strife\", Mon Oct 05 08:47:36 UTC 2026 (05:47 BRT), 5.230.678 visualizações, citando https://x.com/MikeBenzCyber/status/1957763907340120346, de 19/08/2025.",
+     "nota": "O comentário de Musk é de 2026, mas o post de Benz que ele cita é de agosto de 2025 (estatística antiga reciclada, como aponta a Primetimer). O original diz \"massive strife\". \"Imensos conflitos\" (O Antagonista/Crusoé) e \"conflitos em massa\" (Brasil 247) são traduções. Trump Jr. citou Musk no mesmo dia (https://x.com/DonaldJTrumpJr/status/2107093779366674583)."
+    },
+    {
+     "item": "(4) Urnas eletrônicas: nada novo de Musk sobre o Brasil em 2026",
+     "valor_dado": "Só o vídeo de 17/10/2024 republicado por Eduardo; \"They will lose the next election\" em 16/11/2024",
+     "status": "confirmado",
+     "url_usada": "https://x.com/BolsonaroSP/status/2081530414636683686 ; https://www.poder360.com.br/poder-eleicoes-2026/eduardo-bolsonaro-critica-urna-eletronica-com-video-de-elon-musk/ ; https://x.com/elonmusk/status/1857898378849300672",
+     "valor_na_fonte": "O post de Eduardo é de 27/07/2026 00:01:38 UTC (26/07 21:01 BRT). Ele cita https://x.com/precisox/status/2080350360804196734 (23/07/2026), que apresenta o vídeo como \"Elon Musk acaba de lanzar una alerta\". O Poder360 (27.jul 17h03) traz \"E estou dizendo não, sem máquinas para votar\" e situa o discurso em 17/10/2024, na Pensilvânia. O post de Musk de 16/11/2024 21:27:46 UTC diz \"@visegrad24 🤣🤣\\n\\nThey will lose the next election\".",
+     "nota": "Confirmado. Vale registrar que o perfil @precisox apresentou o vídeo de 2024 como se fosse novo (conteúdo reciclado), e Eduardo o citou."
+    },
+    {
+     "item": "(5) Reação do TSE, não dirigida a Musk",
+     "valor_dado": "Nunes Marques em 25/10: \"Não houve nenhuma alteração advinda da decisão judicial\", \"Nunca na história do TSE houve qualquer prorrogação\", \"absoluta segurança\"; nenhuma nota cita Musk; Midiamax com 403",
+     "status": "confirmado",
+     "url_usada": "https://www.bandab.com.br/politica/eleicoes-2026/nunes-marques-diz-extensao-votacao-nao-afetou-eleicao/ ; https://www.tupi.fm/entretenimento/elon-musk-contesta-resultado-de-eleicao-no-brasil-e-tse-rebate-dados/",
+     "valor_na_fonte": "BandaB (26/10 11h46): as três frases aparecem, ditas \"neste domingo (25)\" em pronunciamento. A CNN Brasil traz outra versão da última: \"Temos absoluta confiança em todo o processo eleitoral\". A Midiamax continuou com 403 para mim. A Super Rádio Tupi (16h28), que tem manchete parecida (\"TSE rebate dados\"), só contrapõe dados do TSE à fala de Musk. Não há nota do tribunal.",
+     "nota": "Não achei manifestação do TSE que cite Musk. A manchete da Midiamax provavelmente segue o mesmo padrão da Tupi, mas não pude ler."
+    },
+    {
+     "item": "(5) Dados oficiais contra Geiger e Tommy Robinson: 34.330 e 35.521 votos depois das 17h",
+     "valor_dado": "34.330 eleitores depois das 17h (CNN/setup.news); 35.521 votos para presidente (Gazeta); prorrogação só para seções abertas",
+     "status": "confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/eleicoes/dados-tse-votacao-apos-prorrogacao/ ; https://www.gazetadopovo.com.br/eleicoes/2026/extensao-horario-votacao-teve-35-mil-votos-17h-19h/",
+     "valor_na_fonte": "CNN (26/10 12:10, atualizada 13:50): \"34.330 eleitores votaram após as 17h no segundo turno\"; 29.001 deles entre 17h e 17h05; no 1º turno, 3.724.999 votaram depois das 17h. Gazeta (26/10 15:13 UTC): \"35.521 votos para presidente foram computados depois das 17h\", com base em levantamento do g1 nos logs de 497.897 seções.",
+     "nota": "Confirmado. Quem esclareceu foram Zanin (nota de esclarecimento, segundo o Poder360) e o TSE (orientação de Nunes Marques)."
+    },
+    {
+     "item": "(5) Reação do governo Lula e aliados",
+     "valor_dado": "Lula: \"Vamos ter que regulá-las\"; Janones: \"10 milhões de soldados = 10 milhões de votos\"; Alckmin: \"totally wrong\" e \"unfounded\" sobre Trump",
+     "status": "confirmado",
+     "url_usada": "https://teletime.com.br/26/10/2026/lula-big-techs-discurso/ ; https://www1.folha.uol.com.br/mundo/2026/10/sem-apresentar-provas-elon-musk-e-steve-bannon-questionam-vitoria-de-lula.shtml",
+     "valor_na_fonte": "Teletime (26/10 18:23): \"Vamos ter que regulá-las\", fala de \"último domingo, 25\", e \"tentando direcionar o resultado eleitoral deste País\". Folha (15h21) e O Tempo trazem a frase de Janones. Segundo o resumo da busca, relatos baseados na Reuters (ThePrint) dizem que Alckmin, em entrevista à Rede Vanguarda, chamou a fala de Trump de \"totally wrong\" e \"unfounded\".",
+     "nota": "Confirmado. Não achei resposta do Planalto ou da AGU dirigida a Musk."
+    },
+    {
+     "item": "(5) Checadores e medidas contra o X",
+     "valor_dado": "Nenhuma checagem sobre os posts de Musk; nenhuma medida contra o X ligada a eles; Cueva deu 24h em 23/10; representação contra o X em 12/10; liminar em 10/10",
+     "status": "confirmado",
+     "url_usada": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-da-24h-para-meta-e-x-explicarem-distribuicao-de-material-politico ; https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/a-pedido-do-mp-eleitoral-tse-determina-remocao-de-publicacoes-falsas-sobre-sistema-de-apuracao-dos-votos",
+     "valor_na_fonte": "Agência Brasil (\"Publicado em 23/10/2026 - 10:04\"): o texto literal é \"ressalvou que os elementos apresentados até o momento não permitem concluir que o vídeo recebeu 'tratamento diferenciado em razão de sua orientação político- eleitoral'\". A liminar de 10/10 (Instagram, Threads e X) está confirmada pela nota do MPF.",
+     "nota": "O \"trecho\" dado pelo pesquisador é paráfrase, não citação literal. Não confirmei a representação de 12/10 contra o X: achei a representação da coligação contra a Meta (cerca de 09/10) e a ação do corregedor contra Meta e X (23/10). Também não achei checagem sobre Musk na Lupa, no Comprova ou no Estadão Verifica. A Aos Fatos, porém, checou Flávio sobre o mesmo argumento (ver faltou_e_achei)."
+    },
+    {
+     "item": "Contexto Trump: \"It looked like another rigged election, frankly\"",
+     "valor_dado": "Fala a repórteres em 26/10; antes, \"Não quero entrar nesse assunto, mas estamos monitorando\"; fonte via Clash Report; Joint Base Andrews",
+     "status": "confirmado",
+     "url_usada": "https://www.huffpost.com/entry/bolsonaro-bombs-right-wing-says-rigged_n_6adf7b1ee4b059999c61022b ; https://www.yahoo.com/news/politics/articles/trump-says-brazil-election-looked-221058775.html ; https://x.com/clashreport/status/2114803983898345942",
+     "valor_na_fonte": "HuffPost (Oct 26, 2026, 01:52 PM EDT): \"It looked like another rigged election, frankly\". Yahoo (texto do Politico, 22:10 UTC): \"told reporters at Joint Base Andrews in Maryland\" e \"I'm not running Brazil, I'm running the USA\". Clash Report: 26/10 19:38:55 UTC. O Tempo/Folha: \"Não quero entrar nesse assunto, mas estamos monitorando\".",
+     "nota": "Uma correção: segundo Folha e O Tempo, a frase \"estamos monitorando\" foi dita \"No dia do segundo turno\" (25/10), não mais cedo em 26/10. Não achei post de Trump no Truth Social sobre o tema. As fontes são falas a repórteres."
+    },
+    {
+     "item": "Alegação: números do End Wokeness (\"Math doesn't add up\")",
+     "valor_dado": "1º turno: Bolsonaro 56,1 mi, Lula 53,9 mi; 2º turno: Lula 64,1 mi (+10,2), Bolsonaro 59,8 mi (+3,7); eliminados 9,33 mi",
+     "status": "confirmado",
+     "url_usada": "https://x.com/EndWokeness/status/2114539258572865606",
+     "valor_na_fonte": "O texto do post bate, publicado em 26/10 02:07:00 UTC (23:07 BRT). O resultado oficial citado pela imprensa é Lula 64.256.232, ou seja, 64,3 mi e não 64,1 mi. O ganho foi de 10,38 mi, não 10,2 mi, e os eliminados somaram 9,32 mi. Às 21h10 BRT, com 97,69% apurado, Lula tinha 64.060.216 (BandaB).",
+     "nota": "O post usa números parciais. A omissão de comparecimento e de brancos e nulos está confirmada: Correio, Poder360, Metrópoles e VEJA apontam isso. Somando 9,32 + 2,96 + 1,82, a conta fecha nos 14,10 mi de votos ganhos pelos dois."
+    },
+    {
+     "item": "Alegação: De Luca (\"Wow\")",
+     "valor_dado": "Lula pediu ao TSE 2h no país inteiro por \"transportation problems\", depois foi a Zanin, que decidiu \"within minutes\"; Zanin foi advogado de Lula; \"blatant rigging\"",
+     "status": "confirmado",
+     "url_usada": "https://x.com/emd_worldwide/status/2114471038218055900 ; https://www.poder360.com.br/poder-eleicoes-2026/zanin-prorroga-votacao-do-2o-turno-ate-19h/",
+     "valor_na_fonte": "O texto está no post. Linha do tempo do Poder360 (25/10, 17h11/17h39): às 13h22 o PT pede extensão citando a Bahia; às 15h42 \"solicita a extensão da votação para todos os Estados\"; às 15h50 a equipe de Flávio também pede, para 19 cidades de SP, PR e SC; às 16h22 o PT aciona o STF; às 16h33 Zanin é sorteado; às 17h03 a decisão é divulgada.",
+     "nota": "A afirmação fatual sobre o pedido ao TSE para todo o país está correta. \"Within minutes\" equivale a cerca de 30 minutos entre o sorteio e a decisão. De Luca omite que a campanha de Flávio também pediu prorrogação. \"Rigging\" é opinião sem prova: foram cerca de 34 a 35 mil votos depois das 17h, contra margem de 4,43 milhões."
+    },
+    {
+     "item": "Alegação: Starbuck (\"Yeah, that was shady\")",
+     "valor_dado": "Votação estendida \"in friendly counties after your opponents good counties shut their polls\"; Lula teria feito isso \"to steal this election\"",
+     "status": "contradito",
+     "url_usada": "https://www.poder360.com.br/integras/leia-a-integra-da-decisao-de-zanin-que-prorroga-votacao-ate-as-19h/",
+     "valor_na_fonte": "A decisão diz \"determino prorrogação por duas horas, até as 19h, horário de Brasília, do encerramento do recebimento dos votos em todas as seções de todo o Brasil\". O esclarecimento posterior limitou a medida aos \"locais onde as urnas não foram fechadas\".",
+     "nota": "O texto do post está confirmado, mas a afirmação fatual é falsa: a ordem não foi para \"friendly counties\", valeu para todo o país, só nas seções ainda abertas. A parte sobre Zanin ter sido advogado de Lula é verdadeira."
+    },
+    {
+     "item": "Alegação: Posobiec (repost)",
+     "valor_dado": "\"A judge loyal to Lula ordered voting extended - an result like this in Brazil is unprecedented\"",
+     "status": "confirmado",
+     "url_usada": "https://x.com/JackPosobiec/status/2114529225956823457",
+     "valor_na_fonte": "O texto bate (01:27:08 UTC). A imagem é um print do Grok dizendo que Lula foi o único a perder o 1º turno e vencer o 2º (45,16% x 47,03%; \"In the prior seven presidential runoffs since 1989, the first-round leader always won\").",
+     "nota": "O \"unprecedented\" fala da virada, que VEJA e Folha também chamam de \"virada inédita\". A prorrogação também foi inédita, segundo Nunes Marques e a Aos Fatos. O nexo causal entre as duas coisas é insinuação."
+    },
+    {
+     "item": "Alegação: Rothmus (\"True\")",
+     "valor_dado": "Zanin ordenou a prorrogação \"3 minutes before they were supposed to close\"; ambos pediram; 45-47 no 1º turno; menos de 4 pontos no 2º; Zanin e Dino votaram pela condenação a 27 anos",
+     "status": "contradito",
+     "url_usada": "https://www.poder360.com.br/poder-eleicoes-2026/zanin-prorroga-votacao-do-2o-turno-ate-19h/ ; https://www.aosfatos.org/noticias/derrotado-flavio-mente-sugerir-eleicao-fraudada/",
+     "valor_na_fonte": "Poder360: \"17h03 – é divulgada a decisão\". Aos Fatos: \"A primeira determinação de Zanin aconteceu às 17h03\". BandaB: 1º turno com Flávio 47,03% e Lula 45,16%. Resultado final: 51,79% a 48,21%, diferença de 3,58 pontos.",
+     "nota": "O horário está errado: a decisão saiu 3 minutos DEPOIS das 17h, não antes. O próprio Rothmus, num post anterior (2114523760850313546), escreveu \"after polls had already closed\". \"Both sides had asked\", 45-47 e \"under 4 points\" estão corretos. A condenação de Bolsonaro a 27 anos com votos de Zanin e Dino (2025) bate com o registro público, mas não abri fonte sobre isso nesta sessão."
+    },
+    {
+     "item": "Alegação: Geiger Capital (\"Interesting question\")",
+     "valor_dado": "\"At exactly 5pm, a code is supposed to be entered that closes and locks the voting machines... It's irreversible\"; ordem chegou minutos depois",
+     "status": "contradito",
+     "url_usada": "https://www.cnnbrasil.com.br/eleicoes/dados-tse-votacao-apos-prorrogacao/",
+     "valor_na_fonte": "CNN: no 1º turno, sem prorrogação, \"3.724.999 eleitores votaram após as 17h\", porque quem estava na fila às 17h tem direito a votar. Logo, as urnas não são travadas \"at exactly 5pm\". O TSE esclareceu que não seria possível \"reabrir equipamentos já encerrados\", o que bate com o \"irreversible\".",
+     "nota": "O texto do post está confirmado. A premissa do travamento \"at exactly 5pm\" é falsa. \"A few minutes after\" bate com 17h03. Sobre \"quais urnas\", os dados do TSE na imprensa mostram 34.330 a 35.521 votos depois das 17h, 29.001 deles até 17h05."
+    },
+    {
+     "item": "Alegação: Tommy Robinson (via Jornal Razão)",
+     "valor_dado": "80% das seções fechadas quando a votação foi estendida; 213 cidades viraram; o Jornal Razão diz 211",
+     "status": "nao_confirmado",
+     "url_usada": "https://www.cnnbrasil.com.br/eleicoes/213-cidades-que-escolheram-flavio-no-1o-turno-deram-vitoria-a-lula-no-2o/ ; https://www.poder360.com.br/poder-eleicoes-2026/80-das-secoes-em-sp-fecharam-as-17h-diz-presidente-do-tre-sp/",
+     "valor_na_fonte": "CNN Brasil (26/10 00:43 BRT): \"213 cidades que escolheram Flávio no 1º turno deram vitória a Lula no 2º\". Poder360 (25/10 20h32): o presidente do TRE-SP \"afirmou... que 80% das urnas de São Paulo fecharam às 17h\".",
+     "nota": "Não achei o post primário. O 213 vem da CNN Brasil, então não dá para dizer que Robinson errou. O 80% é número de São Paulo, não do país."
+    },
+    {
+     "item": "Alegação: textos do próprio Musk, sem \"fraud\" ou \"rigged\"",
+     "valor_dado": "\"Yeah, that was shady\", \"Wow\", \"Math doesn't add up\", 🙄, \"True\", \"Interesting question\" e \"Indeed\" (segundo o Jornal Razão)",
+     "status": "confirmado",
+     "url_usada": "https://x.com/elonmusk/status/2114717848518144177",
+     "valor_na_fonte": "Os seis textos autorais conferem literalmente, com horários UTC conferidos pelo snowflake. Nenhum contém \"fraud\" ou \"rigged\". \"Rigging\" está em De Luca e \"steal\" em Starbuck.",
+     "nota": "\"Indeed\" continua sem fonte primária. Não consegui varrer a linha do tempo completa de Musk (rate limit), então posts depois de 17:02 UTC de 26/10 ou de 27/10 não foram verificados."
+    }
+   ],
+   "faltou_e_achei": [
+    {
+     "item": "Link primário do \"Wow\" ao Polymarket (20/09/2026)",
+     "valor": "Resposta a @Geiger_Capital em 20/09/2026 21:08:02 UTC (18:08 BRT), 669.532 visualizações. O post de Geiger com o gráfico retorna 404.",
+     "url": "https://x.com/elonmusk/status/2101780447042912754",
+     "trecho": "@Geiger_Capital Wow"
+    },
+    {
+     "item": "Link primário do \"Yes\" ao \"Tick tock\" de Moraes (05/10/2026)",
+     "valor": "05/10/2026 11:03:50 UTC (08:03 BRT), em resposta a https://x.com/Rothmus/status/2106907186177650985 (\"Tick tock\" com foto, citando post sobre o bloqueio do X, R$ 28,6 milhões e Magnitsky).",
+     "url": "https://x.com/elonmusk/status/2107064214103961880",
+     "trecho": "@Rothmus Yes"
+    },
+    {
+     "item": "Link primário do post sobre a USAID (05/10/2026), que cita um post antigo de Benz",
+     "valor": "05/10/2026 08:47:36 UTC (05:47 BRT), 5,23 milhões de visualizações. Cita o post de Mike Benz de 19/08/2025 (1957763907340120346), que é estatística reciclada.",
+     "url": "https://x.com/elonmusk/status/2107029927589470636",
+     "trecho": "USAID engaged in election interference and regime change around the world, causing massive strife"
+    },
+    {
+     "item": "Linha do tempo oficial da prorrogação, que desmente o \"3 minutes before\" de Rothmus",
+     "valor": "PT pede para todos os estados às 15h42; Flávio pede para 19 cidades de SP, PR e SC às 15h50; PT vai ao STF às 16h22; Zanin é sorteado às 16h33; a decisão sai às 17h03. Na decisão, os fatos chegaram ao STF às 16:32:49.",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/zanin-prorroga-votacao-do-2o-turno-ate-19h/",
+     "trecho": "17h03 – é divulgada a decisão do ministro de ampliar o prazo de votação até as 19h"
+    },
+    {
+     "item": "Checagem da Aos Fatos sobre a narrativa de fraude (Flávio, não Musk), 26/10",
+     "valor": "Primeira checagem de agência sobre o argumento da prorrogação que os posts endossados por Musk usam. Diz que a decisão foi às 17h03, que as duas campanhas pediram e cita os 35 mil votos.",
+     "url": "https://www.aosfatos.org/noticias/derrotado-flavio-mente-sugerir-eleicao-fraudada/",
+     "trecho": "A primeira determinação de Zanin aconteceu às 17h03."
+    },
+    {
+     "item": "A fonte do número 213, que relativiza o \"211, não 213\"",
+     "valor": "A CNN Brasil publicou 213 municípios virados em 26/10 00:43 BRT. Mario Nawfal repetiu o número (https://x.com/MarioNawfal/status/2114644453113975028, 09:05 UTC).",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/213-cidades-que-escolheram-flavio-no-1o-turno-deram-vitoria-a-lula-no-2o/",
+     "trecho": "213 cidades que escolheram Flávio no 1º turno deram vitória a Lula no 2º"
+    },
+    {
+     "item": "A origem provável dos \"80% das seções fechadas\"",
+     "valor": "O número vem do presidente do TRE-SP, José Antonio Encinas Manfré, e se refere só a São Paulo (Poder360, 25/10 20h32).",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/80-das-secoes-em-sp-fecharam-as-17h-diz-presidente-do-tre-sp/",
+     "trecho": "80% das urnas de São Paulo fecharam às 17h, antes da decisão do ministro"
+    },
+    {
+     "item": "A imagem do post de Posobiec repostado por Musk",
+     "valor": "É um print do Grok sobre a virada (45,16% x 47,03%; nas sete eleições desde 1989, quem liderou o 1º turno sempre venceu). O \"unprecedented\" se refere à virada.",
+     "url": "https://x.com/JackPosobiec/status/2114529225956823457",
+     "trecho": "Only one: Lula in 2026. He trailed Flávio Bolsonaro 45.16% to 47.03% in the first round"
+    },
+    {
+     "item": "\"Pretty weird\" reproduzido como se fosse escrito por Musk",
+     "valor": "O Jornal da Cidade Online (26/10 07:57 BRT) afirma, sem link, que Musk escreveu \"Pretty weird\". A origem é a paráfrase da BRICS News.",
+     "url": "https://www.jornaldacidadeonline.com.br/noticias/89852/elon-musk-reage-com-apenas-duas-palavras-ao-resultado-das-eleicoes-no-brasil",
+     "trecho": "O bilionário Elon Musk escreveu apenas duas palavras em reação ao resultado das eleições brasileiros"
+    },
+    {
+     "item": "Folha original (acessível) sobre Musk e Bannon",
+     "valor": "26.out.2026 às 15h21. É o texto da Folhapress republicado por O Tempo, Brasil 247 e A Gazeta.",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/10/sem-apresentar-provas-elon-musk-e-steve-bannon-questionam-vitoria-de-lula.shtml",
+     "trecho": "Sem apresentar provas, Elon Musk e Steve Bannon questionam vitória de Lula"
+    },
+    {
+     "item": "Trump Jr. compartilhou o post de De Luca, não o de Musk",
+     "valor": "O texto da ICL (11h17) e o índice lateral do Jornal Razão indicam que Trump Jr. compartilhou o post \"próximo Maduro\" de De Luca.",
+     "url": "https://iclnoticias.com.br/musk-questiona-vitoria-de-lula-e-casa-branca-mantem-silencio/",
+     "trecho": "Donald Trump Junior, filho do presidente americano, também compartilhou a publicação."
+    },
+    {
+     "item": "Trump: local e contexto da fala de 26/10",
+     "valor": "Falou a repórteres na Joint Base Andrews. Disse também que não governa o Brasil e que gosta de Lula. Não achei post no Truth Social.",
+     "url": "https://www.yahoo.com/news/politics/articles/trump-says-brazil-election-looked-221058775.html",
+     "trecho": "\"It looked like another rigged election, frankly,\" Trump told reporters at Joint Base Andrews in Maryland."
+    },
+    {
+     "item": "Contexto de medida contra o X (anterior aos posts): Toffoli em 24/10",
+     "valor": "Na véspera do 2º turno, o ministro Dias Toffoli, do TSE, lembrou que plataformas podem sair do ar e citou o bloqueio do X em 2024. A fala não tem ligação com os posts de Musk.",
+     "url": "https://jovempan.com.br/politica/toffoli-plataformas-digitais-tem-contribuido-com-a-justica-se-nao-sabem-que-podem-sair-do-ar/",
+     "trecho": "Em razão de outras decisões não eleitorais, já tirou do ar no Brasil inteiro, o X."
+    },
+    {
+     "item": "Vídeo de 2024 de Musk apresentado como novo",
+     "valor": "O post de Eduardo Bolsonaro cita o perfil @precisox (23/07/2026), que apresentou o discurso de 17/10/2024 como alerta recente.",
+     "url": "https://x.com/precisox/status/2080350360804196734",
+     "trecho": "ATENCIÓN: Elon Musk acaba de lanzar una alerta que no podemos ignorar"
+    }
+   ],
+   "resumo": "Abri pela fonte primária (X, via api.fxtwitter) os 7 posts de Musk de 26/10 e os posts de terceiros que ele citou. Os 7 existem, são da conta verificada @elonmusk (ID 44196397), têm o texto e o horário UTC relatados e não tinham Nota da Comunidade às 22:37 UTC. As métricas batem com crescimento pequeno. Ponto central para o pedido do usuário (\\\"Trump e Musk acusam a eleição de fraude\\\"): Musk não escreveu \\\"fraud\\\" nem \\\"rigged\\\" em texto próprio. Ele endossou posts de terceiros com \\\"Wow\\\", \\\"Yeah, that was shady\\\", \\\"Math doesn't add up\\\", \\\"True\\\" e \\\"Interesting question\\\", e repostou Posobiec. \\\"Rigging\\\" é palavra de De Luca e \\\"steal\\\" é de Starbuck. Já Trump disse a repórteres, na Joint Base Andrews em 26/10, \\\"It looked like another rigged election, frankly\\\" (HuffPost e Politico/Yahoo). A redação mais segura seria \\\"Trump diz que a eleição pareceu fraudada; Musk endossa posts que falam em manipulação\\\". Correções ao pesquisador: (1) a ICL diz que Trump Jr. compartilhou o post de De Luca, não o de Musk; (2) os 14,4 milhões de visualizações incluem as do post de Posobiec, que Musk só repostou; (3) o número 213 vem da CNN Brasil (26/10 00h43), então \\\"211, não 213\\\" é diferença entre fontes, não erro de Robinson; (4) os \\\"80%\\\" são de São Paulo, segundo o TRE-SP; (5) o trecho da Agência Brasil é paráfrase, não citação literal; (6) a frase de Trump \\\"estamos monitorando\\\" é de 25/10. Achei os links primários que faltavam: Polymarket \\\"Wow\\\" (20/09), \\\"Yes\\\" ao \\\"Tick tock\\\" (05/10) e o post sobre a USAID (05/10), que cita um post de Benz de 2025. Conferindo os posts endossados: o \\\"3 minutes before\\\" de Rothmus está errado, porque a decisão de Zanin saiu às 17h03 (Poder360 e Aos Fatos); o \\\"friendly counties\\\" de Starbuck é falso, porque a ordem valeu para todas as seções do país ainda abertas; o \\\"at exactly 5pm... locks\\\" de Geiger é falso, porque quem estava na fila votou depois das 17h (3,7 milhões no 1º turno); os números do End Wokeness são parciais (64,1 milhões contra 64,26 milhões oficiais) e omitem comparecimento e brancos e nulos. Continuam sem fonte primária o repost de Tommy Robinson e o \\\"Indeed\\\". \\\"Pretty weird\\\" é paráfrase da BRICS News, depois repetida como citação. Não achei nota do TSE ou do STF dirigida a Musk, medida contra o X ligada aos posts nem checagem sobre Musk (a Aos Fatos checou Flávio sobre o mesmo argumento). Limite desta conferência: não consegui varrer a linha do tempo completa de Musk (rate limit), então posts depois das 17:02 UTC de 26/10 e de 27/10 não foram verificados. A Midiamax continuou com 403."
+  }
+ }
+]
