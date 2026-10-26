@@ -1,0 +1,20 @@
+Teste de Integridade 2026, divergências (pesquisa de 26/10, noite; tse.jus.br e tre-df.jus.br deram 403 ao agente; trechos dessas páginas vieram do buscador)
+
+2º turno, DF: UMA divergência, nas 16 urnas auditadas na CLDF, atribuída a "erro humano de digitação" pelo juiz João Marcos Guimarães Silva
+  (reprodução de texto da Agência CLDF, 25/10/2026 18h45: https://bombabomba.com.br/urnas-eletronicas-sao-aprovadas-em-teste-de-integridade-realizado-na-cldf-no-2o-turno/).
+  Urna, seção, cargo (presidente ou governador), número de votos e DIREÇÃO: não divulgados em nenhuma fonte encontrada.
+  Como foi conferida no 2º turno: não descrito. Pela regra (Res. 23.673/2021), a divergência se localiza pelo vídeo da digitação, pelo horário.
+1º turno, DF: DUAS divergências na CLDF, atribuídas a erro de digitação "comprovado pelas câmeras" (Angelo Passareli, presidente do TRE-DF;
+  https://www.metropoles.com/distrito-federal/legitima-seria-e-confiavel-diz-presidente-do-tre-df-sobre-eleicoes ;
+  https://www.correiobraziliense.com.br/cidades-df/2026/10/7514608-presidente-do-tre-df-classifica-eleicao-como-legitima-e-confiavel.html).
+Outros estados: SP (33 urnas, cerca de 16 mil cédulas) e TSE (2 urnas, 389 votos) sem divergência no 2º turno; MT sem divergência. Para os
+  demais TREs só há notícia do sorteio, sem o resultado.
+Composição das cédulas (quantos brancos e nulos para presidente): não divulgada. É o dado que diz se o teste poderia pegar a forma A.
+Contestação do PL ou de Flávio sobre teste de integridade: nenhuma encontrada. A contestação anunciada ("vamos pedir a anulação",
+  Gazeta do Povo 25/10 23h04) é sobre a prorrogação do horário por Zanin e a alegada retirada de fiscais do PL da sala-cofre; o TSE
+  responde que dois fiscais do PL acompanharam o teste de integridade no subsolo (Metrópoles 26/10 05h16; O Tempo 26/10).
+Onde sai o detalhe: atas e relatório do TRE-DF e relatório consolidado do TCU, até 30 dias depois do 2º turno (até 24/11/2026); a
+  transmissão da TV Câmara Distrital no YouTube deve mostrar o momento da divergência.
+Pela tese: a divergência do 2º turno no DF é o único ponto em que a urna e o papel discordaram em 2026, e a direção não foi divulgada. A
+  pergunta a fazer ao TRE-DF (pedido de acesso à informação ou pelo PL, que tinha fiscais): qual urna, qual cargo, de qual voto para qual,
+  e o trecho do vídeo que mostra o erro de digitação.
