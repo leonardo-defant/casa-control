@@ -74,15 +74,16 @@ def t22b(base, cand1, gov1):
         a, b, ag, bg = v['1'], v['2'], v['1g'], v['2g']
         loc = chave_local(k, b)
         # presidente (Flávio = R)
-        others_p = a['O']; bn1, bn2 = a['B'] + a['N'] + a.get('c28', 0), b['B'] + b['N']
+        # igual ao T8 (analisar_fluxo_regressao.py): O inclui o 28; queda do branco+nulo sem truncar em zero
+        others_p = a['O']; bn1, bn2 = a['B'] + a['N'], b['B'] + b['N']
         dcomp = b['comp'] - a['comp']
-        linhas_p.append((loc, b['R'] - a['R'], [others_p, max(0, bn1 - bn2), dcomp, a['L'], a['R']]))
+        linhas_p.append((loc, b['R'] - a['R'], [others_p, bn1 - bn2, dcomp, a['L'], a['R']]))
         # governador (aliado de Flávio)
         al, op = ALIADO_FLAVIO[uf], [x for x in FINALISTAS[uf] if x != ALIADO_FLAVIO[uf]][0]
         c1 = gov1.get(k, {}); a1 = c1.get(al, 0); o1 = c1.get(op, 0); out1 = sum(q for n, q in c1.items() if n not in (al, op))
         a2 = bg.get('cand', {}).get(al, 0)
         gbn1, gbn2 = ag['B'] + ag['N'], bg['B'] + bg['N']
-        linhas_g.append((loc, a2 - a1, [out1, max(0, gbn1 - gbn2), bg['comp'] - ag['comp'], o1, a1]))
+        linhas_g.append((loc, a2 - a1, [out1, gbn1 - gbn2, bg['comp'] - ag['comp'], o1, a1]))
     nomes = ['outros_1T', 'queda_branco_nulo', 'var_comparecimento', 'adversario_1T', 'proprio_1T']
     n = len(linhas_p)
     y = np.array([r[1] for r in linhas_p] + [r[1] for r in linhas_g], float)

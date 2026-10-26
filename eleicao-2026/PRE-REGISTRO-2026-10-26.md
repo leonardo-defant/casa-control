@@ -425,3 +425,34 @@ Testes:
   - Sem sinal (a perda de Flávio acompanha a do aliado, como faria a falta ao 2º turno): D entre -0,015 e +0,015.
   - Entre os dois: inconclusivo.
   - Limites: não separa troca feita pelo eleitor (voto dividido) de troca feita pelo programa; a dinâmica do 2º turno de governador é própria (o aliado recebe votos dos eliminados do 1º turno estadual); não há referência de outro ano com os votos por candidato a governador.
+
+## Adendo 15 (26/10, noite, ~21h15 UTC, antes de rodar qualquer um dos dois testes abaixo): onde estaria a condição do desvio
+
+Contexto e o que já vi: o recorte exploratório por região (commit 252b98c) mostrou Flávio perdendo cerca de 5% dos próprios eleitores do 1º turno em todas as regiões, menos no Sul (cerca de 0). Por UF do Sul, também exploratório (26/10, ~20h50 UTC, amostra de 3.897 seções): PR +0,008 (EP 0,031, 25 locais), SC +0,045 (EP 0,022, 22 locais), RS -0,033 (EP 0,017, 56 locais); em 2022, nas mesmas seções, Lula perdeu cerca de 8% nas três. Não vi a curva de perda própria por força local do adversário em nenhum ano, nem nenhum dado da divisa.
+
+Se houve desvio pelo programa e ele poupou o Sul, a condição tem de estar escrita em algum lugar. As duas condições mais simples deixam marcas diferentes:
+- Condição pela UF (o programa sabe em que estado está): a perda muda de uma vez na divisa entre o Sul e os vizinhos, mesmo com eleitores parecidos dos dois lados.
+- Condição pela força local de Lula (desvia mais onde Lula já é forte, para disfarçar): não há salto na divisa, e Flávio fica abaixo de qualquer referência na mesma faixa de força do adversário.
+Já a leitura natural ("o eleitor se aproxima da maioria do lugar", vista com Lula em 2022, que perdeu mais no Sul, onde era minoria) prevê que Flávio 2026 caia na mesma curva que os outros candidatos de 2018, 2022 e 2026.
+
+### T34. Salto na divisa Sul / não Sul (com o bweb do 2º turno)
+- Dados: bweb do 1º e do 2º turno de 2026 por seção; coordenadas dos locais de votação do arquivo "Eleitorado por local de votação - 2026" do portal do TSE (gerado em 25/10, baixado em 26/10 às 21h00 UTC). Unidade: local de votação (soma das seções), com coordenadas válidas e pelo menos 100 votos nominais no 2º turno.
+- Medida: resíduo r da fatia de Lula no 2º turno, L2/(L2+F2), num modelo linear ponderado pelos votos nominais do 2º turno, ajustado com todos os locais a até 100 km de um local da outra UF, contra as fatias do comparecimento do 1º turno de Lula, Flávio, demais candidatos e branco+nulo, e o log do eleitorado. Sem nenhuma variável de UF.
+- Pares: cada local do lado Sul (PR) com o local mais próximo do outro lado (SP ou MS) a até 20 km, e vice-versa (pares repetidos contam uma vez). J = média ponderada de r(não Sul) - r(Sul). Erro-padrão por bootstrap de municípios do lado Sul, com seus pares (2.000 reamostras).
+- Divisas placebo, mesmo método: dentro do Sul (PR-SC, SC-RS) e entre UFs fora do Sul sem 2º turno de governador (SP-MS, SP-MG, SP-RJ, MS-MT, MS-GO, MS-MG, MG-GO, GO-MT, MG-RJ). Só entram divisas com pelo menos 50 pares.
+- Referência: o mesmo J em 2022 (Lula contra Bolsonaro), com as seções de 2022 ligadas às coordenadas de 2026 pela chave UF|município|zona|seção.
+- Esperado sob desvio de cerca de 4,5% fora do Sul e zero no Sul: J perto de +0,03 (o desvio soma s(1 - m) à fatia m de Lula).
+- Sinal de condição pela UF: J de 2026 de 0,015 ou mais, a mais de 2,5 erros-padrão, e J(2026) - J(2022) de 0,015 ou mais, a mais de 2,5 erros-padrão (erro da diferença somando as variâncias). Se a mediana do |J| das divisas placebo de 2026 passar de 0,01, o sinal vira inconclusivo (divisa de estado em geral salta).
+- Sem sinal: J de 2026 de 0,008 ou menos, com erro-padrão de até 0,005.
+- Entre os dois: inconclusivo.
+
+### T35. Curva de perda própria por força local do adversário (amostra agora, preliminar; bweb depois, decisivo)
+- Seis candidaturas: Haddad e Bolsonaro (2018), Lula e Bolsonaro (2022), Lula e Flávio (2026), sempre nas mesmas seções.
+- Faixas pela fatia do adversário no 1º turno, entre os votos válidos do local de votação (soma das seções do local): menos de 35%, 35% a 50%, 50% a 65%, 65% ou mais.
+- Em cada faixa, a regressão do T8 sem grupos (outros, queda do branco+nulo, variação do comparecimento, adversário, próprio), efeito fixo de local, erro agrupado por local; guarda o coeficiente dos próprios votos.
+- A(ano) = média, ponderada pelo inverso da variância, sobre as faixas em que as duas candidaturas do ano têm pelo menos 30 locais, de [coeficiente próprio do candidato da direita - coeficiente próprio do candidato da esquerda]. É a comparação entre os dois finalistas do mesmo ano na mesma força local do adversário.
+- Sinal de desvio contra Flávio que a força local não explica: A(2026) de -0,03 ou menos, a mais de 2,5 erros-padrão, e A(2026) - A(2018) de -0,03 ou menos, a mais de 2,5 erros-padrão. A(2022) é relatado: se também ficar em -0,03 ou menos, aponta para o mesmo mecanismo em 2022 ou para uma assimetria natural entre os campos, e o texto diz isso.
+- Sem sinal: |A(2026)| até 0,015 e |A(2026) - A(2018)| até 0,015.
+- Entre os dois: inconclusivo.
+- Descritivo: os seis coeficientes por faixa, lado a lado, para ver se Flávio 2026 cai na curva comum.
+- Limites: a ideia nasceu de um recorte já visto (regional); a amostra tem poucas seções por faixa e ano, então o veredito da amostra é preliminar e o do bweb é o que vale.
