@@ -1,0 +1,18 @@
+2018 (esquerda = Haddad)
+  variacao do comparecimento (pontos do eleitorado) por fatia do candidato de esquerda no 1T: 0-30%: -0.58 (1443 mun.) | 30-40%: -0.75 (790 mun.) | 40-50%: -1.38 (623 mun.) | 50-60%: -1.79 (507 mun.) | 60-70%: -1.14 (556 mun.) | 70-101%: -1.94 (1651 mun.)
+  media nacional -0.97; dentro da UF: cada 10 pontos a mais de esquerda no 1T -> -0.31 ponto de comparecimento
+2022 (esquerda = Lula)
+  variacao do comparecimento (pontos do eleitorado) por fatia do candidato de esquerda no 1T: 0-30%: +0.70 (341 mun.) | 30-40%: +0.68 (790 mun.) | 40-50%: +0.54 (1060 mun.) | 50-60%: +0.39 (897 mun.) | 60-70%: -0.06 (697 mun.) | 70-101%: -0.10 (1785 mun.)
+  media nacional +0.36; dentro da UF: cada 10 pontos a mais de esquerda no 1T -> -0.35 ponto de comparecimento
+2026 (esquerda = Lula), 5571 municipios
+  variacao do comparecimento (pontos do eleitorado) por fatia de Lula no 1T: 0-30%: +1.66 (811 mun.) | 30-40%: +1.86 (1143 mun.) | 40-50%: +1.94 (952 mun.) | 50-60%: +2.20 (614 mun.) | 60-70%: +1.50 (698 mun.) | 70-101%: +1.59 (1353 mun.)
+  media nacional +1.85; dentro da UF: cada 10 pontos a mais de Lula no 1T -> -0.04 ponto de comparecimento
+  municipios com queda de comparecimento: 1128 (20%); fatia media de Lula no 1T neles 54.8% contra 47.9% nos outros
+  AC: queda em 100% dos municipios; variacao media -5.65
+  AP: queda em 100% dos municipios; variacao media -8.06
+  RR: queda em 100% dos municipios; variacao media -6.03
+  AM: queda em 89% dos municipios; variacao media -1.52
+  PA: queda em 88% dos municipios; variacao media -1.22
+  TO: queda em 94% dos municipios; variacao media -0.88
+  RO: queda em 46% dos municipios; variacao media -0.21
+  MA: queda em 72% dos municipios; variacao media -0.63
