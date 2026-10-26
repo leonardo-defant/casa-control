@@ -1,0 +1,7 @@
+logs analisados: {'urnas': 835, 'com_1t_no_log': 822, 'contingencia': 14}
+versoes do aplicativo: {'10.23.0.0 - Praia da Barra do Cahy': 835}
+midia de votacao igual no dia do 1T e do 2T (igual, tem_1T): {(True, True): 819, (False, False): 13, (False, True): 2, (True, False): 1}
+datas de geracao das midias de resultado (dia): {'10/10/2026': 50, '11/10/2026': 96, '12/10/2026': 72, '13/10/2026': 314, '14/10/2026': 17, '15/10/2026': 293, '17/09/2026': 2, '18/09/2026': 1, '19/09/2026': 1, '19/10/2026': 2, '22/09/2026': 1, '23/09/2026': 1}
+urnas com verificacao de assinatura sem SUCESSO: 0 []
+urnas com componente novo no 2T: 0 []
+logs ilegiveis: 0
