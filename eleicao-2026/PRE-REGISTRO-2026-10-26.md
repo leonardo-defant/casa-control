@@ -182,3 +182,32 @@ T4 (branco+nulo zerado): a revisão mostrou que o estimador do esperado usa a ta
 - Leitura calibrada, que passa a ser a principal: para cada eleição e turno, simular branco+nulo sob a hipótese nula (beta-binomial em torno da taxa do local, ou do município para local de seção única, com a superdispersão ajustada para que o estimador aplicado aos dados simulados reproduza a superdispersão observada), aplicar exatamente o mesmo estimador e obter R_nulo (média de 5 simulações). Estatística calibrada: Rc = R / R_nulo.
 - Sinal: Rc do 2º turno de 2026 acima do maior Rc das referências mais 0,15, com excesso acima de 3 vezes a raiz do esperado. Sem sinal: até o maior Rc das referências mais 0,05.
 - Votos do candidato 28 (candidatura anulada) entram como nulos, como no total oficial.
+
+## Adendo 7 (26/10, antes de coletar os dados): a "lógica do mundo real" como teste
+
+Proposta do Léo: tratar o dado da urna como não confiável e procurar falta de lógica contra referências externas (pesquisas mais isentas e assertivas, transferência por espectro político, rejeição de Lula, histórico). Para que "falta de lógica" possa ser verificada e não seja só impressão, cada expectativa vira uma previsão numérica com critério definido aqui, antes dos números.
+
+Regra para escolher pesquisas "isentas e assertivas": pelo histórico de acerto medido antes do 2º turno de 2026 (2º turnos de 2018 e 2022 e 1º turno de 2026), nunca pelo resultado do 2º turno de 2026. Alegações de conflito de interesse só entram se verificadas em fonte.
+
+### T11. Mesma pesquisa, dois cargos, mesma urna
+
+Se a urna altera só o voto para presidente, nas pesquisas estaduais que perguntaram presidente e governador à mesma amostra o erro para presidente (a favor de Lula) deve ser bem maior que o erro para governador.
+- Estados: os 6 com 2º turno de governador em 2026 (AC, AM, DF, ES, RN, TO), última pesquisa antes do 2º turno com as duas perguntas. Se houver, também 1º turno nos 27 estados.
+- Erro de presidente: fatia de Lula nos válidos do estado (resultado menos pesquisa). Erro de governador: valor absoluto do erro na fatia do candidato que venceu (resultado menos pesquisa).
+- **Sinal:** média de (erro de presidente menos erro absoluto de governador) de 2,0 pontos ou mais, com pelo menos 4 estados.
+- **Sem sinal:** média de até 0,5 ponto.
+- Entre os dois: inconclusivo.
+
+### T12. Como cada instituto erra do 1º para o 2º turno
+
+Se o erro das pesquisas no 2º turno de 2026 for anômalo, a mudança do erro entre o 1º e o 2º turno deve ser diferente da mudança histórica do mesmo instituto.
+- Para cada instituto com pesquisa final nos dois turnos em 2018, 2022 e 2026: erro do candidato de direita nos válidos (resultado menos pesquisa) no 1º e no 2º turno; Δ = erro do 2º turno menos erro do 1º turno.
+- **Sinal:** Δ de 2026 mais negativo que a média histórica do mesmo instituto em 3 pontos ou mais, na média dos institutos com histórico.
+- **Sem sinal:** diferença de até 1,5 ponto.
+
+### T13. O "teto" de Lula pela rejeição
+
+- Rejeição ("não votaria de jeito nenhum") de cada finalista na última pesquisa antes do 2º turno, em 2018, 2022 e 2026, pelos mesmos institutos.
+- Teto = 100 menos a rejeição (em % dos entrevistados). Comparar com o voto do candidato em % do comparecimento.
+- **Sinal:** Lula acima do próprio teto em mais de 3 pontos, quando nenhum vencedor de 2018 e 2022 ultrapassou o teto pelos mesmos institutos.
+- **Sem sinal:** Lula abaixo do teto ou acima dele no mesmo tamanho dos vencedores anteriores.
