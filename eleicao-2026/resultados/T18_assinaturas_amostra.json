@@ -1,0 +1,63 @@
+{
+ "contagem": {
+  "secoes_com_vsc": 835,
+  "cert_pem": 443,
+  "titular_so_prefixo": 443,
+  "bloco_hw_assinatura_ok": 835,
+  "arquivos_listados": 9185,
+  "arquivos_baixados_conferidos": 2505,
+  "resumo_ok": 2505,
+  "assinatura_arquivo_ok": 9185,
+  "urna_cert_igual_bu": 835,
+  "cert_der": 392,
+  "cert_der_com_bytes_extras": 159
+ },
+ "falhas": [],
+ "emissores": {
+  "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acue2022@tse.jus.br,C=BR,ST=DF,CN=AC UE2022": 281,
+  "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acue2020@tse.jus.br,C=BR,ST=DF,CN=AC UE2020": 162,
+  "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurna@tse.jus.br,C=BR,ST=DF,CN=AC URNA": 392
+ },
+ "identificador_da_ac": {
+  "bb7c517f294a5b96f9bf6a964c4f255a755f698a": 281,
+  "bcb3545deeea432e1e832e81283cb8ae948e400b": 162,
+  "cdaaf4b29701b3f0deb2b54258594a6d34ada48a": 392
+ },
+ "chaves_software": {
+  "SEVIN 20260708": 835
+ },
+ "modo_da_assinatura": {
+  "bloco:ed521_resumo": 443,
+  "arquivo:ed521_resumo": 4873,
+  "bloco:resumo_como_dado": 392,
+  "arquivo:resumo_como_dado": 4312
+ },
+ "tipos_de_chave": {
+  "1.3.6.1.4.1.44588.2.1": 443,
+  "ECPublicKey": 392
+ },
+ "bytes_extras_no_der": {
+  "00": 139,
+  "0000": 20
+ },
+ "bloco2": {
+  "['16', '04']": 281,
+  "['14', '04']": 162,
+  "['0f', '02']": 358,
+  "['0d', '02']": 34
+ },
+ "validade_certificados": {
+  "2016-06-14 a 2030-02-21": 110,
+  "2022-05-12 a 2036-01-19": 93,
+  "2024-01-02 a 2037-09-10": 58,
+  "2016-06-30 a 2030-03-09": 49,
+  "2016-07-02 a 2030-03-11": 46,
+  "2023-12-31 a 2037-09-08": 44,
+  "2016-08-24 a 2030-05-03": 42,
+  "2023-12-30 a 2037-09-07": 30,
+  "2023-12-29 a 2037-09-06": 26,
+  "2016-08-16 a 2030-04-25": 19
+ },
+ "cadeia_ate_a_raiz": "nao verificada: os certificados das AC (AC URNA, AC UE2020, AC UE2022) nao vem no pacote",
+ "assinatura_de_software": "nao verificada: formato proprio (4.765 bytes, cabecalho 24.01.03) e chave SEVIN fora do pacote; so o resumo foi conferido"
+}

@@ -1,0 +1,41 @@
+distância = voto real em % do comparecimento menos o previsto pela pesquisa (negativo: abaixo da pesquisa)
+  2018 Datafolha            previsto  49.73 real  49.85 distância +0.12
+  2018 Ibope/Ipec           previsto  48.07 real  49.85 distância +1.78
+  2018 CNT/MDA              previsto  50.88 real  49.85 distância -1.03
+  2018 Parana Pesquisas     previsto  55.36 real  49.85 distância -5.51
+  2018 PoderData            previsto  58.94 real  49.85 distância -9.09
+  2022 Datafolha            previsto  45.96 real  46.85 distância +0.89
+  2022 Ibope/Ipec           previsto  43.92 real  46.85 distância +2.93
+  2022 Quaest               previsto  45.66 real  46.85 distância +1.19 (faixa -1.46 a +3.85, ambígua)
+  2022 AtlasIntel           previsto  46.14 real  46.85 distância +0.71 (faixa +0.26 a +1.15, ambígua)
+  2022 CNT/MDA              previsto  46.17 real  46.85 distância +0.68
+  2022 Parana Pesquisas     previsto  47.89 real  46.85 distância -1.04
+  2022 PoderData            previsto  44.95 real  46.85 distância +1.90
+  2022 Futura               previsto  48.41 real  46.85 distância -1.56
+  2022 Gerp                 previsto  49.61 real  46.85 distância -2.76 (faixa -5.37 a -0.15, ambígua)
+  2022 Verita               previsto  49.38 real  46.85 distância -2.53
+  2026 Datafolha            previsto  49.01 real  46.65 distância -2.36
+  2026 Quaest               previsto  46.51 real  46.65 distância +0.14
+  2026 AtlasIntel           previsto  50.33 real  46.65 distância -3.68 (faixa -4.11 a -3.25, ambígua)
+  2026 CNT/MDA              previsto  47.77 real  46.65 distância -1.12
+  2026 Verita               previsto  50.82 real  46.65 distância -4.17
+  2026 Ipespe               previsto  49.01 real  46.65 distância -2.36
+  2026 Nexus                previsto  48.77 real  46.65 distância -2.12 (faixa -3.89 a -0.35, ambígua)
+  2026 Real Time Big Data   previsto  49.52 real  46.65 distância -2.87
+  2026 Vox Brasil           previsto  46.42 real  46.65 distância +0.23
+
+distância histórica (2018 e 2022, 15 pesquisas): média -0.89, mínimo -9.09, máximo +2.93
+
+2026, distância além da histórica do mesmo instituto (ou da média geral se não houver histórico):
+  Datafolha            distância -2.36 referência +0.50 (mesmo instituto) além da histórica -2.87
+  Quaest               distância +0.14 referência +1.19 (mesmo instituto) além da histórica -1.05
+  AtlasIntel           distância -3.68 referência +0.71 (mesmo instituto) além da histórica -4.39
+  CNT/MDA              distância -1.12 referência -0.18 (mesmo instituto) além da histórica -0.94
+  Verita               distância -4.17 referência -2.53 (mesmo instituto) além da histórica -1.64
+  Ipespe               distância -2.36 referência -0.89 (média geral) além da histórica -1.47
+  Nexus                distância -2.12 referência -0.89 (média geral) além da histórica -1.23
+  Real Time Big Data   distância -2.87 referência -0.89 (média geral) além da histórica -1.98
+  Vox Brasil           distância +0.23 referência -0.89 (média geral) além da histórica +1.11
+
+institutos de 2026 com Flávio 3 pontos ou mais abaixo, além da histórica: 1 de 9 (critério: pelo menos 5 => conversão pura de branco/nulo não explica o resultado)
+institutos a até 1 ponto da histórica: 1 de 9
