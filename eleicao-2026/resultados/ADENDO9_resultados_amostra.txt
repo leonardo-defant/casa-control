@@ -47,15 +47,25 @@ T20. Pendências do T10 e identidade dos candidatos
 T17. Atributo da máquina dentro do mesmo prédio
   Preliminar (3.897 seções): os coeficientes de UE2013 e UE2015 (cerca de -3,2 e -3,3 pontos na virada) vinham de um
     único local com urnas antigas e novas juntas, e o placebo falhou (+4,0 e +4,5). Sem leitura. Ver Adendo 11.
-  Contrastes de um modelo só (amostra mais 264 seções da extensão do Adendo 10):
+  Contrastes de um modelo só (amostra mais 264 seções da extensão do Adendo 10; primeira leitura):
     UE2020 contra UE2022, 48 locais: virada -0,04 (0,22); comparecimento +0,13 (0,19); placebo -0,50 (0,49).
       Se só a UE2022 (40% da frota) estivesse alterada, precisaria de cerca de 4,5 pontos para decidir sozinha.
       Efeito mínimo detectável 0,61. SEM SINAL.
     UE2013 contra UE2015, 55 locais: virada +0,34 (0,24); comparecimento -0,12 (0,26); placebo +0,01 (0,45). SEM SINAL.
   Urna trocada entre os turnos (42 seções): +0,02 (0,26). Contingência no 2º turno (5 seções no log): +0,52 (0,98),
     sem poder.
-  Antigas contra novas: só 119 locais no país têm os dois grupos (113 em SP). Download de todas as 1.335 seções em
-    andamento; resultado pendente.
+  Antigas contra novas (Adendo 11): só 119 locais no país têm os dois grupos (113 em SP, 3 no AM, 3 no MT). Todas as
+    1.335 seções desses locais foram baixadas (universo inteiro, não amostra). Análise com a amostra, as 264 seções
+    do Adendo 10 e as 1.335 (5.486 seções no total; o contraste se identifica nos 119 locais):
+    virada das antigas menos novas: +0,002 (0,142) sem as variáveis de fila e -0,002 (0,142) com elas.
+    branco+nulo: +0,01 (0,10); comparecimento: -0,02 (0,16); placebo (fatia de Lula no 1º turno): +0,72 (0,30);
+    encerramento no 1º turno: +0,06 hora (0,015), as antigas fecharam um pouco mais tarde.
+    Se as urnas novas (80% da frota) estivessem alteradas, a virada delas teria de ficar cerca de 2,2 pontos acima
+    das antigas no mesmo prédio. Ficou 0,0, com efeito mínimo detectável de 0,40. Pelo critério: SEM SINAL.
+    O efeito de -3,3 da leitura preliminar era de um único local e não se repete no universo dos 119.
+    Com mais locais, UE2020 contra UE2022 (79 locais): +0,11 (0,18); UE2013 contra UE2015 (67 locais): +0,21 (0,22).
+    Limites: o contraste vale para SP (113 dos 119 locais); uma alteração igual em todos os modelos não aparece em
+    nenhum contraste entre modelos.
 
 T30. Gatilho por horário ou por contagem
   Horário (828 seções com log dos dois turnos, 16 municípios): inclinação da virada na fração de votos depois das
@@ -78,5 +88,5 @@ T33. Pesquisas em votos totais (ver T33_pesquisas_votos_totais.txt)
   (b) Só a AtlasIntel (6 UFs) e a Paraná Pesquisas (só TO) fizeram as duas perguntas à mesma amostra. Nenhum
     instituto novo alcança as 4 UFs: o resultado é o do T11 (D médio -1,47, sem sinal) mais a Paraná no TO (D +0,11).
 
-Pendentes: T17 antigas contra novas (download em andamento); T19(b) com a referência de 2022; T15, T16, T21, T22,
+Pendentes: T19(b) com a referência de 2022; T15, T16, T21, T22,
 T23, T27, T28, T29, T31 e T32 dependem do bweb; T24, T25 e T26 dependem de dado externo.
