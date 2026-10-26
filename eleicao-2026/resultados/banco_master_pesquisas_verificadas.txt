@@ -1,0 +1,39 @@
+RESUMO: LIMITE: a cota de buscas da rodada (200 buscas, divididas entre todos os agentes) acabou depois de 5 buscas minhas. Daí em diante só abri URLs que eu já tinha. A cobertura de institutos além de Quaest e AtlasIntel ficou incompleta. Para continuar, mande nova mensagem ou aumente CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION.
+
+1) QUAEST x BANCO MASTER (FATO DOCUMENTADO POR MENSAGENS; PAGAMENTO EFETIVO NÃO COMPROVADO)
+Quem noticiou: Metrópoles, 21/10/2026 às 15:11, repórter Álvaro Luiz. URL: https://www.metropoles.com/brasil/quaest-consultoria-master. Título literal: "CEO da Quaest recebeu R$ 150 mil por mês para 'consultoria' ao Master".
+Origem: mensagens extraídas pela Polícia Federal do celular de Daniel Vorcaro. Em 09/09/2024, Ana Matos, do marketing do banco, escreveu a Vorcaro: "Está alinhado com vc consultoria estratégica Felipe Nunes, empresa Quaest, 150 mil mês? 12 meses". Vorcaro respondeu "Augusto que fechou".
+Valor: R$ 150 mil por mês, ou R$ 1,8 milhão em 12 meses se cumprido inteiro. O título diz "recebeu", mas o corpo das matérias não confirma pagamento. Midiamax (21/10/2026, Gabriel Diniz, https://midiamax.com.br/brasil/2026/ceo-quaest-recebeu-r-150-mil-mes-consultoria-master-afirma-metropoles/): "não se sabe quantas parcelas teriam sido pagas".
+Natureza: o que está documentado é uma consultoria estratégica, não patrocínio nem palestra.
+Resposta de Felipe Nunes (Metrópoles): "eu não tenho nenhuma relação com o Vorcaro, nem ele comigo"; o trabalho foi "estritamente técnico"; "Em 2024 eu trabalhei como analista de cenário político, minha profissão, para 53 instituições do mercado financeiro".
+Nota da Quaest (Times Brasil, 21/10/2026, Amanda Souza, https://timesbrasil.com.br/brasil/mensagens-indicam-contrato-de-r-150-mil-por-mes-entre-ceo-da-quaest-e-master/):
+- "O fundador da Quaest jamais teve qualquer tipo de interação, reunião ou contato com Daniel Vorcaro."
+- "A consultoria ao Master teve início antes de qualquer questionamento público à instituição e foi encerrada por iniciativa da própria Quaest, antes da liquidação pelo Banco Central."
+Outros veículos que repetiram a notícia: Brasil Paralelo (https://www.brasilparalelo.com.br/noticias/instituto-quaest-tinha-contrato-de-r18-milhao-com-banco-master) e Terra Brasil Notícias (https://terrabrasilnoticias.com/?p=498648, título "Bomba: Vorcaro negociou contrato de R$ 1,8 milhão com CEO da Quaest, revelam mensagens").
+Investigação oficial: nenhuma das fontes lidas diz que a Quaest ou Felipe Nunes sejam alvo de apuração. A PF aparece só como quem extraiu as mensagens na investigação sobre Vorcaro e o Master. O Master foi liquidado: "On 18 November 2025, the bank was ordered by federal authorities to be extrajudicially liquidated" (https://en.wikipedia.org/wiki/Banco_Master).
+Separando:
+- FATO: a mensagem existe e cita a Quaest, R$ 150 mil por mês e 12 meses. A Quaest admite que prestou serviço ao Master.
+- NÃO COMPROVADO: quanto foi pago; que o contrato tenha influenciado qualquer pesquisa; que tenha havido patrocínio ou palestra.
+
+2) CONTEXTO: O VEÍCULO QUE DEU A NOTÍCIA TAMBÉM TINHA CONTRATO COM O MASTER
+O Metrópoles é um veículo de imprensa, não um instituto de pesquisa. Segundo o BP Money (15/10/2026, https://bpmoney.com.br/politica/vorcaro-editava-textos-metropoles-antes-da-publicacao/), o UOL revelou, com base em mensagens do celular de Vorcaro, que a direção do Metrópoles mandava reportagens a ele antes de publicar.
+- O contrato publicitário entre o Master e o portal foi de R$ 20 milhões, em 2024.
+- Mensagem atribuída a Vorcaro: "Coisa mais importante [da] nossa vida é esse Metrópoles".
+- A CEO Lilian Tahan negou que o contrato tivesse relação com a cobertura.
+
+3) ATLASINTEL: ÚNICA AÇÃO FORMAL ENCONTRADA CONTRA UM INSTITUTO EM 2026
+Fonte: Correio da Manhã, 09/06/2026, página 6, Gabriela Gallo (https://digital.correiodamanha.com.br/jornalcorreiodamanha/2026/06/09/2144e2/pdf/0906cmanha06.pdf).
+O que foi decidido: o presidente do TSE, Kassio Nunes Marques, "aceitou o pedido do Partido Liberal (PL) e determinou, nesta segunda-feira (8), a suspensão da pesquisa de intenção de votos do Instituto AtlasIntel de maio que registrou uma queda de cinco pontos percentuais" de Flávio Bolsonaro.
+O que o PL alegou: que as perguntas induziam o eleitor a uma visão negativa de Flávio, por exemplo ao falar em "esquema de fraudes financeiras", e que no fim mostravam o áudio da conversa entre Flávio e Vorcaro.
+O que o ministro viu: "elementos minimamente consistentes" de "possível comprometimento da neutralidade metodológica".
+Resposta da AtlasIntel: o instituto "negou qualquer viés político partidário" e disse que os áudios só eram mostrados depois que o questionário era encerrado.
+Situação: a decisão foi monocrática e ia ao plenário em 09/06/2026. Não achei o resultado do plenário. O link da decisão no site do TSE devolveu HTTP 403.
+Classificação: é uma acusação formal de indução feita pelo PL, com decisão liminar. Não é condenação por manipulação, e não envolve relação financeira da AtlasIntel com o Master. O assunto da pesquisa era o próprio caso Master.
+Contexto: a mesma matéria registra que Flávio "cobrava do banqueiro dinheiro que este havia prometido para financiar o filme autobiográfico do ex-presidente Jair Bolsonaro (PL), 'Dark Horse'". Ou seja, o caso Master atinge políticos dos dois lados, e um contrato com o Master, por si só, não indica alinhamento à esquerda.
+
+CONCLUSÃO SOBRE A ALEGAÇÃO
+- Confirmado em parte: há registro documental de contrato de consultoria entre o Master e a Quaest (Felipe Nunes), de setembro de 2024.
+- Não confirmado: patrocínio do Master a institutos, palestras pagas a dirigentes, valor efetivamente pago, investigação oficial contra a Quaest, e qualquer prova de que o contrato tenha afetado as pesquisas de 2026.
+- Nenhum outro instituto (Datafolha, Ipec, Paraná Pesquisas, PoderData, Real Time Big Data e outros) apareceu ligado ao Master nas fontes que consegui ler. Isso não prova que a ligação não exista, porque a busca foi interrompida pelo limite.
+- O único instituto formalmente acusado em 2026 foi a AtlasIntel, por indução no questionário. A acusação partiu do PL, e o desfecho no plenário não foi encontrado.
+NAO ENCONTRADO: ["Relação com o Banco Master de Datafolha, Ipec, Paraná Pesquisas, PoderData, Real Time Big Data, Futura, MDA, Gerp, Ideia e Vox: as buscas iniciais não mostraram nada e a cota de buscas acabou antes de uma checagem completa", "Patrocínio do Banco Master a qualquer instituto de pesquisa eleitoral", "Contrato de palestras pagas pelo Master a dirigentes de institutos de pesquisa", "Número de parcelas pagas e valor efetivamente recebido pela Quaest no contrato de R$ 150 mil por mês", "Investigação oficial (PF, MP, TSE, CPI) que tenha a Quaest ou Felipe Nunes como alvo", "Pedido de partido ou candidato para investigar a Quaest depois da notícia de 21/10/2026", "Identidade completa de 'Augusto', citado por Vorcaro como quem fechou o contrato com a Quaest", "Resultado do julgamento no plenário do TSE sobre a suspensão da pesquisa AtlasIntel, previsto para 09/06/2026", "Número de registro no TSE e números completos da pesquisa AtlasIntel de maio de 2026 que foi suspensa", "Texto da decisão de Kassio Nunes Marques no site do TSE: a URL devolveu HTTP 403", "Acusação formal de manipulação contra a Quaest ou contra outro instituto além da AtlasIntel em 2026"]

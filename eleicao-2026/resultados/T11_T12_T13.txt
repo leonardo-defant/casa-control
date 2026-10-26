@@ -1,0 +1,30 @@
+T11, AtlasIntel (mesma amostra para os dois cargos):
+  AC: presidente Lula pesquisa 33.9 resultado 33.43 erro a favor de Lula -0.47 | governador Mailza pesquisa 60.4 resultado 66.21 erro absoluto 5.81 | D -6.28
+  AM: presidente Lula pesquisa 53.5 resultado 54.02 erro a favor de Lula +0.52 | governador Omar Aziz pesquisa 56.9 resultado 61.42 erro absoluto 4.52 | D -4.00
+  DF: presidente Lula pesquisa 43.1 resultado 45.72 erro a favor de Lula +2.62 | governador Celina pesquisa 57.9 resultado 57.18 erro absoluto 0.72 | D +1.90
+  ES: presidente Lula pesquisa 41.5 resultado 43.63 erro a favor de Lula +2.13 | governador Pazolini pesquisa 51.2 resultado 52.17 erro absoluto 0.97 | D +1.16
+  RN: presidente Lula pesquisa 63.0 resultado 65.72 erro a favor de Lula +2.72 | governador Cadu pesquisa 51.1 resultado 50.77 erro absoluto 0.33 | D +2.39
+  TO: presidente Lula pesquisa 47.6 resultado 48.63 erro a favor de Lula +1.03 | governador Vicentinho pesquisa 59.5 resultado 64.52 erro absoluto 5.02 | D -3.99
+  media de D = -1.47 (sinal se >= +2,0; sem sinal se <= +0,5) | erro medio de presidente a favor de Lula +1.43; erro absoluto medio de governador 2.89
+  extra, Parana Pesquisas no TO (mesma amostra): presidente erro a favor de Lula +5.63; governador erro absoluto 5.52; D +0.11
+
+T12, erro da direita nos validos (resultado menos pesquisa); delta = erro 2T menos erro 1T:
+  Datafolha   deltas historicos [-5.9, -6.1] media -6.00 | 2026 -7.82 | diferenca -1.82
+  CNT/MDA     deltas historicos [-5.1, -3.3] media -4.20 | 2026 -7.42 | diferenca -3.22
+  PoderData   deltas historicos [-21.9, -3.1] media -12.50 | 2026 -6.82 | diferenca +5.68
+  AtlasIntel  deltas historicos [0.4] media +0.40 | 2026 -5.52 | diferenca -5.92
+  Quaest*     deltas historicos [-5.84] media -5.84 | 2026 -4.82 | diferenca +1.02
+  Futura*     deltas historicos [-3.89] media -3.89 | 2026 -4.12 | diferenca -0.23
+  Verita*     deltas historicos [0.6] media +0.60 | 2026 -3.38 | diferenca -3.98
+  media das diferencas, so com validos publicados (Datafolha, MDA, PoderData, AtlasIntel): -1.32
+  media das diferencas, todos os 7: -1.21; mediana -1.82
+  (sinal se a media for <= -3,0; sem sinal se estiver entre -1,5 e +1,5)
+  todas as mudancas historicas (inclui Ibope/Ipec e Parana Pesquisas): media -5.39, mediana -3.89; 2026, media dos institutos -5.70
+
+T13, voto em % do comparecimento menos o teto (100 menos a rejeicao); negativo = abaixo do teto:
+  2018 Bolsonaro  49.85% do comparecimento | Datafolha -5.1 Ibope -11.1 Parana -10.7 MDA -7.4
+  2018 Haddad     40.58% do comparecimento | Datafolha -7.4 Ibope -15.4 Parana -4.9 MDA -8.0
+  2022 Lula       48.57% do comparecimento | Datafolha -5.4 Quaest -7.4 Ipec -10.4 Parana -2.8 MDA -4.1
+  2022 Bolsonaro  46.85% do comparecimento | Datafolha -3.2 Quaest -5.2 Ipec -6.2 Parana -4.4 MDA -6.0
+  2026 Lula       50.11% do comparecimento | Datafolha -3.9 Quaest -2.9 Gerp -1.9 MDA -2.5 Ipespe -2.9 Nexus -0.8 Vox -5.1 PoderData -2.9
+  2026 Flavio     46.65% do comparecimento | Datafolha -8.3 Quaest -4.3 Gerp -8.3 MDA -6.0 Ipespe -5.3 Nexus -6.8 Vox -6.2 PoderData -8.3
