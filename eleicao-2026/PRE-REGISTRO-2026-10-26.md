@@ -369,3 +369,16 @@ Critério para o contraste antigas contra novas (y = virada de Lula):
 - **Sem sinal:** diferença abaixo de 0,5 ponto em valor absoluto, com erro-padrão até 0,2.
 - Entre os dois: inconclusivo. Referência: em 2022 o mesmo teste por modelo deu virada de -0,16 a -0,18 (erro-padrão 0,12).
 - Leitura de fila: se o efeito cair para menos da metade ao entrar o encerramento do 1º turno, e as seções antigas tiverem encerrado mais tarde no 1º turno, a explicação de fila fica favorecida.
+
+## Adendo 11 (26/10, tarde, antes de baixar os locais com urnas antigas e novas juntas): correção do desenho do Adendo 10
+
+Erro de desenho encontrado ao preparar a análise: o efeito de cerca de -3,3 pontos das urnas antigas no T17 preliminar vinha de um único local. No país inteiro, só 119 locais têm, entre seções de 20 ou mais votantes, urnas antigas (UE2013 ou UE2015) e novas (UE2020 ou UE2022) ao mesmo tempo: 113 em SP, 3 no AM e 3 no MT, com 1.335 seções. Os outros 7.777 locais mistos misturam só novas (5.165) ou só antigas (2.612). Dos 450 locais sorteados no Adendo 10, só 9 são de antigas com novas. O efeito fixo de local identifica o contraste antigas contra novas apenas nesses locais.
+
+O que já foi visto: o T17 preliminar (1 local de antigas com novas) e uma rodada parcial com 225 seções da extensão, ainda com 1 único local de antigas com novas, portanto sem informação nova sobre o contraste.
+
+Mudança, registrada antes de baixar:
+- O download do Adendo 10 foi parado em 264 seções (prefixo do sorteio, que continua aleatório).
+- Baixar o `-aux.json` e o `-bu.dat` de todas as 1.335 seções dos 119 locais, pelo mesmo limitador de taxa.
+- Contraste antigas contra novas: o mesmo do Adendo 10, nesses 119 locais (é o universo inteiro, não uma amostra). Critérios iguais. Se o erro-padrão passar de 0,3, o teste fica com poder limitado e o resultado sai junto com o efeito mínimo detectável (2,8 erros-padrão).
+- Contrastes de um modelo só (UE2020 contra UE2022; UE2013 contra UE2015): com a amostra atual mais o prefixo de 264 seções, como no T17 do Adendo 9.
+- Limite de generalização: 113 dos 119 locais estão em SP. Um efeito encontrado vale para SP; ausência de efeito não exclui alteração restrita a outra UF.
