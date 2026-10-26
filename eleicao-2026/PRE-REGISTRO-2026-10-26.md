@@ -351,3 +351,21 @@ Os testes marcados "agora" rodam na amostra (3.897 seções com boletim, 835 com
 - (b) T11 com todos os institutos que perguntaram presidente e governador à mesma amostra nas 6 UFs, e não só a AtlasIntel.
 - **(a):** se Flávio ficou 3 pontos ou mais abaixo do que as pesquisas davam, além da distância histórica, em pelo menos 5 institutos, a conversão pura de branco/nulo não explica o resultado (isso pesa contra essa tese específica, não a favor de fraude). Sem sinal para (a): distância até 1 ponto acima da histórica.
 - **(b):** mesmo critério do T11 (sinal com média de 2,0 ou mais em pelo menos 4 UFs; sem sinal até 0,5).
+
+## Adendo 10 (26/10, tarde, antes de baixar os boletins da extensão): T17 com amostra dirigida de locais com modelos misturados
+
+Transparência: o T17 preliminar já foi visto. Na amostra (3.897 seções), só 67 locais tinham urnas de modelos diferentes, e o placebo falhou: as seções com UE2013 e UE2015 já eram cerca de 4,5 pontos mais Lula no 1º turno, com comparecimento cerca de 2 pontos menor e encerramento mais tarde que as UE2022 do mesmo local. Na virada, essas seções ficaram cerca de 3,3 pontos abaixo. Na base completa do 1º turno (7.896 locais mistos), a diferença de partida das urnas antigas é bem menor (+0,74 e +0,95 ponto na fatia de Lula). A amostra preliminar não tem poder para separar composição de efeito da máquina. A leitura possível nos dois sentidos: urnas novas alteradas a favor de Lula, ou eleitores de Flávio que desistiram da fila nas urnas antigas no 1º turno e voltaram no 2º.
+
+Frota do 1º turno de 2026 (seções): UE2020 40,2%, UE2022 39,8%, UE2015 17,6%, UE2013 2,4%. O número da urna foi o mesmo nos dois turnos em 98,9% das seções da amostra.
+
+Extensão, fixada antes de baixar:
+- Universo: locais do bweb do 1º turno com pelo menos 2 modelos entre seções de 20 ou mais votantes, fora da amostra atual (7.828 locais).
+- Sorteio: permutação com semente 20261026; os 450 primeiros locais, todas as seções de cada um (3.758 seções). Baixar só o `-aux.json` e o `-bu.dat`, na ordem do sorteio, pelo mesmo limitador de taxa. Se o download parar antes, entra o prefixo completo de locais baixados, que continua aleatório.
+- Análise: a mesma do T17 (adendo 9) na união da amostra atual com a extensão, mais o contraste pré-especificado urnas antigas (UE2013 e UE2015) contra novas (UE2020 e UE2022), com as covariáveis do T17 e, numa segunda versão, também o horário de encerramento do 1º turno e se a seção encerrou depois das 18h no 1º turno (fila).
+- Contribuição, se o grupo alterado fossem as urnas novas: coeficiente vezes 0,80 (fração das novas na frota). Se fossem as antigas: coeficiente vezes 0,20.
+
+Critério para o contraste antigas contra novas (y = virada de Lula):
+- **Sinal:** novas acima das antigas em 1,0 ponto ou mais, a mais de 4 erros-padrão, nas duas versões (com e sem as variáveis de fila), com placebo (fatia de Lula no 1º turno) abaixo de 1,5 ponto em valor absoluto e diferença no comparecimento que não explique o efeito (efeito na variação do comparecimento abaixo de 1 ponto).
+- **Sem sinal:** diferença abaixo de 0,5 ponto em valor absoluto, com erro-padrão até 0,2.
+- Entre os dois: inconclusivo. Referência: em 2022 o mesmo teste por modelo deu virada de -0,16 a -0,18 (erro-padrão 0,12).
+- Leitura de fila: se o efeito cair para menos da metade ao entrar o encerramento do 1º turno, e as seções antigas tiverem encerrado mais tarde no 1º turno, a explicação de fila fica favorecida.
