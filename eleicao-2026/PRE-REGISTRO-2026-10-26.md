@@ -403,3 +403,25 @@ Com os mesmos logs: T21(c), fração das habilitações sem biometria nos últim
 Com os logs das 3.897 seções da amostra (Adendo 12), refazer pelo mesmo código e com os mesmos critérios: T10 (versão, mídia, assinaturas no log, componentes novos), T3 (horários e ritmo) e T9 (biometria). Depois, baixar o `-vota.vsc` listado no `-aux.json` das outras 3.062 seções e refazer o T18 em todas (boletim e log de cada uma conferidos contra a assinatura da urna). Critérios sem mudança. Resultados das 835 já relatados; os das 3.062 ainda não foram olhados.
 
 T21(c), descritivo: fração das habilitações sem biometria das 15h30 de Brasília em diante, 2º contra 1º turno na mesma urna (analisar_biometria_tarde.py, escrito antes de rodar).
+
+## Adendo 14 (26/10, noite, antes de abrir qualquer boletim do estrato G): presidente contra governador na mesma urna
+
+Contexto: o T8 e o T14 mostram que, dentro de cada seção, Flávio perdeu em termos líquidos cerca de 5% dos próprios eleitores do 1º turno (coeficiente -0,050, erro-padrão 0,007), e esse é o termo que fecha a conta do ganho de Lula. Duas leituras: (a) eleitores de Flávio do 1º turno que faltaram ou anularam no 2º, substituídos por outros; (b) troca só no voto de presidente, feita pelo eleitor ou pelo programa. Quem falta não vota em nenhum cargo; a troca só no presidente não mexe no governador.
+
+Dados: prefixo de 2.400 seções do estrato G (ordem aleatória do sorteio original), só o `-bu.dat`, em download desde as 18h40 UTC; nenhum boletim aberto até este registro. Votos por candidato a governador no 1º turno extraídos do bweb do 1º turno das mesmas UFs.
+
+Campos fixados antes, com fontes conferidas por dois agentes independentes (arquivo `resultados/alinhamento_governadores_2t_2026.json`):
+- AM: campo de Flávio 22 (Professora Maria do Carmo, PL); campo de Lula 55 (Omar Aziz, PSD). Claro.
+- DF: campo de Flávio 11 (Celina Leão, PP); campo de Lula 13 (Leandro Grass, PT). Claro.
+- ES: campo de Flávio 10 (Pazolini, Republicanos); campo de Lula sem candidato claro.
+- RN: campo de Lula 13 (Cadu de Lula, PT); campo de Flávio sem candidato claro (Allyson neutro).
+- AC e TO: os dois finalistas no campo de Flávio; saem.
+
+Testes:
+- T22 como registrado no Adendo 9, com AM e DF (as UFs claras). O critério de sinal pede pelo menos 4 UFs: com 2, o T22 fica sem poder pelo registro e é relatado como descritivo.
+- T5 no 2º turno, como registrado no pré-registro original, nas 6 UFs (beta do branco+nulo de presidente contra o de governador; referências 0,468 em 2018 e 0,401 em 2022).
+- T22b (novo). Nas seções de AM, DF e ES, a mesma regressão do T8 para os dois cargos: ganho do candidato entre turnos contra os próprios votos no 1º turno, os votos dos demais candidatos do mesmo cargo no 1º turno, a queda do branco+nulo do cargo e a variação do comparecimento, com efeito fixo de local e erro agrupado por local. D = coeficiente dos próprios votos de Flávio menos o do candidato a governador do campo dele, nas mesmas seções (empilhado nas 3 UFs, com efeito fixo de local por cargo).
+  - Sinal de troca só no voto de presidente: D de -0,03 ou menos, a mais de 2,5 erros-padrão de zero.
+  - Sem sinal (a perda de Flávio acompanha a do aliado, como faria a falta ao 2º turno): D entre -0,015 e +0,015.
+  - Entre os dois: inconclusivo.
+  - Limites: não separa troca feita pelo eleitor (voto dividido) de troca feita pelo programa; a dinâmica do 2º turno de governador é própria (o aliado recebe votos dos eliminados do 1º turno estadual); não há referência de outro ano com os votos por candidato a governador.

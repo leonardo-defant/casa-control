@@ -1,0 +1,257 @@
+[
+ {
+  "uf": "AC",
+  "numero_e_nome_campo_flavio": "nenhum claro (os dois disputavam o campo de Flávio: 11 Mailza Assis (PP) e 10 Alan Rick (Republicanos) declararam apoio a Flávio, e Flávio não escolheu lado na disputa estadual)",
+  "numero_e_nome_campo_lula": "nenhum claro (nenhum dos dois finalistas estava no campo de Lula; no 1º turno Lula apoiou Thor Dantas, do PSB, que ficou em terceiro com 7,50%; não achei apoio do PT ou de Lula a 11 Mailza Assis nem a 10 Alan Rick no 2º turno)",
+  "alinhamento_claro": false,
+  "evidencia": "Números de urna (página de candidatos da Gazeta do Povo): Mailza Assis, PP, 11; Alan Rick, Republicanos, 10. Poder360, 04/10/2026: os dois candidatos declararam apoio a Flávio Bolsonaro na disputa presidencial e \"Flávio não declarou apoio a nenhum dos dois na eleição estadual\"; Lula apoiou Thor Dantas (PSB), que teve 7,50%. A coligação de Mailza (Avança Acre) incluía o PL, e a de Alan (Trabalho da Esperança) tinha Republicanos, PSD, Novo e Avante; nenhuma das duas tinha PT. O Antagonista, 09/10/2026: num evento em 08/10, Mailza disse \"Os dois lados apoiam o Flávio, os dois lados têm voto para o 22, então isso é natural\"; Flávio também pediu votos para Alan Rick. O Alto Acre, 13/10/2026: Mailza disse \"O Acre é Bolsonaro, é Flávio, e desde o início declaramos apoio a você. Quero reafirmar o meu apoio\"; Flávio elogiou Alan e o incentivou na corrida ao governo; o Republicanos anunciou apoio à candidatura presidencial do PL; o cientista político Nilson Euclides disse \"Quem vota na Mailza já é bolsonarista. Quem vota no Alan também já é bolsonarista\". No campo de Lula: Thor Dantas não declarou apoio a ninguém no 2º turno e citou branco e nulo como opção (O Palaciano e Notícias da Hora, por volta de 13/10/2026). Marcus Alexandre, que saiu do PT e foi eleito deputado estadual pelo MDB, apoiou Mailza (A Gazeta do Acre, 09/10/2026), mas isso não é posição do PT. Não achei nota do PT do Acre sobre o 2º turno. Depois da eleição (SBT News, 26/10/2026), Mailza foi reeleita com 66,21% contra 33,79%; ela tinha apoiado Flávio, reconheceu a vitória de Lula e disse que vai buscar parcerias com o governo federal, o que não muda o alinhamento durante a campanha.",
+  "fontes": [
+   "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-vao-ao-2o-turno-no-acre/",
+   "https://oantagonista.com.br/brasil/mailza-e-alan-rick-apoiam-flavio-no-2o-turno-no-acre/",
+   "https://oaltoacre.com/mailza-assis-e-alan-rick-buscam-apoio-de-flavio-bolsonaro-no-acre/",
+   "https://sbtnews.sbt.com.br/noticia/eleicoes/no-acre-mailza-assis-quer-fazer-parcerias-com-lula",
+   "https://www.gazetadopovo.com.br/eleicoes/2026/candidatos/ac/governador/",
+   "https://agazetadoacre.com/2026/10/noticias/politica/em-dia-de-agradecimento-no-calcadao-marcus-alexandre-reafirma-apoio-a-mailza-assis-no-2o-turno/",
+   "https://opalaciano.com.br/acre/thor-dantas-diz-que-voto-branco-e-nulo-sao-opcao-e-afirma-que-campo-progressista-pode-decidir-eleicao-no-acre/",
+   "https://noticiasdahora.com.br/politica/thor-dantas-diz-que-eleicao-de-segundo-turno-e-mais-dificil-escolher-e-deixa-duvidas-sobre-apoio-do-psb-no-acre/",
+   "https://www.cartacapital.com.br/politica/mailza-assis-vence-o-segundo-turno-e-e-reeleita-governadora-do-acre/"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "A conclusão se mantém: no 2º turno do AC, o campo de Flávio não tem candidato claro, o campo de Lula também não, e alinhamento claro = false. Duas partes da justificativa precisam de ajuste.\n\n1) Erro de fato: Thor Dantas (PSB) ficou em QUARTO lugar, com 7,50%. O terceiro foi Tião Bocalom (PSDB), com 10,22% (Poder360, 04/10/2026). Onde está \"terceiro com 7,50%\", o certo é \"quarto com 7,50%\".\n\n2) A frase \"Flávio não escolheu lado na disputa estadual\" está imprecisa e já estava desatualizada. A nota do Poder360 que diz que Flávio não declarou apoio a nenhum dos dois é de 04/10. Nos dias seguintes, Flávio acenou para os dois lados, ou seja, fez palanque duplo. Não houve neutralidade.\n- Pró Alan: numa agenda em Brasília no dia 07/10, Flávio disse \"lá no Acre Alan Rick 10 também para governador\", \"estamos juntos\" e \"o Acre vai ganhar muito com você como governador\" (A Gazeta, 08/10). O subtítulo de O Antagonista (09/10) diz que Flávio \"declarou voto em Alan Rick\". Segundo a mesma matéria, Mailza minimizou o risco desse apoio a Alan afetar a relação dela com Flávio.\n- Pró Mailza: o ac24horas (07/10) escreve que \"o presidenciável declarou apoio à candidatura de Mailza Assis (PP)\". O PL estava na coligação dela, e Flávio apareceu com Mailza no mesmo dia e de novo em 13/10 (O Alto Acre).\nIsso reforça \"nenhum claro\", com outro motivo. Sugestão de texto: \"nenhum claro (os dois finalistas apoiaram Flávio; Flávio fez palanque duplo: pediu votos para Alan Rick 10 em 07/10, enquanto o PL estava na coligação de Mailza e ele também apareceu com ela)\". Fica um risco: quem pesar mais o pedido explícito de voto pode querer marcar Alan Rick (10) como candidato de Flávio. Com o PL formalmente com Mailza, porém, essa leitura não fica clara.\n\n3) Campo de Lula: está correto, e dá para reforçar.\n- A coligação de Thor (Frente Ampla pelo Acre) reunia PSB, Podemos, PT, PCdoB e PV.\n- Thor não declarou apoio no 2º turno. Disse que branco e nulo são opção e falou em \"escolher o menos pior\" (O Palaciano; A Gazeta do Acre).\n- Perguntado sobre um possível apoio de Jorge Viana, Alan Rick respondeu que seu campo é o da direita. O presidente estadual do PL, João Paulo Bittar, disse que o partido não ficaria no mesmo campo do PT e de Lula (Juruá Informativo, 06/10).\n- Não achei apoio do PT ou de Lula a 11 Mailza Assis nem a 10 Alan Rick. Também não achei voto casado nem palanque da esquerda.\n\n4) Resultado: Mailza venceu com 66,21% (272.635 votos), contra 33,79% de Alan (139.108 votos). A manchete do Metrópoles que diz que Alan foi eleito está errada; o próprio texto da matéria traz 66,21% para Mailza. Os números de urna estão certos: PP 11, Republicanos 10.",
+   "fontes": [
+    "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-vao-ao-2o-turno-no-acre/",
+    "https://agazeta.net/apos-aparecer-com-mailza-flavio-bolsonaro-pede-votos-para-alan-rick-no-segundo-turno/",
+    "https://oantagonista.com.br/brasil/mailza-e-alan-rick-apoiam-flavio-no-2o-turno-no-acre/",
+    "https://ac24horas.com/2026/10/07/alan-rick-grava-video-e-pede-apoio-a-flavio-bolsonaro-no-segundo-turno/",
+    "https://oaltoacre.com/mailza-assis-e-alan-rick-buscam-apoio-de-flavio-bolsonaro-no-acre/",
+    "https://mais.opovo.com.br/jornal/politica/2026/10/16/12-governadores-eleitos-e-4-que-lideram-2-turno-apoiam-flavio.html",
+    "https://www.juruainformativo.com.br/2026/10/thor-da-recado-sobre-apoio-no-2o-turno-33-mil-votos-decidem-qualquer-eleicao/",
+    "https://opalaciano.com.br/acre/thor-dantas-diz-que-voto-branco-e-nulo-sao-opcao-e-afirma-que-campo-progressista-pode-decidir-eleicao-no-acre/",
+    "https://agazetadoacre.com/2026/10/noticias/politica/sem-declarar-apoio-no-2o-turno-thor-dantas-diz-que-seus-quase-33-mil-votos-podem-decidir-eleicao-no-acre/",
+    "https://agazetadoacre.com/2026/10/noticias/politica/lula-recebeu-54-mil-votos-a-mais-que-alan-rick-no-acre-no-segundo-turno/",
+    "https://www.metropoles.com/brasil/reviravolta-historica-alan-rick-e-eleito-governador-do-acre-apos-2o-turno",
+    "https://sbtnews.sbt.com.br/noticia/eleicoes/no-acre-mailza-assis-quer-fazer-parcerias-com-lula"
+   ]
+  }
+ },
+ {
+  "uf": "AM",
+  "numero_e_nome_campo_flavio": "22 - Professora Maria do Carmo (PL)",
+  "numero_e_nome_campo_lula": "55 - Omar Aziz (PSD)",
+  "alinhamento_claro": true,
+  "evidencia": "Campo Flávio, Maria do Carmo (PL, 22). Poder360 (04/10/2026): \"Maria do Carmo é a candidata de Flávio Bolsonaro (PL) na disputa estadual\". Portal Manaus Alerta (09/10/2026): Flávio \"manifestou apoio à candidatura da Professora Maria do Carmo\" no 2º turno. Estado Político e Rios de Notícias registram vídeo de 09/10/2026 em que Flávio pede votos para ela (\"Flávio para presidente e Professora Maria para governadora\"). BNC Amazonas (07/10/2026) descreve a mensagem da campanha como \"22 para presidente e 22 para governadora\". Rios de Notícias (20/10/2026): no \"Bloquinho do 22\" na Ponta Negra, em Manaus, em 19/10/2026, Flávio disse \"Eu preciso da Professora Maria como governadora do Amazonas\" e \"o Amazonas vai votar 22\". Campo Lula, Omar Aziz (PSD, 55). Poder360 (04/10/2026): Aziz \"recebeu o apoio de Luiz Inácio Lula da Silva (PT)\", embora o PSD tivesse Caiado como candidato a presidente. Gazeta do Povo (25/10/2026): a coligação reúne \"PSD, Republicanos, MDB e a federação Brasil da Esperança, integrada por PT, PCdoB e PV\". Amazonas Atual (10/10/2026): Eduardo Braga reafirma apoio a Lula e a Omar no 2º turno. BNC Amazonas (17/10/2026): ato da campanha de Lula no parque Gigantes da Floresta, em 18/10/2026, com Omar e Braga à frente, mas sem presença de Lula anunciada. CartaCapital (25/10/2026): \"Aliado de Lula, Omar Aziz vence o 2º turno\", com \"o endosso do presidente Lula (PT)\". Ressalvas: nenhuma reportagem achada traz Omar declarando o próprio voto em Lula ou Lula num palanque em Manaus no 2º turno; a ligação vem do apoio de Lula, da coligação com a federação do PT e do ato conjunto. O número 22 de Maria aparece nas fontes. O 55 de Omar não aparece escrito em nenhuma matéria; vem da regra de que o candidato a governador usa o número do partido (PSD = 55, art. 15 da Lei 9.504/97). Resultado (TSE, 25/10/2026): Omar 61,42% x Maria do Carmo 38,58%.",
+  "fontes": [
+   "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-e-professora-maria-do-carmo-vao-para-2o-turno-no-am/",
+   "https://portalmanausalerta.com.br/flavio-bolsonaro-declara-apoio-a-professora-maria-do-carmo-no-segundo-turno-no-amazonas/",
+   "https://www.estadopolitico.com.br/em-video-flavio-bolsonaro-pede-votos-para-maria-do-carmo/",
+   "https://www.riosdenoticias.com.br/flavio-bolsonaro-pede-voto-util-para-professora-maria-do-carmo-no-amazonas/",
+   "https://www.riosdenoticias.com.br/eu-preciso-da-professora-maria-como-governadora-afirma-flavio-bolsonaro-durante-bloquinho-do-22-em-manaus/",
+   "https://bncamazonas.com.br/poder/maria-do-carmo-aposta-em-flavio-e-nacionaliza-campanha-no-amazonas/",
+   "https://www.gazetadopovo.com.br/eleicoes/2026/amazonas/omar-aziz-eleito-governador-segundo-turno/",
+   "https://amazonasatual.com.br/eduardo-braga-reafirma-apoio-a-lula-e-omar-aziz-no-segundo-turno/",
+   "https://www.bncamazonas.com.br/poder/campanha-de-lula-projeta-maior-ato-da-esquerda-em-manaus-no-domingo/",
+   "https://www.cartacapital.com.br/politica/aliado-de-lula-omar-aziz-vence-o-2o-turno-e-sera-o-novo-governador-do-amazonas/",
+   "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/omar-aziz-e-eleito-governador-do-amazonas"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "A classificação está certa: Flávio = 22, Professora Maria do Carmo (PL); Lula = 55, Omar Aziz (PSD); alinhamento claro = true. Duas ressalvas da evidência estão desatualizadas e devem ser corrigidas, porque o alinhamento é mais forte do que o texto diz.\n\n1) Omar pediu voto para Lula, sim, e com a própria voz. BNC Amazonas (19/10/2026), no maior ato dele no 2º turno: \"O segundo voto para presidente é Lula, 13. Sabe por quê? Porque eu preciso dele para ajudar o Amazonas.\" A Crítica (13/10/2026): Omar diz que seu candidato \"é o Lula\" e reitera o apoio. Amazonas Atual (25/10/2026, dia da eleição): \"Não tenha dúvida. O presidente Lula é amigo nosso.\"\n\n2) O 55 aparece escrito nas matérias. BNC Amazonas (09/10/2026) cita Omar: \"Nos programas de televisão eu não vou tirar o nome do Lula do jogo. Ele vai estar lá. Lula 13 e Omar 55\" e \"Sei que o Lula não vai bem em Manaus, mas não vou esconder o nome do Lula\". A matéria de 19/10 também diz que ele pediu votos \"com o número 55\". Não é preciso tirar o número só da regra da Lei 9.504/97.\n\nProcurei evidência contrária (neutralidade, palanque duplo, apoio ao outro lado) e não achei nada que derrube a classificação. Só há nuances menores:\n(a) O PSD nacional (Kassab, 04/10) ficou neutro e deixou cada diretório decidir. Omar usou essa liberdade a favor de Lula.\n(b) O Republicanos, que está na coligação de Omar (Força Amazonas), apoiou Flávio no plano nacional. Não achei nenhum registro de Flávio no palanque de Omar.\n(c) Omar disse a Maria do Carmo que \"conheço o Flávio melhor do que a senhora\" e que \"a minha relação com o Flávio é dez vezes melhor do que com a senhora\" (A Crítica, 13/10). No dia da votação, ele evitou criticar Flávio e respondeu \"o que funciona é a boa política\" (Amazonas Atual, 25/10). É só cordialidade, sem apoio nenhum a Flávio.\n(d) Uma lista do O POVO (16/10) com os candidatos que lideram o 2º turno e apoiam Flávio não inclui Omar.\n\nNo lado de Maria do Carmo também não há sinal contrário. Rios de Notícias, Estado Político e Em Tempo confirmam o \"Bloquinho do 22\" em 19/10 na Ponta Negra, com a fala \"Eu preciso da Professora Maria como governadora do Amazonas\". Michelle Bolsonaro também foi a Manaus reforçar a campanha dela.\n\nNão consegui confirmar de forma independente o ato no parque Gigantes da Floresta (BNC 17/10). Isso não afeta a conclusão.\n\nO resultado confere: Omar teve 61,42% dos votos válidos (Portal do Holanda, 26/10: 1.273.371 votos) contra 38,58% de Maria do Carmo. No 1º turno, foi cerca de 40,6% x 24,5%.",
+   "fontes": [
+    "https://bncamazonas.com.br/poder/omar-aziz-12/",
+    "https://bncamazonas.com.br/poder/lula-vai-ganhar-maior-presenca-na-propaganda-de-omar-aziz/",
+    "https://www.acritica.com/politica/omar-afirma-que-seu-candidato-e-lula-e-que-conhece-melhor-flavio-bolsonaro-do-que-maria-do-carmo-1.417834",
+    "https://amazonasatual.com.br/o-que-funciona-e-a-boa-politica-diz-omar-sobre-relacao-com-o-governo-federal/",
+    "https://amazonasatual.com.br/eduardo-braga-reafirma-apoio-a-lula-e-omar-aziz-no-segundo-turno/",
+    "https://www.cartacapital.com.br/politica/aliado-de-lula-omar-aziz-vence-o-2o-turno-e-sera-o-novo-governador-do-amazonas/",
+    "https://www.portaldoholanda.com.br/politica/omar-aziz-entra-para-a-historia-com-maior-votacao-ja-registrada-para-governador-no-amazonas",
+    "https://bncamazonas.com.br/com-vitoria-de-omar-aziz-lula-ganha-senadora-e-am-a-1a-vice-governadora/",
+    "https://www.riosdenoticias.com.br/eu-preciso-da-professora-maria-como-governadora-afirma-flavio-bolsonaro-durante-bloquinho-do-22-em-manaus/",
+    "https://www.estadopolitico.com.br/flavio-pede-votos-para-professora-maria-durante-ato-politico-em-manaus/",
+    "https://emtempo.com.br/610313/politica/ato-flavio-bolsonaro-manaus-ponta-negra/",
+    "https://sbtnews.sbt.com.br/noticia/eleicoes/am-omar-aziz-e-maria-do-carmo-disputarao-o-2-turno",
+    "https://sbtnews.sbt.com.br/noticia/eleicoes/psd-anuncia-neutralidade-no-2-turno-entre-lula-e-flavio",
+    "https://midiamax.com.br/brasil/2026/republicanos-confirma-apoio-flavio-bolsonaro-2o-turno-eleicoes/",
+    "https://mais.opovo.com.br/jornal/politica/2026/10/16/12-governadores-eleitos-e-4-que-lideram-2-turno-apoiam-flavio.html",
+    "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/disputa-pelo-governo-do-amazonas-sera-decidida-no-2o-turno",
+    "https://ncnews.com.br/?p=58213",
+    "https://amp.dol.com.br/noticias/politica/966557/omar-aziz-e-eleito-governador-do-amazonas-no-2-turno"
+   ]
+  }
+ },
+ {
+  "uf": "DF",
+  "numero_e_nome_campo_flavio": "11 - Celina Leão (PP)",
+  "numero_e_nome_campo_lula": "13 - Leandro Grass (PT)",
+  "alinhamento_claro": true,
+  "evidencia": "Celina Leão (11, PP), campo de Flávio Bolsonaro: SBT News, 04/10/2026, a descreve como \"Aliada de Flávio Bolsonaro (PL-RJ)\" e diz que ela teve \"apoio mais explícito\" de Michelle Bolsonaro. O Hoje, 07/10/2026: numa reunião com o PL, depois que PP e União Brasil oficializaram apoio a Flávio no 2º turno, Celina disse: \"Nós aqui no Distrito Federal já estávamos com essa aliança desde o primeiro turno\" e \"isso incentiva aqueles estados que ainda não entraram na campanha do candidato Flávio Bolsonaro\". Correio da Manhã, 09/10/2026: ela recebeu o apoio do deputado Nikolas Ferreira (PL) numa caminhada. O Hoje, 12/10/2026: Celina \"reforçou seu alinhamento com a candidatura presidencial de Flávio Bolsonaro\" e afirmou: \"Nós não vamos deixar a petezada invadir o DF de jeito nenhum\". NC News, 17/10/2026: houve uma carreata e motociata \"em apoio às candidaturas de\" Flávio Bolsonaro e Celina Leão, da Torre de TV até a Esplanada, com Celina, Michelle Bolsonaro, Bia Kicis e Izalci. A presença do próprio Flávio nesse ato não foi confirmada. Leandro Grass (13, PT), campo de Lula: SBT News, 04/10/2026, diz que Grass \"recebeu suporte do presidente Lula (PT), com quem dividiu palanques durante a campanha\". Correio da Manhã, 09/10/2026: Lula faria uma \"caminhada na Ceilândia com Leandro Grass\", e Grass ganhou o apoio do PSB no 2º turno. SBT News, Itatiaia e Metrópoles, 09/10/2026: Lula fez o ato de rua ao lado de Grass em Ceilândia, abrindo a campanha de rua do 2º turno, e disse \"nós vamos ganhar essas eleições\" e que vai derrotar os \"ladrões do BRB\". Não se achou um pedido literal de voto de Lula para Grass, mas o palanque conjunto está documentado. Não há sinal de palanque duplo: cada candidato ficou num só campo. Números de urna conforme a Wikipedia (lista de candidatos do 1º turno): Celina Leão 11 e Leandro Grass 13. O resultado final do 2º turno de 25/10/2026 não foi verificado nesta pesquisa.",
+  "fontes": [
+   "https://sbtnews.sbt.com.br/noticia/eleicoes/governo-do-df-celina-leao-e-leandro-grass-disputam-2-turno",
+   "https://ohoje.com/2026/10/07/em-reuniao-com-o-pl-celina-leao-diz-que-apoio-do-centro-pode-ampliar-votos-de-flavio-bolsonaro/",
+   "https://ohoje.com/2026/10/12/celina-leao-critica-lula-e-diz-que-nao-vai-deixar-o-pt-avancar-no-df/",
+   "https://ncnews.com.br/?p=63738",
+   "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/10/325800-celina-e-grass-buscam-apoios-e-definem-estrategias-para-o-segundo-turno-no-df.html",
+   "https://sbtnews.sbt.com.br/noticia/politica/em-ato-no-df-lula-diz-que-vai-derrotar-ladroes-do-brb",
+   "https://www.itatiaia.com.br/noticias/lula-retoma-atos-de-campanha-com-caminhada-na-ceilandia-nesta-sexta-feira-9/",
+   "https://www.metropoles.com/brasil/lula-ato-campanha-ceilandia-brasilia",
+   "https://en.wikipedia.org/wiki/2026_Federal_District_general_election"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "A classificação está certa: Celina Leão (11, PP) fica no campo de Flávio e Leandro Grass (13, PT) no campo de Lula, com alinhamento claro. Não achei apoio de um candidato ao lado contrário, nem neutralidade declarada por algum deles, nem palanque duplo. Os números de urna 11 e 13 também aparecem no resumo de apuração do Canal Rural e na página da Wikipedia sobre a eleição de 2026 no DF.\n\nO que a pesquisa acrescenta e alguns ajustes:\n\n1) O PP nacional se declarou neutro na eleição presidencial e deixou cada diretório estadual livre para escolher (CNN Brasil, O Hoje 15/07). Essa neutralidade é do partido, não da Celina. Ela declarou apoio pessoal a Flávio já em julho (\"Meu candidato é Flávio\", segundo Diário do Poder e Gazeta do Povo), ajudou a reaproximar Flávio e Michelle e esteve na motociata convocada por Flávio no DF em 03/10, na véspera do 1º turno. Não foi confirmado se o próprio Flávio estava nesse ato.\n\n2) Em abril, aliados de Celina falavam em \"diálogo com Lula\" sobre o BRB (blog CB Poder). Isso era conversa de governo com governo, não apoio eleitoral, e não muda a classificação.\n\n3) Na matéria do O Hoje de 12/10, só a frase \"Nós não vamos deixar a petezada invadir o DF de jeito nenhum\" é citação literal. A parte sobre o \"alinhamento com a candidatura presidencial de Flávio\" é paráfrase do jornalista. O ato foi ao lado de Izalci.\n\n4) Na carreata de 17/10 (NC News), a matéria não diz se Flávio estava presente, como você já tinha anotado.\n\n5) Lula e Grass dividiram palanque mais de uma vez. Além do ato de 09/10 em Ceilândia no 2º turno (SBT News confirma a data e as frases), houve um ato dos dois em Ceilândia no 1º turno, em 16/09 (Itatiaia). A Prensa Mercosur, em 13/10, escreve que Lula \"pediu votos para Grass\", mas como paráfrase, sem frase literal. Então continua sem registro de um pedido literal de voto.\n\n6) No 2º turno, Grass falou em formar uma \"frente ampla\" e conversou com PSDB, Avante, Mobiliza, Agir e Solidariedade (Correio da Manhã, 07/10). Isso não é apoio do campo de Flávio e não configura palanque duplo. Celina recebeu o apoio do Novo, de Kiko Caputo.\n\n7) Ainda não achei o resultado do 2º turno de 25/10 nas buscas.",
+   "fontes": [
+    "https://sbtnews.sbt.com.br/noticia/politica/em-ato-no-df-lula-diz-que-vai-derrotar-ladroes-do-brb",
+    "https://www.itatiaia.com.br/politica/lula-participa-de-ato-com-grass-em-ceilandia-nesta-quarta-feira/",
+    "https://www.itatiaia.com.br/noticias/lula-retoma-atos-de-campanha-com-caminhada-na-ceilandia-nesta-sexta-feira-9/",
+    "https://prensamercosur.org/2026/10/13/lula-reune-multidao-em-ceilandia-e-defende-fim-da-escala-6x1/",
+    "https://ohoje.com/2026/10/12/celina-leao-critica-lula-e-diz-que-nao-vai-deixar-o-pt-avancar-no-df/",
+    "https://ohoje.com/2026/10/02/ta-chegando-a-hora-diz-flavio-bolsonaro-ao-convocar-motociata-no-df-neste-sabado-3/",
+    "https://ncnews.com.br/?p=63738",
+    "https://ncnews.com.br/?p=63787",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/celina-leao-reforca-apoio-a-flavio-e-michelle-bolsonaro-apos-atrito/",
+    "https://diariodopoder.com.br/brasil-e-regioes/xwk-brasil/celina-leao-defende-candidatura-de-michelle-e-declara-apoio-a-flavio/amp",
+    "https://www.cnnbrasil.com.br/eleicoes/analise-neutralidade-do-pp-e-vitoria-politica-de-lula/",
+    "https://ohoje.com/2026/07/15/neutralidade-do-centrao-abre-caminho-para-palanques-distintos-nos-estados/",
+    "https://blogs.correiobraziliense.com.br/cbpoder/aliados-de-celina-apostam-em-dialogo-com-lula/",
+    "https://www.correiodamanha.com.br/nacional/distrito-federal/brasilia/2026/10/325323-celina-leao-amplia-aliancas-e-leandro-grass-articula-frente-ampla.html",
+    "https://www.correiodamanha.com.br/colunistas/brasilianas/2026/10/324264-brasilianas-os-007-que-redefiniram-o-segundo-turno-no-df-e-colocaram-o-brb-no-centro-da-disputa.html",
+    "https://www.canalrural.com.br/radar/eleicoes-distrito-federal-votacao-apuracao/",
+    "https://en.wikipedia.org/wiki/2026_Federal_District_general_election",
+    "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/celina-leao-pp-e-leandro-grass-pt-disputam-o-2o-turno-no-distrito-federal"
+   ]
+  }
+ },
+ {
+  "uf": "ES",
+  "numero_e_nome_campo_flavio": "10, Lorenzo Pazolini (Republicanos)",
+  "numero_e_nome_campo_lula": "nenhum claro. Ricardo Ferraço (MDB, 15) recebeu pedido de voto do presidente estadual do PT, mas não declarou apoio a Lula e se manteve neutro na disputa presidencial",
+  "alinhamento_claro": false,
+  "evidencia": "Lado Flávio (claro): ES Hoje, 08/10/2026: Flávio Bolsonaro declarou apoio a Pazolini e gravou vídeo em Brasília com a frase \"Quem vota Flávio Bolsonaro para presidente, vota Pazolini\". No mesmo dia o Republicanos oficializou apoio a Flávio no 2º turno presidencial. CNN Brasil, 13/10/2026: Pazolini \"apoia o senador Flávio Bolsonaro (PL)\". ES Hoje, 14/10/2026: ato de Pazolini na Orla de Camburi, em Vitória, no sábado 17/10, com Flávio Bolsonaro, Tarcísio de Freitas e Nikolas Ferreira confirmados. Terra, 25/10/2026: Flávio participou do ato em Vitória em 17/10. A coligação reunia Republicanos, PL e Democrata, com a vice Eliane Leal (PL). Metrópoles, 25/10/2026: Pazolini \"recebeu o apoio de Flávio\".\nLado Lula (não claro): Sim Notícias, 16/09/2026: Ferraço manteve \"estratégia de neutralidade\" na eleição presidencial (\"uma casa dividida não prospera\"). CNN Brasil, 13/10/2026: Ferraço \"não demonstrou até o momento apoio formal a qualquer um dos candidatos\". A Gazeta, 18/10/2026: o presidente estadual do PT, João Coser, pediu \"o seu voto para Ricardo Ferraço governador, 15, e Lula presidente, 13\". Porém Ferraço não pediu apoio ao PT, se disse \"uma pessoa do campo democrático\", não declarou apoio a presidenciável, e seus aliados não estimulavam o voto \"RicaLula\": a estratégia era o voto \"RicaNaro\", porque a maioria dos capixabas votou em Flávio no 1º turno. Conclusão: Pazolini estava claramente no campo de Flávio. Ferraço não estava declaradamente no campo de Lula. Recebeu o voto petista sem retribuir e cortejou o eleitor de Flávio, ou seja, um palanque duplo sem lado claro. Por isso alinhamento_claro=false. Números de urna: Pazolini 10 e Ferraço 15 (Congresso em Foco; o 15 também aparece na fala de Coser, A Gazeta, 18/10/2026).",
+  "fontes": [
+   "https://eshoje.com.br/politica/2026/10/brasilia-pazolini-2o-turno/",
+   "https://eshoje.com.br/?p=902356",
+   "https://www.cnnbrasil.com.br/eleicoes/quem-governadores-eleitos-e-candidatos-ao-2o-turno-apoiarao-a-presidencia/",
+   "https://www.agazeta.com.br/colunas/leticia-goncalves/presidente-estadual-do-pt-declara-apoio-a-ricardo-ferraco-no-2-turno-1026",
+   "https://simnoticias.com.br/vinicius-baptista/a-neutralidade-calculada-de-ricardo-ferraco/",
+   "https://www.terra.com.br/noticias/eleicoes/espirito-santo/com-apoio-do-pl-lorenzo-pazolini-derrota-ricardo-ferraco-e-esta-eleito-governador-do-espirito-santo,964f3e92af194484d516b290f2ad652b9m0dbeoq.html",
+   "https://www.metropoles.com/brasil/eleicoes-tres-governadores-apoiados-por-flavio-sao-eleitos-no-2o-turno",
+   "https://www.congressoemfoco.com.br/noticia/123202/quem-sao-os-candidatos-ao-governo-do-espirito-santo-no-segundo-turno",
+   "https://www.agazeta.com.br/colunas/leticia-goncalves/bolsonarismo-supera-petismo-no-es-mas-lula-bate-um-milhao-de-votos-no-2-turno-1026"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "A classificação se sustenta. Ficam Pazolini (10, Republicanos) no campo de Flávio, nenhum candidato claramente no campo de Lula e alinhamento_claro=false. Procurei evidência contrária e não achei nada que coloque Ferraço declaradamente com Lula. Também não achei nada que coloque Pazolini com Lula ou em palanque duplo.\n\nConfirmado de forma independente:\n1) ES Hoje, 08/10/2026 (p=901306). O texto traz a frase literal de Flávio: \"Quem vota Flávio Bolsonaro para presidente, vota Pazolini\". Traz também \"Estou aqui com o nosso próximo governador Pazolini. É o candidato que veste a nossa camisa\" e a declaração de apoio de Tarcísio. Segundo o ES Hoje (p=901256), o Republicanos oficializou o apoio a Flávio no 2º turno em 07/10. No 1º turno o partido tinha ficado neutro. O apoio de Flávio a Pazolini existe desde julho de 2026, num evento do PL em Vitória.\n2) ES Hoje, 14/10/2026 (p=902356). O ato foi marcado para o sábado 17/10, às 9h, no Quiosque K1 da Orla de Camburi. Estavam confirmados Flávio, Tarcísio, Nikolas Ferreira e Marcos Pereira.\n3) Congresso em Foco, 24/10/2026. Os números são Pazolini 10 e Ferraço 15. A vice de Pazolini é Eliane Leal (PL), e a coligação inclui o PL.\n4) A Gazeta, 18/10/2026, 13h11 (Letícia Gonçalves). Coser pediu \"o seu voto para Ricardo Ferraço governador, 15, e Lula presidente, 13\". A coluna diz ainda \"Ricardo não pediu apoio ao PT\" e \"Ricardo não declarou apoio a nenhum candidato a presidente da República\".\n5) A Gazeta, 09/10/2026 (Letícia Gonçalves). Ferraço não declarou voto no 1º turno, manteve a postura no 2º e não pretende revelar sua preferência entre Lula e Flávio. Ele se disse de centro-direita e \"do campo democrático\". O MDB-ES seguiu neutro.\n6) CartaCapital, 04/10/2026. Ferraço \"fez questão de não declarar apoio a nenhum candidato a presidente\". O Povo, 16/10/2026, chama Ferraço de \"emedebista que se mantém neutro\".\n\nAjuste de nuance, que reforça o false: a frase \"seus aliados não estimulavam o voto RicaLula\" é imprecisa. Na A Gazeta de 14/10/2026 (coluna de Vitor Vogas, \"Voto Lulaço\"), o presidente estadual do PSB, Alberto Gavini, orienta os diretórios a pedir voto casado em Lula, Alckmin e Ricardo Ferraço: \"O Brasil precisa de Lula e o ES precisa de Ricardo\". O PSB é o partido de Casagrande, principal aliado de Ferraço. A mesma coluna diz que os aliados mais à direita defendiam o voto \"Ricanaro\" (Ricardo governador, Flávio presidente). Ferraço não endossou nenhum dos dois. Os aliados da sua frente estavam divididos: PSB e PT pediam Lulaço, a ala à direita pedia Ricanaro. Isso é exatamente um palanque duplo, e o próprio candidato não escolheu lado. Também pesa para o false que o União Brasil, da federação União Progressista, oficializou apoio a Pazolini no 2º turno, segundo o ES Hoje. Ainda assim, um deputado do União, Bruno Resende, apoiou Ferraço.\n\nRessalvas: não consegui abrir Sim Notícias, CNN Brasil, Terra nem Metrópoles para confirmar a frase literal \"uma casa dividida não prospera\" e as outras citações. Mas o que essas fontes afirmam aparece em outras fontes independentes (A Gazeta, CartaCapital, O Povo, ES Hoje).\n\nPara contexto, sem mudar a classificação: Pazolini venceu com 52,17% contra 47,83%. Depois da vitória, prometeu uma relação republicana com Lula, o que é só institucional e posterior à eleição.",
+   "fontes": [
+    "https://eshoje.com.br/?p=901306",
+    "https://eshoje.com.br/?p=901256",
+    "https://eshoje.com.br/?p=902356",
+    "https://eshoje.com.br/politica/2026/07/flavio-bolsonaro-apoio-pazolini-governo-es/",
+    "https://eshoje.com.br/?p=901889",
+    "https://eshoje.com.br/?p=901836",
+    "https://www.congressoemfoco.com.br/noticia/123202/quem-sao-os-candidatos-ao-governo-do-espirito-santo-no-segundo-turno",
+    "https://www.agazeta.com.br/colunas/leticia-goncalves/presidente-estadual-do-pt-declara-apoio-a-ricardo-ferraco-no-2-turno-1026",
+    "https://www.agazeta.com.br/colunas/leticia-goncalves/a-novidade-no-discurso-de-ricardo-ferraco-no-2-turno-1026",
+    "https://www.agazeta.com.br/colunas/vitor-vogas/voto-lulaco-partido-de-casagrande-pede-empenho-total-nas-campanhas-de-lula-e-ricardo-ferraco-1026",
+    "https://www.cartacapital.com.br/politica/ferraco-e-pazolini-vao-disputar-o-2o-turno-no-espirito-santo/",
+    "https://mais.opovo.com.br/jornal/politica/2026/10/16/12-governadores-eleitos-e-4-que-lideram-2-turno-apoiam-flavio.html",
+    "https://www.folhavitoria.com.br/politica/presidente-do-pt-declara-apoio-e-pede-votos-para-ricardo-ferraco/",
+    "https://emdiaes.com.br/politica/em-primeiro-discurso-apos-vitoria-pazolini-promete-unir-o-espirito-santo-e-garante-relacao-republicana-com-lula"
+   ]
+  }
+ },
+ {
+  "uf": "RN",
+  "numero_e_nome_campo_flavio": "nenhum claro. Allyson (44, União Brasil) ficou neutro na disputa presidencial e recusou apoiar Flávio Bolsonaro; o PL ficou neutro no 2º turno estadual, apenas liberando filiados para apoiar Allyson individualmente e vetando Cadu",
+  "numero_e_nome_campo_lula": "13, Cadu de Lula (PT, coligação Time que Cuida, vice Larissa do PSB)",
+  "alinhamento_claro": false,
+  "evidencia": "Números de urna: o Agora RN de 16/08/2026 lista \"13 Cadu de Lula, PT (coligação Time que Cuida)\" e \"44 Allyson, União Brasil (coligação Esperança e Trabalho)\". O Blog do Dina de 26/10/2026 também se refere ao \"44, número de Allyson\".\n\nCampo Lula: em 10/10/2026 (TMC e Poder360), Lula fez em Natal seu primeiro ato de rua do 2º turno fora do DF, desfilando em carro aberto com Cadu no Alecrim, e disse: \"O companheiro Cadu é uma promessa extraordinária\". A Gazeta do Povo de 25/10/2026 diz que Cadu de Lula teve o apoio de Lula. O O Povo de 16/10/2026 diz que ele \"colocou Lula até no nome de urna\".\n\nCampo Flávio: segundo o Agora RN de 08/10/2026, Allyson reafirmou a neutralidade e disse que não apoiará Lula nem Flávio: \"Quem votou em mim sabia da minha posição. A minha posição é a mesma.\" e \"colocar o Rio Grande do Norte acima de tudo\". No Agora RN de 09/10/2026, Rogério Marinho (PL, coordenador nacional da campanha de Flávio) contou que Allyson pediu apoio, mas respondeu que não teria como apoiar Flávio. Por isso, \"o PL, aqui no Rio Grande do Norte, entendeu que deve, nesse segundo turno no Estado, liberar o partido\". Álvaro Dias (PL, 22, 3º colocado) seguiu a orientação e disse que faria a campanha de Flávio \"como se o candidato fosse eu\". Na mesma cobertura (BNews RN, Agora RN), o único veto do PL era apoiar Cadu. A Gazeta do Povo de 25/10/2026 diz que Allyson \"manteve neutralidade no segundo turno e recusou apoio do PL, mesmo com seu partido, União Brasil, tendo declarado apoio a Flávio\". O O Povo de 16/10/2026, na lista de candidatos de 2º turno alinhados a Flávio, registra sobre o RN que \"o candidato que aparece numericamente à frente está neutro\".\n\nRessalva: bolsonaristas apoiaram Allyson por conta própria, como o deputado estadual Coronel Azevedo (Agora RN, 14/10/2026) e o General Girão (Agora RN, 15/10/2026, \"não vamos ficar do lado do PT jamais\"). Isso não é palanque de Flávio, porque Allyson não aderiu à candidatura dele. No dia da eleição (Blog do Dina, 26/10/2026), 26.671 eleitores digitaram 22 para governador, voto nulo. A leitura do texto é que essa é a maior parcela do eleitorado de Álvaro que se recusou a escolher entre os dois.\n\nConclusão: só existe um lado claro, Cadu (13) com Lula. Allyson (44) não estava no campo de Flávio, então não houve disputa Flávio x Lula definida no estado.",
+  "fontes": [
+   "https://agorarn.com.br/politica/eleicoes/candidatos-ao-governo-do-rn/",
+   "https://agorarn.com.br/politica/allyson-reafirma-neutralidade/",
+   "https://98fmnatal.com.br/eleicoes-2026/allyson-bezerra-neutralidade-lula-flavio-bolsonaro-segundo-turno/400096/",
+   "https://agorarn.com.br/politica/pl-neutro-allyson-apoio-flavio-rogerio/",
+   "https://agorarn.com.br/politica/pl-decide-ficar-neutro-no-2o-turno-mas-libera-filiados-a-apoiarem-allyson-no-rn/",
+   "https://www.bnewsrn.com.br/noticias/politica/sem-flavio-sem-apoio-pl-fica-neutro-no-2-turno-do-rn-apos-impasse-com-allyson-diz-marinho.html",
+   "https://agorarn.com.br/politica/general-girao-apoio-allyson-segundo-turno/",
+   "https://agorarn.com.br/politica/deputado-estadual-mais-votado-coronel-azevedo-declara-apoio-a-allyson-no-2o-turno/",
+   "https://tmc.com.br/politica/lula-cadu-caminhada-natal-segundo-turno-rn/",
+   "https://www.poder360.com.br/poder-eleicoes-2026/ao-vivo-lula-participa-de-ato-com-cadu-de-lula-em-natal/",
+   "https://www.gazetadopovo.com.br/eleicoes/2026/rio-grande-do-norte/resultado-eleicoes-rio-grande-do-norte-segundo-turno-cadu-de-lula-eleito-governador/",
+   "https://mais.opovo.com.br/jornal/politica/2026/10/16/12-governadores-eleitos-e-4-que-lideram-2-turno-apoiam-flavio.html",
+   "https://blogdodina.com/eleitores-apertaram-22-governador-rn-2-turno-rdv/",
+   "https://bznoticias.com.br/noticia/afinal-quem-e-o-candidato-de-allyson-bezerra-para-presidente-e-no-2-turno"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "A classificação se sustenta: campo de Flávio = nenhum claro, campo de Lula = 13 Cadu de Lula, alinhamento claro = false. Allyson nunca aderiu a Flávio, e Cadu foi o candidato oficial de Lula. Procurei evidência contrária e o que encontrei são nuances que reforçam a leitura, sem derrubá-la. Seguem os ajustes recomendados ao texto.\n\n1) Confirmado. Agora RN de 09/10: Rogério Marinho disse que Allyson pediu apoio, mas \"não tinha como assumir apoio à candidatura de Flávio\", e que o PL decidiu \"liberar o partido\". Na mesma cobertura do Agora RN aparece o único veto, que é apoiar Cadu. Agora RN de 08/10 e Coelho Fatos de outubro: Allyson reafirmou que não apoiaria Lula nem Flávio. CNN de 13/10: Allyson é um dos dois candidatos de 2º turno no país sem apoio formal a nenhum presidenciável, e Cadu aparece entre os que apoiam oficialmente Lula. O Povo de 16/10: \"o candidato que aparece numericamente à frente está neutro\", e o outro \"colocou Lula até no nome de urna\". Gazeta do Povo de 25/10: Allyson manteve a neutralidade \"mesmo após seu partido, o União Brasil, ter declarado apoio a Flávio\" (a federação União Progressista fez isso em 06/10). A mesma matéria confirma que Lula chamou Cadu de \"promessa extraordinária\" em Natal. O TMC confirma a caminhada em carro aberto no Alecrim em 10/10. O Agora RN registra a fala de Lula sobre o presente de aniversário.\n\n2) Nuance que falta no texto (o mais perto de palanque duplo que existe). O MDB do RN, partido do vice de Allyson, Hermano Morais, formalizou apoio a Flávio no 2º turno em 14/10 (Blog do Barreto). O presidente estadual do partido, o vice-governador Walter Alves, posou com Flávio em São Paulo. O Defato de 15/10 escreveu que isso \"carimba o bolsonarismo no palanque de Allyson\". Disse também que Allyson orientava a militância a usar as cores de Flávio e de Lula, para atrair eleitores dos dois lados. Ou seja: a chapa de Allyson tinha partidos alinhados a Flávio (MDB do RN, e o União Brasil no plano nacional), mas o candidato ficou neutro. Isso não muda a classificação. Mas o texto deveria dizer \"Allyson neutro, com aliados de chapa e partidos pró-Flávio\", e não só \"PL neutro\". Além de Coronel Azevedo e General Girão, também apoiaram Allyson por conta própria Sargento Gonçalves (que admitiu que Allyson não declarou apoio a Flávio), Camila Araújo e Paulinho Freire. Girão usou bandeiras do 44 em ato pró-Flávio (O Potiguar, 26/10).\n\n3) Correção sobre o voto 22. O número 26.671 está certo (Blog do Dina, pelo RDV; 7.097 desses votos em Natal). Mas a frase \"maior parcela do eleitorado de Álvaro que se recusou a escolher\" exagera. Esses votos são cerca de 5% dos 530.580 votos de Álvaro no 1º turno. E o próprio Blog do Dina avisa que o RDV mostra só o número digitado, sem dizer se foi erro, confusão ou protesto. No 1º turno do DF, 26,6 mil eleitores também digitaram 22, e lá foi tratado como confusão. Sugestão de redação: \"26.671 eleitores digitaram 22 (nulo), número de Álvaro, que não estava na disputa; a intenção não pode ser afirmada\". Outro dado que pode entrar: o 00 teve 32.122 votos, e somado ao 22 dá 58.793 votos. Isso supera a margem de 32.625 votos (Blog do BG, Blog do Dina).\n\n4) Frase sem confirmação. Não achei a fala de Álvaro \"como se o candidato fosse eu\". No Agora RN de 07/10, ele prometeu \"dedicação integral\" à campanha de Flávio. Disse também que ainda conversaria com Marinho antes de definir a posição no 2º turno estadual. Depois seguiu a liberação do PL, sem apoiar nenhum dos dois. Vale citar a fala de 07/10 no lugar dessa ou indicar a fonte exata.\n\n5) Resultado, para registro (Gazeta do Povo, 25/10, 100% apurado): Cadu 50,77% (1.073.024 votos) e Allyson 49,23% (1.040.399 votos). Lula teve 59,75% dos votos válidos no estado.\n\nConclusão: alinhamento claro = false está correto. Só existe um lado definido, Cadu (13) com Lula. Allyson (44) ficou neutro, apesar de o seu vice, o MDB do RN e o União Brasil nacional estarem com Flávio.",
+   "fontes": [
+    "https://agorarn.com.br/politica/pl-neutro-allyson-apoio-flavio-rogerio/",
+    "https://agorarn.com.br/coluna/neutralidade-de-allyson-busca-preservar-dialogo-com-proximo-presidente/",
+    "https://www.focoelho.com/2026/10/allyson-bezerra-reafirma-que-nao.html",
+    "https://www.cnnbrasil.com.br/eleicoes/quem-governadores-eleitos-e-candidatos-ao-2o-turno-apoiarao-a-presidencia/",
+    "https://mais.opovo.com.br/jornal/politica/2026/10/16/12-governadores-eleitos-e-4-que-lideram-2-turno-apoiam-flavio.html",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/rio-grande-do-norte/resultado-eleicoes-rio-grande-do-norte-segundo-turno-cadu-de-lula-eleito-governador/",
+    "https://tmc.com.br/politica/lula-cadu-caminhada-natal-segundo-turno-rn/",
+    "https://agorarn.com.br/?p=2406059",
+    "https://blogdobarreto.com.br/partido-do-vice-de-allyson-anuncia-apoio-a-flavio-bolsonaro/",
+    "https://www.defato.com/politica/129345/walter-alves-com-flvio-carimba-o-bolsonarismo-no-palanque-de-allyson-bezerra",
+    "https://agorarn.com.br/politica/sargento-goncalves-apoio-allyson-segundo-turno/",
+    "https://www.opotiguar.com.br/bolsonaristas-tentaram-usar-allyson-para-ajudar-flavio-mas-acabaram-dando-a-cadu-o-discurso-para-derrotar-allyson",
+    "https://www.congressoemfoco.com.br/noticia/123048/pp-e-uniao-brasil-declaram-apoio-a-flavio-no-segundo-turno",
+    "https://blogdodina.com/eleitores-apertaram-22-governador-rn-2-turno-rdv/",
+    "https://www.blogdobg.com.br/eleicoes-rn-votos-nos-numeros-00-e-22-no-2o-turno-somam-587-mil-e-superam-diferenca-entre-cadu-e-allyson/",
+    "https://www.cnnbrasil.com.br/eleicoes/df-26-mil-eleitores-digitaram-22-para-governador-e-anularam-voto/",
+    "https://agorarn.com.br/politica/alvaro-promete-dedicacao-integral-para-ampliar-votacao-de-flavio-bolsonaro-no-rn/",
+    "https://www.metropoles.com/brasil/eleicoes-tres-governadores-apoiados-por-flavio-sao-eleitos-no-2o-turno"
+   ]
+  }
+ },
+ {
+  "uf": "TO",
+  "numero_e_nome_campo_flavio": "44 Professora Dorinha (União Brasil), com apoio declarado de Flávio Bolsonaro no 2º turno. Vicentinho Júnior (45, PSDB) também declarou voto em Flávio e manteve essa posição, então os dois disputavam o mesmo campo.",
+  "numero_e_nome_campo_lula": "nenhum claro. Nem Lula nem o PT declararam apoio a candidato ao governo no 2º turno. Vicentinho Júnior (45, PSDB) recebeu Laurez Moreira (PSD), que foi o candidato de Lula no 1º turno, e aliados dele, mas o próprio Vicentinho declarou voto em Flávio.",
+  "alinhamento_claro": false,
+  "evidencia": "Dorinha (44) no campo de Flávio: Cleber Toledo, 07/10/2026: Flávio gravou vídeo declarando apoio a Dorinha e preteriu o \"bolsonarista\" Vicentinho. Gazeta Carajás: Dorinha declara apoio a Flávio no fim do vídeo. Jornal Opção, 14/10/2026: \"apoio declarado do candidato à Presidência Flávio Bolsonaro (PL) à sua campanha\". Jornal Opção, 20/10/2026: em vídeo, Flávio pede \"Pro futuro do Tocantins, a melhor é Dorinha. Dorinha governadora 44\". Jornal Opção, 26/10/2026: Dorinha foi \"neutra no 1º turno\" e \"aderiu à candidatura de Flávio no segundo\". A coligação dela incluía o PL (Congresso em Foco, 20/08/2026; Conexão TO, 05/08/2026). Ressalva: Dorinha já foi vice-líder do governo Lula no Senado (Cleber Toledo, 07/10/2026).\n\nVicentinho (45) também com Flávio: Cleber Toledo, 07/10/2026: no 1º turno Vicentinho já dizia que seu candidato era Flávio, e em 05/10 chamou a aproximação de Dorinha com Flávio de \"oportunismo eleitoral\". Terra, 25/10/2026: \"Vou dar meu voto a ele [Flávio] porque ele é a minha melhor opção. É o projeto que eu acredito\", e ele manteve a adesão mesmo depois do apoio de Flávio a Dorinha. Jornal Opção, 26/10/2026: \"Vicentinho também apoiava Flávio\".\n\nLula: Jornal Opção, 06/10/2026: \"Aliados de Laurez, que foi o candidato de Lula e da esquerda ao governo do estado, aderem ao tucano\" (Vicentinho). A chamada relacionada fala em \"divisão do palanque de Vicentinho entre Lula e Flávio Bolsonaro\". Nenhuma matéria encontrada registra apoio oficial de Lula ou do PT a qualquer um dos dois. Metrópoles, 07/10/2026: classificou o TO como neutro, sem palanque declarado para nenhum presidenciável (levantamento feito antes da adesão formal de Dorinha a Flávio).\n\nNúmeros de urna: 44 (Dorinha) confirmado no vídeo de Flávio. 45 (Vicentinho) confirmado na Gazeta do Povo e no TMC. Resultado (Gazeta do Povo, 25/10/2026): Vicentinho 64,52%, Dorinha 35,48%.",
+  "fontes": [
+   "https://clebertoledo.com.br/em-off/flavio-bolsonaro-pretere-bolsonarista-vicentinho-jr-e-declara-apoio-a-dorinha-vice-lider-de-lula-no-senado/",
+   "https://www.gazetacarajas.com/noticia/tocantins-dorinha-declara-apoio-a-flavio-bolsonaro",
+   "https://jornalprimeirapaginato.com/amp/o-melhor-e-dorinha-flavio-bolsonaro-declara-apoio-a-candidata-no-segundo-turno/",
+   "https://tocantins.jornalopcao.com.br/noticias/flavio-bolsonaro-convoca-militancia-e-pede-votos-para-dorinha-na-reta-final-do-segundo-turno-602820/",
+   "https://tocantins.jornalopcao.com.br/noticias/com-apoio-de-flavio-dorinha-diz-que-suas-propostas-dialogam-com-direita-e-esquerda-602331/",
+   "https://tocantins.jornalopcao.com.br/bastidores/vicentinho-abraca-aliados-do-palanque-de-esquerda-de-laurez-enquanto-dorinha-recebe-apoio-de-flavio-bolsonaro-e-da-direita-601678/",
+   "https://tocantins.jornalopcao.com.br/noticias/como-vicentinho-virou-a-eleicao-ganhou-quase-190-mil-votos-e-derrotou-a-candidata-governista-603285/",
+   "https://www.terra.com.br/noticias/brasil/policia/quem-e-vicentinho-junior-eleito-governador-de-tocantins,afa64c61cbc5844b4f808a6ded24988d7ae06hpo.html",
+   "https://www.metropoles.com/brasil/flavio-13-x-6-lula-veja-palanques-estaduais-dos-candidatos-para-o-2o-turno",
+   "https://www.congressoemfoco.com.br/noticia/121368/dorinha-e-vicentinho-protagonizam-disputa-pelo-governo-do-tocantins",
+   "https://conexaoto.com.br/2026/08/05/dorinha-e-oficializada-candidata-ao-governo-do-tocantins-chapa-uniao-pelo-tocantins-reune-8-partidos",
+   "https://www.gazetadopovo.com.br/eleicoes/2026/tocantins/resultado-eleicoes-tocantins-segundo-turno-vicentinho-eleito-governador/",
+   "https://www.gazetadopovo.com.br/eleicoes/2026/candidatos/to/governador/vicentinho-junior-psdb-45/",
+   "https://tmc.com.br/eleicoes/candidato/vicentinho-junior/"
+  ],
+  "conferencia": {
+   "concorda": true,
+   "correcao": "Concordo com a classificação. Alinhamento claro = false está correto. O campo de Lula pede um acréscimo importante.\n\n1) Campo de Flávio: confirmado. Em 07/10/2026, num vídeo noticiado pelo O Girassol, Flávio disse \"Para o futuro do Tocantins, o melhor é Dorinha. Dorinha governadora 44\". Dorinha respondeu com \"Para presidente, Flávio Bolsonaro 22\". Vicentinho (45) tinha declarado voto em Flávio antes do 1º turno e não mudou depois. A Agência Brasil e o Terra registram isso em 25/10, e o Cleber Toledo também, no texto \"reforça voto em Flávio\". O Brasil de Fato (04/10) chama os dois de \"bolsonaristas\" e \"alinhados com Flávio\". O próprio PL se dividiu: o senador Eduardo Gomes (PL) ficou com Dorinha, e o deputado estadual mais votado do PL, Moisemar Marinho, apoiou Vicentinho (Jornal Opção). Isso confirma que os dois disputavam o mesmo campo.\n\n2) Campo de Lula: \"nenhum claro\" se sustenta. Não achei apoio de Lula nem decisão oficial do PT, estadual ou nacional, para nenhum dos dois. Falta, porém, o sinal lulista mais forte da disputa. Em 10/10/2026 Kátia Abreu (PT), coordenadora da campanha de reeleição de Lula no Tocantins, declarou voto em Vicentinho (Cleber Toledo, 10/10; Jornal Opção, 11/10 e 17/10). Ela disse que Vicentinho \"não agiu com oportunismo, não foi hipócrita\" e lembrou o voto dele contra o impeachment de Dilma. As matérias deixam claro que foi uma escolha pessoal, \"não representou adesão institucional do PT\". O Diário Tocantinense (24/10) traz um bastidor sem confirmação: um dirigente nacional do PT acusou Kátia de ter \"usado\" o PT do Tocantins e de já ter um acordo com Vicentinho. Witer Naves (PSOL) também declarou voto em Vicentinho (Jornal Opção, 17/10). Laurez aderiu em 08/10, junto com os deputados do PSD Luciano Oliveira e Gutierres Torquato. Por isso o Jornal Opção (13/10) diz que Vicentinho \"apoia Flávio, mas reúne lideranças ligadas ao petista\". Na prática, o palanque de Vicentinho ficou dividido entre os aliados, mas ele nunca pediu voto em Lula. Uma nuance contrária: suplentes do PSD e um ex-candidato do PDT, partidos da coligação de Laurez, apoiaram Dorinha (O Girassol). A base de Laurez também se dividiu.\n\nSugestão de texto para o campo de Lula: \"nenhum claro. Nem Lula nem o PT declararam apoio oficial no 2º turno. Os sinais lulistas foram para Vicentinho (45), mas todos como manifestação individual: Kátia Abreu, coordenadora da campanha de Lula no TO, declarou voto nele; Laurez Moreira, candidato de Lula no 1º turno, e Witer Naves (PSOL) aderiram. Vicentinho, porém, manteve o voto em Flávio.\"\n\n3) Resultado e números de urna: confirmados. Vicentinho teve 562.083 votos (64,52%) e Dorinha 309.076 (35,48%), segundo Cleber Toledo e Gazeta do Povo (25/10). O 44 aparece no vídeo de Flávio, e o 45 na URL do candidato na CNN e na Gazeta do Povo. Dois detalhes menores: a Gazeta do Povo coloca Laurez no PSB, mas a maioria das fontes (Metrópoles, junho de 2026) diz PSD. E Flávio ganhou no TO no 2º turno presidencial com 51,37% contra 48,63% (Jornal Opção).",
+   "fontes": [
+    "https://ogirassol.com.br/politica/flavio-bolsonaro-declara-apoio-a-dorinha-no-segundo-turno-para-o-futuro-do-tocantins-o-melhor-e-dorinha/",
+    "https://clebertoledo.com.br/em-off/katia-escolhe-vicentinho-no-2o-turno-e-destaca-declaracao-de-voto-do-tucano-em-flavio-antes-da-eleicao-nao-agiu-com-oportunismo-nao-foi-hipocrita/",
+    "https://tocantins.jornalopcao.com.br/noticias/declaracao-de-katia-abreu-escancara-espaco-para-presenca-da-esquerda-na-campanha-de-vicentinho-junior-602049/",
+    "https://tocantins.jornalopcao.com.br/noticias/alem-da-coordenadora-do-pt-katia-abreu-vicentinho-soma-apoio-de-candidato-derrotado-do-psol-602541/",
+    "https://diariotocantinense.com.br/2026/10/24/bastidor-katia-teria-usado-pt-do-tocantins-e-ja-teria-acordo-com-vicentinho/",
+    "https://diariotocantinense.com.br/2026/10/21/katia-abreu-laurez-dimas-e-eli-reforcam-vicentinho-dorinha-reune-wanderlei-gomes-e-apoio-de-michelle/",
+    "https://tocantins.jornalopcao.com.br/bastidores/mdb-de-alexandre-guimaraes-repete-divisao-do-palanque-de-vicentinho-entre-lula-e-flavio-bolsonaro-602206/",
+    "https://tocantins.jornalopcao.com.br/bastidores/vicentinho-abraca-aliados-do-palanque-de-esquerda-de-laurez-enquanto-dorinha-recebe-apoio-de-flavio-bolsonaro-e-da-direita-601678/",
+    "https://tocantins.jornalopcao.com.br/noticias/como-vicentinho-virou-a-eleicao-ganhou-quase-190-mil-votos-e-derrotou-a-candidata-governista-603285/",
+    "https://clebertoledo.com.br/politica/vicentinho-junior-abre-2o-turno-com-apoio-de-luciano-gutierres-iolanda-e-vereadores-de-gurupi-critica-pesquisas-e-reforca-voto-em-flavio/",
+    "https://www.terra.com.br/noticias/brasil/policia/quem-e-vicentinho-junior-eleito-governador-de-tocantins,afa64c61cbc5844b4f808a6ded24988d7ae06hpo.html",
+    "https://agenciabrasil.ebc.com.br/radioagencia-nacional/politica/audio/2026-10/de-virada-vicentinho-junior-e-eleito-governador-de-tocantins",
+    "https://www.brasildefato.com.br/2026/10/04/bolsonaristas-professora-dorinha-uniao-brasil-e-vicentinho-junior-psdb-disputam-2o-turno-para-o-governo-do-tocantins/",
+    "https://ogirassol.com.br/politica/suplentes-do-psd-e-ex-candidato-do-pdt-declaram-apoio-a-professora-dorinha-no-segundo-turno/",
+    "https://clebertoledo.com.br/politica/vicentinho-junior-vira-no-2o-turno-e-e-eleito-governador-do-tocantins/",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/tocantins/resultado-eleicoes-tocantins-segundo-turno-vicentinho-eleito-governador/",
+    "https://www.cnnbrasil.com.br/eleicoes/vicentinho-junior-e-eleito-governador-do-tocantins-no-2o-turno/",
+    "https://tocantins.jornalopcao.com.br/noticias/lula-ganha-quase-39-mil-votos-no-tocantins-e-reduz-vantagem-de-flavio-bolsonaro-no-segundo-turno-603290/",
+    "https://www.metropoles.com/brasil/tocantins-pt-fecha-apoio-a-laurez-moreira-psd-na-disputa-do-governo"
+   ]
+  }
+ }
+]
