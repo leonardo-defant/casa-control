@@ -25,12 +25,13 @@ const fase = (t, ini, dur) => clamp((t - ini) / dur);
 const suave = x => x * x * (3 - 2 * x);
 const saida = x => 1 - Math.pow(1 - x, 3);
 const mistura = (a, b, k) => a + (b - a) * k;
+let ALFA = 1;  // multiplicador de opacidade dos textos e caixas (transições)
 function rgba(hex, a) {
   const n = parseInt(hex.slice(1), 16);
   return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`;
 }
 function texto(s, x, y, tam, cor, peso = 700, alinhar = 'center', alfa = 1) {
-  g.save(); g.globalAlpha = alfa; g.fillStyle = cor; g.font = `${peso} ${tam}px ${FONTE}`;
+  g.save(); g.globalAlpha = alfa * ALFA; g.fillStyle = cor; g.font = `${peso} ${tam}px ${FONTE}`;
   g.textAlign = alinhar; g.textBaseline = 'middle'; g.fillText(s, x, y); g.restore();
 }
 function quebrar(s, larg, tam, peso) {
@@ -44,7 +45,7 @@ function paragrafo(s, x, y, larg, tam, cor, peso = 600, alfa = 1, entrelinha = 1
   return ls.length * tam * entrelinha;
 }
 function caixa(x, y, w, h, r, cor, alfa = 1, borda = null) {
-  g.save(); g.globalAlpha = alfa; g.beginPath(); g.roundRect(x, y, w, h, r); g.fillStyle = cor; g.fill();
+  g.save(); g.globalAlpha = alfa * ALFA; g.beginPath(); g.roundRect(x, y, w, h, r); g.fillStyle = cor; g.fill();
   if (borda) { g.strokeStyle = borda; g.lineWidth = 2; g.stroke(); } g.restore();
 }
 // L(n, reserva): início, em segundos da cena, da legenda n; sincroniza a animação com a fala
@@ -76,10 +77,10 @@ function prepararMapa() {
   const ox = (W - larg) / 2, oy = 370;
   window.MAPA_FIM = oy + alt;
   let semente = 7; const aleat = () => (semente = (semente * 16807) % 2147483647) / 2147483647;
-  PONTOS = brutos.map(([x, y, c]) => ({ x: ox + (x - xmin) * esc, y: oy + (y - ymin) * esc, quem: c[2], flavio1t: c[3], ordem: aleat() }));
+  PONTOS = brutos.map(([x, y, c]) => ({ x: ox + (x - xmin) * esc, y: oy + (y - ymin) * esc, quem: c[2], flavio1t: c[3], margem: c[6], ordem: aleat() }));
 }
 function mapa(t, opc) {
-  // opc: aparecer (0..1), colorir (0..1), focoRedutos (0..1), alfa
+  // opc: aparecer (0..1), colorir (0..1), focoRedutos (0..1), porMargem (0..1: redutos coloridos pela margem em pontos), alfa
   if (!PONTOS) prepararMapa();
   const a = opc.alfa ?? 1;
   for (const p of PONTOS) {
@@ -87,7 +88,8 @@ function mapa(t, opc) {
     if (vis <= 0) continue;
     let cor = '#C9D1E0', al = 0.55;
     const k = clamp((opc.colorir - p.ordem * 0.5) / 0.5);
-    if (k > 0) { cor = p.quem === 1 ? COR.lula : (p.quem === -1 ? COR.flavio : '#C9D1E0'); al = mistura(0.55, 0.9, k); }
+    const quem = (opc.porMargem > p.ordem && p.flavio1t >= 65) ? p.margem : p.quem;
+    if (k > 0) { cor = quem === 1 ? COR.lula : (quem === -1 ? COR.flavio : '#C9D1E0'); al = mistura(0.55, 0.9, k); }
     if (opc.focoRedutos) { const reduto = p.flavio1t >= 65; al *= reduto ? 1 : mistura(1, 0.12, opc.focoRedutos); }
     g.globalAlpha = al * vis * a; g.fillStyle = k > 0.5 ? cor : '#C9D1E0';
     if (k > 0 && k <= 0.5) g.fillStyle = cor;
@@ -101,9 +103,17 @@ function cartao(x, y, w, h, t0, t, titulo, corpo, corBarra) {
   const k = saida(fase(t, t0, 0.6)); if (k <= 0) return;
   const dx = (1 - k) * 80;
   caixa(x + dx, y, w, h, 28, COR.cartao, k, 'rgba(255,255,255,0.10)');
-  g.save(); g.globalAlpha = k; g.fillStyle = corBarra; g.fillRect(x + dx, y + 26, 10, h - 52); g.restore();
+  g.save(); g.globalAlpha = k * ALFA; g.fillStyle = corBarra; g.fillRect(x + dx, y + 26, 10, h - 52); g.restore();
   texto(titulo, x + dx + 50, y + 66, 60, COR.texto, 800, 'left', k);
   paragrafo(corpo, x + dx + 50, y + 132, w - 100, 34, COR.fraco, 500, k, 1.3, 'left');
+}
+function cartaoPartes(x, y, w, h, t0, t, titulo, partes, corBarra) {
+  const k = saida(fase(t, t0, 0.6)); if (k <= 0) return;
+  const dx = (1 - k) * 80;
+  caixa(x + dx, y, w, h, 28, COR.cartao, k, 'rgba(255,255,255,0.10)');
+  g.save(); g.globalAlpha = k * ALFA; g.fillStyle = corBarra; g.fillRect(x + dx, y + 26, 10, h - 52); g.restore();
+  texto(titulo, x + dx + 50, y + 66, 60, COR.texto, 800, 'left', k);
+  partes.forEach(([s, tp], i) => texto(s, x + dx + 50, y + 132 + i * 44, 34, COR.fraco, 500, 'left', k * saida(fase(t, tp, 0.5))));
 }
 function contador(valor, casas, t, t0, dur) { return valor * saida(fase(t, t0, dur)); }
 function pergunta(s, t, t0, y = 960, tam = 84) {
@@ -133,38 +143,48 @@ const CENAS = {
     rodape('TSE, totais do 2º turno por município');
   },
   contexto(t, d) {
-    mapa(t, { aparecer: 1, colorir: 0, alfa: 0.18 });
-    cartao(60, 300, 960, 250, L(0, 0.3), t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
-    cartao(60, 574, 960, 300, L(2, d * 0.2) - 0.2, t, 'PL: 121 deputados', 'e 29 dos 81 senadores: as maiores bancadas de um partido desde 1988. Com a direita, mais da metade do Senado', COR.flavio);
-    cartao(60, 898, 960, 270, L(8, d * 0.55) - 0.2, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
-    cartao(60, 1192, 960, 270, L(11, d * 0.8) - 0.2, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
+    mapa(t, { aparecer: 1, colorir: 0, alfa: mistura(1, 0.07, suave(fase(t, 0, 0.6))) });
+    ALFA = 1 - fase(t, d - 0.4, 0.4);  // os cartões somem antes do mapa voltar
+    cartao(60, 300, 960, 250, L(1, 2.4) - 0.2, t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
+    cartaoPartes(60, 574, 960, 300, L(2, d * 0.17) - 0.2, t, 'PL: 121 deputados', [
+      ['e deve começar com 29 dos 81 senadores', L(3, d * 0.27) - 0.2],
+      ['as maiores bancadas de um partido desde 1988', L(4, d * 0.38) - 0.2],
+      ['com a direita, mais da metade do Senado', L(6, d * 0.5) - 0.2]], COR.flavio);
+    cartao(60, 898, 960, 270, L(7, d * 0.63) - 0.2, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
+    cartao(60, 1192, 960, 270, L(10, d * 0.85) - 0.2, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
+    ALFA = 1;
     rodape('TSE; Agência Brasil e Agência Senado (bancadas); apoios e pesquisas divulgados na imprensa');
   },
   mapa(t, d) {
-    const tc = L(2, 3.0) - 0.6, tr = L(6, d * 0.62) - 0.3;
-    mapa(t, { aparecer: 1, colorir: fase(t, tc, 2.2), focoRedutos: suave(fase(t, tr, 1.2)) });
-    const k1 = saida(fase(t, tc + 0.6, 1.0)), k2 = suave(fase(t, tr, 1.0));
-    const yb = 1250;
-    caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', k1 * (1 - k2), 'rgba(255,255,255,0.10)');
-    texto(fmt(Math.round(contador(5228, 0, t, tc + 0.6, 2.0))) + ' cidades', W / 2, yb + 80, 76, COR.lula, 900, 'center', k1 * (1 - k2));
-    texto('94% das cidades: Lula cresceu mais que Flávio', W / 2, yb + 160, 34, COR.texto, 600, 'center', k1 * (1 - k2));
-    texto('saldo de Lula nelas: +' + fmt(contador(6.7, 1, t, tc + 1.2, 2.0), 1) + ' milhões', W / 2, yb + 240, 44, COR.texto, 800, 'center', k1 * (1 - k2));
+    const tcMapa = L(1, 2.4) + 2.6, tr = L(6, d * 0.6) - 0.3;
+    const foco = suave(fase(t, tr, 1.2));
+    mapa(t, { aparecer: 1, colorir: fase(t, tcMapa, 2.2), focoRedutos: foco, porMargem: foco, alfa: mistura(0.07, 1, suave(fase(t, 0, 0.6))) });
+    const k1 = saida(fase(t, L(2, 7.4) - 0.2, 0.8)), kSai = 1 - suave(fase(t, tr, 0.4)), k2 = suave(fase(t, tr + 0.4, 0.6));
+    const yb = 1250, a1 = k1 * kSai;
+    caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', a1, 'rgba(255,255,255,0.10)');
+    texto(fmt(Math.round(contador(5228, 0, t, L(2, 7.4) - 0.2, 1.6))) + ' cidades', W / 2, yb + 80, 76, COR.lula, 900, 'center', a1);
+    texto('94% das cidades: Lula cresceu mais que Flávio', W / 2, yb + 160, 34, COR.texto, 600, 'center', a1 * saida(fase(t, L(3, 9.6) - 0.2, 0.5)));
+    const t67 = L(5, 13.3) - 0.2;
+    texto('saldo de Lula nelas: +' + fmt(contador(6.7, 1, t, t67, 1.6), 1) + ' milhões', W / 2, yb + 240, 44, COR.texto, 800, 'center', a1 * saida(fase(t, t67, 0.4)));
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', k2, 'rgba(255,255,255,0.10)');
     texto('Redutos de Flávio', W / 2, yb + 70, 44, COR.flavio, 800, 'center', k2);
     texto('(mais de 65% no 1º turno)', W / 2, yb + 122, 32, COR.fraco, 600, 'center', k2);
-    texto('margem andou para Lula em 89%', W / 2, yb + 205, 58, COR.lula, 900, 'center', k2);
-    texto('a virada ali foi menor: 2,5 pontos, contra 4,4 na média', W / 2, yb + 275, 30, COR.fraco, 600, 'center', k2);
-    // legenda de cores
-    const kl = k1;
-    g.globalAlpha = kl; g.fillStyle = COR.lula; g.beginPath(); g.arc(250, 300, 12, 0, 6.28); g.fill();
-    g.fillStyle = COR.flavio; g.beginPath(); g.arc(640, 300, 12, 0, 6.28); g.fill(); g.globalAlpha = 1;
-    texto('Lula cresceu mais', 275, 300, 28, COR.texto, 600, 'left', kl);
-    texto('Flávio cresceu mais', 665, 300, 28, COR.texto, 600, 'left', kl);
-    rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades)');
+    const t89 = L(9, d * 0.8) - 0.2;
+    texto('margem andou para Lula em ' + Math.round(contador(89, 0, t, t89, Math.max(0.8, L(10, d * 0.9) - t89 + 0.3))) + '%', W / 2, yb + 205, 48, COR.lula, 900, 'center', k2 * saida(fase(t, t89, 0.5)));
+    texto('a virada ali foi menor: 2,5 pontos, contra 4,4 na média', W / 2, yb + 275, 30, COR.fraco, 600, 'center', k2 * saida(fase(t, L(8, d * 0.73) - 0.2, 0.5)));
+    // legenda de cores: até os redutos, quem ganhou mais votos; nos redutos, para onde andou a margem
+    const kl = saida(fase(t, tcMapa, 0.8)), r = suave(fase(t, tr + 0.2, 0.6));
+    g.globalAlpha = kl; g.fillStyle = COR.lula; g.beginPath(); g.arc(230, 300, 12, 0, 6.28); g.fill();
+    g.fillStyle = COR.flavio; g.beginPath(); g.arc(620, 300, 12, 0, 6.28); g.fill(); g.globalAlpha = 1;
+    texto('Lula cresceu mais', 255, 300, 28, COR.texto, 600, 'left', kl * (1 - r));
+    texto('Flávio cresceu mais', 645, 300, 28, COR.texto, 600, 'left', kl * (1 - r));
+    texto('margem foi para Lula', 255, 300, 28, COR.texto, 600, 'left', kl * r);
+    texto('margem foi para Flávio', 645, 300, 28, COR.texto, 600, 'left', kl * r);
+    rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades); margem em pontos dos votos válidos');
   },
   pergunta(t, d) {
     mapa(t, { aparecer: 1, colorir: 1, alfa: 0.22 });
-    pergunta('De onde veio esse movimento?', t, 0.3, 980, 96);
+    pergunta('De onde veio esse movimento?', t, L(1, 1.8) - 0.2, 980, 96);
   },
   conta(t, d) {
     const blocos = [['Votos dos derrotados', 9.32], ['Aumento do comparecimento', 2.96], ['Queda do branco e nulo', 1.82]];
@@ -185,16 +205,19 @@ const CENAS = {
     if (kf > 0) {
       caixa(x0, y0, wf * kf, alt, 18, COR.flavio, 1);
       texto('Flávio +3,72 mi', x0 + 10, y0 + alt + 46, 34, COR.flavio, 800, 'left', kf);
-      texto('equivale a 40% dos derrotados', x0 + 10, y0 + alt + 88, 28, COR.fraco, 600, 'left', kf);
+      texto('equivale a 40% dos derrotados', x0 + 10, y0 + alt + 88, 28, COR.fraco, 600, 'left', saida(fase(t, L(6, tf + 2.8) - 0.2, 0.6)));
     }
     const partes = [['outros 60% dos derrotados', 5.60, 1.0], ['aumento do comparecimento', 2.96, 0.78], ['queda do branco e nulo', 1.82, 0.58]];
     let x = x0 + wf; const tl = L(7, tf + 2.4);
     partes.forEach(([nome, v, a], i) => {
       const k = suave(fase(t, L(8 + i, tl + i * 1.1) - 0.2, 0.8)); const w = lg * v / tot;
       if (k > 0) {
-        g.save(); g.globalAlpha = a; caixa(x, y0, w * k, alt, 6, COR.lula, 1); g.restore();
-        texto(fmt(v, 2).replace(',60', ',6'), x + w / 2, y0 + alt / 2, 30, '#FFFFFF', 800, 'center', k);
-        texto(nome, x0 + lg, y0 + alt + 128 + i * 40, 28, COR.texto, 600, 'right', k);
+        caixa(x, y0, w * k, alt, 6, COR.lula, a);
+        texto(fmt(v, 2), x + w / 2, y0 + alt / 2, 30, '#FFFFFF', 800, 'center', k);
+        const rot = fmt(v, 2) + ' mi: ' + nome, yr = y0 + alt + 128 + i * 40;
+        g.font = `600 28px ${FONTE}`; const lr = g.measureText(rot).width;
+        caixa(x0 + lg - lr - 34, yr - 11, 22, 22, 4, COR.lula, a * k);
+        texto(rot, x0 + lg, yr, 28, COR.texto, 600, 'right', k);
       }
       x += w;
     });
@@ -209,26 +232,28 @@ const CENAS = {
   },
   base(t, d) {
     rotuloDuvida(1, t);
-    const k1 = saida(fase(t, L(1, 0.4), 0.7)), k2 = saida(fase(t, L(4, d * 0.35) - 0.2, 0.7)), k3 = saida(fase(t, L(5, d * 0.62) - 0.2, 0.7));
+    const k1 = saida(fase(t, L(3, d * 0.24) - 0.2, 0.7)), k2 = saida(fase(t, L(4, d * 0.35) - 0.2, 0.7)), k3 = saida(fase(t, L(5, d * 0.62) - 0.2, 0.7));
     function coluna(x, nome, cor, pct, corDest, k) {
       caixa(x, 360, 440, 520, 30, COR.cartao, k, 'rgba(255,255,255,0.10)');
-      paragrafo(nome, x + 220, 420, 380, 34, COR.texto, 700, k);
+      texto(nome, x + 220, 410, 34, COR.texto, 700, 'center', k); texto('no 1º turno', x + 220, 452, 34, COR.texto, 700, 'center', k);
       texto(fmt(pct, 1).replace(',0', '') + '%', x + 220, 650, 120, corDest, 900, 'center', k);
-      paragrafo(cor, x + 220, 760, 380, 32, COR.fraco, 600, k);
+      texto(cor, x + 220, 750, 32, COR.fraco, 600, 'center', k); texto('no saldo (estimativa)', x + 220, 792, 32, COR.fraco, 600, 'center', k);
     }
-    coluna(80, 'Base de Flávio no 1º turno', 'perdida para Lula, no saldo (estimativa)', 5.0, COR.lula, k1);
-    coluna(560, 'Base de Lula no 1º turno', 'perdida para Flávio, no saldo (estimativa)', 1.1, COR.flavio, k2);
+    const kA = saida(fase(t, L(1, 1.4) - 0.2, 0.6)) * (1 - saida(fase(t, L(3, d * 0.24) - 0.6, 0.4)));
+    texto('amostra de 3.897 seções', W / 2, 620, 60, COR.texto, 800, 'center', kA);
+    coluna(80, 'Base de Flávio', 'perdida para Lula,', 5.0, COR.lula, k1);
+    coluna(560, 'Base de Lula', 'perdida para Flávio,', 1.1, COR.flavio, k2);
     caixa(80, 940, 920, 170, 30, rgba(COR.destaque, 0.10), k3, rgba(COR.destaque, 0.7));
     texto('Nas pesquisas: perdas parecidas', W / 2, 1000, 48, COR.destaque, 800, 'center', k3);
-    texto('PoderData 5% e 5%; Ipespe 2% e 1%', W / 2, 1062, 32, COR.fraco, 600, 'center', k3);
+    texto('PoderData, 23 e 24/10: cada lado perdia 5% para o outro', W / 2, 1062, 30, COR.fraco, 600, 'center', k3);
     const k4 = saida(fase(t, L(6, d * 0.8) - 0.2, 0.7));
     texto('≈ 2 milhões de votos', W / 2, 1230, 76, COR.texto, 900, 'center', k4);
     paragrafo('mudança de lado ou troca de eleitores entre os turnos', W / 2, 1310, 900, 34, COR.fraco, 600, k4);
-    rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); PoderData 23 e 24/10; Ipespe 13 a 15/10');
+    rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); PoderData 23 e 24/10');
   },
   pesquisas(t, d) {
     rotuloDuvida(2, t);
-    function painel(y, titulo, erro, t0, nota) {
+    function painel(y, titulo, erro, t0, nota, tNota) {
       const k = saida(fase(t, t0, 0.7));
       caixa(80, y, 920, 480, 30, COR.cartao, k, 'rgba(255,255,255,0.10)');
       texto(titulo, W / 2, y + 60, 40, COR.texto, 800, 'center', k);
@@ -237,13 +262,13 @@ const CENAS = {
       texto('resultado', cx, y + 355, 26, COR.fraco, 600, 'center', k);
       const pts = erro.pontos;
       pts.forEach((e, i) => {
-        const kk = saida(fase(t, t0 + 0.4 + i * 0.08, 0.5)); const x = cx - e * 120; const yy = y + 130 + i * 16;
+        const kk = saida(fase(t, t0 + 0.4 + i * 0.08, 0.5)); const x = cx - e * 100; const yy = y + 125 + i * 18;
         g.globalAlpha = k * kk; g.fillStyle = COR.lula; g.beginPath(); g.arc(x, yy, 9, 0, 6.28); g.fill(); g.globalAlpha = 1;
       });
-      texto(nota, W / 2, y + 420, 38, erro.cor, 800, 'center', k);
+      texto(nota, W / 2, y + 420, 38, erro.cor, 800, 'center', k * saida(fase(t, tNota, 0.6)));
     }
-    painel(330, '1º turno (10 institutos): erro em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, L(1, 0.4) - 0.2, 'mediana 0,2; Flávio subestimado em 9 de 10');
-    painel(870, '2º turno: os 12 subestimaram Lula', { pontos: [2.8, 2.8, 2.6, 2.5, 2.8, 2.3, 3.8, 1.9, 3.8, 3.3, 2.3, 1.2], cor: COR.lula }, L(2, d * 0.4) - 0.2, 'mediana 2,7 pontos (de 1,2 a 3,8)');
+    painel(330, '1º turno (10 institutos): erro em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, L(1, 0.4) - 0.2, 'mediana 0,2; Flávio subestimado em 9 de 10', L(1, 0.4) - 0.2);
+    painel(870, '2º turno: os 12 subestimaram Lula', { pontos: [2.8, 2.8, 2.6, 2.5, 2.8, 2.3, 3.8, 1.9, 3.8, 3.3, 2.3, 1.2], cor: COR.lula }, L(2, d * 0.4) - 0.2, 'mediana 2,7 pontos (de 1,2 a 3,8)', L(3, d * 0.57) - 0.2);
     texto('cada ponto é um instituto; à esquerda da linha, Lula acima da pesquisa', W / 2, 1420, 26, COR.fraco, 500, 'center', saida(fase(t, L(2, d * 0.4), 0.7)));
     rodape('última pesquisa de cada instituto, divulgada na imprensa; resultado oficial do TSE');
   },
@@ -261,7 +286,7 @@ const CENAS = {
     caixa(x0, y + 260, lg * 0.522 * kb, 90, 18, COR.lula, kb);
     g.globalAlpha = kb; g.fillStyle = 'rgba(255,255,255,0.5)'; g.fillRect(x0 + lg * 0.5 - 1, y - 10, 3, 110); g.fillRect(x0 + lg * 0.5 - 1, y + 250, 3, 110); g.globalAlpha = 1;
     texto('50%', x0 + lg * 0.5, y + 390, 26, COR.fraco, 600, 'center', kb);
-    rodape('estimativa por regressão em amostra de 3.897 seções; comparação feita depois de ver os dados; PoderData, Datafolha, Ipespe, Quaest, AtlasIntel');
+    rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); comparação feita depois de ver os dados; PoderData, Datafolha, Ipespe, Quaest, AtlasIntel');
   },
   prorrogacao(t, d) {
     rotuloDuvida(4, t);
@@ -277,33 +302,36 @@ const CENAS = {
     const kf = saida(fase(t, L(5, 3 * d / 4.2) - 0.2, 0.6));
     caixa(80, 1330, 920, 150, 30, COR.cartao, kf, 'rgba(255,255,255,0.10)');
     texto('cerca de 35 mil votos depois das 17h', W / 2, 1384, 40, COR.texto, 800, 'center', kf);
-    texto('uns 6 mil depois da decisão; margem final: 4,43 milhões', W / 2, 1436, 30, COR.fraco, 600, 'center', kf);
+    texto('uns 6 mil depois da decisão; margem final: 4,43 milhões', W / 2, 1436, 30, COR.fraco, 600, 'center', kf * saida(fase(t, L(6, 17.7) - 0.2, 0.6)));
     rodape('STF (Rcl 101.673); TSE; logs das urnas (Setup News/CNN, g1); a campanha de Flávio também pediu prorrogação em cidades de SP, PR e SC');
   },
   integridade(t, d) {
     rotuloDuvida(5, t);
     const k = saida(fase(t, 0.4, 0.7));
     caixa(80, 380, 920, 520, 30, COR.cartao, k, 'rgba(255,255,255,0.10)');
-    paragrafo('Teste de integridade no Distrito Federal, 2º turno', W / 2, 450, 820, 42, COR.texto, 800, k);
-    texto('1', W / 2, 650, 200, COR.destaque, 900, 'center', k);
-    texto('divergência entre a cédula e a urna', W / 2, 800, 38, COR.texto, 600, 'center', k);
+    paragrafo('Teste de integridade no Distrito Federal, 2º turno', W / 2, 450, 600, 42, COR.texto, 800, k);
+    const kn = saida(fase(t, L(2, 4.0) - 0.2, 0.6));
+    g.save(); g.translate(W / 2, 650); const e = mistura(1.3, 1, kn); g.scale(e, e); g.translate(-W / 2, -650);
+    texto('1', W / 2, 650, 200, COR.destaque, 900, 'center', kn); g.restore();
+    texto('divergência entre a cédula e a urna', W / 2, 800, 38, COR.texto, 600, 'center', kn);
     const k2 = saida(fase(t, L(4, d * 0.45) - 0.2, 0.7));
     texto('Qual cargo? Qual voto?', W / 2, 1040, 60, COR.destaque, 900, 'center', k2);
-    texto('Para que lado?', W / 2, 1130, 60, COR.destaque, 900, 'center', saida(fase(t, L(4, d * 0.55) + 0.9, 0.7)));
+    texto('Para que lado?', W / 2, 1130, 60, COR.destaque, 900, 'center', saida(fase(t, L(4, d * 0.55) + 1.3, 0.7)));
     selo('NÃO ENCONTRADO NAS FONTES PÚBLICAS', W / 2, 1290, t, L(5, d * 0.68) - 0.2, COR.lula);
-    rodape('TRE-DF e Agência CLDF, 25/10; relatório do TCU até 24/11');
+    rodape('TRE-DF e Agência CLDF, 25/10; relatório do TCU previsto até 24/11, ainda não publicado');
   },
   fechamento(t, d) {
-    const tB = L(4, d * 0.3) - 0.3, tC = L(12, d * 0.85) - 0.3;
+    const tB = L(4, d * 0.27) - 0.3, tC = L(12, d * 0.75) - 0.3;
     const sai = 1 - suave(fase(t, tB, 0.6));
     mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 * sai });
-    // A: o que eu conferi, e o limite disso
-    const kA = saida(fase(t, 0.4, 0.8)) * sai, kA2 = saida(fase(t, L(3, d * 0.2) - 0.2, 0.6)) * sai;
-    caixa(60, 1060, 960, 360, 32, 'rgba(10,15,28,0.88)', kA, 'rgba(255,255,255,0.10)');
-    texto('13 municípios com todos os boletins somados', W / 2, 1130, 40, COR.texto, 800, 'center', kA);
-    paragrafo('a soma bate com o total oficial, e nenhum teste meu achou a marca de uma fraude', W / 2, 1205, 860, 34, COR.fraco, 600, kA);
-    texto('Isso confere a conta, não o voto.', W / 2, 1350, 44, COR.destaque, 900, 'center', kA2);
-    // B: boletim, registro digital e log saem do próprio software da urna
+    // A: o que eu conferi, e o limite disso (abaixo do mapa)
+    const kA = saida(fase(t, 0.4, 0.8)) * sai;
+    caixa(60, 1140, 960, 340, 32, 'rgba(10,15,28,0.88)', kA, 'rgba(255,255,255,0.10)');
+    texto('13 municípios com todos os boletins somados', W / 2, 1200, 40, COR.texto, 800, 'center', kA);
+    texto('a soma bate com o total oficial,', W / 2, 1262, 34, COR.fraco, 600, 'center', kA * saida(fase(t, L(1, 3.5) - 0.2, 0.6)));
+    texto('e nenhum teste meu achou a marca de uma fraude', W / 2, 1306, 34, COR.fraco, 600, 'center', kA * saida(fase(t, L(2, 6.0) - 0.2, 0.6)));
+    texto('Isso confere a conta, não o voto.', W / 2, 1410, 44, COR.destaque, 900, 'center', kA * saida(fase(t, L(3, d * 0.2) - 0.2, 0.6)));
+    // B: boletim, registro digital e log são gerados pelo próprio software da urna
     const kB = saida(fase(t, tB, 0.7));
     if (kB > 0) {
       texto('O que é publicado', W / 2, 228, 32, COR.fraco, 700, 'center', kB);
@@ -314,43 +342,53 @@ const CENAS = {
         texto(s, x + w / 2, 319, 32, COR.texto, 700, 'center', k);
       });
       const kP = saida(fase(t, L(5, d * 0.35) - 0.2, 0.7));
-      g.save(); g.globalAlpha = kP; g.strokeStyle = rgba(COR.destaque, 0.8); g.lineWidth = 4;
+      caixa(100, 475, 880, 120, 30, rgba(COR.destaque, 0.12), kP, rgba(COR.destaque, 0.9));
+      texto('gerados pelo próprio software da urna', W / 2, 536, 40, COR.texto, 800, 'center', kP);
+      // setas saem do software e chegam aos arquivos
+      g.save(); g.globalAlpha = kP; g.strokeStyle = rgba(COR.destaque, 0.8); g.fillStyle = rgba(COR.destaque, 0.8); g.lineWidth = 4;
       chips.forEach(([s, x, w]) => {
-        const x0 = x + w / 2, y0 = 370, x1 = mistura(x0, W / 2, 0.6), y1 = 470;
-        g.beginPath(); g.moveTo(x0, y0); g.lineTo(mistura(x0, x1, kP), mistura(y0, y1, kP)); g.stroke();
+        const xf = x + w / 2, yf = 374, xi = mistura(xf, W / 2, 0.6), yi = 470;
+        const xa = mistura(xi, xf, kP), ya = mistura(yi, yf, kP);
+        g.beginPath(); g.moveTo(xi, yi); g.lineTo(xa, ya); g.stroke();
+        if (kP > 0.95) { const an = Math.atan2(yf - yi, xf - xi); g.beginPath(); g.moveTo(xf, yf);
+          g.lineTo(xf - 16 * Math.cos(an - 0.45), yf - 16 * Math.sin(an - 0.45)); g.lineTo(xf - 16 * Math.cos(an + 0.45), yf - 16 * Math.sin(an + 0.45)); g.fill(); }
       });
       g.restore();
-      caixa(160, 475, 760, 120, 30, rgba(COR.destaque, 0.12), kP, rgba(COR.destaque, 0.9));
-      texto('próprio software da urna', W / 2, 536, 46, COR.texto, 800, 'center', kP);
-      const kT = saida(fase(t, L(5, d * 0.35) + 1.0, 0.6));
-      texto('teste de integridade: só com votos de teste', W / 2, 650, 30, COR.fraco, 600, 'center', kT);
-      const kS = saida(fase(t, L(6, d * 0.45) - 0.2, 0.6)), kS2 = saida(fase(t, L(7, d * 0.5) - 0.2, 0.6));
-      caixa(60, 730, 960, 290, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
-      texto('Sem voto impresso', W / 2, 795, 54, COR.destaque, 900, 'center', kS);
-      paragrafo('a urna não permite conferir o voto real do eleitor de forma independente do software, nos dois turnos e para todos os cargos', W / 2, 870, 880, 34, COR.texto, 700, kS2);
+      const kS = saida(fase(t, L(6, d * 0.45) - 0.2, 0.6));
+      caixa(60, 680, 960, 300, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
+      texto('Sem voto impresso', W / 2, 745, 54, COR.destaque, 900, 'center', kS);
+      [['a urna não permite conferir o voto real do eleitor', 7], ['de forma independente do software,', 8], ['nos dois turnos e para todos os cargos', 9]].forEach(([s, n], i) =>
+        texto(s, W / 2, 830 + i * 46, 32, COR.texto, 700, 'center', saida(fase(t, L(n, d * (0.5 + i * 0.07)) - 0.2, 0.5))));
       const kO = saida(fase(t, L(10, d * 0.7) - 0.2, 0.6));
-      paragrafo('No mundo de hoje, não dá para confiar de olhos fechados em software nenhum.', W / 2, 1085, 900, 42, COR.texto, 800, kO);
+      paragrafo('No mundo de hoje, não dá para confiar de olhos fechados em software nenhum.', W / 2, 1050, 900, 42, COR.texto, 800, kO);
     }
-    // C: o que falta
-    const kC = saida(fase(t, tC, 0.7)), kC2 = saida(fase(t, L(13, d * 0.92) - 0.2, 0.7));
-    caixa(60, 1200, 960, 360, 32, 'rgba(10,15,28,0.88)', kC, 'rgba(255,255,255,0.10)');
-    texto('Perguntas que precisam de resposta oficial', W / 2, 1255, 36, COR.texto, 700, 'center', kC);
-    paragrafo('Faltam: os boletins completos, a ata do teste de integridade do DF e o relatório do TCU', W / 2, 1310, 860, 28, COR.fraco, 600, kC);
-    paragrafo('O voto precisa poder ser conferido sem depender só do software.', W / 2, 1420, 880, 46, COR.destaque, 900, kC2, 1.15);
+    // C: as perguntas e o pedido final
+    const kC = saida(fase(t, tC, 0.7)), kC2 = saida(fase(t, L(13, d * 0.85) - 0.2, 0.7));
+    caixa(60, 1190, 960, 300, 32, 'rgba(10,15,28,0.88)', kC, 'rgba(255,255,255,0.10)');
+    texto('Essas perguntas precisam de resposta oficial', W / 2, 1245, 36, COR.texto, 700, 'center', kC);
+    texto('base, pesquisas, eliminados, prorrogação e teste do DF', W / 2, 1295, 28, COR.fraco, 600, 'center', kC);
+    paragrafo('O voto precisa poder ser conferido sem depender só do software.', W / 2, 1375, 880, 46, COR.destaque, 900, kC2, 1.15);
     rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
   },
 };
 
 // legenda: lista de [inicio, fim, texto] em segundos da cena
 function legenda(t, itens) {
-  const it = itens && itens.find(c => t >= c[0] && t < c[1]); if (!it) return;
-  const ls = quebrar(it[2], 900, 44, 700); const h = ls.length * 56 + 36; const y = 1690 - h / 2;
+  // a primeira legenda vale desde o início da cena, para a caixa não piscar na troca de cena
+  const it = itens && itens.find((c, i) => t >= (i === 0 ? 0 : c[0]) && t < c[1]); if (!it) return;
+  const s = it[2].replace(/(\d) (?=mil|milh|pontos|senadores|deputados|cidades|institutos|governadores)/g, '$1\u00a0');  // número fica com a unidade
+  let ls = quebrar(s, 900, 44, 700);
+  if (ls.length === 2) {  // equilibra as duas linhas, sem palavra sozinha embaixo
+    g.font = `700 44px ${FONTE}`; const eq = quebrar(s, g.measureText(s).width / 2 + 60, 44, 700);
+    if (eq.length === 2) ls = eq;
+  }
+  const h = ls.length * 56 + 36; const y = 1690 - h / 2;
   caixa(70, y, 940, h, 22, 'rgba(0,0,0,0.62)', 1);
   ls.forEach((l, i) => texto(l, W / 2, y + 18 + 28 + i * 56, 44, '#FFFFFF', 700));
 }
 
 window.desenhar = function (indice, t) {
-  const c = window.PLANO.cenas[indice]; window.CENA = c;
+  const c = window.PLANO.cenas[indice]; window.CENA = c; ALFA = 1;
   fundo(t);
   CENAS[c.tipo](t, c.duracao);
   legenda(t, c.legenda);

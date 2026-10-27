@@ -1,6 +1,7 @@
 """Monta o plano do vídeo a partir da narração: acelera as cenas lentas (sem mudar o tom), mede a duração de cada uma,
 quebra o texto em legendas sincronizadas pelo tamanho de cada trecho e escreve plano.json para o render.js.
 Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida>
+Depois, alinhar_legendas.py troca os tempos estimados das legendas pelos tempos reais das palavras.
 """
 import array, json, os, re, subprocess, sys
 
@@ -9,6 +10,7 @@ MAX_VEL = 1.2     # aceleração máxima
 CAUDA = 0.3       # segundos de tela depois da fala (somado às margens abaixo, dá ~0,65 s entre uma fala e outra)
 MARGEM_INI = 0.12 # silêncio mantido antes da fala
 MARGEM_FIM = 0.25 # mantido depois da fala (preserva o decaimento da última sílaba)
+CAUDA_FINAL = 2.0 # respiro depois da última fala do vídeo
 FPS = 30
 
 
@@ -18,14 +20,19 @@ def duracao(arq):
 
 
 def limites_fala(arq):
-    """Início e fim da fala (s), pelo envelope em janelas de 20 ms com limiar de 3% do pico."""
+    """Início e fim da fala (s), pelo envelope em janelas de 20 ms com limiar de 3% do pico.
+    Estalos isolados nas pontas (até 60 ms, a mais de 0,3 s da fala) não contam como fala."""
     raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
     a = array.array('h', raw); jan = 320
     env = [(sum(x * x for x in a[k:k + jan]) / jan) ** 0.5 for k in range(0, len(a) - jan, jan)]
     lim = max(env) * 0.03
-    ini = next(k for k, e in enumerate(env) if e > lim)
-    fim = len(env) - 1 - next(k for k, e in enumerate(reversed(env)) if e > lim)
-    return ini * 0.02, (fim + 1) * 0.02
+    blocos, ini = [], None  # trechos contínuos acima do limiar, em janelas
+    for k, e in enumerate(env + [0]):
+        if e > lim and ini is None: ini = k
+        elif e <= lim and ini is not None: blocos.append([ini, k]); ini = None
+    while len(blocos) > 1 and blocos[0][1] - blocos[0][0] <= 3 and blocos[1][0] - blocos[0][1] > 15: blocos.pop(0)
+    while len(blocos) > 1 and blocos[-1][1] - blocos[-1][0] <= 3 and blocos[-1][0] - blocos[-2][1] > 15: blocos.pop()
+    return blocos[0][0] * 0.02, blocos[-1][1] * 0.02
 
 
 def trechos(texto, max_pal=8):
@@ -63,7 +70,7 @@ def main():
                         f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', arq], check=True)
         os.remove(bruto)
         d = duracao(arq); t0 = limites_fala(arq)[0]
-        dur_cena = round((d + CAUDA) * FPS) / FPS
+        dur_cena = round((d + (CAUDA_FINAL if i == len(cenas) - 1 else CAUDA)) * FPS) / FPS
         # legenda: tempo de cada trecho proporcional ao número de caracteres (inclui pausas da pontuação)
         if 'legendas' in c:  # pares [trecho falado, legenda com algarismos]: o tempo sai do trecho falado
             falado = [p[0] for p in c['legendas']]; tr = [p[1] for p in c['legendas']]
