@@ -87,6 +87,61 @@ def pausas(env, minimo=0.12):
     return out
 
 
+def ler16k(arq):
+    raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+
+
+def ouvir(m, trecho):
+    """Palavras reconhecidas num trecho curto, normalizadas como o texto narrado."""
+    if len(trecho) < 1600:
+        return []
+    segs, _ = m.transcribe(trecho, language='pt', beam_size=5, condition_on_previous_text=False)
+    out = []
+    for w in ' '.join(x.text for x in segs).lower().replace('%', ' ').split():
+        w = re.sub(r'(?<=\d)\.(?=\d{3})', '', w); w = limpa(w)
+        if w: out.append(w)
+    return out
+
+
+def igual(a, b):
+    return a == b or (len(a) >= 3 and len(b) >= 3 and a[:3] == b[:3])
+
+
+def nota_corte(antes, depois, ult, pri, seg):
+    """Quanto o que se ouve dos dois lados do corte confirma a fronteira: palavra exata vale mais que só o começo dela,
+    a segunda palavra do trecho novo vale pouco (o reconhecimento às vezes engole a primeira, se for curta),
+    e palavra que vazou para o lado errado tira ponto."""
+    n = 0
+    if antes:
+        n += 3 if antes[-1] == ult else (1 if igual(antes[-1], ult) else 0)
+        n -= 2 if igual(antes[-1], pri) and not igual(pri, ult) else 0
+    if depois:
+        n += 3 if depois[0] == pri else (1 if igual(depois[0], pri) or (seg and depois[0] == seg) else 0)
+        n -= 2 if igual(depois[0], ult) and not igual(pri, ult) else 0
+    return n
+
+
+def corte_conferido(m, audio, voz, t1, ult, pri, seg=None):
+    """Fala corrida: entre os vales de voz perto de t1, o corte em que o reconhecimento ouve a última palavra do trecho
+    anterior antes do corte e a primeira do trecho novo depois dele. Sem confirmação, vale o vale mais fundo."""
+    a0, a1 = int(max(1, (t1 - 0.4) / 0.01)), min(len(voz) - 2, int((t1 + 0.4) / 0.01))
+    vales = sorted((k for k in range(a0, a1 + 1) if voz[k] <= voz[k - 1] and voz[k] <= voz[k + 1]), key=lambda k: voz[k])[:6]
+    melhor = None
+    for k in vales:
+        c = k * 0.01
+        antes, depois = ouvir(m, audio[max(0, int((c - 1.6) * 16000)):int(c * 16000)]), ouvir(m, audio[int(c * 16000):int((c + 1.6) * 16000)])
+        nota = nota_corte(antes, depois, ult, pri, seg)
+        if melhor is None or nota > melhor[0]:
+            melhor = (nota, c)
+        if nota == 6:
+            break
+    if melhor and melhor[0] > 0:
+        return melhor[1]
+    b0, b1 = int(max(0.0, t1 - 0.05) / 0.01), int((t1 + 0.30) / 0.01)
+    return (b0 + int(np.argmin(voz[b0:b1 + 1]))) * 0.01 if b1 > b0 else t1
+
+
 def main():
     modelo_dir, nar_arq, plano_arq = sys.argv[1:4]
     m = WhisperModel('small', device='cpu', compute_type='int8', download_root=modelo_dir)
@@ -99,6 +154,7 @@ def main():
             ts = numeros([limpa(w) for w in frag.split() if limpa(w)])
             tok += ts; dono += [k] * len(ts)
         asr = palavras_asr(m, c['audio']); cheia, voz = envelopes(c['audio']); silencios = pausas(cheia); lim_voz = voz.max() * 0.03
+        audio = ler16k(c['audio'])
         mapa = {}
         for a, b, size in difflib.SequenceMatcher(None, tok, [x[0] for x in asr], autojunk=False).get_matching_blocks():
             for d in range(size): mapa[a + d] = b + d
@@ -118,9 +174,11 @@ def main():
                 p = min(perto, key=lambda p: abs(p[1] - t1)); a0 = int(p[1] / 0.01)
                 v = next((k for k in range(a0, min(len(voz), a0 + 100)) if voz[k] > lim_voz), a0)
                 inicios.append(max(p[0], v * 0.01 - ANTES, 0.0))
-            else:  # fala corrida: a troca vai para o vale de voz entre as palavras, sem antecedência
-                a0, a1 = int(max(0.0, t1 - 0.05) / 0.01), int((t1 + 0.30) / 0.01)
-                inicios.append((a0 + int(np.argmin(voz[a0:a1 + 1]))) * 0.01 if a1 > a0 else t1)
+            elif k == 0:
+                inicios.append(t1)
+            else:  # fala corrida: a troca vai para o vale de voz entre as palavras, conferido pelo reconhecimento
+                ult = tok[max(j for j in range(len(tok)) if dono[j] == k - 1)] if k - 1 in dono else tok[idx[0]]
+                inicios.append(corte_conferido(m, audio, voz, t1, ult, tok[idx[0]], tok[idx[1]] if len(idx) > 1 else None))
         # trechos sem nenhuma palavra casada: meio caminho entre os vizinhos
         for k, v in enumerate(inicios):
             if v is None:
