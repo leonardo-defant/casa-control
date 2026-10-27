@@ -46,7 +46,7 @@ def main():
                         f'[1:a]aresample={TAXA},aformat=channel_layouts=stereo,volume={ganho:.2f}dB,atrim=0:{total:.3f},'
                         f'afade=t=in:d=1.5,afade=t=out:st={total - 3:.3f}:d=3[m];[0:a]asplit=2[v][sc];'
                         '[m][sc]sidechaincompress=threshold=0.06:ratio=2:attack=30:release=600[md];'  # abaixa uns 7 dB sob a voz
-                        '[v][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.89:level=disabled[a]',
+                        '[v][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.84:level=disabled[a]',
                         '-map', '[a]', '-c:a', 'pcm_s16le', mix], check=True)
         trilha = mix
         print(f'música: {os.path.basename(musica)} em {alvo} LUFS (ganho {ganho:+.1f} dB) com sidechain da voz')

@@ -1,6 +1,7 @@
 """Monta o plano do vídeo a partir da narração: acelera as cenas lentas (sem mudar o tom), mede a duração de cada uma,
 quebra o texto em legendas sincronizadas pelo tamanho de cada trecho e escreve plano.json para o render.js.
-Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida> [--alvo 2.6] [--max-vel 1.2] [--estudio] [--cauda-final 2.0]
+Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida> [--alvo 2.6] [--max-vel 1.2] [--estudio | --eq filtro.txt] [--cauda-final 2.0]
+--eq: cadeia de filtros do ffmpeg num arquivo (a equalização casada com locutores de estúdio, feita por casar_eq.py)
 Depois, alinhar_legendas.py troca os tempos estimados das legendas pelos tempos reais das palavras.
 """
 import array, json, os, re, subprocess, sys
@@ -68,6 +69,7 @@ def trechos(texto, max_pal=8):
 def main():
     global ALVO, MAX_VEL, CAUDA_FINAL
     estudio = '--estudio' in sys.argv
+    cadeia = open(sys.argv[sys.argv.index('--eq') + 1]).read().strip() if '--eq' in sys.argv else (ESTUDIO if estudio else '')
     nar, pasta, saida = sys.argv[1:4]
     if '--alvo' in sys.argv: ALVO = float(sys.argv[sys.argv.index('--alvo') + 1])
     if '--max-vel' in sys.argv: MAX_VEL = float(sys.argv[sys.argv.index('--max-vel') + 1])
@@ -86,7 +88,7 @@ def main():
         f0, f1 = limites_fala(bruto); a0 = max(0.0, f0 - MARGEM_INI); a1 = min(duracao(bruto), f1 + MARGEM_FIM)
         cortado = arq + '.cortado.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', bruto, '-af',
-                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,' + (ESTUDIO + ',' if estudio else '') +
+                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,' + (cadeia + f',atrim=end_sample={round((a1 - a0) * 48000)},' if cadeia else '') +
                         f'afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', cortado], check=True)
         ganho = LUFS - loudness(cortado)  # todas as falas no mesmo nível
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', cortado, '-af', f'volume={ganho:.2f}dB,alimiter=limit=0.84:attack=5:release=60:level=disabled',
