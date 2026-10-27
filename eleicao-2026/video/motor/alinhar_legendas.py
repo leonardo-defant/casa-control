@@ -122,20 +122,19 @@ def nota_corte(antes, depois, ult, pri, seg):
     return n
 
 
-def corte_conferido(m, audio, voz, t1, ult, pri, seg=None):
+def corte_conferido(m, audio, voz, t1, ult, pri, seg=None, extras=()):
     """Fala corrida: entre os vales de voz perto de t1, o corte em que o reconhecimento ouve a última palavra do trecho
     anterior antes do corte e a primeira do trecho novo depois dele. Sem confirmação, vale o vale mais fundo."""
     a0, a1 = int(max(1, (t1 - 0.4) / 0.01)), min(len(voz) - 2, int((t1 + 0.4) / 0.01))
-    vales = sorted((k for k in range(a0, a1 + 1) if voz[k] <= voz[k - 1] and voz[k] <= voz[k + 1]), key=lambda k: voz[k])[:6]
+    vales = sorted((k for k in range(a0, a1 + 1) if voz[k] <= voz[k - 1] and voz[k] <= voz[k + 1]), key=lambda k: voz[k])[:8]
+    # candidatos: os vales mais fundos e as fronteiras que o próprio reconhecimento deu
+    cands = sorted({round(k * 0.01, 2) for k in vales} | {round(x, 2) for x in extras if 0.1 < x < len(voz) * 0.01 - 0.1})
     melhor = None
-    for k in vales:
-        c = k * 0.01
+    for c in cands:
         antes, depois = ouvir(m, audio[max(0, int((c - 1.6) * 16000)):int(c * 16000)]), ouvir(m, audio[int(c * 16000):int((c + 1.6) * 16000)])
         nota = nota_corte(antes, depois, ult, pri, seg)
-        if melhor is None or nota > melhor[0]:
+        if melhor is None or nota > melhor[0] or (nota == melhor[0] and abs(c - t1) < abs(melhor[1] - t1)):
             melhor = (nota, c)
-        if nota == 6:
-            break
     if melhor and melhor[0] > 0:
         return melhor[1]
     b0, b1 = int(max(0.0, t1 - 0.05) / 0.01), int((t1 + 0.30) / 0.01)
@@ -178,7 +177,8 @@ def main():
                 inicios.append(t1)
             else:  # fala corrida: a troca vai para o vale de voz entre as palavras, conferido pelo reconhecimento
                 ult = tok[max(j for j in range(len(tok)) if dono[j] == k - 1)] if k - 1 in dono else tok[idx[0]]
-                inicios.append(corte_conferido(m, audio, voz, t1, ult, tok[idx[0]], tok[idx[1]] if len(idx) > 1 else None))
+                b = mapa[j1]; fronteira = [asr[b][1]] + ([asr[b - 1][2], (asr[b - 1][2] + asr[b][1]) / 2] if b > 0 else [])
+                inicios.append(corte_conferido(m, audio, voz, t1, ult, tok[idx[0]], tok[idx[1]] if len(idx) > 1 else None, fronteira))
         # trechos sem nenhuma palavra casada: meio caminho entre os vizinhos
         for k, v in enumerate(inicios):
             if v is None:
