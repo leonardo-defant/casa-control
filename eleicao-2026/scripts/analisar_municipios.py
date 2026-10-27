@@ -1,15 +1,22 @@
 """T38 por município (Adendo 16, descritivo) e o número das "213 cidades viradas".
 1º turno: soma das seções do bweb; 2º turno: arquivo de totais do município no site de resultados (baixar_municipios.py).
-Uso: python3 -I analisar_municipios.py <secoes2026_1t.json.gz> <pasta_mun2t> <saida.json>
+Uso: python3 -I analisar_municipios.py <secoes2026_1t.json.gz> <pasta_mun2t> <saida.json> [--nomes <pasta CSV eleitorado_local_votacao_2026>]
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-import collections, json, os, sys
+import collections, csv, glob, json, os, sys
 from lib import carregar
 
 
 def main():
     base, pasta, saida = sys.argv[1:4]
+    nomes = {}
+    if '--nomes' in sys.argv:
+        for f in glob.glob(os.path.join(sys.argv[sys.argv.index('--nomes') + 1], 'eleitorado_local_votacao_2026_??.csv')):
+            with open(f, encoding='latin1') as fh:
+                r = csv.reader(fh, delimiter=';'); h = next(r); i = {c: j for j, c in enumerate(h)}
+                for row in r:
+                    nomes[(row[i['SG_UF']], int(row[i['CD_MUNICIPIO']]))] = row[i['NM_MUNICIPIO']]
     t1 = collections.defaultdict(collections.Counter)
     for k, v in carregar(base).items():
         if '1' in v and not k.startswith('ZZ|'):
@@ -28,7 +35,7 @@ def main():
         if L2 + R2 <= 0:
             continue
         completo = o['s']['st'] == o['s']['ts']
-        rows.append({'uf': uf, 'mun': m, 'nome': o.get('nm', ''), 'L1': a['L'], 'R1': a['R'], 'V1': a['V'], 'L2': L2, 'R2': R2,
+        rows.append({'uf': uf, 'mun': m, 'nome': nomes.get((uf, m), ''), 'L1': a['L'], 'R1': a['R'], 'V1': a['V'], 'L2': L2, 'R2': R2,
                      'gL': L2 - a['L'], 'gR': R2 - a['R'], 'pL': 100 * (L2 / (L2 + R2) - a['L'] / a['V']),
                      'pR': 100 * (R2 / (L2 + R2) - a['R'] / a['V']), 'completo': completo})
     n = len(rows)
@@ -39,7 +46,7 @@ def main():
     for r in rows:
         u = por_uf[r['uf']]; u[0] += 1; u[1] += r['gR'] > r['gL']; u[2] += r['pR'] > r['pL']
         u[3] += r in virou_lula; u[4] += r in virou_flavio
-    out = {'municipios': n, 'totalizacao_incompleta': sum(1 for r in rows if not r['completo']),
+    out = {'municipios': n, 'soma_L2': sum(r['L2'] for r in rows), 'soma_R2': sum(r['R2'] for r in rows), 'totalizacao_incompleta': sum(1 for r in rows if not r['completo']),
            'flavio_mais_votos_que_lula': len(mais_votos), 'flavio_mais_pontos_que_lula': len(mais_pontos),
            'viraram_de_flavio_para_lula': len(virou_lula), 'viraram_de_lula_para_flavio': len(virou_flavio),
            'por_uf_[municipios,mais_votos,mais_pontos,viraram_p_Lula,viraram_p_Flavio]': dict(sorted(por_uf.items())),
