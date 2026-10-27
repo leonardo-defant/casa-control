@@ -106,6 +106,7 @@ def main():
             leg.append([round(t, 3), round(t + dt, 3), x]); t += dt
         leg[-1][1] = round(dur_cena, 3)
         plano['cenas'].append({'tipo': c['tipo'], 'duracao': dur_cena, 'audio': arq, 'velocidade': round(vel, 3), 'legenda': leg})
+        if 'foto' in c: plano['cenas'][-1]['foto'] = c['foto']  # imagem que a tela desenha (caminho file://)
         print(f'cena{i:02d} {c["tipo"]:<12} original {d0:5.2f}s  x{vel:.2f} -> {d:5.2f}s  tela {dur_cena:5.2f}s  legendas {len(leg)}')
     json.dump(plano, open(os.path.join(saida, 'plano.json'), 'w'), ensure_ascii=False, indent=1)
     print('total', round(sum(c['duracao'] for c in plano['cenas']), 1), 's')

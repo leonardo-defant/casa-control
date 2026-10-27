@@ -431,11 +431,13 @@ const CENAS = {
     caixa(80, 940, 920, 170, 30, rgba(COR.destaque, 0.10), k3, rgba(COR.destaque, 0.7));
     texto('Nas pesquisas: perdas parecidas', W / 2, 1000, 48, COR.destaque, 800, 'center', k3);
     texto('PoderData, 23 e 24/10: cada lado perdia 5% para o outro', W / 2, 1062, 30, COR.fraco, 600, 'center', k3);
+    // com a ressalva falada ("Pode ser troca de eleitores..."), a cena tem 9 legendas e o fecho vem uma depois
+    const longa = window.CENA && window.CENA.legenda && window.CENA.legenda.length > 8, iR = longa ? 7 : 6, iE = longa ? 8 : 7;
     const k5 = saida(fase(t, L(5, d * 0.65) - 0.2, 0.7)), k6 = saida(fase(t, L(6, d * 0.75) - 0.2, 0.6));
     texto('≈ 2 milhões de votos no saldo', W / 2, 1195, 62, COR.texto, 900, 'center', k5);
     texto('perto do que bastava para virar o resultado', W / 2, 1262, 34, COR.texto, 700, 'center', k6);
-    texto('mudança de lado ou troca de eleitores entre os turnos', W / 2, 1308, 28, COR.fraco, 600, 'center', k6);
-    texto('Para mim, é muito estranho.', W / 2, 1420, 54, COR.destaque, 900, 'center', saida(fase(t, L(7, d * 0.88) - 0.2, 0.6)));
+    texto('mudança de lado ou troca de eleitores entre os turnos', W / 2, 1308, 28, COR.fraco, 600, 'center', saida(fase(t, L(iR, d * 0.75) - 0.2, 0.6)));
+    texto('Para mim, é muito estranho.', W / 2, 1420, 54, COR.destaque, 900, 'center', saida(fase(t, L(iE, d * 0.88) - 0.2, 0.6)));
     rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); PoderData 23 e 24/10');
   },
   prorrogacao4(t, d) {
@@ -466,8 +468,9 @@ const CENAS = {
     }
     const kf = saida(fase(t, L(9, d * 0.7) - 0.2, 0.6)), kq = saida(fase(t, L(11, d * 0.85) - 0.2, 0.6));
     caixa(80, 1290, 920, 200, 30, COR.cartao, kf, 'rgba(255,255,255,0.10)');
-    texto('cerca de 35 mil votos depois das 17h', W / 2, 1345, 40, COR.texto, 800, 'center', kf * (1 - kq));
-    texto('margem final: 4,43 milhões', W / 2, 1400, 32, COR.fraco, 600, 'center', kf * (1 - kq));
+    texto('cerca de 35 mil votos depois das 17h', W / 2, 1338, 40, COR.texto, 800, 'center', kf * (1 - kq));
+    texto('margem final: 4,43 milhões', W / 2, 1392, 32, COR.fraco, 600, 'center', kf * (1 - kq));
+    texto('as duas campanhas pediram prorrogação', W / 2, 1442, 32, COR.fraco, 600, 'center', kf * (1 - kq));
     texto('O que aconteceu nos bastidores', W / 2, 1350, 46, COR.destaque, 900, 'center', kq);
     texto('da apuração nesse intervalo?', W / 2, 1418, 46, COR.destaque, 900, 'center', kq);
     rodape('STF (Rcl 101.673); TSE; logs das urnas (Setup News/CNN, g1); a campanha de Flávio também pediu prorrogação em cidades de SP, PR e SC' + (c && c.foto ? '; foto: ' + c.foto.credito_curto : ''));
