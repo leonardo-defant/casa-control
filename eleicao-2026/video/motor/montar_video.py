@@ -1,11 +1,18 @@
 """Junta as cenas renderizadas e a narração num MP4 final 1080x1920.
 Cada fala é completada com silêncio até a duração exata da sua tela (em amostras), as falas viram uma trilha única em PCM
 e o AAC é codificado uma vez só, para o áudio não ir atrasando a cada emenda.
-Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4>
+Com --musica, a trilha entra por baixo da voz: em loop até o fim, no nível --musica-lufs (padrão -30, a voz fica em -16),
+abaixando mais uns dB enquanto a voz fala (sidechain) e com fade de entrada e de saída.
+Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4> [--musica <arq>] [--musica-lufs -30]
 """
-import json, os, subprocess, sys, tempfile
+import json, os, re, subprocess, sys, tempfile
 
 TAXA = 48000
+
+
+def loudness(arq):
+    err = subprocess.run(['ffmpeg', '-nostdin', '-i', arq, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', err)[-1])
 
 
 def main():
@@ -27,8 +34,21 @@ def main():
     trilha = os.path.join(tmp, 'trilha.wav'); video = os.path.join(tmp, 'video.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lista('falas.txt', falas), '-c', 'copy', trilha], check=True)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lista('telas.txt', telas), '-an', '-c', 'copy', video], check=True)
-    # fade curto no fim do vídeo; o resto da trilha vai como está
     total = sum(c['duracao'] for c in plano['cenas'])
+    if '--musica' in sys.argv:
+        musica = sys.argv[sys.argv.index('--musica') + 1]
+        alvo = float(sys.argv[sys.argv.index('--musica-lufs') + 1]) if '--musica-lufs' in sys.argv else -30.0
+        ganho = alvo - loudness(musica)
+        mix = os.path.join(tmp, 'mix.wav')
+        subprocess.run(['ffmpeg', '-nostdin', '-y', '-loglevel', 'error', '-i', trilha, '-stream_loop', '-1', '-i', musica, '-filter_complex',
+                        f'[1:a]aresample={TAXA},aformat=channel_layouts=stereo,volume={ganho:.2f}dB,atrim=0:{total:.3f},'
+                        f'afade=t=in:d=1.5,afade=t=out:st={total - 3:.3f}:d=3[m];[0:a]asplit=2[v][sc];'
+                        '[m][sc]sidechaincompress=threshold=0.03:ratio=3:attack=30:release=600[md];'
+                        '[v][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.89:level=disabled[a]',
+                        '-map', '[a]', '-c:a', 'pcm_s16le', mix], check=True)
+        trilha = mix
+        print(f'música: {os.path.basename(musica)} em {alvo} LUFS (ganho {ganho:+.1f} dB) com sidechain da voz')
+    # fade curto no fim do vídeo; o resto da trilha vai como está
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', video, '-i', trilha, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
                     '-af', f'afade=t=out:st={total - 0.4:.3f}:d=0.4', '-c:a', 'aac', '-b:a', '192k', '-ar', str(TAXA), '-shortest',
                     '-movflags', '+faststart', saida], check=True)
