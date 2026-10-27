@@ -258,7 +258,7 @@ const CENAS = {
     texto('Amostra: cerca de 52% para Lula (49% a 56%)', x0, y + 220, 32, COR.texto, 800, 'left', kb);
     caixa(x0, y + 260, lg, 90, 18, 'rgba(255,255,255,0.06)', kb);
     caixa(x0, y + 260, lg * 0.522 * kb, 90, 18, COR.lula, kb);
-    g.globalAlpha = kb; g.fillStyle = 'rgba(255,255,255,0.5)'; g.fillRect(x0 + lg * 0.5 - 1, y - 10, 3, 370); g.globalAlpha = 1;
+    g.globalAlpha = kb; g.fillStyle = 'rgba(255,255,255,0.5)'; g.fillRect(x0 + lg * 0.5 - 1, y - 10, 3, 110); g.fillRect(x0 + lg * 0.5 - 1, y + 250, 3, 110); g.globalAlpha = 1;
     texto('50%', x0 + lg * 0.5, y + 390, 26, COR.fraco, 600, 'center', kb);
     rodape('estimativa por regressão em amostra de 3.897 seções; comparação feita depois de ver os dados; PoderData, Datafolha, Ipespe, Quaest, AtlasIntel');
   },
