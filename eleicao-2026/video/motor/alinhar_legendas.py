@@ -65,13 +65,20 @@ def palavras_asr(m, arq):
     return [x for x in out if x[0]]
 
 
-def pausas(arq, minimo=0.12):
-    """Trechos de silêncio (início, fim) em segundos, por janelas de 10 ms abaixo de 1,5% do pico
+def envelopes(arq):
+    """Envelopes de 10 ms: banda cheia e banda de voz (abaixo de 1 kHz, onde respiração e fricativas quase não aparecem)."""
+    def env(filtro):
+        raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-af', filtro, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
+                             capture_output=True).stdout
+        a = np.frombuffer(raw, np.int16).astype(np.float32); n = len(a) // 160
+        return np.sqrt((a[:n * 160].reshape(n, 160) ** 2).mean(axis=1))
+    return env('anull'), env('lowpass=f=1000,lowpass=f=1000')
+
+
+def pausas(env, minimo=0.12):
+    """Trechos de silêncio (início, fim) em segundos: janelas abaixo de 1,5% do pico da banda cheia
     (fricativas surdas e oclusões curtas não contam como pausa)."""
-    raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
-    a = np.frombuffer(raw, np.int16).astype(np.float32)
-    n = len(a) // 160; env = np.sqrt((a[:n * 160].reshape(n, 160) ** 2).mean(axis=1)); lim = env.max() * 0.015
-    out, ini = [], None
+    lim = env.max() * 0.015; out, ini = [], None
     for k, e in enumerate(env):
         if e <= lim and ini is None: ini = k
         elif e > lim and ini is not None:
@@ -91,7 +98,7 @@ def main():
         for k, frag in enumerate(falado):
             ts = numeros([limpa(w) for w in frag.split() if limpa(w)])
             tok += ts; dono += [k] * len(ts)
-        asr = palavras_asr(m, c['audio']); silencios = pausas(c['audio'])
+        asr = palavras_asr(m, c['audio']); cheia, voz = envelopes(c['audio']); silencios = pausas(cheia); lim_voz = voz.max() * 0.03
         mapa = {}
         for a, b, size in difflib.SequenceMatcher(None, tok, [x[0] for x in asr], autojunk=False).get_matching_blocks():
             for d in range(size): mapa[a + d] = b + d
@@ -104,15 +111,16 @@ def main():
             fim_ant, fim_trecho = fim_trecho, asr[mapa[casados[-1]]][2]
             j1 = casados[0]; t1 = asr[mapa[j1]][1] - 0.2 * (j1 - idx[0])
             j2 = next((x for x in casados[:4] if tok[x] not in CURTAS), j1); t2 = asr[mapa[j2]][1] - 0.2 * (j2 - idx[0])
-            fim_antes = asr[mapa[j1] - 1][2] if mapa[j1] > 0 and j1 == idx[0] else 0.0
             # o reconhecimento erra o tempo das palavras curtas; a fronteira real do trecho é a pausa real mais perto,
             # desde que ela venha depois do fim do trecho anterior
             perto = [p for p in silencios if min(t1, t2) - 0.5 <= p[1] <= max(t1, t2) + 0.3 and p[0] >= fim_ant - 0.15]
-            if perto:
-                p = min(perto, key=lambda p: abs(p[1] - t1)); t, fim_antes = p[1], p[0]
-            else:
-                t = t1 if j1 == idx[0] else t2
-            inicios.append(max(fim_antes, t - ANTES, 0.0))
+            if perto:  # depois da pausa, a fala começa na primeira voz (uma respiração no meio não conta)
+                p = min(perto, key=lambda p: abs(p[1] - t1)); a0 = int(p[1] / 0.01)
+                v = next((k for k in range(a0, min(len(voz), a0 + 100)) if voz[k] > lim_voz), a0)
+                inicios.append(max(p[0], v * 0.01 - ANTES, 0.0))
+            else:  # fala corrida: a troca vai para o vale de voz entre as palavras, sem antecedência
+                a0, a1 = int(max(0.0, t1 - 0.05) / 0.01), int((t1 + 0.30) / 0.01)
+                inicios.append((a0 + int(np.argmin(voz[a0:a1 + 1]))) * 0.01 if a1 > a0 else t1)
         # trechos sem nenhuma palavra casada: meio caminho entre os vizinhos
         for k, v in enumerate(inicios):
             if v is None:

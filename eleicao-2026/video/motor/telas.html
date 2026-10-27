@@ -136,7 +136,7 @@ function rotuloDuvida(n, t) {
 // ---------- cenas ----------
 const CENAS = {
   abertura(t, d) {
-    const k = saida(fase(t, 0.2, 1.6)), m = suave(fase(t, 2.3, 1.0));
+    const k = t < 1 / 30 ? 1 : saida(fase(t, 0.2, 1.6)), m = suave(fase(t, 2.3, 1.0));
     const kh = 1 - suave(fase(t, d - 0.4, 0.4));
     texto(fmt(Math.round(5571 * k)), W / 2, mistura(820, 232, m), mistura(200, 84, m), COR.texto, 900, 'center', kh);
     texto('cidades', W / 2, mistura(960, 302, m), mistura(64, 34, m), COR.fraco, 600, 'center', kh);
@@ -160,8 +160,10 @@ const CENAS = {
   },
   mapa(t, d) {
     const tcMapa = L(1, 2.4) + 2.6, tr = L(6, d * 0.6) - 0.3;
-    const foco = suave(fase(t, tr, 1.2));
-    mapa(t, { aparecer: 1, colorir: fase(t, tcMapa, 2.2), focoRedutos: foco, porMargem: foco, alfa: mistura(0.07, 1, suave(fase(t, 0, 0.6))) });
+    const kFim = 1 - suave(fase(t, d - 0.45, 0.45));  // termina no estado em que a cena 3 começa
+    const foco = suave(fase(t, tr, 1.2)) * kFim;
+    mapa(t, { aparecer: 1, colorir: fase(t, tcMapa, 2.2), focoRedutos: foco, porMargem: foco, alfa: mistura(0.07, 1, suave(fase(t, 0, 0.6))) * mistura(0.22, 1, kFim) });
+    ALFA = kFim;
     const k1 = saida(fase(t, L(2, 7.4) - 0.2, 0.8)), kSai = 1 - suave(fase(t, tr, 0.4)), k2 = suave(fase(t, tr + 0.4, 0.6));
     const yb = 1250, a1 = k1 * kSai;
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', a1, 'rgba(255,255,255,0.10)');
@@ -172,17 +174,20 @@ const CENAS = {
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', k2, 'rgba(255,255,255,0.10)');
     texto('Redutos de Flávio', W / 2, yb + 70, 44, COR.flavio, 800, 'center', k2);
     texto('(mais de 65% no 1º turno)', W / 2, yb + 122, 32, COR.fraco, 600, 'center', k2);
-    const t89 = L(9, d * 0.8) - 0.2;
-    texto('margem andou para Lula em ' + Math.round(contador(89, 0, t, t89, Math.max(0.8, L(10, d * 0.9) - t89 + 0.3))) + '%', W / 2, yb + 205, 48, COR.lula, 900, 'center', k2 * saida(fase(t, t89, 0.5)));
-    texto('a virada ali foi menor: 2,5 pontos, contra 4,4 na média', W / 2, yb + 275, 30, COR.fraco, 600, 'center', k2 * saida(fase(t, L(8, d * 0.73) - 0.2, 0.5)));
+    texto('a virada ali foi menor: 2,5 pontos, contra 4,4 na média', W / 2, yb + 190, 30, COR.fraco, 600, 'center', k2 * saida(fase(t, L(8, d * 0.73) - 0.2, 0.5)));
+    const t89 = L(9, d * 0.8) - 0.2, tN = L(10, d * 0.9) - 0.2;
+    g.font = `900 48px ${FONTE}`; const pre = 'margem foi para Lula ', pos = 'em 89% delas', xm = W / 2 - g.measureText(pre + pos).width / 2;
+    texto(pre, xm, yb + 262, 48, COR.lula, 900, 'left', k2 * saida(fase(t, t89, 0.5)));
+    texto(pos, xm + g.measureText(pre).width, yb + 262, 48, COR.lula, 900, 'left', k2 * saida(fase(t, tN, 0.5)));
     // legenda de cores: até os redutos, quem ganhou mais votos; nos redutos, para onde andou a margem
     const kl = saida(fase(t, tcMapa, 0.8)), rSai = suave(fase(t, tr, 0.3)), rEnt = suave(fase(t, tr + 0.3, 0.3));
-    g.globalAlpha = kl; g.fillStyle = COR.lula; g.beginPath(); g.arc(230, 300, 12, 0, 6.28); g.fill();
+    g.globalAlpha = kl * ALFA; g.fillStyle = COR.lula; g.beginPath(); g.arc(230, 300, 12, 0, 6.28); g.fill();
     g.fillStyle = COR.flavio; g.beginPath(); g.arc(620, 300, 12, 0, 6.28); g.fill(); g.globalAlpha = 1;
     texto('Lula cresceu mais', 255, 300, 28, COR.texto, 600, 'left', kl * (1 - rSai));
     texto('Flávio cresceu mais', 645, 300, 28, COR.texto, 600, 'left', kl * (1 - rSai));
     texto('margem foi para Lula', 255, 300, 28, COR.texto, 600, 'left', kl * rEnt);
     texto('margem foi para Flávio', 645, 300, 28, COR.texto, 600, 'left', kl * rEnt);
+    ALFA = 1;
     rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades); margem em pontos dos votos válidos');
   },
   pergunta(t, d) {
@@ -270,7 +275,7 @@ const CENAS = {
       });
       texto(nota, W / 2, y + 420, 38, erro.cor, 800, 'center', k * saida(fase(t, tNota, 0.6)));
     }
-    painel(330, '1º turno (10 institutos): erro em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, L(1, 0.4) - 0.2, 'mediana 0,2; Flávio subestimado em 9 de 10', L(1, 0.4) - 0.2);
+    painel(330, '1º turno (10 institutos): erro em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, L(1, 0.4) - 0.2, 'mediana 0,2; Flávio subestimado em 9 de 10', L(1, 0.4) + 1.65);
     painel(870, '2º turno: os 12 subestimaram Lula', { pontos: [2.8, 2.8, 2.6, 2.5, 2.8, 2.3, 3.8, 1.9, 3.8, 3.3, 2.3, 1.2], cor: COR.lula }, L(2, d * 0.4) - 0.2, 'mediana 2,7 pontos (de 1,2 a 3,8)', L(3, d * 0.57) - 0.2);
     texto('cada ponto é um instituto; à esquerda da linha, Lula acima da pesquisa', W / 2, 1420, 26, COR.fraco, 500, 'center', saida(fase(t, L(2, d * 0.4), 0.7)));
     rodape('última pesquisa de cada instituto, divulgada na imprensa; resultado oficial do TSE');
@@ -295,7 +300,7 @@ const CENAS = {
     rotuloDuvida(4, t);
     const itens = [['16h33', 'Zanin, ex-advogado de Lula, é sorteado relator do pedido da coligação de Lula'],
                    ['17h03', 'Zanin prorroga a votação até as 19h (depois, só nas seções ainda abertas)'], ['17h06', 'O TSE suspende a totalização até as 19h']];
-    g.globalAlpha = saida(fase(t, 0.3, 0.6)); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fillRect(200, 360, 4, 900); g.globalAlpha = 1;
+    g.globalAlpha = saida(fase(t, 0.3, 0.6)); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fillRect(200, 360, 4, 720); g.globalAlpha = 1;
     itens.forEach(([h, s], i) => {
       const k = saida(fase(t, L(1 + i, 0.4 + i * d / 4.2) - 0.2, 0.6)); const y = 420 + i * 300;
       g.globalAlpha = k; g.fillStyle = COR.destaque; g.beginPath(); g.arc(202, y, 16, 0, 6.28); g.fill(); g.globalAlpha = 1;
@@ -379,13 +384,16 @@ const CENAS = {
 function legenda(t, itens) {
   // a primeira legenda vale desde o início da cena, para a caixa não piscar na troca de cena
   const it = itens && itens.find((c, i) => t >= (i === 0 ? 0 : c[0]) && t < c[1]); if (!it) return;
-  const s = it[2].replace(/(\d) (?=mil|milh|pontos|senadores|deputados|cidades|institutos|governadores)/g, '$1\u00a0');  // número fica com a unidade
+  const s = it[2].replace(/(\d) (?=mil|milh|pontos|senadores|deputados|cidades|institutos|governadores)/g, '$1\u00a0')  // número fica com a unidade
+                 .replace(/(\d+) (dos|de) (?=\d)/g, '$1\u00a0$2\u00a0');
   let ls = quebrar(s, 900, 44, 700);
   if (ls.length === 2) {  // equilibra as duas linhas: o corte que deixa a linha mais longa o mais curta possível
     g.font = `700 44px ${FONTE}`; const pal = s.split(' '); let mw = 1e9;
+    const fraca = /^(a|o|as|os|um|uma|uns|de|do|da|dos|das|em|no|na|com|por|para|que|e|ou|sua|seu|eu)$/i;
     for (let i = 1; i < pal.length; i++) {
       const a = pal.slice(0, i).join(' '), b = pal.slice(i).join(' '), m = Math.max(g.measureText(a).width, g.measureText(b).width);
-      if (m <= 900 && m < mw) { mw = m; ls = [a, b]; }
+      const custo = m + (fraca.test(pal[i - 1]) ? 150 : 0) - (/[,:;]$/.test(pal[i - 1]) ? 150 : 0);
+      if (m <= 900 && custo < mw) { mw = custo; ls = [a, b]; }
     }
   }
   const h = ls.length * 56 + 36; const y = 1690 - h / 2;
@@ -395,7 +403,8 @@ function legenda(t, itens) {
 
 window.desenhar = function (indice, t) {
   const c = window.PLANO.cenas[indice]; window.CENA = c; ALFA = 1;
-  fundo(t);
+  const tg = window.PLANO.cenas.slice(0, indice).reduce((s, x) => s + Math.round(x.duracao * 30) / 30, 0);
+  fundo(tg + t);
   CENAS[c.tipo](t, c.duracao);
   legenda(t, c.legenda);
   return true;
