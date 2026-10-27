@@ -1,0 +1,411 @@
+{
+ "versao": "v4: roteiro v3 com as correções da conferência independente de 27/10 (34 apontamentos, todos aplicados)",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "texto": "Cinco mil, quinhentas e setenta e uma cidades. Eu fui ver, uma por uma, o que aconteceu entre o primeiro e o segundo turno. E o que eu achei levanta perguntas que alguém precisa responder.",
+   "legendas": [
+    [
+     "Cinco mil, quinhentas e setenta e uma cidades.",
+     "5.571 cidades."
+    ],
+    [
+     "Eu fui ver, uma por uma,",
+     "Eu fui ver, uma por uma,"
+    ],
+    [
+     "o que aconteceu entre o primeiro e o segundo turno.",
+     "o que aconteceu entre o 1º e o 2º turno."
+    ],
+    [
+     "E o que eu achei levanta perguntas",
+     "E o que eu achei levanta perguntas"
+    ],
+    [
+     "que alguém precisa responder.",
+     "que alguém precisa responder."
+    ]
+   ]
+  },
+  {
+   "tipo": "contexto",
+   "texto": "Flávio saiu do primeiro turno na frente, por dois vírgula dois milhões de votos. Teve o apoio de doze dos vinte e um governadores eleitos no primeiro turno, e de Zema, Caiado, Cury e Temer. E onze de doze institutos tinham Flávio numericamente à frente na última pesquisa.",
+   "legendas": [
+    [
+     "Flávio saiu do primeiro turno na frente,",
+     "Flávio saiu do 1º turno na frente,"
+    ],
+    [
+     "por dois vírgula dois milhões de votos.",
+     "por 2,2 milhões de votos."
+    ],
+    [
+     "Teve o apoio de doze dos vinte e um governadores",
+     "Teve o apoio de 12 dos 21 governadores"
+    ],
+    [
+     "eleitos no primeiro turno,",
+     "eleitos no 1º turno,"
+    ],
+    [
+     "e de Zema, Caiado, Cury e Temer.",
+     "e de Zema, Caiado, Cury e Temer."
+    ],
+    [
+     "E onze de doze institutos",
+     "E 11 de 12 institutos"
+    ],
+    [
+     "tinham Flávio numericamente à frente",
+     "tinham Flávio numericamente à frente"
+    ],
+    [
+     "na última pesquisa.",
+     "na última pesquisa."
+    ]
+   ]
+  },
+  {
+   "tipo": "mapa",
+   "texto": "Três semanas depois, o país inteiro andou para o mesmo lado. Em cinco mil, duzentas e vinte e oito cidades, noventa e quatro por cento, Lula cresceu mais que Flávio, com saldo de seis vírgula sete milhões de votos. Nos redutos de Flávio, onde ele tinha mais de sessenta e cinco por cento, a virada foi menor, mas a margem ainda andou para Lula em oitenta e nove por cento das cidades.",
+   "legendas": [
+    [
+     "Três semanas depois,",
+     "Três semanas depois,"
+    ],
+    [
+     "o país inteiro andou para o mesmo lado.",
+     "o país inteiro andou para o mesmo lado."
+    ],
+    [
+     "Em cinco mil, duzentas e vinte e oito cidades,",
+     "Em 5.228 cidades,"
+    ],
+    [
+     "noventa e quatro por cento,",
+     "94%,"
+    ],
+    [
+     "Lula cresceu mais que Flávio,",
+     "Lula cresceu mais que Flávio,"
+    ],
+    [
+     "com saldo de seis vírgula sete milhões de votos.",
+     "com saldo de 6,7 milhões de votos."
+    ],
+    [
+     "Nos redutos de Flávio,",
+     "Nos redutos de Flávio,"
+    ],
+    [
+     "onde ele tinha mais de sessenta e cinco por cento,",
+     "onde ele tinha mais de 65%,"
+    ],
+    [
+     "a virada foi menor,",
+     "a virada foi menor,"
+    ],
+    [
+     "mas a margem ainda andou para Lula",
+     "mas a margem ainda andou para Lula"
+    ],
+    [
+     "em oitenta e nove por cento das cidades.",
+     "em 89% das cidades."
+    ]
+   ]
+  },
+  {
+   "tipo": "pergunta",
+   "texto": "Com tudo isso a favor de Flávio, de onde veio um movimento desse tamanho, no país inteiro, ao mesmo tempo?",
+   "legendas": [
+    [
+     "Com tudo isso a favor de Flávio,",
+     "Com tudo isso a favor de Flávio,"
+    ],
+    [
+     "de onde veio um movimento desse tamanho,",
+     "de onde veio um movimento desse tamanho,"
+    ],
+    [
+     "no país inteiro, ao mesmo tempo?",
+     "no país inteiro, ao mesmo tempo?"
+    ]
+   ]
+  },
+  {
+   "tipo": "conta",
+   "texto": "Faz a conta comigo. Os derrotados tiveram nove vírgula três milhões de votos. O comparecimento subiu quase três milhões. E o branco e nulo caiu um vírgula oito milhão. São catorze milhões de votos em jogo. Flávio ficou com três vírgula sete milhões, o equivalente a quarenta por cento dos votos dos derrotados. Lula ficou com dez vírgula quatro milhões: três de cada quatro votos em jogo, mesmo com os apoios do lado de Flávio. A soma sempre fecha. A dúvida é a divisão.",
+   "legendas": [
+    [
+     "Faz a conta comigo.",
+     "Faz a conta comigo."
+    ],
+    [
+     "Os derrotados tiveram nove vírgula três milhões de votos.",
+     "Os derrotados tiveram 9,3 milhões de votos."
+    ],
+    [
+     "O comparecimento subiu quase três milhões.",
+     "O comparecimento subiu quase 3 milhões."
+    ],
+    [
+     "E o branco e nulo caiu um vírgula oito milhão.",
+     "E o branco e nulo caiu 1,8 milhão."
+    ],
+    [
+     "São catorze milhões de votos em jogo.",
+     "São 14 milhões de votos em jogo."
+    ],
+    [
+     "Flávio ficou com três vírgula sete milhões,",
+     "Flávio ficou com 3,7 milhões,"
+    ],
+    [
+     "o equivalente a quarenta por cento dos votos dos derrotados.",
+     "o equivalente a 40% dos votos dos derrotados."
+    ],
+    [
+     "Lula ficou com dez vírgula quatro milhões:",
+     "Lula ficou com 10,4 milhões:"
+    ],
+    [
+     "três de cada quatro votos em jogo,",
+     "3 de cada 4 votos em jogo,"
+    ],
+    [
+     "mesmo com os apoios do lado de Flávio.",
+     "mesmo com os apoios do lado de Flávio."
+    ],
+    [
+     "A soma sempre fecha.",
+     "A soma sempre fecha."
+    ],
+    [
+     "A dúvida é a divisão.",
+     "A dúvida é a divisão."
+    ]
+   ]
+  },
+  {
+   "tipo": "base",
+   "texto": "Primeira pergunta. Numa amostra de quase quatro mil seções, a estimativa é que, no saldo, Flávio perdeu cinco por cento da sua base do primeiro turno para Lula, e Lula só um vírgula um por cento para Flávio. As pesquisas mostravam perdas parecidas dos dois lados. É uma diferença de uns dois milhões de votos, que pode ser gente que mudou de lado ou gente que deixou de votar e deu lugar a eleitores novos. As pesquisas não mostravam isso.",
+   "legendas": [
+    [
+     "Primeira pergunta.",
+     "Primeira pergunta."
+    ],
+    [
+     "Numa amostra de quase quatro mil seções,",
+     "Numa amostra de quase 4 mil seções,"
+    ],
+    [
+     "a estimativa é que, no saldo,",
+     "a estimativa é que, no saldo,"
+    ],
+    [
+     "Flávio perdeu cinco por cento da sua base do primeiro turno para Lula,",
+     "Flávio perdeu 5% da sua base do 1º turno para Lula,"
+    ],
+    [
+     "e Lula só um vírgula um por cento para Flávio.",
+     "e Lula só 1,1% para Flávio."
+    ],
+    [
+     "As pesquisas mostravam perdas parecidas dos dois lados.",
+     "As pesquisas mostravam perdas parecidas dos dois lados."
+    ],
+    [
+     "É uma diferença de uns dois milhões de votos,",
+     "É uma diferença de uns 2 milhões de votos,"
+    ],
+    [
+     "que pode ser gente que mudou de lado",
+     "que pode ser gente que mudou de lado"
+    ],
+    [
+     "ou gente que deixou de votar e deu lugar a eleitores novos.",
+     "ou gente que deixou de votar e deu lugar a eleitores novos."
+    ],
+    [
+     "As pesquisas não mostravam isso.",
+     "As pesquisas não mostravam isso."
+    ]
+   ]
+  },
+  {
+   "tipo": "pesquisas",
+   "texto": "Segunda. No primeiro turno, as pesquisas acertaram Lula e subestimaram Flávio. No segundo, as doze subestimaram Lula, em dois vírgula sete pontos na mediana. O erro trocou de lado em três semanas. Por quê?",
+   "legendas": [
+    [
+     "Segunda.",
+     "Segunda."
+    ],
+    [
+     "No primeiro turno, as pesquisas acertaram Lula e subestimaram Flávio.",
+     "No 1º turno, as pesquisas acertaram Lula e subestimaram Flávio."
+    ],
+    [
+     "No segundo, as doze subestimaram Lula,",
+     "No 2º, as 12 subestimaram Lula,"
+    ],
+    [
+     "em dois vírgula sete pontos na mediana.",
+     "em 2,7 pontos na mediana."
+    ],
+    [
+     "O erro trocou de lado em três semanas.",
+     "O erro trocou de lado em três semanas."
+    ],
+    [
+     "Por quê?",
+     "Por quê?"
+    ]
+   ]
+  },
+  {
+   "tipo": "eliminados",
+   "texto": "Terceira. Somados, os eleitores de Caiado, Cury, Renan e Zema declaravam ir mais para Flávio. Na estimativa da amostra, cerca de metade dos que escolheram um lado foi para Lula, bem acima do que as pesquisas mostravam.",
+   "legendas": [
+    [
+     "Terceira.",
+     "Terceira."
+    ],
+    [
+     "Somados, os eleitores de Caiado, Cury, Renan e Zema",
+     "Somados, os eleitores de Caiado, Cury, Renan e Zema"
+    ],
+    [
+     "declaravam ir mais para Flávio.",
+     "declaravam ir mais para Flávio."
+    ],
+    [
+     "Na estimativa da amostra,",
+     "Na estimativa da amostra,"
+    ],
+    [
+     "cerca de metade dos que escolheram um lado foi para Lula,",
+     "cerca de metade dos que escolheram um lado foi para Lula,"
+    ],
+    [
+     "bem acima do que as pesquisas mostravam.",
+     "bem acima do que as pesquisas mostravam."
+    ]
+   ]
+  },
+  {
+   "tipo": "prorrogacao",
+   "texto": "Quarta. A pedido da coligação de Lula, um ministro que foi advogado de Lula prorrogou a votação, e o TSE suspendeu a totalização até as sete da noite. As duas campanhas tinham pedido prorrogação em alguma cidade. Foram cerca de trinta e cinco mil votos depois das cinco, uns seis mil depois da decisão. É pouco, mas a pergunta sobre o procedimento continua de pé.",
+   "legendas": [
+    [
+     "Quarta.",
+     "Quarta."
+    ],
+    [
+     "A pedido da coligação de Lula,",
+     "A pedido da coligação de Lula,"
+    ],
+    [
+     "um ministro que foi advogado de Lula prorrogou a votação,",
+     "um ministro que foi advogado de Lula prorrogou a votação,"
+    ],
+    [
+     "e o TSE suspendeu a totalização até as sete da noite.",
+     "e o TSE suspendeu a totalização até as 19h."
+    ],
+    [
+     "As duas campanhas tinham pedido prorrogação em alguma cidade.",
+     "As duas campanhas tinham pedido prorrogação em alguma cidade."
+    ],
+    [
+     "Foram cerca de trinta e cinco mil votos depois das cinco,",
+     "Foram cerca de 35 mil votos depois das 17h,"
+    ],
+    [
+     "uns seis mil depois da decisão.",
+     "uns 6 mil depois da decisão."
+    ],
+    [
+     "É pouco,",
+     "É pouco,"
+    ],
+    [
+     "mas a pergunta sobre o procedimento continua de pé.",
+     "mas a pergunta sobre o procedimento continua de pé."
+    ]
+   ]
+  },
+  {
+   "tipo": "integridade",
+   "texto": "Quinta. No teste de integridade do Distrito Federal, no segundo turno, a urna e o papel discordaram uma vez. Disseram que foi erro de digitação. Qual cargo, qual voto, para que lado? Eu não achei isso divulgado.",
+   "legendas": [
+    [
+     "Quinta.",
+     "Quinta."
+    ],
+    [
+     "No teste de integridade do Distrito Federal, no segundo turno,",
+     "No teste de integridade do DF, no 2º turno,"
+    ],
+    [
+     "a urna e o papel discordaram uma vez.",
+     "a urna e o papel discordaram uma vez."
+    ],
+    [
+     "Disseram que foi erro de digitação.",
+     "Disseram que foi erro de digitação."
+    ],
+    [
+     "Qual cargo, qual voto, para que lado?",
+     "Qual cargo, qual voto, para que lado?"
+    ],
+    [
+     "Eu não achei isso divulgado.",
+     "Eu não achei isso divulgado."
+    ]
+   ]
+  },
+  {
+   "tipo": "fechamento",
+   "texto": "Nos treze municípios que eu somei inteiros, os boletins batem com o total, e nenhum teste meu achou a marca de uma fraude. Mas dado público não alcança o que acontece dentro do programa da urna. Por isso essas perguntas precisam de resposta oficial: os boletins completos, a ata do teste de integridade e o relatório do TCU.",
+   "legendas": [
+    [
+     "Nos treze municípios que eu somei inteiros,",
+     "Nos 13 municípios que eu somei inteiros,"
+    ],
+    [
+     "os boletins batem com o total,",
+     "os boletins batem com o total,"
+    ],
+    [
+     "e nenhum teste meu achou a marca de uma fraude.",
+     "e nenhum teste meu achou a marca de uma fraude."
+    ],
+    [
+     "Mas dado público não alcança",
+     "Mas dado público não alcança"
+    ],
+    [
+     "o que acontece dentro do programa da urna.",
+     "o que acontece dentro do programa da urna."
+    ],
+    [
+     "Por isso essas perguntas precisam de resposta oficial:",
+     "Por isso essas perguntas precisam de resposta oficial:"
+    ],
+    [
+     "os boletins completos,",
+     "os boletins completos,"
+    ],
+    [
+     "a ata do teste de integridade",
+     "a ata do teste de integridade"
+    ],
+    [
+     "e o relatório do TCU.",
+     "e o relatório do TCU."
+    ]
+   ]
+  }
+ ]
+}

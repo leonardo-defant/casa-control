@@ -134,9 +134,9 @@ const CENAS = {
     mapa(t, { aparecer: 1, colorir: 0, alfa: 0.18 });
     const p = d / 3.2;
     cartao(60, 470, 960, 300, 0.3, t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
-    cartao(60, 810, 960, 340, 0.3 + p, t, '12 de 21', 'governadores eleitos apoiaram Flávio, além de Zema, Caiado, Cury e Temer', COR.flavio);
-    cartao(60, 1190, 960, 300, 0.3 + 2 * p, t, '11 de 12', 'pesquisas davam Flávio na frente na véspera', COR.flavio);
-    rodape('TSE; levantamento de apoios; pesquisas registradas no TSE');
+    cartao(60, 810, 960, 340, 0.3 + p, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
+    cartao(60, 1190, 960, 300, 0.3 + 2 * p, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
+    rodape('TSE; levantamento de apoios na imprensa; pesquisas divulgadas na imprensa');
   },
   mapa(t, d) {
     const tc = 0.4, tr = d * 0.62;
@@ -145,19 +145,19 @@ const CENAS = {
     const yb = 1250;
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', k1 * (1 - k2), 'rgba(255,255,255,0.10)');
     texto(fmt(Math.round(contador(5228, 0, t, tc + 0.6, 2.0))) + ' cidades', W / 2, yb + 80, 76, COR.lula, 900, 'center', k1 * (1 - k2));
-    texto('94% das cidades: Lula ganhou mais votos que Flávio', W / 2, yb + 160, 34, COR.texto, 600, 'center', k1 * (1 - k2));
+    texto('94% das cidades: Lula cresceu mais que Flávio', W / 2, yb + 160, 34, COR.texto, 600, 'center', k1 * (1 - k2));
     texto('saldo de Lula nelas: +' + fmt(contador(6.7, 1, t, tc + 1.2, 2.0), 1) + ' milhões', W / 2, yb + 240, 44, COR.texto, 800, 'center', k1 * (1 - k2));
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', k2, 'rgba(255,255,255,0.10)');
     texto('Redutos de Flávio', W / 2, yb + 70, 44, COR.flavio, 800, 'center', k2);
     texto('(mais de 65% no 1º turno)', W / 2, yb + 122, 32, COR.fraco, 600, 'center', k2);
-    texto('89% andaram para Lula', W / 2, yb + 210, 70, COR.lula, 900, 'center', k2);
-    texto('(a diferença entre os dois, em pontos)', W / 2, yb + 280, 30, COR.fraco, 600, 'center', k2);
+    texto('margem andou para Lula em 89%', W / 2, yb + 205, 58, COR.lula, 900, 'center', k2);
+    texto('a virada ali foi menor: 2,5 pontos, contra 4,4 na média', W / 2, yb + 275, 30, COR.fraco, 600, 'center', k2);
     // legenda de cores
     const kl = k1;
     g.globalAlpha = kl; g.fillStyle = COR.lula; g.beginPath(); g.arc(250, 300, 12, 0, 6.28); g.fill();
     g.fillStyle = COR.flavio; g.beginPath(); g.arc(640, 300, 12, 0, 6.28); g.fill(); g.globalAlpha = 1;
-    texto('Lula ganhou mais votos', 275, 300, 28, COR.texto, 600, 'left', kl);
-    texto('Flávio ganhou mais', 665, 300, 28, COR.texto, 600, 'left', kl);
+    texto('Lula cresceu mais', 275, 300, 28, COR.texto, 600, 'left', kl);
+    texto('Flávio cresceu mais', 665, 300, 28, COR.texto, 600, 'left', kl);
     rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades)');
   },
   pergunta(t, d) {
@@ -165,7 +165,7 @@ const CENAS = {
     pergunta('De onde veio esse movimento?', t, 0.3, 980, 96);
   },
   conta(t, d) {
-    const blocos = [['Eleitores dos derrotados', 9.32], ['Comparecimento a mais', 2.96], ['Branco e nulo a menos', 1.82]];
+    const blocos = [['Votos dos derrotados', 9.32], ['Aumento do comparecimento', 2.96], ['Queda do branco e nulo', 1.82]];
     const p = Math.min(2.2, d / 9);
     blocos.forEach(([nome, v], i) => {
       const k = saida(fase(t, 0.3 + i * p, 0.6)); const y = 380 + i * 170 - (1 - k) * 60;
@@ -183,11 +183,11 @@ const CENAS = {
       caixa(x0, y0, wf, alt, 20, COR.flavio, 1);
       caixa(x0 + wf, y0, (lg - wf) * ks, alt, 20, COR.lula, 1);
       texto('Flávio +3,72 mi', x0 + 18, y0 + alt + 50, 36, COR.flavio, 800, 'left', ks);
-      texto('= 40% dos derrotados', x0 + 18, y0 + alt + 96, 30, COR.fraco, 600, 'left', ks);
+      texto('equivale a 40% dos derrotados', x0 + 18, y0 + alt + 96, 30, COR.fraco, 600, 'left', ks);
       texto('Lula +10,38 mi', x0 + lg - 18, y0 + alt + 50, 36, COR.lula, 800, 'right', ks);
-      paragrafo('= os outros 60% + todos os novos + todo o branco e nulo que sumiu', x0 + lg - 18, y0 + alt + 96, 560, 30, COR.fraco, 600, ks, 1.25, 'right');
+      texto('3 de cada 4 votos em jogo', x0 + lg - 18, y0 + alt + 96, 30, COR.fraco, 600, 'right', ks);
     }
-    selo('100% do restante, pelo saldo', W / 2, 1520, t, 0.3 + 3 * p + 3.0);
+    selo('A soma sempre fecha. A dúvida é a divisão.', W / 2, 1520, t, 0.3 + 3 * p + 3.0);
     rodape('TSE; soma: 3,72 + 10,38 = 9,32 + 2,96 + 1,82');
   },
   base(t, d) {
@@ -199,15 +199,15 @@ const CENAS = {
       texto(fmt(pct, 1).replace(',0', '') + '%', x + 220, 650, 120, corDest, 900, 'center', k);
       paragrafo(cor, x + 220, 760, 380, 32, COR.fraco, 600, k);
     }
-    coluna(80, 'Eleitores de Flávio no 1º turno', 'aparecem com Lula no 2º', 5.0, COR.lula, k1);
-    coluna(560, 'Eleitores de Lula no 1º turno', 'aparecem com Flávio no 2º', 1.1, COR.flavio, k2);
+    coluna(80, 'Base de Flávio no 1º turno', 'perdida para Lula, no saldo (estimativa)', 5.0, COR.lula, k1);
+    coluna(560, 'Base de Lula no 1º turno', 'perdida para Flávio, no saldo (estimativa)', 1.1, COR.flavio, k2);
     caixa(80, 940, 920, 170, 30, rgba(COR.destaque, 0.10), k3, rgba(COR.destaque, 0.7));
-    texto('Nas pesquisas: 5% e 5%', W / 2, 1000, 50, COR.destaque, 800, 'center', k3);
-    texto('troca igual dos dois lados', W / 2, 1062, 32, COR.fraco, 600, 'center', k3);
+    texto('Nas pesquisas: perdas parecidas', W / 2, 1000, 48, COR.destaque, 800, 'center', k3);
+    texto('PoderData 5% e 5%; Ipespe 2% e 1%', W / 2, 1062, 32, COR.fraco, 600, 'center', k3);
     const k4 = saida(fase(t, d * 0.8, 0.7));
     texto('≈ 2 milhões de votos', W / 2, 1230, 76, COR.texto, 900, 'center', k4);
-    texto('que nenhuma medição prévia captou', W / 2, 1310, 36, COR.fraco, 600, 'center', k4);
-    rodape('estimativa por regressão em amostra de 3.897 seções; PoderData 23 e 24/10');
+    paragrafo('mudança de lado ou troca de eleitores entre os turnos', W / 2, 1310, 900, 34, COR.fraco, 600, k4);
+    rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); PoderData 23 e 24/10; Ipespe 13 a 15/10');
   },
   pesquisas(t, d) {
     rotuloDuvida(2, t);
@@ -225,21 +225,21 @@ const CENAS = {
       });
       texto(nota, W / 2, y + 420, 38, erro.cor, 800, 'center', k);
     }
-    painel(330, '1º turno: erro das pesquisas em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, 0.4, 'mediana: 0,2 ponto');
-    painel(870, '2º turno: as 12 erraram para o mesmo lado', { pontos: [2.8, 2.8, 2.6, 2.5, 2.8, 2.3, 3.8, 1.9, 3.8, 3.3, 2.3, 1.2], cor: COR.lula }, d * 0.4, 'mediana: 2,7 pontos');
+    painel(330, '1º turno (10 institutos): erro em Lula', { pontos: [0.2, -0.8, -1.8, -2.6, 0.2, 1.2, -0.8, 2.6, 1.2, 0.2], cor: COR.texto }, 0.4, 'mediana 0,2; Flávio subestimado em 9 de 10');
+    painel(870, '2º turno: os 12 subestimaram Lula', { pontos: [2.8, 2.8, 2.6, 2.5, 2.8, 2.3, 3.8, 1.9, 3.8, 3.3, 2.3, 1.2], cor: COR.lula }, d * 0.4, 'mediana 2,7 pontos (de 1,2 a 3,8)');
     texto('cada ponto é um instituto; à esquerda da linha, Lula acima da pesquisa', W / 2, 1420, 26, COR.fraco, 500, 'center', saida(fase(t, d * 0.4, 0.7)));
-    rodape('pesquisas registradas no TSE, última de cada instituto; resultado oficial');
+    rodape('última pesquisa de cada instituto, divulgada na imprensa; resultado oficial do TSE');
   },
   eliminados(t, d) {
     rotuloDuvida(3, t);
     const k = saida(fase(t, 0.4, 0.7));
-    paragrafo('Eleitores de Caiado, Cury, Renan e Zema que escolheram Lula ou Flávio', W / 2, 400, 900, 42, COR.texto, 700, k);
+    paragrafo('Eleitores de Caiado, Cury, Renan e Zema, somados, que escolheram Lula ou Flávio', W / 2, 400, 900, 42, COR.texto, 700, k);
     const x0 = 120, lg = 840, y = 700;
     const kb = suave(fase(t, 1.0, 1.4)), kp = suave(fase(t, d * 0.45, 1.2));
     texto('Pesquisas: de 32% a 44% para Lula', x0, y - 40, 34, COR.fraco, 700, 'left', kp);
     caixa(x0, y, lg, 90, 18, 'rgba(255,255,255,0.06)', kp);
     caixa(x0 + lg * 0.32, y, lg * 0.12 * kp, 90, 18, rgba(COR.lula, 0.55), kp);
-    texto('Urnas: 52% para Lula', x0, y + 220, 34, COR.texto, 800, 'left', kb);
+    texto('Estimativa da amostra: cerca de 52% para Lula (49% a 56%)', x0, y + 220, 32, COR.texto, 800, 'left', kb);
     caixa(x0, y + 260, lg, 90, 18, 'rgba(255,255,255,0.06)', kb);
     caixa(x0, y + 260, lg * 0.522 * kb, 90, 18, COR.lula, kb);
     g.globalAlpha = kb; g.fillStyle = 'rgba(255,255,255,0.5)'; g.fillRect(x0 + lg * 0.5 - 1, y - 10, 3, 370); g.globalAlpha = 1;
@@ -249,7 +249,7 @@ const CENAS = {
   prorrogacao(t, d) {
     rotuloDuvida(4, t);
     const itens = [['16h33', 'Zanin, ex-advogado de Lula, é sorteado relator do pedido da coligação de Lula'],
-                   ['17h03', 'Votação prorrogada até as 19h'], ['17h06', 'TSE suspende a totalização até as 19h']];
+                   ['17h03', 'Zanin prorroga a votação até as 19h (depois, só nas seções ainda abertas)'], ['17h06', 'O TSE suspende a totalização até as 19h']];
     const p = d / 4.2;
     g.globalAlpha = saida(fase(t, 0.3, 0.6)); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fillRect(200, 360, 4, 900); g.globalAlpha = 1;
     itens.forEach(([h, s], i) => {
@@ -260,28 +260,28 @@ const CENAS = {
     });
     const kf = saida(fase(t, 0.4 + 3 * p, 0.6));
     caixa(80, 1330, 920, 150, 30, COR.cartao, kf, 'rgba(255,255,255,0.10)');
-    texto('cerca de 35 mil votos depois das 17h', W / 2, 1390, 40, COR.texto, 800, 'center', kf);
-    texto('margem final: 4,43 milhões', W / 2, 1442, 30, COR.fraco, 600, 'center', kf);
-    rodape('decisão do STF (Rcl 101.673); TSE; levantamento nos logs das urnas (Setup News/CNN, g1)');
+    texto('cerca de 35 mil votos depois das 17h', W / 2, 1384, 40, COR.texto, 800, 'center', kf);
+    texto('uns 6 mil depois da decisão; margem final: 4,43 milhões', W / 2, 1436, 30, COR.fraco, 600, 'center', kf);
+    rodape('STF (Rcl 101.673); TSE; logs das urnas (Setup News/CNN, g1); a campanha de Flávio também pediu prorrogação em cidades de SP, PR e SC');
   },
   integridade(t, d) {
     rotuloDuvida(5, t);
     const k = saida(fase(t, 0.4, 0.7));
     caixa(80, 380, 920, 520, 30, COR.cartao, k, 'rgba(255,255,255,0.10)');
-    paragrafo('Teste de integridade no Distrito Federal', W / 2, 450, 820, 42, COR.texto, 800, k);
+    paragrafo('Teste de integridade no Distrito Federal, 2º turno', W / 2, 450, 820, 42, COR.texto, 800, k);
     texto('1', W / 2, 650, 200, COR.destaque, 900, 'center', k);
     texto('divergência entre a cédula e a urna', W / 2, 800, 38, COR.texto, 600, 'center', k);
     const k2 = saida(fase(t, d * 0.45, 0.7));
-    texto('Qual voto?', W / 2, 1040, 64, COR.destaque, 900, 'center', k2);
-    texto('Em que direção?', W / 2, 1130, 64, COR.destaque, 900, 'center', saida(fase(t, d * 0.55, 0.7)));
-    selo('NÃO DIVULGADO', W / 2, 1290, t, d * 0.68, COR.lula);
+    texto('Qual cargo? Qual voto?', W / 2, 1040, 60, COR.destaque, 900, 'center', k2);
+    texto('Para que lado?', W / 2, 1130, 60, COR.destaque, 900, 'center', saida(fase(t, d * 0.55, 0.7)));
+    selo('NÃO ENCONTRADO NAS FONTES PÚBLICAS', W / 2, 1290, t, d * 0.68, COR.lula);
     rodape('TRE-DF e Agência CLDF, 25/10; relatório do TCU até 24/11');
   },
   fechamento(t, d) {
     mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 });
     const k1 = saida(fase(t, 0.4, 0.8)), k2 = saida(fase(t, d * 0.5, 0.8));
     caixa(60, 1090, 960, 400, 32, 'rgba(10,15,28,0.88)', Math.max(k1, k2) > 0 ? 1 : 0, 'rgba(255,255,255,0.10)');
-    paragrafo('Nos dados públicos, não achei a marca de uma fraude. O que eles não alcançam é o programa da urna.', W / 2, 1160, 880, 40, COR.texto, 700, k1);
+    paragrafo('Nos 13 municípios que somei inteiros, os boletins batem com o total, e nenhum teste meu achou a marca de uma fraude. Dado público não alcança o programa da urna.', W / 2, 1150, 880, 36, COR.texto, 700, k1);
     paragrafo('Estas perguntas precisam de resposta oficial.', W / 2, 1380, 880, 46, COR.destaque, 900, k2);
     rodape('análise com critérios registrados antes de ver os dados');
   },
