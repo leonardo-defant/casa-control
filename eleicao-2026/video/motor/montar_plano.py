@@ -2,11 +2,13 @@
 quebra o texto em legendas sincronizadas pelo tamanho de cada trecho e escreve plano.json para o render.js.
 Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida>
 """
-import json, os, re, subprocess, sys
+import array, json, os, re, subprocess, sys
 
 ALVO = 2.6        # palavras por segundo
 MAX_VEL = 1.2     # aceleração máxima
-CAUDA = 0.7       # segundos de tela depois da fala
+CAUDA = 0.3       # segundos de tela depois da fala (somado às margens abaixo, dá ~0,65 s entre uma fala e outra)
+MARGEM_INI = 0.12 # silêncio mantido antes da fala
+MARGEM_FIM = 0.25 # mantido depois da fala (preserva o decaimento da última sílaba)
 FPS = 30
 
 
@@ -15,10 +17,15 @@ def duracao(arq):
                                 capture_output=True, text=True).stdout)
 
 
-def inicio_fala(arq):
-    err = subprocess.run(['ffmpeg', '-i', arq, '-af', 'silencedetect=noise=-40dB:d=0.2', '-f', 'null', '-'], capture_output=True, text=True).stderr
-    ini = re.findall(r'silence_start: ([\d.]+)', err); fim = re.findall(r'silence_end: ([\d.]+)', err)
-    return float(fim[0]) if ini and float(ini[0]) < 0.05 and fim else 0.0
+def limites_fala(arq):
+    """Início e fim da fala (s), pelo envelope em janelas de 20 ms com limiar de 3% do pico."""
+    raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
+    a = array.array('h', raw); jan = 320
+    env = [(sum(x * x for x in a[k:k + jan]) / jan) ** 0.5 for k in range(0, len(a) - jan, jan)]
+    lim = max(env) * 0.03
+    ini = next(k for k, e in enumerate(env) if e > lim)
+    fim = len(env) - 1 - next(k for k, e in enumerate(reversed(env)) if e > lim)
+    return ini * 0.02, (fim + 1) * 0.02
 
 
 def trechos(texto, max_pal=8):
@@ -48,8 +55,14 @@ def main():
         pal = len(c['texto'].split())
         vel = min(MAX_VEL, max(1.0, ALVO / (pal / d0)))
         arq = os.path.join(saida, f'cena{i:02d}.wav')
-        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', orig, '-af', f'atempo={vel:.4f}', '-ar', '48000', '-ac', '2', arq], check=True)
-        d = duracao(arq); t0 = inicio_fala(arq)
+        bruto = arq + '.bruto.wav'
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', orig, '-af', f'atempo={vel:.4f}', '-ar', '48000', '-ac', '2', bruto], check=True)
+        # corta o silêncio das pontas (sobra MARGEM), com fade curto para não estalar
+        f0, f1 = limites_fala(bruto); a0 = max(0.0, f0 - MARGEM_INI); a1 = min(duracao(bruto), f1 + MARGEM_FIM)
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', bruto, '-af',
+                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', arq], check=True)
+        os.remove(bruto)
+        d = duracao(arq); t0 = limites_fala(arq)[0]
         dur_cena = round((d + CAUDA) * FPS) / FPS
         # legenda: tempo de cada trecho proporcional ao número de caracteres (inclui pausas da pontuação)
         if 'legendas' in c:  # pares [trecho falado, legenda com algarismos]: o tempo sai do trecho falado

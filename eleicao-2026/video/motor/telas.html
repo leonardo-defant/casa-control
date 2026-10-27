@@ -134,10 +134,11 @@ const CENAS = {
   },
   contexto(t, d) {
     mapa(t, { aparecer: 1, colorir: 0, alfa: 0.18 });
-    cartao(60, 470, 960, 300, L(0, 0.3), t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
-    cartao(60, 810, 960, 340, L(2, d / 3.2) - 0.2, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
-    cartao(60, 1190, 960, 300, L(5, 2 * d / 3.2) - 0.2, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
-    rodape('TSE; levantamento de apoios na imprensa; pesquisas divulgadas na imprensa');
+    cartao(60, 300, 960, 250, L(0, 0.3), t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
+    cartao(60, 574, 960, 300, L(2, d * 0.2) - 0.2, t, 'PL: 121 deputados', 'e 29 dos 81 senadores no início do mandato: as maiores bancadas de um partido desde 1988; com os outros senadores de direita, mais da metade do Senado', COR.flavio);
+    cartao(60, 898, 960, 270, L(8, d * 0.55) - 0.2, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
+    cartao(60, 1192, 960, 270, L(11, d * 0.8) - 0.2, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
+    rodape('TSE; Agência Brasil e Agência Senado (bancadas); apoios e pesquisas divulgados na imprensa');
   },
   mapa(t, d) {
     const tc = L(2, 3.0) - 0.6, tr = L(6, d * 0.62) - 0.3;
@@ -293,12 +294,50 @@ const CENAS = {
     rodape('TRE-DF e Agência CLDF, 25/10; relatório do TCU até 24/11');
   },
   fechamento(t, d) {
-    mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 });
-    const k1 = saida(fase(t, 0.4, 0.8)), k2 = saida(fase(t, L(5, d * 0.5) - 0.2, 0.8));
-    caixa(60, 1090, 960, 400, 32, 'rgba(10,15,28,0.88)', Math.max(k1, k2) > 0 ? 1 : 0, 'rgba(255,255,255,0.10)');
-    paragrafo('Nos 13 municípios que somei inteiros, os boletins batem com o total, e nenhum teste meu achou a marca de uma fraude. Dado público não alcança o programa da urna.', W / 2, 1150, 880, 36, COR.texto, 700, k1);
-    paragrafo('Estas perguntas precisam de resposta oficial.', W / 2, 1380, 880, 46, COR.destaque, 900, k2);
-    rodape('análise com critérios registrados antes de ver os dados');
+    const tB = L(4, d * 0.3) - 0.3, tC = L(12, d * 0.85) - 0.3;
+    const sai = 1 - suave(fase(t, tB, 0.6));
+    mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 * sai });
+    // A: o que eu conferi, e o limite disso
+    const kA = saida(fase(t, 0.4, 0.8)) * sai, kA2 = saida(fase(t, L(3, d * 0.2) - 0.2, 0.6)) * sai;
+    caixa(60, 1060, 960, 360, 32, 'rgba(10,15,28,0.88)', kA, 'rgba(255,255,255,0.10)');
+    texto('13 municípios com todos os boletins somados', W / 2, 1130, 40, COR.texto, 800, 'center', kA);
+    paragrafo('a soma bate com o total oficial, e nenhum teste meu achou a marca de uma fraude', W / 2, 1205, 860, 34, COR.fraco, 600, kA);
+    texto('Isso confere a conta, não o voto.', W / 2, 1350, 44, COR.destaque, 900, 'center', kA2);
+    // B: boletim, registro digital e log saem do próprio software da urna
+    const kB = saida(fase(t, tB, 0.7));
+    if (kB > 0) {
+      texto('O que é publicado', W / 2, 228, 32, COR.fraco, 700, 'center', kB);
+      const chips = [['Boletim', 60, 220], ['Registro digital dos votos', 310, 480], ['Log', 820, 200]];
+      chips.forEach(([s, x, w], i) => {
+        const k = saida(fase(t, tB + i * 0.25, 0.5));
+        caixa(x, 270, w, 96, 26, COR.cartao, k, 'rgba(255,255,255,0.18)');
+        texto(s, x + w / 2, 319, 32, COR.texto, 700, 'center', k);
+      });
+      const kP = saida(fase(t, L(5, d * 0.35) - 0.2, 0.7));
+      g.save(); g.globalAlpha = kP; g.strokeStyle = rgba(COR.destaque, 0.8); g.lineWidth = 4;
+      chips.forEach(([s, x, w]) => {
+        const x0 = x + w / 2, y0 = 370, x1 = mistura(x0, W / 2, 0.6), y1 = 470;
+        g.beginPath(); g.moveTo(x0, y0); g.lineTo(mistura(x0, x1, kP), mistura(y0, y1, kP)); g.stroke();
+      });
+      g.restore();
+      caixa(160, 475, 760, 120, 30, rgba(COR.destaque, 0.12), kP, rgba(COR.destaque, 0.9));
+      texto('próprio software da urna', W / 2, 536, 46, COR.texto, 800, 'center', kP);
+      const kT = saida(fase(t, L(5, d * 0.35) + 1.0, 0.6));
+      paragrafo('o teste de integridade confere esse software só com votos de teste', W / 2, 650, 900, 30, COR.fraco, 600, kT);
+      const kS = saida(fase(t, L(6, d * 0.45) - 0.2, 0.6)), kS2 = saida(fase(t, L(7, d * 0.5) - 0.2, 0.6));
+      caixa(60, 730, 960, 290, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
+      texto('Sem voto impresso', W / 2, 795, 54, COR.destaque, 900, 'center', kS);
+      paragrafo('a urna não permite conferir o voto real do eleitor de forma independente do software, nos dois turnos e para todos os cargos', W / 2, 870, 880, 34, COR.texto, 700, kS2);
+      const kO = saida(fase(t, L(10, d * 0.7) - 0.2, 0.6));
+      paragrafo('No mundo de hoje, não dá para confiar de olhos fechados em software nenhum.', W / 2, 1085, 900, 42, COR.texto, 800, kO);
+    }
+    // C: o que falta
+    const kC = saida(fase(t, tC, 0.7)), kC2 = saida(fase(t, L(13, d * 0.92) - 0.2, 0.7));
+    caixa(60, 1200, 960, 360, 32, 'rgba(10,15,28,0.88)', kC, 'rgba(255,255,255,0.10)');
+    texto('Perguntas que precisam de resposta oficial', W / 2, 1255, 36, COR.texto, 700, 'center', kC);
+    paragrafo('Faltam: os boletins completos, a ata do teste de integridade do DF e o relatório do TCU', W / 2, 1310, 860, 28, COR.fraco, 600, kC);
+    paragrafo('O voto precisa poder ser conferido sem depender só do software.', W / 2, 1420, 880, 46, COR.destaque, 900, kC2, 1.15);
+    rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
   },
 };
 
