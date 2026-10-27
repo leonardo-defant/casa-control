@@ -1,0 +1,344 @@
+{
+ "versao": "3 min v2, voz el, fechamento A",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "texto": "Cinco mil, quinhentas e setenta e uma cidades. Eu fui ver, uma por uma, o que aconteceu entre o primeiro e o segundo turno. E o que eu achei levanta perguntas que alguém precisa responder.",
+   "legendas": [
+    [
+     "Cinco mil, quinhentas e setenta e uma cidades.",
+     "5.571 cidades."
+    ],
+    [
+     "Eu fui ver, uma por uma,",
+     "Eu fui ver, uma por uma,"
+    ],
+    [
+     "o que aconteceu entre o primeiro e o segundo turno.",
+     "o que aconteceu entre o 1º e o 2º turno."
+    ],
+    [
+     "E o que eu achei levanta perguntas",
+     "E o que eu achei levanta perguntas"
+    ],
+    [
+     "que alguém precisa responder.",
+     "que alguém precisa responder."
+    ]
+   ]
+  },
+  {
+   "tipo": "contexto3",
+   "texto": "Flávio saiu do primeiro turno na frente, por dois vírgula dois milhões de votos. O PL, partido dele, elegeu cento e vinte e um deputados e deve começar com vinte e nove dos oitenta e um senadores, as maiores bancadas de um partido desde mil novecentos e oitenta e oito. Flávio teve o apoio de doze dos vinte e um governadores eleitos no primeiro turno, e de Zema, Caiado, Cury e Têmer.",
+   "legendas": [
+    [
+     "Flávio saiu do primeiro turno na frente,",
+     "Flávio saiu do 1º turno na frente,"
+    ],
+    [
+     "por dois vírgula dois milhões de votos.",
+     "por 2,2 milhões de votos."
+    ],
+    [
+     "O PL, partido dele, elegeu cento e vinte e um deputados",
+     "O PL, partido dele, elegeu 121 deputados"
+    ],
+    [
+     "e deve começar com vinte e nove dos oitenta e um senadores,",
+     "e deve começar com 29 dos 81 senadores,"
+    ],
+    [
+     "as maiores bancadas de um partido",
+     "as maiores bancadas de um partido"
+    ],
+    [
+     "desde mil novecentos e oitenta e oito.",
+     "desde 1988."
+    ],
+    [
+     "Flávio teve o apoio de doze dos vinte e um governadores",
+     "Flávio teve o apoio de 12 dos 21 governadores"
+    ],
+    [
+     "eleitos no primeiro turno,",
+     "eleitos no 1º turno,"
+    ],
+    [
+     "e de Zema, Caiado, Cury e Têmer.",
+     "e de Zema, Caiado, Cury e Temer."
+    ]
+   ]
+  },
+  {
+   "tipo": "mapa3",
+   "texto": "Contrariando a lógica de todo esse apoio, do primeiro para o segundo turno, o país inteiro andou para o lado de Lula. Em cinco mil duzentas e vinte e oito cidades, noventa e quatro por cento, Lula cresceu mais que Flávio, com saldo de seis vírgula sete milhões de votos. Nos redutos de Flávio, onde ele tinha mais de sessenta e cinco por cento, a virada foi menor, mas a margem ainda andou para Lula em oitenta e nove por cento das cidades. Para mim, isso é muito estranho.",
+   "legendas": [
+    [
+     "Contrariando a lógica de todo esse apoio,",
+     "Contrariando a lógica de todo esse apoio,"
+    ],
+    [
+     "do primeiro para o segundo turno, o país inteiro andou para o lado de Lula.",
+     "do 1º para o 2º turno, o país inteiro andou para o lado de Lula."
+    ],
+    [
+     "Em cinco mil duzentas e vinte e oito cidades,",
+     "Em 5.228 cidades,"
+    ],
+    [
+     "noventa e quatro por cento,",
+     "94%,"
+    ],
+    [
+     "Lula cresceu mais que Flávio,",
+     "Lula cresceu mais que Flávio,"
+    ],
+    [
+     "com saldo de seis vírgula sete milhões de votos.",
+     "com saldo de 6,7 milhões de votos."
+    ],
+    [
+     "Nos redutos de Flávio,",
+     "Nos redutos de Flávio,"
+    ],
+    [
+     "onde ele tinha mais de sessenta e cinco por cento,",
+     "onde ele tinha mais de 65%,"
+    ],
+    [
+     "a virada foi menor,",
+     "a virada foi menor,"
+    ],
+    [
+     "mas a margem ainda andou para Lula",
+     "mas a margem ainda andou para Lula"
+    ],
+    [
+     "em oitenta e nove por cento das cidades.",
+     "em 89% das cidades."
+    ],
+    [
+     "Para mim, isso é muito estranho.",
+     "Para mim, isso é muito estranho."
+    ]
+   ]
+  },
+  {
+   "tipo": "conta",
+   "texto": "Faz a conta comigo. Os derrotados tiveram nove vírgula três milhões de votos. O comparecimento subiu quase três milhões. E o branco e nulo caiu um vírgula oito milhão. São catorze milhões de votos em jogo. Flávio cresceu três vírgula sete milhões, o equivalente a quarenta por cento dos votos dos derrotados. Se foi isso, Lula precisaria de cem por cento de todo o restante: os outros sessenta por cento dos derrotados, todo o aumento do comparecimento e toda a queda do branco e nulo. Cem por cento. É o saldo, não é cada eleitor.",
+   "legendas": [
+    [
+     "Faz a conta comigo.",
+     "Faz a conta comigo."
+    ],
+    [
+     "Os derrotados tiveram nove vírgula três milhões de votos.",
+     "Os derrotados tiveram 9,3 milhões de votos."
+    ],
+    [
+     "O comparecimento subiu quase três milhões.",
+     "O comparecimento subiu quase 3 milhões."
+    ],
+    [
+     "E o branco e nulo caiu um vírgula oito milhão.",
+     "E o branco e nulo caiu 1,8 milhão."
+    ],
+    [
+     "São catorze milhões de votos em jogo.",
+     "São 14 milhões de votos em jogo."
+    ],
+    [
+     "Flávio cresceu três vírgula sete milhões,",
+     "Flávio cresceu 3,7 milhões,"
+    ],
+    [
+     "o equivalente a quarenta por cento dos votos dos derrotados.",
+     "o equivalente a 40% dos votos dos derrotados."
+    ],
+    [
+     "Se foi isso, Lula precisaria de cem por cento de todo o restante:",
+     "Se foi isso, Lula precisaria de 100% de todo o restante:"
+    ],
+    [
+     "os outros sessenta por cento dos derrotados,",
+     "os outros 60% dos derrotados,"
+    ],
+    [
+     "todo o aumento do comparecimento",
+     "todo o aumento do comparecimento"
+    ],
+    [
+     "e toda a queda do branco e nulo.",
+     "e toda a queda do branco e nulo."
+    ],
+    [
+     "Cem por cento.",
+     "100%."
+    ],
+    [
+     "É o saldo, não é cada eleitor.",
+     "É o saldo, não é cada eleitor."
+    ]
+   ],
+   "vel_max": 1.15
+  },
+  {
+   "tipo": "base3",
+   "texto": "Pela estimativa numa amostra de quase quatro mil seções, cinco por cento da base de Flávio foi para Lula, um em cada vinte eleitores, e só um vírgula um por cento da de Lula foi para Flávio. As pesquisas mostravam perdas parecidas dos dois lados. No saldo, são uns dois milhões de votos, perto do que bastava para virar o resultado. Pode ser troca de eleitores entre os turnos. Mas, para mim, é muito estranho.",
+   "legendas": [
+    [
+     "Pela estimativa numa amostra de quase quatro mil seções,",
+     "Pela estimativa numa amostra de quase 4 mil seções,"
+    ],
+    [
+     "cinco por cento da base de Flávio foi para Lula,",
+     "5% da base de Flávio foi para Lula,"
+    ],
+    [
+     "um em cada vinte eleitores,",
+     "1 em cada 20 eleitores,"
+    ],
+    [
+     "e só um vírgula um por cento da de Lula foi para Flávio.",
+     "e só 1,1% da de Lula foi para Flávio."
+    ],
+    [
+     "As pesquisas mostravam perdas parecidas dos dois lados.",
+     "As pesquisas mostravam perdas parecidas dos dois lados."
+    ],
+    [
+     "No saldo, são uns dois milhões de votos,",
+     "No saldo, são uns 2 milhões de votos,"
+    ],
+    [
+     "perto do que bastava para virar o resultado.",
+     "perto do que bastava para virar o resultado."
+    ],
+    [
+     "Pode ser troca de eleitores entre os turnos.",
+     "Pode ser troca de eleitores entre os turnos."
+    ],
+    [
+     "Mas, para mim, é muito estranho.",
+     "Mas, para mim, é muito estranho."
+    ]
+   ]
+  },
+  {
+   "tipo": "prorrogacao3",
+   "texto": "Foi a pedido da coligação de Lula. O ministro Zanin, do Supremo, ex-advogado de Lula, prorrogou a votação no país inteiro. Decidiu em meia hora, e uma nota dele mesmo teve de limitar a ordem às seções ainda abertas. Para mim, isso cabia à Justiça Eleitoral, e desequilibrou o processo. Logo depois, o TSE suspendeu a totalização até as sete da noite, para ninguém ver parcial. Foram poucos votos, e as duas campanhas pediram prorrogação: dificilmente isso mudou o resultado. Mas fica a pergunta: o que aconteceu nos bastidores da apuração nesse intervalo?",
+   "legendas": [
+    [
+     "Foi a pedido da coligação de Lula.",
+     "Foi a pedido da coligação de Lula."
+    ],
+    [
+     "O ministro Zanin, do Supremo, ex-advogado de Lula,",
+     "O ministro Zanin, do STF, ex-advogado de Lula,"
+    ],
+    [
+     "prorrogou a votação no país inteiro.",
+     "prorrogou a votação no país inteiro."
+    ],
+    [
+     "Decidiu em meia hora,",
+     "Decidiu em meia hora,"
+    ],
+    [
+     "e uma nota dele mesmo teve de limitar a ordem às seções ainda abertas.",
+     "e uma nota dele mesmo teve de limitar a ordem às seções ainda abertas."
+    ],
+    [
+     "Para mim, isso cabia à Justiça Eleitoral,",
+     "Para mim, isso cabia à Justiça Eleitoral,"
+    ],
+    [
+     "e desequilibrou o processo.",
+     "e desequilibrou o processo."
+    ],
+    [
+     "Logo depois, o TSE suspendeu a totalização até as sete da noite,",
+     "Logo depois, o TSE suspendeu a totalização até as 19h,"
+    ],
+    [
+     "para ninguém ver parcial.",
+     "para ninguém ver parcial."
+    ],
+    [
+     "Foram poucos votos, e as duas campanhas pediram prorrogação:",
+     "Foram poucos votos, e as duas campanhas pediram prorrogação:"
+    ],
+    [
+     "dificilmente isso mudou o resultado.",
+     "dificilmente isso mudou o resultado."
+    ],
+    [
+     "Mas fica a pergunta:",
+     "Mas fica a pergunta:"
+    ],
+    [
+     "o que aconteceu nos bastidores da apuração nesse intervalo?",
+     "o que aconteceu nos bastidores da apuração nesse intervalo?"
+    ]
+   ]
+  },
+  {
+   "tipo": "fechamento3A",
+   "texto": "Nos treze municípios que eu somei por inteiro, a soma bate com o total, e nenhum teste meu achou a marca de uma fraude. Mas isso confere a conta, não o voto: não dá para afirmar com cem por cento de certeza que nada aconteceu dentro da urna. Sem voto impresso, a urna não permite conferir o voto real de forma independente do software. Quase tudo apontava para Flávio, e o país inteiro andou para o lado de Lula. No mínimo, é estranho. E muita coisa precisa ser explicada.",
+   "legendas": [
+    [
+     "Nos treze municípios que eu somei por inteiro,",
+     "Nos 13 municípios que eu somei por inteiro,"
+    ],
+    [
+     "a soma bate com o total,",
+     "a soma bate com o total,"
+    ],
+    [
+     "e nenhum teste meu achou a marca de uma fraude.",
+     "e nenhum teste meu achou a marca de uma fraude."
+    ],
+    [
+     "Mas isso confere a conta, não o voto:",
+     "Mas isso confere a conta, não o voto:"
+    ],
+    [
+     "não dá para afirmar com cem por cento de certeza",
+     "não dá para afirmar com 100% de certeza"
+    ],
+    [
+     "que nada aconteceu dentro da urna.",
+     "que nada aconteceu dentro da urna."
+    ],
+    [
+     "Sem voto impresso,",
+     "Sem voto impresso,"
+    ],
+    [
+     "a urna não permite conferir o voto real",
+     "a urna não permite conferir o voto real"
+    ],
+    [
+     "de forma independente do software.",
+     "de forma independente do software."
+    ],
+    [
+     "Quase tudo apontava para Flávio,",
+     "Quase tudo apontava para Flávio,"
+    ],
+    [
+     "e o país inteiro andou para o lado de Lula.",
+     "e o país inteiro andou para o lado de Lula."
+    ],
+    [
+     "No mínimo, é estranho.",
+     "No mínimo, é estranho."
+    ],
+    [
+     "E muita coisa precisa ser explicada.",
+     "E muita coisa precisa ser explicada."
+    ]
+   ]
+  }
+ ]
+}

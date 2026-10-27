@@ -1,6 +1,6 @@
 """Monta o plano do vídeo a partir da narração: acelera as cenas lentas (sem mudar o tom), mede a duração de cada uma,
 quebra o texto em legendas sincronizadas pelo tamanho de cada trecho e escreve plano.json para o render.js.
-Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida> [--alvo 2.6] [--max-vel 1.2]
+Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida> [--alvo 2.6] [--max-vel 1.2] [--estudio]
 Depois, alinhar_legendas.py troca os tempos estimados das legendas pelos tempos reais das palavras.
 """
 import array, json, os, re, subprocess, sys
@@ -13,6 +13,13 @@ MARGEM_FIM = 0.25 # mantido depois da fala (preserva o decaimento da última sí
 CAUDA_FINAL = 2.0 # respiro depois da última fala do vídeo
 FPS = 30
 LUFS = -16.0      # loudness de cada fala, perto do que as redes usam; o limitador segura os picos em -1,5 dBFS
+
+
+# tratamento de estúdio para a voz clonada de celular: tira o grave sujo, dá corpo, limpa a caixa (350 Hz), devolve presença
+# (3 kHz) e o brilho que o celular cortou (harmônicos acima de 5,5 kHz), comprime e tira o chiado dos esses
+ESTUDIO = ('highpass=f=70,lowshelf=f=140:g=2.5,equalizer=f=380:t=q:w=1.2:g=-3,equalizer=f=3200:t=q:w=1.4:g=3.5,'
+           'aexciter=amount=2:drive=7:blend=0:freq=5500:ceil=16000,highshelf=f=9000:g=3,'
+           'acompressor=threshold=-22dB:ratio=3:attack=8:release=150:makeup=3,deesser=i=0.35')
 
 
 def loudness(arq):
@@ -60,6 +67,7 @@ def trechos(texto, max_pal=8):
 
 def main():
     global ALVO, MAX_VEL
+    estudio = '--estudio' in sys.argv
     nar, pasta, saida = sys.argv[1:4]
     if '--alvo' in sys.argv: ALVO = float(sys.argv[sys.argv.index('--alvo') + 1])
     if '--max-vel' in sys.argv: MAX_VEL = float(sys.argv[sys.argv.index('--max-vel') + 1])
@@ -77,7 +85,8 @@ def main():
         f0, f1 = limites_fala(bruto); a0 = max(0.0, f0 - MARGEM_INI); a1 = min(duracao(bruto), f1 + MARGEM_FIM)
         cortado = arq + '.cortado.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', bruto, '-af',
-                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', cortado], check=True)
+                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,' + (ESTUDIO + ',' if estudio else '') +
+                        f'afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', cortado], check=True)
         ganho = LUFS - loudness(cortado)  # todas as falas no mesmo nível
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', cortado, '-af', f'volume={ganho:.2f}dB,alimiter=limit=0.84:attack=5:release=60:level=disabled',
                         '-ar', '48000', '-ac', '2', arq], check=True)
