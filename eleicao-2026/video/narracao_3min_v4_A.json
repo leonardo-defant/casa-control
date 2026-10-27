@@ -283,10 +283,15 @@
    ],
    "foto": {
     "arquivo": "file:///tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/video/fotos/zanin_casamento.jpg",
-    "legenda": "Zanin no casamento de Lula e Janja, em 2022",
+    "legenda": "Da esquerda: Janja, Lula, a esposa de Zanin e Zanin",
     "credito": "Foto: reprodução/Poder360",
     "credito_curto": "reprodução/Poder360",
-    "foco": 0.5
+    "foco": 0.5,
+    "fatos": [
+     "O sogro de Zanin é compadre de Lula há uns 40 anos e padrinho de um filho dele",
+     "Lula conhece a esposa de Zanin desde que ela era criança",
+     "Zanin e a esposa foram convidados do casamento de Lula e Janja, em 2022"
+    ]
    }
   },
   {

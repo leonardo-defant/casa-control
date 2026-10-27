@@ -1,9 +1,10 @@
 """Junta as cenas renderizadas e a narração num MP4 final 1080x1920.
 Cada fala é completada com silêncio até a duração exata da sua tela (em amostras), as falas viram uma trilha única em PCM
 e o AAC é codificado uma vez só, para o áudio não ir atrasando a cada emenda.
-Com --musica, a trilha entra por baixo da voz: em loop até o fim, no nível --musica-lufs (padrão -30, a voz fica em -16),
-abaixando mais uns dB enquanto a voz fala (sidechain) e com fade de entrada e de saída.
-Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4> [--musica <arq>] [--musica-lufs -30]
+Com --musica, a trilha entra por baixo da voz: em loop até o fim, no nível --musica-lufs (padrão -25, a voz fica em -16),
+abaixando uns 7 dB enquanto a voz fala (sidechain; sob a fala fica perto de -32) e com fade de entrada e de saída.
+--musica-inicio pula o começo do arquivo (silêncio ou introdução).
+Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4> [--musica <arq>] [--musica-lufs -25] [--musica-inicio 0]
 """
 import json, os, re, subprocess, sys, tempfile
 
@@ -37,13 +38,14 @@ def main():
     total = sum(c['duracao'] for c in plano['cenas'])
     if '--musica' in sys.argv:
         musica = sys.argv[sys.argv.index('--musica') + 1]
-        alvo = float(sys.argv[sys.argv.index('--musica-lufs') + 1]) if '--musica-lufs' in sys.argv else -30.0
+        alvo = float(sys.argv[sys.argv.index('--musica-lufs') + 1]) if '--musica-lufs' in sys.argv else -25.0
+        ini = float(sys.argv[sys.argv.index('--musica-inicio') + 1]) if '--musica-inicio' in sys.argv else 0.0
         ganho = alvo - loudness(musica)
         mix = os.path.join(tmp, 'mix.wav')
-        subprocess.run(['ffmpeg', '-nostdin', '-y', '-loglevel', 'error', '-i', trilha, '-stream_loop', '-1', '-i', musica, '-filter_complex',
+        subprocess.run(['ffmpeg', '-nostdin', '-y', '-loglevel', 'error', '-i', trilha, '-stream_loop', '-1', '-ss', f'{ini:.2f}', '-i', musica, '-filter_complex',
                         f'[1:a]aresample={TAXA},aformat=channel_layouts=stereo,volume={ganho:.2f}dB,atrim=0:{total:.3f},'
                         f'afade=t=in:d=1.5,afade=t=out:st={total - 3:.3f}:d=3[m];[0:a]asplit=2[v][sc];'
-                        '[m][sc]sidechaincompress=threshold=0.03:ratio=3:attack=30:release=600[md];'
+                        '[m][sc]sidechaincompress=threshold=0.06:ratio=2:attack=30:release=600[md];'  # abaixa uns 7 dB sob a voz
                         '[v][md]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.89:level=disabled[a]',
                         '-map', '[a]', '-c:a', 'pcm_s16le', mix], check=True)
         trilha = mix

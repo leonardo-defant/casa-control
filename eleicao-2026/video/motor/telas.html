@@ -443,20 +443,28 @@ const CENAS = {
   prorrogacao4(t, d) {
     rotuloDuvida(2, t);
     const c = window.CENA, foto = c && c.foto && FOTOS[c.foto.arquivo];
-    const tT = L(3, d * 0.25) - 0.3, kF = saida(fase(t, 0.2, 0.7)) * (1 - suave(fase(t, tT, 0.5)));
+    // com fatos escritos, a foto fica até a nota de Zanin (legenda 4), para dar tempo de ler
+    const fatos = (c && c.foto && c.foto.fatos) || [];
+    const tT = fatos.length ? L(4, d * 0.33) - 0.6 : L(3, d * 0.25) - 0.3, kF = saida(fase(t, 0.2, 0.7)) * (1 - suave(fase(t, tT, 0.5)));
     if (foto && kF > 0) {  // a foto dos dois enquanto a fala apresenta Zanin
-      const w = 960, h = Math.min(820, Math.round(w * foto.height / foto.width)), y = 330;
+      const w = 960, h = Math.min(fatos.length ? 720 : 820, Math.round(w * foto.height / foto.width)), y = fatos.length ? 300 : 330;
       g.save(); g.globalAlpha = kF; g.beginPath(); g.roundRect(60, y, w, h, 28); g.clip();
       const esc = Math.max(w / foto.width, h / foto.height), fw = foto.width * esc, fh = foto.height * esc;
       g.drawImage(foto, 60 + (w - fw) / 2, y + (h - fh) * (c.foto.foco ?? 0.35), fw, fh); g.restore();
-      texto(c.foto.legenda, W / 2, y + h + 50, 36, COR.texto, 800, 'center', kF);
-      texto(c.foto.credito, W / 2, y + h + 92, 24, COR.fraco, 500, 'center', kF);
+      texto(c.foto.legenda, W / 2, y + h + 44, 32, COR.texto, 800, 'center', kF);
+      texto(c.foto.credito, W / 2, y + h + 82, 22, COR.fraco, 500, 'center', kF);
+      let yf = y + h + 150;
+      fatos.forEach((f, i) => {  // um por vez, enquanto a foto está na tela
+        const k = kF * saida(fase(t, 0.8 + i * 1.0, 0.5));
+        g.save(); g.globalAlpha = k * ALFA; g.fillStyle = COR.destaque; g.beginPath(); g.arc(100, yf, 9, 0, 6.28); g.fill(); g.restore();
+        yf += paragrafo(f, 130, yf, 880, 34, COR.texto, 600, k, 1.3, 'left') + 26;
+      });
     }
-    const kT = saida(fase(t, tT + 0.2, 0.6));
+    const kT = saida(fase(t, tT + 0.4, 0.6));  // entra quando a foto já quase saiu
     if (kT > 0) {
       g.globalAlpha = kT; g.fillStyle = 'rgba(255,255,255,0.18)'; g.fillRect(200, 360, 4, 720); g.globalAlpha = 1;
-      const itens = [['16h33', 'Zanin, ex-advogado de Lula, é sorteado relator do pedido da coligação de Lula', tT + 0.2],
-                     ['17h03', 'Zanin prorroga a votação no país inteiro; uma nota dele limita às seções ainda abertas', L(4, d * 0.33) - 0.2],
+      const itens = [['16h33', 'Zanin, ex-advogado de Lula, é sorteado relator do pedido da coligação de Lula', tT + 0.4],
+                     ['17h03', 'Zanin prorroga a votação no país inteiro; uma nota dele limita às seções ainda abertas', L(4, d * 0.33) + (fatos.length ? 0.3 : -0.2)],
                      ['17h06', 'O TSE suspende a totalização até as 19h, para ninguém ver parcial', L(7, d * 0.55) - 0.2]];
       itens.forEach(([h, s, t0], i) => {
         const k = saida(fase(t, t0, 0.6)); const y = 420 + i * 300;
@@ -464,7 +472,7 @@ const CENAS = {
         texto(h, 250, y, 56, COR.destaque, 900, 'left', k);
         paragrafo(s, 250, y + 70, 740, 36, COR.texto, 600, k, 1.3, 'left');
       });
-      selo('decidiu em 30 minutos', 760, 720, t, L(3, d * 0.25) + 0.3);
+      selo('decidiu em 30 minutos', 760, 720, t, fatos.length ? L(4, d * 0.33) + 0.8 : L(3, d * 0.25) + 0.3);
     }
     const kf = saida(fase(t, L(9, d * 0.7) - 0.2, 0.6)), kq = saida(fase(t, L(11, d * 0.85) - 0.2, 0.6));
     caixa(80, 1290, 920, 200, 30, COR.cartao, kf, 'rgba(255,255,255,0.10)');
