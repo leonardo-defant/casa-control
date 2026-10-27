@@ -488,3 +488,12 @@ O que já vi antes deste registro: a transferência declarada na Quaest por cand
 
 ### T39. Branco e nulo de presidente contra o de governador, 1º contra 2º turno, nas 6 UFs (estrato G, descritivo)
 - R(t) = branco+nulo de presidente / branco+nulo de governador nas mesmas seções, no turno t. A forma A só no presidente baixa R(2) em relação a R(1). Sem referência de 2026 fora destas UFs; relatado com o T5 (beta de 0,468 em 2018 e 0,401 em 2022) e com R de 2018 e 2022 se as bases tiverem governador no 2º turno.
+
+## Adendo 17 (27/10, ~02h UTC): correção de horários escritos à mão e de um desenho
+
+Na conferência do README, um verificador comparou os horários escritos nos cabeçalhos com os dos commits. Os horários dos cabeçalhos foram estimados à mão e estão errados; vale o horário do commit (git log, UTC):
+- Adendo 15: o cabeçalho diz "~21h15 UTC"; o commit f793d16 é de 21h04min07s. O resultado preliminar do T35 foi commitado às 21h08min31s (79c7d67), e o arquivo do resultado diz "~21h25 UTC" por engano.
+- Adendo 16: o cabeçalho diz "~22h UTC"; o commit 618ebec é de 21h20min01s. Os primeiros resultados foram commitados às 21h25min57s (dec884c).
+A ordem critério antes de resultado se mantém nos dois casos.
+
+O T37 (Adendo 16) foi registrado com uma medida que não se interpreta: na especificação do T8, b_L + b_F = 1 por identidade, e a urna não identifica o "nenhum" dos eleitores dos eliminados. O veredito pela letra é inconclusivo, e a comparação corrigida (divisão entre os que escolheram um finalista) é post hoc. Isso já estava declarado em resultados/ADENDO16_resultados.txt; fica registrado aqui também.

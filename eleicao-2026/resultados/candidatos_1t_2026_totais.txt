@@ -1,0 +1,17 @@
+Votos por candidato a presidente no 1º turno de 2026, soma das seções do bweb do 1º turno (portal de dados abertos do TSE, arquivos de 06/10),
+gerado por scripts/extrair_candidatos.py; base candidatos2026_1t.json.gz (fora do repositório). O 28 (candidatura anulada) entra como nulo.
+   22 FLAVIO BOLSONARO               56.104.503
+   13 LULA                           53.879.538
+   70 ESCRITOR AUGUSTO CURY           3.448.569
+   14 RENAN SANTOS                    2.675.887
+   55 RONALDO CAIADO                  2.605.148
+   30 ZEMA                              326.488
+   80 SAMARA                            122.911
+   16 HERTZ DIAS                         43.103
+   27 CLARIANA BARAO                     40.043
+   21 EDMILSON COSTA                     22.693
+   35 VETERINÁRIO WILSON GRASSI          16.881
+   29 RUI COSTA PIMENTA                  15.024
+  válidos (sem o 28): 119.300.788
+  eliminados (todos menos 13 e 22): 9.316.747
+  28 (anulado, contado como nulo): 5.246
