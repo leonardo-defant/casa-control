@@ -6,6 +6,14 @@ Cidades em que Flávio ganhou mais PONTOS (fatia dos válidos) que Lula: 182 (3.
 Cidades que viraram de Flávio (1º turno) para Lula (2º): 211; de Lula para Flávio: 1 (GO UIRAPURU)
   (o número que circulou era 213, da CNN Brasil; o Jornal Razão, com dados do TSE, chegou a 211, igual a esta conta)
 
+Saldo em votos (26/10, a pedido do Léo):
+  339 cidades em que Flávio ganhou mais votos que Lula: Flávio +139.267, Lula +113.967, saldo de Flávio +25.300
+    (RS +8.594, SC +6.248, GO +3.087, PR +1.250; o resto menos de 1.100 por UF).
+  182 cidades em que Flávio ganhou mais pontos: Flávio +47.711, Lula +34.907, saldo de Flávio +12.804.
+  As outras 5.232 cidades: Flávio +3.554.674, Lula +10.219.960, saldo de Lula +6.665.286.
+  Brasil sem o exterior: saldo de Lula +6.639.986. As cidades em que Flávio foi melhor equivalem a 0,4% desse movimento: são cidades
+  pequenas, em média 411 votos de ganho de Flávio por cidade.
+
 Por UF: cidades | Flávio mais votos | Flávio mais pontos | viraram para Lula | viraram para Flávio
   AC | 22 | 1 | 2 | 0 | 0
   AL | 102 | 1 | 1 | 7 | 0
