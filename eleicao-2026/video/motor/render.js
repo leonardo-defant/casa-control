@@ -1,5 +1,7 @@
 // Renderiza as cenas do plano em MP4 (1080x1920, 30 fps), quadro a quadro, no Chromium do ambiente.
-// Uso: node render.js <plano.json> <cidades.json> <pasta_saida> [--previa] [--cenas 0,3]
+// Uso: node render.js <plano.json> <cidades.json> <pasta_saida> [--previa] [--cenas 0,3] [--velocidade 1.06]
+// --velocidade: acelera o vídeo inteiro desenhando cada quadro num tempo de cena maior (sem pular quadros);
+// montar_video.py precisa receber o mesmo valor para acelerar a voz junto
 // --previa: em vez de vídeo, salva um PNG por cena no meio e no fim do tempo da cena.
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
@@ -9,6 +11,7 @@ const fs = require('fs'), path = require('path');
   const [planoArq, dadosArq, saida] = process.argv.slice(2, 5);
   const previa = process.argv.includes('--previa');
   const iC = process.argv.indexOf('--cenas');
+  const iV = process.argv.indexOf('--velocidade'), vel = iV > 0 ? Number(process.argv[iV + 1]) : 1;
   const plano = JSON.parse(fs.readFileSync(planoArq, 'utf8'));
   const dados = JSON.parse(fs.readFileSync(dadosArq, 'utf8'));
   const quais = iC > 0 ? process.argv[iC + 1].split(',').map(Number) : plano.cenas.map((_, i) => i);
@@ -29,12 +32,12 @@ const fs = require('fs'), path = require('path');
       }
       continue;
     }
-    const n = Math.round(c.duracao * FPS);
+    const n = Math.round(c.duracao / vel * FPS);
     const arq = path.join(saida, `cena${String(i).padStart(2, '0')}_${c.tipo}.mp4`);
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
       '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'medium', '-crf', '18', '-r', String(FPS), arq], { stdio: ['pipe', 'inherit', 'inherit'] });
     for (let f = 0; f < n; f++) {
-      await pag.evaluate(([i, t]) => window.desenhar(i, t), [i, f / FPS]);
+      await pag.evaluate(([i, t]) => window.desenhar(i, t), [i, Math.min(f / FPS * vel, c.duracao - 0.001)]);
       const buf = await pag.screenshot({ type: 'jpeg', quality: 92 });
       if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
     }

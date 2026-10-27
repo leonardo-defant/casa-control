@@ -4,7 +4,9 @@ e o AAC é codificado uma vez só, para o áudio não ir atrasando a cada emenda
 Com --musica, a trilha entra por baixo da voz: em loop até o fim, no nível --musica-lufs (padrão -20, a voz fica em -16),
 abaixando uns 7 dB enquanto a voz fala (sidechain; sob a fala fica perto de -27) e com fade de entrada e de saída.
 --musica-inicio pula o começo do arquivo (silêncio ou introdução).
-Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4> [--musica <arq>] [--musica-lufs -20] [--musica-inicio 0]
+Uso: python3 -I montar_video.py <plano.json> <pasta_cenas> <saida.mp4> [--musica <arq>] [--musica-lufs -20] [--musica-inicio 0] [--velocidade 1.06]
+--velocidade: acelera a voz (atempo) e encurta cada cena na mesma proporção; as telas precisam ter sido renderizadas
+com o mesmo valor (render.js --velocidade). A música não acelera.
 """
 import json, os, re, subprocess, sys, tempfile
 
@@ -19,12 +21,15 @@ def loudness(arq):
 def main():
     plano_arq, pasta, saida = sys.argv[1:4]
     plano = json.load(open(plano_arq))
+    vel = float(sys.argv[sys.argv.index('--velocidade') + 1]) if '--velocidade' in sys.argv else 1.0
+    fps = plano.get('fps', 30)
+    durs = [round(c['duracao'] / vel * fps) / fps for c in plano['cenas']]  # o mesmo número de quadros do render.js
     tmp = tempfile.mkdtemp(prefix='montagem_', dir=os.path.dirname(os.path.abspath(saida)))
     falas, telas = [], []
     for i, c in enumerate(plano['cenas']):
-        n = round(c['duracao'] * TAXA)
+        n = round(durs[i] * TAXA)
         w = os.path.join(tmp, f'fala{i:02d}.wav')
-        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', c['audio'], '-af', f'aresample={TAXA},apad=whole_len={n},atrim=end_sample={n}',
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', c['audio'], '-af', (f'atempo={vel:.5f},' if vel != 1 else '') + f'aresample={TAXA},apad=whole_len={n},atrim=end_sample={n}',
                         '-ac', '2', '-c:a', 'pcm_s16le', w], check=True)
         falas.append(w); telas.append(os.path.join(pasta, f'cena{i:02d}_{c["tipo"]}.mp4'))
     def lista(nome, arqs):
@@ -35,7 +40,7 @@ def main():
     trilha = os.path.join(tmp, 'trilha.wav'); video = os.path.join(tmp, 'video.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lista('falas.txt', falas), '-c', 'copy', trilha], check=True)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lista('telas.txt', telas), '-an', '-c', 'copy', video], check=True)
-    total = sum(c['duracao'] for c in plano['cenas'])
+    total = sum(durs)
     if '--musica' in sys.argv:
         musica = sys.argv[sys.argv.index('--musica') + 1]
         alvo = float(sys.argv[sys.argv.index('--musica-lufs') + 1]) if '--musica-lufs' in sys.argv else -20.0
