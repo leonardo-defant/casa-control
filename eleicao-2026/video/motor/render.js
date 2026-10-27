@@ -18,6 +18,7 @@ const fs = require('fs'), path = require('path');
   await pag.goto('file://' + path.resolve(__dirname, 'telas.html'));
   await pag.evaluate(([d, p]) => { window.DADOS = d; window.PLANO = p; }, [dados, plano]);
   await pag.evaluate(() => document.fonts.ready);
+  await pag.evaluate(() => window.carregarFotos && window.carregarFotos());
   const FPS = plano.fps || 30;
   for (const i of quais) {
     const c = plano.cenas[i];

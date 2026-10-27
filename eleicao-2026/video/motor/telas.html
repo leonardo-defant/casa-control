@@ -67,6 +67,13 @@ function fundo(t) {
 }
 function rodape(s, alfa = 1) { if (s) paragrafo('Fonte: ' + s, W / 2, 1838, 960, 24, COR.fraco, 500, 0.85 * alfa); }
 
+// ---------- fotos ----------
+const FOTOS = {};
+window.carregarFotos = async function () {
+  for (const c of window.PLANO.cenas) if (c.foto && !FOTOS[c.foto.arquivo]) {
+    const im = new Image(); im.src = c.foto.arquivo; await im.decode(); FOTOS[c.foto.arquivo] = im;
+  }
+};
 // ---------- mapa de pontos ----------
 let PONTOS = null;
 function prepararMapa() {
@@ -162,9 +169,10 @@ const CENAS = {
   mapa(t, d) {
     const tcMapa = L(1, 2.4) + 2.6, tr = L(6, d * 0.6) - 0.3;
     const kFim = 1 - suave(fase(t, d - 0.45, 0.45));  // termina no estado em que a cena 3 começa
+    const kE = (window.CENA && window.CENA.tipo === 'mapa3') ? saida(fase(t, L(11, d * 0.9) - 0.2, 0.5)) : 0;
     const foco = suave(fase(t, tr, 1.2)) * kFim;
     mapa(t, { aparecer: 1, colorir: fase(t, tcMapa, 2.2), focoRedutos: foco, porMargem: foco, alfa: mistura(0.07, 1, suave(fase(t, 0, 0.6))) * mistura(0.22, 1, kFim) });
-    ALFA = kFim;
+    ALFA = kFim * (1 - kE);
     const k1 = saida(fase(t, L(2, 7.4) - 0.2, 0.8)), kSai = 1 - suave(fase(t, tr, 0.4)), k2 = suave(fase(t, tr + 0.4, 0.6));
     const yb = 1250, a1 = k1 * kSai;
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', a1, 'rgba(255,255,255,0.10)');
@@ -188,6 +196,13 @@ const CENAS = {
     texto('Flávio cresceu mais', 645, 300, 28, COR.texto, 600, 'left', kl * (1 - rSai));
     texto('margem foi para Lula', 255, 300, 28, COR.texto, 600, 'left', kl * rEnt);
     texto('margem foi para Flávio', 645, 300, 28, COR.texto, 600, 'left', kl * rEnt);
+    ALFA = kFim;
+    if (kE > 0) {  // destaque: 94% andando juntas
+      caixa(60, 1250, 960, 330, 32, 'rgba(10,15,28,0.9)', kE, rgba(COR.destaque, 0.8));
+      texto('94% das cidades', W / 2, 1335, 70, COR.texto, 900, 'center', kE);
+      texto('andaram juntas para o mesmo lado', W / 2, 1410, 40, COR.texto, 700, 'center', kE);
+      texto('Para mim, isso é muito estranho.', W / 2, 1500, 50, COR.destaque, 900, 'center', kE);
+    }
     ALFA = 1;
     rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades); margem em pontos dos votos válidos');
   },
@@ -397,6 +412,68 @@ const CENAS = {
   prorrogacao3(t, d) { LD = -1; NUM = 2; CENAS.prorrogacao(t, d); },
   fechamento3A(t, d) { fechamentoCurto(t, d, false); },
   fechamento3B(t, d) { fechamentoCurto(t, d, true); },
+  // ---------- versão de 3 minutos, rodada 2 ----------
+  mapa3(t, d) { CENAS.mapa(t, d); },
+  base4(t, d) {
+    rotuloDuvida(1, t);
+    const kA = saida(fase(t, L(0, 0.2), 0.6)) * (1 - saida(fase(t, L(1, d * 0.12) - 0.6, 0.4)));
+    texto('amostra de 3.897 seções', W / 2, 620, 60, COR.texto, 800, 'center', kA);
+    function coluna(x, nome, pct, cor, sub, k) {
+      caixa(x, 360, 440, 520, 30, COR.cartao, k, 'rgba(255,255,255,0.10)');
+      texto(nome, x + 220, 410, 34, COR.texto, 700, 'center', k); texto('no 1º turno', x + 220, 452, 34, COR.texto, 700, 'center', k);
+      texto(pct, x + 220, 630, 120, cor, 900, 'center', k);
+      texto(sub, x + 220, 735, 30, COR.fraco, 600, 'center', k); texto('(estimativa)', x + 220, 772, 30, COR.fraco, 600, 'center', k);
+    }
+    coluna(80, 'Base de Flávio', '5%', COR.lula, 'foi para Lula', saida(fase(t, L(1, d * 0.12) - 0.2, 0.7)));
+    texto('1 em cada 20', 300, 830, 40, COR.destaque, 900, 'center', saida(fase(t, L(2, d * 0.2) - 0.2, 0.5)));
+    coluna(560, 'Base de Lula', '1,1%', COR.flavio, 'foi para Flávio', saida(fase(t, L(3, d * 0.3) - 0.2, 0.7)));
+    const k3 = saida(fase(t, L(4, d * 0.5) - 0.2, 0.7));
+    caixa(80, 940, 920, 170, 30, rgba(COR.destaque, 0.10), k3, rgba(COR.destaque, 0.7));
+    texto('Nas pesquisas: perdas parecidas', W / 2, 1000, 48, COR.destaque, 800, 'center', k3);
+    texto('PoderData, 23 e 24/10: cada lado perdia 5% para o outro', W / 2, 1062, 30, COR.fraco, 600, 'center', k3);
+    const k5 = saida(fase(t, L(5, d * 0.65) - 0.2, 0.7)), k6 = saida(fase(t, L(6, d * 0.75) - 0.2, 0.6));
+    texto('≈ 2 milhões de votos no saldo', W / 2, 1195, 62, COR.texto, 900, 'center', k5);
+    texto('perto do que bastava para virar o resultado', W / 2, 1262, 34, COR.texto, 700, 'center', k6);
+    texto('mudança de lado ou troca de eleitores entre os turnos', W / 2, 1308, 28, COR.fraco, 600, 'center', k6);
+    texto('Para mim, é muito estranho.', W / 2, 1420, 54, COR.destaque, 900, 'center', saida(fase(t, L(7, d * 0.88) - 0.2, 0.6)));
+    rodape('estimativa por regressão em amostra de 3.897 seções (preliminar); PoderData 23 e 24/10');
+  },
+  prorrogacao4(t, d) {
+    rotuloDuvida(2, t);
+    const c = window.CENA, foto = c && c.foto && FOTOS[c.foto.arquivo];
+    const tT = L(3, d * 0.25) - 0.3, kF = saida(fase(t, 0.2, 0.7)) * (1 - suave(fase(t, tT, 0.5)));
+    if (foto && kF > 0) {  // a foto dos dois enquanto a fala apresenta Zanin
+      const w = 960, h = Math.min(820, Math.round(w * foto.height / foto.width)), y = 330;
+      g.save(); g.globalAlpha = kF; g.beginPath(); g.roundRect(60, y, w, h, 28); g.clip();
+      const esc = Math.max(w / foto.width, h / foto.height), fw = foto.width * esc, fh = foto.height * esc;
+      g.drawImage(foto, 60 + (w - fw) / 2, y + (h - fh) * (c.foto.foco ?? 0.35), fw, fh); g.restore();
+      texto(c.foto.legenda, W / 2, y + h + 50, 36, COR.texto, 800, 'center', kF);
+      texto(c.foto.credito, W / 2, y + h + 92, 24, COR.fraco, 500, 'center', kF);
+    }
+    const kT = saida(fase(t, tT + 0.2, 0.6));
+    if (kT > 0) {
+      g.globalAlpha = kT; g.fillStyle = 'rgba(255,255,255,0.18)'; g.fillRect(200, 360, 4, 720); g.globalAlpha = 1;
+      const itens = [['16h33', 'Zanin, ex-advogado de Lula, é sorteado relator do pedido da coligação de Lula', tT + 0.2],
+                     ['17h03', 'Zanin prorroga a votação no país inteiro; uma nota dele limita às seções ainda abertas', L(4, d * 0.33) - 0.2],
+                     ['17h06', 'O TSE suspende a totalização até as 19h, para ninguém ver parcial', L(7, d * 0.55) - 0.2]];
+      itens.forEach(([h, s, t0], i) => {
+        const k = saida(fase(t, t0, 0.6)); const y = 420 + i * 300;
+        g.globalAlpha = k; g.fillStyle = COR.destaque; g.beginPath(); g.arc(202, y, 16, 0, 6.28); g.fill(); g.globalAlpha = 1;
+        texto(h, 250, y, 56, COR.destaque, 900, 'left', k);
+        paragrafo(s, 250, y + 70, 740, 36, COR.texto, 600, k, 1.3, 'left');
+      });
+      selo('decidiu em 30 minutos', 760, 720, t, L(3, d * 0.25) + 0.3);
+    }
+    const kf = saida(fase(t, L(9, d * 0.7) - 0.2, 0.6)), kq = saida(fase(t, L(11, d * 0.85) - 0.2, 0.6));
+    caixa(80, 1290, 920, 200, 30, COR.cartao, kf, 'rgba(255,255,255,0.10)');
+    texto('cerca de 35 mil votos depois das 17h', W / 2, 1345, 40, COR.texto, 800, 'center', kf * (1 - kq));
+    texto('margem final: 4,43 milhões', W / 2, 1400, 32, COR.fraco, 600, 'center', kf * (1 - kq));
+    texto('O que aconteceu nos bastidores', W / 2, 1350, 46, COR.destaque, 900, 'center', kq);
+    texto('da apuração nesse intervalo?', W / 2, 1418, 46, COR.destaque, 900, 'center', kq);
+    rodape('STF (Rcl 101.673); TSE; logs das urnas (Setup News/CNN, g1); a campanha de Flávio também pediu prorrogação em cidades de SP, PR e SC' + (c && c.foto ? '; foto: ' + c.foto.credito_curto : ''));
+  },
+  fechamento4A(t, d) { fechamentoRecap(t, d, false); },
+  fechamento4B(t, d) { fechamentoRecap(t, d, true); },
 };
 
 // fechamento da versão de 3 minutos; literal = versão B, nas palavras do Léo
@@ -429,6 +506,46 @@ function fechamentoCurto(t, d, literal) {
   caixa(60, 1040, 960, 300, 32, rgba(COR.destaque, 0.10), kC, rgba(COR.destaque, 0.8));
   const fim = literal ? ['O voto precisa ser', 'auditável de verdade.'] : ['O voto precisa poder ser conferido', 'sem depender só do software.'];
   fim.forEach((l, i) => texto(l, W / 2, 1150 + i * 66, literal ? 60 : 52, COR.destaque, 900, 'center', kC));
+  rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
+}
+
+// fechamento da rodada 2: conta x voto, sem voto impresso (A ou B), recapitulação em tópicos e o "estranho"
+function fechamentoRecap(t, d, literal) {
+  const iQ = literal ? 8 : 9, iM = literal ? 12 : 13;
+  const tB = L(6, d * 0.4) - 0.3, sai = 1 - suave(fase(t, tB, 0.6));
+  mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 * sai });
+  const kA = saida(fase(t, 0.4, 0.8)) * sai;
+  caixa(60, 1140, 960, 360, 32, 'rgba(10,15,28,0.88)', kA, 'rgba(255,255,255,0.10)');
+  texto('13 municípios com todos os boletins somados', W / 2, 1190, 38, COR.texto, 800, 'center', kA);
+  texto('a soma bate com o total, e nenhum teste meu achou fraude', W / 2, 1243, 30, COR.fraco, 600, 'center', kA * saida(fase(t, L(1, 3.0) - 0.2, 0.6)));
+  texto('Isso confere a conta, não o voto.', W / 2, 1320, 46, COR.destaque, 900, 'center', kA * saida(fase(t, L(3, d * 0.2) - 0.2, 0.6)));
+  const k4 = kA * saida(fase(t, L(4, d * 0.27) - 0.2, 0.6));
+  texto('Não dá para afirmar com 100% de certeza', W / 2, 1395, 34, COR.texto, 700, 'center', k4);
+  texto('que nada aconteceu dentro da urna.', W / 2, 1440, 34, COR.texto, 700, 'center', k4);
+  // sem voto impresso
+  const kS = saida(fase(t, L(6, d * 0.4) - 0.2, 0.6)) * (1 - suave(fase(t, L(iQ, d * 0.6) - 0.5, 0.5)) * 0.35);
+  caixa(60, 300, 960, literal ? 230 : 270, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
+  texto('Sem voto impresso', W / 2, 370, 56, COR.destaque, 900, 'center', kS);
+  if (literal) texto('a urna não pode ser auditada', W / 2, 460, 46, COR.texto, 800, 'center', kS * saida(fase(t, L(7, d * 0.45) - 0.2, 0.5)));
+  else {
+    texto('a urna não permite conferir o voto real', W / 2, 450, 36, COR.texto, 700, 'center', kS * saida(fase(t, L(7, d * 0.45) - 0.2, 0.5)));
+    texto('de forma independente do software', W / 2, 500, 36, COR.texto, 700, 'center', kS * saida(fase(t, L(8, d * 0.52) - 0.2, 0.5)));
+  }
+  // recapitulação em tópicos
+  const tQ = L(iQ, d * 0.6) - 0.2;
+  const topicos = ['Flávio na frente: 1º turno, PL recorde, apoios, pesquisas', '94% das cidades andaram juntas para Lula, até nos redutos',
+                   'A conta: Lula precisaria de 100% do restante', '1 em cada 20 eleitores de Flávio foi para Lula (estimativa)',
+                   'Votação prorrogada e totalização suspensa'];
+  topicos.forEach((s, i) => {
+    const k = saida(fase(t, tQ + i * 0.9, 0.5)); const y = 640 + i * 78;
+    g.globalAlpha = k * ALFA; g.fillStyle = COR.destaque; g.beginPath(); g.arc(98, y, 9, 0, 6.28); g.fill(); g.globalAlpha = 1;
+    paragrafo(s, 124, y, 880, 28, COR.texto, 700, k, 1.2, 'left');
+  });
+  // o fecho
+  const kM = saida(fase(t, L(iM, d * 0.85) - 0.2, 0.6)), kE = saida(fase(t, L(iM + 1, d * 0.92) - 0.2, 0.6));
+  caixa(60, 1080, 960, 330, 32, rgba(COR.destaque, 0.10), kM, rgba(COR.destaque, 0.8));
+  texto('No mínimo, é estranho.', W / 2, 1185, 66, COR.destaque, 900, 'center', kM);
+  texto('E muita coisa precisa ser explicada.', W / 2, 1290, 44, COR.texto, 800, 'center', kE);
   rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
 }
 
