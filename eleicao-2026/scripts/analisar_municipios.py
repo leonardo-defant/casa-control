@@ -52,8 +52,34 @@ def main():
            'por_uf_[municipios,mais_votos,mais_pontos,viraram_p_Lula,viraram_p_Flavio]': dict(sorted(por_uf.items())),
            'lista_flavio_mais_pontos': sorted(({k: r[k] for k in ('uf', 'mun', 'nome', 'gL', 'gR', 'pL', 'pR')} for r in mais_pontos), key=lambda r: r['pL'] - r['pR']),
            'lista_viraram_para_flavio': [{k: r[k] for k in ('uf', 'mun', 'nome', 'L1', 'R1', 'L2', 'R2')} for r in virou_flavio]}
+    # vitórias, empates e uniformidade da virada (variação da margem de Flávio, em pontos dos válidos)
+    out['vitorias'] = {'Lula_1T': sum(r['L1'] > r['R1'] for r in rows), 'empates_1T': sum(r['L1'] == r['R1'] for r in rows),
+                       'Lula_2T': sum(r['L2'] > r['R2'] for r in rows), 'empates_2T': sum(r['L2'] == r['R2'] for r in rows),
+                       'empate_1T_e_Lula_2T': sum(r['L1'] == r['R1'] and r['L2'] > r['R2'] for r in rows),
+                       'Lula_mais_votos': sum(r['gL'] > r['gR'] for r in rows), 'empates_no_ganho': sum(r['gL'] == r['gR'] for r in rows)}
+    import math, statistics
+    sw = [r['pR'] - r['pL'] for r in rows]
+    def prev(x):
+        m, d = statistics.mean(x), statistics.stdev(x)
+        return m, d, 50 * math.erfc(-m / (d * math.sqrt(2)))  # % previsto andando para Flávio por uma normal
+    m, d, pv = prev(sw)
+    uni = {'media': m, 'mediana': statistics.median(sw), 'desvio': d, 'previsto_para_Flavio_pct': pv,
+           'observado_para_Flavio_pct': 100 * sum(x > 0 for x in sw) / n, 'por_uf': {}, 'por_faixa_Flavio_1T': {}}
+    for uf in sorted({r['uf'] for r in rows}):
+        x = [r['pR'] - r['pL'] for r in rows if r['uf'] == uf]
+        if len(x) >= 10:
+            mu, du, pu = prev(x)
+            uni['por_uf'][uf] = {'cidades': len(x), 'media': mu, 'desvio': du, 'previsto_para_Flavio_pct': pu,
+                                 'observado_para_Flavio_pct': 100 * sum(v > 0 for v in x) / len(x)}
+    for lo, hi in [(0, 30), (30, 45), (45, 55), (55, 65), (65, 101)]:
+        x = [r['pR'] - r['pL'] for r in rows if lo <= 100 * r['R1'] / r['V1'] < hi]
+        uni['por_faixa_Flavio_1T'][f'{lo}-{hi}'] = {'cidades': len(x), 'media': statistics.mean(x),
+                                                     'para_Flavio_pct': 100 * sum(v > 0 for v in x) / len(x)}
+    out['uniformidade'] = uni
     json.dump(out, open(saida, 'w'), ensure_ascii=False, indent=1)
-    print(json.dumps({k: v for k, v in out.items() if not k.startswith('lista')}, ensure_ascii=False))
+    print(json.dumps({k: v for k, v in out.items() if not k.startswith('lista') and k != 'uniformidade'}, ensure_ascii=False))
+    print(json.dumps({k: v for k, v in uni.items() if k != 'por_uf'}, ensure_ascii=False))
+    print({u: (round(v['previsto_para_Flavio_pct'], 1), round(v['observado_para_Flavio_pct'], 1)) for u, v in uni['por_uf'].items() if u in ('RS', 'SC', 'GO', 'BA', 'SP')})
     for r in out['lista_flavio_mais_pontos'][:15]:
         print('  Flávio ganhou mais pontos:', r['uf'], r['nome'], f"Flávio {r['pR']:+.2f} pts ({r['gR']:+,}) x Lula {r['pL']:+.2f} pts ({r['gL']:+,})")
 

@@ -1848,5 +1848,232 @@
    "L2": 1069,
    "R2": 1087
   }
- ]
+ ],
+ "vitorias": {
+  "Lula_1T": 2663,
+  "empates_1T": 2,
+  "Lula_2T": 2875,
+  "empates_2T": 1,
+  "empate_1T_e_Lula_2T": 2,
+  "Lula_mais_votos": 5228,
+  "empates_no_ganho": 4
+ },
+ "uniformidade": {
+  "media": -4.35804246375689,
+  "mediana": -4.4788412910354065,
+  "desvio": 2.2375268650578928,
+  "previsto_para_Flavio_pct": 2.572513036949603,
+  "observado_para_Flavio_pct": 3.266917968048824,
+  "por_uf": {
+   "AC": {
+    "cidades": 22,
+    "media": -2.675024697242987,
+    "desvio": 2.518650750936378,
+    "previsto_para_Flavio_pct": 14.4098232832786,
+    "observado_para_Flavio_pct": 9.090909090909092
+   },
+   "AL": {
+    "cidades": 102,
+    "media": -6.666370780750435,
+    "desvio": 2.7403120312502423,
+    "previsto_para_Flavio_pct": 0.7493252651289811,
+    "observado_para_Flavio_pct": 0.9803921568627451
+   },
+   "AM": {
+    "cidades": 62,
+    "media": -5.14481238415967,
+    "desvio": 1.9739608198260798,
+    "previsto_para_Flavio_pct": 0.45757829132663624,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "AP": {
+    "cidades": 16,
+    "media": -7.111692777172079,
+    "desvio": 2.8531043548358155,
+    "previsto_para_Flavio_pct": 0.6340300045693705,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "BA": {
+    "cidades": 417,
+    "media": -3.314661415670173,
+    "desvio": 1.909674900759788,
+    "previsto_para_Flavio_pct": 4.130665467761479,
+    "observado_para_Flavio_pct": 3.597122302158273
+   },
+   "CE": {
+    "cidades": 184,
+    "media": -5.031569323633307,
+    "desvio": 1.779215012721696,
+    "previsto_para_Flavio_pct": 0.23421989347302383,
+    "observado_para_Flavio_pct": 0.5434782608695652
+   },
+   "ES": {
+    "cidades": 78,
+    "media": -3.461767325793192,
+    "desvio": 1.146875890415033,
+    "previsto_para_Flavio_pct": 0.12704304830457738,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "GO": {
+    "cidades": 246,
+    "media": -2.9307296816213397,
+    "desvio": 2.5026621349291687,
+    "previsto_para_Flavio_pct": 12.079036874095184,
+    "observado_para_Flavio_pct": 10.16260162601626
+   },
+   "MA": {
+    "cidades": 217,
+    "media": -5.796649561933697,
+    "desvio": 1.3457091073941283,
+    "previsto_para_Flavio_pct": 0.0008255294581302764,
+    "observado_para_Flavio_pct": 0.4608294930875576
+   },
+   "MG": {
+    "cidades": 853,
+    "media": -4.950440807791172,
+    "desvio": 1.9032065403991665,
+    "previsto_para_Flavio_pct": 0.4646194980723722,
+    "observado_para_Flavio_pct": 0.82063305978898
+   },
+   "MS": {
+    "cidades": 79,
+    "media": -4.70126785877821,
+    "desvio": 1.751126990836205,
+    "previsto_para_Flavio_pct": 0.3629639924780339,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "MT": {
+    "cidades": 142,
+    "media": -3.6067568813303335,
+    "desvio": 1.3364369471051916,
+    "previsto_para_Flavio_pct": 0.34796490243479894,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "PA": {
+    "cidades": 144,
+    "media": -4.184279996783801,
+    "desvio": 1.5149957864244958,
+    "previsto_para_Flavio_pct": 0.2873227525109,
+    "observado_para_Flavio_pct": 0.6944444444444444
+   },
+   "PB": {
+    "cidades": 223,
+    "media": -5.97732219393566,
+    "desvio": 1.5255488636239827,
+    "previsto_para_Flavio_pct": 0.0044616447134198595,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "PE": {
+    "cidades": 185,
+    "media": -5.4070840542600695,
+    "desvio": 1.240848492468306,
+    "previsto_para_Flavio_pct": 0.000657572484946077,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "PI": {
+    "cidades": 224,
+    "media": -4.161065366601752,
+    "desvio": 2.0353813868037465,
+    "previsto_para_Flavio_pct": 2.045868086081094,
+    "observado_para_Flavio_pct": 2.232142857142857
+   },
+   "PR": {
+    "cidades": 399,
+    "media": -3.589875528931482,
+    "desvio": 1.6209794199762921,
+    "previsto_para_Flavio_pct": 1.3392611051362624,
+    "observado_para_Flavio_pct": 2.756892230576441
+   },
+   "RJ": {
+    "cidades": 92,
+    "media": -6.750373872985421,
+    "desvio": 1.22454319014106,
+    "previsto_para_Flavio_pct": 1.7682080749769883e-06,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "RN": {
+    "cidades": 167,
+    "media": -6.147660939222371,
+    "desvio": 2.1727990569205105,
+    "previsto_para_Flavio_pct": 0.23319587782570372,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "RO": {
+    "cidades": 52,
+    "media": -1.5891077570161318,
+    "desvio": 0.9764576575238619,
+    "previsto_para_Flavio_pct": 5.182385074546785,
+    "observado_para_Flavio_pct": 3.8461538461538463
+   },
+   "RR": {
+    "cidades": 15,
+    "media": -4.552718554355919,
+    "desvio": 2.300117250994653,
+    "previsto_para_Flavio_pct": 2.388876000726172,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "RS": {
+    "cidades": 497,
+    "media": -2.501340429230089,
+    "desvio": 2.368752547486115,
+    "previsto_para_Flavio_pct": 14.549011174248935,
+    "observado_para_Flavio_pct": 15.895372233400403
+   },
+   "SC": {
+    "cidades": 295,
+    "media": -2.3741058182475743,
+    "desvio": 1.9125472275506965,
+    "previsto_para_Flavio_pct": 10.724158880455084,
+    "observado_para_Flavio_pct": 9.830508474576272
+   },
+   "SE": {
+    "cidades": 75,
+    "media": -6.237210498528288,
+    "desvio": 1.2425416251551584,
+    "previsto_para_Flavio_pct": 2.5873484825995832e-05,
+    "observado_para_Flavio_pct": 0.0
+   },
+   "SP": {
+    "cidades": 645,
+    "media": -5.155122380087775,
+    "desvio": 1.5705424522364682,
+    "previsto_para_Flavio_pct": 0.05146678379966188,
+    "observado_para_Flavio_pct": 0.31007751937984496
+   },
+   "TO": {
+    "cidades": 139,
+    "media": -4.345633446535629,
+    "desvio": 1.8675129423592303,
+    "previsto_para_Flavio_pct": 0.9983618332229984,
+    "observado_para_Flavio_pct": 0.7194244604316546
+   }
+  },
+  "por_faixa_Flavio_1T": {
+   "0-30": {
+    "cidades": 1466,
+    "media": -4.699435250411172,
+    "para_Flavio_pct": 0.9549795361527967
+   },
+   "30-45": {
+    "cidades": 1071,
+    "media": -5.332987346616041,
+    "para_Flavio_pct": 1.7740429505135387
+   },
+   "45-55": {
+    "cidades": 1052,
+    "media": -4.5980060811978865,
+    "para_Flavio_pct": 1.9011406844106464
+   },
+   "55-65": {
+    "cidades": 1184,
+    "media": -4.103529410641867,
+    "para_Flavio_pct": 3.7162162162162162
+   },
+   "65-101": {
+    "cidades": 798,
+    "media": -2.4836739607029186,
+    "para_Flavio_pct": 10.651629072681704
+   }
+  }
+ }
 }

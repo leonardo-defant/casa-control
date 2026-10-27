@@ -30,3 +30,8 @@
    2018: 16.8
    2022: 5.2
    2026: 1.9
+
+7) Correção (27/10, conferência do README): o Datafolha publicou Flávio com 42% dos válidos na última pesquisa do 1º turno de 2026
+   (resultados/nacionais_2026_pesquisas_verificadas.txt); o 43,0% do item 3 e do item 4 é 40/93, recalculado dos totais. Com 42%:
+   item 3, z = 4.93, P = 4.1e-07 (cerca de 4 em 10 milhões); item 4, erro de 2026 1T = 5,03, raiz do erro quadrático médio 4.80,
+   P = 0.28 (cerca de 28%).

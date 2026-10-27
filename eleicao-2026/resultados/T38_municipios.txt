@@ -3,6 +3,8 @@ do site de resultados do TSE em 26 e 27/10 (5.571 de 5.571, todos com 100% das s
 Conferência: soma das cidades Lula 64,056,078 e Flávio 59,654,544 = total oficial menos o exterior (200.154 e 171.497). Diferença zero.
 Cidades em que Flávio ganhou mais VOTOS que Lula entre os turnos: 339 de 5571 (6.1%)
 Cidades em que Lula ganhou mais votos que Flávio: 5228 (93,8%); empates no ganho de votos: 4.
+Vitórias: Lula venceu em 2.663 cidades no 1º turno (2 empates) e em 2.875 no 2º (1 empate); as 2 empatadas no 1º foram para Lula no 2º
+(2.663 + 211 viradas + 2 empates - 1 virada para Flávio = 2.875). Uniformidade por UF e por faixa: chave 'uniformidade' do T38_municipios.json.
 Cidades em que Flávio ganhou mais PONTOS (fatia dos válidos) que Lula: 182 (3.3%)
 Cidades que viraram de Flávio (1º turno) para Lula (2º): 211; de Lula para Flávio: 1 (GO UIRAPURU)
   (o número que circulou era 213, da CNN Brasil; o Jornal Razão, com dados do TSE, chegou a 211, igual a esta conta)
