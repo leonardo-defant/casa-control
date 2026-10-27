@@ -99,13 +99,14 @@ def main():
         # legenda: tempo de cada trecho proporcional ao número de caracteres (inclui pausas da pontuação)
         if 'legendas' in c:  # pares [trecho falado, legenda com algarismos]: o tempo sai do trecho falado
             falado = [p[0] for p in c['legendas']]; tr = [p[1] for p in c['legendas']]
+            ing = [p[2] if len(p) > 2 else None for p in c['legendas']]  # legenda em inglês, opcional
         else:
-            falado = tr = trechos(c['texto'])
+            falado = tr = trechos(c['texto']); ing = [None] * len(tr)
         pesos = [len(x) + 6 * len(re.findall(r'[.,:;?!]', x)) for x in falado]; tot = sum(pesos)
         leg, t = [], t0
-        for x, p in zip(tr, pesos):
+        for x, p, e in zip(tr, pesos, ing):
             dt = (d - t0) * p / tot
-            leg.append([round(t, 3), round(t + dt, 3), x]); t += dt
+            leg.append([round(t, 3), round(t + dt, 3), x] + ([e] if e else [])); t += dt
         leg[-1][1] = round(dur_cena, 3)
         plano['cenas'].append({'tipo': c['tipo'], 'duracao': dur_cena, 'audio': arq, 'velocidade': round(vel, 3), 'legenda': leg})
         if 'foto' in c: plano['cenas'][-1]['foto'] = c['foto']  # imagem que a tela desenha (caminho file://)

@@ -174,7 +174,7 @@ const CENAS = {
     mapa(t, { aparecer: 1, colorir: fase(t, tcMapa, 2.2), focoRedutos: foco, porMargem: foco, alfa: mistura(0.07, 1, suave(fase(t, 0, 0.6))) * mistura(0.22, 1, kFim) });
     ALFA = kFim * (1 - kE);
     const k1 = saida(fase(t, L(2, 7.4) - 0.2, 0.8)), kSai = 1 - suave(fase(t, tr, 0.4)), k2 = suave(fase(t, tr + 0.4, 0.6));
-    const yb = 1250, a1 = k1 * kSai;
+    const yb = 1190, a1 = k1 * kSai;  // deixa espaço para a legenda em duas línguas
     caixa(60, yb, 960, 330, 32, 'rgba(10,15,28,0.82)', a1, 'rgba(255,255,255,0.10)');
     texto(fmt(Math.round(contador(5228, 0, t, L(2, 7.4) - 0.2, 1.6))) + ' cidades', W / 2, yb + 80, 76, COR.lula, 900, 'center', a1);
     texto('94% das cidades: Lula cresceu mais que Flávio', W / 2, yb + 160, 34, COR.texto, 600, 'center', a1 * saida(fase(t, L(3, 9.6) - 0.2, 0.5)));
@@ -198,10 +198,10 @@ const CENAS = {
     texto('margem foi para Flávio', 645, 300, 28, COR.texto, 600, 'left', kl * rEnt);
     ALFA = kFim;
     if (kE > 0) {  // destaque: 94% andando juntas
-      caixa(60, 1250, 960, 330, 32, 'rgba(10,15,28,0.9)', kE, rgba(COR.destaque, 0.8));
-      texto('94% das cidades', W / 2, 1335, 70, COR.texto, 900, 'center', kE);
-      texto('andaram juntas para o mesmo lado', W / 2, 1410, 40, COR.texto, 700, 'center', kE);
-      texto('Para mim, isso é muito estranho.', W / 2, 1500, 50, COR.destaque, 900, 'center', kE);
+      caixa(60, 1190, 960, 330, 32, 'rgba(10,15,28,0.9)', kE, rgba(COR.destaque, 0.8));
+      texto('94% das cidades', W / 2, 1275, 70, COR.texto, 900, 'center', kE);
+      texto('andaram juntas para o mesmo lado', W / 2, 1350, 40, COR.texto, 700, 'center', kE);
+      texto('Para mim, isso é muito estranho.', W / 2, 1440, 50, COR.destaque, 900, 'center', kE);
     }
     ALFA = 1;
     rodape('TSE, totais por município do 1º e do 2º turno (5.571 cidades); margem em pontos dos votos válidos');
@@ -561,25 +561,38 @@ function fechamentoRecap(t, d, literal) {
   rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
 }
 
-// legenda: lista de [inicio, fim, texto] em segundos da cena
+// legenda: lista de [inicio, fim, texto, texto_em_ingles?] em segundos da cena
+// quebra em até 2 linhas equilibradas: o corte que deixa a linha mais longa o mais curta possível,
+// evitando terminar a 1ª linha em palavra fraca e preferindo cortar depois de vírgula
+function equilibrar(s, larg, fonte, fraca) {
+  g.font = fonte; const pal = s.split(' ');
+  if (g.measureText(s).width <= larg) return [s];
+  let ls = null, mw = 1e9;
+  for (let i = 1; i < pal.length; i++) {
+    const a = pal.slice(0, i).join(' '), b = pal.slice(i).join(' '), m = Math.max(g.measureText(a).width, g.measureText(b).width);
+    const custo = m + (fraca.test(pal[i - 1]) ? 150 : 0) - (/[,:;]$/.test(pal[i - 1]) ? 150 : 0);
+    if (m <= larg && custo < mw) { mw = custo; ls = [a, b]; }
+  }
+  return ls || quebrar(s, larg, parseInt(fonte.match(/(\d+)px/)[1]), 700);
+}
+const FRACA_PT = /^(a|o|as|os|um|uma|uns|de|do|da|dos|das|em|no|na|com|por|para|que|e|ou|sua|seu|eu)$/i;
+const FRACA_EN = /^(a|an|the|of|to|in|on|at|by|for|from|with|and|or|that|than|my|his|its|their|I)$/i;
 function legenda(t, itens) {
   // a primeira legenda vale desde o início da cena, para a caixa não piscar na troca de cena
   const it = itens && itens.find((c, i) => t >= (i === 0 ? 0 : c[0]) && t < c[1]); if (!it) return;
-  const s = it[2].replace(/(\d) (?=mil|milh|pontos|senadores|deputados|cidades|institutos|governadores)/g, '$1\u00a0')  // número fica com a unidade
-                 .replace(/(\d+) (dos|de) (?=\d)/g, '$1\u00a0$2\u00a0');
-  let ls = quebrar(s, 900, 44, 700);
-  if (ls.length === 2) {  // equilibra as duas linhas: o corte que deixa a linha mais longa o mais curta possível
-    g.font = `700 44px ${FONTE}`; const pal = s.split(' '); let mw = 1e9;
-    const fraca = /^(a|o|as|os|um|uma|uns|de|do|da|dos|das|em|no|na|com|por|para|que|e|ou|sua|seu|eu)$/i;
-    for (let i = 1; i < pal.length; i++) {
-      const a = pal.slice(0, i).join(' '), b = pal.slice(i).join(' '), m = Math.max(g.measureText(a).width, g.measureText(b).width);
-      const custo = m + (fraca.test(pal[i - 1]) ? 150 : 0) - (/[,:;]$/.test(pal[i - 1]) ? 150 : 0);
-      if (m <= 900 && custo < mw) { mw = custo; ls = [a, b]; }
-    }
-  }
-  const h = ls.length * 56 + 36; const y = 1690 - h / 2;
-  caixa(70, y, 940, h, 22, 'rgba(0,0,0,0.62)', 1);
-  ls.forEach((l, i) => texto(l, W / 2, y + 18 + 28 + i * 56, 44, '#FFFFFF', 700));
+  const s = it[2].replace(/(\d) (?=mil|milh|pontos|senadores|deputados|cidades|institutos|governadores)/g, '$1 ')  // número fica com a unidade
+                 .replace(/(\d+) (dos|de) (?=\d)/g, '$1 $2 ');
+  const pt = equilibrar(s, 900, `700 44px ${FONTE}`, FRACA_PT);
+  const en = it[3] ? equilibrar(it[3].replace(/(\d) (?=million|thousand|percent|points)/g, '$1 '), 900, `italic 500 32px ${FONTE}`, FRACA_EN) : [];
+  // a caixa cresce para cima; o pé fica fixo acima do rodapé de fontes
+  const h = 36 + pt.length * 56 + (en.length ? 10 + en.length * 42 : 0), y = en.length ? 1782 - h : 1690 - h / 2;
+  caixa(70, y, 940, h, 22, 'rgba(0,0,0,0.66)', 1);
+  pt.forEach((l, i) => texto(l, W / 2, y + 18 + 28 + i * 56, 44, '#FFFFFF', 700));
+  const y0 = y + 18 + pt.length * 56 + 10;
+  en.forEach((l, i) => {
+    g.save(); g.globalAlpha = ALFA; g.fillStyle = '#C9D3E3'; g.font = `italic 500 32px ${FONTE}`;
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(l, W / 2, y0 + 21 + i * 42); g.restore();
+  });
 }
 
 window.desenhar = function (indice, t) {
