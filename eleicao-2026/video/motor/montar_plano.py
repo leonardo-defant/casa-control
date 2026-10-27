@@ -12,6 +12,12 @@ MARGEM_INI = 0.12 # silêncio mantido antes da fala
 MARGEM_FIM = 0.25 # mantido depois da fala (preserva o decaimento da última sílaba)
 CAUDA_FINAL = 2.0 # respiro depois da última fala do vídeo
 FPS = 30
+LUFS = -16.0      # loudness de cada fala, perto do que as redes usam; o limitador segura os picos em -1,5 dBFS
+
+
+def loudness(arq):
+    err = subprocess.run(['ffmpeg', '-i', arq, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', err)[-1])
 
 
 def duracao(arq):
@@ -21,7 +27,7 @@ def duracao(arq):
 
 def limites_fala(arq):
     """Início e fim da fala (s), pelo envelope em janelas de 20 ms com limiar de 3% do pico.
-    Estalos isolados nas pontas (até 60 ms, a mais de 0,3 s da fala) não contam como fala."""
+    Estalos isolados nas pontas (até 60 ms, a 0,12 s ou mais da fala) não contam como fala."""
     raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
     a = array.array('h', raw); jan = 320
     env = [(sum(x * x for x in a[k:k + jan]) / jan) ** 0.5 for k in range(0, len(a) - jan, jan)]
@@ -30,8 +36,8 @@ def limites_fala(arq):
     for k, e in enumerate(env + [0]):
         if e > lim and ini is None: ini = k
         elif e <= lim and ini is not None: blocos.append([ini, k]); ini = None
-    while len(blocos) > 1 and blocos[0][1] - blocos[0][0] <= 3 and blocos[1][0] - blocos[0][1] > 15: blocos.pop(0)
-    while len(blocos) > 1 and blocos[-1][1] - blocos[-1][0] <= 3 and blocos[-1][0] - blocos[-2][1] > 15: blocos.pop()
+    while len(blocos) > 1 and blocos[0][1] - blocos[0][0] <= 3 and blocos[1][0] - blocos[0][1] >= 6: blocos.pop(0)
+    while len(blocos) > 1 and blocos[-1][1] - blocos[-1][0] <= 3 and blocos[-1][0] - blocos[-2][1] >= 6: blocos.pop()
     return blocos[0][0] * 0.02, blocos[-1][1] * 0.02
 
 
@@ -66,9 +72,13 @@ def main():
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', orig, '-af', f'atempo={vel:.4f}', '-ar', '48000', '-ac', '2', bruto], check=True)
         # corta o silêncio das pontas (sobra MARGEM), com fade curto para não estalar
         f0, f1 = limites_fala(bruto); a0 = max(0.0, f0 - MARGEM_INI); a1 = min(duracao(bruto), f1 + MARGEM_FIM)
+        cortado = arq + '.cortado.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', bruto, '-af',
-                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', arq], check=True)
-        os.remove(bruto)
+                        f'atrim={a0:.3f}:{a1:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={a1 - a0 - 0.04:.3f}:d=0.04', cortado], check=True)
+        ganho = LUFS - loudness(cortado)  # todas as falas no mesmo nível
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', cortado, '-af', f'volume={ganho:.2f}dB,alimiter=limit=0.84:attack=5:release=60:level=disabled',
+                        '-ar', '48000', '-ac', '2', arq], check=True)
+        os.remove(bruto); os.remove(cortado)
         d = duracao(arq); t0 = limites_fala(arq)[0]
         dur_cena = round((d + (CAUDA_FINAL if i == len(cenas) - 1 else CAUDA)) * FPS) / FPS
         # legenda: tempo de cada trecho proporcional ao número de caracteres (inclui pausas da pontuação)

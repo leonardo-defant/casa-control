@@ -65,11 +65,12 @@ def palavras_asr(m, arq):
     return [x for x in out if x[0]]
 
 
-def pausas(arq, minimo=0.08):
-    """Trechos de silêncio (início, fim) em segundos, por janelas de 10 ms abaixo de 3% do pico."""
+def pausas(arq, minimo=0.12):
+    """Trechos de silêncio (início, fim) em segundos, por janelas de 10 ms abaixo de 1,5% do pico
+    (fricativas surdas e oclusões curtas não contam como pausa)."""
     raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', arq, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
     a = np.frombuffer(raw, np.int16).astype(np.float32)
-    n = len(a) // 160; env = np.sqrt((a[:n * 160].reshape(n, 160) ** 2).mean(axis=1)); lim = env.max() * 0.03
+    n = len(a) // 160; env = np.sqrt((a[:n * 160].reshape(n, 160) ** 2).mean(axis=1)); lim = env.max() * 0.015
     out, ini = [], None
     for k, e in enumerate(env):
         if e <= lim and ini is None: ini = k
@@ -94,19 +95,21 @@ def main():
         mapa = {}
         for a, b, size in difflib.SequenceMatcher(None, tok, [x[0] for x in asr], autojunk=False).get_matching_blocks():
             for d in range(size): mapa[a + d] = b + d
-        inicios = []
+        inicios, fim_trecho = [], 0.0  # fim da última palavra reconhecida do trecho anterior
         for k in range(len(falado)):
             idx = [j for j in range(len(tok)) if dono[j] == k]
             casados = [j for j in idx if j in mapa]
             if not casados:
                 inicios.append(None); continue
+            fim_ant, fim_trecho = fim_trecho, asr[mapa[casados[-1]]][2]
             j1 = casados[0]; t1 = asr[mapa[j1]][1] - 0.2 * (j1 - idx[0])
             j2 = next((x for x in casados[:4] if tok[x] not in CURTAS), j1); t2 = asr[mapa[j2]][1] - 0.2 * (j2 - idx[0])
             fim_antes = asr[mapa[j1] - 1][2] if mapa[j1] > 0 and j1 == idx[0] else 0.0
-            # o reconhecimento erra o tempo das palavras curtas; a fronteira real do trecho é a maior pausa por perto
-            perto = [p for p in silencios if min(t1, t2) - 0.5 <= p[1] <= max(t1, t2) + 0.3]
+            # o reconhecimento erra o tempo das palavras curtas; a fronteira real do trecho é a pausa real mais perto,
+            # desde que ela venha depois do fim do trecho anterior
+            perto = [p for p in silencios if min(t1, t2) - 0.5 <= p[1] <= max(t1, t2) + 0.3 and p[0] >= fim_ant - 0.15]
             if perto:
-                p = max(perto, key=lambda p: p[1] - p[0]); t, fim_antes = p[1], p[0]
+                p = min(perto, key=lambda p: abs(p[1] - t1)); t, fim_antes = p[1], p[0]
             else:
                 t = t1 if j1 == idx[0] else t2
             inicios.append(max(fim_antes, t - ANTES, 0.0))
