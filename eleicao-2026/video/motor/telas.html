@@ -26,6 +26,7 @@ const suave = x => x * x * (3 - 2 * x);
 const saida = x => 1 - Math.pow(1 - x, 3);
 const mistura = (a, b, k) => a + (b - a) * k;
 let ALFA = 1;  // multiplicador de opacidade dos textos e caixas (transições)
+let LD = 0, NUM = null;  // versões curtas: deslocamento dos índices de legenda e número da pergunta
 function rgba(hex, a) {
   const n = parseInt(hex.slice(1), 16);
   return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`;
@@ -49,7 +50,7 @@ function caixa(x, y, w, h, r, cor, alfa = 1, borda = null) {
   if (borda) { g.strokeStyle = borda; g.lineWidth = 2; g.stroke(); } g.restore();
 }
 // L(n, reserva): início, em segundos da cena, da legenda n; sincroniza a animação com a fala
-const L = (n, reserva) => (window.CENA && window.CENA.legenda && window.CENA.legenda[n]) ? window.CENA.legenda[n][0] : reserva;
+const L = (n, reserva) => (window.CENA && window.CENA.legenda && window.CENA.legenda[n + LD]) ? window.CENA.legenda[n + LD][0] : reserva;
 const fmt = (n, casas = 0) => n.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas });
 
 function fundo(t) {
@@ -130,7 +131,7 @@ function selo(s, x, y, t, t0, cor = COR.destaque) {
 function rotuloDuvida(n, t) {
   const k = saida(fase(t, 0, 0.5));
   caixa(60, 190, 330, 70, 35, rgba(COR.destaque, 0.15), k, rgba(COR.destaque, 0.9));
-  texto(`PERGUNTA ${n}`, 225, 226, 32, COR.destaque, 800, 'center', k);
+  texto(`PERGUNTA ${NUM ?? n}`, 225, 226, 32, COR.destaque, 800, 'center', k);
 }
 
 // ---------- cenas ----------
@@ -378,7 +379,58 @@ const CENAS = {
     paragrafo('O voto precisa poder ser conferido sem depender só do software.', W / 2, 1375, 880, 46, COR.destaque, 900, kC2, 1.15);
     rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
   },
+  // ---------- versão de 3 minutos ----------
+  contexto3(t, d) {
+    mapa(t, { aparecer: 1, colorir: 0, alfa: mistura(1, 0.07, suave(fase(t, 0, 0.6))) });
+    ALFA = 1 - fase(t, d - 0.4, 0.4);
+    cartao(60, 330, 960, 250, L(1, 2.4) - 0.2, t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
+    cartaoPartes(60, 610, 960, 260, L(2, d * 0.22) - 0.2, t, 'PL: 121 deputados', [
+      ['e deve começar com 29 dos 81 senadores', L(3, d * 0.36) - 0.2],
+      ['as maiores bancadas de um partido desde 1988', L(4, d * 0.52) - 0.2]], COR.flavio);
+    cartaoPartes(60, 900, 960, 270, L(6, d * 0.7) - 0.2, t, '12 de 21', [
+      ['governadores eleitos no 1º turno apoiaram Flávio;', L(6, d * 0.7) - 0.2],
+      ['e também Zema, Caiado, Cury e Temer', L(8, d * 0.85) - 0.2]], COR.flavio);
+    ALFA = 1;
+    rodape('TSE; Agência Brasil e Agência Senado (bancadas); apoios divulgados na imprensa');
+  },
+  base3(t, d) { LD = -1; CENAS.base(t, d); },
+  prorrogacao3(t, d) { LD = -1; NUM = 2; CENAS.prorrogacao(t, d); },
+  fechamento3A(t, d) { fechamentoCurto(t, d, false); },
+  fechamento3B(t, d) { fechamentoCurto(t, d, true); },
 };
+
+// fechamento da versão de 3 minutos; literal = versão B, nas palavras do Léo
+function fechamentoCurto(t, d, literal) {
+  const iMundo = literal ? 6 : 7, iFinal = literal ? 8 : 9;
+  const tB = L(4, d * 0.35) - 0.3, sai = 1 - suave(fase(t, tB, 0.6));
+  mapa(t, { aparecer: 1, colorir: 1, alfa: 0.35 * sai });
+  // A: o que eu conferi, e o limite disso
+  const kA = saida(fase(t, 0.4, 0.8)) * sai;
+  caixa(60, 1140, 960, 340, 32, 'rgba(10,15,28,0.88)', kA, 'rgba(255,255,255,0.10)');
+  texto('13 municípios com todos os boletins somados', W / 2, 1200, 40, COR.texto, 800, 'center', kA);
+  texto('a soma bate com o total oficial,', W / 2, 1262, 34, COR.fraco, 600, 'center', kA * saida(fase(t, L(1, 3.5) - 0.2, 0.6)));
+  texto('e nenhum teste meu achou a marca de uma fraude', W / 2, 1306, 34, COR.fraco, 600, 'center', kA * saida(fase(t, L(2, 6.0) - 0.2, 0.6)));
+  texto('Isso confere a conta, não o voto.', W / 2, 1410, 44, COR.destaque, 900, 'center', kA * saida(fase(t, L(3, d * 0.3) - 0.2, 0.6)));
+  // B: sem voto impresso
+  const kS = saida(fase(t, L(4, d * 0.35) - 0.2, 0.6));
+  caixa(60, 330, 960, literal ? 260 : 300, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
+  texto('Sem voto impresso', W / 2, 410, 60, COR.destaque, 900, 'center', kS);
+  if (literal) {
+    texto('a urna não pode ser auditada', W / 2, 510, 50, COR.texto, 800, 'center', saida(fase(t, L(5, d * 0.45) - 0.2, 0.5)));
+  } else {
+    texto('a urna não permite conferir o voto real', W / 2, 500, 38, COR.texto, 700, 'center', saida(fase(t, L(5, d * 0.45) - 0.2, 0.5)));
+    texto('de forma independente do software', W / 2, 556, 38, COR.texto, 700, 'center', saida(fase(t, L(6, d * 0.55) - 0.2, 0.5)));
+  }
+  const kO = saida(fase(t, L(iMundo, d * 0.65) - 0.2, 0.6));
+  texto('No mundo de hoje, não dá para confiar', W / 2, 760, 46, COR.texto, 800, 'center', kO);
+  texto('de olhos fechados em software nenhum.', W / 2, 818, 46, COR.texto, 800, 'center', kO);
+  // C: o pedido final
+  const kC = saida(fase(t, L(iFinal, d * 0.85) - 0.2, 0.7));
+  caixa(60, 1040, 960, 300, 32, rgba(COR.destaque, 0.10), kC, rgba(COR.destaque, 0.8));
+  const fim = literal ? ['O voto precisa ser', 'auditável de verdade.'] : ['O voto precisa poder ser conferido', 'sem depender só do software.'];
+  fim.forEach((l, i) => texto(l, W / 2, 1150 + i * 66, literal ? 60 : 52, COR.destaque, 900, 'center', kC));
+  rodape('análise com critérios registrados antes de ver os dados; boletim, RDV e log publicados pelo TSE');
+}
 
 // legenda: lista de [inicio, fim, texto] em segundos da cena
 function legenda(t, itens) {
@@ -402,7 +454,7 @@ function legenda(t, itens) {
 }
 
 window.desenhar = function (indice, t) {
-  const c = window.PLANO.cenas[indice]; window.CENA = c; ALFA = 1;
+  const c = window.PLANO.cenas[indice]; window.CENA = c; ALFA = 1; LD = 0; NUM = null;
   const tg = window.PLANO.cenas.slice(0, indice).reduce((s, x) => s + Math.round(x.duracao * 30) / 30, 0);
   fundo(tg + t);
   CENAS[c.tipo](t, c.duracao);

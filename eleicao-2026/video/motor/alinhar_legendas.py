@@ -1,7 +1,7 @@
 """Acerta o tempo das legendas pela fala real: transcreve a fala de cada cena com tempo por palavra (faster-whisper),
 alinha as palavras ao texto narrado e faz cada legenda entrar até 0,25 s antes da primeira palavra do seu trecho,
 nunca antes de a fala anterior acabar. Reescreve plano.json no lugar.
-Requer faster-whisper (modelo small). Uso: alinhar_legendas.py <modelo_dir> <narracao.json> <plano.json>
+Requer faster-whisper (modelo small). Uso: alinhar_legendas.py <modelo_dir> <narracao.json> <plano.json> [--cenas 0,3]
 """
 import difflib, json, re, subprocess, sys, unicodedata
 import numpy as np
@@ -145,7 +145,10 @@ def main():
     modelo_dir, nar_arq, plano_arq = sys.argv[1:4]
     m = WhisperModel('small', device='cpu', compute_type='int8', download_root=modelo_dir)
     nar = json.load(open(nar_arq))['cenas']; plano = json.load(open(plano_arq))
+    so = [int(x) for x in sys.argv[sys.argv.index('--cenas') + 1].split(',')] if '--cenas' in sys.argv else None
     for i, (c, n) in enumerate(zip(plano['cenas'], nar)):
+        if so is not None and i not in so:
+            continue
         falado = [p[0] for p in n['legendas']]
         assert len(falado) == len(c['legenda']), f'cena {i}: legendas do plano e da narração não batem'
         tok, dono = [], []

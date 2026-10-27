@@ -1,6 +1,6 @@
 """Monta o plano do vídeo a partir da narração: acelera as cenas lentas (sem mudar o tom), mede a duração de cada uma,
 quebra o texto em legendas sincronizadas pelo tamanho de cada trecho e escreve plano.json para o render.js.
-Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida>
+Uso: python3 -I montar_plano.py <narracao.json> <pasta_audio_original> <pasta_saida> [--alvo 2.6] [--max-vel 1.2]
 Depois, alinhar_legendas.py troca os tempos estimados das legendas pelos tempos reais das palavras.
 """
 import array, json, os, re, subprocess, sys
@@ -59,14 +59,17 @@ def trechos(texto, max_pal=8):
 
 
 def main():
+    global ALVO, MAX_VEL
     nar, pasta, saida = sys.argv[1:4]
+    if '--alvo' in sys.argv: ALVO = float(sys.argv[sys.argv.index('--alvo') + 1])
+    if '--max-vel' in sys.argv: MAX_VEL = float(sys.argv[sys.argv.index('--max-vel') + 1])
     os.makedirs(saida, exist_ok=True)
     cenas = json.load(open(nar))['cenas']
     plano = {'fps': FPS, 'cenas': []}
     for i, c in enumerate(cenas):
         orig = os.path.join(pasta, f'cena{i:02d}.wav'); d0 = duracao(orig)
         pal = len(c['texto'].split())
-        vel = min(MAX_VEL, max(1.0, ALVO / (pal / d0)))
+        vel = min(c.get('vel_max', MAX_VEL), max(1.0, ALVO / (pal / d0)))  # 'vel_max' segura cenas densas de números
         arq = os.path.join(saida, f'cena{i:02d}.wav')
         bruto = arq + '.bruto.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', orig, '-af', f'atempo={vel:.4f}', '-ar', '48000', '-ac', '2', bruto], check=True)

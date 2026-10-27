@@ -1,0 +1,304 @@
+{
+ "versao": "3 min, fechamento B (nas palavras do Léo: a urna não pode ser auditada)",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "texto": "Cinco mil, quinhentas e setenta e uma cidades. Eu fui ver, uma por uma, o que aconteceu entre o primeiro e o segundo turno. E o que eu achei levanta perguntas que alguém precisa responder.",
+   "legendas": [
+    [
+     "Cinco mil, quinhentas e setenta e uma cidades.",
+     "5.571 cidades."
+    ],
+    [
+     "Eu fui ver, uma por uma,",
+     "Eu fui ver, uma por uma,"
+    ],
+    [
+     "o que aconteceu entre o primeiro e o segundo turno.",
+     "o que aconteceu entre o 1º e o 2º turno."
+    ],
+    [
+     "E o que eu achei levanta perguntas",
+     "E o que eu achei levanta perguntas"
+    ],
+    [
+     "que alguém precisa responder.",
+     "que alguém precisa responder."
+    ]
+   ]
+  },
+  {
+   "tipo": "contexto3",
+   "texto": "Flávio saiu do primeiro turno na frente, por dois vírgula dois milhões de votos. O PL, partido dele, elegeu cento e vinte e um deputados e deve começar com vinte e nove dos oitenta e um senadores, as maiores bancadas de um partido desde mil novecentos e oitenta e oito. Flávio teve o apoio de doze dos vinte e um governadores eleitos no primeiro turno, e de Zema, Caiado, Cury e Temer.",
+   "legendas": [
+    [
+     "Flávio saiu do primeiro turno na frente,",
+     "Flávio saiu do 1º turno na frente,"
+    ],
+    [
+     "por dois vírgula dois milhões de votos.",
+     "por 2,2 milhões de votos."
+    ],
+    [
+     "O PL, partido dele, elegeu cento e vinte e um deputados",
+     "O PL, partido dele, elegeu 121 deputados"
+    ],
+    [
+     "e deve começar com vinte e nove dos oitenta e um senadores,",
+     "e deve começar com 29 dos 81 senadores,"
+    ],
+    [
+     "as maiores bancadas de um partido",
+     "as maiores bancadas de um partido"
+    ],
+    [
+     "desde mil novecentos e oitenta e oito.",
+     "desde 1988."
+    ],
+    [
+     "Flávio teve o apoio de doze dos vinte e um governadores",
+     "Flávio teve o apoio de 12 dos 21 governadores"
+    ],
+    [
+     "eleitos no primeiro turno,",
+     "eleitos no 1º turno,"
+    ],
+    [
+     "e de Zema, Caiado, Cury e Temer.",
+     "e de Zema, Caiado, Cury e Temer."
+    ]
+   ]
+  },
+  {
+   "tipo": "mapa",
+   "texto": "Contrariando a lógica de todo esse apoio, do primeiro para o segundo turno, o país inteiro andou para o lado de Lula. Em cinco mil duzentas e vinte e oito cidades, noventa e quatro por cento, Lula cresceu mais que Flávio, com saldo de seis vírgula sete milhões de votos. Nos redutos de Flávio, onde ele tinha mais de sessenta e cinco por cento, a virada foi menor, mas a margem ainda andou para Lula em oitenta e nove por cento das cidades.",
+   "legendas": [
+    [
+     "Contrariando a lógica de todo esse apoio,",
+     "Contrariando a lógica de todo esse apoio,"
+    ],
+    [
+     "do primeiro para o segundo turno, o país inteiro andou para o lado de Lula.",
+     "do 1º para o 2º turno, o país inteiro andou para o lado de Lula."
+    ],
+    [
+     "Em cinco mil duzentas e vinte e oito cidades,",
+     "Em 5.228 cidades,"
+    ],
+    [
+     "noventa e quatro por cento,",
+     "94%,"
+    ],
+    [
+     "Lula cresceu mais que Flávio,",
+     "Lula cresceu mais que Flávio,"
+    ],
+    [
+     "com saldo de seis vírgula sete milhões de votos.",
+     "com saldo de 6,7 milhões de votos."
+    ],
+    [
+     "Nos redutos de Flávio,",
+     "Nos redutos de Flávio,"
+    ],
+    [
+     "onde ele tinha mais de sessenta e cinco por cento,",
+     "onde ele tinha mais de 65%,"
+    ],
+    [
+     "a virada foi menor,",
+     "a virada foi menor,"
+    ],
+    [
+     "mas a margem ainda andou para Lula",
+     "mas a margem ainda andou para Lula"
+    ],
+    [
+     "em oitenta e nove por cento das cidades.",
+     "em 89% das cidades."
+    ]
+   ]
+  },
+  {
+   "tipo": "conta",
+   "texto": "Faz a conta comigo. Os derrotados tiveram nove vírgula três milhões de votos. O comparecimento subiu quase três milhões. E o branco e nulo caiu um vírgula oito milhão. São catorze milhões de votos em jogo. Flávio cresceu três vírgula sete milhões, o equivalente a quarenta por cento dos votos dos derrotados. Se foi isso, Lula precisaria de cem por cento de todo o restante: os outros sessenta por cento dos derrotados, todo o aumento do comparecimento e toda a queda do branco e nulo. Cem por cento. É o saldo, não é cada eleitor. Mas é essa conta que precisa de explicação.",
+   "legendas": [
+    [
+     "Faz a conta comigo.",
+     "Faz a conta comigo."
+    ],
+    [
+     "Os derrotados tiveram nove vírgula três milhões de votos.",
+     "Os derrotados tiveram 9,3 milhões de votos."
+    ],
+    [
+     "O comparecimento subiu quase três milhões.",
+     "O comparecimento subiu quase 3 milhões."
+    ],
+    [
+     "E o branco e nulo caiu um vírgula oito milhão.",
+     "E o branco e nulo caiu 1,8 milhão."
+    ],
+    [
+     "São catorze milhões de votos em jogo.",
+     "São 14 milhões de votos em jogo."
+    ],
+    [
+     "Flávio cresceu três vírgula sete milhões,",
+     "Flávio cresceu 3,7 milhões,"
+    ],
+    [
+     "o equivalente a quarenta por cento dos votos dos derrotados.",
+     "o equivalente a 40% dos votos dos derrotados."
+    ],
+    [
+     "Se foi isso, Lula precisaria de cem por cento de todo o restante:",
+     "Se foi isso, Lula precisaria de 100% de todo o restante:"
+    ],
+    [
+     "os outros sessenta por cento dos derrotados,",
+     "os outros 60% dos derrotados,"
+    ],
+    [
+     "todo o aumento do comparecimento",
+     "todo o aumento do comparecimento"
+    ],
+    [
+     "e toda a queda do branco e nulo.",
+     "e toda a queda do branco e nulo."
+    ],
+    [
+     "Cem por cento.",
+     "100%."
+    ],
+    [
+     "É o saldo, não é cada eleitor.",
+     "É o saldo, não é cada eleitor."
+    ],
+    [
+     "Mas é essa conta que precisa de explicação.",
+     "Mas é essa conta que precisa de explicação."
+    ]
+   ],
+   "vel_max": 1.15
+  },
+  {
+   "tipo": "base3",
+   "texto": "Numa amostra de quase quatro mil seções, a estimativa é que, no saldo, Flávio perdeu cinco por cento da sua base do primeiro turno para Lula, e Lula só um vírgula um por cento para Flávio. As pesquisas mostravam perdas parecidas dos dois lados. É uma diferença de uns dois milhões de votos, que pode ser gente que mudou de lado ou gente que deixou de votar e deu lugar a eleitores novos.",
+   "legendas": [
+    [
+     "Numa amostra de quase quatro mil seções,",
+     "Numa amostra de quase 4 mil seções,"
+    ],
+    [
+     "a estimativa é que, no saldo,",
+     "a estimativa é que, no saldo,"
+    ],
+    [
+     "Flávio perdeu cinco por cento da sua base do primeiro turno para Lula,",
+     "Flávio perdeu 5% da sua base do 1º turno para Lula,"
+    ],
+    [
+     "e Lula só um vírgula um por cento para Flávio.",
+     "e Lula só 1,1% para Flávio."
+    ],
+    [
+     "As pesquisas mostravam perdas parecidas dos dois lados.",
+     "As pesquisas mostravam perdas parecidas dos dois lados."
+    ],
+    [
+     "É uma diferença de uns dois milhões de votos,",
+     "É uma diferença de uns 2 milhões de votos,"
+    ],
+    [
+     "que pode ser gente que mudou de lado",
+     "que pode ser gente que mudou de lado"
+    ],
+    [
+     "ou gente que deixou de votar e deu lugar a eleitores novos.",
+     "ou gente que deixou de votar e deu lugar a eleitores novos."
+    ]
+   ]
+  },
+  {
+   "tipo": "prorrogacao3",
+   "texto": "A pedido da coligação de Lula, um ministro que foi advogado de Lula prorrogou a votação, e o TSE suspendeu a totalização até as sete da noite. As duas campanhas tinham pedido prorrogação em alguma cidade. Foram cerca de trinta e cinco mil votos depois das cinco, uns seis mil depois da decisão. É pouco, mas a pergunta sobre o procedimento continua de pé.",
+   "legendas": [
+    [
+     "A pedido da coligação de Lula,",
+     "A pedido da coligação de Lula,"
+    ],
+    [
+     "um ministro que foi advogado de Lula prorrogou a votação,",
+     "um ministro que foi advogado de Lula prorrogou a votação,"
+    ],
+    [
+     "e o TSE suspendeu a totalização até as sete da noite.",
+     "e o TSE suspendeu a totalização até as 19h."
+    ],
+    [
+     "As duas campanhas tinham pedido prorrogação em alguma cidade.",
+     "As duas campanhas tinham pedido prorrogação em alguma cidade."
+    ],
+    [
+     "Foram cerca de trinta e cinco mil votos depois das cinco,",
+     "Foram cerca de 35 mil votos depois das 17h,"
+    ],
+    [
+     "uns seis mil depois da decisão.",
+     "uns 6 mil depois da decisão."
+    ],
+    [
+     "É pouco,",
+     "É pouco,"
+    ],
+    [
+     "mas a pergunta sobre o procedimento continua de pé.",
+     "mas a pergunta sobre o procedimento continua de pé."
+    ]
+   ]
+  },
+  {
+   "tipo": "fechamento3B",
+   "texto": "Nos treze municípios em que eu somei todos os boletins, a soma bate com o total oficial, e nenhum teste meu achou a marca de uma fraude. Mas isso confere a conta, não o voto. Sem voto impresso, a urna não pode ser auditada. E no mundo de hoje, não dá para confiar de olhos fechados em software nenhum. O voto precisa ser auditável de verdade.",
+   "legendas": [
+    [
+     "Nos treze municípios em que eu somei todos os boletins,",
+     "Nos 13 municípios em que eu somei todos os boletins,"
+    ],
+    [
+     "a soma bate com o total oficial,",
+     "a soma bate com o total oficial,"
+    ],
+    [
+     "e nenhum teste meu achou a marca de uma fraude.",
+     "e nenhum teste meu achou a marca de uma fraude."
+    ],
+    [
+     "Mas isso confere a conta, não o voto.",
+     "Mas isso confere a conta, não o voto."
+    ],
+    [
+     "Sem voto impresso,",
+     "Sem voto impresso,"
+    ],
+    [
+     "a urna não pode ser auditada.",
+     "a urna não pode ser auditada."
+    ],
+    [
+     "E no mundo de hoje, não dá para confiar",
+     "E no mundo de hoje, não dá para confiar"
+    ],
+    [
+     "de olhos fechados em software nenhum.",
+     "de olhos fechados em software nenhum."
+    ],
+    [
+     "O voto precisa ser auditável de verdade.",
+     "O voto precisa ser auditável de verdade."
+    ]
+   ]
+  }
+ ]
+}

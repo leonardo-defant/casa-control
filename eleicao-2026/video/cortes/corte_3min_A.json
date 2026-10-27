@@ -1,0 +1,86 @@
+{
+ "versao": "3 min, fechamento A (conferência do voto independente do software)",
+ "cenas": [
+  {
+   "de": 0
+  },
+  {
+   "de": 1,
+   "tipo": "contexto3",
+   "tirar": [
+    6,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "de": 2
+  },
+  {
+   "de": 4
+  },
+  {
+   "de": 5,
+   "tipo": "base3",
+   "tirar": [
+    0,
+    9
+   ]
+  },
+  {
+   "de": 8,
+   "tipo": "prorrogacao3",
+   "tirar": [
+    0
+   ]
+  },
+  {
+   "arquivo": "FECHAMENTO",
+   "tipo": "fechamento3A",
+   "texto": "Nos treze municípios em que eu somei todos os boletins, a soma bate com o total oficial, e nenhum teste meu achou a marca de uma fraude. Mas isso confere a conta, não o voto. Sem voto impresso, a urna não permite conferir o voto real de forma independente do software. E no mundo de hoje, não dá para confiar de olhos fechados em software nenhum. O voto precisa poder ser conferido sem depender só do software.",
+   "legendas": [
+    [
+     "Nos treze municípios em que eu somei todos os boletins,",
+     "Nos 13 municípios em que eu somei todos os boletins,"
+    ],
+    [
+     "a soma bate com o total oficial,",
+     "a soma bate com o total oficial,"
+    ],
+    [
+     "e nenhum teste meu achou a marca de uma fraude.",
+     "e nenhum teste meu achou a marca de uma fraude."
+    ],
+    [
+     "Mas isso confere a conta, não o voto.",
+     "Mas isso confere a conta, não o voto."
+    ],
+    [
+     "Sem voto impresso,",
+     "Sem voto impresso,"
+    ],
+    [
+     "a urna não permite conferir o voto real",
+     "a urna não permite conferir o voto real"
+    ],
+    [
+     "de forma independente do software.",
+     "de forma independente do software."
+    ],
+    [
+     "E no mundo de hoje, não dá para confiar",
+     "E no mundo de hoje, não dá para confiar"
+    ],
+    [
+     "de olhos fechados em software nenhum.",
+     "de olhos fechados em software nenhum."
+    ],
+    [
+     "O voto precisa poder ser conferido sem depender só do software.",
+     "O voto precisa poder ser conferido sem depender só do software."
+    ]
+   ]
+  }
+ ]
+}

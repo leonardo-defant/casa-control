@@ -1,0 +1,82 @@
+{
+ "versao": "3 min, fechamento B (nas palavras do Léo: a urna não pode ser auditada)",
+ "cenas": [
+  {
+   "de": 0
+  },
+  {
+   "de": 1,
+   "tipo": "contexto3",
+   "tirar": [
+    6,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "de": 2
+  },
+  {
+   "de": 4
+  },
+  {
+   "de": 5,
+   "tipo": "base3",
+   "tirar": [
+    0,
+    9
+   ]
+  },
+  {
+   "de": 8,
+   "tipo": "prorrogacao3",
+   "tirar": [
+    0
+   ]
+  },
+  {
+   "arquivo": "FECHAMENTO",
+   "tipo": "fechamento3B",
+   "texto": "Nos treze municípios em que eu somei todos os boletins, a soma bate com o total oficial, e nenhum teste meu achou a marca de uma fraude. Mas isso confere a conta, não o voto. Sem voto impresso, a urna não pode ser auditada. E no mundo de hoje, não dá para confiar de olhos fechados em software nenhum. O voto precisa ser auditável de verdade.",
+   "legendas": [
+    [
+     "Nos treze municípios em que eu somei todos os boletins,",
+     "Nos 13 municípios em que eu somei todos os boletins,"
+    ],
+    [
+     "a soma bate com o total oficial,",
+     "a soma bate com o total oficial,"
+    ],
+    [
+     "e nenhum teste meu achou a marca de uma fraude.",
+     "e nenhum teste meu achou a marca de uma fraude."
+    ],
+    [
+     "Mas isso confere a conta, não o voto.",
+     "Mas isso confere a conta, não o voto."
+    ],
+    [
+     "Sem voto impresso,",
+     "Sem voto impresso,"
+    ],
+    [
+     "a urna não pode ser auditada.",
+     "a urna não pode ser auditada."
+    ],
+    [
+     "E no mundo de hoje, não dá para confiar",
+     "E no mundo de hoje, não dá para confiar"
+    ],
+    [
+     "de olhos fechados em software nenhum.",
+     "de olhos fechados em software nenhum."
+    ],
+    [
+     "O voto precisa ser auditável de verdade.",
+     "O voto precisa ser auditável de verdade."
+    ]
+   ]
+  }
+ ]
+}
