@@ -226,3 +226,12 @@ Cidades em que Flávio ganhou mais pontos que Lula (ordenadas pela diferença):
   SC IBIRAMA: Flávio +4.48 pontos (+827 votos), Lula +4.45 (+609)
   RS MORRO REDONDO: Flávio +5.55 pontos (+333 votos), Lula +5.53 (+287)
   RS IVOTI: Flávio +5.26 pontos (+877 votos), Lula +5.25 (+801)
+
+Uniformidade (26/10, noite, descritivo): a margem de Flávio andou em média -4,36 pontos por cidade (mediana -4,48; ponderada pelos
+votos -5,34), com desvio-padrão de 2,24 pontos entre cidades. Com essa média e esse desvio, uma distribuição normal prevê 2,6% das
+cidades andando para Flávio; foram 3,3% (182). Por UF, o mesmo: RS previsto 14,5%, observado 15,9%; SC 10,7% e 9,8%; GO 12,1% e 10,2%;
+BA 4,1% e 3,6%; SP 0,1% e 0,3%. A quase unanimidade é o movimento nacional visto cidade a cidade, não um segundo fato independente.
+Lula venceu em 2.663 cidades no 1º turno e em 2.875 no 2º (51,6%); os 94% são das cidades em que ele GANHOU MAIS VOTOS entre turnos.
+Forma da virada: inclinação da variação da margem contra a fatia de Flávio no 1º turno = +0,036 ponto por ponto (correlação +0,29);
+nas cidades com Flávio acima de 65% no 1º turno, a margem andou -2,48 e 10,7% andaram para Flávio; abaixo de 30%, -4,70 e 1,0%. Uma troca
+proporcional aos votos de Flávio no programa daria inclinação negativa (mexeria mais onde Flávio é forte).
