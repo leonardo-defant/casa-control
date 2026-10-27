@@ -135,7 +135,7 @@ const CENAS = {
   contexto(t, d) {
     mapa(t, { aparecer: 1, colorir: 0, alfa: 0.18 });
     cartao(60, 300, 960, 250, L(0, 0.3), t, '+2,2 milhões', 'Flávio venceu o 1º turno com 2,2 milhões de votos de vantagem', COR.flavio);
-    cartao(60, 574, 960, 300, L(2, d * 0.2) - 0.2, t, 'PL: 121 deputados', 'e 29 dos 81 senadores no início do mandato: as maiores bancadas de um partido desde 1988; com os outros senadores de direita, mais da metade do Senado', COR.flavio);
+    cartao(60, 574, 960, 300, L(2, d * 0.2) - 0.2, t, 'PL: 121 deputados', 'e 29 dos 81 senadores: as maiores bancadas de um partido desde 1988. Com a direita, mais da metade do Senado', COR.flavio);
     cartao(60, 898, 960, 270, L(8, d * 0.55) - 0.2, t, '12 de 21', 'governadores eleitos no 1º turno apoiaram Flávio; e também Zema, Caiado, Cury e Temer', COR.flavio);
     cartao(60, 1192, 960, 270, L(11, d * 0.8) - 0.2, t, '11 de 12', 'institutos com Flávio numericamente à frente na última pesquisa (50,1% a 52% dos válidos)', COR.flavio);
     rodape('TSE; Agência Brasil e Agência Senado (bancadas); apoios e pesquisas divulgados na imprensa');
@@ -323,7 +323,7 @@ const CENAS = {
       caixa(160, 475, 760, 120, 30, rgba(COR.destaque, 0.12), kP, rgba(COR.destaque, 0.9));
       texto('próprio software da urna', W / 2, 536, 46, COR.texto, 800, 'center', kP);
       const kT = saida(fase(t, L(5, d * 0.35) + 1.0, 0.6));
-      paragrafo('o teste de integridade confere esse software só com votos de teste', W / 2, 650, 900, 30, COR.fraco, 600, kT);
+      texto('teste de integridade: só com votos de teste', W / 2, 650, 30, COR.fraco, 600, 'center', kT);
       const kS = saida(fase(t, L(6, d * 0.45) - 0.2, 0.6)), kS2 = saida(fase(t, L(7, d * 0.5) - 0.2, 0.6));
       caixa(60, 730, 960, 290, 32, 'rgba(10,15,28,0.88)', kS, 'rgba(255,255,255,0.10)');
       texto('Sem voto impresso', W / 2, 795, 54, COR.destaque, 900, 'center', kS);
