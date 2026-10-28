@@ -5,15 +5,20 @@
 set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"; SC="$AQUI/scripts"; RES="$AQUI/resultados"
 DADOS="${DADOS:?defina DADOS}"; TRAB="${TRAB:?defina TRAB}"; mkdir -p "$TRAB/zips2t" "$RES"
-curl -sS --max-time 60 "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-2026-boletim-de-urna" -o "$TRAB/ckan.json" || exit 1
+# o parâmetro _ evita resposta velha guardada em cache no caminho (aconteceu em 28/10: o cache ainda mostrava o pacote sem o 2º turno)
+curl -sS --max-time 60 "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-2026-boletim-de-urna&_=$(date +%s)" -o "$TRAB/ckan.json" || exit 1
 python3 -I -c "
 import json,sys
 r=json.load(open('$TRAB/ckan.json'))['result']['resources']
 u=[x['url'] for x in r if '/bweb_2t_' in x['url']]
+# o catálogo pode listar o .sha512 no lugar do .zip (aconteceu com RR em 27/10/2026): o zip sai do nome do .sha512
+zips={x for x in u if x.endswith('.zip')}
+zips|={x[:-7] for x in u if x.endswith('.zip.sha512')}
+u=sorted(set(u)|zips)
 open('$TRAB/urls2t.txt','w').write('\n'.join(u)+'\n')
-print(len(u))" > "$TRAB/n2t.txt"
+print(len({x.split('/bweb_2t_')[1][:2] for x in zips}))" > "$TRAB/n2t.txt"
 N=$(cat "$TRAB/n2t.txt")
-echo "arquivos do 2º turno no portal: $N"
+echo "UFs (mais exterior) com boletim do 2º turno no portal: $N de 28"
 if [ "$N" -lt 28 ]; then echo "boletins do 2º turno ainda não publicados (ou incompletos)"; exit 2; fi
 bash "$AQUI/scripts/baixar_bweb.sh" "$TRAB/urls2t.txt" "$TRAB/zips2t" > "$TRAB/download2t.log" 2>&1
 tail -30 "$TRAB/download2t.log"

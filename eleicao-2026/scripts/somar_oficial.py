@@ -4,7 +4,7 @@ Consulta os arquivos oficiais no site de resultados do TSE (Brasil e 27 UFs mais
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-import collections, json, os, ssl, sys, time, urllib.request
+import collections, json, os, ssl, sys, time, urllib.error, urllib.request
 from lib import carregar
 CTX = ssl.create_default_context(cafile='/root/.ccr/ca-bundle.crt')
 ELE = {'1': '6257', '2': '6258'}
@@ -12,8 +12,14 @@ ELE = {'1': '6257', '2': '6258'}
 
 def oficial(uf, ele):
     u = f'https://resultados.tse.jus.br/oficial/ele2026/{ele}/dados/{uf}/{uf}-c0001-e{int(ele):06d}-u.json'
-    with urllib.request.urlopen(u, timeout=60, context=CTX) as r:
-        d = json.load(r)
+    for tentativa in range(6):  # o site devolve 429 quando recebe consultas seguidas: espera cada vez mais e tenta de novo
+        try:
+            with urllib.request.urlopen(u, timeout=60, context=CTX) as r:
+                d = json.load(r)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or tentativa == 5: raise
+            time.sleep(15 * 2 ** tentativa)
     c = {x['n']: int(x['vap']) for a in d['carg'][0]['agr'] for p in a['par'] for x in p['cand']}
     return {'L': c.get('13', 0), 'R': c.get('22', 0), 'B': int(d['v']['vb']), 'N': int(d['v']['tvn']), 'comp': int(d['e']['c']),
             'secoes_tot': int(d['s']['st']), 'hora': d.get('hg')}
@@ -33,5 +39,5 @@ for uf in ['br'] + sorted(u.lower() for u in soma if u != 'BR'):
     dif = {c: s[c] - o[c] for c in ('L', 'R', 'B', 'N', 'comp')}
     res[uf] = {'boletins': {c: s[c] for c in ('L', 'R', 'B', 'N', 'comp', 'n28')}, 'oficial': o, 'diferenca': dif}
     print(uf, 'diferenca', dif, 'nulos do 28 nos boletins', s['n28'], flush=True)
-    time.sleep(0.5)
+    time.sleep(3)
 json.dump(res, open(os.environ.get('SAIDA', f'soma_oficial_{t}t.json'), 'w'), ensure_ascii=False, indent=1)
