@@ -497,3 +497,47 @@ Na conferência do README, um verificador comparou os horários escritos nos cab
 A ordem critério antes de resultado se mantém nos dois casos.
 
 O T37 (Adendo 16) foi registrado com uma medida que não se interpreta: na especificação do T8, b_L + b_F = 1 por identidade, e a urna não identifica o "nenhum" dos eleitores dos eliminados. O veredito pela letra é inconclusivo, e a comparação corrigida (divisão entre os que escolheram um finalista) é post hoc. Isso já estava declarado em resultados/ADENDO16_resultados.txt; fica registrado aqui também.
+
+## Adendo 18 (29/10/2026, antes de rodar qualquer teste abaixo): incoerências de lógica, sem usar outras eleições como referência
+
+Pedido do Léo: partir da hipótese de que 2026 foi fraudada e de que 2018 e 2022 também podem ter sido, então nenhuma eleição anterior serve de régua. Procurar o que não faz sentido pela lógica dos fatos de 2026: dentro dos próprios dados de 2026 (mesma eleição, mesmas urnas, mesmos eleitores, outros cargos e outros registros da urna) e em fontes que não passam pela urna (pesquisas, apoios declarados, testes físicos, documentos públicos). A regra continua: o critério de cada teste fica escrito aqui antes de rodar, porque sem isso qualquer busca acha coincidências.
+
+O que já vi e que toca estes testes (transparência): o T8 e o T35 (Flávio perde em termos líquidos uns 3,9% dos próprios eleitores; Lula, 1,3%), o T22b (o governador aliado de Flávio perde junto em AM, DF e ES), o T37 (eleitores dos eliminados mais para Lula na urna que nas pesquisas), o T11 e o T12 (erros das pesquisas), a variação por UF (flavio_por_uf.txt e T38) e os horários de encerramento (checagem do relatório do Instagram). Não vi: nada por faixa de voto do PL para deputado, a troca de urna e a data de carga em todas as seções, a ordem dos horários de cada boletim, os eleitores dos eliminados no estado de origem de cada um, nem o efeito do apoio dos governadores.
+
+### L1. Horários impossíveis em todas as seções (bweb dos dois turnos)
+- Por seção: abertura, encerramento, emissão do boletim, recebimento pelo TSE e data de carga da urna, com o fuso de cada município (deslocamento pela hora de abertura mais comum do município).
+- Impossível: encerramento antes das 17h00 de Brasília com comparecimento acima de zero; emissão do boletim antes do encerramento; recebimento antes da emissão; abertura antes das 7h ou depois das 10h de Brasília sem urna de contingência; carga fora da janela de carga do turno na UF.
+- **Sinal:** 100 ou mais seções impossíveis no 2º turno sem explicação por fuso, contingência ou junta, ou qualquer número delas em que a virada de Lula supere a das outras seções do mesmo local em 3 pontos ou mais. **Sem sinal:** nenhuma seção impossível sem explicação. Entre os dois: inconclusivo, com a lista das seções para conferência.
+
+### L2. Urna trocada entre os turnos e carga fora do padrão (bweb completo)
+- Grupos: seções cujo número de urna mudou entre o 1º e o 2º turno; seções cuja data de carga do 2º turno fica fora da faixa entre os percentis 1 e 99 da sua UF.
+- y = virada de Lula (fatia entre os dois finalistas, 2º menos 1º turno), efeito fixo de local, erro agrupado por local, peso pelos votos dos finalistas.
+- **Sinal:** algum grupo com 500 seções ou mais e diferença de 1,0 ponto ou mais a favor de Lula, a mais de 4 erros-padrão. **Sem sinal:** diferença abaixo de 0,3 ponto em valor absoluto, com erro-padrão até 0,15. Entre os dois: inconclusivo.
+
+### L3. O núcleo do PL: quem é do PL perde eleitor para Lula?
+- Lógica: o eleitor mais partidário é o que menos troca de lado. Se Flávio perdeu eleitores por comportamento, a perda tem de ser pequena onde o PL é muito forte. Se uma fração fixa dos votos dele foi desviada, a perda fica parecida em todo lugar.
+- Força do PL na seção: fatia do PL (nominal mais legenda, número 22) nos votos válidos para deputado federal no 1º turno de 2026, na mesma urna. Quintis de seções por essa fatia.
+- Em cada quintil, a regressão do T8 (ganho de Flávio contra os votos de cada grupo no 1º turno, a queda do branco+nulo e a variação do comparecimento; efeito fixo de local; erro agrupado por local); guarda o coeficiente dos próprios votos de Flávio (P1 a P5). O mesmo para Lula com a fatia do PT para deputado federal.
+- **Incoerência a favor da tese:** P5 (núcleo do PL) de -0,03 ou menos, a mais de 3 erros-padrão, e P5 não menor que P1 em valor absoluto por mais de 0,01. **Coerente com comportamento:** |P5| até metade de |P1|. Entre os dois: inconclusivo.
+
+### L4. Os eleitores dos candidatos que apoiaram Flávio, no estado de cada um
+- Lógica: Caiado (GO) e Zema (MG) apoiaram Flávio e governam esses estados; Cury (SP) também apoiou. Os eleitores deles no 1º turno deveriam ir mais para Flávio que para Lula, principalmente em casa.
+- Em GO (Caiado), MG (Zema) e SP (Cury): regressão do T8 com os grupos dos eliminados, dentro da UF, efeito fixo de local. s = b_L / (b_L + b_F) para o grupo do candidato da casa: fatia de Lula entre os eleitores dele que a urna põe num finalista.
+- Referência externa (não passa pela urna): a mesma fatia declarada nas pesquisas do 2º turno com cruzamento por voto no 1º turno (mediana dos institutos; Quaest já conhecida: Caiado 36%, Cury 47%, Zema 36%).
+- **Incoerência:** s acima de 50% e acima da referência das pesquisas em 15 pontos ou mais, a mais de 3 erros-padrão, em pelo menos 2 das 3 UFs. **Coerente:** s até a referência mais 5 pontos nas 3. Entre os dois: inconclusivo. Limite: a regressão entre seções erra quando o eleitor de um candidato mora junto com outro tipo de eleitor; o resultado é indício, não prova.
+
+### L5. Pesquisas, que não passam pela urna
+- (a) Para cada instituto com pesquisa final nos dois turnos: erro de Flávio (urna menos pesquisa, nos válidos) no 1º e no 2º turno. **Incoerência:** em pelo menos 6 dos institutos, Flávio acima da pesquisa no 1º turno e abaixo dela no 2º, com virada média de 4 pontos ou mais. **Coerente:** sinais iguais nos dois turnos na maioria.
+- (b) O "saldo" de quem não votou num finalista no 1º turno (branco, nulo, abstenção e eleitor de eliminado que as pesquisas davam como "nenhum"): pela urna e pelas transferências declaradas, a fatia desse saldo que foi para Lula. Comparar com a divisão entre Lula e Flávio dos indecisos, brancos, nulos e "não vai votar" nas pesquisas finais do 2º turno, quando o instituto publicar. **Incoerência:** fatia de Lula pela urna acima da maior fatia das pesquisas em 30 pontos ou mais. Sem a divisão publicada, só descritivo.
+
+### L6. O apoio dos governadores
+- Lógica: governador eleito no 1º turno que fez campanha para um candidato puxa voto para ele no estado.
+- Lista fixada antes de cruzar com o resultado (fontes de imprensa, por um agente que não vê a virada): para cada UF com governador eleito no 1º turno, o apoio declarado no 2º turno (Flávio, Lula ou neutro) e a votação do governador no 1º turno.
+- Medida: virada de Lula por UF (pontos entre os dois finalistas) contra o apoio, ponderada pelos votos, e contra a votação do governador.
+- **Incoerência:** a virada de Lula nos estados com governador pró-Flávio não é menor que nos demais (diferença de zero ou mais). **Coerente:** menor em 1 ponto ou mais. Entre os dois: inconclusivo. Limite: são poucos estados e o apoio não é aleatório.
+
+### L7. O que uma fraude no programa teria de driblar (pesquisa, sem critério numérico)
+- Como funcionou o teste de integridade do 2º turno de 2026 (quantas urnas, se usa eleitores reais e biometria, se a urna consegue saber que está em teste), o que dizem os relatórios e as auditorias de partidos, inclusive do PL. Lista do que uma fraude no programa precisaria fazer para passar por cada controle. Relatado como argumento, sem veredito.
+
+### L8. O "dossiê" dos EUA citado na imprensa (pesquisa)
+- Achar o documento ou a reportagem, separar o que é afirmação técnica conferível nos dados públicos e conferir cada uma; o que não for conferível é relatado como tal.
