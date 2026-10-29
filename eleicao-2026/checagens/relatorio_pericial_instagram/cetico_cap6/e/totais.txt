@@ -1,0 +1,7 @@
+turno 1: secoes 499206, aptos 158745007, comparecimento 125275835, abst 21.08%, L 53879538, R 56104503, O 9321993, B 2300798, N 3669003, validos 119306034, L% 45.16, margem L-R -2224965, total L+R+B+N 125275835
+turno 2: secoes 499205, aptos 158744977, comparecimento 128236074, abst 19.22%, L 64256232, R 59826041, O 0, B 1430496, N 2723305, validos 124082273, L% 51.79, margem L-R 4430191, total L+R+B+N 128236074
+encerramento 2t (convertido para Brasilia, sem ZZ): {'ate 17:00': 126058, 'v_ate 17:00': 31709482, '17:01-17:15': 362991, 'v_17:01-17:15': 93608094, '19:00+': 6352, 'v_19:00+': 1861259, '17:16-18:59': 2496, 'v_17:16-18:59': 675796}
+34300 votos = 0.0267% do comparecimento do 2t; 0.77% da margem
+35000 votos = 0.0273% do comparecimento do 2t; 0.79% da margem
+35500 votos = 0.0277% do comparecimento do 2t; 0.80% da margem
+6000 votos = 0.0047% do comparecimento do 2t; 0.14% da margem

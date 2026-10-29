@@ -1,0 +1,12 @@
+2026 bweb_2t: recursos 56, urls .zip 27, urls .sha512 29, UFs distintas 28 ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO', 'ZZ'], recursos nomeados BU 28
+  created=UTC: Tue 27/10/2026 15:59-16:21 BRT; desde 17h 25/10: 47.0 h; desde 19h 25/10: 45.0 h; desde 21h09 25/10: 42.8 h;
+  created=BRT: Tue 27/10/2026 18:59-19:21 BRT; desde 17h 25/10: 50.0 h; desde 19h 25/10: 48.0 h; desde 21h09 25/10: 45.8 h;
+2026 bweb_1t: recursos 56, urls .zip 28, urls .sha512 28, UFs distintas 28 ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO', 'ZZ'], recursos nomeados BU 28
+  created=UTC: Tue 06/10/2026 15:29-15:42 BRT; desde 17h 04/10: 46.5 h;
+  created=BRT: Tue 06/10/2026 18:29-18:42 BRT; desde 17h 04/10: 49.5 h;
+2022 bweb_2t: recursos 56, urls .zip 28, urls .sha512 28, UFs distintas 28 ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO', 'ZZ'], recursos nomeados BU 28
+  created=UTC: Tue 01/11/2022 15:13-15:29 BRT; desde 17h 30/10/22: 46.2 h;
+  created=BRT: Tue 01/11/2022 18:13-18:29 BRT; desde 17h 30/10/22: 49.2 h;
+2022 bweb_1t: recursos 56, urls .zip 28, urls .sha512 28, UFs distintas 28 ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO', 'ZZ'], recursos nomeados BU 28
+  created=UTC: Wed 05/10/2022 17:59-20:11 BRT; desde 17h 02/10/22: 73.0 h;
+  created=BRT: Wed 05/10/2022 20:59-23:11 BRT; desde 17h 02/10/22: 76.0 h;

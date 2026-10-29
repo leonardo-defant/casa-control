@@ -1,0 +1,5 @@
+2026_2t: 28 arquivos (BU+imagem BU+log+RDV+assinaturas por UF); catalogados Wed 28/10/2026 11:07-11:11 BRT; 66.1 h desde 17h 25/10/26; 64.1 h desde 19h 25/10/26; 62.0 h desde 21h09 25/10/26;
+2026_1t: 28 arquivos (BU+imagem BU+log+RDV+assinaturas por UF); catalogados Tue 06/10/2026 15:15-15:20 BRT; 46.3 h desde 17h 04/10/26;
+2022_2t: 28 arquivos (BU+imagem BU+log+RDV+assinaturas por UF); catalogados Wed 02/11/2022 18:46-18:53 BRT; 73.8 h desde 17h 30/10/22;
+2022_1t: 28 arquivos (BU+imagem BU+log+RDV+assinaturas por UF); catalogados Thu 06/10/2022 14:42-14:56 BRT; 93.7 h desde 17h 02/10/22;
+package_search metadata_modified: resultados-2026-arquivos-transmitidos-para-totalizacao 2026-10-28T14:12:34.537Z; resultados-2026-boletim-de-urna 2026-10-27T19:22:03.090Z (sufixo Z = UTC); package_show sem anticache voltou do cache com 28 recursos e modified 2026-10-07

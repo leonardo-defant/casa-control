@@ -1,0 +1,7 @@
+2026 2t: 56 recursos; catalogados de Tue 27/10/2026 15:59 a 16:21 (Brasília); 47.0 h depois das 17h do dia da eleição; carimbo no nome do arquivo ['261020260742']
+2026 1t: 56 recursos; catalogados de Tue 06/10/2026 15:29 a 15:42 (Brasília); 46.5 h depois das 17h do dia da eleição; carimbo no nome do arquivo ['051020261403']
+2022 2t: 56 recursos; catalogados de Tue 01/11/2022 15:13 a 15:29 (Brasília); 46.2 h depois das 17h do dia da eleição; carimbo no nome do arquivo ['311020221535']
+2022 1t: 56 recursos; catalogados de Wed 05/10/2022 17:59 a 20:11 (Brasília); 73.0 h depois das 17h do dia da eleição; carimbo no nome do arquivo ['051020221321']
+2026 2t: da confirmação do TSE (21h09 de 25/10, segundo O Globo) à catalogação: 42.8 h
+2026 2t: das 19h de 25/10 (fim da prorrogação) à catalogação: 45.0 h
+Relatório: 72 h; "manhã de quarta-feira, 28/10". Até 08h de 28/10 seriam 58.9 h desde 21h09

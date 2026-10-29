@@ -1,0 +1,392 @@
+{
+ "sintetico_nacional_2026_2T": {
+  "L": {
+   "1BL_real_pct": [
+    60.81,
+    9.29,
+    0.94,
+    1.69,
+    2.81,
+    4.26,
+    5.6,
+    6.85,
+    7.75
+   ],
+   "1BL_sint_nacional_pct": [
+    85.14,
+    0.4,
+    0.32,
+    0.45,
+    0.68,
+    1.14,
+    2.21,
+    3.88,
+    5.78
+   ],
+   "MAD_real_vs_Benford": 0.0791,
+   "MAD_sint_nacional_vs_Benford": 0.125,
+   "MAD_real_vs_sint_nacional": 0.0541,
+   "2BL_media_real": 3.8585,
+   "2BL_media_sint_nacional": 3.4642
+  },
+  "R": {
+   "1BL_real_pct": [
+    61.88,
+    7.21,
+    2.81,
+    3.44,
+    3.86,
+    4.35,
+    4.87,
+    5.45,
+    6.13
+   ],
+   "1BL_sint_nacional_pct": [
+    79.4,
+    0.27,
+    0.38,
+    0.57,
+    0.9,
+    1.68,
+    3.34,
+    5.48,
+    7.98
+   ],
+   "MAD_real_vs_Benford": 0.0748,
+   "MAD_sint_nacional_vs_Benford": 0.1179,
+   "MAD_real_vs_sint_nacional": 0.0431,
+   "2BL_media_real": 3.9706,
+   "2BL_media_sint_nacional": 3.0204
+  }
+ },
+ "sintetico_nacional_2026_1T": {
+  "L": {
+   "1BL_real_pct": [
+    48.7,
+    4.04,
+    1.98,
+    3.85,
+    6.05,
+    7.89,
+    9.07,
+    9.41,
+    9.01
+   ],
+   "1BL_sint_nacional_pct": [
+    67.3,
+    0.27,
+    0.46,
+    0.73,
+    1.41,
+    2.93,
+    5.49,
+    8.69,
+    12.71
+   ],
+   "MAD_real_vs_Benford": 0.0706,
+   "MAD_sint_nacional_vs_Benford": 0.1087,
+   "MAD_real_vs_sint_nacional": 0.0495,
+   "2BL_media_real": 3.8793,
+   "2BL_media_sint_nacional": 2.6972
+  },
+  "R": {
+   "1BL_real_pct": [
+    60.16,
+    4.79,
+    2.94,
+    3.69,
+    4.21,
+    4.91,
+    5.65,
+    6.4,
+    7.25
+   ],
+   "1BL_sint_nacional_pct": [
+    72.92,
+    0.25,
+    0.41,
+    0.65,
+    1.13,
+    2.32,
+    4.44,
+    7.27,
+    10.6
+   ],
+   "MAD_real_vs_Benford": 0.0756,
+   "MAD_sint_nacional_vs_Benford": 0.1133,
+   "MAD_real_vs_sint_nacional": 0.0377,
+   "2BL_media_real": 3.8157,
+   "2BL_media_sint_nacional": 2.7421
+  }
+ },
+ "sintetico_nacional_2022_2T": {
+  "L": {
+   "1BL_real_pct": [
+    61.13,
+    8.56,
+    0.9,
+    1.69,
+    2.87,
+    4.27,
+    5.7,
+    6.97,
+    7.91
+   ],
+   "1BL_sint_nacional_pct": [
+    83.45,
+    0.75,
+    0.37,
+    0.56,
+    0.79,
+    1.29,
+    2.43,
+    4.16,
+    6.2
+   ],
+   "MAD_real_vs_Benford": 0.0805,
+   "MAD_sint_nacional_vs_Benford": 0.1222,
+   "MAD_real_vs_sint_nacional": 0.0496,
+   "2BL_media_real": 3.8526,
+   "2BL_media_sint_nacional": 3.4556
+  },
+  "R": {
+   "1BL_real_pct": [
+    61.35,
+    10.1,
+    3.22,
+    3.53,
+    3.73,
+    3.87,
+    4.23,
+    4.65,
+    5.32
+   ],
+   "1BL_sint_nacional_pct": [
+    80.9,
+    0.5,
+    0.41,
+    0.62,
+    0.88,
+    1.58,
+    2.94,
+    4.92,
+    7.25
+   ],
+   "MAD_real_vs_Benford": 0.0711,
+   "MAD_sint_nacional_vs_Benford": 0.1188,
+   "MAD_real_vs_sint_nacional": 0.0483,
+   "2BL_media_real": 4.0744,
+   "2BL_media_sint_nacional": 3.2344
+  }
+ },
+ "distancia_real_sintetico": {
+  "2026_2T|Lula|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0007,
+   "MAD_real_vs_Benford": 0.0791
+  },
+  "2026_2T|Lula|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0006,
+   "MAD_real_vs_Benford": 0.0102
+  },
+  "2026_2T|Lula|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0053,
+   "MAD_real_vs_Benford": 0.0791
+  },
+  "2026_2T|Lula|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0015,
+   "MAD_real_vs_Benford": 0.0102
+  },
+  "2026_2T|Flávio|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0008,
+   "MAD_real_vs_Benford": 0.0748
+  },
+  "2026_2T|Flávio|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0006,
+   "MAD_real_vs_Benford": 0.0091
+  },
+  "2026_2T|Flávio|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0065,
+   "MAD_real_vs_Benford": 0.0748
+  },
+  "2026_2T|Flávio|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.004,
+   "MAD_real_vs_Benford": 0.0091
+  },
+  "2026_1T|Lula|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0006,
+   "MAD_real_vs_Benford": 0.0706
+  },
+  "2026_1T|Lula|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0004,
+   "MAD_real_vs_Benford": 0.0092
+  },
+  "2026_1T|Lula|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0042,
+   "MAD_real_vs_Benford": 0.0706
+  },
+  "2026_1T|Lula|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.002,
+   "MAD_real_vs_Benford": 0.0092
+  },
+  "2026_1T|Flávio|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0007,
+   "MAD_real_vs_Benford": 0.0756
+  },
+  "2026_1T|Flávio|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0006,
+   "MAD_real_vs_Benford": 0.013
+  },
+  "2026_1T|Flávio|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0049,
+   "MAD_real_vs_Benford": 0.0756
+  },
+  "2026_1T|Flávio|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0037,
+   "MAD_real_vs_Benford": 0.013
+  },
+  "2022_2T|Lula|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0005,
+   "MAD_real_vs_Benford": 0.0805
+  },
+  "2022_2T|Lula|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0004,
+   "MAD_real_vs_Benford": 0.0103
+  },
+  "2022_2T|Lula|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0058,
+   "MAD_real_vs_Benford": 0.0805
+  },
+  "2022_2T|Lula|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0023,
+   "MAD_real_vs_Benford": 0.0103
+  },
+  "2022_2T|Bolsonaro|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0007,
+   "MAD_real_vs_Benford": 0.0711
+  },
+  "2022_2T|Bolsonaro|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0003,
+   "MAD_real_vs_Benford": 0.0065
+  },
+  "2022_2T|Bolsonaro|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.007,
+   "MAD_real_vs_Benford": 0.0711
+  },
+  "2022_2T|Bolsonaro|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0022,
+   "MAD_real_vs_Benford": 0.0065
+  },
+  "2018_2T|Haddad|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0005,
+   "MAD_real_vs_Benford": 0.0478
+  },
+  "2018_2T|Haddad|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0006,
+   "MAD_real_vs_Benford": 0.0044
+  },
+  "2018_2T|Haddad|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0069,
+   "MAD_real_vs_Benford": 0.0478
+  },
+  "2018_2T|Haddad|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0038,
+   "MAD_real_vs_Benford": 0.0044
+  },
+  "2018_2T|Bolsonaro|local|1BL": {
+   "MAD_real_vs_sintetico": 0.0005,
+   "MAD_real_vs_Benford": 0.0585
+  },
+  "2018_2T|Bolsonaro|local|2BL": {
+   "MAD_real_vs_sintetico": 0.0004,
+   "MAD_real_vs_Benford": 0.003
+  },
+  "2018_2T|Bolsonaro|municipio|1BL": {
+   "MAD_real_vs_sintetico": 0.0054,
+   "MAD_real_vs_Benford": 0.0585
+  },
+  "2018_2T|Bolsonaro|municipio|2BL": {
+   "MAD_real_vs_sintetico": 0.0028,
+   "MAD_real_vs_Benford": 0.003
+  }
+ },
+ "NH_por_tipo_2026_t2": {
+  "indigena": {
+   "secoes": 1438,
+   "NH_pct_comp": 5.04
+  },
+  "rural_texto_nao_indigena": {
+   "secoes": 56409,
+   "NH_pct_comp": 7.94
+  },
+  "demais": {
+   "secoes": 440050,
+   "NH_pct_comp": 6.63
+  },
+  "brasil": {
+   "secoes": 497897,
+   "NH_pct_comp": 6.75
+  },
+  "top1pct_NH": {
+   "corte_taxa_pct": 19.32,
+   "secoes": 4974,
+   "pct_Lula_>=90_no_top": 5.23,
+   "pct_Lula_>=90_geral": 1.37,
+   "pct_Flavio_>=90_no_top": 0.52,
+   "pct_Flavio_>=90_geral": 0.07,
+   "fatia_Lula_ponderada_no_top": 0.5825,
+   "fatia_Lula_ponderada_geral": 0.5178,
+   "por_UF_top10": {
+    "RS": 862,
+    "BA": 659,
+    "MG": 544,
+    "CE": 478,
+    "PI": 463,
+    "SP": 298,
+    "RJ": 250,
+    "SC": 227,
+    "PR": 224,
+    "GO": 196
+   }
+  }
+ },
+ "NH_por_tipo_2026_t1": {
+  "indigena": {
+   "secoes": 1438,
+   "NH_pct_comp": 4.99
+  },
+  "rural_texto_nao_indigena": {
+   "secoes": 56398,
+   "NH_pct_comp": 7.78
+  },
+  "demais": {
+   "secoes": 440061,
+   "NH_pct_comp": 6.56
+  },
+  "brasil": {
+   "secoes": 497897,
+   "NH_pct_comp": 6.68
+  },
+  "top1pct_NH": {
+   "corte_taxa_pct": 19.09,
+   "secoes": 4978,
+   "pct_Lula_>=90_no_top": 2.91,
+   "pct_Lula_>=90_geral": 0.73,
+   "pct_Flavio_>=90_no_top": 0.3,
+   "pct_Flavio_>=90_geral": 0.04,
+   "fatia_Lula_ponderada_no_top": 0.519,
+   "fatia_Lula_ponderada_geral": 0.4515,
+   "por_UF_top10": {
+    "RS": 876,
+    "BA": 690,
+    "MG": 569,
+    "CE": 414,
+    "PI": 389,
+    "SP": 342,
+    "PR": 325,
+    "SC": 244,
+    "GO": 226,
+    "RJ": 168
+   }
+  }
+ }
+}

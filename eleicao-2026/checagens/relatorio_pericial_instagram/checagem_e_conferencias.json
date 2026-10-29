@@ -1,0 +1,623 @@
+[
+ {
+  "itens": [
+   {
+    "afirmacao": "Cap. 3 e anexo (a), números: 8.632.488 eleitores foram liberados sem biometria no 2º turno (campo QT_ELEI_BIOM_SEM_HABILITACAO), o que dá 6,73% do comparecimento nacional. A margem de Lula sobre Flávio foi de 4.430.191 votos, e o primeiro número é \"quase o dobro\" do segundo.",
+    "numero_do_relatorio": "8.632.488; 6,73%; margem 4.430.191; quase o dobro",
+    "numero_conferido": "8.632.488; 6,7317% de 128.236.074 (6,752% sem o exterior, onde não há biometria); margem 64.256.232 menos 59.826.041 = 4.430.191; razão 1,949",
+    "veredito": "confere",
+    "explicacao": "Somei de novo o campo a partir dos 28 zips do bweb do 2º turno, com código novo e só nas linhas de Presidente. Deu 499.205 seções, nenhuma linha inconsistente e nenhuma seção diferente do cache do T21 ou da base por seção. Os votos 13 e 22 tirados do mesmo bweb dão exatamente a margem de 4.430.191. Os 128.236.074 \"votos apurados\" do relatório são o comparecimento. A aritmética do relatório está certa.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/conferencia_bweb.json",
+     "/home/user/casa-control/eleicao-2026/resultados/T21_bweb.txt"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 3 e anexo (a), leitura: \"a quebra do controle superou a margem de vitória\". As liberações sem biometria seriam votos sem salvaguarda, em volume capaz de decidir a eleição (\"quase nove milhões foram chancelados sem a conferência eletrônica da identidade\").",
+    "numero_do_relatorio": "8.632.488 liberações contra margem de 4.430.191",
+    "numero_conferido": "1º turno de 2026: 8.342.249 liberações (6,659%), com Flávio à frente por 2.224.965 votos (razão 3,75). Variação entre turnos: +290.239 liberações, contra uma virada de +6.655.156 na margem. Por eleitor a mais entre turnos, dentro do mesmo local: Lula ganhou 0,488 voto por liberação sem biometria e 0,487 por eleitor habilitado de outro modo; Flávio, 0,399 e 0,402. Estimativa ecológica do saldo atribuível aos liberados: cerca de 1,53 milhão.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "Comparar o número de liberações com a margem só faz sentido se todos os liberados fossem fraudulentos e todos votassem em Lula. Os dados não sustentam nada disso. (1) No 1º turno a taxa foi praticamente a mesma (6,66% contra 6,73%), e quem ficou à frente foi Flávio: 47,03% contra 45,16% dos válidos, 15 de 27 UFs, 2.906 de 5.571 municípios. Pela lógica do relatório, a \"quebra de controle\" teria sido 3,75 vezes a vantagem de Flávio. (2) Entre os turnos as liberações cresceram 3,5%, só um pouco acima do comparecimento (+2,4%). Os 290 mil a mais equivalem a 4% da virada de 6,66 milhões. (3) Dentro do mesmo local de votação, cada liberação a mais rendeu a Lula o mesmo que cada eleitor a mais identificado pela digital (0,488 contra 0,487), e a Flávio também (0,399 contra 0,402). Se as liberações fossem um canal de votos inseridos para Lula, o coeficiente de Lula ficaria perto de 1 e o de Flávio perto de 0. (4) Mesmo excluindo, por hipótese, todos os 8,6 milhões (eleitores reais, identificados por outro meio), a vitória só se inverteria se eles tivessem dado pelo menos 76,5% dos seus votos a Lula. A estimativa ecológica dentro do local dá cerca de 59%, ou seja, saldo de 1,53 milhão e margem restante de cerca de 2,9 milhões. É inferência ecológica e serve apenas como ordem de grandeza. (5) A conta deixa de fora os eleitores sem biometria cadastrada (cerca de 11% do eleitorado em 2026), que também votam sem digital e não entram nesse campo. Em 2022 eram 24,5% do eleitorado. Com o campo de 2022 eu não consegui comparar: a base local de 2022 não o traz, e o bweb de 2022 não foi baixado. Limite: o campo é gravado pelo mesmo software que grava o voto, então essa análise testa a coerência dos dados, não a integridade do software.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json",
+     "/home/user/casa-control/eleicao-2026/resultados/T21_bweb.txt",
+     "https://www.tnh1.com.br/noticia/nid/biometria-e-obrigatoria-para-votar-no-2o-turno-das-eleicoes-2022-entenda/",
+     "https://diariodonordeste.verdesmares.com.br/pontopoder/eleicoes-2022/biometria-eleitoral-nao-e-obrigatoria-para-votar-em-2022-entenda-1.3281955"
+    ]
+   },
+   {
+    "afirmacao": "Anexo: a substituição do controle biométrico pela liberação manual \"foi explorada em escala inédita no segundo turno\".",
+    "numero_do_relatorio": "sem número (escala inédita no 2º turno)",
+    "numero_conferido": "1º turno 6,659% (8.342.249); 2º turno 6,732% (8.632.488); diferença de +0,07 ponto. Nas mesmas seções a correlação entre as taxas dos dois turnos é de 0,82.",
+    "veredito": "falso",
+    "explicacao": "A taxa do 2º turno é quase idêntica à do 1º turno, que foi vencido por Flávio. Nas mesmas seções, a taxa de cada uma se repete de um turno para o outro (correlação de 0,82), o que é próprio de uma característica estável do eleitorado da seção e não de uma operação nova. Por UF, as taxas mais altas estão em PI (9,0%), RS (8,5%), RN (8,1%), MS, SC e PR, e quatro dessas UFs deram vitória a Flávio. Em municípios com menos de 10 mil aptos a taxa é de 8,6%, contra 6,0% nos maiores, igual nos dois turnos. Uma referência antiga e não diretamente comparável: em 2018 o TSE informou cerca de 9 milhões de eleitores (12,21%) não identificados de imediato pela digital no 1º turno.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json",
+     "https://www.tribunapr.com.br/noticias/politica/nove-milhoes-tiveram-problemas-ao-usar-biometria-revela-tse/"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 3 (b), o que o campo mede: QT_ELEI_BIOM_SEM_HABILITACAO \"registra o número de pessoas que não conseguiram validar a impressão digital e foram autorizadas a votar por liberação manual do mesário\".",
+    "numero_do_relatorio": "definição do campo",
+    "numero_conferido": "Leiame oficial do TSE dentro do zip do bweb: \"Quantidade de eleitoras e eleitores com biometria, mas que não foram habilitados por meio dela.\"",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "No essencial a descrição bate com o leiame: são eleitores com biometria cadastrada que não foram habilitados pela digital. Mas o campo não informa o motivo (falha de leitura, dedos com problema, leitor com defeito). Também não inclui os eleitores sem biometria cadastrada (cerca de 11% do eleitorado, segundo o TSE), que votam sem digital e não são contados aqui. Por isso o campo não mede \"todos os votos sem verificação biométrica\", e descrevê-lo como uma brecha excepcional distorce o que ele mede.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/leiame/leiame_2t.txt",
+     "https://sbtnews.sbt.com.br/noticia/eleicoes/eleicoes-2026-pode-votar-sem-biometria"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 3 e anexo (b): quando a digital falha quatro vezes, a urna autoriza o mesário a liberar o voto \"mediante a simples digitação do ano de nascimento\".",
+    "numero_do_relatorio": "quatro tentativas; ano de nascimento",
+    "numero_conferido": "Até quatro leituras (Res. TSE 23.759/2026, art. 19, segundo a imprensa). Antes, o presidente da mesa reconfere dados e documento. O ano de nascimento informado pelo eleitor é comparado com o cadastro. Um integrante da mesa se autentica com a própria digital, o eleitor assina o caderno, o sistema registra a falha e guarda a imagem da última digital, e a ocorrência vai para a ata.",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "O passo existe: o limite de quatro leituras e a habilitação pelo ano de nascimento estão nas normas de 2026. O que é falso é o \"simples\". O eleitor já foi identificado por documento oficial com foto, que é exigido de todos (Lei 9.504/1997, art. 91-A). O ano tem de coincidir com o cadastro. A liberação exige a digital de um mesário, o que deixa registrado quem autorizou. O eleitor assina o caderno, a urna guarda a última digital apresentada e a ocorrência é anotada em ata. Não conferi o texto da resolução direto no portal do TSE, porque o site devolveu 403 a este ambiente. O procedimento vem de reportagens que citam a resolução e a nota do TSE \"Como a Justiça Eleitoral identifica o eleitor na seção e blinda a votação contra fraudes\" (outubro de 2026). Os veículos não descrevem todos os passos da mesma forma: o SBT não menciona a digital do mesário, que aparece na Fast Company e em outra fonte.",
+    "fontes": [
+     "https://timesbrasil.com.br/brasil/decisao-2026-o-que-acontece-se-a-biometria-nao-funcionar-na-hora-de-votar/",
+     "https://fastcompanybrasil.com/news/eleicoes-2026-como-justica-eleitoral-confirma-identidade-eleitor/",
+     "https://sbtnews.sbt.com.br/noticia/eleicoes/eleicoes-2026-pode-votar-sem-biometria",
+     "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/como-a-justica-eleitoral-identifica-o-eleitor-na-secao-e-blinda-a-votacao-contra-fraudes",
+     "https://www.tse.jus.br/comunicacao/noticias/2026/Julho/manual-do-eleitor-entenda-como-vai-funcionar-a-biometria-nas-eleicoes-2026"
+    ]
+   },
+   {
+    "afirmacao": "Anexo (c), \"curva de correlação positiva\": onde mais de 95% usaram a digital houve equilíbrio. Onde a liberação manual passou de 20%, 30% ou 50%, a votação de Lula \"disparou em linha reta\" até mais de 61%.",
+    "numero_do_relatorio": "faixas acima de 20%, 30% e 50%; picos acima de 61%; nenhum coeficiente informado",
+    "numero_conferido": "2º turno, fatia de Lula por faixa de taxa: abaixo de 5% (174.302 seções) 51,1%; 5 a 10% 51,5%; 10 a 15% 53,6%; 15 a 20% 55,8%; 20 a 30% (3.804 seções) 58,1%; 30 a 50% (253) 59,2%; 50% ou mais (97 seções, 23.050 eleitores) 61,2%. Seções com 20% ou mais somam 4.154 e só 2,5% das liberações. Correlação entre seções 0,068 (r² de 0,5%); dentro do local 0,055. Correlação entre a VARIAÇÃO da taxa e a VARIAÇÃO da fatia de Lula: -0,010; dentro do local -0,003 (inclinação -0,0025, ep 0,0014).",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "Os números do relatório se reproduzem: a fatia de Lula cresce com a taxa e chega a 61,2% na faixa de 50% ou mais. O equilíbrio abaixo de 5% (51,1%) também confere, embora taxa abaixo de 5% não queira dizer que 95% usaram a digital. Mas a correlação é fraca (0,068) e não é \"linha reta\". O degrau extremo envolve 97 seções. E o gradiente é do lugar, não do 2º turno. (1) No 1º turno, vencido por Flávio, o padrão foi o mesmo: 48,6% abaixo de 5% e 55,8% em 20 a 30%, correlação 0,053, e dentro do local 0,056, igual à do 2º turno. (2) Placebo: nas mesmas seções, casadas pela chave (460.290 em 2022 e 434.225 em 2018), a votação ANTERIOR já seguia a taxa de 2026. Lula em 2022 ia de 50,0% (abaixo de 5%) a 60,6% (50% ou mais), e Haddad em 2018 de 43,8% a 57,5%. A correlação entre seções com o voto de 2022 (0,092) e com o de 2018 (0,095) é maior que a de 2026. (3) Dentro do mesmo local, a diferença das seções de taxa alta é de 0,2 a 0,5 ponto. (4) O teste decisivo é a variação: se as liberações fossem o mecanismo, as seções em que a taxa subiu entre turnos teriam dado mais a Lula. Não deram: onde a taxa subiu mais de 5 pontos Lula ganhou 2,3 pontos, onde ficou estável ganhou 3,0, e a correlação é zero com ou sem efeito fixo de local. O resíduo positivo dentro do local é compatível com a composição das seções (idade, trabalho manual), mas o bweb não traz esses dados. Isso fica como hipótese, não como achado.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/analise.log"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4 (d): as seções quase unânimes pró-Lula \"coincidem com zonas rurais de baixíssima fiscalização partidária independente, onde a taxa de liberação sem biometria atinge seus picos mais elevados\".",
+    "numero_do_relatorio": "6.899 seções com mais de 90% para Lula, coincidindo com os picos de liberação",
+    "numero_conferido": "Seções com mais de 90% para Lula (6.802 no Brasil): taxa agregada de 8,40% (6,94% esperado pela UF; mediana 7,49%). Só 3,4% delas têm taxa de 20% ou mais. Seções com 100% para Lula (106): 4,98%, abaixo da média (5,62% esperado pela UF). Seções com mais de 90% para Flávio (368): 9,48%. Entre as 4.988 seções do 1% de taxa mais alta, 266 (5,3%) são quase unânimes pró-Lula.",
+    "veredito": "falso",
+    "explicacao": "As seções quase unânimes pró-Lula têm taxa um pouco acima da média (8,4% contra 6,75% no país, cerca de 1,5 ponto acima do que a UF prevê), mas estão longe dos picos: 96,6% ficam abaixo de 20%, e as 106 seções com 100% para Lula têm taxa ABAIXO da média. As quase unânimes pró-Flávio têm taxa ainda mais alta (9,5%), o que tira da coincidência qualquer valor como indício. Dentro do mesmo local, o excesso das seções pró-Lula é de 0,2 ponto. No 1º turno o quadro foi o mesmo: 7,87% contra 6,68%. São seções historicamente unânimes. As mesmas seções deram 90,4% dos válidos a Lula no 1º turno, 93,4% a Lula em 2022 (86% delas acima de 90%) e 94,8% a Haddad em 2018. A taxa delas foi de 8,16% no 1º turno para 8,40% no 2º, quase o mesmo movimento do país (+0,07 ponto). Sobre o \"rural\": municípios pequenos têm taxa maior, de 8,6% contra 6,0%. A fiscalização partidária não tem dado público para ser medida, então essa parte não é verificável.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4 (contexto de d): 106 seções com 100% dos válidos para Lula contra 4 para Flávio; 6.899 seções com \"mais de 90%\" para Lula contra 384 para Flávio.",
+    "numero_do_relatorio": "106 e 4; 6.899 e 384",
+    "numero_conferido": "106 e 4 (nenhuma no exterior); 90% OU MAIS dos válidos: 6.885 + 14 no exterior = 6.899 para Lula e 374 + 10 no exterior = 384 para Flávio. Com mais de 90% em sentido estrito: 6.802 e 368 no Brasil.",
+    "veredito": "confere",
+    "explicacao": "As contagens batem exatamente se \"mais de 90%\" for lido como 90% ou mais e se as seções do exterior entrarem. Repare que essas 24 seções do exterior não usam biometria, então não podem ser \"picos de liberação sem biometria\". Como a contagem é do 2º turno, vale o contexto do item anterior: em 2022 e em 2018 essas seções já eram quase unânimes.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json"
+    ]
+   }
+  ],
+  "arquivos": [
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/conferir_bweb.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/conferencia_bweb.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/conferencia_bweb.log",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/analise_biometria.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/resultado_biometria.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/analise.log",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/leiame/leiame_2t.pdf",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/biometria/leiame/leiame_2t.txt",
+   "/home/user/casa-control/eleicao-2026/resultados/T21_bweb.txt"
+  ]
+ },
+ {
+  "itens": [
+   {
+    "afirmacao": "(a) Nas urnas encerradas até as 17h00 (\"prazo legal\"), Flávio Bolsonaro venceu com 52,39% dos votos válidos e abriu frente de quase 1,8 milhão de votos.",
+    "numero_do_relatorio": "Flávio 52,39% dos válidos; frente de quase 1,8 milhão",
+    "numero_conferido": "Lendo DT_ENCERRAMENTO como foi gravado (relógio local da urna), até 17:00:59: 150.771 seções, 37.630.420 votantes, Flávio 52,395% dos válidos, frente de 1.747.639. No relógio de Brasília: até 17:00:00, zero seções; até 17:00:59, 125.653 seções, 31.608.496 votantes, Flávio 50,99%, frente de 606.273.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "Os números batem exatamente, mas só no relógio local. Desde 2022 a votação vai das 8h às 17h de Brasília no país todo, e DT_ENCERRAMENTO é a hora local da urna. A hora de abertura mais comum em cada município confirma isso: 6h nos 22 municípios do AC e em 11 do oeste do AM (Tabatinga, Benjamin Constant, Eirunepé e outros); 7h em 339 municípios (resto do AM, RO, RR, MT, MS); 9h em Fernando de Noronha; 8h no resto do país e no exterior, que vota das 8h às 17h na hora de cada país. Por isso as 32.026 seções de AC, AM, RO, RR, MT e MS (7.619.319 votantes, Lula 40,28%) caem em \"até 17h00\": fecharam às 15h ou 16h locais, que é 17h de Brasília, o mesmo instante das outras. Só essas seções dão 1.443.513 dos 1.747.639 votos de frente de Flávio. As outras 118.716 seções do grupo fecharam dentro do minuto 17:00 (Lula 49,48%, Flávio +304.955), e 29 são do exterior. No relógio de Brasília, nenhuma seção fechou antes de 17:00:00. Dentro do minuto 17:00 fecharam 125.653 seções, com Flávio a 50,99% e frente de 606.273, e não 1,8 milhão. Que as seções que fecham no primeiro minuto sejam mais pró-Flávio é um padrão que já existia antes, sem prorrogação (item 3).",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab2t/zips2t/*.zip (DT_ABERTURA, DT_ENCERRAMENTO)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab2t/secoes2026.json.gz",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (chaves 2026_2t_local, 2026_2t_prazo, 2026_2t_local_composicao_J0, municipios_deslocamento_nao_zero_2026)"
+    ]
+   },
+   {
+    "afirmacao": "(a) Nas urnas encerradas após as 17h00 (\"prorrogação\"), Lula obteve mais de 6,1 milhões de votos de vantagem.",
+    "numero_do_relatorio": "mais de 6,1 milhões de vantagem para Lula",
+    "numero_conferido": "Relógio local, depois de 17:00:59: 348.407 seções (69,8% das seções), 90.604.823 votantes (70,7% do comparecimento), Lula 53,53%, +6.177.738. Desse total, +5.897.416 vêm das 339.593 seções fechadas entre 17h01 e 17h15. No relógio de Brasília: 373.525 seções, Lula 52,69%, +5.036.372.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "A soma está certa, mas chamar de \"prorrogação\" 70% das seções do país não se sustenta. O horário de encerramento é o momento em que o presidente da mesa encerra a urna, depois que vota o último eleitor da fila (art. 153 do Código Eleitoral: às 17h a mesa entrega senha a quem está presente, e essas pessoas ainda votam) e depois do procedimento de encerramento. Fechar entre 17h01 e 17h15 é a rotina normal: aconteceu em 68,0% das seções no 2º turno de 2026, 58,2% no 2º turno de 2022, 62,4% no 1º turno de 2026 e 54,5% no 2º turno de 2018, sempre sem prorrogação, exceto em 2026. A liminar de Zanin saiu às 17h03 e valia só para as seções que ainda estavam abertas. No relógio de Brasília, 237.896 seções (60.607.901 votantes) fecharam entre 17:01:00 e 17:02:59, antes de a liminar existir, e deram Lula 51,52% e +1.780.183. Por minuto, os encerramentos caem de forma suave de 17:00 a 17:15, sem quebra em 17:03, no mesmo formato de 2022 (Brasília 2026: 125.653 em 17:00, 154.601 em 17:01, 83.295 em 17:02, 48.065 em 17:03; 2022: 175.572, 117.589, 66.913, 40.016).",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (minutos, janelas)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json (brasilia_fino_2t)",
+     "/home/user/casa-control/eleicao-2026/resultados/contexto_2t_2026_pesquisa_verificada.json (liminar às 17h03, válida só para seções ainda abertas)"
+    ]
+   },
+   {
+    "afirmacao": "(a) \"A vitória de Lula foi fabricada exclusivamente no universo de urnas que encerraram as votações após o horário limite legal\" (e, na conclusão: \"a eleição regulamentar até as 17h00 foi vencida por Flávio\"; \"a virada ocorreu exclusivamente em urnas encerradas após o prazo legal\").",
+    "numero_do_relatorio": "sem número; conclusão tirada dos números do capítulo 1",
+    "numero_conferido": "Seções fechadas antes da liminar (até 17:02:59 de Brasília): 363.549 seções, 92.216.397 votantes (71,9% do comparecimento), Lula 45.228.261 x Flávio 44.054.351 (50,66%), frente de 1.173.910 para Lula. Variação de Lula entre o 1º e o 2º turno nas mesmas seções: +2,80 pontos (até 17h00), +2,76 (17h01 a 17h15), +2,67 (17h16 a 18h59), +3,25 (19h ou depois); no país, +2,80. Sem nenhuma das 8.814 seções fechadas às 17h16 ou depois, Lula venceria por 4.149.869.",
+    "veredito": "falso",
+    "explicacao": "(1) Lula já vencia, por 1,17 milhão, entre as seções que fecharam antes de a liminar existir. (2) O mesmo corte cria as \"duas eleições\" também onde não houve prorrogação. No 2º turno de 2022, relógio local: até 17h00, Bolsonaro com 51,09% e frente de 1.040.055; depois das 17h00, Lula com 52,25% e +3.179.787. No 1º turno de 2026: até 17h00, Lula com 38,85% dos votos dos dois finalistas (Flávio à frente por 3.236.340); depois, 50,53% (Lula à frente por 1.011.303). A diferença entre os grupos foi de 11,7 pontos, o dobro dos 5,9 do 2º turno. No relógio de Brasília (até 17:00:59 contra depois): 2022 2º turno, 50,06% x 51,38%; 2026 1º turno, 40,80% x 49,68%; 2026 2º turno, 49,01% x 52,69%. No 2º turno de 2018 (prazo de 17h locais), Haddad teve 44,74% até 17h00, 44,96% entre 17h01 e 17h15, 50,25% entre 17h16 e 18h59 e 56,04% às 19h ou depois. Em toda eleição, as seções que fecham mais tarde são de capitais, periferias com fila e do Nordeste, e as que fecham no primeiro minuto concentram-se no Sul e no Centro-Oeste (RS 43%, SC 47%, PR 38%, contra PE 14%, RJ 13,5%, BA 18%). Dentro de cada UF, a diferença no 2º turno de 2026 é de só 1,25 ponto. (3) O teste direto é a mudança nas mesmas seções entre os turnos, e ela é igual em todas as janelas. Comparadas às outras seções do mesmo município, as seções fechadas às 19h ou depois diferem em -0,03 ponto (144 municípios); comparadas às do mesmo local de votação, em -0,001 ponto (816 locais). Em 2022 aconteceu o mesmo (-1,98, -1,95, -1,93, -1,99). (4) Mesmo levando as 8.814 seções fechadas às 17h16 ou depois de volta ao que deram no 1º turno, Lula vence por 4.279.334.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json (brasilia_fino_2t, brasilia_fino_1t, contrafactual)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2022_2t_local, 2022_2t_prazo, 2026_1t_local, 2026_1t_prazo, 2018_2t_local, mesmas_secoes_1t, swing_dentro)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2022.json.gz",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2018.json.gz"
+    ]
+   },
+   {
+    "afirmacao": "(b) Janela de encerramento 17h01 a 17h15: 339.593 seções, 88.071.750 eleitores, 53,46% para Lula.",
+    "numero_do_relatorio": "339.593 seções; 88.071.750 eleitores; 53,46% Lula",
+    "numero_conferido": "339.593 seções; 88.071.750 de comparecimento (os aptos seriam 108.986.113); Lula 53,463% dos válidos; +5.897.416 (relógio local).",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "A linha bate exatamente, e os \"eleitores\" do relatório são o comparecimento (QT_COMPARECIMENTO). O total que o relatório dá na abertura (499.205 seções e 128.236.074 votos) também é o do bweb, o que confirma que a fonte é a mesma. O problema é usar essa janela como \"votos da prorrogação\": é o encerramento normal, e nela estão 68% das seções do país. Em hora de Brasília, 237.896 seções (64% da janela) fecharam antes das 17h03, quando a liminar ainda não existia. Em 2022, sem prorrogação, a mesma janela teve 274.561 seções (58,2%), com Lula a 52,22% e +3.123.531. No 1º turno de 2026, sem prorrogação, teve 311.284 seções, com Lula a 46,56% dos votos dos dois finalistas.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local.janelas.J1_17h01_17h15; 2022_2t_local; 2026_1t_local)"
+    ]
+   },
+   {
+    "afirmacao": "(b) Janela de encerramento 17h16 a 18h59: 2.472 seções, 674.799 eleitores, % de Lula.",
+    "numero_do_relatorio": "2.472 seções; 674.799 eleitores; 57,16% (a tarefa cita 57,10%, mas a imagem original ampliada mostra 57,16%)",
+    "numero_conferido": "2.472 seções; 674.799 votantes; Lula 372.470 de 651.572 válidos = 57,165%; +93.368.",
+    "veredito": "confere",
+    "explicacao": "Bate. A ampliação da imagem original mostra 57,16%; o \"57,10%\" é erro de leitura. Contexto: nessas mesmas seções, Lula já tinha 54,50% dos votos dos dois finalistas no 1º turno, e a variação de +2,67 pontos ficou abaixo da nacional (+2,80). No 1º turno de 2026, sem prorrogação, essa janela tinha 109.891 seções e 31.010.392 votantes, com Lula a 58,47%. Três das 2.472 seções são de Fernando de Noronha e fecharam às 18h locais, ou seja, 17h de Brasília.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local.janelas.J2_17h16_18h59; mesmas_secoes_1t; noronha)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/img/crop.png"
+    ]
+   },
+   {
+    "afirmacao": "(b) Encerradas após as 19h00: 6.333 seções, 1.856.306 eleitores.",
+    "numero_do_relatorio": "6.333 seções; 1.856.306 eleitores",
+    "numero_conferido": "6.333 seções e 1.856.306 votantes com encerramento entre 19:00:00 e 19:59:59 locais. Com 19h ou depois: 6.342 seções e 1.858.274 votantes, Lula 55,22%, +186.954.",
+    "veredito": "confere",
+    "explicacao": "Bate, mas só para a hora 19. O relatório deixa de fora 9 seções que fecharam às 20h ou depois (1.968 votantes): 7 de Fernando de Noronha (20h locais, que são 19h de Brasília), 1 no RJ (20h46) e 1 em MG (23h04). Há também uma incoerência interna: a linha de PE (657 seções) inclui as 7 de Noronha que ficaram fora do total. O fato é real: no 2º turno de 2022, só 20 seções fecharam às 19h ou depois. Em 2026, 6.332 boletins dessas seções foram emitidos na faixa das 19h e recebidos pelo TSE entre 20h e 21h, depois da retomada da totalização às 19h.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/horas2t.json.gz",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (minutos.por_hora_secoes, 2026_2t_J3_emissao_e_recebimento_BU_por_hora)"
+    ]
+   },
+   {
+    "afirmacao": "(b) \"Mais de dois milhões e meio de eleitores votaram em urnas que extrapolaram os limites normais.\"",
+    "numero_do_relatorio": "mais de 2,5 milhões (674.799 + 1.856.306)",
+    "numero_conferido": "2.531.105 votantes (2.533.073 incluindo as 9 seções das 20h em diante), em 8.814 seções fechadas às 17h16 ou depois no relógio local. É o comparecimento de todo o dia nessas seções.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "A soma está certa, mas ela conta todos os votantes do dia dessas seções, e quase todos votaram entre 8h e 17h. O encerramento às 19h só mostra que a urna ficou aberta até 19h por causa da ordem. Quanto aos \"limites normais\": no 1º turno de 2026, sem prorrogação, 117.835 seções (33.352.851 votantes) fecharam às 17h16 ou depois por causa de fila; no 1º turno de 2022, 130.925 (38.561.591). Comparado ao 2º turno de 2022 (1.605 seções e 438.684 votantes), 2026 teve de fato muito mais seções fechando tarde, e isso é efeito real da ordem de manter abertas até 19h as seções que ainda estavam abertas. O cruzamento entre os turnos confirma: das 6.342 seções que fecharam às 19h ou depois no 2º turno, só 102 tinham fechado às 19h ou depois no 1º turno, 3.300 tinham fechado entre 17h01 e 17h15 e 2.849 entre 17h16 e 18h59. Ficaram abertas por ordem, não por fila. O efeito da prorrogação foi sobre o horário de fechamento, não sobre a quantidade de votos.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_cruzamento_janela_1t_2t_local, 2026_1t_local, 2022_1t_local, 2022_2t_local)"
+    ]
+   },
+   {
+    "afirmacao": "(b) Esses 2,5 milhões \"desmentem de forma acachapante\" os cerca de 34 mil votos depois das 17h divulgados pela imprensa.",
+    "numero_do_relatorio": "2,5 milhões contra 34 mil",
+    "numero_conferido": "Votos depois das 17h pelos logs: 34.330 (Setup News/CNN) e 35.521 (g1), dos quais 29.001 entre 17h e 17h05; 468.043 de 497.897 urnas sem nenhum voto depois das 17h; último voto às 19h06. A amostra de logs de 3.897 urnas dá 0,026% dos votos a partir das 17h (cerca de 33 mil) e 0,0047% a partir das 17h03 (cerca de 6 mil). Não recontei esses números aqui; vêm do trabalho anterior e da imprensa.",
+    "veredito": "falso",
+    "explicacao": "São duas grandezas diferentes: votos dados depois das 17h, contados nos logs, e o comparecimento total de seções que fecharam tarde. Uma não desmente a outra. Cruzei a amostra de logs com o bweb. As 35 seções da amostra que fecharam entre 17h16 e 18h59 tiveram último voto às 16:57 de Brasília (mediana); só 8 receberam voto depois das 17h05. As 3 da amostra que fecharam às 19h tiveram último voto às 17:59, 18:34 e 18:38, com 300, 282 e 268 votos cada, a maior parte dados durante o dia. Contar como \"voto da prorrogação\" cada eleitor de uma seção que fechou tarde é atribuir ao período estendido votos dados entre 8h e 17h. Isso não é correto. Para comparar: no 1º turno de 2026, sem prorrogação, 3.724.999 pessoas votaram depois das 17h por causa de filas, segundo os mesmos levantamentos.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/todos_logs/amostra/T3_logs.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (logs_amostra)",
+     "/home/user/casa-control/eleicao-2026/resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt",
+     "/home/user/casa-control/eleicao-2026/resultados/contexto_2t_2026_pesquisa_verificada.json (frente totalizacao)"
+    ]
+   },
+   {
+    "afirmacao": "(c) Bahia: 936 seções depois das 19h, 72,31% para Lula.",
+    "numero_do_relatorio": "936 seções; 72,31%",
+    "numero_conferido": "936 seções; 290.085 votantes; Lula 201.695 x 77.225 = 72,313%. A BA inteira deu 71,31%. Nas mesmas seções, Lula teve 70,09% no 1º turno (votos dos dois finalistas).",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "O número é o voto normal da Bahia, não um índice avassalador. Das 936 seções, 730 são de Salvador: 73,36% para Lula, contra 73,22% no resto da capital. A variação entre os turnos foi de +2,31 pontos, contra +2,56 no resto de Salvador; nas 936, foi de +2,22, abaixo da nacional (+2,80). No 1º turno, sem prorrogação, 2.298 seções da BA fecharam às 19h ou depois, com Lula a 73,33% dos válidos (76,21% nos dois finalistas), mais do que no 2º turno.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local_J3_19h00_ou_mais_por_uf_com_1t, 2026_2t_local_J3_por_municipio, 2026_1t_local.por_uf)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json (capitais_J3_x_resto)"
+    ]
+   },
+   {
+    "afirmacao": "(c) Pernambuco: 657 seções depois das 19h, 65,70% para Lula.",
+    "numero_do_relatorio": "657 seções; 65,70%",
+    "numero_conferido": "657 seções; 197.323 votantes; Lula 65,696% (incluindo as 7 seções de Noronha que fecharam às 20h locais; só com a hora 19, 650 seções e 65,79%). PE inteiro deu 69,20%. Nas mesmas seções, Lula teve 63,69% no 1º turno.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "Essas seções foram menos lulistas que o estado (65,70% contra 69,20%). Em Recife (220 seções), Lula teve 59,81%, contra 61,37% no resto da cidade, com a mesma variação entre os turnos (+2,23 contra +2,24). No 1º turno, sem prorrogação, 1.222 seções de PE fecharam às 19h ou depois, com Lula a 72,43% dos válidos.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_uf_total_e_resto_sem_J3, 2026_2t_local_J3_por_municipio, 2026_1t_local.por_uf)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json"
+    ]
+   },
+   {
+    "afirmacao": "(c) Maranhão: seções depois das 19h com 83,31% para Lula (o relatório não informa quantas seções).",
+    "numero_do_relatorio": "número de seções omitido; 83,31%",
+    "numero_conferido": "3 seções; 634 votantes; Lula 519 x Flávio 104 = 83,307%, ou 415 votos de frente. O MA inteiro deu 69,54%. Nessas 3 seções, Lula teve 82,15% no 1º turno (votos dos dois finalistas).",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "O percentual bate, mas o relatório esconde que são 3 seções e 415 votos de diferença, e que essas seções já davam 82% a Lula no 1º turno. No 1º turno, sem prorrogação, 732 seções do MA fecharam às 19h ou depois, com 70,39%.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local_J3_19h00_ou_mais_por_uf_com_1t, 2026_1t_local.por_uf)"
+    ]
+   },
+   {
+    "afirmacao": "(c) São Paulo: as 1.571 seções que cruzaram as 19h deram 57,46% para Lula, \"contrariando o comportamento eleitoral do restante do estado\".",
+    "numero_do_relatorio": "1.571 seções; 57,46%",
+    "numero_conferido": "1.571 seções; 424.443 votantes; Lula 233.402 x 172.816 = 57,457%. Delas, 1.481 estão na capital, com 57,86%, contra 55,37% no resto da capital. Nas mesmas seções da capital, Lula tinha 55,22% no 1º turno, contra 52,35% no resto da cidade.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "Comparar com o estado (46,15%) mistura a capital, onde Lula vence, com o interior. Essas seções se comportaram como a capital. Já eram mais lulistas que a média da cidade no 1º turno e, entre os turnos, ganharam menos que o resto da capital: +2,65 pontos, contra +3,02. Não contrariam nada.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local_J3_por_municipio, 2026_2t_uf_total_e_resto_sem_J3)",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json (capitais_J3_x_resto.SAO PAULO)"
+    ]
+   },
+   {
+    "afirmacao": "(c) \"Nessas seções que invadiram a noite de domingo, o desempenho do governismo atingiu índices avassaladores\" (tabela com BA, PE, MA e SP), e, na conclusão, \"milhões de votos foram computados na calada da noite sob picos de mais de setenta por cento pró governo\".",
+    "numero_do_relatorio": "tabela de 4 UFs; picos acima de 70%",
+    "numero_conferido": "Todas as seções fechadas às 19h ou depois: 6.342 seções, 1.858.274 votantes, Lula 55,22%. A tabela omite o RJ, maior bloco do grupo: 2.805 seções (44%), 837.298 votantes, Lula 45,81%, com Flávio à frente por 67.734. Na capital do RJ, 1.978 seções deram 46,18%, contra 52,60% no resto da cidade. Omite também a PB: 275 seções, 52,56%.",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "Há de fato picos acima de 70%, mas só na BA (936 seções) e no MA (3 seções), e nos dois casos é o patamar normal desses lugares. O conjunto deu 55,22%, e o maior grupo, o do RJ, foi vencido por Flávio. A seleção das UFs esconde isso. \"Milhões de votos na calada da noite\" é falso: 1,86 milhão é o comparecimento do dia inteiro dessas seções, e os votos depois das 17h03 foram da ordem de 6 mil. No 1º turno, sem prorrogação, as seções fechadas às 19h ou depois deram a Lula 67,29% dos válidos (70,67% nos dois finalistas), bem acima dos 55,22% do 2º turno.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (2026_2t_local_J3_19h00_ou_mais_por_uf_com_1t, 2026_2t_local_J3_por_municipio, 2026_1t_local.janelas)"
+    ]
+   },
+   {
+    "afirmacao": "(d) \"As seções que fecharam após o horário regulamentar das dezessete horas coincidem de forma assustadora com os municípios e zonas de maior taxa de votos sem biometria.\"",
+    "numero_do_relatorio": "sem número",
+    "numero_conferido": "Taxa de liberação sem biometria (QT_ELEI_BIOM_SEM_HABILITACAO / comparecimento, 2º turno): até 17h00, 6,97%; 17h01 a 17h15, 6,64%; 17h16 a 18h59, 6,66%; 19h ou depois, 6,36%; país, 6,73%. Seções das 19h ou depois contra o resto: da mesma UF, 6,36% x 7,03%; do mesmo município, 6,36% x 7,14%; do mesmo local de votação, 6,50% x 6,89%. Correlação entre a taxa sem biometria e a fração de seções fechadas às 17h16 ou depois: r = -0,02 entre 6.106 zonas e r = 0,04 entre 5.571 municípios (ponderados pelo comparecimento).",
+    "veredito": "falso",
+    "explicacao": "Não há coincidência; quando há diferença, ela vai no sentido contrário. As seções que fecharam tarde têm menos liberação sem biometria que o resto da própria UF e do próprio município. O grupo \"até 17h00\", onde Flávio venceu, tem a maior taxa. As seções das 19h ou depois estão nas capitais: Rio (6,9%), São Paulo (5,9%), Salvador (4,8%), Recife (4,9%), João Pessoa (9,5%), e não em \"grotões rurais\". Separando os municípios em dez faixas de taxa sem biometria, as seções das 19h ou depois se espalham sem padrão (143, 1.031, 56, 472, 1.520, 35, 466, 171, 2.369 e 79 seções, da faixa mais baixa para a mais alta). A faixa mais alta, com taxa acima de 9,7%, tem só 79 das 6.342.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/t21/nh_secoes_2026.json.gz",
+     "/home/user/casa-control/eleicao-2026/resultados/T21_bweb.txt",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json (nh_dentro, decis_municipio_por_NH_2t, correlacao_zona_NH_x_fatia_J2J3, correlacao_municipio_NH_x_fatia_J2J3)"
+    ]
+   },
+   {
+    "afirmacao": "(d) As seções que fecharam após as 17h coincidem com as zonas de \"menor presença de fiscais partidários independentes\".",
+    "numero_do_relatorio": "sem número",
+    "numero_conferido": "Não há dado sobre presença de fiscais no bweb nem nos arquivos locais.",
+    "veredito": "não verificável",
+    "explicacao": "O relatório não apresenta fonte para a presença de fiscais por seção. O bweb não tem esse campo. O que dá para verificar é onde estão essas seções: nas capitais (Rio, São Paulo, Salvador, Recife, João Pessoa), onde a fiscalização tende a ser maior, e não em áreas isoladas.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/trab2t/zips2t/*.zip (cabeçalho do CSV)"
+    ]
+   }
+  ],
+  "arquivos": [
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/extrair_horas_2t.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/analisar_janela.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento_2026.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/horas2t.json.gz",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/resultado.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/complemento.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/janela17h/img/crop.png"
+  ]
+ },
+ {
+  "itens": [
+   {
+    "afirmacao": "Cap. 4: seções com 100% dos votos válidos: Lula 106, Flávio Bolsonaro 4 (razão de 26,5 para 1).",
+    "numero_do_relatorio": "106 x 4; 26,5:1",
+    "numero_conferido": "106 x 4; 26,5:1. Todas no Brasil, nenhuma no exterior. Mesma conta em outras eleições: 2º turno de 2022, Lula 143 x Bolsonaro 4 (35,8:1); 2º turno de 2018, Haddad 328 x Bolsonaro 4 (82:1); 1º turno de 2026 (válidos com todos os candidatos), Lula 38 x Flávio 2.",
+    "veredito": "confere",
+    "explicacao": "Contei as 499.205 seções do 2º turno de 2026 e cheguei exatamente a 106 e 4. As 106 seções são pequenas: o comparecimento mediano é de 128 eleitores, contra 263 no país. Juntas, deram 14.860 votos a Lula, o que equivale a 0,34% da margem de 4.430.191. O número em si está certo. O que ele quer dizer está nos itens seguintes.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json",
+     "base por seção trab2t/secoes2026.json.gz, dados2t/secoes2022.json.gz, dados2t/secoes2018.json.gz"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: seções com mais de 90% dos votos: Lula 6.899, Flávio 384 (18 para 1).",
+    "numero_do_relatorio": "6.899 x 384; 18:1",
+    "numero_conferido": "6.899 x 384 com 90% OU MAIS dos votos válidos, contando 14 e 10 seções do exterior; razão de 17,97:1. Com estritamente mais de 90%, são 6.816 x 378. Sem o exterior, 6.885 x 374.",
+    "veredito": "confere",
+    "explicacao": "Os números batem exatamente quando o critério é 90% ou mais dos válidos. O rótulo do relatório diz 'mais de 90% dos votos', o que não é a mesma coisa: com estritamente mais de 90% dos válidos, são 6.816 e 378, e com mais de 90% do comparecimento, 4.198 e 238. A diferença não muda a razão, mas o rótulo está impreciso.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: a proporção de 18 para 1 é uma 'desproporção aberrante' e uma 'aberração de unanimidade' na base de 2026.",
+    "numero_do_relatorio": "18:1, apresentado como anomalia de 2026",
+    "numero_conferido": "Seções com 90% ou mais dos válidos para cada lado: 2º turno de 2026, 6.899 x 384 (18:1). 2º turno de 2022, Lula 9.538 x Bolsonaro 220 (43,4:1). 2º turno de 2018, Haddad 15.133 x Bolsonaro 1.328 (11,4:1). 1º turno de 2026, 3.686 x 186 (19,8:1) nos válidos com todos os candidatos e 6.100 x 726 (8,4:1) só entre os dois finalistas. Saldo líquido de Lula nessas seções: 1,17 milhão em 2026, contra 1,61 milhão em 2022.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "A assimetria existe, mas é antiga. Em 2026 ela está menor que em 2022. O número de seções com 90% ou mais para Lula caiu 28% de 2022 para 2026 (de 9.538 para 6.899), embora a fatia nacional dele tenha subido (de 50,9% para 51,8%). Em 2018 Haddad perdeu por 10 pontos e mesmo assim teve 15.133 seções nessa faixa, o que mostra que a contagem de seções extremas não diz quem ganhou nem se houve fraude. A razão tem uma causa geográfica conhecida: os redutos do PT no interior do Nordeste e em aldeias dão 90% ou mais, enquanto os redutos de Flávio no Sul e no Centro-Oeste ficam em 70% a 85%. Comparada com as eleições anteriores, a razão de 2026 não tem nada de aberrante.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: 'A cauda não gaussiana'. Em sistemas massivos e polarizados os percentuais seguiriam gaussianas suaves em torno da média, e a base de 2026 exibiria anomalias extremas.",
+    "numero_do_relatorio": "Sem número; premissa de distribuição gaussiana",
+    "numero_conferido": "Fatia de Lula por seção no 2º turno de 2026: média de 52,1%, desvio-padrão de 17,3 pontos, assimetria de +0,28, curtose em excesso de -0,55 (caudas MAIS FINAS que as da normal). Uma normal com a mesma média e o mesmo desvio preveria 7.134 seções com Lula em 90% ou mais (observado: 6.899) e 3.720 com Flávio em 90% ou mais (observado: 384). Em 2022 a assimetria foi de +0,41 e a curtose de -0,54; em 2018, de +0,59 e -0,70.",
+    "veredito": "falso",
+    "explicacao": "A premissa está errada: nenhuma eleição da série tem distribuição gaussiana, porque o voto por seção mistura regiões muito diferentes. A conclusão também sai invertida. Medida contra a própria régua que o relatório escolheu, a cauda de Lula fica um pouco abaixo do que a normal preveria, e a cauda que destoa é a de Flávio, que tem dez vezes menos seções extremas do que a normal daria. O formato de 2026 é quase o mesmo de 2022, e a correlação seção a seção entre 2022 e 2026 é de 0,973, com mudança média de +0,27 ponto.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: as seções quase unânimes estão 'concentradas em áreas rurais' e 'coincidem com zonas rurais'.",
+    "numero_do_relatorio": "Sem número",
+    "numero_conferido": "As 106 seções de Lula com 100%: 104 rurais ou indígenas pelo cadastro de locais (65 indígenas, ou 61%, além de quilombos, povoados e assentamentos) e 2 de presos provisórios (Aquiraz/CE e Sapé/PB). Ficam no AM (30), MA (20), PA (16), RR (8) e TO (7). As 6.899 seções com 90% ou mais: 82,0% com marca rural, contra 11,5% no país, e 9,4% indígenas, contra 0,3% no país (650 das 1.438 seções indígenas). Ficam no MA (1.569), BA (1.361), PI (878), CE (675) e PE (673). As 4 de Flávio com 100% também são rurais: Arroio do Padre/RS, Cândido Godói/RS, Chaves/PA e Jacareacanga/PA. Das 384 de Flávio, 58% são rurais (RS 120, SC 61, PA 52, MT 48). Persistência das 106: todas tiveram Lula com 90% ou mais no 1º turno de 2026 (mediana de 98,8% dos válidos, com todos os candidatos na urna); das 61 casadas com 2022, 60 deram 90% ou mais ao PT (mediana de 99,45%); das 47 casadas com 2018, 46. Das 6.899: das 6.008 casadas com 2022, 86,1% já tinham 90% ou mais para o PT e 99,6% tinham 80% ou mais.",
+    "veredito": "confere mas a leitura não se sustenta",
+    "explicacao": "A coincidência com zonas rurais e indígenas é real. Uso como critério o texto do nome, do endereço e do bairro do local, porque o cadastro do TSE não traz um campo urbano/rural; é uma aproximação. Mas são os mesmos lugares votando do mesmo jeito em 2018, 2022 e no 1º turno de 2026, inclusive quando não houve prorrogação nem 'virada'. Do outro lado, as seções extremas de Flávio também são rurais (colônias gaúchas, área de garimpo no PA). Isso descreve a geografia do voto e não aponta manipulação.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/locais2026.json.gz",
+     "cadastro eleitorado_local_votacao_2026_<UF>.csv"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: essas zonas rurais são de 'baixíssima fiscalização partidária independente'.",
+    "numero_do_relatorio": "Sem número",
+    "numero_conferido": "Nenhum dado disponível. O bweb, o boletim de urna e o cadastro de locais não registram a presença de fiscais de partido.",
+    "veredito": "sem fonte",
+    "explicacao": "O relatório diz ter cruzado três variáveis (biometria, horário de encerramento e votos), e nenhuma delas mede fiscalização. A afirmação não sai dos dados que o próprio relatório usou e não aponta outra fonte. Não dá para conferir com os microdados públicos.",
+    "fontes": [
+     "leiame do bweb 2º turno 2026 (relatorio_pericial/biometria/leiame/leiame_2t.txt)"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 4: nessas seções 'a taxa de liberação sem biometria atinge seus picos mais elevados'.",
+    "numero_do_relatorio": "Sem número",
+    "numero_conferido": "Liberação sem biometria (QT_ELEI_BIOM_SEM_HABILITACAO) sobre o comparecimento, 2º turno de 2026. País: 6,75%. As 106 de Lula com 100%: 4,98% (ABAIXO da média). As 6.899 de Lula com 90% ou mais: 8,40%. As 384 de Flávio com 90% ou mais: 9,53%. As 4 de Flávio com 100%: 11,92%. Por faixa da fatia de Lula, o maior valor fica na faixa de 0 a 10% (9,48%); de 80 a 90% é 8,43% e de 90 a 100% é 8,40%. Nas mesmas seções no 1º turno: 8,16% (Lula com 90% ou mais) e 4,91% (as 106). Por tipo de local: indígenas 5,04%, rurais não indígenas 7,94%, demais 6,63%. No 1% de seções com a maior taxa (19,3% ou mais), o RS é a UF com mais seções (862).",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "É verdade que as seções rurais e as de 90% ou mais para Lula ficam acima da média do país, e que dentro do Nordeste a taxa sobe com a fatia de Lula (de 5,9% para 9,2%). É falso que o pico esteja nelas. As 106 seções unânimes, em boa parte indígenas, ficam abaixo da média. O extremo de Flávio tem taxa maior que o de Lula. E as mesmas seções tiveram praticamente a mesma taxa no 1º turno. O padrão é de eleitorado rural (digitais gastas, mais idosos), nos dois extremos, e não muda entre os turnos.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_complemento.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/t21/nh_secoes_2026.json.gz"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 5: as 499.205 seções foram submetidas ao teste do primeiro dígito de Benford, e os dígitos dos votos dos dois candidatos foram comparados com a curva logarítmica. O resultado não é mostrado.",
+    "numero_do_relatorio": "499.205 seções; nenhum resultado apresentado",
+    "numero_conferido": "São 499.205 seções no 2º turno (confere). Rodei o teste. Primeiro dígito 1 (Benford espera 30,1%): no 2º turno de 2026, Lula 60,8% (MAD 0,079) e Flávio 61,9% (MAD 0,075); no 1º turno de 2026, Lula 48,7% (0,071) e Flávio 60,2% (0,076); no 2º turno de 2022, Lula 61,1% (0,081) e Bolsonaro 61,4% (0,071); no 2º turno de 2018, Haddad 39,3% (0,048) e Bolsonaro 56,4% (0,059). Todos ficam em 'não conformidade' (MAD acima de 0,015) e têm p praticamente zero. Os votos sintéticos, gerados por um processo limpo por construção (binomial com a fatia do local de votação), dão 61,1% para Lula e 62,2% para Flávio no 2º turno de 2026. A distância entre real e sintético é de 0,0007 a 0,0008 (MAD), contra 0,075 a 0,079 entre real e Benford. O placebo de eleitores aptos por seção tem dígito 3 em 62% (MAD 0,136).",
+    "veredito": "não verificável",
+    "explicacao": "Não dá para conferir o que o relatório achou, porque ele não mostra o resultado. Quando o teste é rodado, os votos dos dois candidatos rejeitam Benford por margem enorme, igualmente em 2026, em 2022 e em 2018. Os dados sintéticos sem nenhuma manipulação rejeitam do mesmo jeito e ficam quase idênticos aos reais. O desvio vem do tamanho limitado das seções: 69,6% dos números de Lula ficam entre 100 e 999 e 30,4% entre 10 e 99, de modo que o dígito 1 domina por pura escala. Qualquer conclusão de fraude tirada desse teste valeria também para Flávio, para 2022 e para 2018, e por isso não vale para nenhum deles.",
+    "fontes": [
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_benford.json",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_complemento.json"
+    ]
+   },
+   {
+    "afirmacao": "Cap. 5: Benford seria 'ferramenta matemática consagrada internacionalmente para detectar manipulação' em dados eleitorais massivos, no caso votos por seção.",
+    "numero_do_relatorio": "Sem número",
+    "numero_conferido": "Segundo dígito (2BL, média esperada de 4,187), 2º turno de 2026: Lula 3,859 (z = -83) e Flávio 3,971 (z = -56). Os sintéticos limpos dão 3,853 e 3,972. No 1º turno de 2026: Lula 3,879 e Flávio 3,816. No 2º turno de 2022: Lula 3,853 e Bolsonaro 4,074. No 2º turno de 2018, Bolsonaro 4,185 se ajusta e Haddad 4,041 não, e o sintético reproduz os dois casos. Último dígito (deve ser uniforme), 2º turno de 2026: Lula p = 0,84 e Flávio p = 0,19; 1º turno de 2026: p = 0,55 e 0,37; 2º turno de 2022: p = 0,25 e 0,044 (marginal, entre vários testes).",
+    "veredito": "falso",
+    "explicacao": "Para votos por seção, o teste do primeiro dígito não é válido. Benford vale para números que se espalham por várias ordens de grandeza, e o voto de cada candidato fica preso ao tamanho da seção: mediana de 327 aptos, 99% das seções com até 441 e máximo de 930. Deckert, Myagkov e Ordeshook (2011, Political Analysis 19(3): 245-268) mostram com simulações e casos reais que testes de Benford, inclusive o de segundo dígito, acusam fraude em eleições limpas e deixam passar fraudes, e concluem que, aplicados a eleições, são na melhor das hipóteses um detector ruim. Mebane (2006; comentário em Political Analysis 19(3): 269-272, 2011) também descarta o primeiro dígito para contagens por seção e propõe o segundo dígito, mas admite que desvios do 2BL surgem de voto estratégico e de outros mecanismos sem fraude, e o usa só como um indicador entre vários. Os dados confirmam isso: os desvios do 2BL aqui são reproduzidos por um processo limpo e mudam conforme a escala típica de votos de cada candidato. O teste de último dígito (Beber e Scacco, 2012, Political Analysis 20(2): 211-234), feito para detectar números inventados, não acusa nada para Lula nem para Flávio em 2026.",
+    "fontes": [
+     "Deckert, Myagkov e Ordeshook (2011), Political Analysis 19(3): 245-268",
+     "Mebane (2006), Election Forensics: Vote Counts and Benford's Law; Mebane (2011), Political Analysis 19(3): 269-272",
+     "Beber e Scacco (2012), Political Analysis 20(2): 211-234",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_benford.json"
+    ]
+   }
+  ],
+  "arquivos": [
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/extrair.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/locais.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/unanimidade.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/benford.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/complemento.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_unanimidade.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_benford.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/resultado_complemento.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/unanimidade_benford/locais2026.json.gz"
+  ]
+ },
+ {
+  "itens": [
+   {
+    "afirmacao": "(a1) Os boletins de urna em formato aberto (bweb) do 2º turno só foram liberados 'na manhã desta quarta-feira, 28 de outubro', depois de 'quase três dias' e 'setenta e duas horas' sem acesso.",
+    "numero_do_relatorio": "72 horas; liberação na manhã de quarta-feira, 28/10/2026",
+    "numero_conferido": "Os bweb_2t entraram no portal de dados abertos na terça-feira, 27/10/2026, entre 15h59 e 16h21 de Brasília (campo created de 18:59:45 a 19:21:13 UTC; consulta à API CKAN em 29/10/2026 01:36 UTC, com parâmetro anticache). Isso dá 42,8 h depois da confirmação do resultado (21h09 de 25/10), 45,0 h depois das 19h e 47,0 h depois das 17h. Os arquivos foram gerados em 26/10/2026 07:42:38 (DT_GERACAO/HH_GERACAO e nome bweb_2t_UF_261020260742). O Last-Modified no CDN do TSE é de 26/10 entre 11:59 e 12:01 UTC (de 08h59 a 09h01 de Brasília), e o do exterior é das 19:49 UTC. Para comparar: no 2º turno de 2022 foram 46,2 h (terça, 01/11/2022, 15h13); no 1º turno de 2026, 46,5 h (terça, 06/10, 15h29); no 1º turno de 2022, 73,0 h (quarta, 05/10/2022).",
+    "veredito": "falso",
+    "explicacao": "O dia, o período do dia e a duração estão errados. No próprio repositório que o relatório cita, os 56 recursos bweb_2t entraram no catálogo na tarde de terça, 27/10, e não na manhã de quarta. São 27 zips (um por UF e o do exterior) mais os .sha512; o zip de RR aparece listado só pelo nome do .sha512. As consultas registradas pelo projeto confirmam isso. Às 17:40 UTC de 27/10 o pacote ainda não tinha o 2º turno. Às 23:17 UTC de 28/10 tinha, com criação entre 18:59 e 19:21 UTC de 27/10. Isso também mostra que o created está em UTC. O intervalo foi de 43 a 47 horas, conforme o marco usado, e não de 72. É o mesmo prazo do 2º turno de 2022 (46,2 h, também numa terça à tarde) e do 1º turno de 2026 (46,5 h), e é menor que o do 1º turno de 2022 (73 h). Não houve atraso fora do padrão. Uma explicação possível para a data errada: a API do portal às vezes responde do cache (a primeira consulta do projeto em 28/10 voltou sem o 2º turno), e quem só olhou na quarta pode ter achado que a liberação foi nesse dia. Isso não muda a data registrada pelo TSE. Ressalva: o Last-Modified do CDN indica que os arquivos já estavam no servidor desde a manhã de segunda, mas não prova que estivessem acessíveis ao público antes de entrarem no catálogo.",
+    "fontes": [
+     "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-2026-boletim-de-urna",
+     "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-2022-boletim-de-urna",
+     "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/buweb/bweb_2t_SP_261020260742.zip",
+     "/home/user/casa-control/eleicao-2026/reproducao/consultas_bweb_2t.txt",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/prazos_bweb.txt",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/lastmod.txt",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/bweb_geracao.txt"
+    ]
+   },
+   {
+    "afirmacao": "(a2) Os microdados de cada urna, 'fundamentais para a checagem independente de horários e biometria', ficaram 'trancados em sigilo técnico', e a sociedade civil e os peritos 'foram privados do acesso aos dados primários' durante 72 horas.",
+    "numero_do_relatorio": "72 horas sem acesso aos dados primários",
+    "numero_conferido": "Zero hora. Os arquivos de cada seção (boletim -bu.dat, RDV -rdv.dat, log -log.jez e assinatura -vota.vsc) estavam no site de resultados do TSE já na noite da eleição. Na amostra de 3.902 seções do projeto, o -aux.json de cada seção foi gerado em 25/10/2026 entre 20:02:12 e 23:31:29, e os arquivos foram recebidos entre 17h e 21h42 do mesmo dia. O projeto baixou milhares desses arquivos a partir de 26/10 às 10:56 UTC (07h56 de Brasília), antes mesmo de o bweb ser gerado (07h42 de 26/10) e mais de 30 horas antes de ele entrar no catálogo.",
+    "veredito": "falso",
+    "explicacao": "O bweb é uma planilha consolidada, feita a partir dos boletins. Os dados primários são os arquivos de cada urna, e eles estavam públicos desde a noite de 25/10 em resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/{uf}/{mun}/{zona}/{secao}/. Isso está registrado no pré-registro do projeto, escrito na manhã de 26/10. O boletim traz a abertura e o encerramento da urna, e o log traz o horário de cada voto e o tipo de habilitação de cada eleitor (biométrica ou não). Portanto, os horários e a biometria que o relatório diz terem ficado inacessíveis já podiam ser checados urna por urna. O projeto fez essa checagem em 26/10, antes do bweb (testes T3, T9 e T30 sobre os logs). Além disso, o boletim impresso é afixado em cada seção e entregue aos fiscais no encerramento. Não existe registro de 'sigilo técnico'. O que houve foi o prazo normal de consolidação do bweb, igual ao de 2022.",
+    "fontes": [
+     "/home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md",
+     "/home/user/casa-control/eleicao-2026/PARA-O-REVISOR.md",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/aux_datas.txt",
+     "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/amostra2t/arq"
+    ]
+   },
+   {
+    "afirmacao": "(b) 'A Ordem dos Sete Minutos': Alexandre de Moraes assinou o cancelamento dos passaportes de Flávio Bolsonaro 'exatamente sete minutos após a proclamação das urnas, antes mesmo que os recursos da oposição fossem protocolados'.",
+    "numero_do_relatorio": "7 minutos entre a proclamação e a decisão de Moraes",
+    "numero_conferido": "Os 7 minutos vão da confirmação matemática da derrota pelo TSE (21h09 de 25/10) até a assinatura digital da representação da Polícia Federal, de 16 páginas, às 21h16. A informação é da coluna de Malu Gaspar no O Globo (27/10), repetida pela GloboNews, Times Brasil, ND+ e outros. O horário da decisão de Moraes não foi divulgado: ele decidiu 'ainda na noite de domingo', sem ouvir a PGR. Flávio foi intimado na manhã de 26/10, com prazo de entrega até as 11h de 27/10. Os passaportes comum e diplomático foram cancelados no sistema.",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "A medida existe e saiu logo depois do resultado, mas o relatório atribui ao ministro o que a reportagem original atribui à PF. Segundo O Globo, os sete minutos separam a confirmação do TSE (21h09) da assinatura do pedido da PF (21h16). Moraes decidiu na mesma noite, em horário que o Supremo não informou (Times Brasil: 'O horário exato em que o ministro assinou a ordem, no entanto, não foi esclarecido pelo Supremo'). A Gazeta do Povo (28/10, 01h20) escreveu que a decisão saiu sete minutos após a proclamação, o que diverge da fonte original. A decisão mandou entregar os passaportes, proibiu a saída do país e o contato com o advogado Willer Tomaz, e previu o cancelamento (InfoMoney). A PF registrou o cancelamento depois que o prazo venceu (CNN Brasil). A base é um inquérito sigiloso de lavagem de dinheiro e evasão de divisas, anterior à eleição. Ele envolve a conta da Alcazar Holding, ligada a Willer Tomaz, que está fora do país desde 25/08/2026, e a fala de Eduardo Bolsonaro defendendo que o irmão deixasse o Brasil se perdesse. 'Antes dos recursos da oposição' é verdadeiro, mas não diz nada: nenhum pedido de anulação foi protocolado. O jurídico de Flávio desistiu em 26/10, e o PL reconheceu o resultado no mesmo dia (Valdemar Costa Neto). A rapidez e o sigilo são fatos e sustentam críticas legítimas, mas não dizem nada sobre a contagem dos votos.",
+    "fontes": [
+     "https://x.com/GloboNews/status/2115126140071206998",
+     "https://timesbrasil.com.br/brasil/policia-federal-pediu-apreensao-de-passaporte-de-flavio-bolsonaro-7-minutos-apos-definicao-do-resultado-do-2o-turno/",
+     "https://rondonoticias.com.br/noticia/brasil/162047/moraes-mandou-apreender-passaporte-de-flavio-apenas-7-minutos-apos-resultado-da-eleicao",
+     "https://www.gazetadopovo.com.br/republica/moraes-ordena-cancelamento-de-passaporte-de-flavio-bolsonaro-apos-eleicoes/",
+     "https://www.infomoney.com.br/politica/moraes-manda-flavio-entregar-passaportes-e-proibe-saida-do-brasil-apos-derrota/",
+     "https://www.poder360.com.br/poder-eleicoes-2026/flavio-diz-que-foi-intimado-pela-pf-a-entregar-passaportes/",
+     "https://jornaldebrasilia.com.br/noticias/politica-e-poder/pf-apontou-risco-concreto-de-flavio-bolsonaro-fugir-do-pais-ao-pedir-apreensao-de-passaporte-a-moraes/",
+     "https://www.cnnbrasil.com.br/politica/aliados-dizem-que-flavio-bolsonaro-esta-fora-do-brasil/",
+     "https://www.aljazeera.com/news/2026/10/27/bolsonaros-party-accepts-result-after-trump-suggests-vote-was"
+    ]
+   },
+   {
+    "afirmacao": "(c) 'Uma ala da Polícia Federal articulou a prisão cautelar do principal líder da oposição com base em boatos de imprensa, forçando a sua extração do país sob proteção diplomática dos Estados Unidos.'",
+    "numero_do_relatorio": "sem número (prisão cautelar articulada pela PF; saída sob proteção diplomática dos EUA)",
+    "numero_conferido": "Não houve pedido de prisão contra Flávio antes da saída. O pedido da PF, de 25/10, foi de retenção dos passaportes e proibição de deixar o país. Flávio não entregou os passaportes até o prazo (11h de 27/10). Entrou na Argentina pela Ponte Tancredo Neves às 22h50 de 27/10, embarcou às 23h30 num voo privado da Baires Fly para Guayaquil e pousou em Miami na manhã de 28/10. Os pedidos de prisão vieram depois: deputados do PT em 27/10 (Poder360, 15h25), e a PF passou a 'avaliar' um pedido após a saída (28/10). Do lado dos EUA, o Departamento de Estado anunciou vistos para ele e a família, e Trump disse que aprova a ida. Asilo não foi confirmado.",
+    "veredito": "falso",
+    "explicacao": "O relatório inverte a ordem dos fatos. Antes da viagem não havia pedido nem mandado de prisão. Segundo o El Observador, a Casa Rosada exigiu justamente que não houvesse ordem de captura para deixá-lo passar, e a Migraciones registrou a entrada 'sin ningún impedimento legal'. O que existia era a proibição de sair do país, e ele a descumpriu. A preventiva só entrou em discussão depois da saída: deputados do PT a pediram em 27/10, e a PF passou a considerá-la 'diante da suspeita de descumprimento da ordem judicial' (Diário Carioca, 28/10). Juristas ouvidos pela CNN Brasil em 28/10 acham a prisão 'possível, mas improvável', porque senador só pode ser preso em flagrante ou com aval do Senado. O pedido da PF também não se baseou em 'boatos de imprensa'. Ele citou o inquérito de lavagem (Willer Tomaz, Alcazar) e uma declaração pública de Eduardo Bolsonaro. Nenhum veículo relata 'proteção diplomática' ou 'extração' pelos EUA. O que existe é o anúncio de vistos pelo Departamento de Estado e o aval de Trump à entrada. O asilo foi afirmado só pelo advogado Simón Levy, sem confirmação, e o Metrópoles ressalva que visto não é asilo. Aliados ouvidos pela CNN Brasil dizem que o motivo da saída foi o 'medo de ser preso', o que é bem diferente de uma prisão articulada.",
+    "fontes": [
+     "https://www.elobservador.com/argentina/javier-milei-sabia-las-intenciones-flavio-bolsonaro-y-el-gobierno-exigio-garantias-su-ingreso-n6061946",
+     "https://www.ambito.com/politica/el-gobierno-confirmo-que-flavio-bolsonaro-entro-al-pais-y-viajo-avion-puerto-iguazu-n6338673",
+     "https://www.cnnbrasil.com.br/politica/o-que-se-sabe-sobre-a-saida-de-flavio-bolsonaro-do-brasil/",
+     "https://cnnbrasil.com.br/blogs/pedro-venceslau/politica/prisao-preventiva-de-flavio-e-possivel-mas-improvavel-avaliam-juristas",
+     "https://www.poder360.com.br/poder-congresso/pt-pede-prisao-de-flavio-bolsonaro-e-alerta-vermelho-da-interpol/",
+     "https://www.diariocarioca.com/2026/10/28/politica/corrupcao-investigacao/pf-avalia-pedir-prisao-preventiva-e-bloqueio-de-bens-de-flavio-bolsonaro/",
+     "https://www.metropoles.com/mundo/governo-trump-confirma-emissao-de-vistos-para-flavio-bolsonaro-e-familia",
+     "https://www.cbsnews.com/news/brazil-flavio-bolsonaro-u-s-visa-presidential-election-loss/",
+     "https://www.washingtonpost.com/world/2026/10/27/flvio-bolsonaro-fails-turn-passports-brazilians-question-his-whereabouts/",
+     "https://revistaoeste.com/mundo/trump-diz-que-aprova-viagem-de-flavio-aos-eua-mas-nao-sabe-onde-ele-esta/"
+    ]
+   },
+   {
+    "afirmacao": "(d1) Banco Master e Daniel Vorcaro: 'os quarenta milhões de dólares repassados à família de magistrados do tribunal superior'.",
+    "numero_do_relatorio": "US$ 40 milhões repassados",
+    "numero_conferido": "Nenhuma fonte fala em US$ 40 milhões para família de magistrado. Os valores documentados estão em reais. (1) Contrato de cerca de R$ 129 milhões do Master com o escritório de Viviane Barci de Moraes (36 parcelas de R$ 3,6 milhões brutos), com R$ 13,6 milhões em quatro comprovantes achados pela PF. (2) Proposta de quitação de um segundo contrato (até R$ 50 milhões), com R$ 40 milhões em cotas de um jatinho e de um helicóptero, sem confirmação de que foi concluída. (3) R$ 35 milhões de um fundo ligado a Vorcaro na compra de parte do resort Tayayá, de empresa da família de Dias Toffoli. (4) R$ 281.630 ao filho de Nunes Marques. (5) R$ 5,93 milhões ao escritório da família Lewandowski. Os 'R$ 40 milhões' noticiados na semana (28/10) vêm da proposta de delação de Vorcaro e se referem a Alexandre Silveira, ministro de Minas e Energia de Lula, e não a um magistrado.",
+    "veredito": "sem fonte",
+    "explicacao": "O caso Master envolvendo familiares de ministros do STF é real e grave, mas o número do relatório não aparece em nenhuma fonte. O valor mais parecido é R$ 40 milhões, em reais, o que dá cerca de um quinto do valor em dólares. Trata-se de uma proposta de pagamento em cotas de aeronaves ao escritório da esposa de Moraes, que aparece em documentos da PF publicados pelo Terra em 02/09/2026. O escritório diz que a proposta não foi aceita. Trocar 'R$ 40 milhões propostos' por 'US$ 40 milhões repassados' muda a moeda e muda o fato. Todos esses valores são objeto de investigação em curso, e ninguém foi condenado por esses pagamentos.",
+    "fontes": [
+     "https://www.terra.com.br/noticias/brasil/politica/vorcaro-ofereceu-contratos-milionarios-hotel-de-luxo-e-viagem-a-londres-para-moraes-e-familia-diz-pf,58a98fdfe8a9c8957e9f1c0ee0a3ab9287dypu77.html",
+     "https://pt.wikipedia.org/wiki/Esc%C3%A2ndalo_do_Banco_Master",
+     "https://www.gazetadopovo.com.br/ideias/moraes-gonet-veja-lista-atualizada-quem-envolveu-vorcaro/",
+     "https://www.metropoles.com/colunas/thiago-herdy/vorcaro-20-milhoes-silveira-caixa2",
+     "https://jornaldebrasilia.com.br/noticias/politica-e-poder/delacao-de-vorcaro-atinge-ministro-de-lula-e-leva-crise-do-master-ao-coracao-do-governo/"
+    ]
+   },
+   {
+    "afirmacao": "(d2) 'A Cortina de Fumaça sobre o Banco Master': a 'pirotecnia contra a oposição' foi ativada 'na mesma semana em que deveriam entrar em pauta as apurações financeiras sobre Daniel Vorcaro'.",
+    "numero_do_relatorio": "sem número (pauta do caso Master na mesma semana)",
+    "numero_conferido": "Não encontrei nenhuma pauta de julgamento do caso Master marcada para 26 a 30/10/2026. Na mesma semana a apuração avançou. Em 28/10 a PF indiciou Vorcaro, o ex-presidente do BRB Paulo Henrique Costa e mais 13 pessoas (Inquérito 5.026, relator André Mendonça; R$ 12,2 bilhões em créditos não comprovados, de R$ 17,5 bilhões em operações). Também vieram a público relatos de Vorcaro sobre R$ 40 milhões ao ministro Alexandre Silveira, do governo Lula.",
+    "veredito": "sem fonte",
+    "explicacao": "Não há fonte para a pauta que teria sido abafada, e o que aconteceu naquela semana contradiz a tese: o caso não sumiu do noticiário, teve indiciamento e atingiu um ministro do próprio governo Lula. O Master também atinge a oposição: o próprio Flávio pediu R$ 134 milhões a Vorcaro para o filme 'Dark Horse' e falou do acordo na sabatina da TV Globo em 16/10. O Intercept Brasil apurou repasses de pelo menos R$ 61 milhões. A ligação entre a medida contra Flávio e o caso Master é opinião do autor, sem nenhum fato que a sustente.",
+    "fontes": [
+     "https://www.poder360.com.br/poder-justica/pf-indicia-vorcaro-paulo-henrique-costa-e-mais-13-por-fraude-no-master/",
+     "https://www.infomoney.com.br/politica/pf-indicia-vorcaro-ex-presidente-do-brb-e-mais-13-por-fraude-de-r-122-bilhoes/",
+     "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pf-indicia-vorcaro-e-mais-14-investigados-no-caso-master",
+     "https://www.cnnbrasil.com.br/politica/pf-indicia-vorcaro-e-ex-presidente-do-brb-por-fraudes-no-caso-master/",
+     "https://midiamax.com.br/brasil/2026/contrato-nao-cumprido-flavio-bolsonaro-explica-pedido-r-134-milhoes-vorcaro-dark-horse/",
+     "https://www.aosfatos.org/noticias/flavio-bolsonaristas-vorcaro-lula-filme/"
+    ]
+   },
+   {
+    "afirmacao": "(e1) 'Donald Trump classificou a eleição como manchada por fraude decorrente da prorrogação.'",
+    "numero_do_relatorio": "sem número",
+    "numero_conferido": "Em 26/10, a repórteres (Reuters), Trump disse: 'I didn't take sides, but it looked like another rigged election'; 'It looked very bad to me'; 'I just think it had a very bad look, the election, the way it was tabulated'; 'The extension given was very strange'. Não apresentou prova, e o governo dos EUA não deixou de reconhecer o resultado formalmente. A prorrogação somou cerca de 35 mil votos (análise de Pedro Burgos, do Insper, citada pela Reuters), menos de 0,03% do total, contra uma margem de 4,43 milhões.",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "Trump disse que a eleição 'pareceu outra eleição fraudada' e chamou a prorrogação de 'muito estranha'. Nisso a frase do relatório confere. Mas Trump não disse que a fraude decorreu da prorrogação. Ele citou também 'a forma como foi apurada', falou de aparência ('looked like') e não apresentou prova, como registraram a Reuters e a AP. O governo americano também não deixou de reconhecer o resultado formalmente. Na mesma semana, o PL reconheceu o resultado. E a prorrogação não tem tamanho para explicar a virada: foram cerca de 35 mil votos contra uma diferença de 4,43 milhões.",
+    "fontes": [
+     "https://www.irishtimes.com/world/americas/2026/10/27/trump-says-brazil-election-looked-rigged-as-bolsonaros-party-recognises-lula-win/",
+     "https://www.aljazeera.com/news/2026/10/27/bolsonaros-party-accepts-result-after-trump-suggests-vote-was",
+     "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/",
+     "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html"
+    ]
+   },
+   {
+    "afirmacao": "(e2) 'A Argentina acolheu a oposição.'",
+    "numero_do_relatorio": "sem número",
+    "numero_conferido": "A Dirección Nacional de Migraciones confirmou que Flávio, a esposa e as duas filhas entraram às 22h50 de 27/10 pela Ponte Tancredo Neves 'sin ningún impedimento legal' e embarcaram às 23h30 num voo privado para Guayaquil (decolagem às 00h21). Ficaram menos de duas horas no país. O porta-voz Adrián Ravier disse que 'não tem nenhum pedido de asilo'. Segundo o El Observador e o Perfil, sem confirmação oficial, Milei sabia da operação, Santiago Caputo a coordenou e a Chancelaria estudou o cenário de asilo. A embaixada argentina em Brasília ficou aberta à espera de um pedido de asilo 'que no se concretó'.",
+    "veredito": "parcialmente verdadeiro",
+    "explicacao": "A Argentina permitiu a passagem de Flávio e, segundo a imprensa argentina, a facilitou. Isso é um apoio político real do governo Milei. Mas 'acolheu' sugere abrigo ou asilo, e isso não aconteceu: ele ficou menos de duas horas no país, não pediu asilo, e o governo chegou a negar, num primeiro momento, que ele tivesse entrado. O destino final foram os EUA. Também não houve acolhida à 'oposição' em geral: o PL, principal partido de oposição, reconheceu o resultado em 26/10.",
+    "fontes": [
+     "https://www.ambito.com/politica/el-gobierno-confirmo-que-flavio-bolsonaro-entro-al-pais-y-viajo-avion-puerto-iguazu-n6338673",
+     "https://www.elobservador.com/argentina/javier-milei-sabia-las-intenciones-flavio-bolsonaro-y-el-gobierno-exigio-garantias-su-ingreso-n6061946",
+     "https://www.perfil.com/politica/de-brasil-a-estados-unidos-pasando-por-argentina-el-gobierno-de-milei-participo-de-la-fuga-de-pelicula-de-flavio-bolsonaro-aRYkK1y1aj5Y",
+     "https://www.lagaceta.com.ar/nota/1159947/politica/gobierno-milei-confirmo-flavio-bolsonaro-partio-desde-puerto-iguazu-ecuador-vuelo-privado-junto-familia.html",
+     "https://www.cnnbrasil.com.br/politica/o-que-se-sabe-sobre-a-saida-de-flavio-bolsonaro-do-brasil/"
+    ]
+   },
+   {
+    "afirmacao": "(e3) 'A mídia estatal chinesa admitiu que a extensão de duas horas impulsionou a virada governista.'",
+    "numero_do_relatorio": "extensão de duas horas",
+    "numero_conferido": "Nenhum veículo estatal chinês diz isso. A Xinhua (26/10) só registra a prorrogação ('ordered polling stations nationwide to extend voting by two hours') e a alegação de Flávio, sem ligá-la à virada. O Global Times (26 e 28/10) não menciona a prorrogação. O China Youth Daily (中国青年报, 26/10) cita a prorrogação apenas como motivo da contestação de Flávio. Atribui a virada à mobilização de trabalhadores e jovens nas três últimas semanas, à queda da abstenção (de 21,08% para cerca de 19,2%) e ao Nordeste.",
+    "veredito": "falso",
+    "explicacao": "A mídia estatal chinesa publicou o contrário do que o relatório diz. O único título que liga 'as últimas 2 horas' a uma 'virada espantosa' (巴西大选最后2小时惊天逆转) é de um canal independente, o 新视野, republicado pelo bannedbook.org, um site crítico ao Partido Comunista, ou seja, o oposto de mídia estatal. Nem esse texto afirma que a prorrogação causou a virada. A tese também não tem base nos números: a prorrogação somou cerca de 35 mil votos no país, contra uma margem de 4,43 milhões.",
+    "fontes": [
+     "https://english.news.cn/20261026/13fe4a15519143909076814d935fcf16/c.html",
+     "https://english.news.cn/20261026/5d460f3ee60a4acfb05a4ee40cd02121/c.html",
+     "https://www.globaltimes.cn/page/202610/1372967.shtml",
+     "https://www.globaltimes.cn/page/202610/1373149.shtml",
+     "https://k.sina.cn/article_1726918143_66eeadff02001wepu.html",
+     "https://www.bannedbook.org/bnews/sohnews/20261026/2374076.html",
+     "https://www.gazetadopovo.com.br/mundo/china-ve-vitoria-de-lula-como-reves-para-trump-na-america-latina/"
+    ]
+   }
+  ],
+  "arquivos": [
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/prazos_bweb.txt",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/prazos_bweb.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/aux_datas.txt",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/aux_datas.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/lastmod.txt",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/bweb_geracao.txt",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/bweb_geracao.py",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/pkg2026.json",
+   "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cap6_contexto/pkg2022.json",
+   "/home/user/casa-control/eleicao-2026/reproducao/consultas_bweb_2t.txt",
+   "/home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md"
+  ]
+ },
+ {
+  "confirma": true,
+  "correcoes": [
+   "Item 3 (\"escala inédita\"): a lista de UFs mistura os dois turnos. Os valores PI 9,0%, RS 8,5% e RN 8,1% são do 2º turno, mas a sequência MS, SC, PR, com \"quatro dessas UFs deram vitória a Flávio\", é a ordem do 1º turno (PI 8,65, RS 8,23, RN 7,91, MS 7,82, SC 7,56, PR 7,48; Flávio à frente em RS, MS, SC e PR). No 2º turno as seis maiores são PI 9,00, RS 8,45, RN 8,10, SC 7,51, BA 7,45 e RJ 7,45. Delas, só TRÊS deram vitória a Flávio (RS, SC, RJ). MS cai para 8º (7,25) e PR para 10º (6,99). O argumento continua de pé (RS é 2º e SC é 4º), mas o texto precisa ser corrigido.",
+   "Itens 3 e 7 (porte do município): \"8,6% contra 6,0% nos maiores\" é ambíguo e, lido como \"os demais\", está errado. Nos municípios com menos de 10 mil aptos a taxa é 8,55% no 2º turno e 8,46% no 1º; em TODOS os municípios com 10 mil aptos ou mais é 6,55% e 6,48%. O 6,0% vale só para os de mais de 200 mil aptos. Escrever \"8,6% contra 6,6% nos demais (6,0% nos de mais de 200 mil)\" e \"quase igual nos dois turnos\".",
+   "Item 2, ponto (5): o número de 2022 está certo (TSE: 118.151.926 de 156.454.011 aptos com biometria, logo 24,48% sem), mas NENHUMA das duas fontes citadas o traz. A reportagem do TNH1 (25/10/2022) não tem número nenhum, e a do Diário do Nordeste (26/09/2022) só cita cerca de 120 milhões de registros em 2020. Trocar as fontes pela nota do TSE de julho de 2022 (\"Brasil tem mais de 156 milhões de eleitoras e eleitores aptos a votar em 2022\") ou pela matéria do Metrópoles \"três a cada quatro eleitores já votam com identificação biométrica\".",
+   "Item 6 (placebo): a frase \"a correlação com o voto de 2022 (0,092) e de 2018 (0,095) é maior que a de 2026\" só vale ENTRE seções. Dentro do mesmo local, nas mesmas seções casadas, o placebo cai para 0,027 (2022) e -0,017 (2018), enquanto 2026 fica em 0,054 e 0,062. Então o resíduo dentro do local não é reproduzido pelo voto anterior, e \"o gradiente é do lugar\" vale só para a parte entre seções. Para equilíbrio, isso deve constar. O veredito não muda, porque o resíduo dentro do local é igual no 1º turno vencido por Flávio (0,056 contra 0,055) e a correlação das variações é zero (-0,003 dentro do local).",
+   "Item 7 (seções quase unânimes): o veredito \"falso\" se sustenta para a coincidência com os picos (96,6% abaixo de 20%; só 266 das 4.988 seções do 1% mais alto). Mas o texto omite que elas estão sobrerrepresentadas nesse topo: 5,3% do 1% mais alto contra 1,37% de todas as seções (6.802 de 497.897), cerca de 3,9 vezes. As pró-Flávio com mais de 90% estão ainda mais: 0,52% contra 0,074%, cerca de 7 vezes. Isso deve ser dito como associação modesta e comum aos dois lados. Uma alternativa defensável é o veredito \"enganoso\".",
+   "Item 3, veredito: \"falso\" é um pouco duro para \"escala inédita\". 8.632.488 é literalmente o maior valor dos dois turnos de 2026 (+3,5%, contra comparecimento +2,4%). Também não há série histórica comparável: os 9 milhões de 2018 (12,21% de 73,7 milhões) incluem eleitores identificados depois de novas tentativas, segundo o próprio texto da Tribuna PR, e por isso não servem nem para confirmar nem para negar. O que é falso é haver \"exploração\" ou mudança de escala em relação ao 1º turno (+0,07 ponto; correlação 0,82 entre turnos). Sugiro \"enganoso / sem base\", ou deixar claro que o \"falso\" se refere ao 1º turno.",
+   "Item 4, veredito: \"parcialmente verdadeiro\" é duro. A definição do relatório coincide no essencial com o leiame (\"eleitoras e eleitores com biometria, mas que não foram habilitados por meio dela\"), e \"liberação manual do mesário\" descreve corretamente a habilitação por ano de nascimento mais a digital do mesário. O que o agente aponta (o campo não informa o motivo e não inclui quem não tem biometria cadastrada) são ressalvas de interpretação, não erro na definição. Sugiro \"confere, com ressalva\".",
+   "Reforço opcional para o item 2 (não é erro): o viés pró-Lula dos liberados aparece igual no 1º turno. Pela estimativa no nível dentro do local, a fatia de Lula entre os NH é 56,0% contra 48,7% entre os demais no 1º turno (diferença de 7,3 pontos), e 59,2% contra 51,9% no 2º (7,3 pontos). Os coeficientes por variação também resistem a controles do voto em outros candidatos e do comparecimento no 1º turno: Lula 0,535 contra 0,534 e Flávio 0,435 contra 0,434, ainda iguais."
+  ],
+  "como_conferiu": "Escrevi código próprio, sem usar o lib.py nem os scripts do outro agente: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/refuta_biom/extrai.py, analise.py e extra.py. A saída está em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/refuta_biom/analise.log e resultado.json.\n\nO extrai.py lê cada zip do bweb uma vez (unzip -p, depois grep nas linhas de Presidente, depois parse em Python) e gera uma linha por BU. Foram os 28 zips de cada turno: 499.206 seções no 1º turno e 499.205 no 2º, nenhuma linha inconsistente, todas \"Apurada\". Bati seção por seção comparecimento, aptos, votos 13 e 22, outros, brancos e nulos contra o secoes2026.json.gz: zero diferenças e zero faltas nos dois turnos.\n\nO que reproduziu exatamente:\n- NH: 8.632.488 no 2º turno e 8.342.249 no 1º; 6,7317% do comparecimento (6,7518% sem o exterior, onde o NH é 0).\n- Margens: +4.430.191 no 2º turno, razão 1,9486; -2.224.965 no 1º, razão 3,749. Fatias dos válidos no 1º turno: 47,03% e 45,16%. Virada de 6.655.156; os +290.239 NH são 4,4% dela.\n- Limiar de inversão: 76,52% (ou 75,66% se todos os NH fossem votos válidos).\n- Quem estava à frente no 1º turno: 15 UFs e 2.906 de 5.571 municípios (2 empates).\n- Correlação 0,818 entre as taxas dos dois turnos.\n- Faixas de taxa dos dois turnos (174.302 seções e 51,14% abaixo de 5%; 97 seções e 61,20% em 50% ou mais; 4.154 seções com 20% ou mais, 2,49% do NH).\n- Correlações por nível: 0,068 e 0,055 dentro do local no 2º turno; 0,053 e 0,056 no 1º. Variação: -0,010, e -0,003 dentro do local.\n- Faixas por variação: 2,26 e 2,98 pontos (médias).\n- Regressão por variação com efeito fixo de local e erro agrupado: Lula 0,4878 e 0,4873; Flávio 0,3995 e 0,4016.\n- Estimativa no nível: 59,2% de Lula entre os NH, saldo de 1.527.712, margem restante de 2,90 milhões.\n- Contagens: 106 e 4; 6.885 + 14 = 6.899 e 374 + 10 = 384 com 90% ou mais; 6.802 e 368 com mais de 90%.\n- Taxas das quase unânimes: 8,396% (esperado pela UF 6,938%; mediana 7,49%; 3,38% com taxa de 20% ou mais), 9,477% e 4,98% (esperado 5,62%). Topo de 1%: 4.988 seções, 266 delas pró-Lula. Excesso dentro do local de cerca de 0,19 ponto.\n- Mesmas seções em outros pleitos: 90,38% dos válidos a Lula no 1º turno; 93,43% em 2022 (86,0% delas acima de 90%); 94,81% para Haddad em 2018.\n- Placebos: 0,0924 (2022) e 0,0945 (2018) entre seções; nas faixas, 49,96% a 60,56% e 43,78% a 57,52%.\n\nFoi aí que apareceram a mistura de turnos no ranking por UF, o 6,0% dos municípios ambíguo e o placebo dentro do local (0,027 e -0,017), que o texto omite.\n\nFuso: nenhuma das oito afirmações usa horário. Recorte: tratei o exterior à parte e usei só seções presentes nos dois turnos com comparecimento acima de zero.\n\nFontes reabertas:\n- Leiame dentro do zip: definição literal confirmada.\n- Times Brasil (24/10/2026): confirma a Res. 23.759 de 2/3/2026, art. 19, até quatro leituras, ano de nascimento repetido se não bater, registro em ata. Não fala da digital do mesário.\n- Fast Company (09/10/2026): digital do mesário, assinatura do caderno, imagem da última digital, documento com foto.\n- SBT (21/09/2026): cerca de 11% sem biometria; não fala da digital do mesário.\n- Jovem Pan (2018, via busca): digital do mesário já usada.\n- Tribuna PR (27/10/2018): 9 milhões, 12,21% de 73,7 milhões, incluindo quem foi identificado depois de novas tentativas.\n- TNH1 e Diário do Nordeste: não trazem o 24,5% de 2022, que vem da nota do TSE (38.320.884 de 156.454.011).\n- Portal do TSE: segue dando 403, e o texto da resolução não foi lido direto."
+ },
+ {
+  "confirma": true,
+  "correcoes": [
+   "Item 5 (geografia das 106): o '104 rurais ou indígenas pelo cadastro' só bate por erros que se compensam. A regex do outro agente marca como rural o CDP de Aquiraz (presídio) e deixa de fora o quilombo São Raimundo, em Viana/MA. Lendo uma a uma, as 104 seções que não são presídio são todas rurais, indígenas ou quilombolas. A partição 104 + 2 está certa, mas pela leitura manual, não pela regex. As indígenas são pelo menos 67 (63%), não 65 (61%): a regex não pega duas aldeias guarani em Viamão/RS ('COMUNIDADE TEKOA NHE ENGATU' e 'EEIEF KARAI NHE E KATU').",
+   "Item 5 (Flávio): os '58% rurais' entre as 384 dependem de termos frouxos da regex (COMUNIDADE, LOCALIDADE, KM, INTERIOR, LINHA, COLONIA). Só com termos inequívocos (zona rural, povoado, sítio, fazenda, assentamento, quilombo) a fatia cai para 29%. Uma aproximação que não depende de texto mostra a mesma coisa nos dois lados: das seções em locais de votação com até 2 seções, as de Lula com 90% ou mais são 65,1%, as de Flávio com 90% ou mais são 65,5%, e no país são 9,0%. Para as de Lula, a regex estrita dá 84,0% (rural ou indígena), contra 82,0% da regex frouxa, então essa conclusão se mantém.",
+   "Item 7 (biometria): ao citar só 'o RS lidera o 1% com maior taxa', a checagem deixa de fora o dado que mais favorece o relatório. Nesse 1% de seções com taxa de 19,3% ou mais, as de Lula com 90% ou mais são 5,23%, contra 1,37% no total (3,8 vezes mais), e a fatia de Lula é de 58,3%, contra 51,8%. É preciso dizer também que as de Flávio com 90% ou mais estão ainda mais sobrerrepresentadas (0,52% contra 0,07%, ou 7,4 vezes). Convém acrescentar dois números que fecham a questão. (a) Comparando locais do mesmo tamanho (até 2 seções), a taxa é de 8,35% nas de Lula com 90% ou mais, 8,65% nas demais e 11,44% nas de Flávio com 90% ou mais: não sobra excesso próprio de Lula. (b) Ordem de grandeza: nas 6.885 seções de Lula com 90% ou mais (Brasil) houve 115.799 liberações sem biometria no total (2,6% da margem de 4.430.191). O excesso sobre a taxa nacional de 6,75% é de cerca de 22,7 mil (0,5% da margem).",
+   "Item 7: a explicação 'digitais gastas, mais idosos' não foi testada. Deve aparecer como hipótese, não como conclusão. Os 11,92% das 4 seções de Flávio com 100% (85 a 118 eleitores cada) são amostra pequena demais para servir de comparação.",
+   "Item 8 (Benford): o sintético feito com a fatia do local de votação não é 'limpo por construção' no sentido que importa aqui. Ele herda a fatia real de cada local, e o local mediano das 106 tem 1 seção (o das 6.899 tem 2). Por isso o MAD de 0,0007 a 0,0008 entre real e sintético sai quase mecanicamente, e esse placebo não descarta manipulação no nível do local, que é justamente a tese do relatório. O placebo que não depende dos dados locais dá o mesmo resultado com folga, e deve ser a evidência principal. Com a fatia nacional, dígito 1 em 85,1% (Lula) e 79,4% (Flávio), com MAD de 0,125 e 0,118. Com a fatia da UF, MAD de 0,094 e 0,090. Os dois rejeitam Benford mais do que os dados reais (0,079 e 0,075).",
+   "Item 9 (2BL): a frase 'os desvios do 2BL são reproduzidos por um processo limpo' só vale quando o sintético usa a fatia real do local ou do município. Com a fatia nacional, a média do 2BL fica em 3,46 (Lula) e 3,02 (Flávio); com a da UF, em 3,45 e 3,89. Esses valores se afastam de 4,187 mais do que os reais (3,859 e 3,971). A redação correta: processos limpos também se desviam do 2BL, e o tamanho do desvio depende da heterogeneidade e da escala, por isso o desvio não indica fraude. Em 2018 vale o mesmo: o sintético por UF não reproduz o ajuste de Bolsonaro (4,459 contra 4,185 no real).",
+   "Item 9 (veredito): 'falso' é duro demais com a frase como foi escrita. O relatório diz 'dados estatísticos massivos', não dados eleitorais, e Benford é de fato ferramenta consagrada em contabilidade forense e auditoria (Nigrini). O que é falso é que o teste do primeiro dígito valha para votos por seção. Veredito sugerido: 'enganoso' (vale em geral, não se aplica aqui). As citações conferem: Deckert, Myagkov e Ordeshook, Political Analysis 19(3): 245-268 (DOI 10.1093/pan/mpr014), e Mebane 19(3): 269-272. Mas 'na melhor das hipóteses um detector ruim' é paráfrase. O resumo do artigo diz que a taxa de acerto do teste, nos dois sentidos, equivale à de jogar uma moeda; é melhor usar essa formulação.",
+   "Item 3: o 'saldo líquido de Lula nessas seções, 1,17 milhão contra 1,61 milhão' é Lula menos Flávio somente nas seções em que Lula teve 90% ou mais (1.168.455 em 2026 e 1.612.086 em 2022). O rótulo vem logo depois da lista dos dois lados e parece incluir as seções de Flávio. Descontadas as seções de Flávio com 90% ou mais, o saldo é de 1.103.991 em 2026 e 1.574.986 em 2022. O rótulo precisa deixar isso claro; a conclusão não muda."
+  ],
+  "como_conferiu": "Recalculei tudo com código meu, sem usar os npz, a regex nem o cache de biometria (t21) do outro agente. Cada base foi lida uma vez (secoes2026, 2022 e 2018), com checagem de tipo e de valores nulos. Em 2026 todas as seções são 'Apurada'; em 2022 e 2018 o filtro de seções anuladas não muda nenhum número.\n\nNúmeros que reproduzi exatamente:\n- 106 x 4, nenhuma no exterior.\n- 6.899 x 384 (90% ou mais), 6.816 x 378 (mais de 90%), 6.885 x 374 sem exterior, 14 e 10 do exterior, e 4.198 x 238 sobre o comparecimento.\n- 2022: 143 x 4 e 9.538 x 220. 2018: 328 x 4 e 15.133 x 1.328. 1º turno de 2026: 38 x 2, 3.686 x 186 e 6.100 x 726.\n- Margem de 4.430.191, as 106 com 14.860 votos (0,335% da margem), comparecimento mediano de 128 contra 263.\n- Distribuição: média 0,5212, desvio 0,1730, assimetria 0,280, curtose em excesso -0,546. A normal preveria 7.134 e 3.720.\n- Persistência: 106 de 106, 60 de 61, 46 de 47, e entre as 6.008 casadas com 2022, 86,1% e 99,6%.\n- Correlação 2022-2026: 0,9724 com o exterior; só Brasil dá 0,9726, como no JSON dele.\n\nBiometria: li eu mesmo o QT_ELEI_BIOM_SEM_HABILITACAO das linhas de Presidente dos zips do bweb, do 2º turno e também do 1º turno. Os totais batem com o T21 (8.632.488 e 8.342.249), e o comparecimento é igual ao da base em todas as seções. Reproduzi 6,75%, 4,98%, 8,40%, 9,53%, 11,92%, as faixas (9,48%, 8,43%, 8,40%), 1º turno 8,16% e 4,91%, Nordeste de 5,9% a 9,2%, indígenas 5,04%, corte do 1% em 19,32% e RS com 862.\n\nBenford: reproduzi o dígito 1 e o MAD de todos os casos, o 2BL (z de -82,6 e -55,7), o último dígito (p de 0,836 e 0,194; em 2022, 0,044), as faixas de tamanho (69,6% e 30,4%), os aptos (mediana 327, percentil 99 em 441, máximo 930, dígito 3 em 62,0%, MAD 0,136). Acrescentei sintéticos com a fatia nacional e com a da UF.\n\nLocais: montei um cadastro próprio do 2º turno, li a lista das 106 e das 4 uma a uma, testei a regex estrita contra a frouxa e usei o número de seções por local como aproximação independente de área rural. As citações de Deckert e de Mebane foram conferidas na Cambridge e no IDEAS/RePEc.\n\nTodos os números conferem e os vereditos se sustentam, com exceção do 9, que ficou duro demais. As correções acima são de redação, de contagem auxiliar e de equilíbrio.\n\nScripts e saídas em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cetico_unan/:\n- Scripts: a_extrai.py, b_contagens.py, c_nh.py, d_benford.py, e_locais.py, f_rural.py, g_nh.py, h_extra.py.\n- Saídas: b_contagens.json, d_benford.json, nh1t.tsv, nh2t.tsv.\n\nFontes: https://ideas.repec.org/a/cup/polals/v19y2011i03p245-268_01.html e https://cambridge.org/core/product/3B1D64E822371C461AF3C61CE91AAF6D"
+ },
+ {
+  "confirma": true,
+  "correcoes": [
+   "Base e totais (nota de transparência). Das 499.205 seções, 27 do exterior não têm DT_ABERTURA nem DT_ENCERRAMENTO (831 votantes, Lula +92). Por isso as janelas somam 499.178 seções (150.771 + 348.407) e a frente de Lula dentro delas é 4.430.099, não 4.430.191. Isso não muda nada, mas a checagem deveria dizer. Fora isso, reproduzi do zero, a partir dos 28 zips, os totais do relatório: 499.205 seções, 128.236.074 de comparecimento, 8.632.488 eleitores sem biometria e frente de 4.430.191.",
+   "Item 3, ponto (1). O corte \"antes da liminar\" (até 17:02:59 de Brasília) depende do horário da decisão. O Poder360 diz 17h03 (reconfirmei na página), Flávio diz 17h01 e a Bloomberg Línea, 17h11. Se a decisão for das 17h01, o grupo \"antes\" fica só com as seções até 17:00:59, onde Flávio vence por 606.273. Há um argumento mais robusto e ainda mais forte: o despacho do TSE mandando cumprir saiu às 17h49, e a comunicação chegou ao TRE-SP às 18h17. Nas 491.881 seções fechadas até 17:48:59 de Brasília (98,5%), Lula vence por 4.215.493. E se todas as 135.629 seções fechadas depois de 17:02:59 voltassem à fatia que tiveram no 1º turno, Lula ainda venceria por cerca de 2.363.953.",
+   "Item 3, ponto (3). \"A mudança é igual em todas as janelas\" exagera. Nos números brutos, a janela das 19h ou depois variou +3,25 pontos, 0,45 acima da nacional (+2,80). A igualdade só aparece dentro do município (-0,03) e do local de votação (-0,001). Ela também esconde que, na capital do RJ (o maior bloco das 19h), essas seções variaram +4,10, contra +3,62 no resto da cidade. O sinal se inverte em João Pessoa (-1,30), São Paulo (-0,37) e Salvador (-0,25), e o efeito líquido é nulo. Reescrever assim: igual nas três primeiras janelas; na das 19h, maior no bruto, mas igual dentro do município.",
+   "Item 3, ponto (2), uso de 2018. O 2º turno de 2018 não reproduz as \"duas eleições\" no corte das 17h00: Haddad teve 44,74% até 17h00 e 44,97% depois, só 0,2 ponto de diferença. Só a cauda de 1.048 seções fechadas às 17h16 ou depois é mais petista. 2018 serve para mostrar que a cauda tardia pende para a esquerda, não para o corte J0 contra o resto.",
+   "Item 3, \"dentro de cada UF, só 1,25 ponto\". O número sai no relógio de Brasília, ponderado pelo grupo até 17h00; no relógio local dá 1,38 a 1,45. Falta a referência. A mesma diferença dentro da UF foi de 2,57 no 1º turno de 2026 (sem prorrogação), 0,45 no 2º turno de 2022 e 0,59 no 2º turno de 2018. Ou seja, 2026 fica acima de 2022 e 2018, mas abaixo do 1º turno de 2026. Convém mostrar esses valores em vez de dizer \"só\".",
+   "Item 3, \"as que fecham no primeiro minuto concentram-se no Sul e no Centro-Oeste\". O Centro-Oeste só aparece por causa do relógio local: MT e MS dão 100% em \"até 17h00\" pelo fuso. No relógio de Brasília, a fatia é de 18,3% em MT, 30,9% em MS, 2,8% no DF e 36,6% em GO, contra 25,2% no país. Trocar por: Sul (RS 43%, SC 47%, PR 38%) e ES, GO e MG (33% a 37%).",
+   "Item 4. \"Em hora de Brasília, 237.896 seções (64% da janela) fecharam antes das 17h03\" mistura recortes. 237.896 é o total do país entre 17:01:00 e 17:02:59 de Brasília, e inclui 25 mil seções do oeste que estavam no grupo \"até 17h00\" local; 64% é 237.896 sobre 373.525. Dentro da janela 17h01 a 17h15 do relatório, o número certo é 221.301 de 339.593 seções (65,2%), com Lula +2.568.711.",
+   "Item 5. \"No 1º turno... essa janela... com Lula a 58,47%\": 58,47% é a fatia de Lula nos votos dos dois finalistas. Nos válidos, ele teve 54,68%. É preciso dizer qual das duas.",
+   "Item 6. \"Recebidos pelo TSE entre 20h e 21h\" está impreciso. Das 6.333 seções da hora 19, 348 boletins chegaram entre 20h e 21h e 5.985 (94%) entre 21h e 22h. Nas 6.342 seções das 19h ou depois: 352, 5.989 e 1 às 23h.",
+   "Item 7. \"O efeito da prorrogação foi sobre o horário de fechamento, não sobre a quantidade de votos\" deve virar \"quase nenhum efeito sobre a quantidade\". Teste novo de comparecimento nas mesmas seções: nas das 19h ou depois, o comparecimento subiu 3,13 pontos do 1º para o 2º turno, contra 1,87 no país. Comparado ao resto do mesmo município, o excesso é de só +0,19 ponto, cerca de 4,3 mil eleitores sobre 2.305.154 aptos. É da ordem de milhares, coerente com os votos tardios contados nos logs.",
+   "Itens 8 e 13, os \"cerca de 6 mil votos depois das 17h03\". Esse número vem da amostra de logs, e a amostra não representa as seções que fecharam tarde. São 3.897 urnas em 411 municípios, com só 3 seções das 19h ou depois (seriam 49,5 numa amostra aleatória, 16 vezes menos) e 35 das 17h16 a 18h59 (esperado: 19). Além disso, pelo arquivo de contexto, o corte das 17h03 foi aplicado na hora local, não na de Brasília. A fonte certa são os logs completos citados pela CNN/Setup News, que reabri: 34.330 votos depois das 17h, 13.961 entre 17h e 17h01, 29.001 entre 17h e 17h05 e 5.329 de 17h05 até o último, às 19h06. Escrever: \"mais de 5,3 mil depois das 17h05; depois das 17h03, provavelmente algo entre 5 e 10 mil, e no máximo cerca de 20 mil\". Os vereditos não mudam. Também vale dizer que a TMC não é a fonte primária da divisão por minuto: ela está na própria CNN.",
+   "Item 13. O veredito \"parcialmente verdadeiro\" é brando. O núcleo da frase, \"milhões de votos foram computados na calada da noite\", é falso pelos próprios números da checagem: 1,86 milhão é o comparecimento do dia inteiro, e os votos tardios são milhares. \"Índices avassaladores\" também é falso para o conjunto, que deu 55,22%, e o maior bloco (RJ, 44% das seções) deu vitória a Flávio. Só o detalhe literal \"picos acima de 70%\" existe (BA e as 3 seções do MA), e é o patamar normal desses lugares. Sugiro \"falso\", ou separar em duas partes: a tabela, \"confere mas a leitura não se sustenta\"; a conclusão, \"falso\". Corrigir também a comparação com o 1º turno, que mistura relógios: \"67,29% dos válidos (70,67% nos dois finalistas)\". No relógio local (o mesmo dos 55,22%), são 7.944 seções com 67,61% dos válidos e 70,67% dos dois finalistas. No de Brasília, 8.366 seções com 67,29% e 70,33%.",
+   "Item 14, biometria. O veredito \"falso\" se mantém, mas o texto é seletivo. \"Se espalham sem padrão\" e \"a faixa mais alta tem só 79\" omitem que a 9ª faixa (taxa municipal de 8,4% a 9,7%) concentra 2.369 das 6.342 seções das 19h ou depois (37%). As faixas 9 e 10 juntas têm 38,6%, contra 20% esperados. O motivo é que a cidade do Rio tem 8,62% sem biometria e João Pessoa, 8,53%. Os percentuais citados para as capitais (Rio 6,9% etc.) são das seções das 19h, não das cidades. Ou seja, no nível do município há sobrerrepresentação. O que sustenta o \"falso\": (a) o grupo do relatório é o de todas as seções fechadas depois das 17h, e para ele a correlação com a taxa sem biometria é negativa, r = -0,12 entre zonas e entre municípios no relógio local e cerca de -0,30 no de Brasília (a checagem só testou a fatia das 17h16 em diante, r perto de 0); (b) dentro da mesma UF, município ou local, as seções tardias têm menos liberação sem biometria. Reproduzi a comparação padronizada da checagem: 6,36 contra 7,03 na UF, 7,14 no município e 6,89 no local de votação; para todas depois das 17h, 6,65 contra 6,84 no município. Detalhe: as \"6.106 zonas\" são pares zona e município; por zona eleitoral (2.641) o r é -0,03.",
+   "Item 15. \"Onde a fiscalização tende a ser maior\" é afirmação sem dado e deve sair do texto ou ser marcada como hipótese. O veredito \"não verificável\" está certo, porque o bweb não tem campo de fiscais."
+  ],
+  "como_conferiu": "Escrevi meus próprios scripts e não usei os da outra checagem para calcular. (1) Li direto os 28 zips do bweb do 2º turno de 2026 (latin1, ponto e vírgula, só o cargo de presidente) e montei uma tabela por seção com DT_ABERTURA, DT_ENCERRAMENTO, QT_ELEI_BIOM_SEM_HABILITACAO, DT_EMISSAO_BU, DT_BU_RECEBIDO e os votos 13, 22, 95 e 96. Resultado: 499.205 seções, todas \\\"Apurada\\\", 27 do exterior sem horário. Cruzei com secoes2026.json.gz e não houve nenhuma divergência em L, R, comparecimento ou horário de encerramento. (2) Calculei o fuso pela hora de abertura mais comum em cada município (deslocamento = 8 menos essa hora; exterior sem conversão). Deu igual à checagem: 22 municípios do AC e 11 do AM com +2h, 339 com +1h (AM, MT com 142, MS, RO, RR), Noronha com -1h, e nenhum município com horas de abertura misturadas. (3) Recalculei as janelas J0 até 17:00:59, J1 até 17:15:59, J2 até 18:59:59 e J3 a partir de 19:00:00, no relógio local e no de Brasília. Também refiz a contagem por minuto, a composição do J0, as UFs e municípios das seções das 19h, a hora 19 e as das 20h em diante, Noronha e os horários de emissão e recebimento do BU. Para o 1º turno de 2026 usei a base; 2022 e 2018 vieram dos seus .json.gz. Calculei também a variação entre turnos nas mesmas seções (por janela e dentro de município e local), as diferenças dentro da UF em 2026, 2022 e 2018, os contrafactuais, a taxa sem biometria padronizada por UF, município e local, as correlações e as faixas, um teste novo de comparecimento entre turnos e a composição da amostra de logs (T3_logs.json) contra o bweb. Todos os números decisivos dos 15 itens bateram exatamente (52,395%, -1.747.639, 150.771 e 348.407 seções, +6.177.738, 125.653 e 50,99%, 237.896 e +1.780.183, 363.549 e +1.173.910, 339.593, 88.071.750 e 53,463%, 2.472 e 57,165%, 6.333 e 6.342 seções, 4.149.869, 4.279.334, BA, PE, MA, SP, RJ e PB, a série por minuto de 2022, os +2,80, +2,76, +2,67 e +3,25, os -0,027 e -0,001, a biometria padronizada 7,03, 7,138 e 6,89, o cruzamento 102, 3.300, 2.849 e 91, 2018, 2022 e o 1º turno). As correções são de recorte, redação e rigor, e só um veredito muda (item 13). (4) Reabri na web a CNN (34.330 votos, com 13.961, 29.001 e 5.329 e o último voto às 19h06; 3.724.999 no 1º turno), a TMC e o Poder360 (liminar divulgada às 17h03, válida só onde as urnas não tinham sido fechadas). O horário do despacho do TSE (17h49) e do TRE-SP (18h17) vem do arquivo de contexto verificado. Os scripts e as saídas estão em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cetico2/ (ler_zips_2t.py, analise.py, extra.py, zips2t_secoes.json.gz, resultado_cetico2.json, extra.json)."
+ },
+ {
+  "confirma": false,
+  "correcoes": [
+   "(d1) Mudar o veredito de 'sem fonte' para 'parcialmente verdadeiro'. Existe fonte para 40 milhões efetivamente pagos à família de um ministro do STF, só que em reais. Segundo dados da Receita enviados à CPI do Crime Organizado (Folha, 08/04/2026, republicado pelo brasilagro.com.br), o Banco Master pagou ao escritório de Viviane Barci de Moraes, em 2024, 11 parcelas de R$ 3.646.529,72, num total de R$ 40.111.826,92. Uma auditoria interna do BRB registra o mesmo valor (Estadão). De fevereiro de 2024 a novembro de 2025 foram 'pouco mais de R$ 80 milhões', 22 das 36 parcelas (Gazeta do Povo, 09/06/2026). O relatório erra a moeda: R$ 40 milhões são cerca de US$ 7 a 8 milhões, não US$ 40 milhões. Também generaliza ao falar em 'família de magistrados', no plural. A frase 'R$ 13,6 milhões em quatro comprovantes' subestima o que está documentado. O escritório contesta os números ('incorretos e vazados ilicitamente'), e ninguém foi condenado.",
+   "(a2) O 'Zero hora' está errado. Pelo -aux.json, os arquivos de cada seção existiam no site de resultados a partir das 20h02 a 23h31 de 25/10, mas o acesso só está provado às 07h51 a 07h56 de Brasília de 26/10 (commit do pré-registro e primeiro arquivo baixado), cerca de 13 h depois do fim da votação. Além disso, o pacote em lote desses mesmos arquivos ('Arquivos transmitidos para totalização - Segundo turno', bu_imgbu_logjez_rdv_vscmr_2026_2t_UF.zip, com 28 arquivos) só entrou no portal de dados abertos na quarta-feira, 28/10, entre 11h07 e 11h11 de Brasília. Isso dá 62,0 h desde as 21h09, 64,1 h desde as 19h e 66,1 h desde as 17h. Ou seja, os 'quase três dias' do relatório valem para esse lote, embora as 72 h continuem exageradas. Para comparar, o mesmo lote saiu em 73,8 h no 2º turno de 2022 (quarta, 02/11/2022, 18h46). O veredito 'falso' continua de pé, porque não houve sigilo: os arquivos de cada seção eram públicos no site de resultados. Mas a explicação precisa reconhecer esse lote.",
+   "(a2) Retirar 'antes mesmo de o bweb ser gerado'. O primeiro download do projeto foi às 10:56 UTC (07h56 de Brasília) de 26/10, 14 minutos DEPOIS do carimbo de geração do bweb (07h42 de Brasília; o DT_BU_RECEBIDO do bweb bate minuto a minuto com o dr do aux em 213 de 214 seções de AC, AP, DF e AL, logo os dois estão no mesmo fuso). A formulação correta é: antes de o bweb chegar ao CDN (08h59) e 32 h antes de ele entrar no catálogo. Pelo mesmo motivo, os testes T9 (12:07 UTC), T3 (12:09 UTC) e T30 (15:32 UTC) de 26/10 rodaram 'antes de o bweb entrar no catálogo', e não 'antes do bweb'.",
+   "(a1) Trocar a explicação provável do erro de data. Não foi o cache: a 'manhã de quarta, 28/10' coincide com a publicação do lote de arquivos por urna (BU, log, RDV) no mesmo portal, às 11h07 de Brasília. No CDN, esse lote tem Last-Modified de segunda, 26/10, entre 18:09 e 19:56 UTC, o mesmo padrão do bweb: arquivo no servidor na segunda e catálogo depois. O veredito 'falso' para o bweb continua certo, porque o relatório diz explicitamente 'arquivos de Boletim de Urna (BWeb)', que entraram na terça às 15h59.",
+   "(a1) Corrigir a contagem de arquivos. São 28 zips, um para cada uma das 27 UFs e um para o exterior, mais 28 .sha512, e não '27 zips'. O catálogo lista 27 URLs .zip e 29 .sha512 porque o recurso do BU de RR aponta para o .sha512. O registro consultas_bweb_2t.txt também erra ao dizer '28 UFs mais exterior'.",
+   "(a1) A prova de fuso está errada. As consultas das 17:40 UTC de 27/10 e das 23:17 UTC de 28/10 não distinguem UTC de Brasília: com o created lido em Brasília, a publicação seria às 18h59 de terça, também depois das 17:40 UTC. A prova certa vem do package_search, que devolve o metadata_modified com sufixo Z (UTC), por exemplo 2026-10-27T19:22:03.090Z, e esse é o padrão do CKAN. A conclusão não muda: mesmo lido em Brasília, seria terça à noite, com 45,8 h desde as 21h09.",
+   "(c) A frase 'Antes da viagem não havia pedido nem mandado de prisão' está errada quanto ao pedido. Os deputados Lindbergh Farias, Rogério Correia e Ana Elisa (PT) pediram a Moraes a preventiva e um alerta da Interpol numa matéria do Poder360 publicada às 15h25 de 27/10, mais de 7 horas antes da entrada na Argentina, às 22h50. O pedido citava o descumprimento do prazo, o paradeiro desconhecido e a reportagem do Infobae. A PF não pediu prisão antes da saída e não houve mandado, então o veredito 'falso' continua valendo. Mas 'inverte a ordem dos fatos' deve ser trocado por: o sumiço e o descumprimento do prazo vieram antes de qualquer pedido de prisão, e o único pedido anterior à saída foi de parlamentares, não da PF. Esse pedido se apoiou em parte em notícias de imprensa, o que pode explicar a expressão 'boatos de imprensa' no relatório.",
+   "(e1) A frase 'o governo dos EUA não deixou de reconhecer o resultado formalmente' é enganosa, porque dá a entender que houve reconhecimento. Não houve reconhecimento formal nem nota de felicitação: O Liberal e o Estadão registram silêncio em 26/10, e segundo a Folha a nota pronta do Departamento de Estado foi adiada pela Casa Branca. Também não houve declaração formal de não reconhecimento. Isso dá alguma base ao 'reconhecimento internacional dividido' do relatório.",
+   "(e1/e3) Tratar os 35 mil votos como teto. A Reuters (análise de Pedro Burgos, do Insper) diz 'menos de 35 mil' votos nas duas horas extras, e o TSE fala em 34,3 mil depois das 17h (0,027%). Esses votos incluem quem já estava na fila, que votaria de qualquer jeito. Na amostra de logs do projeto, só cerca de 6 mil votos são posteriores à liminar das 17h03. A conclusão contra a tese fica mais forte.",
+   "(b/d2) Acrescentar que o pedido da PF a Moraes (Folha/G1, via Jornal de Brasília, 27/10) também cita o inquérito do Master/Dark Horse: recursos de Vorcaro que teriam custeado a estrutura de Eduardo Bolsonaro nos EUA. A medida contra Flávio se apoia em parte na própria apuração do Master, o que contradiz ainda mais a tese da 'cortina de fumaça'. Sobre o InfoMoney: a decisão em si 'estabelece o cancelamento' dos passaportes, então o conteúdo de 'assinou o cancelamento' tem base; o erro do relatório está no horário e no autor dos 7 minutos, que é a PF.",
+   "(e2) Ajuste de precisão. A negativa inicial da Migraciones (manhã e tarde de terça) é anterior à entrada registrada às 22h50 de 27/10, então não prova que a negativa fosse falsa. Melhor escrever: 'até a tarde de terça o governo dizia não haver registro de entrada; a entrada foi registrada às 22h50'.",
+   "(d2) Ajuste de precisão. Os R$ 40 milhões ligados a Alexandre Silveira são a soma de R$ 20 milhões em 2022 (relato já publicado em junho) e R$ 20 milhões em 2024, revelados em 28/10 (Metrópoles, Thiago Herdy). Vorcaro se comprometeu a pagar US$ 24 milhões (cerca de R$ 134 milhões) para o Dark Horse, e Flávio cobrou os repasses. Dizer que 'Flávio pediu R$ 134 milhões' simplifica."
+  ],
+  "como_conferiu": "Refiz com código próprio os números decisivos. Os scripts e as saídas estão em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/relatorio_pericial/cetico_cap6/.\n\n(1) Prazos do bweb. O script a1/recalc_prazos.py leu os pkg*.json. Lendo o created em UTC, cheguei a 42,8 / 45,0 / 47,0 h no 2º turno de 2026, 46,5 h no 1º turno de 2026, 46,2 h no 2º turno de 2022 e 73,0 h no 1º turno de 2022, os mesmos números do outro agente. Lendo o created em Brasília, todos ficam 3 h maiores, e a publicação continua sendo terça-feira.\n\n(2) Fuso e lote por urna. Consultei a API CKAN ao vivo só nos metadados: package_search ordenado por modificação e package_show do pacote de 2022. O package_search devolve o horário com sufixo Z. Também revelou o pacote resultados-2026-arquivos-transmitidos-para-totalizacao, com o lote de 2º turno catalogado em 28/10 às 14:07 UTC, que o outro agente não viu. O package_show sem anticache voltou do cache sem esse lote. O script a1/lotes_urna.py compara o lote com 2022 e com o 1º turno de 2026. Fiz HEAD no CDN, sem baixar nada: o Last-Modified do bweb de SP é 26/10 12:00:04 GMT, e o dos zips do lote é de 26/10, entre 18:09 e 19:56 UTC.\n\n(3) Arquivos por seção. O script a2/aux_check.py leu os 3.902 aux.json: geração entre 20:02:12 e 23:31:29, recebimento entre 17:05:12 e 21:42:34, todos em 25/10. O mtime mais antigo é 10:56:24 UTC de 26/10. O script a2/bweb_vs_aux.py confirmou que o bweb foi gerado em 26/10 às 07:42:38 e que o DT_BU_RECEBIDO bate com o dr do aux, o que fixa os dois no mesmo fuso. Conferi os commits do git: pré-registro às 10:51 UTC, T9 às 12:07, T3 às 12:09 e T30 às 15:32 UTC de 26/10.\n\n(4) Totais. O script e/totais.py leu a base secoes2026 uma vez só. Resultado: margem de 4.430.191, comparecimento de 128.236.074, abstenção de 21,08% no 1º turno e 19,22% no 2º, e 35 mil votos equivalem a 0,027% do comparecimento.\n\n(5) Notícias. Reabri Times Brasil, Gazeta do Povo, InfoMoney, Poder360 (intimação e pedido do PT às 15h25), Rondonoticias, Jornal de Brasília, CNN Brasil, El Observador, Ámbito, Perfil, Metrópoles (vistos e Silveira), CBS, Diário Carioca, Terra, Gazeta do Povo e Bahia Notícias (contratos de Moraes), brasilagro/Folha (os R$ 40,1 milhões de 2024), InfoMoney e Poder360 (indiciamento), Aos Fatos, Midiamax, Reuters/Irish Times, Al Jazeera, O Liberal, Xinhua (duas matérias), Global Times (duas), China Youth Daily/Sina e bannedbook/新视野. Também usei o arquivo do projeto contexto_2t_2026_e_onde_estaria_a_fraude.txt.\n\nConclusão: 8 dos 9 vereditos se sustentam. O do item (d1) deve mudar de 'sem fonte' para 'parcialmente verdadeiro'. Os itens (a1), (a2), (c) e (e1) têm erros factuais na explicação ou no número conferido. O mais importante é que o lote de arquivos por urna saiu de fato na manhã de quarta, 28/10, e a checagem do outro agente não registra isso."
+ }
+]

@@ -1,0 +1,16 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+content-type: application/json;charset=utf-8
+referrer-policy: strict-origin
+x-permitted-cross-domain-policies: master only
+content-security-policy: default-src https:; script-src 'self' 'unsafe-inline' www.google-analytics.com www.googletagmanager.com *.rybena.com.br; img-src 'self' data: blob: www.tse.jus.br www.justicaeleitoral.jus.br *.rybena.com.br; font-src 'self' fonts.gstatic.com *.rybena.com.br; style-src https: 'unsafe-inline' fonts.googleapis.com *.rybena.com.br; connect-src https: blob: *.rybena.com.br www.google-analytics.com www.googletagmanager.com; object-src 'self'; media-src 'self' *.rybena.com.br; frame-src *.rybena.com.br;
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+x-frame-options: DENY
+cache-control: public, must-revalidate, max-age=3600
+date: Thu, 29 Oct 2026 02:09:33 GMT
+content-length: 836
+alt-svc: h3=":443"; ma=93600
+strict-transport-security: max-age=63072000 ; includeSubDomains ; preload
+

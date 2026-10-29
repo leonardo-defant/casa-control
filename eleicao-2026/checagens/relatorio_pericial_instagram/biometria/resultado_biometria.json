@@ -1,0 +1,1561 @@
+{
+ "totais": {
+  "1": {
+   "secoes": 499206,
+   "comp": 125275835,
+   "NH": 8342249,
+   "L": 53879538,
+   "R": 56104503,
+   "O": 9321993,
+   "B": 2300798,
+   "N": 3669003,
+   "apt": 158745007,
+   "pct_NH_comp": 6.659104686869578,
+   "L_menos_R": -2224965,
+   "pct_L_validos": 45.16078206069611,
+   "pct_R_validos": 47.0257045004111,
+   "pct_L_dos_dois": 48.98850552326951
+  },
+  "2": {
+   "secoes": 499205,
+   "comp": 128236074,
+   "NH": 8632488,
+   "L": 64256232,
+   "R": 59826041,
+   "O": 0,
+   "B": 1430496,
+   "N": 2723305,
+   "apt": 158744977,
+   "pct_NH_comp": 6.731715757299307,
+   "L_menos_R": 4430191,
+   "pct_L_validos": 51.7851828842626,
+   "pct_R_validos": 48.2148171157374,
+   "pct_L_dos_dois": 51.7851828842626
+  },
+  "razao_NH2_sobre_margem2": 1.9485588770326154,
+  "NH_total_dos_dois_turnos": 16974737
+ },
+ "quem_a_frente": {
+  "1": {
+   "UFs_Flavio_a_frente": [
+    "AC",
+    "DF",
+    "ES",
+    "GO",
+    "MG",
+    "MS",
+    "MT",
+    "PR",
+    "RJ",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SP",
+    "TO"
+   ],
+   "UFs_Lula_a_frente": [
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "MA",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "RN",
+    "SE"
+   ],
+   "municipios": 5571,
+   "municipios_Flavio_a_frente": 2906,
+   "municipios_Lula_a_frente": 2663,
+   "secoes_Flavio_a_frente": 278222,
+   "secoes_Lula_a_frente": 217536,
+   "secoes": 497897,
+   "pct_comparecimento_nas_UFs_Flavio_a_frente": 65.35253646465321
+  },
+  "2": {
+   "UFs_Flavio_a_frente": [
+    "AC",
+    "DF",
+    "ES",
+    "GO",
+    "MS",
+    "MT",
+    "PR",
+    "RJ",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SP",
+    "TO"
+   ],
+   "UFs_Lula_a_frente": [
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "MA",
+    "MG",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "RN",
+    "SE"
+   ],
+   "municipios": 5571,
+   "municipios_Flavio_a_frente": 2695,
+   "municipios_Lula_a_frente": 2875,
+   "secoes_Flavio_a_frente": 245639,
+   "secoes_Lula_a_frente": 250108,
+   "secoes": 497897,
+   "pct_comparecimento_nas_UFs_Flavio_a_frente": 55.42481210555447
+  }
+ },
+ "por_UF": {
+  "AC": {
+   "1": {
+    "pct_NH": 4.99,
+    "pct_L_dos_dois": 30.8
+   },
+   "2": {
+    "pct_NH": 4.994,
+    "pct_L_dos_dois": 33.43
+   }
+  },
+  "AL": {
+   "1": {
+    "pct_NH": 6.527,
+    "pct_L_dos_dois": 57.5
+   },
+   "2": {
+    "pct_NH": 6.962,
+    "pct_L_dos_dois": 60.77
+   }
+  },
+  "AM": {
+   "1": {
+    "pct_NH": 5.39,
+    "pct_L_dos_dois": 51.74
+   },
+   "2": {
+    "pct_NH": 5.427,
+    "pct_L_dos_dois": 54.02
+   }
+  },
+  "AP": {
+   "1": {
+    "pct_NH": 4.399,
+    "pct_L_dos_dois": 50.03
+   },
+   "2": {
+    "pct_NH": 4.578,
+    "pct_L_dos_dois": 52.88
+   }
+  },
+  "BA": {
+   "1": {
+    "pct_NH": 7.289,
+    "pct_L_dos_dois": 69.87
+   },
+   "2": {
+    "pct_NH": 7.453,
+    "pct_L_dos_dois": 71.31
+   }
+  },
+  "CE": {
+   "1": {
+    "pct_NH": 6.883,
+    "pct_L_dos_dois": 66.93
+   },
+   "2": {
+    "pct_NH": 7.125,
+    "pct_L_dos_dois": 68.93
+   }
+  },
+  "DF": {
+   "1": {
+    "pct_NH": 4.835,
+    "pct_L_dos_dois": 42.62
+   },
+   "2": {
+    "pct_NH": 4.502,
+    "pct_L_dos_dois": 45.72
+   }
+  },
+  "ES": {
+   "1": {
+    "pct_NH": 6.434,
+    "pct_L_dos_dois": 40.8
+   },
+   "2": {
+    "pct_NH": 6.284,
+    "pct_L_dos_dois": 43.63
+   }
+  },
+  "GO": {
+   "1": {
+    "pct_NH": 6.802,
+    "pct_L_dos_dois": 36.69
+   },
+   "2": {
+    "pct_NH": 6.638,
+    "pct_L_dos_dois": 40.34
+   }
+  },
+  "MA": {
+   "1": {
+    "pct_NH": 5.989,
+    "pct_L_dos_dois": 67.44
+   },
+   "2": {
+    "pct_NH": 6.295,
+    "pct_L_dos_dois": 69.54
+   }
+  },
+  "MG": {
+   "1": {
+    "pct_NH": 6.686,
+    "pct_L_dos_dois": 47.32
+   },
+   "2": {
+    "pct_NH": 6.807,
+    "pct_L_dos_dois": 50.43
+   }
+  },
+  "MS": {
+   "1": {
+    "pct_NH": 7.82,
+    "pct_L_dos_dois": 37.18
+   },
+   "2": {
+    "pct_NH": 7.247,
+    "pct_L_dos_dois": 40.4
+   }
+  },
+  "MT": {
+   "1": {
+    "pct_NH": 6.723,
+    "pct_L_dos_dois": 30.94
+   },
+   "2": {
+    "pct_NH": 6.597,
+    "pct_L_dos_dois": 33.94
+   }
+  },
+  "PA": {
+   "1": {
+    "pct_NH": 5.405,
+    "pct_L_dos_dois": 52.87
+   },
+   "2": {
+    "pct_NH": 5.559,
+    "pct_L_dos_dois": 55.02
+   }
+  },
+  "PB": {
+   "1": {
+    "pct_NH": 6.969,
+    "pct_L_dos_dois": 64.96
+   },
+   "2": {
+    "pct_NH": 7.266,
+    "pct_L_dos_dois": 67.46
+   }
+  },
+  "PE": {
+   "1": {
+    "pct_NH": 6.255,
+    "pct_L_dos_dois": 67.16
+   },
+   "2": {
+    "pct_NH": 6.525,
+    "pct_L_dos_dois": 69.2
+   }
+  },
+  "PI": {
+   "1": {
+    "pct_NH": 8.652,
+    "pct_L_dos_dois": 74.66
+   },
+   "2": {
+    "pct_NH": 9.003,
+    "pct_L_dos_dois": 75.88
+   }
+  },
+  "PR": {
+   "1": {
+    "pct_NH": 7.479,
+    "pct_L_dos_dois": 34.24
+   },
+   "2": {
+    "pct_NH": 6.988,
+    "pct_L_dos_dois": 37.42
+   }
+  },
+  "RJ": {
+   "1": {
+    "pct_NH": 7.051,
+    "pct_L_dos_dois": 42.65
+   },
+   "2": {
+    "pct_NH": 7.445,
+    "pct_L_dos_dois": 46.9
+   }
+  },
+  "RN": {
+   "1": {
+    "pct_NH": 7.909,
+    "pct_L_dos_dois": 63.21
+   },
+   "2": {
+    "pct_NH": 8.099,
+    "pct_L_dos_dois": 65.72
+   }
+  },
+  "RO": {
+   "1": {
+    "pct_NH": 6.244,
+    "pct_L_dos_dois": 27.74
+   },
+   "2": {
+    "pct_NH": 6.266,
+    "pct_L_dos_dois": 30.39
+   }
+  },
+  "RR": {
+   "1": {
+    "pct_NH": 3.843,
+    "pct_L_dos_dois": 24.34
+   },
+   "2": {
+    "pct_NH": 4.098,
+    "pct_L_dos_dois": 27.54
+   }
+  },
+  "RS": {
+   "1": {
+    "pct_NH": 8.227,
+    "pct_L_dos_dois": 39.1
+   },
+   "2": {
+    "pct_NH": 8.453,
+    "pct_L_dos_dois": 42.16
+   }
+  },
+  "SC": {
+   "1": {
+    "pct_NH": 7.556,
+    "pct_L_dos_dois": 27.31
+   },
+   "2": {
+    "pct_NH": 7.51,
+    "pct_L_dos_dois": 30.58
+   }
+  },
+  "SE": {
+   "1": {
+    "pct_NH": 6.761,
+    "pct_L_dos_dois": 67.2
+   },
+   "2": {
+    "pct_NH": 6.968,
+    "pct_L_dos_dois": 69.53
+   }
+  },
+  "SP": {
+   "1": {
+    "pct_NH": 6.023,
+    "pct_L_dos_dois": 42.38
+   },
+   "2": {
+    "pct_NH": 5.964,
+    "pct_L_dos_dois": 46.15
+   }
+  },
+  "TO": {
+   "1": {
+    "pct_NH": 5.282,
+    "pct_L_dos_dois": 46.26
+   },
+   "2": {
+    "pct_NH": 4.946,
+    "pct_L_dos_dois": 48.63
+   }
+  },
+  "_corr": {
+   "1": 0.2625458495615826,
+   "2": 0.37692898312181167
+  }
+ },
+ "correlacao_nivel": {
+  "1": {
+   "y_fatia_dos_dois": {
+    "n": 497897,
+    "corr_sem_EF": 0.053255634075072306,
+    "corr_sem_EF_peso_comp": 0.04816657431286334,
+    "incl_sem_EF": {
+     "b": 0.24434932476876564,
+     "ep_agrupado_local": 0.012128959907805744
+    },
+    "corr_EF_local": 0.05572441718617711,
+    "n_EF": 475803,
+    "locais_EF": 72445,
+    "corr_EF_local_peso_comp": 0.05360279016633577,
+    "incl_EF_local": {
+     "b": 0.07412733902295163,
+     "ep": 0.002509959153394325
+    }
+   },
+   "y_fatia_dos_validos": {
+    "n": 497897,
+    "corr_sem_EF": 0.06293124840785441,
+    "corr_sem_EF_peso_comp": 0.0582957903633764,
+    "incl_sem_EF": {
+     "b": 0.2835736743286369,
+     "ep_agrupado_local": 0.011947724901843555
+    },
+    "corr_EF_local": 0.06692258831479173,
+    "n_EF": 475803,
+    "locais_EF": 72445,
+    "corr_EF_local_peso_comp": 0.06510635323827074,
+    "incl_EF_local": {
+     "b": 0.08466223902487072,
+     "ep": 0.00248626570787946
+    }
+   },
+   "corr_EF_municipio": 0.026786315365227513,
+   "corr_EF_UF": 0.06797378222652216
+  },
+  "2": {
+   "y_fatia_dos_dois": {
+    "n": 497897,
+    "corr_sem_EF": 0.06842445522844894,
+    "corr_sem_EF_peso_comp": 0.06445631359015948,
+    "incl_sem_EF": {
+     "b": 0.3015629224282312,
+     "ep_agrupado_local": 0.011749481646383675
+    },
+    "corr_EF_local": 0.05470162501492674,
+    "n_EF": 475803,
+    "locais_EF": 72445,
+    "corr_EF_local_peso_comp": 0.052590052172222415,
+    "incl_EF_local": {
+     "b": 0.069532348538311,
+     "ep": 0.002433197795927695
+    }
+   },
+   "corr_EF_municipio": 0.011976715668829605,
+   "corr_EF_UF": 0.05428249167364895
+  }
+ },
+ "correlacao_variacao": {
+  "dy_fatia_dos_dois": {
+   "n": 497897,
+   "corr_sem_EF": -0.009910006713784413,
+   "corr_sem_EF_peso_comp": -0.01144418589656346,
+   "incl_sem_EF": {
+    "b": -0.009915907968980293,
+    "ep_agrupado_local": 0.0015757367815005263
+   },
+   "corr_EF_local": -0.0028727204846752457,
+   "n_EF": 475803,
+   "locais_EF": 72445,
+   "corr_EF_local_peso_comp": -0.0028410114235130008,
+   "incl_EF_local": {
+    "b": -0.0024648918299297606,
+    "ep": 0.0013953099996341922
+   }
+  },
+  "dy_fatia_validos_1t_para_2t": {
+   "n": 497897,
+   "corr_sem_EF": -0.013464588306112444,
+   "corr_sem_EF_peso_comp": -0.01532789113662244,
+   "incl_sem_EF": {
+    "b": -0.016449154255111873,
+    "ep_agrupado_local": 0.0019521693713211985
+   },
+   "corr_EF_local": -0.005865467773627363,
+   "n_EF": 475803,
+   "locais_EF": 72445,
+   "corr_EF_local_peso_comp": -0.00570712643305264,
+   "incl_EF_local": {
+    "b": -0.0054331555117092195,
+    "ep": 0.0014954958404679408
+   }
+  },
+  "votos_por_variacao_EF_local": {
+   "Lula": {
+    "n": 475803,
+    "grupos": 72445,
+    "coef": {
+     "dNH": 0.4878346692470755,
+     "dCom": 0.48730186198867453
+    },
+    "ep": {
+     "dNH": 0.0022552333889994188,
+     "dCom": 0.0017477434674270957
+    }
+   },
+   "Flavio": {
+    "n": 475803,
+    "grupos": 72445,
+    "coef": {
+     "dNH": 0.3994726196374185,
+     "dCom": 0.4016035896513159
+    },
+    "ep": {
+     "dNH": 0.002025420265093989,
+     "dCom": 0.0015288994847773968
+    }
+   }
+  },
+  "faixas_dx": [
+   {
+    "faixa_dx_pp": "[-100,-5)",
+    "secoes": 7723,
+    "media_dy_pp": 2.4532853297224073,
+    "dy_agregado_pp": 2.247170203754012
+   },
+   {
+    "faixa_dx_pp": "[-5,-2)",
+    "secoes": 66145,
+    "media_dy_pp": 2.8137435187336597,
+    "dy_agregado_pp": 2.6814198799897158
+   },
+   {
+    "faixa_dx_pp": "[-2,2)",
+    "secoes": 344741,
+    "media_dy_pp": 2.9800323925652763,
+    "dy_agregado_pp": 2.882923456202613
+   },
+   {
+    "faixa_dx_pp": "[2,5)",
+    "secoes": 71747,
+    "media_dy_pp": 2.75101552434166,
+    "dy_agregado_pp": 2.621942330511906
+   },
+   {
+    "faixa_dx_pp": "[5,101)",
+    "secoes": 7541,
+    "media_dy_pp": 2.261999223331327,
+    "dy_agregado_pp": 2.090267080537822
+   }
+  ],
+  "n": 497897,
+  "media_x1_pct": 6.677321139680482,
+  "media_x2_pct": 6.7517992367441115,
+  "corr_x1_x2_entre_secoes": 0.8182395424942434
+ },
+ "ecologico_nivel_T2": {
+  "Lula": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "NH": 0.5707846003987889,
+    "naoNH": 0.5022194727336103
+   },
+   "ep": {
+    "NH": 0.0032274187640562286,
+    "naoNH": 0.00198131041685403
+   }
+  },
+  "Flavio": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "NH": 0.39381220514150617,
+    "naoNH": 0.46581315655692224
+   },
+   "ep": {
+    "NH": 0.003294432382397862,
+    "naoNH": 0.0019872923658571695
+   }
+  },
+  "saldo_Lula_por_eleitor_NH": 0.1769723952572827,
+  "saldo_Lula_por_eleitor_naoNH": 0.0364063161766881,
+  "saldo_atribuivel_aos_NH_votos": 1527712.0783897499,
+  "margem": 4430191
+ },
+ "faixas_taxa": {
+  "1": [
+   {
+    "faixa_pct": "[0,5)",
+    "secoes": 175481,
+    "comparecimento": 45852987,
+    "NH": 1603061,
+    "pct_do_NH_total": 19.216173000829873,
+    "pct_L_dos_dois_agregado": 48.638535991862476,
+    "pct_L_validos_agregado": 44.68352736027401,
+    "desvio_medio_da_fatia_no_local_pp": -0.16471545646484426,
+    "secoes_com_local_multi": 170623
+   },
+   {
+    "faixa_pct": "[5,10)",
+    "secoes": 239501,
+    "comparecimento": 60124349,
+    "NH": 4236975,
+    "pct_do_NH_total": 50.78936147794198,
+    "pct_L_dos_dois_agregado": 48.53580733321978,
+    "pct_L_validos_agregado": 44.734503315270885,
+    "desvio_medio_da_fatia_no_local_pp": 0.043976792950248436,
+    "secoes_com_local_multi": 230667
+   },
+   {
+    "faixa_pct": "[10,15)",
+    "secoes": 65138,
+    "comparecimento": 15190065,
+    "NH": 1798995,
+    "pct_do_NH_total": 21.564868178832832,
+    "pct_L_dos_dois_agregado": 50.635964995381045,
+    "pct_L_validos_agregado": 47.050115182437835,
+    "desvio_medio_da_fatia_no_local_pp": 0.2176915772873655,
+    "secoes_com_local_multi": 59906
+   },
+   {
+    "faixa_pct": "[15,20)",
+    "secoes": 13817,
+    "comparecimento": 2985772,
+    "NH": 501742,
+    "pct_do_NH_total": 6.014469239649883,
+    "pct_L_dos_dois_agregado": 52.76995714640711,
+    "pct_L_validos_agregado": 49.302093928954775,
+    "desvio_medio_da_fatia_no_local_pp": 0.30926836277124586,
+    "secoes_com_local_multi": 11715
+   },
+   {
+    "faixa_pct": "[20,30)",
+    "secoes": 3562,
+    "comparecimento": 700265,
+    "NH": 159050,
+    "pct_do_NH_total": 1.9065602093632066,
+    "pct_L_dos_dois_agregado": 55.81698531913976,
+    "pct_L_validos_agregado": 52.36126889539676,
+    "desvio_medio_da_fatia_no_local_pp": 0.4889366648439902,
+    "secoes_com_local_multi": 2578
+   },
+   {
+    "faixa_pct": "[30,50)",
+    "secoes": 260,
+    "comparecimento": 48435,
+    "NH": 17186,
+    "pct_do_NH_total": 0.20601159231761124,
+    "pct_L_dos_dois_agregado": 55.107080217852854,
+    "pct_L_validos_agregado": 51.778047616982526,
+    "desvio_medio_da_fatia_no_local_pp": 0.11400976879367788,
+    "secoes_com_local_multi": 184
+   },
+   {
+    "faixa_pct": "[50,101)",
+    "secoes": 138,
+    "comparecimento": 32196,
+    "NH": 25240,
+    "pct_do_NH_total": 0.302556301064617,
+    "pct_L_dos_dois_agregado": 55.09456556193428,
+    "pct_L_validos_agregado": 50.997587533415924,
+    "desvio_medio_da_fatia_no_local_pp": 0.11294931290978237,
+    "secoes_com_local_multi": 130
+   }
+  ],
+  "1_acima": {
+   ">= 20%": {
+    "secoes": 3960,
+    "NH": 201476,
+    "pct_L_dos_dois": 55.74349021417862
+   },
+   ">= 30%": {
+    "secoes": 398,
+    "NH": 42426,
+    "pct_L_dos_dois": 55.102126176368074
+   },
+   ">= 50%": {
+    "secoes": 138,
+    "NH": 25240,
+    "pct_L_dos_dois": 55.09456556193428
+   }
+  },
+  "2": [
+   {
+    "faixa_pct": "[0,5)",
+    "secoes": 174302,
+    "comparecimento": 46162928,
+    "NH": 1613337,
+    "pct_do_NH_total": 18.68913110565575,
+    "pct_L_dos_dois_agregado": 51.14002072716071,
+    "pct_L_validos_agregado": 51.14002072716071,
+    "desvio_medio_da_fatia_no_local_pp": -0.15757741260819372,
+    "secoes_com_local_multi": 169417
+   },
+   {
+    "faixa_pct": "[5,10)",
+    "secoes": 238213,
+    "comparecimento": 61377011,
+    "NH": 4330175,
+    "pct_do_NH_total": 50.161378735771194,
+    "pct_L_dos_dois_agregado": 51.48014035356177,
+    "pct_L_validos_agregado": 51.48014035356177,
+    "desvio_medio_da_fatia_no_local_pp": 0.04579501038100139,
+    "secoes_com_local_multi": 229341
+   },
+   {
+    "faixa_pct": "[10,15)",
+    "secoes": 66507,
+    "comparecimento": 16111913,
+    "NH": 1912196,
+    "pct_do_NH_total": 22.151157348843114,
+    "pct_L_dos_dois_agregado": 53.564178434584726,
+    "pct_L_validos_agregado": 53.564178434584726,
+    "desvio_medio_da_fatia_no_local_pp": 0.1947672342664052,
+    "secoes_com_local_multi": 61393
+   },
+   {
+    "faixa_pct": "[15,20)",
+    "secoes": 14721,
+    "comparecimento": 3337732,
+    "NH": 561646,
+    "pct_do_NH_total": 6.50618917744224,
+    "pct_L_dos_dois_agregado": 55.790018937387394,
+    "pct_L_validos_agregado": 55.790018937387394,
+    "desvio_medio_da_fatia_no_local_pp": 0.25282771486096045,
+    "secoes_com_local_multi": 12563
+   },
+   {
+    "faixa_pct": "[20,30)",
+    "secoes": 3804,
+    "comparecimento": 791774,
+    "NH": 179277,
+    "pct_do_NH_total": 2.076770914711958,
+    "pct_L_dos_dois_agregado": 58.067321525051916,
+    "pct_L_validos_agregado": 58.067321525051916,
+    "desvio_medio_da_fatia_no_local_pp": 0.3530790748082466,
+    "secoes_com_local_multi": 2821
+   },
+   {
+    "faixa_pct": "[30,50)",
+    "secoes": 253,
+    "comparecimento": 50223,
+    "NH": 17405,
+    "pct_do_NH_total": 0.2016220584378455,
+    "pct_L_dos_dois_agregado": 59.21093124884594,
+    "pct_L_validos_agregado": 59.21093124884594,
+    "desvio_medio_da_fatia_no_local_pp": 0.47050998470182687,
+    "secoes_com_local_multi": 176
+   },
+   {
+    "faixa_pct": "[50,101)",
+    "secoes": 97,
+    "comparecimento": 23050,
+    "NH": 18452,
+    "pct_do_NH_total": 0.2137506591378986,
+    "pct_L_dos_dois_agregado": 61.202185792349724,
+    "pct_L_validos_agregado": 61.202185792349724,
+    "desvio_medio_da_fatia_no_local_pp": -0.20484985221873747,
+    "secoes_com_local_multi": 92
+   }
+  ],
+  "2_acima": {
+   ">= 20%": {
+    "secoes": 4154,
+    "NH": 215134,
+    "pct_L_dos_dois": 58.21714737860653
+   },
+   ">= 30%": {
+    "secoes": 350,
+    "NH": 35857,
+    "pct_L_dos_dois": 59.83649232414482
+   },
+   ">= 50%": {
+    "secoes": 97,
+    "NH": 18452,
+    "pct_L_dos_dois": 61.202185792349724
+   }
+  }
+ },
+ "porte_municipio": [
+  {
+   "aptos_municipio": "0-10000",
+   "municipios": 2940,
+   "pct_NH_T2": 8.551811685653838,
+   "pct_NH_T1": 8.455168587661325,
+   "pct_L_dos_dois_T2": 54.04694736811317
+  },
+  {
+   "aptos_municipio": "10000-50000",
+   "municipios": 2135,
+   "pct_NH_T2": 7.531357657282708,
+   "pct_NH_T1": 7.3994477441241475,
+   "pct_L_dos_dois_T2": 56.21990469390332
+  },
+  {
+   "aptos_municipio": "50000-200000",
+   "municipios": 394,
+   "pct_NH_T2": 6.353176919150023,
+   "pct_NH_T1": 6.285071072882133,
+   "pct_L_dos_dois_T2": 47.665196341571
+  },
+  {
+   "aptos_municipio": "200000-1000000",
+   "municipios": 90,
+   "pct_NH_T2": 5.970188735379051,
+   "pct_NH_T1": 5.946394518496315,
+   "pct_L_dos_dois_T2": 47.87987733831001
+  },
+  {
+   "aptos_municipio": "1000000-1000000000",
+   "municipios": 12,
+   "pct_NH_T2": 6.000750424643821,
+   "pct_NH_T1": 5.93801160867631,
+   "pct_L_dos_dois_T2": 53.36648024350144
+  }
+ ],
+ "quase_unanimes": {
+  "2": {
+   "Lula_100": {
+    "secoes": 106,
+    "comparecimento_mediano": 128.0,
+    "pct_NH_agregado": 4.979634739193273,
+    "pct_NH_esperado_pela_UF": 5.617634859332988,
+    "taxa_mediana_secao_pct": 4.116650190651037,
+    "percentil_medio_da_taxa_no_pais": 36.69276183173598,
+    "pct_das_secoes_com_taxa_20_ou_mais": 3.7735849056603774,
+    "pct_das_secoes_no_1pct_mais_alto": 6.60377358490566,
+    "desvio_medio_da_taxa_no_local_pp": -0.10338097614637734,
+    "secoes_com_local_multi": 33,
+    "UFs_top": [
+     [
+      "AM",
+      30
+     ],
+     [
+      "MA",
+      20
+     ],
+     [
+      "PA",
+      16
+     ],
+     [
+      "RR",
+      8
+     ],
+     [
+      "TO",
+      7
+     ],
+     [
+      "MT",
+      5
+     ]
+    ]
+   },
+   "Flavio_100": {
+    "secoes": 4,
+    "comparecimento_mediano": 67.5,
+    "pct_NH_agregado": 11.920529801324504,
+    "pct_NH_esperado_pela_UF": 7.504311226889427,
+    "taxa_mediana_secao_pct": 6.061224489795918,
+    "percentil_medio_da_taxa_no_pais": 61.40326212047873,
+    "pct_das_secoes_com_taxa_20_ou_mais": 25.0,
+    "pct_das_secoes_no_1pct_mais_alto": 25.0,
+    "desvio_medio_da_taxa_no_local_pp": -0.4122766834631246,
+    "secoes_com_local_multi": 1,
+    "UFs_top": [
+     [
+      "RS",
+      2
+     ],
+     [
+      "PA",
+      2
+     ]
+    ]
+   },
+   "Lula_mais_90": {
+    "secoes": 6802,
+    "comparecimento_mediano": 203.0,
+    "pct_NH_agregado": 8.395925205004417,
+    "pct_NH_esperado_pela_UF": 6.938390175096134,
+    "taxa_mediana_secao_pct": 7.4866310160427805,
+    "percentil_medio_da_taxa_no_pais": 58.179743666666475,
+    "pct_das_secoes_com_taxa_20_ou_mais": 3.381358423992943,
+    "pct_das_secoes_no_1pct_mais_alto": 3.910614525139665,
+    "desvio_medio_da_taxa_no_local_pp": 0.18507742579290726,
+    "secoes_com_local_multi": 4077,
+    "UFs_top": [
+     [
+      "MA",
+      1549
+     ],
+     [
+      "BA",
+      1345
+     ],
+     [
+      "PI",
+      870
+     ],
+     [
+      "PE",
+      667
+     ],
+     [
+      "CE",
+      662
+     ],
+     [
+      "PA",
+      457
+     ]
+    ]
+   },
+   "Flavio_mais_90": {
+    "secoes": 368,
+    "comparecimento_mediano": 207.0,
+    "pct_NH_agregado": 9.477288476432463,
+    "pct_NH_esperado_pela_UF": 7.113802735616761,
+    "taxa_mediana_secao_pct": 8.71586581314318,
+    "percentil_medio_da_taxa_no_pais": 64.08411932763116,
+    "pct_das_secoes_com_taxa_20_ou_mais": 6.25,
+    "pct_das_secoes_no_1pct_mais_alto": 7.065217391304348,
+    "desvio_medio_da_taxa_no_local_pp": 0.11214591479186879,
+    "secoes_com_local_multi": 193,
+    "UFs_top": [
+     [
+      "RS",
+      116
+     ],
+     [
+      "SC",
+      61
+     ],
+     [
+      "PA",
+      51
+     ],
+     [
+      "MT",
+      48
+     ],
+     [
+      "PR",
+      31
+     ],
+     [
+      "RO",
+      19
+     ]
+    ]
+   },
+   "Lula_90_ou_mais": {
+    "secoes": 6885,
+    "comparecimento_mediano": 203.0,
+    "pct_NH_agregado": 8.400441933801334,
+    "pct_NH_esperado_pela_UF": 6.939409660030745,
+    "taxa_mediana_secao_pct": 7.4866310160427805,
+    "percentil_medio_da_taxa_no_pais": 58.20865572945488,
+    "pct_das_secoes_com_taxa_20_ou_mais": 3.3986928104575163,
+    "pct_das_secoes_no_1pct_mais_alto": 3.9215686274509802,
+    "desvio_medio_da_taxa_no_local_pp": 0.19606919707994824,
+    "secoes_com_local_multi": 4126,
+    "UFs_top": [
+     [
+      "MA",
+      1569
+     ],
+     [
+      "BA",
+      1361
+     ],
+     [
+      "PI",
+      878
+     ],
+     [
+      "CE",
+      675
+     ],
+     [
+      "PE",
+      673
+     ],
+     [
+      "PA",
+      463
+     ]
+    ]
+   },
+   "Flavio_90_ou_mais": {
+    "secoes": 374,
+    "comparecimento_mediano": 207.0,
+    "pct_NH_agregado": 9.52597689455295,
+    "pct_NH_esperado_pela_UF": 7.116697275017729,
+    "taxa_mediana_secao_pct": 8.746430028559772,
+    "percentil_medio_da_taxa_no_pais": 64.27451239592872,
+    "pct_das_secoes_com_taxa_20_ou_mais": 6.417112299465241,
+    "pct_das_secoes_no_1pct_mais_alto": 7.219251336898395,
+    "desvio_medio_da_taxa_no_local_pp": 0.10493935997111827,
+    "secoes_com_local_multi": 194,
+    "UFs_top": [
+     [
+      "RS",
+      120
+     ],
+     [
+      "SC",
+      61
+     ],
+     [
+      "PA",
+      52
+     ],
+     [
+      "MT",
+      48
+     ],
+     [
+      "PR",
+      31
+     ],
+     [
+      "RO",
+      19
+     ]
+    ]
+   },
+   "todas": {
+    "secoes": 497897,
+    "comparecimento_mediano": 263.0,
+    "pct_NH_agregado": 6.7517992367441115,
+    "pct_NH_esperado_pela_UF": 6.7517992367441115,
+    "taxa_mediana_secao_pct": 6.134969325153374,
+    "percentil_medio_da_taxa_no_pais": 50.02153038451264,
+    "pct_das_secoes_com_taxa_20_ou_mais": 0.8343091040918101,
+    "pct_das_secoes_no_1pct_mais_alto": 1.0018136281198722,
+    "desvio_medio_da_taxa_no_local_pp": 9.053464008309338e-18,
+    "secoes_com_local_multi": 475803,
+    "UFs_top": [
+     [
+      "SP",
+      103656
+     ],
+     [
+      "MG",
+      52062
+     ],
+     [
+      "RJ",
+      37675
+     ],
+     [
+      "BA",
+      35476
+     ],
+     [
+      "RS",
+      27547
+     ],
+     [
+      "PR",
+      27142
+     ]
+    ]
+   },
+   "entre_secoes_taxa_20_ou_mais": {
+    "secoes": 4154,
+    "Lula_mais_90": 230,
+    "Flavio_mais_90": 23,
+    "pct_L_validos": 58.21714737860653
+   },
+   "entre_1pct_secoes_taxa_mais_alta": {
+    "limiar_pct": 19.35483870967742,
+    "secoes": 4988,
+    "Lula_mais_90": 266,
+    "Flavio_mais_90": 26
+   }
+  },
+  "secoes_Lula_mais_90_T2_no_T1": {
+   "secoes": 6802,
+   "pct_NH_T1": 8.163344153697214,
+   "pct_NH_T2": 8.395925205004417,
+   "pct_L_validos_T1": 90.37961486284767,
+   "pct_L_dos_dois_T1": 92.42901459651942,
+   "pct_L_T2": 93.26079012668049
+  },
+  "todas_as_secoes_variacao_pp": 0.0744780970636294,
+  "1": {
+   "Lula_100": {
+    "secoes": 36,
+    "comparecimento_mediano": 78.0,
+    "pct_NH_agregado": 6.6558441558441555,
+    "pct_NH_esperado_pela_UF": 5.495839119045656,
+    "taxa_mediana_secao_pct": 6.803887935963407,
+    "percentil_medio_da_taxa_no_pais": 50.38802648383546,
+    "pct_das_secoes_com_taxa_20_ou_mais": 8.333333333333332,
+    "pct_das_secoes_no_1pct_mais_alto": 11.11111111111111,
+    "desvio_medio_da_taxa_no_local_pp": 0.7017484762959154,
+    "secoes_com_local_multi": 7,
+    "UFs_top": [
+     [
+      "PA",
+      10
+     ],
+     [
+      "MA",
+      5
+     ],
+     [
+      "AM",
+      4
+     ],
+     [
+      "MG",
+      3
+     ],
+     [
+      "RR",
+      3
+     ],
+     [
+      "CE",
+      2
+     ]
+    ]
+   },
+   "Flavio_100": {
+    "secoes": 2,
+    "comparecimento_mediano": 67.0,
+    "pct_NH_agregado": 17.16417910447761,
+    "pct_NH_esperado_pela_UF": 7.173726356813239,
+    "taxa_mediana_secao_pct": 16.11904761904762,
+    "percentil_medio_da_taxa_no_pais": 95.16446172601964,
+    "pct_das_secoes_com_taxa_20_ou_mais": 50.0,
+    "pct_das_secoes_no_1pct_mais_alto": 50.0,
+    "desvio_medio_da_taxa_no_local_pp": null,
+    "secoes_com_local_multi": 0,
+    "UFs_top": [
+     [
+      "RS",
+      1
+     ],
+     [
+      "PA",
+      1
+     ]
+    ]
+   },
+   "Lula_mais_90": {
+    "secoes": 3633,
+    "comparecimento_mediano": 194.0,
+    "pct_NH_agregado": 7.865768574824717,
+    "pct_NH_esperado_pela_UF": 6.605321577431506,
+    "taxa_mediana_secao_pct": 7.142857142857142,
+    "percentil_medio_da_taxa_no_pais": 55.27541716871842,
+    "pct_das_secoes_com_taxa_20_ou_mais": 3.3030553261767133,
+    "pct_das_secoes_no_1pct_mais_alto": 4.018717313515001,
+    "desvio_medio_da_taxa_no_local_pp": 0.19690626203180253,
+    "secoes_com_local_multi": 1888,
+    "UFs_top": [
+     [
+      "MA",
+      852
+     ],
+     [
+      "BA",
+      750
+     ],
+     [
+      "PI",
+      422
+     ],
+     [
+      "CE",
+      310
+     ],
+     [
+      "AM",
+      305
+     ],
+     [
+      "PA",
+      300
+     ]
+    ]
+   },
+   "Flavio_mais_90": {
+    "secoes": 177,
+    "comparecimento_mediano": 176.0,
+    "pct_NH_agregado": 8.844102334791913,
+    "pct_NH_esperado_pela_UF": 6.634363683399806,
+    "taxa_mediana_secao_pct": 7.874015748031496,
+    "percentil_medio_da_taxa_no_pais": 61.56345226440487,
+    "pct_das_secoes_com_taxa_20_ou_mais": 7.344632768361582,
+    "pct_das_secoes_no_1pct_mais_alto": 9.03954802259887,
+    "desvio_medio_da_taxa_no_local_pp": -0.028699819765037007,
+    "secoes_com_local_multi": 85,
+    "UFs_top": [
+     [
+      "PA",
+      46
+     ],
+     [
+      "RS",
+      43
+     ],
+     [
+      "SC",
+      17
+     ],
+     [
+      "PR",
+      15
+     ],
+     [
+      "MT",
+      13
+     ],
+     [
+      "AM",
+      11
+     ]
+    ]
+   },
+   "Lula_90_ou_mais": {
+    "secoes": 3680,
+    "comparecimento_mediano": 194.0,
+    "pct_NH_agregado": 7.884263832589615,
+    "pct_NH_esperado_pela_UF": 6.6069173421158585,
+    "taxa_mediana_secao_pct": 7.173101316706269,
+    "percentil_medio_da_taxa_no_pais": 55.45627845500785,
+    "pct_das_secoes_com_taxa_20_ou_mais": 3.342391304347826,
+    "pct_das_secoes_no_1pct_mais_alto": 4.048913043478261,
+    "desvio_medio_da_taxa_no_local_pp": 0.1905365338999997,
+    "secoes_com_local_multi": 1911,
+    "UFs_top": [
+     [
+      "MA",
+      865
+     ],
+     [
+      "BA",
+      759
+     ],
+     [
+      "PI",
+      428
+     ],
+     [
+      "CE",
+      319
+     ],
+     [
+      "AM",
+      306
+     ],
+     [
+      "PA",
+      304
+     ]
+    ]
+   },
+   "Flavio_90_ou_mais": {
+    "secoes": 179,
+    "comparecimento_mediano": 176.0,
+    "pct_NH_agregado": 8.813687732811415,
+    "pct_NH_esperado_pela_UF": 6.6200396834357695,
+    "taxa_mediana_secao_pct": 7.777777777777778,
+    "percentil_medio_da_taxa_no_pais": 61.45046063744108,
+    "pct_das_secoes_com_taxa_20_ou_mais": 7.262569832402235,
+    "pct_das_secoes_no_1pct_mais_alto": 8.938547486033519,
+    "desvio_medio_da_taxa_no_local_pp": 0.033139792356670486,
+    "secoes_com_local_multi": 87,
+    "UFs_top": [
+     [
+      "PA",
+      48
+     ],
+     [
+      "RS",
+      43
+     ],
+     [
+      "SC",
+      17
+     ],
+     [
+      "PR",
+      15
+     ],
+     [
+      "MT",
+      13
+     ],
+     [
+      "AM",
+      11
+     ]
+    ]
+   },
+   "todas": {
+    "secoes": 497897,
+    "comparecimento_mediano": 257.0,
+    "pct_NH_agregado": 6.677321139680482,
+    "pct_NH_esperado_pela_UF": 6.677321139680482,
+    "taxa_mediana_secao_pct": 6.106870229007633,
+    "percentil_medio_da_taxa_no_pais": 50.02276369167474,
+    "pct_das_secoes_com_taxa_20_ou_mais": 0.7953452220037478,
+    "pct_das_secoes_no_1pct_mais_alto": 1.0004077148486534,
+    "desvio_medio_da_taxa_no_local_pp": 1.2366845165989558e-17,
+    "secoes_com_local_multi": 475803,
+    "UFs_top": [
+     [
+      "SP",
+      103656
+     ],
+     [
+      "MG",
+      52062
+     ],
+     [
+      "RJ",
+      37675
+     ],
+     [
+      "BA",
+      35476
+     ],
+     [
+      "RS",
+      27547
+     ],
+     [
+      "PR",
+      27142
+     ]
+    ]
+   },
+   "entre_secoes_taxa_20_ou_mais": {
+    "secoes": 3960,
+    "Lula_mais_90": 120,
+    "Flavio_mais_90": 13,
+    "pct_L_validos": 52.26889672024064
+   },
+   "entre_1pct_secoes_taxa_mais_alta": {
+    "limiar_pct": 19.138755980861244,
+    "secoes": 4981,
+    "Lula_mais_90": 146,
+    "Flavio_mais_90": 16
+   }
+  }
+ },
+ "placebo_2022": {
+  "secoes_casadas_pela_chave": 460290,
+  "taxa_NH_2026_T2_x_fatia_L_2T_2022": {
+   "n": 460290,
+   "corr_sem_EF": 0.09237231450482443,
+   "corr_sem_EF_peso_comp": 0.08690095134954785,
+   "incl_sem_EF": {
+    "b": 0.4225241235553603,
+    "ep_agrupado_local": 0.012640461940615811
+   },
+   "corr_EF_local": 0.027470548869580103,
+   "n_EF": 437970,
+   "locais_EF": 67567,
+   "corr_EF_local_peso_comp": 0.02532534221068744,
+   "incl_EF_local": {
+    "b": 0.03521216854350147,
+    "ep": 0.0023968982402332376
+   }
+  },
+  "comparacao_mesmas_secoes_2026": {
+   "n": 460290,
+   "corr_sem_EF": 0.06808834152479837,
+   "corr_sem_EF_peso_comp": 0.06368278633948937,
+   "incl_sem_EF": {
+    "b": 0.30048012683187686,
+    "ep_agrupado_local": 0.0122004629742613
+   },
+   "corr_EF_local": 0.053634753331911054,
+   "n_EF": 437970,
+   "locais_EF": 67567,
+   "corr_EF_local_peso_comp": 0.05146184019265677,
+   "incl_EF_local": {
+    "b": 0.06664606724719452,
+    "ep": 0.002486703162292387
+   }
+  },
+  "faixas": [
+   {
+    "faixa_pct_NH_2026": "[0,5)",
+    "secoes": 159940,
+    "pct_L_dos_dois_2022_2T": 49.96225724667601,
+    "pct_L_dos_dois_2026_2T": 50.985340830249314
+   },
+   {
+    "faixa_pct_NH_2026": "[5,10)",
+    "secoes": 220986,
+    "pct_L_dos_dois_2022_2T": 50.492350665092694,
+    "pct_L_dos_dois_2026_2T": 51.297737575297134
+   },
+   {
+    "faixa_pct_NH_2026": "[10,15)",
+    "secoes": 61896,
+    "pct_L_dos_dois_2022_2T": 53.22481808880332,
+    "pct_L_dos_dois_2026_2T": 53.37660681257497
+   },
+   {
+    "faixa_pct_NH_2026": "[15,20)",
+    "secoes": 13625,
+    "pct_L_dos_dois_2022_2T": 56.05082699933146,
+    "pct_L_dos_dois_2026_2T": 55.4735378939523
+   },
+   {
+    "faixa_pct_NH_2026": "[20,30)",
+    "secoes": 3521,
+    "pct_L_dos_dois_2022_2T": 59.221554076989094,
+    "pct_L_dos_dois_2026_2T": 57.82048910995449
+   },
+   {
+    "faixa_pct_NH_2026": "[30,50)",
+    "secoes": 235,
+    "pct_L_dos_dois_2022_2T": 59.491499989281195,
+    "pct_L_dos_dois_2026_2T": 58.54692407370802
+   },
+   {
+    "faixa_pct_NH_2026": "[50,101)",
+    "secoes": 87,
+    "pct_L_dos_dois_2022_2T": 60.563048193907385,
+    "pct_L_dos_dois_2026_2T": 61.74795386014455
+   }
+  ],
+  "dx_2026_x_dy_2022": {
+   "n": 460290,
+   "corr_sem_EF": 0.0037862690753125206,
+   "corr_sem_EF_peso_comp": 0.004800971537767839,
+   "incl_sem_EF": {
+    "b": 0.0035593692174625013,
+    "ep_agrupado_local": 0.0014867059067869962
+   },
+   "corr_EF_local": 0.005769129181147764,
+   "n_EF": 437970,
+   "locais_EF": 67567,
+   "corr_EF_local_peso_comp": 0.00633649611637223,
+   "incl_EF_local": {
+    "b": 0.004757402199007218,
+    "ep": 0.0013560699960573075
+   }
+  },
+  "secoes_Lula_mais_90_2026_no_2022": {
+   "secoes": 5935,
+   "pct_L_dos_dois_2022": 93.42560138076097,
+   "pct_secoes_com_L_mais_90_em_2022": 86.04886267902275
+  }
+ },
+ "placebo_2018": {
+  "secoes_casadas_pela_chave": 434226,
+  "taxa_NH_2026_T2_x_fatia_L_2T_2018": {
+   "n": 434225,
+   "corr_sem_EF": 0.09448636479190281,
+   "corr_sem_EF_peso_comp": 0.08746415551556697,
+   "incl_sem_EF": {
+    "b": 0.5287080570667365,
+    "ep_agrupado_local": 0.015847983281491652
+   },
+   "corr_EF_local": -0.016598525820990993,
+   "n_EF": 411874,
+   "locais_EF": 64372,
+   "corr_EF_local_peso_comp": -0.017466732235497537,
+   "incl_EF_local": {
+    "b": -0.022201768993519288,
+    "ep": 0.0025610878095479656
+   }
+  },
+  "comparacao_mesmas_secoes_2026": {
+   "n": 434225,
+   "corr_sem_EF": 0.07140989969375096,
+   "corr_sem_EF_peso_comp": 0.0666917303606023,
+   "incl_sem_EF": {
+    "b": 0.3149033490883918,
+    "ep_agrupado_local": 0.01245776051443788
+   },
+   "corr_EF_local": 0.06170234178851752,
+   "n_EF": 411874,
+   "locais_EF": 64372,
+   "corr_EF_local_peso_comp": 0.06105469906686731,
+   "incl_EF_local": {
+    "b": 0.07521495607013434,
+    "ep": 0.0025695336005240013
+   }
+  },
+  "faixas": [
+   {
+    "faixa_pct_NH_2026": "[0,5)",
+    "secoes": 148021,
+    "pct_L_dos_dois_2018_2T": 43.78495525412028,
+    "pct_L_dos_dois_2026_2T": 50.87610996350309
+   },
+   {
+    "faixa_pct_NH_2026": "[5,10)",
+    "secoes": 210503,
+    "pct_L_dos_dois_2018_2T": 44.16406257357551,
+    "pct_L_dos_dois_2026_2T": 51.19898030686436
+   },
+   {
+    "faixa_pct_NH_2026": "[10,15)",
+    "secoes": 59182,
+    "pct_L_dos_dois_2018_2T": 47.82783895321358,
+    "pct_L_dos_dois_2026_2T": 53.314238036299024
+   },
+   {
+    "faixa_pct_NH_2026": "[15,20)",
+    "secoes": 12927,
+    "pct_L_dos_dois_2018_2T": 52.09312779013042,
+    "pct_L_dos_dois_2026_2T": 55.62291897024557
+   },
+   {
+    "faixa_pct_NH_2026": "[20,30)",
+    "secoes": 3291,
+    "pct_L_dos_dois_2018_2T": 56.807804665777155,
+    "pct_L_dos_dois_2026_2T": 58.21445927365826
+   },
+   {
+    "faixa_pct_NH_2026": "[30,50)",
+    "secoes": 218,
+    "pct_L_dos_dois_2018_2T": 58.64712177397277,
+    "pct_L_dos_dois_2026_2T": 59.34614659883173
+   },
+   {
+    "faixa_pct_NH_2026": "[50,101)",
+    "secoes": 83,
+    "pct_L_dos_dois_2018_2T": 57.51987281399046,
+    "pct_L_dos_dois_2026_2T": 61.55245603395998
+   }
+  ],
+  "dx_2026_x_dy_2018": {
+   "n": 434221,
+   "corr_sem_EF": -0.007555788399728679,
+   "corr_sem_EF_peso_comp": -0.007998745348328206,
+   "incl_sem_EF": {
+    "b": -0.020672541982050426,
+    "ep_agrupado_local": 0.004575140040766814
+   },
+   "corr_EF_local": -0.012732905553696706,
+   "n_EF": 411868,
+   "locais_EF": 64370,
+   "corr_EF_local_peso_comp": -0.013642882567714757,
+   "incl_EF_local": {
+    "b": -0.01735419827214704,
+    "ep": 0.0023022119811422046
+   }
+  },
+  "secoes_Lula_mais_90_2026_no_2018": {
+   "secoes": 5473,
+   "pct_L_dos_dois_2018": 94.80561197608074,
+   "pct_secoes_com_L_mais_90_em_2018": 92.1980632194409
+  }
+ }
+}

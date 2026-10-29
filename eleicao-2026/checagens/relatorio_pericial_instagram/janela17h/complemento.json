@@ -1,0 +1,206 @@
+{
+ "brasilia_fino_2t": {
+  "a_ate_17h00m59": {
+   "secoes": 125653,
+   "comp": 31608496,
+   "L": 15005730,
+   "R": 15612003,
+   "validos": 30617733,
+   "pct_L_validos": 49.01,
+   "pct_L_dois": 49.01,
+   "margem_L_menos_R": -606273
+  },
+  "b_17h01_17h02_antes_da_liminar": {
+   "secoes": 237896,
+   "comp": 60607901,
+   "L": 30222531,
+   "R": 28442348,
+   "validos": 58664879,
+   "pct_L_validos": 51.517,
+   "pct_L_dois": 51.517,
+   "margem_L_menos_R": 1780183
+  },
+  "c_17h03_17h15": {
+   "secoes": 126731,
+   "comp": 33465151,
+   "L": 17655969,
+   "R": 14680269,
+   "validos": 32336238,
+   "pct_L_validos": 54.601,
+   "pct_L_dois": 54.601,
+   "margem_L_menos_R": 2975700
+  },
+  "d_17h16_18h59": {
+   "secoes": 2546,
+   "comp": 692436,
+   "L": 381738,
+   "R": 286973,
+   "validos": 668711,
+   "pct_L_validos": 57.086,
+   "pct_L_dois": 57.086,
+   "margem_L_menos_R": 94765
+  },
+  "e_19h_ou_mais": {
+   "secoes": 6352,
+   "comp": 1861259,
+   "L": 989819,
+   "R": 804095,
+   "validos": 1793914,
+   "pct_L_validos": 55.177,
+   "pct_L_dois": 55.177,
+   "margem_L_menos_R": 185724
+  },
+  "sem_horario": {
+   "secoes": 27,
+   "comp": 831,
+   "L": 445,
+   "R": 353,
+   "validos": 798,
+   "pct_L_validos": 55.764,
+   "pct_L_dois": 55.764,
+   "margem_L_menos_R": 92
+  }
+ },
+ "brasilia_fino_1t": {
+  "a_ate_17h00m59": {
+   "secoes": 42190,
+   "comp": 9774292,
+   "L": 3491309,
+   "R": 5064940,
+   "validos": 9351322,
+   "pct_L_validos": 37.335,
+   "pct_L_dois": 40.804,
+   "margem_L_menos_R": -1573631
+  },
+  "b_17h01_17h02_antes_da_liminar": {
+   "secoes": 144783,
+   "comp": 33826576,
+   "L": 12710039,
+   "R": 16871435,
+   "validos": 32300125,
+   "pct_L_validos": 39.35,
+   "pct_L_dois": 42.966,
+   "margem_L_menos_R": -4161396
+  },
+  "c_17h03_17h15": {
+   "secoes": 187297,
+   "comp": 46351820,
+   "L": 19331454,
+   "R": 21091417,
+   "validos": 44101481,
+   "pct_L_validos": 43.834,
+   "pct_L_dois": 47.823,
+   "margem_L_menos_R": -1759963
+  },
+  "d_17h16_18h59": {
+   "secoes": 116540,
+   "comp": 32853022,
+   "L": 16769088,
+   "R": 12410740,
+   "validos": 31208046,
+   "pct_L_validos": 53.733,
+   "pct_L_dois": 57.468,
+   "margem_L_menos_R": 4358348
+  },
+  "e_19h_ou_mais": {
+   "secoes": 8366,
+   "comp": 2468777,
+   "L": 1577024,
+   "R": 665419,
+   "validos": 2343773,
+   "pct_L_validos": 67.286,
+   "pct_L_dois": 70.326,
+   "margem_L_menos_R": 911605
+  },
+  "sem_horario": {
+   "secoes": 30,
+   "comp": 1348,
+   "L": 624,
+   "R": 552,
+   "validos": 1287,
+   "pct_L_validos": 48.485,
+   "pct_L_dois": 53.061,
+   "margem_L_menos_R": 72
+  }
+ },
+ "capitais_J3_x_resto": {
+  "SALVADOR": {
+   "J3": {
+    "secoes": 730,
+    "L2_1t": 71.05,
+    "L2_2t": 73.362,
+    "var_pts": 2.311
+   },
+   "resto": {
+    "secoes": 4394,
+    "L2_1t": 70.653,
+    "L2_2t": 73.215,
+    "var_pts": 2.562
+   }
+  },
+  "RIO DE JANEIRO": {
+   "J3": {
+    "secoes": 1978,
+    "L2_1t": 42.08,
+    "L2_2t": 46.181,
+    "var_pts": 4.101
+   },
+   "resto": {
+    "secoes": 10657,
+    "L2_1t": 48.977,
+    "L2_2t": 52.597,
+    "var_pts": 3.62
+   }
+  },
+  "RECIFE": {
+   "J3": {
+    "secoes": 220,
+    "L2_1t": 57.587,
+    "L2_2t": 59.814,
+    "var_pts": 2.227
+   },
+   "resto": {
+    "secoes": 3261,
+    "L2_1t": 59.13,
+    "L2_2t": 61.374,
+    "var_pts": 2.244
+   }
+  },
+  "JOAO PESSOA": {
+   "J3": {
+    "secoes": 265,
+    "L2_1t": 50.165,
+    "L2_2t": 52.448,
+    "var_pts": 2.283
+   },
+   "resto": {
+    "secoes": 1449,
+    "L2_1t": 50.51,
+    "L2_2t": 54.094,
+    "var_pts": 3.584
+   }
+  },
+  "SAO PAULO": {
+   "J3": {
+    "secoes": 1481,
+    "L2_1t": 55.219,
+    "L2_2t": 57.864,
+    "var_pts": 2.645
+   },
+   "resto": {
+    "secoes": 25202,
+    "L2_1t": 52.351,
+    "L2_2t": 55.367,
+    "var_pts": 3.016
+   }
+  }
+ },
+ "contrafactual": {
+  "margem_nacional": 4430191,
+  "secoes_J2_J3": 8814,
+  "margem_J2_J3": 280322,
+  "margem_sem_J2_J3": 4149869,
+  "margem_J2_J3_com_fatia_do_1t": 129465,
+  "margem_nacional_com_J2_J3_na_fatia_do_1t": 4279334
+ }
+}
