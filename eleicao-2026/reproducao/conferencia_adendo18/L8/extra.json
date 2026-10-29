@@ -1,0 +1,234 @@
+{
+ "abertas_17h03_2t": 133610,
+ "fecharam_depois_18h59m59_2t": 6352,
+ "abertas_17h03_1t": 310277,
+ "tarde19_por_uf": {
+  "RJ": 2805,
+  "SP": 1571,
+  "BA": 936,
+  "PE": 657,
+  "PB": 275,
+  "SE": 51,
+  "DF": 17,
+  "MT": 9,
+  "PA": 8,
+  "PI": 7,
+  "MA": 3,
+  "RN": 3,
+  "AL": 2,
+  "ES": 2,
+  "RS": 2,
+  "AC": 1,
+  "GO": 1,
+  "MG": 1,
+  "PR": 1
+ },
+ "tarde19_top_municipios": [
+  [
+   "RJ|RIO DE JANEIRO",
+   1978
+  ],
+  [
+   "SP|SÃO PAULO",
+   1481
+  ],
+  [
+   "BA|SALVADOR",
+   730
+  ],
+  [
+   "RJ|PETRÓPOLIS",
+   285
+  ],
+  [
+   "PB|JOÃO PESSOA",
+   265
+  ],
+  [
+   "RJ|ITABORAÍ",
+   237
+  ],
+  [
+   "PE|RECIFE",
+   220
+  ],
+  [
+   "RJ|SÃO GONÇALO",
+   108
+  ],
+  [
+   "RJ|NITERÓI",
+   68
+  ],
+  [
+   "BA|FEIRA DE SANTANA",
+   55
+  ],
+  [
+   "PE|JABOATÃO DOS GUARARAPES",
+   49
+  ],
+  [
+   "PE|OLINDA",
+   47
+  ],
+  [
+   "PE|PASSIRA",
+   46
+  ],
+  [
+   "BA|LAURO DE FREITAS",
+   40
+  ],
+  [
+   "SE|ARACAJU",
+   40
+  ],
+  [
+   "PE|CABO DE SANTO AGOSTINHO",
+   37
+  ],
+  [
+   "PE|PAULISTA",
+   34
+  ],
+  [
+   "PE|CUMARU",
+   32
+  ],
+  [
+   "RJ|MAGÉ",
+   26
+  ],
+  [
+   "PE|SANTA TEREZINHA",
+   25
+  ],
+  [
+   "PE|CARUARU",
+   24
+  ],
+  [
+   "PE|VITÓRIA DE SANTO ANTÃO",
+   23
+  ],
+  [
+   "PE|GARANHUNS",
+   20
+  ],
+  [
+   "PE|ITAPETIM",
+   20
+  ],
+  [
+   "RJ|VOLTA REDONDA",
+   20
+  ]
+ ],
+ "tarde19_n_municipios": 147,
+ "tarde19_lula_1t_2t": {
+  "1t": 51.92530634203743,
+  "2t": 55.17650232954311
+ },
+ "tarde_1t_x_2t": {
+  "1t_False|2t_False": 368368,
+  "1t_True|2t_False": 120682,
+  "1t_False|2t_True": 4933,
+  "1t_True|2t_True": 3912
+ },
+ "excesso_comparecimento_tarde17h15": {
+  "b": [
+   0.1592579451054442
+  ],
+  "ep": [
+   0.04168572336060931
+  ],
+  "n": 475803,
+  "G": 72445,
+  "aptos_nessas": 3147205,
+  "eleitores_extra_estimados": 5012.1740112557945,
+  "ic95": [
+   2440.781078268917,
+   7583.566944242672
+  ]
+ },
+ "excesso_comparecimento_tarde19h": {
+  "b": [
+   0.1260195201400566
+  ],
+  "ep": [
+   0.054019546010197914
+  ],
+  "n": 475803,
+  "G": 72445,
+  "aptos_nessas": 2308883,
+  "eleitores_extra_estimados": 2909.6432771953428,
+  "ic95": [
+   465.03697276233294,
+   5354.249581628353
+  ]
+ },
+ "prefixos_recebimento": [
+  [
+   1100,
+   "2026-10-25 17:06:01",
+   179228,
+   126982,
+   58.531
+  ],
+  [
+   1150,
+   "2026-10-25 17:06:12",
+   184947,
+   132777,
+   58.21
+  ],
+  [
+   1200,
+   "2026-10-25 17:06:18",
+   190583,
+   139598,
+   57.721
+  ],
+  [
+   1225,
+   "2026-10-25 17:06:22",
+   193996,
+   142129,
+   57.715
+  ],
+  [
+   1250,
+   "2026-10-25 17:06:27",
+   197337,
+   145119,
+   57.624
+  ],
+  [
+   1300,
+   "2026-10-25 17:06:34",
+   203327,
+   150507,
+   57.464
+  ],
+  [
+   1868,
+   "2026-10-25 17:07:27",
+   271370,
+   217312,
+   55.531
+  ]
+ ],
+ "primeiros_1225_por_emissao_entre_os_1868": [
+  153840,
+  138950,
+  52.543
+ ],
+ "parcial_tse": {
+  "secoes": 1225,
+  "L": 193574,
+  "R": 142169,
+  "L_pct": 57.655,
+  "fonte": "https://www.fortenoreconcavo.com.br/2026/10/tse-suspende-totalizacao-dos-votos-do-2.html"
+ }
+}

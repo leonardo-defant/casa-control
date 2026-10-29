@@ -1,0 +1,1638 @@
+{
+ "descricao": "Adendo 18 (testes L1 a L8 de incoerência lógica dentro de 2026), cada um com conferência independente feita por outro agente com código próprio. Registro em PRE-REGISTRO-2026-10-26.md, commit bc7decb (29/10/2026 05:13:35 UTC), antes de rodar.",
+ "testes": [
+  {
+   "teste": "L1 do Adendo 18: horários impossíveis em todas as seções dos dois turnos de 2026 (bweb completo, todos os cargos, uma linha por seção: 499.206 no 1º turno e 499.207 no 2º). Por seção: abertura, encerramento, emissão do boletim, recebimento pelo TSE e data de carga. Cada hora foi convertida para Brasília pelo fuso do município, tirado da hora de abertura mais comum dele.",
+   "veredito": "Pela letra, INCOERÊNCIA. Está na leitura seção a seção de \"qualquer número delas em que a virada de Lula supere a das outras seções do mesmo local em 3 pontos ou mais\", que tomei como a mais literal e declarei. Na leitura em grupo, o mesmo trecho dá INCONCLUSIVO. O gatilho é uma única seção, PR|75990|34|133, em Inácio Martins, que votou com 18 eleitores no 2º turno. Com tão poucos votos, uma diferença de 6,5 pontos sai por acaso com facilidade. Não há sinal de fraude: o 2º turno tem 18 seções impossíveis sem explicação, longe das 100 do critério, e a virada média delas não favorece Lula.",
+   "numeros": "Relógios, conferidos antes de aplicar as regras:\n- Abertura, encerramento e emissão estão no relógio da urna, em hora local. A emissão vem cerca de 2 min depois do encerramento em todos os fusos, e o encerramento mediano é 17h, 16h e 15h nos fusos 0, -1 e -2.\n- O recebimento (DT_BU_RECEBIDO) está em hora de Brasília. A hora de recebimento tem a mesma distribuição em todos os fusos, e o menor intervalo bruto entre emissão e recebimento é de 60 min no fuso -1 e de 122 min no fuso -2.\n- A carga está em hora local.\n- Fusos dos municípios: 5.198 com abertura modal às 8h, 339 às 7h, 33 às 6h, 1 às 9h (Noronha) e 117 cidades do exterior às 8h locais. O fuso é o mesmo nos dois turnos em todos os municípios.\n\nContagem por regra:\n| Regra | 1º turno | 2º turno |\n|---|---|---|\n| A, encerramento antes das 17h | 0 | 0 |\n| B, emissão antes do encerramento | 0 | 0 |\n| C, recebimento antes da emissão | 575 | 604 |\n| D, abertura antes das 7h ou depois das 10h, sem contingência | 22 | 10 |\n| E, carga fora da janela | 0 | 0 |\n| Seções de junta | 30 | 29 |\n\n2º turno: 614 seções violam alguma regra.\n- 596 são do exterior: o boletim é emitido na hora local da cidade e recebido em hora de Brasília. Com o fuso real de cada cidade, todas ficam possíveis; o menor intervalo passa a ser de +6.510 s.\n- 18 ficam sem explicação:\n  - 10 abriram depois das 10h, sem troca de urna: 5 em Inácio Martins (PR), 2 em Ecoporanga (ES), Canindé (CE), Óbidos (PA) e Itajubá (MG). Óbidos e Itajubá também abriram tarde no 1º turno.\n  - 8 tiveram o boletim recebido de 5 a 52 s antes da hora de emissão marcada pela urna: 7 no PA (4 na zona 16 de Afuá) e 1 no PR. Todas chegaram às 17h05 ou 17h06, entre os 1.092 primeiros boletins do Brasil, antes da pausa no recebimento (das 17h10 às 19h03).\n- Outras 6 abriram depois das 10h, mas têm troca de urna e por isso ficam fora da regra D por definição. Duas delas tiveram a urna carregada no próprio dia 25/10, antes de abrir.\n\nVirada das 18 sem explicação:\n- 9 têm outra seção no mesmo local para comparar. Diferença média contra as outras do local: -0,43 ponto (ep 0,50, 8 locais); ponderada pelos votos, -0,90 (ep 0,66).\n- Só uma passa de +3 pontos: a 133, com d = +6,51 e 18 votos. A única outra seção do local, a 189, também abriu tarde e tem -6,51; as duas se espelham.\n- Nas seções de até 50 votos, 29% têm d de 3 ou mais. A chance de pelo menos uma das 9 passar de 3 só pelo acaso é de 66%.\n\n1º turno, mesma régua: 597 violam alguma regra e 16 ficam sem explicação. Na leitura estrita de fuso, fora do registro, são 26.\n\nCarga:\n- O calendário (Res. 23.760/2026) não tem data nacional de carga. A janela aplicada vai de 04/09 (lacração dos sistemas no TSE) até o dia da votação.\n- No 2º turno a urna fica com a carga do 1º e recebe só uma nova mídia de resultado (art. 108 da Res. 23.751/2026). 98,1% das seções têm carga de setembro.\n- 1.531 seções têm carga de 05 a 23/10 (art. 109). 709 têm carga na véspera, cerca de 20 por UF (SP 72): é o teste de integridade, e 706 delas têm outra urna. 5 têm carga no próprio dia 25/10, todas com troca de urna.\n- 4.435 seções têm urna diferente entre os turnos, e 370 mantiveram a urna mas foram recarregadas.\n\nFora do registro, contra as outras seções do município:\n- Jacareacanga (PA) 102/54: d = +11,96 (Lula 63 para 75, Flávio 61 para 43), a maior virada das 55 seções do município. Só 0,012% das seções do país com 101 a 200 votos chegam a isso. A chance de uma das 18 chegar lá por acaso é de 0,2%.\n- Óbidos (PA) 22/259: d = -11,86, a favor de Flávio, com chance de 3,7%.",
+   "o_que_isso_significa": "As regras de horário não acham um furo que aponte para fraude:\n- Nenhuma urna encerrou antes das 17h. Nenhum boletim foi emitido antes do encerramento. Nenhuma carga ficou fora da janela legal.\n- O 2º turno tem o mesmo tipo e quase o mesmo número de casos que o 1º (18 contra 16), e a virada média dessas seções não favorece Lula.\n\nO que sobra são dois fenômenos mecânicos:\n- **Atraso de abertura:** quem abre a votação é a mesa, não a urna. O registro chama isso de \"impossível\", mas atraso acontece; a causa está na ata de cada seção, que não está nos dados abertos.\n- **Relógio da urna adiantado:** o relógio é acertado na carga e anda sozinho por semanas. O desvio só aparece quando a transmissão sai do próprio local logo depois da emissão. O log da amostra da zona 16 de Afuá mostra a mídia de resultado retirada às 17h13min58s no relógio da urna e o boletim recebido pelo TSE às 17h09min54s, então esse relógio estava pelo menos 4 min adiantado. Os boletins da amostra têm assinatura válida da urna (T18), o que descarta boletim feito fora dela.\n\nO \"INCOERÊNCIA\" vem de uma leitura literal que dispara pelo acaso em dois terços das vezes com 9 seções. Isso não é evidência.\n\nO único ponto que merece conferência é Jacareacanga 102/54: é raro para o tamanho da seção, mas foi achado depois de olhar, numa comparação que não é a do registro, e tem um extremo do mesmo tamanho para o outro lado em Óbidos. Para tirar a dúvida, confrontar o boletim impresso afixado na seção (ou a foto de um fiscal) com o do TSE e conferir a assinatura do arquivo. Isso exige baixar o boletim, o que esta rodada não permitiu.",
+   "criterio": "Adendo 18, L1, escrito antes de rodar. \"Impossível\": encerramento antes das 17h00 de Brasília com comparecimento acima de zero; emissão do boletim antes do encerramento; recebimento antes da emissão; abertura antes das 7h ou depois das 10h de Brasília sem urna de contingência; carga fora da janela de carga do turno na UF. \"Sinal\": 100 ou mais seções impossíveis no 2º turno sem explicação por fuso, contingência ou junta, ou qualquer número delas em que a virada de Lula supere a das outras seções do mesmo local em 3 pontos ou mais. \"Sem sinal\": nenhuma seção impossível sem explicação. Entre os dois: inconclusivo, com a lista. Limiares e especificação não foram mudados.",
+   "desvios": "Leituras declaradas, todas no texto de saída:\n1. \"Qualquer número delas em que...\": lida seção a seção, como a mais literal. É ela que dá INCOERÊNCIA; em grupo dá INCONCLUSIVO.\n2. Janela de carga: a mesma para todas as UFs, de 04/09/2026 até o fim do dia da votação, porque o calendário não tem data nacional e os editais dos TREs não puderam ser lidos (HTTP 403). As datas estaduais achadas na imprensa batem com o começo das cargas nos dados (SE 18/09, SP 23/09).\n3. Contingência pelo bweb, que não marca a urna de contingência: número da urna diferente entre os turnos, ou carga no próprio dia da votação.\n4. Explicação por fuso: no Brasil, outro deslocamento do país (-2, -1, 0 ou +1) que torne A, C e D possíveis ao mesmo tempo; no exterior, o fuso real da cidade (base tz 2026e).\n5. Exterior: o horário oficial é 8h a 17h locais, e \"de Brasília\" foi lido assim.\n6. Robustez fora do registro: uma leitura estrita de fuso (abertura entre 7h e 9h depois do ajuste). Só muda o 1º turno, de 16 para 26, porque 10 aberturas tardias tinham sido \"explicadas\" por um relógio 1 hora adiantado.\n7. Fora do registro: comparação com o município, carga depois da abertura (2 seções em Taió, SC, no 1º turno, com carga no dia, retrato da contingência) e log da amostra.\n\nFicaram de fora:\n- a causa dos atrasos (atas das seções);\n- o relógio de cada urna contra uma hora externa;\n- a janela de carga por UF nos editais;\n- o boletim de Jacareacanga 102/54, que exigiria download.",
+   "fontes": [
+    "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+    "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-751-de-26-de-fevereiro-de-2026",
+    "https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/sistemas-das-eleicoes-gerais-de-2026-sao-assinados-digitalmente-e-lacrados-pelo-tse",
+    "https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026",
+    "https://www.tre-se.jus.br/comunicacao/noticias/2026/Setembro/justica-eleitoral-inicia-carga-e-lacracao-das-urnas-eletronicas-para-as-eleicoes-2026",
+    "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Setembro/eleicoes-2026-cerimonia-publica-da-inicio-a-preparacao-de-114-mil-urnas-para-o-1o-turno-em-sao-paulo-1",
+    "https://www.tre-mt.jus.br/comunicacao/noticias/2026/Setembro/cerimonias-de-carga-e-lacre-marcam-reta-final-de-preparacao-de-urnas-eletronicas",
+    "https://www.tre-pb.jus.br/comunicacao/noticias/2026/Outubro/preparacao-das-urnas-eletronicas-para-o-2deg-turno-acontece-ate-sexta-feira-16",
+    "https://www.tre-mg.jus.br/comunicacao/noticias/2026/Outubro/urnas-eletronicas-estao-sendo-preparadas-para-o-2o-turno-das-eleicoes-2026",
+    "https://www.tre-ba.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-tre-ba-inicia-preparacao-das-urnas-para-o-2o-turno-nesta-quarta-feira-14",
+    "https://www.tre-pr.jus.br/comunicacao/noticias/2026/Outubro/justica-eleitoral-do-parana-inicia-preparacao-das-urnas-eletronicas-para-o-2o-turno-das-eleicoes-2026",
+    "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/15/tre-ce-realiza-carga-das-eletronicas-urnas-para-o-2-turno.html",
+    "https://acritica.net/justica/tre-ms-inicia-carga-e-lacracao-de-urnas-para-o-segundo-turno/",
+    "https://www.dgabc.com.br/Noticia/4352037/urnas-do-2-turno-comecam-a-ser-preparadas-na-quarta-feira",
+    "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
+    "https://bmcnews.com.br/politica/tse-registra-1-516-urnas-substituidas-ate-as-18h-no-segundo-turno/"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L1.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L1_horarios.txt",
+    "/home/user/casa-control/eleicao-2026/resultados/L1_horarios.json",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L1/bu1t.json.gz",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L1/bu2t.json.gz"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "Confirmo: pela letra, INCOERÊNCIA. A leitura seção a seção do \"qualquer número delas em que...\" é a mais literal, e por ela basta uma seção. Na leitura em grupo, o mesmo trecho dá INCONCLUSIVO. O gatilho é uma única seção, PR|75990|34|133 (Inácio Martins), com d = +6,51 e 18 votos no 2º turno. Isso é compatível com o acaso e não é sinal de fraude. Recalculei tudo com código meu, extraindo os campos direto dos zips do bweb, sem usar o cache do outro agente. Os números do 2º turno batem:\n- 614 seções violam alguma regra: 604 pela C e 10 pela D. A, B e E têm zero.\n- 18 ficam sem explicação (10 pela D e 8 pela C), longe das 100 do critério.\n- 9 delas têm outra seção no mesmo local. Só uma tem d de 3 ou mais.\n- Média de d dessas 9: -0,434 (ep 0,502, 8 locais).\n- As 596 do exterior ficam possíveis com o fuso real de cada cidade. O menor intervalo entre emissão e recebimento passa a ser de +6.510 s.\n- Fusos dos municípios: 5.198 / 339 / 33 / 1 / 117, iguais nos dois turnos.\n- 1º turno: 597 violam alguma regra e 16 ficam sem explicação.\n\nConferi os votos da 133 e da 189 no zip bruto do PR:\n- 133: Lula 11, Flávio 7, comparecimento 18 (no 1º turno, 92, 67 e 170).\n- 189: Lula 74, Flávio 44, comparecimento 121.\n- A 189 é a única outra seção do local 1295.\n\nPor que o gatilho é acaso:\n- Uma subamostra de 18 dos 159 eleitores do 1º turno tem desvio-padrão de cerca de 11 pontos na fatia de Lula.\n- Entre as seções de até 50 votos, 29% têm d de 3 ou mais, e 12% chegam a 6,51 ou mais.\n- A chance de pelo menos uma das 9 passar de 3 só pelo acaso é de 66% pelo método do agente (faixas largas de votos) e de 85% pelo meu (seções com 0,8 a 1,25 vez os votos).\n\nEm nenhuma das variantes que testei o veredito pela letra deixa de ser INCOERÊNCIA, e em nenhuma a virada média das seções impossíveis favorece Lula.",
+    "problemas": [
+     "Falta uma explicação no relatório. A pausa no recebimento (o último boletim antes dela chegou às 17h07min27s, o seguinte às 19h03min37s, não 17h10) tem causa pública que o relatório não cita. O ministro Zanin (STF) prorrogou a votação por até 2 horas, até as 19h, nas seções ainda abertas, depois de denúncias de falta de transporte. O pedido foi da campanha de Lula, e a de Flávio também pediu extensão em localidades afetadas. O TSE suspendeu a totalização com cerca de 0,25% das seções apuradas e retomou às 19h. Nos dados, 6.352 seções do 2º turno encerraram às 19h ou depois: RJ 3.320, SP 1.974, BA 1.051, PE 717. Descritivo, fora do registro: essas seções têm d de +0,02 (ep 0,07; 3.712 seções, 818 locais) contra as seções do mesmo local que fecharam antes das 19h, e o comparecimento subiu 3,0 pontos, contra 1,7 nas demais. Não muda o L1, mas o contexto deveria estar no texto.",
+     "A frase 'longe das 100 do critério' depende da janela de carga frouxa: de 04/09 até o dia da votação, a mesma para todas as UFs. Testei uma janela estrita onde a imprensa deu datas: SE e SP no 1º turno, com o fim da janela de SP chutado em 30/09; PR, BA, CE, PB, MS e SP no 2º turno. Com ela, as seções sem explicação passam a 323 no 2º turno e 318 no 1º. Quase todas são cargas de SP de 01 a 03/10 e de véspera sem troca de urna (SE 13, PR 2), mais uma em BA (23/10) e outra no CE (20/10). As janelas da imprensa estão incompletas: o CE tem cargas até 22/10, e a imprensa diz de 14 a 16/10. A média de d dessas seções é de +0,06 (ep 0,10). O veredito pela letra continua INCOERÊNCIA. Ninguém conferiu as janelas nos editais dos TREs.",
+     "A marca de contingência é um substituto. Com contingência só por carga no próprio dia, as seções sem explicação passam a 22. Sem nenhuma marca de contingência, a 24. Nos dois casos entra no gatilho BA|33073|74|241, com d = +3,79 (abriu às 10h14, urna diferente da do 1º turno, carga em 22/09). O veredito não muda e a contagem segue longe de 100.",
+     "Teste-controle que o relatório não destaca: a mesma regra, aplicada às 16 seções impossíveis do 1º turno, também dispara. Uma das 11 com comparação passa de 3: PA|4057|16|10, de Afuá, com d = +3,72, na mesma zona de 4 das 8 seções da regra C no 2º turno. Isso confirma que o gatilho seção a seção dispara sem nenhum mecanismo próprio do 2º turno.",
+     "Detalhe de método, sem efeito no veredito: a chance de 66% usa faixas largas de votos. Com seções vizinhas em tamanho, a chance sobe para 85%.",
+     "Fora do registro: 36 seções do 2º turno encerraram depois das 19h15 de Brasília. Uma delas, MG|41882|320|185, encerrou às 23h04min42s, 4 horas depois do limite prorrogado. Tem urna diferente da do 1º turno, virada de +1,98 e comparecimento de 96 de 102 aptos. Nenhuma regra do L1 cobre isso. Vale conferir na ata da seção.",
+     "A queda de comparecimento da 133 (de 170 para 18) e o atraso das 5 seções de Inácio Martins seguem sem causa achada. Inácio Martins não aparece nas notícias sobre transporte, que citam BA, SP, PI, SE, PA, AL e RJ. No 1º turno, a 133 e a 189 já tinham aberto às 9h25 e às 9h29.",
+     "Não refiz a leitura estrita de fuso do 1º turno (26 seções), que está fora do registro. Jacareacanga 102/54, também fora do registro: d contra o município de +11,96, confirmado. A frequência que achei foi de 0,014%; o agente achou 0,012%. A diferença vem de critério de inclusão e não muda nada."
+    ],
+    "como_conferiu": "Li o Adendo 18 (L1) e o script do agente inteiro, e conferi que ele aplica as cinco regras, as três explicações e a medida d como o registro escreve. A regra E7, em que qualquer explicação vale para qualquer regra, não esconde nada na prática: nenhuma seção ficou explicada só por contingência.\n\nExtração própria, sem o cache bu1t/bu2t do agente:\n- Extraí os campos de seção direto dos 56 zips com unzip e mawk (bin/ext.sh): zero linhas com número de colunas errado.\n- Entre cargos só variam aptos e comparecimento; os horários são iguais.\n- CD_TIPO_URNA é 'Apurada' em todas as seções. O leiame confirma que o bweb não marca a urna de contingência.\n\nRecálculo, com script próprio em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L1/conferir_L1.py (saída em conferencia_L1.json, na mesma pasta):\n- fuso modal de cada município;\n- regras A a E;\n- explicação por fuso: deslocamento alternativo no Brasil, fuso real no exterior;\n- d contra as outras seções do local de duas formas: votos somados e média simples das seções;\n- veredito seção a seção e em grupo.\n\nVariantes testadas: três definições de contingência e uma janela de carga estrita.\n\nConferi os votos da 133 e da 189 no zip bruto do PR e calculei a dispersão de d por tamanho de seção. Fiz também a distribuição horária do recebimento e do encerramento nos dois turnos. Na web, achei a prorrogação de Zanin e a suspensão da totalização (Correio da Manhã, 25/10/2026: https://www.correiodamanha.com.br/politica/2026/10/329719-tse-retoma-contagem-dos-votos-as-19h-apos-suspensao-provocada-por-decisao-de-zanin.html ; Diário do Transporte: https://diariodotransporte.com.br/2026/10/25/zanin-prorroga-votacao-ate-as-19h-apos-problemas-no-transporte-de-eleitores-neste-domingo/ ; Times Brasil: https://timesbrasil.com.br/eleicoes-2026/decisao-2026-ministerio-da-justica-aponta-problemas-no-transporte-de-eleitores-em-7-estados-no-2o-turno/).\n\nNão alterei nenhum arquivo do outro agente nem do repositório."
+   }
+  },
+  {
+   "teste": "L2 do Adendo 18: urna trocada entre os turnos e carga fora do padrão, em todas as seções (bweb completo dos dois turnos de 2026). y = virada de Lula (fatia entre os finalistas, 2º menos 1º turno), efeito fixo de local, erro agrupado por local, peso L2+R2.",
+   "veredito": "COERENTE. Os dois grupos ficam na faixa de \"sem sinal\": diferença abaixo de 0,3 ponto em valor absoluto, com erro-padrão até 0,15.",
+   "numeros": "Universo: 499.205 seções com os dois turnos. Todas têm voto em finalista nos dois turnos. O número da urna da base bate com o bweb seção a seção nos dois turnos (0 diferenças). A regressão usa 477.035 seções em 72.538 locais.\n\nGrupo U, urna trocada: 4.435 seções (0,89%), 1,10 milhão de votos nos finalistas. Diferença na virada contra as outras seções do mesmo local: -0,02 ponto (ep 0,03, z -0,75). São 4.216 do grupo na regressão, e 4.189 delas estão em 3.905 locais onde o grupo varia. Placebo (fatia de Lula no 1º turno): +0,02 (ep 0,07).\n\nGrupo C, carga fora dos percentis 1 e 99 da UF (campo com data e hora): 9.920 seções (1,99%), 2,45 milhões de votos. Diferença: -0,01 ponto (ep 0,03, z -0,27), com 9.550 na regressão e 7.112 que identificam. Placebo: +0,11 (ep 0,06).\n\nEfeito mínimo detectável: cerca de 0,09 ponto. O registro pedia 1,0 ponto e z acima de 4 para sinal.\n\nRobustez (nada muda o veredito):\n- U: com as covariáveis do T17 -0,02; sem peso -0,02; efeito fixo de município -0,03 (ep 0,03).\n- C: data só no dia -0,00 (0,04); só o lado tarde +0,01 (0,03); só o lado cedo -0,05 (0,05).\n- U e C no mesmo modelo: -0,02 e +0,00.\n- Conferência por outro caminho (diferença dentro de cada local, média entre locais): U -0,02 (0,03); C +0,02 (0,03).\n\nDescritivo, pela data de carga da urna do 2º turno:\n- Urna trocada e carregada antes do 1º turno: 2.557 seções, -0,06 (0,04).\n- Urna trocada e carregada depois do 1º turno: 1.875 seções, +0,02 (0,05).\n- Mesma urna com carga nova depois do 1º turno: 370 seções, +0,14 (0,12).\n\nÚnica diferença com z alto: no grupo C, a variação do comparecimento é +0,14 ponto (ep 0,03). Não mexe na virada.\n\nEscala: no limite de cima de 95%, o grupo U daria a Lula 426 votos a mais e o grupo C 1.157. A margem do 2º turno é de 4.430.191 votos.\n\nConferências de ordem lógica (fora do registro):\n- 2º turno: 0 cargas depois da abertura e 0 depois da emissão. As 5 cargas feitas no dia do 2º turno são todas anteriores à abertura.\n- 0 urnas em duas seções no mesmo turno.\n- Mesma urna nos dois turnos (494.770 seções): 370 códigos de carga diferentes, todos com recarga datada depois do 1º turno. 0 mesmo código com data diferente.\n- 81 urnas votaram no 1º turno numa seção e no 2º em outra, todas com carga nova depois do 1º turno.\n- 1º turno: 2 seções com carga depois da abertura, SC|83518|46|38 e |113. Foram carregadas às 09h45 e 09h54 do dia 4/10, com abertura às 08:00:01 e o mesmo flash de carga. Isso é compatível com urna de contingência que recebeu a votação começada na original, mas não foi confirmado por log. Fica para o L1.",
+   "o_que_isso_significa": "Este teste procurou um caminho específico de fraude: urna trocada entre os turnos ou carregada fora do padrão da UF. A comparação é feita dentro de 2026, com as seções vizinhas do mesmo local de votação, sem usar outra eleição como régua.\n\nO resultado é que essas urnas se comportaram igual às vizinhas: a virada de Lula nelas é a mesma, com precisão de centésimos de ponto. As urnas que chegaram depois do 1º turno, as recarregadas e as que vieram de outra seção também não destoam.\n\nAs conferências de ordem lógica dos campos de carga não acharam nada impossível no 2º turno. No 1º turno ficaram 2 casos de SC para o L1 conferir.\n\nMesmo no limite mais desfavorável do intervalo, esse caminho moveria no máximo uns 1.000 votos, contra uma margem de 4,43 milhões. Então a troca ou a recarga de urnas não explica a perda de eleitores de Flávio.\n\nLimite do teste: ele não vê uma alteração que agisse igual em todas as urnas, trocadas ou não. Só responde se a troca ou a carga fora de hora serviram de caminho, e a resposta é não. Não é prova de que não houve fraude de outro tipo.",
+   "criterio": "Adendo 18, L2, escrito antes de rodar (commit bc7decb, 2026-10-29 05:13:35 UTC).\n\nGrupos: (U) seções com número de urna diferente entre o 1º e o 2º turno; (C) seções com data de carga do 2º turno fora da faixa entre os percentis 1 e 99 da UF.\n\nModelo: y = virada de Lula, efeito fixo de local, erro agrupado por local, peso pelos votos dos finalistas.\n\nRégua:\n- Sinal (INCOERÊNCIA): algum grupo com 500 seções ou mais e diferença de 1,0 ponto ou mais a favor de Lula, a mais de 4 erros-padrão.\n- Sem sinal (COERENTE): |diferença| abaixo de 0,3 com erro-padrão até 0,15.\n- Entre os dois: INCONCLUSIVO.\n\nNenhum limiar foi mudado.",
+   "desvios": "Escolhas do que o registro não fixou, todas feitas antes de calcular a virada dos grupos:\n\n1. Peso: L2+R2, os votos dos finalistas no 2º turno, que é a convenção do T17. O registro não diz o turno. Sem peso, o resultado é o mesmo.\n2. Data de carga: o campo DT_CARGA_URNA_EFETIVADA, que o leiame do TSE chama de \"Data da carga da urna efetivada\", usado com o valor que traz (data e hora). Isso faz o grupo C ter cerca de 2% de cada UF por construção. A leitura com a data truncada no dia (4.301 seções) dá o mesmo resultado.\n3. Percentis: calculados por UF sobre todas as seções do bweb do 2º turno, com o exterior contado como uma UF, pelo método linear do numpy. \"Fora\" quer dizer estritamente antes do p1 ou depois do p99.\n4. \"500 seções ou mais\": contadas as seções do grupo que entram na regressão. Contar só as dos locais onde o grupo varia não muda nada.\n5. O teste dá INCOERÊNCIA se algum grupo dá sinal, e COERENTE só se os dois dão sem sinal.\n6. Local: o do 2º turno. Nenhuma seção mudou de local entre os turnos.\n7. Ficaram de fora 2 seções do exterior que existem num turno só.\n\nRobustez, descritivo e conferências de ordem são fora do registro e não pesam no veredito.\n\nO que ficou de fora:\n- Troca de urna no meio do dia, que só aparece no log, não lido para todas as seções.\n- Comparação com as atas de carga e lacre dos TREs, que não foram obtidas.\n- Qualquer alteração uniforme em todas as urnas.",
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L2.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L2_bweb.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L2_bweb.txt",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L2tmp/cache_1t_L2.json.gz"
+   ],
+   "fontes": [
+    "Leiame do TSE dentro dos zips do bweb (_leiame-boletimurnaweb.pdf): definição de NR_URNA_EFETIVADA, CD_CARGA_1/2, CD_FLASHCARD e DT_CARGA_URNA_EFETIVADA ('Data da carga da urna efetivada')",
+    "/home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md (Adendo 18, L2; convenção de peso do T17)",
+    "Zips do bweb do 2º turno (26/10, 07h42) e do 1º turno (05/10, 14h03), locais, sem novo download"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "COERENTE (pela letra do Adendo 18, L2). Recalculei tudo do zero, lendo o bweb diretamente, sem usar a base nem o cache do outro agente e com um estimador próprio. Os números decisivos batem até a última casa. Grupo U, urna trocada: -0,024 ponto (ep 0,032, z -0,75), com 4.216 seções do grupo na regressão (4.189 em 3.905 locais onde o grupo varia). Grupo C, carga fora dos percentis 1 e 99 da UF: -0,0075 ponto (ep 0,028, z -0,27), com 9.550 seções na regressão (7.112 identificam). A regressão tem 477.035 seções em 72.538 locais. Os dois grupos têm |diferença| < 0,3 e erro-padrão <= 0,15, então \"sem sinal\". O sinal pediria +1,0 ponto a mais de 4 erros-padrão, e o mais próximo disso é 33 vezes menor. O script segue o registro: limiares 1,0 / 4 / 500 / 0,3 / 0,15 sem mudança, sinal a favor de Lula = coeficiente positivo, efeito fixo de local, erro agrupado por local e peso L2+R2, que é a convenção escrita do T17 (linha 260 do pré-registro). Nos dois sentidos nada muda o veredito. Exagero: nenhuma incoerência foi alegada. Ocultação: não há cauda escondida pela média, e nenhuma variante de peso, efeito fixo, percentil ou leitura da data chega perto da régua. Limite que continua valendo: o teste não vê uma alteração que agisse igual em todas as urnas.",
+    "problemas": [
+     "Menor, de redação: o resumo diz '0 urnas em duas seções no mesmo turno', mas isso só vale fora das juntas, como o txt diz e o resumo não. No exterior, as seções apuradas por junta repetem o mesmo número: 1808076 em 28 seções no 1º turno e em 20 no 2º, e 1762246 em 9 no 2º. Todas têm abertura e encerramento vazios, o que é compatível com o número do sistema de apuração da junta, não com uma urna física. Por isso 11 seções do grupo U só entram como 'trocadas' por causa da junta. Sem elas o resultado não muda: -0,023 (ep 0,032).",
+     "Afirmação sem teste próprio no resultado do outro agente: 'as que vieram de outra seção também não destoam'. Para as 81 urnas reaproveitadas ele só fez a conferência de ordem (carga nova depois do 1º turno), sem regressão própria. Eu testei: 79 delas entram na regressão e dão -0,23 ponto (ep 0,21). Não destoam, então a frase se sustenta, mas faltava o número.",
+     "Escala: o texto compara 'votos de Lula a mais' com a margem de 4,43 milhões. Em margem, o limite de cima de 95% é o dobro: 853 votos para U e 2.315 para C. A frase 'no máximo uns 1.000 votos' fica um pouco abaixo dos 1.157 do grupo C. Nada disso muda a conclusão: é menos de 0,1% da margem.",
+     "Limite do efeito fixo de local, já parcialmente declarado: 2.438 das 9.550 seções do grupo C (e 27 das do U) estão em locais em que todas as seções são do grupo, e essas não identificam o coeficiente. Com efeito fixo de zona, C dá -0,02 (0,03), com 9.148 seções que identificam. Com efeito fixo de município, U dá -0,03 (0,03) e C também -0,03 (0,03). Nada escondido ali.",
+     "Ordem dos passos: não dá para confirmar pela data do arquivo que a especificação foi fixada antes de rodar. O analisar_L2.py foi modificado às 05:39, depois da 1ª rodada, às 05:29. Mas as 4 rodadas (run1 a run4) dão exatamente os mesmos coeficientes principais, a pasta explore só olhou campos e não a virada, e a especificação usada é a leitura mais literal do registro, que eu reproduzi por conta própria."
+    ],
+    "como_conferiu": "1) Li o Adendo 18 (linhas 501 a 543; L2 nas linhas 512 a 515, commit bc7decb) e conferi no pré-registro a convenção de peso do T17: 'peso votos de Lula mais Flávio no 2º turno'. 2) Escrevi um leitor próprio do bweb, /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L2/ler_bweb.py. Ele lê todas as linhas e todos os cargos dos 28 zips de cada turno: 67,9 milhões de linhas no 1º turno e 2,09 milhões no 2º, todas com 45 campos e nenhum valor divergente entre linhas da mesma seção. Também reconta os votos 13 e 22 de presidente. A base secoes2026 bate com o bweb nos dois turnos (urna, local, L, R, aptos e comparecimento): 0 diferenças. 3) Escrevi conferir_L2.py, com estimador within ponderado em forma fechada (pandas) e erro agrupado calculado à mão (CR1 com fator G/(G-1)), sem lib.fe_ols. Universo de 499.205 seções; 0 mudanças de local entre os turnos; 4.435 seções no grupo U; 9.920 no grupo C, pelo percentil linear da data e hora de DT_CARGA_URNA_EFETIVADA por UF, sobre as 499.207 seções do bweb do 2º turno; margem de 4.430.191 votos. Coeficientes, erros-padrão e contagens iguais aos do outro agente. 4) Robustez minha, nada muda o veredito: placebo U +0,017 (0,067) e C +0,106 (0,059); sem peso, U -0,015 e C -0,000; peso pelos votos do 1º turno, U -0,023 e C -0,008; efeito fixo de zona, U -0,036 e C -0,021; efeito fixo de município, U -0,032 e C -0,032; C com os percentis pelos métodos lower, higher, nearest e midpoint, com a data no dia (4.301 seções) e com os percentis calculados só no universo, sempre entre -0,010 e -0,004; C só cedo -0,048 (0,047), C só tarde +0,015 (0,035); U ou C juntos -0,022 (0,024); qualquer carga do 2º turno depois do 1º turno +0,038 (0,045); U pela data de carga: antes do 1º turno -0,056 (0,042), depois +0,020 (0,048); mesma urna com carga nova +0,138 (0,117); comparecimento em C +0,139 (0,029), que não é o y registrado. 5) Caudas, para ver se a média esconde poucas urnas muito alteradas: resíduo dentro do local nas seções do grupo contra as outras. U acima de +3 pontos 4,5% contra 4,8%, acima de +5 pontos 0,45% contra 0,42%; C acima de +3 pontos 4,3% contra 4,7%. Os quantis 1% a 99% são praticamente iguais. 6) Conferências de ordem, refeitas: no 2º turno, 0 cargas depois da abertura e 0 depois da emissão. No 1º turno, 2 cargas depois da abertura (SC|83518|46|38 e |113, às 09:45 e 09:54, abertura às 08:00:01, flash DF6DD30E). Fora das juntas, nenhuma urna em duas seções. Mesma urna nos dois turnos: 494.770 seções, 370 com código de carga diferente, todas com a carga do 2º turno depois do dia do 1º turno; 0 com mesmo código e data diferente. Das urnas do 2º turno, 81 tinham votado no 1º turno em outra seção, todas com carga nova depois da emissão do boletim de origem. 7) Conferi que as 4 rodadas do outro agente têm os mesmos coeficientes principais e que a pasta explore não calculou a virada. Arquivos: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L2/ler_bweb.py, /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L2/conferir_L2.py, /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L2/extra_L2.py e /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L2/conferencia_L2.json. Não alterei nenhum arquivo do outro agente nem fiz commit."
+   }
+  },
+  {
+   "teste": "L3 do Adendo 18: o núcleo do PL perde eleitor para Lula? Para cada seção, calculei a fatia do PL (nominal com NR_PARTIDO 22 mais legenda 22) nos válidos para deputado federal do 1º turno, na mesma urna, e dividi as seções em quintis por essa fatia. Em cada quintil rodei a regressão do T8: ganho de Flávio contra os votos de Cury, Renan, Caiado, Zema e demais no 1º turno, a queda do branco+nulo, a variação do comparecimento e os votos do adversário e do próprio Flávio no 1º turno, com efeito fixo de local e erro agrupado por local. P1 a P5 são o coeficiente dos próprios votos de Flávio. O espelho faz o mesmo com Lula e a fatia do PT (13). Universo: 497.897 seções em 94.539 locais, com o bweb completo dos dois turnos. O exterior fica de fora porque não vota para deputado.",
+   "veredito": "COERENTE pela letra do Adendo 18. P5 = -0,0293 (ep 0,0012) e P1 = -0,0812 (ep 0,0021): |P5| é 36% de |P1|, abaixo da metade. A INCOERÊNCIA não se cumpre. P5 fica 0,6 erro-padrão acima do limiar de -0,03, e |P1| - |P5| = 0,052 (ep 0,0024), contra o máximo de 0,01: mesmo que P5 passasse do limiar, essa segunda condição falharia por 18 erros-padrão. Ler \"a mais de 3 erros-padrão\" a partir do limiar em vez de zero dá o mesmo veredito. O espelho (Lula com a fatia do PT) dá INCONCLUSIVO: P1 -0,0172 (0,0015) e P5 -0,0143 (0,0012). COERENTE não quer dizer que não houve desvio. A calibração mostra que este teste tem pouco poder contra um desvio uniforme somado ao comportamento e nenhum contra um desvio concentrado onde Lula é forte.",
+   "numeros": "Flávio por quintil da fatia do PL (faixa da fatia; Flávio/Lula no 1º turno; P (ep); seções na regressão / locais):\nQ1: 0 a 8,9%; 31%/64%; -0,0812 (0,0021); 86.171 / 19.911\nQ2: 8,9 a 17,1%; 44%/48%; -0,0491 (0,0016); 88.838 / 18.661\nQ3: 17,1 a 24,8%; 49%/42%; -0,0422 (0,0015); 90.296 / 18.172\nQ4: 24,8 a 34,4%; 54%/38%; -0,0334 (0,0014); 91.754 / 17.571\nQ5: 34,4 a 99,3% (média 44,8%); 57%/35%; -0,0293 (0,0012); 93.573 / 15.363\nP5 - P1 = +0,0519 (ep 0,0024, z 21,7). Universo inteiro: -0,0402 (0,0006); o T8 registrado, com o exterior, deu -0,0393.\n\nLula por quintil da fatia do PT: -0,0172 (0,0015); -0,0229 (0,0019); -0,0229 (0,0019); -0,0234 (0,0017); -0,0143 (0,0012). Correlação entre seções: PL x Flávio 0,53; PT x Lula 0,25.\n\nMesma força de Lula na seção (fora do critério): dentro de cada faixa, P5 - P1 = +0,7 ponto (Lula até 35%), +1,4 (35 a 50%), +2,1 (50 a 65%) e -1,8 (65% ou mais), contra +5,2 sem controlar.\nPerda pela fatia do adversário na seção:\n- adversário até 35%: Flávio 1,4% (0,09), Lula 1,5% (0,08);\n- 35 a 50%: Flávio 4,2%, Lula 2,2%;\n- 50 a 65%: Flávio 7,2%, Lula 3,1%;\n- 65% ou mais: Flávio 11,5%, Lula 3,7%.\n\nCalibração, com o desvio simulado por cima dos dados:\n- 1% uniforme desloca os cinco P em cerca de -0,0095 e continua COERENTE.\n- 3,56% uniforme, o tamanho que vira o resultado (2.122.465 votos), dá P1 -0,114 e P5 -0,064: INCONCLUSIVO, não INCOERÊNCIA.\n- O mesmo total concentrado onde Lula é forte dá P1 -0,108 e P5 -0,038: COERENTE.\n- O P de Lula quase não se mexe com um desvio contra Flávio (+0,0002 por ponto de desvio).\n\nLimites, cada um com sua premissa:\n- Se o núcleo do PL realmente não perdesse ninguém, caberia um desvio uniforme de até 3,0% (3,3% no limite de 2 ep).\n- Se a perda natural de um núcleo for a do núcleo do PT (1,4%), caberia até cerca de 1,5% (2,0% no limite de 2 ep).\n\nRobustez: sem os grupos dos eliminados, igual (Q1 -0,0814, Q5 -0,0293). O topo de 5% do PL (fatia acima de 49%) dá -0,0336 (0,0025) e a base de 5% (até 2,1%) dá -0,1057 (0,0062). Com a federação do PT (13, 65 e 43), Lula fica igual.\n\nConferências:\n- Nominal + legenda + branco + nulo de deputado = comparecimento em todas as seções (0 diferenças).\n- Número do votável coerente com o partido em todas as linhas (0 exceções).\n- O comparecimento de deputado é menor que o de presidente em 17.233 seções (165.584 eleitores, mediana 3 por seção) e nunca maior: é o eleitor em trânsito de outra UF, que só vota para presidente.\n- PL tem 25.830.609 votos (22,64% dos válidos) e PT 14.798.202 (12,97%).\n- Nikolas Ferreira soma 3.119.318 votos no bweb, igual ao publicado.\n- As listas do Q1 e do Q5, refeitas por código separado e rodadas no script registrado do T8, reproduzem P1 e P5 com as mesmas seções e locais.",
+   "o_que_isso_significa": "A ideia do teste era: se uma fração fixa dos votos de Flávio foi desviada, a perda dele aparece igual em todo lugar, até onde o PL é mais forte. Não é o que os dados mostram. Onde o PL é fraco para deputado, Flávio perdeu 8,1% dos próprios eleitores do 1º turno. Onde o PL é o núcleo, perdeu 2,9%. A perda cai de forma contínua de um quintil para o outro. Esse é o formato que o comportamento prevê, e por isso o veredito pela letra é COERENTE.\n\nSendo cético para os dois lados, há três coisas que o resultado não diz.\n\n1) A maior parte desse degrau não vem do partido. Vem do fato de o PL ser fraco justamente onde Lula é forte. Comparando seções com a mesma força de Lula, o núcleo do PL perde só 0 a 2 pontos a menos, e nada nas pontas.\n\n2) O teste quase não enxerga um desvio somado ao comportamento. Simulei um desvio uniforme do tamanho que vira o resultado (3,56% dos votos de Flávio). O degrau continua e a régua dá INCONCLUSIVO, não INCOERÊNCIA. O mesmo desvio concentrado onde Lula é forte dá COERENTE. Logo, este teste não descarta fraude: ele descarta só um desvio uniforme grande em cima de uma perda natural perto de zero.\n\n3) O que continua em aberto é o mesmo ponto do T35. Com a mesma força do adversário na seção, Flávio perde mais que Lula, e a diferença cresce com a força de Lula (11,5% contra 3,7% onde o adversário tem 65% ou mais). Nos redutos de cada um, os dois perdem o mesmo (1,4% e 1,5%). Esse é o formato de um comportamento diferente entre os dois campos, e também o de um desvio regulado pela força local de Lula que poupa os redutos de Flávio. Pelos dados da própria urna, nem o L3 nem o T35 separam as duas coisas. Só testes fora da contagem da urna separam: teste de integridade, boletim impresso contra o transmitido, inspeção do código.\n\nO que o resultado ainda limita: para caber um desvio uniforme que vire o resultado, Flávio teria de ter, nos redutos dele, um desempenho real 3,6 pontos melhor que o de Lula nos redutos de Lula. Isso depende da premissa de que os dois campos se comportam igual onde dominam.",
+   "criterio": "Registro: PRE-REGISTRO-2026-10-26.md, Adendo 18, commit bc7decb de 29/10/2026 05h13min35s UTC, antes de rodar.\n- Força do PL na seção: fatia do PL (nominal mais legenda, número 22) nos válidos para deputado federal no 1º turno, na mesma urna; quintis de seções.\n- Em cada quintil, a regressão do T8 com efeito fixo de local e erro agrupado por local; guarda-se o coeficiente dos próprios votos de Flávio (P1 a P5). O mesmo para Lula com a fatia do PT.\n- Incoerência a favor da tese: P5 de -0,03 ou menos, a mais de 3 erros-padrão, e P5 não menor que P1 em valor absoluto por mais de 0,01.\n- Coerente com comportamento: |P5| até metade de |P1|.\n- Entre os dois: inconclusivo.\nNão mudei limiar nem especificação.",
+   "desvios": "Pontos que o registro não fixou, decididos antes de ver P1 a P5 e todos declarados no .txt:\n1) \"A mais de 3 erros-padrão\" foi lido a partir de zero, a leitura mais literal. Pelo limiar de -0,03, o veredito é o mesmo.\n2) A regressão é a do T8 registrado para 2026: grupos Cury, Renan, Caiado, Zema e demais, queda do branco+nulo, variação do comparecimento, votos do adversário e do próprio candidato. O texto do Adendo 18 cita só os grupos, o branco+nulo e o comparecimento, mas o T8 inclui adversário e próprio, e o próprio é a medida.\n3) Os quintis não têm peso. Os cortes ficam nos percentis 20, 40, 60 e 80 das seções do universo (PL: 8,9%, 17,1%, 24,8% e 34,4%; PT: 5,9%, 9,3%, 13,1% e 18,8%).\n4) A regressão é separada em cada quintil. Um local que cai em dois quintis fica dividido, e a seção que fica sozinha no seu quintil sai: entram 450.632 das 497.897 seções do PL.\n5) Válidos = nominal + legenda, como o bweb traz. Voto em candidato cujo registro foi anulado depois continua como nominal no arquivo.\n6) O exterior fica de fora porque não vota para deputado. Por isso o P do universo inteiro dá -0,0402, contra -0,0393 do T8 registrado.\n7) A fatia usa o comparecimento de deputado e a regressão usa os votos de presidente, como registrado. As 17.233 seções com eleitor em trânsito estão explicadas acima.\n8) O PT entra só com o número 13. A federação PT, PCdoB e PV ficou só como robustez.\n9) A régua foi aplicada ao espelho de Lula, mas o veredito do teste é o do núcleo do PL, que é onde o registro escreve o critério.\nFora do critério, sem mudar o veredito: faixas de força de Lula, quintis da fatia do próprio candidato, topo e base de 10% e de 5%, calibração com desvio simulado e limites com premissa.\nFicou de fora: separar comportamento de um desvio regulado pela força local de Lula, o que só se testa fora da contagem da urna; o voto pessoal em candidato do PL da cidade, que eleva a fatia sem ser voto partidário (citado, não testado); e qualquer régua de outras eleições, como o Adendo 18 manda.",
+   "fontes": [
+    "Boletins de urna (bweb) do 1º turno de 2026, 28 zips de 05/10/2026 14h03 (TSE, dados abertos), linhas de deputado federal, já baixados",
+    "Base por seção dos dois turnos de 2026 (secoes2026.json.gz) e votos por candidato a presidente no 1º turno (candidatos2026_1t.json.gz)",
+    "PRE-REGISTRO-2026-10-26.md, Adendo 18 (commit bc7decb)",
+    "resultados/T7_T14_bweb.json (T8 registrado de Flávio, -0,0393) e resultados/T35_curva_forca_bweb.json (faixas de força do adversário)",
+    "Gazeta SP, 'Câmara terá 121 deputados do PL e 70 do PT' (votação de Nikolas Ferreira, 3.119.318): https://www.gazetasp.com.br/politica/camara-tera-121-deputados-do-pl-e-70-do-pt-confira-como-ficaram-as-513-cadeiras-por-partido-e-os-mais-votados-das-eleicoes-de-2026-no-brasil/",
+    "Congresso em Foco, 'Nova Câmara: veja os 513 deputados federais eleitos em 2026': https://www.congressoemfoco.com.br/noticia/122927/nova-camara-veja-os-513-deputados-federais-eleitos-em-2026"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L3.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L3_bweb.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L3_bweb.txt",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L3tmp/depfed1t.json.gz",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L3tmp/conf/q1.txt",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L3tmp/conf/q5.txt"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "COERENTE pela letra do Adendo 18. Refiz tudo com código meu e cheguei aos mesmos números, sem diferença em nenhuma casa decimal. Flávio por quintil da fatia do PL: P1 -0,0812 (ep 0,0021; 86.171 seções; 19.911 locais), P2 -0,0491 (0,0016), P3 -0,0422 (0,0015), P4 -0,0334 (0,0014), P5 -0,0293 (0,0012; 93.573 seções; 15.363 locais). |P5| é 36% de |P1|, abaixo da metade, então vale COERENTE. A INCOERÊNCIA falha nas duas condições: P5 fica acima de -0,03 e |P1| - |P5| dá 0,052, contra o máximo de 0,01. O espelho de Lula com a fatia do PT dá INCONCLUSIVO: P1 -0,0172 (0,0015) e P5 -0,0143 (0,0012), razão 0,83. No universo inteiro: Flávio -0,0402 (0,0006) e Lula -0,0141 (0,0006). O script segue o registro e os desvios estão declarados. COERENTE não descarta desvio. Um desvio uniforme de 3,56%, o tamanho que vira o resultado, posto por cima dos dados, dá INCONCLUSIVO (P1 -0,1139, P5 -0,0638). O mesmo total concentrado onde Lula é forte dá COERENTE (P1 -0,1079, P5 -0,0379). Isso reproduz a calibração do outro agente.",
+    "problemas": [
+     "Ponto não testado nem relatado. O registro não diz o que fazer com um local cujas seções caem em quintis diferentes. O agente dividiu esses locais e declarou isso (desvio 4), mas não rodou a outra leitura. Rodei. Numa regressão única com efeito fixo de local comum e todos os coeficientes por quintil, o perfil quase achata: P1 -0,0488 (0,0011) e P5 -0,0403 (0,0008), |P1| - |P5| = 0,0085, e a régua daria INCOERÊNCIA. Com intercepto por quintil, dá P1 -0,0604 e P5 -0,0329, razão 0,54: INCONCLUSIVO. Não é a leitura mais literal ('em cada quintil, a regressão do T8'), e os dados sintéticos mostram que esse estimador espreme um degrau que existe. Com X real e uma regra em que o eleitor de Flávio que votou no PL nunca troca e os demais trocam 8%, as regressões separadas dão -0,072 até -0,030 (COERENTE) e a regressão única dá -0,065 até -0,041 (INCONCLUSIVO). Com perda plana de 4%, as duas leituras dão INCOERÊNCIA, o que mostra que o teste registrado detecta um perfil plano quando ele existe. Conclusão: o veredito não muda, mas essa sensibilidade devia estar declarada.",
+     "Ponto não relatado. Com os quintis calculados dentro de cada UF, o que não é a leitura registrada, o resultado fica P1 -0,0536 (0,0019) e P5 -0,0333 (0,0013), razão 0,62: INCONCLUSIVO. O COERENTE nacional depende em parte de o Q1 ser formado por seções onde Lula é muito forte, em geral no Nordeste. Isso é coerente com o item 4 do .txt do agente, mas ele não rodou esse corte.",
+     "Texto um pouco suavizado, fora do critério. Na faixa em que Lula tem 65% ou mais na seção, a régua leria INCOERÊNCIA: Q1 -0,1157 (0,0029) e Q5 -0,1334 (0,0117), com só 2.441 seções do Q5 na regressão. O agente deu o número (-1,8 ponto), mas o resumo diz 'nada nas pontas'. Ali o núcleo do PL perde mais que o resto, embora sem significância (z de cerca de 1,4). Como Lula tem 65% ou mais e o PL tem mais de 34% para deputado, a fatia nessas seções provavelmente é voto pessoal num candidato local, não partidarismo. É um subgrupo pequeno e não muda o veredito.",
+     "Evidência a favor do comportamento que o agente não apresentou. Dentro do mesmo local, cada voto no PL para deputado soma +0,0425 (ep 0,0012) ao ganho de Flávio, mantidos os votos dele no 1º turno. O efeito é positivo nas quatro faixas de força de Lula: +0,028, +0,051, +0,054 e +0,032. Em dados sintéticos, esse modelo recupera a verdade (-0,0775 e +0,0768, contra -0,08 e +0,08). O limite é o mesmo do L3: com um desvio uniforme de 3,56% posto por cima dos dados, o coeficiente quase não se mexe (+0,0410). Ele descarta um desvio puro, sem nenhum comportamento, mas não um desvio somado ao comportamento.",
+     "Decomposição, que confirma o ponto 1 do agente. Usando só o efeito do PL dentro do local, com o resíduo embaralhado dentro de cada local, o teste registrado mostra um degrau de cerca de 1,9 ponto (P1 -0,0523, P5 -0,0334). O observado é de 5,2 pontos. O partidarismo dentro do local explica perto de 37% do degrau, e o resto vem de diferenças entre lugares, que se confundem com a força local de Lula. A frase 'a maior parte do degrau não vem do partido' se sustenta. Já 'o núcleo do PL perde só 0 a 2 pontos a menos' subestima um pouco o efeito do partido medido dentro do local.",
+     "Menor. A imprensa traz dois números para Nikolas Ferreira: 3.109.659 numa fonte e 3.119.318 em outra. O agente cita só o que bate. Somei de novo direto do zip de MG e deu 3.119.318, então a conferência vale.",
+     "Sem problema de procedimento. Os dois logs de execução (05h49 e 05h59 UTC, depois do commit bc7decb das 05h13) dão números idênticos. Nada indica troca de especificação depois de ver P1 a P5."
+    ],
+    "como_conferiu": "Li o Adendo 18 e o script analisar_L3.py inteiro. Não alterei nenhum arquivo do outro agente e não fiz commit. Trabalhei em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L3/.\n\n(1) Leitura própria das linhas de deputado federal dos 28 zips do 1º turno (ler_df.py). Usei pandas.read_csv com colunas nomeadas, filtro por CD_CARGO_PERGUNTA = 6 e agregação por seção com groupby, sem o filtro de bytes do outro script. Resultado: 497.897 seções. Válidos 114.108.482, PL 25.830.609, PT 14.798.202, legenda 3.438.437, branco 6.445.372, nulo 4.214.631, todos iguais aos do agente. A soma de nominal, legenda, branco e nulo bate com o comparecimento em todas as seções. Contar o partido por NR_PARTIDO ou pelo prefixo do NR_VOTAVEL dá o mesmo em todas as seções. O comparecimento de deputado é menor que o de presidente em 17.233 seções (165.584 eleitores) e nunca maior. Somei Nikolas de novo com awk e deu 3.119.318.\n\n(2) Montei a matriz do zero a partir de secoes2026.json.gz e candidatos2026_1t.json.gz. Fiz a regressão do T8 com código próprio (conferir.py): efeito fixo por demeaning com pandas groupby e CR1 agrupado por local, sem usar lib.fe_ols nem ols_cluster. Reproduzi exatamente os cortes, P1 a P5 com os erros-padrão, os n, os locais, o P do universo inteiro, as correlações (0,53 e 0,25), as faixas de força do adversário e os três cenários de calibração.\n\n(3) Leituras alternativas, fora do critério (conferir2.py e conferir3.py). Todas deram COERENTE, com razão |P5|/|P1| entre 0,36 e 0,42: cortes pesados pelo comparecimento (0,37), fatia sobre o comparecimento com branco e nulo (0,37), efeito fixo pelo local do 1º turno (0,36), só seções com a mesma urna nos dois turnos (0,36), quintis pela fatia do PL no local (0,36), quintis pela fatia no município (0,42), só locais puros e só locais mistos. Deram outro veredito: quintis dentro de cada UF (INCONCLUSIVO), regressão única com efeito fixo de local comum (INCOERÊNCIA; INCONCLUSIVO com intercepto por quintil) e só a legenda do PL (INCONCLUSIVO, mas com quintis degenerados, porque 37% das seções têm zero voto de legenda do PL).\n\n(4) Calibração com dados sintéticos sobre o X real (conferir4.py e conferir5.py) para ver o que cada estimador enxerga. Com perda plana, o teste registrado dá INCOERÊNCIA. Com proteção partidária forte, dá COERENTE, e a regressão única espreme o degrau. Fiz também o modelo dentro do local com os votos do PL como regressor e a decomposição do degrau entre partido e lugar.\n\nArquivos: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L3/ler_df.py, conferir.py, conferir2.py, conferir3.py, conferir4.py, conferir5.py, e os resultados df_meu.csv.gz, conferir.json, conferir2.json, conferir3.json, conferir4.json, conferir5.json, todos no mesmo diretório."
+   }
+  },
+  {
+   "teste": "L4 do Adendo 18: os eleitores dos candidatos que apoiaram Flávio, no estado de cada um (Caiado em GO, Zema em MG, Cury em SP), com o bweb completo dos dois turnos.",
+   "veredito": "INCONCLUSIVO. Nenhuma das 3 UFs cai em INCOERÊNCIA, e nenhuma cai em COERENTE. Em GO e MG, s fica abaixo de 50% a mais de 5 erros-padrão. Em SP, s fica só 11 pontos acima da referência, e o registro pede 15. Também não dá COERENTE: nas 3 UFs, s passa da referência mais 5 pontos. O veredito é o mesmo com todas as leituras da referência testadas e com a leitura do \"a mais de 3 erros-padrão\" a partir do limiar. A INCOERÊNCIA não sai com nenhuma referência possível, porque ela exige s acima de 50% em 2 das 3 UFs, e GO e MG ficam abaixo disso em todas as especificações.",
+   "numeros": "Urna: regressão do T8 com os grupos dos eliminados, dentro da UF, efeito fixo de local, erro agrupado por local. Lula e Flávio empilhados. Pela identidade, b_L + b_F = 1,0000 (conferido), então s = b_L.\n- GO, Caiado: s 45,9% (ep 0,73 ponto). Referência 26,9% (mediana de 5 institutos). Diferença +18,9 pontos (z 26,0); contra 50%, z -5,7. Faixa: entre os dois. Ou seja, 54,1% dos eleitores de Caiado em GO que escolheram um finalista foram para Flávio. Caiado teve 472.041 votos em GO, 12,3% dos válidos da UF e 18,1% do total nacional dele.\n- MG, Zema: s 34,7% (ep 1,58). Referência 12,6% (2 institutos). Diferença +22,0 pontos (z 13,9); contra 50%, z -9,7. Faixa: entre os dois. Pela urna, 65,3% foram para Flávio. Zema teve 98.407 votos em MG, 0,8% dos válidos.\n- SP, Cury: s 57,8% (ep 0,52). Referência 46,7% (4 institutos). Diferença +11,1 pontos (z 21,5); contra 50%, z +15,1. Faixa: entre os dois. Cury teve 892.368 votos em SP, 3,6% dos válidos.\n\nReferência: fatia de Lula entre Lula e Flávio na última rodada de cada instituto que separou o candidato.\n- Caiado: PoderData 23-24/10 39,5%; Quaest 17-20/10 26,9%; AtlasIntel 13-18/10 26,0%; Ipespe 13-15/10 23,4%; Nexus 10-12/10 32,9%.\n- Cury: PoderData 33,3%; Quaest 59,3%; AtlasIntel 55,1%; Ipespe 38,3%. Com a Meio/Ideia, de rodada não confirmada, a mediana vai a 55,1%.\n- Zema: PoderData 5-7/10 12,2%; Nexus 10-12/10 13,0%.\n- Datafolha só publicou o agregado dos quatro eliminados: 37,0% e 41,0%. Ficou fora da mediana por candidato.\n\nLeituras da referência, todas INCONCLUSIVO:\n- números escritos no registro (36/47/36): GO +9,9, MG -1,3 (coerente), SP +10,8;\n- mediana de todas as rodadas: GO +13,0, MG +22,0, SP +11,6;\n- primeira rodada depois do 1º turno: GO +13,0, MG +22,0, SP +12,8;\n- contra a maior fatia declarada por algum instituto: GO +6,4, MG +21,6, SP -1,5.\n\nSomando a dispersão entre institutos ao erro da urna, fora do critério: z de GO 5,1 e de SP 1,4. Em MG, dois institutos que concordam subestimam esse erro.\n\nConferências: o T37 nacional refeito com este código dá Cury 0,596, Renan 0,542, Caiado 0,488 e Zema 0,361, iguais ao registrado. O b_L feito por lib.fe_ols (Lula sozinho) é igual ao do empilhado nas 3 UFs.\n\nEm casa contra fora de casa (fatia de Lula):\n- Caiado: 45,9% em casa contra 49,5% fora (-3,6 pontos, z -4,5).\n- Zema: 34,7% contra 36,7% (-2,0, z -1,1).\n- Cury: 57,8% contra 60,2% (-2,4, z -4,0).\n\nRobustez de s, nesta ordem: efeito fixo de zona, efeito fixo de município, peso pelo comparecimento.\n- GO: 49,1%, 49,5%, 45,3%.\n- MG: 18,9%, 15,9%, 34,3%. O número de MG é frágil.\n- SP: 60,7%, 64,3%, 57,2%.\n\nTerços pela fatia do candidato da casa na seção:\n- GO: 48,2%, 41,8% e 45,1%.\n- MG: 39,9%, 34,9% e 29,4%, com erros de 14, 11 e 3 pontos.\n- SP: 58,9%, 58,5% e 57,3%.\n\nCalibração: um desvio uniforme de 3,70% dos votos de Flávio para Lula (o tamanho que vira o resultado nacional) move s em até 2,4 pontos: GO 47,9, MG 37,1, SP 59,3.\n\nPost hoc, fora do critério: Renan, que ficou neutro, tem urna de 54,2% no país contra 38,4% declarado (+15,8). Nos três estados: GO 50,2, MG 54,0, SP 50,1.",
+   "o_que_isso_significa": "A premissa lógica do teste é que os eleitores de Caiado e de Zema deveriam ir mais para Flávio, principalmente em casa. É exatamente o que a urna mostra. Em GO, 54% dos eleitores de Caiado que escolheram um finalista foram para Flávio. Em MG, 65% dos de Zema. Nos três casos, em casa eles foram um pouco mais para Flávio do que fora de casa, como o apoio prevê. Em SP, os eleitores de Cury foram 58% para Lula. Mas duas das quatro pesquisas que separaram esse grupo (Quaest 59% e AtlasIntel 55%) também davam maioria para Lula ali, e o apoio de Cury foi condicionado e veio três dias depois de ele anunciar \"neutralidade absoluta\". Por isso, a incoerência que o registro procurava (eleitores dos aliados indo majoritariamente para Lula em 2 dos 3 estados) não existe nos dados.\n\nO que existe, e não deve ser escondido: nos três estados a urna põe de 11 a 22 pontos a mais desses eleitores em Lula do que as pesquisas declaravam. É o mesmo desvio que o T37 já mostrou no país. Ele não é específico de quem apoiou Flávio: Renan, que não apoiou ninguém, tem uma distância parecida (+16). E ele não vem de um desvio uniforme de votos de Flávio para Lula: pela calibração, esse desvio, mesmo do tamanho do que viraria a eleição, mexe s em até 2,4 pontos.\n\nEsse resto de 11 a 22 pontos pode vir de quatro coisas que o teste não separa:\n- erro da regressão ecológica: o número de MG muda de 35% para 16% a 19% só trocando o efeito fixo;\n- erro das subamostras das pesquisas: cada grupo tem cerca de 2% da amostra, a Quaest deu margem de 17 a 24 pontos, e o PoderData oscilou de 42% a 58% de Flávio entre os eleitores de Cury em seis rodadas;\n- decisão tardia ou voto escondido;\n- um desvio dirigido especificamente a esses eleitores.\n\nO L4 não é prova de fraude nem de ausência de fraude. Ele derruba a versão \"os eleitores dos aliados de Flávio viraram Lula em casa\" e deixa em aberto uma distância urna contra pesquisa que já era conhecida e que aparece igual para o candidato neutro.",
+   "criterio": "Adendo 18, L4 (commit bc7decb, 29/10/2026 05:13:35 UTC, antes de rodar): regressão do T8 com os grupos dos eliminados, dentro de GO, MG e SP, com efeito fixo de local; s = b_L/(b_L+b_F) para o candidato da casa; referência = mediana dos institutos da mesma fatia declarada no cruzamento por voto no 1º turno. INCOERÊNCIA: s acima de 50% e acima da referência em 15 pontos ou mais, a mais de 3 erros-padrão, em pelo menos 2 das 3 UFs. COERENTE: s até a referência mais 5 pontos nas 3 UFs. Entre os dois: inconclusivo.\n\nO que o registro não fixou ficou escrito no docstring do script antes de calcular qualquer coeficiente nas 3 UFs:\n- Lula e Flávio empilhados, para ter a covariância entre b_L e b_F;\n- erro-padrão do critério só o da urna;\n- \"a mais de 3 erros-padrão\" lido a partir de zero, para s - 50% e para s - ref, com a leitura a partir do limiar ao lado;\n- coerente pela estimativa pontual.",
+   "desvios": "1) Os números do registro descritos como \"Quaest já conhecida: Caiado 36%, Cury 47%, Zema 36%\" não batem com nenhuma Quaest publicada e conferida. A Quaest de 17-20/10 dá Caiado 26,9% e Cury 59,3%; a de 10-13/10 dá Caiado 35,4% e Cury 53,1%; e a Quaest nunca separou Zema. O 47% coincide com a mediana dos quatro institutos para Cury, e o 36% de Zema coincide com o b_L nacional da urna no T37 (0,361); parece erro de redação. A principal usa os valores conferidos, e os do registro entram como leitura ao lado, com o mesmo veredito.\n2) \"Mediana dos institutos\" foi lida como uma rodada por instituto: a última que separou o candidato. Para Zema, isso dá o PoderData de 5-7/10 (depois ele passa a \"outro\") mais a Nexus. O T37 tinha usado só a Nexus; as duas leituras dão cerca de 13%.\n3) A Meio/Ideia (Cury, rodada não confirmada) e o Datafolha (só o agregado dos quatro) ficaram fora da mediana por candidato.\n4) A referência é nacional e a urna é da UF. Não achei pesquisa estadual de GO, MG ou SP feita depois do 1º turno com esse cruzamento; as estaduais achadas são de julho a setembro.\n5) O erro da pesquisa não entra no critério; sai ao lado.\n6) Fora de casa = as outras 26 UFs mais o exterior.\n7) A comparação com Renan é post hoc, feita depois de ver s, e não muda o veredito.\n\nFora do teste: nada foi baixado, só buscas na web e leitura das páginas de apoio. Nenhum arquivo existente foi alterado e não houve commit.",
+   "fontes": [
+    "https://sbtnews.sbt.com.br/noticia/eleicoes/apos-zema-novo-anuncia-apoio-a-flavio-bolsonaro-no-2-turno (Zema 05/10/2026; Novo formalizou 07/10; conferido hoje)",
+    "https://www.diariodepernambuco.com.br/politica/2026/10/11726017-caiado-declara-apoio-a-flavio-bolsonaro-no-segundo-turno-em-ato-em-goiania.html (Caiado 06/10/2026, apoio individual, PSD neutro; conferido hoje)",
+    "https://www.dgabc.com.br/Noticia/4351753/cury-oficializa-apoio-a-flavio-bolsonaro-sob-condicao-de-pacificacao-nacional (Cury 08/10/2026, condicionado a 8 compromissos; conferido hoje)",
+    "https://tribunadejundiai.com.br/politica/eleicoes-2026/segundo-turno-posicionamento-candidatos-derrotados-2026/ (Cury: neutralidade absoluta em 05/10)",
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf",
+    "https://www.diariodepernambuco.com.br/politica/2026/10/11727201-quaest-48-dos-eleitores-de-augusto-cury-migram-para-lula-e-33-para-flavio.html",
+    "https://exame.com/brasil/para-onde-vao-os-votos-de-cury-caiado-e-renan-no-2o-turno-pesquisa-quaest-responde/",
+    "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/16/quaest-traz-transferencia-de-voto-no-2-turno-a-flavio-e-lula.html",
+    "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/",
+    "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf",
+    "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/",
+    "https://www.dgabc.com.br/Noticia/4351747/46-dos-eleitores-de-cury-renan-santos-caiado-e-zema-migram-para-flavio-aonta-datafolha",
+    "/home/user/casa-control/eleicao-2026/resultados/contexto_2t_2026_pesquisa_verificada.json (valores dos cruzamentos conferidos célula por célula)",
+    "/home/user/casa-control/eleicao-2026/resultados/T7_T14_bweb.txt (T37 nacional, reproduzido)"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L4.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L4_bweb.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L4_bweb.txt"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "INCONCLUSIVO, pela letra do Adendo 18. A conta foi refeita com código próprio, partindo direto dos zips do bweb, e todos os números batem com os do outro agente na 4ª casa decimal.\n\nNúmeros da urna:\n- GO, Caiado: s 45,85% (ep 0,73). Referência 26,9%, diferença +18,9.\n- MG, Zema: s 34,66% (ep 1,58). Referência 12,6%, diferença +22,0.\n- SP, Cury: s 57,77% (ep 0,52). Referência 46,7%, diferença +11,1.\n\nPor que não dá INCOERÊNCIA: o registro pede s acima de 50% em 2 das 3 UFs. Só SP passa de 50%. GO fica a z -5,7 de 50% e MG a z -9,7. Em SP, a diferença para a referência é 11 pontos, e o registro pede 15.\n\nPor que não dá COERENTE: em GO, s (45,9%) passa da maior referência possível mais 5 pontos (PoderData 39,5% + 5 = 44,5%).\n\nNenhuma leitura muda isso, nem da referência, nem da especificação. As especificações testadas:\n- efeito fixo de local (a principal);\n- efeito fixo de zona (GO 49,1%);\n- efeito fixo de município (GO 49,5%);\n- peso pelo comparecimento;\n- sem efeito fixo (GO 43,5%, MG 28,3%).\n\nCom todas elas, GO e MG ficam abaixo de 50%. Com qualquer referência, GO fica acima da referência mais 5 pontos.\n\nO resultado não está exagerando uma incoerência: a que o registro procurava não existe. Pela urna, a maioria dos eleitores de Caiado em GO e de Zema em MG que escolheram um finalista foi para Flávio.\n\nTambém não está escondendo a distância urna contra pesquisa (de 11 a 22 pontos): ela está relatada. Mas ela é ambígua (pode vir de erro da regressão, das subamostras das pesquisas, de decisão tardia ou de desvio dirigido), e o L4 é quase cego a um desvio uniforme. Por isso o resultado não prova fraude nem ausência de fraude.",
+    "problemas": [
+     "Desvio 1 com a origem errada: os números do registro chamados de \"Quaest já conhecida\" (Caiado 36%, Cury 47%, Zema 36%) não vêm do b_L do T37 nem da mediana dos institutos, como o agente supôs. Eles saem de /home/user/casa-control/eleicao-2026/resultados/decomposicao_fluxos_2026.txt, que foi montado com os números da \"Quaest que temos\", não conferidos. Caiado F1,12 e L0,63 dão 36%. Zema recebeu as mesmas proporções de Caiado (F0,14, L0,08), o que dá 36%. Cury F1,14 e L1,28 dão 47%, mas 47% é a fatia de Flávio; a de Lula seria 53%. Com 53% para Cury, SP fica +4,9 (coerente), GO +9,9 (entre os dois) e MG -1,3 (coerente). O veredito continua INCONCLUSIVO, mas o texto do desvio deve ser corrigido.",
+     "A comparação post hoc com Renan foi resumida de um jeito generoso demais. Os textos dizem que a distância urna contra pesquisa \"não é maior para os eleitores de quem apoiou Flávio\" e que Renan tem uma distância \"parecida\". Na mesma UF, a distância é maior para o candidato da casa em GO e MG. Em GO, Caiado +18,9 contra Renan +11,8 (Renan com s de 50,2% e referência de 38,4%). Em MG, Zema +22,0 contra Renan +15,6. Em SP, Cury +11,1 contra Renan +11,7. No país, Caiado tem +21,9, Zema +23,5, Cury +12,9 e Renan +15,8. O quadro é misto: de 6 a 8 pontos a mais para os dois que governaram estados, e a menos para Cury. Isso fica dentro da dispersão entre institutos (desvio-padrão de 6,5 pontos para Caiado e de cerca de 7,7 para Renan). Não é indício, mas o texto deveria dizer \"misto, dentro do erro das pesquisas\".",
+     "\"Nos três casos, em casa eles foram um pouco mais para Flávio\": a diferença de Zema (-2,0 pontos, z -1,1) não é significativa. Só as de Caiado (z -4,5) e de Cury (z -4,0) são.",
+     "Calibração relatada num sentido só. O agente somou mais 3,70% de desvio por cima dos dados. Refiz também o sentido de desfazer um desvio desse tamanho: GO 43,9%, MG 32,2%, SP 56,2%. É simétrico (de 1,6 a 2,4 pontos) e reforça a conclusão: desfeito um desvio uniforme, GO e MG ficariam ainda mais abaixo de 50%. Não muda nada; é só para completar.",
+     "Fora do L4, não conferido: Zema teve 0,8% dos válidos em MG no 1º turno (98.407 votos). A Genial/Quaest de 22 a 26 de julho dava 12% a ele em MG. Uma pesquisa de julho não serve de régua para outubro, e não achei pesquisa de MG de setembro. Fica só como pista para um teste do 1º turno com critério próprio, não como incoerência."
+    ],
+    "como_conferiu": "1) Critério: li o Adendo 18 (L4) em /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md. O commit bc7decb é de 29/10/2026 05:13:35 UTC. Os arquivos do L4 (analisar_L4.py, L4_bweb.json e L4_bweb.txt) estão como não rastreados, e nenhum arquivo rastreado foi alterado (git status).\n\n2) Script do agente: segue o registro. É a regressão do T8 com os grupos 70, 14, 55 e 30, mais os demais outros, a queda do branco+nulo, a variação do comparecimento, o adversário e o próprio no 1º turno. Efeito fixo de local do 2º turno, sem peso, erro agrupado por local, s = b_L/(b_L+b_F).\n\n3) Dados próprios: extraí as linhas de Presidente direto dos zips do bweb (1º e 2º turno) de GO, MG e SP com um awk meu, sem usar secoes2026.json.gz nem candidatos2026_1t.json.gz.\n- Seções: 15.686, 52.062 e 103.656, todas com os dois turnos e um boletim cada.\n- comp = L+R+O+B+N exato nas três UFs.\n- Números conferidos pelo NM_VOTAVEL: 55 Caiado, 30 Zema, 70 Cury, 14 Renan, 13 Lula, 22 Flávio.\n- Totais conferidos: Caiado 472.041 em GO, Zema 98.407 em MG, Cury 892.368 em SP.\n\n4) Regressão própria (média por local com pandas, lstsq, CR1 por local), Lula e Flávio separados:\n- GO: Caiado b_L 0,4585 (0,0073), b_F 0,5415, soma 1 exata (resíduos de Lula + Flávio no máximo 4e-14).\n- MG: Zema 0,3466 (0,0158).\n- SP: Cury 0,5777 (0,0052).\n- Os outros grupos também batem.\n- Efeito fixo de zona e de município: GO 49,1 e 49,5; MG 18,9 e 15,9; SP 60,7 e 64,3.\n- Peso pelo comparecimento: 45,3, 34,3 e 57,2.\n- Terços pela fatia do candidato da casa: iguais aos do agente.\n- Sem efeito fixo: GO 43,5, MG 28,3, SP 66,2.\n\n5) País, fora de casa e calibração: refiz com a regressão própria sobre a base nacional.\n- País: Cury 0,5964, Renan 0,5422, Caiado 0,4880, Zema 0,3610.\n- Fora de casa: Caiado 49,5 (0,34), Zema 36,7 (1,02), Cury 60,2 (0,31).\n- Fração que vira o resultado: 3,70%. Com ela: GO 47,9, MG 37,1, SP 59,3.\n\n6) Referências: conferi as 27 células (Flávio e Lula por instituto e rodada) contra resultados/contexto_2t_2026_pesquisa_verificada.json (conferidos e faltou_e_achei), e todas batem. Medianas recalculadas à mão:\n- Caiado: última rodada 26,9; todas as rodadas 32,9; primeira rodada 32,9.\n- Cury: 46,7; 46,1; 44,9.\n- Zema: 12,6.\n- Renan: 38,4.\n\n7) Fiz 3 buscas na web por pesquisa estadual pós-1º turno com cruzamento por voto no 1º turno em GO, MG e SP. Não achei nenhuma, o que bate com o que o agente relatou. Só apareceram estaduais de julho a setembro, por exemplo https://em.com.br/politica/2026/07/7469139-zema-tem-12-das-intencoes-de-voto-em-minas-aponta-quaest.html, https://www.jornalopcao.com.br/ultimas-noticias/quaest-caiado-domina-eleitorado-bolsonarista-e-alcanca-81-entre-apoiadores-de-bolsonaro-834644/ e https://www.dgabc.com.br/Noticia/4353964/quaest-48-dos-eleitores-de-augusto-cury-migram-para-lula-e-33-para-flavio (esta é nacional).\n\n8) Letra: apliquei os limiares sem mudar nada. Em todas as leituras, INCOERÊNCIA é impossível porque GO e MG ficam abaixo de 50%, e COERENTE é impossível por causa de GO.\n\nArquivos meus:\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/extrair.sh\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/conf_L4.py\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/conf_L4_fora.py\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/conf_tercos.py\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/conf_L4.json\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L4/conf_L4_fora.json\n\nNão alterei arquivos do outro agente nem fiz commit."
+   }
+  },
+  {
+   "teste": "L5 do Adendo 18. A pergunta: as pesquisas, que não passam pela urna, contradizem a lógica do resultado de 2026? (a) erro de Flávio por instituto no 1º e no 2º turno; (b) a fatia do \"saldo\" (branco, nulo, abstenção e o \"nenhum\" dos eleitores dos eliminados) que foi para Lula, comparada com a divisão dos indecisos, brancos e nulos nas pesquisas finais do 2º turno.",
+   "veredito": "(a) INCOERÊNCIA pela letra. (b) DESCRITIVO pela letra, porque nenhuma pesquisa final publicou a divisão entre Lula e Flávio dos seus indecisos, brancos, nulos e \"não vai votar\". Contra o análogo publicado mais próximo, que é um desvio declarado, a fatia ficaria acima do limite. Esse análogo, porém, repete o erro do 2º turno visto em (a) e não traz indício independente.",
+   "numeros": "URNA (499.205 seções com os dois turnos): no 1º turno, Flávio teve 47,03% dos válidos, Lula 45,16% e os eliminados 7,81%. No 2º turno, Flávio 48,21% e Lula 51,79%. Entre os turnos, Lula ganhou 10.376.696 votos e Flávio 3.721.538. De onde vieram: eleitores dos eliminados 9.316.747, queda do branco+nulo 1.821.246 e aumento do comparecimento 2.960.241 (abstenção de 21,08% para 19,22%). A conta fecha voto a voto.\n\n(a) Entram 11 institutos com pesquisa final nos dois turnos. Erro de Flávio (urna menos pesquisa), 1º turno / 2º turno / virada, com erro-padrão amostral simples entre parênteses:\n- Datafolha +5,03 / -2,79 / -7,81 (1,15)\n- Quaest +2,03 / -2,79 / -4,81 (1,20)\n- AtlasIntel +2,93 / -2,59 / -5,51 (1,37)\n- CNT/MDA +4,93 / -2,49 / -7,41 (1,62)\n- PoderData +4,03 / -2,79 / -6,81 (1,41)\n- Nexus +8,03 / -2,29 / -10,31 (1,62)\n- Real Time Big Data +6,03 / -3,79 / -9,81 (1,63)\n- Futura +2,23 / -1,89 / -4,11 (1,64)\n- Gerp +1,03 / -3,79 / -4,81 (1,64)\n- Veritá +0,03 / -3,35 / -3,37 (1,64)\n- Vox +1,15 / -1,19 / -2,33 (1,64)\n\nOs 11 têm o padrão \"acima no 1º turno, abaixo no 2º\" (o limite era 6). Nenhum tem o mesmo sinal nos dois turnos. Seis têm o padrão a 2 erros-padrão nos dois turnos.\n- Virada média: -6,10 pontos, com erro-padrão de 0,77 pela dispersão entre institutos e 0,46 só amostral. Fica 2,1 pontos além do limite de 4, ou 2,7 erros-padrão.\n- Com as versões alternativas do 1º turno (Veritá 45,14 e AtlasIntel 43,1), o padrão continua em 11 de 11, com virada de -6,36.\n- De onde vem a virada. No 1º turno, o erro médio foi Flávio +3,40, Lula -0,05 e eliminados -3,35. No 2º turno, Flávio -2,70 e Lula +2,70. Medida em Lula, a virada é de 2,75 pontos; os outros 3,35 pontos vêm do 1º turno, entre Flávio e os eliminados.\n\n(b) Fatia do saldo que foi para Lula, calculada pela urna e pelas transferências declaradas (mesma conta de decomposicao_fluxos_2026.txt; refeita com os números antigos dá 98,4%):\n- PoderData 23-24/10, a única pesquisa final com cruzamento completo: 115,3% com fidelidade 100% (erro-padrão 4,5 a 6,4) e 104,4% com a fidelidade declarada de 94/5/1 (erro-padrão 6,9 a 9,9).\n- Outras 11 rodadas: de 96,4% (Quaest 10-13/10) a 118,4% com fidelidade 100%, e de 95,0% a 108,7% com a fidelidade declarada.\n- Em 11 das 12 pesquisas, o que os eleitores dos eliminados disseram que dariam a Flávio (4,31 a 4,99 milhões) passa do ganho total dele na urna (3,72 milhões).\n- A divisão literal não foi publicada por nenhuma pesquisa final: Datafolha, Quaest, AtlasIntel, CNT/MDA, PoderData, Nexus, Ipespe, RTBD, Veritá, Vox, Futura e Gerp.\n- Análogo (voto no 2º turno de quem votou branco ou nulo ou faltou no 1º, fatia de Lula entre os que escolheram um finalista). Nas pesquisas finais: PoderData 65,8% (erro-padrão 4,2) entre quem votou branco ou nulo e 58,8% (2,5) entre quem não votou; Nexus 53,2%; Datafolha, entre os de baixa propensão a votar, 52%. A maior fatia final é 65,8%, o que dá limite de 95,8%. O PoderData final fica acima do limite: 3,2 e 2,6 erros-padrão com fidelidade 100%, mas só 1,1 e 0,8 com a fidelidade declarada. Contra a maior fatia de qualquer rodada (Ipespe 13-15/10, 80%, limite 110%), o PoderData final não passa.\n- Só a urna (regressão do T8): Lula ficou com 63,8% da queda do branco+nulo e 56,4% do aumento do comparecimento; somados, 59,2% (erro-padrão 0,1). Ficou também com 54,1% dos eleitores dos eliminados.\n- Equivalência: se o saldo tivesse se dividido como a maior fatia final, com a tabela da PoderData, Lula teria 49,39% dos válidos (a PoderData dava 49%). Flávio ganharia 6,70 milhões entre os turnos, e não 3,72; Lula ganharia 7,40 milhões, e não 10,38. A diferença na margem é de 5,95 milhões.\n- Comparecimento nas pesquisas finais. PoderData: 94% dizem que vão votar com certeza (96% entre eleitores de Flávio, 94% entre os de Lula). Datafolha: os de alta propensão davam Flávio 52%. Nexus: o modelo de eleitor provável dava Flávio 52,4%. Com a amostra inteira, as pesquisas ainda davam Flávio à frente (51; 50,5; 50,5). O aumento do comparecimento na urna dá a Lula só cerca de 0,38 milhão na margem.",
+   "o_que_isso_significa": "Existe uma incoerência real entre as pesquisas e a urna, e ela está no 2º turno. As 12 pesquisas finais deram a Lula menos do que ele teve na urna, todas na mesma direção, com uma média de 2,7 pontos. Isso vale para pesquisas por telefone automático, presenciais e pela internet. No 1º turno, as mesmas pesquisas tinham acertado Lula na média (erro de -0,05).\n\nA virada de 6,1 pontos em (a) soma duas coisas:\n- 3,35 pontos vêm do 1º turno, em que as pesquisas deram aos eliminados mais do que eles tiveram e Flávio ficou acima delas;\n- 2,75 pontos são o erro em Lula no 2º turno.\n\nUma fraude só no 2º turno produziria esse padrão. Um erro comum das pesquisas também produziria. O teste não separa as duas coisas. Uma fraude a favor de Lula que valesse também no 1º turno teria posto Lula acima das pesquisas no 1º turno, e ele ficou nelas.\n\nEm (b), a \"conta que não fecha\" é real: pelas tabelas das pesquisas, os eleitores dos eliminados dariam a Flávio mais votos do que ele ganhou no total. Mas é o mesmo erro do 2º turno escrito como fluxo de votos: usando a divisão da pesquisa, o resultado volta a ser o da pesquisa (Lula 49,4%). Não é um segundo indício.\n\nPela regressão da própria urna, o branco, o nulo e a abstenção se dividiram perto do que as pesquisas finais diziam (59% para Lula, contra 53% a 66%). A diferença entre urna e pesquisas fica em dois lugares: nos eleitores de Cury, Renan e Caiado (54% para Lula na urna, contra 30% a 44% nas pesquisas) e na troca entre os eleitores de Flávio e de Lula. É ali que o \"furo\" teria de estar, e é ali que o T14, o T37, o L3 e o L4 olham. O T14 não achou troca proporcional de votos acima do limite registrado.\n\nA explicação comum de que \"o eleitor de Lula foi votar\" cobre pouco do erro: nem com todos os entrevistados votando as pesquisas chegavam ao resultado da urna.\n\nLimites: as tabelas cruzadas finais da Quaest, Datafolha, AtlasIntel e Nexus não foram publicadas; o tamanho das subamostras é estimado; os erros-padrão não incluem efeito de desenho nem viés de instituto (por isso vale o da dispersão entre institutos). O critério de (a) foi escrito depois de ver o T12, então este não é um teste cego.",
+   "criterio": "Do Adendo 18, escrito antes de rodar:\n(a) \"Para cada instituto com pesquisa final nos dois turnos: erro de Flávio (urna menos pesquisa, nos válidos) no 1º e no 2º turno. Incoerência: em pelo menos 6 dos institutos, Flávio acima da pesquisa no 1º turno e abaixo dela no 2º, com virada média de 4 pontos ou mais. Coerente: sinais iguais nos dois turnos na maioria.\"\n(b) \"Pela urna e pelas transferências declaradas, a fatia desse saldo que foi para Lula. Comparar com a divisão entre Lula e Flávio dos indecisos, brancos, nulos e não vai votar nas pesquisas finais do 2º turno, quando o instituto publicar. Incoerência: fatia de Lula pela urna acima da maior fatia das pesquisas em 30 pontos ou mais. Sem a divisão publicada, só descritivo.\"\nLimiares e especificação não foram alterados.",
+   "desvios": "1) Vox Brasil, 1º turno: os válidos não foram publicados. Derivei dos totais, tirando branco/nulo (3,2) e indecisos (7): Flávio 45,88%.\n2) Veritá, 1º turno: usei a última rodada citada pela Revista Fórum (47%, sem ficha técnica). A rodada com ficha (45,14%) entra como sensibilidade, e o veredito não muda. AtlasIntel, 1º turno: usei 44,1, que bate com os totais; o 43,1 da TVT entra como sensibilidade.\n3) Ipespe (sem pesquisa nacional de 1º turno), Paraná Pesquisas (sem pesquisa nacional) e Ipsos-Ipec (sem 2º turno) ficaram fora de (a).\n4) Erro amostral com n=2.000 quando a amostra não foi publicada, e 93% da amostra nos válidos.\n5) Em (b), a leitura literal pede a divisão dos indecisos, brancos, nulos e \"não vai votar\" do próprio 2º turno. Como nenhuma pesquisa final a publicou, o veredito é DESCRITIVO. A comparação com o voto de quem votou branco ou nulo ou faltou no 1º turno é um análogo, só descritivo.\n6) \"Transferências declaradas\": a principal é a da PoderData 23-24/10, a única final com cruzamento completo. As demais rodadas entram como sensibilidade.\n7) Grupos que a pesquisa não separou foram preenchidos com a coluna \"Outro\" do próprio instituto ou, quando não havia, com a mediana dos outros institutos. Onde a fidelidade não foi publicada, usei 100%, como em decomposicao_fluxos.\n8) Tamanho das subamostras estimado pela fatia de cada grupo no 1º turno. Sorteio multinomial com efeito de desenho 1 e 2, 20.000 sorteios, semente 2026.\n9) A regressão da urna não foi refeita; os coeficientes vêm de resultados/T7_T14_bweb.json.\n10) O voto no 28 (candidatura anulada) conta como nulo.",
+   "fontes": [
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf",
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf",
+    "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/",
+    "https://www.oliberal.com/politica/cnt-mda-flavio-tem-50-7-dos-votos-validos-e-lula-49-3-mulheres-s-o-maioria-entre-indecisos-1.1186349",
+    "https://www.dci.com.br/politica/pesquisa-datafolha-hoje-24-10-veja-o-resultado-de-lula-e-flavio-bolsonaro-no-2o-turno/",
+    "https://www.moneytimes.com.br/pesquisa-atlasintel-bloomberg-24-de-outubro-gaep/",
+    "https://bpmoney.com.br/politica/flavio-499-lula-484-ultima-atlasintel-antes-urnas/",
+    "https://www.placardaspesquisas.com.br/institutos/ipespe",
+    "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-505-contra-495-de-lula-diz-ipespe-abrapel/",
+    "https://www.bahianoticias.com.br/noticia/322796-flavio-bolsonaro-abre-vantagem-na-pesquisa-real-time-big-data-com-52-contra-48-de-lula",
+    "https://exame.com/brasil/pesquisa-quaest-na-vespera-do-2o-turno-flavio-bolsonaro-tem-51-e-lula-49/",
+    "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/",
+    "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf",
+    "https://static.poder360.com.br/uploads/2026/10/datafolha-15out2026-pesquisa-nacional.pdf",
+    "https://revistaforum.com.br/politica/verita-aproximou-resultado-1o-turno-lula/",
+    "https://www.cnnbrasil.com.br/eleicoes/vox-flavio-registra-482-no-2o-turno-lula-452/",
+    "/home/user/casa-control/eleicao-2026/resultados/nacionais_2026_pesquisas_verificadas.txt",
+    "/home/user/casa-control/eleicao-2026/resultados/contexto_2t_2026_pesquisa_verificada.json",
+    "/home/user/casa-control/eleicao-2026/resultados/decomposicao_fluxos_2026.txt",
+    "/home/user/casa-control/eleicao-2026/resultados/T7_T14_bweb.json"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L5.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L5_pesquisas.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L5_pesquisas.txt"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "(a) INCOERÊNCIA, pela letra e com folga. Refiz a conta com código meu e os números saíram iguais aos do outro agente. Nos 11 institutos, Flávio ficou acima da pesquisa no 1º turno e abaixo dela no 2º; o critério pedia pelo menos 6. Em nenhum instituto o sinal foi o mesmo nos dois turnos. A virada média é de -6,10 pontos, com erro-padrão de 0,77 pela dispersão entre institutos, contra o limite de 4. O resultado não depende de escolhas. Com as versões alternativas do 1º turno (Veritá 45,14 e AtlasIntel 43,1), a virada é -6,36. Com os válidos do Datafolha e da Quaest recalculados pelos totais, é -6,05. Sem a Nexus, cuja pesquisa de 1º turno é de 25 a 27/9, fica 10 de 10, com -5,68. Qualquer grupo de 6 ou mais dos 11 institutos cumpre as duas condições: os 6 de menor virada dão média de -4,16.\n\n(b) DESCRITIVO, pela letra. Reabri o PDF final do PoderData (23 e 24/10) e o resumo da Bloomberg Línea (Nexus, Datafolha e Quaest). Nenhum deles divide entre Lula e Flávio os indecisos, brancos, nulos e \"não vai votar\" do 2º turno. O PoderData publica só \"quem vai vencer\" entre esses eleitores, que é expectativa e não voto. A fatia pela urna e pelas transferências do PoderData final dá 115,3% com fidelidade 100% e 104,4% com a fidelidade declarada de 94/5/1. O análogo dá 65,8% (de quem votou branco ou nulo no 1º turno: Lula 50, Flávio 26), o que põe o limite em 95,8%. Os três números conferem com o PDF.\n\nO que significa: existe uma incoerência real entre pesquisa e urna, e ela está no 2º turno. As 12 pesquisas finais ficaram abaixo de Lula, com média de 2,67 pontos (de 1,19 a 3,79); no 1º turno tinham acertado Lula na média (-0,05). Uma conta minha mostra onde fica o erro. Apliquei a tabela inteira do PoderData (voto no 2º turno por voto no 1º) aos votos reais do 1º turno. O resultado é Lula com 48,96%, o mesmo que a pesquisa publicou (49%). Então o erro não vem de a amostra ter eleitores de Flávio de mais. Ele está nas taxas de transferência, no comparecimento ou na contagem, e o teste não separa essas três coisas. Por isso o excesso em (b) não é um segundo indício, como o outro agente disse. O teste também não separa uma fraude no 2º turno de um erro comum das pesquisas.",
+    "problemas": [
+     "Nada muda os vereditos. Os pontos abaixo tratam de enquadramento e de clareza.",
+     "Escolha de medida que diminui um pouco a incoerência: o texto diz que 'medida em Lula, a virada é de 2,75 pontos' e atribui o resto aos eliminados. Medida entre os dois finalistas (fatia de Flávio em Flávio mais Lula), o erro do 1º turno foi de +1,93 e a virada fica em -4,63, ainda acima de 4. Isso também carrega o voto útil dos eliminados em Flávio no 1º turno, mas as duas medidas deviam aparecer juntas.",
+     "A frase 'contra a maior fatia de qualquer rodada (Ipespe 13 a 15/10, 80%, limite 110%), o PoderData final não passa' só vale com a fidelidade declarada (104,4%). Com fidelidade 100% a fatia é 115,3% e passa do limite. O código exige as duas para dizer que passa, e o texto não avisa isso.",
+     "Leitura alternativa de (b): se a divisão de quem votou branco ou nulo ou faltou no 1º turno contasse como 'a divisão', o veredito seria INCOERÊNCIA pelo número central (115,3% e 104,4%, ambos acima de 95,8%). Mas, com a fidelidade declarada, isso fica só 1,1 erro-padrão acima do limite (0,8 com efeito de desenho 2), e em cerca de 11% dos sorteios a fatia fica abaixo do limite. Concordo com o DESCRITIVO, porque 'indecisos' e 'não vai votar' são categorias do 2º turno. O outro agente declarou o análogo.",
+     "Os números são de tipos diferentes: os 59,2% da regressão da urna medem a variação líquida do branco, do nulo e do comparecimento dentro do mesmo local; os 53% a 66% das pesquisas medem o voto bruto de quem não votou ou votou branco ou nulo no 1º turno. Por isso o 'perto' do texto é só indicativo. Do mesmo jeito, os 0,38 milhão de margem vindos do comparecimento só pegam o aumento líquido. O argumento mais forte contra a explicação de que 'o eleitor de Lula foi votar' é outro: com a amostra inteira, a pesquisa ainda dava Flávio à frente (51; 50,5; 50,5). Esse argumento se sustenta.",
+     "A frase 'uma fraude a favor de Lula que valesse também no 1º turno teria posto Lula acima das pesquisas no 1º turno' é um argumento, não um teste: ela supõe que as pesquisas do 1º turno não tinham viés para Lula.",
+     "Falta régua: pelas regras do Adendo 18, nenhuma referência diz que tamanho de virada é compatível com uma eleição sem fraude. O limite de 4 foi escrito depois de ver o T12. INCOERÊNCIA aqui quer dizer que pesquisa e urna não batem, não diz qual é a causa.",
+     "Um dado descritivo que ficou de fora: no 2º turno, os erros dos 12 institutos variaram menos do que a amostragem explicaria (desvio de 0,75 contra cerca de 1,06; qui-quadrado de 4,7 com 11 graus de liberdade, p de uns 0,05 na cauda de baixo). No 1º turno, o desvio do erro em Lula foi 1,45. Isso é compatível com institutos convergindo uns para os outros ou com uma fonte comum de erro, e não decide nada.",
+     "Fontes com pontos fracos que não mudam o resultado: a pesquisa da Nexus no 1º turno é de 25 a 27/9, e o quadro de metodologia da própria matéria a chama de 'penúltima'; não achei outra rodada depois dessa. No Datafolha do 1º turno, o Estado de Minas dá o campo como 29/9 a 1/10, e os totais (40 de 93) dão 43,0 contra os 42 publicados. Nas duas sensibilidades, o veredito não muda."
+    ],
+    "como_conferiu": "Li o Adendo 18 inteiro (L5, linhas 529 a 531) e o script /home/user/casa-control/eleicao-2026/scripts/analisar_L5.py. O script segue o registro: a regra de (a) é a mesma do texto, (b) fica DESCRITIVO sem a divisão publicada, e limiar e especificação não mudaram.\n\nRecalculei com código meu, em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L5/:\n- urna.py: totais da urna a partir de secoes2026.json.gz e candidatos2026_1t.json.gz. Entram 499.205 seções; fica fora só uma do exterior (ZZ), que só tem 1º turno. Flávio 47,028% e Lula 45,163% no 1º turno; Lula 51,785% no 2º (64.256.232 contra 59.826.041). Ganhos de +10.376.696 e +3.721.538, com a identidade fechando em zero.\n- conferir_L5.py: redigitei as pesquisas a partir de nacionais_2026_pesquisas_verificadas.txt e refiz (a), com as sensibilidades (versões alternativas, válidos pelos totais, sem Nexus, sem Vox e Veritá, retirada das maiores viradas). Refiz (b) com a tabela tirada do PDF, a equivalência (Lula 49,39%; 5,95 milhões na margem) e a aplicação da tabela inteira do PoderData aos votos do 1º turno (48,96%).\n- bootstrap_b.py: refiz o erro amostral de (b) com 20.000 sorteios multinomiais. Deu erro-padrão de 4,6 e 6,9 com efeito de desenho 1 e de 6,4 e 9,9 com efeito 2; distâncias ao limite de 3,2, 1,1, 2,5 e 0,8 erros-padrão. Bate com o outro agente.\nConferi os coeficientes 63,8%, 56,4% e 54,1% em resultados/T7_T14_bweb.json.\n\nFontes reabertas na web: o PDF do PoderData de 24/10 (texto extraído em fontes_pd/pd24.txt, com as tabelas cruzadas, o comparecimento e a decisão do voto); a Bloomberg Línea (Nexus, Datafolha, Quaest e a ausência da divisão dos indecisos); a Money Times (Nexus de 1º turno, 25 a 27/9, 39 x 44); o Estado de Minas (Datafolha de 1º turno, 42 x 45). Fiz também buscas por uma pesquisa Nexus de 1º turno posterior (não achei nenhuma) e por alguma divisão dos indecisos entre os candidatos (não achei nenhuma).\n\nNão alterei arquivos do outro agente e não fiz commit."
+   }
+  },
+  {
+   "teste": "L6 do Adendo 18: o apoio declarado dos governadores eleitos no 1º turno no 2º turno presidencial, comparado com a virada de Lula por UF. Etapa 1, a lista de governadores com fonte, data e link, foi gravada antes de qualquer cálculo: resultados/L6_lista_governadores.json, às 06:18:26 UTC de 29/10/2026, sha256 f53b3fb3ba50b755375661c0e0d04cae085b825df5e1d0ac3e4d3711ec430547. Etapa 2: virada por UF calculada da base por seção (fatia de Lula entre os dois finalistas, 2º turno menos 1º turno), com peso pelos votos dos finalistas no 2º turno.",
+   "veredito": "INCOERÊNCIA pela letra do Adendo 18. A virada de Lula foi maior, e não menor, nos estados com governador pró-Flávio. A diferença é de +1,48 ponto, e o critério marca incoerência com qualquer diferença de zero ou mais. O resultado se mantém em todas as sensibilidades. Mas o teste tem pouco poder: o mesmo padrão aparece invertido do lado de Lula, e some quando a perda é medida como fração da base de Flávio. Por isso não serve como indício que separe fraude de comportamento (ver o_que_isso_significa).",
+   "numeros": "Lista (21 UFs)\n- Pró-Flávio (12): SP, MG, RJ, PR, RS, SC, RO, RR, GO, MT, MS, PA.\n- Pró-Lula (5): BA, CE, PI, PB, SE.\n- Neutros (4): AL (JHC), AP (Dr. Furlan), MA (Braide), PE (Raquel Lyra).\n- A contagem 12, 5 e 4 confere com a CNN (13/10) e a InfoMoney (14/10).\n\nVotação dos governadores no 1º turno\n- O bweb do 1º turno (cargo governador) confere exatamente com a imprensa em 19 das 21 UFs.\n- Em SE (57,71% no bweb contra 59,27% oficial) e SP (62,59% contra 62,65%), o bweb conta como nominais votos de candidatos que depois foram anulados.\n- No RJ, Ruas tem 49,27% com os votos de Garotinho e 50,88% sem eles.\n\nVirada de Lula por UF (pontos)\n- Pró-Flávio: GO +3,65; MG +3,12; MS +3,22; MT +3,00; PA +2,15; PR +3,18; RJ +4,25; RO +2,65; RR +3,20; RS +3,06; SC +3,27; SP +3,77.\n- Pró-Lula: BA +1,44; CE +2,00; PB +2,51; PI +1,21; SE +2,33.\n- Neutros: AL +3,27; AP +2,85; MA +2,10; PE +2,04.\n- Fora da lista: AC +2,64; AM +2,28; DF +3,10; ES +2,83; RN +2,51; TO +2,37.\n- Só com as seções presentes nos dois turnos, os números são idênticos.\n\nComparação principal (média ponderada)\n- Pró-Flávio +3,438 contra as demais da lista +1,954: diferença +1,484 ponto.\n- Erro-padrão robusto entre UFs: 0,262 (HC1) e 0,316 (HC3).\n- Teste exato de permutação, com os 293.930 arranjos possíveis: P(diferença igual ou maior) = 0,0004.\n- Sem peso: +1,015 (ep 0,263 a 0,278).\n\nSensibilidades (todas dão INCOERÊNCIA)\n- Sem o RJ: +1,37 (ep 0,27 a 0,36).\n- Contra todas as outras 15 UFs: +1,33 (ep 0,26 a 0,31).\n- Contra pró-Lula só: +1,67 (ep 0,28 a 0,37; permutação p = 0,002).\n- Contra as neutras só: +1,16 (ep 0,29 a 0,37; p = 0,018).\n- MG e MT contadas como neutras: +1,21 (ep 0,36 a 0,44; p = 0,007).\n\nSimetria\n- Nas UFs com governador pró-Lula, a virada de Lula foi MENOR que nas demais: -1,52 (ep 0,30 a 0,39).\n- Dentro do Nordeste, pró-Lula +1,77 contra neutras +2,26.\n\nVotação do governador\n- Com sinal (+ pró-Flávio, - pró-Lula, 0 neutro): +0,0149 ponto de virada por ponto de votação (ep 0,0022 a 0,0028). Isso só repete a diferença entre os grupos.\n- Só entre as pró-Flávio: +0,015 (ep 0,037 a 0,051).\n- Só entre as pró-Lula: -0,004 (ep 0,04 a 0,08).\n- Ou seja, dentro de cada grupo a força do governador não tem relação com a virada.\n\nDescritivo (não muda o veredito)\n- Perda de Flávio como fração da sua fatia no 1º turno: 5,88% nas pró-Flávio contra 5,92% nas demais. Diferença -0,05 (ep 0,52 a 0,64; permutação p = 0,53).\n- Em logito: +0,053 (ep 0,010).\n- Controlando pela fatia de Lula no 1º turno: +0,83 (ep 0,74 a 0,91).\n- Controlando pela fatia de Lula e pelos eliminados: +0,62 (ep 0,71 a 0,94).\n- Parte da diferença prevista só pela divisão dos eleitores dos eliminados (tabela de flavio_previsto_por_uf.txt): +0,93 (ep 0,10).\n- Virada além do que os eliminados explicam: +0,59 (ep 0,27 a 0,34; permutação p = 0,11).",
+   "o_que_isso_significa": "Pela lógica do pedido, governador pró-Flávio deveria segurar o eleitor e conter a virada de Lula no estado. Não foi o que aconteceu: Lula ganhou mais onde o governador era de Flávio. O critério registrado chama isso de incoerência, e o número é firme (p = 0,0004).\n\nSendo cético nos dois sentidos, há três coisas.\n\n1) O mesmo padrão aparece invertido do outro lado. Onde o governador fez campanha para Lula (BA, CE, PI, PB, SE), Lula ganhou MENOS que nos outros estados. Se a regra \"governador puxa voto\" valesse, os dois lados se mexeriam em direções opostas, e nenhum se mexe como a regra prevê. O que separa os grupos é a geografia: os pró-Flávio estão onde Flávio tinha de 47% a 76% dos votos dos finalistas no 1º turno; os outros, no Nordeste e no AP, onde ele tinha de 25% a 50%.\n\n2) Medida em proporção, a diferença some. Flávio perdeu a mesma fração da sua fatia nos dois grupos: 5,9% contra 5,9%. Em pontos, a perda parece maior onde ele era forte só porque ali havia mais voto dele para perder. Os eleitores dos eliminados também contam: no Nordeste eles eram menos lulistas que a média do estado e empurraram contra Lula. Isso responde por 0,9 ponto da diferença. Com a fatia de Lula no 1º turno como controle, sobra +0,8 ponto, com erro-padrão de 0,7 a 0,9: não dá para dizer que existe diferença.\n\n3) Uma perda proporcional e igual em todo lugar é exatamente o que dariam as duas hipóteses: eleitor que troca de lado em proporção à base, ou desvio de uma fração fixa dos votos de Flávio. O L6 não separa uma da outra. Ele não prova fraude e não a descarta. Quem tenta separar as duas é o L3 (núcleo do PL).\n\nHá também um problema de lógica no próprio teste. A maioria desses governadores já estava do mesmo lado no 1º turno (os do PL, Tarcísio e os do PT). O efeito deles aparece no nível do voto, não na mudança entre os turnos. O caso de apoio novo é GO, onde Caiado (eliminado) e Vilela passaram para Flávio. Lá a virada de Lula foi +3,65, toda além do que os eliminados explicam, mas parecida com a de SP (+3,77), MG (+3,12) e RJ (+4,25). GO não se destaca entre os pró-Flávio.\n\nConclusão honesta: a incoerência existe pela letra, mas é do tipo que um efeito mecânico de nível produz. Não é uma pista que aponte especificamente para fraude.",
+   "criterio": "Adendo 18, L6, sem mudar limiar: virada de Lula por UF (pontos entre os dois finalistas), ponderada pelos votos, contra o apoio declarado no 2º turno e contra a votação do governador.\n- INCOERÊNCIA: a virada nas UFs com governador pró-Flávio não é menor que nas demais (diferença de zero ou mais).\n- COERENTE: menor em 1 ponto ou mais.\n- INCONCLUSIVO: entre os dois.\nEspecificação fixada antes do cálculo, no arquivo da lista:\n- Virada = 100·L2/(L2+R2) - 100·L1/(L1+R1), somando a UF na base por seção.\n- Peso = L2+R2 da UF.\n- Comparação principal: pró-Flávio contra as demais UFs da lista (pró-Lula e neutras), com o RJ dentro.\n- Regra de classificação: quem declarou voto ou apoio a um finalista entra do lado dele; quem não declarou é neutro.",
+   "desvios": "1) RJ: Douglas Ruas foi proclamado eleito no 1º turno só depois da anulação dos votos de Garotinho (TSE, 8/10) e da retotalização (TRE-RJ, 15/10). Entrou pela leitura literal (governador eleito no 1º turno, sem 2º turno de governador). Sem o RJ, o veredito é o mesmo.\n2) \"Nos demais\": lido como as demais UFs da lista. Com todas as outras 15 UFs, o veredito é o mesmo.\n3) \"Ponderada pelos votos\": o registro não diz quais votos. Usei os votos dos finalistas no 2º turno (convenção do L2 e do T17). Sem peso, o veredito é o mesmo.\n4) Votação do governador: usei o % oficial dos válidos, da imprensa, conferido no bweb. SE e SP diferem no bweb por causa de votos de candidatos anulados.\n5) Cleitinho (MG) e Pivetta (MT) declararam voto em Flávio sem campanha formal e contam como pró-Flávio pela regra fixada antes. Contados como neutros, o veredito é o mesmo.\n6) Erro-padrão (HC1 e HC3 entre UFs) e permutação exata não constam do registro. Vão ao lado e não mudam o veredito. Com 21 UFs, o HC é aproximado; a permutação é exata.\n7) Transparência: na etapa 1, os resumos automáticos da busca na web deixaram escapar alguns números por UF (2º turno em MG e AL; 1º turno em PE, SE, MS e RR). Nenhuma classificação dependeu disso, e nenhum governador foi reclassificado.\n8) Todo o bloco descritivo é post hoc: escalas em logito e em fração da base, controles, resíduo contra a tabela flavio_previsto_por_uf.txt (de outra análise) e o recorte do Nordeste.\n\nFicou de fora:\n- Pesquisas estaduais de presidente no 2º turno para as 21 UFs: não achei rodadas de outubro na busca, então não montei a virada esperada pelas pesquisas por UF.\n- Análise dentro de cada UF, seção por seção, contra a votação do governador.\n- Conferência sistemática de quem cada governador apoiou no 1º turno presidencial.\n- Data exata de algumas matérias, citadas só como \"outubro de 2026\".",
+   "fontes": [
+    "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/veja-os-20-estados-onde-o-governador-foi-eleito-no-1o-turno",
+    "https://exame.com/brasil/eleicoes-2026-veja-os-governadores-que-foram-eleitos-no-1o-turno/",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/flavio-avanca-segundo-turno-apoio-governadores/",
+    "https://www.cnnbrasil.com.br/eleicoes/quem-governadores-eleitos-e-candidatos-ao-2o-turno-apoiarao-a-presidencia/",
+    "https://www.infomoney.com.br/politica/flavio-tem-apoio-de-12-governadores-eleitos-lula-reune-cinco-para-o-2o-turno/",
+    "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tre-rj-proclama-douglas-ruas-eleito-para-o-governo-do-rio-de-janeiro",
+    "https://www12.senado.leg.br/noticias/materias/2026/10/08/rio-de-janeiro-garotinho-tem-votos-anulados-e-douglas-ruas-sera-declarado-governador-eleito",
+    "https://www.correiobraziliense.com.br/politica/2026/10/7517290-governadores-eleitos-reforcam-apoio-a-flavio-bolsonaro-no-2-turno.html",
+    "https://www.em.com.br/politica/2026/10/7514672-cleitinho-declara-apoio-a-flavio-bolsonaro-no-segundo-turno.html",
+    "https://www.correiodamanha.com.br/estado-do-rio/2026/10/327469-douglas-ruas-faz-carreatas-no-sul-fluminense-em-apoio-a-flavio.html",
+    "https://www.bemparana.com.br/eleicoes-2026/governadores-sul-flavio-bolsonaro/",
+    "https://tribunadosertao.com.br/politica/2026/10/13/996182-moro-organiza-apoio-a-candidatura-de-flavio-no-parana",
+    "https://www.folhabv.com.br/?p=676940",
+    "https://tribunadoplanalto.com.br/caiado-e-vilela-anunciam-apoio-a-flavio-bolsonaro-em-ato-nesta-terca-feira-6-em-goiania/",
+    "https://www.jornalopcao.com.br/ultimas-noticias/daniel-reune-mais-de-160-prefeitos-por-flavio-em-goias-esse-grupo-estara-ao-seu-lado-de-corpo-e-alma-876391/",
+    "https://acritica.net/eleicoes-2026/riedel-participa-de-reuniao-do-uniao-progressista-e-declara-apoio-a-flavio-bolsonaro/",
+    "https://midiamax.com.br/politica/2026/ms-riedel-mobiliza-prefeitos-ato-apoio-flavio-bolsonaro/",
+    "https://www.oliberal.com/eleicoes/governador-eleito-do-para-dr-daniel-declara-apoio-a-flavio-bolsonaro-1.1177763",
+    "https://www.oliberal.com/eleicoes/ao-lado-de-flavio-bolsonaro-dr-daniel-reafirma-apoio-no-2-turno-1.1178741",
+    "https://jornalgrandebahia.com.br/?p=1392720",
+    "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/07/lucas-ribeiro-contraria-pp-e-coordena-campanha-de-lula.html",
+    "https://www.polemicaparaiba.com.br/politica/nao-e-hora-de-disputas-de-vaidade-lucas-reune-prefeitos-e-liderancas-em-campina-para-mobilizar-campanha-de-lula/",
+    "https://sbtnews.sbt.com.br/noticia/politica/mitidieri-diz-que-abstencao-pode-decidir-2-turno",
+    "https://reportermaceio.com.br/cobranca-jhc-mantem-silencio-sobre-segundo-turno-mesmo-apos-pressao-de-aliados-de-flavio-bolsonaro-com-jornal-rede-reporter/",
+    "https://gazetaweb.com/blogs/edivaldo-junior/jhc-escapou-da-disputa-mas-nao-da-cobranca-da-direita-945094",
+    "https://focuspoder.com.br/lula-tera-apoio-de-apenas-sete-governadores-a-partir-de-2027/",
+    "https://m.imirante.com/noticias/sao-luis/2026/10/20/ipolitica-eduardo-braide-mantem-neutralidade-disputa-nacional",
+    "https://blogdojorgearagao.com/2026/10/25/brandao-e-braide-ja-votaram-no-2o-turno/",
+    "https://www.diariodepernambuco.com.br/politica/2026/10/11726064-raquel-lyra-diz-que-foi-procurada-pelas-campanhas-de-lula-e-flavio-e-sinaliza-novamente-que-vai-manter-neutralidade.html"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/resultados/L6_lista_governadores.json",
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L6.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L6_governadores.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L6_governadores.txt",
+    "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/L6tmp/gov1t_21ufs.json.gz"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "INCOERÊNCIA pela letra do Adendo 18, confirmada. Recalculei com código meu, direto dos zips do bweb dos dois turnos, sem usar a base por seção, lib.py nem o cache do outro agente. A virada ponderada de Lula foi +3,438 nas 12 UFs com governador pró-Flávio e +1,954 nas outras 9 da lista. A diferença é +1,484 ponto, e o critério marca incoerência com qualquer diferença de zero ou mais. Erro-padrão: clássico 0,258; HC1 0,262; HC2 0,280; HC3 0,316. Permutação exata: 127 dos 293.930 arranjos dão diferença igual ou maior (p = 0,0004). As 27 viradas por UF batem com as do outro agente até a terceira casa, e a soma do bweb é idêntica à da base por seção em todas as UFs.\n\nO veredito pela letra não depende de nenhuma escolha:\n- Qualquer peso dá o mesmo resultado: L2+R2 +1,484; L1+R1 +1,474; comparecimento +1,488; aptos +1,486; válidos do 1º turno +1,478.\n- Qualquer leitura de \"nos demais\" também: as outras da lista +1,48; todas as 15 outras UFs +1,33.\n- Tirar UFs não muda: sem o RJ +1,37; sem SP +1,32; sem SP e RJ +1,11. Tirando uma UF qualquer, o mínimo é +1,29.\n- Reclassificar os 4 neutros e MG e MT de todas as 729 maneiras possíveis deixa a diferença em pelo menos +0,96.\n- Para a diferença ficar negativa, seria preciso tirar do grupo pró-Flávio quatro UFs ao mesmo tempo (SP, MG, RJ e GO), e só MG tem classificação discutível.\n\nNão está exagerando uma incoerência que não existe: pela letra, ela existe e é firme. Também não está escondendo: o outro agente declara o veredito sem rodeio. A leitura dele, de que isso não aponta especificamente para fraude, se sustenta no geral, mas foi apresentada com mais certeza do que os números dão (ver problemas).\n\nConferência extra (post hoc, não muda nada): dentro de cada UF, seção por seção, com efeito fixo de município e controle pela fatia de Lula no 1º turno. Onde o governador pró-Flávio teve mais voto, a virada de Lula foi um pouco menor: -0,0065 ponto por ponto de votação (ep 0,0026), e -0,017 em relação às UFs neutras. Onde o governador pró-Lula teve mais voto, foi maior: +0,018 (ep 0,005). É a direção que a lógica do teste prevê, mas o efeito é pequeno e varia muito entre UFs (SP -0,19, PR -0,08; GO e MG +0,05). Isso combina com a explicação \"nível e geografia\" para a diferença entre UFs, e não revela uma incoerência escondida.",
+    "problemas": [
+     "\"Medida em proporção, a diferença some\" vale só para uma escala, escolhida depois de ver os dados: a fração da base de Flávio com peso (-0,05). Nas outras escalas: sem peso, a mesma fração dá -1,06 (ep 0,46), ou seja, as UFs pró-Flávio menores seguraram melhor os eleitores dele, e SP e RJ, que perderam 6,5% e 7,4% da base, anulam isso na média ponderada. Em logito, a escala simétrica, a diferença continua: +0,053 (ep 0,010), permutação p = 0,0007. Em fração da base de Lula, ela cresce: +5,6. Nenhuma dessas escalas está no registro. O certo é dizer que a explicação mecânica depende da escala, e não que a diferença some.",
+     "Os controles por UF mal se identificam, porque os grupos quase não se sobrepõem na fatia de Lula no 1º turno: 24 a 53% nas pró-Flávio, 50 a 75% nas outras. Com 21 UFs, o controle linear dá +0,83 (ep 0,74 a 0,91) e o quadrático vira -0,88 (ep 0,70 a 0,87). Com as 27 UFs, o linear dá +0,70 (ep 0,38 a 0,44) e o quadrático +0,35 (ep 0,36 a 0,41). Dizer que \"não dá para dizer que existe diferença\" é aceitável, mas a sobra fica positiva na maioria das especificações, e o motivo é a falta de sobreposição, não um resultado nulo bem medido.",
+     "Chamar isso de \"pouco poder\" está errado. O teste achou uma diferença grande e significativa. O problema é especificidade e confusão com o nível de voto de cada estado (o apoio não é aleatório, como o próprio registro avisa), não poder estatístico.",
+     "\"O bweb confere exatamente com a imprensa em 19 das 21 UFs\" está errado: são 18. Além de SE e SP, a PB também difere (64,28% no bweb contra 64,30% na lista), como aparece na própria tabela do outro agente. Erro pequeno, sem efeito no veredito.",
+     "\"A maioria desses governadores já estava do mesmo lado no 1º turno\" não foi conferido. O próprio agente lista como pendente a conferência de quem cada governador apoiou no 1º turno presidencial. É plausível para os do PL e do PT, mas é afirmação sem fonte.",
+     "Cegamento parcial. O registro pede que a lista seja feita por um agente que não vê a virada. Pelos horários, quem fez a lista foi o mesmo agente que depois calculou: lista às 06:18 a 06:19, primeiro cálculo às 06:23, cache do governador às 06:25. Ele também admite que os resumos da busca mostraram números de 2º turno de MG e AL. O risco fica contido porque conferi a classificação UF por UF com a CNN (13/10) e a InfoMoney (14/10), e as duas dão as mesmas 21 UFs com 12, 5 e 4. Desvio menor: o arquivo diz gravado às 06:18:26, mas foi modificado às 06:19:26.",
+     "A parte atribuída aos eleitores dos eliminados (+0,93) e o resíduo (+0,59, permutação p = 0,11) vêm de uma tabela de outra análise arredondada a 0,1 ponto (flavio_previsto_por_uf.txt). Foi declarado como post hoc. Serve de descrição, não de medida precisa."
+    ],
+    "como_conferiu": "1) Li o Adendo 18 (L6) em /home/user/casa-control/eleicao-2026/PRE-REGISTRO-2026-10-26.md.\n\n2) Conferi o sha256 da lista: f53b3fb3ba50b755375661c0e0d04cae085b825df5e1d0ac3e4d3711ec430547, que confere. Conferi também a ordem dos horários: commit do adendo às 05:13, lista às 06:19, primeira rodada às 06:23, cache do governador às 06:25.\n\n3) Li o script do outro agente: segue a especificação gravada na lista (virada pela fórmula, peso L2+R2, RJ dentro, limiares do registro).\n\n4) Escrevi um leitor próprio do bweb: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L6/ler_bweb.py. Ele lê presidente no 1º e no 2º turno e governador no 1º turno, direto dos zips (trab2t/zips2t e bweb1t/zips). Saídas:\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L6/bweb1t_pres_gov.json.gz\n- /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L6/bweb2t_pres.json.gz\n\n5) Escrevi /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L6/conferir_L6.py, com estatística própria (sanduíche clássico e HC0 a HC3, permutação exata vetorizada). O script:\n- calcula a virada por UF;\n- confere o bweb contra a base por seção (iguais em todas as UFs; zero votos de terceiros no 2º turno);\n- confere a votação do governador no bweb (RJ sem Garotinho: 50,88%; com ele, 49,27%);\n- roda a comparação principal, cinco pesos alternativos, as sensibilidades, a simetria, as outras escalas e controles com 21 e com 27 UFs.\nSaídas: conferencia_L6.json e conferencia_L6.log na mesma pasta.\n\n6) Escrevi /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L6/extra_L6.py: as 729 reclassificações possíveis, o pior caso movendo UFs pró-Flávio, a fração da base sem peso, e a regressão dentro de cada UF, seção por seção, com efeito fixo de município e erro agrupado por município. Saídas: extra_L6.json e extra_L6.log.\n\n7) Na web, reabri a CNN de 13/10 e a InfoMoney de 14/10: as duas trazem as mesmas 21 UFs com a mesma classificação (12 Flávio, 5 Lula, 4 neutros). Uma busca extra não achou mudança de posição dos 4 neutros; achou o O Povo de 16/10, também com 12 governadores eleitos pró-Flávio.\n\nNão alterei arquivos do outro agente nem do repositório, não baixei boletins e não fiz commit. Os scripts ficaram na pasta de conferência, e não em scripts/analisar_L6.py, para não sobrescrever o arquivo existente."
+   }
+  },
+  {
+   "teste": "L7 do Adendo 18 (pesquisa): como foi o teste de integridade do 2º turno de 2026, o que dizem as auditorias de partidos e entidades (inclusive o PL) e a lista do que uma fraude no programa precisaria driblar. Junto, conferências descritivas com os dados locais: pegada do teste no bweb, marca da biometria nas urnas reais e escala.",
+   "veredito": "DESCRITIVO. O L7 manda relatar \"como argumento, sem veredito\" e não tem critério numérico. As contas com dados (D1 a D4) ficam fora do registro e não mudam isso.",
+   "numeros": "Procedimento: regra nova de 2026 (Res. TSE 23.758/2026). No sábado 24/10, em cerimônia pública, as entidades escolheram parte das seções (SP: 34 de 51; PB: 4) e o resto saiu por sorteio. A urna de cada seção escolhida foi para o teste e a seção votou numa urna reserva, carregada no sábado. No domingo, das 8h às 17h, servidores do Judiciário e do MP digitaram votos de cédulas preenchidas antes, com câmera. A modalidade principal, em ambiente controlado, habilita a urna pelo caderno de votação, sem eleitor e sem digital. A modalidade com biometria usa eleitores da própria seção, que já votaram e emprestam a digital. Casos conhecidos: SP 3, AL 2, DF 2, PR 2, MT 1, PB 1 e SC pelo menos 1. Pela regra de 2024, seriam de 30 a 65 no país.\n\nQuantas urnas (D1): não há total nacional publicado. No bweb, 706 seções votaram em urna diferente da do 1º turno, com carga em 24/10. Em Alagoas a lista nominal bate: 20 de 20 seções do teste estão no grupo, nenhuma das 3 de autenticidade está, e nenhuma outra seção de AL aparece. A contagem também bate com o anúncio em DF, MG, MT, RJ, RR e RS. Em SP sobram seções (72 contra 33), por outras trocas feitas no sábado. Estimativa: cerca de 650 urnas, com teto de 706. No 1º turno, 790 seções tiveram carga na véspera.\n\nBiometria nas urnas reais (D2): são 3.897 urnas com log do 2º turno, com 1.002.692 habilitações, 87,6% delas por digital. Nenhuma urna ficou com 0% de biometria. A menor parte biométrica foi 36,3%, o percentil 1 foi 64,0% e a mediana 88,7%. Só 8 urnas (0,2%) tiveram até 100 habilitações com 95% ou mais por digital, e só 2 tiveram 100%. No bweb do país, nenhuma seção aparece com certeza sem biometria; 31 têm 90% ou mais sem digital e 97 têm 50% ou mais. As 1.308 seções do exterior não usam biometria (fonte secundária).\n\nD3: as 97 seções com metade ou mais sem digital tiveram a mesma virada de Lula que as vizinhas do mesmo local: diferença 0,00 ponto (ep 0,19); placebo -0,16 (ep 0,44). A régua de um desvio que mudasse o resultado é 1,79 ponto. No exterior a virada foi de 1,62 ponto, contra 2,80 no Brasil, mas fica dentro da faixa das UFs (PI 1,21; BA 1,44).\n\nResultados: no TSE, 2 urnas e 389 votos sem divergência; em SP, 33 urnas sem divergência. No DF houve 1 divergência na CLDF, atribuída a erro humano de digitação; urna, cargo, tamanho e direção não foram divulgados. Dos outros TREs não achei o resultado. O relatório do TCU sai até 24/11.\n\nEscala (D4): para mudar o resultado é preciso mover 2.215.095 votos, 1,79% dos 124,1 milhões de votos dos finalistas. Se o programa adulterasse urnas ao acaso, a chance de nenhuma das ~640 testadas ser adulterada seria 9,8e-6 no caso mais favorável à fraude (todos os votos de 1,8% das urnas). Com 25 votos por urna, seria 5e-55. Um desvio espalhado em todas as urnas daria cerca de 3,5 votos trocados a cada 195 digitados, perto de 2.200 no país.\n\nPL: fiscais (até 2 por seção) leram o QR Code dos boletins impressos. Segundo o Metrópoles, o partido recebeu uma parte \"bastante expressiva\" deles e viu o mesmo padrão do TSE. Em 26/10, Valdemar escreveu: \"Reconhecemos o resultado presidencial, proclamado pelo TSE\", sem citar boletins nem auditoria. Não achei a comparação publicada nem alegação de boletim divergente.",
+   "o_que_isso_significa": "1. Fraude por azar não cola. Uma fraude no programa grande o bastante para virar a eleição seria pega no teste de integridade com certeza prática, a menos que o programa reconhecesse o teste. A escolha das seções foi na véspera, depois da carga, e em parte pelos próprios partidos; então o programa não tinha como saber antes quais urnas seriam testadas.\n\n2. Há um furo de lógica no desenho dos controles, não no resultado. A modalidade principal tem uma marca que nenhuma das 3.897 urnas reais teve: nenhuma digital no dia. A modalidade com biometria tem a marca oposta (quase só digital, poucos eleitores), que aparece em 0,2% das urnas reais. Em tese, um programa poderia ficar honesto no teste e agir em mais de 99% das urnas. O mesmo tipo de truque foi usado no caso Volkswagen.\n\n3. O teste de integridade, sozinho, não exclui esse programa. Quem exclui é a leitura do código por terceiros e a garantia de que o programa assinado em 04/09 veio daquele código. Essa garantia é dada pela cerimônia do TSE; não achei notícia de compilação refeita por terceiro.\n\n4. Na lista de 12 controles, 4 dependem só do sistema do TSE: compilação, carga, verificação de autenticidade (feita com o programa do TSE) e RDV e log. No teste de integridade, a pergunta decisiva (se o programa reconhece o teste) também só se responde pelo código que o TSE compila. Os controles de fora ou não enxergam uma fraude no programa (boletim impresso do PL, caderno e fiscais, pesquisas, observação), ou dependem de o programa não reconhecer o teste. O boletim recolhido pelo PL exclui fraude na totalização, mas não fraude no programa, que imprimiria o boletim já alterado.\n\n5. Do outro lado da balança: essa fraude exigiria uma regra que olha a biometria e o volume, escondida num código lido por várias entidades e assinado em público, sem sinal em nenhuma inspeção, nenhum TPS e nenhuma das ~650 urnas testadas. Também teria de mexer no governador aliado de Flávio onde ele perdeu junto (T22b). As 97 seções reais com pouca digital não ficaram poupadas. Nenhuma fonte aponta essa regra. É um limite do que o teste prova, não um indício de fraude.\n\nO que fecharia as pendências: a divergência do DF (urna, cargo, direção e o vídeo), os números de série e os logs das urnas testadas, a comparação de boletins do PL, os relatórios do TCU e das auditorias externas, e se alguém usou programa próprio de verificação ou refez a compilação.",
+   "criterio": "Adendo 18, L7, literal: \"Como funcionou o teste de integridade do 2º turno de 2026 (quantas urnas, se usa eleitores reais e biometria, se a urna consegue saber que está em teste), o que dizem os relatórios e as auditorias de partidos, inclusive do PL. Lista do que uma fraude no programa precisaria fazer para passar por cada controle. Relatado como argumento, sem veredito.\"",
+   "desvios": "1. Acrescentei partes descritivas com dados locais (D1 pegada no bweb, D2 biometria, D3 virada nas seções com pouca digital, D4 escala). A especificação ficou escrita no docstring do script antes de calcular qualquer virada. Elas não mudam o veredito.\n\n2. Sem total oficial de urnas, usei o anúncio de cada TRE como piso e a contagem do bweb (urna trocada com carga no sábado) como teto. A contagem do bweb não é a lista do teste: em SP sobram 39 seções.\n\n3. Pela especificação, o D3 só estima o grupo com 30 ou mais seções que identificam. O grupo de 90% ou mais sem digital tem 29, então ficou só a contagem.\n\n4. A regra de 3 (no máximo 0,08% das urnas com 0% de biometria) trata como aleatória simples uma amostra por conglomerados que pesa mais os 6 estados com governador no 2º turno. O limite verdadeiro é mais largo.\n\n5. As páginas jus.br (TSE e TREs) deram 403 ao leitor; os trechos delas vieram do resumo do buscador, com confiança média, marcados no JSON. Não contornei o bloqueio.\n\n6. A frase do reconhecimento do PL segue o Poder360 (\"Reconhecemos o resultado presidencial...\"). A versão \"Reconhecemos a dimensão do resultado\", de um site menor usado em pesquisa anterior, não confere com o Poder360.\n\n7. Que o exterior não usa biometria vem só de fonte secundária, e a amostra de logs não tem seção do exterior.\n\n8. Nenhum arquivo existente foi alterado e não houve commit.",
+   "fontes": [
+    "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
+    "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-758-de-2-de-marco-de-2026",
+    "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-do-2o-turno-no-tse-confirma-correspondencia-entre-cedulas-e-votos-nas-urnas",
+    "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-das-urnas-no-2o-turno-e-concluido-sem-divergencias-em-sao-paulo",
+    "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-fiscalizadores-definem-urnas-para-os-testes-de-integridade-e-de-autenticidade-do-2o-turno",
+    "https://bombabomba.com.br/urnas-eletronicas-sao-aprovadas-em-teste-de-integridade-realizado-na-cldf-no-2o-turno/",
+    "https://francesnews.com.br/post/2026/10/26/43576-treal-sorteia-23-urnas-eletronicas-para-auditoria-no-segundo-turno-das-eleicoes-2026",
+    "https://www.cadaminuto.com.br/noticia/2026/10/27/eleicoes-2026-23-urnas-eletronicas-foram-auditadas-durante-o-2-turno-em-al",
+    "https://www.paraibamix.com.br/eleicoes-2026-confira-as-secoes-eleitorais-da-paraiba-selecionadas-para-auditoria-no-2o-turno/",
+    "https://alesc.sc.gov.br/agencia/noticia/segundo-turno-eleicoes-2026-teste-urnas-alesc/",
+    "https://www.tre-am.jus.br/comunicacao/noticias/2026/Setembro/eleicoes-2026-tre-am-realizara-auditoria-em-23-urnas-eletronicas-no-primeiro-turno",
+    "https://portal.tcu.gov.br/imprensa/noticias/eleicoes-2026-tcu-acompanha-testes-de-integridade-das-urnas-eletronicas",
+    "https://www.dgabc.com.br/Noticia/4350743/-55-auditores-do-tcu-acompanham-teste-de-integridade-das-urnas-no-brasil",
+    "https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026",
+    "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/urnas-passam-por-teste-de-autenticidade-no-2o-turno-das-eleicoes-2026-em-sao-paulo",
+    "https://www.poder360.com.br/poder-eleicoes/uniao-brasil-inspeciona-codigos-fonte-de-urnas-para-eleicoes-2026/",
+    "https://www.ocafezinho.com/2025/12/05/teste-da-urna-2025-seguranca-robustez-e-transparencia-dos-sistemas-eleitorais/amp/",
+    "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+    "https://www.gazetadopovo.com.br/republica/relatorio-ministerio-defesa-nao-aponta-fraude-nas-urnas-eleicoes/",
+    "https://www.tnh1.com.br/noticia/nid/urnas-tem-100-de-aprovacao-em-novo-teste-de-integridade-diz-tse/",
+    "https://www.tse.jus.br/comunicacao/noticias/2024/Outubro/eleitores-podem-ser-convidados-para-participar-do-teste-de-integridade-com-biometria-na-secao-eleitoral",
+    "https://www.tse.jus.br/eleicoes/eleicoes-2024-content/arquivos-teste-de-integridade/arquivos-segundo-turno/rs-relatorio-auditoria-externa-2024-2o-turno-ass",
+    "https://www.metropoles.com/colunas/demetrio-vecchioli/com-exercito-de-fiscais-pl-tinha-nocao-da-derrota-desde-as-17h",
+    "https://www.abcdoabc.com.br/pl-convoca-fiscais-monitorar-segundo-turno/",
+    "https://www.poder360.com.br/poder-eleicoes-2026/pl-reconhece-vitoria-de-lula-apos-flavio-contestar-resultado/",
+    "https://www.metropoles.com/brasil/presidente-do-pl-valdemar-costa-neto-reconhece-vitoria-de-lula",
+    "https://www.metropoles.com/brasil/tse-desmente-flavio-bolsonaro-sobre-retirada-de-fiscais-do-pl-de-sala-cofre",
+    "https://www.cartacapital.com.br/politica/valdemar-foi-informado-por-auditoria-do-pl-que-nao-foram-encontradas-provas-de-fraude-nas-urnas-diz-site/",
+    "https://ndmais.com.br/politica/urnas-eletronicas-substituidas-segundo-turno-eleicoes-2026/",
+    "https://www.tnh1.com.br/tnh1-variedades/brasileiros-precisam-ficar-sabendo-da-regra-sobre-a-biometria-na-eleicoes-de-2026/",
+    "https://www.radiopampa.com.br/sistema-eleitoral-brasileiro-e-muito-solido-e-muito-claro-diz-observador-da-organizacao-dos-estados-americanos-apos-acompanhar-votacao/"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L7.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L7_teste_integridade.txt",
+    "/home/user/casa-control/eleicao-2026/resultados/L7_pesquisa.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L7_dados.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L7_dados.txt"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "DESCRITIVO. O L7 do Adendo 18 diz, ao pé da letra: \"Relatado como argumento, sem veredito\". Não há limiar nenhum, então nenhuma conta muda isso. Refiz com código meu todos os números decisivos de D1 a D4 e eles batem exatamente. Margem 4.430.191; votos a mover 2.215.095 (1,79%); 706 seções com urna trocada e carga em 24/10; Alagoas 20 de 20 e 0 de 3; 790 no 1º turno; 3.897 urnas com 1.002.692 habilitações, 87,56% por digital, nenhuma com 0%, mínimo 36,3%, 8 com até 100 habilitações e 95% ou mais por digital; 97 e 31 seções no país; D3 de 0,0014 (ep 0,186) e placebo de -0,157 (ep 0,437); P de 9,8e-6 com 640 urnas e 25 votos por urna; exterior 1,62 contra 2,80. Também reabri as fontes centrais e elas conferem: Agência Brasil, Poder360 (nota de 26/10, 20h54), Metrópoles, CLDF, TSE (389 votos), TRE-SP (34 de 51) e Res. 23.758 (habilitação \"aleatória a partir do caderno\"). Nos dois sentidos, o resultado não inventa incoerência: o \"furo\" vem descrito como limite do desenho do teste, com o contrapeso ao lado. Também não esconde nenhuma que eu tenha achado. Há só uma afirmação um pouco exagerada (D4) e uma justificativa fraca (exterior), descritas em problemas. Corrigidas, elas não mudam a conclusão.",
+    "problemas": [
+     "D4, 'caso mais favorável à fraude': o caso usado (todos os votos dos finalistas de uma urna média, 249) não é o extremo. O extremo é concentrar o desvio nas seções com mais votos de Lula, tirando todos eles. Bastariam 8.478 seções, e a chance de nenhuma cair entre as 640 testadas é de 1,7e-5 (hipergeométrica exata 1,72e-5; com 500 testadas, 1,9e-4). A frase 'abaixo de 1 em 100 mil no caso mais favorável' passa a cerca de 1 em 58 mil. Esse extremo também é absurdo: zera Lula em seções onde ele teve mais de 240 votos. A conclusão (fraude pega por azar não cola) continua de pé.",
+     "Exterior: o texto descarta a virada menor no exterior (1,62 contra 2,80) comparando com PI (1,21) e BA (1,44). Essas UFs têm composição muito diferente (Lula perto de 70%, efeito de teto), então a justificativa é fraca. Corrigi pela composição do 1º turno (fatia de Lula, outros, branco e nulo, variação do comparecimento), num modelo ajustado nas seções do Brasil. A virada do exterior fica 0,76 ponto abaixo do previsto (ep 0,15, agrupado em 144 cidades). Isso é o piso da faixa das UFs (resíduo do AC: -0,75; faixa de -0,75 a +0,75) e menos da metade da régua de 1,79. Num pareamento simples (seções com Lula entre 49% e 55% no 1º turno e outros perto de 9%), a diferença sobe para 1,5 ponto (3,12 contra 1,62). A direção é a que uma fraude 'só onde há digital' preveria, mas o tamanho é pequeno demais. O eleitorado é outro e o comparecimento subiu 11,6% (contra 2,3%). Pesando as duas hipóteses, o dado pende de leve contra a tese (razão de cerca de 3 a 1). 'Não serve como indício' se sustenta, mas o texto devia mostrar a comparação ajustada.",
+     "Faltou uma conta, que eu fiz: com r (digital cadastrada não usada dividida pelo comparecimento) como variável contínua dentro do local, a virada de Lula cai 1,25 ponto por unidade de r (ep 0,10), a 12 erros-padrão, na direção da tese. Mas o placebo falha: r prevê a fatia de Lula no 1º turno (+7,9 pontos por unidade, ep 0,26). Com controles da composição, o efeito cai a -0,32 (ep 0,10). Por faixa, com controles, o grupo com r de 0,5 ou mais dá -0,07 (ep 0,17). Na amostra de logs, usando a parte sem digital de verdade (625 locais), o sinal se inverte: +1,63 (ep 0,83); com controles, +1,20 (ep 0,79). Uma fraude proporcional aos votos com digital, do tamanho que vira a eleição, daria cerca de -2,0. Logo não há incoerência escondida, mas o relatório devia citar essa relação bruta, porque um leitor a acha fácil.",
+     "Procedimento: a especificação de D1 a D4 está no docstring do script, mas sem commit. O script tem horário 06:45 e os resultados 06:47, então não dá para provar que veio antes da conta. Fica como declaração do agente.",
+     "Pequeno, e a favor da conclusão: em teste_integridade_df_2026.txt, SP aparece com cerca de 16 mil cédulas em 33 urnas, perto de 485 por urna, contra os 195 usados na conta do desvio espalhado. Se esse número for do 2º turno, o teste via mais votos por urna e a conta do L7 é conservadora. Isso também enfraquece o volume baixo como marca do teste em ambiente controlado; a marca que sobra é nenhuma digital no dia.",
+     "Fontes: a Agência Brasil diz que no teste com biometria 'os votos são depositados por eleitores voluntários'. TRE-MA e TRE-SP descrevem outra coisa: o eleitor só põe o dedo e os votos são digitados a partir das cédulas preenchidas antes. O L7 segue esta segunda versão, que está certa. As páginas jus.br continuam lidas pelo resumo do buscador, como o agente declarou."
+    ],
+    "como_conferiu": "Li o Adendo 18 inteiro (L7: pesquisa, sem critério numérico, 'sem veredito'), o script analisar_L7.py e os resultados L7_*.txt e .json. Não alterei nenhum arquivo do agente e não fiz commit. Todo o código meu está em /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L7/, rodado com python3 -I:\n(1) ler_bweb2t.py: leitura própria, com o módulo csv, das linhas de Presidente dos 28 zips do 2º turno. São 499.205 seções; os votos 13 e 22 batem com a base em todas.\n(2) ler_bweb1t.py: urna e data de carga do 1º turno, lidas direto dos 28 zips do 1º turno. A urna confere com a base em todas as seções e dá 790 seções com carga em 03/10.\n(3) logs_bio.py: decodificação própria dos 3.897 .jez. O único tipo registrado é '[biométrica]', não há pasta com mais de um log e há 49.840 habilitações manuais pelo mesário.\n(4) conferir_L7.py: D1 a D4 refeitos com efeito fixo e erro agrupado escritos por mim, sem lib.fe_ols, mais a probabilidade hipergeométrica exata e o desvio concentrado ao máximo. A virada das 706 seções da pegada do teste, contra o resto do local, deu +0,06 (ep 0,08).\n(5) extra_L7.py, post hoc e fora do registro: r contínuo e por faixas, com e sem controles e com placebo; parte sem digital verdadeira na amostra de logs; exterior contra a previsão feita com as seções do Brasil.\nResultados em conferencia_L7.json e extra_L7.json, na mesma pasta. Reabri na web a Agência Brasil (24/10), Poder360 (nota do PL, 26/10, 20h54), Metrópoles (coluna de 25/10, 21h17), CLDF via bombabomba (divergência sem urna, cargo nem direção), TSE (389 votos, pelo buscador), TRE-SP (34 de 51; 30 + 3 + 10 + 8 de reserva) e a Res. 23.758 (habilitação aleatória pelo caderno). Tudo confere com o que o agente escreveu."
+   }
+  },
+  {
+   "teste": "L8 do Adendo 18: o \"dossiê\" dos EUA sobre a eleição de 2026 citado na imprensa. Achar o documento ou a reportagem, separar as afirmações técnicas sobre votos, urnas, apuração ou prorrogação e conferir com a base local (bweb dos dois turnos, todas as 499.207 seções) cada uma que for conferível.",
+   "veredito": "DESCRITIVO pela letra: o L8 não tem limiar. O documento em si fica como SEM DADO, porque nenhum texto foi publicado. Afirmação por afirmação: D1 (Zanin \"adiou o fechamento das urnas\"): o fato confere, mas a ideia de que isso mudou o resultado não confere. D2 (Moraes mandou recolher os passaportes \"minutos depois\" do anúncio da derrota): a parte da apuração confere, e a hora da ordem não dá para conferir. D3 (\"para Trump, quem venceu foi Flávio\"): não confere. O que o dossiê diz sobre STF, prisões, narcotráfico e ação militar não trata de votos e não dá para conferir com a base.",
+   "numeros": "ORIGEM DO DOSSIÊ: a fonte é uma análise ao vivo na CNN Brasil em 28/10/2026. Segundo quem reproduziu, um jornalista da emissora disse que o Departamento de Estado \"já tem todo um dossiê pronto\" sobre abusos no Brasil. Não achei o vídeo nem o texto original, e nenhuma reprodução diz o nome do jornalista ou do programa. A primeira reprodução achada é do Jornal da Cidade Online (28/10, 07h28, sem autor e sem link para a CNN). Depois vieram Topic News, Visão da Direita, Gazeta do Povo, Pagina1, Folha do Estado, Infoverus e outros. Nenhuma cita órgão, data, autor ou trecho do documento. Também não achei nenhuma declaração oficial dos EUA dizendo ter um dossiê. Nas falas de Trump de 26, 27 e 28/10 não aparece dossiê, e ele não disse que Flávio venceu. A reportagem da Reuters de 24/10 (Beattie e Pita) não fala em memorando nem dossiê.\n\nD1 (prorrogação). Contas no Brasil, sem o exterior: 127.854.631 votantes, Lula +4.401.534.\n- Depois das 17:15:59 (hora de Brasília) encerraram 8.845 seções, com 2.536.441 votantes no dia inteiro e Lula com 55,70% entre os dois finalistas. Tirando essas seções inteiras, Lula vence por 4.122.786. No pior caso absurdo (todo votante dessas seções contado como voto líquido de Lula), vence por 1.865.093.\n- Depois das 18:59:59 encerraram 6.352 seções (1.861.259 votantes). Sem elas, Lula vence por 4.215.810.\n- Depois das 17:05:59 encerraram 38.587 seções (10,5 milhões de votantes). Sem elas, Lula vence por 3.051.364.\n- A prorrogação aparece nos horários: no 2º turno, 6.316 seções encerraram entre 19h00 e 19h15, contra 3.025 nessa faixa no 1º turno. Entre 17h30 e 18h45 quase nenhuma encerrou (de 22 a 271 por faixa de 15 minutos).\n- No 1º turno, sem prorrogação, 124.594 seções (35,2 milhões de votantes) encerraram depois das 17h15, contra 8.845 no 2º.\n- Votos dados depois das 17h, contados nos logs: cerca de 34 mil (TSE 34.393; BBC 33.866). Não recontei esse número aqui.\n- Na mesma seção: a virada de Lula nas seções que encerraram tarde, comparadas com as outras do mesmo local, foi de -0,04 ponto (erro-padrão 0,04; 475.801 seções em 72.445 locais). Com o controle de quem já fechava tarde no 1º turno, -0,04 (0,04).\n\nD2 (hora em que o resultado ficou definido). Ordenando os boletins pela hora de recebimento no TSE, o resultado fica matematicamente definido sem olhar o futuro (margem maior que todos os aptos das seções que faltavam) às 21:08:26, com 97,55% das seções. A margem era de 4.207.648, contra 4.207.620 aptos restantes. O TSE confirmou às 21h09, e o pedido da PF foi assinado às 21h16 (O Globo). 99% dos boletins tinham chegado às 21:09:39 e 100% às 23:21:40.\n\nD3 (quem venceu). A soma dos 499.207 boletins dá Lula 64.256.232 e Flávio 59.826.041 (51,79% para Lula), com diferença zero para o total oficial. Lula fica à frente em 250.935 seções, Flávio em 246.115, e há 2.155 empates. O único recorte em que Flávio fica à frente é o das 125.624 seções encerradas até 17:00:59 (Lula 49,01%). No 1º turno esse mesmo recorte favorecia Flávio ainda mais: 40,80% para Lula até 17:00:59, contra 49,67% nas demais.\n\nAFIRMAÇÕES VIZINHAS (citadas nas mesmas matérias, mas não são do dossiê):\n- V2, a pausa e o \"way it was tabulated\" de Trump. Os boletins foram recebidos de 17:05:10 a 17:07:27 (1.868), não chegou nenhum entre 17:08:00 e 19:03:36, e o recebimento recomeçou às 19:03:37. Os 1.225 primeiros boletins recebidos dão Lula com 57,72%; o TSE tinha divulgado 1.225 seções com Lula a 57,66%.\n- V2, ordem de chegada (acréscimo feito depois da primeira rodada). A virada bruta sobe de 2,79 pontos no primeiro décimo de boletins recebidos para 3,16 no último. Dentro do mesmo local, porém, o efeito é +0,01 ponto do primeiro ao último boletim (erro-padrão 0,06).\n- V3, carta de Flávio (\"mais de 10 milhões\"). Lula ganhou 10.376.696 votos entre os turnos. Nas seções que encerraram depois das 17h15, o ganho dele foi de só 248.565.",
+   "o_que_isso_significa": "O \"dossiê\" não é um documento: é uma fala de TV que só aparece em reproduções de terceiros, sem texto, autor ou órgão identificado. Ele não traz nenhuma afirmação técnica nova. Tudo o que diz sobre a votação se resume à prorrogação, que é fato público. Pelos dados, ela mudou o horário de fechamento de 6 a 9 mil seções, mas não o número de votos de um jeito que importe para uma margem de 4,43 milhões. Mesmo no pior caso absurdo, Lula continua à frente por 1,87 milhão. As seções mantidas abertas também não viraram mais para Lula do que as vizinhas do mesmo local.\n\nAs afirmações que dá para conferir batem com os carimbos da urna e do TSE:\n- a pausa existiu, e nenhum boletim entrou durante ela;\n- a parcial de 1.225 seções divulgada na pausa é a dos primeiros boletins que chegaram;\n- os boletins que chegaram por último não viraram mais que os do mesmo local;\n- o resultado ficou definido às 21h08 pelos dados, menos de um minuto antes da confirmação do TSE.\n\nA afirmação de que Flávio venceu não confere com nenhum dos 499.207 boletins.\n\nCeticismo no outro sentido: todas essas conferências usam números que saem do próprio sistema eleitoral (boletins e carimbos). Uma urna que gravasse errado já no boletim passaria por todas elas. O L8 mostra que o dossiê não aponta nenhuma marca nos dados públicos; não mostra que a urna está certa. Isso fica para os outros testes (T2, T3, T18 e L1 a L6).\n\nFicou de fora:\n- o vídeo original e o nome do jornalista;\n- os posts do X (o X exige login);\n- os votos depois das 17h seção por seção (só os logs completos dão isso);\n- a hora em que Moraes assinou a ordem (não foi divulgada);\n- a assinatura digital de todos os boletins (o T18 cobriu só a amostra).",
+   "criterio": "Adendo 18, L8, registrado antes de rodar: \"Achar o documento ou a reportagem, separar o que é afirmação técnica conferível nos dados públicos e conferir cada uma; o que não for conferível é relatado como tal.\" Não há limiar numérico. Especificação fixada no cabeçalho de scripts/analisar_L8.py antes da primeira rodada: E1 a E6 (fuso igual ao do L1, cortes de encerramento em hora de Brasília, leitura por seção com efeito fixo de local, distribuição do recebimento, instante da definição matemática e soma dos boletins).",
+   "desvios": "1. Como o L8 não tem limiar, o veredito geral ficou DESCRITIVO, e a classificação de cada afirmação (confere, não confere, não conferível) é leitura minha.\n2. O documento não existe publicado, e a fala original da CNN Brasil não foi achada. Na leitura mais literal, \"a reportagem\" passou a ser o conjunto de reproduções de 28/10, e o conteúdo atribuído ao dossiê é o que elas descrevem.\n3. Acrescentei depois da primeira rodada, e marquei assim no script e no texto: a fatia de Lula nos 1.225 primeiros boletins recebidos e a análise da virada pela ordem de chegada (por décimo e com efeito fixo de local).\n4. Incluí afirmações vizinhas que não são do dossiê (falas de Trump e a carta de Flávio), separadas e marcadas como tal.\n5. Usei o cache do L1 (bu1t/bu2t.json.gz, extraído dos mesmos zips pela mesma função) em vez de reler os zips. O script relê os zips se o cache faltar.\n6. Os votos depois das 17h não foram recontados, porque o bweb não tem a hora de cada voto. O número citado é do TSE e da imprensa.\n7. O exterior ficou fora das contas da prorrogação (a liminar valeu para o Brasil) e entrou nas contas da apuração.\n8. As páginas da Folha do Estado e da Justiça Eleitoral deram 403. Usei o resumo da busca e a checagem que o projeto já tinha feito.",
+   "fontes": [
+    "https://www.jornaldacidadeonline.com.br/noticias/89967/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil-veja-o-video",
+    "https://www.visaodadireita.com.br/cnn-dossie-departamento-de-estado-abusos-brasil-lula-capturado/",
+    "https://www.topicnews.com.br/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil-veja-o-video/",
+    "https://www.gazetadopovo.com.br/sem-rodeios/eua-apuram-abusos-no-brasil-e-stf-mira-vice-de-trump/",
+    "https://www.pagina1.com.br/noticia/cnn-trump-possui-um-dossie-que-justificaria-uma-acao-militar-contra-o-brasil",
+    "https://www.infoverus.com.br/politica/donald-trump-possui-dossie-que-justificaria-uma-acao-contra-o-brasil/37547",
+    "https://www.folhadoestado.com.br/politica-nacional/cnn-trump-possui-um-dossie-que-justificaria-uma-acao-militar-contra-o-brasil-veja-video/644854",
+    "https://www.blogtvwebsertao.com.br/2026/10/dossie-de-trump-pode-levar-eua.html",
+    "https://cidadenewsonline.com.br/%E2%9C%A6-mundo/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil/",
+    "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eua-permitiram-entrada-de-flavio-mas-que-nao-vai-se-envolver/",
+    "https://www.cnnbrasil.com.br/blogs/lourival-santanna/internacional/trump-assume-posicao-ambigua-sobre-reeleicao-de-lula/",
+    "https://www.riotimesonline.com/trump-cites-brazil-election-texas-rally-2026/",
+    "https://www.internazionale.it/ultime-notizie-reuters/2026/10/24/inside-the-trump-administration-campaign-to-return-brazil-s-bolsonaro-clan-to-power",
+    "https://www.terra.com.br/noticias/brasil/politica/departamento-de-estado-analisa-assunto-flavio-apos-senador-deixar-o-brasil-rumo-aos-eua,f2f6de06c0ae8ef6474a389ad069803bvgaa6uli.html",
+    "https://ua.news/en/world/derzhdep-ssha-ne-poobitsiav-viznati-sertifikovanii-rezultat-viboriv-u-braziliyi-the-rio-times",
+    "https://www.brasil247.com/mundo/governo-trump-segura-nota-sobre-vitoria-de-lula-apos-alegacoes-de-flavio-bolsonaro-sobre-suposta-fraude/",
+    "https://www.washingtonpost.com/world/2026/10/27/brazil-flavio-bolsonaro-passport-lula/c1bb7428-d22f-11f1-9931-2a41b76fc976_story.html",
+    "https://www.terra.com.br/noticias/brasil/bbc-identifica-338-mil-votos-durante-prorrogacao-ordenada-por-zanin-menos-de-003-dos-votos-totais,31e45bccf750bb9ca4c260aa92750acc7uno2w1m.html",
+    "https://www.agencialupa.org/checagem/2026/10/28/apos-fuga-do-brasil-flavio-bolsonaro-mente-sobre-eleicoes-em-carta-com-teor-golpista/",
+    "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/relatorio-apocrifo-distorce-dados-para-sugerir-fraude-nas-eleicoes-2026"
+   ],
+   "arquivos": [
+    "/home/user/casa-control/eleicao-2026/scripts/analisar_L8.py",
+    "/home/user/casa-control/eleicao-2026/resultados/L8_dossie_eua.json",
+    "/home/user/casa-control/eleicao-2026/resultados/L8_dossie_eua.txt"
+   ],
+   "conferencia": {
+    "confirma": true,
+    "veredito_conferido": "DESCRITIVO, como pede a letra do L8, que não tem limiar. O documento em si fica como SEM DADO: não há texto publicado, só reproduções de uma fala de TV. Os números decisivos batem com o meu código, refeito do zero a partir dos zips. Prorrogação: tirando as 8.845 seções que encerraram depois das 17:15:59 de Brasília (2.536.441 votantes), Lula vence por 4.122.786; no pior caso, por 1.865.093. Sem as 6.352 que encerraram depois das 18:59:59, vence por 4.215.810. Virada de Lula nas seções que fecharam tarde, contra as do mesmo local: -0,04 ponto (erro-padrão 0,04; 475.801 seções em 72.445 locais). Soma dos boletins: 64.256.232 a 59.826.041, diferença zero para o oficial. Lula fica à frente em 250.935 seções e Flávio em 246.115. A pausa existiu: 1.868 boletins recebidos de 17:05:10 a 17:07:27 e nenhum de 17:08:00 a 19:03:36. O resultado fica definido sem olhar o futuro às 21:08:26 (97,55% das seções). O ganho de Lula entre os turnos foi de 10.376.696 votos, dos quais 248.565 nas seções que fecharam tarde. Nenhuma afirmação do \"dossiê\" sobre a votação mostra incoerência. O resultado não exagera nada a favor da tese. No sentido contrário, há um erro de fato e duas afirmações mais fortes que os dados, listados abaixo; nenhum deles muda o veredito. Os itens 4 e 5 da lista são acréscimos meus que reforçam a conclusão.",
+    "problemas": [
+     "1. Erro de fato, que esconde uma estranheza que existe. O texto diz que no 1º turno o recebimento 'segue sem interrupção (303.544 boletins entre 17h08 e 18h59)'. Não é verdade, e o próprio JSON do agente mostra isso: 1 boletim no minuto 18:01 e 1.898 no minuto 18:08. No 1º turno houve duas paradas nacionais, sem nenhum boletim recebido em nenhuma das 28 UFs (exterior incluído) e com boletins pendentes em todas: de 18:01:00 a 18:08:47 (7min47s, com 15,6% recebidos) e de 19:31:50 a 19:59:22 (27min32s, com 85,2% recebidos). O TSE reconheceu uma falha de 50 minutos na divulgação (19h14 a 20h04, iPolítica/O Globo, 06/10) e disse que a totalização não foi atingida. Mesmo assim, o recebimento parou 27 minutos dentro dessa janela. Não é afirmação do 'dossiê', é do 1º turno e não muda o resultado do 2º. Mas tira a força do contraste '1º turno sem pausa contra 2º com pausa', e o texto precisa ser corrigido. Fica como item em aberto para outro teste.",
+     "2. Afirmação mais forte que os dados. O texto diz que 'a parcial congelada às 17h06 é a dos primeiros boletins que chegaram'. A parcial do TSE tinha 1.225 seções, com Lula 193.574 e Flávio 142.169 (57,655%; fonte: Forte no Recôncavo). Os 1.225 primeiros boletins recebidos somam 193.996 e 142.129 (57,715%). Nenhum trecho inicial da fila de chegada dá esses totais exatos. É quase o mesmo conjunto, não o mesmo. Entre os 1.200 e os 1.250 primeiros, a fatia de Lula varia de 57,62% a 57,72%, então os 57,655% cabem numa ordem de totalização um pouco diferente da de chegada. Não é incoerência, mas a frase deveria dizer 'quase igual'.",
+     "3. Falta uma ressalva na leitura por seção (E3). O efeito fixo de local só aproveita locais que têm seções tardias e não tardias. Das 8.845 seções que encerraram depois das 17:15:59, 4.194 estão em 550 locais onde todas fecharam tarde e ficam fora da estimativa. Depois das 18:59:59, ficam fora 2.640 das 6.352. Refiz a conta com efeito fixo de zona, que aproveita esses locais: -0,08 ponto (erro-padrão 0,03) e -0,09 (0,04). Com efeito fixo de município: -0,04 (0,16) e -0,04 (0,20). A conclusão não muda: as seções que ficaram abertas não viraram mais para Lula.",
+     "4. Fato útil que o texto não traz: onde a prorrogação chegou de fato. Às 17h03, hora da liminar, 133.610 seções no Brasil ainda estavam abertas. Só 6.352 encerraram depois das 18:59:59, em 147 municípios, e quase todas nas capitais: Rio 1.978, São Paulo 1.481, Salvador 730, Petrópolis 285, João Pessoa 265, Itaboraí 237, Recife 220. A ordem valia para todo o país (BPMoney), mas na prática atingiu sobretudo essas cidades, onde a coligação de Lula tinha apontado problemas de transporte. Nessas seções Lula foi de 51,9% no 1º turno a 55,2% no 2º. Calculei também uma cota de eleitores a mais, comparando com as seções do mesmo local: o comparecimento subiu 0,16 ponto do eleitorado (erro-padrão 0,04), cerca de 5,0 mil eleitores (IC95 de 2,4 a 7,6 mil), nas que encerraram depois das 17:15:59. Nas que encerraram depois das 19h, 0,13 ponto (0,05), cerca de 2,9 mil eleitores (de 0,5 a 5,4 mil). Isso reforça que a prorrogação não pesou numa margem de 4,43 milhões.",
+     "5. Comparação feita com conjuntos diferentes. O agente comparou o recorte 'encerradas até 17:00:59' do 2º turno com o mesmo horário no 1º turno, mas são seções diferentes (42.172 no 1º, 125.624 no 2º). Nas mesmas 125.624 seções, Lula foi de 46,27% para 49,01% (+2,74 pontos), e nas demais de 49,87% para 52,69% (+2,82). A conclusão se mantém: o recorte escolhe seções pró-Flávio e não mostra virada anormal.",
+     "6. Pequenas diferenças sem efeito. Na definição matemática, mesmo segundo (21:08:26), mas o agente tem 486.978 seções, margem de 4.207.648 e 4.207.620 aptos restantes, e eu 486.979, 4.207.588 e 4.207.526. A diferença vem da ordem dos boletins recebidos no mesmo segundo. Os '499.207 boletins' incluem duas seções do exterior sem voto para presidente, e a soma sai de 499.205; o agente declarou isso.",
+     "7. Interpretação acrescentada. Em D1, a ideia de que a prorrogação 'mudou o resultado' não aparece em nenhuma reprodução do 'dossiê'. A classificação 'não confere' nesse ponto é leitura do agente; está coberta pelo desvio 1, mas convém deixar explícito. Afora isso, as fontes que reabri confirmam a pesquisa do agente. Jornal da Cidade Online: 07h28, 'da Redação', sem link para a CNN, com post de @juliovschneider embutido. Visão da Direita: 09h37, Indianara Goz, 'o dossiê não foi divulgado oficialmente'. Reuters de 24/10: não fala em dossiê, memorando, fraude ou apuração. Daily Beast e Rio Times: Trump fala em 'rigged', mas não diz que Flávio venceu nem cita dossiê. As buscas não acharam a fala original da CNN nem documento oficial dos EUA."
+    ],
+    "como_conferiu": "Li o Adendo 18. O L8 não tem limiar, então o veredito pela letra é DESCRITIVO. Li também o script, o JSON e o texto do agente sem alterar nada. Escrevi código próprio na pasta de trabalho /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/conferencia_adendo18/L8/. O extrair.py lê direto os 56 zips do bweb, só o cargo de presidente, sem usar o cache do L1. O conferir.py refaz a soma, os cortes da prorrogação, a regressão com efeito fixo e erro agrupado (implementação própria, sem a lib.py), a pausa, a hora da definição e o ganho entre os turnos. O extra.py, o extra2.py e o extra3.py fazem as leituras extras: onde a prorrogação chegou, o excesso de comparecimento, as paradas do 1º turno por UF, os locais com seções tardias e não tardias, os efeitos fixos de zona e de município e a parcial do TSE. Os resultados estão em conf.json, extra.json, extra2.json e extra3.json, na mesma pasta. Para o fuso, testei três caminhos. Recebimento menos emissão não serve: no 1º turno a mediana da demora em SP foi de 100 minutos. A hora modal de encerramento também não serve no 1º turno, porque as filas passaram das 18h no Nordeste. Fiquei com uma tabela por UF, com 11 municípios do AM em -5 e Fernando de Noronha em -2. Ela coincide com o método do agente (hora modal de abertura) nos 5.571 municípios, nos dois turnos. Minha extração bate seção por seção com secoes2026.json.gz (zero diferenças em votos de Lula, de Flávio e comparecimento) e com o total oficial. Reabri as fontes na web: Jornal da Cidade Online, Visão da Direita, Reuters via Internazionale, Daily Beast via Yahoo, Rio Times, NBC, BPMoney e Forte no Recôncavo. Fiz buscas novas por 'dossiê pronto', pela fala da CNN e por um documento oficial dos EUA, sem achar nada além do que o agente achou."
+   }
+  }
+ ],
+ "conferencia_extra_L1_arquivos_de_urna": {
+  "o_que": "Fora do registro: boletim, RDV, log e assinatura das 18 seções do 2º turno que o L1 deixou sem explicação, mais MG|41882|320|185 (encerramento às 23h04) e BA|33073|74|241 (abertura às 10h14 com urna trocada). Baixados do site de resultados do TSE em 29/10/2026.",
+  "resultado": "Nas 20 seções: assinatura de hardware válida em todos os 220 arquivos listados e nos 20 blocos, número da urna no certificado igual ao do boletim; boletim decodificado igual ao bweb (urna, aptos, comparecimento, Lula, Flávio, branco, nulo); votos computados no log iguais ao comparecimento; nenhum voto depois das 19h e só 2 depois das 17h (Afuá 16/23, às 17h03 locais). As aberturas tardias têm causa no log: urna ligada tarde (Inácio Martins de 9h54 a 10h51, Ecoporanga 83 às 10h19, Itajubá às 13h00, Óbidos às 10h42) ou ligada cedo, desligada pela chave e religada horas depois (Canindé 379: desligada às 8h16, religada às 10h17; Ecoporanga 49: desligada às 7h57, religada às 10h53). Na BA 241, falha no leitor biométrico às 10h21 e urna de contingência às 10h47. Na MG 185, o último voto foi às 16h27; o encerramento às 23h04 veio depois de 12 desligamentos e de uma urna de contingência às 22h50 para fechar. Jacareacanga 102/54 (a maior virada do município, fora do registro): 123 votos de 8h00 a 10h40, 118 habilitações biométricas (96%), intervalo mediano de 60 s entre votos, mínimo de 38 s, nenhuma sequência rápida; nada no arquivo indica boletim feito fora da urna.",
+  "arquivos": [
+   "scripts/analisar_L1_extra.py",
+   "resultados/L1_extra_arquivos_urna.json"
+  ],
+  "secoes": {
+   "BA|33073|74|241": {
+    "bu": {
+     "urna": 1673837,
+     "apt": 383,
+     "comp": 311,
+     "L": 231,
+     "R": 63,
+     "B": 1,
+     "N": 16,
+     "ab": "101440",
+     "enc": "170351"
+    },
+    "bweb": {
+     "urna": 1673837,
+     "apt": 383,
+     "comp": 311,
+     "L": 231,
+     "R": 63,
+     "B": 1,
+     "N": 16,
+     "ab": "10:14:40",
+     "enc": "17:03:51"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 2,
+     "urna_ligada": "25/10/2026 às 07:29:23",
+     "vezes_ligada": 9,
+     "desligada_pela_chave": 8,
+     "zeresima": "10:13:53",
+     "pronta": "10:14:40",
+     "primeiro_voto": "11:03:46",
+     "ultimo_voto": "16:56:24",
+     "votos_log": 311,
+     "votos_por_hora": {
+      "11h": 50,
+      "12h": 51,
+      "13h": 75,
+      "14h": 69,
+      "15h": 38,
+      "16h": 28
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:03:21",
+     "inicio_encerramento": "17:04:25",
+     "bu_dat_gerado": "17:06:22",
+     "erros": [
+      "07:33:48 Problema ao desmontar a MR",
+      "07:43:05 Problema ao desmontar a MR",
+      "07:51:02 Problema ao desmontar a MR",
+      "08:32:47 Problema ao desmontar a MR",
+      "08:44:03 Problema ao desmontar a MR",
+      "08:52:15 Problema ao desmontar a MR",
+      "10:04:17 Problema ao desmontar a MR",
+      "10:21:54 Captura da digital do eleitor | Falha na captura da digital (5243) | Ocorreu um erro durante captura da digital do eleitor. Desligue e ligue a urna. Se o erro persistir, substitua a urna.",
+      "10:28:22 Problema ao desmontar a MR",
+      "10:56:08 Problema ao desmontar a MR"
+     ],
+     "contingencia": [
+      "10:47:42 Log interno da urna de contingência validado com sucesso",
+      "10:47:54 Modo de carga da UE - Urna de contingência",
+      "10:48:58 Início do procedimento de contingência",
+      "10:51:16 Término do processo de contingência",
+      "10:51:18 Contingência executada com sucesso"
+     ],
+     "modo_de_carga": [
+      "Modo de carga da UE - Urna de contingência",
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 311
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "CE|13552|33|379": {
+    "bu": {
+     "urna": 2041392,
+     "apt": 268,
+     "comp": 224,
+     "L": 173,
+     "R": 42,
+     "B": 4,
+     "N": 5,
+     "ab": "102240",
+     "enc": "170145"
+    },
+    "bweb": {
+     "urna": 2041392,
+     "apt": 268,
+     "comp": 224,
+     "L": 173,
+     "R": 42,
+     "B": 4,
+     "N": 5,
+     "ab": "10:22:40",
+     "enc": "17:01:45"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:23:25",
+     "vezes_ligada": 2,
+     "desligada_pela_chave": 1,
+     "zeresima": "07:27:13",
+     "pronta": "10:22:40",
+     "primeiro_voto": "10:24:28",
+     "ultimo_voto": "16:55:02",
+     "votos_log": 224,
+     "votos_por_hora": {
+      "10h": 42,
+      "11h": 70,
+      "12h": 29,
+      "13h": 7,
+      "14h": 20,
+      "15h": 34,
+      "16h": 22
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:00:25",
+     "inicio_encerramento": "17:03:36",
+     "bu_dat_gerado": "17:04:07",
+     "erros": [
+      "07:25:39 Problema ao desmontar a MR",
+      "10:19:09 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 224
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "ES|56413|33|49": {
+    "bu": {
+     "urna": 2358355,
+     "apt": 225,
+     "comp": 173,
+     "L": 87,
+     "R": 77,
+     "B": 3,
+     "N": 6,
+     "ab": "110053",
+     "enc": "170213"
+    },
+    "bweb": {
+     "urna": 2358355,
+     "apt": 225,
+     "comp": 173,
+     "L": 87,
+     "R": 77,
+     "B": 3,
+     "N": 6,
+     "ab": "11:00:53",
+     "enc": "17:02:13"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:35:19",
+     "vezes_ligada": 2,
+     "desligada_pela_chave": 1,
+     "zeresima": "10:56:23",
+     "pronta": "11:00:53",
+     "primeiro_voto": "11:01:27",
+     "ultimo_voto": "16:42:31",
+     "votos_log": 173,
+     "votos_por_hora": {
+      "11h": 44,
+      "12h": 34,
+      "13h": 21,
+      "14h": 26,
+      "15h": 34,
+      "16h": 14
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:01:42",
+     "inicio_encerramento": "17:05:29",
+     "bu_dat_gerado": "17:05:48",
+     "erros": [
+      "07:37:33 Problema ao desmontar a MR",
+      "10:54:59 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 173
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "ES|56413|33|83": {
+    "bu": {
+     "urna": 2366497,
+     "apt": 161,
+     "comp": 128,
+     "L": 99,
+     "R": 28,
+     "B": 0,
+     "N": 1,
+     "ab": "102840",
+     "enc": "170108"
+    },
+    "bweb": {
+     "urna": 2366497,
+     "apt": 161,
+     "comp": 128,
+     "L": 99,
+     "R": 28,
+     "B": 0,
+     "N": 1,
+     "ab": "10:28:40",
+     "enc": "17:01:08"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 10:19:47",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 1,
+     "zeresima": "07:01:53",
+     "pronta": "10:28:40",
+     "primeiro_voto": "10:31:41",
+     "ultimo_voto": "16:26:45",
+     "votos_log": 128,
+     "votos_por_hora": {
+      "10h": 19,
+      "11h": 21,
+      "12h": 21,
+      "13h": 18,
+      "14h": 29,
+      "15h": 9,
+      "16h": 11
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:00:39",
+     "inicio_encerramento": "17:04:02",
+     "bu_dat_gerado": "17:04:48",
+     "erros": [
+      "10:21:51 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 128
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "MG|41882|320|185": {
+    "bu": {
+     "urna": 2066579,
+     "apt": 102,
+     "comp": 96,
+     "L": 78,
+     "R": 18,
+     "B": 0,
+     "N": 0,
+     "ab": "080001",
+     "enc": "230442"
+    },
+    "bweb": {
+     "urna": 2066579,
+     "apt": 102,
+     "comp": 96,
+     "L": 78,
+     "R": 18,
+     "B": 0,
+     "N": 0,
+     "ab": "08:00:01",
+     "enc": "23:04:42"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 2,
+     "urna_ligada": "25/10/2026 às 06:47:33",
+     "vezes_ligada": 14,
+     "desligada_pela_chave": 12,
+     "zeresima": "07:02:39",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:04:43",
+     "ultimo_voto": "16:27:43",
+     "votos_log": 96,
+     "votos_por_hora": {
+      "08h": 22,
+      "09h": 25,
+      "10h": 21,
+      "11h": 10,
+      "12h": 5,
+      "13h": 1,
+      "14h": 6,
+      "15h": 4,
+      "16h": 2
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "23:04:10",
+     "inicio_encerramento": "23:04:50",
+     "bu_dat_gerado": "23:05:05",
+     "erros": [
+      "06:49:48 Problema ao desmontar a MR",
+      "15:25:22 Problema ao desmontar a MR",
+      "15:29:16 Problema ao desmontar a MR",
+      "15:35:39 Problema ao desmontar a MR",
+      "17:11:46 Problema ao desmontar a MR",
+      "17:20:38 Problema ao desmontar a MR",
+      "18:17:39 Problema ao desmontar a MR",
+      "23:02:52 Problema ao desmontar a MR"
+     ],
+     "contingencia": [
+      "22:50:04 Log interno da urna de contingência validado com sucesso",
+      "22:50:16 Modo de carga da UE - Urna de contingência",
+      "23:00:06 Início do procedimento de contingência",
+      "23:00:19 Término do processo de contingência",
+      "23:00:21 Contingência executada com sucesso"
+     ],
+     "modo_de_carga": [
+      "Modo de carga da UE - Urna de contingência",
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 98
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "MG|46477|134|295": {
+    "bu": {
+     "urna": 2076047,
+     "apt": 25,
+     "comp": 9,
+     "L": 5,
+     "R": 4,
+     "B": 0,
+     "N": 0,
+     "ab": "130844",
+     "enc": "170120"
+    },
+    "bweb": {
+     "urna": 2076047,
+     "apt": 25,
+     "comp": 9,
+     "L": 5,
+     "R": 4,
+     "B": 0,
+     "N": 0,
+     "ab": "13:08:44",
+     "enc": "17:01:20"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 13:00:02",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "13:03:53",
+     "pronta": "13:08:44",
+     "primeiro_voto": "13:09:45",
+     "ultimo_voto": "14:07:53",
+     "votos_log": 9,
+     "votos_por_hora": {
+      "13h": 5,
+      "14h": 4
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:00:41",
+     "inicio_encerramento": "17:03:03",
+     "bu_dat_gerado": "17:03:45",
+     "erros": [
+      "13:02:16 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 9
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4057|16|19": {
+    "bu": {
+     "urna": 2408714,
+     "apt": 300,
+     "comp": 239,
+     "L": 184,
+     "R": 52,
+     "B": 0,
+     "N": 3,
+     "ab": "080001",
+     "enc": "170610"
+    },
+    "bweb": {
+     "urna": 2408714,
+     "apt": 300,
+     "comp": 239,
+     "L": 184,
+     "R": 52,
+     "B": 0,
+     "N": 3,
+     "ab": "08:00:01",
+     "enc": "17:06:10"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:22:12",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:26:26",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:01:26",
+     "ultimo_voto": "16:44:24",
+     "votos_log": 239,
+     "votos_por_hora": {
+      "08h": 64,
+      "09h": 22,
+      "10h": 13,
+      "11h": 9,
+      "12h": 6,
+      "13h": 34,
+      "14h": 43,
+      "15h": 34,
+      "16h": 14
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:05:44",
+     "inicio_encerramento": "17:06:22",
+     "bu_dat_gerado": "17:06:59",
+     "erros": [
+      "07:24:30 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 239
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4057|16|23": {
+    "bu": {
+     "urna": 2415163,
+     "apt": 300,
+     "comp": 240,
+     "L": 120,
+     "R": 119,
+     "B": 0,
+     "N": 1,
+     "ab": "080001",
+     "enc": "170419"
+    },
+    "bweb": {
+     "urna": 2415163,
+     "apt": 300,
+     "comp": 240,
+     "L": 120,
+     "R": 119,
+     "B": 0,
+     "N": 1,
+     "ab": "08:00:01",
+     "enc": "17:04:19"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:13:52",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:25:59",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:01:09",
+     "ultimo_voto": "17:03:45",
+     "votos_log": 240,
+     "votos_por_hora": {
+      "08h": 53,
+      "09h": 26,
+      "10h": 12,
+      "11h": 18,
+      "12h": 20,
+      "13h": 28,
+      "14h": 27,
+      "15h": 39,
+      "16h": 15,
+      "17h": 2
+     },
+     "votos_depois_17h": 2,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:04:00",
+     "inicio_encerramento": "17:06:04",
+     "bu_dat_gerado": "17:06:25",
+     "erros": [
+      "07:16:06 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 240
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4057|16|77": {
+    "bu": {
+     "urna": 2393841,
+     "apt": 360,
+     "comp": 305,
+     "L": 253,
+     "R": 48,
+     "B": 2,
+     "N": 2,
+     "ab": "080505",
+     "enc": "170405"
+    },
+    "bweb": {
+     "urna": 2393841,
+     "apt": 360,
+     "comp": 305,
+     "L": 253,
+     "R": 48,
+     "B": 2,
+     "N": 2,
+     "ab": "08:05:05",
+     "enc": "17:04:05"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:30:40",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:34:18",
+     "pronta": "08:05:05",
+     "primeiro_voto": "08:06:37",
+     "ultimo_voto": "16:45:45",
+     "votos_log": 305,
+     "votos_por_hora": {
+      "08h": 62,
+      "09h": 49,
+      "10h": 36,
+      "11h": 19,
+      "12h": 23,
+      "13h": 24,
+      "14h": 22,
+      "15h": 44,
+      "16h": 26
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:03:28",
+     "inicio_encerramento": "17:07:08",
+     "bu_dat_gerado": "17:07:31",
+     "erros": [
+      "07:32:55 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 305
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4057|16|80": {
+    "bu": {
+     "urna": 2404733,
+     "apt": 279,
+     "comp": 217,
+     "L": 166,
+     "R": 50,
+     "B": 1,
+     "N": 0,
+     "ab": "080001",
+     "enc": "170325"
+    },
+    "bweb": {
+     "urna": 2404733,
+     "apt": 279,
+     "comp": 217,
+     "L": 166,
+     "R": 50,
+     "B": 1,
+     "N": 0,
+     "ab": "08:00:01",
+     "enc": "17:03:25"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:08:01",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:13:37",
+     "pronta": "08:00:02",
+     "primeiro_voto": "08:02:03",
+     "ultimo_voto": "16:46:20",
+     "votos_log": 217,
+     "votos_por_hora": {
+      "08h": 53,
+      "09h": 22,
+      "10h": 4,
+      "11h": 1,
+      "12h": 8,
+      "13h": 33,
+      "14h": 51,
+      "15h": 26,
+      "16h": 19
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:02:31",
+     "inicio_encerramento": "17:06:01",
+     "bu_dat_gerado": "17:06:38",
+     "erros": [
+      "07:10:17 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 217
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4200|102|54": {
+    "bu": {
+     "urna": 2417753,
+     "apt": 155,
+     "comp": 123,
+     "L": 75,
+     "R": 43,
+     "B": 1,
+     "N": 4,
+     "ab": "080001",
+     "enc": "170042"
+    },
+    "bweb": {
+     "urna": 2417753,
+     "apt": 155,
+     "comp": 123,
+     "L": 75,
+     "R": 43,
+     "B": 1,
+     "N": 4,
+     "ab": "08:00:01",
+     "enc": "17:00:42"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:32:13",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:35:58",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:00:53",
+     "ultimo_voto": "10:40:02",
+     "votos_log": 123,
+     "votos_por_hora": {
+      "08h": 52,
+      "09h": 51,
+      "10h": 20
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:00:12",
+     "inicio_encerramento": "17:05:18",
+     "bu_dat_gerado": "17:05:46",
+     "erros": [
+      "07:34:28 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 123
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|4391|2|6": {
+    "bu": {
+     "urna": 2419128,
+     "apt": 282,
+     "comp": 212,
+     "L": 136,
+     "R": 73,
+     "B": 0,
+     "N": 3,
+     "ab": "080001",
+     "enc": "170428"
+    },
+    "bweb": {
+     "urna": 2419128,
+     "apt": 282,
+     "comp": 212,
+     "L": 136,
+     "R": 73,
+     "B": 0,
+     "N": 3,
+     "ab": "08:00:01",
+     "enc": "17:04:28"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:41:00",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:44:31",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:06:20",
+     "ultimo_voto": "16:35:27",
+     "votos_log": 212,
+     "votos_por_hora": {
+      "08h": 48,
+      "09h": 31,
+      "10h": 23,
+      "11h": 8,
+      "12h": 6,
+      "13h": 11,
+      "14h": 20,
+      "15h": 43,
+      "16h": 22
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:03:53",
+     "inicio_encerramento": "17:06:37",
+     "bu_dat_gerado": "17:07:06",
+     "erros": [
+      "07:43:14 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 212
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|5010|22|259": {
+    "bu": {
+     "urna": 1845460,
+     "apt": 104,
+     "comp": 80,
+     "L": 67,
+     "R": 10,
+     "B": 0,
+     "N": 3,
+     "ab": "110022",
+     "enc": "170146"
+    },
+    "bweb": {
+     "urna": 1845460,
+     "apt": 104,
+     "comp": 80,
+     "L": 67,
+     "R": 10,
+     "B": 0,
+     "N": 3,
+     "ab": "11:00:22",
+     "enc": "17:01:46"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 10:42:24",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "10:48:44",
+     "pronta": "11:00:22",
+     "primeiro_voto": "11:01:53",
+     "ultimo_voto": "16:45:00",
+     "votos_log": 80,
+     "votos_por_hora": {
+      "11h": 37,
+      "12h": 6,
+      "13h": 4,
+      "14h": 7,
+      "15h": 16,
+      "16h": 10
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:01:08",
+     "inicio_encerramento": "17:04:21",
+     "bu_dat_gerado": "17:05:29",
+     "erros": [
+      "10:46:34 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 80
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PA|5657|14|215": {
+    "bu": {
+     "urna": 2200614,
+     "apt": 203,
+     "comp": 161,
+     "L": 113,
+     "R": 45,
+     "B": 1,
+     "N": 2,
+     "ab": "080001",
+     "enc": "170441"
+    },
+    "bweb": {
+     "urna": 2200614,
+     "apt": 203,
+     "comp": 161,
+     "L": 113,
+     "R": 45,
+     "B": 1,
+     "N": 2,
+     "ab": "08:00:01",
+     "enc": "17:04:41"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:35:48",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:39:39",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:06:20",
+     "ultimo_voto": "16:14:45",
+     "votos_log": 161,
+     "votos_por_hora": {
+      "08h": 44,
+      "09h": 47,
+      "10h": 18,
+      "11h": 9,
+      "12h": 8,
+      "13h": 17,
+      "14h": 9,
+      "15h": 7,
+      "16h": 2
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:04:08",
+     "inicio_encerramento": "17:06:19",
+     "bu_dat_gerado": "17:06:36",
+     "erros": [
+      "07:38:02 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 161
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|75990|34|14": {
+    "bu": {
+     "urna": 2063033,
+     "apt": 273,
+     "comp": 192,
+     "L": 136,
+     "R": 55,
+     "B": 1,
+     "N": 0,
+     "ab": "104151",
+     "enc": "170055"
+    },
+    "bweb": {
+     "urna": 2063033,
+     "apt": 273,
+     "comp": 192,
+     "L": 136,
+     "R": 55,
+     "B": 1,
+     "N": 0,
+     "ab": "10:41:51",
+     "enc": "17:00:55"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 10:32:57",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "10:36:34",
+     "pronta": "10:41:51",
+     "primeiro_voto": "10:42:37",
+     "ultimo_voto": "16:50:29",
+     "votos_log": 192,
+     "votos_por_hora": {
+      "10h": 15,
+      "11h": 28,
+      "12h": 67,
+      "13h": 35,
+      "14h": 20,
+      "15h": 23,
+      "16h": 4
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:00:36",
+     "inicio_encerramento": "17:02:48",
+     "bu_dat_gerado": "17:03:51",
+     "erros": [
+      "10:35:11 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 192
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|75990|34|117": {
+    "bu": {
+     "urna": 2092245,
+     "apt": 203,
+     "comp": 105,
+     "L": 48,
+     "R": 53,
+     "B": 0,
+     "N": 4,
+     "ab": "104909",
+     "enc": "171105"
+    },
+    "bweb": {
+     "urna": 2092245,
+     "apt": 203,
+     "comp": 105,
+     "L": 48,
+     "R": 53,
+     "B": 0,
+     "N": 4,
+     "ab": "10:49:09",
+     "enc": "17:11:05"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 10:40:40",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "10:44:20",
+     "pronta": "10:49:09",
+     "primeiro_voto": "11:02:21",
+     "ultimo_voto": "16:24:22",
+     "votos_log": 105,
+     "votos_por_hora": {
+      "11h": 15,
+      "12h": 19,
+      "13h": 38,
+      "14h": 12,
+      "15h": 11,
+      "16h": 10
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:10:27",
+     "inicio_encerramento": "17:12:57",
+     "bu_dat_gerado": "17:13:32",
+     "erros": [
+      "10:42:55 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 105
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|75990|34|133": {
+    "bu": {
+     "urna": 2060731,
+     "apt": 215,
+     "comp": 18,
+     "L": 11,
+     "R": 7,
+     "B": 0,
+     "N": 0,
+     "ab": "100501",
+     "enc": "170740"
+    },
+    "bweb": {
+     "urna": 2060731,
+     "apt": 215,
+     "comp": 18,
+     "L": 11,
+     "R": 7,
+     "B": 0,
+     "N": 0,
+     "ab": "10:05:01",
+     "enc": "17:07:40"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 09:57:29",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "10:01:58",
+     "pronta": "10:05:01",
+     "primeiro_voto": "10:16:52",
+     "ultimo_voto": "16:30:44",
+     "votos_log": 18,
+     "votos_por_hora": {
+      "10h": 4,
+      "11h": 4,
+      "12h": 2,
+      "14h": 3,
+      "15h": 2,
+      "16h": 3
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:06:53",
+     "inicio_encerramento": "17:08:17",
+     "bu_dat_gerado": "17:09:05",
+     "erros": [
+      "09:59:45 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 18
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|75990|34|182": {
+    "bu": {
+     "urna": 2245856,
+     "apt": 138,
+     "comp": 98,
+     "L": 39,
+     "R": 55,
+     "B": 2,
+     "N": 2,
+     "ab": "105853",
+     "enc": "170152"
+    },
+    "bweb": {
+     "urna": 2245856,
+     "apt": 138,
+     "comp": 98,
+     "L": 39,
+     "R": 55,
+     "B": 2,
+     "N": 2,
+     "ab": "10:58:53",
+     "enc": "17:01:52"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 10:51:21",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "10:55:18",
+     "pronta": "10:58:54",
+     "primeiro_voto": "10:59:58",
+     "ultimo_voto": "16:30:28",
+     "votos_log": 98,
+     "votos_por_hora": {
+      "10h": 1,
+      "11h": 32,
+      "12h": 13,
+      "13h": 14,
+      "14h": 21,
+      "15h": 14,
+      "16h": 3
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:01:19",
+     "inicio_encerramento": "17:04:00",
+     "bu_dat_gerado": "17:05:13",
+     "erros": [
+      "10:53:37 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 98
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|75990|34|189": {
+    "bu": {
+     "urna": 2060381,
+     "apt": 214,
+     "comp": 121,
+     "L": 74,
+     "R": 44,
+     "B": 1,
+     "N": 2,
+     "ab": "100245",
+     "enc": "170641"
+    },
+    "bweb": {
+     "urna": 2060381,
+     "apt": 214,
+     "comp": 121,
+     "L": 74,
+     "R": 44,
+     "B": 1,
+     "N": 2,
+     "ab": "10:02:45",
+     "enc": "17:06:41"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 09:54:38",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "09:59:34",
+     "pronta": "10:02:45",
+     "primeiro_voto": "10:14:55",
+     "ultimo_voto": "16:49:51",
+     "votos_log": 121,
+     "votos_por_hora": {
+      "10h": 18,
+      "11h": 11,
+      "12h": 24,
+      "13h": 31,
+      "14h": 20,
+      "15h": 6,
+      "16h": 11
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:06:14",
+     "inicio_encerramento": "17:10:17",
+     "bu_dat_gerado": "17:11:01",
+     "erros": [
+      "09:56:52 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 121
+    },
+    "votos_log_igual_comparecimento": true
+   },
+   "PR|78778|52|54": {
+    "bu": {
+     "urna": 2021052,
+     "apt": 220,
+     "comp": 205,
+     "L": 90,
+     "R": 98,
+     "B": 8,
+     "N": 9,
+     "ab": "080001",
+     "enc": "170332"
+    },
+    "bweb": {
+     "urna": 2021052,
+     "apt": 220,
+     "comp": 205,
+     "L": 90,
+     "R": 98,
+     "B": 8,
+     "N": 9,
+     "ab": "08:00:01",
+     "enc": "17:03:32"
+    },
+    "bu_igual_bweb": true,
+    "log": {
+     "blocos_de_log": 1,
+     "urna_ligada": "25/10/2026 às 07:08:33",
+     "vezes_ligada": 1,
+     "desligada_pela_chave": 0,
+     "zeresima": "07:13:47",
+     "pronta": "08:00:01",
+     "primeiro_voto": "08:03:46",
+     "ultimo_voto": "16:48:59",
+     "votos_log": 205,
+     "votos_por_hora": {
+      "08h": 30,
+      "09h": 42,
+      "10h": 33,
+      "11h": 15,
+      "12h": 14,
+      "13h": 33,
+      "14h": 28,
+      "15h": 3,
+      "16h": 7
+     },
+     "votos_depois_17h": 0,
+     "votos_depois_19h": 0,
+     "encerrar_selecionado": "17:02:37",
+     "inicio_encerramento": "17:05:26",
+     "bu_dat_gerado": "17:05:51",
+     "erros": [
+      "07:10:47 Problema ao desmontar a MR"
+     ],
+     "contingencia": [],
+     "modo_de_carga": [
+      "Modo de carga da UE - Votação"
+     ],
+     "habilitados": 205
+    },
+    "votos_log_igual_comparecimento": true
+   }
+  },
+  "assinaturas": {
+   "contagem": {
+    "secoes_com_vsc": 20,
+    "vsc_sha256_igual_ao_aux": 20,
+    "arquivos_baixados_no_disco": 60,
+    "cert_der": 2,
+    "bloco_hw_assinatura_ok": 20,
+    "arquivos_listados": 220,
+    "arquivos_baixados_conferidos": 60,
+    "resumo_ok": 60,
+    "assinatura_arquivo_ok": 220,
+    "urna_cert_igual_bu": 20,
+    "cert_pem": 18,
+    "titular_so_prefixo": 18
+   },
+   "falhas": []
+  }
+ },
+ "correcoes_apontadas_pelas_conferencias": [
+  "L1: falta o contexto da pausa no recebimento (prorrogação por Zanin até 19h nas seções abertas, pedida pela campanha de Lula; a de Flávio também pediu extensão em localidades afetadas). O último boletim antes da pausa chegou às 17h07min27s, e o seguinte às 19h03min37s.",
+  "L2: \"0 urnas em duas seções no mesmo turno\" vale só fora das juntas apuradoras do exterior.",
+  "L3: com uma regressão única de efeito fixo de local comum aos quintis (leitura não literal), a régua daria INCOERÊNCIA; com quintis dentro de cada UF, INCONCLUSIVO. O veredito registrado (COERENTE) segue a leitura literal; a sensibilidade fica declarada aqui.",
+  "L4: os números de referência escritos no Adendo 18 como \"Quaest já conhecida: Caiado 36%, Cury 47%, Zema 36%\" não são da Quaest publicada. Saíram de resultados/decomposicao_fluxos_2026.txt, montado com números não conferidos, e o 47% de Cury era a fatia de Flávio (a de Lula seria 53%). Erro de redação do registro. O veredito (INCONCLUSIVO) não muda com nenhuma leitura. A distância urna contra pesquisa é maior para Caiado e Zema que para Renan em GO e MG, e menor para Cury em SP: quadro misto, dentro da dispersão entre institutos.",
+  "L5: medida entre os dois finalistas, a virada média do erro de Flávio é de -4,63 pontos (ainda acima de 4); medida em Lula, o erro do 2º turno é de 2,75 pontos. No 2º turno, os erros dos 12 institutos variaram menos do que a amostragem explicaria (desvio de 0,75 contra cerca de 1,06), o que é compatível com institutos convergindo ou com uma fonte comum de erro.",
+  "L6: o bweb confere com a imprensa em 18 das 21 UFs, não 19 (a PB também difere por 0,02). \"Medida em proporção, a diferença some\" vale só para a fração ponderada; em logito a diferença continua (+0,053, ep 0,010). \"Pouco poder\" é a expressão errada: o problema é especificidade e confusão com o nível de voto de cada estado.",
+  "L7: o caso mais favorável à fraude na conta de escala é concentrar o desvio nas seções com mais votos de Lula; aí a chance de nenhuma das ~640 urnas testadas ser adulterada é de 1,7e-5 (cerca de 1 em 58 mil). A virada do exterior, ajustada pela composição, fica 0,76 ponto abaixo do previsto (ep 0,15), na direção de uma fraude só onde há digital, mas com menos da metade do tamanho que viraria a eleição. A fração de digitais não usadas prevê a virada no bruto (-1,25 por unidade), mas o placebo falha e, com controles, cai a -0,32 (ep 0,10); na amostra de logs, com a parte sem digital verdadeira, o sinal se inverte (+1,20, ep 0,79).",
+  "L8: é falso que o recebimento do 1º turno \"segue sem interrupção\". No 1º turno houve duas paradas nacionais no recebimento: de 18h01min00s a 18h08min47s e de 19h31min50s a 19h59min22s. A parcial de 1.225 seções divulgada na pausa do 2º turno é quase igual, não idêntica, aos 1.225 primeiros boletins recebidos (57,655% contra 57,715%)."
+ ]
+}

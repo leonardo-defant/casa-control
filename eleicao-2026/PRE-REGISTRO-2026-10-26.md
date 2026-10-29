@@ -541,3 +541,8 @@ O que já vi e que toca estes testes (transparência): o T8 e o T35 (Flávio per
 
 ### L8. O "dossiê" dos EUA citado na imprensa (pesquisa)
 - Achar o documento ou a reportagem, separar o que é afirmação técnica conferível nos dados públicos e conferir cada uma; o que não for conferível é relatado como tal.
+
+## Adendo 19 (29/10/2026, 08h08 UTC, depois de rodar o Adendo 18): errata
+
+1. L4: os valores de referência escritos no Adendo 18 como "Quaest já conhecida: Caiado 36%, Cury 47%, Zema 36%" não são da Quaest publicada. Saíram de `resultados/decomposicao_fluxos_2026.txt`, montado com números ainda não conferidos, e o 47% de Cury era a fatia de Flávio (a de Lula seria 53%). O critério manda usar a mediana dos institutos, e foi o que o teste usou, com os valores conferidos em `resultados/contexto_2t_2026_pesquisa_verificada.json`. Com os números do registro, com os conferidos ou com qualquer outra leitura testada, o veredito é o mesmo (INCONCLUSIVO).
+2. Nada mais do Adendo 18 foi alterado. Os resultados estão em `resultados/ADENDO18_resultados.txt` e em `resultados/testes_adendo18_com_conferencia.json`, com as correções apontadas pelas conferências.

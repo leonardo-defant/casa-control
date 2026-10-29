@@ -1,0 +1,1505 @@
+{
+ "teste": "L5 (Adendo 18)",
+ "semente": 2026,
+ "sorteios": 20000,
+ "urna_totais": {
+  "apt1": 158744977,
+  "comp1": 125275833,
+  "L1": 53879536,
+  "F1": 56104503,
+  "O1": 9321993,
+  "B1": 2300798,
+  "N1": 3669003,
+  "apt2": 158744977,
+  "comp2": 128236074,
+  "L2": 64256232,
+  "F2": 59826041,
+  "B2": 1430496,
+  "N2": 2723305,
+  "secoes": 499205,
+  "grupos": {
+   "Cury": 3448569,
+   "Renan": 2675887,
+   "Caiado": 2605148,
+   "Zema": 326488,
+   "esquerda": 80820,
+   "demais": 179835
+  },
+  "voto_28_como_nulo": 5246
+ },
+ "a": {
+  "real": {
+   "F1": 47.02777314476369,
+   "L1": 45.162766991325604,
+   "outros1": 7.809459863910703,
+   "F2": 48.2148171157374,
+   "L2": 51.7851828842626,
+   "validos1": 119300786,
+   "validos2": 124082273
+  },
+  "institutos": [
+   {
+    "instituto": "Datafolha",
+    "F1_pesquisa": 42.0,
+    "L1_pesquisa": 45.0,
+    "outros1_pesquisa": 13.0,
+    "n1": 4006,
+    "fonte1": "https://www.em.com.br/politica/2026/10/7513948-datafolha-lula-tem-45-dos-votos-validos-e-flavio-42.html",
+    "nota1": "campo 2 e 3/10 (o EM diz 29/9 a 1/10)",
+    "F2_pesquisa": 51.0,
+    "L2_pesquisa": 49.0,
+    "n2": 4050,
+    "fonte2": "https://www.terra.com.br/noticias/brasil/politica/pesquisa-datafolha-flavio-tem-51-e-lula-49-dos-votos-validos-na-vespera-do-2-turno,954a528e7c927a25fd2571e523c53ea1ohmk9co0.html",
+    "nota2": "campo 23 e 24/10",
+    "erro_F1": 5.027773144763692,
+    "ep_F1": 0.8086148173223326,
+    "erro_F2": -2.7851828842626034,
+    "ep_F2": 0.8145432370267778,
+    "virada": -7.812956029026296,
+    "ep_virada": 1.1477537226161765,
+    "erro_L1": 0.16276699132560424,
+    "erro_L2": 2.7851828842626034,
+    "erro_outros1": -5.190540136089297,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "Quaest",
+    "F1_pesquisa": 45.0,
+    "L1_pesquisa": 46.0,
+    "outros1_pesquisa": 9.0,
+    "n1": 3702,
+    "fonte1": "https://viva.com.br/politica/quaest-lula-tem-46-e-flavio-45-dos-votos-validos-no-primeiro-turno.html",
+    "nota1": "campo 2 e 3/10; totais (40 x 38) não fecham com os válidos",
+    "F2_pesquisa": 51.0,
+    "L2_pesquisa": 49.0,
+    "n2": 3702,
+    "fonte2": "https://exame.com/brasil/pesquisa-quaest-na-vespera-do-2o-turno-flavio-bolsonaro-tem-51-e-lula-49/",
+    "nota2": "campo 23 e 24/10; válidos pelo modelo de eleitor provável",
+    "erro_F1": 2.0277731447636924,
+    "ep_F1": 0.847867366673379,
+    "erro_F2": -2.7851828842626034,
+    "ep_F2": 0.8519683210316433,
+    "virada": -4.812956029026296,
+    "ep_virada": 1.2019688396589687,
+    "erro_L1": -0.8372330086743958,
+    "erro_L2": 2.7851828842626034,
+    "erro_outros1": -1.1905401360892967,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "AtlasIntel",
+    "F1_pesquisa": 44.1,
+    "L1_pesquisa": 47.0,
+    "outros1_pesquisa": 8.9,
+    "n1": null,
+    "fonte1": "https://www.diariodepernambuco.com.br/politica/2026/10/11725710-atlasintel-lula-tem-47-e-flavio-bolsonaro-441-de-votos-validos-no-primeiro-turno.html",
+    "nota1": "campo 27/9 a 2/10; a TVT traz 43,1 (os totais 43,8 de 99,4 dão 44,1)",
+    "F2_pesquisa": 50.8,
+    "L2_pesquisa": 49.2,
+    "n2": 4990,
+    "fonte2": "https://www.cartacapital.com.br/politica/atlasintel-na-vespera-do-2o-turno-flavio-bolsonaro-508-lula-492/",
+    "nota2": "campo 18 a 23/10",
+    "erro_F1": 2.927773144763691,
+    "ep_F1": 1.1512475701350842,
+    "erro_F2": -2.5851828842626006,
+    "ep_F2": 0.7338759582093036,
+    "virada": -5.512956029026292,
+    "ep_virada": 1.3652636704239804,
+    "erro_L1": -1.8372330086743958,
+    "erro_L2": 2.5851828842626006,
+    "erro_outros1": -1.0905401360892952,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "CNT/MDA",
+    "F1_pesquisa": 42.1,
+    "L1_pesquisa": 47.8,
+    "outros1_pesquisa": 10.1,
+    "n1": null,
+    "fonte1": "https://tvtnews.com.br/pesquisa-cnt-mda-na-vespera-da-eleicao-1-turno/",
+    "nota1": "campo 30/9 a 2/10",
+    "F2_pesquisa": 50.7,
+    "L2_pesquisa": 49.3,
+    "n2": 2032,
+    "fonte2": "https://exame.com/brasil/pesquisa-para-presidente-cnt-mda-flavio-bolsonaro-tem-507-e-lula-493-dos-votos-valdios/",
+    "nota2": "campo 21 a 23/10",
+    "erro_F1": 4.927773144763691,
+    "ep_F1": 1.1447848086275936,
+    "erro_F2": -2.4851828842626063,
+    "ep_F2": 1.1500695719477325,
+    "virada": -7.412956029026297,
+    "ep_virada": 1.622711397132761,
+    "erro_L1": -2.637233008674393,
+    "erro_L2": 2.4851828842626063,
+    "erro_outros1": -2.290540136089298,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "PoderData",
+    "F1_pesquisa": 43.0,
+    "L1_pesquisa": 45.0,
+    "outros1_pesquisa": 12.0,
+    "n1": null,
+    "fonte1": "https://sbtnews.sbt.com.br/noticia/eleicoes/poder-data-aya-lula-tem-42-e-flavio-41-no-1-turno",
+    "nota1": "campo 30/9 a 2/10",
+    "F2_pesquisa": 51.0,
+    "L2_pesquisa": 49.0,
+    "n2": 4000,
+    "fonte2": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+    "nota2": "campo 23 e 24/10 (divulgada às 11h04 de 25/10); a rodada de 19 a 21/10 também dá 51 x 49",
+    "erro_F1": 4.027773144763692,
+    "ep_F1": 1.1479294122392156,
+    "erro_F2": -2.7851828842626034,
+    "ep_F2": 0.8196183218720694,
+    "virada": -6.812956029026296,
+    "ep_virada": 1.410502084022657,
+    "erro_L1": 0.16276699132560424,
+    "erro_L2": 2.7851828842626034,
+    "erro_outros1": -4.190540136089297,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "Nexus/BTG",
+    "F1_pesquisa": 39.0,
+    "L1_pesquisa": 44.0,
+    "outros1_pesquisa": 17.0,
+    "n1": null,
+    "fonte1": "https://moneytimes.com.br/pesquisa-btg-pactual-nexus-28-de-setembro-gaep/",
+    "nota1": "campo 25 a 27/9 (última rodada achada antes do 1º turno)",
+    "F2_pesquisa": 50.5,
+    "L2_pesquisa": 49.5,
+    "n2": 2000,
+    "fonte2": "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/",
+    "nota2": "campo 23 e 24/10",
+    "erro_F1": 8.027773144763692,
+    "ep_F1": 1.1309430834770227,
+    "erro_F2": -2.2851828842626034,
+    "ep_F2": 1.1592892705891942,
+    "virada": -10.312956029026296,
+    "ep_virada": 1.6195628641604938,
+    "erro_L1": 1.1627669913256042,
+    "erro_L2": 2.2851828842626034,
+    "erro_outros1": -9.190540136089297,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": false
+   },
+   {
+    "instituto": "Real Time Big Data",
+    "F1_pesquisa": 41.0,
+    "L1_pesquisa": 46.0,
+    "outros1_pesquisa": 13.0,
+    "n1": null,
+    "fonte1": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/real-time-big-data-presidente-outubro-2026-segundo-turno-2/",
+    "nota1": "campo 26 a 30/9; válidos da Gazeta do Povo (totais 39 x 43)",
+    "F2_pesquisa": 52.0,
+    "L2_pesquisa": 48.0,
+    "n2": 2000,
+    "fonte2": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/real-time-big-data-presidente-outubro-2026-segundo-turno-2/",
+    "nota2": "campo 19 a 22/10",
+    "erro_F1": 6.027773144763692,
+    "ep_F1": 1.1404111690125638,
+    "erro_F2": -3.7851828842626034,
+    "ep_F2": 1.1584193903206939,
+    "virada": -9.812956029026296,
+    "ep_virada": 1.6255685523162566,
+    "erro_L1": -0.8372330086743958,
+    "erro_L2": 3.7851828842626034,
+    "erro_outros1": -5.190540136089297,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": true
+   },
+   {
+    "instituto": "Futura",
+    "F1_pesquisa": 44.8,
+    "L1_pesquisa": 42.6,
+    "outros1_pesquisa": 12.6,
+    "n1": null,
+    "fonte1": "https://www.cartacapital.com.br/politica/pesquisa-futura-que-se-aproximou-do-resultado-no-1o-turno-mostra-empate-entre-flavio-bolsonaro-e-lula/",
+    "nota1": "publicada 3/10; campo e amostra não achados",
+    "F2_pesquisa": 50.1,
+    "L2_pesquisa": 49.9,
+    "n2": 2000,
+    "fonte2": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/futura-inteligencia-presidente-outubro-2026-vespera-segundo-turno/",
+    "nota2": "campo 23 e 24/10",
+    "erro_F1": 2.2277731447636953,
+    "ep_F1": 1.1530604438175711,
+    "erro_F2": -1.8851828842626048,
+    "ep_F2": 1.1593449207036233,
+    "virada": -4.1129560290263,
+    "ep_virada": 1.6351235525971928,
+    "erro_L1": 2.562766991325603,
+    "erro_L2": 1.8851828842626048,
+    "erro_outros1": -4.790540136089298,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": false
+   },
+   {
+    "instituto": "Gerp",
+    "F1_pesquisa": 46.0,
+    "L1_pesquisa": 44.0,
+    "outros1_pesquisa": 10.0,
+    "n1": null,
+    "fonte1": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+    "nota1": "campo 30/9 a 2/10",
+    "F2_pesquisa": 52.0,
+    "L2_pesquisa": 48.0,
+    "n2": null,
+    "fonte2": "https://www.cnnbrasil.com.br/eleicoes/gerp-flavio-tem-52-dos-votos-validos-no-2o-turno-lula-48-2/",
+    "nota2": "campo 22 a 24/10",
+    "erro_F1": 1.0277731447636924,
+    "ep_F1": 1.1556313733054075,
+    "erro_F2": -3.7851828842626034,
+    "ep_F2": 1.1584193903206939,
+    "virada": -4.812956029026296,
+    "ep_virada": 1.636282174577084,
+    "erro_L1": 1.1627669913256042,
+    "erro_L2": 3.7851828842626034,
+    "erro_outros1": -2.1905401360892967,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": false
+   },
+   {
+    "instituto": "Veritá",
+    "F1_pesquisa": 47.0,
+    "L1_pesquisa": 45.0,
+    "outros1_pesquisa": 8.0,
+    "n1": null,
+    "fonte1": "https://revistaforum.com.br/politica/verita-aproximou-resultado-1o-turno-lula/",
+    "nota1": "última rodada segundo a Revista Fórum, sem ficha; a rodada de 20 a 25/9 (40,5 mil) deu 45,14 x 44,65",
+    "F2_pesquisa": 51.56,
+    "L2_pesquisa": 48.44,
+    "n2": null,
+    "fonte2": "https://exame.com/brasil/pesquisa-verita-flavio-bolsonaro-tem-5156-e-lula-4844-no-2o-turno/",
+    "nota2": "campo 19 a 23/10",
+    "erro_F1": 0.027773144763692414,
+    "ep_F1": 1.1572585328386897,
+    "erro_F2": -3.3451828842626057,
+    "ep_F2": 1.158782824522612,
+    "virada": -3.372956029026298,
+    "ep_virada": 1.6376889039852958,
+    "erro_L1": 0.16276699132560424,
+    "erro_L2": 3.3451828842626057,
+    "erro_outros1": -0.19054013608929665,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": false
+   },
+   {
+    "instituto": "Vox Brasil",
+    "F1_pesquisa": 45.88,
+    "L1_pesquisa": 44.99,
+    "outros1_pesquisa": 9.13,
+    "n1": null,
+    "fonte1": "https://www.cnnbrasil.com.br/eleicoes/vox-flavio-registra-482-no-2o-turno-lula-452/",
+    "nota1": "campo 29/9 a 1/10; válidos não publicados, derivados dos totais 41,2 x 40,4 sem branco/nulo (3,2) e indecisos (7) (desvio)",
+    "F2_pesquisa": 49.4,
+    "L2_pesquisa": 50.6,
+    "n2": null,
+    "fonte2": "https://www.terra.com.br/noticias/eleicoes/pesquisas/em-votos-validos-lula-tem-506-contra-494-de-flavio-mostra-pesquisa-vox-brasil,3ca7e3efc2f58872a88257dcc7797ce6jtw3t5vc.html",
+    "nota2": "campo 20 a 22/10",
+    "erro_F1": 1.1477731447636899,
+    "ep_F1": 1.1554046910065754,
+    "erro_F2": -1.185182884262602,
+    "ep_F2": 1.1592637633939393,
+    "virada": -2.332956029026292,
+    "ep_virada": 1.6367200350451752,
+    "erro_L1": 0.17276699132560225,
+    "erro_L2": 1.185182884262602,
+    "erro_outros1": -1.320540136089292,
+    "padrao_acima_1T_abaixo_2T": true,
+    "mesmo_sinal": false,
+    "padrao_a_2ep": false
+   }
+  ],
+  "fora": {
+   "Ipespe/Abrapel": "sem pesquisa nacional de 1º turno antes de 4/10 (a série de 2º turno começa em 6 a 8/10; placardaspesquisas.com.br/institutos/ipespe e busca de 29/10)",
+   "Paraná Pesquisas": "sem pesquisa nacional de presidente em nenhum dos dois turnos (últimas nacionais de fevereiro e março)",
+   "Ipsos-Ipec": "sem pesquisa nacional de 2º turno em outubro"
+  },
+  "resumo": {
+   "institutos": 11,
+   "com_padrao": 11,
+   "com_padrao_a_2ep": 6,
+   "mesmo_sinal": 0,
+   "virada_media_todos": -6.102046938117204,
+   "ep_amostral_media": 0.45659631692517416,
+   "ep_entre_institutos": 0.7742133304146446,
+   "dp_viradas": 2.5677751246768263,
+   "virada_media_com_padrao": -6.102046938117204,
+   "mediana_virada": -5.512956029026292,
+   "erro_F1_medio": 3.402318599309147,
+   "erro_F2_medio": -2.699728338808058,
+   "erro_L1_medio": -0.05450573594712309,
+   "erro_L2_medio": 2.699728338808058,
+   "erro_outros1_medio": -3.3478128633620234
+  },
+  "veredito": "INCOERÊNCIA",
+  "sensibilidade": {
+   "alternativas": {
+    "Veritá": {
+     "F1": 45.14,
+     "nota": "rodada de 20 a 25/9 com ficha técnica",
+     "erro_F1": 1.8877731447636918,
+     "virada": -5.2329560290262975,
+     "padrao": true
+    },
+    "AtlasIntel": {
+     "F1": 43.1,
+     "nota": "número da TVT News",
+     "erro_F1": 3.927773144763691,
+     "virada": -6.512956029026292,
+     "padrao": true
+    }
+   },
+   "virada_media_com_alternativas": -6.362046938117206,
+   "com_padrao_com_alternativas": 11
+  },
+  "decomposicao_virada": {
+   "media_erro_F1": 3.402318599309147,
+   "media_erro_F2": -2.699728338808058,
+   "parte_do_1T_ligada_aos_eliminados": 3.3478128633620234,
+   "parte_do_1T_ligada_a_Lula": 0.05450573594712309
+  }
+ },
+ "b": {
+  "urna": {
+   "ganho_L": 10376696,
+   "ganho_F": 3721538,
+   "eliminados_1T": 9316747,
+   "grupos": {
+    "Cury": 3448569,
+    "Renan": 2675887,
+    "Caiado": 2605148,
+    "Zema": 326488,
+    "esquerda": 80820,
+    "demais": 179835
+   },
+   "branco_nulo_1T_com_28": 5975047,
+   "branco_nulo_2T": 4153801,
+   "queda_branco_nulo": 1821246,
+   "aumento_comparecimento": 2960241,
+   "abstencao_1T_pct": 21.083592459117618,
+   "abstencao_2T_pct": 19.218814715630337,
+   "identidade_ganhos": 0
+  },
+  "por_pesquisa": {
+   "PoderData 23-24/10 (final)": {
+    "final": true,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+    "nota": "Zema, esquerda e demais pela coluna \"Outro candidato\"",
+    "taxas": {
+     "Cury": [
+      0.58,
+      0.29,
+      0.13
+     ],
+     "Renan": [
+      0.43,
+      0.33,
+      0.24
+     ],
+     "Caiado": [
+      0.46,
+      0.3,
+      0.24
+     ],
+     "Zema": [
+      0.65,
+      0.15,
+      0.2
+     ],
+     "esquerda": [
+      0.65,
+      0.15,
+      0.2
+     ],
+     "demais": [
+      0.65,
+      0.15,
+      0.2
+     ]
+    },
+    "fid": {
+     "F": [
+      0.94,
+      0.05,
+      0.01
+     ],
+     "L": [
+      0.94,
+      0.05,
+      0.01
+     ]
+    },
+    "fidelidade_100": {
+     "do_saldo_L": 7623952.43,
+     "do_saldo_F": -1009274.46,
+     "saldo": 6614677.97,
+     "fatia_L": 1.1525810424297949,
+     "dos_eliminados_F": 4730812.46,
+     "dos_eliminados_L": 2752743.57,
+     "nenhum_dos_eliminados": 1833190.97,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": {
+     "do_saldo_L": 8051499.4399999995,
+     "do_saldo_F": -336981.0800000001,
+     "saldo": 7714518.359999999,
+     "fatia_L": 1.0436814152581781,
+     "dos_eliminados_F": 4730812.46,
+     "dos_eliminados_L": 2752743.57,
+     "nenhum_dos_eliminados": 1833190.97,
+     "finalistas_para_nenhum": 1099840.3900000001
+    },
+    "erro_amostral": [
+     {
+      "deff": 1.0,
+      "tamanhos_subamostra": {
+       "Cury": 98,
+       "Renan": 76,
+       "Caiado": 74,
+       "Zema": 9,
+       "esquerda": 5,
+       "demais": 5
+      },
+      "fid_100": {
+       "ep": 0.045478504676093524,
+       "p2_5": 1.067446240953764,
+       "p97_5": 1.2461534473285247
+      },
+      "fid_declarada": {
+       "ep": 0.06939154274628305,
+       "p2_5": 0.9116149256848433,
+       "p97_5": 1.1833718144603529
+      }
+     },
+     {
+      "deff": 2.0,
+      "tamanhos_subamostra": {
+       "Cury": 49,
+       "Renan": 38,
+       "Caiado": 37,
+       "Zema": 5,
+       "esquerda": 5,
+       "demais": 5
+      },
+      "fid_100": {
+       "ep": 0.06390432238177175,
+       "p2_5": 1.0333013958708874,
+       "p97_5": 1.285010955961735
+      },
+      "fid_declarada": {
+       "ep": 0.09920457553972456,
+       "p2_5": 0.8577975571361147,
+       "p97_5": 1.246148146030253
+      }
+     }
+    ]
+   },
+   "PoderData 19-21/10": {
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf",
+    "nota": "\"Outro candidato\" para Zema, esquerda e demais",
+    "taxas": {
+     "Cury": [
+      0.42,
+      0.48,
+      0.1
+     ],
+     "Renan": [
+      0.49,
+      0.34,
+      0.17
+     ],
+     "Caiado": [
+      0.49,
+      0.3,
+      0.21
+     ],
+     "Zema": [
+      0.7,
+      0.2,
+      0.1
+     ],
+     "esquerda": [
+      0.7,
+      0.2,
+      0.1
+     ],
+     "demais": [
+      0.7,
+      0.2,
+      0.1
+     ]
+    },
+    "fid": {
+     "F": [
+      0.96,
+      0.03,
+      0.01
+     ],
+     "L": [
+      0.95,
+      0.04,
+      0.01
+     ]
+    },
+    "fidelidade_100": {
+     "do_saldo_L": 6912608.3,
+     "do_saldo_F": -725568.2299999995,
+     "saldo": 6187040.07,
+     "fatia_L": 1.1172722694197776,
+     "dos_eliminados_F": 4447106.2299999995,
+     "dos_eliminados_L": 3464087.7,
+     "nenhum_dos_eliminados": 1405553.07,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": {
+     "do_saldo_L": 7923450.01,
+     "do_saldo_F": -636569.5499999993,
+     "saldo": 7286880.460000001,
+     "fatia_L": 1.0873583083315737,
+     "dos_eliminados_F": 4447106.2299999995,
+     "dos_eliminados_L": 3464087.7,
+     "nenhum_dos_eliminados": 1405553.07,
+     "finalistas_para_nenhum": 1099840.3900000001
+    }
+   },
+   "PoderData 5-7/10": {
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf",
+    "nota": "\"Outro\" para esquerda e demais",
+    "taxas": {
+     "Cury": [
+      0.56,
+      0.27,
+      0.17
+     ],
+     "Renan": [
+      0.48,
+      0.25,
+      0.27
+     ],
+     "Caiado": [
+      0.57,
+      0.19,
+      0.24
+     ],
+     "Zema": [
+      0.72,
+      0.1,
+      0.18
+     ],
+     "esquerda": [
+      0.19,
+      0.39,
+      0.42
+     ],
+     "demais": [
+      0.19,
+      0.39,
+      0.42
+     ]
+    },
+    "fid": {
+     "F": [
+      0.94,
+      0.05,
+      0.01
+     ],
+     "L": [
+      0.92,
+      0.05,
+      0.03
+     ]
+    },
+    "fidelidade_100": {
+     "do_saldo_L": 8147328.25,
+     "do_saldo_F": -1263616.5700000003,
+     "saldo": 6883711.68,
+     "fatia_L": 1.1835661673151308,
+     "dos_eliminados_F": 4985154.57,
+     "dos_eliminados_L": 2229367.75,
+     "nenhum_dos_eliminados": 2102224.68,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": {
+     "do_saldo_L": 9652465.98,
+     "do_saldo_F": -591323.1900000004,
+     "saldo": 9061142.79,
+     "fatia_L": 1.0652592287423828,
+     "dos_eliminados_F": 4985154.57,
+     "dos_eliminados_L": 2229367.75,
+     "nenhum_dos_eliminados": 2102224.68,
+     "finalistas_para_nenhum": 2177431.11
+    }
+   },
+   "Quaest 17-20/10": {
+    "final": false,
+    "url": "https://exame.com/brasil/para-onde-vao-os-votos-de-cury-caiado-e-renan-no-2o-turno-pesquisa-quaest-responde/",
+    "nota": "Zema, esquerda e demais não publicados (mediana dos outros institutos); fidelidade não publicada (100%)",
+    "taxas": {
+     "Cury": [
+      0.33,
+      0.48,
+      0.19
+     ],
+     "Renan": [
+      0.51,
+      0.25,
+      0.24
+     ],
+     "Caiado": [
+      0.57,
+      0.21,
+      0.22
+     ],
+     "Zema": [
+      0.65,
+      0.2,
+      0.18
+     ],
+     "esquerda": [
+      0.55,
+      0.307,
+      0.2
+     ],
+     "demais": [
+      0.55,
+      0.307,
+      0.2
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 7360011.365,
+     "do_saldo_F": -621703.9500000002,
+     "saldo": 6738307.415,
+     "fatia_L": 1.092264111995846,
+     "dos_eliminados_F": 4343241.95,
+     "dos_eliminados_L": 3016684.635,
+     "nenhum_dos_eliminados": 1981472.3900000001,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "Quaest 10-13/10": {
+    "final": false,
+    "url": "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/16/quaest-traz-transferencia-de-voto-no-2-turno-a-flavio-e-lula.html",
+    "nota": "\"Outros\" para Zema, esquerda e demais; fidelidade não publicada (100%)",
+    "taxas": {
+     "Cury": [
+      0.3,
+      0.34,
+      0.36
+     ],
+     "Renan": [
+      0.4,
+      0.14,
+      0.46
+     ],
+     "Caiado": [
+      0.42,
+      0.23,
+      0.35
+     ],
+     "Zema": [
+      0.38,
+      0.33,
+      0.29
+     ],
+     "esquerda": [
+      0.38,
+      0.33,
+      0.29
+     ],
+     "demais": [
+      0.38,
+      0.33,
+      0.29
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 8036617.13,
+     "do_saldo_F": 299336.0,
+     "saldo": 8335953.13,
+     "fatia_L": 0.9640909689231902,
+     "dos_eliminados_F": 3422202.0,
+     "dos_eliminados_L": 2340078.87,
+     "nenhum_dos_eliminados": 3554466.13,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "AtlasIntel 13-18/10": {
+    "final": false,
+    "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/",
+    "nota": "\"Outros (inclui Zema)\" para Zema, esquerda e demais; fidelidade não publicada (100%)",
+    "taxas": {
+     "Cury": [
+      0.424,
+      0.521,
+      0.055
+     ],
+     "Renan": [
+      0.335,
+      0.319,
+      0.346
+     ],
+     "Caiado": [
+      0.698,
+      0.245,
+      0.057
+     ],
+     "Zema": [
+      0.613,
+      0.307,
+      0.08
+     ],
+     "esquerda": [
+      0.613,
+      0.307,
+      0.08
+     ],
+     "demais": [
+      0.613,
+      0.307,
+      0.08
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 6907869.437,
+     "do_saldo_F": -815389.3640000001,
+     "saldo": 6092480.073,
+     "fatia_L": 1.1338353764361997,
+     "dos_eliminados_F": 4536927.364,
+     "dos_eliminados_L": 3468826.563,
+     "nenhum_dos_eliminados": 1310993.0729999999,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "AtlasIntel 3-8/10": {
+    "final": false,
+    "url": "https://tvtnews.com.br/?p=805894",
+    "nota": "\"Demais candidatos\" para Zema, esquerda e demais; fidelidade não publicada (100%)",
+    "taxas": {
+     "Cury": [
+      0.389,
+      0.504,
+      0.107
+     ],
+     "Renan": [
+      0.403,
+      0.281,
+      0.316
+     ],
+     "Caiado": [
+      0.549,
+      0.269,
+      0.182
+     ],
+     "Zema": [
+      0.834,
+      0.148,
+      0.018
+     ],
+     "esquerda": [
+      0.834,
+      0.148,
+      0.018
+     ],
+     "demais": [
+      0.834,
+      0.148,
+      0.018
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 7099011.001,
+     "do_saldo_F": -618241.3160000006,
+     "saldo": 6480769.685,
+     "fatia_L": 1.0953962794621361,
+     "dos_eliminados_F": 4339779.316000001,
+     "dos_eliminados_L": 3277684.9990000003,
+     "nenhum_dos_eliminados": 1699282.685,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "Ipespe 13-15/10": {
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf",
+    "nota": "\"Outros\" para Zema, esquerda e demais",
+    "taxas": {
+     "Cury": [
+      0.5,
+      0.31,
+      0.19
+     ],
+     "Renan": [
+      0.4,
+      0.2,
+      0.4
+     ],
+     "Caiado": [
+      0.59,
+      0.18,
+      0.23
+     ],
+     "Zema": [
+      0.55,
+      0.27,
+      0.18
+     ],
+     "esquerda": [
+      0.55,
+      0.27,
+      0.18
+     ],
+     "demais": [
+      0.55,
+      0.27,
+      0.18
+     ]
+    },
+    "fid": {
+     "F": [
+      0.97,
+      0.02,
+      0.01
+     ],
+     "L": [
+      0.96,
+      0.01,
+      0.03
+     ]
+    },
+    "fidelidade_100": {
+     "do_saldo_L": 8145006.96,
+     "do_saldo_F": -933067.2699999996,
+     "saldo": 7211939.69,
+     "fatia_L": 1.1293781298939287,
+     "dos_eliminados_F": 4654605.27,
+     "dos_eliminados_L": 2231689.04,
+     "nenhum_dos_eliminados": 2430452.69,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": {
+     "do_saldo_L": 9178098.34,
+     "do_saldo_F": 211272.46000000043,
+     "saldo": 9389370.8,
+     "fatia_L": 0.9774987627498958,
+     "dos_eliminados_F": 4654605.27,
+     "dos_eliminados_L": 2231689.04,
+     "nenhum_dos_eliminados": 2430452.69,
+     "finalistas_para_nenhum": 2177431.11
+    }
+   },
+   "Ipespe 6-8/10": {
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-abrapel-10out2026.pdf",
+    "nota": "\"Outros\" para Zema, esquerda e demais",
+    "taxas": {
+     "Cury": [
+      0.5,
+      0.29,
+      0.21
+     ],
+     "Renan": [
+      0.36,
+      0.2,
+      0.44
+     ],
+     "Caiado": [
+      0.56,
+      0.15,
+      0.29
+     ],
+     "Zema": [
+      0.4,
+      0.4,
+      0.2
+     ],
+     "esquerda": [
+      0.4,
+      0.4,
+      0.2
+     ],
+     "demais": [
+      0.4,
+      0.4,
+      0.2
+     ]
+    },
+    "fid": {
+     "F": [
+      0.97,
+      0.01,
+      0.02
+     ],
+     "L": [
+      0.97,
+      0.01,
+      0.02
+     ]
+    },
+    "fidelidade_100": {
+     "do_saldo_L": 8215804.1899999995,
+     "do_saldo_F": -659805.9000000004,
+     "saldo": 7555998.289999999,
+     "fatia_L": 1.0873221346374868,
+     "dos_eliminados_F": 4381343.9,
+     "dos_eliminados_L": 2160891.81,
+     "nenhum_dos_eliminados": 2774511.29,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": {
+     "do_saldo_L": 9271145.239999998,
+     "do_saldo_F": 484533.8299999996,
+     "saldo": 9755679.069999998,
+     "fatia_L": 0.9503331519494111,
+     "dos_eliminados_F": 4381343.9,
+     "dos_eliminados_L": 2160891.81,
+     "nenhum_dos_eliminados": 2774511.29,
+     "finalistas_para_nenhum": 2199680.7800000003
+    }
+   },
+   "Datafolha 13-14/10": {
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/datafolha-15out2026-pesquisa-nacional.pdf",
+    "nota": "só o agregado dos quatro; esquerda e demais pela mediana dos outros institutos; fidelidade não publicada (100%)",
+    "taxas": {
+     "Cury": [
+      0.46,
+      0.27,
+      0.27
+     ],
+     "Renan": [
+      0.46,
+      0.27,
+      0.27
+     ],
+     "Caiado": [
+      0.46,
+      0.27,
+      0.27
+     ],
+     "Zema": [
+      0.46,
+      0.27,
+      0.27
+     ],
+     "esquerda": [
+      0.55,
+      0.307,
+      0.2
+     ],
+     "demais": [
+      0.55,
+      0.307,
+      0.2
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 7851530.074999999,
+     "do_saldo_F": -587624.5700000003,
+     "saldo": 7263905.504999999,
+     "fatia_L": 1.0808965052746788,
+     "dos_eliminados_F": 4309162.57,
+     "dos_eliminados_L": 2525165.9250000003,
+     "nenhum_dos_eliminados": 2497275.84,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "Datafolha 6-7/10": {
+    "final": false,
+    "url": "https://www.diariodepernambuco.com.br/politica/2026/10/11726210-datafolha-46-dos-eleitores-de-candidatos-derrotados-no-1-turno-migram-para-flavio-bolsonaro.html",
+    "nota": "só o agregado dos quatro (os percentuais publicados somam 94; o resto vai para nenhum); esquerda e demais pela mediana",
+    "taxas": {
+     "Cury": [
+      0.46,
+      0.32,
+      0.22
+     ],
+     "Renan": [
+      0.46,
+      0.32,
+      0.22
+     ],
+     "Caiado": [
+      0.46,
+      0.32,
+      0.22
+     ],
+     "Zema": [
+      0.46,
+      0.32,
+      0.22
+     ],
+     "esquerda": [
+      0.55,
+      0.307,
+      0.2
+     ],
+     "demais": [
+      0.55,
+      0.307,
+      0.2
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 7398725.475,
+     "do_saldo_F": -587624.5700000003,
+     "saldo": 6811100.904999999,
+     "fatia_L": 1.0862745359665171,
+     "dos_eliminados_F": 4309162.57,
+     "dos_eliminados_L": 2977970.525,
+     "nenhum_dos_eliminados": 2044471.2400000002,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   },
+   "Nexus 10-12/10": {
+    "final": false,
+    "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/",
+    "nota": "Cury, Renan, esquerda e demais pelo agregado \"outros candidatos\"; fidelidade de 98% sem divisão do resto (100%)",
+    "taxas": {
+     "Cury": [
+      0.45,
+      0.32,
+      0.23
+     ],
+     "Renan": [
+      0.45,
+      0.32,
+      0.23
+     ],
+     "Caiado": [
+      0.55,
+      0.27,
+      0.18
+     ],
+     "Zema": [
+      0.8,
+      0.12,
+      0.08
+     ],
+     "esquerda": [
+      0.45,
+      0.32,
+      0.23
+     ],
+     "demais": [
+      0.45,
+      0.32,
+      0.23
+     ]
+    },
+    "fid": null,
+    "fidelidade_100": {
+     "do_saldo_L": 7590891.96,
+     "do_saldo_F": -845783.75,
+     "saldo": 6745108.21,
+     "fatia_L": 1.125392169208802,
+     "dos_eliminados_F": 4567321.75,
+     "dos_eliminados_L": 2785804.04,
+     "nenhum_dos_eliminados": 1963621.21,
+     "finalistas_para_nenhum": 0.0
+    },
+    "fidelidade_declarada": null
+   }
+  },
+  "analogo": [
+   {
+    "pesquisa": "PoderData 23-24/10",
+    "grupo": "votou branco/nulo no 1º turno",
+    "L": 50,
+    "F": 26,
+    "fatia_L": 0.6578947368421053,
+    "ep": 0.0417375379592967,
+    "n_aprox": 170,
+    "final": true,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf"
+   },
+   {
+    "pesquisa": "PoderData 23-24/10",
+    "grupo": "não votou no 1º turno",
+    "L": 50,
+    "F": 35,
+    "fatia_L": 0.5882352941176471,
+    "ep": 0.0254486235548045,
+    "n_aprox": 440,
+    "final": true,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf"
+   },
+   {
+    "pesquisa": "Nexus 23-24/10",
+    "grupo": "não compareceu no 1º turno (só a Bloomberg Línea)",
+    "L": 53.2,
+    "F": 46.8,
+    "fatia_L": 0.532,
+    "ep": 0.03528285702717398,
+    "n_aprox": 200,
+    "final": true,
+    "url": "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/"
+   },
+   {
+    "pesquisa": "Datafolha 23-24/10",
+    "grupo": "propensão média ou baixa de comparecer (24% da amostra)",
+    "L": 52,
+    "F": 48,
+    "fatia_L": 0.52,
+    "ep": 0.01604118410931269,
+    "n_aprox": 970,
+    "final": true,
+    "url": "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/"
+   },
+   {
+    "pesquisa": "PoderData 19-21/10",
+    "grupo": "votou branco/nulo no 1º turno",
+    "L": 46,
+    "F": 23,
+    "fatia_L": 0.6666666666666666,
+    "ep": 0.04352559704130899,
+    "n_aprox": 170,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf"
+   },
+   {
+    "pesquisa": "PoderData 19-21/10",
+    "grupo": "não votou no 1º turno",
+    "L": 48,
+    "F": 39,
+    "fatia_L": 0.5517241379310345,
+    "ep": 0.026659011844312703,
+    "n_aprox": 400,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf"
+   },
+   {
+    "pesquisa": "Quaest 17-20/10",
+    "grupo": "não votou ou votou branco/nulo no 1º turno",
+    "L": 40,
+    "F": 36,
+    "fatia_L": 0.5263157894736842,
+    "ep": 0.03306741381250228,
+    "n_aprox": 300,
+    "final": false,
+    "url": "https://bpmoney.com.br/politica/quaest-votos-caiado-renan-cury-segundo-turno/"
+   },
+   {
+    "pesquisa": "AtlasIntel 13-18/10",
+    "grupo": "não compareceu no 1º turno",
+    "L": 55.7,
+    "F": 40.2,
+    "fatia_L": 0.5808133472367049,
+    "ep": 0.022533451111527943,
+    "n_aprox": 500,
+    "final": false,
+    "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+   },
+   {
+    "pesquisa": "AtlasIntel 13-18/10",
+    "grupo": "votou branco/nulo no 1º turno",
+    "L": 21.1,
+    "F": 38.7,
+    "fatia_L": 0.3528428093645485,
+    "ep": 0.03908183346926814,
+    "n_aprox": 250,
+    "final": false,
+    "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+   },
+   {
+    "pesquisa": "Ipespe 13-15/10",
+    "grupo": "branco/nulo ou não votou no 1º turno",
+    "L": 60,
+    "F": 15,
+    "fatia_L": 0.8,
+    "ep": 0.05333333333333333,
+    "n_aprox": 75,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf"
+   },
+   {
+    "pesquisa": "Ipespe 6-8/10",
+    "grupo": "branco/nulo ou não votou no 1º turno",
+    "L": 17,
+    "F": 30,
+    "fatia_L": 0.3617021276595745,
+    "ep": 0.07387832602923584,
+    "n_aprox": 90,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-abrapel-10out2026.pdf"
+   },
+   {
+    "pesquisa": "AtlasIntel 3-8/10",
+    "grupo": "não votou no 1º turno",
+    "L": 63.1,
+    "F": 21.8,
+    "fatia_L": 0.7432273262661955,
+    "ep": 0.021202954866490435,
+    "n_aprox": 500,
+    "final": false,
+    "url": "https://tvtnews.com.br/?p=805894"
+   },
+   {
+    "pesquisa": "AtlasIntel 3-8/10",
+    "grupo": "votou branco/nulo no 1º turno",
+    "L": 22.5,
+    "F": 46.2,
+    "fatia_L": 0.32751091703056767,
+    "ep": 0.03581023218710956,
+    "n_aprox": 250,
+    "final": false,
+    "url": "https://tvtnews.com.br/?p=805894"
+   },
+   {
+    "pesquisa": "PoderData 5-7/10",
+    "grupo": "votou branco/nulo no 1º turno",
+    "L": 18,
+    "F": 22,
+    "fatia_L": 0.45,
+    "ep": 0.06898996582558499,
+    "n_aprox": 130,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf"
+   },
+   {
+    "pesquisa": "PoderData 5-7/10",
+    "grupo": "não votou no 1º turno",
+    "L": 34,
+    "F": 42,
+    "fatia_L": 0.4473684210526316,
+    "ep": 0.03139689823676187,
+    "n_aprox": 330,
+    "final": false,
+    "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf"
+   },
+   {
+    "pesquisa": "Quaest 10-13/10",
+    "grupo": "ausente ou branco/nulo no 1º turno",
+    "L": 43,
+    "F": 38,
+    "fatia_L": 0.5308641975308642,
+    "ep": 0.03201384739682542,
+    "n_aprox": 300,
+    "final": false,
+    "url": "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/16/quaest-traz-transferencia-de-voto-no-2-turno-a-flavio-e-lula.html"
+   }
+  ],
+  "divisao_literal": {
+   "Datafolha 23-24/10": "não publicada (branco/nulo 3, indecisos 2)",
+   "Quaest 23-24/10": "não publicada (branco, nulo e não vai votar 8, indecisos 1; 92% dos que escolheram dizem que o voto é definitivo)",
+   "AtlasIntel 18-23/10": "não publicada (indecisos, brancos e nulos 1,7 somados)",
+   "CNT/MDA 21-23/10": "não publicada (branco/nulo 5,8, indecisos 2,9; só o perfil por sexo)",
+   "PoderData 23-24/10": "não publicada (branco/nulo 3, não sabe 1; 28% do branco/nulo diz que ainda pode mudar, sem dizer para quem)",
+   "Nexus 23-24/10": "não publicada",
+   "Ipespe 20-22/10": "não publicada (branco/nulo 3, não sabem 2)",
+   "Real Time Big Data 19-22/10": "não publicada (branco/nulo 5, não sabe 1)",
+   "Veritá 19-23/10": "não publicada (branco/nulo 1,43, não sabe 2,67)",
+   "Vox Brasil 20-22/10": "não publicada (branco, nulo e nenhum 6, indecisos 4,3)",
+   "Futura 23-24/10": "não publicada (só a espontânea: ninguém/branco/nulo 2,3, não sabe 3,7)",
+   "Gerp 22-24/10": "não publicada (espontânea: não sabe 8)"
+  },
+  "comparecimento": [
+   [
+    "PoderData 23-24/10",
+    "com certeza vai votar 94%, pode ir sem certeza 3%, não vai 2%, não sabe 1%; com certeza entre quem vota em Flávio 96%, em Lula 94%, branco/nulo 52%, não sabe 56%; entre quem votou no 1º turno 97% (não vai 1%), entre quem não votou 65% (pode ir 19%, não vai 15%)",
+    "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf"
+   ],
+   [
+    "Datafolha 23-24/10",
+    "alta propensão de comparecer (76% da amostra): Flávio 52 x Lula 48 nos válidos; média ou baixa (24%): Lula 52 x Flávio 48; amostra inteira 51 x 49",
+    "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/"
+   ],
+   [
+    "Nexus 23-24/10",
+    "modelo de eleitor provável (tira os 21% menos propensos): Flávio 52,4 x Lula 47,6; amostra inteira 50,5 x 49,5; quem votou no 1º turno 51,2 x 48,8, quem não votou Lula 53,2 x 46,8",
+    "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/"
+   ],
+   [
+    "Quaest 23-24/10",
+    "válidos 51 x 49 pelo modelo de eleitor provável; totais 46 x 45 com 8% de branco, nulo e \"não vai votar\" e 1% de indecisos (50,5 x 49,5 sem o modelo)",
+    "https://exame.com/brasil/pesquisa-quaest-na-vespera-do-2o-turno-flavio-bolsonaro-tem-51-e-lula-49/"
+   ],
+   [
+    "CNT/MDA 21-23/10",
+    "ajuste pelos que declararam comparecimento, sem número publicado; 7,3% ainda podem mudar; ponderação pelo voto declarado no 1º turno",
+    "https://www.oliberal.com/politica/cnt-mda-flavio-tem-50-7-dos-votos-validos-e-lula-49-3-mulheres-s-o-maioria-entre-indecisos-1.1186349"
+   ]
+  ],
+  "conferencia_decomposicao_antiga": {
+   "fatia_L": 0.9835128927028212,
+   "saldo": 7978234.0,
+   "registrado": 0.98,
+   "nota": "taxas atribuídas à Quaest que a verificação não confirmou"
+  },
+  "mediana_institutos": {
+   "taxas": {
+    "Cury": [
+     0.437,
+     0.33,
+     0.18
+    ],
+    "Renan": [
+     0.4165,
+     0.2655,
+     0.29300000000000004
+    ],
+    "Caiado": [
+     0.555,
+     0.2375,
+     0.225
+    ],
+    "Zema": [
+     0.65,
+     0.2,
+     0.18
+    ],
+    "esquerda": [
+     0.55,
+     0.307,
+     0.2
+    ],
+    "demais": [
+     0.55,
+     0.307,
+     0.2
+    ]
+   },
+   "fidelidade_100": {
+    "do_saldo_L": 7764178.8965,
+    "do_saldo_F": -701428.1785000004,
+    "saldo": 7062750.717999999,
+    "fatia_L": 1.0993137385852163,
+    "dos_eliminados_F": 4422966.1785,
+    "dos_eliminados_L": 2612517.1035,
+    "nenhum_dos_eliminados": 2101834.451,
+    "finalistas_para_nenhum": 0.0
+   }
+  },
+  "maior_fatia_final": {
+   "pesquisa": "PoderData 23-24/10",
+   "grupo": "votou branco/nulo no 1º turno",
+   "L": 50,
+   "F": 26,
+   "fatia_L": 0.6578947368421053,
+   "ep": 0.0417375379592967,
+   "n_aprox": 170,
+   "final": true,
+   "url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf"
+  },
+  "maior_fatia_qualquer_rodada": {
+   "pesquisa": "Ipespe 13-15/10",
+   "grupo": "branco/nulo ou não votou no 1º turno",
+   "L": 60,
+   "F": 15,
+   "fatia_L": 0.8,
+   "ep": 0.05333333333333333,
+   "n_aprox": 75,
+   "final": false,
+   "url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf"
+  },
+  "so_urna_regressao": {
+   "coef_L_queda_branco_nulo": [
+    0.6375637583848185,
+    0.0020820561250620073
+   ],
+   "coef_L_var_comparecimento": [
+    0.5636267809606238,
+    0.0015682849802094393
+   ],
+   "fatia_L_branco_nulo_e_abstencao": 0.591738752488513,
+   "ep_sem_covariancia": 0.001253578695296495,
+   "b_L_eliminados_somado": [
+    0.5407143233971514,
+    0.0016547451929175693
+   ],
+   "coef_L_votos_Flavio_1T": [
+    0.039289620125311654,
+    0.0006711678606704087
+   ],
+   "coef_L_proprios_1T": [
+    -0.013220176995870718,
+    0.000663873976566654
+   ],
+   "nota": "a urna não identifica o \"nenhum\" dos eleitores dos eliminados (b_L + b_F = 1, Adendo 17)"
+  },
+  "equivalencia_com_erro_2T": {
+   "L_validos_se_saldo_como_pesquisa": 49.386646540812315,
+   "L_validos_urna": 51.7851828842626,
+   "L_validos_PoderData_final": 49.0,
+   "votos_de_diferenca_na_margem": 5952316.827368408,
+   "ganho_esperado_L": 7400537.586315796,
+   "ganho_esperado_F": 6697696.413684204,
+   "ganho_real_L": 10376696,
+   "ganho_real_F": 3721538
+  },
+  "eliminados_F_passa_ganho_real_F": [
+   "AtlasIntel 13-18/10",
+   "AtlasIntel 3-8/10",
+   "Datafolha 13-14/10",
+   "Datafolha 6-7/10",
+   "Ipespe 13-15/10",
+   "Ipespe 6-8/10",
+   "Nexus 10-12/10",
+   "PoderData 19-21/10",
+   "PoderData 23-24/10 (final)",
+   "PoderData 5-7/10",
+   "Quaest 17-20/10"
+  ],
+  "eliminados_F_nao_passa": [
+   "Quaest 10-13/10"
+  ],
+  "veredito": "DESCRITIVO",
+  "leitura_analogo": {
+   "fatia_urna_PoderData_final_fid100": 1.1525810424297949,
+   "fatia_urna_PoderData_final_fid_declarada": 1.0436814152581781,
+   "limite_maior_final_mais_30": 0.9578947368421054,
+   "limite_maior_qualquer_mais_30": 1.1,
+   "passa_limite_final": true,
+   "passa_limite_qualquer_rodada": false,
+   "pesquisas_com_fatia_acima_do_limite_final": [
+    "AtlasIntel 13-18/10",
+    "AtlasIntel 3-8/10",
+    "Datafolha 13-14/10",
+    "Datafolha 6-7/10",
+    "Ipespe 13-15/10",
+    "Nexus 10-12/10",
+    "PoderData 19-21/10",
+    "PoderData 23-24/10 (final)",
+    "PoderData 5-7/10",
+    "Quaest 10-13/10",
+    "Quaest 17-20/10"
+   ],
+   "so_urna_menos_maior_final_pontos": -6.615598435359226,
+   "z_acima_do_limite_final": {
+    "fid_100_deff1": 3.1539505537244863,
+    "fid_declarada_deff1": 1.0594009629757835,
+    "fid_100_deff2": 2.5506930351059043,
+    "fid_declarada_deff2": 0.7970739965829932
+   }
+  }
+ }
+}

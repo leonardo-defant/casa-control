@@ -1,0 +1,296 @@
+L7. O que uma fraude no programa teria de driblar: o teste de integridade do 2º turno de 2026, as auditorias e o PL (Adendo 18)
+Pesquisa na web em 29/10/2026, mais conferências com os dados locais. Script da parte de dados: scripts/analisar_L7.py
+(números em resultados/L7_dados.json e L7_dados.txt). Achados da pesquisa, com link, data, confiança e como cada um foi
+lido: resultados/L7_pesquisa.json (38 itens).
+Dados usados, sem baixar nada: base por seção dos dois turnos (secoes2026.json.gz), os 28 zips do bweb do 2º turno (26/10,
+07h42), o cache do bweb do 1º turno feito pelo L2 e os logs das 3.897 urnas da amostra do 2º turno.
+As páginas do TSE e dos TREs (jus.br) deram HTTP 403 ao leitor de páginas. O que vem delas saiu do resumo do buscador e está
+marcado assim no JSON (confiança média). Não contornei o bloqueio.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, L7, antes de rodar):
+  "Como funcionou o teste de integridade do 2º turno de 2026 (quantas urnas, se usa eleitores reais e biometria, se a urna
+  consegue saber que está em teste), o que dizem os relatórios e as auditorias de partidos, inclusive do PL. Lista do que uma
+  fraude no programa precisaria fazer para passar por cada controle. Relatado como argumento, sem veredito."
+
+VEREDITO PELA LETRA: DESCRITIVO
+O registro não tem critério numérico e manda relatar sem veredito. As contas com dados locais (itens 2, 3 e 7) são
+descritivas, fora do registro, com a especificação escrita no script antes de calcular a virada de qualquer grupo.
+
+Resumo
+- Como foi: regra nova de 2026 (Res. TSE 23.758/2026). No sábado 24/10, em cerimônia pública em cada TRE, partidos e
+  entidades escolheram parte das seções e o resto saiu por sorteio. A urna de cada seção escolhida foi para o teste e a seção
+  votou numa urna reserva, carregada e lacrada no sábado. No domingo, das 8h às 17h, servidores do Judiciário e do MP digitaram
+  votos de cédulas preenchidas antes, sob câmera, e às 17h o boletim da urna foi comparado com o papel.
+- Quantas urnas: o total nacional não foi publicado. O bweb mostra a pegada: 706 seções votaram no 2º turno em urna diferente
+  da do 1º turno, carregada no sábado 24/10. Em Alagoas, as 20 seções da lista publicada do teste de integridade são exatamente
+  as 20 do grupo, e as 3 do teste de autenticidade não trocaram de urna. Somando o número anunciado onde há anúncio e a contagem
+  do bweb no resto, dá cerca de 650 urnas, com teto de 706 (2022: 641).
+- Eleitores reais e biometria: sim, numa parte pequena. Na modalidade com biometria, eleitores da própria seção, depois de votar
+  na urna oficial, põem o dedo no leitor para habilitar a urna do teste; os votos continuam sendo digitados pelos auditores.
+  Conhecidas: SP 3, AL 2, DF 2, PR 2, MT 1, PB 1 e SC pelo menos 1. Pela regra de 2024, de 5% a 10% das urnas do teste, ou seja,
+  de 30 a 65 no país. O resto (ambiente controlado) é habilitado pelo caderno de votação, sem eleitor e sem digital.
+- A urna consegue saber que está em teste? Pelos dados, a modalidade principal tem uma marca que nenhuma urna real da amostra
+  mostrou: nenhuma habilitação por biometria no dia. Nas 3.897 urnas reais do 2º turno com log, a menor parte biométrica foi
+  36,3% e nenhuma ficou em zero. A modalidade com biometria tem a marca oposta (quase tudo por digital e poucos eleitores):
+  8 das 3.897 urnas reais (0,2%) tiveram até 100 habilitações e 95% ou mais por biometria. Ou seja, um programa poderia, em tese,
+  separar o teste da votação real olhando a biometria e o volume. Isso não mostra que o programa faz isso. Mostra que o teste
+  de integridade, sozinho, não exclui um programa que faça; quem exclui é a leitura do código e a cadeia de compilação e
+  assinatura, que ficam com o TSE.
+- Resultados: no TSE, 2 urnas e 389 votos sem divergência; em SP, 33 urnas sem divergência; no DF, uma divergência na CLDF,
+  atribuída a erro humano de digitação, sem urna, cargo, tamanho ou direção divulgados; nos outros TREs só há o anúncio ou a
+  notícia sem o resultado. O relatório consolidado do TCU e os das empresas de auditoria externa saem até 30 dias depois do
+  2º turno (até 24/11/2026).
+- Escala: para mudar o resultado, um desvio tem de mover 2.215.095 votos, 1,79% dos votos dos finalistas. Se o programa
+  adulterasse urnas ao acaso sem reconhecer o teste, a chance de nenhuma das cerca de 640 urnas testadas estar entre elas ficaria
+  abaixo de 1 em 100 mil no caso mais favorável à fraude. Espalhado em todas as urnas, o teste veria cerca de 3,5 votos trocados a
+  cada 195 digitados, perto de 2.200 no país. Logo, uma fraude no programa grande o bastante teria de reconhecer o teste em
+  praticamente todas as urnas testadas, nas duas modalidades.
+- PL: os fiscais (até dois por seção) foram orientados a ficar até o fim e ler o QR Code do boletim impresso; o partido recebeu
+  uma parte "bastante expressiva, e representativa" dos boletins e, segundo o Metrópoles, viu às 17h o mesmo padrão que o TSE
+  divulgou depois. Em 26/10, em nota de Valdemar Costa Neto, o PL reconheceu "o resultado presidencial, proclamado pelo TSE",
+  pedindo que os questionamentos fossem esclarecidos, sem citar boletins, urnas ou auditoria. Não achei a conferência do PL
+  publicada nem alegação de boletim divergente. Esse controle pega fraude na totalização. Não pega fraude no programa da urna,
+  que imprimiria o boletim já alterado.
+- Lista final (item 8): de 12 controles, 4 dependem só do sistema do TSE (compilação, carga, verificação de autenticidade, RDV
+  e log) e, no teste de integridade, a pergunta decisiva (se o programa reconhece o teste) também só se responde pelo código
+  que o TSE compila. Os controles de fora ou não olham o programa por dentro, ou dependem de o programa não reconhecer o teste.
+  Esse é o furo de lógica que existe: está no desenho dos controles, não no resultado, e não é prova de fraude.
+
+1. Como foi o teste do 2º turno (procedimento de 2026)
+- Norma: Res. TSE 23.673/2021 com as mudanças da Res. 23.758, de 02/03/2026. Duas modalidades: (a) em ambiente controlado, com
+  servidores convocados do MP e do Judiciário, habilitação da urna "feita aleatoriamente a partir do caderno de votação"; (b) com
+  biometria, em local de votação, com eleitoras e eleitores voluntários que consentem com o uso da digital para habilitar a urna,
+  convidados depois de votar na urna oficial, com termo de consentimento. (TSE, trecho do buscador.)
+- Escolha: no sábado 24/10, de manhã, em cerimônia pública em cada TRE. Parte das seções é escolhida pelas entidades presentes
+  (partidos, órgãos públicos, sociedade civil) e o resto por sorteio. Exemplos: SP, 34 das 51 urnas auditadas escolhidas pelas
+  entidades; PB, 4 indicadas pelas instituições fiscalizadoras; SE (1º turno), 8 de 20 escolhidas por PSD, União Brasil, MPF e
+  outras. Não achei registro de seção indicada pelo PL.
+- Troca: a urna da seção escolhida vai para sala lacrada até o domingo; a seção recebe urna reserva com nova carga e lacre, no
+  sábado (Agência Brasil 24/10; guia do TRE-RJ). O teste de autenticidade não troca urna: é feito na própria seção, de manhã.
+- No domingo: das 8h às 17h, no mesmo horário da votação oficial, em local público (CLDF, Alesc, Centro Cultural São Paulo,
+  OAB em Maceió, Museu do Voto no TSE e outros), com transmissão ao vivo. As cédulas foram preenchidas antes por partidos e
+  entidades convidados e, no ES, por servidores voluntários do Judiciário e do MP. Os votos são digitados na urna e registrados
+  ao mesmo tempo num sistema de apoio à auditoria (descrição do TRE-AM); às 17h compara-se o boletim da urna com as cédulas. Em
+  divergência, a gravação mostra se foi erro de digitação.
+- Quem acompanha: TCU (acordo com o TSE, TC 020.282/2026-5), MP, OAB, CGU, Defensoria, PF e partidos; empresa de auditoria
+  externa contratada por TRE (em 2024, por exemplo, Maciel Consultores em GO, RS, PA e BA). Segundo o TSE, dois fiscais do PL
+  acompanharam o teste de integridade e a totalização em Brasília.
+
+2. Quantas urnas (pesquisa e pegada no bweb)
+- Anunciado para o 2º turno (integridade, com e sem biometria): SP, MG, RJ e BA 33 cada; PR, RS, PE e CE 27; RR, DF, AL, MT e PB
+  20 (a lista da PB traz 19); ES 18 em ambiente controlado. Para AC, AM, AP, GO, MA, MS, PA, PI, RN, RO, SC, SE e TO não achei
+  número do 2º turno. Total nacional: não publicado.
+- Pegada no bweb (D1): seções com urna do 2º turno diferente da do 1º turno e carga em 24/10/2026: 706. Mais 3 seções com
+  carga no sábado e a mesma urna.
+    Bate com o anúncio: AL 20, DF 20, MG 33, MT 20, RJ 33, RR 20, RS 27; PB 19 bate com as 19 seções listadas (o texto diz 20).
+    Um a menos: PE 26 contra 27.
+    Sobra: SP 72 contra 33, CE 36 contra 27, BA 36 contra 33, PR 30 contra 27; ES 20 contra 18 (provavelmente as 2 com biometria).
+    Sem anúncio: AC 19, AM 20, AP 20, GO 29, MA 27, MS 20, PA 27, PI 20, RN 22, RO 19, SC 30, SE 20, TO 21.
+  As sobras são trocas de urna feitas no sábado por outro motivo; o grupo é um teto, não uma lista do teste.
+- Alagoas, conferência nominal: as 18 seções do teste em ambiente controlado e as 2 do teste com biometria (Maceió, 2ª zona,
+  seções 355 e 365, no mesmo local) estão todas no grupo, com carga entre 9h44 e 12h57 do sábado; as 3 seções do teste de
+  autenticidade (São Luís do Quitunde, Jequiá da Praia, Arapiraca) mantiveram a urna e a carga de setembro; nenhuma outra seção
+  de AL está no grupo. Ou seja, o procedimento deixou nos registros das urnas a marca que a regra prevê.
+- 1º turno: 790 seções com carga em 03/10 (véspera), pelo mesmo critério sem a troca de urna (não há turno anterior).
+- Estimativa: anúncio onde há, bweb no resto, cerca de 650 urnas; teto 706. A D4 usa 500, 640 e 706.
+
+3. Biometria e se a urna consegue saber que está em teste
+- O que a urna vê no teste em ambiente controlado: a sua própria carga (a da seção), a data e a hora reais, e eleitores
+  habilitados um a um pelo caderno de votação, sem digital, no ritmo de quem digita das 8h às 17h (no TSE, 389 votos em 2 urnas,
+  cerca de 195 por urna, um a cada 2,8 minutos). No teste com biometria: eleitores da seção habilitados pela digital, só os
+  que aceitam participar (no piloto de 2022, 493 voluntários em 56 urnas, cerca de 9 por urna; em SP, 1º turno de 2026, de 70 a
+  80 por seção, segundo o juiz do teste). A urna não vê a câmera nem o lugar.
+- O que as urnas reais mostraram no 2º turno (D2, logs das 3.897 urnas da amostra, todas no Brasil, 1.002.692 habilitações):
+    87,6% das habilitações foram por biometria.
+    Urnas com 0% de biometria: 0. Menor parte biométrica: 36,3%; percentil 1: 64,0%; mediana 88,7%; percentil 99: 97,5%.
+    Pelo intervalo de 95% (regra de 3), no máximo 0,08% das urnas do Brasil teriam 0% de biometria, cerca de 380 de 499 mil.
+    (A amostra é por conglomerados, municípios e locais, e pesa mais os 6 estados com 2º turno de governador; a conta a trata
+    como aleatória simples, então o limite verdadeiro é mais largo.)
+    Urnas com 100% de biometria: 2; com 98% ou mais: 16; com até 100 habilitações e 95% ou mais por biometria: 8 (0,2%).
+    Habilitações por urna: mínimo 37, percentil 1: 115, mediana 261.
+- No país inteiro (bweb), o campo QT_ELEI_BIOM_SEM_HABILITACAO conta só quem tem digital cadastrada e não foi liberado por ela; é
+  um piso da parte sem biometria (na amostra, nunca passou do log, e ficou abaixo dele em 3.608 das 3.897 urnas). Por esse piso,
+  nenhuma seção do Brasil aparece com certeza sem biometria; 31 seções têm 90% ou mais sem biometria e 97 têm 50% ou mais. No
+  exterior o campo é zero nas 1.308 seções, porque lá não se usa biometria (fonte secundária): essas seções reais têm a mesma marca
+  do teste em ambiente controlado.
+- Leitura: a marca da modalidade principal (nenhuma digital no dia) não apareceu em nenhuma urna real da amostra; a marca da
+  modalidade com biometria (quase só digital, poucos eleitores) aparece em cerca de 0,2%. Um programa que trocasse votos só
+  quando a urna tem digitais suficientes e volume normal passaria pelas duas modalidades e agiria em mais de 99% das urnas reais
+  do Brasil. É o mesmo tipo de truque do software que reconhecia o teste de emissões (caso Volkswagen, 2015). Isso não é
+  indício de que exista; é o limite do que o teste de integridade prova. O relatório da Defesa de 2022 já dizia que os testes de
+  funcionalidade não permitem afastar código malicioso, e o teste com biometria foi a resposta do TSE, mas cobre uma parte
+  pequena das urnas e tem a sua própria marca.
+- Conferência possível nos dados (D3, descritivo): se o programa ficasse honesto nas seções reais com pouca biometria, a virada
+  de Lula nelas seria menor que a das vizinhas, em cerca de 1,79 ponto (a régua de um desvio que mudasse o resultado).
+    50% ou mais sem biometria: 97 seções, 92 em locais com outras seções; diferença dentro do local 0,00 ponto (ep 0,19);
+    placebo (fatia de Lula no 1º turno) -0,16 (ep 0,44). Não ficaram poupadas.
+    90% ou mais: 31 seções, 29 identificam; abaixo das 30 que a especificação pedia para estimar; fica só a contagem.
+    Zero certo: nenhuma seção; a forma "0% exato" não tem como ser testada fora do próprio teste.
+  O exterior, que tem a marca, teve virada de Lula de 1,62 ponto entre os finalistas, contra 2,80 no Brasil. Está dentro da faixa
+  das UFs (PI 1,21; BA 1,44; RJ 4,25), o eleitorado é outro e o comparecimento lá subiu 11,6% (contra 2,3%); não serve como
+  indício nem a favor nem contra.
+
+4. Resultados e divergências do 2º turno
+- TSE (Museu do Voto, em parceria com o TRE-DF): 2 urnas, 389 votos, sem divergência, com câmeras 24 horas e transmissão.
+- SP: 33 urnas (30 no Centro Cultural São Paulo e 3 com biometria na Unip), das 8h às 17h, sem divergência.
+- DF: 20 urnas (16 na CLDF, 2 no TSE, 2 com biometria na Escola Canadense). "A única divergência verificada foi um erro humano
+  de digitação" (juiz João Marcos Guimarães Silva). Urna, seção, cargo, número de votos e direção: não divulgados. No 1º turno, o
+  DF teve duas divergências na CLDF, também atribuídas a digitação, "comprovado pelas câmeras".
+- AL: 23 urnas auditadas (18 + 2 + 3); a notícia do resultado não fala em divergência.
+- MT, PB, PR, SC, ES, MG, RJ, BA, RS, PE, CE e os demais: só o anúncio, ou notícia sem o resultado.
+- Nenhuma contestação do PL, de Flávio ou de outro partido sobre o teste de integridade foi encontrada.
+- Para a tese: uma fraude ativa numa urna testada trocaria vários votos, todos na mesma direção. Uma divergência de digitação
+  conferida pelo vídeo não tem essa cara, mas o tamanho e a direção da do DF não foram publicados; é o único ponto em que urna e
+  papel discordaram em 2026.
+
+5. Relatórios e auditorias de partidos e entidades
+- TCU: acompanha a escolha das seções e o dia da eleição, com e sem biometria, nas 27 UFs (55 auditores no 1º turno);
+  relatório consolidado ao TSE em até 30 dias corridos depois do 2º turno. Ainda não saiu.
+- Empresas de auditoria externa dos TREs: relatórios de 2026 não localizados (em 2024 saíram de 3 a 5 dias depois do turno, no
+  site do TSE).
+- OEA: 88 observadores no 2º turno; avaliação verbal de Insulza ("as condições de segurança têm sido adequadas, não vimos
+  problemas"); relatório preliminar escrito do 2º turno não localizado.
+- Código-fonte: aberto de outubro de 2025 até a lacração; inspeções de União Brasil (primeiro partido, maio), Senado (junho),
+  MP Eleitoral e CGU (agosto), SBC, CNMP, CNC e outras. Inspeção do PL em 2026: não encontrada.
+- Compilação e lacração: em 04/09/2026, com os programas compilados na semana anterior; resumos assinados por TSE, PF, DPU, MP
+  Eleitoral, OAB e Confea; mídias em 3 envelopes, 2 na sala-cofre e 1 com o secretário de TI do TSE. Partidos não nomeados.
+- Teste de autenticidade: de manhã, antes da zerésima, em poucas urnas por UF (10 em SP, MG, RJ e BA; 8 em PR, RS, PE e CE; 3 nas
+  menores); verifica assinaturas e resumos "pelo programa do TSE". A norma permite programa próprio das entidades, apresentado 90
+  dias antes; não achei uso em 2026.
+- Teste Público de Segurança (dezembro de 2025): 38 planos aprovados, 6 com achados "mitigáveis", nenhum com risco efetivo
+  segundo as comissões; teste de confirmação em maio de 2026. Em edições anteriores houve falhas sérias, corrigidas depois:
+  2012, recuperação da ordem dos votos no RDV; 2017, bibliotecas sem assinatura que permitiram rodar código na urna.
+- PL em 2022, para contexto: pagou cerca de R$ 1,1 milhão ao Instituto Voto Legal; o TSE rejeitou o pedido de invalidar votos de
+  279 mil urnas e multou o partido; segundo a PF, os peritos do IVL disseram à cúpula do PL que não acharam irregularidade.
+  Auditoria própria do PL em 2026: não encontrada.
+
+6. O PL e os boletins impressos
+- Antes: "exército de fiscais", até dois por seção, orientados a ficar até as 17h para escanear o código do boletim impresso
+  (Metrópoles, coluna de Demétrio Vecchioli, 25/10, 21h17). No meio da tarde, a executiva nacional pediu que os fiscais voltassem
+  aos postos até a emissão do boletim; dirigentes disseram que recolher as cópias físicas era essencial para a "conferência
+  paralela" (ABC do ABC, 25/10, 19h15). Nenhum aplicativo próprio do PL foi citado; o QR Code se lê com o Boletim na Mão, sem
+  internet, ou com qualquer leitor.
+- O que o PL fez com eles: segundo a mesma coluna, o partido recebeu uma parte "bastante expressiva, e representativa" dos
+  boletins, sem número, e o padrão era o da apuração do TSE (Flávio crescendo pouco por urna, Lula de 2% a 4%). A coluna não
+  relata divergência e não tem fonte oficial do PL. Não achei publicação da comparação, nem número de boletins, nem alegação de
+  boletim impresso diferente do publicado.
+- Depois: em 26/10 (Poder360, 20h54), nota assinada por Valdemar Costa Neto: "Reconhecemos o resultado presidencial, proclamado
+  pelo Tribunal Superior Eleitoral, mas entendemos que os questionamentos levantados precisam ser devidamente esclarecidos",
+  criticando gastos do governo na reta final, sem citar boletins, auditoria ou teste de integridade. A versão "Reconhecemos a
+  dimensão do resultado", de um site menor usado na pesquisa anterior, não confere com o Poder360; vale a do Poder360. A campanha
+  de Flávio desistiu da anulação e passou a uma ação por abuso de poder (Aije), que não trata de urna.
+- O que isso prova e o que não prova: os boletins impressos saem da urna antes da transmissão. Batendo com os publicados, como
+  tudo indica, fica excluída fraude na transmissão e na totalização (o que o T1 e o T18 também mostram). Mas o boletim é impresso
+  pelo mesmo programa que conta os votos: se o programa trocasse votos, o boletim já sairia trocado e bateria do mesmo jeito.
+
+7. Escala: por que a fraude teria de reconhecer o teste (D4)
+- Margem de Lula: 4.430.191 votos. Para virar, 2.215.095 votos de Lula para Flávio, 1,79% dos 124,1 milhões de votos dos
+  finalistas; em média 249 votos de finalistas por seção.
+- Adulteração em parte das urnas, ao acaso, sem reconhecer o teste (chance de nenhuma urna adulterada cair entre as testadas):
+    10 votos por urna: 221.509 urnas (44,4%); com 640 testadas, 1e-163.
+    25 votos por urna: 88.603 urnas (17,7%); 5e-55.
+    50 votos por urna: 44.301 urnas (8,9%); 1,5e-26.
+    100 votos por urna: 22.150 urnas (4,4%); 2,4e-13.
+    Todos os votos de finalistas da urna média: 8.911 urnas (1,8%); 9,8e-6 (com 500 testadas, 1,2e-4).
+- Desvio espalhado em todas as urnas: cerca de 3,5 votos trocados a cada 195 digitados; perto de 2.200 nas 640 urnas; no teste com
+  biometria, com 75 votos por urna, cerca de 1,3 por urna.
+- Conclusão da conta: se houve fraude no programa do tamanho necessário, ela não foi pega por azar; teria de reconhecer o teste
+  em praticamente todas as urnas testadas, nas duas modalidades, ou saber de antemão quais seriam testadas (escolhidas na véspera,
+  depois da carga, em parte pelos próprios partidos).
+
+8. Lista: o que uma fraude no programa precisaria driblar, controle por controle, e de quem depende cada um
+  1) Código-fonte aberto às entidades (out/2025 a set/2026). A fraude precisa: não estar no código mostrado, ou estar escondida o
+     bastante para passar por quem leu, ou entrar depois, na compilação. Depende: de fora (quem inspeciona), mas a inspeção é feita
+     no TSE, sobre o material que o TSE mostra. O PL não aparece entre os inspetores de 2026.
+  2) Compilação e assinatura (fim de agosto e 04/09/2026). A fraude precisa: entrar entre o código lido e o programa compilado
+     (compilador, bibliotecas, máquina de compilação), antes de o resumo ser gerado; daí em diante tudo bate. As entidades assinam
+     o resumo do que o TSE compilou; não achei notícia de compilação refeita por terceiro a partir do código. Depende: SÓ DO TSE.
+  3) Teste Público de Segurança (dez/2025 e mai/2026). A fraude precisa: não ser achada por quem ataca de fora, no tempo e nas
+     regras do TSE; o teste não procura código plantado por dentro. Depende: do TSE, que define o escopo.
+  4) Carga e lacre das urnas (setembro, e as reservas no sábado 24/10). A fraude precisa: estar no programa assinado ou nos dados de
+     carga gerados pelo sistema do TSE. Depende: SÓ DO TSE (partidos podem assistir à cerimônia, não ao que está dentro da mídia).
+  5) Teste de autenticidade (manhã do dia, de 3 a 10 urnas por UF). A fraude precisa: estar dentro do programa assinado (aí passa
+     sem esforço) ou enganar a verificação. Depende: SÓ DO TSE (programa de verificação do TSE; programa próprio de entidade não
+     achado em 2026).
+  6) Teste de integridade (cerca de 650 urnas, teto 706, das quais de 30 a 65 com biometria). É o único controle que compara a
+     contagem do programa com um registro que não sai do programa (o papel). A fraude precisa: ficar honesta em todas as urnas
+     testadas, e como a escolha é na véspera, em parte pelos partidos, ela teria de reconhecer o teste de dentro da urna: nenhuma
+     digital no dia (modalidade principal; nenhuma urna real da amostra), ou quase só digital e poucos eleitores (modalidade com
+     biometria; 0,2% das urnas reais), ou o ritmo regular das 8h às 17h. Depende: o lado do papel é de fora (cédulas, digitação
+     por servidores, câmera, empresa de auditoria, TCU, partidos); o que o programa faz ao ver esses sinais SÓ O TSE SABE, e só a
+     leitura do código (1) e a confiança na compilação (2) respondem.
+  7) Boletim impresso, assinado, com QR Code, recolhido por fiscais (PL) e publicado pelo TSE. A fraude no programa não precisa
+     fazer nada: o boletim sai com o número já alterado. Fraude na totalização teria de enfrentar os boletins do PL, os do TCU e as
+     conferências deste estudo (T1, soma dos boletins igual ao total; T18, 3.897 assinaturas válidas). Depende: de fora (PL);
+     cego para fraude no programa.
+  8) RDV e log da urna (T2, T3, T18 a T20, T30). A fraude precisa: gerar RDV e log coerentes com o boletim, trivial para quem altera
+     o programa. Depende: SÓ DO TSE (são do mesmo programa).
+  9) Caderno de votação, comparecimento e fiscais na seção. A fraude precisa: manter o total de votos igual ao de eleitores; troca
+     de voto entre candidatos não muda o total. Depende: de fora; cego para troca.
+ 10) Coerência entre cargos na mesma urna (T22b). A fraude precisa: alterar também o voto do governador aliado de Flávio em AM, DF
+     e ES, onde ele perdeu junto, ou não existir. Depende: dos registros do TSE; uma fraude no programa pode mexer nos dois cargos.
+ 11) Pesquisas. Não passam pela urna e não pegam fraude; o que mostram é a sombra: o descompasso na base de direita do 1º turno
+     segue de pé (T37, T11, T12), com explicação concorrente (troca de eleitores entre os turnos) ainda não descartada.
+ 12) Observação (OEA, TCU, MP, OAB). De fora; olham o procedimento, não o programa por dentro.
+  Dependem só do sistema do TSE: 2, 4, 5 e 8; e a pergunta decisiva do 6. Dependem do TSE em parte: 1 e 3. De fora: 6 (papel), 7,
+  9, 11 e 12. Para uma fraude no programa, todo controle de fora ou é cego para ela (7, 9, 11, 12) ou depende de o programa não
+  reconhecer o teste (6). O que fecha a porta é a leitura do código por terceiros mais a garantia de que o programa assinado em
+  04/09 veio daquele código. Essa garantia hoje é dada pela cerimônia do TSE, não por uma compilação independente.
+  Do outro lado da balança: um programa assim teria de conter, no código lido por várias entidades e assinado em público, uma
+  regra que olha a biometria e o volume para decidir se troca votos, sem que nenhum inspetor, nenhum TPS e nenhuma das ~650
+  urnas testadas desse sinal; e a fraude teria de ter atingido também o governador aliado de Flávio onde ele perdeu junto.
+  Nenhuma fonte encontrada aponta essa regra.
+
+9. O que ficou de fora e como fechar
+- Total nacional e resultado por TRE do 2º turno: relatórios dos TREs, das empresas de auditoria e do TCU (até 24/11/2026).
+- A divergência do DF: urna, seção, cargo, de qual voto para qual e o trecho do vídeo (pedido ao TRE-DF pela Lei de Acesso à
+  Informação, ou pelo PL, que tinha fiscais).
+- Número de série das urnas testadas, para comparar com a urna que votou no 1º turno em cada seção escolhida (para AL, a urna do
+  1º turno de cada seção está em L7_dados.json); e o log da urna testada, que mostraria a habilitação, o volume e o ritmo do teste.
+- Quantos voluntários e quantos votos em cada urna com biometria; quantas urnas com biometria no país.
+- O PL: quantos boletins recolheu e a comparação com os publicados (pedir ao partido que publique).
+- Se alguma entidade usou programa próprio de verificação em 2026; se o PL inspecionou o código; se alguém refez a compilação.
+- Exterior: confirmar em fonte primária que não há biometria; a amostra de logs não tem seção do exterior.
+- Forças Armadas como entidade fiscalizadora em 2026: não achei nada do ciclo de 2026.
+
+10. Desvios e leituras
+- O L7 não tem critério numérico; os itens 2, 3 e 7 são acréscimos descritivos, com especificação escrita no script antes de
+  calcular a virada (D1 a D4). Nenhum deles muda o veredito, que pela letra é DESCRITIVO.
+- "Quantas urnas": sem número oficial, uso o anúncio de cada TRE quando há e a pegada do bweb como teto; a pegada é contagem de
+  troca de urna com carga no sábado, não lista do teste (em SP sobram 39).
+- D3: a especificação pedia 30 seções que identificam; o grupo de 90% ou mais tem 29 e ficou só na contagem, como escrito.
+- O texto da tarefa diz que o PL reconheceu o resultado em 26/10: confere (Poder360, Metrópoles, Terra, Revista Oeste).
+- Fontes jus.br: lidas pelo resumo do buscador, por causa do 403; marcadas no JSON.
+
+Fontes principais (todas no L7_pesquisa.json, com data e grau de confiança)
+- Agência Brasil, 24/10/2026: https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno
+- Res. TSE 23.758/2026: https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-758-de-2-de-marco-de-2026
+- TSE, 2º turno no Museu do Voto: https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-do-2o-turno-no-tse-confirma-correspondencia-entre-cedulas-e-votos-nas-urnas
+- TRE-SP, 2º turno: https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-das-urnas-no-2o-turno-e-concluido-sem-divergencias-em-sao-paulo
+- TRE-SP, escolha pelas entidades: https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-fiscalizadores-definem-urnas-para-os-testes-de-integridade-e-de-autenticidade-do-2o-turno
+- DF, Agência CLDF reproduzida: https://bombabomba.com.br/urnas-eletronicas-sao-aprovadas-em-teste-de-integridade-realizado-na-cldf-no-2o-turno/
+- AL, lista: https://francesnews.com.br/post/2026/10/26/43576-treal-sorteia-23-urnas-eletronicas-para-auditoria-no-segundo-turno-das-eleicoes-2026
+- AL, resultado: https://www.cadaminuto.com.br/noticia/2026/10/27/eleicoes-2026-23-urnas-eletronicas-foram-auditadas-durante-o-2-turno-em-al
+- PB, lista: https://www.paraibamix.com.br/eleicoes-2026-confira-as-secoes-eleitorais-da-paraiba-selecionadas-para-auditoria-no-2o-turno/
+- SC, Alesc: https://alesc.sc.gov.br/agencia/noticia/segundo-turno-eleicoes-2026-teste-urnas-alesc/
+- TRE-AM, ambiente controlado: https://www.tre-am.jus.br/comunicacao/noticias/2026/Setembro/eleicoes-2026-tre-am-realizara-auditoria-em-23-urnas-eletronicas-no-primeiro-turno
+- TCU: https://portal.tcu.gov.br/imprensa/noticias/eleicoes-2026-tcu-acompanha-testes-de-integridade-das-urnas-eletronicas
+- TCU, 55 auditores: https://www.dgabc.com.br/Noticia/4350743/-55-auditores-do-tcu-acompanham-teste-de-integridade-das-urnas-no-brasil
+- Lacração, Agência Senado: https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026
+- Autenticidade, TRE-SP: https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/urnas-passam-por-teste-de-autenticidade-no-2o-turno-das-eleicoes-2026-em-sao-paulo
+- Código-fonte, União Brasil: https://www.poder360.com.br/poder-eleicoes/uniao-brasil-inspeciona-codigos-fonte-de-urnas-para-eleicoes-2026/
+- TPS 2025: https://www.ocafezinho.com/2025/12/05/teste-da-urna-2025-seguranca-robustez-e-transparencia-dos-sistemas-eleitorais/amp/
+- TPS 2017 (artigo dos autores): https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174
+- Defesa 2022: https://www.gazetadopovo.com.br/republica/relatorio-ministerio-defesa-nao-aponta-fraude-nas-urnas-eleicoes/
+- Piloto com biometria de 2022: https://www.tnh1.com.br/noticia/nid/urnas-tem-100-de-aprovacao-em-novo-teste-de-integridade-diz-tse/
+- Biometria, 2024: https://www.tse.jus.br/comunicacao/noticias/2024/Outubro/eleitores-podem-ser-convidados-para-participar-do-teste-de-integridade-com-biometria-na-secao-eleitoral
+- Auditoria externa 2024: https://www.tse.jus.br/eleicoes/eleicoes-2024-content/arquivos-teste-de-integridade/arquivos-segundo-turno/rs-relatorio-auditoria-externa-2024-2o-turno-ass
+- PL, fiscais e QR Code: https://www.metropoles.com/colunas/demetrio-vecchioli/com-exercito-de-fiscais-pl-tinha-nocao-da-derrota-desde-as-17h
+- PL, convocação: https://www.abcdoabc.com.br/pl-convoca-fiscais-monitorar-segundo-turno/
+- PL, reconhecimento: https://www.poder360.com.br/poder-eleicoes-2026/pl-reconhece-vitoria-de-lula-apos-flavio-contestar-resultado/
+- PL, reconhecimento: https://www.metropoles.com/brasil/presidente-do-pl-valdemar-costa-neto-reconhece-vitoria-de-lula
+- TSE sobre os fiscais do PL: https://www.metropoles.com/brasil/tse-desmente-flavio-bolsonaro-sobre-retirada-de-fiscais-do-pl-de-sala-cofre
+- PL e IVL, 2022: https://www.cartacapital.com.br/politica/valdemar-foi-informado-por-auditoria-do-pl-que-nao-foram-encontradas-provas-de-fraude-nas-urnas-diz-site/
+- Urnas substituídas no 2º turno: https://ndmais.com.br/politica/urnas-eletronicas-substituidas-segundo-turno-eleicoes-2026/
+- Exterior sem biometria: https://www.tnh1.com.br/tnh1-variedades/brasileiros-precisam-ficar-sabendo-da-regra-sobre-a-biometria-na-eleicoes-de-2026/
+- OEA: https://www.radiopampa.com.br/sistema-eleitoral-brasileiro-e-muito-solido-e-muito-claro-diz-observador-da-organizacao-dos-estados-americanos-apos-acompanhar-votacao/

@@ -1,0 +1,305 @@
+L1. Horários impossíveis em todas as seções, bweb dos dois turnos de 2026 (Adendo 18)
+Script: scripts/analisar_L1.py. Números completos e a lista de todas as seções impossíveis: resultados/L1_horarios.json.
+Bases: bweb do 1º turno (28 zips de 05/10/2026 14h03) e do 2º turno (28 zips de 26/10/2026 07h42), todos os cargos, uma linha
+por seção (campos de horário, carga e urna); votos de presidente por seção dos dois turnos (secoes2026.json.gz).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, L1, antes de rodar):
+  "Impossível: encerramento antes das 17h00 de Brasília com comparecimento acima de zero; emissão do boletim antes do
+  encerramento; recebimento antes da emissão; abertura antes das 7h ou depois das 10h de Brasília sem urna de contingência;
+  carga fora da janela de carga do turno na UF." "Sinal: 100 ou mais seções impossíveis no 2º turno sem explicação por fuso,
+  contingência ou junta, ou qualquer número delas em que a virada de Lula supere a das outras seções do mesmo local em 3 pontos
+  ou mais. Sem sinal: nenhuma seção impossível sem explicação. Entre os dois: inconclusivo, com a lista das seções para conferência."
+
+VEREDITO PELA LETRA: INCOERÊNCIA
+Motivo: 18 seções impossíveis sem explicação no 2º turno (abaixo de 100), e 1 delas com virada de Lula 3 pontos ou mais acima das outras seções do mesmo local (leitura literal, seção a seção).
+Na leitura em grupo do mesmo trecho (média das seções sem explicação): INCONCLUSIVO.
+
+Resumo
+- 2º turno: 499.207 seções; 614 violam alguma regra; 18 ficam sem explicação por fuso,
+  contingência ou junta. As outras 596 são do exterior, onde a hora local da cidade é
+  comparada com o recebimento em hora de Brasília; com o fuso real de cada cidade, todas ficam possíveis.
+- As 18 do 2º turno formam dois grupos: 10 abriram depois das 10h (atraso, sem troca de urna),
+  8 tiveram o boletim recebido pelo TSE de 5 a 52 segundos antes da hora de emissão marcada pela urna
+  (relógio da urna adiantado; todas recebidas entre 17h05 e 17h07, as transmissões mais rápidas do país).
+- Nenhum encerramento antes das 17h, nenhuma emissão antes do encerramento e nenhuma carga fora da janela, nos dois turnos.
+- O gatilho do sinal: 1 das 9 seções sem explicação com seção de comparação no local tem virada de Lula
+  3 pontos ou mais acima das outras do local (PR|75990|34|133). Média das 9: -0,43 ponto
+  (ep 0,50, 8 locais); ponderada pelos votos: -0,90 (ep 0,66).
+  Probabilidade de pelo menos uma de 9 seções ter d >= 3 só pelo acaso (frequência de d >= 3 entre todas as
+  seções da mesma faixa de votos): 66%.
+- 1º turno, mesma régua, mesma eleição: 597 violam alguma regra e 16 ficam sem explicação
+  (26 se a explicação por fuso exigir abertura normal depois do ajuste; ver item 4). Os dois turnos
+  têm o mesmo tipo e quase o mesmo número de casos (18 no 2º).
+- Descritivo, fora do registro: contra as outras seções do município, as 18 sem explicação do 2º turno têm d médio de
+  -0,20 ponto (de -11,86 a 11,96); a maior a favor de Lula é PA|4200|102|54 (JACAREACANGA), a maior a
+  favor de Flávio é PA|5010|22|259 (ÓBIDOS); as duas não têm outra seção no mesmo local e ficam fora da medida registrada (item 6).
+
+1. Em que relógio está cada campo (verificado antes de aplicar as regras)
+  1º turno, por grupo de deslocamento do município (0 = Brasília; ZZ = exterior):
+     -1: 29.211 seções; emissão menos encerramento (min) p1 0,2, mediana 2,3, p99 5,9; encerramento local mediano 16,08 h; recebimento (relógio do TSE) p1 17,22 h, mediana 18,33 h; recebimento menos emissão bruta, mínimo 5,5 min
+     -2: 2.826 seções; emissão menos encerramento (min) p1 0,2, mediana 2,3, p99 5,8; encerramento local mediano 15,05 h; recebimento (relógio do TSE) p1 17,18 h, mediana 18,32 h; recebimento menos emissão bruta, mínimo 124,5 min
+      0: 465.848 seções; emissão menos encerramento (min) p1 0,2, mediana 2,3, p99 5,8; encerramento local mediano 17,07 h; recebimento (relógio do TSE) p1 17,35 h, mediana 18,77 h; recebimento menos emissão bruta, mínimo -25,5 min
+      1: 10 seções; emissão menos encerramento (min) p1 0,1, mediana 0,2, p99 1,9; encerramento local mediano 19,08 h; recebimento (relógio do TSE) p1 17,95 h, mediana 18,52 h; recebimento menos emissão bruta, mínimo -46,1 min
+     ZZ: 1.281 seções; emissão menos encerramento (min) p1 0,5, mediana 1,6, p99 5,4; encerramento local mediano 17,13 h; recebimento (relógio do TSE) p1 17,13 h, mediana 17,13 h; recebimento menos emissão bruta, mínimo -81,6 min
+  2º turno, por grupo de deslocamento do município (0 = Brasília; ZZ = exterior):
+     -1: 29.211 seções; emissão menos encerramento (min) p1 0,2, mediana 2,0, p99 4,8; encerramento local mediano 16,02 h; recebimento (relógio do TSE) p1 19,05 h, mediana 19,95 h; recebimento menos emissão bruta, mínimo 60,4 min
+     -2: 2.826 seções; emissão menos encerramento (min) p1 0,2, mediana 2,0, p99 5,1; encerramento local mediano 15,02 h; recebimento (relógio do TSE) p1 19,05 h, mediana 19,93 h; recebimento menos emissão bruta, mínimo 122,5 min
+      0: 465.850 seções; emissão menos encerramento (min) p1 0,2, mediana 2,0, p99 5,2; encerramento local mediano 17,02 h; recebimento (relógio do TSE) p1 19,05 h, mediana 20,47 h; recebimento menos emissão bruta, mínimo -0,9 min
+      1: 10 seções; emissão menos encerramento (min) p1 1,1, mediana 1,7, p99 3,6; encerramento local mediano 20,11 h; recebimento (relógio do TSE) p1 19,13 h, mediana 20,98 h; recebimento menos emissão bruta, mínimo 39,9 min
+     ZZ: 1.281 seções; emissão menos encerramento (min) p1 0,4, mediana 1,4, p99 4,4; encerramento local mediano 17,08 h; recebimento (relógio do TSE) p1 17,08 h, mediana 17,08 h; recebimento menos emissão bruta, mínimo -71,5 min
+  Leitura: abertura, encerramento e emissão estão no relógio da urna, em hora local (a emissão vem cerca de 2 minutos depois
+  do encerramento em todos os fusos; o encerramento mediano é 17h, 16h e 15h nos fusos 0, -1 e -2). O recebimento está em
+  hora de Brasília: a hora de recebimento tem a mesma distribuição em todos os fusos, e o menor intervalo bruto entre emissão e
+  recebimento é de cerca de 1 hora no fuso -1 e de 2 horas no fuso -2, a diferença de fuso. A carga está em hora local (as cargas
+  do AC se concentram das 8h às 17h locais, com a pausa do almoço ao meio-dia, como no resto do país).
+  Fuso dos municípios (hora modal de abertura): BR|8 5.198, BR|7 339, ZZ|8 117, BR|6 33, BR|9 1 (BR|8 = Brasília; BR|7 = MT, MS, RO, RR e parte do AM; BR|6 = AC e oeste do AM; BR|9 = Fernando de Noronha; ZZ|8 = exterior, hora local).
+  O fuso modal é o mesmo nos dois turnos em todos os municípios: {'8|8': 5315, '7|7': 339, '6|6': 33, '9|9': 1}.
+  Base de fusos do exterior: # version 2026e (a Europa saiu do horário de verão na madrugada de 25/10/2026; os EUA só em 01/11).
+
+2. Janela oficial de carga e datas de carga por UF
+  O que diz a norma (fontes no fim):
+  - Calendário eleitoral de 2026 (Res. TSE 23.760/2026): não fixa data nacional para a carga das urnas.
+  - Sistemas assinados digitalmente e lacrados no TSE em 04/09/2026; a carga só pode usar os sistemas lacrados. Cada TRE marca as
+    cerimônias de carga das suas zonas, com convocação dos partidos, MP e OAB pelo menos 2 dias antes (art. 100 da Res. TSE 23.751/2026).
+  - 2º turno: as urnas são as mesmas do 1º; recebem só a nova mídia de resultado, e os lacres são mantidos, menos o da mídia de
+    resultado (art. 108 da Res. 23.751/2026; TRE-PB: "não exige uma nova carga"; TRE-MG: "as urnas são as mesmas"). Se a preparação
+    falha, faz-se nova carga ou prepara-se nova urna (art. 109). No dia, a urna que falha é trocada pela de contingência (arts. 99 a 101).
+  - Cronogramas estaduais achados na imprensa: 1º turno, SE de 18 a 28/09, MT 21 e 22/09 na capital, SP a partir de 23/09; preparação
+    do 2º turno, PR de 12 a 20/10, BA de 14 a 22/10, CE de 14 a 16/10, PB até 16/10, MS até 17/10, SP até 23/10.
+  Janela aplicada (leitura declarada): 1º turno, de 04/09/2026 até o fim de 04/10/2026; 2º turno, de 04/09/2026 até o fim de 25/10/2026,
+  porque a urna do 2º turno guarda a carga feita para o 1º (art. 108) e as cargas novas (art. 109, contingência) vêm depois do 1º turno.
+  O que os dados mostram:
+  - 1º turno: 499.206 seções com data de carga; primeira 2026-09-15, última 2026-10-04; antes de 01/10: 491.996 (98,56%).
+  - 2º turno: 499.207 seções com data de carga; primeira 2026-09-15, última 2026-10-25; antes de 01/10: 489.728 (98,10%).
+    No 2º turno, 1.531 seções têm carga de 05/10 a 23/10 (urnas recarregadas ou novas na preparação do 2º turno, art. 109),
+    709 têm carga na véspera (24/10) e 5 no próprio dia 25/10.
+    Véspera por UF: SP 72, BA 36, CE 36, MG 34, RJ 33, PR 32, SC 30, GO 29, MA 27, PA 27, RS 27, PE 26, RN 22, TO 21, AL 20, AM 20, AP 20, DF 20, ES 20, MS 20, MT 20, PI 20, RR 20, SE 20, AC 19, PB 19, RO 19.
+    O padrão (cerca de 20 por UF e mais nas UFs grandes) é o do teste de integridade: a urna sorteada sai da seção na véspera e outra
+    é carregada para a seção (o 2º turno teve 20 urnas na maior parte das UFs, 27 em PR, RS, PE e CE e 33 em SP, MG, RJ e BA, segundo a
+    Agência Brasil); 706 das 709 têm número de urna diferente do 1º turno.
+    1º turno, véspera (03/10) por UF: SP 103, BA 43, CE 42, PR 40, MG 37, SC 34, RJ 33, PA 31, RS 31, GO 30, MA 30, RN 28, PE 27, AP 22, AM 21, RO 21, AC 20, AL 20, DF 20, ES 20, MT 20, PB 20, RR 20, TO 20, MS 19, PI 19, SE 19.
+  Datas de carga por UF (percentis 1, 50 e 99; mínimo e máximo):
+   1º turno:
+    AC: n 2.270; mín 23/09 08:10; p1 23/09; mediana 24/09; p99 27/09; máx 03/10 10:48; 03/10: 20; 04/10: 0
+    AL: n 7.101; mín 18/09 08:17; p1 18/09; mediana 23/09; p99 28/09; máx 03/10 13:59; 03/10: 20; 04/10: 0
+    AM: n 8.157; mín 17/09 14:09; p1 17/09; mediana 28/09; p99 01/10; máx 03/10 18:26; 03/10: 21; 04/10: 0
+    AP: n 1.914; mín 21/09 09:15; p1 21/09; mediana 25/09; p99 03/10; máx 03/10 16:09; 03/10: 22; 04/10: 0
+    BA: n 35.476; mín 21/09 07:46; p1 21/09; mediana 26/09; p99 01/10; máx 04/10 05:50; 03/10: 43; 04/10: 1
+    CE: n 23.765; mín 21/09 08:24; p1 21/09; mediana 24/09; p99 01/10; máx 03/10 16:02; 03/10: 42; 04/10: 0
+    DF: n 6.969; mín 22/09 08:47; p1 23/09; mediana 26/09; p99 30/09; máx 03/10 13:14; 03/10: 20; 04/10: 0
+    ES: n 9.844; mín 21/09 08:33; p1 21/09; mediana 22/09; p99 25/09; máx 03/10 12:21; 03/10: 20; 04/10: 0
+    GO: n 15.686; mín 20/09 08:44; p1 21/09; mediana 26/09; p99 30/09; máx 03/10 17:46; 03/10: 30; 04/10: 0
+    MA: n 18.093; mín 22/09 08:01; p1 22/09; mediana 29/09; p99 30/09; máx 03/10 18:00; 03/10: 30; 04/10: 0
+    MG: n 52.062; mín 18/09 09:46; p1 19/09; mediana 22/09; p99 27/09; máx 04/10 07:51; 03/10: 37; 04/10: 1
+    MS: n 7.106; mín 20/09 08:08; p1 20/09; mediana 24/09; p99 29/09; máx 03/10 13:17; 03/10: 19; 04/10: 0
+    MT: n 8.287; mín 18/09 08:51; p1 21/09; mediana 23/09; p99 25/09; máx 03/10 15:01; 03/10: 20; 04/10: 0
+    PA: n 20.827; mín 20/09 08:04; p1 20/09; mediana 24/09; p99 29/09; máx 03/10 17:12; 03/10: 31; 04/10: 0
+    PB: n 10.712; mín 21/09 08:10; p1 21/09; mediana 23/09; p99 25/09; máx 03/10 15:02; 03/10: 20; 04/10: 0
+    PE: n 21.418; mín 21/09 08:18; p1 21/09; mediana 24/09; p99 28/09; máx 03/10 15:38; 03/10: 27; 04/10: 0
+    PI: n 10.225; mín 20/09 09:14; p1 22/09; mediana 28/09; p99 01/10; máx 03/10 16:18; 03/10: 19; 04/10: 0
+    PR: n 27.142; mín 18/09 08:53; p1 18/09; mediana 24/09; p99 27/09; máx 04/10 08:09; 03/10: 40; 04/10: 1
+    RJ: n 37.675; mín 21/09 08:12; p1 21/09; mediana 23/09; p99 28/09; máx 03/10 17:18; 03/10: 33; 04/10: 0
+    RN: n 8.115; mín 18/09 09:04; p1 18/09; mediana 23/09; p99 25/09; máx 03/10 17:29; 03/10: 28; 04/10: 0
+    RO: n 4.698; mín 21/09 08:20; p1 21/09; mediana 23/09; p99 30/09; máx 03/10 16:06; 03/10: 21; 04/10: 0
+    RR: n 1.519; mín 22/09 08:29; p1 22/09; mediana 24/09; p99 03/10; máx 03/10 09:09; 03/10: 20; 04/10: 0
+    RS: n 27.547; mín 17/09 08:22; p1 17/09; mediana 22/09; p99 25/09; máx 03/10 15:31; 03/10: 31; 04/10: 0
+    SC: n 17.326; mín 19/09 08:39; p1 19/09; mediana 23/09; p99 27/09; máx 04/10 09:54; 03/10: 34; 04/10: 4
+    SE: n 5.923; mín 18/09 07:45; p1 18/09; mediana 22/09; p99 28/09; máx 03/10 10:50; 03/10: 19; 04/10: 0
+    SP: n 103.656; mín 23/09 11:16; p1 23/09; mediana 26/09; p99 29/09; máx 03/10 19:06; 03/10: 103; 04/10: 0
+    TO: n 4.384; mín 23/09 08:48; p1 23/09; mediana 24/09; p99 25/09; máx 03/10 17:20; 03/10: 20; 04/10: 0
+    ZZ: n 1.309; mín 15/09 15:57; p1 16/09; mediana 17/09; p99 18/09; máx 18/09 15:17; 03/10: 0; 04/10: 0
+   2º turno:
+    AC: n 2.270; mín 23/09 08:10; p1 23/09; mediana 24/09; p99 03/10; máx 24/10 11:22; de 05 a 23/10: 0; 24/10: 19; 25/10: 0
+    AL: n 7.101; mín 18/09 08:17; p1 18/09; mediana 23/09; p99 28/09; máx 24/10 12:57; de 05 a 23/10: 7; 24/10: 20; 25/10: 0
+    AM: n 8.157; mín 17/09 14:09; p1 17/09; mediana 28/09; p99 01/10; máx 24/10 12:37; de 05 a 23/10: 3; 24/10: 20; 25/10: 0
+    AP: n 1.914; mín 21/09 09:15; p1 21/09; mediana 25/09; p99 24/10; máx 24/10 14:01; de 05 a 23/10: 0; 24/10: 20; 25/10: 0
+    BA: n 35.476; mín 21/09 07:46; p1 21/09; mediana 26/09; p99 02/10; máx 24/10 16:04; de 05 a 23/10: 166; 24/10: 36; 25/10: 0
+    CE: n 23.765; mín 21/09 08:24; p1 21/09; mediana 25/09; p99 01/10; máx 24/10 15:40; de 05 a 23/10: 71; 24/10: 36; 25/10: 0
+    DF: n 6.969; mín 22/09 08:47; p1 23/09; mediana 26/09; p99 30/09; máx 24/10 11:16; de 05 a 23/10: 3; 24/10: 20; 25/10: 0
+    ES: n 9.844; mín 21/09 08:33; p1 21/09; mediana 22/09; p99 02/10; máx 24/10 12:06; de 05 a 23/10: 52; 24/10: 20; 25/10: 0
+    GO: n 15.686; mín 20/09 08:44; p1 21/09; mediana 26/09; p99 01/10; máx 24/10 14:40; de 05 a 23/10: 14; 24/10: 29; 25/10: 0
+    MA: n 18.093; mín 22/09 08:01; p1 22/09; mediana 29/09; p99 30/09; máx 24/10 17:16; de 05 a 23/10: 7; 24/10: 27; 25/10: 0
+    MG: n 52.062; mín 18/09 09:46; p1 19/09; mediana 22/09; p99 27/09; máx 24/10 17:46; de 05 a 23/10: 161; 24/10: 34; 25/10: 0
+    MS: n 7.106; mín 20/09 08:08; p1 20/09; mediana 24/09; p99 03/10; máx 25/10 07:36; de 05 a 23/10: 33; 24/10: 20; 25/10: 2
+    MT: n 8.287; mín 18/09 08:51; p1 21/09; mediana 23/09; p99 25/09; máx 24/10 15:18; de 05 a 23/10: 6; 24/10: 20; 25/10: 0
+    PA: n 20.827; mín 20/09 08:04; p1 20/09; mediana 24/09; p99 29/09; máx 24/10 12:33; de 05 a 23/10: 45; 24/10: 27; 25/10: 0
+    PB: n 10.712; mín 21/09 08:10; p1 21/09; mediana 23/09; p99 25/09; máx 24/10 12:53; de 05 a 23/10: 36; 24/10: 19; 25/10: 0
+    PE: n 21.418; mín 21/09 08:18; p1 21/09; mediana 24/09; p99 28/09; máx 24/10 15:08; de 05 a 23/10: 72; 24/10: 26; 25/10: 0
+    PI: n 10.225; mín 20/09 09:14; p1 22/09; mediana 28/09; p99 01/10; máx 24/10 17:48; de 05 a 23/10: 9; 24/10: 20; 25/10: 0
+    PR: n 27.142; mín 18/09 08:53; p1 18/09; mediana 24/09; p99 27/09; máx 25/10 10:04; de 05 a 23/10: 61; 24/10: 32; 25/10: 2
+    RJ: n 37.675; mín 21/09 08:12; p1 21/09; mediana 23/09; p99 29/09; máx 24/10 15:41; de 05 a 23/10: 59; 24/10: 33; 25/10: 0
+    RN: n 8.115; mín 18/09 09:04; p1 18/09; mediana 23/09; p99 25/09; máx 24/10 13:09; de 05 a 23/10: 13; 24/10: 22; 25/10: 0
+    RO: n 4.698; mín 21/09 08:20; p1 21/09; mediana 23/09; p99 30/09; máx 24/10 18:03; de 05 a 23/10: 1; 24/10: 19; 25/10: 0
+    RR: n 1.519; mín 22/09 08:29; p1 22/09; mediana 24/09; p99 24/10; máx 24/10 08:30; de 05 a 23/10: 0; 24/10: 20; 25/10: 0
+    RS: n 27.547; mín 17/09 08:22; p1 17/09; mediana 22/09; p99 26/09; máx 24/10 15:00; de 05 a 23/10: 11; 24/10: 27; 25/10: 0
+    SC: n 17.326; mín 19/09 08:39; p1 19/09; mediana 23/09; p99 28/09; máx 24/10 14:36; de 05 a 23/10: 30; 24/10: 30; 25/10: 0
+    SE: n 5.923; mín 18/09 07:45; p1 18/09; mediana 22/09; p99 03/10; máx 24/10 10:30; de 05 a 23/10: 38; 24/10: 20; 25/10: 0
+    SP: n 103.656; mín 23/09 11:16; p1 23/09; mediana 26/09; p99 30/09; máx 25/10 07:58; de 05 a 23/10: 628; 24/10: 72; 25/10: 1
+    TO: n 4.384; mín 23/09 08:48; p1 23/09; mediana 24/09; p99 03/10; máx 24/10 15:02; de 05 a 23/10: 5; 24/10: 21; 25/10: 0
+    ZZ: n 1.310; mín 15/09 15:57; p1 16/09; mediana 17/09; p99 18/09; máx 18/09 15:17; de 05 a 23/10: 0; 24/10: 0; 25/10: 0
+  Urna efetivada diferente entre os turnos: 4.435 de 499.206 seções. Nas que mantiveram a urna,
+  código e data da carga iguais nos dois turnos: 494.401; os dois diferentes (urna
+  recarregada entre os turnos): 370.
+
+3. Contagem por regra
+  1º turno: A (encerramento antes das 17h) 0; B (emissão antes do encerramento) 0; C (recebimento antes da emissão) 575; D (abertura antes das 7h ou depois das 10h, sem contingência) 22; E (carga fora da janela) 0; junta ou sem horário 30; sem data de carga 0.
+     Abertura fora de 7h a 10h que a regra D deixa de fora por ter marca de contingência: 0.
+     Fora do registro: carga da urna efetivada depois da abertura do mesmo boletim: 2: SC|83518|46|38 carga 04/10 09:45:00, abertura 04/10 08:00:01, troca não, carga no dia sim; SC|83518|46|113 carga 04/10 09:54:00, abertura 04/10 08:00:01, troca não, carga no dia sim.
+     (A urna que recebe a mídia de votação de outra no meio do dia traz a abertura da primeira; é o retrato da contingência.)
+  2º turno: A (encerramento antes das 17h) 0; B (emissão antes do encerramento) 0; C (recebimento antes da emissão) 604; D (abertura antes das 7h ou depois das 10h, sem contingência) 10; E (carga fora da janela) 0; junta ou sem horário 29; sem data de carga 0.
+     Abertura fora de 7h a 10h que a regra D deixa de fora por ter marca de contingência: 6: BA|33073|74|241 abriu 10:14:40 (Brasília), carga 22/09 18:23:00, urna 1673837 (outro turno 1803313); BA|34134|170|105 abriu 10:03:45 (Brasília), carga 30/09 14:16:00, urna 1674939 (outro turno 1765718); BA|38717|178|118 abriu 10:23:25 (Brasília), carga 02/10 10:26:00, urna 1674211 (outro turno 1656201); PR|74918|56|37 abriu 10:02:54 (Brasília), carga 25/10 09:20:00, urna 1797363 (outro turno 1803403); PR|75833|43|397 abriu 10:51:03 (Brasília), carga 25/10 10:04:00, urna 2462584 (outro turno 2436579); MA|8974|70|165 abriu 10:07:57 (Brasília), carga 30/09 15:26:00, urna 2074942 (outro turno 2083766).
+     Fora do registro: carga da urna efetivada depois da abertura do mesmo boletim: 0.
+     (A urna que recebe a mídia de votação de outra no meio do dia traz a abertura da primeira; é o retrato da contingência.)
+
+4. Grupos de seções impossíveis e explicação de cada um
+  1º turno:
+    exterior | regras C | fuso: 510 seções; UFs {'ZZ': 510}; recebimento menos emissão (s, Brasília pelo fuso do município) [-4895.0, -2.0]; d médio 0,09 (ep 0,03, 509 com comparação)
+    Brasil | regras C | fuso: 54 seções; UFs {'MT': 52, 'AM': 2}; recebimento menos emissão (s, Brasília pelo fuso do município) [-3271.0, -73.0]; d médio 0,02 (ep 0,08, 49 com comparação)
+    Brasil | regras D | sem explicação: 12 seções; UFs {'SP': 3, 'MG': 2, 'PR': 2, 'BA': 1, 'CE': 1, 'PA': 1, 'PI': 1, 'MS': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [2734.0, 8577.0]; d médio -1,67 (ep 0,90, 9 com comparação)
+    Brasil | regras D | fuso: 10 seções; UFs {'PA': 3, 'RJ': 2, 'BA': 1, 'MG': 1, 'PE': 1, 'MA': 1, 'PI': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [1341.0, 10135.0]; d médio -0,54 (ep 0,76, 6 com comparação)
+    exterior | regras C | fuso+contingencia: 5 seções; UFs {'ZZ': 5}; recebimento menos emissão (s, Brasília pelo fuso do município) [-398.0, -80.0]; d médio -0,93 (ep 0,62, 5 com comparação)
+    Brasil | regras C | sem explicação: 4 seções; UFs {'PR': 1, 'PA': 1, 'PB': 1, 'MA': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [-150.0, -7.0]; d médio 2,27 (ep 1,45, 2 com comparação)
+    Brasil | regras C | fuso+contingencia: 2 seções; UFs {'RS': 1, 'MT': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [-3251.0, -1528.0]; d médio 0,52 (ep -, 1 com comparação)
+  2º turno:
+    exterior | regras C | fuso: 588 seções; UFs {'ZZ': 588}; recebimento menos emissão (s, Brasília pelo fuso do município) [-4290.0, -1.0]; d médio 0,10 (ep 0,03, 578 com comparação)
+    Brasil | regras D | sem explicação: 10 seções; UFs {'PR': 5, 'ES': 2, 'MG': 1, 'CE': 1, 'PA': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [9292.0, 14695.0]; d médio 0,00 (ep -, 2 com comparação)
+    Brasil | regras C | sem explicação: 8 seções; UFs {'PA': 7, 'PR': 1}; recebimento menos emissão (s, Brasília pelo fuso do município) [-52.0, -5.0]; d médio -0,56 (ep 0,64, 7 com comparação)
+    exterior | regras C | fuso+contingencia: 8 seções; UFs {'ZZ': 8}; recebimento menos emissão (s, Brasília pelo fuso do município) [-513.0, -139.0]; d médio -0,96 (ep 0,78, 8 com comparação)
+  Explicação de cada grupo:
+  - Exterior, regra C, explicada por fuso: a urna marca a emissão na hora local da cidade e o TSE marca o recebimento em hora de
+    Brasília. Nas cidades a leste de Brasília (Europa, África, Ásia, Oceania) a emissão "acontece depois" do recebimento no relógio
+    bruto. Com o fuso real de cada cidade, todas passam a ter recebimento depois da emissão.
+  - Brasil, regra C, sem explicação (2º turno, 8 seções; 1º turno, 4): recebimento de 5 a 150 segundos antes da emissão marcada pela
+    urna, sempre nas transmissões mais rápidas (boletim recebido nos primeiros minutos depois das 17h). O relógio da urna é acertado
+    na carga e anda sozinho por semanas; um relógio alguns segundos ou minutos adiantado faz isso quando a transmissão é imediata.
+    Quatro das 8 do 2º turno são da zona 16 de Afuá (PA), todas carregadas em 22/09 no mesmo dia; a mesma zona tem uma no 1º turno.
+    No 2º turno o recebimento parou depois das 17h10 (pausa da totalização): 1.092 boletins do Brasil chegaram
+    até 17h10 (o primeiro às 17:05:10) e o seguinte só às 19:03:37; as 8 estão entre esses primeiros.
+  - Brasil, regra D, sem explicação: abertura depois das 10h sem troca de urna e sem carga no dia (atraso de abertura). Não é o
+    que a urna faz sozinha: a abertura é comandada pela mesa. O registro chama de "impossível", mas atraso de abertura acontece; os
+    casos estão listados abaixo para conferência na ata da seção.
+  - Brasil, regra C ou D, explicada por fuso (1º turno): o relógio da urna estava em outro fuso. 53 são da zona 53 do MT (Querência,
+    Bom Jesus do Araguaia e Serra Nova Dourada) com o relógio em hora de Brasília; uma em Sapiranga (RS) com o relógio 1 hora
+    adiantado (com troca de urna entre os turnos); duas em Maués (AM). Na leitura estrita (fora do registro: depois do ajuste de fuso
+    a abertura tem de cair entre 7h e 9h de Brasília), as 10 aberturas tardias do 1º turno "explicadas" por um relógio 1 hora
+    adiantado deixam de ser explicadas: são atrasos de abertura com encerramento tardio por fila, não fuso.
+  - Contingência (marca a ou b) junto com fuso: seções do exterior e do Brasil com troca de urna entre os turnos.
+
+5. Lista das seções impossíveis sem explicação (para conferência)
+  Horas de abertura, encerramento e emissão convertidas para Brasília pelo fuso do município; recebimento no relógio do TSE.
+  d local = virada da seção menos a das outras seções do local (a medida do registro); d município = o mesmo contra as outras
+  seções do município (descritivo, fora do registro).
+  2º turno:
+    PA|4057|16|19 AFUÁ | regra C | abertura 08:00:01, encerramento 17:06:10, emissão 17:06:23, recebimento 17:05:41, recebimento menos emissão -42 s | carga 22/09/2026 09:32 | urna 2408714 (outro turno 2408714) | comparecimento 239 (outro turno 257) de 300 | virada da seção 2,65, d local 0,98, d município 2,16
+    PA|4057|16|23 AFUÁ | regra C | abertura 08:00:01, encerramento 17:04:19, emissão 17:06:05, recebimento 17:05:13, recebimento menos emissão -52 s | carga 22/09/2026 09:58 | urna 2415163 (outro turno 2415163) | comparecimento 240 (outro turno 240) de 300 | virada da seção -0,27, d local -0,20, d município -0,81
+    PA|4057|16|77 AFUÁ | regra C | abertura 08:05:05, encerramento 17:04:05, emissão 17:07:09, recebimento 17:06:20, recebimento menos emissão -49 s | carga 22/09/2026 11:38 | urna 2393841 (outro turno 2393841) | comparecimento 305 (outro turno 314) de 360 | virada da seção 1,76, d local -0,30, d município 1,27
+    PA|4057|16|80 AFUÁ | regra C | abertura 08:00:01, encerramento 17:03:25, emissão 17:06:02, recebimento 17:05:12, recebimento menos emissão -50 s | carga 22/09/2026 11:50 | urna 2404733 (outro turno 2404733) | comparecimento 217 (outro turno 229) de 279 | virada da seção 0,35, d local -3,72, d município -0,16
+       log da urna (amostra): 25/10/2026 08:00:02 Urna pronta para receber votos; 25/10/2026 17:06:01 Inicio do Encerramento; 25/10/2026 17:06:02 Gerando relatório [BU] [INÍCIO]
+    PA|4200|102|54 JACAREACANGA | regra C | abertura 08:00:01, encerramento 17:00:42, emissão 17:05:19, recebimento 17:05:14, recebimento menos emissão -5 s | carga 28/09/2026 14:15 | urna 2417753 (outro turno 2417753) | comparecimento 123 (outro turno 137) de 155 | virada da seção 12,75, d local -, d município 11,96
+    PA|4391|2|6 CACHOEIRA DO ARARI | regra C | abertura 08:00:01, encerramento 17:04:28, emissão 17:06:38, recebimento 17:06:29, recebimento menos emissão -9 s | carga 22/09/2026 09:21 | urna 2419128 (outro turno 2419128) | comparecimento 212 (outro turno 220) de 282 | virada da seção 0,75, d local 0,20, d município -0,70
+    PA|5657|14|215 VISEU | regra C | abertura 08:00:01, encerramento 17:04:41, emissão 17:06:20, recebimento 17:06:01, recebimento menos emissão -19 s | carga 24/09/2026 14:02 | urna 2200614 (outro turno 2200614) | comparecimento 161 (outro turno 170) de 203 | virada da seção 2,49, d local 0,95, d município 1,64
+    PR|78778|52|54 SÃO JOÃO DO TRIUNFO | regra C | abertura 08:00:01, encerramento 17:03:32, emissão 17:05:27, recebimento 17:05:16, recebimento menos emissão -11 s | carga 26/09/2026 09:41 | urna 2021052 (outro turno 2021052) | comparecimento 205 (outro turno 208) de 220 | virada da seção -1,22, d local -1,82, d município -3,96
+    CE|13552|33|379 CANINDÉ | regra D | abertura 10:22:40, encerramento 17:01:45, emissão 17:03:37, recebimento 21:08:32 | carga 28/09/2026 15:36 | urna 2041392 (outro turno 2041392) | comparecimento 224 (outro turno 241) de 268 | virada da seção 4,02, d local -, d município 2,32
+    ES|56413|33|49 ECOPORANGA | regra D | abertura 11:00:53, encerramento 17:02:13, emissão 17:05:31, recebimento 20:05:21 | carga 22/09/2026 14:35 | urna 2358355 (outro turno 2358355) | comparecimento 173 (outro turno 176) de 225 | virada da seção 3,05, d local -, d município 1,87
+    ES|56413|33|83 ECOPORANGA | regra D | abertura 10:28:40, encerramento 17:01:08, emissão 17:04:03, recebimento 20:37:25 | carga 21/09/2026 17:01 | urna 2366497 (outro turno 2366497) | comparecimento 128 (outro turno 131) de 161 | virada da seção -0,10, d local -, d município -1,32
+    MG|46477|134|295 ITAJUBÁ | regra D | abertura 13:08:44, encerramento 17:01:20, emissão 17:03:04, recebimento 20:39:38 | carga 22/09/2026 15:40 | urna 2076047 (outro turno 2076047) | comparecimento 9 (outro turno 9) de 25 | virada da seção 5,56, d local -, d município 1,39
+    PA|5010|22|259 ÓBIDOS | regra D | abertura 11:00:22, encerramento 17:01:46, emissão 17:04:22, recebimento 20:11:30 | carga 02/10/2026 16:00 | urna 1845460 (outro turno 1845460) | comparecimento 80 (outro turno 71) de 104 | virada da seção -9,81, d local -, d município -11,86
+    PR|75990|34|117 INÁCIO MARTINS | regra D | abertura 10:49:09, encerramento 17:11:05, emissão 17:12:58, recebimento 20:59:46 | carga 26/09/2026 10:38 | urna 2092245 (outro turno 2092245) | comparecimento 105 (outro turno 170) de 203 | virada da seção 1,43, d local -, d município 0,42
+    PR|75990|34|133 INÁCIO MARTINS | regra D | abertura 10:05:01, encerramento 17:07:40, emissão 17:08:18, recebimento 19:43:16 | carga 26/09/2026 10:48 | urna 2060731 (outro turno 2060731) | comparecimento 18 (outro turno 170) de 215 | virada da seção 3,25, d local 6,51, d município 1,98
+    PR|75990|34|14 INÁCIO MARTINS | regra D | abertura 10:41:51, encerramento 17:00:55, emissão 17:02:49, recebimento 19:55:22 | carga 26/09/2026 10:29 | urna 2063033 (outro turno 2063033) | comparecimento 192 (outro turno 206) de 273 | virada da seção -1,14, d local -, d município -2,25
+    PR|75990|34|182 INÁCIO MARTINS | regra D | abertura 10:58:53, encerramento 17:01:52, emissão 17:04:01, recebimento 19:54:13 | carga 26/09/2026 11:29 | urna 2245856 (outro turno 2245856) | comparecimento 98 (outro turno 99) de 138 | virada da seção -1,93, d local -, d município -3,01
+    PR|75990|34|189 INÁCIO MARTINS | regra D | abertura 10:02:45, encerramento 17:06:41, emissão 17:10:18, recebimento 19:45:10 | carga 26/09/2026 11:33 | urna 2060381 (outro turno 2060381) | comparecimento 121 (outro turno 155) de 214 | virada da seção -3,26, d local -6,51, d município -4,46
+  1º turno:
+    MA|7404|69|295 CAPINZAL DO NORTE | regra C | abertura 08:00:01, encerramento 17:10:39, emissão 17:11:21, recebimento 17:10:29, recebimento menos emissão -52 s | carga 30/09/2026 10:25 | urna 2026906 (outro turno 2026906) | comparecimento 126 (outro turno 129) de 162 | virada da seção -1,49, d local -, d município -2,98
+    PA|4057|16|10 AFUÁ | regra C | abertura 08:00:01, encerramento 17:08:19, emissão 17:10:27, recebimento 17:09:54, recebimento menos emissão -33 s | carga 22/09/2026 08:49 | urna 2416427 (outro turno 2416427) | comparecimento 220 (outro turno 216) de 283 | virada da seção 4,08, d local 3,72, d município 3,60
+       log da urna (amostra): 04/10/2026 17:10:26 Inicio do Encerramento; 04/10/2026 17:10:27 Gerando relatório [BU] [INÍCIO]; 04/10/2026 17:13:58 Mídia de resultado retirada; 04/10/2026 17:19:03 Votação encerrada
+    PB|19810|16|195 CAMPINA GRANDE | regra C | abertura 08:05:25, encerramento 17:13:36, emissão 17:15:42, recebimento 17:13:12, recebimento menos emissão -150 s | carga 24/09/2026 08:39 | urna 2033885 (outro turno 2033885) | comparecimento 150 (outro turno 157) de 173 | virada da seção 2,89, d local -, d município -0,75
+    PR|75353|174|427 CURITIBA | regra C | abertura 08:13:53, encerramento 17:14:34, emissão 17:16:40, recebimento 17:16:33, recebimento menos emissão -7 s | carga 26/09/2026 13:30 | urna 2331120 (outro turno 2331120) | comparecimento 299 (outro turno 313) de 396 | virada da seção 2,25, d local 0,82, d município -0,90
+    BA|36170|201|46 ITAMBÉ | regra D | abertura 10:03:52, encerramento 17:25:30, emissão 17:26:04, recebimento 19:15:08 | carga 29/09/2026 15:15 | urna 2212436 (outro turno 2212436) | comparecimento 203 (outro turno 226) de 265 | virada da seção 0,78, d local 0,11, d município -0,25
+    BA|36994|158|49 MACURURÉ | regra D [explicada por fuso só na leitura do registro] | abertura 10:08:19, encerramento 21:17:57, emissão 21:21:07, recebimento 23:02:19 | carga 24/09/2026 16:32 | urna 1666458 (outro turno 1666458) | comparecimento 241 (outro turno 264) de 332 | virada da seção 2,33, d local 1,96, d município 1,92
+    CE|13510|32|86 CAMOCIM | regra D | abertura 10:22:24, encerramento 17:28:40, emissão 17:30:39, recebimento 18:19:01 | carga 03/10/2026 16:02 | urna 1819912 (outro turno 1819912) | comparecimento 177 (outro turno 183) de 218 | virada da seção 2,81, d local 1,05, d município 0,01
+    MA|7706|15|314 ITAIPAVA DO GRAJAÚ | regra D [explicada por fuso só na leitura do registro] | abertura 10:16:28, encerramento 18:39:08, emissão 18:42:47, recebimento 19:05:08 | carga 01/10/2026 13:02 | urna 2425300 (outro turno 2425300) | comparecimento 246 (outro turno 270) de 309 | virada da seção -0,70, d local -2,31, d município -2,42
+    MG|46477|134|295 ITAJUBÁ | regra D | abertura 12:55:30, encerramento 17:01:04, emissão 17:03:27, recebimento 18:31:54 | carga 22/09/2026 15:40 | urna 2076047 (outro turno 2076047) | comparecimento 9 (outro turno 9) de 25 | virada da seção 5,56, d local -, d município 1,39
+    MG|51110|237|238 RIO PARDO DE MINAS | regra D | abertura 10:16:34, encerramento 17:08:06, emissão 17:11:17, recebimento 19:12:52 | carga 23/09/2026 13:49 | urna 2077935 (outro turno 2077935) | comparecimento 152 (outro turno 157) de 192 | virada da seção -1,81, d local -, d município -2,53
+    MG|54178|255|166 VARZELÂNDIA | regra D [explicada por fuso só na leitura do registro] | abertura 10:04:59, encerramento 21:09:39, emissão 21:10:05, recebimento 22:45:37 | carga 26/09/2026 16:19 | urna 2098154 (outro turno 2098154) | comparecimento 245 (outro turno 271) de 341 | virada da seção -1,14, d local -, d município -0,81
+    MS|91235|5|168 NOVA ANDRADINA | regra D | abertura 11:14:17, encerramento 17:36:09, emissão 17:37:33, recebimento 20:00:30 | carga 25/09/2026 16:21 | urna 2022119 (outro turno 2022119) | comparecimento 170 (outro turno 189) de 290 | virada da seção 2,43, d local 0,69, d município -1,24
+    PA|5010|22|259 ÓBIDOS | regra D | abertura 10:45:07, encerramento 17:10:53, emissão 17:11:30, recebimento 18:32:47 | carga 02/10/2026 16:00 | urna 1845460 (outro turno 1845460) | comparecimento 71 (outro turno 80) de 104 | virada da seção -9,81, d local -, d município -11,86
+    PA|5452|53|154 SÃO FÉLIX DO XINGU | regra D [explicada por fuso só na leitura do registro] | abertura 10:07:58, encerramento 18:05:18, emissão 18:07:11, recebimento 19:12:53 | carga 29/09/2026 13:15 | urna 2278816 (outro turno 2278816) | comparecimento 194 (outro turno 186) de 246 | virada da seção 1,64, d local 0,29, d município -1,44
+    PA|5517|11|351 SÃO MIGUEL DO GUAMÁ | regra D [explicada por fuso só na leitura do registro] | abertura 10:51:28, encerramento 18:25:21, emissão 18:27:05, recebimento 21:16:00 | carga 24/09/2026 16:10 | urna 1805236 (outro turno 1805236) | comparecimento 231 (outro turno 227) de 264 | virada da seção -0,10, d local -, d município -2,54
+    PA|5630|8|121 VIGIA | regra D [explicada por fuso só na leitura do registro] | abertura 10:12:24, encerramento 19:01:58, emissão 19:11:16, recebimento 20:23:58 | carga 23/09/2026 15:20 | urna 1844581 (outro turno 1844581) | comparecimento 135 (outro turno 132) de 154 | virada da seção -5,56, d local -, d município -7,26
+    PE|23051|86|19 AGRESTINA | regra D [explicada por fuso só na leitura do registro] | abertura 10:14:47, encerramento 19:57:02, emissão 19:58:50, recebimento 20:57:11 | carga 25/09/2026 10:19 | urna 1679243 (outro turno 1679243) | comparecimento 270 (outro turno 308) de 368 | virada da seção 0,50, d local -, d município -0,72
+    PI|10260|95|156 FARTURA DO PIAUÍ | regra D | abertura 10:55:09, encerramento 17:09:26, emissão 17:11:54, recebimento 18:41:49 | carga 01/10/2026 09:34 | urna 2037029 (outro turno 2037029) | comparecimento 104 (outro turno 99) de 115 | virada da seção -0,54, d local -2,36, d município -1,40
+    PI|10260|95|97 FARTURA DO PIAUÍ | regra D [explicada por fuso só na leitura do registro] | abertura 10:30:53, encerramento 19:53:42, emissão 19:56:46, recebimento 20:53:01 | carga 01/10/2026 09:23 | urna 2194759 (outro turno 2194759) | comparecimento 264 (outro turno 267) de 326 | virada da seção 0,19, d local -2,49, d município -0,69
+    PR|77410|100|18 PARAÍSO DO NORTE | regra D | abertura 10:30:42, encerramento 17:57:46, emissão 17:59:25, recebimento 18:44:59 | carga 25/09/2026 14:14 | urna 1842425 (outro turno 1842425) | comparecimento 239 (outro turno 255) de 310 | virada da seção 1,12, d local -1,43, d município -2,01
+    PR|79731|127|72 TAPIRA | regra D | abertura 10:54:27, encerramento 17:04:27, emissão 17:07:01, recebimento 19:15:48 | carga 22/09/2026 15:15 | urna 1834935 (outro turno 1834935) | comparecimento 144 (outro turno 145) de 170 | virada da seção 1,09, d local -1,17, d município -1,37
+    RJ|60011|176|23 RIO DE JANEIRO | regra D [explicada por fuso só na leitura do registro] | abertura 10:16:06, encerramento 18:59:15, emissão 19:04:29, recebimento 20:52:07 | carga 25/09/2026 15:50 | urna 1670692 (outro turno 1670692) | comparecimento 263 (outro turno 319) de 418 | virada da seção 5,65, d local 0,97, d município 1,96
+    RJ|60011|188|321 RIO DE JANEIRO | regra D [explicada por fuso só na leitura do registro] | abertura 10:03:56, encerramento 18:42:49, emissão 18:45:27, recebimento 20:04:53 | carga 28/09/2026 13:08 | urna 1757964 (outro turno 1757964) | comparecimento 247 (outro turno 305) de 445 | virada da seção 3,61, d local -1,67, d município -0,09
+    SP|62839|102|2 CAIUÁ | regra D | abertura 10:35:48, encerramento 17:00:44, emissão 17:02:35, recebimento 18:41:59 | carga 25/09/2026 09:58 | urna 1794422 (outro turno 1794422) | comparecimento 147 (outro turno 155) de 195 | virada da seção 1,99, d local -2,24, d município -1,52
+    SP|62839|102|5 CAIUÁ | regra D | abertura 10:27:11, encerramento 17:01:45, emissão 17:03:40, recebimento 18:42:02 | carga 25/09/2026 10:52 | urna 1811549 (outro turno 1811549) | comparecimento 152 (outro turno 154) de 204 | virada da seção 2,45, d local -1,70, d município -0,96
+    SP|62839|102|85 CAIUÁ | regra D | abertura 10:07:53, encerramento 17:00:30, emissão 17:02:20, recebimento 18:41:11 | carga 25/09/2026 11:28 | urna 1796230 (outro turno 1796230) | comparecimento 138 (outro turno 144) de 184 | virada da seção 0,38, d local -8,01, d município -3,17
+
+6. O gatilho da virada (3 pontos acima do local)
+  PR|75990|34|133 (INÁCIO MARTINS): 18 votos nos finalistas no 2º turno; virada da seção 3,25; das
+  outras do local -3,26; d 6,51. Comparecimento 170 no 1º turno e 18 no 2º.
+  A seção 133 de Inácio Martins (PR) votou com 18 eleitores no 2º turno (170 no 1º). A única outra seção do local, a 189, também
+  abriu depois das 10h e tem d de -6,51: as duas se espelham. Com 18 votos a fatia de Lula muda 5,6 pontos por voto. Nas seções de
+  até 50 votos nos finalistas, o desvio-padrão de d é 5,11 pontos e 29% delas
+  têm d >= 3 (em todas as seções: dp 2,14, 7,7% com d >= 3). O gatilho dispara pelo acaso.
+  Inácio Martins teve 5 seções, em 4 locais da zona 34, abertas entre 10h02 e 10h59 no 2º turno (no 1º, as mesmas abriram às 8h ou
+  9h25); o comparecimento dessas 5 caiu de 800 para 534. A causa não foi achada na imprensa.
+  Fora do registro, contra o município (as duas seções sem outra no local):
+  PA|4200|102|54 (JACAREACANGA): Lula 63 e Flávio 61 no 1º turno, 75 e 43 no 2º; virada 12,75, d contra o município
+  11,96; é a 1ª maior virada entre as 55 seções do município (desvio-padrão 3,41).
+  No país, entre as 80.144 seções com 101-200 votos nos finalistas, 0,012% têm d contra o
+  município tão extremo nessa direção; a chance de pelo menos uma das 18 seções sem explicação chegar a isso é 0,2%.
+  PA|5010|22|259 (ÓBIDOS): Lula 61 e Flávio 2 no 1º turno, 67 e 10 no 2º; virada -9,81, d contra o município
+  -11,86; é a 170ª maior virada entre as 171 seções do município (desvio-padrão 3,01).
+  No país, entre as 4.772 seções com 51-100 votos nos finalistas, 0,210% têm d contra o
+  município tão extremo nessa direção; a chance de pelo menos uma das 18 seções sem explicação chegar a isso é 3,7%.
+  Leitura: os dois extremos são raros para o tamanho da seção, um para cada lado, e foram achados depois de olhar (a comparação com
+  o município não é a do registro). As duas são seções isoladas do Pará: Óbidos 22/259 abriu às 10h45 e às 11h nos dois turnos
+  (atraso repetido nos dois turnos; a causa não está nos dados); Jacareacanga 102/54 teve o boletim recebido 5 s antes da emissão marcada,
+  o que exige transmissão feita no próprio local logo depois da emissão (antes da pausa no recebimento, de 17h10 a 19h03). Jacareacanga tem
+  grande parte do território em terra indígena e dispersão de virada acima da do país. O que tiraria a dúvida sobre 102/54: o boletim impresso afixado na seção (ou a
+  foto de fiscal) contra o do TSE, e a assinatura do arquivo do boletim; a seção não está na amostra com assinatura conferida (T18).
+
+7. Leituras declaradas e desvios
+  - "Qualquer número delas em que a virada de Lula supere a das outras seções do mesmo local": leitura literal seção a seção (uma
+    basta). É o que dá o veredito. A leitura em grupo (média das seções sem explicação) dá INCONCLUSIVO. A leitura seção a seção dispara
+    pelo acaso com probabilidade de 66% com 9 seções; o registro não previu isso.
+  - Janela de carga: o calendário não traz data nacional e os sites do TSE e dos TREs bloquearam a leitura direta (HTTP 403); a
+    janela usada é a dos limites da norma (04/09 até o dia da votação), não a de cada UF. Com ela nenhuma carga fica fora. As datas
+    estaduais achadas na imprensa batem com o começo das cargas nos dados (SE 18/09, SP 23/09).
+  - Contingência pelo bweb: o bweb não marca a urna de contingência; usei troca do número da urna entre os turnos ou carga no dia.
+    Uma urna de contingência que entrou no 1º turno e ficou na seção no 2º não muda de número e só é pega se a carga foi no dia.
+  - Explicação por fuso no Brasil: outro deslocamento do país (-2, -1, 0, +1) que deixa A, C e D possíveis ao mesmo tempo. No
+    exterior, o fuso real da cidade (base tz). A leitura estrita (abertura entre 7h e 9h depois do ajuste) é robustez fora do registro;
+    só muda o 1º turno.
+  - "Comparecimento acima de zero": comparecimento de presidente da base por seção.
+  - Seções de junta (29 no 2º turno, 30 no 1º) não têm horário de urna e contam como explicadas por junta.
+  - Não usei outras eleições como régua (pedido do Adendo 18); o 1º turno de 2026 aparece só como comparação dentro da mesma eleição.
+
+8. O que ficou de fora
+  - A causa dos atrasos de abertura: a ata da mesa de cada seção diz o motivo; não é pública nos dados abertos.
+  - O relógio de cada urna contra uma hora de referência: o log da urna não tem hora externa. Na amostra, a seção 16/80 de Afuá
+    (2º turno) gerou o boletim às 17h06min02s no relógio da urna e o TSE o recebeu às 17h05min12s; a seção 16/10 (1º turno) retirou
+    a mídia de resultado às 17h13min58s no relógio da urna e o boletim chegou ao TSE às 17h09min54s: o relógio dessas urnas estava
+    pelo menos 4 minutos adiantado. Os boletins da amostra têm assinatura válida da urna (T18), então não é boletim feito fora dela.
+  - A janela de carga por UF, que depende dos editais dos TREs (não lidos, HTTP 403).
+
+Fontes
+  Res. TSE 23.760/2026 (calendário): https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026
+  Res. TSE 23.751/2026 (atos gerais; arts. 87, 99 a 101, 100, 108 e 109, lidos por excertos do buscador): https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-751-de-26-de-fevereiro-de-2026
+  Lacração dos sistemas em 04/09/2026: https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/sistemas-das-eleicoes-gerais-de-2026-sao-assinados-digitalmente-e-lacrados-pelo-tse ;
+    https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026
+  Carga do 1º turno: https://www.tre-se.jus.br/comunicacao/noticias/2026/Setembro/justica-eleitoral-inicia-carga-e-lacracao-das-urnas-eletronicas-para-as-eleicoes-2026 ;
+    https://www.tre-sp.jus.br/comunicacao/noticias/2026/Setembro/eleicoes-2026-cerimonia-publica-da-inicio-a-preparacao-de-114-mil-urnas-para-o-1o-turno-em-sao-paulo-1 ;
+    https://www.tre-mt.jus.br/comunicacao/noticias/2026/Setembro/cerimonias-de-carga-e-lacre-marcam-reta-final-de-preparacao-de-urnas-eletronicas
+  Preparação do 2º turno: https://www.tre-pb.jus.br/comunicacao/noticias/2026/Outubro/preparacao-das-urnas-eletronicas-para-o-2deg-turno-acontece-ate-sexta-feira-16 ;
+    https://www.tre-mg.jus.br/comunicacao/noticias/2026/Outubro/urnas-eletronicas-estao-sendo-preparadas-para-o-2o-turno-das-eleicoes-2026 ;
+    https://www.tre-ba.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-tre-ba-inicia-preparacao-das-urnas-para-o-2o-turno-nesta-quarta-feira-14 ;
+    https://www.tre-pr.jus.br/comunicacao/noticias/2026/Outubro/justica-eleitoral-do-parana-inicia-preparacao-das-urnas-eletronicas-para-o-2o-turno-das-eleicoes-2026 ;
+    https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/15/tre-ce-realiza-carga-das-eletronicas-urnas-para-o-2-turno.html ;
+    https://acritica.net/justica/tre-ms-inicia-carga-e-lacracao-de-urnas-para-o-segundo-turno/ ; https://www.dgabc.com.br/Noticia/4352037/urnas-do-2-turno-comecam-a-ser-preparadas-na-quarta-feira
+  Teste de integridade do 2º turno por UF: https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno
+  Urnas substituídas no 2º turno: https://bmcnews.com.br/politica/tse-registra-1-516-urnas-substituidas-ate-as-18h-no-segundo-turno/

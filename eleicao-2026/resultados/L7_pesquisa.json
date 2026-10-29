@@ -1,0 +1,348 @@
+{
+ "pesquisa_em": "2026-10-29",
+ "nota": "Páginas jus.br deram HTTP 403 ao leitor; trechos delas vieram do resumo do buscador e estão marcados no status. Não contornei o bloqueio.",
+ "itens": [
+  {
+   "frente": "procedimento",
+   "item": "Regra de 2026",
+   "valor": "Res. TSE 23.758, de 02/03/2026, altera a Res. 23.673/2021: Teste de Integridade em ambiente controlado (servidores do MP e do Judiciário; habilitação da urna feita aleatoriamente a partir do caderno de votação) e Teste de Integridade com Biometria (local de votação; eleitores voluntários que consentem com o uso da biometria para habilitar a urna; convite feito depois que a pessoa votou na urna oficial; termo de consentimento).",
+   "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-758-de-2-de-marco-de-2026",
+   "data": "02/03/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Escolha das seções no sábado 24/10",
+   "valor": "TREs definiram as urnas no sábado; sorteadas ou escolhidas por representantes de partidos e entidades fiscalizadoras; as urnas sorteadas são trocadas por equipamentos reserva e as originais guardadas em sala lacrada; no domingo servidores do Judiciário e do MP digitam os votos das cédulas; às 17h compara-se papel e urna. SP/MG/RJ/BA 33 integridade + 10 autenticidade; PR/RS/PE/CE 27 + 8; RR 20 + 3.",
+   "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
+   "data": "24/10/2026 16h13",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Escolha por entidades (exemplos)",
+   "valor": "SP 2º turno: entidades (órgãos públicos, partidos, sociedade civil) escolheram 34 das 51 urnas auditadas, o resto por sorteio. PB 2º turno: 4 indicadas por instituições fiscalizadoras, o resto por sorteio. SE 1º turno: 8 de 20 escolhidas pelas entidades presentes (PSD, União Brasil, MPF e outras).",
+   "url": "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-fiscalizadores-definem-urnas-para-os-testes-de-integridade-e-de-autenticidade-do-2o-turno ; https://www.paraibamix.com.br/eleicoes-2026-confira-as-secoes-eleitorais-da-paraiba-selecionadas-para-auditoria-no-2o-turno/ ; https://www.tre-se.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade",
+   "data": "24/10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei); PB: fonte secundária lida"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Troca e nova carga da urna da seção sorteada",
+   "valor": "Logo após o sorteio, técnicos preparam as urnas das seções sorteadas, com nova carga e lacre, para substituir as que vão à auditoria; no máximo 1 seção por zona (guia do TRE-RJ, 2024).",
+   "url": "https://www.tre-rj.jus.br/eleicoes/eleicoes-plebiscitos-e-referendos/eleicoes-2024/auditoria-de-funcionamento-da-urna-eletronica/arquivos-auditoria-de-funcionamento-da-urna-eletronica/guia-rapido-para-o-publico-externo-teste-de-integridade-v1-0",
+   "data": "2024",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Ambiente controlado no AM (1º turno)",
+   "valor": "23 urnas sorteadas, 18 no ambiente controlado; votos de cédulas preenchidas digitados na urna e, ao mesmo tempo, registrados em um sistema de apoio à auditoria.",
+   "url": "https://www.tre-am.jus.br/comunicacao/noticias/2026/Setembro/eleicoes-2026-tre-am-realizara-auditoria-em-23-urnas-eletronicas-no-primeiro-turno",
+   "data": "09/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Cédulas preenchidas por servidores (ES, 2º turno)",
+   "valor": "Servidores voluntários do Judiciário e do MP preencheram as cédulas; 18 urnas no teste no domingo 25/10.",
+   "url": "https://www.tre-es.jus.br/comunicacao/noticias/2026/Outubro/eleicoes-2026-cedulas-de-votacao-sao-preenchidas-para-o-teste-de-integridade-das-urnas-eletronicas",
+   "data": "10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "SC, 2º turno",
+   "valor": "Teste de Integridade na Alesc (transmitido ao vivo); Teste com Biometria na Escola Henrique Stodieck, com eleitores voluntários; autenticidade nas seções de origem antes da votação; sorteio no sábado 24 às 8h30; votos do teste só para auditoria.",
+   "url": "https://alesc.sc.gov.br/agencia/noticia/segundo-turno-eleicoes-2026-teste-urnas-alesc/",
+   "data": "23/10/2026",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Biometria, como funciona (2024)",
+   "valor": "O eleitor, de forma voluntária, empresta a biometria para habilitar a urna a receber os votos dos auditores: posiciona o dedo no leitor e sai do recinto.",
+   "url": "https://www.tse.jus.br/comunicacao/noticias/2024/Outubro/eleitores-podem-ser-convidados-para-participar-do-teste-de-integridade-com-biometria-na-secao-eleitoral",
+   "data": "10/2024",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Biometria, quantidade (regra de 2024)",
+   "valor": "Portaria TSE 765/2024 e relatórios de auditoria externa de 2024: de 5% a 10% das urnas do teste de integridade passam pelo teste com biometria. A regra de 2026 não foi conferida.",
+   "url": "https://www.tse.jus.br/legislacao/compilada/prt/2024/portaria-no-765-de-21-de-setembro-de-2024",
+   "data": "21/09/2024",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "procedimento",
+   "item": "Piloto com biometria de 2022",
+   "valor": "56 urnas em 18 UFs e DF, 493 voluntários (cerca de 9 por urna), sugestão das Forças Armadas; 641 urnas no teste do 1º turno de 2022; sem divergência.",
+   "url": "https://www.tnh1.com.br/noticia/nid/urnas-tem-100-de-aprovacao-em-novo-teste-de-integridade-diz-tse/ ; https://jovempan.com.br/politica/tse-anuncia-teste-de-integridade-em-56-urnas-com-biometria-no-pais/",
+   "data": "06/10/2022",
+   "confianca": "alta",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "quantidade",
+   "item": "SP 2º turno",
+   "valor": "33 urnas, 30 sem e 3 com biometria (Unip Paraíso), das 8h às 17h, sem divergências.",
+   "url": "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-das-urnas-no-2o-turno-e-concluido-sem-divergencias-em-sao-paulo",
+   "data": "25/10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "quantidade",
+   "item": "DF 2º turno",
+   "valor": "20 urnas: 16 na CLDF, 2 no Museu do Voto (TSE), 2 com biometria na Escola Canadense; uma única divergência, \"erro humano de digitação\" (juiz João Marcos Guimarães Silva); urna, cargo, tamanho e direção não divulgados. Texto da Agência CLDF reproduzido.",
+   "url": "https://bombabomba.com.br/urnas-eletronicas-sao-aprovadas-em-teste-de-integridade-realizado-na-cldf-no-2o-turno/",
+   "data": "25/10/2026 18h45",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "quantidade",
+   "item": "AL 2º turno",
+   "valor": "18 integridade (auditório da OAB, Maceió), 2 com biometria (Unima/Afya; eleitores voluntários habilitaram as urnas depois de votar), 3 autenticidade; lista nominal das 23 seções; a notícia do resultado não fala em divergência.",
+   "url": "https://francesnews.com.br/post/2026/10/26/43576-treal-sorteia-23-urnas-eletronicas-para-auditoria-no-segundo-turno-das-eleicoes-2026 ; https://www.cadaminuto.com.br/noticia/2026/10/27/eleicoes-2026-23-urnas-eletronicas-foram-auditadas-durante-o-2-turno-em-al",
+   "data": "24/10 e 27/10/2026",
+   "confianca": "alta",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "quantidade",
+   "item": "PB 2º turno",
+   "valor": "23 urnas: 20 integridade (a lista traz 19: 18 + 1 com biometria no Espaço Cultural) e 3 autenticidade.",
+   "url": "https://www.paraibamix.com.br/eleicoes-2026-confira-as-secoes-eleitorais-da-paraiba-selecionadas-para-auditoria-no-2o-turno/",
+   "data": "24/10/2026",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "quantidade",
+   "item": "MT 2º turno",
+   "valor": "20 urnas (19 sem e 1 com biometria); resultado do 2º turno não localizado.",
+   "url": "https://www.tre-mt.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-reforca-seguranca-e-confiabilidade-da-urna-eletronica-no-2o-turno",
+   "data": "10/2026",
+   "confianca": "baixa",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "quantidade",
+   "item": "PR e SC 2º turno",
+   "valor": "PR: 2 urnas com biometria. SC: o MPSC acompanhou o sorteio de 27 urnas (integridade e autenticidade).",
+   "url": "https://www.tre-pr.jus.br/comunicacao/noticias/2026/Outubro/cerimonia-define-as-urnas-que-serao-auditadas-no-parana-no-segundo-turno-das-eleicoes-2026 ; https://ndmais.com.br/politica/eleicoes-2026-urnas-eletronicas-de-sc-passam-por-teste-de-integridade-no-segundo-turno/",
+   "data": "24/10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "quantidade",
+   "item": "Total nacional",
+   "valor": "Não publicado em nenhuma fonte encontrada (nem no 1º nem no 2º turno de 2026).",
+   "url": "",
+   "data": "",
+   "confianca": "",
+   "status": "não encontrado"
+  },
+  {
+   "frente": "resultado",
+   "item": "TSE, 2º turno",
+   "valor": "2 urnas, 389 votos auditados, sem divergência; teste simultâneo nas 26 capitais e no DF, com transmissão no YouTube; relatórios em até 30 dias.",
+   "url": "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-do-2o-turno-no-tse-confirma-correspondencia-entre-cedulas-e-votos-nas-urnas",
+   "data": "25/10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "resultado",
+   "item": "DF, 1º turno",
+   "valor": "Duas divergências na CLDF, atribuídas a erro de digitação comprovado pelas câmeras (Angelo Passareli).",
+   "url": "https://www.metropoles.com/distrito-federal/legitima-seria-e-confiavel-diz-presidente-do-tre-df-sobre-eleicoes",
+   "data": "10/2026",
+   "confianca": "alta",
+   "status": "de resultados/teste_integridade_df_2026.txt"
+  },
+  {
+   "frente": "resultado",
+   "item": "Demais TREs, 2º turno",
+   "valor": "Só anúncio do sorteio ou notícia sem o resultado; nenhuma divergência relatada além da do DF.",
+   "url": "",
+   "data": "",
+   "confianca": "",
+   "status": "não encontrado"
+  },
+  {
+   "frente": "auditoria",
+   "item": "TCU",
+   "valor": "Acompanha os testes de integridade, com e sem biometria, nas 27 UFs, da escolha das seções ao encerramento (TC 020.282/2026-5, relator Odair Cunha); relatório consolidado ao TSE em até 30 dias corridos após o 2º turno. 55 auditores no 1º turno.",
+   "url": "https://portal.tcu.gov.br/imprensa/noticias/eleicoes-2026-tcu-acompanha-testes-de-integridade-das-urnas-eletronicas ; https://www.dgabc.com.br/Noticia/4350743/-55-auditores-do-tcu-acompanham-teste-de-integridade-das-urnas-no-brasil",
+   "data": "02/10/2026 e 04/10/2026",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Empresa de auditoria externa dos TREs",
+   "valor": "Em 2024 cada TRE contratou auditoria externa do teste (relatórios assinados no site do TSE; Maciel Consultores em GO, RS, PA e BA no 2º turno). Relatórios de 2026 não localizados.",
+   "url": "https://www.tse.jus.br/eleicoes/eleicoes-2024-content/arquivos-teste-de-integridade/arquivos-segundo-turno/rs-relatorio-auditoria-externa-2024-2o-turno-ass",
+   "data": "10/2024",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "auditoria",
+   "item": "OEA, 2º turno",
+   "valor": "88 observadores de 22 nacionalidades em 21 UFs e DF; Insulza: \"As condições de segurança têm sido adequadas, não vimos problemas\". Relatório preliminar escrito do 2º turno não localizado.",
+   "url": "https://www.radiopampa.com.br/sistema-eleitoral-brasileiro-e-muito-solido-e-muito-claro-diz-observador-da-organizacao-dos-estados-americanos-apos-acompanhar-votacao/",
+   "data": "25/10/2026",
+   "confianca": "media",
+   "status": "de resultados/contexto_2t_2026_pesquisa_verificada.json"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Inspeção do código-fonte",
+   "valor": "Códigos abertos desde outubro de 2025 até a lacração; inspecionaram, entre outros, União Brasil (primeiro partido, maio/2026), Senado (junho), MP Eleitoral/PGR e CGU (agosto), SBC, CNMP e CNC. Inspeção do PL em 2026: não encontrada.",
+   "url": "https://www.poder360.com.br/poder-eleicoes/uniao-brasil-inspeciona-codigos-fonte-de-urnas-para-eleicoes-2026/ ; https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/mp-eleitoral-realiza-inspecao-nos-codigos-fonte-da-urna-eletronica-e-sistemas-utilizados-nas-eleicoes-2026",
+   "data": "2026",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Compilação, assinatura e lacração",
+   "valor": "04/09/2026: códigos compilados na semana anterior; resumos assinados por TSE (Nunes Marques, Júlio Valente), PF, DPU, MPE, OAB e Confea; mídias não regraváveis em 3 envelopes (2 na sala-cofre, 1 com o secretário de TI); resumos publicados na internet. Partidos não nomeados.",
+   "url": "https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026",
+   "data": "04/09/2026",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Teste de autenticidade",
+   "valor": "Na manhã da eleição, antes da zerésima: confere extrato de carga, rompe o lacre da mídia e verifica assinaturas e resumos \"pelo programa do TSE\". Entidades podem apresentar programa próprio de verificação 90 dias antes do 1º turno (Res. 23.673, redação de 2024); uso em 2026 não encontrado.",
+   "url": "https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/urnas-passam-por-teste-de-autenticidade-no-2o-turno-das-eleicoes-2026-em-sao-paulo ; https://bookdown.org/informartizar/normas_eleitorais/res23673.html",
+   "data": "25/10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Teste Público de Segurança 2025",
+   "valor": "1 a 5/12/2025; 38 planos aprovados; 6 com achados mitigáveis; comissões: nenhum risco efetivo à integridade, ao sigilo ou ao resultado; teste de confirmação de 13 a 15/05/2026.",
+   "url": "https://www.ocafezinho.com/2025/12/05/teste-da-urna-2025-seguranca-robustez-e-transparencia-dos-sistemas-eleitorais/amp/ ; https://www.tse.jus.br/comunicacao/noticias/2025/Dezembro/teste-da-urna-2025-aponta-para-seguranca-robustez-e-transparencia-dos-sistemas-eleitorais",
+   "data": "12/2025",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "auditoria",
+   "item": "TPS anteriores",
+   "valor": "2012: a equipe de Diego Aranha recuperou a ordem dos votos no RDV. 2017: chaves no código e duas bibliotecas sem assinatura permitiram injetar código na urna; o TSE passou a assinar as bibliotecas. Os próprios autores lembram que assinatura prova a origem, não o comportamento honesto.",
+   "url": "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174 ; https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cctci/apresentacoes-em-eventos/2018/2018-07-12-ap-voto-impresso/marcos-camargo",
+   "data": "2018",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Relatório da Defesa de 2022",
+   "valor": "Os testes de funcionalidade (integridade e piloto com biometria) não permitem afirmar que o sistema está isento de código malicioso; acesso à rede durante a compilação pode ser risco relevante; não apontou fraude.",
+   "url": "https://www.gazetadopovo.com.br/republica/relatorio-ministerio-defesa-nao-aponta-fraude-nas-urnas-eleicoes/ ; https://agenciabrasil.ebc.com.br/politica/noticia/2022-11/ministerio-da-defesa-entrega-relatorio-sobre-urnas-eletronicas-ao-tse",
+   "data": "11/2022",
+   "confianca": "alta",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "auditoria",
+   "item": "Auditoria do PL em 2022",
+   "valor": "O PL pagou cerca de R$ 1,1 milhão ao Instituto Voto Legal; o TSE rejeitou o pedido de invalidar votos de 279 mil urnas e multou o partido; segundo a PF, peritos do IVL disseram à cúpula do PL que não acharam indícios de irregularidade. Auditoria própria do PL em 2026: não encontrada.",
+   "url": "https://www.cartacapital.com.br/politica/valdemar-foi-informado-por-auditoria-do-pl-que-nao-foram-encontradas-provas-de-fraude-nas-urnas-diz-site/ ; https://www.brasil247.com/brasil/pl-de-bolsonaro-e-valdemar-pagou-r-1-1-milhao-a-instituto-que-produziu-parecer-contra-urnas-eletronicas/",
+   "data": "2022 a 2024",
+   "confianca": "media",
+   "status": "fonte secundária lida"
+  },
+  {
+   "frente": "PL",
+   "item": "Fiscais e QR Code dos boletins",
+   "valor": "Exército de fiscais, até dois por seção, orientados a ficar até as 17h para escanear o código do boletim; o PL recebeu \"uma porção bastante expressiva, e representativa\" dos boletins; o padrão apontava o mesmo que a apuração do TSE (Flávio crescendo pouco por urna, Lula de 2% a 4%); número de boletins não informado; nenhuma divergência relatada.",
+   "url": "https://www.metropoles.com/colunas/demetrio-vecchioli/com-exercito-de-fiscais-pl-tinha-nocao-da-derrota-desde-as-17h",
+   "data": "25/10/2026 21h17",
+   "confianca": "media",
+   "status": "lido (página aberta) (coluna, sem fonte oficial do PL)"
+  },
+  {
+   "frente": "PL",
+   "item": "Convocação dos fiscais",
+   "valor": "Comunicado da executiva nacional (domingo à tarde) pediu que os fiscais voltassem aos postos até a emissão do boletim; dirigentes: o recolhimento das cópias físicas dos boletins é essencial para a conferência paralela; sem aplicativo próprio citado, sem números.",
+   "url": "https://www.abcdoabc.com.br/pl-convoca-fiscais-monitorar-segundo-turno/",
+   "data": "25/10/2026 19h15",
+   "confianca": "media",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "PL",
+   "item": "Reconhecimento do resultado",
+   "valor": "Nota assinada por Valdemar Costa Neto: \"Reconhecemos o resultado presidencial, proclamado pelo Tribunal Superior Eleitoral, mas entendemos que os questionamentos levantados precisam ser devidamente esclarecidos\"; critica gastos do governo na reta final; sem menção a boletins, auditoria, teste de integridade ou fraude. A versão \"Reconhecemos a dimensão do resultado\" (brasilemfolhas, fonte de baixa confiança, usada antes) não confere com o Poder360.",
+   "url": "https://www.poder360.com.br/poder-eleicoes-2026/pl-reconhece-vitoria-de-lula-apos-flavio-contestar-resultado/ ; https://www.metropoles.com/brasil/presidente-do-pl-valdemar-costa-neto-reconhece-vitoria-de-lula",
+   "data": "26/10/2026 20h54",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "PL",
+   "item": "Flávio depois do resultado",
+   "valor": "Anunciou pedido de anulação em 25/10 (prorrogação e fiscais \"retirados da sala-cofre\"); em 26/10 a campanha desistiu da anulação e passou a uma Aije por abuso de poder. O TSE diz que dois fiscais do PL acompanharam o Teste de Integridade e a totalização.",
+   "url": "https://www.poder360.com.br/poder-eleicoes-2026/pl-reconhece-vitoria-de-lula-apos-flavio-contestar-resultado/ ; https://www.metropoles.com/brasil/tse-desmente-flavio-bolsonaro-sobre-retirada-de-fiscais-do-pl-de-sala-cofre",
+   "data": "26/10/2026",
+   "confianca": "alta",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "PL",
+   "item": "Comparação divulgada dos boletins do PL",
+   "valor": "Não encontrada.",
+   "url": "",
+   "data": "",
+   "confianca": "",
+   "status": "não encontrado"
+  },
+  {
+   "frente": "contexto",
+   "item": "Urnas substituídas no 2º turno",
+   "valor": "1.551 urnas substituídas no domingo (0,31% de 499.248); 64.662 de reserva; o recebimento de boletins ficou suspenso durante a prorrogação (balanço de Nunes Marques).",
+   "url": "https://ndmais.com.br/politica/urnas-eletronicas-substituidas-segundo-turno-eleicoes-2026/",
+   "data": "26/10/2026 11h55",
+   "confianca": "media",
+   "status": "lido (página aberta)"
+  },
+  {
+   "frente": "contexto",
+   "item": "Exterior sem biometria",
+   "valor": "Eleitores no exterior não usam biometria na votação.",
+   "url": "https://www.tnh1.com.br/tnh1-variedades/brasileiros-precisam-ficar-sabendo-da-regra-sobre-a-biometria-na-eleicoes-de-2026/",
+   "data": "2026",
+   "confianca": "baixa",
+   "status": "trecho do buscador, fonte secundária"
+  },
+  {
+   "frente": "contexto",
+   "item": "Boletim de urna",
+   "valor": "Impresso na seção, com QR Code legível pelo Boletim na Mão sem internet; qualquer pessoa pode comparar com o boletim publicado pelo TSE.",
+   "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/boletim-de-urna-permite-conferir-totalizacao-dos-votos-entenda",
+   "data": "10/2026",
+   "confianca": "media",
+   "status": "trecho do buscador (página jus.br deu 403 ao leitor; não contornei)"
+  }
+ ]
+}

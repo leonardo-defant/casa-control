@@ -1,0 +1,249 @@
+{
+ "reclassificacao_neutros_MG_MT": {
+  "n": 729,
+  "min_dif": 0.9582610045881435,
+  "atribuicao_do_min": {
+   "AL": "Lula",
+   "AP": "Lula",
+   "MA": "Flavio",
+   "PE": "Flavio",
+   "MG": "Lula",
+   "MT": "Lula"
+  },
+  "max_dif": 1.569391874454559
+ },
+ "pior_caso_mover_pro_Flavio_para_demais": {
+  "1": {
+   "min_dif": 0.5253612979483164,
+   "movidas": [
+    "SP"
+   ]
+  },
+  "2": {
+   "min_dif": 0.10127378460137271,
+   "movidas": [
+    "SP",
+    "RJ"
+   ]
+  },
+  "3": {
+   "min_dif": 0.0075518180429208215,
+   "movidas": [
+    "SP",
+    "RJ",
+    "GO"
+   ]
+  },
+  "4": {
+   "min_dif": -0.05969546299815853,
+   "movidas": [
+    "SP",
+    "MG",
+    "RJ",
+    "GO"
+   ]
+  }
+ },
+ "fracao_base_Flavio_sem_peso": {
+  "media_F": 5.1618415290897275,
+  "media_O": 6.217904034966334,
+  "dif": -1.0560625058766062,
+  "ep_welch": 0.4590944896386036,
+  "sem_SP_RJ_pond": -0.7791755243487781
+ },
+ "RJ": {
+  "Ruas_com_Garotinho": 49.269584468311244,
+  "Ruas_sem_Garotinho": 50.88015226882624,
+  "Garotinho_pct": 3.1654146630802633
+ },
+ "dentro_da_UF": {
+  "AL": {
+   "apoio": "neutro",
+   "coef_gov_por_ponto": 0.050381882960466765,
+   "ep": 0.03631068453653887,
+   "coef_fatia_Lula_1T": -0.04985090019334232,
+   "n_secoes": 7101,
+   "n_municipios": 102
+  },
+  "AP": {
+   "apoio": "neutro",
+   "coef_gov_por_ponto": 0.027833011198021583,
+   "ep": 0.0063914553125584625,
+   "coef_fatia_Lula_1T": -0.04190826181484215,
+   "n_secoes": 1913,
+   "n_municipios": 16
+  },
+  "BA": {
+   "apoio": "Lula",
+   "coef_gov_por_ponto": -0.00020233774248176652,
+   "ep": 0.01563199400901433,
+   "coef_fatia_Lula_1T": -0.06719089091632147,
+   "n_secoes": 35474,
+   "n_municipios": 417
+  },
+  "CE": {
+   "apoio": "Lula",
+   "coef_gov_por_ponto": 0.010827587622313175,
+   "ep": 0.0062090559634756844,
+   "coef_fatia_Lula_1T": -0.08944633826081419,
+   "n_secoes": 23761,
+   "n_municipios": 184
+  },
+  "GO": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": 0.050352392730571925,
+   "ep": 0.009268967493731588,
+   "coef_fatia_Lula_1T": -0.08257404687988679,
+   "n_secoes": 15680,
+   "n_municipios": 246
+  },
+  "MA": {
+   "apoio": "neutro",
+   "coef_gov_por_ponto": 0.0019273992481039135,
+   "ep": 0.00878228928716315,
+   "coef_fatia_Lula_1T": -0.06237332195153756,
+   "n_secoes": 18087,
+   "n_municipios": 217
+  },
+  "MG": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": 0.05143505387529753,
+   "ep": 0.012621052773039031,
+   "coef_fatia_Lula_1T": -0.046313040320693236,
+   "n_secoes": 52053,
+   "n_municipios": 853
+  },
+  "MS": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": 0.023342383606280326,
+   "ep": 0.00556371536752046,
+   "coef_fatia_Lula_1T": -0.02043355810651457,
+   "n_secoes": 7104,
+   "n_municipios": 79
+  },
+  "MT": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.004190114676335232,
+   "ep": 0.007619512952130069,
+   "coef_fatia_Lula_1T": -0.0030371833491528452,
+   "n_secoes": 8286,
+   "n_municipios": 142
+  },
+  "PA": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.024724988422655886,
+   "ep": 0.006730356144948312,
+   "coef_fatia_Lula_1T": -0.06598781807964987,
+   "n_secoes": 20820,
+   "n_municipios": 144
+  },
+  "PB": {
+   "apoio": "Lula",
+   "coef_gov_por_ponto": 0.0066086445344803535,
+   "ep": 0.024728824456141753,
+   "coef_fatia_Lula_1T": -0.09467567620488343,
+   "n_secoes": 10708,
+   "n_municipios": 223
+  },
+  "PE": {
+   "apoio": "neutro",
+   "coef_gov_por_ponto": -0.05480902623312323,
+   "ep": 0.013978284673898613,
+   "coef_fatia_Lula_1T": -0.11573616906885718,
+   "n_secoes": 21417,
+   "n_municipios": 185
+  },
+  "PI": {
+   "apoio": "Lula",
+   "coef_gov_por_ponto": 0.052876979621711576,
+   "ep": 0.009621461447160695,
+   "coef_fatia_Lula_1T": -0.12154499061396727,
+   "n_secoes": 10223,
+   "n_municipios": 224
+  },
+  "PR": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.08457395420543662,
+   "ep": 0.008627859157710962,
+   "coef_fatia_Lula_1T": -0.1061722668021646,
+   "n_secoes": 27138,
+   "n_municipios": 399
+  },
+  "RJ": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": 0.010321016262996434,
+   "ep": 0.010919228128650716,
+   "coef_fatia_Lula_1T": -0.08661024245212078,
+   "n_secoes": 37674,
+   "n_municipios": 92
+  },
+  "RO": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.07748209386136971,
+   "ep": 0.00913887021409189,
+   "coef_fatia_Lula_1T": -0.08532439436565777,
+   "n_secoes": 4695,
+   "n_municipios": 52
+  },
+  "RR": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": 0.027861746140867224,
+   "ep": 0.0104556418173193,
+   "coef_fatia_Lula_1T": 0.012134894302497217,
+   "n_secoes": 1519,
+   "n_municipios": 15
+  },
+  "RS": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.01903821472166722,
+   "ep": 0.012315231345860867,
+   "coef_fatia_Lula_1T": -0.04815881423407981,
+   "n_secoes": 27540,
+   "n_municipios": 497
+  },
+  "SC": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.01064288777781484,
+   "ep": 0.015644389968422448,
+   "coef_fatia_Lula_1T": -0.03587864791533151,
+   "n_secoes": 17321,
+   "n_municipios": 295
+  },
+  "SE": {
+   "apoio": "Lula",
+   "coef_gov_por_ponto": -0.020848962973202396,
+   "ep": 0.018833223504567224,
+   "coef_fatia_Lula_1T": -0.08174796584934454,
+   "n_secoes": 5923,
+   "n_municipios": 75
+  },
+  "SP": {
+   "apoio": "Flavio",
+   "coef_gov_por_ponto": -0.18545594732300993,
+   "ep": 0.0443797687298212,
+   "coef_fatia_Lula_1T": -0.22541403423368156,
+   "n_secoes": 103639,
+   "n_municipios": 645
+  }
+ },
+ "dentro_da_UF_combinado": {
+  "Flavio": {
+   "coef": -0.00654743957563754,
+   "ep": 0.0026384240553568787,
+   "n_UFs": 12,
+   "n_negativos": 7
+  },
+  "Lula": {
+   "coef": 0.017736405225703668,
+   "ep": 0.00469902915836233,
+   "n_UFs": 5,
+   "n_negativos": 2
+  },
+  "neutro": {
+   "coef": 0.010711395736683935,
+   "ep": 0.004804522568761166,
+   "n_UFs": 4,
+   "n_negativos": 1
+  }
+ }
+}

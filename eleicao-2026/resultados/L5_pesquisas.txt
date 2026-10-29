@@ -1,0 +1,172 @@
+L5 do Adendo 18: pesquisas, que não passam pela urna (2026, sem outras eleições como régua).
+Script: scripts/analisar_L5.py. Números: resultados/L5_pesquisas.json. Rodado em 29/10/2026 com secoes2026.json.gz (bweb dos dois
+turnos, 499.205 seções com os dois), candidatos2026_1t.json.gz e os coeficientes já registrados em resultados/T7_T14_bweb.json.
+Pesquisas: resultados/nacionais_2026_pesquisas_verificadas.txt e contexto_2t_2026_pesquisa_verificada.json (conferidos), mais a busca
+de 29/10 (WebSearch/WebFetch); cada número leva a fonte no JSON.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, antes de rodar):
+  (a) "Para cada instituto com pesquisa final nos dois turnos: erro de Flávio (urna menos pesquisa, nos válidos) no 1º e no 2º turno.
+      Incoerência: em pelo menos 6 dos institutos, Flávio acima da pesquisa no 1º turno e abaixo dela no 2º, com virada média de 4
+      pontos ou mais. Coerente: sinais iguais nos dois turnos na maioria."
+  (b) "O saldo de quem não votou num finalista no 1º turno (branco, nulo, abstenção e eleitor de eliminado que as pesquisas davam como
+      nenhum): pela urna e pelas transferências declaradas, a fatia desse saldo que foi para Lula. Comparar com a divisão entre Lula e
+      Flávio dos indecisos, brancos, nulos e não vai votar nas pesquisas finais do 2º turno, quando o instituto publicar. Incoerência:
+      fatia de Lula pela urna acima da maior fatia das pesquisas em 30 pontos ou mais. Sem a divisão publicada, só descritivo."
+  Transparência: o Adendo 18 foi escrito depois do T12 (erros das pesquisas por instituto) e do T37; o desenho de (a) já era
+  conhecido em parte (T12 tinha 7 institutos). Não é um teste cego.
+
+VEREDITOS PELA LETRA
+  (a) INCOERÊNCIA. 11 de 11 institutos com Flávio acima da pesquisa no 1º turno e abaixo no 2º; virada média
+      -6,10 pontos (erro-padrão 0,77 pela dispersão entre institutos, 0,46 só amostral).
+  (b) DESCRITIVO. Nenhuma pesquisa final publicou a divisão entre Lula e Flávio dos seus indecisos, brancos, nulos e "não vai votar".
+      Desvio declarado, só descritivo: contra o análogo publicado (voto no 2º turno de quem votou branco/nulo ou faltou no 1º), a fatia
+      pela urna com as transferências da pesquisa final do PoderData é 115,3% (fidelidade 100%) e 104,4% (fidelidade
+      declarada), acima do limite de 95,8% (maior fatia final, 65,8%, mais 30). Pela regressão da própria urna, a fatia de Lula
+      no branco/nulo e na abstenção é 59,2%, -6,6 pontos da maior fatia final.
+
+1. (a) Erro de Flávio por instituto, nos válidos (urna menos pesquisa; positivo = Flávio teve mais que a pesquisa)
+  Urna: 1º turno Flávio 47,03%, Lula 45,16%, eliminados 7,81% (válidos sem o 28); 2º turno Flávio 48,21%, Lula 51,79%.
+  instituto            | 1T pesq. | erro 1T (ep)  | 2T pesq. | erro 2T (ep)  | virada (ep)    | padrão | a 2 ep
+  Datafolha            |    42,00 |   5,03 (0,81) |    51,00 |  -2,79 (0,81) |  -7,81 (1,15) | sim    | sim
+  Quaest               |    45,00 |   2,03 (0,85) |    51,00 |  -2,79 (0,85) |  -4,81 (1,20) | sim    | sim
+  AtlasIntel           |    44,10 |   2,93 (1,15) |    50,80 |  -2,59 (0,73) |  -5,51 (1,37) | sim    | sim
+  CNT/MDA              |    42,10 |   4,93 (1,14) |    50,70 |  -2,49 (1,15) |  -7,41 (1,62) | sim    | sim
+  PoderData            |    43,00 |   4,03 (1,15) |    51,00 |  -2,79 (0,82) |  -6,81 (1,41) | sim    | sim
+  Nexus/BTG            |    39,00 |   8,03 (1,13) |    50,50 |  -2,29 (1,16) | -10,31 (1,62) | sim    | não
+  Real Time Big Data   |    41,00 |   6,03 (1,14) |    52,00 |  -3,79 (1,16) |  -9,81 (1,63) | sim    | sim
+  Futura               |    44,80 |   2,23 (1,15) |    50,10 |  -1,89 (1,16) |  -4,11 (1,64) | sim    | não
+  Gerp                 |    46,00 |   1,03 (1,16) |    52,00 |  -3,79 (1,16) |  -4,81 (1,64) | sim    | não
+  Veritá               |    47,00 |   0,03 (1,16) |    51,56 |  -3,35 (1,16) |  -3,37 (1,64) | sim    | não
+  Vox Brasil           |    45,88 |   1,15 (1,16) |    49,40 |  -1,19 (1,16) |  -2,33 (1,64) | sim    | não
+  Com o padrão: 11 de 11 (limite: 6). Mesmo sinal nos dois turnos: 0 de 11. Com o padrão a 2 erros-padrão
+  nos dois turnos: 6. Virada média -6,10, mediana -5,51, desvio entre institutos 2,57.
+  Distância ao limite de 4 pontos: 2,10 pontos, 2,7 erros-padrão entre institutos.
+  Erro amostral: amostra simples com a amostra publicada (2.000 quando não publicada, marcado n=None no JSON); não inclui efeito de
+  desenho nem viés de casa, por isso o erro-padrão pela dispersão entre institutos é o que vale para a média.
+  Sensibilidade (1º turno alternativo): Veritá 45,14 e AtlasIntel 43,1: padrão em 11 de 11, virada média -6,36.
+  Fora de (a): Ipespe/Abrapel: sem pesquisa nacional de 1º turno antes de 4/10 (a série de 2º turno começa em 6 a 8/10; placardaspesquisas.com.br/institutos/ipespe e busca de 29/10); Paraná Pesquisas: sem pesquisa nacional de presidente em nenhum dos dois turnos (últimas nacionais de fevereiro e março); Ipsos-Ipec: sem pesquisa nacional de 2º turno em outubro.
+  Notas por instituto (campo e fonte no JSON): Veritá: última rodada segundo a Revista Fórum, sem ficha; a rodada de 20 a 25/9 (40,5 mil) deu 45,14 x 44,65 / campo 19 a 23/10; Vox Brasil: campo 29/9 a 1/10; válidos não publicados, derivados dos totais 41,2 x 40,4 sem branco/nulo (3,2) e indecisos (7) (desvio) / campo 20 a 22/10.
+
+  De onde vem a virada (descritivo):
+    1º turno, erro médio: Flávio 3,40, Lula -0,05, eliminados -3,35 pontos. O erro do 1º turno
+    foi quase todo entre Flávio e os eliminados (as pesquisas davam aos eliminados mais do que tiveram); Lula ficou, na média, onde as
+    pesquisas diziam.
+    2º turno, erro médio: Flávio -2,70, Lula 2,70. Medida em Lula, a virada é de 2,75 pontos
+    (de -0,05 para 2,70); os outros 3,35 pontos da virada de Flávio vêm do 1º turno.
+    Lula por instituto, erro 1T / 2T: Datafolha 0,16 / 2,79; Quaest -0,84 / 2,79; AtlasIntel -1,84 / 2,59; CNT/MDA -2,64 / 2,49; PoderData 0,16 / 2,79; Nexus/BTG 1,16 / 2,29; Real Time Big Data -0,84 / 3,79; Futura 2,56 / 1,89; Gerp 1,16 / 3,79; Veritá 0,16 / 3,35; Vox Brasil 0,17 / 1,19.
+
+2. (b) Saldo de quem não votou num finalista no 1º turno
+  Urna (seções com os dois turnos): Lula +10.376.696, Flávio +3.721.538. Fontes: eliminados 9.316.747,
+  queda do branco+nulo 1.821.246 (o 28 conta como nulo), aumento do comparecimento 2.960.241
+  (abstenção 21,08% no 1º turno, 19,22% no 2º). Identidade ganhos = fontes: diferença 0.
+  Conferência: com os totais impressos em decomposicao_fluxos_2026.txt (taxas atribuídas à Quaest, não confirmadas), a mesma conta
+  dá 98,4% (registrado 98%).
+
+  2.1 Fatia do saldo que foi para Lula, pela urna e pelas transferências declaradas de cada pesquisa (a conta do arquivo antigo):
+  pesquisa                      | dos eliminados F / L / nenhum      | do saldo F / L        | saldo     | fatia L fid. 100% | fatia L fid. declarada
+  PoderData 23-24/10 (final)    | 4,73 mi / 2,75 mi / 1,83 mi | -1,01 mi / 7,62 mi | 6,61 mi |  115,3%           | 104,4%
+  PoderData 19-21/10            | 4,45 mi / 3,46 mi / 1,41 mi | -0,73 mi / 6,91 mi | 6,19 mi |  111,7%           | 108,7%
+  PoderData 5-7/10              | 4,99 mi / 2,23 mi / 2,10 mi | -1,26 mi / 8,15 mi | 6,88 mi |  118,4%           | 106,5%
+  Quaest 17-20/10               | 4,34 mi / 3,02 mi / 1,98 mi | -0,62 mi / 7,36 mi | 6,74 mi |  109,2%           | não publicada
+  Quaest 10-13/10               | 3,42 mi / 2,34 mi / 3,55 mi | 0,30 mi / 8,04 mi | 8,34 mi |   96,4%           | não publicada
+  AtlasIntel 13-18/10           | 4,54 mi / 3,47 mi / 1,31 mi | -0,82 mi / 6,91 mi | 6,09 mi |  113,4%           | não publicada
+  AtlasIntel 3-8/10             | 4,34 mi / 3,28 mi / 1,70 mi | -0,62 mi / 7,10 mi | 6,48 mi |  109,5%           | não publicada
+  Ipespe 13-15/10               | 4,65 mi / 2,23 mi / 2,43 mi | -0,93 mi / 8,15 mi | 7,21 mi |  112,9%           | 97,7%
+  Ipespe 6-8/10                 | 4,38 mi / 2,16 mi / 2,77 mi | -0,66 mi / 8,22 mi | 7,56 mi |  108,7%           | 95,0%
+  Datafolha 13-14/10            | 4,31 mi / 2,53 mi / 2,50 mi | -0,59 mi / 7,85 mi | 7,26 mi |  108,1%           | não publicada
+  Datafolha 6-7/10              | 4,31 mi / 2,98 mi / 2,04 mi | -0,59 mi / 7,40 mi | 6,81 mi |  108,6%           | não publicada
+  Nexus 10-12/10                | 4,57 mi / 2,79 mi / 1,96 mi | -0,85 mi / 7,59 mi | 6,75 mi |  112,5%           | não publicada
+  mediana dos institutos por grupo (fid. 100%): Flávio dos eliminados 4,42 mi, fatia 109,9%.
+  erro da fatia do PoderData final pela amostra (sorteio multinomial das subamostras), efeito de desenho 1: fid. 100% ep 4,5 (95%: 106,7 a 124,6); fid. declarada ep 6,9 (95%: 91,2 a 118,3)
+  erro da fatia do PoderData final pela amostra (sorteio multinomial das subamostras), efeito de desenho 2: fid. 100% ep 6,4 (95%: 103,3 a 128,5); fid. declarada ep 9,9 (95%: 85,8 a 124,6)
+    subamostras estimadas pela fatia do 1º turno (efeito de desenho 1): Cury 98, Renan 76, Caiado 74, Zema 9, esquerda 5, demais 5
+  Notas: PoderData 23-24/10 (final): Zema, esquerda e demais pela coluna "Outro candidato"; PoderData 19-21/10: "Outro candidato" para Zema, esquerda e demais; PoderData 5-7/10: "Outro" para esquerda e demais; Quaest 17-20/10: Zema, esquerda e demais não publicados (mediana dos outros institutos); fidelidade não publicada (100%); Quaest 10-13/10: "Outros" para Zema, esquerda e demais; fidelidade não publicada (100%); AtlasIntel 13-18/10: "Outros (inclui Zema)" para Zema, esquerda e demais; fidelidade não publicada (100%); AtlasIntel 3-8/10: "Demais candidatos" para Zema, esquerda e demais; fidelidade não publicada (100%); Ipespe 13-15/10: "Outros" para Zema, esquerda e demais; Ipespe 6-8/10: "Outros" para Zema, esquerda e demais; Datafolha 13-14/10: só o agregado dos quatro; esquerda e demais pela mediana dos outros institutos; fidelidade não publicada (100%); Datafolha 6-7/10: só o agregado dos quatro (os percentuais publicados somam 94; o resto vai para nenhum); esquerda e demais pela mediana; Nexus 10-12/10: Cury, Renan, esquerda e demais pelo agregado "outros candidatos"; fidelidade de 98% sem divisão do resto (100%).
+  O que os eleitores dos eliminados declararam para Flávio passa do ganho inteiro dele na urna (+3,72 mi) em 11 de 12 pesquisas
+  (só não passa em: Quaest 10-13/10). Então Flávio fica negativo no saldo e a fatia de Lula passa de 100%:
+  pelas transferências declaradas, a conta não fecha.
+
+  2.2 O que as pesquisas finais publicaram sobre a divisão dos seus indecisos, brancos, nulos e "não vai votar" (critério literal):
+    Datafolha 23-24/10: não publicada (branco/nulo 3, indecisos 2)
+    Quaest 23-24/10: não publicada (branco, nulo e não vai votar 8, indecisos 1; 92% dos que escolheram dizem que o voto é definitivo)
+    AtlasIntel 18-23/10: não publicada (indecisos, brancos e nulos 1,7 somados)
+    CNT/MDA 21-23/10: não publicada (branco/nulo 5,8, indecisos 2,9; só o perfil por sexo)
+    PoderData 23-24/10: não publicada (branco/nulo 3, não sabe 1; 28% do branco/nulo diz que ainda pode mudar, sem dizer para quem)
+    Nexus 23-24/10: não publicada
+    Ipespe 20-22/10: não publicada (branco/nulo 3, não sabem 2)
+    Real Time Big Data 19-22/10: não publicada (branco/nulo 5, não sabe 1)
+    Veritá 19-23/10: não publicada (branco/nulo 1,43, não sabe 2,67)
+    Vox Brasil 20-22/10: não publicada (branco, nulo e nenhum 6, indecisos 4,3)
+    Futura 23-24/10: não publicada (só a espontânea: ninguém/branco/nulo 2,3, não sabe 3,7)
+    Gerp 22-24/10: não publicada (espontânea: não sabe 8)
+
+  2.3 Análogo publicado (desvio declarado): voto no 2º turno de quem não escolheu finalista no 1º, fatia de Lula entre os que
+  escolhem um dos dois (ep aproximado, com o tamanho do grupo estimado):
+    final | PoderData 23-24/10   | votou branco/nulo no 1º turno                           | L 50,0 F 26,0 | fatia 65,8% (ep 4,2)
+    final | PoderData 23-24/10   | não votou no 1º turno                                   | L 50,0 F 35,0 | fatia 58,8% (ep 2,5)
+    final | Nexus 23-24/10       | não compareceu no 1º turno (só a Bloomberg Línea)       | L 53,2 F 46,8 | fatia 53,2% (ep 3,5)
+    final | Datafolha 23-24/10   | propensão média ou baixa de comparecer (24% da amostra) | L 52,0 F 48,0 | fatia 52,0% (ep 1,6)
+    antes | PoderData 19-21/10   | votou branco/nulo no 1º turno                           | L 46,0 F 23,0 | fatia 66,7% (ep 4,4)
+    antes | PoderData 19-21/10   | não votou no 1º turno                                   | L 48,0 F 39,0 | fatia 55,2% (ep 2,7)
+    antes | Quaest 17-20/10      | não votou ou votou branco/nulo no 1º turno              | L 40,0 F 36,0 | fatia 52,6% (ep 3,3)
+    antes | AtlasIntel 13-18/10  | não compareceu no 1º turno                              | L 55,7 F 40,2 | fatia 58,1% (ep 2,3)
+    antes | AtlasIntel 13-18/10  | votou branco/nulo no 1º turno                           | L 21,1 F 38,7 | fatia 35,3% (ep 3,9)
+    antes | Ipespe 13-15/10      | branco/nulo ou não votou no 1º turno                    | L 60,0 F 15,0 | fatia 80,0% (ep 5,3)
+    antes | Ipespe 6-8/10        | branco/nulo ou não votou no 1º turno                    | L 17,0 F 30,0 | fatia 36,2% (ep 7,4)
+    antes | AtlasIntel 3-8/10    | não votou no 1º turno                                   | L 63,1 F 21,8 | fatia 74,3% (ep 2,1)
+    antes | AtlasIntel 3-8/10    | votou branco/nulo no 1º turno                           | L 22,5 F 46,2 | fatia 32,8% (ep 3,6)
+    antes | PoderData 5-7/10     | votou branco/nulo no 1º turno                           | L 18,0 F 22,0 | fatia 45,0% (ep 6,9)
+    antes | PoderData 5-7/10     | não votou no 1º turno                                   | L 34,0 F 42,0 | fatia 44,7% (ep 3,1)
+    antes | Quaest 10-13/10      | ausente ou branco/nulo no 1º turno                      | L 43,0 F 38,0 | fatia 53,1% (ep 3,2)
+  Maior fatia nas pesquisas finais: 65,8% (PoderData 23-24/10, votou branco/nulo no 1º turno); limite do critério 95,8%.
+  Maior em qualquer rodada: 80,0% (Ipespe 13-15/10); limite 110,0%.
+  Pesquisas cuja fatia pela urna fica acima do limite final nas duas fidelidades: AtlasIntel 13-18/10, AtlasIntel 3-8/10, Datafolha 13-14/10, Datafolha 6-7/10, Ipespe 13-15/10, Nexus 10-12/10, PoderData 19-21/10, PoderData 23-24/10 (final), PoderData 5-7/10, Quaest 10-13/10, Quaest 17-20/10.
+  Com o limite de qualquer rodada (110,0%), o PoderData final não passa.
+  Distância do PoderData final ao limite de 95,8%, em erros-padrão (urna e pesquisa): fid_100, efeito de desenho 1 3,2; fid_declarada, efeito de desenho 1 1,1; fid_100, efeito de desenho 2 2,6; fid_declarada, efeito de desenho 2 0,8.
+
+  2.4 Só a urna (regressão do T8 com grupos, mesmo local; T7_T14_bweb.json):
+    fatia de Lula na queda do branco+nulo 63,8% (ep 0,2), no aumento do comparecimento 56,4% (ep 0,2);
+    somadas pelo tamanho: 59,2% (ep 0,1, sem a covariância). Eleitores dos eliminados para Lula:
+    54,1% (ep 0,2). Lula leva 3,9% dos votos de Flávio do 1º turno e Flávio leva 1,3% dos de Lula (líquido, no mesmo local; na PoderData final, 5% e 5%).
+    Pela regressão da urna, o branco/nulo e a abstenção se dividiram perto do que as pesquisas finais dizem (PoderData 65,8% e 58,8%,
+    Nexus 53,2%). A diferença entre urna e pesquisa fica nos eleitores dos eliminados (urna 54% para Lula; pesquisas de 30% a 44% entre
+    os que escolheram, T37) e na troca entre os eleitores de Flávio e de Lula. É regressão ecológica entre seções do mesmo local.
+    a urna não identifica o "nenhum" dos eleitores dos eliminados (b_L + b_F = 1, Adendo 17).
+
+  2.5 O que a fatia acima de 100% mede: se o saldo tivesse se dividido como a maior fatia final, com as transferências e a fidelidade
+  do PoderData final, Lula teria 49,39% dos válidos (o PoderData final dava 49%; a urna deu 51,79%).
+  A diferença na margem é de 5,95 mi. Por essa tabela, Flávio ganharia 6,70 mi entre os turnos (ganhou 3,72 mi) e Lula 7,40 mi (ganhou 10,38 mi).
+  É o mesmo erro do 2º turno visto em (a), escrito como fluxo: a fatia acima de 100% não traz informação independente de (a).
+
+  2.6 Intenção de comparecimento nas pesquisas finais (descritivo):
+    PoderData 23-24/10: com certeza vai votar 94%, pode ir sem certeza 3%, não vai 2%, não sabe 1%; com certeza entre quem vota em Flávio 96%, em Lula 94%, branco/nulo 52%, não sabe 56%; entre quem votou no 1º turno 97% (não vai 1%), entre quem não votou 65% (pode ir 19%, não vai 15%)
+    Datafolha 23-24/10: alta propensão de comparecer (76% da amostra): Flávio 52 x Lula 48 nos válidos; média ou baixa (24%): Lula 52 x Flávio 48; amostra inteira 51 x 49
+    Nexus 23-24/10: modelo de eleitor provável (tira os 21% menos propensos): Flávio 52,4 x Lula 47,6; amostra inteira 50,5 x 49,5; quem votou no 1º turno 51,2 x 48,8, quem não votou Lula 53,2 x 46,8
+    Quaest 23-24/10: válidos 51 x 49 pelo modelo de eleitor provável; totais 46 x 45 com 8% de branco, nulo e "não vai votar" e 1% de indecisos (50,5 x 49,5 sem o modelo)
+    CNT/MDA 21-23/10: ajuste pelos que declararam comparecimento, sem número publicado; 7,3% ainda podem mudar; ponderação pelo voto declarado no 1º turno
+    Em todas as que mediram, os mais propensos a votar davam mais Flávio. Passar do eleitor provável para a amostra inteira tira de
+    Flávio de 0,5 (Quaest) a 1,9 ponto (Nexus); com a amostra inteira votando, as pesquisas ainda davam Flávio à frente (Datafolha 51,
+    Nexus 50,5, Quaest 50,5). Pela própria pesquisa, comparecimento maior não leva ao resultado da urna.
+    Na urna, o comparecimento subiu 2,96 mi; com a fatia de 56,4% da regressão, isso dá a Lula uma margem de
+    cerca de 0,38 mi, pouco perto da diferença de 5,95 mi.
+
+3. O que isso significa (leitura, nos dois sentidos)
+  - (a) cumpre a letra: as 11 pesquisas erraram para lados opostos nos dois turnos. Mas a virada de 6,10 pontos junta duas coisas.
+    No 1º turno, o erro foi entre Flávio e os eliminados (Lula ficou na pesquisa, erro médio -0,05). No 2º turno, as pesquisas
+    deram a Lula 2,70 pontos a menos, todas na mesma direção, com métodos diferentes (telefone automático, presencial, internet).
+    É esse erro do 2º turno, e não o do 1º, que uma fraude no 2º turno produziria. Ele também é o que um erro comum das pesquisas
+    produziria; o teste não separa as duas coisas. Uma fraude a favor de Lula que valesse também no 1º turno teria posto Lula acima
+    das pesquisas no 1º turno; ele ficou nelas (erro médio -0,05), e quem passou da pesquisa foi Flávio.
+  - (b) pela letra é descritivo. A conta "pela urna e pelas transferências declaradas" passa de 100% em 11 de 12 pesquisas
+    com fidelidade 100% (de 96,4% a 118,4%) e fica entre 95,0% e 108,7% com a fidelidade declarada, porque o que os
+    eleitores dos eliminados disseram que dariam a Flávio já é mais do que ele ganhou. Isso é real e é a "conta que não fecha". Mas é o
+    mesmo erro do 2º turno em outra forma (2.5): com a divisão da pesquisa, o resultado volta a ser o da pesquisa. Não é um segundo
+    indício, e o tamanho dele depende de qual pesquisa se usa (erro de 4 a 10 pontos só pela amostra).
+  - Onde está a diferença, pela regressão da própria urna: não no branco, nulo e abstenção (que se dividiram como as pesquisas finais
+    dizem), e sim nos eleitores dos eliminados e na troca entre eleitores de Flávio e de Lula. É aí que outros testes (L3, L4, T14, T37)
+    olham; uma troca proporcional de votos de Flávio para Lula apareceria lá, e o T14 não a achou acima do limite registrado.
+  - Comparecimento: as pesquisas finais diziam que o eleitor mais provável era mais de Flávio, e o comparecimento subiu; mesmo com
+    todos os entrevistados votando, elas davam Flávio à frente. Essa explicação comum ("o eleitor de Lula foi votar") cobre pouco do erro.
+
+O que ficou de fora: as tabelas cruzadas da Quaest, Datafolha, AtlasIntel, Nexus e CNT/MDA das rodadas finais (não publicadas na
+imprensa nem achadas em PDF); o tamanho real das subamostras (estimado pela fatia do 1º turno); efeito de desenho das pesquisas;
+a Veritá e a AtlasIntel do 1º turno têm duas versões (sensibilidade acima); Ipespe, Paraná Pesquisas e Ipsos-Ipec sem os dois turnos.

@@ -1,0 +1,189 @@
+L3. O núcleo do PL: quem é do PL perde eleitor para Lula? (Adendo 18), com o bweb completo dos dois turnos de 2026
+Script: scripts/analisar_L3.py. Números completos: resultados/L3_bweb.json.
+Rodado em 2026-10-29 com a base por seção dos dois turnos (secoes2026.json.gz), os votos por candidato a presidente no 1º
+turno por seção (candidatos2026_1t.json.gz) e as linhas de deputado federal dos 28 zips do bweb do 1º turno (05/10, 14h03),
+sem baixar nada. Nenhuma outra eleição entra (Adendo 18).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, commit bc7decb de 29/10 05h13 UTC, antes de rodar):
+- Lógica: o eleitor mais partidário é o que menos troca de lado. Se Flávio perdeu eleitores por comportamento, a perda tem
+  de ser pequena onde o PL é muito forte. Se uma fração fixa dos votos dele foi desviada, a perda fica parecida em todo lugar.
+- Força do PL na seção: fatia do PL (nominal mais legenda, número 22) nos válidos para deputado federal no 1º turno, na
+  mesma urna. Quintis de seções por essa fatia. Em cada quintil, a regressão do T8, efeito fixo de local, erro agrupado por
+  local; P1 a P5 = coeficiente dos próprios votos de Flávio. O mesmo para Lula com a fatia do PT.
+- INCOERÊNCIA (a favor da tese): P5 de -0,03 ou menos, a mais de 3 erros-padrão, e P5 não menor que P1 em valor absoluto
+  por mais de 0,01. COERENTE com comportamento: |P5| até metade de |P1|. Entre os dois: INCONCLUSIVO.
+
+VEREDITO PELA LETRA: COERENTE
+- P1 (PL mais fraco) = -0,0812 (ep 0,0021); P5 (núcleo do PL) = -0,0293 (ep 0,0012).
+  |P5| é 36% de |P1|, abaixo da metade: COERENTE.
+- Condições de INCOERÊNCIA: (a) P5 <= -0,03? não, P5 fica 0,6 ep acima do limiar.
+  (b) |P1| - |P5| <= 0,01? não, a diferença é 0,0519 (ep 0,0024, covariância conjunta dos
+  cinco quintis). Mesmo que P5 passasse do limiar de -0,03, a condição (b) falharia por 18 erros-padrão.
+- "A mais de 3 erros-padrão" lido a partir do limiar (e não de zero): COERENTE, o mesmo veredito.
+- Espelho, Lula com a fatia do PT (mesma regra): INCONCLUSIVO. P1 = -0,0172 (ep 0,0015),
+  P5 = -0,0143 (ep 0,0012): Lula perdeu pouco em todo lugar e o núcleo do PT perdeu quase o mesmo que o resto.
+
+Resumo
+- Onde o PL é fraco para deputado (até 8,9% dos válidos; Lula com 64% no 1º turno), Flávio perdeu,
+  em termos líquidos, 8,1% dos próprios eleitores do 1º turno. Onde o PL é o núcleo (acima de 34,4%, média de
+  45%; Lula com 35%), perdeu 2,9%. A perda cai de forma contínua de um quintil para o
+  outro. Uma fração fixa desviada em todo lugar deixaria a perda parecida nos cinco quintis; não é o que aparece.
+- Mas o próprio teste mostra dois limites, e eles pesam:
+  (1) A maior parte do degrau vem da força local de Lula, não do partido. Dentro de faixas de força de Lula na seção, a
+      diferença entre Q5 e Q1 vai de -1,8 a +2,1 pontos, contra +5,2 sem controlar (item 4).
+  (2) Um desvio em fração fixa somado ao comportamento não achata o degrau, só o desloca. Simulado por cima dos dados, um desvio
+      uniforme de 3,56% dos votos de Flávio (o tamanho que vira o resultado) dá INCONCLUSIVO pela letra, não INCOERÊNCIA;
+      o mesmo total concentrado onde Lula é forte dá COERENTE. COERENTE quer dizer "os dados têm o formato que o
+      comportamento prevê". Não quer dizer "não houve desvio".
+- O que o resultado ainda limita (leituras com premissa, fora do critério, item 5):
+  se o núcleo do PL de fato não perdesse ninguém, o P5 observado comportaria um desvio uniforme de até 3,0%
+  (3,3% com 2 erros-padrão), abaixo dos 3,56% que viram o resultado. Se o núcleo de um partido perde
+  naturalmente o que o núcleo do PT perdeu (1,4%), sobra espaço para cerca de 1,5% (2,0% no limite de 2 ep).
+  Onde Lula tem menos de 35% na seção, Flávio perde 1,4% (ep 0,1); onde Flávio tem menos de 35%, Lula perde
+  1,5% (ep 0,1). Nos redutos de cada um, os dois perdem o mesmo. Para caber um desvio uniforme do tamanho
+  que vira o resultado, Flávio teria de ter, nos redutos dele, um desempenho real 3,6 pontos melhor que o
+  de Lula nos redutos de Lula (premissa: os dois campos se comportam igual onde dominam).
+- O que fica em aberto: com a mesma força do adversário na seção, Flávio perde mais que Lula, e a diferença cresce com a força
+  de Lula: adversário 35 a 50%: Flávio 4,2%, Lula 2,2%; adversário 50 a 65%: Flávio 7,2%, Lula 3,1%; adversário 65 a 100%: Flávio 11,5%, Lula 3,7%.
+  É o que o T35 já tinha registrado. Tem o formato de um comportamento diferente entre os campos e também o de um desvio
+  regulado pela força local de Lula, que poupa os redutos de Flávio. Este teste não separa os dois, nem o T35.
+
+1. Dados e conferências
+- Linhas de deputado federal lidas: 26.151.133 (leitura pelo csv em 0 linhas com ponto e vírgula dentro de um campo).
+  Os zips do 1º turno e a base por seção já tinham sido conferidos antes (total oficial, testes anteriores).
+- Seções com os dois turnos na base: 499.205; do exterior (sem deputado): 1.308; sem linhas de deputado
+  federal: 0; com válidos zero: 0. Universo: 497.897 seções em 94.539 locais.
+- Em todas as seções, nominal + legenda + branco + nulo de deputado federal = comparecimento das linhas de deputado
+  (0 diferenças). Número do votável começa com o número do partido em todas as linhas nominais e de
+  legenda (0 exceções). Comparecimento igual em todas as linhas da mesma seção (0 exceções).
+- Comparecimento de deputado federal menor que o de presidente em 17.233 seções (165.584 eleitores
+  ao todo, mediana 3 por seção, máximo 289); maior em 0. É o eleitor em trânsito de outra UF, que
+  só vota para presidente (SP 4.603, RJ 2.725, MG 1.520, PR 1.347, BA 791). A fatia do partido conta só quem votou para deputado; a regressão usa os
+  votos de presidente, como registrado.
+- Totais de deputado federal no bweb: válidos 114.108.482 (nominal 110.670.045, legenda 3.438.437); PL 25.830.609
+  (22,64%); PT 14.798.202 (12,97%); branco 6.445.372; nulo 4.214.631.
+- Conferência externa: Nikolas Ferreira (PL-MG, 2222) soma 3.119.318 votos no bweb; publicado: 3.119.318
+  (imprensa de 05/10/2026, achado por busca na web: gazetasp.com.br e congressoemfoco.com.br). Igual.
+- Correlação entre seções: fatia do PL x fatia de Flávio no 1º turno 0,53; fatia do PT x fatia de
+  Lula 0,25. O voto no PT para deputado marca o eleitor de Lula bem menos do que o voto no PL marca o de Flávio.
+
+2. Flávio por quintil da fatia do PL (o teste)
+   Quintil  fatia do PL (faixa; média)   Flávio/Lula 1T   seções  na regr.  locais   P (ep)              perda líquida aprox.
+   Q1       0,0 a 8,9%; 4,4%               31% / 64%         99.588   86.171  19.911   -0,0812 (0,0021)   567.302 votos
+   Q2       8,9 a 17,1%; 13,1%             44% / 48%         99.620   88.838  18.661   -0,0491 (0,0016)   513.766 votos
+   Q3       17,1 a 24,8%; 20,9%            49% / 42%         99.575   90.296  18.172   -0,0422 (0,0015)   498.404 votos
+   Q4       24,8 a 34,4%; 29,2%            54% / 38%         99.556   91.754  17.571   -0,0334 (0,0014)   434.818 votos
+   Q5       34,4 a 99,3%; 44,8%            57% / 35%         99.558   93.573  15.363   -0,0293 (0,0012)   400.265 votos
+- Universo inteiro, mesma regressão: -0,0402 (ep 0,0006). O T8 registrado, com o exterior, deu -0,0393 (ep 0,0007).
+- Empilhado (covariância conjunta): P5 - P1 = +0,0519 (ep 0,0024, z 21,7).
+  A perda cai a cada quintil: 8,1% > 4,9% > 4,2% > 3,3% > 2,9%.
+- "Perda líquida aprox." = -P vezes os votos de Flávio no 1º turno do quintil (inclui as seções que saem da regressão).
+- Conferência por outro caminho (feita à mão em 29/10, fora deste script): as listas de seções do Q1 e do Q5 refeitas por código
+  separado e rodadas no script registrado do T8 (analisar_fluxo_regressao.py, R, com os grupos Cury, Renan, Caiado e Zema)
+  dão P1 = -0,081 (ep 0,002; 86.171 seções, 19.911 locais) e P5 = -0,029 (ep 0,001; 93.573 seções, 15.363 locais), os mesmos.
+
+3. Lula por quintil da fatia do PT (espelho, mesma regra)
+   Q1       0,0 a 5,9%; 3,7%               46% / 48%         99.582   85.986  19.964   -0,0172 (0,0015)   181.774 votos
+   Q2       5,9 a 9,3%; 7,6%               40% / 52%         99.628   86.268  21.158   -0,0229 (0,0019)   221.409 votos
+   Q3       9,3 a 13,1%; 11,1%             42% / 50%         99.578   86.634  21.455   -0,0229 (0,0019)   231.936 votos
+   Q4       13,1 a 18,8%; 15,7%            45% / 47%         99.536   88.070  19.443   -0,0234 (0,0017)   252.883 votos
+   Q5       18,8 a 100,0%; 27,1%           54% / 39%         99.573   88.883  17.230   -0,0143 (0,0012)   178.999 votos
+   (colunas: fatia do PT; Lula/Flávio no 1º turno)
+- Universo inteiro: -0,0141 (ep 0,0006). P5 - P1 = +0,0029 (ep 0,0019).
+- Leitura: INCONCLUSIVO pela régua. Lula perde pouco em todos os quintis e o núcleo do PT não protege mais que o resto. Como o
+  voto no PT para deputado marca pouco o eleitor de Lula (item 1), o espelho diz pouco sobre partidarismo. Ele serve de outra
+  forma: um desvio de votos de Flávio para Lula quase não mexe no coeficiente próprio de Lula (item 5), então a perda do
+  núcleo do PT é uma referência, dentro de 2026, de quanto o núcleo de um partido perde sem desvio contra o seu candidato.
+
+4. Partido ou força local de Lula? (fora do critério, escolhido antes de ver P1 a P5)
+- P de Flávio por quintil do PL (mesmos cortes), dentro de faixas da fatia de Lula nos válidos de presidente do 1º turno da seção:
+   Lula 0 a 35% (157.850 seções): Q1 -0,021 (0,008) | Q2 -0,014 (0,003) | Q3 -0,015 (0,003) | Q4 -0,014 (0,002) | Q5 -0,014 (0,001)
+   Lula 35 a 50% (158.472 seções): Q1 -0,054 (0,005) | Q2 -0,050 (0,003) | Q3 -0,043 (0,002) | Q4 -0,043 (0,003) | Q5 -0,040 (0,003)
+   Lula 50 a 65% (98.870 seções): Q1 -0,091 (0,004) | Q2 -0,072 (0,003) | Q3 -0,069 (0,005) | Q4 -0,090 (0,006) | Q5 -0,070 (0,007)
+   Lula 65 a 100% (82.705 seções): Q1 -0,116 (0,003) | Q2 -0,124 (0,006) | Q3 -0,119 (0,012) | Q4 -0,128 (0,013) | Q5 -0,133 (0,012)
+- Faixa inteira (todos os quintis juntos), P do candidato pela fatia do adversário na seção:
+   Flávio, adversário com 0 a 35%: -0,0136 (ep 0,0009), 149.314 seções na regressão
+   Flávio, adversário com 35 a 50%: -0,0417 (ep 0,0012), 148.933 seções na regressão
+   Flávio, adversário com 50 a 65%: -0,0722 (ep 0,0017), 89.237 seções na regressão
+   Flávio, adversário com 65 a 100%: -0,1150 (ep 0,0023), 68.837 seções na regressão
+   Lula, adversário com 0 a 35%: -0,0150 (ep 0,0008), 105.435 seções na regressão
+   Lula, adversário com 35 a 50%: -0,0220 (ep 0,0013), 136.112 seções na regressão
+   Lula, adversário com 50 a 65%: -0,0313 (ep 0,0015), 157.081 seções na regressão
+   Lula, adversário com 65 a 100%: -0,0367 (ep 0,0028), 57.099 seções na regressão
+  O T35 (faixas pela fatia do adversário no local) deu, na faixa de menos de 35%: Flávio -0,0151, Lula -0,0143.
+- P5 - P1 dentro de cada faixa (pontos): Lula 0 a 35% +0,7; Lula 35 a 50% +1,4; Lula 50 a 65% +2,1; Lula 65 a 100% -1,8.
+- Leitura: com a força de Lula parecida, o degrau do PL encolhe (de -1,8 a +2,1 pontos, contra +5,2). A maior
+  parte da diferença entre Q1 e Q5 vem de o PL ser fraco justamente onde Lula é forte (Lula com 64% no Q1 e
+  35% no Q5). O comportamento explica isso (o eleitor se aproxima da maioria do lugar, como no T35). Um
+  desvio regulado pela força local de Lula também explicaria. Este teste não separa as duas coisas. Algumas células têm poucas
+  seções e erro-padrão grande (Q1 da faixa de menos de 35%; Q3 a Q5 da faixa de 65% ou mais).
+- Pela fatia do próprio candidato no 1º turno (quintis): Flávio -0,107 ; -0,064 ; -0,044 ; -0,031 ; -0,014; Lula -0,031 ; -0,032 ; -0,025 ; -0,023 ; -0,017.
+  Onde é mais fraco, Flávio perde bem mais que Lula onde Lula é mais fraco; onde cada um é mais forte, perdem parecido.
+
+5. Calibração: o que um desvio faria com P1 a P5 (fora do critério)
+- Desvio simulado por cima dos dados: uma parte dos votos de Flávio no 2º turno passa para Lula em cada seção. Universo:
+  Flávio 59.654.544, Lula 64.056.078, margem 4.401.534; o desvio que vira o resultado é de 3,56% dos votos de
+  Flávio (2.122.465 votos).
+  uniforme de 1% (596.545 votos): P -0,090 ; -0,059 ; -0,052 ; -0,043 ; -0,039
+     deslocamento -0,0092 ; -0,0095 ; -0,0096 ; -0,0097 ; -0,0097; veredito pela letra: COERENTE.
+     Lula (PT): deslocamento +0,0002 ; +0,0002 ; +0,0002 ; +0,0002 ; +0,0001.
+  uniforme de 3,56% (o que vira o resultado) (2.122.465 votos): P -0,114 ; -0,083 ; -0,076 ; -0,068 ; -0,064
+     deslocamento -0,0327 ; -0,0338 ; -0,0341 ; -0,0344 ; -0,0345; veredito pela letra: INCONCLUSIVO.
+     Lula (PT): deslocamento +0,0006 ; +0,0008 ; +0,0008 ; +0,0008 ; +0,0005.
+  concentrado onde Lula é forte (proporcional à fatia de Lula entre os finalistas no 1º turno da seção), mesmo total (2.122.465 votos): P -0,108 ; -0,065 ; -0,055 ; -0,043 ; -0,038
+     deslocamento -0,0267 ; -0,0155 ; -0,0126 ; -0,0100 ; -0,0086; veredito pela letra: COERENTE.
+     Lula (PT): deslocamento +0,0178 ; +0,0251 ; +0,0235 ; +0,0210 ; +0,0146.
+- Um desvio uniforme desloca os cinco P quase igual (cerca de 0,97 por unidade de fração desviada) e mantém o degrau. A
+  régua de INCOERÊNCIA pede um perfil plano (|P1| - |P5| até 0,01). Ela só acende se o desvio for quase toda a perda e o
+  comportamento quase nada. Contra "comportamento mais desvio uniforme", o teste tem pouco poder. Contra desvio concentrado
+  onde Lula é forte, nenhum.
+- Limite com premissa: se o núcleo do PL de verdade não perde eleitor líquido (P5 sem desvio >= 0), o desvio uniforme cabe até
+  3,0% (3,3% no limite de 2 ep). Com a perda do núcleo do PT como natural (1,4%), até cerca de 1,5%
+  (2,0% no limite de 2 ep). As duas premissas não se provam com estes dados.
+
+6. Robustez (fora do critério; não muda o veredito)
+- T8 sem os grupos dos eliminados (outros somados): PL -0,0814 ; -0,0481 ; -0,0416 ; -0,0335 ; -0,0293; PT -0,0173 ; -0,0230 ; -0,0231 ; -0,0236 ; -0,0145.
+- topo 10% da fatia do PL (acima de 42,6%): P -0,0322 (ep 0,0018), 46.028 seções na
+  regressão; próprio/adversário no 1º turno 58% / 34%.
+- topo 5% da fatia do PL (acima de 49,1%): P -0,0336 (ep 0,0025), 22.450 seções na
+  regressão; próprio/adversário no 1º turno 59% / 33%.
+- base 10% da fatia do PL (até 4,4%): P -0,0917 (ep 0,0037), 40.301 seções na
+  regressão; próprio/adversário no 1º turno 26% / 70%.
+- base 5% da fatia do PL (até 2,1%): P -0,1057 (ep 0,0062), 18.547 seções na
+  regressão; próprio/adversário no 1º turno 23% / 73%.
+- topo 10% da fatia do PT (acima de 24,3%): P -0,0162 (ep 0,0016), 42.375 seções na
+  regressão; próprio/adversário no 1º turno 59% / 35%.
+- topo 5% da fatia do PT (acima de 30,3%): P -0,0184 (ep 0,0022), 19.972 seções na
+  regressão; próprio/adversário no 1º turno 63% / 31%.
+- base 10% da fatia do PT (até 3,9%): P -0,0179 (ep 0,0019), 39.317 seções na
+  regressão; próprio/adversário no 1º turno 51% / 43%.
+- base 5% da fatia do PT (até 2,5%): P -0,0187 (ep 0,0025), 17.485 seções na
+  regressão; próprio/adversário no 1º turno 56% / 39%.
+- Fatia da federação do PT (13, 65 e 43) para Lula: -0,0172 ; -0,0240 ; -0,0249 ; -0,0247 ; -0,0144.
+- O topo de 5% do PL (onde o PL tem metade ou mais dos votos para deputado) não perde menos que o Q5. Uma explicação possível,
+  não testada aqui, é o voto pessoal num candidato do PL da cidade, que eleva a fatia sem ser voto partidário.
+
+7. Desvios e leituras declaradas
+- "A mais de 3 erros-padrão": lido de zero (principal, mais literal); pelo limiar, o mesmo veredito.
+- A regressão é a do T8 registrado para 2026: grupos Cury, Renan, Caiado, Zema e demais, queda do branco+nulo, variação do
+  comparecimento, votos do adversário e votos do próprio no 1º turno. O texto do Adendo 18 cita os grupos, o branco+nulo e o
+  comparecimento; adversário e próprio estão no T8 e o próprio é a medida, então entram.
+- Quintis sem peso, cortes nos percentis 20, 40, 60 e 80 das seções do universo (PL: 8,9%, 17,1%, 24,8%, 34,4%; PT:
+  5,9%, 9,3%, 13,1%, 18,8%). Regressão separada em cada quintil, com efeito fixo de local: o local que cai em dois quintis
+  fica dividido, e a seção que fica sozinha no seu quintil sai (450.632 das 497.897 seções entram nas cinco regressões do PL).
+- Válidos = nominal + legenda como o bweb traz; voto em candidato com registro anulado depois continua como nominal no arquivo.
+- O exterior fica de fora (não vota para deputado). Por isso o P do universo inteiro difere um pouco do T8 registrado.
+- O espelho de Lula usa a mesma régua; o registro escreve o critério para o núcleo do PL, e é esse o veredito do teste.
+- PT só com o número 13, como registrado; a federação entra só como robustez.
+
+8. O que ficou de fora e limites
+- Inferência ecológica: o coeficiente diz quanto o ganho de Flávio cai a cada eleitor dele no 1º turno na seção, com os outros
+  grupos e a variação do comparecimento fixos. Mistura quem mudou de voto com a troca de eleitores entre os turnos (quem votou
+  no 1º e faltou no 2º, substituído por quem faltou no 1º e votou no 2º), e não é comportamento individual.
+- A fatia do PL para deputado mede partidarismo e também voto pessoal em candidato local. O núcleo do PL não é só gente do PL:
+  no Q5, Lula ainda teve 35% no 1º turno.
+- O teste não separa comportamento de um desvio regulado pela força local de Lula, ou por qualquer outra coisa que a urna saiba
+  da própria seção. Isso só se testa fora da contagem da urna: teste de integridade, boletim impresso contra o transmitido,
+  inspeção do código. O L3 não faz nada disso.
+- Nenhuma eleição anterior foi usada. Sem elas, não há régua externa para o tamanho "normal" da perda; as referências usadas
+  (núcleo do PT, redutos de cada candidato) são de 2026, e o texto diz em cada caso qual premissa está por trás.

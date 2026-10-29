@@ -1,0 +1,63 @@
+{
+ "18h01_18h08": {
+  "recebidos_na_lacuna": 0,
+  "ufs_com_boletins_pendentes": 28
+ },
+ "19h31_19h59": {
+  "recebidos_na_lacuna": 0,
+  "ufs_com_boletins_pendentes": 28
+ },
+ "locais_17h15m59": {
+  "tardias_em_locais_mistos": 4651,
+  "tardias_em_locais_todos_tardios": 4194,
+  "locais_mistos": 1655,
+  "locais_todos_tardios": 550
+ },
+ "locais_18h59m59": {
+  "tardias_em_locais_mistos": 3712,
+  "tardias_em_locais_todos_tardios": 2640,
+  "locais_mistos": 818,
+  "locais_todos_tardios": 313
+ },
+ "cedo_2t_mesmas_secoes": {
+  "n": 125624,
+  "L_1t": 46.27,
+  "L_2t": 49.01,
+  "demais_L_1t": 49.87,
+  "demais_L_2t": 52.69,
+  "uf_top": [
+   [
+    "SP",
+    19726
+   ],
+   [
+    "MG",
+    16953
+   ],
+   [
+    "RS",
+    11945
+   ],
+   [
+    "PR",
+    10364
+   ],
+   [
+    "SC",
+    8139
+   ],
+   [
+    "CE",
+    7162
+   ],
+   [
+    "BA",
+    6437
+   ],
+   [
+    "GO",
+    5738
+   ]
+  ]
+ }
+}

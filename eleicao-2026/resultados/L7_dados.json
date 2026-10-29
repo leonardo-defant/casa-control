@@ -1,0 +1,666 @@
+{
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 18, L7 (pesquisa, sem critério numérico, sem veredito)",
+ "veredito": "DESCRITIVO",
+ "zips_2t": [
+  "bweb_2t_AC_261020260742.zip",
+  "bweb_2t_AL_261020260742.zip",
+  "bweb_2t_AM_261020260742.zip",
+  "bweb_2t_AP_261020260742.zip",
+  "bweb_2t_BA_261020260742.zip",
+  "bweb_2t_CE_261020260742.zip",
+  "bweb_2t_DF_261020260742.zip",
+  "bweb_2t_ES_261020260742.zip",
+  "bweb_2t_GO_261020260742.zip",
+  "bweb_2t_MA_261020260742.zip",
+  "bweb_2t_MG_261020260742.zip",
+  "bweb_2t_MS_261020260742.zip",
+  "bweb_2t_MT_261020260742.zip",
+  "bweb_2t_PA_261020260742.zip",
+  "bweb_2t_PB_261020260742.zip",
+  "bweb_2t_PE_261020260742.zip",
+  "bweb_2t_PI_261020260742.zip",
+  "bweb_2t_PR_261020260742.zip",
+  "bweb_2t_RJ_261020260742.zip",
+  "bweb_2t_RN_261020260742.zip",
+  "bweb_2t_RO_261020260742.zip",
+  "bweb_2t_RR_261020260742.zip",
+  "bweb_2t_RS_261020260742.zip",
+  "bweb_2t_SC_261020260742.zip",
+  "bweb_2t_SE_261020260742.zip",
+  "bweb_2t_SP_261020260742.zip",
+  "bweb_2t_TO_261020260742.zip",
+  "bweb_2t_ZZ_261020260742.zip"
+ ],
+ "secoes_bweb_2t": 499207,
+ "conflitos_campos_mesma_secao": 0,
+ "D1": {
+  "S_total": 706,
+  "vespera_mesma_urna": [
+   "MG|40932|270|175",
+   "PR|74322|144|130",
+   "PR|74322|144|387"
+  ],
+  "por_uf": {
+   "AC": {
+    "bweb_S": 19,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 11,
+    "zonas_com_mais_de_1": 7,
+    "locais_com_mais_de_1": 1
+   },
+   "AL": {
+    "bweb_S": 20,
+    "anunciado": 20,
+    "fonte": "18 + 2 com biometria; lista nominal: https://francesnews.com.br/post/2026/10/26/43576-treal-sorteia-23-urnas-eletronicas-para-auditoria-no-segundo-turno-das-eleicoes-2026",
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "AM": {
+    "bweb_S": 20,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 0
+   },
+   "AP": {
+    "bweb_S": 20,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 15,
+    "zonas_com_mais_de_1": 5,
+    "locais_com_mais_de_1": 2
+   },
+   "BA": {
+    "bweb_S": 36,
+    "anunciado": 33,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 32,
+    "zonas_com_mais_de_1": 4,
+    "locais_com_mais_de_1": 1
+   },
+   "CE": {
+    "bweb_S": 36,
+    "anunciado": 27,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 32,
+    "zonas_com_mais_de_1": 3,
+    "locais_com_mais_de_1": 1
+   },
+   "DF": {
+    "bweb_S": 20,
+    "anunciado": 20,
+    "fonte": "16 na CLDF, 2 no TSE, 2 com biometria; Agência CLDF via https://bombabomba.com.br/urnas-eletronicas-sao-aprovadas-em-teste-de-integridade-realizado-na-cldf-no-2o-turno/",
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "ES": {
+    "bweb_S": 20,
+    "anunciado": 18,
+    "fonte": "em ambiente controlado; TRE-ES (página 403, trecho do buscador); com biometria não informado",
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "GO": {
+    "bweb_S": 29,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 28,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "MA": {
+    "bweb_S": 27,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 26,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "MG": {
+    "bweb_S": 33,
+    "anunciado": 33,
+    "fonte": "Agência Brasil 24/10 16h13: https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
+    "zonas": 29,
+    "zonas_com_mais_de_1": 3,
+    "locais_com_mais_de_1": 1
+   },
+   "MS": {
+    "bweb_S": 20,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 20,
+    "zonas_com_mais_de_1": 0,
+    "locais_com_mais_de_1": 0
+   },
+   "MT": {
+    "bweb_S": 20,
+    "anunciado": 20,
+    "fonte": "19 + 1 com biometria; TRE-MT (página 403, trecho do buscador)",
+    "zonas": 20,
+    "zonas_com_mais_de_1": 0,
+    "locais_com_mais_de_1": 0
+   },
+   "PA": {
+    "bweb_S": 27,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 26,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "PB": {
+    "bweb_S": 19,
+    "anunciado": 20,
+    "fonte": "19 + 1 com biometria; https://www.paraibamix.com.br/eleicoes-2026-confira-as-secoes-eleitorais-da-paraiba-selecionadas-para-auditoria-no-2o-turno/",
+    "zonas": 19,
+    "zonas_com_mais_de_1": 0,
+    "locais_com_mais_de_1": 0
+   },
+   "PE": {
+    "bweb_S": 26,
+    "anunciado": 27,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 25,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "PI": {
+    "bweb_S": 20,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "PR": {
+    "bweb_S": 30,
+    "anunciado": 27,
+    "fonte": "Agência Brasil 24/10 (2 com biometria, TRE-PR)",
+    "zonas": 28,
+    "zonas_com_mais_de_1": 2,
+    "locais_com_mais_de_1": 1
+   },
+   "RJ": {
+    "bweb_S": 33,
+    "anunciado": 33,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 32,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "RN": {
+    "bweb_S": 22,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 19,
+    "zonas_com_mais_de_1": 2,
+    "locais_com_mais_de_1": 1
+   },
+   "RO": {
+    "bweb_S": 19,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 18,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "RR": {
+    "bweb_S": 20,
+    "anunciado": 20,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 10,
+    "zonas_com_mais_de_1": 8,
+    "locais_com_mais_de_1": 1
+   },
+   "RS": {
+    "bweb_S": 27,
+    "anunciado": 27,
+    "fonte": "Agência Brasil 24/10",
+    "zonas": 25,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   },
+   "SC": {
+    "bweb_S": 30,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 27,
+    "zonas_com_mais_de_1": 2,
+    "locais_com_mais_de_1": 1
+   },
+   "SE": {
+    "bweb_S": 20,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 20,
+    "zonas_com_mais_de_1": 0,
+    "locais_com_mais_de_1": 0
+   },
+   "SP": {
+    "bweb_S": 72,
+    "anunciado": 33,
+    "fonte": "30 sem e 3 com biometria; TRE-SP 25/10 (página 403, trecho do buscador): https://www.tre-sp.jus.br/comunicacao/noticias/2026/Outubro/teste-de-integridade-das-urnas-no-2o-turno-e-concluido-sem-divergencias-em-sao-paulo",
+    "zonas": 63,
+    "zonas_com_mais_de_1": 7,
+    "locais_com_mais_de_1": 1
+   },
+   "TO": {
+    "bweb_S": 21,
+    "anunciado": null,
+    "fonte": null,
+    "zonas": 19,
+    "zonas_com_mais_de_1": 1,
+    "locais_com_mais_de_1": 1
+   }
+  },
+  "alagoas": {
+   "lista": [
+    {
+     "secao": "AL|27855|2|365",
+     "municipio": "MACEIÓ",
+     "tipo": "B",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:20:00",
+     "urna_1t": 2014749,
+     "urna_2t": 2036027
+    },
+    {
+     "secao": "AL|27855|2|355",
+     "municipio": "MACEIÓ",
+     "tipo": "B",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:14:00",
+     "urna_1t": 2030860,
+     "urna_2t": 2036514
+    },
+    {
+     "secao": "AL|27855|1|375",
+     "municipio": "MACEIÓ",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:04:00",
+     "urna_1t": 2072691,
+     "urna_2t": 2071232
+    },
+    {
+     "secao": "AL|28835|20|84",
+     "municipio": "TRAIPU",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:40:00",
+     "urna_1t": 2071158,
+     "urna_2t": 2071083
+    },
+    {
+     "secao": "AL|27855|54|566",
+     "municipio": "MACEIÓ",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:41:00",
+     "urna_1t": 2073421,
+     "urna_2t": 2072168
+    },
+    {
+     "secao": "AL|27936|26|29",
+     "municipio": "MARECHAL DEODORO",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 09:56:00",
+     "urna_1t": 2072478,
+     "urna_2t": 2055076
+    },
+    {
+     "secao": "AL|28592|19|234",
+     "municipio": "SANTANA DO IPANEMA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:49:00",
+     "urna_1t": 1769015,
+     "urna_2t": 1672429
+    },
+    {
+     "secao": "AL|27219|9|12",
+     "municipio": "BRANQUINHA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:46:00",
+     "urna_1t": 2446211,
+     "urna_2t": 2472023
+    },
+    {
+     "secao": "AL|28070|29|76",
+     "municipio": "MONTEIRÓPOLIS",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:59:00",
+     "urna_1t": 2036781,
+     "urna_2t": 2435862
+    },
+    {
+     "secao": "AL|28436|50|37",
+     "municipio": "POÇO DAS TRINCHEIRAS",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 12:09:00",
+     "urna_1t": 1807867,
+     "urna_2t": 1674280
+    },
+    {
+     "secao": "AL|27014|39|63",
+     "municipio": "ÁGUA BRANCA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:32:00",
+     "urna_1t": 1814411,
+     "urna_2t": 1658731
+    },
+    {
+     "secao": "AL|27570|44|32",
+     "municipio": "GIRAU DO PONCIANO",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:05:00",
+     "urna_1t": 2036524,
+     "urna_2t": 2432353
+    },
+    {
+     "secao": "AL|27456|7|150",
+     "municipio": "CORURIPE",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 09:44:00",
+     "urna_1t": 2027679,
+     "urna_2t": 2033003
+    },
+    {
+     "secao": "AL|27898|14|129",
+     "municipio": "MARAGOGI",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 10:14:00",
+     "urna_1t": 2449761,
+     "urna_2t": 2449910
+    },
+    {
+     "secao": "AL|27510|49|80",
+     "municipio": "FEIRA GRANDE",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 12:57:00",
+     "urna_1t": 2071772,
+     "urna_2t": 2072405
+    },
+    {
+     "secao": "AL|28274|11|15",
+     "municipio": "PÃO DE AÇÚCAR",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:43:00",
+     "urna_1t": 1772288,
+     "urna_2t": 1670592
+    },
+    {
+     "secao": "AL|27758|53|5",
+     "municipio": "JOAQUIM GOMES",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:12:00",
+     "urna_1t": 2457092,
+     "urna_2t": 2435074
+    },
+    {
+     "secao": "AL|28673|51|90",
+     "municipio": "SÃO JOSÉ DA TAPERA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:14:00",
+     "urna_1t": 1772608,
+     "urna_2t": 1662621
+    },
+    {
+     "secao": "AL|27634|37|187",
+     "municipio": "IGREJA NOVA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 12:47:00",
+     "urna_1t": 2072071,
+     "urna_2t": 2072891
+    },
+    {
+     "secao": "AL|28932|34|96",
+     "municipio": "TEOTÔNIO VILELA",
+     "tipo": "I",
+     "em_S": true,
+     "carga_2t": "2026-10-24 11:30:00",
+     "urna_1t": 2432314,
+     "urna_2t": 2443873
+    },
+    {
+     "secao": "AL|28690|17|150",
+     "municipio": "SÃO LUÍS DO QUITUNDE",
+     "tipo": "A",
+     "em_S": false,
+     "carga_2t": "2026-09-24 13:52:00",
+     "urna_1t": 2473611,
+     "urna_2t": 2473611
+    },
+    {
+     "secao": "AL|27065|18|187",
+     "municipio": "JEQUIÁ DA PRAIA",
+     "tipo": "A",
+     "em_S": false,
+     "carga_2t": "2026-09-21 13:38:00",
+     "urna_1t": 2037147,
+     "urna_2t": 2037147
+    },
+    {
+     "secao": "AL|27057|22|519",
+     "municipio": "ARAPIRACA",
+     "tipo": "A",
+     "em_S": false,
+     "carga_2t": "2026-09-25 08:19:00",
+     "urna_1t": 2449507,
+     "urna_2t": 2449507
+    }
+   ],
+   "integridade_em_S": 20,
+   "integridade_total": 20,
+   "autenticidade_em_S": 0,
+   "S_fora_da_lista": []
+  },
+  "primeiro_turno_carga_na_vespera": {
+   "total": 790,
+   "por_uf": {
+    "AC": 20,
+    "AL": 20,
+    "AM": 21,
+    "AP": 22,
+    "BA": 43,
+    "CE": 42,
+    "DF": 20,
+    "ES": 20,
+    "GO": 30,
+    "MA": 30,
+    "MG": 37,
+    "MS": 19,
+    "MT": 20,
+    "PA": 31,
+    "PB": 20,
+    "PE": 27,
+    "PI": 19,
+    "PR": 40,
+    "RJ": 33,
+    "RN": 28,
+    "RO": 21,
+    "RR": 20,
+    "RS": 31,
+    "SC": 34,
+    "SE": 19,
+    "SP": 103,
+    "TO": 20
+   }
+  }
+ },
+ "D2_amostra_logs": {
+  "urnas": 3897,
+  "comp_log_igual_bweb": 3897,
+  "habilitacoes": 1002692,
+  "biometricas": 877992,
+  "pct_biometrica": 87.5634791142245,
+  "urnas_0pct_bio": 0,
+  "urnas_100pct_bio": 2,
+  "urnas_ate_100_hab_e_95pct_bio": 8,
+  "urnas_ate_100_hab": 28,
+  "share_bio_quantis": {
+   "0": 0.36253776435045315,
+   "1": 0.6398087167070218,
+   "5": 0.7556223893065999,
+   "50": 0.8868778280542986,
+   "95": 0.9565507246376812,
+   "99": 0.9747983193277311,
+   "100": 1.0
+  },
+  "hab_quantis": {
+   "0": 37.0,
+   "1": 115.0,
+   "5": 172.0,
+   "10": 192.0,
+   "50": 261.0,
+   "90": 316.0
+  },
+  "urnas_share_bio_ge_098": 16,
+  "campo_bweb_contra_log": {
+   "sem_hab_igual_nao_bio": 289,
+   "sem_hab_menor_que_nao_bio": 3608,
+   "sem_hab_maior_que_nao_bio": 0,
+   "nao_bio_total": 124700,
+   "sem_hab_total": 73773
+  }
+ },
+ "D2_bweb_pais": {
+  "secoes_com_comparecimento": 499205,
+  "secoes_sem_nenhuma_biometria_certo": 0,
+  "por_uf": {},
+  "lista": [],
+  "r_quantis": {
+   "50": 0.061224489795918366,
+   "90": 0.11784511784511785,
+   "99": 0.1934148614022832,
+   "99.9": 0.2817671942306792,
+   "100": 0.9911894273127754
+  }
+ },
+ "D3": {
+  "regua_pontos": 1.7851828842626054,
+  "margem": 4430191,
+  "V2": 124082273,
+  "r>=1": {
+   "secoes_grupo": 0,
+   "identificam": 0,
+   "virada_media_grupo": null,
+   "virada_media_resto": 2.952863480240052
+  },
+  "r>=0,9": {
+   "secoes_grupo": 31,
+   "identificam": 29,
+   "virada_media_grupo": 2.3916760969207833,
+   "virada_media_resto": 2.9528945529364146
+  },
+  "r>=0,5": {
+   "secoes_grupo": 97,
+   "identificam": 92,
+   "virada_media_grupo": 2.4430967162512522,
+   "virada_media_resto": 2.952955218573399,
+   "coef": 0.001379257187505261,
+   "ep": 0.18615934182862376,
+   "n": 477035,
+   "locais": 72538,
+   "placebo_fatia_lula_1t": {
+    "coef": -0.15721225604182865,
+    "ep": 0.43730077563159275
+   }
+  }
+ },
+ "D4": {
+  "mover": 2215095.5,
+  "fracao_votos_finalistas": 0.017851828842626052,
+  "votos_finalistas_por_secao": 248.55975601205918,
+  "cenarios": [
+   {
+    "k_votos_por_urna": 10,
+    "urnas_adulteradas": 221509.55,
+    "p": 0.4437246221492172,
+    "P_nenhuma_no_teste": {
+     "500": 4.4148779236385173e-128,
+     "640": 9.671546743962792e-164,
+     "706": 1.494944960413765e-180
+    }
+   },
+   {
+    "k_votos_por_urna": 25,
+    "urnas_adulteradas": 88603.82,
+    "p": 0.1774898488596869,
+    "P_nenhuma_no_teste": {
+     "500": 3.720773941084542e-43,
+     "640": 4.9024210076703025e-55,
+     "706": 1.2295160383670856e-60
+    }
+   },
+   {
+    "k_votos_por_urna": 50,
+    "urnas_adulteradas": 44301.91,
+    "p": 0.08874492442984346,
+    "P_nenhuma_no_teste": {
+     "500": 6.6066324744945756e-21,
+     "640": 1.4776602447926621e-26,
+     "706": 3.204881444484258e-29
+    }
+   },
+   {
+    "k_votos_por_urna": 100,
+    "urnas_adulteradas": 22150.955,
+    "p": 0.04437246221492173,
+    "P_nenhuma_no_teste": {
+     "500": 1.3942095070831666e-10,
+     "640": 2.4251571774431474e-13,
+     "706": 1.2128055962975333e-14
+    }
+   },
+   {
+    "k_votos_por_urna": 248.55975601205918,
+    "urnas_adulteradas": 8911.722217383138,
+    "p": 0.017851828842626052,
+    "P_nenhuma_no_teste": {
+     "500": 0.00012260442499406623,
+     "640": 9.846635586137064e-06,
+     "706": 2.9989600231288243e-06
+    }
+   }
+  ],
+  "espalhado": {
+   "votos_digitados_por_urna": {
+    "195": 3.4811066243120803,
+    "75": 1.338887163196954
+   },
+   "em_n_urnas": {
+    "500": {
+     "195": 1740.5533121560402,
+     "75": 669.443581598477
+    },
+    "640": {
+     "195": 2227.9082395597316,
+     "75": 856.8877844460505
+    },
+    "706": {
+     "195": 2457.6612767643287,
+     "75": 945.2543372170495
+    }
+   }
+  }
+ }
+}

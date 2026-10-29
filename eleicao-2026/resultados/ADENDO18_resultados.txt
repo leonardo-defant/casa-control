@@ -1,0 +1,94 @@
+ADENDO 18: INCOERÊNCIAS DE LÓGICA DENTRO DE 2026 (RESULTADOS)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 18, commit bc7decb (29/10/2026 05:13:35 UTC), feito antes de rodar.
+Regra do pedido: nenhuma eleição anterior serve de régua. Cada teste usa só 2026 (mesma eleição, mesmas urnas,
+outros cargos, outros registros da urna) e fontes que não passam pela urna (pesquisas, apoios declarados, teste de
+integridade, documentos públicos). Cada teste foi conferido por outro agente, com código próprio, a partir dos
+zips do bweb. Números, conferências e correções em resultados/testes_adendo18_com_conferencia.json.
+
+QUADRO
+
+L1, horários impossíveis (abertura, encerramento, boletim, recebimento, carga), 499.207 seções
+  Pela letra: INCOERÊNCIA na leitura seção a seção, INCONCLUSIVO na leitura em grupo.
+  18 seções do 2º turno ficam sem explicação (limite do sinal: 100); 16 no 1º turno, pela mesma régua.
+  O gatilho é uma seção de 18 votos (Inácio Martins 34/133, d = +6,51), espelhada pela única vizinha (d = -6,51).
+  A chance de ao menos uma de 9 passar de 3 pontos por acaso é de 66% a 85%. A virada média das 18 é -0,43.
+  Conferência extra (fora do registro): boletim, log e assinatura das 18 e de mais 2 seções, baixados do TSE.
+  Todos assinados pela urna, iguais ao bweb, com votos no log iguais ao comparecimento e nenhum voto depois
+  das 19h. As aberturas tardias foram urna ligada tarde ou desligada e religada horas depois pela mesa.
+
+L2, urna trocada entre os turnos ou carga fora do padrão da UF
+  Pela letra: COERENTE. Urna trocada: -0,02 ponto (ep 0,03). Carga fora dos percentis 1 e 99: -0,01 (ep 0,03).
+  No limite de cima, esse caminho moveria uns 2 mil votos de margem, contra 4,43 milhões.
+
+L3, núcleo do PL (quintis da fatia do PL para deputado federal na mesma urna)
+  Pela letra: COERENTE. Flávio perdeu 8,1% dos próprios eleitores onde o PL é fraco e 2,9% onde o PL é núcleo.
+  Limite: um desvio uniforme do tamanho que vira o resultado, somado ao comportamento, daria INCONCLUSIVO, e o
+  mesmo desvio concentrado onde Lula é forte daria COERENTE. O teste descarta só um desvio uniforme grande em cima
+  de uma perda natural perto de zero.
+
+L4, eleitores de Caiado em GO, de Zema em MG e de Cury em SP
+  Pela letra: INCONCLUSIVO. Pela urna, Lula ficou com 46% deles em GO, 35% em MG e 58% em SP.
+  Caiado e Zema mandaram a maioria para Flávio, em casa um pouco mais que fora. A incoerência registrada
+  (maioria para Lula em 2 das 3 UFs) não existe. A urna fica de 11 a 22 pontos acima das pesquisas nas 3 UFs, e
+  o neutro Renan tem distância parecida (+12 a +16).
+  Errata: os números de referência escritos no registro ("Quaest: 36, 47, 36") estavam errados (ver Adendo 19).
+
+L5(a), erro das pesquisas em Flávio no 1º e no 2º turno, por instituto
+  Pela letra: INCOERÊNCIA. 11 de 11 institutos com Flávio acima da pesquisa no 1º turno e abaixo no 2º.
+  Virada média -6,10 pontos (ep 0,77), limite 4. Medida entre os finalistas, -4,63.
+  O que sustenta isso: no 1º turno as pesquisas acertaram Lula na média (-0,05) e deram aos eliminados mais do que
+  eles tiveram; no 2º, as 12 pesquisas finais ficaram abaixo de Lula, de 1,2 a 3,8 pontos (média 2,7).
+  A tabela inteira do PoderData aplicada aos votos reais do 1º turno dá Lula com 48,96%, o mesmo que a pesquisa.
+  Então o erro não vem de a amostra ter eleitores de Flávio a mais: está nas taxas de transferência, no
+  comparecimento ou na contagem. Pelos dados públicos, não dá para separar essas três coisas.
+
+L5(b), fatia do saldo (branco, nulo, abstenção e "nenhum") que foi para Lula
+  Pela letra: DESCRITIVO. Nenhuma pesquisa final publicou a divisão. Pelas tabelas das pesquisas, os eleitores dos
+  eliminados dariam a Flávio de 4,31 a 4,99 milhões, mais que o ganho total dele (3,72 milhões).
+  É o mesmo erro de L5(a) escrito como fluxo de votos, não um segundo indício.
+  Pela regressão da urna, o branco, o nulo e a abstenção se dividiram perto do que as pesquisas diziam (59%
+  para Lula, contra 53% a 66%). A diferença fica nos eleitores dos eliminados e na troca entre as bases.
+
+L6, governadores eleitos no 1º turno e virada de Lula por UF
+  Pela letra: INCOERÊNCIA. Lula virou mais onde o governador era de Flávio (+3,44 contra +1,95; diferença +1,48,
+  permutação p = 0,0004).
+  O padrão aparece invertido do lado de Lula (menos virada onde o governador era de Lula), o que aponta para
+  geografia e nível de voto. Os eleitores dos eliminados explicam +0,93 da diferença; o resto (+0,59) não é
+  significativo (p = 0,11). Dentro de cada UF, seção por seção, a força do governador pró-Flávio freia um pouco a
+  virada, na direção que a lógica prevê.
+  Resultado: incoerência pela letra, de um tipo que efeito de nível produz; não aponta para fraude.
+
+L7, teste de integridade e controles (pesquisa, sem veredito)
+  Cerca de 650 urnas testadas no 2º turno (teto de 706 pela pegada no bweb), escolhidas na véspera, depois da
+  carga, em parte pelos partidos. Sem divergência, salvo 1 no DF atribuída a erro de digitação; não foi dito qual
+  urna, qual cargo nem em que direção.
+  Uma fraude no programa grande o bastante para virar a eleição seria pega com certeza prática, a menos que o
+  programa reconhecesse o teste. A modalidade principal tem uma marca que nenhuma das 3.897 urnas reais da
+  amostra teve: nenhuma digital no dia.
+  Os controles que excluem um programa que reconhece o teste são a leitura do código e a garantia de que o
+  programa assinado veio daquele código. Essa garantia depende do TSE; não houve compilação refeita por terceiro.
+  Contrapeso: as 97 seções reais com metade ou mais sem digital tiveram a mesma virada que as vizinhas (0,00, ep 0,19).
+  O exterior, sem biometria, virou 0,76 ponto menos que o previsto pela composição (ep 0,15). É a direção da tese,
+  mas menos da metade do que viraria a eleição.
+
+L8, "dossiê" dos EUA
+  O documento não existe publicado: é uma fala de TV (CNN Brasil, 28/10) que só aparece em reproduções, sem
+  autor, órgão ou trecho.
+  A prorrogação aparece nos horários, mas não muda nada: tirando as 8.845 seções que fecharam depois das 17h15,
+  Lula vence por 4,12 milhões, e por 1,87 milhão no pior caso absurdo. As seções que ficaram abertas viraram igual
+  às vizinhas do mesmo local (-0,04, ep 0,04).
+  A pausa no recebimento existiu, mas o 1º turno também teve duas paradas nacionais (18h01 a 18h08 e 19h31 a 19h59).
+  "Para Trump, quem venceu foi Flávio" não confere com nenhum dos 499.207 boletins.
+
+LEITURA
+
+1. Nenhuma marca física de fraude nos registros da urna: horários, cargas, trocas de urna, assinaturas e logs das
+   seções estranhas fecham entre si.
+2. A incoerência que se sustenta é entre a urna e as pesquisas no 2º turno (L5a), concentrada no eleitorado de
+   direita do 1º turno: eleitores dos eliminados e troca entre as bases dos finalistas.
+3. Os testes que usam só a urna (L3, L4, L6, T35, T37) mostram um padrão que comportamento produz. Um desvio
+   regulado pela força local de Lula produziria o mesmo padrão, e esses testes não separam as duas coisas.
+4. O que separaria as duas coisas está fora da contagem: código lido e compilado por terceiros, a divergência do
+   DF detalhada, a comparação dos boletins impressos recolhidos pelo PL, o relatório do TCU (até 24/11) e as
+   tabelas cruzadas finais das pesquisas.

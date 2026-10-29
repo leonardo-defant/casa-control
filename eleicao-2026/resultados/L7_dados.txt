@@ -1,0 +1,44 @@
+L7, parte dos dados (descritivo, fora do registro). Script: scripts/analisar_L7.py.
+D1. Seções do 2º turno com urna trocada e carga no sábado 2026-10-24: 706 (mais 3 com carga no sábado e a mesma urna).
+  AC: bweb 19; anunciado -; zonas 11 (com mais de uma: 7); locais com mais de uma: 1
+  AL: bweb 20; anunciado 20; zonas 19 (com mais de uma: 1); locais com mais de uma: 1
+  AM: bweb 20; anunciado -; zonas 19 (com mais de uma: 1); locais com mais de uma: 0
+  AP: bweb 20; anunciado -; zonas 15 (com mais de uma: 5); locais com mais de uma: 2
+  BA: bweb 36; anunciado 33; zonas 32 (com mais de uma: 4); locais com mais de uma: 1
+  CE: bweb 36; anunciado 27; zonas 32 (com mais de uma: 3); locais com mais de uma: 1
+  DF: bweb 20; anunciado 20; zonas 19 (com mais de uma: 1); locais com mais de uma: 1
+  ES: bweb 20; anunciado 18; zonas 19 (com mais de uma: 1); locais com mais de uma: 1
+  GO: bweb 29; anunciado -; zonas 28 (com mais de uma: 1); locais com mais de uma: 1
+  MA: bweb 27; anunciado -; zonas 26 (com mais de uma: 1); locais com mais de uma: 1
+  MG: bweb 33; anunciado 33; zonas 29 (com mais de uma: 3); locais com mais de uma: 1
+  MS: bweb 20; anunciado -; zonas 20 (com mais de uma: 0); locais com mais de uma: 0
+  MT: bweb 20; anunciado 20; zonas 20 (com mais de uma: 0); locais com mais de uma: 0
+  PA: bweb 27; anunciado -; zonas 26 (com mais de uma: 1); locais com mais de uma: 1
+  PB: bweb 19; anunciado 20; zonas 19 (com mais de uma: 0); locais com mais de uma: 0
+  PE: bweb 26; anunciado 27; zonas 25 (com mais de uma: 1); locais com mais de uma: 1
+  PI: bweb 20; anunciado -; zonas 19 (com mais de uma: 1); locais com mais de uma: 1
+  PR: bweb 30; anunciado 27; zonas 28 (com mais de uma: 2); locais com mais de uma: 1
+  RJ: bweb 33; anunciado 33; zonas 32 (com mais de uma: 1); locais com mais de uma: 1
+  RN: bweb 22; anunciado -; zonas 19 (com mais de uma: 2); locais com mais de uma: 1
+  RO: bweb 19; anunciado -; zonas 18 (com mais de uma: 1); locais com mais de uma: 1
+  RR: bweb 20; anunciado 20; zonas 10 (com mais de uma: 8); locais com mais de uma: 1
+  RS: bweb 27; anunciado 27; zonas 25 (com mais de uma: 1); locais com mais de uma: 1
+  SC: bweb 30; anunciado -; zonas 27 (com mais de uma: 2); locais com mais de uma: 1
+  SE: bweb 20; anunciado -; zonas 20 (com mais de uma: 0); locais com mais de uma: 0
+  SP: bweb 72; anunciado 33; zonas 63 (com mais de uma: 7); locais com mais de uma: 1
+  TO: bweb 21; anunciado -; zonas 19 (com mais de uma: 1); locais com mais de uma: 1
+  Alagoas, lista nominal: 20 de 20 seções de integridade no grupo; 0 das 3 de autenticidade no grupo; seções do grupo fora da lista: 0.
+  1º turno, carga em 2026-10-03: 790 seções.
+D2. Amostra de logs do 2º turno: 3.897 urnas, 1.002.692 habilitações, 87,6% biométricas. Urnas com 0% de biometria: 0; com 100%: 2; com 98% ou mais: 16; até 100 habilitações e 95% ou mais biométricas: 8 (até 100 habilitações: 28).
+  Parte biométrica por urna: mínimo 36,3%, p1 64,0%, p5 75,6%, mediana 88,7%, p99 97,5%, máximo 100,0%.
+  País (bweb): 0 de 499.205 seções com comparecimento sem nenhuma habilitação biométrica (certo pelo campo).
+D3. Régua: um desvio que mudasse o resultado move 1,79 ponto da fatia de Lula.
+  r>=1: 0 seções, 0 identificam
+  r>=0,9: 31 seções, 29 identificam
+  r>=0,5: 97 seções, 92 identificam; diferença 0,00 ponto (ep 0,19); placebo -0,16 (ep 0,44)
+D4. Votos a mover para mudar o resultado: 2.215.095 (1,79% dos votos dos finalistas).
+  k = 10 votos por urna: 221.509 urnas (44,4%); P(nenhuma no teste, n=500) = 4.4e-128; P(nenhuma no teste, n=640) = 9.7e-164; P(nenhuma no teste, n=706) = 1.5e-180
+  k = 25 votos por urna: 88.603 urnas (17,7%); P(nenhuma no teste, n=500) = 3.7e-43; P(nenhuma no teste, n=640) = 4.9e-55; P(nenhuma no teste, n=706) = 1.2e-60
+  k = 50 votos por urna: 44.301 urnas (8,9%); P(nenhuma no teste, n=500) = 6.6e-21; P(nenhuma no teste, n=640) = 1.5e-26; P(nenhuma no teste, n=706) = 3.2e-29
+  k = 100 votos por urna: 22.150 urnas (4,4%); P(nenhuma no teste, n=500) = 1.4e-10; P(nenhuma no teste, n=640) = 2.4e-13; P(nenhuma no teste, n=706) = 1.2e-14
+  k = 249 votos por urna: 8.911 urnas (1,8%); P(nenhuma no teste, n=500) = 1.2e-04; P(nenhuma no teste, n=640) = 9.8e-06; P(nenhuma no teste, n=706) = 3.0e-06

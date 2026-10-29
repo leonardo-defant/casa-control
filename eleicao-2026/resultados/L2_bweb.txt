@@ -1,0 +1,190 @@
+L2. Urna trocada entre os turnos e carga fora do padrão (Adendo 18), com o bweb completo dos dois turnos de 2026
+Script: scripts/analisar_L2.py. Números completos: resultados/L2_bweb.json.
+Rodado em 2026-10-29 com a base por seção dos dois turnos (secoes2026.json.gz), os 28 zips do bweb do 2º turno
+(26/10, 07h42) e os 28 zips do bweb do 1º turno (05/10, 14h03), sem baixar nada.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, commit bc7decb de 29/10 05h13 UTC, antes de rodar):
+- Grupos: seções cujo número de urna mudou entre o 1º e o 2º turno; seções cuja data de carga do 2º turno fica fora da
+  faixa entre os percentis 1 e 99 da sua UF.
+- y = virada de Lula (fatia entre os dois finalistas, 2º menos 1º turno), efeito fixo de local, erro agrupado por local,
+  peso pelos votos dos finalistas.
+- Sinal (aqui, INCOERÊNCIA): algum grupo com 500 seções ou mais e diferença de 1,0 ponto ou mais a favor de Lula, a mais
+  de 4 erros-padrão. Sem sinal (aqui, COERENTE): diferença abaixo de 0,3 ponto em valor absoluto, com erro-padrão até 0,15.
+  Entre os dois: INCONCLUSIVO.
+
+VEREDITO PELA LETRA: COERENTE
+- Grupo U (urna trocada): SEM SINAL. diferença -0,02 ponto (ep 0,03, z -0,75); 477.035 seções em 72.538 locais; 4.216 do grupo na regressão, 4.189 em 3.905 locais onde o grupo varia.
+- Grupo C (carga fora dos percentis 1 a 99 da UF): SEM SINAL. diferença -0,01 ponto (ep 0,03, z -0,27); 477.035 seções em 72.538 locais; 9.550 do grupo na regressão, 7.112 em 4.334 locais onde o grupo varia.
+- Contar só as seções do grupo em locais onde o grupo varia (as que identificam a diferença) não muda o veredito.
+
+Resumo
+- As 4.435 seções que votaram em urna diferente nos dois turnos tiveram a mesma virada de Lula que as outras seções do mesmo local: diferença -0,02 ponto, com erro-padrão 0,03. O mesmo nas 9.920 seções com carga da urna fora da faixa da UF: -0,01 (0,03). O teste conseguiria ver uma diferença de cerca de 0,09 ponto; o registro pedia 1,0 ponto para sinal.
+- Em votos: no limite de cima do intervalo de 95%, as urnas trocadas dariam a Lula 426 votos a mais, e as de carga fora da faixa 1.157; a margem do 2º turno foi de 4.430.191 votos.
+- Fora do registro, conferências de ordem lógica dos campos de carga (item 7): nenhum caso de carga depois da abertura (2º turno); carga depois da emissão do boletim (2º turno); carga depois da emissão do boletim (1º turno); mesma urna com código de carga diferente sem recarga depois do 1º turno; mesma urna, mesmo código, data diferente; mesma urna em duas seções no 2º turno; mesma urna em duas seções no 1º turno; urna que votou no 1º turno em outra seção e voltou no 2º sem carga nova. Com casos: carga depois da abertura (1º turno): 2.
+
+1. Dados e conferências
+- Seções com os dois turnos na base: 499.205; com voto em finalista nos dois turnos e no bweb do 2º turno: 499.205 (sem fatia em algum turno: 0).
+- Número da urna da base contra o bweb: 2º turno, 0 diferenças; 1º turno, 0 diferenças. Seções da base sem bweb do 2º turno: 0; sem bweb do 1º: 0.
+- Seções com mais de um valor de urna, carga ou horário nas linhas do mesmo boletim: 2º turno 0, 1º turno 0. Seções cujo local mudou entre os turnos: 0 (vale o local do 2º turno). Data de carga inválida no 2º turno: 0.
+
+2. Os grupos
+- U, urna trocada: 4.435 seções (0,89% da amostra), 1.104.599 votos nos finalistas no 2º turno.
+- C, carga fora dos percentis 1 e 99 da UF: 9.920 seções (1,99%), 2.453.544 votos. Pela construção, cerca de 2% de cada UF: 1% mais cedo e 1% mais tarde.
+- Nos dois grupos: 2.073; só U: 2.362; só C: 7.847.
+- Data da carga da urna que votou no 2º turno, seções da amostra: antes do dia do 1º turno 496.950, no dia do 1º turno 10, depois do 1º turno 2.245 (de 2026-09-15 a 2026-10-25).
+  Faixa por UF (percentis 1 e 99 do campo, com hora; seções fora):
+    AC: 2026-09-23 08:48 a 2026-10-03 09:34, fora 46 de 2270; no dia: 2026-09-23 a 2026-10-03, fora 19
+    AL: 2026-09-18 09:22 a 2026-09-28 14:56, fora 142 de 7101; no dia: 2026-09-18 a 2026-09-28, fora 49
+    AM: 2026-09-17 15:01 a 2026-10-01 16:06, fora 162 de 8157; no dia: 2026-09-17 a 2026-10-01, fora 65
+    AP: 2026-09-21 09:24 a 2026-10-21 16:31, fora 39 de 1914; no dia: 2026-09-21 a 2026-10-21 + 0.27 dia, fora 20
+    BA: 2026-09-21 10:14 a 2026-10-02 10:42, fora 709 de 35476; no dia: 2026-09-21 a 2026-10-02, fora 249
+    CE: 2026-09-21 09:37 a 2026-10-01 17:13, fora 470 de 23765; no dia: 2026-09-21 a 2026-10-01, fora 198
+    DF: 2026-09-23 08:42 a 2026-09-30 10:27, fora 138 de 6969; no dia: 2026-09-23 a 2026-09-30, fora 52
+    ES: 2026-09-21 10:05 a 2026-10-02 10:53, fora 198 de 9844; no dia: 2026-09-21 a 2026-10-02, fora 91
+    GO: 2026-09-21 08:31 a 2026-10-01 08:54, fora 314 de 15686; no dia: 2026-09-21 a 2026-10-01, fora 161
+    MA: 2026-09-22 09:24 a 2026-09-30 21:39, fora 362 de 18093; no dia: 2026-09-22 a 2026-09-30, fora 149
+    MG: 2026-09-19 08:29 a 2026-09-27 12:10, fora 1031 de 52062; no dia: 2026-09-19 a 2026-09-27, fora 602
+    MS: 2026-09-20 11:27 a 2026-10-03 08:50, fora 143 de 7106; no dia: 2026-09-20 a 2026-10-03, fora 55
+    MT: 2026-09-21 07:48 a 2026-09-25 15:28, fora 165 de 8287; no dia: 2026-09-21 a 2026-09-25, fora 96
+    PA: 2026-09-20 09:15 a 2026-09-29 16:21, fora 411 de 20827; no dia: 2026-09-20 a 2026-09-29, fora 206
+    PB: 2026-09-21 08:35 a 2026-09-25 15:17, fora 214 de 10712; no dia: 2026-09-21 a 2026-09-25, fora 75
+    PE: 2026-09-21 09:10 a 2026-09-28 15:34, fora 425 de 21418; no dia: 2026-09-21 a 2026-09-28, fora 125
+    PI: 2026-09-22 09:09 a 2026-10-01 14:41, fora 204 de 10225; no dia: 2026-09-22 a 2026-10-01, fora 137
+    PR: 2026-09-18 13:56 a 2026-09-27 14:52, fora 540 de 27142; no dia: 2026-09-18 a 2026-09-27, fora 198
+    RJ: 2026-09-21 09:35 a 2026-09-29 09:34, fora 744 de 37675; no dia: 2026-09-21 a 2026-09-29, fora 155
+    RN: 2026-09-18 09:59 a 2026-09-25 11:30, fora 163 de 8115; no dia: 2026-09-18 a 2026-09-25, fora 66
+    RO: 2026-09-21 09:00 a 2026-09-30 13:50, fora 93 de 4698; no dia: 2026-09-21 a 2026-09-30, fora 45
+    RR: 2026-09-22 08:30 a 2026-10-24 08:24, fora 19 de 1519; no dia: 2026-09-22 a 2026-10-24, fora 0
+    RS: 2026-09-17 10:19 a 2026-09-26 13:18, fora 550 de 27547; no dia: 2026-09-17 a 2026-09-26, fora 253
+    SC: 2026-09-19 14:00 a 2026-09-28 15:08, fora 347 de 17326; no dia: 2026-09-19 a 2026-09-28, fora 145
+    SE: 2026-09-18 08:33 a 2026-10-03 10:45, fora 120 de 5923; no dia: 2026-09-18 a 2026-10-03, fora 58
+    SP: 2026-09-23 13:52 a 2026-09-30 16:20, fora 2071 de 103656; no dia: 2026-09-23 a 2026-09-30, fora 1005
+    TO: 2026-09-23 09:42 a 2026-10-03 09:41, fora 88 de 4384; no dia: 2026-09-23 a 2026-10-03, fora 26
+    ZZ: 2026-09-16 12:59 a 2026-09-18 15:17, fora 12 de 1310; no dia: 2026-09-16 a 2026-09-18, fora 1
+
+3. Resultado principal (y = virada de Lula em pontos, efeito fixo de local, peso L2+R2, erro agrupado por local)
+- U, urna trocada: diferença -0,02 ponto (ep 0,03, z -0,75); 477.035 seções em 72.538 locais; 4.216 do grupo na regressão, 4.189 em 3.905 locais onde o grupo varia.
+  Leitura pela régua: SEM SINAL. Efeito mínimo detectável (80% de poder a 5%, 2,8 erros-padrão): 0,09 ponto. Virada média ponderada no grupo +2,88, no resto +2,95 (sem controlar o local).
+- C, carga fora do padrão: diferença -0,01 ponto (ep 0,03, z -0,27); 477.035 seções em 72.538 locais; 9.550 do grupo na regressão, 7.112 em 4.334 locais onde o grupo varia.
+  Leitura pela régua: SEM SINAL. Efeito mínimo detectável (80% de poder a 5%, 2,8 erros-padrão): 0,08 ponto. Virada média ponderada no grupo +2,85, no resto +2,95 (sem controlar o local).
+- Virada nacional ponderada na amostra: +2,95 ponto.
+
+4. Robustez (fora do critério; não muda o veredito)
+- U, placebo, y = fatia de Lula no 1º turno: +0,02 (ep 0,07, z +0,26), 4.216 do grupo.
+- U, com as covariáveis do T17: -0,02 (ep 0,03, z -0,77), 4.216 do grupo.
+- U, sem peso: -0,02 (ep 0,03, z -0,47), 4.216 do grupo.
+- U, sem as seções de junta: -0,02 (ep 0,03, z -0,75), 4.216 do grupo.
+- U, efeito fixo de município: -0,03 (ep 0,03, z -1,02), 4.426 do grupo.
+- U, y = variação do comparecimento (pontos dos aptos): +0,05 (ep 0,03, z +1,35), 4.216 do grupo.
+- U, y = variação do branco+nulo (pontos do comparecimento): +0,02 (ep 0,02, z +0,82), 4.216 do grupo.
+- C, placebo, y = fatia de Lula no 1º turno: +0,11 (ep 0,06, z +1,81), 9.550 do grupo.
+- C, com as covariáveis do T17: +0,00 (ep 0,03, z +0,18), 9.550 do grupo.
+- C, sem peso: -0,00 (ep 0,03, z -0,01), 9.550 do grupo.
+- C, sem as seções de junta: -0,01 (ep 0,03, z -0,27), 9.550 do grupo.
+- C, efeito fixo de município: -0,03 (ep 0,03, z -0,98), 9.920 do grupo.
+- C, y = variação do comparecimento (pontos dos aptos): +0,14 (ep 0,03, z +4,79), 9.550 do grupo.
+- C, y = variação do branco+nulo (pontos do comparecimento): -0,03 (ep 0,02, z -1,34), 9.550 do grupo.
+- C com a data no dia: -0,00 (ep 0,04, z -0,12), 4.101 do grupo, 3.474 identificam.
+- C com a data no dia, placebo: +0,04 (ep 0,07, z +0,55), 4.101 do grupo, 3.474 identificam.
+- C só o lado cedo (contra as seções dentro da faixa): -0,05 (ep 0,05, z -1,02), 4.801 do grupo, 3.222 identificam.
+- C só o lado tarde (contra as seções dentro da faixa): +0,01 (ep 0,03, z +0,43), 4.738 do grupo, 3.890 identificam.
+- C só o lado tarde, placebo: +0,04 (ep 0,07, z +0,59), 4.738 do grupo, 3.890 identificam.
+- U, conferência por outro caminho (diferença dentro de cada local, média entre os 3.905 locais): -0,02 (ep 0,03); ponderada pelos votos do grupo -0,03.
+- C, conferência por outro caminho (diferença dentro de cada local, média entre os 4.334 locais): +0,02 (ep 0,03); ponderada pelos votos do grupo -0,02.
+- U e C no mesmo modelo: U -0,02 (ep 0,03), C +0,00 (ep 0,03).
+
+5. Descritivo (fora do registro): pela data da carga da urna do 2º turno
+- urna trocada, urna do 2º turno carregada antes do 1º turno: 2.557 seções; virada -0,06 (ep 0,04, z -1,33); placebo +0,03 (ep 0,09); variação do comparecimento -0,02 (ep 0,04); 2.406 identificam.
+- urna trocada, carregada no dia do 1º turno: 3 seções; virada +0,39 (ep 0,64, z +0,62); placebo -2,53 (ep 1,51); variação do comparecimento -2,10 (ep 0,67); 2 identificam.
+- urna trocada, carregada depois do 1º turno: 1.875 seções; virada +0,02 (ep 0,05, z +0,41); placebo -0,00 (ep 0,10); variação do comparecimento +0,14 (ep 0,05); 1.784 identificam.
+- mesma urna, carga com data depois do 1º turno: 370 seções; virada +0,14 (ep 0,12, z +1,17); placebo -0,13 (ep 0,27); variação do comparecimento +0,09 (ep 0,13); 340 identificam.
+- qualquer seção com carga depois do 1º turno: 2.245 seções; virada +0,04 (ep 0,04, z +0,85); placebo -0,02 (ep 0,09); variação do comparecimento +0,13 (ep 0,05); 2.124 identificam.
+- Por UF, onde o grupo tem 100 seções ou mais:
+    C_AL: -0,02 (ep 0,16), 141 do grupo, 135 identificam
+    C_AM: -0,28 (ep 0,26), 158 do grupo, 95 identificam
+    U_BA: -0,03 (ep 0,10), 346 do grupo, 343 identificam
+    C_BA: +0,03 (ep 0,09), 654 do grupo, 495 identificam
+    U_CE: +0,20 (ep 0,16), 154 do grupo, 154 identificam
+    C_CE: +0,13 (ep 0,13), 426 do grupo, 267 identificam
+    C_DF: +0,35 (ep 0,16), 138 do grupo, 138 identificam
+    U_ES: +0,15 (ep 0,19), 107 do grupo, 105 identificam
+    C_ES: +0,12 (ep 0,21), 189 do grupo, 139 identificam
+    U_GO: -0,10 (ep 0,18), 130 do grupo, 130 identificam
+    C_GO: -0,09 (ep 0,17), 305 do grupo, 212 identificam
+    U_MA: -0,14 (ep 0,17), 159 do grupo, 159 identificam
+    C_MA: +0,11 (ep 0,21), 323 do grupo, 160 identificam
+    U_MG: +0,08 (ep 0,12), 309 do grupo, 309 identificam
+    C_MG: -0,14 (ep 0,10), 993 do grupo, 779 identificam
+    C_MS: -0,03 (ep 0,19), 142 do grupo, 142 identificam
+    C_MT: -0,27 (ep 0,18), 158 do grupo, 116 identificam
+    U_PA: -0,01 (ep 0,19), 141 do grupo, 141 identificam
+    C_PA: -0,15 (ep 0,17), 394 do grupo, 270 identificam
+    U_PB: -0,29 (ep 0,19), 110 do grupo, 110 identificam
+    C_PB: -0,13 (ep 0,16), 207 do grupo, 184 identificam
+    U_PE: +0,14 (ep 0,12), 176 do grupo, 176 identificam
+    C_PE: +0,12 (ep 0,10), 421 do grupo, 401 identificam
+    C_PI: -0,06 (ep 0,24), 175 do grupo, 80 identificam
+    U_PR: -0,16 (ep 0,13), 257 do grupo, 257 identificam
+    C_PR: +0,13 (ep 0,13), 529 do grupo, 270 identificam
+    U_RJ: +0,04 (ep 0,11), 338 do grupo, 338 identificam
+    C_RJ: -0,00 (ep 0,10), 742 do grupo, 599 identificam
+    C_RN: -0,25 (ep 0,16), 162 do grupo, 156 identificam
+    U_RS: +0,16 (ep 0,14), 219 do grupo, 219 identificam
+    C_RS: +0,14 (ep 0,13), 520 do grupo, 385 identificam
+    U_SC: -0,06 (ep 0,15), 175 do grupo, 173 identificam
+    C_SC: -0,17 (ep 0,14), 322 do grupo, 239 identificam
+    U_SE: -0,07 (ep 0,20), 128 do grupo, 128 identificam
+    C_SE: +0,11 (ep 0,24), 114 do grupo, 107 identificam
+    U_SP: -0,01 (ep 0,08), 810 do grupo, 790 identificam
+    C_SP: +0,04 (ep 0,06), 2.054 do grupo, 1.465 identificam
+
+6. Escala: quanto o grupo poderia mover
+- Margem de Lula no 2º turno na amostra: 4.430.191 votos (51,79% dos votos nos finalistas).
+- U: o coeficiente equivale a -265 votos de Lula a mais (margem -530); no limite de 95% de cima, 426 votos (margem 853).
+- C: o coeficiente equivale a -185 votos de Lula a mais (margem -370); no limite de 95% de cima, 1.157 votos (margem 2.315).
+
+7. Conferências de ordem lógica dos campos de carga (descritivo, fora do registro)
+- Carga com data no dia do 2º turno: 5 seções; carga depois da abertura do 2º turno: 0; carga depois da emissão do boletim: 0.
+    PR|74918|56|37: carga 2026-10-25 09:20:00, abertura 2026-10-25 10:02:54, emissão 2026-10-25 17:02:29, urna 1797363
+    PR|75833|43|397: carga 2026-10-25 10:04:00, abertura 2026-10-25 10:51:03, emissão 2026-10-25 17:02:05, urna 2462584
+    SP|61816|16|436: carga 2026-10-25 07:58:00, abertura 2026-10-25 08:32:01, emissão 2026-10-25 17:00:58, urna 2295578
+    MS|90514|8|486: carga 2026-10-25 06:55:00, abertura 2026-10-25 07:26:47, emissão 2026-10-25 16:03:13, urna 2338906
+    MS|91650|51|44: carga 2026-10-25 07:36:00, abertura 2026-10-25 08:13:13, emissão 2026-10-25 16:01:48, urna 2001864
+- 1º turno: carga com data no dia do 1º turno ou depois: 7 seções; carga depois da abertura: 2; depois da emissão do boletim: 0.
+    BA|33197|36|3: carga 2026-10-04 05:50:00, abertura 2026-10-04 08:12:37, emissão 2026-10-04 18:25:38, urna 2212056, flash de carga E20FB5E0
+    MG|48852|190|107: carga 2026-10-04 07:51:00, abertura 2026-10-04 08:07:45, emissão 2026-10-04 17:03:26, urna 2080458, flash de carga 5296F803
+    PR|75353|3|495: carga 2026-10-04 08:09:00, abertura 2026-10-04 08:47:27, emissão 2026-10-04 17:03:51, urna 2320515, flash de carga 57612350
+    SC|83518|46|38: carga 2026-10-04 09:45:00, abertura 2026-10-04 08:00:01, emissão 2026-10-04 17:55:52, urna 1650872, flash de carga DF6DD30E
+    SC|83518|46|113: carga 2026-10-04 09:54:00, abertura 2026-10-04 08:00:01, emissão 2026-10-04 17:07:28, urna 1828007, flash de carga DF6DD30E
+    SC|83194|27|56: carga 2026-10-04 08:13:00, abertura 2026-10-04 09:23:18, emissão 2026-10-04 17:13:05, urna 1654161, flash de carga 8C4DA862
+    SC|83194|27|57: carga 2026-10-04 08:01:00, abertura 2026-10-04 09:18:43, emissão 2026-10-04 17:37:24, urna 1653250, flash de carga 8C4DA862
+  Carga depois da abertura no 1º turno: SC|83518|46|38, SC|83518|46|113. A leitura compatível com o procedimento é
+  urna de contingência carregada no dia, que recebeu a votação começada na urna original (a abertura registrada é a da original);
+  não há log dessas seções nos arquivos locais para confirmar. Janela de carga é assunto do L1; aqui só ficam listadas.
+- Mesma urna em mais de uma seção no 2º turno (fora de junta): 0 urnas.
+- Mesma urna em mais de uma seção no 1º turno (fora de junta): 0 urnas.
+- Mesma urna nos dois turnos: 494.770 seções; código de carga diferente entre os turnos: 370; desses, com a carga do 2º turno datada antes da emissão do boletim do 1º turno (recarga impossível): 0; mesmo código com data diferente: 0; carga do 2º turno anterior à do 1º: 0.
+- Urna trocada: a urna do 2º turno já tinha votado no 1º turno em outra seção? {"nao_votou_no_1T": 4354, "mesmo_municipio_outra_zona": 12, "outro_municipio": 28, "mesmo_municipio_e_zona": 41}.
+  Carga dessas urnas reaproveitadas: {"codigo_novo_carga_depois_da_emissao_1T": 81}. Reaproveitadas sem carga nova depois do 1º turno: 0.
+
+8. Leituras e desvios (o que o registro não fixou; escolhido antes de ver a virada dos grupos)
+- Peso: "votos dos finalistas" sem dizer o turno; usado L2+R2 (2º turno), a convenção do T17. Sem peso, o resultado não muda (item 4).
+- Data de carga: o campo DT_CARGA_URNA_EFETIVADA do bweb do 2º turno, que o leiame do TSE chama de "Data da carga da urna efetivada",
+  com o valor que ele traz (data e hora, ao minuto). Leitura alternativa, com a data truncada no dia, no item 4: mesmo resultado.
+- Percentis 1 e 99 por UF sobre todas as seções do bweb do 2º turno da UF (exterior como uma UF), numpy.percentile linear; fora = estritamente
+  antes do p1 ou depois do p99. Com o campo ao minuto, o grupo tem cerca de 2% de cada UF por construção, metade de cada lado.
+- "Grupo com 500 seções ou mais": seções do grupo na regressão (sai o local de uma seção só). Contar só as dos locais onde o grupo varia
+  não muda o veredito (U: 4.189; C: 7.112).
+- Veredito do teste: INCOERÊNCIA se algum grupo dá sinal; COERENTE só se os dois dão sem sinal; senão INCONCLUSIVO.
+- Local: o do 2º turno (0 seções mudaram de local entre os turnos). Universo: as 499.205 seções com os dois turnos; ficam de fora
+  ZZ|30686|1|443 (só 1º turno na base) e ZZ|29564|1|91 (só no bweb do 2º turno, sem comparecimento).
+
+9. O que este teste não vê
+- Ele compara as urnas trocadas, e as de carga fora da faixa, com as outras seções do mesmo local. Uma alteração que agisse igual em todas
+  as urnas, trocadas ou não, não aparece aqui: o teste só responde se a troca de urna ou a carga fora de hora serviram de caminho.
+- O bweb mostra só a urna que gerou o boletim. Troca no meio do dia do 2º turno (votos em duas urnas) só aparece no log da urna,
+  que não foi lido para todas as seções. Também não diz se a urna de contingência foi usada no 1º turno.
+- A data de carga é a que a própria urna registrou. Não foi comparada com as atas de carga e lacre dos TREs, que não foram obtidas, nem os
+  códigos de carga com o relatório de carga de cada zona.
+- Horários: a carga e a abertura são horas locais da urna; o teste de ordem compara campos do mesmo boletim, sem conversão de fuso.
+

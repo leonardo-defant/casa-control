@@ -1,0 +1,100 @@
+{
+ "reclassificacao_neutros_MG_MT": {
+  "n": 729,
+  "min_dif": 0.9582610045881435,
+  "atribuicao_do_min": {
+   "AL": "Lula",
+   "AP": "Lula",
+   "MA": "Flavio",
+   "PE": "Flavio",
+   "MG": "Lula",
+   "MT": "Lula"
+  },
+  "max_dif": 1.569391874454559
+ },
+ "pior_caso_mover_pro_Flavio_para_demais": {
+  "1": {
+   "min_dif": 0.5253612979483164,
+   "movidas": [
+    "SP"
+   ]
+  },
+  "2": {
+   "min_dif": 0.10127378460137271,
+   "movidas": [
+    "SP",
+    "RJ"
+   ]
+  },
+  "3": {
+   "min_dif": 0.0075518180429208215,
+   "movidas": [
+    "SP",
+    "RJ",
+    "GO"
+   ]
+  },
+  "4": {
+   "min_dif": -0.05969546299815853,
+   "movidas": [
+    "SP",
+    "MG",
+    "RJ",
+    "GO"
+   ]
+  }
+ },
+ "fracao_base_Flavio_sem_peso": {
+  "media_F": 5.1618415290897275,
+  "media_O": 6.217904034966334,
+  "dif": -1.0560625058766062,
+  "ep_welch": 0.4590944896386036,
+  "sem_SP_RJ_pond": -0.7791755243487781
+ },
+ "RJ": {
+  "Ruas_com_Garotinho": 49.269584468311244,
+  "Ruas_sem_Garotinho": 50.88015226882624,
+  "Garotinho_pct": 3.1654146630802633
+ },
+ "dentro_da_UF_combinado": {
+  "Flavio": {
+   "coef": -0.00654743957563754,
+   "ep": 0.0026384240553568787,
+   "n_UFs": 12,
+   "n_negativos": 7
+  },
+  "Lula": {
+   "coef": 0.017736405225703668,
+   "ep": 0.00469902915836233,
+   "n_UFs": 5,
+   "n_negativos": 2
+  },
+  "neutro": {
+   "coef": 0.010711395736683935,
+   "ep": 0.004804522568761166,
+   "n_UFs": 4,
+   "n_negativos": 1
+  }
+ }
+}
+AL neutro  gov +0.0504 (ep 0.0363)  fatiaL1 -0.0499  n 7101 mun 102
+AP neutro  gov +0.0278 (ep 0.0064)  fatiaL1 -0.0419  n 1913 mun 16
+BA Lula    gov -0.0002 (ep 0.0156)  fatiaL1 -0.0672  n 35474 mun 417
+CE Lula    gov +0.0108 (ep 0.0062)  fatiaL1 -0.0894  n 23761 mun 184
+GO Flavio  gov +0.0504 (ep 0.0093)  fatiaL1 -0.0826  n 15680 mun 246
+MA neutro  gov +0.0019 (ep 0.0088)  fatiaL1 -0.0624  n 18087 mun 217
+MG Flavio  gov +0.0514 (ep 0.0126)  fatiaL1 -0.0463  n 52053 mun 853
+MS Flavio  gov +0.0233 (ep 0.0056)  fatiaL1 -0.0204  n 7104 mun 79
+MT Flavio  gov -0.0042 (ep 0.0076)  fatiaL1 -0.0030  n 8286 mun 142
+PA Flavio  gov -0.0247 (ep 0.0067)  fatiaL1 -0.0660  n 20820 mun 144
+PB Lula    gov +0.0066 (ep 0.0247)  fatiaL1 -0.0947  n 10708 mun 223
+PE neutro  gov -0.0548 (ep 0.0140)  fatiaL1 -0.1157  n 21417 mun 185
+PI Lula    gov +0.0529 (ep 0.0096)  fatiaL1 -0.1215  n 10223 mun 224
+PR Flavio  gov -0.0846 (ep 0.0086)  fatiaL1 -0.1062  n 27138 mun 399
+RJ Flavio  gov +0.0103 (ep 0.0109)  fatiaL1 -0.0866  n 37674 mun 92
+RO Flavio  gov -0.0775 (ep 0.0091)  fatiaL1 -0.0853  n 4695 mun 52
+RR Flavio  gov +0.0279 (ep 0.0105)  fatiaL1 +0.0121  n 1519 mun 15
+RS Flavio  gov -0.0190 (ep 0.0123)  fatiaL1 -0.0482  n 27540 mun 497
+SC Flavio  gov -0.0106 (ep 0.0156)  fatiaL1 -0.0359  n 17321 mun 295
+SE Lula    gov -0.0208 (ep 0.0188)  fatiaL1 -0.0817  n 5923 mun 75
+SP Flavio  gov -0.1855 (ep 0.0444)  fatiaL1 -0.2254  n 103639 mun 645

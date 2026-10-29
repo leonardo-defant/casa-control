@@ -1,0 +1,700 @@
+{
+ "registro": "L8 do Adendo 18 (PRE-REGISTRO-2026-10-26.md): o \"dossiê\" dos EUA citado na imprensa, conferência das afirmações técnicas.\n\nRegistro (escrito antes de rodar, Adendo 18):\n  \"Achar o documento ou a reportagem, separar o que é afirmação técnica conferível nos dados públicos e conferir cada uma;\n  o que não for conferível é relatado como tal.\"\n  O L8 não tem limiar numérico; o veredito pela letra é DESCRITIVO. Cada afirmação sai como: confere com a base, não confere,\n  ou não conferível (sem dado local).\n\nO que a pesquisa achou (antes de rodar este script; fontes no texto de saída):\n  Não há documento publicado. A origem é uma fala, numa análise ao vivo da CNN Brasil de 28/10/2026, de que o Departamento de\n  Estado \"já tem todo um dossiê pronto\" sobre o que considera abusos no Brasil, repetida no mesmo dia por sites (Jornal da\n  Cidade Online às 07h28, Topic News, Visão da Direita, Pagina1, Folha do Estado, Infoverus, Gazeta do Povo e outros). As\n  afirmações técnicas sobre votos, urnas, apuração ou prorrogação atribuídas ao \"dossiê\" nessas reproduções são só estas:\n    D1. a decisão de Zanin de \"adiar o fechamento das urnas\" / prorrogar a votação;\n    D2. a ordem de Moraes para recolher os passaportes de Flávio \"minutos depois\" do anúncio da derrota (a parte técnica é a\n        hora em que o resultado ficou definido);\n    D3. \"para Trump, quem venceu a eleição foi o senador Flávio Bolsonaro\" (Jornal da Cidade Online, atribuído à CNN).\n  O resto (corrupção de ministros do STF, prisões, narcotráfico, ações militares) não trata de votos nem de urnas e não é\n  conferível com a base.\n  Vizinhas, que as mesmas matérias citam como contexto (não são do \"dossiê\"; conferidas à parte e marcadas como tal):\n    V1. Trump, 26/10: \"The extension given was very strange\" (mesma conta de D1);\n    V2. Trump, 26/10: \"the way it was tabulated\" e a pausa da totalização das 17h06 às 19h (TSE: 1.225 de 499.248 seções\n        apuradas na pausa, Lula com 57,66% nessa parcial; números do arquivo de contexto já verificado);\n    V3. carta de Flávio (28/10): Zanin \"permitiu\" que Lula ganhasse \"mais de 10 milhões de votos\".\n\nEspecificação fixada aqui antes de rodar (leituras declaradas):\n  E1. Fuso: o mesmo do L1 (hora cheia modal da abertura do município no turno; deslocamento o = hora modal - 8; hora de\n      Brasília = hora local da urna - o). DT_BU_RECEBIDO já está em hora de Brasília (verificado no L1). Exterior (ZZ) fica\n      fora das contas da prorrogação (a liminar valeu no Brasil, e lá a votação é das 8h às 17h locais) e entra nas contas da\n      apuração.\n  E2. D1/V1/V3 (prorrogação). Cortes de encerramento em hora de Brasília: depois de 17:00:59, 17:05:59, 17:15:59, 17:59:59,\n      18:59:59. Para cada corte, no 2º turno: seções e comparecimento que encerraram depois do corte; votos de Lula (13) e\n      Flávio (22) nelas; a margem de Lula sem essas seções (todas as seções retiradas por inteiro, inclusive os votos dados\n      antes das 17h: limite superior do efeito da prorrogação) e a margem no pior caso (todo o comparecimento dessas seções\n      contado como voto líquido de Lula a retirar). O bweb não diz quantos votos vieram depois das 17h; isso só os logs dão.\n      Comparação descritiva com o 1º turno de 2026 (mesma eleição, sem prorrogação): as mesmas contas nas mesmas seções.\n  E3. D1, leitura de seção (descritivo): y = virada de Lula na seção, 100 [L2/(L2+R2) - L1/(L1+R1)]; x = 1 se a seção\n      encerrou o 2º turno depois de 17:15:59 de Brasília; efeito fixo do local de votação do 2º turno; peso L2+R2; erro\n      agrupado por local. (b) o mesmo com o indicador de encerramento depois de 17:15:59 no 1º turno como controle (fila\n      habitual do local). Sem limiar: o registro do L8 não tem.\n  E4. V2 (pausa). Distribuição de DT_BU_RECEBIDO no 2º turno: boletins recebidos até 17:06:59 e até 17:07:59; recebidos\n      de 17:08:00 a 18:59:59; primeiro recebimento depois disso. Fatia de Lula nos válidos (L+R) entre os recebidos até\n      17:06:59 e até 17:07:59, e UFs deles. Compara com 1.225 seções e 57,66%. O 1º turno sai ao lado.\n      Acrescentado depois da primeira rodada (pós-registro, declarado): a fatia de Lula nos 1.225 primeiros boletins\n      recebidos e a hora do 1.225º; e, para \"the way it was tabulated\", a virada de Lula na seção (definida em E3) por\n      décimo da ordem de chegada do boletim ao TSE no 2º turno e a regressão da virada contra a posição na fila de chegada\n      (0 = primeiro, 1 = último), com efeito fixo de local, peso L2+R2 e erro agrupado por local. Uma inserção de votos\n      no fim da apuração apareceria como virada maior nos boletins que chegaram por último dentro do mesmo local.\n  E5. D2 (hora em que o resultado ficou definido). Ordenando as seções do 2º turno por DT_BU_RECEBIDO: (a) primeiro instante\n      em que a margem de Lula entre os recebidos passa a soma dos eleitores aptos das seções ainda não recebidas (definição sem\n      olhar o futuro); (b) o mesmo com o comparecimento final das não recebidas (com o futuro); (c) horários de 50%, 90%, 99%,\n      99,9% e 100% das seções recebidas. Compara com os horários da imprensa: TSE confirma 21h09, pedido da PF 21h16 (O Globo,\n      conferido em checagem anterior).\n  E6. D3 (quem venceu). Soma de todos os boletins do 2º turno: votos de Lula e de Flávio, margem, contra o total oficial do TSE\n      (64.256.232 e 59.826.041). Também quem lidera entre as seções encerradas até 17:00:59 de Brasília (recorte por horário,\n      que seleciona seções; descritivo).\n\n",
+ "seções": {
+  "bweb_1t": 499206,
+  "bweb_2t": 499207,
+  "base": 499206,
+  "bweb_sem_base_1t": [],
+  "bweb_sem_base_2t": [
+   "ZZ|30686|1|443",
+   "ZZ|29564|1|91"
+  ]
+ },
+ "fuso_deslocamentos_2t": {
+  "0": 465850,
+  "1": 10,
+  "-2": 2826,
+  "-1": 29211,
+  "0|ZZ": 1308
+ },
+ "D3_resultado": {
+  "L": 64256232,
+  "R": 59826041,
+  "margem": 4430191,
+  "comparecimento": 128236074,
+  "L_pct_validos": 51.7851828842626,
+  "oficial_L": 64256232,
+  "oficial_R": 59826041,
+  "dif_L": 0,
+  "dif_R": 0,
+  "secoes_lula_na_frente": 250935,
+  "secoes_flavio_na_frente": 246115,
+  "secoes_empate": 2155,
+  "recorte_encerradas_ate_17h00m59_brasil": {
+   "secoes": 125624,
+   "L": 15001166,
+   "R": 15608268,
+   "margem": -607102,
+   "L_pct_validos": 49.00830900695517
+  }
+ },
+ "D1_prorrogacao": {
+  "2t": {
+   "L": 64056078,
+   "R": 59654544,
+   "comp": 127854631,
+   "margem_brasil_sem_exterior": 4401534,
+   "secoes_sem_encerramento": 0,
+   "cortes": [
+    {
+     "corte_brasilia": "17:00:59",
+     "secoes_depois": 372273,
+     "comp_depois": 96254671,
+     "L_depois": 49054912,
+     "R_depois": 44046276,
+     "L_pct_validos_depois": 52.689888339555885,
+     "L_pct_validos_ate_o_corte": 49.00830900695517,
+     "margem_sem_essas_secoes": -607102,
+     "margem_pior_caso_comp_todo_lula": -91853137,
+     "comp_depois_pct_do_comp": 75.28446192926715
+    },
+    {
+     "corte_brasilia": "17:05:59",
+     "secoes_depois": 38587,
+     "comp_depois": 10516781,
+     "L_depois": 5749834,
+     "R_depois": 4399664,
+     "L_pct_validos_depois": 56.6514127102641,
+     "L_pct_validos_ate_o_corte": 51.343489696350666,
+     "margem_sem_essas_secoes": 3051364,
+     "margem_pior_caso_comp_todo_lula": -6115247,
+     "comp_depois_pct_do_comp": 8.225576905384052
+    },
+    {
+     "corte_brasilia": "17:15:59",
+     "secoes_depois": 8845,
+     "comp_depois": 2536441,
+     "L_depois": 1362256,
+     "R_depois": 1083508,
+     "L_pct_validos_depois": 55.698587435255405,
+     "L_pct_validos_ate_o_corte": 51.699909630867666,
+     "margem_sem_essas_secoes": 4122786,
+     "margem_pior_caso_comp_todo_lula": 1865093,
+     "comp_depois_pct_do_comp": 1.9838475776446456
+    },
+    {
+     "corte_brasilia": "17:59:59",
+     "secoes_depois": 7086,
+     "comp_depois": 2070189,
+     "L_depois": 1100001,
+     "R_depois": 895736,
+     "L_pct_validos_depois": 55.117533021635616,
+     "L_pct_validos_ate_o_corte": 51.72422173343877,
+     "margem_sem_essas_secoes": 4197269,
+     "margem_pior_caso_comp_todo_lula": 2331345,
+     "comp_depois_pct_do_comp": 1.6191740446225995
+    },
+    {
+     "corte_brasilia": "18:59:59",
+     "secoes_depois": 6352,
+     "comp_depois": 1861259,
+     "L_depois": 989819,
+     "R_depois": 804095,
+     "L_pct_validos_depois": 55.17650232954311,
+     "L_pct_validos_ate_o_corte": 51.72897138922091,
+     "margem_sem_essas_secoes": 4215810,
+     "margem_pior_caso_comp_todo_lula": 2540275,
+     "comp_depois_pct_do_comp": 1.4557618957110752
+    }
+   ]
+  },
+  "1t_mesma_eleicao_sem_prorrogacao": {
+   "L": 53722151,
+   "R": 55960603,
+   "comp": 124934069,
+   "margem_brasil_sem_exterior": -2238452,
+   "secoes_sem_encerramento": 2,
+   "cortes": [
+    {
+     "corte_brasilia": "17:00:59",
+     "secoes_depois": 455723,
+     "comp_depois": 115163440,
+     "L_depois": 50232707,
+     "R_depois": 50897056,
+     "L_pct_validos_depois": 49.671536360665655,
+     "L_pct_validos_ate_o_corte": 40.79793840540695,
+     "margem_sem_essas_secoes": -1574103,
+     "margem_pior_caso_comp_todo_lula": -117401892,
+     "comp_depois_pct_do_comp": 92.17937182531051
+    },
+    {
+     "corte_brasilia": "17:05:59",
+     "secoes_depois": 212330,
+     "comp_depois": 57537743,
+     "L_depois": 28022532,
+     "R_depois": 22783743,
+     "L_pct_validos_depois": 55.155651541074405,
+     "L_pct_validos_ate_o_corte": 43.650061003138454,
+     "margem_sem_essas_secoes": -7477241,
+     "margem_pior_caso_comp_todo_lula": -59776195,
+     "comp_depois_pct_do_comp": 46.054485746397965
+    },
+    {
+     "corte_brasilia": "17:15:59",
+     "secoes_depois": 124594,
+     "comp_depois": 35230275,
+     "L_depois": 18301269,
+     "R_depois": 13039443,
+     "L_pct_validos_depois": 58.39455402289521,
+     "L_pct_validos_ate_o_corte": 45.21312068939944,
+     "margem_sem_essas_secoes": -7500278,
+     "margem_pior_caso_comp_todo_lula": -37468727,
+     "comp_depois_pct_do_comp": 28.19909355549766
+    },
+    {
+     "corte_brasilia": "17:59:59",
+     "secoes_depois": 43005,
+     "comp_depois": 12544857,
+     "L_depois": 7180471,
+     "R_depois": 4079310,
+     "L_pct_validos_depois": 63.770964994789864,
+     "L_pct_validos_ate_o_corte": 47.28741530699342,
+     "margem_sem_essas_secoes": -5339613,
+     "margem_pior_caso_comp_todo_lula": -14783309,
+     "comp_depois_pct_do_comp": 10.04118180125871
+    },
+    {
+     "corte_brasilia": "18:59:59",
+     "secoes_depois": 8366,
+     "comp_depois": 2468777,
+     "L_depois": 1577024,
+     "R_depois": 665419,
+     "L_pct_validos_depois": 70.32615767714051,
+     "L_pct_validos_ate_o_corte": 48.534043241926206,
+     "margem_sem_essas_secoes": -3150057,
+     "margem_pior_caso_comp_todo_lula": -4707229,
+     "comp_depois_pct_do_comp": 1.9760638709365979
+    }
+   ]
+  },
+  "mesmas_secoes_tarde_1t_x_tarde_2t_corte_17h15": {
+   "1t_True|2t_False": 120682,
+   "1t_False|2t_False": 368368,
+   "1t_True|2t_True": 3912,
+   "1t_False|2t_True": 4933
+  },
+  "faixas_encerramento_brasilia": {
+   "1t": {
+    "17h00": 369246,
+    "17h15": 41818,
+    "17h30": 25555,
+    "17h45": 18271,
+    "18h00": 13606,
+    "18h15": 9561,
+    "18h30": 6910,
+    "18h45": 4562,
+    "19h00": 3025,
+    "19h15_ou_depois": 5341
+   },
+   "2t": {
+    "17h00": 488803,
+    "17h15": 1482,
+    "17h30": 255,
+    "17h45": 271,
+    "18h00": 196,
+    "18h15": 117,
+    "18h30": 22,
+    "18h45": 399,
+    "19h00": 6316,
+    "19h15_ou_depois": 36
+   }
+  },
+  "ultimo_encerramento_2t": {
+   "secao": "MG|41882|320|185",
+   "brasilia": "25/10 23:04:42"
+  }
+ },
+ "D1_secao": {
+  "a_so_tarde_2t": {
+   "n": 475801,
+   "grupos": 72445,
+   "coef": {
+    "tarde_2t": -0.04155877285229213
+   },
+   "ep": {
+    "tarde_2t": 0.038310206247972774
+   }
+  },
+  "b_com_tarde_1t": {
+   "n": 475801,
+   "grupos": 72445,
+   "coef": {
+    "tarde_2t": -0.036365181399744546,
+    "tarde_1t": -0.11661162914266267
+   },
+   "ep": {
+    "tarde_2t": 0.03829934526771936,
+    "tarde_1t": 0.01084118346784383
+   }
+  },
+  "n_secoes": 497895,
+  "n_tarde_2t": 8845,
+  "n_tarde_1t": 124594,
+  "virada_media_ponderada_tarde_2t": 3.09460056797349,
+  "virada_media_ponderada_demais": 2.9543157691143502
+ },
+ "V3_dez_milhoes": {
+  "ganho_lula_total_mesmas_secoes": 10376696,
+  "por_corte": {
+   "17:00:59": {
+    "ganho_lula_nessas_secoes": 7916863,
+    "ganho_flavio_nessas_secoes": 2698453,
+    "comp_2t_nessas_secoes": 96254671
+   },
+   "17:05:59": {
+    "ganho_lula_nessas_secoes": 974247,
+    "ganho_flavio_nessas_secoes": 289436,
+    "comp_2t_nessas_secoes": 10516781
+   },
+   "17:15:59": {
+    "ganho_lula_nessas_secoes": 248565,
+    "ganho_flavio_nessas_secoes": 79956,
+    "comp_2t_nessas_secoes": 2536441
+   },
+   "17:59:59": {
+    "ganho_lula_nessas_secoes": 206306,
+    "ganho_flavio_nessas_secoes": 66530,
+    "comp_2t_nessas_secoes": 2070189
+   },
+   "18:59:59": {
+    "ganho_lula_nessas_secoes": 185833,
+    "ganho_flavio_nessas_secoes": 59730,
+    "comp_2t_nessas_secoes": 1861259
+   }
+  }
+ },
+ "V2_ordem_de_chegada": {
+  "por_decimo": {
+   "d1": {
+    "secoes": 49137,
+    "virada_media_ponderada": 2.7891505067700866
+   },
+   "d2": {
+    "secoes": 49903,
+    "virada_media_ponderada": 2.8369088230926915
+   },
+   "d3": {
+    "secoes": 49920,
+    "virada_media_ponderada": 2.8929944991391956
+   },
+   "d4": {
+    "secoes": 49906,
+    "virada_media_ponderada": 2.9431785080661266
+   },
+   "d5": {
+    "secoes": 49909,
+    "virada_media_ponderada": 2.933579672156824
+   },
+   "d6": {
+    "secoes": 49902,
+    "virada_media_ponderada": 2.948854761952717
+   },
+   "d7": {
+    "secoes": 49915,
+    "virada_media_ponderada": 2.954543299655459
+   },
+   "d8": {
+    "secoes": 49906,
+    "virada_media_ponderada": 3.03186195043373
+   },
+   "d9": {
+    "secoes": 49850,
+    "virada_media_ponderada": 3.0669561990236813
+   },
+   "d10": {
+    "secoes": 49549,
+    "virada_media_ponderada": 3.1638475977682687
+   }
+  },
+  "regressao_fe_local": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "posicao_na_chegada": 0.010027945401371778
+   },
+   "ep": {
+    "posicao_na_chegada": 0.05507777182204044
+   }
+  }
+ },
+ "V2_pausa": {
+  "2t": {
+   "primeiro": "25/10 17:05:10",
+   "ultimo": "25/10 23:21:40",
+   "sem_recebimento": 0,
+   "ate_17h06m59": {
+    "secoes": 1546,
+    "L": 231863,
+    "R": 179365,
+    "L_pct_validos": 56.38307702782885,
+    "ufs": {
+     "ZZ": 776,
+     "PA": 187,
+     "PR": 139,
+     "AM": 115,
+     "DF": 67,
+     "SC": 51,
+     "PB": 43,
+     "RO": 29,
+     "AC": 23,
+     "MG": 22,
+     "MA": 21,
+     "MT": 16,
+     "TO": 11,
+     "RS": 9,
+     "BA": 7,
+     "GO": 7,
+     "AP": 5,
+     "CE": 5,
+     "RR": 5,
+     "RN": 3,
+     "AL": 2,
+     "MS": 2,
+     "ES": 1
+    }
+   },
+   "ate_17h07m59": {
+    "secoes": 1868,
+    "L": 271370,
+    "R": 217312,
+    "L_pct_validos": 55.53099970942249,
+    "ufs": {
+     "ZZ": 776,
+     "PA": 252,
+     "PR": 205,
+     "AM": 152,
+     "DF": 108,
+     "PB": 63,
+     "SC": 59,
+     "RO": 45,
+     "MG": 42,
+     "MA": 33,
+     "AC": 25,
+     "MT": 24,
+     "TO": 15,
+     "RS": 13,
+     "BA": 10,
+     "GO": 8,
+     "AP": 6,
+     "CE": 6,
+     "RR": 6,
+     "RN": 5,
+     "MS": 5,
+     "AL": 4,
+     "ES": 3,
+     "PE": 2,
+     "PI": 1
+    }
+   },
+   "de_17h08_a_18h59m59": {
+    "secoes": 0,
+    "L": 0,
+    "R": 0,
+    "L_pct_validos": NaN,
+    "ufs": {}
+   },
+   "primeiro_depois_de_18h59m59": "25/10 19:03:37",
+   "por_minuto_16h55_19h10": {
+    "17:05": 1088,
+    "17:06": 458,
+    "17:07": 322,
+    "19:03": 5651,
+    "19:05": 186,
+    "19:06": 82,
+    "19:07": 95,
+    "19:08": 107,
+    "19:09": 99,
+    "19:10": 83
+   }
+  },
+  "1t": {
+   "primeiro": "04/10 17:08:44",
+   "ultimo": "05/10 02:58:30",
+   "sem_recebimento": 0,
+   "ate_17h06m59": {
+    "secoes": 0,
+    "L": 0,
+    "R": 0,
+    "L_pct_validos": NaN,
+    "ufs": {}
+   },
+   "ate_17h07m59": {
+    "secoes": 0,
+    "L": 0,
+    "R": 0,
+    "L_pct_validos": NaN,
+    "ufs": {}
+   },
+   "de_17h08_a_18h59m59": {
+    "secoes": 303544,
+    "L": 29875372,
+    "R": 35256133,
+    "L_pct_validos": 45.86931009808541,
+    "ufs": {
+     "SP": 61287,
+     "MG": 27766,
+     "PR": 25485,
+     "RS": 22192,
+     "RJ": 14930,
+     "BA": 14381,
+     "PA": 12904,
+     "SC": 11568,
+     "GO": 11001,
+     "PE": 9660,
+     "PB": 9402,
+     "CE": 9076,
+     "MA": 8970,
+     "ES": 8894,
+     "MT": 6817,
+     "DF": 6807,
+     "MS": 6742,
+     "PI": 6575,
+     "AM": 5369,
+     "RN": 4552,
+     "TO": 4075,
+     "RO": 3980,
+     "SE": 3911,
+     "AL": 2087,
+     "AC": 2076,
+     "RR": 1119,
+     "AP": 1109,
+     "ZZ": 809
+    }
+   },
+   "primeiro_depois_de_18h59m59": "04/10 19:00:00",
+   "por_minuto_16h55_19h10": {
+    "17:08": 927,
+    "17:09": 148,
+    "17:10": 285,
+    "17:11": 375,
+    "17:12": 487,
+    "17:13": 621,
+    "17:14": 465,
+    "17:15": 469,
+    "17:16": 479,
+    "17:17": 480,
+    "17:18": 467,
+    "17:19": 471,
+    "17:20": 481,
+    "17:21": 482,
+    "17:22": 466,
+    "17:23": 445,
+    "17:24": 470,
+    "17:25": 465,
+    "17:26": 460,
+    "17:27": 913,
+    "17:28": 961,
+    "17:29": 1089,
+    "17:30": 976,
+    "17:31": 964,
+    "17:32": 873,
+    "17:33": 1883,
+    "17:34": 1412,
+    "17:35": 1443,
+    "17:36": 1431,
+    "17:37": 1455,
+    "17:38": 1430,
+    "17:39": 2373,
+    "17:40": 1929,
+    "17:41": 1912,
+    "17:42": 1918,
+    "17:43": 1921,
+    "17:44": 1921,
+    "17:45": 1902,
+    "17:46": 1934,
+    "17:47": 2402,
+    "17:48": 2413,
+    "17:49": 2404,
+    "17:50": 2399,
+    "17:51": 2560,
+    "17:52": 3168,
+    "17:53": 2828,
+    "17:54": 2858,
+    "17:55": 2955,
+    "17:56": 2912,
+    "17:57": 2854,
+    "17:58": 2863,
+    "17:59": 2859,
+    "18:00": 2891,
+    "18:01": 1,
+    "18:08": 1898,
+    "18:09": 4070,
+    "18:10": 6039,
+    "18:11": 4007,
+    "18:12": 3779,
+    "18:13": 5062,
+    "18:14": 4574,
+    "18:15": 3436,
+    "18:16": 4710,
+    "18:17": 3924,
+    "18:18": 5533,
+    "18:19": 4318,
+    "18:20": 4882,
+    "18:21": 4942,
+    "18:22": 3656,
+    "18:23": 6304,
+    "18:24": 4687,
+    "18:25": 4768,
+    "18:26": 4264,
+    "18:27": 5275,
+    "18:28": 4918,
+    "18:29": 5700,
+    "18:30": 3269,
+    "18:31": 5962,
+    "18:32": 5063,
+    "18:33": 4472,
+    "18:34": 4215,
+    "18:35": 4692,
+    "18:36": 5265,
+    "18:37": 5403,
+    "18:38": 4168,
+    "18:39": 5464,
+    "18:40": 4854,
+    "18:41": 4100,
+    "18:42": 5859,
+    "18:43": 4660,
+    "18:44": 4959,
+    "18:45": 4187,
+    "18:46": 5480,
+    "18:47": 4916,
+    "18:48": 4247,
+    "18:49": 3059,
+    "18:53": 4,
+    "18:54": 6622,
+    "18:55": 5739,
+    "18:56": 3797,
+    "18:57": 5686,
+    "18:58": 4912,
+    "18:59": 3794,
+    "19:00": 5585,
+    "19:01": 4851,
+    "19:02": 4811,
+    "19:03": 5466,
+    "19:04": 4858,
+    "19:05": 3250,
+    "19:06": 6026,
+    "19:07": 5164,
+    "19:08": 4754,
+    "19:09": 4845,
+    "19:10": 147
+   }
+  },
+  "primeiros_1225_recebidos_2t": {
+   "secoes": 1225,
+   "hora_do_1225o": "25/10 17:06:22",
+   "L": 193996,
+   "R": 142129,
+   "L_pct_validos": 57.71543324656006,
+   "ufs": {
+    "ZZ": 776,
+    "PA": 129,
+    "AM": 83,
+    "PR": 60,
+    "DF": 34,
+    "SC": 26,
+    "RO": 25,
+    "PB": 19,
+    "AC": 17,
+    "MG": 16,
+    "MA": 11,
+    "MT": 6,
+    "BA": 5,
+    "GO": 4,
+    "TO": 4,
+    "AP": 3,
+    "RS": 3,
+    "CE": 2,
+    "RR": 1,
+    "AL": 1
+   }
+  },
+  "referencia_imprensa": {
+   "secoes": 1225,
+   "total_secoes": 499248,
+   "L_pct_validos": 57.66,
+   "fonte": "Agência Brasil e TSE, via resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt"
+  }
+ },
+ "D2_definicao": {
+  "sem_olhar_o_futuro_aptos": {
+   "hora": "25/10 21:08:26",
+   "secoes_recebidas": 486978,
+   "pct_secoes": 97.55070562193889,
+   "margem_lula": 4207648,
+   "resto": 4207620
+  },
+  "com_o_futuro_comparecimento": {
+   "hora": "25/10 21:07:36",
+   "secoes_recebidas": 483737,
+   "pct_secoes": 96.90147334261476,
+   "margem_lula": 4165493,
+   "resto": 4165208
+  },
+  "marcos_recebimento": {
+   "50%": "25/10 20:26:26",
+   "90%": "25/10 21:01:27",
+   "99%": "25/10 21:09:39",
+   "99,9%": "25/10 21:37:01",
+   "100%": "25/10 23:21:40"
+  },
+  "instantes": {
+   "19h30": {
+    "secoes": 30279,
+    "pct_secoes": 6.0654440560491185,
+    "L_pct_validos": 50.88423207724695,
+    "margem_lula": 134578,
+    "aptos_nao_recebidos": 148838517
+   },
+   "20h00": {
+    "secoes": 117179,
+    "pct_secoes": 23.473122264400395,
+    "L_pct_validos": 49.51852241959795,
+    "margem_lula": -279390,
+    "aptos_nao_recebidos": 121639244
+   },
+   "20h30": {
+    "secoes": 276905,
+    "pct_secoes": 55.46919602167446,
+    "L_pct_validos": 50.36955681978679,
+    "margem_lula": 505626,
+    "aptos_nao_recebidos": 71539075
+   },
+   "21h00": {
+    "secoes": 447744,
+    "pct_secoes": 89.69140934085195,
+    "L_pct_validos": 51.551133797831056,
+    "margem_lula": 3440455,
+    "aptos_nao_recebidos": 17248227
+   },
+   "21h09": {
+    "secoes": 495885,
+    "pct_secoes": 99.33494255866829,
+    "L_pct_validos": 51.74767701655098,
+    "margem_lula": 4308363,
+    "aptos_nao_recebidos": 1091384
+   },
+   "21h16": {
+    "secoes": 498159,
+    "pct_secoes": 99.79046684227923,
+    "L_pct_validos": 51.7599565241741,
+    "margem_lula": 4358699,
+    "aptos_nao_recebidos": 346827
+   }
+  },
+  "referencia_imprensa": {
+   "tse_confirma": "21h09",
+   "pedido_pf": "21h16",
+   "fonte": "O Globo, via checagens/relatorio_pericial_instagram/checagem_e_conferencias.json"
+  }
+ }
+}

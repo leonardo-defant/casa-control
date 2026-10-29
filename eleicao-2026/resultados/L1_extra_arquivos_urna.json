@@ -1,0 +1,1236 @@
+{
+ "assinaturas": {
+  "contagem": {
+   "secoes_com_vsc": 20,
+   "vsc_sha256_igual_ao_aux": 20,
+   "arquivos_baixados_no_disco": 60,
+   "cert_der": 2,
+   "bloco_hw_assinatura_ok": 20,
+   "arquivos_listados": 220,
+   "arquivos_baixados_conferidos": 60,
+   "resumo_ok": 60,
+   "assinatura_arquivo_ok": 220,
+   "urna_cert_igual_bu": 20,
+   "cert_pem": 18,
+   "titular_so_prefixo": 18
+  },
+  "falhas": []
+ },
+ "secoes": {
+  "BA|33073|74|241": {
+   "bu": {
+    "urna": 1673837,
+    "apt": 383,
+    "comp": 311,
+    "L": 231,
+    "R": 63,
+    "B": 1,
+    "N": 16,
+    "ab": "101440",
+    "enc": "170351"
+   },
+   "bweb": {
+    "urna": 1673837,
+    "apt": 383,
+    "comp": 311,
+    "L": 231,
+    "R": 63,
+    "B": 1,
+    "N": 16,
+    "ab": "10:14:40",
+    "enc": "17:03:51"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 2,
+    "urna_ligada": "25/10/2026 às 07:29:23",
+    "vezes_ligada": 9,
+    "desligada_pela_chave": 8,
+    "zeresima": "10:13:53",
+    "pronta": "10:14:40",
+    "primeiro_voto": "11:03:46",
+    "ultimo_voto": "16:56:24",
+    "votos_log": 311,
+    "votos_por_hora": {
+     "11h": 50,
+     "12h": 51,
+     "13h": 75,
+     "14h": 69,
+     "15h": 38,
+     "16h": 28
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:03:21",
+    "inicio_encerramento": "17:04:25",
+    "bu_dat_gerado": "17:06:22",
+    "erros": [
+     "07:33:48 Problema ao desmontar a MR",
+     "07:43:05 Problema ao desmontar a MR",
+     "07:51:02 Problema ao desmontar a MR",
+     "08:32:47 Problema ao desmontar a MR",
+     "08:44:03 Problema ao desmontar a MR",
+     "08:52:15 Problema ao desmontar a MR",
+     "10:04:17 Problema ao desmontar a MR",
+     "10:21:54 Captura da digital do eleitor | Falha na captura da digital (5243) | Ocorreu um erro durante captura da digital do eleitor. Desligue e ligue a urna. Se o erro persistir, substitua a urna.",
+     "10:28:22 Problema ao desmontar a MR",
+     "10:56:08 Problema ao desmontar a MR"
+    ],
+    "contingencia": [
+     "10:47:42 Log interno da urna de contingência validado com sucesso",
+     "10:47:54 Modo de carga da UE - Urna de contingência",
+     "10:48:58 Início do procedimento de contingência",
+     "10:51:16 Término do processo de contingência",
+     "10:51:18 Contingência executada com sucesso"
+    ],
+    "modo_de_carga": [
+     "Modo de carga da UE - Urna de contingência",
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 311
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "CE|13552|33|379": {
+   "bu": {
+    "urna": 2041392,
+    "apt": 268,
+    "comp": 224,
+    "L": 173,
+    "R": 42,
+    "B": 4,
+    "N": 5,
+    "ab": "102240",
+    "enc": "170145"
+   },
+   "bweb": {
+    "urna": 2041392,
+    "apt": 268,
+    "comp": 224,
+    "L": 173,
+    "R": 42,
+    "B": 4,
+    "N": 5,
+    "ab": "10:22:40",
+    "enc": "17:01:45"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:23:25",
+    "vezes_ligada": 2,
+    "desligada_pela_chave": 1,
+    "zeresima": "07:27:13",
+    "pronta": "10:22:40",
+    "primeiro_voto": "10:24:28",
+    "ultimo_voto": "16:55:02",
+    "votos_log": 224,
+    "votos_por_hora": {
+     "10h": 42,
+     "11h": 70,
+     "12h": 29,
+     "13h": 7,
+     "14h": 20,
+     "15h": 34,
+     "16h": 22
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:00:25",
+    "inicio_encerramento": "17:03:36",
+    "bu_dat_gerado": "17:04:07",
+    "erros": [
+     "07:25:39 Problema ao desmontar a MR",
+     "10:19:09 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 224
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "ES|56413|33|49": {
+   "bu": {
+    "urna": 2358355,
+    "apt": 225,
+    "comp": 173,
+    "L": 87,
+    "R": 77,
+    "B": 3,
+    "N": 6,
+    "ab": "110053",
+    "enc": "170213"
+   },
+   "bweb": {
+    "urna": 2358355,
+    "apt": 225,
+    "comp": 173,
+    "L": 87,
+    "R": 77,
+    "B": 3,
+    "N": 6,
+    "ab": "11:00:53",
+    "enc": "17:02:13"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:35:19",
+    "vezes_ligada": 2,
+    "desligada_pela_chave": 1,
+    "zeresima": "10:56:23",
+    "pronta": "11:00:53",
+    "primeiro_voto": "11:01:27",
+    "ultimo_voto": "16:42:31",
+    "votos_log": 173,
+    "votos_por_hora": {
+     "11h": 44,
+     "12h": 34,
+     "13h": 21,
+     "14h": 26,
+     "15h": 34,
+     "16h": 14
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:01:42",
+    "inicio_encerramento": "17:05:29",
+    "bu_dat_gerado": "17:05:48",
+    "erros": [
+     "07:37:33 Problema ao desmontar a MR",
+     "10:54:59 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 173
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "ES|56413|33|83": {
+   "bu": {
+    "urna": 2366497,
+    "apt": 161,
+    "comp": 128,
+    "L": 99,
+    "R": 28,
+    "B": 0,
+    "N": 1,
+    "ab": "102840",
+    "enc": "170108"
+   },
+   "bweb": {
+    "urna": 2366497,
+    "apt": 161,
+    "comp": 128,
+    "L": 99,
+    "R": 28,
+    "B": 0,
+    "N": 1,
+    "ab": "10:28:40",
+    "enc": "17:01:08"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 10:19:47",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 1,
+    "zeresima": "07:01:53",
+    "pronta": "10:28:40",
+    "primeiro_voto": "10:31:41",
+    "ultimo_voto": "16:26:45",
+    "votos_log": 128,
+    "votos_por_hora": {
+     "10h": 19,
+     "11h": 21,
+     "12h": 21,
+     "13h": 18,
+     "14h": 29,
+     "15h": 9,
+     "16h": 11
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:00:39",
+    "inicio_encerramento": "17:04:02",
+    "bu_dat_gerado": "17:04:48",
+    "erros": [
+     "10:21:51 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 128
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "MG|41882|320|185": {
+   "bu": {
+    "urna": 2066579,
+    "apt": 102,
+    "comp": 96,
+    "L": 78,
+    "R": 18,
+    "B": 0,
+    "N": 0,
+    "ab": "080001",
+    "enc": "230442"
+   },
+   "bweb": {
+    "urna": 2066579,
+    "apt": 102,
+    "comp": 96,
+    "L": 78,
+    "R": 18,
+    "B": 0,
+    "N": 0,
+    "ab": "08:00:01",
+    "enc": "23:04:42"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 2,
+    "urna_ligada": "25/10/2026 às 06:47:33",
+    "vezes_ligada": 14,
+    "desligada_pela_chave": 12,
+    "zeresima": "07:02:39",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:04:43",
+    "ultimo_voto": "16:27:43",
+    "votos_log": 96,
+    "votos_por_hora": {
+     "08h": 22,
+     "09h": 25,
+     "10h": 21,
+     "11h": 10,
+     "12h": 5,
+     "13h": 1,
+     "14h": 6,
+     "15h": 4,
+     "16h": 2
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "23:04:10",
+    "inicio_encerramento": "23:04:50",
+    "bu_dat_gerado": "23:05:05",
+    "erros": [
+     "06:49:48 Problema ao desmontar a MR",
+     "15:25:22 Problema ao desmontar a MR",
+     "15:29:16 Problema ao desmontar a MR",
+     "15:35:39 Problema ao desmontar a MR",
+     "17:11:46 Problema ao desmontar a MR",
+     "17:20:38 Problema ao desmontar a MR",
+     "18:17:39 Problema ao desmontar a MR",
+     "23:02:52 Problema ao desmontar a MR"
+    ],
+    "contingencia": [
+     "22:50:04 Log interno da urna de contingência validado com sucesso",
+     "22:50:16 Modo de carga da UE - Urna de contingência",
+     "23:00:06 Início do procedimento de contingência",
+     "23:00:19 Término do processo de contingência",
+     "23:00:21 Contingência executada com sucesso"
+    ],
+    "modo_de_carga": [
+     "Modo de carga da UE - Urna de contingência",
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 98
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "MG|46477|134|295": {
+   "bu": {
+    "urna": 2076047,
+    "apt": 25,
+    "comp": 9,
+    "L": 5,
+    "R": 4,
+    "B": 0,
+    "N": 0,
+    "ab": "130844",
+    "enc": "170120"
+   },
+   "bweb": {
+    "urna": 2076047,
+    "apt": 25,
+    "comp": 9,
+    "L": 5,
+    "R": 4,
+    "B": 0,
+    "N": 0,
+    "ab": "13:08:44",
+    "enc": "17:01:20"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 13:00:02",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "13:03:53",
+    "pronta": "13:08:44",
+    "primeiro_voto": "13:09:45",
+    "ultimo_voto": "14:07:53",
+    "votos_log": 9,
+    "votos_por_hora": {
+     "13h": 5,
+     "14h": 4
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:00:41",
+    "inicio_encerramento": "17:03:03",
+    "bu_dat_gerado": "17:03:45",
+    "erros": [
+     "13:02:16 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 9
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4057|16|19": {
+   "bu": {
+    "urna": 2408714,
+    "apt": 300,
+    "comp": 239,
+    "L": 184,
+    "R": 52,
+    "B": 0,
+    "N": 3,
+    "ab": "080001",
+    "enc": "170610"
+   },
+   "bweb": {
+    "urna": 2408714,
+    "apt": 300,
+    "comp": 239,
+    "L": 184,
+    "R": 52,
+    "B": 0,
+    "N": 3,
+    "ab": "08:00:01",
+    "enc": "17:06:10"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:22:12",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:26:26",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:01:26",
+    "ultimo_voto": "16:44:24",
+    "votos_log": 239,
+    "votos_por_hora": {
+     "08h": 64,
+     "09h": 22,
+     "10h": 13,
+     "11h": 9,
+     "12h": 6,
+     "13h": 34,
+     "14h": 43,
+     "15h": 34,
+     "16h": 14
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:05:44",
+    "inicio_encerramento": "17:06:22",
+    "bu_dat_gerado": "17:06:59",
+    "erros": [
+     "07:24:30 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 239
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4057|16|23": {
+   "bu": {
+    "urna": 2415163,
+    "apt": 300,
+    "comp": 240,
+    "L": 120,
+    "R": 119,
+    "B": 0,
+    "N": 1,
+    "ab": "080001",
+    "enc": "170419"
+   },
+   "bweb": {
+    "urna": 2415163,
+    "apt": 300,
+    "comp": 240,
+    "L": 120,
+    "R": 119,
+    "B": 0,
+    "N": 1,
+    "ab": "08:00:01",
+    "enc": "17:04:19"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:13:52",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:25:59",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:01:09",
+    "ultimo_voto": "17:03:45",
+    "votos_log": 240,
+    "votos_por_hora": {
+     "08h": 53,
+     "09h": 26,
+     "10h": 12,
+     "11h": 18,
+     "12h": 20,
+     "13h": 28,
+     "14h": 27,
+     "15h": 39,
+     "16h": 15,
+     "17h": 2
+    },
+    "votos_depois_17h": 2,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:04:00",
+    "inicio_encerramento": "17:06:04",
+    "bu_dat_gerado": "17:06:25",
+    "erros": [
+     "07:16:06 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 240
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4057|16|77": {
+   "bu": {
+    "urna": 2393841,
+    "apt": 360,
+    "comp": 305,
+    "L": 253,
+    "R": 48,
+    "B": 2,
+    "N": 2,
+    "ab": "080505",
+    "enc": "170405"
+   },
+   "bweb": {
+    "urna": 2393841,
+    "apt": 360,
+    "comp": 305,
+    "L": 253,
+    "R": 48,
+    "B": 2,
+    "N": 2,
+    "ab": "08:05:05",
+    "enc": "17:04:05"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:30:40",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:34:18",
+    "pronta": "08:05:05",
+    "primeiro_voto": "08:06:37",
+    "ultimo_voto": "16:45:45",
+    "votos_log": 305,
+    "votos_por_hora": {
+     "08h": 62,
+     "09h": 49,
+     "10h": 36,
+     "11h": 19,
+     "12h": 23,
+     "13h": 24,
+     "14h": 22,
+     "15h": 44,
+     "16h": 26
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:03:28",
+    "inicio_encerramento": "17:07:08",
+    "bu_dat_gerado": "17:07:31",
+    "erros": [
+     "07:32:55 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 305
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4057|16|80": {
+   "bu": {
+    "urna": 2404733,
+    "apt": 279,
+    "comp": 217,
+    "L": 166,
+    "R": 50,
+    "B": 1,
+    "N": 0,
+    "ab": "080001",
+    "enc": "170325"
+   },
+   "bweb": {
+    "urna": 2404733,
+    "apt": 279,
+    "comp": 217,
+    "L": 166,
+    "R": 50,
+    "B": 1,
+    "N": 0,
+    "ab": "08:00:01",
+    "enc": "17:03:25"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:08:01",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:13:37",
+    "pronta": "08:00:02",
+    "primeiro_voto": "08:02:03",
+    "ultimo_voto": "16:46:20",
+    "votos_log": 217,
+    "votos_por_hora": {
+     "08h": 53,
+     "09h": 22,
+     "10h": 4,
+     "11h": 1,
+     "12h": 8,
+     "13h": 33,
+     "14h": 51,
+     "15h": 26,
+     "16h": 19
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:02:31",
+    "inicio_encerramento": "17:06:01",
+    "bu_dat_gerado": "17:06:38",
+    "erros": [
+     "07:10:17 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 217
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4200|102|54": {
+   "bu": {
+    "urna": 2417753,
+    "apt": 155,
+    "comp": 123,
+    "L": 75,
+    "R": 43,
+    "B": 1,
+    "N": 4,
+    "ab": "080001",
+    "enc": "170042"
+   },
+   "bweb": {
+    "urna": 2417753,
+    "apt": 155,
+    "comp": 123,
+    "L": 75,
+    "R": 43,
+    "B": 1,
+    "N": 4,
+    "ab": "08:00:01",
+    "enc": "17:00:42"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:32:13",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:35:58",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:00:53",
+    "ultimo_voto": "10:40:02",
+    "votos_log": 123,
+    "votos_por_hora": {
+     "08h": 52,
+     "09h": 51,
+     "10h": 20
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:00:12",
+    "inicio_encerramento": "17:05:18",
+    "bu_dat_gerado": "17:05:46",
+    "erros": [
+     "07:34:28 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 123
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|4391|2|6": {
+   "bu": {
+    "urna": 2419128,
+    "apt": 282,
+    "comp": 212,
+    "L": 136,
+    "R": 73,
+    "B": 0,
+    "N": 3,
+    "ab": "080001",
+    "enc": "170428"
+   },
+   "bweb": {
+    "urna": 2419128,
+    "apt": 282,
+    "comp": 212,
+    "L": 136,
+    "R": 73,
+    "B": 0,
+    "N": 3,
+    "ab": "08:00:01",
+    "enc": "17:04:28"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:41:00",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:44:31",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:06:20",
+    "ultimo_voto": "16:35:27",
+    "votos_log": 212,
+    "votos_por_hora": {
+     "08h": 48,
+     "09h": 31,
+     "10h": 23,
+     "11h": 8,
+     "12h": 6,
+     "13h": 11,
+     "14h": 20,
+     "15h": 43,
+     "16h": 22
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:03:53",
+    "inicio_encerramento": "17:06:37",
+    "bu_dat_gerado": "17:07:06",
+    "erros": [
+     "07:43:14 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 212
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|5010|22|259": {
+   "bu": {
+    "urna": 1845460,
+    "apt": 104,
+    "comp": 80,
+    "L": 67,
+    "R": 10,
+    "B": 0,
+    "N": 3,
+    "ab": "110022",
+    "enc": "170146"
+   },
+   "bweb": {
+    "urna": 1845460,
+    "apt": 104,
+    "comp": 80,
+    "L": 67,
+    "R": 10,
+    "B": 0,
+    "N": 3,
+    "ab": "11:00:22",
+    "enc": "17:01:46"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 10:42:24",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "10:48:44",
+    "pronta": "11:00:22",
+    "primeiro_voto": "11:01:53",
+    "ultimo_voto": "16:45:00",
+    "votos_log": 80,
+    "votos_por_hora": {
+     "11h": 37,
+     "12h": 6,
+     "13h": 4,
+     "14h": 7,
+     "15h": 16,
+     "16h": 10
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:01:08",
+    "inicio_encerramento": "17:04:21",
+    "bu_dat_gerado": "17:05:29",
+    "erros": [
+     "10:46:34 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 80
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PA|5657|14|215": {
+   "bu": {
+    "urna": 2200614,
+    "apt": 203,
+    "comp": 161,
+    "L": 113,
+    "R": 45,
+    "B": 1,
+    "N": 2,
+    "ab": "080001",
+    "enc": "170441"
+   },
+   "bweb": {
+    "urna": 2200614,
+    "apt": 203,
+    "comp": 161,
+    "L": 113,
+    "R": 45,
+    "B": 1,
+    "N": 2,
+    "ab": "08:00:01",
+    "enc": "17:04:41"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:35:48",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:39:39",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:06:20",
+    "ultimo_voto": "16:14:45",
+    "votos_log": 161,
+    "votos_por_hora": {
+     "08h": 44,
+     "09h": 47,
+     "10h": 18,
+     "11h": 9,
+     "12h": 8,
+     "13h": 17,
+     "14h": 9,
+     "15h": 7,
+     "16h": 2
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:04:08",
+    "inicio_encerramento": "17:06:19",
+    "bu_dat_gerado": "17:06:36",
+    "erros": [
+     "07:38:02 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 161
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|75990|34|14": {
+   "bu": {
+    "urna": 2063033,
+    "apt": 273,
+    "comp": 192,
+    "L": 136,
+    "R": 55,
+    "B": 1,
+    "N": 0,
+    "ab": "104151",
+    "enc": "170055"
+   },
+   "bweb": {
+    "urna": 2063033,
+    "apt": 273,
+    "comp": 192,
+    "L": 136,
+    "R": 55,
+    "B": 1,
+    "N": 0,
+    "ab": "10:41:51",
+    "enc": "17:00:55"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 10:32:57",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "10:36:34",
+    "pronta": "10:41:51",
+    "primeiro_voto": "10:42:37",
+    "ultimo_voto": "16:50:29",
+    "votos_log": 192,
+    "votos_por_hora": {
+     "10h": 15,
+     "11h": 28,
+     "12h": 67,
+     "13h": 35,
+     "14h": 20,
+     "15h": 23,
+     "16h": 4
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:00:36",
+    "inicio_encerramento": "17:02:48",
+    "bu_dat_gerado": "17:03:51",
+    "erros": [
+     "10:35:11 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 192
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|75990|34|117": {
+   "bu": {
+    "urna": 2092245,
+    "apt": 203,
+    "comp": 105,
+    "L": 48,
+    "R": 53,
+    "B": 0,
+    "N": 4,
+    "ab": "104909",
+    "enc": "171105"
+   },
+   "bweb": {
+    "urna": 2092245,
+    "apt": 203,
+    "comp": 105,
+    "L": 48,
+    "R": 53,
+    "B": 0,
+    "N": 4,
+    "ab": "10:49:09",
+    "enc": "17:11:05"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 10:40:40",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "10:44:20",
+    "pronta": "10:49:09",
+    "primeiro_voto": "11:02:21",
+    "ultimo_voto": "16:24:22",
+    "votos_log": 105,
+    "votos_por_hora": {
+     "11h": 15,
+     "12h": 19,
+     "13h": 38,
+     "14h": 12,
+     "15h": 11,
+     "16h": 10
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:10:27",
+    "inicio_encerramento": "17:12:57",
+    "bu_dat_gerado": "17:13:32",
+    "erros": [
+     "10:42:55 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 105
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|75990|34|133": {
+   "bu": {
+    "urna": 2060731,
+    "apt": 215,
+    "comp": 18,
+    "L": 11,
+    "R": 7,
+    "B": 0,
+    "N": 0,
+    "ab": "100501",
+    "enc": "170740"
+   },
+   "bweb": {
+    "urna": 2060731,
+    "apt": 215,
+    "comp": 18,
+    "L": 11,
+    "R": 7,
+    "B": 0,
+    "N": 0,
+    "ab": "10:05:01",
+    "enc": "17:07:40"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 09:57:29",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "10:01:58",
+    "pronta": "10:05:01",
+    "primeiro_voto": "10:16:52",
+    "ultimo_voto": "16:30:44",
+    "votos_log": 18,
+    "votos_por_hora": {
+     "10h": 4,
+     "11h": 4,
+     "12h": 2,
+     "14h": 3,
+     "15h": 2,
+     "16h": 3
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:06:53",
+    "inicio_encerramento": "17:08:17",
+    "bu_dat_gerado": "17:09:05",
+    "erros": [
+     "09:59:45 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 18
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|75990|34|182": {
+   "bu": {
+    "urna": 2245856,
+    "apt": 138,
+    "comp": 98,
+    "L": 39,
+    "R": 55,
+    "B": 2,
+    "N": 2,
+    "ab": "105853",
+    "enc": "170152"
+   },
+   "bweb": {
+    "urna": 2245856,
+    "apt": 138,
+    "comp": 98,
+    "L": 39,
+    "R": 55,
+    "B": 2,
+    "N": 2,
+    "ab": "10:58:53",
+    "enc": "17:01:52"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 10:51:21",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "10:55:18",
+    "pronta": "10:58:54",
+    "primeiro_voto": "10:59:58",
+    "ultimo_voto": "16:30:28",
+    "votos_log": 98,
+    "votos_por_hora": {
+     "10h": 1,
+     "11h": 32,
+     "12h": 13,
+     "13h": 14,
+     "14h": 21,
+     "15h": 14,
+     "16h": 3
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:01:19",
+    "inicio_encerramento": "17:04:00",
+    "bu_dat_gerado": "17:05:13",
+    "erros": [
+     "10:53:37 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 98
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|75990|34|189": {
+   "bu": {
+    "urna": 2060381,
+    "apt": 214,
+    "comp": 121,
+    "L": 74,
+    "R": 44,
+    "B": 1,
+    "N": 2,
+    "ab": "100245",
+    "enc": "170641"
+   },
+   "bweb": {
+    "urna": 2060381,
+    "apt": 214,
+    "comp": 121,
+    "L": 74,
+    "R": 44,
+    "B": 1,
+    "N": 2,
+    "ab": "10:02:45",
+    "enc": "17:06:41"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 09:54:38",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "09:59:34",
+    "pronta": "10:02:45",
+    "primeiro_voto": "10:14:55",
+    "ultimo_voto": "16:49:51",
+    "votos_log": 121,
+    "votos_por_hora": {
+     "10h": 18,
+     "11h": 11,
+     "12h": 24,
+     "13h": 31,
+     "14h": 20,
+     "15h": 6,
+     "16h": 11
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:06:14",
+    "inicio_encerramento": "17:10:17",
+    "bu_dat_gerado": "17:11:01",
+    "erros": [
+     "09:56:52 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 121
+   },
+   "votos_log_igual_comparecimento": true
+  },
+  "PR|78778|52|54": {
+   "bu": {
+    "urna": 2021052,
+    "apt": 220,
+    "comp": 205,
+    "L": 90,
+    "R": 98,
+    "B": 8,
+    "N": 9,
+    "ab": "080001",
+    "enc": "170332"
+   },
+   "bweb": {
+    "urna": 2021052,
+    "apt": 220,
+    "comp": 205,
+    "L": 90,
+    "R": 98,
+    "B": 8,
+    "N": 9,
+    "ab": "08:00:01",
+    "enc": "17:03:32"
+   },
+   "bu_igual_bweb": true,
+   "log": {
+    "blocos_de_log": 1,
+    "urna_ligada": "25/10/2026 às 07:08:33",
+    "vezes_ligada": 1,
+    "desligada_pela_chave": 0,
+    "zeresima": "07:13:47",
+    "pronta": "08:00:01",
+    "primeiro_voto": "08:03:46",
+    "ultimo_voto": "16:48:59",
+    "votos_log": 205,
+    "votos_por_hora": {
+     "08h": 30,
+     "09h": 42,
+     "10h": 33,
+     "11h": 15,
+     "12h": 14,
+     "13h": 33,
+     "14h": 28,
+     "15h": 3,
+     "16h": 7
+    },
+    "votos_depois_17h": 0,
+    "votos_depois_19h": 0,
+    "encerrar_selecionado": "17:02:37",
+    "inicio_encerramento": "17:05:26",
+    "bu_dat_gerado": "17:05:51",
+    "erros": [
+     "07:10:47 Problema ao desmontar a MR"
+    ],
+    "contingencia": [],
+    "modo_de_carga": [
+     "Modo de carga da UE - Votação"
+    ],
+    "habilitados": 205
+   },
+   "votos_log_igual_comparecimento": true
+  }
+ }
+}

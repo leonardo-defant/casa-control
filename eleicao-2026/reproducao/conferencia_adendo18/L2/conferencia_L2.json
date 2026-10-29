@@ -1,0 +1,583 @@
+{
+ "secoes_bweb": {
+  "1T": 499206,
+  "2T": 499207,
+  "multi_campos_1T": 0,
+  "multi_campos_2T": 0,
+  "sem_presidente_1T": [],
+  "sem_presidente_2T": [
+   "ZZ|30686|1|443",
+   "ZZ|29564|1|91"
+  ],
+  "so_1T": [],
+  "so_2T": [
+   "ZZ|29564|1|91"
+  ]
+ },
+ "universo_dois_turnos_com_presidente": 499205,
+ "universo_com_finalista_nos_dois": 499205,
+ "local_mudou": 0,
+ "tamanho_C_todas_secoes_bweb2T": {
+  "C_t_linear": 9920,
+  "C_dia_linear": 4301,
+  "C_t_lower": 9894,
+  "C_dia_lower": 4301,
+  "C_t_higher": 9900,
+  "C_dia_higher": 4281,
+  "C_t_nearest": 9906,
+  "C_dia_nearest": 4281,
+  "C_t_midpoint": 9920,
+  "C_dia_midpoint": 4301
+ },
+ "principal": {
+  "U": {
+   "coef": -0.024010443426300616,
+   "ep": 0.0319393527602848,
+   "z": -0.7517510954748138,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4216,
+   "n_grupo_identifica": 4189,
+   "locais_identificam": 3905,
+   "cauda_residuo_within_ponderada": {
+    ">+2": {
+     "grupo": 0.11762340413654242,
+     "outras": 0.12694455772577096
+    },
+    "<-2": {
+     "grupo": 0.12424955505533777,
+     "outras": 0.12546473487255455
+    },
+    ">+3": {
+     "grupo": 0.0450990800219137,
+     "outras": 0.047524809419419486
+    },
+    "<-3": {
+     "grupo": 0.03928097321059389,
+     "outras": 0.04440160179054197
+    },
+    ">+5": {
+     "grupo": 0.004499121464925303,
+     "outras": 0.0042424176975941474
+    },
+    "<-5": {
+     "grupo": 0.002298289387655849,
+     "outras": 0.003036451861408693
+    },
+    ">+10": {
+     "grupo": 0.0,
+     "outras": 0.0
+    },
+    "<-10": {
+     "grupo": 0.0,
+     "outras": 0.0
+    }
+   },
+   "quantis_residuo_grupo": {
+    "0.01": -4.0684418409830805,
+    "0.05": -2.8848339184502407,
+    "0.25": -1.1898125249778153,
+    "0.5": -0.015777705420805255,
+    "0.75": 1.1356824001143817,
+    "0.95": 2.9743194927044954,
+    "0.99": 4.419381379785881
+   },
+   "quantis_residuo_outras": {
+    "0.01": -4.336756749248315,
+    "0.05": -2.9402192049076428,
+    "0.25": -1.1729564114012851,
+    "0.5": -0.012208349186215597,
+    "0.75": 1.1697272718846494,
+    "0.95": 3.0123434008346854,
+    "0.99": 4.404892132049079
+   },
+   "leitura": "SEM SINAL",
+   "secoes_grupo_universo": 4435,
+   "votos_finalistas_2T_grupo": 1104599.0,
+   "lim_sup_95_votos_Lula": 426.2723535628111
+  },
+  "C": {
+   "coef": -0.007535888023888577,
+   "ep": 0.02791394216228278,
+   "z": -0.2699686049386117,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "cauda_residuo_within_ponderada": {
+    ">+2": {
+     "grupo": 0.12011714113518317,
+     "outras": 0.12774165990346417
+    },
+    "<-2": {
+     "grupo": 0.1262205227113157,
+     "outras": 0.12852334372730767
+    },
+    ">+3": {
+     "grupo": 0.04345370852903868,
+     "outras": 0.0470934908498447
+    },
+    "<-3": {
+     "grupo": 0.03990406179010556,
+     "outras": 0.0449428534815746
+    },
+    ">+5": {
+     "grupo": 0.003813845465528769,
+     "outras": 0.004123214361991006
+    },
+    "<-5": {
+     "grupo": 0.002320256892766038,
+     "outras": 0.0030402069845066725
+    },
+    ">+10": {
+     "grupo": 0.0,
+     "outras": 0.0
+    },
+    "<-10": {
+     "grupo": 0.0,
+     "outras": 0.0
+    }
+   },
+   "quantis_residuo_grupo": {
+    "0.01": -4.112428280797425,
+    "0.05": -2.876018233802098,
+    "0.25": -1.1706214158102475,
+    "0.5": -0.004505078585427591,
+    "0.75": 1.1575186030698337,
+    "0.95": 2.9177498374248154,
+    "0.99": 4.37158340336066
+   },
+   "quantis_residuo_outras": {
+    "0.01": -4.342922381377303,
+    "0.05": -2.9534598398414036,
+    "0.25": -1.1880160840441105,
+    "0.5": -0.006800246122907971,
+    "0.75": 1.188904749790444,
+    "0.95": 3.0043617773405034,
+    "0.99": 4.420848721214388
+   },
+   "leitura": "SEM SINAL",
+   "secoes_grupo_universo": 9920,
+   "votos_finalistas_2T_grupo": 2453544.0,
+   "lim_sup_95_votos_Lula": 1157.4701435920358
+  }
+ },
+ "veredito": "COERENTE",
+ "robustez": {
+  "U_placebo_fat1": {
+   "coef": 0.017464940162723836,
+   "ep": 0.06715954909496342,
+   "z": 0.26005148036399794,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4216,
+   "n_grupo_identifica": 4189,
+   "locais_identificam": 3905,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_sem_peso": {
+   "coef": -0.015400563203521404,
+   "ep": 0.03266950389137668,
+   "z": -0.47140486904015944,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4216,
+   "n_grupo_identifica": 4189,
+   "locais_identificam": 3905,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_peso_1T": {
+   "coef": -0.02283433108944145,
+   "ep": 0.031838648973237786,
+   "z": -0.7171890713275874,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4216,
+   "n_grupo_identifica": 4189,
+   "locais_identificam": 3905,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_fe_zona": {
+   "coef": -0.0362586072875307,
+   "ep": 0.029908225435506766,
+   "z": -1.2123289416056366,
+   "n": 499130,
+   "locais": 6175,
+   "n_grupo": 4426,
+   "n_grupo_identifica": 4426,
+   "locais_identificam": 2163,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_fe_municipio": {
+   "coef": -0.032143372483215985,
+   "ep": 0.03153382976477648,
+   "z": -1.0193298030396667,
+   "n": 499130,
+   "locais": 5640,
+   "n_grupo": 4426,
+   "n_grupo_identifica": 4426,
+   "locais_identificam": 1731,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_y_dcomp": {
+   "coef": 0.04525133189487097,
+   "ep": 0.03362665515952195,
+   "z": 1.3456982765666865,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4216,
+   "n_grupo_identifica": 4189,
+   "locais_identificam": 3905,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_placebo_fat1": {
+   "coef": 0.10595061578161345,
+   "ep": 0.05850367423603266,
+   "z": 1.8110078924984514,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_sem_peso": {
+   "coef": -0.00040243359841481407,
+   "ep": 0.028321024677432707,
+   "z": -0.014209711795332348,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_peso_1T": {
+   "coef": -0.00769701541558193,
+   "ep": 0.02781609646070465,
+   "z": -0.27671083994317386,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_fe_zona": {
+   "coef": -0.020891178203514608,
+   "ep": 0.026750515007657592,
+   "z": -0.7809635888331237,
+   "n": 499130,
+   "locais": 6175,
+   "n_grupo": 9920,
+   "n_grupo_identifica": 9148,
+   "locais_identificam": 1946,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_fe_municipio": {
+   "coef": -0.032324689413954354,
+   "ep": 0.03312908655116932,
+   "z": -0.9757193082890305,
+   "n": 499130,
+   "locais": 5640,
+   "n_grupo": 9920,
+   "n_grupo_identifica": 9148,
+   "locais_identificam": 1569,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_y_dcomp": {
+   "coef": 0.13900296967213144,
+   "ep": 0.029014313178632168,
+   "z": 4.790841293272499,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_t_linear": {
+   "coef": -0.007535888023888577,
+   "ep": 0.02791394216228278,
+   "z": -0.2699686049386117,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_dia_linear": {
+   "coef": -0.004298919841303847,
+   "ep": 0.036150767711430026,
+   "z": -0.1189164190265489,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4101,
+   "n_grupo_identifica": 3474,
+   "locais_identificam": 2941,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_t_lower": {
+   "coef": -0.010014549514654227,
+   "ep": 0.027940709565876257,
+   "z": -0.35842144563446976,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9525,
+   "n_grupo_identifica": 7087,
+   "locais_identificam": 4328,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_dia_lower": {
+   "coef": -0.004298919841303847,
+   "ep": 0.036150767711430026,
+   "z": -0.1189164190265489,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4101,
+   "n_grupo_identifica": 3474,
+   "locais_identificam": 2941,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_t_higher": {
+   "coef": -0.010175970749016421,
+   "ep": 0.027907367195316744,
+   "z": -0.3646338501872041,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9531,
+   "n_grupo_identifica": 7093,
+   "locais_identificam": 4327,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_dia_higher": {
+   "coef": -0.00766768452326048,
+   "ep": 0.036260914159960085,
+   "z": -0.21145866564299878,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4082,
+   "n_grupo_identifica": 3455,
+   "locais_identificam": 2924,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_t_nearest": {
+   "coef": -0.007894180315310893,
+   "ep": 0.027935489989735943,
+   "z": -0.2825860694840639,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9537,
+   "n_grupo_identifica": 7099,
+   "locais_identificam": 4328,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_dia_nearest": {
+   "coef": -0.00766768452326048,
+   "ep": 0.036260914159960085,
+   "z": -0.21145866564299878,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4082,
+   "n_grupo_identifica": 3455,
+   "locais_identificam": 2924,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_t_midpoint": {
+   "coef": -0.007535888023888577,
+   "ep": 0.02791394216228278,
+   "z": -0.2699686049386117,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_dia_midpoint": {
+   "coef": -0.004298919841303847,
+   "ep": 0.036150767711430026,
+   "z": -0.1189164190265489,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 4101,
+   "n_grupo_identifica": 3474,
+   "locais_identificam": 2941,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_universo": {
+   "coef": -0.007535888023888577,
+   "ep": 0.02791394216228278,
+   "z": -0.2699686049386117,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 9550,
+   "n_grupo_identifica": 7112,
+   "locais_identificam": 4334,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_cedo_vs_dentro": {
+   "coef": -0.04805063330909757,
+   "ep": 0.046880703160669786,
+   "z": -1.0249554735648523,
+   "n": 472059,
+   "locais": 72124,
+   "n_grupo": 4801,
+   "n_grupo_identifica": 3222,
+   "locais_identificam": 1215,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "C_tarde_vs_dentro": {
+   "coef": 0.014760234080269196,
+   "ep": 0.0345228440059896,
+   "z": 0.42754977190489707,
+   "n": 472015,
+   "locais": 72028,
+   "n_grupo": 4738,
+   "n_grupo_identifica": 3890,
+   "locais_identificam": 3179,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "U_ou_C": {
+   "coef": -0.022443476664326785,
+   "ep": 0.023752500994550833,
+   "z": -0.944888989562642,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 11778,
+   "n_grupo_identifica": 9306,
+   "locais_identificam": 6268,
+   "leitura_mesma_regua": "SEM SINAL"
+  },
+  "carga2T_depois_do_1T": {
+   "coef": 0.03812169699853112,
+   "ep": 0.044985476904838784,
+   "z": 0.8474223154102125,
+   "n": 477035,
+   "locais": 72538,
+   "n_grupo": 2164,
+   "n_grupo_identifica": 2124,
+   "locais_identificam": 1930,
+   "leitura_mesma_regua": "SEM SINAL"
+  }
+ },
+ "escala": {
+  "L2": 64256232,
+  "R2": 59826041,
+  "margem_2T": 4430191,
+  "L1": 53879536,
+  "R1": 56104503,
+  "virada_nacional_ponderada": 2.952863480240052
+ },
+ "conferencias": {
+  "1T": {
+   "carga_depois_abertura": 2,
+   "carga_depois_emissao": 0,
+   "urna_em_2_secoes_fora_junta": 0,
+   "urna_em_2_secoes_com_junta": 1
+  },
+  "2T": {
+   "carga_depois_abertura": 0,
+   "carga_depois_emissao": 0,
+   "urna_em_2_secoes_fora_junta": 0,
+   "urna_em_2_secoes_com_junta": 2
+  },
+  "mesma_urna": {
+   "secoes": 494770,
+   "codigo_diferente": 370,
+   "codigo_diferente_carga2_ate_dia_1T": 0,
+   "codigo_diferente_carga2_antes_emissao1": 0,
+   "mesmo_codigo_data_diferente": 0
+  },
+  "urna_do_2T_votou_no_1T_em_outra": {
+   "n": 81,
+   "sem_carga_nova_ou_antes_emissao": 0
+  }
+ },
+ "conferencias_lista": {
+  "1T_carga_depois_abertura": [
+   [
+    "SC|83518|46|38",
+    "2026-10-04 09:45:00",
+    "2026-10-04 08:00:01",
+    "DF6DD30E"
+   ],
+   [
+    "SC|83518|46|113",
+    "2026-10-04 09:54:00",
+    "2026-10-04 08:00:01",
+    "DF6DD30E"
+   ]
+  ],
+  "2T_carga_depois_abertura": [],
+  "1T_dup_com_junta": {
+   "1808076": [
+    "ZZ|39102|1|712",
+    "ZZ|30163|1|647",
+    "ZZ|30333|1|353",
+    "ZZ|30708|1|444",
+    "ZZ|29394|1|28",
+    "ZZ|29300|1|6",
+    "ZZ|29777|1|127",
+    "ZZ|30546|1|1764",
+    "ZZ|30295|1|348",
+    "ZZ|99180|1|1228",
+    "ZZ|99473|1|1327",
+    "ZZ|29270|1|3",
+    "ZZ|30430|1|384",
+    "ZZ|29254|1|1",
+    "ZZ|30597|1|1182",
+    "ZZ|29645|1|380",
+    "ZZ|29912|1|150",
+    "ZZ|29173|1|494",
+    "ZZ|30325|1|352",
+    "ZZ|29297|1|495",
+    "ZZ|30171|1|1340",
+    "ZZ|29580|1|96",
+    "ZZ|29750|1|1703",
+    "ZZ|38962|1|558",
+    "ZZ|30821|1|1524",
+    "ZZ|30686|1|443",
+    "ZZ|99155|1|1504",
+    "ZZ|29858|1|1183"
+   ]
+  },
+  "2T_dup_com_junta": {
+   "1762246": [
+    "ZZ|29394|1|28",
+    "ZZ|30821|1|1524",
+    "ZZ|29858|1|1183",
+    "ZZ|29254|1|1",
+    "ZZ|30163|1|647",
+    "ZZ|29750|1|1703",
+    "ZZ|29300|1|6",
+    "ZZ|30171|1|1340",
+    "ZZ|30708|1|444"
+   ],
+   "1808076": [
+    "ZZ|99180|1|1228",
+    "ZZ|29777|1|127",
+    "ZZ|39102|1|712",
+    "ZZ|38962|1|558",
+    "ZZ|30546|1|1764",
+    "ZZ|30295|1|348",
+    "ZZ|29645|1|380",
+    "ZZ|30430|1|384",
+    "ZZ|30325|1|352",
+    "ZZ|30333|1|353",
+    "ZZ|30597|1|1182",
+    "ZZ|29173|1|494",
+    "ZZ|99473|1|1327",
+    "ZZ|29297|1|495",
+    "ZZ|29270|1|3",
+    "ZZ|29580|1|96",
+    "ZZ|29912|1|150",
+    "ZZ|99155|1|1504",
+    "ZZ|30686|1|443",
+    "ZZ|29564|1|91"
+   ]
+  }
+ }
+}

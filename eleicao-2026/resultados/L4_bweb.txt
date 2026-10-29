@@ -1,0 +1,156 @@
+L4 do Adendo 18: os eleitores dos candidatos que apoiaram Flávio, no estado de cada um (bweb completo dos dois turnos)
+Script: scripts/analisar_L4.py. Números completos: resultados/L4_bweb.json. Rodado em 29/10/2026 com secoes2026.json.gz
+(bweb do 1º e do 2º turno) e candidatos2026_1t.json.gz (votos por candidato a presidente no 1º turno, por seção).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, commit bc7decb, 29/10/2026 05:13:35 UTC, antes de rodar):
+  "Em GO (Caiado), MG (Zema) e SP (Cury): regressão do T8 com os grupos dos eliminados, dentro da UF, efeito fixo de
+  local. s = b_L / (b_L + b_F) para o grupo do candidato da casa [...]. Referência externa: a mesma fatia declarada nas
+  pesquisas do 2º turno com cruzamento por voto no 1º turno (mediana dos institutos [...]). Incoerência: s acima de 50%
+  e acima da referência das pesquisas em 15 pontos ou mais, a mais de 3 erros-padrão, em pelo menos 2 das 3 UFs.
+  Coerente: s até a referência mais 5 pontos nas 3. Entre os dois: inconclusivo."
+
+VEREDITO PELA LETRA: INCONCLUSIVO
+  GO (Caiado): s 45,9% (ep 0,73 ponto), referência 26,9%, diferença +18,9 pontos (z 26,0); contra 50%: z -5,7. Faixa: ENTRE OS DOIS.
+  MG (Zema): s 34,7% (ep 1,58 ponto), referência 12,6%, diferença +22,0 pontos (z 13,9); contra 50%: z -9,7. Faixa: ENTRE OS DOIS.
+  SP (Cury): s 57,8% (ep 0,52 ponto), referência 46,7%, diferença +11,1 pontos (z 21,5); contra 50%: z 15,1. Faixa: ENTRE OS DOIS.
+  Leitura do "a mais de 3 erros-padrão" a partir do limiar (s - ref - 0,15): INCONCLUSIVO.
+
+Conferências:
+  Identidade y_L + y_R = outros + queda do branco+nulo + variação do comparecimento: desvio máximo 0,000000
+  voto, então b_L + b_F = 1 em cada regressão (soma na tabela abaixo).
+  T37 nacional refeito com este código (registrado em resultados/T7_T14_bweb.txt: Cury 0,596, Renan 0,542, Caiado 0,488,
+  Zema 0,361): Cury 0,596, Renan 0,542, Caiado 0,488, Zema 0,361.
+  GO: b_L de Caiado por lib.fe_ols (Lula sozinho) 0,4585 (ep 0,0073); empilhado 0,4585 (ep 0,0073).
+  MG: b_L de Zema por lib.fe_ols (Lula sozinho) 0,3466 (ep 0,0158); empilhado 0,3466 (ep 0,0158).
+  SP: b_L de Cury por lib.fe_ols (Lula sozinho) 0,5777 (ep 0,0052); empilhado 0,5777 (ep 0,0052).
+
+1. Apoios a Flávio no 2º turno (imprensa; conferido em resultados/contexto_2t_2026_pesquisa_verificada.json e de novo hoje)
+  Zema: 05/10/2026, apoio explícito a Flávio, o primeiro presidenciável derrotado a anunciar; o Novo formalizou em 07/10.
+    https://sbtnews.sbt.com.br/noticia/eleicoes/apos-zema-novo-anuncia-apoio-a-flavio-bolsonaro-no-2-turno (07/10/2026 15:48)
+  Caiado: 06/10/2026, apoio individual em ato em Goiânia; o PSD ficou neutro e liberou os filiados.
+    https://www.diariodepernambuco.com.br/politica/2026/10/11726017-caiado-declara-apoio-a-flavio-bolsonaro-no-segundo-turno-em-ato-em-goiania.html (06/10/2026 21:24)
+  Cury: 08/10/2026, apoio condicionado a um termo de 8 compromissos assinado por Flávio; em 05/10 tinha anunciado "neutralidade absoluta".
+    https://www.dgabc.com.br/Noticia/4351753/cury-oficializa-apoio-a-flavio-bolsonaro-sob-condicao-de-pacificacao-nacional (08/10/2026 19:23); neutralidade: https://tribunadejundiai.com.br/politica/eleicoes-2026/segundo-turno-posicionamento-candidatos-derrotados-2026/ (05/10/2026 16:31)
+
+2. Contexto nas três UFs (soma das seções do bweb com os dois turnos)
+  GO: 15.686 seções; Caiado 472.041 votos no 1º turno (12,3% dos válidos da UF; 18,1% do total nacional dele).
+      Lula entre os dois finalistas: 36,7% no 1º turno, 40,3% no 2º (+3,65 pontos). Grupos no 1º turno: Cury 53.849, Renan 54.105, Caiado 472.041, Zema 2.672.
+  MG: 52.062 seções; Zema 98.407 votos no 1º turno (0,8% dos válidos da UF; 30,1% do total nacional dele).
+      Lula entre os dois finalistas: 47,3% no 1º turno, 50,4% no 2º (+3,12 pontos). Grupos no 1º turno: Cury 409.737, Renan 247.209, Caiado 230.423, Zema 98.407.
+  SP: 103.656 seções; Cury 892.368 votos no 1º turno (3,6% dos válidos da UF; 25,9% do total nacional dele).
+      Lula entre os dois finalistas: 42,4% no 1º turno, 46,2% no 2º (+3,77 pontos). Grupos no 1º turno: Cury 892.368, Renan 804.310, Caiado 579.571, Zema 94.635.
+
+3. Urna: regressão do T8 com grupos dentro da UF (Lula e Flávio empilhados, efeito fixo de local por candidato, erro agrupado por local)
+  GO: 15.686 seções, 30.880 linhas informativas, 2.251 locais.
+    Cury    b_L 0,537 (0,022) | b_F 0,463 (0,022) | soma 1,0000 | s 53,7% (ep 2,19)
+    Renan   b_L 0,502 (0,021) | b_F 0,498 (0,021) | soma 1,0000 | s 50,2% (ep 2,09)
+    Caiado  b_L 0,459 (0,007) | b_F 0,541 (0,007) | soma 1,0000 | s 45,9% (ep 0,73)  <- candidato da casa
+    Zema    b_L 0,422 (0,099) | b_F 0,578 (0,099) | soma 1,0000 | s 42,2% (ep 9,93)
+    próprio no 1º turno: Lula -0,028, Flávio -0,017; adversário: Lula +0,017, Flávio +0,028.
+  MG: 52.062 seções, 98.928 linhas informativas, 7.493 locais.
+    Cury    b_L 0,611 (0,008) | b_F 0,389 (0,008) | soma 1,0000 | s 61,1% (ep 0,79)
+    Renan   b_L 0,540 (0,009) | b_F 0,460 (0,009) | soma 1,0000 | s 54,0% (ep 0,94)
+    Caiado  b_L 0,519 (0,010) | b_F 0,481 (0,010) | soma 1,0000 | s 51,9% (ep 1,04)
+    Zema    b_L 0,347 (0,016) | b_F 0,653 (0,016) | soma 1,0000 | s 34,7% (ep 1,58)  <- candidato da casa
+    próprio no 1º turno: Lula -0,015, Flávio -0,040; adversário: Lula +0,040, Flávio +0,015.
+  SP: 103.656 seções, 206.562 linhas informativas, 10.704 locais.
+    Cury    b_L 0,578 (0,005) | b_F 0,422 (0,005) | soma 1,0000 | s 57,8% (ep 0,52)  <- candidato da casa
+    Renan   b_L 0,501 (0,005) | b_F 0,499 (0,005) | soma 1,0000 | s 50,1% (ep 0,54)
+    Caiado  b_L 0,454 (0,006) | b_F 0,546 (0,006) | soma 1,0000 | s 45,4% (ep 0,63)
+    Zema    b_L 0,366 (0,015) | b_F 0,634 (0,015) | soma 1,0000 | s 36,6% (ep 1,55)
+    próprio no 1º turno: Lula -0,021, Flávio -0,032; adversário: Lula +0,032, Flávio +0,021.
+  Em casa contra fora de casa (mesma regressão nas outras 26 UFs e no exterior) e no país (T37):
+    Caiado: em casa (GO) 45,9% (0,73); fora de casa 49,5% (0,34); país 48,8% (0,31).
+    Zema: em casa (MG) 34,7% (1,58); fora de casa 36,7% (1,02); país 36,1% (0,86).
+    Cury: em casa (SP) 57,8% (0,52); fora de casa 60,2% (0,31); país 59,6% (0,27).
+
+4. Referência: fatia de Lula entre os que escolheram um finalista, declarada nas pesquisas por voto no 1º turno
+  Caiado: PoderData 23-24/10 39,5%; Quaest 17-20/10 26,9%; AtlasIntel 13-18/10 26,0%; Ipespe 13-15/10 23,4%; Nexus 10-12/10 32,9%. Mediana 26,9% (5 institutos; de 23,4% a 39,5%).
+    Todas as 13 rodadas conferidas: mediana 32,9%; primeira rodada após o 1º turno: 32,9%; número escrito no registro ("Quaest já conhecida"): 36%.
+    Dispersão entre institutos: dp 6,5 pontos; erro da mediana aproximado 3,6 pontos.
+  Cury: PoderData 23-24/10 33,3%; Quaest 17-20/10 59,3%; AtlasIntel 13-18/10 55,1%; Ipespe 13-15/10 38,3%. Mediana 46,7% (4 institutos; de 33,3% a 59,3%).
+    Todas as 12 rodadas conferidas: mediana 46,1%; primeira rodada após o 1º turno: 44,9%; número escrito no registro ("Quaest já conhecida"): 47%. Com a Meio/Ideia (rodada não confirmada, 57,1%): 55,1%.
+    Dispersão entre institutos: dp 12,6 pontos; erro da mediana aproximado 7,9 pontos.
+  Zema: PoderData 5-7/10 12,2%; Nexus 10-12/10 13,0%. Mediana 12,6% (2 institutos; de 12,2% a 13,0%).
+    Todas as 2 rodadas conferidas: mediana 12,6%; primeira rodada após o 1º turno: 12,6%; número escrito no registro ("Quaest já conhecida"): 36%. Leitura do T37 (só Nexus): 13,0%.
+    Dispersão entre institutos: dp 0,6 pontos; erro da mediana aproximado 0,5 pontos.
+  Datafolha (só o agregado dos quatro eliminados, fora da mediana): 13-14/10 37,0%; 6-7/10 41,0%.
+  Nenhuma pesquisa estadual de GO, MG ou SP feita depois do 1º turno com cruzamento por voto no 1º turno foi encontrada (buscas
+  de hoje; as estaduais achadas são de julho a setembro, antes do 1º turno). A referência é nacional; a urna é da UF.
+
+5. Critério aplicado, por UF
+  UF | s urna | ref | s - ref | z (s-ref) | z (s-50%) | incoerência? | coerente (s <= ref+5)? | z com erro da pesquisa
+  GO | 45,9% | 26,9% | +18,9 | 26,0 | -5,7 | não | não | 5,1
+  MG | 34,7% | 12,6% | +22,0 | 13,9 | -9,7 | não | não | 13,2
+  SP | 57,8% | 46,7% | +11,1 | 21,5 | 15,1 | não | não | 1,4
+  Leituras da referência (fora da principal):
+    números escritos no registro: INCONCLUSIVO (GO s - ref +9,9, ENTRE OS DOIS; MG s - ref -1,3, COERENTE; SP s - ref +10,8, ENTRE OS DOIS)
+    mediana de todas as rodadas: INCONCLUSIVO (GO s - ref +13,0, ENTRE OS DOIS; MG s - ref +22,0, ENTRE OS DOIS; SP s - ref +11,6, ENTRE OS DOIS)
+    primeira rodada após o 1º turno: INCONCLUSIVO (GO s - ref +13,0, ENTRE OS DOIS; MG s - ref +22,0, ENTRE OS DOIS; SP s - ref +12,8, ENTRE OS DOIS)
+    maior fatia declarada por um instituto: INCONCLUSIVO (GO s - ref +6,4, ENTRE OS DOIS; MG s - ref +21,6, ENTRE OS DOIS; SP s - ref -1,5, COERENTE)
+
+6. Robustez da urna (fora do critério): s do candidato da casa
+  UF | principal (efeito fixo de local) | efeito fixo de zona | efeito fixo de município | peso pelo comparecimento do 1º turno
+  GO | 45,9% (0,73) | 49,1% (0,92) | 49,5% (0,88) | 45,3% (0,75)
+  MG | 34,7% (1,58) | 18,9% (2,55) | 15,9% (6,85) | 34,3% (1,64)
+  SP | 57,8% (0,52) | 60,7% (0,65) | 64,3% (2,97) | 57,2% (0,53)
+  Heterogeneidade: s em terços de seções pela fatia do candidato da casa nos válidos do 1º turno (dentro da UF)
+  GO (Caiado; cortes 10,5% e 13,8%): T1 (fatia média 8,1%) s 48,2% (2,22); T2 (fatia média 12,2%) s 41,8% (3,25); T3 (fatia média 16,5%) s 45,1% (1,61)
+  MG (Zema; cortes 0,4% e 1,0%): T1 (fatia média 0,1%) s 39,9% (14,00); T2 (fatia média 0,6%) s 34,9% (11,15); T3 (fatia média 1,7%) s 29,4% (3,03)
+  SP (Cury; cortes 2,9% e 4,1%): T1 (fatia média 2,0%) s 58,9% (2,10); T2 (fatia média 3,5%) s 58,5% (3,43); T3 (fatia média 5,2%) s 57,3% (1,37)
+
+7. Calibração (fora do critério): desvio simulado de uma fração fixa dos votos de Flávio no 2º turno para Lula, em todas as seções
+  Fração que equivale a virar o resultado nacional: 3,70% dos votos de Flávio no 2º turno.
+  Desvio de 1%: GO s 46,4% (sem desvio 45,9%); MG s 35,3% (sem desvio 34,7%); SP s 58,2% (sem desvio 57,8%).
+  Desvio de 3,70%: GO s 47,9% (sem desvio 45,9%); MG s 37,1% (sem desvio 34,7%); SP s 59,3% (sem desvio 57,8%).
+  Um desvio que tira uma fração fixa de todos os votos de Flávio mexe pouco em s: ele cai quase todo no coeficiente dos próprios
+  votos de Flávio. O L4 só enxerga um desvio que pegue justamente os eleitores dos eliminados, ou que se concentre onde eles moram.
+
+8. Leitura
+  - A premissa lógica do teste ("os eleitores deles deveriam ir mais para Flávio que para Lula, principalmente em casa") é o que a
+    própria urna mostra em GO e MG: entre os eleitores de Caiado em GO que escolheram um finalista, 54,1% foram para Flávio; entre os de Zema em MG, 65,3%. Em SP, os de Cury foram 57,8% para Lula,
+    mas duas das quatro pesquisas que separaram Cury (Quaest e AtlasIntel) também davam maioria para Lula nesse grupo.
+  - Como s fica abaixo de 50% em GO e MG a mais de 5 erros-padrão, a INCOERÊNCIA do registro (que pede s acima de 50% em 2 das 3)
+    não sai com nenhuma leitura da referência, nem com efeito fixo de zona ou de município, nem com peso.
+  - Também não dá COERENTE: nas três UFs a urna põe mais eleitores do candidato da casa em Lula do que as pesquisas declaravam, de
+    11,1 a 22,0 pontos. É o mesmo desvio que o T37 já tinha mostrado no país inteiro.
+  - Em casa contra fora de casa: em casa a fatia de Lula é menor para os três (Caiado -3,6 pontos, z -4,5; Zema -2,0 pontos, z -1,1; Cury -2,4 pontos, z -4,0), como a lógica do
+    apoio prevê; a diferença é pequena perto da distância entre a urna e as pesquisas.
+  - Comparação post hoc (feita depois de ver s, fora do critério): Renan, que não apoiou ninguém, tem o mesmo desvio. Urna no
+    país 54,2%; mediana declarada da última rodada de PoderData, Quaest, AtlasIntel e Ipespe 38,4% (+15,8 pontos). Nos três estados, Renan fica em GO 50,2%, MG 54,0%, SP 50,1%.
+    Ou seja, a distância entre urna e pesquisa não é maior para os eleitores de quem apoiou Flávio do que para os do neutro.
+  - O que o teste não consegue separar: a distância urna menos pesquisa aparece igual se (a) a regressão ecológica erra (o
+    eleitor de Caiado não é a seção que tem mais votos de Caiado), (b) as subamostras das pesquisas erram (cada grupo tem cerca
+    de 2% da amostra; a Quaest deu margem de 17 a 24 pontos nesses grupos, e o PoderData variou de 42% a 58% de Flávio entre os
+    eleitores de Cury em seis rodadas), (c) houve decisão tardia ou voto escondido nesses grupos, ou (d) houve desvio de votos
+    dirigido a esses eleitores. Pela calibração, um desvio do tamanho do que vira o resultado, sem escolher o eleitor, move s em
+    até 2,4 pontos; a distância de 11 a 22 pontos não vem de um desvio uniforme. Ela teria de vir de (a), (b),
+    (c) ou de um desvio dirigido a esses eleitores.
+
+9. Desvios e leituras declaradas
+  - Referência: "mediana dos institutos" lida como a mediana, entre institutos, da última rodada de cada um que publicou o
+    candidato separado (uma rodada por instituto). Para Zema, a última do PoderData com Zema separado é a de 5-7/10 (depois ele
+    entra em "outro"); o T37 tinha usado só a Nexus. As duas dão perto de 13%.
+  - Os números escritos no registro como "Quaest já conhecida" (Caiado 36%, Cury 47%, Zema 36%) não batem com nenhuma Quaest
+    publicada e conferida: a Quaest de 17-20/10 dá Caiado 26,9% e Cury 59,3%, a de 10-13/10 dá Caiado 35,4% e Cury 53,1%, e a
+    Quaest nunca separou Zema. O 47% de Cury coincide com a mediana dos quatro institutos e o 36% de Zema coincide com o b_L
+    nacional da urna no T37 (0,361); parece erro na hora de escrever. A principal usa os valores conferidos; os números do
+    registro entram como leitura ao lado e dão o mesmo veredito.
+  - "A mais de 3 erros-padrão" lido a partir de zero para as duas comparações ((s - 50%)/ep e (s - ref)/ep); a leitura a
+    partir do limiar ((s - ref - 15 pontos)/ep) dá o mesmo veredito.
+  - O erro-padrão do critério é só o da urna (regressão). O da pesquisa, bem maior, sai ao lado (seção 5); com Zema, a
+    dispersão de dois institutos que concordam subestima esse erro.
+  - A referência é nacional e a urna é da UF: nenhuma pesquisa estadual pós-1º turno com o cruzamento foi achada. Como a urna
+    mostra o eleitor da casa um pouco mais Flávio que o de fora, uma referência estadual com o mesmo padrão seria ainda mais
+    baixa que a nacional, o que aumentaria a distância, não a diminuiria.
+  - Meio/Ideia (Cury, rodada não confirmada) e Datafolha (só o agregado dos quatro) ficam fora da mediana por candidato.
+  - Regressão: a do T8 registrado para 2026, com os grupos dos eliminados, efeito fixo de local, sem peso, erro agrupado por
+    local; Lula e Flávio empilhados para ter a covariância (os coeficientes são os mesmos das regressões separadas, conferido).
+
+10. O que ficou de fora e limites
+  - Inferência ecológica dentro do local de votação: s não é o voto de cada eleitor de Caiado, Zema ou Cury. Mistura quem mudou
+    de voto com a troca de eleitores entre os turnos. Em MG, onde Zema teve 0,8% dos válidos, s muda muito com a especificação
+    (34,7% com efeito fixo de local, 18,9% de zona, 15,9% de município): o número de MG é frágil.
+  - Tamanho das subamostras das pesquisas não publicado; só percentuais. Não há pesquisa com Zema separado depois de 12/10.
+  - Nenhuma eleição anterior foi usada. A régua é externa à urna (pesquisas de 2026) e interna a 2026 (fora de casa, Renan).
+  - O L4 não testa a contagem da urna em si; isso fica para os testes físicos e documentais (L7, L8).

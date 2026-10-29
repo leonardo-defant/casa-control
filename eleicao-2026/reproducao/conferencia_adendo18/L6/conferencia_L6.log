@@ -1,0 +1,53 @@
+lista sha256 f53b3fb3ba50b755375661c0e0d04cae085b825df5e1d0ac3e4d3711ec430547
+base = bweb em todas as UFs: True ; votos de outros no 2T: 0
+GO Flavio  f1  36.69 f2  40.34 virada +3.651  frac.base F  5.77  gov DANIEL VILELA (MDB)          bweb  59.17 imprensa  59.17
+MG Flavio  f1  47.32 f2  50.43 virada +3.118  frac.base F  5.92  gov CLEITINHO AZEVEDO (REPUBLICA bweb  55.40 imprensa  55.40
+MS Flavio  f1  37.18 f2  40.40 virada +3.222  frac.base F  5.13  gov EDUARDO RIEDEL (PP)          bweb  67.07 imprensa  67.07
+MT Flavio  f1  30.94 f2  33.94 virada +3.004  frac.base F  4.35  gov OTAVIANO PIVETTA (REPUBLICAN bweb  60.77 imprensa  60.77
+PA Flavio  f1  52.87 f2  55.02 virada +2.148  frac.base F  4.56  gov DR. DANIEL (PODE)            bweb  51.36 imprensa  51.36
+PR Flavio  f1  34.24 f2  37.42 virada +3.180  frac.base F  4.84  gov SERGIO MORO (PL)             bweb  50.10 imprensa  50.10
+RJ Flavio  f1  42.65 f2  46.90 virada +4.254  frac.base F  7.42  gov DOUGLAS RUAS (PL)            bweb  50.88 imprensa  50.88
+RO Flavio  f1  27.74 f2  30.39 virada +2.653  frac.base F  3.67  gov MARCOS ROGÉRIO (PL)          bweb  56.86 imprensa  56.86
+RR Flavio  f1  24.34 f2  27.54 virada +3.202  frac.base F  4.23  gov ARTHUR HENRIQUE (PL)         bweb  69.13 imprensa  69.13
+RS Flavio  f1  39.10 f2  42.16 virada +3.062  frac.base F  5.03  gov ZUCCO (PL)                   bweb  58.05 imprensa  58.05
+SC Flavio  f1  27.31 f2  30.58 virada +3.267  frac.base F  4.49  gov JORGINHO MELLO (PL)          bweb  68.98 imprensa  68.98
+SP Flavio  f1  42.38 f2  46.15 virada +3.771  frac.base F  6.54  gov TARCÍSIO (REPUBLICANOS)      bweb  62.59 imprensa  62.65
+BA Lula    f1  69.87 f2  71.31 virada +1.441  frac.base F  4.78  gov JERÔNIMO RODRIGUES (PT)      bweb  55.80 imprensa  55.80
+CE Lula    f1  66.93 f2  68.93 virada +2.000  frac.base F  6.05  gov ELMANO DE FREITAS (PT)       bweb  53.19 imprensa  53.19
+PB Lula    f1  64.96 f2  67.46 virada +2.507  frac.base F  7.15  gov LUCAS RIBEIRO (PP)           bweb  64.28 imprensa  64.30
+PI Lula    f1  74.66 f2  75.88 virada +1.212  frac.base F  4.78  gov RAFAEL FONTELES (PT)         bweb  70.90 imprensa  70.90
+SE Lula    f1  67.20 f2  69.53 virada +2.335  frac.base F  7.12  gov FÁBIO (PSD)                  bweb  57.71 imprensa  59.27
+AL neutro  f1  57.50 f2  60.77 virada +3.266  frac.base F  7.69  gov JHC (PSDB)                   bweb  52.20 imprensa  52.20
+AP neutro  f1  50.03 f2  52.88 virada +2.854  frac.base F  5.71  gov DR. FURLAN (PSD)             bweb  62.75 imprensa  62.75
+MA neutro  f1  67.44 f2  69.54 virada +2.102  frac.base F  6.46  gov EDUARDO BRAIDE (PSD)         bweb  54.02 imprensa  54.02
+PE neutro  f1  67.16 f2  69.20 virada +2.044  frac.base F  6.22  gov RAQUEL LYRA (PSD)            bweb  53.27 imprensa  53.27
+AC -       f1  30.80 f2  33.43 virada +2.635  frac.base F  3.81
+AM -       f1  51.74 f2  54.02 virada +2.285  frac.base F  4.73
+DF -       f1  42.62 f2  45.72 virada +3.105  frac.base F  5.41
+ES -       f1  40.80 f2  43.63 virada +2.827  frac.base F  4.78
+RN -       f1  63.21 f2  65.72 virada +2.507  frac.base F  6.81
+TO -       f1  46.26 f2  48.63 virada +2.369  frac.base F  4.41
+[principal] F +3.438 O +1.954 dif +1.4844 (reg +1.4844) ep HC1 0.262 HC2 0.280 HC3 0.316 clássico 0.258 | sem peso +1.015 -> INCOERÊNCIA/INCOERÊNCIA | perm 127/293930 = 0.0004
+[pesos_alternativos] {"L2+R2 (registro lido como no L2)": {"dif": 1.4843925698645921, "ep": {"classico": 0.2582374711628377, "HC0": 0.24941153178580225, "HC1": 0.2622100760782775, "HC2": 0.27972148690248066, "HC3": 0.31638437164079436}, "leitura": "INCOERÊNCIA"}, "L1+R1": {"dif": 1.4737421182849526, "ep": {"classico": 0.2594858000888299, "HC0": 0.2513382270896403, "HC1": 0.2642356396862701, "HC2": 0.28087724536366554, "HC3": 0.31639173713355984}, "leitura": "INCOERÊNCIA"}, "comparecimento 2T": {"dif": 1.4878912547992136, "ep": {"classico": 0.25802284325180946, "HC0": 0.24944805670530892, "HC1": 0.26224847527278966, "HC2": 0.28005891280479206, "HC3": 0.31715488383565926}, "leitura": "INCOERÊNCIA"}, "aptos 2T": {"dif": 1.4863240160752278, "ep": {"classico": 0.2618453148331663, "HC0": 0.2515585979788865, "HC1": 0.26446731890022224, "HC2": 0.2822337958898095, "HC3": 0.3193661007642931}, "leitura": "INCOERÊNCIA"}, "validos 1T (inclui eliminados)": {"dif": 1.4776475259965545, "ep": {"classico": 0.25983890891213685, "HC0": 0.24957743034663618, "HC1": 0.2623844877181326, "HC2": 0.27917136440802653, "HC3": 0.31483374832153715}, "leitura": "INCOERÊNCIA"}}
+[sem_RJ] F +3.326 O +1.954 dif +1.3721 (reg +1.3721) ep HC1 0.272 HC2 0.303 HC3 0.359 clássico 0.235 | sem peso +0.920 -> INCOERÊNCIA/INCOERÊNCIA | perm 127/167960 = 0.0008
+[demais_todas_UFs] F +3.438 O +2.108 dif +1.3307 (reg +1.3307) ep HC1 0.257 HC2 0.274 HC3 0.305 clássico 0.221 | sem peso +0.845 -> INCOERÊNCIA/INCOERÊNCIA
+[contra_pro_Lula] F +3.438 O +1.765 dif +1.6730 (reg +1.6730) ep HC1 0.279 HC2 0.308 HC3 0.368 clássico 0.318 | sem peso +1.312 -> INCOERÊNCIA/INCOERÊNCIA | perm 11/6188 = 0.0018
+[contra_neutras] F +3.438 O +2.279 dif +1.1593 (reg +1.1593) ep HC1 0.287 HC2 0.313 HC3 0.374 clássico 0.401 | sem peso +0.644 -> INCOERÊNCIA/INCOERÊNCIA | perm 33/1820 = 0.0181
+[MG_MT_neutros] F +3.513 O +2.303 dif +1.2104 (reg +1.2104) ep HC1 0.358 HC2 0.386 HC3 0.441 clássico 0.280 | sem peso +0.888 -> INCOERÊNCIA/INCOERÊNCIA | perm 2466/352716 = 0.0070
+[sem_SP] F +3.278 O +1.954 dif +1.3234 (reg +1.3234) ep HC1 0.288 HC2 0.301 HC3 0.334 clássico 0.262 | sem peso +0.964 -> INCOERÊNCIA/INCOERÊNCIA | perm 123/167960 = 0.0007
+[sem_SP_RJ] F +3.064 O +1.954 dif +1.1097 (reg +1.1097) ep HC1 0.222 HC2 0.232 HC3 0.258 clássico 0.210 | sem peso +0.855 -> INCOERÊNCIA/INCOERÊNCIA | perm 129/92378 = 0.0014
+[deixa_um_fora] {"min": 1.2935202418025078, "uf_do_min": "BA", "max": 1.5678982673690056}
+[pro_Lula_contra_demais] F +1.765 O +3.285 dif -1.5192 (reg -1.5192) ep HC1 0.297 HC2 0.327 HC3 0.387 clássico 0.359 | sem peso -1.151 -> COERENTE/COERENTE | perm 20286/20349 = 0.9969
+[escala_fracao_base_Flavio] F +5.877 O +5.925 dif -0.0478 (reg -0.0478) ep HC1 0.516 HC2 0.556 HC3 0.635 clássico 0.481 | sem peso -1.056 -> INCONCLUSIVO/COERENTE | perm 157117/293930 = 0.5345
+[escala_fracao_base_Lula] F +8.585 O +2.950 dif +5.6354 (reg +5.6354) ep HC1 0.631 HC2 0.647 HC3 0.702 clássico 0.789 | sem peso +5.632 -> INCOERÊNCIA/INCOERÊNCIA | perm 9/293930 = 0.0000
+[escala_logito] F +0.143 O +0.090 dif +0.0527 (reg +0.0527) ep HC1 0.010 HC2 0.011 HC3 0.012 clássico 0.010 | sem peso +0.042 -> INCOERÊNCIA/INCOERÊNCIA | perm 204/293930 = 0.0007
+{"com_sinal": {"coef": 0.014881127741691407, "HC1": 0.0022368472499067478, "HC3": 0.002786971840650902}, "so_pro_Flavio": {"coef": 0.014636933162262217, "HC1": 0.0368234564860338, "HC3": 0.05124312560949526}, "so_pro_Lula": {"coef": -0.003468609071450417, "HC1": 0.0422810053482574, "HC3": 0.076844631248676}}
+lista_21|fatia_Lula_1T|D_proFlavio {"coef": 0.826, "HC1": 0.741, "HC3": 0.906}
+lista_21|fatia_Lula_1T_quadratica|D_proFlavio {"coef": -0.881, "HC1": 0.703, "HC3": 0.87}
+lista_21|fatia_e_eliminados|D_proFlavio {"coef": 0.615, "HC1": 0.708, "HC3": 0.944}
+todas_27|fatia_Lula_1T|D_proFlavio {"coef": 0.703, "HC1": 0.377, "HC3": 0.442}
+todas_27|fatia_Lula_1T|D_proFlavio_e_D_proLula {"coef_F": 0.65, "HC1_F": 0.381, "HC3_F": 0.444, "coef_L": -0.444, "HC1_L": 0.274, "HC3_L": 0.35}
+todas_27|fatia_Lula_1T_quadratica|D_proFlavio {"coef": 0.351, "HC1": 0.358, "HC3": 0.412}
+todas_27|fatia_Lula_1T_quadratica|D_proFlavio_e_D_proLula {"coef_F": 0.351, "HC1_F": 0.37, "HC3_F": 0.419, "coef_L": -0.0, "HC1_L": 0.209, "HC3_L": 0.271}
+todas_27|fatia_e_eliminados|D_proFlavio {"coef": 0.566, "HC1": 0.363, "HC3": 0.441}
+todas_27|fatia_e_eliminados|D_proFlavio_e_D_proLula {"coef_F": 0.511, "HC1_F": 0.378, "HC3_F": 0.454, "coef_L": -0.449, "HC1_L": 0.263, "HC3_L": 0.338}

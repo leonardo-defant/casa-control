@@ -1,0 +1,157 @@
+L8. O "dossiê" dos EUA citado na imprensa (Adendo 18): pesquisa e conferência das afirmações técnicas
+Script: scripts/analisar_L8.py. Números completos: resultados/L8_dossie_eua.json.
+Bases: bweb dos dois turnos de 2026 (cache do L1, com DT_ENCERRAMENTO e DT_BU_RECEBIDO de todas as 499.207 seções do 2º turno),
+votos por seção (secoes2026.json.gz). Pesquisa na web em 29/10/2026.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 18, L8, antes de rodar):
+  "Achar o documento ou a reportagem, separar o que é afirmação técnica conferível nos dados públicos e conferir cada uma; o que
+  não for conferível é relatado como tal."
+
+VEREDITO PELA LETRA: DESCRITIVO (o L8 não tem limiar). O documento em si: SEM DADO (não existe texto publicado).
+Resumo em uma linha: o "dossiê" é uma fala de TV relatada por terceiros, sem documento. Das três afirmações técnicas atribuídas a
+ele, duas são fatos que conferem com a base (houve prorrogação; o resultado ficou definido por volta das 21h08 e o pedido da PF
+veio minutos depois) e não indicam fraude; a terceira ("quem venceu foi Flávio") não confere com nenhum dos 499.207 boletins.
+
+1. O que é o "dossiê" (quem publicou, quando, o que diz, se é oficial)
+- Origem: uma análise ao vivo na CNN Brasil, na quarta-feira 28/10/2026. Segundo quem reproduziu, um jornalista da emissora disse que
+  o Departamento de Estado dos EUA "já tem todo um dossiê pronto" sobre o que considera abusos no Brasil. Não achei o vídeo nem o
+  texto original no site da CNN Brasil, e nenhuma reprodução diz o nome do jornalista nem o programa. As reproduções embutem posts
+  do X (@juliovschneider, @adrianobombeiro) que não consegui abrir (o X exige login).
+- Primeira reprodução achada: Jornal da Cidade Online, 28/10, 07h28, "da Redação": "Trump já tem em mãos um dossiê completo sobre a
+  eleição no Brasil"; "a informação é da CNN"; "para Trump, quem venceu a eleição foi o senador Flávio Bolsonaro"; o dossiê envolveria
+  "suspeitas de corrupção envolvendo ministros do STF"; Trump teria mencionado o caso num comício no Texas na véspera; o quadro poderia
+  justificar "ações coercitivas" econômicas e militares. Sem link para a CNN.
+- No mesmo dia: Topic News (07h30, mesmo texto, que no corpo fala em eleição de 2022), Visão da Direita (09h37, Indianara Goz, a versão
+  mais detalhada), Gazeta do Povo (programa Sem Rodeios, 12h29: "possível dossiê dos Estados Unidos envolvendo possíveis abusos
+  judiciais"), Pagina1 MT (14h33), Folha do Estado, Infoverus (19h15), Blog TV Web Sertão e Cidade News Online.
+- Conteúdo atribuído (Visão da Direita e Blog TV Web Sertão): suspeitas de corrupção de ministros do STF; abuso de poder em prisões e
+  condenações "desproporcionais", inclusive a de Jair Bolsonaro; "a decisão do ministro Cristiano Zanin de adiar o fechamento das
+  urnas"; a ordem de Moraes de recolher os passaportes de Flávio "minutos depois" do anúncio da derrota; um governo que "encobre o
+  narcotráfico". Nenhuma reprodução atribui ao dossiê número de votos, urna, seção, estado, horário de apuração ou cálculo.
+- É oficial? Não há indício. Nenhum texto foi publicado pelo governo dos EUA; nenhuma reprodução cita órgão, data, autor ou trecho do
+  documento. Infoverus: "não foram apresentados elementos que comprovem a existência do dossiê"; Pagina1: "não foi possível confirmar
+  diretamente" na reportagem original; Visão da Direita: "o dossiê não foi divulgado oficialmente". Não achei checagem de agência
+  sobre ele (Lupa, Aos Fatos, Fato ou Boato do TSE).
+- O que o governo dos EUA fez e disse de fato, nas mesmas datas (nada disso é um dossiê sobre a votação):
+  . Trump, 26/10, a repórteres: "It looked like another rigged election, frankly", "the way it was tabulated", "The extension given was
+    very strange" (já conferido em trump_musk_2t_2026_verificado.json). 27/10, comício em Corpus Christi (Texas), segundo o Rio Times:
+    chamou os democratas de "the greatest cheaters of elections" e disse que o Brasil "is doing a pretty good job also, aren't they?",
+    "not nice", "it didn't look too good". Não falou em dossiê nem disse que Flávio venceu. 28/10 (CNN Brasil): "Foi uma eleição muito
+    estranha, isso é certo", "Como vocês sabem, não tomei partido", "não vou me envolver".
+  . Departamento de Estado: nota de felicitação pronta e retida (Folha, via Brasil 247, 26/10); vistos para Flávio e família (CNN Brasil,
+    Washington Post, 27/10); "assunto Flávio" com o Departamento de Estado, que não comentou (Estadão via Terra, 27/10); resposta a
+    democratas do Congresso sem compromisso de reconhecer o resultado (Rio Times, 17/10).
+  . Reuters, 24/10 (Gabriel Stargardter, 10 fontes): Darren Beattie e Ricardo Pita, nomeados políticos do Departamento de Estado,
+    lideraram uma campanha para devolver os Bolsonaro ao poder (sanções a Moraes, designação de PCC e CV como terroristas). A
+    reportagem não cita memorando nem dossiê, e não fala de urna, apuração ou fraude em 2026.
+  . O "Relatório Pericial Independente" que circulou no Instagram (chamado por ele mesmo de "dossiê estatístico") é outro documento,
+    brasileiro e anônimo, sem ligação com os EUA; a Justiça Eleitoral o checou em 28/10 ("Relatório apócrifo distorce dados") e ele já
+    foi conferido neste projeto (checagens/relatorio_pericial_instagram/).
+
+2. Afirmações técnicas do "dossiê" e conferência na base
+D1. "Zanin decidiu adiar o fechamento das urnas" (prorrogação). CONFERE como fato; a consequência implícita (mudar o resultado) NÃO CONFERE.
+  Encerramento convertido para hora de Brasília pelo fuso do município (mesma regra do L1); Brasil, sem exterior (127.854.631 votantes;
+  Lula +4.401.534).
+    corte (Brasília)   seções depois  votantes do dia  Lula nos 2 finalistas  margem de Lula sem essas seções  pior caso*
+    depois de 17:00:59      372.273      96.254.671        52,69%                 -607.102                    -91.853.137
+    depois de 17:05:59       38.587      10.516.781        56,65%               +3.051.364                     -6.115.247
+    depois de 17:15:59        8.845       2.536.441        55,70%               +4.122.786                     +1.865.093
+    depois de 17:59:59        7.086       2.070.189        55,12%               +4.197.269                     +2.331.345
+    depois de 18:59:59        6.352       1.861.259        55,18%               +4.215.810                     +2.540.275
+  * pior caso: todo votante dessas seções, inclusive os que votaram de manhã, tratado como voto líquido de Lula a retirar.
+  - A prorrogação aparece nos horários: no 2º turno, 6.316 seções encerraram entre 19h00 e 19h15 de Brasília, contra 3.025 nessa faixa no
+    1º turno, e quase nenhuma entre 17h30 e 18h45 (255, 271, 196, 117, 22 por faixa de 15 minutos). Ficaram abertas até 19h por ordem, não
+    por fila: no 1º turno, sem prorrogação, 124.594 seções (35,2 milhões de votantes) encerraram depois das 17h15, contra 8.845 (2,5
+    milhões) no 2º; das 8.845, só 3.912 também tinham encerrado tarde no 1º turno.
+  - Mas encerrar tarde não é votar tarde. Votos depois das 17h, contados nos logs: 34.393 (TSE), 33.866 (BBC News Brasil), 34.330 (Setup News/CNN,
+    Folha) e 35.521 (g1); 0,026% do comparecimento; a amostra de 3.897 logs deste projeto dá o mesmo (T3, cerca de 33 mil). O bweb não tem a hora
+    de cada voto, e eu não recontei esse número aqui.
+  - Mesmo retirando por inteiro todas as seções que encerraram depois das 17h15 de Brasília (com os votos da manhã), Lula vence por 4,12
+    milhões; no pior caso absurdo, por 1,87 milhão. O corte das 17h00 não serve: 333.686 seções (67% das do Brasil) encerraram entre
+    17h01 e 17h05 com o último eleitor da fila, e por esse corte as que fecharam "no prazo" já davam vantagem a Flávio também no 1º turno (40,80% de Lula entre os
+    dois finalistas até 17:00:59, contra 49,67% nas demais).
+  - Leitura de seção (descritivo, sem limiar no registro): virada de Lula (pontos entre os finalistas, 2º menos 1º turno) nas seções que
+    encerraram depois das 17h15 de Brasília contra as outras seções do mesmo local de votação: -0,04 ponto (erro-padrão 0,04; 475.801
+    seções em 72.445 locais); com o controle de encerramento tarde no 1º turno, -0,04 (0,04). As seções mantidas abertas não viraram
+    mais para Lula que as vizinhas.
+D2. Moraes mandou recolher os passaportes "minutos depois" do anúncio da derrota. A parte de apuração CONFERE; a hora da ordem NÃO É CONFERÍVEL.
+  - Ordenando os 499.207 boletins pela hora em que o TSE os recebeu: o resultado fica matematicamente definido, sem olhar o futuro (margem
+    de Lula entre os recebidos maior que todos os eleitores aptos das seções que faltavam), às 21:08:26 de Brasília, com 486.978 seções
+    (97,55%); margem 4.207.648 contra 4.207.620 aptos restantes. Com o comparecimento final das que faltavam, às 21:07:36. 99% das seções
+    chegaram às 21:09:39; 100% às 23:21:40.
+  - Imprensa (O Globo, conferido na checagem anterior): o TSE confirmou o resultado às 21h09; o pedido da PF foi assinado às 21h16. A hora
+    da definição pelos dados bate com a do TSE. O horário da decisão de Moraes não foi divulgado pelo STF, e a base não diz nada sobre ele.
+    Segundo a Lupa e O Globo, o pedido é de um inquérito de lavagem de dinheiro anterior à eleição.
+D3. "Para Trump, quem venceu a eleição foi Flávio Bolsonaro". NÃO CONFERE.
+  - Soma dos 499.207 boletins do 2º turno: Lula 64.256.232, Flávio 59.826.041, margem 4.430.191 (51,79% dos válidos), igual ao total
+    oficial do TSE, diferença zero. Lula fica à frente em 250.935 seções, Flávio em 246.115, empate em 2.155.
+  - Não há recorte pelo horário da votação em que Flávio vença: o único em que ele fica à frente é o das 125.624 seções que encerraram até
+    17:00:59 de Brasília (Lula 49,01%, -607.102), um recorte que seleciona o Sul e o Centro-Oeste e que no 1º turno favorecia Flávio ainda
+    mais (item D1).
+  - Trump não disse isso nas falas achadas (26, 27 e 28/10). Ele disse que a eleição "pareceu" fraudada e "muito estranha".
+Não conferíveis com a base (não tratam de votos nem de urnas): corrupção de ministros do STF, prisões e condenações, narcotráfico, ações
+econômicas e militares, ligação com o Partido Democrata.
+
+3. Afirmações vizinhas, citadas nas mesmas matérias como contexto (não são do "dossiê")
+V1. Trump: "The extension given was very strange". Mesma conta do D1.
+V2. Trump: "the way it was tabulated", e a pausa da totalização das 17h06 às 19h. CONFERE com os carimbos de recebimento.
+  - Boletins recebidos pelo TSE no 2º turno: o primeiro às 17:05:10; 1.868 até 17:07:27; nenhum entre 17:08:00 e 19:03:36; recomeço às
+    19:03:37; último às 23:21:40. No 1º turno, sem pausa, o recebimento começa às 17:08:44 e segue sem interrupção (303.544 boletins entre
+    17h08 e 18h59).
+  - Os 1.225 primeiros boletins recebidos (até 17:06:22; 776 do exterior, 129 do PA, 83 do AM, 60 do PR) dão a Lula 57,72% dos válidos. O
+    TSE divulgou, na hora da pausa, 1.225 seções com Lula a 57,66%. A pequena diferença é a ordem de totalização contra a de recebimento.
+    Ou seja: a parcial congelada às 17h06 é a dos primeiros boletins que chegaram, e nenhum boletim entrou durante a pausa.
+  - Ordem de chegada (acréscimo declarado depois da primeira rodada): a virada de Lula sobe dos primeiros para os últimos boletins
+    recebidos (2,79 pontos no primeiro décimo, 3,16 no último), mas dentro do mesmo local de votação a posição na fila de chegada não
+    muda nada (+0,01 ponto do primeiro ao último, erro-padrão 0,06). O gradiente bruto é de onde os boletins chegam mais tarde (cidades
+    grandes). Uma inserção de votos no fim da apuração apareceria como virada maior nos boletins que chegaram por último dentro do mesmo
+    local, e não aparece. Durante a apuração, Lula liderava entre os recebidos às 19h30 (50,88%), Flávio às 20h00 (Lula 49,52%) e Lula
+    de novo às 20h30 (50,37%); é efeito da ordem de chegada, não da contagem.
+V3. Carta de Flávio (28/10): a prorrogação "permitiu" que Lula ganhasse "mais de 10 milhões de votos". NÃO CONFERE.
+  - Lula ganhou 10.376.696 votos entre os turnos nas mesmas seções. Nas 8.845 seções que encerraram depois das 17h15 de Brasília, o ganho
+    dele foi de 248.565 (2,4% do total), com 2,5 milhões de votantes no dia inteiro e uns 34 mil votos depois das 17h no país (logs).
+
+4. O que isso diz sobre a tese de fraude
+- O "dossiê" não traz nenhuma afirmação técnica nova. Tudo o que ele diz sobre a votação se resume à prorrogação, que é um fato público e
+  conferido: ela mudou o horário de fechamento de uns 6 mil a 9 mil seções e não o número de votos de forma que importe para uma margem de
+  4,43 milhões.
+- As afirmações conferíveis batem com os carimbos da própria urna e do TSE: a pausa existiu e nenhum boletim entrou nela; a parcial de
+  1.225 seções é a dos primeiros boletins; o resultado ficou definido às 21h08 pelos dados, menos de um minuto antes da confirmação do TSE.
+- Ceticismo no outro sentido: todas essas conferências usam números que saem do sistema eleitoral (boletins e carimbos). Uma urna que
+  gravasse errado já no boletim passaria por todas elas. O que o L8 mostra é que o "dossiê" não aponta nenhuma marca nos dados públicos;
+  não mostra que a urna está certa. Isso é o papel dos outros testes (T2, T3, T18, L1 a L6).
+
+5. O que ficou de fora
+- O vídeo original da CNN Brasil e o nome do jornalista (não achados); os posts do X embutidos nas reproduções (exigem login); o texto da
+  Folha do Estado e da página da Justiça Eleitoral (403; usei o resumo da busca e a checagem já feita neste projeto).
+- Votos depois das 17h por seção: só os logs completos dariam; o número de 34 mil é do TSE e da imprensa, e o deste projeto vem da amostra.
+- Hora em que Moraes assinou a ordem (não divulgada); assinatura digital de todos os boletins (o T18 cobriu a amostra de 3.897).
+- Duas seções do exterior (Trípoli e Ciudad Guayana, 30 e 72 aptos) não têm votos no 2º turno e ficam fora da base; não mudam nada.
+
+Fontes (de linhas diferentes)
+Que reproduziram o "dossiê":
+- Jornal da Cidade Online, 28/10: https://www.jornaldacidadeonline.com.br/noticias/89967/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil-veja-o-video
+- Visão da Direita, 28/10: https://www.visaodadireita.com.br/cnn-dossie-departamento-de-estado-abusos-brasil-lula-capturado/
+- Topic News, 28/10: https://www.topicnews.com.br/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil-veja-o-video/
+- Gazeta do Povo, Sem Rodeios, 28/10: https://www.gazetadopovo.com.br/sem-rodeios/eua-apuram-abusos-no-brasil-e-stf-mira-vice-de-trump/
+- Pagina1 MT, 28/10: https://www.pagina1.com.br/noticia/cnn-trump-possui-um-dossie-que-justificaria-uma-acao-militar-contra-o-brasil
+- Infoverus, 28/10: https://www.infoverus.com.br/politica/donald-trump-possui-dossie-que-justificaria-uma-acao-contra-o-brasil/37547
+- Folha do Estado (403): https://www.folhadoestado.com.br/politica-nacional/cnn-trump-possui-um-dossie-que-justificaria-uma-acao-militar-contra-o-brasil-veja-video/644854
+- Blog TV Web Sertão, 28/10: https://www.blogtvwebsertao.com.br/2026/10/dossie-de-trump-pode-levar-eua.html
+- Cidade News Online: https://cidadenewsonline.com.br/%E2%9C%A6-mundo/urgente-trump-ja-tem-em-maos-um-dossie-completo-sobre-a-eleicao-no-brasil/
+Governo dos EUA, Trump e imprensa geral:
+- CNN Brasil, 28/10, 18h32: https://www.cnnbrasil.com.br/internacional/trump-diz-que-eua-permitiram-entrada-de-flavio-mas-que-nao-vai-se-envolver/
+- CNN Brasil, Lourival Sant'Anna, 26/10: https://www.cnnbrasil.com.br/blogs/lourival-santanna/internacional/trump-assume-posicao-ambigua-sobre-reeleicao-de-lula/
+- Rio Times, 28/10 (comício no Texas): https://www.riotimesonline.com/trump-cites-brazil-election-texas-rally-2026/
+- Reuters, 24/10 (via Internazionale): https://www.internazionale.it/ultime-notizie-reuters/2026/10/24/inside-the-trump-administration-campaign-to-return-brazil-s-bolsonaro-clan-to-power
+- Estadão via Terra, 27/10: https://www.terra.com.br/noticias/brasil/politica/departamento-de-estado-analisa-assunto-flavio-apos-senador-deixar-o-brasil-rumo-aos-eua,f2f6de06c0ae8ef6474a389ad069803bvgaa6uli.html
+- Rio Times via ua.news, 17/10: https://ua.news/en/world/derzhdep-ssha-ne-poobitsiav-viznati-sertifikovanii-rezultat-viboriv-u-braziliyi-the-rio-times
+- Brasil 247 (Folha), 26/10: https://www.brasil247.com/mundo/governo-trump-segura-nota-sobre-vitoria-de-lula-apos-alegacoes-de-flavio-bolsonaro-sobre-suposta-fraude/
+- Washington Post, 27/10 (só o resumo da busca): https://www.washingtonpost.com/world/2026/10/27/brazil-flavio-bolsonaro-passport-lula/c1bb7428-d22f-11f1-9931-2a41b76fc976_story.html
+Checagens e números da prorrogação:
+- BBC News Brasil via Terra, 26/10: https://www.terra.com.br/noticias/brasil/bbc-identifica-338-mil-votos-durante-prorrogacao-ordenada-por-zanin-menos-de-003-dos-votos-totais,31e45bccf750bb9ca4c260aa92750acc7uno2w1m.html
+  (a BBC escreve margem de 4.401.534, que é a margem sem o exterior; com o exterior, 4.430.191)
+- Agência Lupa, 28/10 (carta de Flávio): https://www.agencialupa.org/checagem/2026/10/28/apos-fuga-do-brasil-flavio-bolsonaro-mente-sobre-eleicoes-em-carta-com-teor-golpista/
+- Justiça Eleitoral, Fato ou Boato, 28/10 (403; resumo da busca): https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/relatorio-apocrifo-distorce-dados-para-sugerir-fraude-nas-eleicoes-2026
+Arquivos do projeto usados: resultados/trump_musk_2t_2026_verificado.json, resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt,
+checagens/relatorio_pericial_instagram/checagem_e_conferencias.json, resultados/L1_horarios.txt.
