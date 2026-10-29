@@ -1,0 +1,1185 @@
+{
+ "gerado_em": "29/10/2026",
+ "eleicoes": {
+  "1989": {
+   "ano": 1989,
+   "dias": 32,
+   "lider_1t": "Collor",
+   "segundo_1t": "Lula",
+   "votos": {
+    "l1": 20611030,
+    "s1": 11622321,
+    "l2": 35090206,
+    "s2": 31075803,
+    "validos1": 67625886,
+    "validos2": 66166009,
+    "eliminados": 35392535,
+    "comparecimento1": 72290216,
+    "comparecimento2": 70260701,
+    "brancos1": 1176367,
+    "brancos2": 986460,
+    "nulos1": 3487963,
+    "nulos2": 3108232,
+    "aptos": 82074718
+   },
+   "pct_validos": {
+    "l1": 30.478018432172554,
+    "s1": 17.186201449545518,
+    "eliminados1": 52.335780118281924,
+    "l2": 53.03358405673221,
+    "s2": 46.96641594326779
+   },
+   "ganho": {
+    "lider": 14479176,
+    "segundo": 19453482,
+    "segundo_pct_validos1": 28.76632477687612,
+    "lider_pct_validos1": 21.41070063022908,
+    "segundo_sobre_eliminados": 0.5496492975142923
+   },
+   "bolo": 33932658,
+   "bolo_pct_validos1": 50.177025407105205,
+   "fatia_bolo_segundo": 57.32967337837195,
+   "decomposicao_bolo": {
+    "eliminados": 35392535,
+    "aumento_comparecimento": -2029515,
+    "queda_nao_validos": 569638,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 36.056818914049614,
+   "fatia2_segundo_2t": 46.96641594326779,
+   "margem1_pontos_validos": 13.291816982627036,
+   "abstencao1": 11.921456738968022,
+   "abstencao2": 14.39422186013481,
+   "reeleicao": "não (não havia reeleição; Sarney não concorria)",
+   "vencedor": "Collor",
+   "virada2": 10.909597029218176,
+   "virada_diferenca_votos": 4974306,
+   "virada_diferenca_pct_validos1": 7.35562414664704,
+   "margem1_pontos_fatia2": 27.88636217190077,
+   "virada_necessaria": 13.943181085950386,
+   "fatia_minima_bolo": 63.24492322411053,
+   "pesquisas": {},
+   "pesquisas_nota": "não confirmada: a busca apontou registros do CESOP/Unicamp (Datafolha de 15 e 16/12/1989, Collor à frente), mas as páginas deram 404; sem número publicado nos válidos conferido",
+   "apoios": [
+    "Brizola (3º) e Covas (4º): Lula. \"Mário Covas e ... Leonel Brizola decidiram apoiar Lula no segundo turno contra Collor\" (https://www.gazetadopovo.com.br/vozes/certas-palavras/fhc-e-lula/)",
+    "Maluf (5º), Afif e Ulysses: não confirmado nas fontes abertas"
+   ],
+   "principais_eliminados": [
+    [
+     "Brizola",
+     11167665
+    ],
+    [
+     "Mário Covas",
+     7790381
+    ],
+    [
+     "Maluf",
+     5986585
+    ],
+    [
+     "Afif",
+     3272520
+    ],
+    [
+     "Ulysses Guimarães",
+     3204996
+    ]
+   ]
+  },
+  "2002": {
+   "ano": 2002,
+   "dias": 21,
+   "lider_1t": "Lula",
+   "segundo_1t": "Serra",
+   "votos": {
+    "l1": 39455233,
+    "s1": 19705445,
+    "l2": 52793364,
+    "s2": 33370739,
+    "validos1": 84952512,
+    "validos2": 86164103,
+    "eliminados": 25791834,
+    "comparecimento1": 94805583,
+    "comparecimento2": 91664259,
+    "brancos1": 2873753,
+    "brancos2": 1727760,
+    "nulos1": 6976685,
+    "nulos2": 3772138,
+    "aptos": 115253816
+   },
+   "pct_validos": {
+    "l1": 46.44386854622969,
+    "s1": 23.19583557458548,
+    "eliminados1": 30.360295879184832,
+    "l2": 61.27071734269664,
+    "s2": 38.72928265730336
+   },
+   "ganho": {
+    "lider": 13338131,
+    "segundo": 13665294,
+    "segundo_pct_validos1": 16.085803325038817,
+    "lider_pct_validos1": 15.700690522253186,
+    "segundo_sobre_eliminados": 0.5298302555762416
+   },
+   "bolo": 27003425,
+   "bolo_pct_validos1": 31.786493847292004,
+   "fatia_bolo_segundo": 50.60578056302117,
+   "decomposicao_bolo": {
+    "eliminados": 25791834,
+    "aumento_comparecimento": -3141324,
+    "queda_nao_validos": 4352915,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 33.308348832648605,
+   "fatia2_segundo_2t": 38.72928265730336,
+   "margem1_pontos_validos": 23.248032971644204,
+   "abstencao1": 17.74191407250238,
+   "abstencao2": 20.46748456467593,
+   "reeleicao": "não (FHC não concorria; Serra era o candidato do governo)",
+   "vencedor": "Lula",
+   "virada2": 5.420933824654753,
+   "virada_diferenca_votos": 327163,
+   "virada_diferenca_pct_validos1": 0.3851128027856316,
+   "margem1_pontos_fatia2": 33.38330233470279,
+   "virada_necessaria": 16.691651167351395,
+   "fatia_minima_bolo": 86.56904263070332,
+   "pesquisas": {},
+   "pesquisas_nota": "última pesquisa não achada; a primeira Datafolha do 2º turno (cerca de 11/10/2002) dava Lula 64 x 36 nos válidos, só por resumo de busca de um recorte do Correio no acervo do Senado (www2.senado.leg.br/jspui/bitstream/id/928006/1/Eleicao_presidencial_P137_R0360.pdf), não aberto",
+   "apoios": [
+    "Garotinho (3º): Lula, depois de hesitar; Ciro (4º): Lula. \"com o apoio dado por Ciro e Garotinho a Lula, Serra ficou isolado\" (pt.wikipedia.org/wiki/Eleição_presidencial_no_Brasil_em_2002, fonte secundária)"
+   ],
+   "principais_eliminados": [
+    [
+     "Garotinho",
+     15180097
+    ],
+    [
+     "Ciro Gomes",
+     10170882
+    ],
+    [
+     "Zé Maria",
+     402236
+    ]
+   ]
+  },
+  "2006": {
+   "ano": 2006,
+   "dias": 28,
+   "lider_1t": "Lula",
+   "segundo_1t": "Alckmin",
+   "votos": {
+    "l1": 46662365,
+    "s1": 39968369,
+    "l2": 58295042,
+    "s2": 37543178,
+    "validos1": 95996733,
+    "validos2": 95838220,
+    "eliminados": 9365999,
+    "comparecimento1": 104820459,
+    "comparecimento2": 101998221,
+    "brancos1": 2866205,
+    "brancos2": 1351448,
+    "nulos1": 5957521,
+    "nulos2": 4808553,
+    "aptos": 125913235
+   },
+   "pct_validos": {
+    "l1": 48.60828440901213,
+    "s1": 41.635134604007824,
+    "eliminados1": 9.756580986980046,
+    "l2": 60.826507420525964,
+    "s2": 39.173492579474036
+   },
+   "ganho": {
+    "lider": 11632677,
+    "segundo": -2425191,
+    "segundo_pct_validos1": -2.526326599052074,
+    "lider_pct_validos1": 12.117784258345543,
+    "segundo_sobre_eliminados": -0.25893564583980844
+   },
+   "bolo": 9207486,
+   "bolo_pct_validos1": 9.591457659293468,
+   "fatia_bolo_segundo": -26.339339533071243,
+   "decomposicao_bolo": {
+    "eliminados": 9365999,
+    "aumento_comparecimento": -2822238,
+    "queda_nao_validos": 2663725,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 46.13647738457347,
+   "fatia2_segundo_2t": 39.173492579474036,
+   "margem1_pontos_validos": 6.973149805004302,
+   "abstencao1": 16.75183391166147,
+   "abstencao2": 18.99324880343198,
+   "reeleicao": "sim: Lula, líder do 1º turno",
+   "vencedor": "Lula",
+   "virada2": -6.962984805099431,
+   "virada_diferenca_votos": -14057868,
+   "virada_diferenca_pct_validos1": -14.644110857397616,
+   "margem1_pontos_fatia2": 7.727045230853065,
+   "virada_necessaria": 3.8635226154265325,
+   "fatia_minima_bolo": 86.35083452747037,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 61,
+     "segundo": 39,
+     "campo": "27 e 28/10/2006",
+     "fonte": "https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula",
+     "erro_segundo": 0.1734925794740363,
+     "lider_da_pesquisa": "Lula"
+    },
+    "Ibope": {
+     "lider": 61,
+     "segundo": 39,
+     "campo": "27 e 28/10/2006",
+     "fonte": "https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula",
+     "erro_segundo": 0.1734925794740363,
+     "lider_da_pesquisa": "Lula"
+    }
+   },
+   "pesquisas_nota": null,
+   "apoios": [
+    "Heloísa Helena (3º): PSOL não apoiou nem Lula nem Alckmin (https://www.congressoemfoco.com.br/noticia/3463/heloisa-helena-diz-que-nao-apoiara-ninguem-no-2-turno)",
+    "Cristovam (4º): disse que a decisão seria do PDT; posição final não confirmada (https://www.cooperativa.cl/noticias/site/artic/20061002/pags-amp/20061002104455.html)"
+   ],
+   "principais_eliminados": [
+    [
+     "Heloísa Helena",
+     6575393
+    ],
+    [
+     "Cristovam Buarque",
+     2538844
+    ]
+   ]
+  },
+  "2010": {
+   "ano": 2010,
+   "dias": 28,
+   "lider_1t": "Dilma",
+   "segundo_1t": "Serra",
+   "votos": {
+    "l1": 47651434,
+    "s1": 33132283,
+    "l2": 55752529,
+    "s2": 43711388,
+    "validos1": 101590153,
+    "validos2": 99463917,
+    "eliminados": 20806436,
+    "comparecimento1": 111193747,
+    "comparecimento2": 106606214,
+    "brancos1": 3479340,
+    "brancos2": 2452597,
+    "nulos1": 6124254,
+    "nulos2": 4689428,
+    "aptos": 135804433
+   },
+   "pct_validos": {
+    "l1": 46.90556377053591,
+    "s1": 32.61367565811226,
+    "eliminados1": 20.480760571351833,
+    "l2": 56.05301970965008,
+    "s2": 43.94698029034992
+   },
+   "ganho": {
+    "lider": 8101095,
+    "segundo": 10579105,
+    "segundo_pct_validos1": 10.413514191675644,
+    "lider_pct_validos1": 7.974291563474661,
+    "segundo_sobre_eliminados": 0.5084534900643243
+   },
+   "bolo": 18680200,
+   "bolo_pct_validos1": 18.387805755150303,
+   "fatia_bolo_segundo": 56.632718065117075,
+   "decomposicao_bolo": {
+    "eliminados": 20806436,
+    "aumento_comparecimento": -4587533,
+    "queda_nao_validos": 2461297,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 41.013565889769595,
+   "fatia2_segundo_2t": 43.94698029034992,
+   "margem1_pontos_validos": 14.291888112423653,
+   "abstencao1": 18.12215216862619,
+   "abstencao2": 21.500195799941228,
+   "reeleicao": "não (Lula não concorria; Dilma era a candidata do governo)",
+   "vencedor": "Dilma",
+   "virada2": 2.9334144005803253,
+   "virada_diferenca_votos": 2478010,
+   "virada_diferenca_pct_validos1": 2.4392226282009832,
+   "margem1_pontos_fatia2": 17.97286822046081,
+   "virada_necessaria": 8.986434110230405,
+   "fatia_minima_bolo": 88.86240779006648,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 55,
+     "segundo": 45,
+     "campo": "divulgada 30/10/2010 (BR 37.903/2010)",
+     "fonte": "https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha",
+     "erro_segundo": -1.05301970965008,
+     "lider_da_pesquisa": "Dilma"
+    },
+    "Ibope": {
+     "lider": 56,
+     "segundo": 44,
+     "campo": "divulgada 30/10/2010 (BR 37.917/2010)",
+     "fonte": "https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha",
+     "erro_segundo": -0.05301970965007996,
+     "lider_da_pesquisa": "Dilma"
+    }
+   },
+   "pesquisas_nota": null,
+   "apoios": [
+    "Marina Silva (3º): PV e Marina declararam \"independência\" (neutros) (https://www.congressoemfoco.com.br/noticia/76752/pv-resolve-ficar-neutro-no-segundo-turno; https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/marina-e-pv-anunciam-independencia-no-segundo-turno-1civ2wth3jylw0sfhw0zq79se/)",
+    "Plínio (4º): não confirmado"
+   ],
+   "principais_eliminados": [
+    [
+     "Marina Silva",
+     19636359
+    ],
+    [
+     "Plínio de Arruda Sampaio",
+     886816
+    ]
+   ]
+  },
+  "2014": {
+   "ano": 2014,
+   "dias": 21,
+   "lider_1t": "Dilma",
+   "segundo_1t": "Aécio",
+   "votos": {
+    "l1": 43267668,
+    "s1": 34897211,
+    "l2": 54501118,
+    "s2": 51041155,
+    "validos1": 104023802,
+    "validos2": 105542273,
+    "eliminados": 25858923,
+    "comparecimento1": 115122883,
+    "comparecimento2": 112683879,
+    "brancos1": 4420489,
+    "brancos2": 1921819,
+    "nulos1": 6678592,
+    "nulos2": 5219787,
+    "aptos": 142822046
+   },
+   "pct_validos": {
+    "l1": 41.594007494553985,
+    "s1": 33.547332753709576,
+    "eliminados1": 24.858659751736436,
+    "l2": 51.639136102365356,
+    "s2": 48.360863897634644
+   },
+   "ganho": {
+    "lider": 11233450,
+    "segundo": 16143944,
+    "segundo_pct_validos1": 15.519471207176219,
+    "lider_pct_validos1": 10.79892273116493,
+    "segundo_sobre_eliminados": 0.6243084447097816
+   },
+   "bolo": 27377394,
+   "bolo_pct_validos1": 26.31839393834115,
+   "fatia_bolo_segundo": 58.96815452924409,
+   "decomposicao_bolo": {
+    "eliminados": 25858923,
+    "aumento_comparecimento": -2439004,
+    "queda_nao_validos": 3957475,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 44.645640659150764,
+   "fatia2_segundo_2t": 48.360863897634644,
+   "margem1_pontos_validos": 8.046674740844407,
+   "abstencao1": 19.394178823064895,
+   "abstencao2": 21.10190117287635,
+   "reeleicao": "sim: Dilma, líder do 1º turno",
+   "vencedor": "Dilma",
+   "virada2": 3.7152232384838797,
+   "virada_diferenca_votos": 4910494,
+   "virada_diferenca_pct_validos1": 4.720548476011288,
+   "margem1_pontos_fatia2": 10.708718681698471,
+   "virada_necessaria": 5.354359340849236,
+   "fatia_minima_bolo": 65.28716904172838,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 52,
+     "segundo": 48,
+     "campo": "24 e 25/10/2014",
+     "fonte": "https://tribunademinas.com.br/?p=9520 e https://www.congressoemfoco.com.br/noticia/123322/ha-12-anos-datafolha-dava-a-aecio-e-dilma-os-indices-de-flavio-e-lula",
+     "erro_segundo": 0.3608638976346441,
+     "lider_da_pesquisa": "Dilma"
+    },
+    "Ibope": {
+     "lider": 53,
+     "segundo": 47,
+     "campo": "divulgada 25/10/2014 (a matéria escreve \"24 e 25 de setembro\", erro de digitação)",
+     "fonte": "https://tribunademinas.com.br/?p=9520",
+     "erro_segundo": 1.360863897634644,
+     "lider_da_pesquisa": "Dilma"
+    }
+   },
+   "pesquisas_nota": null,
+   "apoios": [
+    "Marina Silva (3º): Aécio, em 12/10 (https://www.em.com.br/app/noticia/politica/2014/10/12/interna_politica,578917/marina-silva-declara-apoio-a-aecio-neves-no-segundo-turno.shtml); PSB e PPS também (pt.wikipedia, com links do G1)",
+    "Luciana Genro (4º): PSOL neutro, contra o voto em Aécio; PV e Eduardo Jorge: Aécio; Levy Fidelix: Aécio (pt.wikipedia.org/wiki/Eleição_presidencial_no_Brasil_em_2014, seção Apoios no segundo turno, links do G1); Pastor Everaldo: não confirmado"
+   ],
+   "principais_eliminados": [
+    [
+     "Marina Silva",
+     22176619
+    ],
+    [
+     "Luciana Genro",
+     1612186
+    ],
+    [
+     "Pastor Everaldo",
+     780513
+    ],
+    [
+     "Eduardo Jorge",
+     630099
+    ],
+    [
+     "Levy Fidelix",
+     446878
+    ]
+   ]
+  },
+  "2018": {
+   "ano": 2018,
+   "dias": 21,
+   "lider_1t": "Bolsonaro",
+   "segundo_1t": "Haddad",
+   "votos": {
+    "l1": 49277010,
+    "s1": 31342051,
+    "l2": 57797847,
+    "s2": 47040906,
+    "validos1": 107050749,
+    "validos2": 104838753,
+    "eliminados": 26431688,
+    "comparecimento1": 117364654,
+    "comparecimento2": 115933451,
+    "brancos1": 3106937,
+    "brancos2": 2486593,
+    "nulos1": 7206222,
+    "nulos2": 8608105,
+    "aptos": 147306295
+   },
+   "pct_validos": {
+    "l1": 46.03144813120364,
+    "s1": 29.277750312611076,
+    "eliminados1": 24.69080155618528,
+    "l2": 55.13023128003058,
+    "s2": 44.86976871996942
+   },
+   "ganho": {
+    "lider": 8520837,
+    "segundo": 15698855,
+    "segundo_pct_validos1": 14.66487170491446,
+    "lider_pct_validos1": 7.959623897633822,
+    "segundo_sobre_eliminados": 0.5939406896752111
+   },
+   "bolo": 24219692,
+   "bolo_pct_validos1": 22.624495602548283,
+   "fatia_bolo_segundo": 64.81855756051729,
+   "decomposicao_bolo": {
+    "eliminados": 26431688,
+    "aumento_comparecimento": -1431203,
+    "queda_nao_validos": -780793,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 38.87672544337871,
+   "fatia2_segundo_2t": 44.86976871996942,
+   "margem1_pontos_validos": 16.753697818592563,
+   "abstencao1": 20.32611097848873,
+   "abstencao2": 21.297694032695617,
+   "reeleicao": "não (Temer não concorria; o MDB lançou Meirelles)",
+   "vencedor": "Bolsonaro",
+   "virada2": 5.993043276590711,
+   "virada_diferenca_votos": 7178018,
+   "virada_diferenca_pct_validos1": 6.705247807280639,
+   "margem1_pontos_fatia2": 22.24654911324258,
+   "virada_necessaria": 11.12327455662129,
+   "fatia_minima_bolo": 87.02557200149366,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 55,
+     "segundo": 45,
+     "campo": "26 e 27/10/2018",
+     "fonte": "resultados/nacionais_2018_2022_pesquisas_verificadas.txt item 6",
+     "erro_segundo": -0.1302312800305785,
+     "lider_da_pesquisa": "Bolsonaro"
+    },
+    "Ibope": {
+     "lider": 54,
+     "segundo": 46,
+     "campo": "26 e 27/10/2018",
+     "fonte": "resultados/nacionais_2018_2022_pesquisas_verificadas.txt item 7",
+     "erro_segundo": -1.1302312800305785,
+     "lider_da_pesquisa": "Bolsonaro"
+    }
+   },
+   "pesquisas_nota": null,
+   "apoios": [
+    "Ciro (3º): PDT deu \"apoio crítico\" a Haddad (https://ultimosegundo.ig.com.br/politica/2018-10-10/pdt-de-ciro-apoia-haddad.html, via pt.wikipedia)",
+    "Alckmin (4º): PSDB neutro (http://agenciabrasil.ebc.com.br/politica/noticia/2018-10/psdb-decide-que-ficara-neutro-no-segundo-turno)",
+    "Amoêdo (5º): Novo neutro (https://www.moneytimes.com.br/novo-e-pp-descartam-apoio-a-candidatos-ao-segundo-turno)",
+    "Daciolo (Patriota) e Meirelles (MDB): partidos na lista de neutros da pt.wikipedia, sem link",
+    "Marina (8º): \"voto crítico\" em Haddad; Boulos e PSOL: Haddad; Alvaro Dias: Podemos neutro (pt.wikipedia, links do G1, Veja e R7)"
+   ],
+   "principais_eliminados": [
+    [
+     "Ciro Gomes",
+     13344371
+    ],
+    [
+     "Alckmin",
+     5096350
+    ],
+    [
+     "Amoêdo",
+     2679745
+    ],
+    [
+     "Cabo Daciolo",
+     1348323
+    ],
+    [
+     "Meirelles",
+     1288950
+    ],
+    [
+     "Marina Silva",
+     1069578
+    ],
+    [
+     "Alvaro Dias",
+     859601
+    ],
+    [
+     "Boulos",
+     617122
+    ]
+   ]
+  },
+  "2022": {
+   "ano": 2022,
+   "dias": 28,
+   "lider_1t": "Lula",
+   "segundo_1t": "Bolsonaro",
+   "votos": {
+    "l1": 57259504,
+    "s1": 51072345,
+    "l2": 60345999,
+    "s2": 58206354,
+    "validos1": 118229719,
+    "validos2": 118552353,
+    "eliminados": 9897870,
+    "comparecimento1": 123682372,
+    "comparecimento2": 124252796,
+    "brancos1": 1964779,
+    "brancos2": 1769678,
+    "nulos1": 3487874,
+    "nulos2": 3930765,
+    "aptos": 156454011
+   },
+   "pct_validos": {
+    "l1": 48.43071985986874,
+    "s1": 43.19755255444699,
+    "eliminados1": 8.371727585684273,
+    "l2": 50.90240511717216,
+    "s2": 49.09759488282784
+   },
+   "ganho": {
+    "lider": 3086495,
+    "segundo": 7134009,
+    "segundo_pct_validos1": 6.034023475941781,
+    "lider_pct_validos1": 2.6105915044930454,
+    "segundo_sobre_eliminados": 0.7207620427425294
+   },
+   "bolo": 10220504,
+   "bolo_pct_validos1": 8.644614980434826,
+   "fatia_bolo_segundo": 69.80095110769489,
+   "decomposicao_bolo": {
+    "eliminados": 9897870,
+    "aumento_comparecimento": 570424,
+    "queda_nao_validos": -247790,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 47.144349027034515,
+   "fatia2_segundo_2t": 49.09759488282784,
+   "margem1_pontos_validos": 5.233167305421745,
+   "abstencao1": 20.946499735311995,
+   "abstencao2": 20.58190441662758,
+   "reeleicao": "sim: Bolsonaro, 2º colocado do 1º turno",
+   "vencedor": "Lula",
+   "virada2": 1.9532458557933268,
+   "virada_diferenca_votos": 4047514,
+   "virada_diferenca_pct_validos1": 3.423431971448735,
+   "margem1_pontos_fatia2": 5.71130194593097,
+   "virada_necessaria": 2.855650972965485,
+   "fatia_minima_bolo": 80.26836543481613,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 52,
+     "segundo": 48,
+     "campo": "28 e 29/10/2022",
+     "fonte": "resultados/nacionais_2018_2022_pesquisas_verificadas.txt item 21",
+     "erro_segundo": 1.097594882827842,
+     "lider_da_pesquisa": "Lula"
+    },
+    "Ipec": {
+     "lider": 54,
+     "segundo": 46,
+     "campo": "27 a 29/10/2022",
+     "fonte": "resultados/nacionais_2018_2022_pesquisas_verificadas.txt item 22 (pelos totais 50 x 43: 53,76 para Lula, erro_pesquisas_2t.txt)",
+     "erro_segundo": 3.097594882827842,
+     "lider_da_pesquisa": "Lula"
+    }
+   },
+   "pesquisas_nota": null,
+   "apoios": [
+    "Simone Tebet (3º): Lula (https://oglobo.globo.com/politica/eleicoes-2022/noticia/2022/10/tebet-anuncia-apoio-a-lula-para-o-segundo-turno-das-eleicoes.ghtml, via pt.wikipedia; https://www.bloomberglinea.com.br/2022/10/05/simone-tebet-do-mdb-declara-apoio-a-lula-no-2-turno/)",
+    "Ciro (4º): Lula, PDT por unanimidade (https://noticias.uol.com.br/eleicoes/2022/10/04/sem-citar-lula-ciro-anuncia-apoio-ao-petista-no-2-turno-ultima-saida.htm, via pt.wikipedia)",
+    "Soraya (5º): nenhum dos dois; Felipe d'Avila (6º): Novo neutro (pt.wikipedia, links do Correio Braziliense e O Antagonista)"
+   ],
+   "principais_eliminados": [
+    [
+     "Simone Tebet",
+     4915423
+    ],
+    [
+     "Ciro Gomes",
+     3599287
+    ],
+    [
+     "Soraya Thronicke",
+     600955
+    ],
+    [
+     "Felipe d'Avila",
+     559708
+    ],
+    [
+     "Padre Kelmon",
+     81129
+    ]
+   ]
+  },
+  "2026": {
+   "ano": 2026,
+   "dias": 21,
+   "lider_1t": "Flávio",
+   "segundo_1t": "Lula",
+   "votos": {
+    "l1": 56104503,
+    "s1": 53879538,
+    "l2": 59826041,
+    "s2": 64256232,
+    "validos1": 119300788,
+    "validos2": 124082273,
+    "eliminados": 9316747,
+    "comparecimento1": 125275835,
+    "comparecimento2": 128236074,
+    "brancos1": 2300798,
+    "brancos2": 1430496,
+    "nulos1": 3674249,
+    "nulos2": 2723305,
+    "aptos": 158745502
+   },
+   "pct_validos": {
+    "l1": 47.02777235637371,
+    "s1": 45.1627679106361,
+    "eliminados1": 7.809459732990196,
+    "l2": 48.2148171157374,
+    "s2": 51.7851828842626
+   },
+   "ganho": {
+    "lider": 3721538,
+    "segundo": 10376694,
+    "segundo_pct_validos1": 8.697925784027513,
+    "lider_pct_validos1": 3.1194580206796285,
+    "segundo_sobre_eliminados": 1.1137679277971164
+   },
+   "bolo": 14098232,
+   "bolo_pct_validos1": 11.817383804707141,
+   "fatia_bolo_segundo": 73.60280352883964,
+   "decomposicao_bolo": {
+    "eliminados": 9316747,
+    "aumento_comparecimento": 2960239,
+    "queda_nao_validos": 1821246,
+    "identidade": 0
+   },
+   "fatia2_segundo_1t": 48.98850552326951,
+   "fatia2_segundo_2t": 51.7851828842626,
+   "margem1_pontos_validos": 1.8650044457376092,
+   "abstencao1": 21.083852190029297,
+   "abstencao2": 19.21908187357649,
+   "reeleicao": "sim: Lula, 2º colocado do 1º turno",
+   "vencedor": "Lula",
+   "virada2": 2.796677360993094,
+   "virada_diferenca_votos": 6655156,
+   "virada_diferenca_pct_validos1": 5.578467763347883,
+   "margem1_pontos_fatia2": 2.022988953460981,
+   "virada_necessaria": 1.0114944767304905,
+   "fatia_minima_bolo": 57.89093625356711,
+   "pesquisas": {
+    "Datafolha": {
+     "lider": 51,
+     "segundo": 49,
+     "campo": "23 e 24/10/2026",
+     "fonte": "resultados/nacionais_2026_pesquisas_verificadas.txt item 1 (pelos totais 48 x 47: Lula 49,47, erro_pesquisas_2t.txt)",
+     "erro_segundo": 2.7851828842626034,
+     "lider_da_pesquisa": "Flávio"
+    }
+   },
+   "pesquisas_nota": "Ipsos-Ipec sem pesquisa nacional de 2º turno em outubro (resultados/L5_pesquisas.txt); 11 de 12 institutos davam Flávio à frente nos válidos, de 50,1 a 52 (resultados/nacionais_2026_pesquisas_verificadas.txt, linha 4)",
+   "apoios": [
+    "Zema, Caiado, Clariana, Cury (condicionado a 8 compromissos) e Grassi: Flávio; Renan Santos liberou os eleitores; Samara, Hertz e Edmilson: Lula (voto crítico); PCO: nulo (resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt, conferido com fontes em contexto_2t_2026_pesquisa_verificada.json)"
+   ],
+   "principais_eliminados": [
+    [
+     "Augusto Cury",
+     3448569
+    ],
+    [
+     "Renan Santos",
+     2675887
+    ],
+    [
+     "Ronaldo Caiado",
+     2605148
+    ],
+    [
+     "Zema",
+     326488
+    ],
+    [
+     "Samara",
+     122911
+    ]
+   ]
+  }
+ },
+ "contrafactuais_2026": {
+  "fatia_minima_bolo": 57.89093625356711,
+  "virada_necessaria": 1.0114944767304905,
+  "real": {
+   "fatia_bolo": 73.60280352883964,
+   "virada": 2.796677360993094,
+   "lula_pct": 51.7851828842626
+  },
+  "mesma_fatia_do_bolo": {
+   "1989": {
+    "fatia": 57.32967337837195,
+    "lula": 61962008,
+    "flavio": 62120265,
+    "lula_pct": 49.93622929338594,
+    "margem_lula": -158256,
+    "vencedor": "Flávio"
+   },
+   "2002": {
+    "fatia": 50.60578056302118,
+    "lula": 61014058,
+    "flavio": 63068215,
+    "lula_pct": 49.17226036726908,
+    "margem_lula": -2054156,
+    "vencedor": "Flávio"
+   },
+   "2006": {
+    "fatia": -26.339339533071243,
+    "lula": 50166157,
+    "flavio": 73916116,
+    "lula_pct": 40.42975325360126,
+    "margem_lula": -23749959,
+    "vencedor": "Flávio"
+   },
+   "2010": {
+    "fatia": 56.632718065117075,
+    "lula": 61863750,
+    "flavio": 62218523,
+    "lula_pct": 49.857041207430264,
+    "margem_lula": -354773,
+    "vencedor": "Flávio"
+   },
+   "2014": {
+    "fatia": 58.96815452924409,
+    "lula": 62193005,
+    "flavio": 61889268,
+    "lula_pct": 50.12239357643887,
+    "margem_lula": 303737,
+    "vencedor": "Lula"
+   },
+   "2018": {
+    "fatia": 64.81855756051729,
+    "lula": 63017809,
+    "flavio": 61064464,
+    "lula_pct": 50.78711656413263,
+    "margem_lula": 1953344,
+    "vencedor": "Lula"
+   },
+   "2022": {
+    "fatia": 69.80095110769489,
+    "lula": 63720238,
+    "flavio": 60362035,
+    "lula_pct": 51.353216285270165,
+    "margem_lula": 3358203,
+    "vencedor": "Lula"
+   }
+  },
+  "mesma_virada": {
+   "1989": {
+    "virada": 10.909597029218176,
+    "lula_pct": 59.898102552487686,
+    "lula": 74322927,
+    "flavio": 49759346,
+    "margem_lula": 24563581,
+    "vencedor": "Lula"
+   },
+   "2002": {
+    "virada": 5.420933824654753,
+    "lula_pct": 54.40943934792426,
+    "lula": 67512469,
+    "flavio": 56569804,
+    "margem_lula": 10942665,
+    "vencedor": "Lula"
+   },
+   "2006": {
+    "virada": -6.962984805099431,
+    "lula_pct": 42.02552071817008,
+    "lula": 52146221,
+    "flavio": 71936052,
+    "margem_lula": -19789830,
+    "vencedor": "Flávio"
+   },
+   "2010": {
+    "virada": 2.9334144005803253,
+    "lula_pct": 51.921919923849835,
+    "lula": 64425898,
+    "flavio": 59656375,
+    "margem_lula": 4769524,
+    "vencedor": "Lula"
+   },
+   "2014": {
+    "virada": 3.7152232384838797,
+    "lula_pct": 52.70372876175339,
+    "lula": 65395985,
+    "flavio": 58686288,
+    "margem_lula": 6709696,
+    "vencedor": "Lula"
+   },
+   "2018": {
+    "virada": 5.993043276590711,
+    "lula_pct": 54.98154879986022,
+    "lula": 68222355,
+    "flavio": 55859918,
+    "margem_lula": 12362438,
+    "vencedor": "Lula"
+   },
+   "2022": {
+    "virada": 1.9532458557933268,
+    "lula_pct": 50.941751379062836,
+    "lula": 63209683,
+    "flavio": 60872590,
+    "margem_lula": 2337093,
+    "vencedor": "Lula"
+   }
+  }
+ },
+ "teste_secoes": {
+  "2018": {
+   "arquivo": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2018.json.gz",
+   "secoes": {
+    "1": 454450,
+    "2": 454448
+   },
+   "turnos": {
+    "1": {
+     "L": {
+      "base": 31342005,
+      "oficial": 31342051,
+      "diferenca": -46
+     },
+     "R": {
+      "base": 49276990,
+      "oficial": 49277010,
+      "diferenca": -20
+     },
+     "O": {
+      "base": 26432424,
+      "oficial": 26431688,
+      "diferenca": 736
+     },
+     "B": {
+      "base": 3106936,
+      "oficial": 3106937,
+      "diferenca": -1
+     },
+     "N": {
+      "base": 7206205,
+      "oficial": 7206222,
+      "diferenca": -17
+     },
+     "comp": {
+      "base": 117364560,
+      "oficial": 117364654,
+      "diferenca": -94
+     },
+     "apt": {
+      "base": 147305825,
+      "oficial": 147306295,
+      "diferenca": -470
+     },
+     "validos": {
+      "base": 107051419,
+      "oficial": 107050749,
+      "diferenca": 670
+     }
+    },
+    "2": {
+     "L": {
+      "base": 47040906,
+      "oficial": 47040906,
+      "diferenca": 0
+     },
+     "R": {
+      "base": 57797847,
+      "oficial": 57797847,
+      "diferenca": 0
+     },
+     "O": {
+      "base": 0,
+      "oficial": 0,
+      "diferenca": 0
+     },
+     "B": {
+      "base": 2486593,
+      "oficial": 2486593,
+      "diferenca": 0
+     },
+     "N": {
+      "base": 8608105,
+      "oficial": 8608105,
+      "diferenca": 0
+     },
+     "comp": {
+      "base": 115933451,
+      "oficial": 115933451,
+      "diferenca": 0
+     },
+     "apt": {
+      "base": 147305155,
+      "oficial": 147306294,
+      "diferenca": -1139
+     },
+     "validos": {
+      "base": 104838753,
+      "oficial": 104838753,
+      "diferenca": 0
+     }
+    }
+   }
+  },
+  "2022": {
+   "arquivo": "/tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2022.json.gz",
+   "secoes": {
+    "1": 472028,
+    "2": 472028
+   },
+   "turnos": {
+    "1": {
+     "L": {
+      "base": 57259504,
+      "oficial": 57259504,
+      "diferenca": 0
+     },
+     "R": {
+      "base": 51072345,
+      "oficial": 51072345,
+      "diferenca": 0
+     },
+     "O": {
+      "base": 9897870,
+      "oficial": 9897870,
+      "diferenca": 0
+     },
+     "B": {
+      "base": 1964779,
+      "oficial": 1964779,
+      "diferenca": 0
+     },
+     "N": {
+      "base": 3487874,
+      "oficial": 3487874,
+      "diferenca": 0
+     },
+     "comp": {
+      "base": 123682372,
+      "oficial": 123682372,
+      "diferenca": 0
+     },
+     "apt": {
+      "base": 156453354,
+      "oficial": 156454011,
+      "diferenca": -657
+     },
+     "validos": {
+      "base": 118229719,
+      "oficial": 118229719,
+      "diferenca": 0
+     }
+    },
+    "2": {
+     "L": {
+      "base": 60345999,
+      "oficial": 60345999,
+      "diferenca": 0
+     },
+     "R": {
+      "base": 58206354,
+      "oficial": 58206354,
+      "diferenca": 0
+     },
+     "O": {
+      "base": 0,
+      "oficial": 0,
+      "diferenca": 0
+     },
+     "B": {
+      "base": 1769678,
+      "oficial": 1769678,
+      "diferenca": 0
+     },
+     "N": {
+      "base": 3930765,
+      "oficial": 3930765,
+      "diferenca": 0
+     },
+     "comp": {
+      "base": 124252796,
+      "oficial": 124252796,
+      "diferenca": 0
+     },
+     "apt": {
+      "base": 156453354,
+      "oficial": 156454011,
+      "diferenca": -657
+     },
+     "validos": {
+      "base": 118552353,
+      "oficial": 118552353,
+      "diferenca": 0
+     }
+    }
+   }
+  }
+ },
+ "conferencia_transferencia_2022_x_2026": {
+  "2018": {
+   "arquivo_ganho_mi": 8.52,
+   "arquivo_eliminados_mi": 26.43,
+   "aqui_ganho_mi": 8.52,
+   "aqui_eliminados_mi": 26.43
+  },
+  "2022": {
+   "arquivo_ganho_mi": 7.13,
+   "arquivo_eliminados_mi": 9.9,
+   "aqui_ganho_mi": 7.13,
+   "aqui_eliminados_mi": 9.9
+  },
+  "2026": {
+   "arquivo_ganho_mi": 3.72,
+   "arquivo_eliminados_mi": 9.32,
+   "aqui_ganho_mi": 3.72,
+   "aqui_eliminados_mi": 9.32
+  }
+ },
+ "resumo": {
+  "fatia_bolo_2026": 73.60280352883964,
+  "fatia_bolo_anteriores": [
+   [
+    1989,
+    57.33
+   ],
+   [
+    2002,
+    50.61
+   ],
+   [
+    2006,
+    -26.34
+   ],
+   [
+    2010,
+    56.63
+   ],
+   [
+    2014,
+    58.97
+   ],
+   [
+    2018,
+    64.82
+   ],
+   [
+    2022,
+    69.8
+   ]
+  ],
+  "fatia_bolo_maior_anterior": 69.80095110769489,
+  "fatia_bolo_mediana_anterior": 57.32967337837195,
+  "virada_2026": 2.796677360993094,
+  "virada_anteriores": [
+   [
+    1989,
+    10.91
+   ],
+   [
+    2002,
+    5.42
+   ],
+   [
+    2006,
+    -6.96
+   ],
+   [
+    2010,
+    2.93
+   ],
+   [
+    2014,
+    3.72
+   ],
+   [
+    2018,
+    5.99
+   ],
+   [
+    2022,
+    1.95
+   ]
+  ],
+  "virada_mediana_anterior": 3.7152232384838797,
+  "anos_em_que_a_virada_daria_vitoria_a_lula": [
+   1989,
+   2002,
+   2010,
+   2014,
+   2018,
+   2022
+  ],
+  "anos_em_que_a_fatia_do_bolo_daria_vitoria_a_lula": [
+   2014,
+   2018,
+   2022
+  ],
+  "lider_1t_perdeu": [
+   2026
+  ]
+ }
+}

@@ -1,0 +1,4087 @@
+{
+ "gerado_em": "2026-10-29",
+ "referencia_brasil": {
+  "id": "brasil_2026",
+  "pais": "Brasil",
+  "ano": 2026,
+  "data_1t": "2026-10-04",
+  "data_2t": "2026-10-25",
+  "lider_1t": "Flávio Bolsonaro (PL)",
+  "segundo_1t": "Lula (PT)",
+  "votos": {
+   "lider_1t": {
+    "1t": 56104503,
+    "2t": 59826041
+   },
+   "segundo_1t": {
+    "1t": 53879538,
+    "2t": 64256232
+   }
+  },
+  "comparecimento_pct": {
+   "1t": 78.92,
+   "2t": 80.78
+  },
+  "dias_entre_turnos": 21,
+  "pct_1t": {
+   "lider_1t": 47.03,
+   "segundo_1t": 45.16
+  },
+  "pct_2t": {
+   "lider_1t": 48.21,
+   "segundo_1t": 51.79
+  },
+  "soma_finalistas_1t_pct": 92.19,
+  "lider_1t_perdeu": true,
+  "virada_dois_candidatos": {
+   "fatia_segundo_1t_no_1t": 48.99,
+   "fatia_segundo_1t_no_2t": 51.79,
+   "variacao_pts": 2.8
+  },
+  "votos_acrescidos_aos_finalistas": 14098232,
+  "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 73.6,
+  "ganho_segundo_1t_sobre_seus_votos_1t_pct": 19.3,
+  "margem_1t_lider_pts": 1.87,
+  "margem_2t_lider_1t_pts_dois": -3.57,
+  "pesquisas": {
+   "nota": "Segundo o enunciado da tarefa, Flávio liderava a maioria das pesquisas finais por 1 a 4 pontos.",
+   "margem_media_lider_1t_pts": "+1 a +4 (enunciado)",
+   "erro_margem_pts": "-4,6 a -7,6 (resultado Lula +3,58)"
+  },
+  "fontes": [
+   "/home/user/casa-control/eleicao-2026/README.md (seção 2)"
+  ],
+  "votacao_apuracao": "Urna eletrônica (DRE) sem registro impresso do voto."
+ },
+ "avaliacao": {
+  "total_casos": 42,
+  "lider_1t_perdeu": 22,
+  "casos_com_pesquisas_finais": 33,
+  "erro_de_margem_maior_ou_igual_3_pts": 23,
+  "erro_de_margem_maior_ou_igual_5_pts": 17,
+  "media_das_pesquisas_apontou_o_vencedor_errado": [
+   "polonia_2025",
+   "romenia_2025",
+   "peru_2016",
+   "equador_2021",
+   "equador_2025",
+   "bolivia_2025",
+   "eslovaquia_2024",
+   "tchequia_2018",
+   "costarica_2018",
+   "austria_2016"
+  ],
+  "parecidos_com_brasil_2026": [
+   "polonia_2025",
+   "peru_2016",
+   "equador_2021",
+   "eslovaquia_2024",
+   "costarica_2018",
+   "austria_2016"
+  ],
+  "parciais": [
+   "romenia_2025",
+   "equador_2023"
+  ],
+  "criterio": "parecido = líder do 1º turno que estava à frente na maioria das pesquisas finais do 2º turno e na média delas, e perdeu. parcial = líder do 1º turno que perdeu com pesquisas divididas (empate no número de pesquisas, média abaixo de 1 ponto, ou média e maioria apontando lados diferentes).",
+  "primeiros_turnos_concentrados_85pct_ou_mais": [
+   [
+    "equador_2025",
+    88.17,
+    -5.53
+   ],
+   [
+    "colombia_2026",
+    86.13,
+    1.19
+   ],
+   [
+    "liberia_2023",
+    87.27,
+    0.86
+   ],
+   [
+    "turquia_2023",
+    94.4,
+    0.27
+   ],
+   [
+    "seicheles_2025",
+    95.28,
+    -1.48
+   ]
+  ],
+  "brasil_soma_finalistas_1t_pct": 92.19
+ },
+ "casos": [
+  {
+   "id": "polonia_2025",
+   "pais": "Polônia",
+   "ano": 2025,
+   "data_1t": "2025-05-18",
+   "data_2t": "2025-06-01",
+   "lider_1t": "Rafał Trzaskowski (KO, centro-liberal)",
+   "segundo_1t": "Karol Nawrocki (indep., apoiado pelo PiS, direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 6147797,
+     "2t": 10237286
+    },
+    "segundo_1t": {
+     "1t": 5790804,
+     "2t": 10606877
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 67.31,
+    "2t": 71.63
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 31.36,
+    "segundo_1t": 29.54
+   },
+   "pct_2t": {
+    "lider_1t": 49.11,
+    "segundo_1t": 50.89
+   },
+   "soma_finalistas_1t_pct": 60.9,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 48.5,
+    "fatia_segundo_1t_no_2t": 50.89,
+    "variacao_pts": 2.38
+   },
+   "votos_acrescidos_aos_finalistas": 8905562,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 54.1,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 83.2,
+   "margem_1t_lider_pts": 1.82,
+   "margem_2t_lider_1t_pts_dois": -1.77,
+   "pesquisas": {
+    "n": 12,
+    "margem_media_lider_1t_pts": 0.47,
+    "faixa": [
+     -1.8,
+     2.53
+    ],
+    "lider_1t_a_frente_em": 8,
+    "segundo_a_frente_em": 4,
+    "erro_margem_pts": -2.24,
+    "lista": [
+     {
+      "instituto": "AtlasIntel",
+      "data": "27-30/05",
+      "lider_1t": 47.6,
+      "segundo_1t": 47.4,
+      "margem_dois": 0.21
+     },
+     {
+      "instituto": "United Surveys/WP",
+      "data": "25-30/05",
+      "lider_1t": 47.3,
+      "segundo_1t": 47.7,
+      "margem_dois": -0.42
+     },
+     {
+      "instituto": "Social Changes",
+      "data": "28-29/05",
+      "lider_1t": 49.1,
+      "segundo_1t": 50.9,
+      "margem_dois": -1.8
+     },
+     {
+      "instituto": "OGB",
+      "data": "28-29/05",
+      "lider_1t": 49.37,
+      "segundo_1t": 50.63,
+      "margem_dois": -1.26
+     },
+     {
+      "instituto": "Pollster/SE",
+      "data": "28-29/05",
+      "lider_1t": 47.97,
+      "segundo_1t": 45.6,
+      "margem_dois": 2.53
+     },
+     {
+      "instituto": "IBRiS/Polsat",
+      "data": "27-29/05",
+      "lider_1t": 49.1,
+      "segundo_1t": 48.1,
+      "margem_dois": 1.03
+     },
+     {
+      "instituto": "Opinia24/TVN",
+      "data": "27-29/05",
+      "lider_1t": 47.4,
+      "segundo_1t": 46.3,
+      "margem_dois": 1.17
+     },
+     {
+      "instituto": "Ipsos/TVP",
+      "data": "26-29/05",
+      "lider_1t": 49,
+      "segundo_1t": 48,
+      "margem_dois": 1.03
+     },
+     {
+      "instituto": "Research Partner",
+      "data": "27-28/05",
+      "lider_1t": 45.8,
+      "segundo_1t": 46.1,
+      "margem_dois": -0.33
+     },
+     {
+      "instituto": "Ipsos/OKO",
+      "data": "27-28/05",
+      "lider_1t": 48,
+      "segundo_1t": 47,
+      "margem_dois": 1.05
+     },
+     {
+      "instituto": "IBRiS/Onet",
+      "data": "26-28/05",
+      "lider_1t": 47.7,
+      "segundo_1t": 46.0,
+      "margem_dois": 1.81
+     },
+     {
+      "instituto": "CBOS",
+      "data": "26-28/05",
+      "lider_1t": 50.3,
+      "segundo_1t": 49.7,
+      "margem_dois": 0.6
+     }
+    ],
+    "nota": "Agregador ewybory.eu (24-30/05): Trzaskowski 50,3 x 49,7. Das 12 pesquisas da última semana listadas, 8 davam Trzaskowski à frente (0,2 a 2,4 pontos) e 4 davam Nawrocki (0,3 a 1,8). Boca de urna Ipsos: Trzaskowski 50,3 x 49,7; a 'late poll' das 23h já virou para Nawrocki 50,7."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Hołownia (4,99%), Biejat (4,23%) e Senyszyn (1,09%) apoiaram Trzaskowski. Braun (6,34%) e Jakubiak (0,77%) apoiaram Nawrocki. Mentzen (14,81%) não declarou voto, pediu voto contra Trzaskowski; Nawrocki assinou os 8 pontos de Mentzen, Trzaskowski não. Zandberg (4,86%) não apoiou ninguém; Stanowski (1,24%) contra os dois.",
+   "votacao_apuracao": "Cédula de papel, contagem manual pelas comissões de seção (32.143 comissões).",
+   "fraude_e_verificacao": "Sim, do lado do perdedor: o campo do governo (Giertych, membros da PKW, Tusk) pôs o resultado em dúvida; 54.645 protestos ao Supremo, quase todos de um modelo. O Supremo mandou recontar 13 seções (0,04%) e validou a eleição em 01/07/2025 (câmara cuja legitimidade a coalizão contesta). A Procuradoria revisou 250 seções, achou irregularidades em 84 e uma diferença líquida de cerca de 1.240 votos em cada candidato, contra margem de 369.591. Trzaskowski reconheceu a derrota. A Wikipedia afirma que um relatório OSCE/PACE confirmou denúncias de financiamento irregular pró-Trzaskowski (não conferido em fonte primária).",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Polish_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2025_Polish_presidential_election",
+    "https://www.polskieradio.pl/395/7784/Artykul/3532199,poland-sees-record-turnout-in-presidential-runoff-as-nation-splits-east-and-west",
+    "https://belgium.pl/news/polish-presidential-election-final-results/",
+    "https://www.pap.pl/en/news/supreme-court-confirms-validity-polands-presidential-election",
+    "https://notesfrompoland.com/2025/06/13/polands-supreme-court-orders-partial-recount-over-voting-irregularities-in-presidential-election/",
+    "https://notesfrompoland.com/2025/07/25/polish-prosecutors-reveal-ballot-errors-in-presidential-election-say-no-impact-on-result/"
+   ],
+   "divergencias": "Votos de Nawrocki: 10.606.877 (PKW via imprensa polonesa e Wikipedia) x 10.606.628 (ANSA/PAP). Percentuais iguais. A Procuradoria corrigiu a diferença de 1.538/1.541 para 1.239/1.241 votos (Wikipedia).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "romenia_2025",
+   "pais": "Romênia",
+   "ano": 2025,
+   "data_1t": "2025-05-04",
+   "data_2t": "2025-05-18",
+   "lider_1t": "George Simion (AUR, direita nacionalista)",
+   "segundo_1t": "Nicușor Dan (indep., centro pró-UE)",
+   "votos": {
+    "lider_1t": {
+     "1t": 3862761,
+     "2t": 5339053
+    },
+    "segundo_1t": {
+     "1t": 1979767,
+     "2t": 6168642
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 53.21,
+    "2t": 64.72
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 40.96,
+    "segundo_1t": 20.99
+   },
+   "pct_2t": {
+    "lider_1t": 46.4,
+    "segundo_1t": 53.6
+   },
+   "soma_finalistas_1t_pct": 61.96,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 33.89,
+    "fatia_segundo_1t_no_2t": 53.6,
+    "variacao_pts": 19.72
+   },
+   "votos_acrescidos_aos_finalistas": 5665167,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 73.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 211.6,
+   "margem_1t_lider_pts": 19.97,
+   "margem_2t_lider_1t_pts_dois": -7.21,
+   "pesquisas": {
+    "n": 7,
+    "margem_media_lider_1t_pts": 1.62,
+    "faixa": [
+     -4.0,
+     9.6
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": -8.83,
+    "lista": [
+     {
+      "instituto": "AtlasIntel",
+      "data": "13-15/05",
+      "lider_1t": 47.8,
+      "segundo_1t": 48.7,
+      "margem_dois": -0.93
+     },
+     {
+      "instituto": "IRSOP",
+      "data": "10-13/05",
+      "lider_1t": 48,
+      "segundo_1t": 52,
+      "margem_dois": -4.0
+     },
+     {
+      "instituto": "Sociopol",
+      "data": "10-12/05",
+      "lider_1t": 53,
+      "segundo_1t": 47,
+      "margem_dois": 6.0
+     },
+     {
+      "instituto": "AtlasIntel",
+      "data": "09-12/05",
+      "lider_1t": 48.2,
+      "segundo_1t": 48.2,
+      "margem_dois": 0.0
+     },
+     {
+      "instituto": "MKOR",
+      "data": "08-14/05",
+      "lider_1t": 32,
+      "segundo_1t": 34.2,
+      "margem_dois": -3.32
+     },
+     {
+      "instituto": "CURS",
+      "data": "08-11/05",
+      "lider_1t": 52,
+      "segundo_1t": 48,
+      "margem_dois": 4.0
+     },
+     {
+      "instituto": "Verifield",
+      "data": "06/05",
+      "lider_1t": 54.8,
+      "segundo_1t": 45.2,
+      "margem_dois": 9.6
+     }
+    ],
+    "nota": "Pesquisas divididas: 3 davam Simion à frente (Sociopol +6, CURS +4, Verifield +9,6), 3 davam Dan (AtlasIntel +0,9, IRSOP +4, MKOR +2,2) e 1 empate. Média simples levemente pró-Simion. Bocas de urna: Dan 51,5 a 54,9; Sociopol 50 x 50."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "parcial: lider_1t_perdeu_com_pesquisas_divididas_ou_empatadas",
+   "apoios_eliminados": "PNL e UDMR (que apoiavam Antonescu, 20,07%) e USR (Lasconi, 2,68%) apoiaram Dan; o PSD (partido de Antonescu na aliança) não apoiou ninguém e Antonescu não pediu voto. Ponta (13,04%) disse que faria campanha por um dos dois, mas até 14/05 seguia indeciso (enquete dele no Facebook deu Dan 51%). Orbán deu apoio aparente a Simion.",
+   "votacao_apuracao": "Cédula de papel com carimbo, contagem manual na seção, com fiscais de partidos e gravação em vídeo da apuração.",
+   "fraude_e_verificacao": "Sim. Simion reconheceu a derrota na noite, mas em 20/05 pediu a anulação ao Tribunal Constitucional alegando interferência externa (França, Moldávia) e 'fraude em massa', sem apresentar provas; o Tribunal rejeitou por unanimidade em 22/05 e validou Dan. A missão da Assembleia Parlamentar da OSCE avaliou a votação como eficiente, transparente e profissional, com ressalvas sobre desinformação e viés de mídia.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Romanian_presidential_election",
+    "https://www.rferl.org/a/romanian-court-rejects-simion-presisential-election-challenge/33421202.html",
+    "https://www.intellinews.com/romania-s-constitutional-court-rejects-request-to-annul-presidential-election-382393",
+    "https://hotnews.ro/exclusiv-ultimul-mare-sondaj-inainte-de-turul-doi-al-alegerilor-prezidentiale-de-duminica-18-mai-avans-foarte-mic-pentru-unul-dintre-candidati-in-marja-de-eroare-suspansul-continua-1976328",
+    "https://www.osw.waw.pl/en/publikacje/analyses/2025-05-06/romania-coalition-crisis-resulting-first-round-presidential-election",
+    "https://informat.ro/alegeri-2025/victor-ponta-ramane-indecis-in-privinta-votului-pentru-prezidentiale-61429"
+   ],
+   "divergencias": "Ponta: 13,04% (Wikipedia) x 13,05% (imprensa). Apoio final de Ponta não confirmado em fonte.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "peru_2016",
+   "pais": "Peru",
+   "ano": 2016,
+   "data_1t": "2016-04-10",
+   "data_2t": "2016-06-05",
+   "lider_1t": "Keiko Fujimori (Fuerza Popular, direita)",
+   "segundo_1t": "Pedro Pablo Kuczynski (PPK, centro-direita liberal)",
+   "votos": {
+    "lider_1t": {
+     "1t": 6115073,
+     "2t": 8555880
+    },
+    "segundo_1t": {
+     "1t": 3228661,
+     "2t": 8596937
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 81.8,
+    "2t": 80.09
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 39.86,
+    "segundo_1t": 21.05
+   },
+   "pct_2t": {
+    "lider_1t": 49.88,
+    "segundo_1t": 50.12
+   },
+   "soma_finalistas_1t_pct": 60.91,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 34.55,
+    "fatia_segundo_1t_no_2t": 50.12,
+    "variacao_pts": 15.57
+   },
+   "votos_acrescidos_aos_finalistas": 7809083,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 68.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 166.3,
+   "margem_1t_lider_pts": 18.82,
+   "margem_2t_lider_1t_pts_dois": -0.24,
+   "pesquisas": {
+    "n": 4,
+    "margem_media_lider_1t_pts": 6.81,
+    "faixa": [
+     5.66,
+     9.6
+    ],
+    "lider_1t_a_frente_em": 4,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -7.05,
+    "lista": [
+     {
+      "instituto": "Ipsos (simulacro)",
+      "data": "29/05",
+      "lider_1t": 53.1,
+      "segundo_1t": 46.9,
+      "margem_dois": 6.2
+     },
+     {
+      "instituto": "CPI",
+      "data": "26-27/05",
+      "lider_1t": 54.8,
+      "segundo_1t": 45.2,
+      "margem_dois": 9.6
+     },
+     {
+      "instituto": "Datum",
+      "data": "23-25/05",
+      "lider_1t": 52.9,
+      "segundo_1t": 47.1,
+      "margem_dois": 5.8
+     },
+     {
+      "instituto": "GfK",
+      "data": "fim de maio",
+      "lider_1t": 45.7,
+      "segundo_1t": 40.8,
+      "margem_dois": 5.66
+     }
+    ],
+    "nota": "Últimas pesquisas publicadas antes da proibição legal da última semana: todas com Keiko à frente por 5,8 a 9,6 pontos nos válidos. Em 06-10/05 a Datum tinha empate 50 x 50."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Verónika Mendoza (18,74%, esquerda) apoiou PPK para impedir a vitória de Keiko.",
+   "votacao_apuracao": "Cédula de papel com contagem manual na mesa; voto eletrônico presencial (VEP) só em 19 distritos (743.169 eleitores no 1º turno).",
+   "fraude_e_verificacao": "Parcial. Cerca de 50 mil votos foram impugnados na apuração e a Fuerza Popular contestou atas; Keiko reconheceu a derrota em 10/06/2016. Não achei, nesta busca, o relatório da OEA de 2016.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2016_Peruvian_general_election",
+    "https://www.noticiasrcn.com/internacional/autoridad-electoral-de-peru-confirma-victoria-de-pedro-pablo-kuczynski-276945",
+    "https://rpp.pe/politica/elecciones/onpe-al-100-cual-fue-el-verdadero-resultado-de-la-segunda-vuelta-noticia-971671",
+    "https://elbuho.pe/archivo/2016/05/29/solo-en-el-sur-ppk-se-mantiene-por-encima-de-keiko-fujimori-segun-ultimas-encuestas/index.html",
+    "https://www.americatv.com.pe/noticias/actualidad/ppk-y-keiko-fujimori-empatan-50-votos-validos-segun-datum-n230867",
+    "https://www.americatv.com.pe/noticias/actualidad/onpe-aplicara-voto-electronico-solo-19-distritos-este-10-abril-n226213",
+    "https://www.bbc.co.uk/news/world-latin-america-36505027"
+   ],
+   "divergencias": "2º turno: PPK 8.596.937 x Keiko 8.555.880, diferença 41.057 (Wikipedia/ONPE; RPP cita 41.057) contra PPK 8.591.802 x 8.549.205, diferença 42.597 (Noticias RCN). Os percentuais (50,12 x 49,88) são iguais. GfK em votos totais, não válidos (convertido para a disputa a dois).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "argentina_2015",
+   "pais": "Argentina",
+   "ano": 2015,
+   "data_1t": "2015-10-25",
+   "data_2t": "2015-11-22",
+   "lider_1t": "Daniel Scioli (FpV, peronismo kirchnerista)",
+   "segundo_1t": "Mauricio Macri (Cambiemos, centro-direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 9338490,
+     "2t": 12309575
+    },
+    "segundo_1t": {
+     "1t": 8601131,
+     "2t": 12988349
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 81.07,
+    "2t": 80.77
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 37.08,
+    "segundo_1t": 34.15
+   },
+   "pct_2t": {
+    "lider_1t": 48.66,
+    "segundo_1t": 51.34
+   },
+   "soma_finalistas_1t_pct": 71.23,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 47.94,
+    "fatia_segundo_1t_no_2t": 51.34,
+    "variacao_pts": 3.4
+   },
+   "votos_acrescidos_aos_finalistas": 7358303,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 59.6,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 51.0,
+   "margem_1t_lider_pts": 2.93,
+   "margem_2t_lider_1t_pts_dois": -2.68,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": -8.6,
+    "faixa": [
+     -9.56,
+     -7.57
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": 5.92,
+    "lista": [
+     {
+      "instituto": "Poliarquía",
+      "data": "11/11",
+      "lider_1t": 40.2,
+      "segundo_1t": 48.7,
+      "margem_dois": -9.56
+     },
+     {
+      "instituto": "Giacobbe",
+      "data": "13/11",
+      "lider_1t": 42.1,
+      "segundo_1t": 49.0,
+      "margem_dois": -7.57
+     },
+     {
+      "instituto": "Management & Fit",
+      "data": "14/11",
+      "lider_1t": 43.7,
+      "segundo_1t": 52.0,
+      "margem_dois": -8.67
+     }
+    ],
+    "nota": "Macri liderava todas as pesquisas do 2º turno, por 7 a 10 pontos. Antes do 1º turno, as pesquisas davam Scioli perto de vencer sem 2º turno."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Sergio Massa (21,39%) não apoiou formalmente ninguém; os dois finalistas disputaram seus eleitores.",
+   "votacao_apuracao": "Cédulas de papel por partido em envelope, contagem manual; Buenos Aires (cidade) e Salta usaram máquinas que imprimem cédula única.",
+   "fraude_e_verificacao": "Não na eleição presidencial (houve denúncias nas primárias e em Tucumán). Scioli reconheceu a derrota com 70% apurado.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2015_Argentine_general_election",
+    "https://www.theclinic.cl/2015/11/14/conservador-macri-lidera-sondeos-a-ocho-dias-de-segunda-vuelta-en-argentina/",
+    "https://eleconomista.com.ar/politica/hablan-encuestas-n4656"
+   ],
+   "divergencias": "Resultado em fonte secundária de imprensa: 51,4 x 48,6 (arredondado). Números principais só cruzados com imprensa, não com a DINE.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "argentina_2023",
+   "pais": "Argentina",
+   "ano": 2023,
+   "data_1t": "2023-10-22",
+   "data_2t": "2023-11-19",
+   "lider_1t": "Sergio Massa (UxP, peronismo, governo)",
+   "segundo_1t": "Javier Milei (LLA, direita libertária)",
+   "votos": {
+    "lider_1t": {
+     "1t": 9853492,
+     "2t": 11598720
+    },
+    "segundo_1t": {
+     "1t": 8034990,
+     "2t": 14554560
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 77.14,
+    "2t": 76.32
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 36.78,
+    "segundo_1t": 29.99
+   },
+   "pct_2t": {
+    "lider_1t": 44.35,
+    "segundo_1t": 55.65
+   },
+   "soma_finalistas_1t_pct": 66.77,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 44.92,
+    "fatia_segundo_1t_no_2t": 55.65,
+    "variacao_pts": 10.73
+   },
+   "votos_acrescidos_aos_finalistas": 8264798,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 78.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 81.1,
+   "margem_1t_lider_pts": 6.79,
+   "margem_2t_lider_1t_pts_dois": -11.3,
+   "pesquisas": {
+    "n": 7,
+    "margem_media_lider_1t_pts": -1.57,
+    "faixa": [
+     -4.29,
+     3.29
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 5,
+    "erro_margem_pts": -9.73,
+    "lista": [
+     {
+      "instituto": "AtlasIntel",
+      "data": "05-09/11",
+      "lider_1t": 44.6,
+      "segundo_1t": 48.6,
+      "margem_dois": -4.29
+     },
+     {
+      "instituto": "CELAG",
+      "data": "25/10-08/11",
+      "lider_1t": 50.8,
+      "segundo_1t": 49.2,
+      "margem_dois": 1.6
+     },
+     {
+      "instituto": "CB Consultora",
+      "data": "01-06/11",
+      "lider_1t": 43.1,
+      "segundo_1t": 46.3,
+      "margem_dois": -3.58
+     },
+     {
+      "instituto": "Proyección",
+      "data": "início/11",
+      "lider_1t": 49,
+      "segundo_1t": 51,
+      "margem_dois": -2.0
+     },
+     {
+      "instituto": "AtlasIntel",
+      "data": "01-03/11",
+      "lider_1t": 48,
+      "segundo_1t": 52,
+      "margem_dois": -4.0
+     },
+     {
+      "instituto": "CIGP",
+      "data": "início/11",
+      "lider_1t": 49,
+      "segundo_1t": 51,
+      "margem_dois": -2.0
+     },
+     {
+      "instituto": "Analogías",
+      "data": "início/11",
+      "lider_1t": 42.4,
+      "segundo_1t": 39.7,
+      "margem_dois": 3.29
+     }
+    ],
+    "nota": "Proibição de divulgar pesquisas na última semana. Das 7 finais, 5 davam Milei à frente (2 a 4 pontos) e 2 davam Massa (1,6 e 2,7)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Patricia Bullrich (23,81%) e Mauricio Macri apoiaram Milei (25/10/2023).",
+   "votacao_apuracao": "Cédulas de papel por partido, contagem manual na mesa.",
+   "fraude_e_verificacao": "Não por parte do perdedor; Massa reconheceu a derrota antes do resultado oficial.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Argentine_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2023_Argentine_general_election",
+    "https://www.cronista.com/economia-politica/resultados-escrutinio-definitivo-por-cuanto-le-gano-javier-milei-a-sergio-massa-en-el-balotaje/"
+   ],
+   "divergencias": "Comparecimento no 1º turno: 77,14% (Wikipedia) x 77,65% (Cronista). Os percentuais oficiais (55,65 x 44,35) são sobre votos afirmativos.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "equador_2021",
+   "pais": "Equador",
+   "ano": 2021,
+   "data_1t": "2021-02-07",
+   "data_2t": "2021-04-11",
+   "lider_1t": "Andrés Arauz (UNES, correísmo, esquerda)",
+   "segundo_1t": "Guillermo Lasso (CREO-PSC, centro-direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 3033791,
+     "2t": 4236515
+    },
+    "segundo_1t": {
+     "1t": 1830172,
+     "2t": 4656426
+    }
+   },
+   "comparecimento_pct": {
+    "1t": null,
+    "2t": null
+   },
+   "dias_entre_turnos": 63,
+   "pct_1t": {
+    "lider_1t": 32.72,
+    "segundo_1t": 19.74
+   },
+   "pct_2t": {
+    "lider_1t": 47.64,
+    "segundo_1t": 52.36
+   },
+   "soma_finalistas_1t_pct": 52.46,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 37.63,
+    "fatia_segundo_1t_no_2t": 52.36,
+    "variacao_pts": 14.73
+   },
+   "votos_acrescidos_aos_finalistas": 4028978,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 70.1,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 154.4,
+   "margem_1t_lider_pts": 12.98,
+   "margem_2t_lider_1t_pts_dois": -4.72,
+   "pesquisas": {
+    "n": 7,
+    "margem_media_lider_1t_pts": 0.6,
+    "faixa": [
+     -4.0,
+     7.6
+    ],
+    "lider_1t_a_frente_em": 4,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": -5.32,
+    "lista": [
+     {
+      "instituto": "Omar Maluk",
+      "data": "01/04",
+      "lider_1t": 53.8,
+      "segundo_1t": 46.2,
+      "margem_dois": 7.6
+     },
+     {
+      "instituto": "AtlasIntel",
+      "data": "01/04",
+      "lider_1t": 50.9,
+      "segundo_1t": 49.1,
+      "margem_dois": 1.8
+     },
+     {
+      "instituto": "Eureknow",
+      "data": "31/03",
+      "lider_1t": 50.1,
+      "segundo_1t": 49.9,
+      "margem_dois": 0.2
+     },
+     {
+      "instituto": "Cedatos",
+      "data": "31/03",
+      "lider_1t": 48.0,
+      "segundo_1t": 52.0,
+      "margem_dois": -4.0
+     },
+     {
+      "instituto": "Comunicaliza",
+      "data": "30/03",
+      "lider_1t": 49.1,
+      "segundo_1t": 50.9,
+      "margem_dois": -1.8
+     },
+     {
+      "instituto": "Click Report",
+      "data": "29/03",
+      "lider_1t": 48.51,
+      "segundo_1t": 51.49,
+      "margem_dois": -2.98
+     },
+     {
+      "instituto": "Estrategia Consultores",
+      "data": "28/03",
+      "lider_1t": 51.7,
+      "segundo_1t": 48.3,
+      "margem_dois": 3.4
+     }
+    ],
+    "nota": "Das 7 pesquisas finais, 4 davam Arauz à frente e 3 davam Lasso; média levemente pró-Arauz."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Pachakutik e CONAIE (Yaku Pérez, 19,39%) pediram voto nulo (o presidente da CONAIE depois apoiou Arauz); Xavier Hervas (15,68%) apoiou Lasso.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na junta receptora do voto.",
+   "fraude_e_verificacao": "Não por parte do perdedor no 2º turno: Arauz reconheceu a derrota. No 1º turno, Yaku Pérez alegou fraude e pediu recontagem pela vaga no 2º turno.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2021_Ecuadorian_general_election",
+    "https://primicias.ec/noticias/politica/actas-escrutadas-lasso-gana",
+    "https://primicias.ec/noticias/politica/cne-reclamo-pachakutik-recuento",
+    "https://www.expreso.ec/actualidad/cedatos-revela-resultados-ultima-encuestas-segunda-vuelta-101733.html"
+   ],
+   "divergencias": "1º turno: Arauz 3.033.791 (Wikipedia) x 3.033.753 (Primicias/CNE); Lasso 1.830.172 x 1.830.045. Comparecimento não conferido.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "equador_2023",
+   "pais": "Equador",
+   "ano": 2023,
+   "data_1t": "2023-08-20",
+   "data_2t": "2023-10-15",
+   "lider_1t": "Luisa González (RC, correísmo)",
+   "segundo_1t": "Daniel Noboa (ADN, centro-direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 3315663,
+     "2t": 4880525
+    },
+    "segundo_1t": {
+     "1t": 2315296,
+     "2t": 5251695
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 82.92,
+    "2t": 82.36
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 33.61,
+    "segundo_1t": 23.47
+   },
+   "pct_2t": {
+    "lider_1t": 48.17,
+    "segundo_1t": 51.83
+   },
+   "soma_finalistas_1t_pct": 57.08,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 41.12,
+    "fatia_segundo_1t_no_2t": 51.83,
+    "variacao_pts": 10.71
+   },
+   "votos_acrescidos_aos_finalistas": 4501261,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 65.2,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 126.8,
+   "margem_1t_lider_pts": 10.14,
+   "margem_2t_lider_1t_pts_dois": -3.66,
+   "pesquisas": {
+    "n": 8,
+    "margem_media_lider_1t_pts": -0.29,
+    "faixa": [
+     -6.7,
+     2.2
+    ],
+    "lider_1t_a_frente_em": 5,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": -3.37,
+    "lista": [
+     {
+      "instituto": "Omar Maluk",
+      "data": "14/10",
+      "lider_1t": 49.1,
+      "segundo_1t": 50.9,
+      "margem_dois": -1.8
+     },
+     {
+      "instituto": "CIT Peru",
+      "data": "15/10 (projeção)",
+      "lider_1t": 50.86,
+      "segundo_1t": 49.14,
+      "margem_dois": 1.72
+     },
+     {
+      "instituto": "Dado Duro",
+      "data": "10/10",
+      "lider_1t": 39.6,
+      "segundo_1t": 38.6,
+      "margem_dois": 1.28
+     },
+     {
+      "instituto": "Negocios & Estrategias",
+      "data": "09/10",
+      "lider_1t": 50.06,
+      "segundo_1t": 49.94,
+      "margem_dois": 0.12
+     },
+     {
+      "instituto": "Comunicaliza",
+      "data": "08/10",
+      "lider_1t": 36.2,
+      "segundo_1t": 41.4,
+      "margem_dois": -6.7
+     },
+     {
+      "instituto": "Omar Maluk",
+      "data": "05/10",
+      "lider_1t": 51.1,
+      "segundo_1t": 48.9,
+      "margem_dois": 2.2
+     },
+     {
+      "instituto": "NEO Consulta",
+      "data": "04/10",
+      "lider_1t": 51.1,
+      "segundo_1t": 48.9,
+      "margem_dois": 2.2
+     },
+     {
+      "instituto": "Negocios & Estrategias",
+      "data": "04/10",
+      "lider_1t": 42.8,
+      "segundo_1t": 44,
+      "margem_dois": -1.38
+     }
+    ],
+    "nota": "Pesquisas finais praticamente empatadas, sem líder claro."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "parcial: lider_1t_perdeu_com_pesquisas_divididas_ou_empatadas",
+   "apoios_eliminados": "Não conferido em fonte.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na junta receptora do voto.",
+   "fraude_e_verificacao": "Não. González reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Ecuadorian_general_election",
+    "https://www.primicias.ec/noticias/elecciones-presidenciales-2023/escrutinio-cierre-resultados-noboa-triunfo-votos",
+    "https://primicias.ec/noticias/elecciones-presidenciales-2023/resultados-oficiales-primera-vuelta-ecuador"
+   ],
+   "divergencias": "",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "equador_2025",
+   "pais": "Equador",
+   "ano": 2025,
+   "data_1t": "2025-02-09",
+   "data_2t": "2025-04-13",
+   "lider_1t": "Daniel Noboa (ADN, presidente, centro-direita)",
+   "segundo_1t": "Luisa González (RC, correísmo)",
+   "votos": {
+    "lider_1t": {
+     "1t": 4527606,
+     "2t": 5870618
+    },
+    "segundo_1t": {
+     "1t": 4510860,
+     "2t": 4683260
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 82.0,
+    "2t": 82.97
+   },
+   "dias_entre_turnos": 63,
+   "pct_1t": {
+    "lider_1t": 44.17,
+    "segundo_1t": 44.0
+   },
+   "pct_2t": {
+    "lider_1t": 55.63,
+    "segundo_1t": 44.37
+   },
+   "soma_finalistas_1t_pct": 88.17,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 49.91,
+    "fatia_segundo_1t_no_2t": 44.37,
+    "variacao_pts": -5.53
+   },
+   "votos_acrescidos_aos_finalistas": 1515412,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 11.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 3.8,
+   "margem_1t_lider_pts": 0.16,
+   "margem_2t_lider_1t_pts_dois": 11.25,
+   "pesquisas": {
+    "n": 9,
+    "margem_media_lider_1t_pts": -1.07,
+    "faixa": [
+     -7.94,
+     7.49
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 6,
+    "erro_margem_pts": 12.32,
+    "lista": [
+     {
+      "instituto": "Comunicaliza",
+      "data": "03/04",
+      "lider_1t": 41.5,
+      "segundo_1t": 41.1,
+      "margem_dois": 0.48
+     },
+     {
+      "instituto": "Telcodata",
+      "data": "03/04",
+      "lider_1t": 49.8,
+      "segundo_1t": 50.2,
+      "margem_dois": -0.4
+     },
+     {
+      "instituto": "Tino Electoral",
+      "data": "03/04",
+      "lider_1t": 52.4,
+      "segundo_1t": 45.1,
+      "margem_dois": 7.49
+     },
+     {
+      "instituto": "TresPuntoZero",
+      "data": "01/04",
+      "lider_1t": 45.1,
+      "segundo_1t": 50.6,
+      "margem_dois": -5.75
+     },
+     {
+      "instituto": "Pedro Cango",
+      "data": "25-30/03",
+      "lider_1t": 48.1,
+      "segundo_1t": 51.9,
+      "margem_dois": -3.8
+     },
+     {
+      "instituto": "Áltica",
+      "data": "28/03",
+      "lider_1t": 42.3,
+      "segundo_1t": 44.1,
+      "margem_dois": -2.08
+     },
+     {
+      "instituto": "MR Analítica",
+      "data": "27/03",
+      "lider_1t": 42.98,
+      "segundo_1t": 50.39,
+      "margem_dois": -7.94
+     },
+     {
+      "instituto": "Tino Electoral",
+      "data": "25/03",
+      "lider_1t": 51.0,
+      "segundo_1t": 45.9,
+      "margem_dois": 5.26
+     },
+     {
+      "instituto": "Negocios y Estrategias",
+      "data": "24/03",
+      "lider_1t": 48.55,
+      "segundo_1t": 51.45,
+      "margem_dois": -2.9
+     }
+    ],
+    "nota": "Das 9 pesquisas finais, 6 davam González à frente; média levemente pró-González. Noboa venceu por 11 pontos."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu_estando_atras_nas_pesquisas",
+   "apoios_eliminados": "Pachakutik (Leonidas Iza, 5,25%) apoiou González após ela aceitar 25 exigências; a CONFENIAE (ramo amazônico da CONAIE) apoiou Noboa; o PSC apoiou Noboa.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na junta receptora do voto.",
+   "fraude_e_verificacao": "Sim. González não reconheceu, alegou fraude sem provas e pediu recontagem, citando a distância das pesquisas e bocas de urna; as impugnações foram descartadas e o CNE proclamou em 10/05/2025. Missões da UE e da OEA consideraram a eleição livre e justa; a OEA disse que o resultado batia com sua amostra.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Ecuadorian_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2025_Ecuadorian_general_election",
+    "https://www.elcomercio.com/actualidad/politica/cne-proclama-resultados-finales-daniel-noboa-gano-eleccion.html",
+    "https://primicias.ec/elecciones/ecuador2025/presidenciales/mision-oea-resultados-electorales-ecuador-reeleccion-daniel-noboa-94884",
+    "https://www.expreso.ec/actualidad/daniel-noboa-presidente-reelecto-cne-proclamo-resultado-segunda-vuelta-241970"
+   ],
+   "divergencias": "",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "chile_2017",
+   "pais": "Chile",
+   "ano": 2017,
+   "data_1t": "2017-11-19",
+   "data_2t": "2017-12-17",
+   "lider_1t": "Sebastián Piñera (Chile Vamos, centro-direita)",
+   "segundo_1t": "Alejandro Guillier (Fuerza de Mayoría, centro-esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 2418540,
+     "2t": 3796918
+    },
+    "segundo_1t": {
+     "1t": 1498040,
+     "2t": 3160628
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 46.72,
+    "2t": 49.02
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 36.64,
+    "segundo_1t": 22.7
+   },
+   "pct_2t": {
+    "lider_1t": 54.57,
+    "segundo_1t": 45.43
+   },
+   "soma_finalistas_1t_pct": 59.34,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 38.25,
+    "fatia_segundo_1t_no_2t": 45.43,
+    "variacao_pts": 7.18
+   },
+   "votos_acrescidos_aos_finalistas": 3040966,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 54.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 111.0,
+   "margem_1t_lider_pts": 13.95,
+   "margem_2t_lider_1t_pts_dois": 9.15,
+   "pesquisas": {
+    "n": 2,
+    "margem_media_lider_1t_pts": 3.47,
+    "faixa": [
+     1.78,
+     5.15
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 5.68,
+    "lista": [
+     {
+      "instituto": "Cadem",
+      "data": "29/11-01/12",
+      "lider_1t": 40.0,
+      "segundo_1t": 38.6,
+      "margem_dois": 1.78
+     },
+     {
+      "instituto": "Criteria",
+      "data": "22-28/11",
+      "lider_1t": 51,
+      "segundo_1t": 46,
+      "margem_dois": 5.15
+     }
+    ],
+    "nota": "Pesquisas apontavam disputa apertada (Piñera +1,8 a +5); Piñera venceu por 9. No 1º turno, as pesquisas superestimaram Piñera."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Não.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2017_Chilean_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2017_Chilean_general_election"
+   ],
+   "divergencias": "Só Wikipedia (fonte oficial citada no artigo, não aberta).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "chile_2021",
+   "pais": "Chile",
+   "ano": 2021,
+   "data_1t": "2021-11-21",
+   "data_2t": "2021-12-19",
+   "lider_1t": "José Antonio Kast (Republicanos, direita)",
+   "segundo_1t": "Gabriel Boric (Apruebo Dignidad, esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1961779,
+     "2t": 3650088
+    },
+    "segundo_1t": {
+     "1t": 1815024,
+     "2t": 4620890
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 47.33,
+    "2t": 55.64
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 27.91,
+    "segundo_1t": 25.82
+   },
+   "pct_2t": {
+    "lider_1t": 44.13,
+    "segundo_1t": 55.87
+   },
+   "soma_finalistas_1t_pct": 53.74,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 48.06,
+    "fatia_segundo_1t_no_2t": 55.87,
+    "variacao_pts": 7.81
+   },
+   "votos_acrescidos_aos_finalistas": 4494175,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 62.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 154.6,
+   "margem_1t_lider_pts": 2.09,
+   "margem_2t_lider_1t_pts_dois": -11.74,
+   "pesquisas": {
+    "n": 8,
+    "margem_media_lider_1t_pts": -7.96,
+    "faixa": [
+     -19.72,
+     0.33
+    ],
+    "lider_1t_a_frente_em": 1,
+    "segundo_a_frente_em": 7,
+    "erro_margem_pts": -3.78,
+    "lista": [
+     {
+      "instituto": "AtlasIntel",
+      "data": "01-04/12",
+      "lider_1t": 38.7,
+      "segundo_1t": 41.0,
+      "margem_dois": -2.89
+     },
+     {
+      "instituto": "Activa",
+      "data": "30/11-04/12",
+      "lider_1t": 28.3,
+      "segundo_1t": 42.2,
+      "margem_dois": -19.72
+     },
+     {
+      "instituto": "Feedback",
+      "data": "30/11-02/12",
+      "lider_1t": 39,
+      "segundo_1t": 45,
+      "margem_dois": -7.14
+     },
+     {
+      "instituto": "Cadem",
+      "data": "30/11-02/12",
+      "lider_1t": 35,
+      "segundo_1t": 40,
+      "margem_dois": -6.67
+     },
+     {
+      "instituto": "Studio Público",
+      "data": "26-29/11",
+      "lider_1t": 45.3,
+      "segundo_1t": 45.0,
+      "margem_dois": 0.33
+     },
+     {
+      "instituto": "Data Influye",
+      "data": "25-29/11",
+      "lider_1t": 34,
+      "segundo_1t": 47,
+      "margem_dois": -16.05
+     },
+     {
+      "instituto": "Criteria",
+      "data": "25-29/11",
+      "lider_1t": 46,
+      "segundo_1t": 54,
+      "margem_dois": -8.0
+     },
+     {
+      "instituto": "Black & White",
+      "data": "26-27/11",
+      "lider_1t": 41,
+      "segundo_1t": 44,
+      "margem_dois": -3.53
+     }
+    ],
+    "nota": "Boric liderava quase todas as pesquisas (7 de 8)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Sichel (12,79%) e Parisi (12,81%) apoiaram Kast (Wikipedia). Pesquisa pós-eleição (Pulso Ciudadano, CNN Chile): 59% dos eleitores de Parisi e 23% dos de Sichel votaram em Boric, apesar dos apoios a Kast; 82% dos de Provoste (11,6%) votaram em Boric.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Não. Kast reconheceu a derrota logo após a apuração.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2021_Chilean_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Chilean_presidential_election",
+    "https://www.chilevision.cl/noticias/nacional/con-el-5587-de-los-votos-tricel-proclamo-a-gabriel-boric-como-presidente-electo/amp/",
+    "https://www.elmostrador.cl/destacado/2021/12/19/jose-antonio-kast-reconoce-derrota-y-llama-a-gabriel-boric-para-felicitarlo-por-su-gran-triunfo/",
+    "https://www.cnnchile.com/elecciones2021/pulso-ciudadano-votantes-parisi-sichel-segunda-vuelta_20211226/"
+   ],
+   "divergencias": "Comparecimento do 2º turno: 55,64% (Wikipedia) x cerca de 55,3% calculado de 8.314.173 votos sobre 15.030.974 eleitores (imprensa). Kast 3.650.088 (Wikipedia) x 3.650.662 (imprensa).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "chile_2025",
+   "pais": "Chile",
+   "ano": 2025,
+   "data_1t": "2025-11-16",
+   "data_2t": "2025-12-14",
+   "lider_1t": "Jeannette Jara (Unidad por Chile, PC, esquerda)",
+   "segundo_1t": "José Antonio Kast (Republicanos, direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 3483490,
+     "2t": 5222558
+    },
+    "segundo_1t": {
+     "1t": 3104458,
+     "2t": 7263236
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 85.42,
+    "2t": 85.14
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 26.85,
+    "segundo_1t": 23.93
+   },
+   "pct_2t": {
+    "lider_1t": 41.83,
+    "segundo_1t": 58.17
+   },
+   "soma_finalistas_1t_pct": 50.77,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 47.12,
+    "fatia_segundo_1t_no_2t": 58.17,
+    "variacao_pts": 11.05
+   },
+   "votos_acrescidos_aos_finalistas": 5897846,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 70.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 134.0,
+   "margem_1t_lider_pts": 2.92,
+   "margem_2t_lider_1t_pts_dois": -16.34,
+   "pesquisas": {
+    "n": 9,
+    "margem_media_lider_1t_pts": -20.1,
+    "faixa": [
+     -26.88,
+     -15.0
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 9,
+    "erro_margem_pts": 3.76,
+    "lista": [
+     {
+      "instituto": "Encuesta Nacional",
+      "data": "30/11",
+      "lider_1t": 39,
+      "segundo_1t": 61,
+      "margem_dois": -22.0
+     },
+     {
+      "instituto": "Cadem",
+      "data": "29/11",
+      "lider_1t": 34,
+      "segundo_1t": 46,
+      "margem_dois": -15.0
+     },
+     {
+      "instituto": "Activa",
+      "data": "29/11",
+      "lider_1t": 31.6,
+      "segundo_1t": 45.2,
+      "margem_dois": -17.71
+     },
+     {
+      "instituto": "Panel Ciudadano",
+      "data": "28/11",
+      "lider_1t": 34,
+      "segundo_1t": 50,
+      "margem_dois": -19.05
+     },
+     {
+      "instituto": "Criteria",
+      "data": "27/11",
+      "lider_1t": 35,
+      "segundo_1t": 51,
+      "margem_dois": -18.6
+     },
+     {
+      "instituto": "Data Influye",
+      "data": "22-27/11",
+      "lider_1t": 34,
+      "segundo_1t": 59,
+      "margem_dois": -26.88
+     },
+     {
+      "instituto": "AtlasIntel",
+      "data": "22-26/11",
+      "lider_1t": 35,
+      "segundo_1t": 56.9,
+      "margem_dois": -23.83
+     },
+     {
+      "instituto": "Gallup",
+      "data": "20-26/11",
+      "lider_1t": 38,
+      "segundo_1t": 59,
+      "margem_dois": -21.65
+     },
+     {
+      "instituto": "CB",
+      "data": "18-23/11",
+      "lider_1t": 36.7,
+      "segundo_1t": 50.9,
+      "margem_dois": -16.21
+     }
+    ],
+    "nota": "Kast liderava todas, por 12 a 25 pontos (pesquisas até o início do silêncio de duas semanas)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Kaiser (13,94%) e Matthei (12,46%) apoiaram Kast; Parisi (19,71%) não apoiou ninguém.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa (voto obrigatório).",
+   "fraude_e_verificacao": "Não. Jara reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Chilean_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2025_Chilean_presidential_election",
+    "https://www.elmostrador.cl/noticias/pais/2026/01/05/kast-sera-proclamado-este-lunes-como-presidente-electo-por-el-tricel/",
+    "https://canaln.pe/internacionales/tricel-proclamo-oficialmente-jose-antonio-kast-como-presidente-electo-chile-n489382",
+    "https://www.vozpopuli.com/internacional/kast-gana-la-segunda-vuelta-de-las-elecciones-presidenciales-de-chile.html",
+    "https://www.meganoticias.cl/nacional/506000-minuto-a-minuto-resultados-elecciones-presidenciales-y-parlamentarias-voto-a-voto-16-11-2025.html"
+   ],
+   "divergencias": "2º turno: Tricel 58,16 x 41,84 (El Mostrador, Canal N); Wikipedia 58,17 x 41,83 (7.263.236 x 5.222.558); Vozpópuli publicou 58,61 x 41,39 com 6.084.364 x 4.295.958 votos como '100%', números incompatíveis com o comparecimento de 85% e provavelmente parciais. 1º turno de Kast: 23,92% x 23,93%.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "guatemala_2019",
+   "pais": "Guatemala",
+   "ano": 2019,
+   "data_1t": "2019-06-16",
+   "data_2t": "2019-08-11",
+   "lider_1t": "Sandra Torres (UNE, centro-esquerda)",
+   "segundo_1t": "Alejandro Giammattei (Vamos, direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1112939,
+     "2t": 1384044
+    },
+    "segundo_1t": {
+     "1t": 608083,
+     "2t": 1907767
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 61.84,
+    "2t": 42.66
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 25.42,
+    "segundo_1t": 13.89
+   },
+   "pct_2t": {
+    "lider_1t": 42.05,
+    "segundo_1t": 57.95
+   },
+   "soma_finalistas_1t_pct": 39.31,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 35.33,
+    "fatia_segundo_1t_no_2t": 57.95,
+    "variacao_pts": 22.62
+   },
+   "votos_acrescidos_aos_finalistas": 1570789,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 82.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 213.7,
+   "margem_1t_lider_pts": 11.53,
+   "margem_2t_lider_1t_pts_dois": -15.91,
+   "pesquisas": {
+    "n": 1,
+    "margem_media_lider_1t_pts": -25.58,
+    "faixa": [
+     -25.58,
+     -25.58
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 1,
+    "erro_margem_pts": 9.67,
+    "lista": [
+     {
+      "instituto": "ProDatos/Prensa Libre",
+      "data": "junho (antes do 1º turno)",
+      "lider_1t": 32,
+      "segundo_1t": 54,
+      "margem_dois": -25.58
+     }
+    ],
+    "nota": "Pesquisa da ProDatos de junho já dava Giammattei 54 x 32 num 2º turno; a imprensa registrou que ele venceu 'como as pesquisas previam'."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não conferido.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019_Guatemalan_general_election",
+    "https://emisorasunidas.com/2019/08/07/encuesta-intencion-de-voto-segunda-vuelta/",
+    "https://www.lavozdesanjusto.com.ar/-giammattei-se-quedo-con-la-presidencia-de-guatemala--70920"
+   ],
+   "divergencias": "Percentuais do TSE sobre votos emitidos (Torres 22,08 e Giammattei 12,06 no 1º turno, segundo a imprensa) diferem dos calculados sobre votos em candidatos (25,42 e 13,89).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "guatemala_2023",
+   "pais": "Guatemala",
+   "ano": 2023,
+   "data_1t": "2023-06-25",
+   "data_2t": "2023-08-20",
+   "lider_1t": "Sandra Torres (UNE)",
+   "segundo_1t": "Bernardo Arévalo (Semilla, centro-esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 888924,
+     "2t": 1567664
+    },
+    "segundo_1t": {
+     "1t": 653486,
+     "2t": 2442718
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 60.78,
+    "2t": 44.98
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 21.1,
+    "segundo_1t": 15.51
+   },
+   "pct_2t": {
+    "lider_1t": 39.09,
+    "segundo_1t": 60.91
+   },
+   "soma_finalistas_1t_pct": 36.62,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 42.37,
+    "fatia_segundo_1t_no_2t": 60.91,
+    "variacao_pts": 18.54
+   },
+   "votos_acrescidos_aos_finalistas": 2467972,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 72.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 273.8,
+   "margem_1t_lider_pts": 5.59,
+   "margem_2t_lider_1t_pts_dois": -21.82,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": -15.1,
+    "faixa": [
+     -28.0,
+     8.7
+    ],
+    "lider_1t_a_frente_em": 1,
+    "segundo_a_frente_em": 2,
+    "erro_margem_pts": -6.72,
+    "lista": [
+     {
+      "instituto": "CID Gallup",
+      "data": "fim de julho/agosto",
+      "lider_1t": 36.0,
+      "segundo_1t": 64.0,
+      "margem_dois": -28.0
+     },
+     {
+      "instituto": "CID Gallup",
+      "data": "18-27/07",
+      "lider_1t": 37.0,
+      "segundo_1t": 63.0,
+      "margem_dois": -26.0
+     },
+     {
+      "instituto": "Innovem",
+      "data": "20-26/07",
+      "lider_1t": 45.0,
+      "segundo_1t": 37.8,
+      "margem_dois": 8.7
+     }
+    ],
+    "nota": "Arévalo liderava por larga margem (uma pesquisa da Innovem dava Torres à frente)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Não conferido; Torres buscou os eleitores conservadores de Zury Ríos.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Sim. Torres e a UNE não aceitaram o resultado e alegaram fraude; em 08/12/2023 o Ministério Público apontou 'irregularidades' e pediu a anulação. OEA, UE, ONU e EUA disseram que os resultados batiam com suas observações e negaram fraude.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Guatemalan_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2023_Guatemalan_general_election",
+    "https://www.eeas.europa.eu/sites/default/files/documents/2023/GT%202023%20PS2%20FINAL%20ES.pdf",
+    "https://www.revistaeyn.com/centroamericaymundo/tse-oficializa-los-resultados-de-las-elecciones-2023-en-guatemala-BP14391321"
+   ],
+   "divergencias": "O TSE publica percentuais sobre votos emitidos (Torres 15,86% no 1º turno; Arévalo 58,0% no 2º); aqui os percentuais são sobre votos em candidatos (Torres 21,1; Arévalo 60,9).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "bolivia_2025",
+   "pais": "Bolívia",
+   "ano": 2025,
+   "data_1t": "2025-08-17",
+   "data_2t": "2025-10-19",
+   "lider_1t": "Rodrigo Paz (PDC, centro-direita)",
+   "segundo_1t": "Jorge 'Tuto' Quiroga (Libre, direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1717432,
+     "2t": 3519534
+    },
+    "segundo_1t": {
+     "1t": 1430176,
+     "2t": 2884661
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 86.95,
+    "2t": 85.32
+   },
+   "dias_entre_turnos": 63,
+   "pct_1t": {
+    "lider_1t": 32.06,
+    "segundo_1t": 26.7
+   },
+   "pct_2t": {
+    "lider_1t": 54.96,
+    "segundo_1t": 45.04
+   },
+   "soma_finalistas_1t_pct": 58.76,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 45.44,
+    "fatia_segundo_1t_no_2t": 45.04,
+    "variacao_pts": -0.39
+   },
+   "votos_acrescidos_aos_finalistas": 3256587,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 44.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 101.7,
+   "margem_1t_lider_pts": 5.36,
+   "margem_2t_lider_1t_pts_dois": 9.91,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": -8.55,
+    "faixa": [
+     -10.32,
+     -5.15
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": 18.46,
+    "lista": [
+     {
+      "instituto": "Ipsos Ciesmori/Unitel",
+      "data": "06-09/10",
+      "lider_1t": 36.5,
+      "segundo_1t": 44.9,
+      "margem_dois": -10.32
+     },
+     {
+      "instituto": "Captura/Red Uno",
+      "data": "03-07/10",
+      "lider_1t": 38.7,
+      "segundo_1t": 42.9,
+      "margem_dois": -5.15
+     },
+     {
+      "instituto": "CB Consultora",
+      "data": "01-06/10",
+      "lider_1t": 36.2,
+      "segundo_1t": 44.4,
+      "margem_dois": -10.17
+     }
+    ],
+    "nota": "Quiroga liderava todas as pesquisas do 2º turno (4 a 8 pontos). No 1º turno, Paz também tinha sido subestimado pelas pesquisas."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu_estando_atras_nas_pesquisas",
+   "apoios_eliminados": "Samuel Doria Medina (19,69%) apoiou Paz.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Não. Quiroga reconheceu a derrota horas depois; o TSE proclamou sem recursos de nulidade.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Bolivian_general_election",
+    "https://eju.tv/2025/10/tse-proclama-oficialmente-a-rodrigo-paz-como-el-presidente-electo-y-a-edman-lara-como-el-vicepresidente-de-bolivia/",
+    "https://www.prensa.com/mundo/computo-de-elecciones-en-bolivia-alcanza-el-100-y-confirma-balotaje-entre-paz-y-quiroga/",
+    "https://andina.pe/agencia/noticia-rodrigo-paz-gana-segunda-vuelta-presidencial-bolivia-1048928.aspx"
+   ],
+   "divergencias": "2º turno: 54,96 x 45,04 (Wikipedia, cômputo OEP) x 54,57 x 45,43 (Sirepre preliminar com 97,68%, EFE). 1º turno: 32,06 x 26,70 (EFE) x 32,15 x 26,68 (outra contagem citada).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "eslovaquia_2019",
+   "pais": "Eslováquia",
+   "ano": 2019,
+   "data_1t": "2019-03-16",
+   "data_2t": "2019-03-30",
+   "lider_1t": "Zuzana Čaputová (PS, liberal)",
+   "segundo_1t": "Maroš Šefčovič (indep., apoiado pelo Smer)",
+   "votos": {
+    "lider_1t": {
+     "1t": 870415,
+     "2t": 1056582
+    },
+    "segundo_1t": {
+     "1t": 400379,
+     "2t": 752403
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 48.74,
+    "2t": 41.8
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 40.57,
+    "segundo_1t": 18.66
+   },
+   "pct_2t": {
+    "lider_1t": 58.41,
+    "segundo_1t": 41.59
+   },
+   "soma_finalistas_1t_pct": 59.23,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 31.51,
+    "fatia_segundo_1t_no_2t": 41.59,
+    "variacao_pts": 10.09
+   },
+   "votos_acrescidos_aos_finalistas": 538191,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 65.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 87.9,
+   "margem_1t_lider_pts": 21.91,
+   "margem_2t_lider_1t_pts_dois": 16.81,
+   "pesquisas": {
+    "n": 2,
+    "margem_media_lider_1t_pts": 15.7,
+    "faixa": [
+     10.4,
+     21.0
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 1.11,
+    "lista": [
+     {
+      "instituto": "Focus",
+      "data": "28-29/03",
+      "lider_1t": 55.2,
+      "segundo_1t": 44.8,
+      "margem_dois": 10.4
+     },
+     {
+      "instituto": "Median",
+      "data": "17-19/03",
+      "lider_1t": 60.5,
+      "segundo_1t": 39.5,
+      "margem_dois": 21.0
+     }
+    ],
+    "nota": "Čaputová liderava todas."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019_Slovak_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia (fonte oficial citada: Statistics.sk).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "eslovaquia_2024",
+   "pais": "Eslováquia",
+   "ano": 2024,
+   "data_1t": "2024-03-23",
+   "data_2t": "2024-04-06",
+   "lider_1t": "Ivan Korčok (indep., pró-Ocidente, apoiado pela oposição liberal e de centro-direita)",
+   "segundo_1t": "Peter Pellegrini (Hlas, apoiado pelo governo Fico)",
+   "votos": {
+    "lider_1t": {
+     "1t": 958393,
+     "2t": 1243709
+    },
+    "segundo_1t": {
+     "1t": 834718,
+     "2t": 1409255
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 51.9,
+    "2t": 61.14
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 42.52,
+    "segundo_1t": 37.03
+   },
+   "pct_2t": {
+    "lider_1t": 46.88,
+    "segundo_1t": 53.12
+   },
+   "soma_finalistas_1t_pct": 79.55,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 46.55,
+    "fatia_segundo_1t_no_2t": 53.12,
+    "variacao_pts": 6.57
+   },
+   "votos_acrescidos_aos_finalistas": 859853,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 66.8,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 68.8,
+   "margem_1t_lider_pts": 5.49,
+   "margem_2t_lider_1t_pts_dois": -6.24,
+   "pesquisas": {
+    "n": 5,
+    "margem_media_lider_1t_pts": 1.96,
+    "faixa": [
+     -2.2,
+     9.98
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 2,
+    "erro_margem_pts": -8.2,
+    "lista": [
+     {
+      "instituto": "Ipsos",
+      "data": "30/03-02/04",
+      "lider_1t": 50.1,
+      "segundo_1t": 49.9,
+      "margem_dois": 0.2
+     },
+     {
+      "instituto": "NMS",
+      "data": "28/03-02/04",
+      "lider_1t": 51.7,
+      "segundo_1t": 48.3,
+      "margem_dois": 3.4
+     },
+     {
+      "instituto": "Focus",
+      "data": "28/03-02/04",
+      "lider_1t": 49.2,
+      "segundo_1t": 50.8,
+      "margem_dois": -1.6
+     },
+     {
+      "instituto": "Median SK",
+      "data": "28-31/03",
+      "lider_1t": 48.9,
+      "segundo_1t": 51.1,
+      "margem_dois": -2.2
+     },
+     {
+      "instituto": "SCIO",
+      "data": "25/03-02/04",
+      "lider_1t": 54.99,
+      "segundo_1t": 45.01,
+      "margem_dois": 9.98
+     }
+    ],
+    "nota": "Das 5 pesquisas finais, 3 davam Korčok à frente (0,2 a 10 pontos) e 2 davam Pellegrini (1,6 e 2,2). Boca de urna Median: Korčok 51,1. Pellegrini venceu por 6,2."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Harabin (11,74%, nacionalista) não apoiou ninguém; Kubiš e Forró apoiaram Pellegrini; Matovič e Dubovský apoiaram Korčok. O comparecimento subiu de 51,9% para 61,1%.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Korčok reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2024_Slovak_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2024_Slovak_presidential_election",
+    "https://tasr.sk/tasr-clanok/TASR:2024040700000143",
+    "https://spectator.sme.sk/c/23309769/slovakia-presidential-election-result.html",
+    "https://spectator.sme.sk/politics-and-society/c/polls-who-will-become-slovakias-sixth-president",
+    "https://www.intellinews.com/pellegrini-beats-korcok-to-become-the-next-slovak-president-319916"
+   ],
+   "divergencias": "Comparecimento do 2º turno: 61,14% (TASR, Spectator) x 61,12% (Wikipedia). A imprensa (Spectator) dizia que 'a maioria das pesquisas favorece Korčok, por margem modesta'; outra matéria dizia 'sem vencedor certo'.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "tchequia_2018",
+   "pais": "Tchéquia",
+   "ano": 2018,
+   "data_1t": "2018-01-13",
+   "data_2t": "2018-01-27",
+   "lider_1t": "Miloš Zeman (presidente, SPO)",
+   "segundo_1t": "Jiří Drahoš (indep., liberal)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1985547,
+     "2t": 2853390
+    },
+    "segundo_1t": {
+     "1t": 1369601,
+     "2t": 2701206
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 61.92,
+    "2t": 66.6
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 38.57,
+    "segundo_1t": 26.6
+   },
+   "pct_2t": {
+    "lider_1t": 51.37,
+    "segundo_1t": 48.63
+   },
+   "soma_finalistas_1t_pct": 65.17,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 40.82,
+    "fatia_segundo_1t_no_2t": 48.63,
+    "variacao_pts": 7.81
+   },
+   "votos_acrescidos_aos_finalistas": 2199448,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 60.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 97.2,
+   "margem_1t_lider_pts": 11.96,
+   "margem_2t_lider_1t_pts_dois": 2.74,
+   "pesquisas": {
+    "n": 4,
+    "margem_media_lider_1t_pts": -1.05,
+    "faixa": [
+     -4.76,
+     1.1
+    ],
+    "lider_1t_a_frente_em": 1,
+    "segundo_a_frente_em": 2,
+    "erro_margem_pts": 3.79,
+    "lista": [
+     {
+      "instituto": "STEM",
+      "data": "24-25/01",
+      "lider_1t": 46.0,
+      "segundo_1t": 45.0,
+      "margem_dois": 1.1
+     },
+     {
+      "instituto": "TNS Kantar",
+      "data": "22-25/01",
+      "lider_1t": 45.5,
+      "segundo_1t": 46.0,
+      "margem_dois": -0.55
+     },
+     {
+      "instituto": "Median",
+      "data": "24-25/01",
+      "lider_1t": 32.0,
+      "segundo_1t": 32.0,
+      "margem_dois": 0.0
+     },
+     {
+      "instituto": "Median",
+      "data": "22-23/01",
+      "lider_1t": 30.0,
+      "segundo_1t": 33.0,
+      "margem_dois": -4.76
+     }
+    ],
+    "nota": "Empate técnico nas finais (proibição de divulgar a partir de 23/01); a STEM de 17-19/01 dava Drahoš 51,7 x 43,7."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu_estando_atras_nas_pesquisas",
+   "apoios_eliminados": "A maioria dos eliminados (Fischer, Hilšer, Topolánek, Kulhánek) e os partidos ODS, TOP 09 e STAN apoiaram Drahoš; Horáček apoiou 'qualquer um contra Zeman'. Mesmo assim o líder do 1º turno venceu.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Drahoš reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2018_Czech_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2018_Czech_presidential_election",
+    "https://volby.gov.cz/pls/prez2018/pe2?xjazyk=EN",
+    "https://english.radio.cz/node/8171794"
+   ],
+   "divergencias": "Comparecimento: 61,92 / 66,60 (volby.cz) x 61,88 / 66,57 (Wikipedia).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "tchequia_2023",
+   "pais": "Tchéquia",
+   "ano": 2023,
+   "data_1t": "2023-01-14",
+   "data_2t": "2023-01-28",
+   "lider_1t": "Petr Pavel (indep., apoiado pelo Spolu)",
+   "segundo_1t": "Andrej Babiš (ANO, populista)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1975056,
+     "2t": 3359151
+    },
+    "segundo_1t": {
+     "1t": 1952213,
+     "2t": 2400046
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 68.24,
+    "2t": 70.25
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 35.4,
+    "segundo_1t": 34.99
+   },
+   "pct_2t": {
+    "lider_1t": 58.33,
+    "segundo_1t": 41.67
+   },
+   "soma_finalistas_1t_pct": 70.4,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 49.71,
+    "fatia_segundo_1t_no_2t": 41.67,
+    "variacao_pts": -8.04
+   },
+   "votos_acrescidos_aos_finalistas": 1831928,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 24.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 22.9,
+   "margem_1t_lider_pts": 0.41,
+   "margem_2t_lider_1t_pts_dois": 16.65,
+   "pesquisas": {
+    "n": 4,
+    "margem_media_lider_1t_pts": 16.27,
+    "faixa": [
+     15.2,
+     17.6
+    ],
+    "lider_1t_a_frente_em": 4,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 0.38,
+    "lista": [
+     {
+      "instituto": "Median",
+      "data": "20-22/01",
+      "lider_1t": 57.9,
+      "segundo_1t": 42.1,
+      "margem_dois": 15.8
+     },
+     {
+      "instituto": "Ipsos",
+      "data": "20-22/01",
+      "lider_1t": 58.8,
+      "segundo_1t": 41.2,
+      "margem_dois": 17.6
+     },
+     {
+      "instituto": "Data Collect/Kantar",
+      "data": "16-19/01",
+      "lider_1t": 53.0,
+      "segundo_1t": 38.0,
+      "margem_dois": 16.48
+     },
+     {
+      "instituto": "STEM",
+      "data": "16-18/01",
+      "lider_1t": 57.6,
+      "segundo_1t": 42.4,
+      "margem_dois": 15.2
+     }
+    ],
+    "nota": "Pavel liderava todas por cerca de 16 pontos; acertaram."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Nerudová (13,93%) apoiou Pavel.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Babiš reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Czech_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2023_Czech_presidential_election",
+    "https://volby.gov.cz/pls/prez2023/pe2?xjazyk=EN"
+   ],
+   "divergencias": "Comparecimento: 68,24 / 70,25 (volby.cz) x 68,19 / 70,22 (Wikipedia). Pavel 58,32% (volby.cz) x 58,33% (Wikipedia).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "portugal_2026",
+   "pais": "Portugal",
+   "ano": 2026,
+   "data_1t": "2026-01-18",
+   "data_2t": "2026-02-08",
+   "lider_1t": "António José Seguro (PS, centro-esquerda)",
+   "segundo_1t": "André Ventura (Chega, direita radical)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1755563,
+     "2t": 3502613
+    },
+    "segundo_1t": {
+     "1t": 1327021,
+     "2t": 1737950
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 52.39,
+    "2t": 50.03
+   },
+   "dias_entre_turnos": 21,
+   "pct_1t": {
+    "lider_1t": 31.11,
+    "segundo_1t": 23.52
+   },
+   "pct_2t": {
+    "lider_1t": 66.84,
+    "segundo_1t": 33.16
+   },
+   "soma_finalistas_1t_pct": 54.63,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 43.05,
+    "fatia_segundo_1t_no_2t": 33.16,
+    "variacao_pts": -9.89
+   },
+   "votos_acrescidos_aos_finalistas": 2157979,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 19.0,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 31.0,
+   "margem_1t_lider_pts": 7.59,
+   "margem_2t_lider_1t_pts_dois": 33.67,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": 35.43,
+    "faixa": [
+     34.0,
+     36.68
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -1.76,
+    "lista": [
+     {
+      "instituto": "Pitagórica",
+      "data": "03-05/02",
+      "lider_1t": 67.8,
+      "segundo_1t": 32.2,
+      "margem_dois": 35.6
+     },
+     {
+      "instituto": "CESOP-UCP",
+      "data": "29/01-02/02",
+      "lider_1t": 67,
+      "segundo_1t": 33,
+      "margem_dois": 34.0
+     },
+     {
+      "instituto": "Aximage",
+      "data": "29/01-02/02",
+      "lider_1t": 65.4,
+      "segundo_1t": 30.3,
+      "margem_dois": 36.68
+     }
+    ],
+    "nota": "Seguro liderava todas por mais de 30 pontos."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "O primeiro-ministro Luís Montenegro (PSD) anunciou neutralidade; Cotrim de Figueiredo (16,0%) criticou essa neutralidade. Apoios dos demais não conferidos.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Não. Ventura reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2026_Portuguese_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Portuguese_presidential_election",
+    "https://rr.pt/especial/politica/2026/01/18/seguro-vence-primeira-volta-e-enfrentara-ventura-na-derradeira-corrida-a-belem/455818/",
+    "https://rr.pt/noticia/politica/2026/02/08/andre-ventura-portugueses-colocaram-nos-no-caminho-para-governar-este-pais/458667/"
+   ],
+   "divergencias": "Parte do 2º turno foi adiada para 15/02 em algumas freguesias. Comparecimento não conferido fora da Wikipedia.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "colombia_2018",
+   "pais": "Colômbia",
+   "ano": 2018,
+   "data_1t": "2018-05-27",
+   "data_2t": "2018-06-17",
+   "lider_1t": "Iván Duque (Centro Democrático, direita)",
+   "segundo_1t": "Gustavo Petro (Colombia Humana, esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 7616857,
+     "2t": 10398689
+    },
+    "segundo_1t": {
+     "1t": 4855069,
+     "2t": 8040449
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 53.4,
+    "2t": 53.11
+   },
+   "dias_entre_turnos": 21,
+   "pct_1t": {
+    "lider_1t": 40.06,
+    "segundo_1t": 25.53
+   },
+   "pct_2t": {
+    "lider_1t": 56.39,
+    "segundo_1t": 43.61
+   },
+   "soma_finalistas_1t_pct": 65.59,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 38.93,
+    "fatia_segundo_1t_no_2t": 43.61,
+    "variacao_pts": 4.68
+   },
+   "votos_acrescidos_aos_finalistas": 5967212,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 53.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 65.6,
+   "margem_1t_lider_pts": 14.52,
+   "margem_2t_lider_1t_pts_dois": 12.79,
+   "pesquisas": {
+    "n": 5,
+    "margem_media_lider_1t_pts": 16.41,
+    "faixa": [
+     6.94,
+     22.22
+    ],
+    "lider_1t_a_frente_em": 5,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -3.62,
+    "lista": [
+     {
+      "instituto": "Invamer",
+      "data": "junho",
+      "lider_1t": 57.2,
+      "segundo_1t": 37.3,
+      "margem_dois": 21.06
+     },
+     {
+      "instituto": "Cifras y Conceptos",
+      "data": "junho",
+      "lider_1t": 45.3,
+      "segundo_1t": 36.4,
+      "margem_dois": 10.89
+     },
+     {
+      "instituto": "YanHaas",
+      "data": "junho",
+      "lider_1t": 52,
+      "segundo_1t": 34,
+      "margem_dois": 20.93
+     },
+     {
+      "instituto": "CNC",
+      "data": "junho",
+      "lider_1t": 55,
+      "segundo_1t": 35,
+      "margem_dois": 22.22
+     },
+     {
+      "instituto": "Datexco",
+      "data": "junho",
+      "lider_1t": 46.2,
+      "segundo_1t": 40.2,
+      "margem_dois": 6.94
+     }
+    ],
+    "nota": "Duque liderava todas, por 6 a 20 pontos."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "O Partido Liberal (Gaviria) apoiou Duque; Fajardo (24,2%) e De la Calle anunciaram voto em branco.",
+   "votacao_apuracao": "Cédula de papel, contagem manual pelos jurados de mesa (pré-contagem e escrutínio).",
+   "fraude_e_verificacao": "Não por parte do perdedor (não conferido em detalhe).",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2018_Colombian_presidential_election",
+    "https://www.lasillavacia.com/?p=44527",
+    "https://www.asuntoslegales.com.co/actualidad/encuestas-establecen-diferencia-de-seis-a-20-puntos-entre-ivan-duque-y-gustavo-petro-2736361"
+   ],
+   "divergencias": "A Registraduría inclui o voto em branco no denominador (Duque 53,98 x Petro 41,81 no 2º turno); aqui os percentuais são sobre votos em candidatos.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "colombia_2022",
+   "pais": "Colômbia",
+   "ano": 2022,
+   "data_1t": "2022-05-29",
+   "data_2t": "2022-06-19",
+   "lider_1t": "Gustavo Petro (Pacto Histórico, esquerda)",
+   "segundo_1t": "Rodolfo Hernández (Liga Anticorrupção, populista de direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 8542020,
+     "2t": 11292758
+    },
+    "segundo_1t": {
+     "1t": 5965531,
+     "2t": 10604656
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 54.98,
+    "2t": 58.17
+   },
+   "dias_entre_turnos": 21,
+   "pct_1t": {
+    "lider_1t": 41.05,
+    "segundo_1t": 28.67
+   },
+   "pct_2t": {
+    "lider_1t": 51.57,
+    "segundo_1t": 48.43
+   },
+   "soma_finalistas_1t_pct": 69.72,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 41.12,
+    "fatia_segundo_1t_no_2t": 48.43,
+    "variacao_pts": 7.31
+   },
+   "votos_acrescidos_aos_finalistas": 7389863,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 62.8,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 77.8,
+   "margem_1t_lider_pts": 12.38,
+   "margem_2t_lider_1t_pts_dois": 3.14,
+   "pesquisas": {
+    "n": 6,
+    "margem_media_lider_1t_pts": 0.85,
+    "faixa": [
+     -2.76,
+     12.5
+    ],
+    "lider_1t_a_frente_em": 1,
+    "segundo_a_frente_em": 5,
+    "erro_margem_pts": 2.29,
+    "lista": [
+     {
+      "instituto": "AtlasIntel",
+      "data": "08-11/06",
+      "lider_1t": 47.5,
+      "segundo_1t": 50.2,
+      "margem_dois": -2.76
+     },
+     {
+      "instituto": "YanHaas",
+      "data": "05-10/06",
+      "lider_1t": 45,
+      "segundo_1t": 35,
+      "margem_dois": 12.5
+     },
+     {
+      "instituto": "GAD3",
+      "data": "30/05-10/06",
+      "lider_1t": 47.1,
+      "segundo_1t": 47.9,
+      "margem_dois": -0.84
+     },
+     {
+      "instituto": "Guarumo",
+      "data": "06-09/06",
+      "lider_1t": 46.5,
+      "segundo_1t": 48.2,
+      "margem_dois": -1.8
+     },
+     {
+      "instituto": "Mosqueteros",
+      "data": "07-08/06",
+      "lider_1t": 43.83,
+      "segundo_1t": 44.68,
+      "margem_dois": -0.96
+     },
+     {
+      "instituto": "Invamer",
+      "data": "03-07/06",
+      "lider_1t": 47.2,
+      "segundo_1t": 48.2,
+      "margem_dois": -1.05
+     }
+    ],
+    "nota": "5 das 6 pesquisas finais davam Hernández à frente (0,8 a 2,7 pontos); só a YanHaas dava Petro (+10)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Federico 'Fico' Gutiérrez (24,36%, direita) apoiou Hernández ('para manter Petro fora').",
+   "votacao_apuracao": "Cédula de papel, contagem manual pelos jurados de mesa.",
+   "fraude_e_verificacao": "Não. Hernández reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2022_Colombian_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Colombian_presidential_election",
+    "https://www.publimetro.co/noticias/2022/06/19/resultados-elecciones-2022-gustavo-petro-supero-los-11-millones-de-votos/"
+   ],
+   "divergencias": "2º turno: 50,44 x 47,31 (escrutínio, Wikipedia) x 50,47 x 47,27 (pré-contagem, boletim 29). A Registraduría inclui o branco no denominador.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "colombia_2026",
+   "pais": "Colômbia",
+   "ano": 2026,
+   "data_1t": "2026-05-31",
+   "data_2t": "2026-06-21",
+   "lider_1t": "Abelardo de la Espriella (Defensores de la Patria / MSN, direita)",
+   "segundo_1t": "Iván Cepeda (Pacto Histórico, esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 10361499,
+     "2t": 12960166
+    },
+    "segundo_1t": {
+     "1t": 9688361,
+     "2t": 12708312
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 57.89,
+    "2t": 63.6
+   },
+   "dias_entre_turnos": 21,
+   "pct_1t": {
+    "lider_1t": 44.51,
+    "segundo_1t": 41.62
+   },
+   "pct_2t": {
+    "lider_1t": 50.49,
+    "segundo_1t": 49.51
+   },
+   "soma_finalistas_1t_pct": 86.13,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 48.32,
+    "fatia_segundo_1t_no_2t": 49.51,
+    "variacao_pts": 1.19
+   },
+   "votos_acrescidos_aos_finalistas": 5618618,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 53.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 31.2,
+   "margem_1t_lider_pts": 2.89,
+   "margem_2t_lider_1t_pts_dois": 0.98,
+   "pesquisas": {
+    "n": 4,
+    "margem_media_lider_1t_pts": 7.05,
+    "faixa": [
+     4.18,
+     8.26
+    ],
+    "lider_1t_a_frente_em": 4,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -6.07,
+    "lista": [
+     {
+      "instituto": "CNC",
+      "data": "06-13/06",
+      "lider_1t": 48.6,
+      "segundo_1t": 44.7,
+      "margem_dois": 4.18
+     },
+     {
+      "instituto": "AtlasIntel/Semana",
+      "data": "09-11/06",
+      "lider_1t": 52.4,
+      "segundo_1t": 44.4,
+      "margem_dois": 8.26
+     },
+     {
+      "instituto": "Guarumo",
+      "data": "08-11/06",
+      "lider_1t": 52.6,
+      "segundo_1t": 45,
+      "margem_dois": 7.79
+     },
+     {
+      "instituto": "AtlasIntel/Semana",
+      "data": "05-10/06",
+      "lider_1t": 52.2,
+      "segundo_1t": 44.5,
+      "margem_dois": 7.96
+     }
+    ],
+    "nota": "De la Espriella liderava as quatro pesquisas finais por 4 a 8 pontos; venceu por 1. As pesquisas superestimaram o líder do 1º turno, que ainda assim ganhou."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Paloma Valencia (Centro Democrático, 7,0%) apoiou De la Espriella; Fajardo (4,3%) abriu 'reflexão' sem decisão localizada. Flávio Bolsonaro e Donald Trump declararam apoio a De la Espriella.",
+   "votacao_apuracao": "Cédula de papel, contagem manual pelos jurados de mesa; escrutínio confirmou 99,997% da pré-contagem.",
+   "fraude_e_verificacao": "Sim, do lado perdedor: o presidente Petro alegou manipulação de servidores e software, pediu recontagem; o procurador-geral disse não haver prova de fraude. Cepeda apresentou mais de 57 mil reclamações no escrutínio e reconheceu em 24/06; Petro aceitou depois. A missão da UE não achou interferência de grupos armados capaz de alterar o resultado.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2026_Colombian_presidential_election",
+    "https://www.eltiempo.com/politica/elecciones-colombia-2026/resultados-de-segunda-vuelta-en-2026-superan-los-de-2022-candidatos-obtuvieron-mas-votos-que-gustavo-petro-cuando-fue-elegido-presidente-3565926",
+    "https://newsroom.rcnradio.com/colombia/escrutinio-presidencial-2026-cerro-con-una-coincidencia-del-99-997-frente-al-preconteo",
+    "https://www.colombia.com/elecciones/2026/resultados/primera-vuelta.aspx?C=P1",
+    "https://www.publimetro.co/bogota/2026/06/23/resultados-escrutinios-en-colombia-abelardo-de-la-espriella-consolida-su-victoria-mientras-ivan-cepeda-presenta-mas-de-57000-reclamaciones/",
+    "https://www.noticiasrcn.com/colombia/paloma-valencia-apoyara-a-abelardo-de-la-espriella-1026526",
+    "https://www.vanguardia.com/politica/elecciones/2026/06/01/sergio-fajardo-entra-en-reflexion-con-un-millon-de-votos-clave-para-el-balotaje/"
+   ],
+   "divergencias": "2º turno: De la Espriella 12.960.166 (Wikipedia, escrutínio) x 12.959.542 (El Tiempo, pré-contagem 99,99%); Cepeda 12.708.312 x 12.708.712. Percentuais oficiais com branco no denominador: 49,66 x 48,70. 1º turno oficial: 43,74 x 40,90 (colombia.com, pré-contagem).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "uruguai_2019",
+   "pais": "Uruguai",
+   "ano": 2019,
+   "data_1t": "2019-10-27",
+   "data_2t": "2019-11-24",
+   "lider_1t": "Daniel Martínez (Frente Amplio, esquerda)",
+   "segundo_1t": "Luis Lacalle Pou (Partido Nacional, centro-direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 949376,
+     "2t": 1152271
+    },
+    "segundo_1t": {
+     "1t": 696452,
+     "2t": 1189313
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 90.13,
+    "2t": 90.12
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 40.49,
+    "segundo_1t": 29.7
+   },
+   "pct_2t": {
+    "lider_1t": 49.21,
+    "segundo_1t": 50.79
+   },
+   "soma_finalistas_1t_pct": 70.19,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 42.32,
+    "fatia_segundo_1t_no_2t": 50.79,
+    "variacao_pts": 8.47
+   },
+   "votos_acrescidos_aos_finalistas": 695756,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 70.8,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 70.8,
+   "margem_1t_lider_pts": 10.79,
+   "margem_2t_lider_1t_pts_dois": -1.58,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": -6.58,
+    "faixa": [
+     -8.51,
+     -5.62
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": 5.0,
+    "lista": [
+     {
+      "instituto": "Cifra",
+      "data": "novembro",
+      "lider_1t": 42,
+      "segundo_1t": 47,
+      "margem_dois": -5.62
+     },
+     {
+      "instituto": "Factum",
+      "data": "novembro",
+      "lider_1t": 43,
+      "segundo_1t": 51,
+      "margem_dois": -8.51
+     },
+     {
+      "instituto": "Opción",
+      "data": "novembro",
+      "lider_1t": 42,
+      "segundo_1t": 47,
+      "margem_dois": -5.62
+     }
+    ],
+    "nota": "Lacalle liderava todas por 5 a 8 pontos (média de cerca de 7); venceu por 1,5."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Talvi (Colorado, 12,8%), Manini Ríos (Cabildo Abierto, 11,5%) e outros da oposição apoiaram Lacalle (coalizão multicolor).",
+   "votacao_apuracao": "Cédula de papel (folhas de votação), contagem manual; votos 'observados' contados depois.",
+   "fraude_e_verificacao": "Não. Martínez esperou a contagem dos votos observados e reconheceu em 28/11.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019_Uruguayan_general_election",
+    "https://www.elobservador.com.uy/nota/segunda-encuesta-que-da-ventaja-a-lacalle-pou-de-5-puntos-para-el-balotaje-20191111202455",
+    "https://eleconomista.com.ar/politica/leve-ventaja-lacalle-pou-balotaje-uruguay-hay-esperar-escrutinio-definitivo-n29762",
+    "https://www.larepublica.co/globoeconomia/votos-observados-ratifican-victoria-de-lacalle-como-presidente-de-uruguay-2938474"
+   ],
+   "divergencias": "A Corte Electoral publica percentuais sobre votos emitidos (2º turno: Lacalle 48,87 x Martínez 47,36 na Wikipedia; contagem provisória 48,71 x 47,51); aqui, sobre votos em candidatos (50,79 x 49,21).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "uruguai_2024",
+   "pais": "Uruguai",
+   "ano": 2024,
+   "data_1t": "2024-10-27",
+   "data_2t": "2024-11-24",
+   "lider_1t": "Yamandú Orsi (Frente Amplio, esquerda)",
+   "segundo_1t": "Álvaro Delgado (Partido Nacional, centro-direita, governo)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1071826,
+     "2t": 1212833
+    },
+    "segundo_1t": {
+     "1t": 655426,
+     "2t": 1119537
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 89.6,
+    "2t": 89.36
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 46.12,
+    "segundo_1t": 28.2
+   },
+   "pct_2t": {
+    "lider_1t": 52.0,
+    "segundo_1t": 48.0
+   },
+   "soma_finalistas_1t_pct": 74.32,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 37.95,
+    "fatia_segundo_1t_no_2t": 48.0,
+    "variacao_pts": 10.05
+   },
+   "votos_acrescidos_aos_finalistas": 605118,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 76.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 70.8,
+   "margem_1t_lider_pts": 17.92,
+   "margem_2t_lider_1t_pts_dois": 4.0,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": 2.74,
+    "faixa": [
+     2.17,
+     3.6
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 1.26,
+    "lista": [
+     {
+      "instituto": "Cifra",
+      "data": "18/11",
+      "lider_1t": 42,
+      "segundo_1t": 40,
+      "margem_dois": 2.44
+     },
+     {
+      "instituto": "Factum",
+      "data": "14/11",
+      "lider_1t": 47,
+      "segundo_1t": 45,
+      "margem_dois": 2.17
+     },
+     {
+      "instituto": "CB Consultores",
+      "data": "novembro",
+      "lider_1t": 51.8,
+      "segundo_1t": 48.2,
+      "margem_dois": 3.6
+     }
+    ],
+    "nota": "Empate técnico com leve vantagem de Orsi; ele venceu por 4."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Andrés Ojeda (Colorado, 16,9%) e os demais partidos da Coalizão Republicana apoiaram Delgado. Mesmo com os eliminados de centro-direita, o líder do 1º turno venceu.",
+   "votacao_apuracao": "Cédula de papel (folhas de votação), contagem manual.",
+   "fraude_e_verificacao": "Não. Delgado reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2024_Uruguayan_general_election",
+    "https://www.ambito.com/uruguay/balotaje-2024-empate-tecnico-yamandu-orsi-y-alvaro-delgado-anticipa-un-final-voto-voto-n6083323",
+    "https://www.ambito.com/uruguay/yamandu-orsi-le-gano-alvaro-delgado-mas-95000-votos-segun-los-datos-oficiales-n6085556",
+    "https://www.telenoche.com.uy/escrutinio-a14787"
+   ],
+   "divergencias": "Percentuais oficiais sobre votos emitidos: 49,84 x 45,87. Diferença: 93.293 (Telenoche, escrutínio final) x cerca de 95.500 (Ámbito). 1º turno aqui com votos de partido (lemas).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "costarica_2018",
+   "pais": "Costa Rica",
+   "ano": 2018,
+   "data_1t": "2018-02-04",
+   "data_2t": "2018-04-01",
+   "lider_1t": "Fabricio Alvarado (Restauração Nacional, evangélico conservador)",
+   "segundo_1t": "Carlos Alvarado (PAC, centro-esquerda, governo)",
+   "votos": {
+    "lider_1t": {
+     "1t": 538504,
+     "2t": 860388
+    },
+    "segundo_1t": {
+     "1t": 466129,
+     "2t": 1322908
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 65.7,
+    "2t": 66.45
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 24.99,
+    "segundo_1t": 21.63
+   },
+   "pct_2t": {
+    "lider_1t": 39.41,
+    "segundo_1t": 60.59
+   },
+   "soma_finalistas_1t_pct": 46.63,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 46.4,
+    "fatia_segundo_1t_no_2t": 60.59,
+    "variacao_pts": 14.19
+   },
+   "votos_acrescidos_aos_finalistas": 1178663,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 72.7,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 183.8,
+   "margem_1t_lider_pts": 3.36,
+   "margem_2t_lider_1t_pts_dois": -21.18,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": 6.81,
+    "faixa": [
+     1.18,
+     11.9
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -27.99,
+    "lista": [
+     {
+      "instituto": "CIEP-UCR",
+      "data": "19-21/03",
+      "lider_1t": 43,
+      "segundo_1t": 42,
+      "margem_dois": 1.18
+     },
+     {
+      "instituto": "OPol",
+      "data": "19-23/03",
+      "lider_1t": 36.2,
+      "segundo_1t": 28.5,
+      "margem_dois": 11.9
+     },
+     {
+      "instituto": "CID Gallup",
+      "data": "10-15/03",
+      "lider_1t": 32.9,
+      "segundo_1t": 28.4,
+      "margem_dois": 7.34
+     }
+    ],
+    "nota": "As pesquisas finais davam Fabricio à frente (CIEP +1; OPol +7,7; CID Gallup +4,5). As pesquisas da OPol foram pagas pelo partido de Fabricio (La Nación). A única que dava Carlos com folga (Idespo-UNA, fevereiro, 52 x 29) foi a que mais se aproximou do resultado."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Não conferido em fonte nesta pesquisa (Carlos Alvarado agradeceu a 'membros de diferentes partidos' e propôs governo de unidade nacional).",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Fabricio reconheceu a derrota rapidamente.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2018_Costa_Rican_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2018_Costa_Rican_general_election",
+    "https://www.teletica.com/decision-2018/tse-declaro-oficialmente-a-carlos-alvarado-como-ganador-de-la-segunda-ronda_191709",
+    "https://opna.ucr.ac.cr/images/AdC2018/2_Boletn_especial_segunda_vuelta_electoral.pdf",
+    "https://semanariouniversidad.com/pais/candidatos-arrancan-parejo-hacia-segunda-ronda/"
+   ],
+   "divergencias": "O pagamento das pesquisas OPol pelo partido de Fabricio vem da Wikipedia citando La Nación (fonte secundária, não aberta).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "costarica_2022",
+   "pais": "Costa Rica",
+   "ano": 2022,
+   "data_1t": "2022-02-06",
+   "data_2t": "2022-04-03",
+   "lider_1t": "José María Figueres (PLN, centro)",
+   "segundo_1t": "Rodrigo Chaves (PPSD, populista de direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 571518,
+     "2t": 924699
+    },
+    "segundo_1t": {
+     "1t": 351453,
+     "2t": 1035388
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 59.97,
+    "2t": 56.79
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 27.28,
+    "segundo_1t": 16.78
+   },
+   "pct_2t": {
+    "lider_1t": 47.18,
+    "segundo_1t": 52.82
+   },
+   "soma_finalistas_1t_pct": 44.06,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 38.08,
+    "fatia_segundo_1t_no_2t": 52.82,
+    "variacao_pts": 14.75
+   },
+   "votos_acrescidos_aos_finalistas": 1037116,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 65.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 194.6,
+   "margem_1t_lider_pts": 10.51,
+   "margem_2t_lider_1t_pts_dois": -5.65,
+   "pesquisas": {
+    "n": 5,
+    "margem_media_lider_1t_pts": -9.47,
+    "faixa": [
+     -21.26,
+     5.26
+    ],
+    "lider_1t_a_frente_em": 1,
+    "segundo_a_frente_em": 4,
+    "erro_margem_pts": 3.82,
+    "lista": [
+     {
+      "instituto": "CIEP-UCR",
+      "data": "18-21/03",
+      "lider_1t": 38.1,
+      "segundo_1t": 43.3,
+      "margem_dois": -6.39
+     },
+     {
+      "instituto": "IDESPO-UNA",
+      "data": "14-19/03",
+      "lider_1t": 33.3,
+      "segundo_1t": 41.2,
+      "margem_dois": -10.6
+     },
+     {
+      "instituto": "OPol",
+      "data": "22-25/03",
+      "lider_1t": 32.6,
+      "segundo_1t": 50.2,
+      "margem_dois": -21.26
+     },
+     {
+      "instituto": "Enfoques",
+      "data": "23-27/03",
+      "lider_1t": 33.7,
+      "segundo_1t": 45,
+      "margem_dois": -14.36
+     },
+     {
+      "instituto": "Demoscopía",
+      "data": "21-23/03",
+      "lider_1t": 36,
+      "segundo_1t": 32.4,
+      "margem_dois": 5.26
+     }
+    ],
+    "nota": "Chaves liderava quase todas (só a Demoscopía dava Figueres à frente)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Figueres reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2022_Costa_Rican_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Costa_Rican_general_election",
+    "https://semanariouniversidad.com/pais/encuesta-ciep-ucr-se-achica-ventaja-de-chaves-sobre-figueres-y-entran-a-empate-tecnico/",
+    "https://delfino.cr/2022/04/elecciones-2022-chaves-lidera-los-resultados-de-la-segunda-ronda-electoral-con-el-89-escrutado"
+   ],
+   "divergencias": "2º turno: 52,82 x 47,18 (Wikipedia, final) x 52,86 x 47,14 (95,93% apurado) e 52,85 x 47,15 (97,81%).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "peru_2021",
+   "pais": "Peru",
+   "ano": 2021,
+   "data_1t": "2021-04-11",
+   "data_2t": "2021-06-06",
+   "lider_1t": "Pedro Castillo (Perú Libre, esquerda)",
+   "segundo_1t": "Keiko Fujimori (Fuerza Popular, direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 2724752,
+     "2t": 8836380
+    },
+    "segundo_1t": {
+     "1t": 1930762,
+     "2t": 8792117
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 70.05,
+    "2t": 74.57
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 18.92,
+    "segundo_1t": 13.41
+   },
+   "pct_2t": {
+    "lider_1t": 50.13,
+    "segundo_1t": 49.87
+   },
+   "soma_finalistas_1t_pct": 32.33,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 41.47,
+    "fatia_segundo_1t_no_2t": 49.87,
+    "variacao_pts": 8.4
+   },
+   "votos_acrescidos_aos_finalistas": 12972983,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 52.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 355.4,
+   "margem_1t_lider_pts": 5.51,
+   "margem_2t_lider_1t_pts_dois": 0.25,
+   "pesquisas": {
+    "n": 4,
+    "margem_media_lider_1t_pts": 0.7,
+    "faixa": [
+     -1.4,
+     2.2
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 1,
+    "erro_margem_pts": -0.45,
+    "lista": [
+     {
+      "instituto": "Ipsos",
+      "data": "28/05",
+      "lider_1t": 51.1,
+      "segundo_1t": 48.9,
+      "margem_dois": 2.2
+     },
+     {
+      "instituto": "CIT",
+      "data": "27-28/05",
+      "lider_1t": 49.3,
+      "segundo_1t": 50.7,
+      "margem_dois": -1.4
+     },
+     {
+      "instituto": "CPI",
+      "data": "26-28/05",
+      "lider_1t": 50.5,
+      "segundo_1t": 49.5,
+      "margem_dois": 1.0
+     },
+     {
+      "instituto": "Datum",
+      "data": "25-27/05",
+      "lider_1t": 50.5,
+      "segundo_1t": 49.5,
+      "margem_dois": 1.0
+     }
+    ],
+    "nota": "Empate técnico, leve vantagem de Castillo; acertaram."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "López Aliaga (11,75%) e De Soto (11,63%) apoiaram Keiko; Mendoza apoiou Castillo.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Sim. Keiko alegou fraude sem provas e tentou anular cerca de 200 mil votos (imprensa); o JNE rejeitou os recursos e proclamou Castillo em 19/07/2021. A OEA não encontrou irregularidades graves.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2021_Peruvian_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Peruvian_general_election",
+    "https://gestion.pe/peru/politica/jne-proclamo-a-pedro-castillo-como-presidente-de-la-republica-noticia/",
+    "https://www.americatv.com.pe/noticias/actualidad/segunda-vuelta-oea-descarta-graves-irregularidades-elecciones-peru-n441175"
+   ],
+   "divergencias": "JNE: 50,126 x 49,874, diferença 44.263; ONPE a 100% antes da proclamação: diferença 44.058.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "peru_2026",
+   "pais": "Peru",
+   "ano": 2026,
+   "data_1t": "2026-04-12",
+   "data_2t": "2026-06-07",
+   "lider_1t": "Keiko Fujimori (Fuerza Popular, direita)",
+   "segundo_1t": "Roberto Sánchez (Juntos por el Perú, esquerda)",
+   "votos": {
+    "lider_1t": {
+     "1t": 2877678,
+     "2t": 9223396
+    },
+    "segundo_1t": {
+     "1t": 2015114,
+     "2t": 9173755
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 73.81,
+    "2t": 72.03
+   },
+   "dias_entre_turnos": 56,
+   "pct_1t": {
+    "lider_1t": 17.19,
+    "segundo_1t": 12.04
+   },
+   "pct_2t": {
+    "lider_1t": 50.13,
+    "segundo_1t": 49.87
+   },
+   "soma_finalistas_1t_pct": 29.23,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 41.19,
+    "fatia_segundo_1t_no_2t": 49.87,
+    "variacao_pts": 8.68
+   },
+   "votos_acrescidos_aos_finalistas": 13504359,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 53.0,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 355.2,
+   "margem_1t_lider_pts": 5.15,
+   "margem_2t_lider_1t_pts_dois": 0.27,
+   "pesquisas": {
+    "n": 7,
+    "margem_media_lider_1t_pts": 6.44,
+    "faixa": [
+     2.67,
+     10.34
+    ],
+    "lider_1t_a_frente_em": 7,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -6.17,
+    "lista": [
+     {
+      "instituto": "Ipsos/Perú21",
+      "data": "29-30/05",
+      "lider_1t": 40.4,
+      "segundo_1t": 38.3,
+      "margem_dois": 2.67
+     },
+     {
+      "instituto": "Datum/El Comercio",
+      "data": "26-30/05",
+      "lider_1t": 39.7,
+      "segundo_1t": 35.4,
+      "margem_dois": 5.73
+     },
+     {
+      "instituto": "CIT",
+      "data": "27-29/05",
+      "lider_1t": 41.1,
+      "segundo_1t": 33.4,
+      "margem_dois": 10.34
+     },
+     {
+      "instituto": "CPI",
+      "data": "26-28/05",
+      "lider_1t": 32.5,
+      "segundo_1t": 29.1,
+      "margem_dois": 5.52
+     },
+     {
+      "instituto": "CB Global Data",
+      "data": "25-30/05",
+      "lider_1t": 38.6,
+      "segundo_1t": 36.5,
+      "margem_dois": 2.8
+     },
+     {
+      "instituto": "Imasolu",
+      "data": "23-26/05",
+      "lider_1t": 39.58,
+      "segundo_1t": 33.08,
+      "margem_dois": 8.95
+     },
+     {
+      "instituto": "IEP/La República",
+      "data": "22-26/05",
+      "lider_1t": 36,
+      "segundo_1t": 30,
+      "margem_dois": 9.09
+     }
+    ],
+    "nota": "Últimas publicadas antes da proibição: todas com Keiko à frente (2 a 10 pontos na disputa a dois). As medições feitas durante a proibição (03-06/06, Ipsos e Datum) já davam quase empate (Keiko +0,5 a +2,4). Keiko venceu por 0,27."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "López Aliaga (11,90%) e Carlos Espá apoiaram Keiko; Jorge Nieto (10,98%) pediu voto nulo ou branco; Belmont (10,15%), López Chau (7,29%) e Forsyth apoiaram Sánchez.",
+   "votacao_apuracao": "Cédula de papel, contagem manual na mesa.",
+   "fraude_e_verificacao": "Houve narrativa de fraude no 1º turno (López Aliaga); o JNE rejeitou anular o 1º turno (3 x 2). Observadores da UE rejeitaram a narrativa de fraude. No 2º turno, não localizei alegação formal de Sánchez.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2026_Peruvian_general_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Peruvian_general_election",
+    "https://www.elperuano.pe/noticia/299040-onpe-contabiliza-el-100-de-actas-presidenciales-keiko-fujimori-es-presidenta-electa-del-peru",
+    "https://peru21.pe/politica/onpe-resultados-oficiales-2026-en-vivo-sigue-el-conteo-de-votos-en-tiempo-real-de-segunda-vuelta/",
+    "https://rpp.pe/politica/elecciones/resultados-onpe-al-100-por-ciento-elecciones-2026-quienes-avanza-segunda-vuelta-noticia-1684530",
+    "https://rpp.pe/politica/elecciones/observadores-de-la-union-europea-rechazan-la-narrativa-de-fraude-electoral-en-peru-noticia-1694647"
+   ],
+   "divergencias": "2º turno: Keiko 9.223.396 x Sánchez 9.173.755 (Wikipedia, diferença 49.641, igual à do El Peruano) x 9.221.435 x 9.172.535 (Peru21, diferença cerca de 48.900). Percentuais iguais (50,13 x 49,87).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "moldavia_2020",
+   "pais": "Moldávia",
+   "ano": 2020,
+   "data_1t": "2020-11-01",
+   "data_2t": "2020-11-15",
+   "lider_1t": "Maia Sandu (PAS, pró-UE)",
+   "segundo_1t": "Igor Dodon (PSRM, presidente, pró-Rússia)",
+   "votos": {
+    "lider_1t": {
+     "1t": 487635,
+     "2t": 943006
+    },
+    "segundo_1t": {
+     "1t": 439866,
+     "2t": 690615
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 45.68,
+    "2t": 52.76
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 36.16,
+    "segundo_1t": 32.61
+   },
+   "pct_2t": {
+    "lider_1t": 57.72,
+    "segundo_1t": 42.28
+   },
+   "soma_finalistas_1t_pct": 68.77,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 47.42,
+    "fatia_segundo_1t_no_2t": 42.28,
+    "variacao_pts": -5.15
+   },
+   "votos_acrescidos_aos_finalistas": 706120,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 35.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 57.0,
+   "margem_1t_lider_pts": 3.54,
+   "margem_2t_lider_1t_pts_dois": 15.45,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Pesquisas do 2º turno escassas e incompletas na fonte; não calculei média."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Usatîi (16,9%) pediu voto contra Dodon sem apoiar Sandu; Năstase, Țîcu e Chirtoacă apoiaram Sandu; Shor não apoiou explicitamente.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Sim. Dodon alegou irregularidades (transnistrianos impedidos, transporte de eleitores na UE, interferência estrangeira) e disse que só reconheceria se a Justiça nada achasse; mesmo assim cumprimentou Sandu 'por precaução'.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2020_Moldovan_presidential_election",
+    "https://www.csis.org/programs/europe-russia-and-eurasia-program/projects/european-election-watch/2020-elections/moldova"
+   ],
+   "divergencias": "Resultado de decisão judicial sobre a queixa de Dodon não localizado.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "moldavia_2024",
+   "pais": "Moldávia",
+   "ano": 2024,
+   "data_1t": "2024-10-20",
+   "data_2t": "2024-11-03",
+   "lider_1t": "Maia Sandu (PAS, presidente, pró-UE)",
+   "segundo_1t": "Alexandr Stoianoglo (apoiado pelo PSRM)",
+   "votos": {
+    "lider_1t": {
+     "1t": 656852,
+     "2t": 930139
+    },
+    "segundo_1t": {
+     "1t": 401215,
+     "2t": 750430
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 51.74,
+    "2t": 54.29
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 42.49,
+    "segundo_1t": 25.95
+   },
+   "pct_2t": {
+    "lider_1t": 55.35,
+    "segundo_1t": 44.65
+   },
+   "soma_finalistas_1t_pct": 68.44,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 37.92,
+    "fatia_segundo_1t_no_2t": 44.65,
+    "variacao_pts": 6.73
+   },
+   "votos_acrescidos_aos_finalistas": 622502,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 56.1,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 87.0,
+   "margem_1t_lider_pts": 16.54,
+   "margem_2t_lider_1t_pts_dois": 10.69,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Pesquisa direta do 2º turno só da iData antes do 1º turno (Sandu 40,6 x 36,4); não calculei média."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Usatîi (13,8%) não apoiou ninguém; Vlah, Tarlev, Chicu e Morari pediram voto contra Sandu; Furtună apoiou Stoianoglo.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "A própria Sandu citou casos de compra de votos e opositores questionaram o peso da diáspora; Stoianoglo venceu dentro do país (cerca de 51%) e reconheceu em 06/11. A missão da OSCE avaliou a votação de forma 'esmagadoramente positiva', com críticas a uso de recursos administrativos.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2024_Moldovan_presidential_election",
+    "https://www.bostonglobe.com/2024/11/04/world/moldovas-diaspora-tipped-scales-pivotal-election-critics-question-votes-validity"
+   ],
+   "divergencias": "2º turno: 55,35 x 44,65 (Wikipedia/CEC) x 55,33 x 44,67 (AP/Boston Globe, 100%) x 55,41 (Novaya Gazeta, 99,86%).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "croacia_2020",
+   "pais": "Croácia",
+   "ano": 2020,
+   "data_1t": "2019-12-22",
+   "data_2t": "2020-01-05",
+   "lider_1t": "Zoran Milanović (SDP, centro-esquerda)",
+   "segundo_1t": "Kolinda Grabar-Kitarović (HDZ, presidente, centro-direita)",
+   "votos": {
+    "lider_1t": {
+     "1t": 562783,
+     "2t": 1034170
+    },
+    "segundo_1t": {
+     "1t": 507628,
+     "2t": 929707
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 51.18,
+    "2t": 54.99
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 29.91,
+    "segundo_1t": 26.98
+   },
+   "pct_2t": {
+    "lider_1t": 52.66,
+    "segundo_1t": 47.34
+   },
+   "soma_finalistas_1t_pct": 56.89,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 47.42,
+    "fatia_segundo_1t_no_2t": 47.34,
+    "variacao_pts": -0.08
+   },
+   "votos_acrescidos_aos_finalistas": 893466,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 47.2,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 83.1,
+   "margem_1t_lider_pts": 2.93,
+   "margem_2t_lider_1t_pts_dois": 5.32,
+   "pesquisas": {
+    "n": 2,
+    "margem_media_lider_1t_pts": 2.42,
+    "faixa": [
+     1.4,
+     3.45
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 2.9,
+    "lista": [
+     {
+      "instituto": "Ipsos Puls",
+      "data": "03/01",
+      "lider_1t": 45,
+      "segundo_1t": 42,
+      "margem_dois": 3.45
+     },
+     {
+      "instituto": "2x1 komunikacije",
+      "data": "03/01",
+      "lider_1t": 50.7,
+      "segundo_1t": 49.3,
+      "margem_dois": 1.4
+     }
+    ],
+    "nota": "Milanović à frente nas finais (+1,4 a +3); venceu por 5,3."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Miroslav Škoro (24,45%, direita) não aparece entre os apoios de nenhum dos dois (Wikipedia); Grabar-Kitarović teve o apoio do HSLS e de Đapić.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019%E2%80%9320_Croatian_presidential_election",
+    "https://www.aljazeera.com/news/2020/1/6/former-pm-zoran-milanovic-wins-croatia-presidential-polls"
+   ],
+   "divergencias": "",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "croacia_2025",
+   "pais": "Croácia",
+   "ano": 2025,
+   "data_1t": "2024-12-29",
+   "data_2t": "2025-01-12",
+   "lider_1t": "Zoran Milanović (presidente, apoiado pelo SDP)",
+   "segundo_1t": "Dragan Primorac (HDZ)",
+   "votos": {
+    "lider_1t": {
+     "1t": 797938,
+     "2t": 1122859
+    },
+    "segundo_1t": {
+     "1t": 314663,
+     "2t": 380752
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 46.01,
+    "2t": 44.17
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 49.68,
+    "segundo_1t": 19.59
+   },
+   "pct_2t": {
+    "lider_1t": 74.68,
+    "segundo_1t": 25.32
+   },
+   "soma_finalistas_1t_pct": 69.27,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 28.28,
+    "fatia_segundo_1t_no_2t": 25.32,
+    "variacao_pts": -2.96
+   },
+   "votos_acrescidos_aos_finalistas": 391010,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 16.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 21.0,
+   "margem_1t_lider_pts": 30.09,
+   "margem_2t_lider_1t_pts_dois": 49.35,
+   "pesquisas": {
+    "n": 2,
+    "margem_media_lider_1t_pts": 35.39,
+    "faixa": [
+     32.34,
+     38.43
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": 13.96,
+    "lista": [
+     {
+      "instituto": "Promocija plus",
+      "data": "jan/2025",
+      "lider_1t": 62.5,
+      "segundo_1t": 27.8,
+      "margem_dois": 38.43
+     },
+     {
+      "instituto": "Ipsos",
+      "data": "jan/2025",
+      "lider_1t": 57.7,
+      "segundo_1t": 29.5,
+      "margem_dois": 32.34
+     }
+    ],
+    "nota": "Milanović liderava todas com folga."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2024%E2%80%9325_Croatian_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia (fonte oficial citada: izbori.hr).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "lituania_2019",
+   "pais": "Lituânia",
+   "ano": 2019,
+   "data_1t": "2019-05-12",
+   "data_2t": "2019-05-26",
+   "lider_1t": "Ingrida Šimonytė (indep., apoiada pela TS-LKD, centro-direita)",
+   "segundo_1t": "Gitanas Nausėda (indep.)",
+   "votos": {
+    "lider_1t": {
+     "1t": 446719,
+     "2t": 443394
+    },
+    "segundo_1t": {
+     "1t": 441396,
+     "2t": 881495
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 57.37,
+    "2t": 53.88
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 31.53,
+    "segundo_1t": 31.16
+   },
+   "pct_2t": {
+    "lider_1t": 33.47,
+    "segundo_1t": 66.53
+   },
+   "soma_finalistas_1t_pct": 62.69,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 49.7,
+    "fatia_segundo_1t_no_2t": 66.53,
+    "variacao_pts": 16.83
+   },
+   "votos_acrescidos_aos_finalistas": 436774,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 100.8,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 99.7,
+   "margem_1t_lider_pts": 0.38,
+   "margem_2t_lider_1t_pts_dois": -33.07,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Não localizei pesquisas finais do 2º turno."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_sem_pesquisas",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019_Lithuanian_presidential_election",
+    "https://www.lrt.lt/en/news-in-english/19/1063034/gitanas-nauseda-elected-new-president-of-lithuania"
+   ],
+   "divergencias": "Percentuais oficiais da VRK incluem cédulas inválidas no denominador; aqui, sobre votos em candidatos.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "lituania_2024",
+   "pais": "Lituânia",
+   "ano": 2024,
+   "data_1t": "2024-05-12",
+   "data_2t": "2024-05-26",
+   "lider_1t": "Gitanas Nausėda (presidente)",
+   "segundo_1t": "Ingrida Šimonytė (TS-LKD, primeira-ministra)",
+   "votos": {
+    "lider_1t": {
+     "1t": 632811,
+     "2t": 886874
+    },
+    "segundo_1t": {
+     "1t": 288774,
+     "2t": 291054
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 59.95,
+    "2t": 49.74
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 44.3,
+    "segundo_1t": 20.22
+   },
+   "pct_2t": {
+    "lider_1t": 75.29,
+    "segundo_1t": 24.71
+   },
+   "soma_finalistas_1t_pct": 64.52,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 31.33,
+    "fatia_segundo_1t_no_2t": 24.71,
+    "variacao_pts": -6.63
+   },
+   "votos_acrescidos_aos_finalistas": 256343,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 0.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 0.8,
+   "margem_1t_lider_pts": 24.09,
+   "margem_2t_lider_1t_pts_dois": 50.58,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Só pesquisas de outubro de 2023 (Nausėda muito à frente); não calculei média."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Šimonytė reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2024_Lithuanian_presidential_election",
+    "https://www.lrt.lt/en/news-in-english/19/2278660/simonyte-concedes-defeat-in-lithuania-s-presidential-run-off",
+    "https://idea.int/democracytracker/report/lithuania/may-2024"
+   ],
+   "divergencias": "2º turno: 75,29 x 24,71 (Wikipedia) x 74,43 (LRT, parcial) x 74,2 (IDEA). Comparecimento: 49,74 (Wikipedia) x 49,61 (LRT/VRK) x 49,7 (IDEA).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "austria_2016",
+   "pais": "Áustria",
+   "ano": 2016,
+   "data_1t": "2016-04-24",
+   "data_2t": "2016-05-22",
+   "lider_1t": "Norbert Hofer (FPÖ, direita nacionalista)",
+   "segundo_1t": "Alexander Van der Bellen (indep., ex-Verdes)",
+   "votos": {
+    "lider_1t": {
+     "1t": 1499971,
+     "2t": 2220654
+    },
+    "segundo_1t": {
+     "1t": 913218,
+     "2t": 2251517
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 68.5,
+    "2t": 72.7
+   },
+   "dias_entre_turnos": 28,
+   "pct_1t": {
+    "lider_1t": 35.05,
+    "segundo_1t": 21.34
+   },
+   "pct_2t": {
+    "lider_1t": 49.65,
+    "segundo_1t": 50.35
+   },
+   "soma_finalistas_1t_pct": 56.39,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 37.84,
+    "fatia_segundo_1t_no_2t": 50.35,
+    "variacao_pts": 12.5
+   },
+   "votos_acrescidos_aos_finalistas": 2058982,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 65.0,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 146.5,
+   "margem_1t_lider_pts": 13.71,
+   "margem_2t_lider_1t_pts_dois": -0.69,
+   "pesquisas": {
+    "n": 2,
+    "margem_media_lider_1t_pts": 5.3,
+    "faixa": [
+     4.6,
+     6.0
+    ],
+    "lider_1t_a_frente_em": 2,
+    "segundo_a_frente_em": 0,
+    "erro_margem_pts": -5.99,
+    "lista": [
+     {
+      "instituto": "Gallup/Österreich",
+      "data": "12/05",
+      "lider_1t": 53,
+      "segundo_1t": 47,
+      "margem_dois": 6.0
+     },
+     {
+      "instituto": "MindTake/Servus TV",
+      "data": "11/05",
+      "lider_1t": 52.3,
+      "segundo_1t": 47.7,
+      "margem_dois": 4.6
+     }
+    ],
+    "nota": "As duas últimas pesquisas davam Hofer à frente por 4,6 a 6 pontos; ele liderou a apuração sem os votos por correio e perdeu por 0,7 quando eles foram contados."
+   },
+   "parecido_com_brasil": true,
+   "classificacao": "parecido: lider_1t_liderava_pesquisas_e_perdeu",
+   "apoios_eliminados": "Irmgard Griss (18,9%) e Rudolf Hundstorfer (SPÖ, 11,3%) apoiaram Van der Bellen; Andreas Khol (ÖVP, 11,1%) não apoiou ninguém.",
+   "votacao_apuracao": "Cédula de papel e voto por correio, contagem manual.",
+   "fraude_e_verificacao": "O FPÖ contestou; Hofer descartou falar em fraude. O Tribunal Constitucional anulou o 2º turno em 01/07/2016 porque as regras de contagem dos votos por correio foram violadas em 14 distritos, atingindo 77.926 votos (mais que a margem de 30.863), mas disse não haver indício de manipulação. Na repetição de 04/12/2016, Van der Bellen venceu por 53,8 x 46,2.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2016_Austrian_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2016_Austrian_presidential_election",
+    "https://www.bmi.gv.at/412/Bundespraesidentenwahlen/Bundespraesidentenwahl_2016/start.aspx",
+    "https://www.vfgh.gv.at/timeline/2016__Bundespraesidentenstichwahl.en.html",
+    "https://www.kpbs.org/news/2016/07/01/austrias-top-court-throws-out-presidential"
+   ],
+   "divergencias": "Votos afetados: 77.926 (Wikipedia e parte da imprensa) x 'cerca de 77 mil' (outras matérias).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "eslovenia_2022",
+   "pais": "Eslovênia",
+   "ano": 2022,
+   "data_1t": "2022-10-23",
+   "data_2t": "2022-11-13",
+   "lider_1t": "Anže Logar (indep., ex-SDS, centro-direita)",
+   "segundo_1t": "Nataša Pirc Musar (indep., liberal)",
+   "votos": {
+    "lider_1t": {
+     "1t": 296000,
+     "2t": 414029
+    },
+    "segundo_1t": {
+     "1t": 234361,
+     "2t": 483812
+    }
+   },
+   "comparecimento_pct": {
+    "1t": null,
+    "2t": null
+   },
+   "dias_entre_turnos": 21,
+   "pct_1t": {
+    "lider_1t": 33.95,
+    "segundo_1t": 26.88
+   },
+   "pct_2t": {
+    "lider_1t": 46.11,
+    "segundo_1t": 53.89
+   },
+   "soma_finalistas_1t_pct": 60.83,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 44.19,
+    "fatia_segundo_1t_no_2t": 53.89,
+    "variacao_pts": 9.7
+   },
+   "votos_acrescidos_aos_finalistas": 367480,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 67.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 106.4,
+   "margem_1t_lider_pts": 7.07,
+   "margem_2t_lider_1t_pts_dois": -7.77,
+   "pesquisas": {
+    "n": 3,
+    "margem_media_lider_1t_pts": -7.26,
+    "faixa": [
+     -12.0,
+     -2.4
+    ],
+    "lider_1t_a_frente_em": 0,
+    "segundo_a_frente_em": 3,
+    "erro_margem_pts": -0.51,
+    "lista": [
+     {
+      "instituto": "Valicon/RTV",
+      "data": "09-11/11",
+      "lider_1t": 44.0,
+      "segundo_1t": 56.0,
+      "margem_dois": -12.0
+     },
+     {
+      "instituto": "Ninamedia",
+      "data": "07-10/11",
+      "lider_1t": 48.8,
+      "segundo_1t": 51.2,
+      "margem_dois": -2.4
+     },
+     {
+      "instituto": "Mediana",
+      "data": "07-09/11",
+      "lider_1t": 44.6,
+      "segundo_1t": 51.7,
+      "margem_dois": -7.37
+     }
+    ],
+    "nota": "Pirc Musar liderava todas; acertaram."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_mas_ja_estava_atras_nas_pesquisas",
+   "apoios_eliminados": "O primeiro-ministro Golob passou a apoiar Pirc Musar no 2º turno.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Logar reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2022_Slovenian_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia (fonte oficial citada: volitve.dvk-rs.si).",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "montenegro_2023",
+   "pais": "Montenegro",
+   "ano": 2023,
+   "data_1t": "2023-03-19",
+   "data_2t": "2023-04-02",
+   "lider_1t": "Milo Đukanović (DPS, presidente)",
+   "segundo_1t": "Jakov Milatović (Europa Agora)",
+   "votos": {
+    "lider_1t": {
+     "1t": 119685,
+     "2t": 154769
+    },
+    "segundo_1t": {
+     "1t": 97867,
+     "2t": 221592
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 64.07,
+    "2t": 70.14
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 35.37,
+    "segundo_1t": 28.92
+   },
+   "pct_2t": {
+    "lider_1t": 41.12,
+    "segundo_1t": 58.88
+   },
+   "soma_finalistas_1t_pct": 64.29,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 44.99,
+    "fatia_segundo_1t_no_2t": 58.88,
+    "variacao_pts": 13.89
+   },
+   "votos_acrescidos_aos_finalistas": 158809,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 77.9,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 126.4,
+   "margem_1t_lider_pts": 6.45,
+   "margem_2t_lider_1t_pts_dois": -17.76,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Não localizei pesquisa direta Đukanović x Milatović."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_sem_pesquisas",
+   "apoios_eliminados": "Os partidos do governo apoiaram Milatović no 2º turno (Wikipedia).",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não conferido; missão da OSCE observou.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Montenegrin_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "liberia_2023",
+   "pais": "Libéria",
+   "ano": 2023,
+   "data_1t": "2023-10-10",
+   "data_2t": "2023-11-14",
+   "lider_1t": "George Weah (CDC, presidente)",
+   "segundo_1t": "Joseph Boakai (Unity Party)",
+   "votos": {
+    "lider_1t": {
+     "1t": 804087,
+     "2t": 793914
+    },
+    "segundo_1t": {
+     "1t": 796961,
+     "2t": 814481
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 78.86,
+    "2t": 66.12
+   },
+   "dias_entre_turnos": 35,
+   "pct_1t": {
+    "lider_1t": 43.83,
+    "segundo_1t": 43.44
+   },
+   "pct_2t": {
+    "lider_1t": 49.36,
+    "segundo_1t": 50.64
+   },
+   "soma_finalistas_1t_pct": 87.27,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 49.78,
+    "fatia_segundo_1t_no_2t": 50.64,
+    "variacao_pts": 0.86
+   },
+   "votos_acrescidos_aos_finalistas": 7347,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 238.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 2.2,
+   "margem_1t_lider_pts": 0.39,
+   "margem_2t_lider_1t_pts_dois": -1.28,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Sem pesquisas confiáveis localizadas."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_sem_pesquisas",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Weah reconheceu; observadores da UE: 'notavelmente apertado e bem administrado'.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Liberian_general_election"
+   ],
+   "divergencias": "Só Wikipedia.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "guinebissau_2019",
+   "pais": "Guiné-Bissau",
+   "ano": 2019,
+   "data_1t": "2019-11-24",
+   "data_2t": "2019-12-29",
+   "lider_1t": "Domingos Simões Pereira (PAIGC)",
+   "segundo_1t": "Umaro Sissoco Embaló (Madem G15)",
+   "votos": {
+    "lider_1t": {
+     "1t": 222870,
+     "2t": 254468
+    },
+    "segundo_1t": {
+     "1t": 153530,
+     "2t": 293359
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 74.37,
+    "2t": 72.67
+   },
+   "dias_entre_turnos": 35,
+   "pct_1t": {
+    "lider_1t": 40.13,
+    "segundo_1t": 27.65
+   },
+   "pct_2t": {
+    "lider_1t": 46.45,
+    "segundo_1t": 53.55
+   },
+   "soma_finalistas_1t_pct": 67.78,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 40.79,
+    "fatia_segundo_1t_no_2t": 53.55,
+    "variacao_pts": 12.76
+   },
+   "votos_acrescidos_aos_finalistas": 171427,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 81.6,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 91.1,
+   "margem_1t_lider_pts": 12.49,
+   "margem_2t_lider_1t_pts_dois": -7.1,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Sem pesquisas."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_sem_pesquisas",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Sim. O PAIGC rejeitou o resultado, alegou fraude e recorreu ao Supremo.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2019_Guinea-Bissau_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "benin_2016",
+   "pais": "Benin",
+   "ano": 2016,
+   "data_1t": "2016-03-06",
+   "data_2t": "2016-03-20",
+   "lider_1t": "Lionel Zinsou (FCBE, governo)",
+   "segundo_1t": "Patrice Talon (indep.)",
+   "votos": {
+    "lider_1t": {
+     "1t": 858080,
+     "2t": 1076061
+    },
+    "segundo_1t": {
+     "1t": 746528,
+     "2t": 2030941
+    }
+   },
+   "comparecimento_pct": {
+    "1t": null,
+    "2t": null
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 28.43,
+    "segundo_1t": 24.73
+   },
+   "pct_2t": {
+    "lider_1t": 34.63,
+    "segundo_1t": 65.37
+   },
+   "soma_finalistas_1t_pct": 53.16,
+   "lider_1t_perdeu": true,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 46.52,
+    "fatia_segundo_1t_no_2t": 65.37,
+    "variacao_pts": 18.84
+   },
+   "votos_acrescidos_aos_finalistas": 1502394,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 85.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 172.1,
+   "margem_1t_lider_pts": 3.7,
+   "margem_2t_lider_1t_pts_dois": -30.73,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Sem pesquisas."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_perdeu_sem_pesquisas",
+   "apoios_eliminados": "24 dos 32 candidatos derrotados apoiaram Talon.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não. Zinsou reconheceu rapidamente.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2016_Beninese_presidential_election"
+   ],
+   "divergencias": "Só Wikipedia.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "turquia_2023",
+   "pais": "Turquia",
+   "ano": 2023,
+   "data_1t": "2023-05-14",
+   "data_2t": "2023-05-28",
+   "lider_1t": "Recep Tayyip Erdoğan (AKP, presidente)",
+   "segundo_1t": "Kemal Kılıçdaroğlu (CHP, oposição unida)",
+   "votos": {
+    "lider_1t": {
+     "1t": 27133849,
+     "2t": 27834589
+    },
+    "segundo_1t": {
+     "1t": 24595178,
+     "2t": 25504724
+    }
+   },
+   "comparecimento_pct": {
+    "1t": 87.04,
+    "2t": 84.15
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 49.52,
+    "segundo_1t": 44.88
+   },
+   "pct_2t": {
+    "lider_1t": 52.18,
+    "segundo_1t": 47.82
+   },
+   "soma_finalistas_1t_pct": 94.4,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 47.55,
+    "fatia_segundo_1t_no_2t": 47.82,
+    "variacao_pts": 0.27
+   },
+   "votos_acrescidos_aos_finalistas": 1610286,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 56.5,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 3.7,
+   "margem_1t_lider_pts": 4.63,
+   "margem_2t_lider_1t_pts_dois": 4.37,
+   "pesquisas": {
+    "n": 7,
+    "margem_media_lider_1t_pts": 1.44,
+    "faixa": [
+     -2.6,
+     7.88
+    ],
+    "lider_1t_a_frente_em": 3,
+    "segundo_a_frente_em": 4,
+    "erro_margem_pts": 2.93,
+    "lista": [
+     {
+      "instituto": "İEA",
+      "data": "25-26/05",
+      "lider_1t": 51.9,
+      "segundo_1t": 48.1,
+      "margem_dois": 3.8
+     },
+     {
+      "instituto": "BETİMAR",
+      "data": "25-26/05",
+      "lider_1t": 52.2,
+      "segundo_1t": 47.8,
+      "margem_dois": 4.4
+     },
+     {
+      "instituto": "Özdemir",
+      "data": "25-26/05",
+      "lider_1t": 53.94,
+      "segundo_1t": 46.06,
+      "margem_dois": 7.88
+     },
+     {
+      "instituto": "ALF",
+      "data": "25-26/05",
+      "lider_1t": 49.7,
+      "segundo_1t": 50.3,
+      "margem_dois": -0.6
+     },
+     {
+      "instituto": "SER-AR",
+      "data": "25-26/05",
+      "lider_1t": 48.7,
+      "segundo_1t": 51.3,
+      "margem_dois": -2.6
+     },
+     {
+      "instituto": "ORC",
+      "data": "24-25/05",
+      "lider_1t": 49.2,
+      "segundo_1t": 50.8,
+      "margem_dois": -1.6
+     },
+     {
+      "instituto": "Area",
+      "data": "24-25/05",
+      "lider_1t": 49.4,
+      "segundo_1t": 50.6,
+      "margem_dois": -1.2
+     }
+    ],
+    "nota": "No 2º turno, pesquisas divididas com média pró-Erdoğan. O erro grande foi no 1º turno: agregadores davam Kılıçdaroğlu à frente (POLITICO 50 x 46; Euronews 48,9 x 45,8) e Erdoğan teve 49,5 x 44,9. Caso de 1º turno muito concentrado (94,4% nos dois), como o Brasil."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Sinan Oğan (5,17%, nacionalista) apoiou Erdoğan; o Partido da Vitória (Özdağ) apoiou Kılıçdaroğlu.",
+   "votacao_apuracao": "Cédula de papel com carimbo, contagem manual na urna.",
+   "fraude_e_verificacao": "Não. Kılıçdaroğlu reconheceu a derrota.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2023_Turkish_presidential_election",
+    "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2023_Turkish_presidential_election",
+    "https://www.ysk.gov.tr/doc/dosyalar/docs/14Mayis2023/KesinSecimSonuclari/2023CB-TumSecimSonucuIkinciTur.pdf"
+   ],
+   "divergencias": "Kılıçdaroğlu no 2º turno: 25.504.724 (modelo da Wikipedia) x 25.504.704 (infobox da Wikipedia). Só Wikipedia; o PDF da YSK é a fonte citada, não aberta.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  },
+  {
+   "id": "seicheles_2025",
+   "pais": "Seicheles",
+   "ano": 2025,
+   "data_1t": "2025-09-27",
+   "data_2t": "2025-10-11",
+   "lider_1t": "Patrick Herminie (United Seychelles)",
+   "segundo_1t": "Wavel Ramkalawan (LDS, presidente)",
+   "votos": {
+    "lider_1t": {
+     "1t": 30736,
+     "2t": 34389
+    },
+    "segundo_1t": {
+     "1t": 29230,
+     "2t": 30823
+    }
+   },
+   "comparecimento_pct": {
+    "1t": null,
+    "2t": null
+   },
+   "dias_entre_turnos": 14,
+   "pct_1t": {
+    "lider_1t": 48.83,
+    "segundo_1t": 46.44
+   },
+   "pct_2t": {
+    "lider_1t": 52.73,
+    "segundo_1t": 47.27
+   },
+   "soma_finalistas_1t_pct": 95.28,
+   "lider_1t_perdeu": false,
+   "virada_dois_candidatos": {
+    "fatia_segundo_1t_no_1t": 48.74,
+    "fatia_segundo_1t_no_2t": 47.27,
+    "variacao_pts": -1.48
+   },
+   "votos_acrescidos_aos_finalistas": 5246,
+   "fatia_do_segundo_1t_nos_votos_acrescidos_pct": 30.4,
+   "ganho_segundo_1t_sobre_seus_votos_1t_pct": 5.4,
+   "margem_1t_lider_pts": 2.39,
+   "margem_2t_lider_1t_pts_dois": 5.47,
+   "pesquisas": {
+    "n": 0,
+    "nota": "Sem pesquisas. Incluído como caso de 1º turno concentrado (95% nos dois)."
+   },
+   "parecido_com_brasil": false,
+   "classificacao": "lider_1t_venceu",
+   "apoios_eliminados": "Não conferido.",
+   "votacao_apuracao": "Cédula de papel, contagem manual.",
+   "fraude_e_verificacao": "Não conferido.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/2025_Seychellois_general_election"
+   ],
+   "divergencias": "Só Wikipedia. Votações de 25-27/09 e 09-11/10 (datas do último dia usadas no cálculo de dias). Infobox dá 49,14 x 44,81 no 1º turno; aqui 48,83 x 46,44 sobre votos em candidatos.",
+   "base_percentuais": "votos em candidatos (sem brancos e nulos), calculados dos totais oficiais compilados no artigo da Wikipedia"
+  }
+ ]
+}

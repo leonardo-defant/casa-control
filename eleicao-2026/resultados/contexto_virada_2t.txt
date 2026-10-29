@@ -1,0 +1,119 @@
+Contexto da virada do 2º turno de 2026: série oficial dos 2º turnos presidenciais (1989 a 2022) contra 2026.
+Script: scripts/contexto_virada_2t.py (python3 -I, só biblioteca padrão). Números: resultados/contexto_virada_2t.json.
+Fontes: TSE, dados abertos (votacao_candidato_munzona_aaaa_BR.csv e detalhe_votacao_munzona_aaaa_BR.csv; 1989 pelos arquivos por UF),
+baixados em 29/10/2026; 2026 pelos arquivos já conferidos do repositório. A fonte de cada número está em comentário no script.
+"Líder" = 1º colocado do 1º turno; "2º" = 2º colocado do 1º turno. Percentuais sobre votos válidos.
+
+1. Série oficial
+ano  | dias | líder x 2º           | 1T líder      %     | 1T 2º         %     | 2T líder      %     | 2T 2º         %     | válidos 1T   | válidos 2T   | eliminados  %
+1989 |   32 | Collor x Lula        |  20.611.030  30,48 |  11.622.321  17,19 |  35.090.206  53,03 |  31.075.803  46,97 |   67.625.886 |   66.166.009 | 35.392.535 52,34
+2002 |   21 | Lula x Serra         |  39.455.233  46,44 |  19.705.445  23,20 |  52.793.364  61,27 |  33.370.739  38,73 |   84.952.512 |   86.164.103 | 25.791.834 30,36
+2006 |   28 | Lula x Alckmin       |  46.662.365  48,61 |  39.968.369  41,64 |  58.295.042  60,83 |  37.543.178  39,17 |   95.996.733 |   95.838.220 |  9.365.999  9,76
+2010 |   28 | Dilma x Serra        |  47.651.434  46,91 |  33.132.283  32,61 |  55.752.529  56,05 |  43.711.388  43,95 |  101.590.153 |   99.463.917 | 20.806.436 20,48
+2014 |   21 | Dilma x Aécio        |  43.267.668  41,59 |  34.897.211  33,55 |  54.501.118  51,64 |  51.041.155  48,36 |  104.023.802 |  105.542.273 | 25.858.923 24,86
+2018 |   21 | Bolsonaro x Haddad   |  49.277.010  46,03 |  31.342.051  29,28 |  57.797.847  55,13 |  47.040.906  44,87 |  107.050.749 |  104.838.753 | 26.431.688 24,69
+2022 |   28 | Lula x Bolsonaro     |  57.259.504  48,43 |  51.072.345  43,20 |  60.345.999  50,90 |  58.206.354  49,10 |  118.229.719 |  118.552.353 |  9.897.870  8,37
+2026 |   21 | Flávio x Lula        |  56.104.503  47,03 |  53.879.538  45,16 |  59.826.041  48,21 |  64.256.232  51,79 |  119.300.788 |  124.082.273 |  9.316.747  7,81
+
+2. Ganhos entre os turnos, bolo e virada de dois candidatos
+ano  | ganho líder | ganho 2º  | 2º em % dos válidos 1T | 2º / eliminados | bolo      | fatia do bolo do 2º | fatia 2º 1T | fatia 2º 2T | virada | margem 1T (fatia) | margem 1T (válidos) | diferença virada (votos, % válidos 1T) | vencedor
+1989 |     14,48 mi |  19,45 mi |                  28,8% |             55% |  33,93 mi |               57,3% |      36,06 |      46,97 |  10,91 |             27,89 |               13,29 |     4,97 mi ( 7,36) | Collor
+2002 |     13,34 mi |  13,67 mi |                  16,1% |             53% |  27,00 mi |               50,6% |      33,31 |      38,73 |   5,42 |             33,38 |               23,25 |     0,33 mi ( 0,39) | Lula
+2006 |     11,63 mi |  -2,43 mi |                  -2,5% |            -26% |   9,21 mi |              -26,3% |      46,14 |      39,17 |  -6,96 |              7,73 |                6,97 |   -14,06 mi (-14,64) | Lula
+2010 |      8,10 mi |  10,58 mi |                  10,4% |             51% |  18,68 mi |               56,6% |      41,01 |      43,95 |   2,93 |             17,97 |               14,29 |     2,48 mi ( 2,44) | Dilma
+2014 |     11,23 mi |  16,14 mi |                  15,5% |             62% |  27,38 mi |               59,0% |      44,65 |      48,36 |   3,72 |             10,71 |                8,05 |     4,91 mi ( 4,72) | Dilma
+2018 |      8,52 mi |  15,70 mi |                  14,7% |             59% |  24,22 mi |               64,8% |      38,88 |      44,87 |   5,99 |             22,25 |               16,75 |     7,18 mi ( 6,71) | Bolsonaro
+2022 |      3,09 mi |   7,13 mi |                   6,0% |             72% |  10,22 mi |               69,8% |      47,14 |      49,10 |   1,95 |              5,71 |                5,23 |     4,05 mi ( 3,42) | Lula
+2026 |      3,72 mi |  10,38 mi |                   8,7% |            111% |  14,10 mi |               73,6% |      48,99 |      51,79 |   2,80 |              2,02 |                1,87 |     6,66 mi ( 5,58) | Lula
+
+3. De onde vem o bolo (identidade: bolo = eliminados + aumento do comparecimento + queda dos não válidos)
+ano  | bolo      | eliminados | aumento do comparecimento | queda de branco+nulo+anulados | abstenção 1T | abstenção 2T | conferência
+1989 |  33,93 mi |   35,39 mi |                  -2,03 mi |                       0,57 mi |       11,92% |       14,39% | 0
+2002 |  27,00 mi |   25,79 mi |                  -3,14 mi |                       4,35 mi |       17,74% |       20,47% | 0
+2006 |   9,21 mi |    9,37 mi |                  -2,82 mi |                       2,66 mi |       16,75% |       18,99% | 0
+2010 |  18,68 mi |   20,81 mi |                  -4,59 mi |                       2,46 mi |       18,12% |       21,50% | 0
+2014 |  27,38 mi |   25,86 mi |                  -2,44 mi |                       3,96 mi |       19,39% |       21,10% | 0
+2018 |  24,22 mi |   26,43 mi |                  -1,43 mi |                      -0,78 mi |       20,33% |       21,30% | 0
+2022 |  10,22 mi |    9,90 mi |                   0,57 mi |                      -0,25 mi |       20,95% |       20,58% | 0
+2026 |  14,10 mi |    9,32 mi |                   2,96 mi |                       1,82 mi |       21,08% |       19,22% | 0
+
+4. Últimas pesquisas do 2º turno (válidos; erro = urna menos pesquisa na fatia do 2º colocado do 1º turno)
+  1989: não confirmada: a busca apontou registros do CESOP/Unicamp (Datafolha de 15 e 16/12/1989, Collor à frente), mas as páginas deram 404; sem número publicado nos válidos conferido
+  2002: última pesquisa não achada; a primeira Datafolha do 2º turno (cerca de 11/10/2002) dava Lula 64 x 36 nos válidos, só por resumo de busca de um recorte do Correio no acervo do Senado (www2.senado.leg.br/jspui/bitstream/id/928006/1/Eleicao_presidencial_P137_R0360.pdf), não aberto
+  2006: Datafolha 27 e 28/10/2006: Lula 61 x Alckmin 39 (liderava Lula; erro no 2º 0,17); Ibope 27 e 28/10/2006: Lula 61 x Alckmin 39 (liderava Lula; erro no 2º 0,17)
+  2010: Datafolha divulgada 30/10/2010 (BR 37.903/2010): Dilma 55 x Serra 45 (liderava Dilma; erro no 2º -1,05); Ibope divulgada 30/10/2010 (BR 37.917/2010): Dilma 56 x Serra 44 (liderava Dilma; erro no 2º -0,05)
+  2014: Datafolha 24 e 25/10/2014: Dilma 52 x Aécio 48 (liderava Dilma; erro no 2º 0,36); Ibope divulgada 25/10/2014 (a matéria escreve "24 e 25 de setembro", erro de digitação): Dilma 53 x Aécio 47 (liderava Dilma; erro no 2º 1,36)
+  2018: Datafolha 26 e 27/10/2018: Bolsonaro 55 x Haddad 45 (liderava Bolsonaro; erro no 2º -0,13); Ibope 26 e 27/10/2018: Bolsonaro 54 x Haddad 46 (liderava Bolsonaro; erro no 2º -1,13)
+  2022: Datafolha 28 e 29/10/2022: Lula 52 x Bolsonaro 48 (liderava Lula; erro no 2º 1,10); Ipec 27 a 29/10/2022: Lula 54 x Bolsonaro 46 (liderava Lula; erro no 2º 3,10)
+  2026: Datafolha 23 e 24/10/2026: Flávio 51 x Lula 49 (liderava Flávio; erro no 2º 2,79); Ipsos-Ipec sem pesquisa nacional de 2º turno em outubro (resultados/L5_pesquisas.txt); 11 de 12 institutos davam Flávio à frente nos válidos, de 50,1 a 52 (resultados/nacionais_2026_pesquisas_verificadas.txt, linha 4)
+
+5. Reeleição e apoios dos eliminados
+  1989: reeleição: não (não havia reeleição; Sarney não concorria).
+        Brizola (3º) e Covas (4º): Lula. "Mário Covas e ... Leonel Brizola decidiram apoiar Lula no segundo turno contra Collor" (https://www.gazetadopovo.com.br/vozes/certas-palavras/fhc-e-lula/)
+        Maluf (5º), Afif e Ulysses: não confirmado nas fontes abertas
+  2002: reeleição: não (FHC não concorria; Serra era o candidato do governo).
+        Garotinho (3º): Lula, depois de hesitar; Ciro (4º): Lula. "com o apoio dado por Ciro e Garotinho a Lula, Serra ficou isolado" (pt.wikipedia.org/wiki/Eleição_presidencial_no_Brasil_em_2002, fonte secundária)
+  2006: reeleição: sim: Lula, líder do 1º turno.
+        Heloísa Helena (3º): PSOL não apoiou nem Lula nem Alckmin (https://www.congressoemfoco.com.br/noticia/3463/heloisa-helena-diz-que-nao-apoiara-ninguem-no-2-turno)
+        Cristovam (4º): disse que a decisão seria do PDT; posição final não confirmada (https://www.cooperativa.cl/noticias/site/artic/20061002/pags-amp/20061002104455.html)
+  2010: reeleição: não (Lula não concorria; Dilma era a candidata do governo).
+        Marina Silva (3º): PV e Marina declararam "independência" (neutros) (https://www.congressoemfoco.com.br/noticia/76752/pv-resolve-ficar-neutro-no-segundo-turno; https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/marina-e-pv-anunciam-independencia-no-segundo-turno-1civ2wth3jylw0sfhw0zq79se/)
+        Plínio (4º): não confirmado
+  2014: reeleição: sim: Dilma, líder do 1º turno.
+        Marina Silva (3º): Aécio, em 12/10 (https://www.em.com.br/app/noticia/politica/2014/10/12/interna_politica,578917/marina-silva-declara-apoio-a-aecio-neves-no-segundo-turno.shtml); PSB e PPS também (pt.wikipedia, com links do G1)
+        Luciana Genro (4º): PSOL neutro, contra o voto em Aécio; PV e Eduardo Jorge: Aécio; Levy Fidelix: Aécio (pt.wikipedia.org/wiki/Eleição_presidencial_no_Brasil_em_2014, seção Apoios no segundo turno, links do G1); Pastor Everaldo: não confirmado
+  2018: reeleição: não (Temer não concorria; o MDB lançou Meirelles).
+        Ciro (3º): PDT deu "apoio crítico" a Haddad (https://ultimosegundo.ig.com.br/politica/2018-10-10/pdt-de-ciro-apoia-haddad.html, via pt.wikipedia)
+        Alckmin (4º): PSDB neutro (http://agenciabrasil.ebc.com.br/politica/noticia/2018-10/psdb-decide-que-ficara-neutro-no-segundo-turno)
+        Amoêdo (5º): Novo neutro (https://www.moneytimes.com.br/novo-e-pp-descartam-apoio-a-candidatos-ao-segundo-turno)
+        Daciolo (Patriota) e Meirelles (MDB): partidos na lista de neutros da pt.wikipedia, sem link
+        Marina (8º): "voto crítico" em Haddad; Boulos e PSOL: Haddad; Alvaro Dias: Podemos neutro (pt.wikipedia, links do G1, Veja e R7)
+  2022: reeleição: sim: Bolsonaro, 2º colocado do 1º turno.
+        Simone Tebet (3º): Lula (https://oglobo.globo.com/politica/eleicoes-2022/noticia/2022/10/tebet-anuncia-apoio-a-lula-para-o-segundo-turno-das-eleicoes.ghtml, via pt.wikipedia; https://www.bloomberglinea.com.br/2022/10/05/simone-tebet-do-mdb-declara-apoio-a-lula-no-2-turno/)
+        Ciro (4º): Lula, PDT por unanimidade (https://noticias.uol.com.br/eleicoes/2022/10/04/sem-citar-lula-ciro-anuncia-apoio-ao-petista-no-2-turno-ultima-saida.htm, via pt.wikipedia)
+        Soraya (5º): nenhum dos dois; Felipe d'Avila (6º): Novo neutro (pt.wikipedia, links do Correio Braziliense e O Antagonista)
+  2026: reeleição: sim: Lula, 2º colocado do 1º turno.
+        Zema, Caiado, Clariana, Cury (condicionado a 8 compromissos) e Grassi: Flávio; Renan Santos liberou os eleitores; Samara, Hertz e Edmilson: Lula (voto crítico); PCO: nulo (resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt, conferido com fontes em contexto_2t_2026_pesquisa_verificada.json)
+
+6. 2026 contra a série
+  Fatia mínima do bolo que Lula precisava: 57,89% (teve 73,60%).
+  Virada mínima de dois candidatos: 1,01 ponto (teve 2,80).
+  Se Lula tivesse a mesma fatia do bolo que o 2º colocado de cada ano:
+    1989: fatia 57,3% -> Lula 61.962.008 (49,94%), Flávio 62.120.265; margem de Lula -158.256; vence Flávio
+    2002: fatia 50,6% -> Lula 61.014.058 (49,17%), Flávio 63.068.215; margem de Lula -2.054.156; vence Flávio
+    2006: fatia -26,3% -> Lula 50.166.157 (40,43%), Flávio 73.916.116; margem de Lula -23.749.959; vence Flávio
+    2010: fatia 56,6% -> Lula 61.863.750 (49,86%), Flávio 62.218.523; margem de Lula -354.773; vence Flávio
+    2014: fatia 59,0% -> Lula 62.193.005 (50,12%), Flávio 61.889.268; margem de Lula 303.737; vence Lula
+    2018: fatia 64,8% -> Lula 63.017.809 (50,79%), Flávio 61.064.464; margem de Lula 1.953.344; vence Lula
+    2022: fatia 69,8% -> Lula 63.720.238 (51,35%), Flávio 60.362.035; margem de Lula 3.358.203; vence Lula
+  Se a virada de dois candidatos de Lula fosse a do 2º colocado de cada ano:
+    1989: virada 10,91 -> Lula 59,90% (74.322.927 x 49.759.346); margem de Lula 24.563.581; vence Lula
+    2002: virada 5,42 -> Lula 54,41% (67.512.469 x 56.569.804); margem de Lula 10.942.665; vence Lula
+    2006: virada -6,96 -> Lula 42,03% (52.146.221 x 71.936.052); margem de Lula -19.789.830; vence Flávio
+    2010: virada 2,93 -> Lula 51,92% (64.425.898 x 59.656.375); margem de Lula 4.769.524; vence Lula
+    2014: virada 3,72 -> Lula 52,70% (65.395.985 x 58.686.288); margem de Lula 6.709.696; vence Lula
+    2018: virada 5,99 -> Lula 54,98% (68.222.355 x 55.859.918); margem de Lula 12.362.438; vence Lula
+    2022: virada 1,95 -> Lula 50,94% (63.209.683 x 60.872.590); margem de Lula 2.337.093; vence Lula
+  Resumo: fatia do bolo de Lula 73,60%, a maior da série (a maior anterior é 69,80%, 2022, Bolsonaro, também candidato à reeleição em 2º lugar); virada de 2,80 pontos, abaixo da mediana anterior (3,72).
+  Com a virada de qualquer ano anterior, Lula venceria em: [1989, 2002, 2010, 2014, 2018, 2022].
+  Com a fatia do bolo de qualquer ano anterior, Lula venceria em: [2014, 2018, 2022].
+  Líder do 1º turno que perdeu o 2º: [2026].
+
+7. Teste de sanidade: soma das seções da base local contra o oficial (L = esquerda, R = direita, O = demais)
+  2018: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2018.json.gz (454450 seções no 1º turno, 454448 no 2º)
+    turno 1: L base 31.342.005 oficial 31.342.051 dif -46; R base 49.276.990 oficial 49.277.010 dif -20; O base 26.432.424 oficial 26.431.688 dif 736; B base 3.106.936 oficial 3.106.937 dif -1; N base 7.206.205 oficial 7.206.222 dif -17; comp base 117.364.560 oficial 117.364.654 dif -94; apt base 147.305.825 oficial 147.306.295 dif -470; validos base 107.051.419 oficial 107.050.749 dif 670
+    turno 2: L base 47.040.906 oficial 47.040.906 dif 0; R base 57.797.847 oficial 57.797.847 dif 0; O base 0 oficial 0 dif 0; B base 2.486.593 oficial 2.486.593 dif 0; N base 8.608.105 oficial 8.608.105 dif 0; comp base 115.933.451 oficial 115.933.451 dif 0; apt base 147.305.155 oficial 147.306.294 dif -1.139; validos base 104.838.753 oficial 104.838.753 dif 0
+  2022: /tmp/claude-0/-home-user-casa-control/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/scratchpad/dados2t/secoes2022.json.gz (472028 seções no 1º turno, 472028 no 2º)
+    turno 1: L base 57.259.504 oficial 57.259.504 dif 0; R base 51.072.345 oficial 51.072.345 dif 0; O base 9.897.870 oficial 9.897.870 dif 0; B base 1.964.779 oficial 1.964.779 dif 0; N base 3.487.874 oficial 3.487.874 dif 0; comp base 123.682.372 oficial 123.682.372 dif 0; apt base 156.453.354 oficial 156.454.011 dif -657; validos base 118.229.719 oficial 118.229.719 dif 0
+    turno 2: L base 60.345.999 oficial 60.345.999 dif 0; R base 58.206.354 oficial 58.206.354 dif 0; O base 0 oficial 0 dif 0; B base 1.769.678 oficial 1.769.678 dif 0; N base 3.930.765 oficial 3.930.765 dif 0; comp base 124.252.796 oficial 124.252.796 dif 0; apt base 156.453.354 oficial 156.454.011 dif -657; validos base 118.552.353 oficial 118.552.353 dif 0
+
+8. Conferência com resultados/transferencia_2022_x_2026.txt (ganho do candidato de direita e votos dos eliminados)
+  2018: arquivo +8.52 mi de 26.43 mi; aqui +8.52 mi de 26.43 mi
+  2022: arquivo +7.13 mi de 9.9 mi; aqui +7.13 mi de 9.9 mi
+  2026: arquivo +3.72 mi de 9.32 mi; aqui +3.72 mi de 9.32 mi
+
+Ressalvas: o bolo mistura eleitores dos eliminados, branco e nulo, abstenção e troca entre as bases dos finalistas; a
+composição muda de ano para ano (nº de candidatos, tamanho dos eliminados, comparecimento). Fatia do bolo e virada são
+contas de saldo líquido, não fluxos de eleitores. São 7 eleições anteriores: a série não dá uma distribuição.
+Em 2006 o 2º colocado (Alckmin) perdeu votos e a fatia do bolo dele é negativa; o contrafactual com ela só mostra o extremo.
+1989 teve 32 dias entre os turnos e 35,4 mi de votos nos eliminados (52% dos válidos), outro contexto.
