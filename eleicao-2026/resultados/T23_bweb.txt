@@ -1,0 +1,163 @@
+T23. Componente de zona e degrau na fronteira de zona (Adendo 9), com o bweb completo do 2º turno de 2026
+Script: scripts/analisar_T23.py. Bases: secoes2026.json.gz (1º e 2º turno, 499.206 seções), candidatos2026_1t.json.gz,
+secoes2018.json.gz, secoes2022.json.gz; coordenadas: eleitorado_local_votacao_2026_<UF>.csv (linhas do 2º turno).
+
+Registro (Adendo 9, T23): "Resíduo r da variação da fatia de Lula por seção, de um modelo dentro da UF com a composição
+completa do 1º turno e a variação do comparecimento. (a) Decompor a variância de r em município, zona dentro do município,
+local dentro da zona e seção, descontando a variância binomial. (b) Nos municípios com 2 zonas ou mais, pares de locais a
+até 1 km em zonas diferentes contra pares à mesma distância na mesma zona (coordenadas do cadastro de locais do TSE).
+Sinal: componente de zona de pelo menos 2 vezes o maior de 2018 e 2022, degrau médio na fronteira de 1 ponto ou mais e mais
+de 200 mil votos somados nas zonas extremas. Sem sinal: componente até 1,3 vez o das referências e degrau abaixo de 0,3 ponto."
+
+Leitura escolhida (o registro não fixa estes pontos; cada um é escolha declarada):
+1. y = 100*(L2/(L2+R2) - L1/(L1+R1)), em pontos. 2018: Haddad contra Bolsonaro; 2022: Lula contra Bolsonaro; 2026: Lula
+   contra Flávio. Modelo: uma regressão MQO sem peso por UF (constante e coeficientes próprios), contra as fatias do
+   comparecimento do 1º turno de cada candidato (branco+nulo, com o 28 anulado como nulo, é a categoria omitida) e
+   100*(C2-C1)/aptos. Exterior fora (não é UF e não tem coordenada).
+2. (a) ANOVA aninhada desbalanceada (Henderson I, cada seção com peso 1), somas de quadrados juntadas nas 27 UFs. A variância
+   binomial de cada seção, 10^4 p2(1-p2)/(L2+R2), entra exatamente nas esperanças e é descontada. "Componente de zona" =
+   sigma2 de zona dentro do município, em pontos ao quadrado (identificado só nos municípios com 2 zonas ou mais).
+   Erro-padrão: bootstrap de municípios estratificado por UF (2.000 reamostras).
+3. (b) r do local = média de r das suas seções; coordenada do local = a das suas seções no cadastro de 2026. Pares a até 1 km
+   no mesmo município, em faixas de 100 m; os pares da mesma zona são reponderados para a distribuição de distâncias dos pares
+   em zonas diferentes. Por par, q = (r_a - r_b)^2 menos o ruído esperado das duas médias. Degrau^2 = média de q entre zonas
+   menos a média na mesma zona à mesma distância; "degrau médio" = raiz (média quadrática do salto). Erro-padrão: bootstrap
+   de municípios. Em 2018 e 2022 o degrau é descritivo (coordenadas de 2026 ligadas pela chave UF|município|zona|seção).
+4. "Zonas extremas" = zonas (em municípios com 2 zonas ou mais) cujo efeito encolhido (BLUP do desvio da média do município)
+   passa de 2 desvios-padrão do componente de zona; "votos somados" = soma do efeito/100 vezes os votos nos finalistas no 2º
+   turno nas zonas extremas a favor de Lula. "O das referências" do sem sinal = o maior das duas, como no sinal.
+
+Desvios do registro:
+- "Composição completa do 1º turno": 2026 usa Lula, Flávio, Cury, Renan, Caiado, Zema e demais. As bases de 2018 e 2022 têm
+  por seção só L, R e "outros" (campo que faltou: votos por candidato no 1º turno de 2018 e 2022, QT_VOTOS por NR_VOTAVEL do
+  cargo 1 no bweb, não baixado e sem rede nesta tarefa). As referências usam L, R e outros. Por isso 2026 sai também com a
+  composição agregada (mesma especificação das referências), ao lado da principal.
+- O critério não diz como medir o degrau, o que são "zonas extremas" nem que "votos" somar; as leituras 3 e 4 acima foram
+  fixadas no script antes de rodar 2026 e as referências foram gravadas antes de a base de 2026 ser lida (primeira rodada,
+  referências gravadas às 00h37min02s UTC de 29/10, 2026 lido em seguida). Depois dela só mudaram a formatação deste texto e
+  campos descritivos (frações sobre a variância de r, razões contra cada referência em separado); os números do critério são
+  idênticos aos da primeira rodada (sementes fixas).
+
+(a) Componentes de variância de r (pontos ao quadrado)
+2018 (referência): 453.698 seções, 93.579 locais, 6.102 zonas-município, 5.570 municípios (189 com 2 zonas ou mais, 721 zonas neles)
+  y médio +6,29 pontos; variância de y 40,90; de r 11,47; binomial média 9,51
+  município              sigma2   +1,683 (ep 0,144)  dp +1,30 ponto  14,7% da variância de r
+  zona no município      sigma2   +0,411 (ep 0,087)  dp +0,64 ponto  3,6% da variância de r
+  local na zona          sigma2   +2,489 (ep 0,117)  dp +1,58 ponto  21,7% da variância de r
+  seção (sem binomial)   sigma2   -2,492 (ep 0,110)  dp -1,58 ponto  -21,7% da variância de r
+  binomial (descontada)  média    9,507                              82,9% da variância de r
+2022 (referência): 471.010 seções, 92.361 locais, 6.102 zonas-município, 5.570 municípios (189 com 2 zonas ou mais, 721 zonas neles)
+  y médio -1,64 pontos; variância de y 4,85; de r 3,93; binomial média 9,17
+  município              sigma2   +0,154 (ep 0,017)  dp +0,39 ponto  3,9% da variância de r
+  zona no município      sigma2   +0,091 (ep 0,017)  dp +0,30 ponto  2,3% da variância de r
+  local na zona          sigma2   +0,362 (ep 0,026)  dp +0,60 ponto  9,2% da variância de r
+  seção (sem binomial)   sigma2   -5,832 (ep 0,036)  dp -2,41 ponto  -148,3% da variância de r
+  binomial (descontada)  média    9,170                              233,1% da variância de r
+2026, composição completa (principal): 497.897 seções, 94.539 locais, 6.106 zonas-município, 5.571 municípios (190 com 2 zonas ou mais, 725 zonas neles)
+  y médio +2,91 pontos; variância de y 5,61; de r 4,20; binomial média 9,34
+  município              sigma2   +0,178 (ep 0,020)  dp +0,42 ponto  4,2% da variância de r
+  zona no município      sigma2   +0,086 (ep 0,013)  dp +0,29 ponto  2,0% da variância de r
+  local na zona          sigma2   +0,342 (ep 0,014)  dp +0,58 ponto  8,1% da variância de r
+  seção (sem binomial)   sigma2   -5,730 (ep 0,032)  dp -2,39 ponto  -136,4% da variância de r
+  binomial (descontada)  média    9,336                              222,3% da variância de r
+2026, composição agregada como nas referências: 497.897 seções, 94.539 locais, 6.106 zonas-município, 5.571 municípios (190 com 2 zonas ou mais, 725 zonas neles)
+  y médio +2,91 pontos; variância de y 5,61; de r 4,26; binomial média 9,34
+  município              sigma2   +0,151 (ep 0,030)  dp +0,39 ponto  3,5% da variância de r
+  zona no município      sigma2   +0,135 (ep 0,033)  dp +0,37 ponto  3,2% da variância de r
+  local na zona          sigma2   +0,364 (ep 0,013)  dp +0,60 ponto  8,5% da variância de r
+  seção (sem binomial)   sigma2   -5,712 (ep 0,032)  dp -2,39 ponto  -134,1% da variância de r
+  binomial (descontada)  média    9,336                              219,1% da variância de r
+
+Critério
+  principal: componente de zona 2026 +0,086 (ep 0,013) contra o maior das referências +0,411 (2018): razão 0,21 (ep bootstrap 0,07; IC95 0,12 a 0,37)
+     degrau +0,32 ponto (ep 0,34); votos nas zonas extremas a favor de Lula 1.366
+     sinal: razão de 2 ou mais não, degrau de 1 ou mais não, mais de 200 mil votos não; sem sinal: razão até 1,3 sim, degrau abaixo de 0,3 não  =>  INCONCLUSIVO
+     descritivo: razão contra 2022 só 0,94, contra 2018 só 0,21; degrau 2026 menos 2022 +0,67 (ep 0,44); degrau^2 2026 menos 2022 +0,225 (ep 0,224)
+  agregada: componente de zona 2026 +0,135 (ep 0,033) contra o maior das referências +0,411 (2018): razão 0,33 (ep bootstrap 0,12; IC95 0,17 a 0,63)
+     degrau +0,34 ponto (ep 0,33); votos nas zonas extremas a favor de Lula 831
+     sinal: razão de 2 ou mais não, degrau de 1 ou mais não, mais de 200 mil votos não; sem sinal: razão até 1,3 sim, degrau abaixo de 0,3 não  =>  INCONCLUSIVO
+     descritivo: razão contra 2022 só 1,47, contra 2018 só 0,33; degrau 2026 menos 2022 +0,69 (ep 0,43); degrau^2 2026 menos 2022 +0,239 (ep 0,222)
+
+(b) Degrau na fronteira de zona (pares de locais a até 1 km, municípios com 2 zonas ou mais)
+  2018 (descritivo): 12.530 pares em zonas diferentes, 56.203 na mesma zona, 189 municípios; locais com coordenada 89.421 de 93.579
+     degrau +0,51 ponto (ep 0,52; IC95 -0,70 a +1,04); degrau^2 +0,263 (ep 0,410); sem descontar o ruído +0,75; diferença média absoluta +0,079 (ep 0,071); sem coordenadas repetidas -0,33 (ep 0,54)
+  2022 (descritivo): 11.738 pares em zonas diferentes, 54.183 na mesma zona, 189 municípios; locais com coordenada 90.519 de 92.361
+     degrau -0,35 ponto (ep 0,29; IC95 -0,68 a +0,35); degrau^2 -0,125 (ep 0,152); sem descontar o ruído -0,11; diferença média absoluta +0,012 (ep 0,026); sem coordenadas repetidas -0,32 (ep 0,29)
+  2026 principal: 12.374 pares em zonas diferentes, 57.662 na mesma zona, 190 municípios; locais com coordenada 93.928 de 94.539
+     degrau +0,32 ponto (ep 0,34; IC95 -0,50 a +0,62); degrau^2 +0,100 (ep 0,165); sem descontar o ruído +0,23; diferença média absoluta +0,019 (ep 0,017); sem coordenadas repetidas +0,43 (ep 0,26)
+  2026 agregada: 12.374 pares em zonas diferentes, 57.662 na mesma zona, 190 municípios; locais com coordenada 93.928 de 94.539
+     degrau +0,34 ponto (ep 0,33; IC95 -0,49 a +0,63); degrau^2 +0,115 (ep 0,162); sem descontar o ruído +0,26; diferença média absoluta +0,020 (ep 0,018); sem coordenadas repetidas +0,45 (ep 0,24)
+  (sinal negativo = a diferença entre zonas ficou abaixo da diferença na mesma zona; o valor é a raiz com o sinal de degrau^2)
+  Municípios com mais pares entre zonas, 2026 principal (degrau do município):
+     RJ|60011     RIO DE JANEIRO            1.869 pares entre zonas,   5.997 na mesma zona; degrau +0,59
+     SP|71072     SÃO PAULO                 1.283 pares entre zonas,   6.001 na mesma zona; degrau +0,52
+     BA|38490     SALVADOR                    887 pares entre zonas,   1.340 na mesma zona; degrau +0,82
+     CE|13897     FORTALEZA                   597 pares entre zonas,   2.516 na mesma zona; degrau +0,35
+     PE|25313     RECIFE                      591 pares entre zonas,   1.622 na mesma zona; degrau +0,62
+     PA|4278      BELÉM                       378 pares entre zonas,   1.370 na mesma zona; degrau +0,21
+     AM|2550      MANAUS                      327 pares entre zonas,   1.515 na mesma zona; degrau +0,78
+     MG|41238     BELO HORIZONTE              312 pares entre zonas,     798 na mesma zona; degrau -0,60
+     RJ|58335     DUQUE DE CAXIAS             295 pares entre zonas,   1.119 na mesma zona; degrau -0,56
+     MG|47333     JUIZ DE FORA                187 pares entre zonas,     462 na mesma zona; degrau -0,85
+
+Zonas extremas (efeito encolhido acima de 2 dp do componente de zona)
+  2018 (descritivo): limiar +1,28 ponto; 721 zonas avaliadas; 7 a favor (votos deslocados 9.091, em zonas com 532.173 votos), 7 contra (-12.024); soma de |efeito| vezes votos em todas as zonas 172.152
+  2022 (descritivo): limiar +0,60 ponto; 721 zonas avaliadas; 7 a favor (votos deslocados 4.404, em zonas com 568.004 votos), 3 contra (-1.699); soma de |efeito| vezes votos em todas as zonas 82.505
+  2026 principal: limiar +0,59 ponto; 725 zonas avaliadas; 2 a favor (votos deslocados 1.366, em zonas com 220.424 votos), 4 contra (-3.030); soma de |efeito| vezes votos em todas as zonas 83.883
+  2026 agregada: limiar +0,73 ponto; 725 zonas avaliadas; 1 a favor (votos deslocados 831, em zonas com 108.786 votos), 9 contra (-9.419); soma de |efeito| vezes votos em todas as zonas 109.740
+  Maiores efeitos de zona, 2026 principal:
+     SP|71072|2     SÃO PAULO                efeito -1,06 (bruto -1,53), 439 seções, 119.631 votos
+     PB|20516|76    JOÃO PESSOA              efeito -0,70 (bruto -0,98), 356 seções, 108.096 votos
+     CE|13897|3     FORTALEZA                efeito -0,68 (bruto -1,01), 315 seções, 82.155 votos
+     DF|97012|6     BRASÍLIA                 efeito +0,65 (bruto +0,89), 425 seções, 108.786 votos
+     RJ|60011|179   RIO DE JANEIRO           efeito +0,59 (bruto +0,81), 354 seções, 111.638 votos
+     RJ|60011|17    RIO DE JANEIRO           efeito -0,59 (bruto -0,90), 305 seções, 77.869 votos
+     SP|71072|3     SÃO PAULO                efeito -0,59 (bruto -0,86), 434 seções, 103.986 votos
+     RJ|60011|161   RIO DE JANEIRO           efeito +0,58 (bruto +0,98), 211 seções, 68.610 votos
+     SP|71072|251   SÃO PAULO                efeito -0,56 (bruto -0,84), 327 seções, 85.733 votos
+     SP|71072|376   SÃO PAULO                efeito +0,55 (bruto +0,73), 526 seções, 137.655 votos
+
+Variantes descritivas do componente de zona (sigma2, ep)
+  2018 (descritivo): sem desconto binomial +0,400 (0,087); binomial dos dois turnos +0,424 (0,087); comparecimento 50+ +0,413 (0,088); seção sem binomial nas três: +6,79, -13,24, -2,50
+  2022 (descritivo): sem desconto binomial +0,085 (0,017); binomial dos dois turnos +0,095 (0,018); comparecimento 50+ +0,091 (0,017); seção sem binomial nas três: +3,19, -15,65, -5,83
+  2026 principal: sem desconto binomial +0,079 (0,014); binomial dos dois turnos +0,091 (0,013); comparecimento 50+ +0,085 (0,013); seção sem binomial nas três: +3,45, -16,00, -5,72
+  2026 agregada: sem desconto binomial +0,128 (0,034); binomial dos dois turnos +0,140 (0,033); comparecimento 50+ +0,134 (0,032); seção sem binomial nas três: +3,47, -15,98, -5,71
+
+Componente de zona por UF (sigma2, ponto estimado; só UFs com município de 2 zonas ou mais): 2018 | 2022 | 2026 principal
+  AC:  -0,107 |  -0,057 |  -0,012   (municípios com 2 zonas ou mais em 2026: 1)
+  AL:  +0,444 |  +0,253 |  +0,155   (municípios com 2 zonas ou mais em 2026: 2)
+  AM:  +1,309 |  +0,586 |  -0,002   (municípios com 2 zonas ou mais em 2026: 1)
+  AP:  +0,118 |  +0,048 |  +0,036   (municípios com 2 zonas ou mais em 2026: 1)
+  BA:  +0,655 |  +0,158 |  +0,082   (municípios com 2 zonas ou mais em 2026: 13)
+  CE:  +1,510 |  +0,154 |  +0,098   (municípios com 2 zonas ou mais em 2026: 5)
+  DF:  +0,316 |  +0,140 |  +0,213   (municípios com 2 zonas ou mais em 2026: 1)
+  ES:  -0,040 |  +0,009 |  +0,073   (municípios com 2 zonas ou mais em 2026: 5)
+  GO:  +0,327 |  +0,098 |  +0,039   (municípios com 2 zonas ou mais em 2026: 4)
+  MA:  +2,541 |  +0,215 |  +0,001   (municípios com 2 zonas ou mais em 2026: 2)
+  MG:  +0,104 |  +0,121 |  +0,071   (municípios com 2 zonas ou mais em 2026: 17)
+  MS:  -0,055 |  +0,178 |  +0,024   (municípios com 2 zonas ou mais em 2026: 5)
+  MT:  +0,021 |  +0,060 |  -0,005   (municípios com 2 zonas ou mais em 2026: 3)
+  PA:  +2,411 |  +0,090 |  +0,051   (municípios com 2 zonas ou mais em 2026: 6)
+  PB:  +0,493 |  +0,093 |  +0,207   (municípios com 2 zonas ou mais em 2026: 3)
+  PE:  +0,311 |  +0,063 |  +0,050   (municípios com 2 zonas ou mais em 2026: 9)
+  PI:  +0,031 |  +0,025 |  -0,008   (municípios com 2 zonas ou mais em 2026: 3)
+  PR:  +0,238 |  +0,130 |  +0,034   (municípios com 2 zonas ou mais em 2026: 9)
+  RJ:  +0,527 |  +0,069 |  +0,083   (municípios com 2 zonas ou mais em 2026: 22)
+  RN:  +0,248 |  +0,147 |  +0,210   (municípios com 2 zonas ou mais em 2026: 2)
+  RO:  -0,013 |  +0,072 |  +0,016   (municípios com 2 zonas ou mais em 2026: 2)
+  RR:  -0,007 |  +0,701 |  +0,072   (municípios com 2 zonas ou mais em 2026: 1)
+  RS:  +0,152 |  +0,108 |  +0,078   (municípios com 2 zonas ou mais em 2026: 15)
+  SC:  +0,111 |  +0,036 |  +0,027   (municípios com 2 zonas ou mais em 2026: 14)
+  SE:  +0,339 |  +0,130 |  +0,228   (municípios com 2 zonas ou mais em 2026: 1)
+  SP:  +0,197 |  +0,036 |  +0,112   (municípios com 2 zonas ou mais em 2026: 42)
+  TO:  -0,092 |  +0,212 |  +0,143   (municípios com 2 zonas ou mais em 2026: 1)
+
+Leitura
+- Componente de zona: 2026 +0,086 (ep 0,013), do tamanho do de 2022 (+0,091, ep 0,017; razão 0,94) e bem abaixo do de 2018 (+0,411, ep 0,087). Razão contra o maior das referências 0,21 (IC95 0,12 a 0,37); com a composição agregada, 0,33. A parte (a) fica dentro do sem sinal (até 1,3 vez o maior das referências) nas duas especificações.
+  Contra 2022 só (fora do critério, que usa o maior das duas): principal 0,94 (IC95 0,55 a 1,49); agregada 1,47 (IC95 0,72 a 2,54; diferença +0,043, ep 0,037). A versão agregada põe os eliminados num bloco só; como eles pesam e transferem de modo diferente por região, parte disso sobra no resíduo por zona. As referências têm a mesma limitação (Ciro, Alckmin, Tebet e demais agregados), e com a composição completa de 2026 o componente cai para +0,086.
+- Degrau: +0,32 ponto (ep 0,34; IC95 -0,50 a +0,62). O intervalo exclui o degrau de 1 ponto do sinal, mas o ponto estimado fica 0,016 ponto acima do limite de 0,3 do sem sinal, com erro-padrão de 0,34: a medida não tem precisão para separar 0,3 de zero. Variantes: sem descontar o ruído +0,23; sem coordenadas repetidas +0,43; composição agregada +0,34. Referências descritivas: 2018 +0,51 (ep 0,52), 2022 -0,35 (ep 0,29); degrau^2 de 2026 menos o de 2022 +0,225 (ep 0,224).
+- Zonas extremas: 1.366 votos deslocados a favor de Lula, contra mais de 200 mil exigidos no sinal; somando |efeito| vezes votos em todas as 725 zonas de municípios com 2 zonas ou mais, 83.883 (2022: 82.505; 2018: 172.152).
+- Variância binomial: a média descontada (9,34) passa da variância total de r (4,20) em 2026 e em 2022, e o componente de seção sai negativo nos três anos. A binomial de eleitores independentes superestima o ruído da variação entre turnos, porque os eleitores da seção são os mesmos nos dois turnos. O componente de seção não se interpreta; o de zona quase não muda com o desconto (variantes acima), porque a ANOVA o separa pela variação dentro dos locais.
+- Alcance: o componente de zona só se identifica nos 190 municípios com 2 zonas ou mais (219.182 seções, 44,0% das seções). Nos municípios de zona única, um desvio por zona aparece como componente de município: 2026 +0,178 (ep 0,020), 2022 +0,154 (ep 0,017), 2018 +1,683. Um desvio igual em todas as zonas não gera variância entre zonas e não é visto por este teste.
+
+VEREDITO PELA LETRA: INCONCLUSIVO

@@ -1,0 +1,4676 @@
+{
+ "teste": "T15",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 9",
+ "zips": {
+  "bweb_2t_RJ_261020260742.zip": {
+   "linhas": 147600,
+   "linhas_por_cargo": {
+    "1": 147600
+   },
+   "turno|eleicao": {
+    "2|6258": 147600
+   },
+   "secoes_presidente": 37675
+  },
+  "bweb_2t_MG_261020260742.zip": {
+   "linhas": 203235,
+   "linhas_por_cargo": {
+    "1": 203235
+   },
+   "turno|eleicao": {
+    "2|6258": 203235
+   },
+   "secoes_presidente": 52062
+  },
+  "bweb_2t_BA_261020260742.zip": {
+   "linhas": 137040,
+   "linhas_por_cargo": {
+    "1": 137040
+   },
+   "turno|eleicao": {
+    "2|6258": 137040
+   },
+   "secoes_presidente": 35476
+  },
+  "bweb_2t_RS_261020260742.zip": {
+   "linhas": 106789,
+   "linhas_por_cargo": {
+    "1": 106789
+   },
+   "turno|eleicao": {
+    "2|6258": 106789
+   },
+   "secoes_presidente": 27547
+  },
+  "bweb_2t_PR_261020260742.zip": {
+   "linhas": 105761,
+   "linhas_por_cargo": {
+    "1": 105761
+   },
+   "turno|eleicao": {
+    "2|6258": 105761
+   },
+   "secoes_presidente": 27142
+  },
+  "bweb_2t_CE_261020260742.zip": {
+   "linhas": 91087,
+   "linhas_por_cargo": {
+    "1": 91087
+   },
+   "turno|eleicao": {
+    "2|6258": 91087
+   },
+   "secoes_presidente": 23765
+  },
+  "bweb_2t_SP_261020260742.zip": {
+   "linhas": 410145,
+   "linhas_por_cargo": {
+    "1": 410145
+   },
+   "turno|eleicao": {
+    "2|6258": 410145
+   },
+   "secoes_presidente": 103656
+  },
+  "bweb_2t_ES_261020260742.zip": {
+   "linhas": 78082,
+   "linhas_por_cargo": {
+    "3": 39253,
+    "1": 38829
+   },
+   "turno|eleicao": {
+    "2|6260": 39253,
+    "2|6258": 38829
+   },
+   "secoes_presidente": 9844
+  },
+  "bweb_2t_PE_261020260742.zip": {
+   "linhas": 83243,
+   "linhas_por_cargo": {
+    "1": 83243
+   },
+   "turno|eleicao": {
+    "2|6258": 83243
+   },
+   "secoes_presidente": 21418
+  },
+  "bweb_2t_PA_261020260742.zip": {
+   "linhas": 76003,
+   "linhas_por_cargo": {
+    "1": 76003
+   },
+   "turno|eleicao": {
+    "2|6258": 76003
+   },
+   "secoes_presidente": 20827
+  },
+  "bweb_2t_MA_261020260742.zip": {
+   "linhas": 66190,
+   "linhas_por_cargo": {
+    "1": 66190
+   },
+   "turno|eleicao": {
+    "2|6258": 66190
+   },
+   "secoes_presidente": 18093
+  },
+  "bweb_2t_SC_261020260742.zip": {
+   "linhas": 67266,
+   "linhas_por_cargo": {
+    "1": 67266
+   },
+   "turno|eleicao": {
+    "2|6258": 67266
+   },
+   "secoes_presidente": 17326
+  },
+  "bweb_2t_RN_261020260742.zip": {
+   "linhas": 63676,
+   "linhas_por_cargo": {
+    "3": 32180,
+    "1": 31496
+   },
+   "turno|eleicao": {
+    "2|6260": 32180,
+    "2|6258": 31496
+   },
+   "secoes_presidente": 8115
+  },
+  "bweb_2t_AM_261020260742.zip": {
+   "linhas": 62590,
+   "linhas_por_cargo": {
+    "3": 31599,
+    "1": 30991
+   },
+   "turno|eleicao": {
+    "2|6260": 31599,
+    "2|6258": 30991
+   },
+   "secoes_presidente": 8157
+  },
+  "bweb_2t_DF_261020260742.zip": {
+   "linhas": 55307,
+   "linhas_por_cargo": {
+    "3": 27854,
+    "1": 27453
+   },
+   "turno|eleicao": {
+    "2|6260": 27854,
+    "2|6258": 27453
+   },
+   "secoes_presidente": 6969
+  },
+  "bweb_2t_GO_261020260742.zip": {
+   "linhas": 61031,
+   "linhas_por_cargo": {
+    "1": 61031
+   },
+   "turno|eleicao": {
+    "2|6258": 61031
+   },
+   "secoes_presidente": 15686
+  },
+  "bweb_2t_PI_261020260742.zip": {
+   "linhas": 37819,
+   "linhas_por_cargo": {
+    "1": 37819
+   },
+   "turno|eleicao": {
+    "2|6258": 37819
+   },
+   "secoes_presidente": 10225
+  },
+  "bweb_2t_PB_261020260742.zip": {
+   "linhas": 41416,
+   "linhas_por_cargo": {
+    "1": 41416
+   },
+   "turno|eleicao": {
+    "2|6258": 41416
+   },
+   "secoes_presidente": 10712
+  },
+  "bweb_2t_TO_261020260742.zip": {
+   "linhas": 33900,
+   "linhas_por_cargo": {
+    "3": 17191,
+    "1": 16709
+   },
+   "turno|eleicao": {
+    "2|6260": 17191,
+    "2|6258": 16709
+   },
+   "secoes_presidente": 4384
+  },
+  "bweb_2t_MT_261020260742.zip": {
+   "linhas": 30873,
+   "linhas_por_cargo": {
+    "1": 30873
+   },
+   "turno|eleicao": {
+    "2|6258": 30873
+   },
+   "secoes_presidente": 8287
+  },
+  "bweb_2t_AL_261020260742.zip": {
+   "linhas": 27419,
+   "linhas_por_cargo": {
+    "1": 27419
+   },
+   "turno|eleicao": {
+    "2|6258": 27419
+   },
+   "secoes_presidente": 7101
+  },
+  "bweb_2t_MS_261020260742.zip": {
+   "linhas": 26734,
+   "linhas_por_cargo": {
+    "1": 26734
+   },
+   "turno|eleicao": {
+    "2|6258": 26734
+   },
+   "secoes_presidente": 7106
+  },
+  "bweb_2t_AC_261020260742.zip": {
+   "linhas": 17622,
+   "linhas_por_cargo": {
+    "1": 8697,
+    "3": 8925
+   },
+   "turno|eleicao": {
+    "2|6258": 8697,
+    "2|6260": 8925
+   },
+   "secoes_presidente": 2270
+  },
+  "bweb_2t_SE_261020260742.zip": {
+   "linhas": 22732,
+   "linhas_por_cargo": {
+    "1": 22732
+   },
+   "turno|eleicao": {
+    "2|6258": 22732
+   },
+   "secoes_presidente": 5923
+  },
+  "bweb_2t_ZZ_261020260742.zip": {
+   "linhas": 4977,
+   "linhas_por_cargo": {
+    "1": 4975,
+    "-1": 2
+   },
+   "turno|eleicao": {
+    "2|6258": 4977
+   },
+   "secoes_presidente": 1310
+  },
+  "bweb_2t_AP_261020260742.zip": {
+   "linhas": 6973,
+   "linhas_por_cargo": {
+    "1": 6973
+   },
+   "turno|eleicao": {
+    "2|6258": 6973
+   },
+   "secoes_presidente": 1914
+  },
+  "bweb_2t_RO_261020260742.zip": {
+   "linhas": 17265,
+   "linhas_por_cargo": {
+    "1": 17265
+   },
+   "turno|eleicao": {
+    "2|6258": 17265
+   },
+   "secoes_presidente": 4698
+  },
+  "bweb_2t_RR_261020260742.zip": {
+   "linhas": 5332,
+   "linhas_por_cargo": {
+    "1": 5332
+   },
+   "turno|eleicao": {
+    "2|6258": 5332
+   },
+   "secoes_presidente": 1519
+  }
+ },
+ "consistencia_secao": {
+  "secoes_sem_nenhum_voto_linha_cargo_menos_1": [
+   "ZZ|29564|1|91",
+   "ZZ|30686|1|443"
+  ],
+  "secoes_com_linha_sem_votos_e_votos": [],
+  "secoes_com_mais_de_um_par_aptos_comparecimento": 0,
+  "secoes_com_mais_de_um_boletim_distinto": 0,
+  "linhas_repetidas_mesmo_votavel": 0,
+  "votos_somados_por_votavel": {
+   "n13": 64256232,
+   "n22": 59826041,
+   "B": 1430496,
+   "N": 2723305
+  },
+  "tipo_de_urna_[CD,DS]": {
+   "1|Apurada": 499207
+  },
+  "secoes_apuradas_por_junta": 29,
+  "secoes_votos_diferente_do_comparecimento": 0,
+  "exemplos_votos_diferente_do_comparecimento": [],
+  "exemplos_multi_aptos": {},
+  "exemplos_multi_boletim": {}
+ },
+ "geracao_dos_arquivos_oficiais_2T": {
+  "25/10/2026 23:26:56": 2,
+  "25/10/2026 23:26:57": 9,
+  "25/10/2026 23:26:58": 5,
+  "25/10/2026 23:26:59": 5,
+  "25/10/2026 23:27:00": 1,
+  "25/10/2026 23:27:01": 1,
+  "25/10/2026 23:27:02": 2,
+  "25/10/2026 23:27:06": 1,
+  "25/10/2026 23:27:07": 1,
+  "25/10/2026 23:27:09": 1,
+  "25/10/2026 23:27:11": 1,
+  "25/10/2026 23:27:24": 1,
+  "25/10/2026 23:27:25": 40,
+  "25/10/2026 23:27:26": 159,
+  "25/10/2026 23:27:27": 299,
+  "25/10/2026 23:27:28": 487,
+  "25/10/2026 23:27:29": 530,
+  "25/10/2026 23:27:30": 654,
+  "25/10/2026 23:27:31": 467,
+  "25/10/2026 23:27:32": 126,
+  "25/10/2026 23:27:33": 215,
+  "25/10/2026 23:27:34": 156,
+  "25/10/2026 23:27:35": 162,
+  "25/10/2026 23:27:36": 281,
+  "25/10/2026 23:27:37": 217,
+  "25/10/2026 23:27:38": 292,
+  "25/10/2026 23:27:39": 204,
+  "25/10/2026 23:27:40": 286,
+  "25/10/2026 23:27:41": 304,
+  "25/10/2026 23:27:42": 458,
+  "25/10/2026 23:27:43": 414,
+  "25/10/2026 23:27:44": 5
+ },
+ "conferencia_municipios_rebaixados": {
+  "municipios": 60,
+  "iguais": 60,
+  "diferentes": []
+ },
+ "conferencia_ufs_contra_copia_anterior": {
+  "ufs": 28,
+  "iguais": 28,
+  "diferentes": []
+ },
+ "municipios": {
+  "oficiais": 5757,
+  "com_boletins": 5717,
+  "oficiais_brasil": 5571,
+  "oficiais_exterior": 186,
+  "com_alguma_diferenca_votos_comparecimento_aptos_secoes": 0,
+  "diferencas": [],
+  "municipios_com_secao_nao_instalada_ou_anulada": {
+   "ZZ|30929": {
+    "sni": 1,
+    "esni": 12,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39284": {
+    "sni": 1,
+    "esni": 6,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39263": {
+    "sni": 1,
+    "esni": 5,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99139": {
+    "sni": 1,
+    "esni": 9,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99341": {
+    "sni": 1,
+    "esni": 6,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39241": {
+    "sni": 1,
+    "esni": 13,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99236": {
+    "sni": 1,
+    "esni": 8,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|38920": {
+    "sni": 1,
+    "esni": 8,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|30988": {
+    "sni": 2,
+    "esni": 11,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99198": {
+    "sni": 1,
+    "esni": 3,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|38903": {
+    "sni": 1,
+    "esni": 5,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|30669": {
+    "sni": 1,
+    "esni": 10,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99210": {
+    "sni": 1,
+    "esni": 1,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29963": {
+    "sni": 1,
+    "esni": 7,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29939": {
+    "sni": 1,
+    "esni": 18,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|38881": {
+    "sni": 1,
+    "esni": 13,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99279": {
+    "sni": 1,
+    "esni": 1,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99325": {
+    "sni": 1,
+    "esni": 3,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99171": {
+    "sni": 1,
+    "esni": 10,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99376": {
+    "sni": 1,
+    "esni": 6,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39225": {
+    "sni": 1,
+    "esni": 18,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29823": {
+    "sni": 1,
+    "esni": 17,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29769": {
+    "sni": 1,
+    "esni": 7,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|38989": {
+    "sni": 1,
+    "esni": 13,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29874": {
+    "sni": 1,
+    "esni": 27,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29521": {
+    "sni": 1,
+    "esni": 27,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39128": {
+    "sni": 1,
+    "esni": 5,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99244": {
+    "sni": 1,
+    "esni": 19,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99350": {
+    "sni": 1,
+    "esni": 5,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29424": {
+    "sni": 1,
+    "esni": 22,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29831": {
+    "sni": 1,
+    "esni": 18,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99104": {
+    "sni": 1,
+    "esni": 29,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29815": {
+    "sni": 1,
+    "esni": 14,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99333": {
+    "sni": 1,
+    "esni": 10,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99287": {
+    "sni": 1,
+    "esni": 25,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99295": {
+    "sni": 1,
+    "esni": 1,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|39187": {
+    "sni": 1,
+    "esni": 2,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99147": {
+    "sni": 1,
+    "esni": 1,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|29629": {
+    "sni": 1,
+    "esni": 1,
+    "sna": 0,
+    "snt": 0
+   },
+   "ZZ|99384": {
+    "sni": 1,
+    "esni": 7,
+    "sna": 0,
+    "snt": 0
+   }
+  }
+ },
+ "soma_municipios_oficiais_menos_uf_oficial": {
+  "AC": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "AL": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "AM": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "AP": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "BA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "CE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "DF": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "ES": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "GO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "MA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "MG": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "MS": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "MT": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "PA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "PB": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "PE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "PI": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "PR": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "RJ": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "RN": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "RO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "RR": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "RS": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "SC": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "SE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "SP": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "TO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  },
+  "ZZ": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "te": 0,
+   "esa": 0,
+   "esni": 0,
+   "ts": 0,
+   "si": 0,
+   "sni": 0,
+   "sa": 0
+  }
+ },
+ "soma_ufs_oficiais_menos_brasil_oficial": {
+  "L": 0,
+  "R": 0,
+  "outros_cand": 0,
+  "B": 0,
+  "N": 0,
+  "vnom": 0,
+  "tv": 0,
+  "comp": 0,
+  "te": 0,
+  "esa": 0,
+  "esni": 0,
+  "ts": 0,
+  "si": 0,
+  "sni": 0,
+  "sa": 0
+ },
+ "boletins_menos_oficial_por_uf": {
+  "AC": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "AL": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "AM": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "AP": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "BA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "CE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "DF": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "ES": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "GO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "MA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "MG": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "MS": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "MT": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "PA": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "PB": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "PE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "PI": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "PR": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "RJ": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "RN": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "RO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "RR": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "RS": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "SC": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "SE": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "SP": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "TO": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": 0,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "ZZ": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": -423,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  },
+  "BR": {
+   "L": 0,
+   "R": 0,
+   "outros_cand": 0,
+   "B": 0,
+   "N": 0,
+   "vnom": 0,
+   "tv": 0,
+   "comp": 0,
+   "aptos_vs_esa": 0,
+   "aptos_vs_te": -423,
+   "secoes_vs_sa": 0,
+   "abst_vs_esa_menos_comp": 0
+  }
+ },
+ "boletins_brasil": {
+  "L": 64256232,
+  "R": 59826041,
+  "outros_cand": 0,
+  "B": 1430496,
+  "N": 2723305,
+  "vnom": 124082273,
+  "tv": 128236074,
+  "comp": 128236074,
+  "apt": 158745079,
+  "nsec": 499207
+ },
+ "oficial_brasil": {
+  "L": 64256232,
+  "R": 59826041,
+  "outros_cand": 0,
+  "B": 1430496,
+  "N": 2723305,
+  "vn": 2723305,
+  "van": 0,
+  "vansj": 0,
+  "vnt": 0,
+  "vnom": 124082273,
+  "vv": 124082273,
+  "tv": 128236074,
+  "comp": 128236074,
+  "abst": 30509005,
+  "te": 158745502,
+  "esi": 158745079,
+  "esa": 158745079,
+  "esni": 423,
+  "esna": 0,
+  "esnt": 0,
+  "ts": 499248,
+  "st": 499248,
+  "si": 499207,
+  "sni": 41,
+  "sa": 499207,
+  "sna": 0,
+  "snt": 0,
+  "dg": "25/10/2026",
+  "hg": "23:27:02"
+ },
+ "cadastro": {
+  "cadastro_2T_principais": 499248,
+  "cadastro_2T_agregadas": 17931,
+  "cadastro_1T_principais": 499248,
+  "cadastro_1T_agregadas": 17931,
+  "geracao_cadastro_2T": [
+   [
+    "25/10/2026",
+    "23:22:31"
+   ]
+  ],
+  "geracao_cadastro_1T": [
+   [
+    "05/10/2026",
+    "02:59:38"
+   ],
+   [
+    "09/10/2026",
+    "15:12:10"
+   ],
+   [
+    "10/10/2026",
+    "15:04:44"
+   ],
+   [
+    "15/10/2026",
+    "09:06:29"
+   ],
+   [
+    "15/10/2026",
+    "18:14:27"
+   ],
+   [
+    "16/10/2026",
+    "11:42:17"
+   ],
+   [
+    "20/10/2026",
+    "18:27:23"
+   ],
+   [
+    "21/10/2026",
+    "13:24:17"
+   ],
+   [
+    "21/10/2026",
+    "17:39:39"
+   ],
+   [
+    "22/10/2026",
+    "15:03:29"
+   ],
+   [
+    "23/10/2026",
+    "19:31:05"
+   ],
+   [
+    "24/10/2026",
+    "11:21:09"
+   ],
+   [
+    "24/10/2026",
+    "12:03:57"
+   ],
+   [
+    "24/10/2026",
+    "12:38:31"
+   ]
+  ],
+  "bweb_1T_secoes": 499206,
+  "bweb_2T_secoes": 499207,
+  "no_bweb_1T_e_nao_no_2T": [],
+  "no_bweb_2T_e_nao_no_1T": [
+   "ZZ|29564|1|91"
+  ],
+  "principais_2T_sem_boletim_2T": [
+   "ZZ|29424|1|54",
+   "ZZ|29521|1|83",
+   "ZZ|29629|1|3014",
+   "ZZ|29769|1|126",
+   "ZZ|29815|1|140",
+   "ZZ|29823|1|141",
+   "ZZ|29831|1|1983",
+   "ZZ|29874|1|146",
+   "ZZ|29939|1|152",
+   "ZZ|29963|1|180",
+   "ZZ|30669|1|546",
+   "ZZ|30929|1|722",
+   "ZZ|30988|1|1354",
+   "ZZ|30988|1|725",
+   "ZZ|38881|1|548",
+   "ZZ|38903|1|603",
+   "ZZ|38920|1|638",
+   "ZZ|38989|1|1841",
+   "ZZ|39128|1|3208",
+   "ZZ|39187|1|624",
+   "ZZ|39225|1|931",
+   "ZZ|39241|1|714",
+   "ZZ|39263|1|961",
+   "ZZ|39284|1|773",
+   "ZZ|99104|1|1011",
+   "ZZ|99139|1|3120",
+   "ZZ|99147|1|3049",
+   "ZZ|99171|1|3126",
+   "ZZ|99198|1|2947",
+   "ZZ|99210|1|3013",
+   "ZZ|99236|1|815",
+   "ZZ|99244|1|2917",
+   "ZZ|99279|1|3698",
+   "ZZ|99287|1|1259",
+   "ZZ|99295|1|3485",
+   "ZZ|99325|1|3016",
+   "ZZ|99333|1|3188",
+   "ZZ|99341|1|1308",
+   "ZZ|99350|1|1236",
+   "ZZ|99376|1|1315",
+   "ZZ|99384|1|2876"
+  ],
+  "boletim_2T_fora_do_cadastro_2T": [],
+  "principais_1T_sem_boletim_1T": [
+   "ZZ|29424|1|54",
+   "ZZ|29521|1|83",
+   "ZZ|29564|1|91",
+   "ZZ|29629|1|3014",
+   "ZZ|29769|1|126",
+   "ZZ|29815|1|140",
+   "ZZ|29823|1|141",
+   "ZZ|29831|1|1983",
+   "ZZ|29874|1|146",
+   "ZZ|29939|1|152",
+   "ZZ|29963|1|180",
+   "ZZ|30669|1|546",
+   "ZZ|30929|1|722",
+   "ZZ|30988|1|1354",
+   "ZZ|30988|1|725",
+   "ZZ|38881|1|548",
+   "ZZ|38903|1|603",
+   "ZZ|38920|1|638",
+   "ZZ|38989|1|1841",
+   "ZZ|39128|1|3208",
+   "ZZ|39187|1|624",
+   "ZZ|39225|1|931",
+   "ZZ|39241|1|714",
+   "ZZ|39263|1|961",
+   "ZZ|39284|1|773",
+   "ZZ|99104|1|1011",
+   "ZZ|99139|1|3120",
+   "ZZ|99147|1|3049",
+   "ZZ|99171|1|3126",
+   "ZZ|99198|1|2947",
+   "ZZ|99210|1|3013",
+   "ZZ|99236|1|815",
+   "ZZ|99244|1|2917",
+   "ZZ|99279|1|3698",
+   "ZZ|99287|1|1259",
+   "ZZ|99295|1|3485",
+   "ZZ|99325|1|3016",
+   "ZZ|99333|1|3188",
+   "ZZ|99341|1|1308",
+   "ZZ|99350|1|1236",
+   "ZZ|99376|1|1315",
+   "ZZ|99384|1|2876"
+  ],
+  "boletim_1T_fora_do_cadastro_1T": [],
+  "principais_diferentes_entre_cadastros": {
+   "so_1T": [],
+   "so_2T": []
+  },
+  "agregadas_diferentes_entre_cadastros": {
+   "so_1T": [],
+   "so_2T": [],
+   "principal_mudou": []
+  },
+  "agregacao_bweb_diferente_entre_turnos": [],
+  "agregacao_bweb_2T_diferente_do_cadastro_2T": [],
+  "n_agregacao_bweb_2T_diferente_do_cadastro_2T": 0,
+  "principais_2T_sem_data_de_publicacao": [
+   "ZZ|29424|1|54",
+   "ZZ|29521|1|83",
+   "ZZ|29629|1|3014",
+   "ZZ|29769|1|126",
+   "ZZ|29815|1|140",
+   "ZZ|29823|1|141",
+   "ZZ|29831|1|1983",
+   "ZZ|29874|1|146",
+   "ZZ|29939|1|152",
+   "ZZ|29963|1|180",
+   "ZZ|30669|1|546",
+   "ZZ|30929|1|722",
+   "ZZ|30988|1|1354",
+   "ZZ|30988|1|725",
+   "ZZ|38881|1|548",
+   "ZZ|38903|1|603",
+   "ZZ|38920|1|638",
+   "ZZ|38989|1|1841",
+   "ZZ|39128|1|3208",
+   "ZZ|39187|1|624",
+   "ZZ|39225|1|931",
+   "ZZ|39241|1|714",
+   "ZZ|39263|1|961",
+   "ZZ|39284|1|773",
+   "ZZ|99104|1|1011",
+   "ZZ|99139|1|3120",
+   "ZZ|99147|1|3049",
+   "ZZ|99171|1|3126",
+   "ZZ|99198|1|2947",
+   "ZZ|99210|1|3013",
+   "ZZ|99236|1|815",
+   "ZZ|99244|1|2917",
+   "ZZ|99279|1|3698",
+   "ZZ|99287|1|1259",
+   "ZZ|99295|1|3485",
+   "ZZ|99325|1|3016",
+   "ZZ|99333|1|3188",
+   "ZZ|99341|1|1308",
+   "ZZ|99350|1|1236",
+   "ZZ|99376|1|1315",
+   "ZZ|99384|1|2876"
+  ],
+  "campos_extras_no_cadastro_2T": {}
+ },
+ "boletim_contra_cadastro_de_eleitorado": {
+  "1T": {
+   "secoes": 499206,
+   "sem_registro_no_cadastro": 0,
+   "aptos_diferente_do_eleitorado_federal": 0,
+   "exemplos": []
+  },
+  "2T": {
+   "secoes": 499207,
+   "sem_registro_no_cadastro": 0,
+   "aptos_diferente_do_eleitorado_federal": 0,
+   "exemplos": []
+  },
+  "cadastro_principais_1T": 499248,
+  "cadastro_principais_2T": 499248,
+  "cadastro_so_1T": [],
+  "cadastro_so_2T": [],
+  "cadastro_eleitorado_mudou_entre_turnos": 55722,
+  "cadastro_agregacao_mudou_entre_turnos": 0
+ },
+ "aptos_diferentes_entre_turnos": {
+  "secoes": 55722,
+  "documentadas_no_cadastro": 55722,
+  "soma_abs": 74692,
+  "liquido_brasil_e_exterior": {
+   "brasil": -149,
+   "exterior": 149
+  },
+  "por_tipo_de_local": {
+   "Convencional": 55175,
+   "Temporário": 350,
+   "Voto em trânsito": 124,
+   "Preso provisório": 58,
+   "Convencional+Temporário": 15
+  },
+  "maior_variacao": 84,
+  "secoes_por_variacao_em_modulo": {
+   "1": 46903,
+   "2": 5909,
+   "3": 1300,
+   "4": 532,
+   "5": 281,
+   "6": 186,
+   "7": 157,
+   "8": 99,
+   "9": 62,
+   "10": 293
+  },
+  "exemplos": [
+   {
+    "secao": "AC|1007|9|192",
+    "apt1": 313,
+    "apt2": 314,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 313,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 314,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1015|2|65",
+    "apt1": 278,
+    "apt2": 279,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 278,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 279,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1015|2|95",
+    "apt1": 273,
+    "apt2": 274,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 273,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 274,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1023|1|578",
+    "apt1": 260,
+    "apt2": 262,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 260,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 262,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1023|1|579",
+    "apt1": 256,
+    "apt2": 257,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 256,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 257,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|122",
+    "apt1": 210,
+    "apt2": 211,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 210,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 211,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|58",
+    "apt1": 257,
+    "apt2": 259,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 257,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 259,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|77",
+    "apt1": 235,
+    "apt2": 236,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 235,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 236,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|88",
+    "apt1": 252,
+    "apt2": 253,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 252,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 253,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|95",
+    "apt1": 339,
+    "apt2": 337,
+    "agr1": "140",
+    "agr2": "140",
+    "cadastro_eleitorado_federal_1T": 339,
+    "cadastro_agregadas_1T": [
+     140
+    ],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 337,
+    "cadastro_agregadas_2T": [
+     140
+    ],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1031|3|96",
+    "apt1": 319,
+    "apt2": 317,
+    "agr1": "124",
+    "agr2": "124",
+    "cadastro_eleitorado_federal_1T": 319,
+    "cadastro_agregadas_1T": [
+     124
+    ],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 317,
+    "cadastro_agregadas_2T": [
+     124
+    ],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|143",
+    "apt1": 205,
+    "apt2": 203,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 205,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 203,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|160",
+    "apt1": 296,
+    "apt2": 295,
+    "agr1": "289",
+    "agr2": "289",
+    "cadastro_eleitorado_federal_1T": 296,
+    "cadastro_agregadas_1T": [
+     289
+    ],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 295,
+    "cadastro_agregadas_2T": [
+     289
+    ],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|162",
+    "apt1": 262,
+    "apt2": 260,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 262,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 260,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|294",
+    "apt1": 271,
+    "apt2": 270,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 271,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 270,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|324",
+    "apt1": 244,
+    "apt2": 242,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 244,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 242,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|375",
+    "apt1": 298,
+    "apt2": 297,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 298,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 297,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|384",
+    "apt1": 205,
+    "apt2": 203,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 205,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 203,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|389",
+    "apt1": 201,
+    "apt2": 200,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 201,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 200,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|441",
+    "apt1": 238,
+    "apt2": 236,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 238,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 236,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1040|4|456",
+    "apt1": 123,
+    "apt2": 121,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 123,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 121,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1058|6|3",
+    "apt1": 283,
+    "apt2": 282,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 283,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 282,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1058|6|58",
+    "apt1": 359,
+    "apt2": 358,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 359,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 358,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1058|6|76",
+    "apt1": 279,
+    "apt2": 280,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 279,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 280,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1058|6|94",
+    "apt1": 286,
+    "apt2": 287,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 286,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 287,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|166",
+    "apt1": 225,
+    "apt2": 224,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 225,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 224,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|245",
+    "apt1": 281,
+    "apt2": 280,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 281,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 280,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|313",
+    "apt1": 148,
+    "apt2": 146,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 148,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 146,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|314",
+    "apt1": 151,
+    "apt2": 150,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 151,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 150,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|321",
+    "apt1": 105,
+    "apt2": 104,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 105,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 104,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|325",
+    "apt1": 208,
+    "apt2": 206,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 208,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 206,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|429",
+    "apt1": 234,
+    "apt2": 233,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 234,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 233,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1066|4|498",
+    "apt1": 109,
+    "apt2": 108,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 109,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 108,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|10",
+    "apt1": 191,
+    "apt2": 192,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 191,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 192,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|107",
+    "apt1": 187,
+    "apt2": 186,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 187,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 186,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|111",
+    "apt1": 288,
+    "apt2": 289,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 288,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 289,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|112",
+    "apt1": 170,
+    "apt2": 171,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 170,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 171,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|121",
+    "apt1": 267,
+    "apt2": 268,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 267,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 268,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|15",
+    "apt1": 260,
+    "apt2": 262,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 260,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 262,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|154",
+    "apt1": 258,
+    "apt2": 260,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 258,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 260,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|159",
+    "apt1": 270,
+    "apt2": 269,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 270,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 269,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|175",
+    "apt1": 256,
+    "apt2": 257,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 256,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 257,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|183",
+    "apt1": 280,
+    "apt2": 281,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 280,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 281,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|184",
+    "apt1": 285,
+    "apt2": 286,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 285,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 286,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|188",
+    "apt1": 290,
+    "apt2": 291,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 290,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 291,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|189",
+    "apt1": 255,
+    "apt2": 256,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 255,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 256,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|198",
+    "apt1": 246,
+    "apt2": 247,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 246,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 247,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|206",
+    "apt1": 265,
+    "apt2": 266,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 265,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 266,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|210",
+    "apt1": 289,
+    "apt2": 290,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 289,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 290,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   },
+   {
+    "secao": "AC|1074|4|214",
+    "apt1": 238,
+    "apt2": 239,
+    "agr1": "",
+    "agr2": "#NULO#",
+    "cadastro_eleitorado_federal_1T": 238,
+    "cadastro_agregadas_1T": [],
+    "tipo_local": [
+     "Convencional"
+    ],
+    "cadastro_eleitorado_federal_2T": 239,
+    "cadastro_agregadas_2T": [],
+    "documentado_no_cadastro": true
+   }
+  ]
+ },
+ "comparecimento_acima_dos_aptos": {
+  "2T": 0,
+  "lista_2T": [],
+  "1T": 0,
+  "lista_1T": []
+ },
+ "secoes_especiais_por_uf_2T": {
+  "AC": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 345
+  },
+  "AL": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 740
+  },
+  "AM": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1225
+  },
+  "AP": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 205
+  },
+  "BA": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 3890
+  },
+  "CE": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 2119
+  },
+  "DF": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 2035
+  },
+  "ES": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 952
+  },
+  "GO": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1579
+  },
+  "MA": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1174
+  },
+  "MG": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 5786
+  },
+  "MS": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 651
+  },
+  "MT": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 875
+  },
+  "PA": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1488
+  },
+  "PB": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1165
+  },
+  "PE": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1993
+  },
+  "PI": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 849
+  },
+  "PR": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 3019
+  },
+  "RJ": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 4969
+  },
+  "RN": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1584
+  },
+  "RO": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 383
+  },
+  "RR": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 171
+  },
+  "RS": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 2969
+  },
+  "SC": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 2029
+  },
+  "SE": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 1214
+  },
+  "SP": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 11635
+  },
+  "TO": {
+   "nao_instaladas_oficial": 0,
+   "aptos_nao_instaladas_oficial": 0,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 0,
+   "aptos_mudaram": 362
+  },
+  "ZZ": {
+   "nao_instaladas_oficial": 41,
+   "aptos_nao_instaladas_oficial": 423,
+   "anuladas_ou_nao_apuradas_oficial": 0,
+   "nao_totalizadas_oficial": 0,
+   "nao_instaladas_oficial_1T": 41,
+   "boletim_de_junta_2T": 29,
+   "aptos_mudaram": 316
+  }
+ },
+ "saldo_tirado_pelas_secoes_especiais": {
+  "definicao": "seções com boletim apurado no 1º turno que não somaram voto no 2º turno (sem boletim, boletim não apurado ou comparecimento zero no 2º turno); saldo = soma da margem do candidato da direita sobre o 13 no 1º turno nessas seções",
+  "2026": {
+   "secoes": 1,
+   "saldo": -2,
+   "saldo_em_modulo_por_secao": 2,
+   "por_uf_[secoes,saldo]": {
+    "ZZ": [
+     1,
+     -2
+    ]
+   },
+   "lista": [
+    {
+     "secao": "ZZ|30686|1|443",
+     "motivo": "comparecimento zero no 2º turno",
+     "apt1": 30,
+     "comp1": 2,
+     "L1": 2,
+     "R1": 0,
+     "margem_direita_1T": -2
+    }
+   ],
+   "especiais_no_2T_sem_margem_no_1T": []
+  },
+  "2022": {
+   "secoes": 0,
+   "saldo": 0,
+   "saldo_em_modulo_por_secao": 0,
+   "por_uf_[secoes,saldo]": {},
+   "lista": [],
+   "especiais_no_2T_sem_margem_no_1T": [
+    {
+     "secao": "ZZ|29564|1|91",
+     "tipo_2T": "ANULADA",
+     "comp_2T": 0,
+     "tipo_1T": "ANULADA",
+     "comp_1T": 0
+    }
+   ]
+  },
+  "2018_descritivo": {
+   "secoes": 3,
+   "saldo": -76,
+   "saldo_em_modulo_por_secao": 76,
+   "por_uf_[secoes,saldo]": {
+    "ES": [
+     1,
+     0
+    ],
+    "MG": [
+     1,
+     -58
+    ],
+    "PR": [
+     1,
+     -18
+    ]
+   },
+   "lista": [
+    {
+     "secao": "ES|56227|37|87",
+     "motivo": "sem boletim no 2º turno",
+     "apt1": 334,
+     "comp1": 264,
+     "L1": 109,
+     "R1": 109,
+     "margem_direita_1T": 0
+    },
+    {
+     "secao": "MG|47392|270|185",
+     "motivo": "boletim do 2º turno Anulada",
+     "apt1": 367,
+     "comp1": 278,
+     "L1": 145,
+     "R1": 87,
+     "margem_direita_1T": -58
+    },
+    {
+     "secao": "PR|78573|83|15",
+     "motivo": "sem boletim no 2º turno",
+     "apt1": 335,
+     "comp1": 301,
+     "L1": 131,
+     "R1": 113,
+     "margem_direita_1T": -18
+    }
+   ],
+   "especiais_no_2T_sem_margem_no_1T": []
+  },
+  "juntas_2026_descritivo": {
+   "secoes": 28,
+   "margem_flavio_1T": -81,
+   "margem_flavio_2T": -92,
+   "lista": [
+    {
+     "secao": "ZZ|29394|1|28",
+     "margem_flavio_1T": 0,
+     "margem_flavio_2T": 3,
+     "comp1": 37,
+     "comp2": 41
+    },
+    {
+     "secao": "ZZ|99180|1|1228",
+     "margem_flavio_1T": 4,
+     "margem_flavio_2T": 8,
+     "comp1": 19,
+     "comp2": 22
+    },
+    {
+     "secao": "ZZ|30821|1|1524",
+     "margem_flavio_1T": -1,
+     "margem_flavio_2T": -4,
+     "comp1": 13,
+     "comp2": 12
+    },
+    {
+     "secao": "ZZ|29777|1|127",
+     "margem_flavio_1T": -35,
+     "margem_flavio_2T": -42,
+     "comp1": 40,
+     "comp2": 45
+    },
+    {
+     "secao": "ZZ|39102|1|712",
+     "margem_flavio_1T": 8,
+     "margem_flavio_2T": 12,
+     "comp1": 38,
+     "comp2": 34
+    },
+    {
+     "secao": "ZZ|38962|1|558",
+     "margem_flavio_1T": -6,
+     "margem_flavio_2T": -5,
+     "comp1": 16,
+     "comp2": 17
+    },
+    {
+     "secao": "ZZ|29858|1|1183",
+     "margem_flavio_1T": 15,
+     "margem_flavio_2T": 13,
+     "comp1": 23,
+     "comp2": 21
+    },
+    {
+     "secao": "ZZ|30546|1|1764",
+     "margem_flavio_1T": -26,
+     "margem_flavio_2T": -27,
+     "comp1": 49,
+     "comp2": 55
+    },
+    {
+     "secao": "ZZ|30295|1|348",
+     "margem_flavio_1T": 1,
+     "margem_flavio_2T": -1,
+     "comp1": 5,
+     "comp2": 7
+    },
+    {
+     "secao": "ZZ|29645|1|380",
+     "margem_flavio_1T": 11,
+     "margem_flavio_2T": 15,
+     "comp1": 47,
+     "comp2": 52
+    },
+    {
+     "secao": "ZZ|30430|1|384",
+     "margem_flavio_1T": 2,
+     "margem_flavio_2T": 4,
+     "comp1": 23,
+     "comp2": 23
+    },
+    {
+     "secao": "ZZ|29254|1|1",
+     "margem_flavio_1T": -11,
+     "margem_flavio_2T": -9,
+     "comp1": 44,
+     "comp2": 53
+    },
+    {
+     "secao": "ZZ|30163|1|647",
+     "margem_flavio_1T": -24,
+     "margem_flavio_2T": -27,
+     "comp1": 85,
+     "comp2": 97
+    },
+    {
+     "secao": "ZZ|29750|1|1703",
+     "margem_flavio_1T": 1,
+     "margem_flavio_2T": 2,
+     "comp1": 32,
+     "comp2": 34
+    },
+    {
+     "secao": "ZZ|30325|1|352",
+     "margem_flavio_1T": 6,
+     "margem_flavio_2T": 3,
+     "comp1": 19,
+     "comp2": 24
+    },
+    {
+     "secao": "ZZ|30333|1|353",
+     "margem_flavio_1T": -5,
+     "margem_flavio_2T": -4,
+     "comp1": 5,
+     "comp2": 8
+    },
+    {
+     "secao": "ZZ|30597|1|1182",
+     "margem_flavio_1T": -3,
+     "margem_flavio_2T": -5,
+     "comp1": 25,
+     "comp2": 28
+    },
+    {
+     "secao": "ZZ|29173|1|494",
+     "margem_flavio_1T": 10,
+     "margem_flavio_2T": 11,
+     "comp1": 13,
+     "comp2": 13
+    },
+    {
+     "secao": "ZZ|99473|1|1327",
+     "margem_flavio_1T": 10,
+     "margem_flavio_2T": 17,
+     "comp1": 49,
+     "comp2": 42
+    },
+    {
+     "secao": "ZZ|29297|1|495",
+     "margem_flavio_1T": -17,
+     "margem_flavio_2T": -21,
+     "comp1": 37,
+     "comp2": 39
+    },
+    {
+     "secao": "ZZ|29270|1|3",
+     "margem_flavio_1T": -6,
+     "margem_flavio_2T": -3,
+     "comp1": 13,
+     "comp2": 14
+    },
+    {
+     "secao": "ZZ|29300|1|6",
+     "margem_flavio_1T": -24,
+     "margem_flavio_2T": -20,
+     "comp1": 31,
+     "comp2": 29
+    },
+    {
+     "secao": "ZZ|30171|1|1340",
+     "margem_flavio_1T": -4,
+     "margem_flavio_2T": -7,
+     "comp1": 11,
+     "comp2": 10
+    },
+    {
+     "secao": "ZZ|29580|1|96",
+     "margem_flavio_1T": 30,
+     "margem_flavio_2T": 25,
+     "comp1": 36,
+     "comp2": 31
+    },
+    {
+     "secao": "ZZ|30708|1|444",
+     "margem_flavio_1T": -3,
+     "margem_flavio_2T": -9,
+     "comp1": 22,
+     "comp2": 23
+    },
+    {
+     "secao": "ZZ|29912|1|150",
+     "margem_flavio_1T": -20,
+     "margem_flavio_2T": -27,
+     "comp1": 33,
+     "comp2": 37
+    },
+    {
+     "secao": "ZZ|99155|1|1504",
+     "margem_flavio_1T": 8,
+     "margem_flavio_2T": 6,
+     "comp1": 22,
+     "comp2": 20
+    },
+    {
+     "secao": "ZZ|30686|1|443",
+     "margem_flavio_1T": -2,
+     "margem_flavio_2T": 0,
+     "comp1": 2,
+     "comp2": 0
+    }
+   ]
+  },
+  "saldo_2026_com_juntas": -81
+ },
+ "referencias_secoes": {
+  "2022": {
+   "secoes_1T": 472028,
+   "secoes_2T": 472028,
+   "so_no_1T": 0,
+   "so_no_2T": 0,
+   "tipos": {
+    "1": {
+     "APURADA": 472024,
+     "ANULADA": 4
+    },
+    "2": {
+     "APURADA": 472027,
+     "ANULADA": 1
+    }
+   },
+   "comp_acima_aptos_1T": 0,
+   "comp_acima_aptos_2T": 0,
+   "aptos_diferentes_entre_turnos": 49710,
+   "aptos_dif_soma_abs": 72306,
+   "aptos_dif_liquido": 0,
+   "exemplos_aptos_dif": [
+    [
+     "AC|1392|1|6",
+     342,
+     343
+    ],
+    [
+     "AC|1392|1|8",
+     334,
+     335
+    ],
+    [
+     "AC|1392|1|14",
+     244,
+     245
+    ],
+    [
+     "AC|1392|1|29",
+     246,
+     247
+    ],
+    [
+     "AC|1392|1|31",
+     235,
+     236
+    ],
+    [
+     "AC|1392|1|35",
+     331,
+     333
+    ],
+    [
+     "AC|1392|1|41",
+     173,
+     174
+    ],
+    [
+     "AC|1392|1|42",
+     177,
+     178
+    ],
+    [
+     "AC|1392|1|45",
+     242,
+     243
+    ],
+    [
+     "AC|1392|1|64",
+     271,
+     272
+    ]
+   ]
+  },
+  "2018": {
+   "secoes_1T": 454450,
+   "secoes_2T": 454448,
+   "so_no_1T": 2,
+   "so_no_2T": 0,
+   "tipos": {
+    "1": {
+     "Apurada": 454446,
+     "Anulada e apurada em separado": 2,
+     "Anulada": 2
+    },
+    "2": {
+     "Apurada": 454447,
+     "Anulada": 1
+    }
+   },
+   "comp_acima_aptos_1T": 0,
+   "comp_acima_aptos_2T": 0,
+   "aptos_diferentes_entre_turnos": 17026,
+   "aptos_dif_soma_abs": 24103,
+   "aptos_dif_liquido": -1,
+   "exemplos_aptos_dif": [
+    [
+     "AC|1023|1|587",
+     281,
+     279
+    ],
+    [
+     "AC|1023|1|626",
+     273,
+     274
+    ],
+    [
+     "AC|1040|4|331",
+     285,
+     286
+    ],
+    [
+     "AC|1058|6|8",
+     243,
+     244
+    ],
+    [
+     "AC|1074|4|157",
+     227,
+     226
+    ],
+    [
+     "AC|1074|4|254",
+     232,
+     231
+    ],
+    [
+     "AC|1104|5|118",
+     270,
+     271
+    ],
+    [
+     "AC|1392|1|162",
+     232,
+     222
+    ],
+    [
+     "AC|1392|1|277",
+     270,
+     271
+    ],
+    [
+     "AC|1392|1|308",
+     229,
+     228
+    ]
+   ]
+  }
+ },
+ "reconciliacao_e_veredito": {
+  "votos_comparecimento": {
+   "municipios_com_diferenca": [],
+   "ufs_exterior_brasil_com_diferenca": []
+  },
+  "aptos_secoes": {
+   "municipios_aptos_boletim_diferente_do_eleitorado_das_secoes_apuradas": [],
+   "municipios_secoes_boletim_diferente_das_apuradas": [],
+   "secoes_do_cadastro_sem_boletim_por_municipio": {
+    "ZZ|29424": 1,
+    "ZZ|29521": 1,
+    "ZZ|29629": 1,
+    "ZZ|29769": 1,
+    "ZZ|29815": 1,
+    "ZZ|29823": 1,
+    "ZZ|29831": 1,
+    "ZZ|29874": 1,
+    "ZZ|29939": 1,
+    "ZZ|29963": 1,
+    "ZZ|30669": 1,
+    "ZZ|30929": 1,
+    "ZZ|30988": 2,
+    "ZZ|38881": 1,
+    "ZZ|38903": 1,
+    "ZZ|38920": 1,
+    "ZZ|38989": 1,
+    "ZZ|39128": 1,
+    "ZZ|39187": 1,
+    "ZZ|39225": 1,
+    "ZZ|39241": 1,
+    "ZZ|39263": 1,
+    "ZZ|39284": 1,
+    "ZZ|99104": 1,
+    "ZZ|99139": 1,
+    "ZZ|99147": 1,
+    "ZZ|99171": 1,
+    "ZZ|99198": 1,
+    "ZZ|99210": 1,
+    "ZZ|99236": 1,
+    "ZZ|99244": 1,
+    "ZZ|99279": 1,
+    "ZZ|99287": 1,
+    "ZZ|99295": 1,
+    "ZZ|99325": 1,
+    "ZZ|99333": 1,
+    "ZZ|99341": 1,
+    "ZZ|99350": 1,
+    "ZZ|99376": 1,
+    "ZZ|99384": 1
+   },
+   "nao_instaladas_oficial_por_municipio": {
+    "ZZ|30929": 1,
+    "ZZ|39284": 1,
+    "ZZ|39263": 1,
+    "ZZ|99139": 1,
+    "ZZ|99341": 1,
+    "ZZ|39241": 1,
+    "ZZ|99236": 1,
+    "ZZ|38920": 1,
+    "ZZ|30988": 2,
+    "ZZ|99198": 1,
+    "ZZ|38903": 1,
+    "ZZ|30669": 1,
+    "ZZ|99210": 1,
+    "ZZ|29963": 1,
+    "ZZ|29939": 1,
+    "ZZ|38881": 1,
+    "ZZ|99279": 1,
+    "ZZ|99325": 1,
+    "ZZ|99171": 1,
+    "ZZ|99376": 1,
+    "ZZ|39225": 1,
+    "ZZ|29823": 1,
+    "ZZ|29769": 1,
+    "ZZ|38989": 1,
+    "ZZ|29874": 1,
+    "ZZ|29521": 1,
+    "ZZ|39128": 1,
+    "ZZ|99244": 1,
+    "ZZ|99350": 1,
+    "ZZ|29424": 1,
+    "ZZ|29831": 1,
+    "ZZ|99104": 1,
+    "ZZ|29815": 1,
+    "ZZ|99333": 1,
+    "ZZ|99287": 1,
+    "ZZ|99295": 1,
+    "ZZ|39187": 1,
+    "ZZ|99147": 1,
+    "ZZ|29629": 1,
+    "ZZ|99384": 1
+   },
+   "cadastro_sem_boletim_igual_nao_instaladas": true,
+   "te_menos_esa_igual_esni_em_todos": true,
+   "aptos_das_nao_instaladas": 423
+  },
+  "municipios_somam_uf": [],
+  "ufs_somam_brasil": {},
+  "conjunto_de_secoes": {
+   "diferencas": [
+    {
+     "secao": "ZZ|29564|1|91",
+     "lado": "só no 2º turno",
+     "aptos_2T": 72,
+     "comp_2T": 0,
+     "no_cadastro_1T": true,
+     "oficial_cidade_1T": {
+      "ts": 1,
+      "si": 1,
+      "sni": 0,
+      "sa": 1,
+      "c": 0,
+      "te": 72
+     },
+     "oficial_cidade_2T": {
+      "ts": 1,
+      "si": 1,
+      "sni": 0,
+      "sa": 1,
+      "c": 0,
+      "te": 72
+     },
+     "explicada": true
+    }
+   ],
+   "nao_explicadas": [],
+   "agregacao_mudou_no_bweb": 0
+  },
+  "aptos_entre_turnos_nao_documentados": [],
+  "comparecimento_acima_dos_aptos": [],
+  "saldo": {
+   "2026": -2,
+   "2022": 0,
+   "2018": -76,
+   "limite_sem_sinal_1_5x_2022": 0.0,
+   "limite_sinal_3x_2022": 0,
+   "limite_sinal_votos": 100000,
+   "sinal": false,
+   "sem_sinal": true
+  },
+  "diferencas_nao_atribuidas": [],
+  "sem_votos_de_junta": 2,
+  "nao_instaladas_sem_data_de_publicacao": true,
+  "nao_instaladas_iguais_1T": true,
+  "veredito": "SEM SINAL"
+ },
+ "consultas": {
+  "arquivos_ok": 362,
+  "falhas": 1,
+  "avisos_429": 33
+ },
+ "boletins_por_uf": {
+  "AC": {
+   "L": 144513,
+   "R": 287715,
+   "outros_cand": 0,
+   "B": 5016,
+   "N": 16410,
+   "vnom": 432228,
+   "tv": 453654,
+   "comp": 453654,
+   "apt": 613715,
+   "nsec": 2270
+  },
+  "AL": {
+   "L": 1152621,
+   "R": 744140,
+   "outros_cand": 0,
+   "B": 16983,
+   "N": 37888,
+   "vnom": 1896761,
+   "tv": 1951632,
+   "comp": 1951632,
+   "apt": 2442081,
+   "nsec": 7101
+  },
+  "AM": {
+   "L": 1145783,
+   "R": 975245,
+   "outros_cand": 0,
+   "B": 18324,
+   "N": 52707,
+   "vnom": 2121028,
+   "tv": 2192059,
+   "comp": 2192059,
+   "apt": 2798661,
+   "nsec": 8157
+  },
+  "AP": {
+   "L": 222968,
+   "R": 198674,
+   "outros_cand": 0,
+   "B": 3320,
+   "N": 5013,
+   "vnom": 421642,
+   "tv": 429975,
+   "comp": 429975,
+   "apt": 576910,
+   "nsec": 1914
+  },
+  "BA": {
+   "L": 6485258,
+   "R": 2608761,
+   "outros_cand": 0,
+   "B": 92721,
+   "N": 235307,
+   "vnom": 9094019,
+   "tv": 9422047,
+   "comp": 9422047,
+   "apt": 11312891,
+   "nsec": 35476
+  },
+  "BR": {
+   "L": 64256232,
+   "R": 59826041,
+   "outros_cand": 0,
+   "B": 1430496,
+   "N": 2723305,
+   "vnom": 124082273,
+   "tv": 128236074,
+   "comp": 128236074,
+   "apt": 158745079,
+   "nsec": 499207
+  },
+  "CE": {
+   "L": 4036124,
+   "R": 1819478,
+   "outros_cand": 0,
+   "B": 56386,
+   "N": 112855,
+   "vnom": 5855602,
+   "tv": 6024843,
+   "comp": 6024843,
+   "apt": 6996521,
+   "nsec": 23765
+  },
+  "DF": {
+   "L": 825224,
+   "R": 979542,
+   "outros_cand": 0,
+   "B": 22386,
+   "N": 41128,
+   "vnom": 1804766,
+   "tv": 1868280,
+   "comp": 1868280,
+   "apt": 2258995,
+   "nsec": 6969
+  },
+  "ES": {
+   "L": 1001965,
+   "R": 1294504,
+   "outros_cand": 0,
+   "B": 33080,
+   "N": 79665,
+   "vnom": 2296469,
+   "tv": 2409214,
+   "comp": 2409214,
+   "apt": 2991515,
+   "nsec": 9844
+  },
+  "GO": {
+   "L": 1585555,
+   "R": 2345334,
+   "outros_cand": 0,
+   "B": 43214,
+   "N": 73177,
+   "vnom": 3930889,
+   "tv": 4047280,
+   "comp": 4047280,
+   "apt": 5080385,
+   "nsec": 15686
+  },
+  "MA": {
+   "L": 2808231,
+   "R": 1229971,
+   "outros_cand": 0,
+   "B": 30855,
+   "N": 58714,
+   "vnom": 4038202,
+   "tv": 4127771,
+   "comp": 4127771,
+   "apt": 5183049,
+   "nsec": 18093
+  },
+  "MG": {
+   "L": 6351099,
+   "R": 6241786,
+   "outros_cand": 0,
+   "B": 164141,
+   "N": 287177,
+   "vnom": 12592885,
+   "tv": 13044203,
+   "comp": 13044203,
+   "apt": 16372144,
+   "nsec": 52062
+  },
+  "MS": {
+   "L": 628973,
+   "R": 927892,
+   "outros_cand": 0,
+   "B": 14958,
+   "N": 22637,
+   "vnom": 1556865,
+   "tv": 1594460,
+   "comp": 1594460,
+   "apt": 2024437,
+   "nsec": 7106
+  },
+  "MT": {
+   "L": 694167,
+   "R": 1351099,
+   "outros_cand": 0,
+   "B": 15431,
+   "N": 24637,
+   "vnom": 2045266,
+   "tv": 2085334,
+   "comp": 2085334,
+   "apt": 2637879,
+   "nsec": 8287
+  },
+  "PA": {
+   "L": 2690449,
+   "R": 2199940,
+   "outros_cand": 0,
+   "B": 36501,
+   "N": 62683,
+   "vnom": 4890389,
+   "tv": 4989573,
+   "comp": 4989573,
+   "apt": 6262063,
+   "nsec": 20827
+  },
+  "PB": {
+   "L": 1794059,
+   "R": 865210,
+   "outros_cand": 0,
+   "B": 25943,
+   "N": 58348,
+   "vnom": 2659269,
+   "tv": 2743560,
+   "comp": 2743560,
+   "apt": 3248434,
+   "nsec": 10712
+  },
+  "PE": {
+   "L": 4117513,
+   "R": 1832554,
+   "outros_cand": 0,
+   "B": 56758,
+   "N": 119642,
+   "vnom": 5950067,
+   "tv": 6126467,
+   "comp": 6126467,
+   "apt": 7223227,
+   "nsec": 21418
+  },
+  "PI": {
+   "L": 1653989,
+   "R": 525859,
+   "outros_cand": 0,
+   "B": 16137,
+   "N": 43845,
+   "vnom": 2179848,
+   "tv": 2239830,
+   "comp": 2239830,
+   "apt": 2704695,
+   "nsec": 10225
+  },
+  "PR": {
+   "L": 2566504,
+   "R": 4291444,
+   "outros_cand": 0,
+   "B": 82572,
+   "N": 118819,
+   "vnom": 6857948,
+   "tv": 7059339,
+   "comp": 7059339,
+   "apt": 8613628,
+   "nsec": 27142
+  },
+  "RJ": {
+   "L": 4565393,
+   "R": 5169033,
+   "outros_cand": 0,
+   "B": 111682,
+   "N": 231341,
+   "vnom": 9734426,
+   "tv": 10077449,
+   "comp": 10077449,
+   "apt": 12857526,
+   "nsec": 37675
+  },
+  "RN": {
+   "L": 1413596,
+   "R": 737409,
+   "outros_cand": 0,
+   "B": 19939,
+   "N": 61879,
+   "vnom": 2151005,
+   "tv": 2232823,
+   "comp": 2232823,
+   "apt": 2659867,
+   "nsec": 8115
+  },
+  "RO": {
+   "L": 294446,
+   "R": 674382,
+   "outros_cand": 0,
+   "B": 8361,
+   "N": 11300,
+   "vnom": 968828,
+   "tv": 988489,
+   "comp": 988489,
+   "apt": 1265926,
+   "nsec": 4698
+  },
+  "RR": {
+   "L": 83505,
+   "R": 219675,
+   "outros_cand": 0,
+   "B": 2176,
+   "N": 3241,
+   "vnom": 303180,
+   "tv": 308597,
+   "comp": 308597,
+   "apt": 401540,
+   "nsec": 1519
+  },
+  "RS": {
+   "L": 2824552,
+   "R": 3874378,
+   "outros_cand": 0,
+   "B": 89463,
+   "N": 101245,
+   "vnom": 6698930,
+   "tv": 6889638,
+   "comp": 6889638,
+   "apt": 8522318,
+   "nsec": 27547
+  },
+  "SC": {
+   "L": 1418314,
+   "R": 3220071,
+   "outros_cand": 0,
+   "B": 48674,
+   "N": 75244,
+   "vnom": 4638385,
+   "tv": 4762303,
+   "comp": 4762303,
+   "apt": 5734687,
+   "nsec": 17326
+  },
+  "SE": {
+   "L": 989041,
+   "R": 433354,
+   "outros_cand": 0,
+   "B": 13135,
+   "N": 31129,
+   "vnom": 1422395,
+   "tv": 1466659,
+   "comp": 1466659,
+   "apt": 1740093,
+   "nsec": 5923
+  },
+  "SP": {
+   "L": 12119274,
+   "R": 14139178,
+   "outros_cand": 0,
+   "B": 389606,
+   "N": 716331,
+   "vnom": 26258452,
+   "tv": 27364389,
+   "comp": 27364389,
+   "apt": 34123591,
+   "nsec": 103656
+  },
+  "TO": {
+   "L": 442962,
+   "R": 467916,
+   "outros_cand": 0,
+   "B": 8059,
+   "N": 35826,
+   "vnom": 910878,
+   "tv": 954763,
+   "comp": 954763,
+   "apt": 1182041,
+   "nsec": 4384
+  },
+  "ZZ": {
+   "L": 200154,
+   "R": 171497,
+   "outros_cand": 0,
+   "B": 4675,
+   "N": 5117,
+   "vnom": 371651,
+   "tv": 381443,
+   "comp": 381443,
+   "apt": 916260,
+   "nsec": 1310
+  }
+ },
+ "oficial_por_uf": {
+  "BR": {
+   "L": 64256232,
+   "R": 59826041,
+   "outros_cand": 0,
+   "B": 1430496,
+   "N": 2723305,
+   "vn": 2723305,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 124082273,
+   "vv": 124082273,
+   "tv": 128236074,
+   "comp": 128236074,
+   "abst": 30509005,
+   "te": 158745502,
+   "esi": 158745079,
+   "esa": 158745079,
+   "esni": 423,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 499248,
+   "st": 499248,
+   "si": 499207,
+   "sni": 41,
+   "sa": 499207,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:02"
+  },
+  "AC": {
+   "L": 144513,
+   "R": 287715,
+   "outros_cand": 0,
+   "B": 5016,
+   "N": 16410,
+   "vn": 16410,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 432228,
+   "vv": 432228,
+   "tv": 453654,
+   "comp": 453654,
+   "abst": 160061,
+   "te": 613715,
+   "esi": 613715,
+   "esa": 613715,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 2270,
+   "st": 2270,
+   "si": 2270,
+   "sni": 0,
+   "sa": 2270,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:56"
+  },
+  "AL": {
+   "L": 1152621,
+   "R": 744140,
+   "outros_cand": 0,
+   "B": 16983,
+   "N": 37888,
+   "vn": 37888,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 1896761,
+   "vv": 1896761,
+   "tv": 1951632,
+   "comp": 1951632,
+   "abst": 490449,
+   "te": 2442081,
+   "esi": 2442081,
+   "esa": 2442081,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 7101,
+   "st": 7101,
+   "si": 7101,
+   "sni": 0,
+   "sa": 7101,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "AM": {
+   "L": 1145783,
+   "R": 975245,
+   "outros_cand": 0,
+   "B": 18324,
+   "N": 52707,
+   "vn": 52707,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2121028,
+   "vv": 2121028,
+   "tv": 2192059,
+   "comp": 2192059,
+   "abst": 606602,
+   "te": 2798661,
+   "esi": 2798661,
+   "esa": 2798661,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 8157,
+   "st": 8157,
+   "si": 8157,
+   "sni": 0,
+   "sa": 8157,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "AP": {
+   "L": 222968,
+   "R": 198674,
+   "outros_cand": 0,
+   "B": 3320,
+   "N": 5013,
+   "vn": 5013,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 421642,
+   "vv": 421642,
+   "tv": 429975,
+   "comp": 429975,
+   "abst": 146935,
+   "te": 576910,
+   "esi": 576910,
+   "esa": 576910,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 1914,
+   "st": 1914,
+   "si": 1914,
+   "sni": 0,
+   "sa": 1914,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:56"
+  },
+  "BA": {
+   "L": 6485258,
+   "R": 2608761,
+   "outros_cand": 0,
+   "B": 92721,
+   "N": 235307,
+   "vn": 235307,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 9094019,
+   "vv": 9094019,
+   "tv": 9422047,
+   "comp": 9422047,
+   "abst": 1890844,
+   "te": 11312891,
+   "esi": 11312891,
+   "esa": 11312891,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 35476,
+   "st": 35476,
+   "si": 35476,
+   "sni": 0,
+   "sa": 35476,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:06"
+  },
+  "CE": {
+   "L": 4036124,
+   "R": 1819478,
+   "outros_cand": 0,
+   "B": 56386,
+   "N": 112855,
+   "vn": 112855,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 5855602,
+   "vv": 5855602,
+   "tv": 6024843,
+   "comp": 6024843,
+   "abst": 971678,
+   "te": 6996521,
+   "esi": 6996521,
+   "esa": 6996521,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 23765,
+   "st": 23765,
+   "si": 23765,
+   "sni": 0,
+   "sa": 23765,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:58"
+  },
+  "DF": {
+   "L": 825224,
+   "R": 979542,
+   "outros_cand": 0,
+   "B": 22386,
+   "N": 41128,
+   "vn": 41128,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 1804766,
+   "vv": 1804766,
+   "tv": 1868280,
+   "comp": 1868280,
+   "abst": 390715,
+   "te": 2258995,
+   "esi": 2258995,
+   "esa": 2258995,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 6969,
+   "st": 6969,
+   "si": 6969,
+   "sni": 0,
+   "sa": 6969,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "ES": {
+   "L": 1001965,
+   "R": 1294504,
+   "outros_cand": 0,
+   "B": 33080,
+   "N": 79665,
+   "vn": 79665,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2296469,
+   "vv": 2296469,
+   "tv": 2409214,
+   "comp": 2409214,
+   "abst": 582301,
+   "te": 2991515,
+   "esi": 2991515,
+   "esa": 2991515,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 9844,
+   "st": 9844,
+   "si": 9844,
+   "sni": 0,
+   "sa": 9844,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "GO": {
+   "L": 1585555,
+   "R": 2345334,
+   "outros_cand": 0,
+   "B": 43214,
+   "N": 73177,
+   "vn": 73177,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 3930889,
+   "vv": 3930889,
+   "tv": 4047280,
+   "comp": 4047280,
+   "abst": 1033105,
+   "te": 5080385,
+   "esi": 5080385,
+   "esa": 5080385,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 15686,
+   "st": 15686,
+   "si": 15686,
+   "sni": 0,
+   "sa": 15686,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:59"
+  },
+  "MA": {
+   "L": 2808231,
+   "R": 1229971,
+   "outros_cand": 0,
+   "B": 30855,
+   "N": 58714,
+   "vn": 58714,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 4038202,
+   "vv": 4038202,
+   "tv": 4127771,
+   "comp": 4127771,
+   "abst": 1055278,
+   "te": 5183049,
+   "esi": 5183049,
+   "esa": 5183049,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 18093,
+   "st": 18093,
+   "si": 18093,
+   "sni": 0,
+   "sa": 18093,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:00"
+  },
+  "MG": {
+   "L": 6351099,
+   "R": 6241786,
+   "outros_cand": 0,
+   "B": 164141,
+   "N": 287177,
+   "vn": 287177,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 12592885,
+   "vv": 12592885,
+   "tv": 13044203,
+   "comp": 13044203,
+   "abst": 3327941,
+   "te": 16372144,
+   "esi": 16372144,
+   "esa": 16372144,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 52062,
+   "st": 52062,
+   "si": 52062,
+   "sni": 0,
+   "sa": 52062,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:09"
+  },
+  "MS": {
+   "L": 628973,
+   "R": 927892,
+   "outros_cand": 0,
+   "B": 14958,
+   "N": 22637,
+   "vn": 22637,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 1556865,
+   "vv": 1556865,
+   "tv": 1594460,
+   "comp": 1594460,
+   "abst": 429977,
+   "te": 2024437,
+   "esi": 2024437,
+   "esa": 2024437,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 7106,
+   "st": 7106,
+   "si": 7106,
+   "sni": 0,
+   "sa": 7106,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "MT": {
+   "L": 694167,
+   "R": 1351099,
+   "outros_cand": 0,
+   "B": 15431,
+   "N": 24637,
+   "vn": 24637,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2045266,
+   "vv": 2045266,
+   "tv": 2085334,
+   "comp": 2085334,
+   "abst": 552545,
+   "te": 2637879,
+   "esi": 2637879,
+   "esa": 2637879,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 8287,
+   "st": 8287,
+   "si": 8287,
+   "sni": 0,
+   "sa": 8287,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:58"
+  },
+  "PA": {
+   "L": 2690449,
+   "R": 2199940,
+   "outros_cand": 0,
+   "B": 36501,
+   "N": 62683,
+   "vn": 62683,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 4890389,
+   "vv": 4890389,
+   "tv": 4989573,
+   "comp": 4989573,
+   "abst": 1272490,
+   "te": 6262063,
+   "esi": 6262063,
+   "esa": 6262063,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 20827,
+   "st": 20827,
+   "si": 20827,
+   "sni": 0,
+   "sa": 20827,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:59"
+  },
+  "PB": {
+   "L": 1794059,
+   "R": 865210,
+   "outros_cand": 0,
+   "B": 25943,
+   "N": 58348,
+   "vn": 58348,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2659269,
+   "vv": 2659269,
+   "tv": 2743560,
+   "comp": 2743560,
+   "abst": 504874,
+   "te": 3248434,
+   "esi": 3248434,
+   "esa": 3248434,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 10712,
+   "st": 10712,
+   "si": 10712,
+   "sni": 0,
+   "sa": 10712,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:59"
+  },
+  "PE": {
+   "L": 4117513,
+   "R": 1832554,
+   "outros_cand": 0,
+   "B": 56758,
+   "N": 119642,
+   "vn": 119642,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 5950067,
+   "vv": 5950067,
+   "tv": 6126467,
+   "comp": 6126467,
+   "abst": 1096760,
+   "te": 7223227,
+   "esi": 7223227,
+   "esa": 7223227,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 21418,
+   "st": 21418,
+   "si": 21418,
+   "sni": 0,
+   "sa": 21418,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:59"
+  },
+  "PI": {
+   "L": 1653989,
+   "R": 525859,
+   "outros_cand": 0,
+   "B": 16137,
+   "N": 43845,
+   "vn": 43845,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2179848,
+   "vv": 2179848,
+   "tv": 2239830,
+   "comp": 2239830,
+   "abst": 464865,
+   "te": 2704695,
+   "esi": 2704695,
+   "esa": 2704695,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 10225,
+   "st": 10225,
+   "si": 10225,
+   "sni": 0,
+   "sa": 10225,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:59"
+  },
+  "PR": {
+   "L": 2566504,
+   "R": 4291444,
+   "outros_cand": 0,
+   "B": 82572,
+   "N": 118819,
+   "vn": 118819,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 6857948,
+   "vv": 6857948,
+   "tv": 7059339,
+   "comp": 7059339,
+   "abst": 1554289,
+   "te": 8613628,
+   "esi": 8613628,
+   "esa": 8613628,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 27142,
+   "st": 27142,
+   "si": 27142,
+   "sni": 0,
+   "sa": 27142,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:02"
+  },
+  "RJ": {
+   "L": 4565393,
+   "R": 5169033,
+   "outros_cand": 0,
+   "B": 111682,
+   "N": 231341,
+   "vn": 231341,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 9734426,
+   "vv": 9734426,
+   "tv": 10077449,
+   "comp": 10077449,
+   "abst": 2780077,
+   "te": 12857526,
+   "esi": 12857526,
+   "esa": 12857526,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 37675,
+   "st": 37675,
+   "si": 37675,
+   "sni": 0,
+   "sa": 37675,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:58"
+  },
+  "RN": {
+   "L": 1413596,
+   "R": 737409,
+   "outros_cand": 0,
+   "B": 19939,
+   "N": 61879,
+   "vn": 61879,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 2151005,
+   "vv": 2151005,
+   "tv": 2232823,
+   "comp": 2232823,
+   "abst": 427044,
+   "te": 2659867,
+   "esi": 2659867,
+   "esa": 2659867,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 8115,
+   "st": 8115,
+   "si": 8115,
+   "sni": 0,
+   "sa": 8115,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:58"
+  },
+  "RO": {
+   "L": 294446,
+   "R": 674382,
+   "outros_cand": 0,
+   "B": 8361,
+   "N": 11300,
+   "vn": 11300,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 968828,
+   "vv": 968828,
+   "tv": 988489,
+   "comp": 988489,
+   "abst": 277437,
+   "te": 1265926,
+   "esi": 1265926,
+   "esa": 1265926,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 4698,
+   "st": 4698,
+   "si": 4698,
+   "sni": 0,
+   "sa": 4698,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "RR": {
+   "L": 83505,
+   "R": 219675,
+   "outros_cand": 0,
+   "B": 2176,
+   "N": 3241,
+   "vn": 3241,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 303180,
+   "vv": 303180,
+   "tv": 308597,
+   "comp": 308597,
+   "abst": 92943,
+   "te": 401540,
+   "esi": 401540,
+   "esa": 401540,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 1519,
+   "st": 1519,
+   "si": 1519,
+   "sni": 0,
+   "sa": 1519,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "RS": {
+   "L": 2824552,
+   "R": 3874378,
+   "outros_cand": 0,
+   "B": 89463,
+   "N": 101245,
+   "vn": 101245,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 6698930,
+   "vv": 6698930,
+   "tv": 6889638,
+   "comp": 6889638,
+   "abst": 1632680,
+   "te": 8522318,
+   "esi": 8522318,
+   "esa": 8522318,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 27547,
+   "st": 27547,
+   "si": 27547,
+   "sni": 0,
+   "sa": 27547,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:07"
+  },
+  "SC": {
+   "L": 1418314,
+   "R": 3220071,
+   "outros_cand": 0,
+   "B": 48674,
+   "N": 75244,
+   "vn": 75244,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 4638385,
+   "vv": 4638385,
+   "tv": 4762303,
+   "comp": 4762303,
+   "abst": 972384,
+   "te": 5734687,
+   "esi": 5734687,
+   "esa": 5734687,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 17326,
+   "st": 17326,
+   "si": 17326,
+   "sni": 0,
+   "sa": 17326,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:01"
+  },
+  "SE": {
+   "L": 989041,
+   "R": 433354,
+   "outros_cand": 0,
+   "B": 13135,
+   "N": 31129,
+   "vn": 31129,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 1422395,
+   "vv": 1422395,
+   "tv": 1466659,
+   "comp": 1466659,
+   "abst": 273434,
+   "te": 1740093,
+   "esi": 1740093,
+   "esa": 1740093,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 5923,
+   "st": 5923,
+   "si": 5923,
+   "sni": 0,
+   "sa": 5923,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  },
+  "SP": {
+   "L": 12119274,
+   "R": 14139178,
+   "outros_cand": 0,
+   "B": 389606,
+   "N": 716331,
+   "vn": 716331,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 26258452,
+   "vv": 26258452,
+   "tv": 27364389,
+   "comp": 27364389,
+   "abst": 6759202,
+   "te": 34123591,
+   "esi": 34123591,
+   "esa": 34123591,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 103656,
+   "st": 103656,
+   "si": 103656,
+   "sni": 0,
+   "sa": 103656,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:27:11"
+  },
+  "TO": {
+   "L": 442962,
+   "R": 467916,
+   "outros_cand": 0,
+   "B": 8059,
+   "N": 35826,
+   "vn": 35826,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 910878,
+   "vv": 910878,
+   "tv": 954763,
+   "comp": 954763,
+   "abst": 227278,
+   "te": 1182041,
+   "esi": 1182041,
+   "esa": 1182041,
+   "esni": 0,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 4384,
+   "st": 4384,
+   "si": 4384,
+   "sni": 0,
+   "sa": 4384,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:58"
+  },
+  "ZZ": {
+   "L": 200154,
+   "R": 171497,
+   "outros_cand": 0,
+   "B": 4675,
+   "N": 5117,
+   "vn": 5117,
+   "van": 0,
+   "vansj": 0,
+   "vnt": 0,
+   "vnom": 371651,
+   "vv": 371651,
+   "tv": 381443,
+   "comp": 381443,
+   "abst": 534817,
+   "te": 916683,
+   "esi": 916260,
+   "esa": 916260,
+   "esni": 423,
+   "esna": 0,
+   "esnt": 0,
+   "ts": 1351,
+   "st": 1351,
+   "si": 1310,
+   "sni": 41,
+   "sa": 1310,
+   "sna": 0,
+   "snt": 0,
+   "dg": "25/10/2026",
+   "hg": "23:26:57"
+  }
+ }
+}

@@ -1,0 +1,157 @@
+T15. Soma nacional completa por município e cadastro de seções, com o bweb do 2º turno de 2026 (Adendo 9)
+Script: scripts/analisar_T15.py (passo "baixar" para os arquivos oficiais, passo "analisar" para a soma). Números completos: resultados/T15_bweb.json.
+Rodado em 29/10/2026 com o bweb do 2º turno (zips de 26/10, 07h42), a base do 1º turno e as bases de 2018 e 2022 por seção.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 9, antes dos dados):
+- Somar, sem deduplicar votos e deduplicando aptos e comparecimento por seção, todos os números votáveis, brancos, nulos, aptos e
+  comparecimento de todas as seções e tipos de urna; comparar com tolerância zero com o total oficial de cada município, UF, exterior e Brasil.
+- No mesmo passo: conjunto de seções igual ao do 1º turno (499.206) salvo agregação documentada; aptos iguais seção a seção; nenhuma
+  seção com comparecimento acima dos aptos; seções em situação especial por UF e o saldo líquido que tiraram, medido pela margem de
+  Flávio sobre Lula de cada uma no 1º turno.
+- Sinal: qualquer diferença não atribuível a uma seção nomeada com ato documentado; soma dos municípios diferente do total da UF; ou
+  saldo tirado pelas seções especiais acima de 3 vezes o do 2º turno de 2022 e acima de 100 mil votos.
+- Sem sinal: diferença zero em todos os níveis depois da reconciliação documentada e saldo das seções especiais até 1,5 vez o de 2022.
+
+VEREDITO PELA LETRA: SEM SINAL
+
+Resumo
+- Os 499.207 boletins do 2º turno somam, voto a voto, o total oficial de cada um dos 5.757 municípios e cidades
+  do exterior, de cada UF, do exterior e do Brasil: Lula 64.256.232, Flávio 59.826.041, brancos 1.430.496, nulos 2.723.305,
+  comparecimento 128.236.074. Diferença zero em votos e comparecimento em todos os níveis. Nenhum outro número votável aparece.
+- A soma dos arquivos oficiais por município é igual ao arquivo oficial da UF em todas as UFs e no exterior, e a soma das UFs é igual ao Brasil.
+- Aptos: os boletins somam 158.745.079, igual aos aptos das seções apuradas no oficial. Os 423 aptos que faltam para o
+  total oficial (158.745.502) são das 41 seções não instaladas, todas no exterior, nomeadas abaixo.
+- Seções: das 499.206 do 1º turno, 0 faltam no 2º turno; o 2º turno tem 1 a mais (ZZ|29564|1|91, 72 aptos, comparecimento 0; seção instalada e sem votante nos dois turnos
+  pelo oficial da cidade: o bweb do 1º turno omite a seção sem voto, o do 2º turno a lista numa linha de cargo -1).
+- Aptos mudaram entre os turnos em 55.722 seções, e em todas os aptos de cada turno batem com o eleitorado da seção no cadastro
+  oficial de locais de votação daquele turno. Nenhuma seção com comparecimento acima dos aptos.
+- Saldo tirado pelas seções especiais: 2026 -2 votos (1 seção); 2022 +0 (nenhuma seção com margem no 1º turno).
+
+1. Dados e método
+- bweb do 2º turno: 28 arquivos (27 UFs e exterior, hash conferido antes), 2.088.107 linhas. Lidas, direto
+  dos zips, todas as linhas de presidente (cargo 1) e as de cargo -1, que o TSE usa para a seção sem nenhum voto (aptos e comparecimento,
+  QT_VOTOS 0). A base secoes2026.json.gz (só cargos 1 e 3) não tem essas duas seções; por isso o T15 lê os zips.
+- Votos somados linha a linha, sem deduplicar. Aptos e comparecimento tomados uma vez por seção, depois de conferir que cada seção tem um único
+  par: 0 seções com mais de um par, 0 com mais de um boletim distinto, 0 com linha repetida do mesmo votável,
+  0 em que a soma dos votos difere do comparecimento. Tipo de urna: todas "Apurada" (499.207).
+- Votáveis de presidente nos boletins: 13 (64.256.232), 22 (59.826.041), branco (1.430.496), nulo (2.723.305); nenhum outro.
+- Totais oficiais: arquivos -u.json do site de resultados do TSE (eleição 6258, cargo 1) de 5.757 municípios e cidades do
+  exterior (5.571 no Brasil e 186 no exterior), das 27 UFs, do exterior e do Brasil, todos gerados em 25/10/2026 entre 23:26:56 e 23:27:44.
+- Os totais dos 5.571 municípios do Brasil são os baixados em 26 e 27/10 por baixar_municipios.py. Conferência: 60 de 60 sorteados
+  (semente 20261028) e baixados de novo em 28 e 29/10 são idênticos.
+- Totais das 27 UFs e do exterior baixados em 28/10 contra a cópia de 26/10: 28 de 28 idênticos, inclusive data e hora de geração.
+- Cadastro de seções: -cs.json dos pleitos 3221 (2º turno, gerado em 25/10/2026 23:22:31) e 3220 (1º turno; os arquivos
+  por UF têm datas de geração de 05/10 a 24/10). Eleitorado por seção e turno: arquivo "Eleitorado por local de votação 2026" do portal do
+  TSE (27 UFs e exterior, os dois turnos, gerado em 25/10). 1º turno por seção: secoes2026.json.gz (bweb do 1º turno).
+- Consultas novas ao TSE (log consultas.log na pasta dos arquivos oficiais): 362 arquivos baixados e 1 pedido sem
+  arquivo (404: o código da UF tomado por cidade na lista do exterior, sem efeito no resultado), com pelo menos 1,05 s entre pedidos e espera
+  crescente depois de cada aviso 429 (33 avisos).
+
+2. Soma dos boletins contra o total oficial (tolerância zero)
+- Municípios e cidades do exterior: 5.757 comparados (5.717 com boletim; as outras 40 são cidades do exterior
+  só com seção não instalada). Com alguma diferença em votos do 13, do 22, de outros números, brancos, nulos, nominais, total de votos,
+  comparecimento, aptos das seções apuradas ou número de seções apuradas: 0.
+- UFs, exterior e Brasil com diferença em votos ou comparecimento: nenhum.
+- Brasil, boletins e oficial:
+    Lula (13): 64.256.232 e 64.256.232, diferença 0
+    Flávio (22): 59.826.041 e 59.826.041, diferença 0
+    outros números: 0 e 0, diferença 0
+    brancos: 1.430.496 e 1.430.496, diferença 0
+    nulos: 2.723.305 e 2.723.305, diferença 0
+    total de votos: 128.236.074 e 128.236.074, diferença 0
+    comparecimento: 128.236.074 e 128.236.074, diferença 0
+    aptos das seções apuradas: 158.745.079 e 158.745.079, diferença 0
+    seções apuradas: 499.207 e 499.207, diferença 0
+- O arquivo nacional (gerado em 25/10/2026 23:27:02, igual na cópia de 28/10) dá 1.430.496 brancos e 2.723.305 nulos, os mesmos números
+  dos boletins. Os 1.430.493 brancos e 2.723.298 nulos da imprensa citados no README (10 votos a menos) não estão no arquivo nacional atual.
+- Nulos no oficial: total 2.723.305 = nulos 2.723.305 + anulados 0 + anulados sub judice 0; no 2º turno não há
+  candidatura anulada, então não há a diferença do 28 que existia no 1º turno.
+- Aptos: total oficial 158.745.502 menos aptos das seções apuradas 158.745.079 = 423, igual aos aptos das seções não
+  instaladas em todos os municípios (sim). Seções não instaladas no oficial: 41, todas no exterior;
+  seções do cadastro do 2º turno sem boletim iguais, cidade a cidade, às não instaladas do oficial: sim.
+  As 41 seções não instaladas (cadastro do 2º turno, sem data de publicação de arquivo de urna: sim; contadas
+  como não instaladas no arquivo oficial da cidade; as mesmas do 1º turno: sim):
+    ZZ|29424|1|54, ZZ|29521|1|83, ZZ|29629|1|3014, ZZ|29769|1|126, ZZ|29815|1|140, ZZ|29823|1|141, ZZ|29831|1|1983, ZZ|29874|1|146
+    ZZ|29939|1|152, ZZ|29963|1|180, ZZ|30669|1|546, ZZ|30929|1|722, ZZ|30988|1|1354, ZZ|30988|1|725, ZZ|38881|1|548, ZZ|38903|1|603
+    ZZ|38920|1|638, ZZ|38989|1|1841, ZZ|39128|1|3208, ZZ|39187|1|624, ZZ|39225|1|931, ZZ|39241|1|714, ZZ|39263|1|961, ZZ|39284|1|773
+    ZZ|99104|1|1011, ZZ|99139|1|3120, ZZ|99147|1|3049, ZZ|99171|1|3126, ZZ|99198|1|2947, ZZ|99210|1|3013, ZZ|99236|1|815, ZZ|99244|1|2917
+    ZZ|99279|1|3698, ZZ|99287|1|1259, ZZ|99295|1|3485, ZZ|99325|1|3016, ZZ|99333|1|3188, ZZ|99341|1|1308, ZZ|99350|1|1236, ZZ|99376|1|1315
+    ZZ|99384|1|2876
+- Abstenção: o oficial dá aptos menos comparecimento contando os aptos das não instaladas; descontados esses 423, bate com os boletins.
+
+3. Soma dos municípios oficiais contra a UF e das UFs contra o Brasil
+- UFs (e exterior) em que a soma dos arquivos oficiais por município difere do arquivo oficial da UF em algum campo (votos, comparecimento,
+  aptos, seções): nenhuma.
+- Soma das 27 UFs e do exterior menos o Brasil: zero em todos os campos.
+
+4. Cadastro de seções
+- Cadastro (-cs.json): 1º turno 499.248 seções principais e 17.931 agregadas; 2º turno 499.248 e 17.931.
+  Principais só num dos cadastros: 0; agregadas só num deles ou com outra principal: 0.
+- Boletins: 1º turno 499.206, 2º turno 499.207. Boletim fora do cadastro: 1º turno 0, 2º turno 0. Seções do cadastro sem boletim:
+  1º turno 42 (as 41 não instaladas e ZZ|29564|1|91, de comparecimento zero), 2º turno 41 (as 41 não instaladas).
+- Diferença de conjunto entre os turnos: ZZ|29564|1|91, só no 2º turno; no 2º turno 72 aptos e comparecimento 0;
+  no oficial da cidade, 1º turno {'ts': 1, 'si': 1, 'sni': 0, 'sa': 1, 'c': 0, 'te': 72} e 2º turno {'ts': 1, 'si': 1, 'sni': 0, 'sa': 1, 'c': 0, 'te': 72}; no cadastro do 1º turno: sim. Explicada: sim.
+- Agregação (DS_SECOES_AGREGADAS) diferente entre os turnos: 0 seções; agregação do boletim do 2º turno
+  diferente do cadastro do 2º turno: 0; no cadastro de eleitorado, agregação mudou entre os turnos em 0.
+- Aptos diferentes entre os turnos, seção a seção: 55.722 seções, 74.692 aptos somados em módulo, maior variação 84;
+  líquido -149 no Brasil e +149 no exterior (o total nacional de aptos é o mesmo nos dois turnos, 158.745.502).
+  Em 55.722 delas os aptos do boletim de cada turno são iguais ao eleitorado federal da seção (com as agregadas) no
+  cadastro de locais de votação do TSE para aquele turno; não documentadas: 0.
+  Tipo de local das seções que mudaram: {'Convencional': 55175, 'Temporário': 350, 'Voto em trânsito': 124, 'Preso provisório': 58, 'Convencional+Temporário': 15}. Seções por variação em módulo (10 = 10 ou mais): {'1': 46903, '2': 5909, '3': 1300, '4': 532, '5': 281, '6': 186, '7': 157, '8': 99, '9': 62, '10': 293}.
+- Boletim contra o cadastro de eleitorado, seção a seção, Brasil e exterior: 1º turno 0 diferenças em
+  499.206 seções; 2º turno 0 em 499.207.
+- Referências, aptos diferentes entre turnos na mesma seção: 2022 49.710 seções (72.306 em módulo, líquido +0); 2018 17.026 (24.103, líquido -1).
+- Comparecimento acima dos aptos: 2º turno 0 seções, 1º turno 0. Referências: 2022 0 e 0, 2018 0 e 0 (1º e 2º turno).
+
+5. Seções em situação especial por UF e saldo tirado
+- Nas 27 UFs: nenhuma seção não instalada, anulada, não apurada ou não totalizada no oficial, nenhuma com boletim de junta e nenhuma com
+  comparecimento zero. A única situação especial nas UFs é a mudança de aptos entre turnos, documentada acima.
+- Exterior: 41 não instaladas (423 aptos; 41 no 1º turno), 0 anuladas, 0 não totalizadas,
+  29 com boletim emitido por junta apuradora e 2 com comparecimento zero (ZZ|29564|1|91, ZZ|30686|1|443; 2 delas de junta).
+- Seções com aptos diferentes entre os turnos, por UF: AC 345, AL 740, AM 1.225, AP 205, BA 3.890, CE 2.119, DF 2.035, ES 952, GO 1.579, MA 1.174, MG 5.786, MS 651, MT 875, PA 1.488, PB 1.165, PE 1.993, PI 849, PR 3.019, RJ 4.969, RN 1.584, RO 383, RR 171, RS 2.969, SC 2.029, SE 1.214, SP 11.635, TO 362, ZZ 316.
+- Definição usada para o saldo: seções com boletim apurado no 1º turno que não somaram voto no 2º turno (sem boletim, boletim não apurado ou comparecimento zero no 2º turno); saldo = soma da margem do candidato da direita sobre o 13 no 1º turno nessas seções.
+- 2026: ZZ|30686|1|443 (comparecimento zero no 2º turno): no 1º turno 30 aptos, 2 votantes, Lula 2, Flávio 0; margem de Flávio -2.
+  Saldo 2026: -2 votos em 1 seção (negativo: a seção especial tirou votos líquidos de Lula, não de Flávio).
+- 2022 (Bolsonaro sobre Lula): 0 seções com margem no 1º turno, saldo +0. A única seção especial do 2º turno de 2022 é
+  ZZ|29564|1|91 (ANULADA no 2º turno, ANULADA no 1º, comparecimento 0),
+  a mesma seção de Ciudad Guayana, sem voto nos dois turnos e sem margem no 1º turno.
+- 2018 (Bolsonaro sobre Haddad, descritivo): 3 seções, saldo -76.
+- Descritivo, seções de junta do 2º turno de 2026 com boletim no 1º turno (28, todas no exterior; os votos delas entram no total):
+  margem de Flávio -81 no 1º turno e -92 no 2º turno.
+- Limites do registro: sem sinal se o saldo de 2026 for até 1,5 vez o de 2022 (0); sinal se acima de 3 vezes o de 2022
+  (0) e acima de 100.000. 2026: -2. Perna de sinal: não; perna de sem sinal: sim.
+
+6. Leitura de cada perna do critério
+- Diferença não atribuível a uma seção nomeada com ato documentado: nenhuma.
+- Soma dos municípios diferente do total da UF: não.
+- Saldo tirado pelas seções especiais acima de 3 vezes o de 2022 e de 100 mil votos: não.
+- Diferença zero em todos os níveis depois da reconciliação documentada: sim;
+  saldo até 1,5 vez o de 2022: sim.
+- Veredito: SEM SINAL.
+
+7. Escolhas de leitura e desvios do registro
+- "Ato documentado": as atas de mesa e as decisões das juntas não estão nos arquivos públicos usados. Foi tomado como documentação o que o
+  próprio TSE publica: a classificação "não instalada" no arquivo oficial da cidade (s.sni e e.esni) com a seção listada no cadastro sem
+  arquivo de urna publicado; a linha de cargo -1 do bweb com comparecimento zero junto com o arquivo oficial da cidade (seção instalada e
+  apurada, comparecimento 0); e, para os aptos, o eleitorado da seção em cada turno no arquivo de locais de votação. Isto é desvio de leitura.
+- "Conjunto igual ao do 1º turno (499.206)": o número do registro vem da base do 1º turno, que não tem seção sem voto. A comparação foi feita
+  contra essa base e também contra o cadastro dos dois turnos (499.248 principais em cada um, iguais).
+- "Aptos iguais seção a seção": pela letra, 55.722 seções têm aptos diferentes entre os turnos. Em 2022 foram 49.710 e em 2018 17.026.
+  Em todas, o boletim de cada turno bate com o eleitorado oficial da seção naquele turno (arquivo de locais de votação), e o total nacional
+  de aptos não muda. Foram tratadas como diferença reconciliada pelo cadastro oficial, não como sinal. A causa não está nos arquivos; a
+  explicação mais simples é o voto em trânsito, pedido por turno, que tira o eleitor da seção de origem e o põe na de trânsito (hipótese, não
+  conferida). Quem ler "aptos iguais" como exigência absoluta, sem reconciliação, teria uma diferença de cadastro da mesma ordem da de 2022,
+  e nenhuma diferença entre boletim e cadastro.
+- "Seções em situação especial" e "saldo que tiraram": tomado como as seções com boletim apurado no 1º turno que não somaram voto no 2º turno
+  (sem boletim, boletim não apurado, comparecimento zero); a seção sem margem no 1º turno entra com zero. Saldo com sinal (positivo tira de Flávio).
+  Com o saldo em módulo, 2026 daria 2 contra 0 em 2022 e a perna de sem sinal falharia por 2 votos,
+  porque a referência de 2022 é zero; o veredito passaria a INCONCLUSIVO pela letra. Somando também as seções de junta (votos contados), o
+  saldo de 2026 fica em -81, ainda negativo; 2022 não tem o campo de junta na base.
+- O teste foi feito só para presidente. Governador do 2º turno (6 UFs) não entra no registro do T15.
+
+8. Limites
+- O T15 confere a totalização: o total publicado é a soma dos boletins publicados, e o cadastro é coerente entre os turnos. Não diz nada sobre
+  o que a urna gravou no boletim (isso é T2, T18, T24, T25). Boletim e total saem do mesmo sistema do TSE; a conferência independente do
+  boletim é o QR code impresso (T24).
+- As seções especiais do 2º turno de 2026 são 41 não instaladas no exterior (as mesmas do 1º turno, com 423 aptos) e 2 seções do exterior
+  sem votante. Não há, nos arquivos, seção anulada, não instalada ou não apurada no Brasil em nenhum dos dois turnos.

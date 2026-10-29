@@ -1,0 +1,153 @@
+T22, T22b e T39 com o bweb completo do 2º turno de 2026 (rodado em 29/10/2026, ~00h25 UTC)
+
+Dados: bweb do 2º turno (zips gerados em 26/10 07h42, publicados em 27/10, hash conferido) e base 2026 por seção (1º e 2º turno).
+6 UFs com 2º turno de governador: AC 2.270, AM 8.157, DF 6.969, ES 9.844, RN 8.115, TO 4.384 seções (39.739, todas com
+presidente e governador nos dois turnos e com o governador do 1º turno por candidato).
+Os votos por candidato a governador no 2º turno foram lidos dos zips (cargo 3, tipo nominal). Conferência contra a base: branco,
+nulo, válidos e comparecimento do governador iguais em 39.739 de 39.739 seções; soma dos nominais igual aos válidos em todas.
+Finalistas no boletim: AC 10 e 11, AM 22 e 55, DF 11 e 13, ES 10 e 15, RN 13 e 44, TO 44 e 45 (os do arquivo de alinhamento).
+Script: scripts/analisar_T22.py (importa lib.py e analisar_pres_gov.py sem mudança). Saída completa: resultados/T22_bweb.json.
+Referências do T39: bases de 2018 (14 UFs com 2º turno de governador, 278.293 seções) e 2022 (12 UFs, 249.040 seções).
+
+======================================================================================================================
+T22. Governador da mesma urna como controle da virada (Adendo 9; UFs claras do Adendo 14: AM e DF)
+======================================================================================================================
+Registro (Adendo 9): "Regressão, com efeito fixo de local, da variação da fatia de Lula na variação da fatia do governador do
+campo de Lula e na composição do 1º turno. Comparar com os estados de 2018 e 2022 com 2º turno de governador alinhado."
+Sinal: "em pelo menos 4 UFs alinhadas, inclinação abaixo do menor valor de 2022 por mais de 3 erros-padrão e virada de Lula não
+acompanhada de 1,5 ponto ou mais, no mesmo sentido em todas". Sem sinal: "inclinação e resíduo dentro da faixa entre estados de
+2018 e 2022". Adendo 14: "com 2, o T22 fica sem poder pelo registro e é relatado como descritivo."
+
+VEREDITO PELA LETRA: SEM PODER (2 UFs alinhadas; o sinal exige pelo menos 4). A comparação com 2018 e 2022 fica SEM DADO: as bases
+de 2018 e 2022 têm do governador no 2º turno só branco, nulo, válidos e comparecimento por seção, não os votos por candidato
+(campo que faltou: QT_VOTOS por NR_VOTAVEL do cargo 3 no 2º turno de 2018 e 2022, por seção), e o alinhamento dos governadores
+de 2018 e 2022 nunca foi fixado. Esse campo existe no bweb público de 2018 e 2022, mas não está baixado e esta tarefa não usa rede.
+
+Leitura escolhida (a mais literal, declarada como escolha):
+- y = variação da fatia de Lula entre os dois finalistas, 2º menos 1º turno, em pontos; x = variação da fatia do governador do
+  campo de Lula entre os dois finalistas a governador (AM 55 contra 22; DF 13 contra 11), em pontos.
+- "Composição do 1º turno" = fatias do comparecimento do 1º turno de Lula, Flávio e demais candidatos a presidente (branco+nulo é
+  a categoria omitida), como nos T23 e T34. Sem peso, efeito fixo de local, erro agrupado por local (CR1), como a função t22 do
+  Adendo 14. Locais de uma seção só saem (não informam com efeito fixo).
+- "Virada não acompanhada" (o "resíduo" do registro) = média da virada de Lula menos a inclinação vezes a média da variação do
+  governador; erro-padrão por bootstrap de locais (1.000 reamostras, semente 20261029). Ao lado, a diferença 1 para 1 (virada de
+  Lula menos variação do governador).
+
+                                                     AM (Omar Aziz 55)        DF (Leandro Grass 13)
+  seções / locais na regressão                         7.690 / 1.164            6.954 / 607
+  (fora: locais de uma seção)                          467                      15
+  virada média de Lula, seções (pontos)                +2,85 (EP 0,04)          +3,11 (EP 0,06)
+  variação média do governador do campo de Lula        -0,65 (EP 0,13)          +2,01 (EP 0,11)
+  agregado da UF: virada de Lula / governador          +2,40 / -0,88            +3,11 / +1,97
+  inclinação (principal, com composição do 1T)         0,115 (EP 0,008)         0,238 (EP 0,009)
+    EP por bootstrap de locais                         0,008                    0,009
+  virada não acompanhada, média das seções             +2,93 (EP 0,04)          +2,63 (EP 0,04)
+  virada não acompanhada, agregado da UF               +2,50 (EP 0,05)          +2,64 (EP 0,04)
+  diferença 1 para 1, seções / agregado                +3,50 (EP 0,12) / +3,28  +1,10 (EP 0,07) / +1,14
+  correlação bruta entre x e y                         0,23                     0,57
+  Leituras ao lado (inclinação):
+    sem covariáveis (função do Adendo 14)              0,115 (EP 0,009)         0,256 (EP 0,010)
+    principal com peso L2+R2 (convenção do T17)        0,118 (EP 0,007)         0,238 (EP 0,009)
+    principal mais composição do governador no 1T      0,297 (EP 0,011)         0,441 (EP 0,011)
+  Amostra do estrato G (Adendo 14, sem covariáveis):   0,14 (EP 0,03)           0,26 (EP 0,04)
+
+O que dá para dizer:
+- Nas duas UFs a virada de Lula anda junto com a do governador do campo dele dentro do mesmo local (inclinação positiva, a mais de
+  13 erros-padrão de zero), mas a inclinação é pequena (0,12 e 0,24) e depende da especificação (sobe para 0,30 e 0,44 com a
+  composição do governador no 1º turno). Sem 2018 e 2022, não há como dizer se ela é baixa.
+- A virada não acompanhada passa de 1,5 ponto e tem o mesmo sentido nas duas UFs pela inclinação (AM +2,5 a +2,9; DF +2,6). Pela
+  diferença 1 para 1, AM fica em +3,3 e DF em +1,1 (abaixo de 1,5). Em AM, o governador do campo de Lula perdeu terreno entre os
+  turnos (-0,9 ponto) enquanto Lula ganhou (+2,4).
+- Contexto fora do registro: a virada de Lula entre os dois finalistas foi de +2,80 pontos no Brasil com exterior, de +1,21 (PI) a
+  +4,25 (RJ) entre as UFs, quase toda em UFs sem 2º turno de governador. AM (+2,28 com todas as seções) e DF (+3,10) estão no meio
+  dessa faixa. A virada de presidente acontece sem governador nenhum para acompanhar, então a "virada não acompanhada" de 2,5 a
+  2,9 pontos nas duas UFs não se lê sem a referência de outros anos, que é justamente a parte sem dado.
+
+======================================================================================================================
+T22b. Perda dos próprios eleitores do 1º turno: Flávio contra o candidato a governador do campo dele (Adendo 14)
+======================================================================================================================
+Registro: nas seções de AM, DF e ES, a regressão do T8 para os dois cargos, empilhada, efeito fixo de local por cargo, erro agrupado
+por local. D = coeficiente dos próprios votos de Flávio menos o do aliado (AM 22, DF 11, ES 10). Sinal de troca só no voto de
+presidente: D de -0,03 ou menos, a mais de 2,5 erros-padrão de zero. Sem sinal: D entre -0,015 e +0,015. Entre os dois: inconclusivo.
+Rodado com a função t22b de analisar_pres_gov.py, sem mudança (a mesma do Adendo 14), em todas as seções das 3 UFs.
+
+VEREDITO PELA LETRA: SEM SINAL.
+  24.970 seções (48.392 linhas nos dois cargos, sem os locais de uma seção), 3.246 locais.
+  Próprios votos no 1º turno: Flávio -0,038 (EP 0,003); aliado a governador -0,051 (EP 0,005).
+  D = +0,0130 (EP 0,0047). Intervalo de 95%: +0,0038 a +0,0222.
+  O ponto fica dentro da faixa de "sem sinal" (|D| até 0,015), perto da borda, e D é positivo a 2,8 erros-padrão de zero: Flávio
+  perdeu uma fração MENOR dos próprios eleitores do 1º turno que o aliado dele na mesma urna. Uma troca só no presidente puxaria D
+  para baixo.
+  Demais coeficientes (Flávio / aliado): outros do 1T 0,436 / 0,325; queda do branco+nulo 0,409 / 0,463; variação do comparecimento
+  0,487 / 0,433; adversário do 1T 0,025 / 0,083.
+  Por UF (não entra no critério): AM D = -0,010 (EP 0,012; Flávio -0,079, aliado -0,069); DF D = +0,010 (EP 0,007; -0,028 e -0,038);
+  ES D = +0,049 (EP 0,006; -0,021 e -0,070). Nenhuma UF chega a -0,03; o D empilhado positivo vem do ES, onde Pazolini perdeu bem
+  mais dos próprios eleitores que Flávio.
+  Calibração (descritiva, fora do critério): a mesma função com uma troca uniforme simulada de 2% dos votos de Flávio no 2º turno
+  para Lula, só no presidente, dá D = -0,006 (EP 0,005); com 3,6% (a troca que o Adendo 9 diz ser necessária para virar), D = -0,022
+  (EP 0,005). A troca desloca D em cerca de -1 vez a fração trocada. Se a dinâmica natural der D perto de zero, uma troca de 3,6%
+  ficaria em torno de -0,035, a mais de 10 erros-padrão do observado. Se a dinâmica natural der D bem positivo (como no ES sozinho),
+  a troca se esconde: este teste não tem referência de outro ano (limite já registrado).
+  Amostra do estrato G (Adendo 14): D = +0,011 (EP 0,022), 1.499 seções. O bweb completo confirma o ponto e reduz o erro-padrão a
+  um quinto.
+
+======================================================================================================================
+T39. Branco+nulo de presidente contra o de governador, 1º contra 2º turno (Adendo 16, descritivo)
+======================================================================================================================
+R(t) = branco+nulo de presidente (% do comparecimento) / branco+nulo de governador (% do comparecimento), nas mesmas seções, turno t.
+A forma A (conversão de branco e nulo em 13 só no presidente, só no 2º turno) baixa R(2) em relação a R(1): com uma fração X
+convertida, R(2)/R(1) registrado = (1 - X) vezes o natural. Erro-padrão por linearização, agrupado por local (escolha minha).
+
+2026 (bweb completo):
+  UF    | seções | pres 1T | gov 1T | R(1)          | pres 2T | gov 2T | R(2)          | R(2)/R(1)     | pres 2T/1T | gov 2T/1T
+  AC    |  2.270 |  3,94   |  9,90  | 0,398 (0,004) |  4,72   |  9,17  | 0,515 (0,006) | 1,294 (0,020) | 1,20       | 0,93
+  AM    |  8.157 |  2,85   |  7,18  | 0,397 (0,003) |  3,24   |  5,28  | 0,614 (0,006) | 1,547 (0,019) | 1,14       | 0,73
+  DF    |  6.969 |  3,20   |  8,59  | 0,372 (0,002) |  3,40   |  6,91  | 0,492 (0,002) | 1,324 (0,007) | 1,06       | 0,80
+  ES    |  9.844 |  4,30   | 10,07  | 0,427 (0,002) |  4,68   |  8,22  | 0,569 (0,003) | 1,334 (0,007) | 1,09       | 0,82
+  RN    |  8.115 |  4,56   |  8,25  | 0,553 (0,003) |  3,66   |  5,21  | 0,704 (0,005) | 1,273 (0,008) | 0,80       | 0,63
+  TO    |  4.384 |  3,60   | 11,84  | 0,304 (0,003) |  4,60   |  8,62  | 0,533 (0,007) | 1,755 (0,016) | 1,28       | 0,73
+  todas | 39.739 |  3,75   |  8,93  | 0,420 (0,002) |  3,90   |  6,75  | 0,578 (0,002) | 1,376 (0,005) | 1,04       | 0,76
+  (Estrato G, 2.400 seções, Adendo 14: R(1) 0,409, R(2) 0,576, R(2)/R(1) 1,41.)
+
+Referências, mesmas contas nas UFs com 2º turno de governador:
+  2018 (14 UFs): R(1) 0,493, R(2) 0,704, R(2)/R(1) 1,429 (EP 0,002). Por UF, R(2)/R(1) de 1,223 (RS) a 1,894 (RN):
+    AM 1,887; AP 1,607; DF 1,508; MG 1,375; MS 1,632; PA 1,651; RJ 1,252; RN 1,894; RO 1,587; RR 1,804; RS 1,223; SC 1,377;
+    SE 1,369; SP 1,500.
+  2022 (12 UFs): R(1) 0,413, R(2) 0,625, R(2)/R(1) 1,513 (EP 0,003). Por UF, de 1,078 (SE) a 2,212 (AL):
+    AL 2,212; AM 1,508; BA 1,768; ES 1,959; MS 1,299; PB 1,936; PE 2,120; RO 1,870; RS 1,372; SC 1,163; SE 1,078; SP 1,379.
+
+Leitura (descritiva, sem critério de sinal):
+- R subiu do 1º para o 2º turno nas 6 UFs de 2026 (R(2)/R(1) de 1,27 a 1,76), como em todas as 26 UFs de referência (1,08 a 2,21).
+  A subida vem quase toda da queda do branco+nulo de governador entre turnos (fator 0,63 a 0,93); o de presidente subiu em 5 UFs e
+  caiu no RN (fator 0,80; no RN de 2018 também caiu, 0,92, e em SC 2022, 0,90).
+- Total das 6 UFs (1,376) abaixo dos totais de 2018 (1,429) e de 2022 (1,513). Se o natural de 2026 fosse o total de 2018 ou de 2022,
+  a diferença equivaleria a X de cerca de 4% ou 9% do branco+nulo de presidente (0,15 a 0,39 ponto do comparecimento, cerca de 15 mil
+  a 39 mil votos nas 6 UFs). Mesma UF contra a referência da mesma UF: AM 1,547 contra 1,887 (2018) e 1,508 (2022); DF 1,324 contra
+  1,508 (2018); ES 1,334 contra 1,959 (2022); RN 1,273 contra 1,894 (2018). ES e RN ficam bem abaixo do próprio valor anterior (X
+  equivalente de cerca de 32% e 33%, uns 53 mil e 40 mil votos), mas o valor anterior é de outra disputa de governador: a queda do
+  branco+nulo de governador entre turnos foi muito maior no ES de 2022 (fator 0,61) e no RN de 2018 (0,49) que em 2026 (0,82 e 0,63),
+  e é isso que move R. Comparação entre anos de uma mesma UF não separa conversão de dinâmica estadual.
+- Para virar o resultado, X teria de ser de pelo menos 52% (T5). Com o R(2)/R(1) observado, o natural teria de ser 2,87 no total das
+  6 UFs (2,65 a 3,66 por UF), acima de todos os 26 valores de referência (máximo 2,21). Uma conversão desse tamanho nestas 6 UFs não
+  cabe nas referências; uma conversão de poucos por cento não se distingue da variação entre disputas.
+
+Ler junto (Adendo 9): T5 nas mesmas 6 UFs, pelo script existente analisar_pres_gov_nivel.py sem mudança (bweb completo):
+  1º turno: beta 0,294 (EP 0,004), gama -0,049 (EP 0,011). 2º turno: beta 0,328 (EP 0,004), gama -0,020 (EP 0,013); n 38.483,
+  5.931 locais (igual a resultados/T5_2026_2t.json). A forma A só no 2º turno multiplicaria beta por (1 - X) e subiria gama em cerca
+  de X vezes beta; beta subiu 0,034 (razão 1,12) e gama subiu 0,030. O veredito do T5 é do próprio T5 (limiares 0,241 e 0,341:
+  0,328 fica entre os dois).
+
+======================================================================================================================
+Escolhas e desvios do registro
+======================================================================================================================
+1. T22 com 2 UFs: sem poder pelo registro (já previsto no Adendo 14). Relatado como descritivo.
+2. T22, referência de 2018 e 2022: não feita (SEM DADO nos arquivos locais: votos por candidato a governador no 2º turno por seção;
+   alinhamento de 2018 e 2022 não fixado). Desvio do registro.
+3. T22, "composição do 1º turno": fatias do comparecimento do 1º turno de Lula, Flávio e demais (branco+nulo omitido); sem peso.
+   "Virada não acompanhada"/"resíduo": média da virada de Lula menos inclinação vezes média da variação do governador, com a
+   diferença 1 para 1 ao lado. Escolhas de leitura, declaradas aqui; com 2 UFs não mudam o veredito.
+4. T22b: especificação e função do Adendo 14 sem mudança; só a base mudou (todas as seções). A calibração com troca simulada é
+   descritiva e não entra no critério.
+5. T39: R calculado com o agregado da UF (como a tabela do Adendo 14); erro-padrão por linearização agrupada por local; referências
+   com todas as UFs de 2018 e 2022 que têm governador no 2º turno nas bases. Sem critério de sinal (descritivo pelo registro).
+6. Fora do registro, só como contexto: virada de Lula por UF em 2026 e T5 do 1º turno nas 6 UFs.

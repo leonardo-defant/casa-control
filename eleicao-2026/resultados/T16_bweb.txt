@@ -1,0 +1,117 @@
+T16. Piso da troca uniforme: Q10 do coeficiente de troca por UF (bweb completo do 2º turno de 2026)
+Coeficiente: votos do adversário no 1º turno na regressão do ganho do candidato (T8/T14), efeito fixo de local,
+erro agrupado por local. 2026: Lula, com os eliminados separados (Cury, Renan, Caiado, Zema, demais).
+Referências: 2018 Haddad e 2022 Bolsonaro, outros do 1º turno agregados (as bases não têm voto por candidato).
+Q10 = 10º percentil ponderado pelas seções da UF; ep por bootstrap paramétrico (20.000 sorteios).
+
+Referências (Q10 | ep | UF no Q10 | menor coef. entre UFs com 5.000+ seções | país | capitais | interior):
+  2018 Haddad    troca  0.0%: Q10 -0.0093 | 0.0014 | SP | -0.0093 (SP, ep 0.0014) | +0.0064 | +0.0135 (0.0015) | +0.0056 (0.0008)
+  2018 Haddad    troca  1.0%: Q10 +0.0008 | 0.0014 | SP | +0.0008 (SP, ep 0.0014) | +0.0163 | +0.0234 (0.0014) | +0.0156 (0.0008)
+  2018 Haddad    troca  2.0%: Q10 +0.0109 | 0.0014 | SP | +0.0109 (SP, ep 0.0014) | +0.0262 | +0.0332 (0.0014) | +0.0255 (0.0008)
+  2018 Haddad    troca  3.0%: Q10 +0.0210 | 0.0014 | SP | +0.0210 (SP, ep 0.0014) | +0.0362 | +0.0431 (0.0014) | +0.0355 (0.0008)
+  2018 Haddad    troca  3.6%: Q10 +0.0271 | 0.0014 | SP | +0.0271 (SP, ep 0.0014) | +0.0421 | +0.0490 (0.0014) | +0.0414 (0.0008)
+  2022 Bolsonaro troca  0.0%: Q10 +0.0207 | 0.0013 | CE | +0.0178 (PI, ep 0.0021) | +0.0387 | +0.0397 (0.0013) | +0.0384 (0.0006)
+  2022 Bolsonaro troca  1.0%: Q10 +0.0305 | 0.0013 | CE | +0.0276 (PI, ep 0.0021) | +0.0483 | +0.0493 (0.0013) | +0.0481 (0.0006)
+  2022 Bolsonaro troca  2.0%: Q10 +0.0403 | 0.0013 | CE | +0.0374 (PI, ep 0.0020) | +0.0579 | +0.0589 (0.0013) | +0.0577 (0.0006)
+  2022 Bolsonaro troca  3.0%: Q10 +0.0501 | 0.0012 | CE | +0.0472 (PI, ep 0.0020) | +0.0675 | +0.0685 (0.0013) | +0.0673 (0.0006)
+  2022 Bolsonaro troca  3.6%: Q10 +0.0560 | 0.0012 | CE | +0.0531 (PI, ep 0.0020) | +0.0733 | +0.0743 (0.0013) | +0.0731 (0.0006)
+
+2026 Lula, eliminados separados (principal):
+  Q10 +0.0170 (ep 0.0021; IC95 bootstrap +0.0122 a +0.0204); UF no Q10: GO; UFs abaixo: SC, PR
+  Q10 interpolado (robustez): +0.0165; média ponderada das UFs: +0.0457
+  Menor coeficiente entre as 22 UFs com 5.000+ seções: +0.0057 (SC, ep 0.0021)
+  País: +0.0402 (0.0006); capitais +0.0402 (0.0013); interior +0.0404 (0.0007); diferença -0.0001 (0.0015)
+  Por UF (coef, ep, seções, locais informativos):
+    SC +0.0057 (0.0021)  17326 seções,  2380 locais
+    PR +0.0130 (0.0021)  27142 seções,  3817 locais
+    GO +0.0170 (0.0032)  15686 seções,  2251 locais
+    RS +0.0185 (0.0024)  27547 seções,  4668 locais
+    ES +0.0236 (0.0033)   9844 seções,  1475 locais
+    DF +0.0301 (0.0057)   6969 seções,   607 locais
+    MT +0.0318 (0.0033)   8287 seções,  1211 locais
+    SP +0.0321 (0.0013) 103656 seções, 10704 locais
+    RR +0.0326 (0.0066)   1519 seções,   272 locais
+    RO +0.0353 (0.0054)   4698 seções,   560 locais
+    RJ +0.0378 (0.0016)  37675 seções,  4738 locais
+    MS +0.0395 (0.0045)   7106 seções,   921 locais
+    MG +0.0400 (0.0017)  52062 seções,  7493 locais
+    PA +0.0571 (0.0030)  20827 seções,  3524 locais
+    AL +0.0572 (0.0052)   7101 seções,  1051 locais
+    AC +0.0627 (0.0099)   2270 seções,   541 locais
+    TO +0.0684 (0.0057)   4384 seções,   753 locais
+    PE +0.0721 (0.0034)  21418 seções,  3091 locais
+    PB +0.0751 (0.0048)  10712 seções,  1738 locais
+    BA +0.0769 (0.0031)  35476 seções,  6362 locais
+    CE +0.0786 (0.0032)  23765 seções,  4549 locais
+    RN +0.0792 (0.0049)   8115 seções,  1391 locais
+    AM +0.0822 (0.0072)   8157 seções,  1164 locais
+    SE +0.0849 (0.0069)   5923 seções,  1065 locais
+    MA +0.0852 (0.0049)  18093 seções,  3661 locais
+    AP +0.0936 (0.0093)   1914 seções,   277 locais
+    PI +0.0957 (0.0059)  10225 seções,  2181 locais
+  (z sem sinal = (limite - Q10)/ep e z sinal = (Q10 - limite)/ep; cada um precisa passar de 2)
+  Critério: sem sinal se Q10 < +0.0109 (menor Q10 com 2%, 2018) por mais de 2 ep: z = -2.89
+            sinal se Q10 > +0.0501 (maior Q10 com 3%, 2022) a mais de 2 ep: z = -15.75 (com 3,6%: limite +0.0560, z = -18.55)
+            robustez com o ep da referência somado: z sem sinal -2.43; z sinal -13.55
+  Veredito pela letra: INCONCLUSIVO
+  Descritivo, fora do critério registrado:
+    troca uniforme equivalente medida contra 2018 sem troca: +2.60% (ep 0.21; o Q10 de 2018 sobe 0.0101 por ponto de troca)
+    troca uniforme equivalente medida contra 2022 sem troca: -0.38% (ep 0.21; o Q10 de 2022 sobe 0.0098 por ponto de troca)
+    secundária (o registro não fixou limiar para ela): +0.0057 (SC, ep 0.0021); referências sem troca 2018 -0.0093, 2022 +0.0178; com 2% 2018 +0.0109, 2022 +0.0374; com 3% 2018 +0.0210, 2022 +0.0472
+      z abaixo do menor mínimo com 2%: +2.48; z acima do maior mínimo com 3%: -19.96
+
+2026 Lula, outros agregados (como as referências):
+  Q10 +0.0161 (ep 0.0023; IC95 bootstrap +0.0109 a +0.0196); UF no Q10: GO; UFs abaixo: SC, PR
+  Q10 interpolado (robustez): +0.0155; média ponderada das UFs: +0.0453
+  Menor coeficiente entre as 22 UFs com 5.000+ seções: +0.0052 (SC, ep 0.0021)
+  País: +0.0399 (0.0006); capitais +0.0397 (0.0013); interior +0.0401 (0.0007); diferença -0.0004 (0.0015)
+  Por UF (coef, ep, seções, locais informativos):
+    SC +0.0052 (0.0021)  17326 seções,  2380 locais
+    PR +0.0110 (0.0021)  27142 seções,  3817 locais
+    GO +0.0161 (0.0031)  15686 seções,  2251 locais
+    RS +0.0182 (0.0024)  27547 seções,  4668 locais
+    ES +0.0214 (0.0034)   9844 seções,  1475 locais
+    DF +0.0282 (0.0058)   6969 seções,   607 locais
+    RR +0.0292 (0.0067)   1519 seções,   272 locais
+    SP +0.0319 (0.0013) 103656 seções, 10704 locais
+    MT +0.0322 (0.0033)   8287 seções,  1211 locais
+    RO +0.0357 (0.0053)   4698 seções,   560 locais
+    RJ +0.0375 (0.0016)  37675 seções,  4738 locais
+    MS +0.0391 (0.0045)   7106 seções,   921 locais
+    MG +0.0401 (0.0017)  52062 seções,  7493 locais
+    PA +0.0567 (0.0030)  20827 seções,  3524 locais
+    AL +0.0576 (0.0052)   7101 seções,  1051 locais
+    AC +0.0584 (0.0097)   2270 seções,   541 locais
+    TO +0.0685 (0.0057)   4384 seções,   753 locais
+    PE +0.0724 (0.0034)  21418 seções,  3091 locais
+    PB +0.0746 (0.0048)  10712 seções,  1738 locais
+    BA +0.0772 (0.0031)  35476 seções,  6362 locais
+    RN +0.0785 (0.0049)   8115 seções,  1391 locais
+    CE +0.0789 (0.0032)  23765 seções,  4549 locais
+    AM +0.0791 (0.0072)   8157 seções,  1164 locais
+    SE +0.0851 (0.0069)   5923 seções,  1065 locais
+    MA +0.0855 (0.0049)  18093 seções,  3661 locais
+    AP +0.0911 (0.0093)   1914 seções,   277 locais
+    PI +0.0952 (0.0060)  10225 seções,  2181 locais
+  (z sem sinal = (limite - Q10)/ep e z sinal = (Q10 - limite)/ep; cada um precisa passar de 2)
+  Critério: sem sinal se Q10 < +0.0109 (menor Q10 com 2%, 2018) por mais de 2 ep: z = -2.32
+            sinal se Q10 > +0.0501 (maior Q10 com 3%, 2022) a mais de 2 ep: z = -15.08 (com 3,6%: limite +0.0560, z = -17.69)
+            robustez com o ep da referência somado: z sem sinal -1.98; z sinal -13.19
+  Veredito pela letra: INCONCLUSIVO
+  Descritivo, fora do critério registrado:
+    troca uniforme equivalente medida contra 2018 sem troca: +2.52% (ep 0.22; o Q10 de 2018 sobe 0.0101 por ponto de troca)
+    troca uniforme equivalente medida contra 2022 sem troca: -0.47% (ep 0.23; o Q10 de 2022 sobe 0.0098 por ponto de troca)
+    secundária (o registro não fixou limiar para ela): +0.0052 (SC, ep 0.0021); referências sem troca 2018 -0.0093, 2022 +0.0178; com 2% 2018 +0.0109, 2022 +0.0374; com 3% 2018 +0.0210, 2022 +0.0472
+      z abaixo do menor mínimo com 2%: +2.76; z acima do maior mínimo com 3%: -20.44
+
+Escolhas e desvios do registro:
+  - Ordem: o registro pede as referências antes de abrir 2026. Neste script elas são calculadas e gravadas antes de a base de 2026 ser lida, mas o bweb de 2026 já tinha sido aberto por outros testes (o coeficiente nacional do T8, 0,039, já estava em resultados/T8_2026_bweb_L.json). Os coeficientes por UF de 2026 não tinham sido vistos.
+  - Referências sem os eliminados separados: as bases de 2018 e 2022 só têm os outros candidatos somados (campo O). Em 2026 a versão principal separa Cury, Renan, Caiado, Zema e demais, como o registro diz; a versão com os outros agregados, igual à das referências, sai ao lado e dá o mesmo veredito.
+  - Troca de 3%: o registro manda simular 1%, 2% e 3,6%, mas o critério de sinal cita o Q10 simulado com 3%. Pela letra do critério, a troca de 3% foi simulada também; o limite com 3,6% sai ao lado.
+  - Troca simulada pelo valor esperado (s vezes os votos do adversário no 2º turno de cada seção, sem arredondar nem sortear), o que reproduz a calibração do T14 (2018: 0,0063 e 0,0261 com 2%; 2022: 0,0377 e 0,0569).
+  - Erro-padrão do Q10 (o registro não diz como): bootstrap paramétrico dos 27 coeficientes com os seus erros CR1. O limite das referências entra como valor fixo, como no T14; a versão com o erro da referência somado sai ao lado.
+  - Peso "por seções": seções da UF com os dois turnos na base. Com o peso pelas seções que entram na regressão (locais com 2 ou mais seções), o Q10 de 2026 e o limite de sem sinal (2018 com 2%, +0,0109) não mudam; o Q10 de 2022 sobe (sem troca +0,0237 em vez de +0,0207; com 3%, +0,0530 em vez de +0,0501, o que sobe o limite de sinal). O veredito não muda.
+  - Percentil ponderado: o menor coeficiente cuja fração acumulada do peso chega a 10%. A versão interpolada sai ao lado.
+  - Exterior fora das 27 UFs e fora de capital contra interior. Capital contra interior: duas regressões nacionais separadas, descritivas (o registro não fixou critério para elas).
+
+Veredito pela letra (versão principal): INCONCLUSIVO

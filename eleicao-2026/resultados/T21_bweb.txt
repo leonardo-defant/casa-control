@@ -1,0 +1,68 @@
+T21. Liberação sem biometria em todo o país, partes (a) e (b), com o bweb completo dos dois turnos de 2026
+Campo: QT_ELEI_BIOM_SEM_HABILITACAO (eleitores com biometria que não foram habilitados por meio dela). NH abaixo.
+Conferência com a base por seção: {"secoes_base": 499206, "comparecimento_diferente_da_base": {}, "secoes_faltando": {"no_bweb_e_nao_na_base_1": 0, "no_bweb_e_nao_na_base_2": 0}}
+Extração: {"linhas_inconsistentes_1t": 0, "linhas_inconsistentes_2t": 0, "valores_invalidos_do_campo_1t": {}, "valores_invalidos_do_campo_2t": {}}
+
+(a) Totais nacionais
+escopo                NH 1T      NH 2T    var NH   var comp  %NH 1T  %NH 2T var pts exc. prop 1T
+Brasil (27 UFs)   8.342.249  8.632.488  +290.239 +2.920.562   6.677   6.752  +0.074      +95.224
+Exterior                  0          0        +0    +39.677   0.000   0.000  +0.000           +0
+Total             8.342.249  8.632.488  +290.239 +2.960.239   6.659   6.732  +0.073      +93.114
+
+AC                   24.369     22.654    -1.715    -34.676   4.990   4.994  +0.003          +15
+AL                  126.526    135.874    +9.348    +13.204   6.527   6.962  +0.435       +8.486
+AM                  120.448    118.955    -1.493    -42.490   5.390   5.427  +0.036         +797
+AP                   20.965     19.685    -1.280    -46.587   4.399   4.578  +0.179         +769
+BA                  659.927    702.255   +42.328   +368.446   7.289   7.453  +0.164      +15.472
+CE                  406.838    429.294   +22.456   +114.372   6.883   7.125  +0.242      +14.583
+DF                   88.549     84.114    -4.435    +36.884   4.835   4.502  -0.333       -6.218
+ES                  151.355    151.401       +46    +56.932   6.434   6.284  -0.150       -3.617
+GO                  270.131    268.656    -1.475    +75.693   6.802   6.638  -0.164       -6.623
+MA                  249.154    259.852   +10.698    -32.572   5.989   6.295  +0.306      +12.649
+MG                  844.893    887.910   +43.017   +406.929   6.686   6.807  +0.121      +15.811
+MS                  120.516    115.545    -4.971    +53.240   7.820   7.247  -0.573       -9.134
+MT                  137.970    137.579      -391    +33.201   6.723   6.597  -0.126       -2.623
+PA                  273.828    277.373    +3.545    -76.931   5.405   5.559  +0.154       +7.703
+PB                  187.044    199.353   +12.309    +59.572   6.969   7.266  +0.297       +8.157
+PE                  369.732    399.764   +30.032   +215.405   6.255   6.525  +0.270      +16.559
+PI                  193.884    201.641    +7.757     -1.053   8.652   9.003  +0.350       +7.848
+PR                  511.701    493.321   -18.380   +217.882   7.479   6.988  -0.491      -34.676
+RJ                  695.182    750.301   +55.119   +217.647   7.051   7.445  +0.395      +39.773
+RN                  171.699    180.838    +9.139    +61.810   7.909   8.099  +0.190       +4.251
+RO                   61.886     61.938       +52     -2.591   6.244   6.266  +0.022         +214
+RR                   12.788     12.646      -142    -24.175   3.843   4.098  +0.255         +787
+RS                  551.430    582.380   +30.950   +186.735   8.227   8.453  +0.226      +15.588
+SC                  351.215    357.632    +6.417   +114.144   7.556   7.510  -0.046       -2.208
+SE                   97.299    102.204    +4.905    +27.577   6.761   6.968  +0.207       +3.040
+SP                1.591.942  1.632.098   +40.156   +932.397   6.023   5.964  -0.058      -16.000
+TO                   50.978     47.225    -3.753    -10.433   5.282   4.946  -0.335       -3.202
+ZZ                        0          0        +0    +39.677   0.000   0.000  +0.000           +0
+
+Dentro do local (em votos, como o T9): variação de NH por eleitor a mais = 0.0877 (ep 0.0017); fatia de NH no 1º turno nas mesmas seções = 0.0666; 477035 seções, 72538 locais. Em taxa (dividido por C1): 0.0913 (ep 0.0017).
+Referência de 2022: sem dado nesta rodada (o bweb de 2022, com QT_ELEITORES_BIOMETRIA_NH, não está nos arquivos
+locais; secoes2022.json.gz não tem o campo; a regra desta rodada proíbe baixar).
+Valor de 2022 que levaria o excesso nacional (27 UFs) a mais de 400 mil, em cada leitura do registro:
+  leitura_1_esperado_igual_var_comparecimento_2026_vezes_razao_dNH_dC_de_2022: {'excesso_400mil_se_razao_2022_abaixo_de': -0.037582150284773956}
+  leitura_2_esperado_igual_NH1_2026_vezes_razao_NH2_NH1_de_2022: {'excesso_400mil_se_razao_2022_abaixo_de': 0.9868427566714923}
+  leitura_3_esperado_igual_C2_2026_vezes_fatia_NH_2t_de_2022: {'excesso_400mil_se_fatia_NH_2t_2022_pct_abaixo_de': 6.438943928436976}
+  leitura_4_esperado_igual_NH1_2026_mais_var_comparecimento_2026_vezes_fatia_NH_1t_de_2022: {'excesso_400mil_se_fatia_NH_1t_2022_pct_abaixo_de': -3.758215028477396}
+  excesso_maximo_leituras_1_e_4_com_2022_nao_negativo: 290239
+  excesso_maximo_leituras_2_e_3_com_2022_nao_negativo: 8632488
+
+(b) Regressão do ganho de Lula nas variações sem e com biometria, efeito fixo de local, erro agrupado por local
+Seções: 499205 (fora: {'sem_os_dois_turnos': 1}); média de x_sem +0.209% de C1, x_com +2.061%, y +8.139%.
+  principal                          sem +0.5203 (0.0023)  com +0.5219 (0.0018)  dif -0.0016 (0.0016, z -1.02)  n 477035 locais 72538
+  R1_em_votos                        sem +0.4899 (0.0023)  com +0.4896 (0.0018)  dif +0.0003 (0.0016, z +0.19)  n 477035 locais 72538
+  R2_denominador_comparecimento_2t   sem +0.4515 (0.0101)  com +0.4529 (0.0098)  dif -0.0013 (0.0016, z -0.85)  n 477035 locais 72538
+  R3_peso_comparecimento_1t          sem +0.5171 (0.0022)  com +0.5189 (0.0017)  dif -0.0018 (0.0015, z -1.18)  n 477035 locais 72538
+  R4_so_apuradas_sem_agregacao       sem +0.5158 (0.0022)  com +0.5174 (0.0017)  dif -0.0016 (0.0016, z -1.00)  n 463131 locais 69105
+
+Critério (principal): coef. sem biometria > 0,9? False; diferença > 3 ep? False; coeficientes a até 0,15 um do outro? True.
+Proporcionalidade em 2026 (sem 2022): no país, var NH / var comparecimento = 0.0994 contra a fatia de NH do 1º turno 0.0668; excesso sobre a proporção do 1º turno +95.224. Dentro do local: 0.0877 (ep 0.0017) contra 0.0666, razão 1.32, z +12.2.
+Veredito pela letra: INCONCLUSIVO. Motivo: sinal descartado pela parte dos coeficientes; parte dos coeficientes do sem sinal atendida; a parte "proporcionais ao aumento do comparecimento, como em 2022" não pode ser certificada sem a referência de 2022.
+
+Leitura:
+- Por liberação sem biometria a mais, Lula ganhou 0.520 voto; por eleitor a mais habilitado de outro modo, 0.522. A diferença é -0.0016 (ep 0.0016). Se as liberações a mais fossem votos inseridos para Lula, o coeficiente ficaria perto de 1; o registro pede mais de 0,9.
+- Liberações sem biometria no país (27 UFs): +290.239 entre os turnos, para +2.920.562 no comparecimento. Cresceram 3.48% contra 2.34% do comparecimento: um pouco mais que a proporção, +95.224 acima dela.
+- 400 mil: nas leituras que comparam variações (1, 2 e 4), se as liberações sem biometria de 2022 não caíram entre os turnos, o excesso de 2026 fica no máximo em +290.239. Passaria de 400 mil só se, em 2022, elas tivessem caído entre os turnos: razão NH2/NH1 abaixo de 0.9868 (leitura 2) ou var NH / var comparecimento abaixo de -0.0376 (leitura 1).
+- Limites: o bweb não separa, entre os habilitados sem NH, quem usou a digital de quem não tem biometria cadastrada, então a variação "com biometria" mistura os dois. Regressão ecológica entre seções do mesmo local. O campo é escrito pelo mesmo programa que grava o voto: um programa malicioso poderia gravar NH coerente.
