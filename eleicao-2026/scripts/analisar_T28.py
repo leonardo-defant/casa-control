@@ -281,8 +281,9 @@ def rodar(nome, arrays, estimador, simulador, eventos, gL_full, nsim=NSIM, semen
         seR = boot_razao(obs['O'][e], obs['P'][e], g_ok, rb) if E > 0 else float('nan')
         Rn = float(np.mean(nul[e])); Rn_dp = float(np.std(nul[e], ddof=1)) if nsim > 1 else float('nan')
         se_Rn = Rn_dp / math.sqrt(nsim)
-        Rc = R / Rn
-        se_Rc = Rc * math.sqrt((seR / R) ** 2 + (se_Rn / Rn) ** 2) if O > 0 else float('nan')
+        # evento que não ocorre em nenhuma simulação nula: sem calibração possível (Rc indefinido)
+        Rc = R / Rn if Rn > 0 else float('nan')
+        se_Rc = Rc * math.sqrt((seR / R) ** 2 + (se_Rn / Rn) ** 2) if (O > 0 and Rn > 0) else float('nan')
         Ecal = E * Rn
         out['eventos'][e] = {'O': O, 'E_bruto': E, 'R_bruto': R, 'R_bruto_ep_bootstrap_locais': seR,
                              'R_nulo': Rn, 'R_nulo_dp': Rn_dp, 'R_nulo_ep_media': se_Rn,
@@ -394,11 +395,13 @@ def criterio(res, chaveL, refsL, eventoL='L', eventoF='F'):
     a = res[chaveL]['eventos']
     refs = {r: res[r]['eventos'] for r in refsL}
     out = {}
+    fin = lambda x: x if (x is not None and math.isfinite(x)) else -math.inf
+    div = lambda x, y: x / y if (math.isfinite(x) and math.isfinite(y) and y > 0) else float('nan')
     for e in (eventoL, eventoF):
-        mx_nome = max(refs, key=lambda r: refs[r][e]['Rc'])
+        mx_nome = max(refs, key=lambda r: fin(refs[r][e]['Rc']))
         mx = refs[mx_nome][e]
-        razao = a[e]['Rc'] / mx['Rc']
-        ep = razao * math.sqrt((a[e]['Rc_ep'] / a[e]['Rc']) ** 2 + (mx['Rc_ep'] / mx['Rc']) ** 2)
+        razao = div(a[e]['Rc'], mx['Rc'])
+        ep = razao * math.sqrt(div(a[e]['Rc_ep'], a[e]['Rc']) ** 2 + div(mx['Rc_ep'], mx['Rc']) ** 2)
         Eref = a[e]['E_calibrado'] * mx['Rc']
         out[e] = {'Rc_2026_2T': a[e]['Rc'], 'Rc_2026_2T_ep': a[e]['Rc_ep'], 'maior_referencia': mx_nome,
                   'Rc_maior_referencia': mx['Rc'], 'Rc_maior_referencia_ep': mx['Rc_ep'],
@@ -556,7 +559,8 @@ def main():
                   'Rc_2018_descritivo': r18['Rc'], 'razao_2026_sobre_2022': a['Rc'] / r22['Rc'] if r22['Rc'] > 0 else float('nan'),
                   'O_2026': a['O'], 'E_calibrado_2026': a['E_calibrado'], 'O_2022': r22['O'], 'E_calibrado_2022': r22['E_calibrado']}
     out.update({'amostras': amostras, 'resultados': res, 'criterio': crit, 'robustez': rob, 'aumento_de_comparecimento': aum,
-                'descritivo': extras, 'veredito': crit['veredito'], 'segundos_total': round(time.time() - T0, 1)})
+                'descritivo': extras, 'veredito': crit['veredito'], 'segundos_total': round(time.time() - T0, 1),
+                'rodado_em_utc': time.strftime('%d/%m/%Y %H:%M', time.gmtime())})
     with open(saida_json, 'w') as f:
         json.dump(out, f, ensure_ascii=False, indent=1, default=lambda x: x.tolist() if hasattr(x, 'tolist') else str(x))
     escrever_txt(out, saida_txt)
@@ -600,6 +604,13 @@ def escrever_txt(o, caminho):
     cd = c['condicoes']
     A(f"- Condições: razão de Lula >= 1,5: {'sim' if cd['razao_Lula_>=_1,5'] else 'não'}; excesso > 3 raiz(E): {'sim' if cd['excesso_Lula_>_3_raiz_E'] else 'não'}; "
       f"Flávio normal (razão <= 1,1): {'sim' if cd['Flavio_normal_(razao_<=_1,1)'] else 'não'}; razão de Lula <= 1,1: {'sim' if cd['razao_Lula_<=_1,1'] else 'não'}.")
+    r22 = L['Rc_referencias']['2022_2T']
+    A(f"- Só contra o 2º turno de 2022 (sem o 1º turno de 2026): razão de Lula {L['Rc_2026_2T'] / r22:.3f}; ainda até 1,1.")
+    rb = {k: res[k]['eventos']['L']['R_bruto'] for k in ('2026_2T', '2026_1T', '2022_2T')}
+    A(f"- Sem calibração (O/E bruto): Lula 2026 2T {rb['2026_2T']:.3f}, 2026 1T {rb['2026_1T']:.3f}, 2022 2T {rb['2022_2T']:.3f}; "
+      f"razão sobre o maior {rb['2026_2T'] / max(rb['2026_1T'], rb['2022_2T']):.3f}.")
+    A("- O O/E calibrado fica acima de 1 em todas as eleições e turnos (a nula da beta-binomial em torno da média do local")
+    A("  subestima a cauda conjunta em toda parte); o 2º turno de 2026 fica abaixo das duas referências registradas.")
     esc = o['descritivo']['escala_2026_2T']
     A(f"- Escala: as {esc['L']['secoes']} seções do evento de Lula no 2º turno somam {br(esc['L']['comparecimento'])} votantes e margem de Lula sobre Flávio de "
       f"{br(esc['L']['margem_lula_menos_flavio'])} votos; as {esc['F']['secoes']} de Flávio, margem de Flávio de {br(-esc['F']['margem_lula_menos_flavio'])}. "
@@ -665,16 +676,92 @@ def escrever_txt(o, caminho):
     A(f"  Seções do evento aumento e Lula >= 80% (2026): {len(ex['secoes_evento_DL_2026'])}; aumento e Flávio >= 80%: {len(ex['secoes_evento_DF_2026'])}.")
     A('  A lista das seções de cada evento, com a probabilidade calibrada sob a nula, está no JSON (serve ao T27).')
     A('')
+    dc = o.get('descritivo_complementar')
+    if dc:
+        A('7b. Descritivo complementar, fora do registro (seções do evento com probabilidade calibrada sob a nula abaixo de 1e-6)')
+        A('  Contagem por conjunto (evento de Lula / evento de Flávio): ' + '; '.join(
+            f"{k} {v['L']} / {v['F']}" for k, v in dc['contagem_p_abaixo_1e-6'].items()))
+        A('  Seções do 2º turno de 2026 nessa condição, com o 1º turno da mesma seção (aptos, comparecimento, Lula, Flávio, outros):')
+        for x in dc['secoes_2026_2T']:
+            A(f"    {x['evento']} {x['secao']} {x['municipio']} | {x['local']} ({x['tipo_local']}) | 2T: aptos {x['aptos']}, comp {x['comparecimento']}, "
+              f"Lula {x['lula']}, Flávio {x['flavio']}; 1T: aptos {x['apt_1T']}, comp {x['comp_1T']}, Lula {x['lula_1T']}, Flávio {x['flavio_1T']}, "
+              f"outros {x['outros_1T']} | p {x['p_nula_calibrada']:.1e}")
+        A('')
     A('8. Limites')
     A('- O teste só vê enchimento ou troca concentrada em poucas seções (comparecimento perto de 100% e voto quase todo num lado).')
     A('  Uma troca espalhada de poucos votos por seção não muda essa cauda.')
     A('- A nula trata comparecimento e fatia como independentes dentro do local e todas as seções do local com a mesma média;')
     A('  o que não for capturado por isso aparece também nas referências, e por isso a comparação é contra elas.')
     A('- O cadastro de locais de 2022 não está nos arquivos locais: presídios e voto em trânsito não podem ser retirados em 2022.')
-    A(f"\nRodado em {time.strftime('%d/%m/%Y %H:%M', time.gmtime())} UTC, {o['segundos_total']} s.")
+    A('- No evento de aumento, o rho do método dos momentos fica no piso (1e-6) em 2018, 2022 e 2026: a variação do comparecimento')
+    A('  da mesma seção entre turnos varia menos que uma binomial (são os mesmos eleitores), e a beta-binomial não representa isso.')
+    A('  A nula do aumento é então binomial; os Rc do aumento medem a cauda pesada (seções com mudança grande) e têm erro grande')
+    A('  nas referências (esperado de 2 a 6 seções). Por isso a contagem de aumento é só descritiva.')
+    A(f"\nCálculo principal rodado em {o.get('rodado_em_utc', '?')} UTC ({o['segundos_total']} s); texto gerado em "
+      f"{time.strftime('%d/%m/%Y %H:%M', time.gmtime())} UTC.")
     with open(caminho, 'w') as f:
         f.write('\n'.join(T) + '\n')
 
 
+def complemento():
+    """Descritivo fora do registro, sem simulação nova: seções do evento com probabilidade calibrada (P x R_nulo já gravado)
+    abaixo de 1e-6, por conjunto, e as do 2º turno de 2026 com o 1º turno da mesma seção e o nome do local.
+    Uso: python3 -I analisar_T28.py complemento <secoes2026.json.gz> <secoes2022.json.gz> <zips 1T> <zips 2T> <locais> <saida.json> <saida.txt>"""
+    b26, b22, z1, z2, pasta_locais, saida_json, saida_txt = sys.argv[2:9]
+    o = json.load(open(saida_json))
+    if 'rodado_em_utc' not in o:
+        o['rodado_em_utc'] = time.strftime('%d/%m/%Y %H:%M', time.gmtime(os.path.getmtime(saida_json)))
+    junta1 = juntas_zz(z1); junta2 = juntas_zz(z2)
+    cont = {}; lista = []
+    d = carregar(b26)
+    for nome, t, jt in (('2026_2T', '2', junta2), ('2026_1T', '1', junta1)):
+        a = montar_nivel(d, t, jt)
+        obs = estimador_nivel(*a['dados'], a['gL'], a['gM'])
+        Rn = {e: o['resultados'][nome]['eventos'][e]['R_nulo'] for e in ('L', 'F')}
+        ks = np.array(a['chaves'])[obs['ok']]
+        cont[nome] = {}
+        for e in ('L', 'F'):
+            pc = obs['P'][e] * Rn[e]
+            j = obs['O'][e] & (pc < 1e-6)
+            cont[nome][e] = int(j.sum())
+            if nome == '2026_2T':
+                A_, C_, V_, L_, R_ = (x[obs['ok']] for x in a['dados'])
+                for i in np.where(j)[0]:
+                    k = str(ks[i]); s1 = d[k].get('1', {})
+                    lista.append({'evento': 'Lula' if e == 'L' else 'Flávio', 'secao': k, 'aptos': int(A_[i]),
+                                  'comparecimento': int(C_[i]), 'lula': int(L_[i]), 'flavio': int(R_[i]),
+                                  'apt_1T': s1.get('apt'), 'comp_1T': s1.get('comp'), 'lula_1T': s1.get('L'),
+                                  'flavio_1T': s1.get('R'), 'outros_1T': s1.get('O'), 'p_nula_calibrada': float(pc[i])})
+    del d; gc.collect()
+    d = carregar(b22)
+    a = montar_nivel(d, '2'); del d; gc.collect()
+    obs = estimador_nivel(*a['dados'], a['gL'], a['gM'])
+    cont['2022_2T'] = {e: int((obs['O'][e] & (obs['P'][e] * o['resultados']['2022_2T']['eventos'][e]['R_nulo'] < 1e-6)).sum())
+                       for e in ('L', 'F')}
+    # nome e tipo do local (cadastro do 2º turno)
+    alvo = {x['secao'] for x in lista}; info = {}
+    for f in sorted(glob.glob(os.path.join(pasta_locais, 'eleitorado_local_votacao_2026_??.csv'))):
+        with open(f, encoding='latin1') as fh:
+            r = csv.reader(fh, delimiter=';'); h = next(r); i = {c: j for j, c in enumerate(h)}
+            for row in r:
+                if row[i['NR_TURNO']] != '2':
+                    continue
+                k = f"{row[i['SG_UF']]}|{int(row[i['CD_MUNICIPIO']])}|{int(row[i['NR_ZONA']])}|{int(row[i['NR_SECAO']])}"
+                if k in alvo:
+                    info[k] = (row[i['NM_MUNICIPIO']], row[i['NM_LOCAL_VOTACAO']], row[i['DS_TIPO_LOCAL']])
+    for x in lista:
+        x['municipio'], x['local'], x['tipo_local'] = info.get(x['secao'], ('?', '?', '?'))
+    lista.sort(key=lambda x: x['p_nula_calibrada'])
+    o['descritivo_complementar'] = {'nota': 'fora do registro; limiar 1e-6 escolhido depois de ver as seções do evento',
+                                    'contagem_p_abaixo_1e-6': cont, 'secoes_2026_2T': lista}
+    with open(saida_json, 'w') as f:
+        json.dump(o, f, ensure_ascii=False, indent=1)
+    escrever_txt(o, saida_txt)
+    print(json.dumps(cont), len(lista))
+
+
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == 'complemento':
+        complemento()
+    else:
+        main()

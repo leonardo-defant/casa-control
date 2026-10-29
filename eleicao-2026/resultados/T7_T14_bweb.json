@@ -1,0 +1,3785 @@
+{
+ "teste": "T7_T14 (mais T37 e T38)",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendos 3, 4, 8, 16 e 17",
+ "semente": 20261029,
+ "referencias": {
+  "2018": {
+   "T7_ganhador": {
+    "secoes": 454448,
+    "ganho_total": 15699141.0,
+    "bolo_total": 28484364,
+    "pct_secoes_excesso": 0.34195331479069113,
+    "excesso_total": 3598.0,
+    "pct_ganho_em_excesso": 0.02291845139807331,
+    "pct_secoes_adversario_perdeu_votos": 3.6554237228461783,
+    "secoes_sem_bolo": 393,
+    "ganho_nas_secoes_sem_bolo": -2430.0,
+    "ep_pct_secoes_excesso": 0.009524579025594185,
+    "ep_pct_ganho_em_excesso": 0.0008235503799894911
+   },
+   "T7_outro_finalista_descritivo": {
+    "secoes": 454448,
+    "ganho_total": 8521079.0,
+    "bolo_total": 28484364,
+    "pct_secoes_excesso": 0.09087948456148999,
+    "excesso_total": 1152.0,
+    "pct_ganho_em_excesso": 0.01351941461873549,
+    "pct_secoes_adversario_perdeu_votos": 2.6209819385276205,
+    "secoes_sem_bolo": 393,
+    "ganho_nas_secoes_sem_bolo": 79.0,
+    "ep_pct_secoes_excesso": 0.004525420436910942,
+    "ep_pct_ganho_em_excesso": 0.0011197632812468142
+   },
+   "T7_por_faixa_adversario": {
+    "0-35": {
+     "secoes": 131363,
+     "pct_secoes_excesso": 0.9957141660893859,
+     "ep_pct_secoes_excesso": 0.029634996223592995,
+     "pct_ganho_em_excesso": 0.06309207296054928,
+     "ep_pct_ganho_em_excesso": 0.0024648215367410764
+    },
+    "35-50": {
+     "secoes": 107439,
+     "pct_secoes_excesso": 0.15450627798099387,
+     "ep_pct_secoes_excesso": 0.01267771099849325,
+     "pct_ganho_em_excesso": 0.010230968685471247,
+     "ep_pct_ganho_em_excesso": 0.0010115014431855394
+    },
+    "50-65": {
+     "secoes": 156006,
+     "pct_secoes_excesso": 0.03525505429278361,
+     "ep_pct_secoes_excesso": 0.004754447243477172,
+     "pct_ganho_em_excesso": 0.0021821990747475923,
+     "ep_pct_ganho_em_excesso": 0.0003857766893449026
+    },
+    "65-100": {
+     "secoes": 59638,
+     "pct_secoes_excesso": 0.041919581474898555,
+     "ep_pct_secoes_excesso": 0.008386155629304207,
+     "pct_ganho_em_excesso": 0.004953380790071415,
+     "ep_pct_ganho_em_excesso": 0.0012747089415152256
+    }
+   },
+   "T8_ganhador_sem_grupos": {
+    "candidato": "L",
+    "secoes": 454448,
+    "n_informativas": 427547,
+    "locais": 66850,
+    "coef": {
+     "outros_1T": 0.6768554293809017,
+     "queda_branco_nulo": 0.6082724132426393,
+     "var_comparecimento": 0.4938205926618317,
+     "adversario_1T": 0.006263623550178153,
+     "proprio_1T": -0.04121663830638438
+    },
+    "ep": {
+     "outros_1T": 0.001425000514759188,
+     "queda_branco_nulo": 0.0024132324064276576,
+     "var_comparecimento": 0.002136751304218545,
+     "adversario_1T": 0.0007084337693654118,
+     "proprio_1T": 0.0009436021672874611
+    }
+   }
+  },
+  "2022": {
+   "T7_ganhador": {
+    "secoes": 472028,
+    "ganho_total": 7134009.0,
+    "bolo_total": 12292086,
+    "pct_secoes_excesso": 5.268543391493725,
+    "excesso_total": 77499.0,
+    "pct_ganho_em_excesso": 1.0863316825083904,
+    "pct_secoes_adversario_perdeu_votos": 18.849941105188677,
+    "secoes_sem_bolo": 2057,
+    "ganho_nas_secoes_sem_bolo": 933.0,
+    "ep_pct_secoes_excesso": 0.04212151422798625,
+    "ep_pct_ganho_em_excesso": 0.01126494991186348
+   },
+   "T7_outro_finalista_descritivo": {
+    "secoes": 472028,
+    "ganho_total": 3086495.0,
+    "bolo_total": 12292086,
+    "pct_secoes_excesso": 0.36480886727058565,
+    "excesso_total": 3658.0,
+    "pct_ganho_em_excesso": 0.11851631057234825,
+    "pct_secoes_adversario_perdeu_votos": 3.1142220376757312,
+    "secoes_sem_bolo": 2057,
+    "ganho_nas_secoes_sem_bolo": -10469.0,
+    "ep_pct_secoes_excesso": 0.0092994645094413,
+    "ep_pct_ganho_em_excesso": 0.0064398604424645445
+   },
+   "T7_por_faixa_adversario": {
+    "0-35": {
+     "secoes": 111468,
+     "pct_secoes_excesso": 5.573796964151146,
+     "ep_pct_secoes_excesso": 0.0895874519573561,
+     "pct_ganho_em_excesso": 0.8583360947175768,
+     "ep_pct_ganho_em_excesso": 0.01692698281421772
+    },
+    "35-50": {
+     "secoes": 158055,
+     "pct_secoes_excesso": 5.635380089209453,
+     "ep_pct_secoes_excesso": 0.0726082140997787,
+     "pct_ganho_em_excesso": 0.9928252793238223,
+     "ep_pct_ganho_em_excesso": 0.01606930835635588
+    },
+    "50-65": {
+     "secoes": 104484,
+     "pct_secoes_excesso": 5.313732246085525,
+     "ep_pct_secoes_excesso": 0.08479817915257022,
+     "pct_ganho_em_excesso": 1.2687489260026021,
+     "ep_pct_ganho_em_excesso": 0.026573974281885557
+    },
+    "65-100": {
+     "secoes": 98017,
+     "pct_secoes_excesso": 4.281910280869645,
+     "ep_pct_secoes_excesso": 0.07146558771694907,
+     "pct_ganho_em_excesso": 1.8741994956722796,
+     "ep_pct_ganho_em_excesso": 0.044082757097456245
+    }
+   },
+   "T8_ganhador_sem_grupos": {
+    "candidato": "R",
+    "secoes": 472028,
+    "n_informativas": 448168,
+    "locais": 68663,
+    "coef": {
+     "outros_1T": 0.4956032421770836,
+     "queda_branco_nulo": 0.45089198574817124,
+     "var_comparecimento": 0.4592847760564309,
+     "adversario_1T": 0.03766056589836101,
+     "proprio_1T": -0.015409259125909748
+    },
+    "ep": {
+     "outros_1T": 0.0016465927699633339,
+     "queda_branco_nulo": 0.003579938948622783,
+     "var_comparecimento": 0.002614452173081941,
+     "adversario_1T": 0.000606883540223545,
+     "proprio_1T": 0.0006359258719015804
+    }
+   },
+   "T7_calibracao_troca_refeita": {
+    "0.000": {
+     "valor_esperado": [
+      5.268543391493725,
+      1.0863316825083904
+     ],
+     "binomial": [
+      5.268543391493725,
+      1.0863316825083904
+     ],
+     "tabela_registrada": [
+      5.27,
+      1.09
+     ]
+    },
+    "0.010": {
+     "valor_esperado": [
+      8.833374291355598,
+      1.5081196467580287
+     ],
+     "binomial": [
+      7.920292863982645,
+      1.5985842510202024
+     ],
+     "tabela_registrada": [
+      8.83,
+      1.51
+     ]
+    },
+    "0.020": {
+     "valor_esperado": [
+      12.428288152397739,
+      2.0942271588553916
+     ],
+     "binomial": [
+      11.504614133059903,
+      2.321470233709209
+     ],
+     "tabela_registrada": [
+      12.43,
+      2.09
+     ]
+    },
+    "0.035": {
+     "valor_esperado": [
+      19.81005364088571,
+      3.4047506980135425
+     ],
+     "binomial": [
+      18.650164820730975,
+      3.869954959549256
+     ],
+     "tabela_registrada": [
+      19.81,
+      3.4
+     ]
+    },
+    "0.060": {
+     "valor_esperado": [
+      35.756141584821236,
+      6.92218144483911
+     ],
+     "binomial": [
+      33.65796096841713,
+      7.73392847614846
+     ],
+     "tabela_registrada": [
+      35.76,
+      6.92
+     ]
+    }
+   }
+  }
+ },
+ "2026": {
+  "secoes_com_os_dois_turnos": 499205,
+  "secoes_amostra_encontradas": 3897,
+  "T7_Lula": {
+   "secoes": 499205,
+   "ganho_total": 10376696.0,
+   "bolo_total": 15011833,
+   "pct_secoes_excesso": 8.991296160895825,
+   "excesso_total": 147307.0,
+   "pct_ganho_em_excesso": 1.4195944450911928,
+   "pct_secoes_adversario_perdeu_votos": 16.46217485802426,
+   "secoes_sem_bolo": 1744,
+   "ganho_nas_secoes_sem_bolo": -4325.0,
+   "ep_pct_secoes_excesso": 0.05626158544593458,
+   "ep_pct_ganho_em_excesso": 0.01149078611809607
+  },
+  "T7_Lula_sem_exterior": {
+   "secoes": 497897,
+   "ganho_total": 10333927.0,
+   "bolo_total": 14939632,
+   "pct_secoes_excesso": 9.012908292277318,
+   "excesso_total": 147283.0,
+   "pct_ganho_em_excesso": 1.425237472647136,
+   "pct_secoes_adversario_perdeu_votos": 16.500400685282298,
+   "secoes_sem_bolo": 1731,
+   "ganho_nas_secoes_sem_bolo": -4324.0,
+   "ep_pct_secoes_excesso": 0.05632563999766934,
+   "ep_pct_ganho_em_excesso": 0.011506420357857388
+  },
+  "T7_Lula_amostra_conferencia": {
+   "secoes": 3897,
+   "ganho_total": 82655.0,
+   "bolo_total": 117242,
+   "pct_secoes_excesso": 10.572235052604567,
+   "excesso_total": 1412.0,
+   "pct_ganho_em_excesso": 1.7083056076462404,
+   "pct_secoes_adversario_perdeu_votos": 17.757249166025147,
+   "secoes_sem_bolo": 5,
+   "ganho_nas_secoes_sem_bolo": 9.0,
+   "ep_pct_secoes_excesso": 0.7202957588851526,
+   "ep_pct_ganho_em_excesso": 0.14720726569307385
+  },
+  "T7_Flavio_descritivo": {
+   "secoes": 499205,
+   "ganho_total": 3721538.0,
+   "bolo_total": 15011833,
+   "pct_secoes_excesso": 0.1332118067727687,
+   "excesso_total": 1643.0,
+   "pct_ganho_em_excesso": 0.04414841390844323,
+   "pct_secoes_adversario_perdeu_votos": 1.9210544766178224,
+   "secoes_sem_bolo": 1744,
+   "ganho_nas_secoes_sem_bolo": -4263.0,
+   "ep_pct_secoes_excesso": 0.005491686815157813,
+   "ep_pct_ganho_em_excesso": 0.0039157986946896164
+  },
+  "T7_por_faixa_adversario": {
+   "0-35": {
+    "secoes": 121858,
+    "pct_secoes_excesso": 17.90116364949367,
+    "ep_pct_secoes_excesso": 0.1346663124387116,
+    "pct_ganho_em_excesso": 2.829346082010532,
+    "ep_pct_ganho_em_excesso": 0.030267742484100385
+   },
+   "35-50": {
+    "secoes": 147272,
+    "pct_secoes_excesso": 8.15090444891086,
+    "ep_pct_secoes_excesso": 0.09195697180649519,
+    "pct_ganho_em_excesso": 1.1621635393569882,
+    "ep_pct_ganho_em_excesso": 0.018008366580048393
+   },
+   "50-65": {
+    "secoes": 166161,
+    "pct_secoes_excesso": 5.2304692436853415,
+    "ep_pct_secoes_excesso": 0.0708284046714901,
+    "pct_ganho_em_excesso": 0.8538962034973134,
+    "ep_pct_ganho_em_excesso": 0.014457184595738875
+   },
+   "65-100": {
+    "secoes": 63914,
+    "pct_secoes_excesso": 3.717495384422818,
+    "ep_pct_secoes_excesso": 0.08903726218063594,
+    "pct_ganho_em_excesso": 0.8082787336966505,
+    "ep_pct_ganho_em_excesso": 0.02534360688141767
+   }
+  },
+  "T7_por_UF": {
+   "AC": {
+    "secoes": 2270,
+    "ganho_total": 9743.0,
+    "pct_secoes_excesso": 3.303964757709251,
+    "excesso_total": 300.0,
+    "pct_ganho_em_excesso": 3.0791337370419787
+   },
+   "AL": {
+    "secoes": 7101,
+    "ganho_total": 157162.0,
+    "pct_secoes_excesso": 23.376989156456837,
+    "excesso_total": 6396.0,
+    "pct_ganho_em_excesso": 4.069686056425853
+   },
+   "AM": {
+    "secoes": 8157,
+    "ganho_total": 98787.0,
+    "pct_secoes_excesso": 10.37146009562339,
+    "excesso_total": 3291.0,
+    "pct_ganho_em_excesso": 3.3314100033405207
+   },
+   "AP": {
+    "secoes": 1914,
+    "ganho_total": 10465.0,
+    "pct_secoes_excesso": 0.7836990595611285,
+    "excesso_total": 32.0,
+    "pct_ganho_em_excesso": 0.30578117534639276
+   },
+   "BA": {
+    "secoes": 35476,
+    "ganho_total": 820487.0,
+    "pct_secoes_excesso": 13.9812831209832,
+    "excesso_total": 15203.0,
+    "pct_ganho_em_excesso": 1.8529239342000543
+   },
+   "CE": {
+    "secoes": 23765,
+    "ganho_total": 480861.0,
+    "pct_secoes_excesso": 21.392804544498212,
+    "excesso_total": 17792.0,
+    "pct_ganho_em_excesso": 3.7000297383235488
+   },
+   "DF": {
+    "secoes": 6969,
+    "ganho_total": 149597.0,
+    "pct_secoes_excesso": 1.908451714736691,
+    "excesso_total": 386.0,
+    "pct_ganho_em_excesso": 0.25802656470383767
+   },
+   "ES": {
+    "secoes": 9844,
+    "ganho_total": 151937.0,
+    "pct_secoes_excesso": 5.891913856156034,
+    "excesso_total": 1599.0,
+    "pct_ganho_em_excesso": 1.0524098804109598
+   },
+   "GO": {
+    "secoes": 15686,
+    "ganho_total": 396675.0,
+    "pct_secoes_excesso": 0.45263292107611885,
+    "excesso_total": 201.0,
+    "pct_ganho_em_excesso": 0.05067120438646247
+   },
+   "MA": {
+    "secoes": 18093,
+    "ganho_total": 241930.0,
+    "pct_secoes_excesso": 24.00375835958658,
+    "excesso_total": 14810.0,
+    "pct_ganho_em_excesso": 6.1216054230562555
+   },
+   "MG": {
+    "secoes": 52062,
+    "ganho_total": 1162163.0,
+    "pct_secoes_excesso": 5.718182167415773,
+    "excesso_total": 8559.0,
+    "pct_ganho_em_excesso": 0.7364715620786413
+   },
+   "MS": {
+    "secoes": 7106,
+    "ganho_total": 112118.0,
+    "pct_secoes_excesso": 6.585983675766958,
+    "excesso_total": 1492.0,
+    "pct_ganho_em_excesso": 1.3307408266290872
+   },
+   "MT": {
+    "secoes": 8287,
+    "ganho_total": 112486.0,
+    "pct_secoes_excesso": 8.084952334982503,
+    "excesso_total": 2156.0,
+    "pct_ganho_em_excesso": 1.916682964991199
+   },
+   "PA": {
+    "secoes": 20827,
+    "ganho_total": 263212.0,
+    "pct_secoes_excesso": 10.241513420079704,
+    "excesso_total": 7077.0,
+    "pct_ganho_em_excesso": 2.68870720179931
+   },
+   "PB": {
+    "secoes": 10712,
+    "ganho_total": 252932.0,
+    "pct_secoes_excesso": 20.089619118745333,
+    "excesso_total": 7078.0,
+    "pct_ganho_em_excesso": 2.79838059241219
+   },
+   "PE": {
+    "secoes": 21418,
+    "ganho_total": 563542.0,
+    "pct_secoes_excesso": 16.626202259781493,
+    "excesso_total": 10851.0,
+    "pct_ganho_em_excesso": 1.9254997852866336
+   },
+   "PI": {
+    "secoes": 10225,
+    "ganho_total": 130279.0,
+    "pct_secoes_excesso": 19.442542787286065,
+    "excesso_total": 5901.0,
+    "pct_ganho_em_excesso": 4.52950974447148
+   },
+   "PR": {
+    "secoes": 27142,
+    "ganho_total": 511907.0,
+    "pct_secoes_excesso": 1.985852184805836,
+    "excesso_total": 1421.0,
+    "pct_ganho_em_excesso": 0.27758948402737216
+   },
+   "RJ": {
+    "secoes": 37675,
+    "ganho_total": 872372.0,
+    "pct_secoes_excesso": 12.706038487060384,
+    "excesso_total": 17601.0,
+    "pct_ganho_em_excesso": 2.017602582384579
+   },
+   "RN": {
+    "secoes": 8115,
+    "ganho_total": 175633.0,
+    "pct_secoes_excesso": 24.57178065311152,
+    "excesso_total": 7766.0,
+    "pct_ganho_em_excesso": 4.421720291744718
+   },
+   "RO": {
+    "secoes": 4698,
+    "ganho_total": 43779.0,
+    "pct_secoes_excesso": 3.9378458918688803,
+    "excesso_total": 497.0,
+    "pct_ganho_em_excesso": 1.1352474930902945
+   },
+   "RR": {
+    "secoes": 1519,
+    "ganho_total": 9085.0,
+    "pct_secoes_excesso": 4.608294930875576,
+    "excesso_total": 248.0,
+    "pct_ganho_em_excesso": 2.729774353329664
+   },
+   "RS": {
+    "secoes": 27547,
+    "ganho_total": 529793.0,
+    "pct_secoes_excesso": 2.936798925472828,
+    "excesso_total": 2315.0,
+    "pct_ganho_em_excesso": 0.4369631157829567
+   },
+   "SC": {
+    "secoes": 17326,
+    "ganho_total": 291146.0,
+    "pct_secoes_excesso": 1.8815652776174536,
+    "excesso_total": 1006.0,
+    "pct_ganho_em_excesso": 0.3455311081038379
+   },
+   "SE": {
+    "secoes": 5923,
+    "ganho_total": 133022.0,
+    "pct_secoes_excesso": 20.39507006584501,
+    "excesso_total": 3830.0,
+    "pct_ganho_em_excesso": 2.879222985671543
+   },
+   "SP": {
+    "secoes": 103656,
+    "ganho_total": 2613861.0,
+    "pct_secoes_excesso": 2.6423940727020145,
+    "excesso_total": 7890.0,
+    "pct_ganho_em_excesso": 0.30185231731909234
+   },
+   "TO": {
+    "secoes": 4384,
+    "ganho_total": 38953.0,
+    "pct_secoes_excesso": 11.450729927007298,
+    "excesso_total": 1585.0,
+    "pct_ganho_em_excesso": 4.069006238287167
+   },
+   "ZZ": {
+    "secoes": 1308,
+    "ganho_total": 42769.0,
+    "pct_secoes_excesso": 0.764525993883792,
+    "excesso_total": 24.0,
+    "pct_ganho_em_excesso": 0.05611541069466202
+   }
+  },
+  "T14_com_grupos": {
+   "candidato": "L",
+   "secoes": 499205,
+   "n_informativas": 477035,
+   "locais": 72538,
+   "coef": {
+    "Cury": 0.5964355893267499,
+    "Renan": 0.5421513605762741,
+    "Caiado": 0.4879963902922733,
+    "Zema": 0.3610263672107978,
+    "demais_outros": 0.8315622871203846,
+    "queda_branco_nulo": 0.6375637583848185,
+    "var_comparecimento": 0.5636267809606238,
+    "adversario_1T": 0.039289620125311654,
+    "proprio_1T": -0.013220176995870718
+   },
+   "ep": {
+    "Cury": 0.002656469241032807,
+    "Renan": 0.002896715960226719,
+    "Caiado": 0.003065552382338033,
+    "Zema": 0.008571819977006713,
+    "demais_outros": 0.009797436891227874,
+    "queda_branco_nulo": 0.0020820561250620073,
+    "var_comparecimento": 0.0015682849802094393,
+    "adversario_1T": 0.0006711678606704087,
+    "proprio_1T": 0.000663873976566654
+   }
+  },
+  "T14_sem_grupos": {
+   "candidato": "L",
+   "secoes": 499205,
+   "n_informativas": 477035,
+   "locais": 72538,
+   "coef": {
+    "outros_1T": 0.5505699728311573,
+    "queda_branco_nulo": 0.6361331663278468,
+    "var_comparecimento": 0.561825634270086,
+    "adversario_1T": 0.03895913535857192,
+    "proprio_1T": -0.013318913807967049
+   },
+   "ep": {
+    "outros_1T": 0.0016446733716149538,
+    "queda_branco_nulo": 0.002084056327771764,
+    "var_comparecimento": 0.0015717405707181224,
+    "adversario_1T": 0.000670799810105469,
+    "proprio_1T": 0.0006719107527876945
+   }
+  },
+  "T14_com_grupos_sem_exterior": {
+   "candidato": "L",
+   "secoes": 497897,
+   "n_informativas": 475803,
+   "locais": 72445,
+   "coef": {
+    "Cury": 0.5968847606396348,
+    "Renan": 0.5433197532031921,
+    "Caiado": 0.4887573081121631,
+    "Zema": 0.3640944935021073,
+    "demais_outros": 0.8366375956024362,
+    "queda_branco_nulo": 0.6380547474648387,
+    "var_comparecimento": 0.5621675532656405,
+    "adversario_1T": 0.04024012973032132,
+    "proprio_1T": -0.014133142890843732
+   },
+   "ep": {
+    "Cury": 0.0026526696796572696,
+    "Renan": 0.002874583279153964,
+    "Caiado": 0.0030572383337172685,
+    "Zema": 0.008553554247952906,
+    "demais_outros": 0.009678105592938772,
+    "queda_branco_nulo": 0.002076729728406892,
+    "var_comparecimento": 0.0014520939068453425,
+    "adversario_1T": 0.0006033757580883315,
+    "proprio_1T": 0.0006216895352626196
+   }
+  },
+  "T14_com_grupos_amostra_conferencia": {
+   "candidato": "L",
+   "secoes": 3897,
+   "n_informativas": 3781,
+   "locais": 625,
+   "coef": {
+    "Cury": 0.5399813049517871,
+    "Renan": 0.49305072498089675,
+    "Caiado": 0.5417696913620413,
+    "Zema": 0.41817145732303573,
+    "demais_outros": 0.8889087581351793,
+    "queda_branco_nulo": 0.6671978697226246,
+    "var_comparecimento": 0.6046094614639235,
+    "adversario_1T": 0.0507222131418288,
+    "proprio_1T": -0.01068034078297987
+   },
+   "ep": {
+    "Cury": 0.029590513271151656,
+    "Renan": 0.030656783396603077,
+    "Caiado": 0.033138274075005164,
+    "Zema": 0.08371294945363617,
+    "demais_outros": 0.11450729133369777,
+    "queda_branco_nulo": 0.0220834725129397,
+    "var_comparecimento": 0.015421158019264575,
+    "adversario_1T": 0.006954833919105975,
+    "proprio_1T": 0.006329474480179635
+   }
+  },
+  "T8_Flavio_com_grupos": {
+   "candidato": "R",
+   "secoes": 499205,
+   "n_informativas": 477035,
+   "locais": 72538,
+   "coef": {
+    "Cury": 0.4035644106732516,
+    "Renan": 0.45784863942372434,
+    "Caiado": 0.5120036097077278,
+    "Zema": 0.6389736327892038,
+    "demais_outros": 0.1684377128796128,
+    "queda_branco_nulo": 0.36243624161518057,
+    "var_comparecimento": 0.43637321903937626,
+    "adversario_1T": 0.013220176995870851,
+    "proprio_1T": -0.039289620125312216
+   },
+   "ep": {
+    "Cury": 0.002656469241032807,
+    "Renan": 0.00289671596022672,
+    "Caiado": 0.0030655523823380324,
+    "Zema": 0.008571819977006713,
+    "demais_outros": 0.009797436891227878,
+    "queda_branco_nulo": 0.0020820561250620073,
+    "var_comparecimento": 0.0015682849802094393,
+    "adversario_1T": 0.0006638739765666539,
+    "proprio_1T": 0.0006711678606704101
+   }
+  },
+  "T37": {
+   "urna": {
+    "linhas": 954070,
+    "locais": 72538,
+    "por_grupo": {
+     "Cury": {
+      "b_L": [
+       0.5964355893267503,
+       0.0026564706332126847
+      ],
+      "b_F": [
+       0.40356441067325527,
+       0.0026564706332126795
+      ],
+      "nenhum_urna": -5.6066262743570405e-15
+     },
+     "Renan": {
+      "b_L": [
+       0.5421513605762728,
+       0.0028967174783130606
+      ],
+      "b_F": [
+       0.45784863942372667,
+       0.002896717478313061
+      ],
+      "nenhum_urna": 5.551115123125783e-16
+     },
+     "Caiado": {
+      "b_L": [
+       0.4879963902922652,
+       0.0030655539889067308
+      ],
+      "b_F": [
+       0.5120036097077268,
+       0.0030655539889067264
+      ],
+      "nenhum_urna": 7.882583474838611e-15
+     },
+     "Zema": {
+      "b_L": [
+       0.36102636721079706,
+       0.008571824469253458
+      ],
+      "b_F": [
+       0.6389736327892037,
+       0.008571824469253446
+      ],
+      "nenhum_urna": -7.771561172376096e-16
+     }
+    },
+    "b_L_somado": [
+     0.5407143233971514,
+     0.0016547451929175693
+    ],
+    "b_F_somado": [
+     0.4592856766028483,
+     0.0016547451929175678
+    ],
+    "pesos_1T": {
+     "Cury": 0.38080101218053,
+     "Renan": 0.29547921995492094,
+     "Caiado": 0.2876680139733563,
+     "Zema": 0.0360517538911928
+    },
+    "votos_1T_grupos": {
+     "Cury": 3448569,
+     "Renan": 2675887,
+     "Caiado": 2605148,
+     "Zema": 326488
+    },
+    "outros_coef": {
+     "L:demais_outros": [
+      0.8315622871204107,
+      0.009797442025785549
+     ],
+     "L:queda_branco_nulo": [
+      0.637563758384819,
+      0.0020820572162083303
+     ],
+     "L:var_comparecimento": [
+      0.5636267809606272,
+      0.0015682858021029333
+     ],
+     "L:adversario_1T": [
+      0.039289620125311585,
+      0.0006711682124103706
+     ],
+     "L:proprio_1T": [
+      -0.013220176995870594,
+      0.0006638743244840973
+     ],
+     "F:demais_outros": [
+      0.16843771287961526,
+      0.00979744202578554
+     ],
+     "F:queda_branco_nulo": [
+      0.36243624161518595,
+      0.002082057216208332
+     ],
+     "F:var_comparecimento": [
+      0.4363732190393758,
+      0.0015682858021029346
+     ],
+     "F:adversario_1T": [
+      0.013220176995870497,
+      0.0006638743244840996
+     ],
+     "F:proprio_1T": [
+      -0.03928962012531171,
+      0.0006711682124103699
+     ]
+    }
+   },
+   "urna_amostra_conferencia": {
+    "linhas": 7562,
+    "locais": 625,
+    "por_grupo": {
+     "Cury": {
+      "b_L": [
+       0.5399813049517871,
+       0.029592470250967378
+      ],
+      "b_F": [
+       0.46001869504821274,
+       0.02959247025096737
+      ],
+      "nenhum_urna": 1.6653345369377348e-16
+     },
+     "Renan": {
+      "b_L": [
+       0.49305072498089675,
+       0.030658810894597852
+      ],
+      "b_F": [
+       0.5069492750191027,
+       0.030658810894597866
+      ],
+      "nenhum_urna": 5.551115123125783e-16
+     },
+     "Caiado": {
+      "b_L": [
+       0.5417696913620413,
+       0.033140465687326925
+      ],
+      "b_F": [
+       0.45823030863795866,
+       0.03314046568732693
+      ],
+      "nenhum_urna": 0.0
+     },
+     "Zema": {
+      "b_L": [
+       0.4181714573230356,
+       0.08371848584129164
+      ],
+      "b_F": [
+       0.5818285426769645,
+       0.0837184858412916
+      ],
+      "nenhum_urna": -1.1102230246251565e-16
+     }
+    },
+    "b_L_somado": [
+     0.5219767403892387,
+     0.01741876563687373
+    ],
+    "b_F_somado": [
+     0.47802325961076114,
+     0.01741876563687373
+    ],
+    "pesos_1T": {
+     "Cury": 0.3858302540909934,
+     "Renan": 0.29242577718174423,
+     "Caiado": 0.28245331202830526,
+     "Zema": 0.0392906566989571
+    },
+    "votos_1T_grupos": {
+     "Cury": 27044,
+     "Renan": 20497,
+     "Caiado": 19798,
+     "Zema": 2754
+    },
+    "outros_coef": {
+     "L:demais_outros": [
+      0.8889087581351794,
+      0.11451486431683056
+     ],
+     "L:queda_branco_nulo": [
+      0.6671978697226246,
+      0.02208493301176825
+     ],
+     "L:var_comparecimento": [
+      0.6046094614639234,
+      0.015422177903397779
+     ],
+     "L:adversario_1T": [
+      0.050722213141828794,
+      0.006955293879684442
+     ],
+     "L:proprio_1T": [
+      -0.010680340782979872,
+      0.006329893082374477
+     ],
+     "F:demais_outros": [
+      0.1110912418648207,
+      0.11451486431683054
+     ],
+     "F:queda_branco_nulo": [
+      0.33280213027737593,
+      0.022084933011768247
+     ],
+     "F:var_comparecimento": [
+      0.39539053853607575,
+      0.015422177903397784
+     ],
+     "F:adversario_1T": [
+      0.010680340782979816,
+      0.006329893082374475
+     ],
+     "F:proprio_1T": [
+      -0.05072221314182886,
+      0.006955293879684449
+     ]
+    }
+   },
+   "declarado_fontes": {
+    "PoderData 23-24/10": {
+     "Cury": {
+      "f": 0.58,
+      "l": 0.29,
+      "n": 0.13
+     },
+     "Renan": {
+      "f": 0.43,
+      "l": 0.33,
+      "n": 0.24
+     },
+     "Caiado": {
+      "f": 0.46,
+      "l": 0.3,
+      "n": 0.24
+     }
+    },
+    "Quaest 17-20/10": {
+     "Cury": {
+      "f": 0.33,
+      "l": 0.48,
+      "n": 0.19
+     },
+     "Renan": {
+      "f": 0.51,
+      "l": 0.25,
+      "n": 0.24
+     },
+     "Caiado": {
+      "f": 0.57,
+      "l": 0.21,
+      "n": 0.22
+     }
+    },
+    "AtlasIntel 13-18/10": {
+     "Cury": {
+      "f": 0.424,
+      "l": 0.521,
+      "n": 0.055
+     },
+     "Renan": {
+      "f": 0.335,
+      "l": 0.319,
+      "n": 0.346
+     },
+     "Caiado": {
+      "f": 0.698,
+      "l": 0.245,
+      "n": 0.057
+     }
+    },
+    "Ipespe 13-15/10": {
+     "Cury": {
+      "f": 0.5,
+      "l": 0.31,
+      "n": 0.19
+     },
+     "Renan": {
+      "f": 0.4,
+      "l": 0.2,
+      "n": 0.4
+     },
+     "Caiado": {
+      "f": 0.59,
+      "l": 0.18,
+      "n": 0.23
+     }
+    },
+    "Nexus 10-12/10": {
+     "Caiado": {
+      "f": 0.55,
+      "l": 0.27,
+      "n": 0.18
+     },
+     "Zema": {
+      "f": 0.8,
+      "l": 0.12,
+      "n": 0.08
+     }
+    }
+   },
+   "mediana_declarada": {
+    "Cury": {
+     "f": 0.46199999999999997,
+     "l": 0.395,
+     "n": 0.16,
+     "institutos": [
+      "PoderData 23-24/10",
+      "Quaest 17-20/10",
+      "AtlasIntel 13-18/10",
+      "Ipespe 13-15/10"
+     ]
+    },
+    "Renan": {
+     "f": 0.41500000000000004,
+     "l": 0.2845,
+     "n": 0.29300000000000004,
+     "institutos": [
+      "PoderData 23-24/10",
+      "Quaest 17-20/10",
+      "AtlasIntel 13-18/10",
+      "Ipespe 13-15/10"
+     ]
+    },
+    "Caiado": {
+     "f": 0.57,
+     "l": 0.245,
+     "n": 0.22000000000000006,
+     "institutos": [
+      "PoderData 23-24/10",
+      "Quaest 17-20/10",
+      "AtlasIntel 13-18/10",
+      "Ipespe 13-15/10",
+      "Nexus 10-12/10"
+     ]
+    },
+    "Zema": {
+     "f": 0.8,
+     "l": 0.12,
+     "n": 0.07999999999999996,
+     "institutos": [
+      "Nexus 10-12/10"
+     ]
+    }
+   },
+   "letra_principal": {
+    "grupos_usados": [
+     "Cury",
+     "Renan",
+     "Caiado",
+     "Zema"
+    ],
+    "pesos": {
+     "Cury": 0.38080101218053003,
+     "Renan": 0.295479219954921,
+     "Caiado": 0.28766801397335634,
+     "Zema": 0.036051753891192806
+    },
+    "b_L": 0.5407143233971514,
+    "ep_b_L": 0.0016547451929175695,
+    "b_F": 0.4592856766028484,
+    "ep_b_F": 0.001654745192917568,
+    "l_declarado": 0.30928511177889983,
+    "f_declarado": 0.49136611498646443,
+    "n_declarado": 0.2136746767811105,
+    "dL": 0.23142921161825158,
+    "dF": -0.03208043838361602,
+    "z_dL_de_zero": 139.85791444434196,
+    "z_dF_de_zero": -19.38693553601042,
+    "z_dL_do_limiar_0.15": 49.20951694966365,
+    "z_dL_do_limiar_0.07": 97.55532894682541,
+    "z_dF_do_limiar_-0.07": 22.915649961506173,
+    "letra_z_de_zero": "padrão da forma A",
+    "letra_z_do_limiar": "padrão da forma A",
+    "soma_dL_dF": 0.19934877323463557
+   },
+   "letra_com_Ideia": {
+    "grupos_usados": [
+     "Cury",
+     "Renan",
+     "Caiado",
+     "Zema"
+    ],
+    "pesos": {
+     "Cury": 0.38080101218053003,
+     "Renan": 0.295479219954921,
+     "Caiado": 0.28766801397335634,
+     "Zema": 0.036051753891192806
+    },
+    "b_L": 0.5407143233971514,
+    "ep_b_L": 0.0016547451929175695,
+    "b_F": 0.4592856766028484,
+    "ep_b_F": 0.001654745192917568,
+    "l_declarado": 0.34165319781424486,
+    "f_declarado": 0.47689567652360426,
+    "n_declarado": 0.21367467678111052,
+    "dL": 0.19906112558290656,
+    "dF": -0.017609999920755848,
+    "z_dL_de_zero": 120.29714691718263,
+    "z_dF_de_zero": -10.642121817986208,
+    "z_dL_do_limiar_0.15": 29.648749422504306,
+    "z_dL_do_limiar_0.07": 77.99456141966607,
+    "z_dF_do_limiar_-0.07": 31.660463679530384,
+    "letra_z_de_zero": "padrão da forma A",
+    "letra_z_do_limiar": "padrão da forma A",
+    "soma_dL_dF": 0.18145112566215071
+   },
+   "letra_so_PoderData_final": {
+    "grupos_usados": [
+     "Cury",
+     "Renan",
+     "Caiado"
+    ],
+    "pesos": {
+     "Cury": 0.39504300538718595,
+     "Renan": 0.30653017021161555,
+     "Caiado": 0.2984268244011985
+    },
+    "b_L": 0.5474346696395893,
+    "ep_b_L": 0.0016822115149162102,
+    "b_F": 0.4525653303604104,
+    "ep_b_F": 0.0016822115149162087,
+    "l_declarado": 0.3052454750524766,
+    "f_declarado": 0.4982092555401138,
+    "n_declarado": 0.1965452694074096,
+    "dL": 0.2421891945871127,
+    "dF": -0.04564392517970339,
+    "z_dL_de_zero": 143.97071500201682,
+    "z_dF_de_zero": -27.13328542515471,
+    "z_dL_do_limiar_0.15": 54.80237994429884,
+    "z_dL_do_limiar_0.07": 102.35882530841509,
+    "z_dF_do_limiar_-0.07": 14.478604268447059,
+    "letra_z_de_zero": "padrão da forma A",
+    "letra_z_do_limiar": "padrão da forma A",
+    "soma_dL_dF": 0.1965452694074093
+   },
+   "post_hoc_lula_entre_finalistas": {
+    "PoderData 23-24/10": {
+     "grupos": [
+      "Cury",
+      "Renan",
+      "Caiado"
+     ],
+     "declarado_lula_entre_finalistas": 0.3799162086298775,
+     "urna_mesmos_grupos": 0.5474346696395893
+    },
+    "Quaest 17-20/10": {
+     "grupos": [
+      "Cury",
+      "Renan",
+      "Caiado"
+     ],
+     "declarado_lula_entre_finalistas": 0.41862563097383537,
+     "urna_mesmos_grupos": 0.5474346696395893
+    },
+    "AtlasIntel 13-18/10": {
+     "grupos": [
+      "Cury",
+      "Renan",
+      "Caiado"
+     ],
+     "declarado_lula_entre_finalistas": 0.4404979411300092,
+     "urna_mesmos_grupos": 0.5474346696395893
+    },
+    "Ipespe 13-15/10": {
+     "grupos": [
+      "Cury",
+      "Renan",
+      "Caiado"
+     ],
+     "declarado_lula_entre_finalistas": 0.32368667833633646,
+     "urna_mesmos_grupos": 0.5474346696395893
+    },
+    "Nexus 10-12/10": {
+     "grupos": [
+      "Caiado",
+      "Zema"
+     ],
+     "declarado_lula_entre_finalistas": 0.30475723140852007,
+     "urna_mesmos_grupos": 0.4738560983543089
+    },
+    "Ideia (rodada não confirmada)": {
+     "grupos": [
+      "Cury"
+     ],
+     "declarado_lula_entre_finalistas": 0.5714285714285714,
+     "urna_mesmos_grupos": 0.5964355893267503
+    }
+   },
+   "post_hoc_datafolha_agregado": {
+    "declarado": 0.36986301369863017,
+    "urna_quatro_grupos": 0.5407143233971514
+   }
+  },
+  "T38": {
+   "por_UF": {
+    "RO": {
+     "L1": 250667,
+     "R1": 652988,
+     "V1": 968059,
+     "L2": 294446,
+     "R2": 674382,
+     "gL": 43779,
+     "gR": 21394,
+     "pL": 4.498205758463119,
+     "pR": 2.1546945296391673,
+     "F_menos_L_pontos": -2.343511228823952,
+     "elim_pct_V1": 6.478324151730422,
+     "comp1": 991080,
+     "comp2": 988489,
+     "grupos_pct_V1": {
+      "Cury": 2.6114110813493805,
+      "Renan": 1.9820072950099117,
+      "Caiado": 1.748757048898879,
+      "Zema": 0.13614872647225015
+     }
+    },
+    "AC": {
+     "L1": 134770,
+     "R1": 302807,
+     "V1": 469066,
+     "L2": 144513,
+     "R2": 287715,
+     "gL": 9743,
+     "gR": -15092,
+     "pL": 4.702872952237946,
+     "pR": 2.0102548378811536,
+     "F_menos_L_pontos": -2.692618114356793,
+     "elim_pct_V1": 6.538525495346071,
+     "comp1": 488330,
+     "comp2": 453654,
+     "grupos_pct_V1": {
+      "Cury": 2.882963165098302,
+      "Renan": 1.7012531285576018,
+      "Caiado": 1.8321515522335876,
+      "Zema": 0.12215764945657967
+     }
+    },
+    "SC": {
+     "L1": 1127168,
+     "R1": 3000020,
+     "V1": 4500897,
+     "L2": 1418314,
+     "R2": 3220071,
+     "gL": 291146,
+     "gR": 220051,
+     "pL": 5.534569136837653,
+     "pR": 2.7684202450566686,
+     "F_menos_L_pontos": -2.766148891780984,
+     "elim_pct_V1": 8.08054483361872,
+     "comp1": 4648159,
+     "comp2": 4762303,
+     "grupos_pct_V1": {
+      "Cury": 2.9832497833209692,
+      "Renan": 2.9504118845643434,
+      "Caiado": 1.7754460944118473,
+      "Zema": 0.371437071321561
+     }
+    },
+    "GO": {
+     "L1": 1188880,
+     "R1": 2051888,
+     "V1": 3827823,
+     "L2": 1585555,
+     "R2": 2345334,
+     "gL": 396675,
+     "gR": 293446,
+     "pL": 9.276879263856102,
+     "pR": 6.059644917120921,
+     "F_menos_L_pontos": -3.2172343467351814,
+     "elim_pct_V1": 15.221889831374126,
+     "comp1": 3971587,
+     "comp2": 4047280,
+     "grupos_pct_V1": {
+      "Cury": 1.4067787355893937,
+      "Renan": 1.4134666101332272,
+      "Caiado": 12.331839795100244,
+      "Zema": 0.06980469055126112
+     }
+    },
+    "RR": {
+     "L1": 74420,
+     "R1": 231322,
+     "V1": 325545,
+     "L2": 83505,
+     "R2": 219675,
+     "gL": 9085,
+     "gR": -11647,
+     "pL": 4.68291687221262,
+     "pR": 1.4001131236404896,
+     "F_menos_L_pontos": -3.2828037485721304,
+     "elim_pct_V1": 5.891044248874963,
+     "comp1": 332772,
+     "comp2": 308597,
+     "grupos_pct_V1": {
+      "Cury": 2.6352731573208006,
+      "Renan": 2.034434563578,
+      "Caiado": 1.1178178132055476,
+      "Zema": 0.10351871477061543
+     }
+    },
+    "PR": {
+     "L1": 2054597,
+     "R1": 3945345,
+     "V1": 6585243,
+     "L2": 2566504,
+     "R2": 4291444,
+     "gL": 511907,
+     "gR": 346099,
+     "pL": 6.223771177161829,
+     "pR": 2.6642987087937775,
+     "F_menos_L_pontos": -3.559472468368052,
+     "elim_pct_V1": 8.670826573901676,
+     "comp1": 6841457,
+     "comp2": 7059339,
+     "grupos_pct_V1": {
+      "Cury": 3.114463657605346,
+      "Renan": 2.6944184140205607,
+      "Caiado": 2.6011796375623497,
+      "Zema": 0.2607648647134206
+     }
+    },
+    "ZZ": {
+     "L1": 157387,
+     "R1": 143900,
+     "V1": 330882,
+     "L2": 200154,
+     "R2": 171497,
+     "gL": 42767,
+     "gR": 27597,
+     "pL": 6.289464680987761,
+     "pR": 2.6548115262401915,
+     "F_menos_L_pontos": -3.6346531547475696,
+     "elim_pct_V1": 7.963866272568469,
+     "comp1": 341766,
+     "comp2": 381443,
+     "grupos_pct_V1": {
+      "Cury": 2.9418342490676435,
+      "Renan": 2.5930694326073946,
+      "Caiado": 1.4228637399435449,
+      "Zema": 1.0060988509498854
+     }
+    },
+    "MT": {
+     "L1": 581681,
+     "R1": 1298581,
+     "V1": 1993288,
+     "L2": 694167,
+     "R2": 1351099,
+     "gL": 112486,
+     "gR": 52518,
+     "pL": 4.758197123084829,
+     "pR": 0.9121325031407834,
+     "F_menos_L_pontos": -3.846064619944045,
+     "elim_pct_V1": 5.452899932172371,
+     "comp1": 2052133,
+     "comp2": 2085334,
+     "grupos_pct_V1": {
+      "Cury": 2.007687800257665,
+      "Renan": 1.664084668146299,
+      "Caiado": 1.6595193469282914,
+      "Zema": 0.12160811684011542
+     }
+    },
+    "RS": {
+     "L1": 2294759,
+     "R1": 3573783,
+     "V1": 6423046,
+     "L2": 2824552,
+     "R2": 3874378,
+     "gL": 529793,
+     "gR": 300595,
+     "pL": 6.437267397982588,
+     "pR": 2.1957705718529064,
+     "F_menos_L_pontos": -4.241496826129682,
+     "elim_pct_V1": 8.417548309633778,
+     "comp1": 6702903,
+     "comp2": 6889638,
+     "grupos_pct_V1": {
+      "Cury": 3.0405511652882447,
+      "Renan": 2.608699984399925,
+      "Caiado": 2.4726741798206024,
+      "Zema": 0.2956229801250061
+     }
+    },
+    "TO": {
+     "L1": 404009,
+     "R1": 469321,
+     "V1": 930447,
+     "L2": 442962,
+     "R2": 467916,
+     "gL": 38953,
+     "gR": -1405,
+     "pL": 5.2092648245163575,
+     "pR": 0.929397560337375,
+     "F_menos_L_pontos": -4.279867264178982,
+     "elim_pct_V1": 6.040215079418817,
+     "comp1": 965196,
+     "comp2": 954763,
+     "grupos_pct_V1": {
+      "Cury": 2.411099181361217,
+      "Renan": 1.3953508367483587,
+      "Caiado": 2.1698173028662566,
+      "Zema": 0.06394775844298493
+     }
+    },
+    "ES": {
+     "L1": 850028,
+     "R1": 1233194,
+     "V1": 2251078,
+     "L2": 1001965,
+     "R2": 1294504,
+     "gL": 151937,
+     "gR": 61310,
+     "pL": 5.869747687350014,
+     "pR": 1.5869463943299689,
+     "F_menos_L_pontos": -4.282801293020045,
+     "elim_pct_V1": 7.255501586351072,
+     "comp1": 2352282,
+     "comp2": 2409214,
+     "grupos_pct_V1": {
+      "Cury": 2.8928806554015454,
+      "Renan": 2.364911389121123,
+      "Caiado": 1.7368123183648012,
+      "Zema": 0.2608972234636028
+     }
+    },
+    "PA": {
+     "L1": 2427237,
+     "R1": 2163957,
+     "V1": 4863172,
+     "L2": 2690449,
+     "R2": 2199940,
+     "gL": 263212,
+     "gR": 35983,
+     "pL": 5.104457731463374,
+     "pR": 0.4881472596823144,
+     "F_menos_L_pontos": -4.61631047178106,
+     "elim_pct_V1": 5.43661626609135,
+     "comp1": 5066504,
+     "comp2": 4989573,
+     "grupos_pct_V1": {
+      "Cury": 2.5738756515294954,
+      "Renan": 1.730660564750743,
+      "Caiado": 1.0690759035460806,
+      "Zema": 0.06300414626503031
+     }
+    },
+    "DF": {
+     "L1": 675627,
+     "R1": 909616,
+     "V1": 1772808,
+     "L2": 825224,
+     "R2": 979542,
+     "gL": 149597,
+     "gR": 69926,
+     "pL": 7.614152098064764,
+     "pR": 2.9659558436864075,
+     "F_menos_L_pontos": -4.648196254378357,
+     "elim_pct_V1": 10.304782018131688,
+     "comp1": 1831396,
+     "comp2": 1868280,
+     "grupos_pct_V1": {
+      "Cury": 2.5935690723417313,
+      "Renan": 2.6350287227945723,
+      "Caiado": 4.798940437994413,
+      "Zema": 0.2772437850009702
+     }
+    },
+    "MS": {
+     "L1": 516855,
+     "R1": 873351,
+     "V1": 1490278,
+     "L2": 628973,
+     "R2": 927892,
+     "gL": 112118,
+     "gR": 54541,
+     "pL": 5.718186249422303,
+     "pR": 0.9968024976436785,
+     "F_menos_L_pontos": -4.721383751778625,
+     "elim_pct_V1": 6.514086633500595,
+     "comp1": 1541220,
+     "comp2": 1594460,
+     "grupos_pct_V1": {
+      "Cury": 2.626892432150243,
+      "Renan": 2.136983837914805,
+      "Caiado": 1.56286276788626,
+      "Zema": 0.1873475955492868
+     }
+    },
+    "AM": {
+     "L1": 1046996,
+     "R1": 976764,
+     "V1": 2170763,
+     "L2": 1145783,
+     "R2": 975245,
+     "gL": 98787,
+     "gR": -1519,
+     "pL": 5.788468531999957,
+     "pR": 0.9834821599917554,
+     "F_menos_L_pontos": -4.804986372008202,
+     "elim_pct_V1": 6.589065687963172,
+     "comp1": 2234549,
+     "comp2": 2192059,
+     "grupos_pct_V1": {
+      "Cury": 3.571601321747238,
+      "Renan": 1.6312697424822515,
+      "Caiado": 1.3041497390548853,
+      "Zema": 0.08204488467879727
+     }
+    },
+    "PI": {
+     "L1": 1523710,
+     "R1": 517028,
+     "V1": 2146394,
+     "L2": 1653989,
+     "R2": 525859,
+     "gL": 130279,
+     "gR": 8831,
+     "pL": 4.8870490401204165,
+     "pR": 0.03543956169267115,
+     "F_menos_L_pontos": -4.851609478427745,
+     "elim_pct_V1": 4.796509867247113,
+     "comp1": 2240883,
+     "comp2": 2239830,
+     "grupos_pct_V1": {
+      "Cury": 2.221959248861113,
+      "Renan": 1.5036381950378168,
+      "Caiado": 1.0076901072216937,
+      "Zema": 0.06322231612648936
+     }
+    },
+    "BA": {
+     "L1": 5664771,
+     "R1": 2442585,
+     "V1": 8560291,
+     "L2": 6485258,
+     "R2": 2608761,
+     "gL": 820487,
+     "gR": 166176,
+     "pL": 5.138460716231307,
+     "pR": 0.15265613949240198,
+     "F_menos_L_pontos": -4.985804576738905,
+     "elim_pct_V1": 5.165373466859947,
+     "comp1": 9053601,
+     "comp2": 9422047,
+     "grupos_pct_V1": {
+      "Cury": 2.283228455668154,
+      "Renan": 1.3728271620672707,
+      "Caiado": 1.4334208965559698,
+      "Zema": 0.0758969525685517
+     }
+    },
+    "AP": {
+     "L1": 212503,
+     "R1": 212278,
+     "V1": 464858,
+     "L2": 222968,
+     "R2": 198674,
+     "gL": 10465,
+     "gR": -13604,
+     "pL": 7.167350265181249,
+     "pR": 1.4539921662709288,
+     "F_menos_L_pontos": -5.71335809891032,
+     "elim_pct_V1": 8.399124033575845,
+     "comp1": 476562,
+     "comp2": 429975,
+     "grupos_pct_V1": {
+      "Cury": 4.099531469825194,
+      "Renan": 2.439884868067238,
+      "Caiado": 1.7863519612440788,
+      "Zema": 0.07335573443933416
+     }
+    },
+    "MG": {
+     "L1": 5188936,
+     "R1": 5777548,
+     "V1": 11976235,
+     "L2": 6351099,
+     "R2": 6241786,
+     "gL": 1162163,
+     "gR": 464238,
+     "pL": 7.107088108506549,
+     "pR": 1.324201023678978,
+     "F_menos_L_pontos": -5.78288708482757,
+     "elim_pct_V1": 8.231101009624478,
+     "comp1": 12637274,
+     "comp2": 13044203,
+     "grupos_pct_V1": {
+      "Cury": 3.42125050151404,
+      "Renan": 2.064162902615054,
+      "Caiado": 1.9240019922788756,
+      "Zema": 0.8216856132165076
+     }
+    },
+    "CE": {
+     "L1": 3555263,
+     "R1": 1756850,
+     "V1": 5617814,
+     "L2": 4036124,
+     "R2": 1819478,
+     "gL": 480861,
+     "gR": 62628,
+     "pL": 5.642043624961324,
+     "pR": -0.2004074298149583,
+     "F_menos_L_pontos": -5.842451054776282,
+     "elim_pct_V1": 5.304999417923057,
+     "comp1": 5910471,
+     "comp2": 6024843,
+     "grupos_pct_V1": {
+      "Cury": 2.501400010751513,
+      "Renan": 1.9151043448572702,
+      "Caiado": 0.8117748291417266,
+      "Zema": 0.07672023317254718
+     }
+    },
+    "PE": {
+     "L1": 3553971,
+     "R1": 1738043,
+     "V1": 5601017,
+     "L2": 4117513,
+     "R2": 1832554,
+     "gL": 563542,
+     "gR": 94511,
+     "pL": 5.748875443846602,
+     "pR": -0.23196663960623476,
+     "F_menos_L_pontos": -5.980842083452837,
+     "elim_pct_V1": 5.410820927699381,
+     "comp1": 5911062,
+     "comp2": 6126467,
+     "grupos_pct_V1": {
+      "Cury": 2.4631241076397377,
+      "Renan": 1.5330251631087712,
+      "Caiado": 1.3064770201554468,
+      "Zema": 0.10819463679542483
+     }
+    },
+    "MA": {
+     "L1": 2566301,
+     "R1": 1239040,
+     "V1": 4010439,
+     "L2": 2808231,
+     "R2": 1229971,
+     "gL": 241930,
+     "gR": -9069,
+     "pL": 5.5510920539099455,
+     "pR": -0.43698858543680386,
+     "F_menos_L_pontos": -5.98808063934675,
+     "elim_pct_V1": 4.985888078586908,
+     "comp1": 4160343,
+     "comp2": 4127771,
+     "grupos_pct_V1": {
+      "Cury": 2.1152297790840353,
+      "Renan": 1.5057453809919563,
+      "Caiado": 1.2506112173754544,
+      "Zema": 0.11430170113546173
+     }
+    },
+    "SP": {
+     "L1": 9505413,
+     "R1": 12922023,
+     "V1": 24882948,
+     "L2": 12119274,
+     "R2": 14139178,
+     "gL": 2613861,
+     "gR": 1217155,
+     "pL": 7.953292368824344,
+     "pR": 1.914959576242603,
+     "F_menos_L_pontos": -6.038332792581741,
+     "elim_pct_V1": 9.52814754907658,
+     "comp1": 26431992,
+     "comp2": 27364389,
+     "grupos_pct_V1": {
+      "Cury": 3.586263171067994,
+      "Renan": 3.232374234757071,
+      "Caiado": 2.32918945134636,
+      "Zema": 0.3803206919051553
+     }
+    },
+    "RN": {
+     "L1": 1237963,
+     "R1": 720493,
+     "V1": 2071898,
+     "L2": 1413596,
+     "R2": 737409,
+     "gL": 175633,
+     "gR": 16916,
+     "pL": 5.9677414453344735,
+     "pR": -0.4924719098650665,
+     "F_menos_L_pontos": -6.46021335519954,
+     "elim_pct_V1": 5.336170023813914,
+     "comp1": 2171013,
+     "comp2": 2232823,
+     "grupos_pct_V1": {
+      "Cury": 2.7688139087928074,
+      "Renan": 1.701869493575456,
+      "Caiado": 0.7918826119818639,
+      "Zema": 0.07360400946378634
+     }
+    },
+    "PB": {
+     "L1": 1541127,
+     "R1": 831377,
+     "V1": 2513747,
+     "L2": 1794059,
+     "R2": 865210,
+     "gL": 252932,
+     "gR": 33833,
+     "pL": 6.156407296643307,
+     "pR": -0.5375840817374244,
+     "F_menos_L_pontos": -6.693991378380732,
+     "elim_pct_V1": 5.472985149261242,
+     "comp1": 2683988,
+     "comp2": 2743560,
+     "grupos_pct_V1": {
+      "Cury": 2.937089532080993,
+      "Renan": 1.6806385049887678,
+      "Caiado": 0.7761719854862085,
+      "Zema": 0.07908512670527304
+     }
+    },
+    "SE": {
+     "L1": 856019,
+     "R1": 417839,
+     "V1": 1364196,
+     "L2": 989041,
+     "R2": 433354,
+     "gL": 133022,
+     "gR": 15515,
+     "pL": 6.784523591407332,
+     "pR": -0.16245462184577564,
+     "F_menos_L_pontos": -6.946978213253107,
+     "elim_pct_V1": 6.458676026025586,
+     "comp1": 1439082,
+     "comp2": 1466659,
+     "grupos_pct_V1": {
+      "Cury": 2.8511298962905625,
+      "Renan": 1.569056059393225,
+      "Caiado": 1.9536049072127466,
+      "Zema": 0.08488516312905184
+     }
+    },
+    "AL": {
+     "L1": 995459,
+     "R1": 735718,
+     "V1": 1818856,
+     "L2": 1152621,
+     "R2": 744140,
+     "gL": 157162,
+     "gR": 8422,
+     "pL": 6.037905227330387,
+     "pR": -1.2173476900652125,
+     "F_menos_L_pontos": -7.255252917395599,
+     "elim_pct_V1": 4.65369441011273,
+     "comp1": 1938428,
+     "comp2": 1951632,
+     "grupos_pct_V1": {
+      "Cury": 2.332620064480091,
+      "Renan": 1.4762576036805553,
+      "Caiado": 0.7806005533148309,
+      "Zema": 0.06421618863725331
+     }
+    },
+    "RJ": {
+     "L1": 3693021,
+     "R1": 4966844,
+     "V1": 9369700,
+     "L2": 4565393,
+     "R2": 5169033,
+     "gL": 872372,
+     "gR": 202189,
+     "pL": 7.484951322526379,
+     "pR": 0.0909048948551705,
+     "F_menos_L_pontos": -7.394046427671208,
+     "elim_pct_V1": 7.268012849931161,
+     "comp1": 9859802,
+     "comp2": 10077449,
+     "grupos_pct_V1": {
+      "Cury": 2.6403940360950724,
+      "Renan": 2.2609368496323254,
+      "Caiado": 2.1328751187337907,
+      "Zema": 0.23380684546997235
+     }
+    }
+   },
+   "UFs_flavio_mais_votos": [],
+   "UFs_flavio_mais_pontos": [],
+   "UFs_flavio_perdeu_votos": {
+    "MA": -9069,
+    "AM": -1519,
+    "TO": -1405,
+    "AC": -15092,
+    "AP": -13604,
+    "RR": -11647
+   },
+   "municipios": 5571,
+   "soma_L2": 64056078,
+   "soma_R2": 59654544,
+   "flavio_mais_votos_que_lula": 339,
+   "lula_mais_votos_que_flavio": 5228,
+   "empates_no_ganho": 4,
+   "flavio_mais_pontos_que_lula": 182,
+   "viraram_de_flavio_para_lula": 211,
+   "viraram_de_lula_para_flavio": 1,
+   "lista_viraram_para_flavio": [
+    {
+     "uf": "GO",
+     "mun": 93246,
+     "nome": "UIRAPURU",
+     "L1": 930,
+     "R1": 854,
+     "L2": 1069,
+     "R2": 1087
+    }
+   ],
+   "saldo_flavio_nas_cidades_em_que_ganhou_mais_votos": 25300,
+   "por_UF_municipios_[n,mais_votos,mais_pontos,viraram_p_Lula,viraram_p_Flavio]": {
+    "AC": [
+     22,
+     1,
+     2,
+     0,
+     0
+    ],
+    "AL": [
+     102,
+     1,
+     1,
+     7,
+     0
+    ],
+    "AM": [
+     62,
+     4,
+     0,
+     3,
+     0
+    ],
+    "AP": [
+     16,
+     1,
+     0,
+     2,
+     0
+    ],
+    "BA": [
+     417,
+     4,
+     15,
+     0,
+     0
+    ],
+    "CE": [
+     184,
+     0,
+     1,
+     1,
+     0
+    ],
+    "DF": [
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "ES": [
+     78,
+     0,
+     0,
+     3,
+     0
+    ],
+    "GO": [
+     246,
+     33,
+     25,
+     14,
+     1
+    ],
+    "MA": [
+     217,
+     5,
+     1,
+     1,
+     0
+    ],
+    "MG": [
+     853,
+     15,
+     7,
+     76,
+     0
+    ],
+    "MS": [
+     79,
+     0,
+     0,
+     4,
+     0
+    ],
+    "MT": [
+     142,
+     4,
+     0,
+     2,
+     0
+    ],
+    "PA": [
+     144,
+     3,
+     1,
+     5,
+     0
+    ],
+    "PB": [
+     223,
+     0,
+     0,
+     0,
+     0
+    ],
+    "PE": [
+     185,
+     0,
+     0,
+     0,
+     0
+    ],
+    "PI": [
+     224,
+     7,
+     5,
+     0,
+     0
+    ],
+    "PR": [
+     399,
+     27,
+     11,
+     20,
+     0
+    ],
+    "RJ": [
+     92,
+     0,
+     0,
+     9,
+     0
+    ],
+    "RN": [
+     167,
+     0,
+     0,
+     1,
+     0
+    ],
+    "RO": [
+     52,
+     3,
+     2,
+     0,
+     0
+    ],
+    "RR": [
+     15,
+     0,
+     0,
+     0,
+     0
+    ],
+    "RS": [
+     497,
+     141,
+     79,
+     19,
+     0
+    ],
+    "SC": [
+     295,
+     79,
+     29,
+     1,
+     0
+    ],
+    "SE": [
+     75,
+     0,
+     0,
+     0,
+     0
+    ],
+    "SP": [
+     645,
+     9,
+     2,
+     32,
+     0
+    ],
+    "TO": [
+     139,
+     2,
+     1,
+     11,
+     0
+    ]
+   },
+   "lista_flavio_mais_pontos": [
+    {
+     "uf": "AL",
+     "mun": 27170,
+     "nome": "BELO MONTE",
+     "gL": -304,
+     "gR": 440,
+     "pL": -6.050572834707246,
+     "pR": 9.892552430973794
+    },
+    {
+     "uf": "PI",
+     "mun": 11878,
+     "nome": "SANTO ANTÔNIO DE LISBOA",
+     "gL": -350,
+     "gR": 398,
+     "pL": -5.207135813549934,
+     "pR": 8.285529695003083
+    },
+    {
+     "uf": "BA",
+     "mun": 34096,
+     "nome": "CALDEIRÃO GRANDE",
+     "gL": 59,
+     "gR": 491,
+     "pL": -1.5960333470196542,
+     "pR": 5.116074456988823
+    },
+    {
+     "uf": "GO",
+     "mun": 93106,
+     "nome": "BURITI DE GOIÁS",
+     "gL": 176,
+     "gR": 325,
+     "pL": 6.756244711768386,
+     "pR": 12.530809697237244
+    },
+    {
+     "uf": "GO",
+     "mun": 92983,
+     "nome": "JESÚPOLIS",
+     "gL": 147,
+     "gR": 264,
+     "pL": 6.761160068638011,
+     "pR": 12.045715563313452
+    },
+    {
+     "uf": "GO",
+     "mun": 93157,
+     "nome": "CÓRREGO DO OURO",
+     "gL": 113,
+     "gR": 203,
+     "pL": 5.125364431486881,
+     "pR": 9.772594752186592
+    },
+    {
+     "uf": "RS",
+     "mun": 85820,
+     "nome": "MONTAURI",
+     "gL": 35,
+     "gR": 117,
+     "pL": 2.24686028257457,
+     "pR": 6.681711145996861
+    },
+    {
+     "uf": "GO",
+     "mun": 96911,
+     "nome": "ADELÂNDIA",
+     "gL": 128,
+     "gR": 237,
+     "pL": 5.3533589936907235,
+     "pR": 9.749216300940432
+    },
+    {
+     "uf": "RS",
+     "mun": 86126,
+     "nome": "POÇO DAS ANTAS",
+     "gL": 69,
+     "gR": 168,
+     "pL": 3.428252515699154,
+     "pR": 7.824016086841679
+    },
+    {
+     "uf": "BA",
+     "mun": 39969,
+     "nome": "NOVA IBIÁ",
+     "gL": 22,
+     "gR": 196,
+     "pL": -0.2251947267203569,
+     "pR": 4.162016980374289
+    },
+    {
+     "uf": "GO",
+     "mun": 93246,
+     "nome": "UIRAPURU",
+     "gL": 139,
+     "gR": 233,
+     "pL": 7.077989912933763,
+     "pR": 11.386361092550695
+    },
+    {
+     "uf": "RS",
+     "mun": 86282,
+     "nome": "ALTO FELIZ",
+     "gL": 103,
+     "gR": 224,
+     "pL": 3.9527029833008376,
+     "pR": 7.983750430181336
+    },
+    {
+     "uf": "RS",
+     "mun": 85782,
+     "nome": "IMIGRANTE",
+     "gL": 105,
+     "gR": 208,
+     "pL": 4.3251644264767855,
+     "pR": 8.231705455233861
+    },
+    {
+     "uf": "SC",
+     "mun": 83682,
+     "nome": "TUNÁPOLIS",
+     "gL": 118,
+     "gR": 266,
+     "pL": 3.2298050667136424,
+     "pR": 7.044951659102039
+    },
+    {
+     "uf": "RS",
+     "mun": 86924,
+     "nome": "LINHA NOVA",
+     "gL": 48,
+     "gR": 109,
+     "pL": 3.0445449439862884,
+     "pR": 6.749693739141282
+    },
+    {
+     "uf": "RS",
+     "mun": 87980,
+     "nome": "TRAVESSEIRO",
+     "gL": 78,
+     "gR": 148,
+     "pL": 3.747981634435299,
+     "pR": 7.1708727808391775
+    },
+    {
+     "uf": "SC",
+     "mun": 82937,
+     "nome": "RIO FORTUNA",
+     "gL": 102,
+     "gR": 263,
+     "pL": 2.4367862157623934,
+     "pR": 5.5858417091540264
+    },
+    {
+     "uf": "GO",
+     "mun": 93483,
+     "nome": "SÃO PATRÍCIO",
+     "gL": 150,
+     "gR": 245,
+     "pL": 6.284216883901261,
+     "pR": 9.391743137140296
+    },
+    {
+     "uf": "RS",
+     "mun": 89524,
+     "nome": "WESTFALIA",
+     "gL": 113,
+     "gR": 211,
+     "pL": 4.489024760747381,
+     "pR": 7.581459820750425
+    },
+    {
+     "uf": "RS",
+     "mun": 88781,
+     "nome": "VESPASIANO CORRÊA",
+     "gL": 49,
+     "gR": 158,
+     "pL": 2.0449992000882196,
+     "pR": 4.994441638653669
+    },
+    {
+     "uf": "GO",
+     "mun": 94650,
+     "nome": "MOIPORÁ",
+     "gL": 101,
+     "gR": 124,
+     "pL": 7.719941968020999,
+     "pR": 10.446907647785796
+    },
+    {
+     "uf": "SC",
+     "mun": 80640,
+     "nome": "SÃO JOÃO DO OESTE",
+     "gL": 197,
+     "gR": 370,
+     "pL": 4.06658098642039,
+     "pR": 6.757808143517952
+    },
+    {
+     "uf": "RS",
+     "mun": 89320,
+     "nome": "NOVO XINGU",
+     "gL": 56,
+     "gR": 97,
+     "pL": 2.656458655917943,
+     "pR": 5.14994259310625
+    },
+    {
+     "uf": "RS",
+     "mun": 85383,
+     "nome": "SÃO VENDELINO",
+     "gL": 80,
+     "gR": 140,
+     "pL": 3.7119142945222587,
+     "pR": 6.1984442712147985
+    },
+    {
+     "uf": "RS",
+     "mun": 87645,
+     "nome": "SANTO ANTÔNIO DO PALMA",
+     "gL": 78,
+     "gR": 138,
+     "pL": 3.5783887953965587,
+     "pR": 6.007410021171489
+    },
+    {
+     "uf": "RS",
+     "mun": 86380,
+     "nome": "BARRA DO RIO AZUL",
+     "gL": 67,
+     "gR": 108,
+     "pL": 4.00804081861158,
+     "pR": 6.396200400738983
+    },
+    {
+     "uf": "SC",
+     "mun": 83410,
+     "nome": "SAUDADES",
+     "gL": 281,
+     "gR": 487,
+     "pL": 3.7021479128347745,
+     "pR": 6.087309594465051
+    },
+    {
+     "uf": "RS",
+     "mun": 87084,
+     "nome": "MONTE BELO DO SUL",
+     "gL": 60,
+     "gR": 181,
+     "pL": 1.95911958071492,
+     "pR": 4.325908441703019
+    },
+    {
+     "uf": "RS",
+     "mun": 85863,
+     "nome": "VISTA ALEGRE DO PRATA",
+     "gL": 80,
+     "gR": 147,
+     "pL": 5.137570080648962,
+     "pR": 7.493222146555823
+    },
+    {
+     "uf": "RS",
+     "mun": 87904,
+     "nome": "SÉRIO",
+     "gL": 96,
+     "gR": 156,
+     "pL": 4.551609241221538,
+     "pR": 6.906724092111805
+    },
+    {
+     "uf": "PI",
+     "mun": 11258,
+     "nome": "MIGUEL LEÃO",
+     "gL": -87,
+     "gR": -9,
+     "pL": 0.32705039255972457,
+     "pR": 2.681912475558068
+    },
+    {
+     "uf": "RS",
+     "mun": 89770,
+     "nome": "COTIPORÃ",
+     "gL": 122,
+     "gR": 258,
+     "pL": 3.5467404459000846,
+     "pR": 5.873807012329568
+    },
+    {
+     "uf": "RS",
+     "mun": 87840,
+     "nome": "SÃO VALENTIM DO SUL",
+     "gL": 52,
+     "gR": 105,
+     "pL": 2.6703696810921995,
+     "pR": 4.882157292218414
+    },
+    {
+     "uf": "RS",
+     "mun": 89184,
+     "nome": "CORONEL PILAR",
+     "gL": 37,
+     "gR": 81,
+     "pL": 2.453641773144519,
+     "pR": 4.601572950781863
+    },
+    {
+     "uf": "MA",
+     "mun": 8400,
+     "nome": "SÃO PEDRO DOS CRENTES",
+     "gL": 24,
+     "gR": 105,
+     "pL": 0.6396818800002924,
+     "pR": 2.779571144723536
+    },
+    {
+     "uf": "GO",
+     "mun": 94919,
+     "nome": "NOVA AMÉRICA",
+     "gL": 233,
+     "gR": 272,
+     "pL": 11.274587879270525,
+     "pR": 13.407807765012603
+    },
+    {
+     "uf": "RS",
+     "mun": 87157,
+     "nome": "ITATIBA DO SUL",
+     "gL": 132,
+     "gR": 171,
+     "pL": 1.196503882934985,
+     "pR": 3.220860930469427
+    },
+    {
+     "uf": "RS",
+     "mun": 86061,
+     "nome": "VILA FLORES",
+     "gL": 106,
+     "gR": 237,
+     "pL": 2.9189151307029233,
+     "pR": 4.941195672621179
+    },
+    {
+     "uf": "GO",
+     "mun": 93505,
+     "nome": "VILA PROPÍCIO",
+     "gL": 514,
+     "gR": 602,
+     "pL": 11.618176105173127,
+     "pR": 13.638094341937013
+    },
+    {
+     "uf": "RS",
+     "mun": 84751,
+     "nome": "NOVA ROMA DO SUL",
+     "gL": 82,
+     "gR": 201,
+     "pL": 2.437645315940001,
+     "pR": 4.430279212361887
+    },
+    {
+     "uf": "RS",
+     "mun": 86584,
+     "nome": "COLINAS",
+     "gL": 113,
+     "gR": 173,
+     "pL": 5.172307384541392,
+     "pR": 7.157891152553708
+    },
+    {
+     "uf": "RS",
+     "mun": 89168,
+     "nome": "COQUEIRO BAIXO",
+     "gL": 46,
+     "gR": 89,
+     "pL": 3.6366886723787877,
+     "pR": 5.471292548278495
+    },
+    {
+     "uf": "RS",
+     "mun": 86983,
+     "nome": "MARATÁ",
+     "gL": 99,
+     "gR": 147,
+     "pL": 4.619638724414655,
+     "pR": 6.426016651137633
+    },
+    {
+     "uf": "RS",
+     "mun": 85138,
+     "nome": "ANTA GORDA",
+     "gL": 129,
+     "gR": 333,
+     "pL": 2.554880443571676,
+     "pR": 4.357444842324131
+    },
+    {
+     "uf": "RS",
+     "mun": 89460,
+     "nome": "SÃO JOSÉ DO SUL",
+     "gL": 128,
+     "gR": 188,
+     "pL": 6.651272863151641,
+     "pR": 8.427628364200789
+    },
+    {
+     "uf": "RS",
+     "mun": 85430,
+     "nome": "BOA VISTA DO BURICÁ",
+     "gL": 205,
+     "gR": 340,
+     "pL": 3.7289265945791823,
+     "pR": 5.456478581492097
+    },
+    {
+     "uf": "PR",
+     "mun": 74560,
+     "nome": "MERCEDES",
+     "gL": 94,
+     "gR": 228,
+     "pL": 1.8945926698932385,
+     "pR": 3.5668907548623063
+    },
+    {
+     "uf": "RS",
+     "mun": 87807,
+     "nome": "SÃO PEDRO DA SERRA",
+     "gL": 115,
+     "gR": 193,
+     "pL": 3.791874821889654,
+     "pR": 5.454319013981124
+    },
+    {
+     "uf": "BA",
+     "mun": 30694,
+     "nome": "JUSSARI",
+     "gL": 125,
+     "gR": 119,
+     "pL": 0.09344242937978642,
+     "pR": 1.7525339190482492
+    },
+    {
+     "uf": "BA",
+     "mun": 35319,
+     "nome": "GOVERNADOR MANGABEIRA",
+     "gL": 1102,
+     "gR": 781,
+     "pL": 1.8118727191844486,
+     "pR": 3.4703939569741578
+    },
+    {
+     "uf": "GO",
+     "mun": 92789,
+     "nome": "TROMBAS",
+     "gL": 109,
+     "gR": 141,
+     "pL": 5.975591442198885,
+     "pR": 7.6214981439766465
+    },
+    {
+     "uf": "RS",
+     "mun": 87670,
+     "nome": "NOVA PETRÓPOLIS",
+     "gL": 767,
+     "gR": 1102,
+     "pL": 4.85216944783258,
+     "pR": 6.390753172819885
+    },
+    {
+     "uf": "RS",
+     "mun": 85324,
+     "nome": "SÃO JOSÉ DO HORTÊNCIO",
+     "gL": 115,
+     "gR": 225,
+     "pL": 3.0054464126709006,
+     "pR": 4.543511262629163
+    },
+    {
+     "uf": "PR",
+     "mun": 75124,
+     "nome": "BELA VISTA DA CAROBA",
+     "gL": 64,
+     "gR": 100,
+     "pL": 2.309401266528821,
+     "pR": 3.8393315959556027
+    },
+    {
+     "uf": "RS",
+     "mun": 84743,
+     "nome": "TRÊS ARROIOS",
+     "gL": 82,
+     "gR": 155,
+     "pL": 2.9532906066362523,
+     "pR": 4.446904135330653
+    },
+    {
+     "uf": "RS",
+     "mun": 87220,
+     "nome": "NOVA PÁDUA",
+     "gL": 48,
+     "gR": 134,
+     "pL": 2.05583861205072,
+     "pR": 3.54376495583828
+    },
+    {
+     "uf": "RS",
+     "mun": 88048,
+     "nome": "UNIÃO DA SERRA",
+     "gL": 47,
+     "gR": 84,
+     "pL": 3.2132768808260908,
+     "pR": 4.6835804922601305
+    },
+    {
+     "uf": "GO",
+     "mun": 95737,
+     "nome": "RUBIATABA",
+     "gL": 935,
+     "gR": 1192,
+     "pL": 7.472195596493478,
+     "pR": 8.932434673029677
+    },
+    {
+     "uf": "SC",
+     "mun": 82732,
+     "nome": "PRESIDENTE CASTELLO BRANCO",
+     "gL": 34,
+     "gR": 56,
+     "pL": 2.3215850638216793,
+     "pR": 3.755763002476664
+    },
+    {
+     "uf": "PR",
+     "mun": 77550,
+     "nome": "PAULO FRONTIN",
+     "gL": 216,
+     "gR": 319,
+     "pL": 4.110950985802364,
+     "pR": 5.524694317094914
+    },
+    {
+     "uf": "GO",
+     "mun": 93580,
+     "nome": "CAMPO LIMPO DE GOIÁS",
+     "gL": 443,
+     "gR": 521,
+     "pL": 8.380070858739014,
+     "pR": 9.705035524239713
+    },
+    {
+     "uf": "RS",
+     "mun": 86207,
+     "nome": "SANTA MARIA DO HERVAL",
+     "gL": 281,
+     "gR": 369,
+     "pL": 5.8469899943489665,
+     "pR": 7.159691520127653
+    },
+    {
+     "uf": "RS",
+     "mun": 87637,
+     "nome": "NOVA BRÉSCIA",
+     "gL": 88,
+     "gR": 152,
+     "pL": 3.3300342902403743,
+     "pR": 4.586451138206781
+    },
+    {
+     "uf": "BA",
+     "mun": 39144,
+     "nome": "SÍTIO DO MATO",
+     "gL": 128,
+     "gR": 211,
+     "pL": 0.8845570243841472,
+     "pR": 2.1376055008005324
+    },
+    {
+     "uf": "RS",
+     "mun": 85057,
+     "nome": "ALECRIM",
+     "gL": 208,
+     "gR": 275,
+     "pL": 3.7343227654417275,
+     "pR": 4.9613294084713155
+    },
+    {
+     "uf": "GO",
+     "mun": 94315,
+     "nome": "JARAGUÁ",
+     "gL": 2245,
+     "gR": 2873,
+     "pL": 8.03148822083175,
+     "pR": 9.250034629793591
+    },
+    {
+     "uf": "GO",
+     "mun": 93378,
+     "nome": "DAMOLÂNDIA",
+     "gL": 339,
+     "gR": 376,
+     "pL": 11.705058788013522,
+     "pR": 12.888005613968073
+    },
+    {
+     "uf": "SC",
+     "mun": 82856,
+     "nome": "RIO DO CAMPO",
+     "gL": 141,
+     "gR": 228,
+     "pL": 2.8258266282671753,
+     "pR": 3.9893765172112072
+    },
+    {
+     "uf": "RS",
+     "mun": 87360,
+     "nome": "PICADA CAFÉ",
+     "gL": 218,
+     "gR": 293,
+     "pL": 5.442230176062984,
+     "pR": 6.603709994877194
+    },
+    {
+     "uf": "PI",
+     "mun": 12343,
+     "nome": "CAJAZEIRAS DO PIAUÍ",
+     "gL": -7,
+     "gR": 42,
+     "pL": 0.4752906573255111,
+     "pR": 1.6356216861449613
+    },
+    {
+     "uf": "PI",
+     "mun": 12246,
+     "nome": "MILTON BRANDÃO",
+     "gL": 167,
+     "gR": 171,
+     "pL": 1.1616974982481265,
+     "pR": 2.310387725661911
+    },
+    {
+     "uf": "RS",
+     "mun": 85065,
+     "nome": "BROCHIER",
+     "gL": 247,
+     "gR": 318,
+     "pL": 6.750606656148217,
+     "pR": 7.890451278360599
+    },
+    {
+     "uf": "RS",
+     "mun": 85928,
+     "nome": "ENTRE RIOS DO SUL",
+     "gL": 72,
+     "gR": 109,
+     "pL": 1.6466878102098181,
+     "pR": 2.7723787240503506
+    },
+    {
+     "uf": "GO",
+     "mun": 95150,
+     "nome": "PALMINÓPOLIS",
+     "gL": 241,
+     "gR": 283,
+     "pL": 6.993382332893194,
+     "pR": 8.096508619066721
+    },
+    {
+     "uf": "MG",
+     "mun": 40436,
+     "nome": "ALVARENGA",
+     "gL": 172,
+     "gR": 204,
+     "pL": 1.8593091001083695,
+     "pR": 2.9356071332827414
+    },
+    {
+     "uf": "GO",
+     "mun": 95010,
+     "nome": "NOVO BRASIL",
+     "gL": 163,
+     "gR": 194,
+     "pL": 5.8159866860201195,
+     "pR": 6.888782152713047
+    },
+    {
+     "uf": "SC",
+     "mun": 80780,
+     "nome": "SÃO MIGUEL DA BOA VISTA",
+     "gL": 90,
+     "gR": 111,
+     "pL": 5.191770050672723,
+     "pR": 6.248907915428969
+    },
+    {
+     "uf": "GO",
+     "mun": 93432,
+     "nome": "DIORAMA",
+     "gL": 139,
+     "gR": 166,
+     "pL": 6.776927772820995,
+     "pR": 7.8280618321686095
+    },
+    {
+     "uf": "SC",
+     "mun": 80993,
+     "nome": "DONA EMMA",
+     "gL": 140,
+     "gR": 191,
+     "pL": 4.697575563867201,
+     "pR": 5.72587720486244
+    },
+    {
+     "uf": "BA",
+     "mun": 39055,
+     "nome": "SERRA DOURADA",
+     "gL": 478,
+     "gR": 453,
+     "pL": 1.0240347314658838,
+     "pR": 2.0097526380724204
+    },
+    {
+     "uf": "RS",
+     "mun": 86100,
+     "nome": "ANDRÉ DA ROCHA",
+     "gL": 35,
+     "gR": 49,
+     "pL": 3.0350842591983866,
+     "pR": 4.010986201506228
+    },
+    {
+     "uf": "GO",
+     "mun": 96938,
+     "nome": "ÁGUA FRIA DE GOIÁS",
+     "gL": 378,
+     "gR": 404,
+     "pL": 10.491825960354934,
+     "pR": 11.458094124887486
+    },
+    {
+     "uf": "RS",
+     "mun": 86959,
+     "nome": "HUMAITÁ",
+     "gL": 114,
+     "gR": 175,
+     "pL": 2.4026244847349276,
+     "pR": 3.3434645646032157
+    },
+    {
+     "uf": "RS",
+     "mun": 89540,
+     "nome": "PINTO BANDEIRA",
+     "gL": 68,
+     "gR": 142,
+     "pL": 2.875555110354269,
+     "pR": 3.7911115563123987
+    },
+    {
+     "uf": "RS",
+     "mun": 84824,
+     "nome": "DOIS LAJEADOS",
+     "gL": 111,
+     "gR": 208,
+     "pL": 3.600672573929753,
+     "pR": 4.512917689761931
+    },
+    {
+     "uf": "SC",
+     "mun": 83810,
+     "nome": "WITMARSUM",
+     "gL": 125,
+     "gR": 195,
+     "pL": 3.7129803827504193,
+     "pR": 4.611681427863523
+    },
+    {
+     "uf": "GO",
+     "mun": 93270,
+     "nome": "CRISTIANÓPOLIS",
+     "gL": 313,
+     "gR": 387,
+     "pL": 9.160796496330226,
+     "pR": 10.048053654524614
+    },
+    {
+     "uf": "SC",
+     "mun": 80357,
+     "nome": "ATALANTA",
+     "gL": 68,
+     "gR": 120,
+     "pL": 2.439465340958841,
+     "pR": 3.325146348392638
+    },
+    {
+     "uf": "BA",
+     "mun": 37656,
+     "nome": "OLIVEIRA DOS BREJINHOS",
+     "gL": 489,
+     "gR": 368,
+     "pL": 1.106864900178961,
+     "pR": 1.9520644745398803
+    },
+    {
+     "uf": "SP",
+     "mun": 66516,
+     "nome": "LUCIANÓPOLIS",
+     "gL": 67,
+     "gR": 90,
+     "pL": 2.1111433656982648,
+     "pR": 2.9521477735422463
+    },
+    {
+     "uf": "RS",
+     "mun": 85847,
+     "nome": "VISTA GAÚCHA",
+     "gL": 95,
+     "gR": 130,
+     "pL": 3.2334833464297166,
+     "pR": 4.073106911449942
+    },
+    {
+     "uf": "BA",
+     "mun": 37370,
+     "nome": "MORTUGABA",
+     "gL": 347,
+     "gR": 340,
+     "pL": 1.7880403998363659,
+     "pR": 2.6241429192641217
+    },
+    {
+     "uf": "MG",
+     "mun": 53813,
+     "nome": "TOLEDO",
+     "gL": 267,
+     "gR": 405,
+     "pL": 3.0998468757780504,
+     "pR": 3.8943094427025926
+    },
+    {
+     "uf": "SC",
+     "mun": 80420,
+     "nome": "BRAÇO DO TROMBUDO",
+     "gL": 83,
+     "gR": 146,
+     "pL": 2.5831208807810704,
+     "pR": 3.373104451117026
+    },
+    {
+     "uf": "RS",
+     "mun": 87629,
+     "nome": "SANTA TEREZA",
+     "gL": 61,
+     "gR": 96,
+     "pL": 3.5504525134425426,
+     "pR": 4.333070213830192
+    },
+    {
+     "uf": "PR",
+     "mun": 75302,
+     "nome": "ESPERANÇA NOVA",
+     "gL": 61,
+     "gR": 103,
+     "pL": 2.4717525130522833,
+     "pR": 3.215148445414162
+    },
+    {
+     "uf": "RS",
+     "mun": 88609,
+     "nome": "UBIRETAMA",
+     "gL": 68,
+     "gR": 95,
+     "pL": 3.709940241486398,
+     "pR": 4.445643196405702
+    },
+    {
+     "uf": "GO",
+     "mun": 94110,
+     "nome": "ITAJÁ",
+     "gL": 221,
+     "gR": 241,
+     "pL": 7.933201478928353,
+     "pR": 8.661780599924695
+    },
+    {
+     "uf": "RS",
+     "mun": 85723,
+     "nome": "TUPANDI",
+     "gL": 167,
+     "gR": 251,
+     "pL": 4.1307185983049886,
+     "pR": 4.797852830266436
+    },
+    {
+     "uf": "RS",
+     "mun": 89362,
+     "nome": "PINHAL DA SERRA",
+     "gL": 53,
+     "gR": 78,
+     "pL": 1.6421356421356448,
+     "pR": 2.3059163059163112
+    },
+    {
+     "uf": "SC",
+     "mun": 80020,
+     "nome": "IPORÃ DO OESTE",
+     "gL": 323,
+     "gR": 411,
+     "pL": 4.711054846613366,
+     "pR": 5.3584993740631965
+    },
+    {
+     "uf": "RS",
+     "mun": 87602,
+     "nome": "SANTA CLARA DO SUL",
+     "gL": 252,
+     "gR": 371,
+     "pL": 4.483049531472696,
+     "pR": 5.100728483468597
+    },
+    {
+     "uf": "GO",
+     "mun": 96890,
+     "nome": "SANTA ISABEL",
+     "gL": 174,
+     "gR": 203,
+     "pL": 5.322059914517574,
+     "pR": 5.935758014599868
+    },
+    {
+     "uf": "SC",
+     "mun": 80373,
+     "nome": "AURORA",
+     "gL": 144,
+     "gR": 222,
+     "pL": 2.7725410813896763,
+     "pR": 3.383552407758905
+    },
+    {
+     "uf": "RS",
+     "mun": 86886,
+     "nome": "LAGOA DOS TRÊS CANTOS",
+     "gL": 58,
+     "gR": 68,
+     "pL": 3.9546872880206196,
+     "pR": 4.561796228462889
+    },
+    {
+     "uf": "RS",
+     "mun": 85936,
+     "nome": "CARLOS BARBOSA",
+     "gL": 1088,
+     "gR": 1435,
+     "pL": 4.957053394539399,
+     "pR": 5.548292580848946
+    },
+    {
+     "uf": "RS",
+     "mun": 89206,
+     "nome": "CRUZALTENSE",
+     "gL": 57,
+     "gR": 80,
+     "pL": 3.1915358567701753,
+     "pR": 3.767711792132644
+    },
+    {
+     "uf": "PA",
+     "mun": 4588,
+     "nome": "BANNACH",
+     "gL": 31,
+     "gR": 26,
+     "pL": 2.0183926556756546,
+     "pR": 2.589703812885935
+    },
+    {
+     "uf": "PR",
+     "mun": 77810,
+     "nome": "PORTO AMAZONAS",
+     "gL": 172,
+     "gR": 218,
+     "pL": 4.897115437174021,
+     "pR": 5.4584247768404754
+    },
+    {
+     "uf": "SC",
+     "mun": 83577,
+     "nome": "TIMBÓ",
+     "gL": 1314,
+     "gR": 1814,
+     "pL": 4.199216650375403,
+     "pR": 4.753456596232897
+    },
+    {
+     "uf": "RS",
+     "mun": 87149,
+     "nome": "MORRO REUTER",
+     "gL": 213,
+     "gR": 287,
+     "pL": 4.279785847827319,
+     "pR": 4.821091345155137
+    },
+    {
+     "uf": "RS",
+     "mun": 89494,
+     "nome": "TUPARENDI",
+     "gL": 238,
+     "gR": 363,
+     "pL": 3.406261308062791,
+     "pR": 3.941871543425768
+    },
+    {
+     "uf": "RS",
+     "mun": 84875,
+     "nome": "QUINZE DE NOVEMBRO",
+     "gL": 120,
+     "gR": 155,
+     "pL": 3.537595950501968,
+     "pR": 4.065294404509034
+    },
+    {
+     "uf": "AC",
+     "mun": 1570,
+     "nome": "ASSIS BRASIL",
+     "gL": -36,
+     "gR": -91,
+     "pL": 1.8408421341612746,
+     "pR": 2.3612951598072085
+    },
+    {
+     "uf": "GO",
+     "mun": 94471,
+     "nome": "MAIRIPOTABA",
+     "gL": 258,
+     "gR": 271,
+     "pL": 9.734386624505637,
+     "pR": 10.250587079476336
+    },
+    {
+     "uf": "GO",
+     "mun": 95052,
+     "nome": "OURO VERDE DE GOIÁS",
+     "gL": 295,
+     "gR": 316,
+     "pL": 9.719242757920465,
+     "pR": 10.233491880837132
+    },
+    {
+     "uf": "RS",
+     "mun": 86789,
+     "nome": "GRAMADO XAVIER",
+     "gL": 102,
+     "gR": 123,
+     "pL": 3.605971029726623,
+     "pR": 4.092808945031468
+    },
+    {
+     "uf": "RO",
+     "mun": 590,
+     "nome": "THEOBROMA",
+     "gL": 116,
+     "gR": 114,
+     "pL": 2.3540882129603036,
+     "pR": 2.8396184356609067
+    },
+    {
+     "uf": "RS",
+     "mun": 86509,
+     "nome": "CAPITÃO",
+     "gL": 127,
+     "gR": 179,
+     "pL": 4.381647547628884,
+     "pR": 4.8558252192556495
+    },
+    {
+     "uf": "PR",
+     "mun": 74845,
+     "nome": "SÃO MANOEL DO PARANÁ",
+     "gL": 71,
+     "gR": 102,
+     "pL": 2.3422956011923013,
+     "pR": 2.8142421520305327
+    },
+    {
+     "uf": "MG",
+     "mun": 41033,
+     "nome": "BANDEIRA",
+     "gL": 276,
+     "gR": 133,
+     "pL": 1.6926344391133163,
+     "pR": 2.16383772721801
+    },
+    {
+     "uf": "RS",
+     "mun": 88617,
+     "nome": "SANTO CRISTO",
+     "gL": 543,
+     "gR": 677,
+     "pL": 4.06419351031127,
+     "pR": 4.534803746334271
+    },
+    {
+     "uf": "MG",
+     "mun": 49913,
+     "nome": "PEQUI",
+     "gL": 189,
+     "gR": 208,
+     "pL": 5.329001996107224,
+     "pR": 5.77865201758288
+    },
+    {
+     "uf": "SC",
+     "mun": 82813,
+     "nome": "RANCHO QUEIMADO",
+     "gL": 119,
+     "gR": 146,
+     "pL": 3.6776855783363374,
+     "pR": 4.119585376829349
+    },
+    {
+     "uf": "MG",
+     "mun": 40401,
+     "nome": "MAMONAS",
+     "gL": 205,
+     "gR": 202,
+     "pL": 3.0759112536095645,
+     "pR": 3.50895582205506
+    },
+    {
+     "uf": "SC",
+     "mun": 83631,
+     "nome": "TREZE TÍLIAS",
+     "gL": 205,
+     "gR": 298,
+     "pL": 3.4131981116991117,
+     "pR": 3.8462278871753908
+    },
+    {
+     "uf": "BA",
+     "mun": 35149,
+     "nome": "FEIRA DA MATA",
+     "gL": 160,
+     "gR": 141,
+     "pL": 1.5227830042332302,
+     "pR": 1.9451387198192782
+    },
+    {
+     "uf": "RS",
+     "mun": 84913,
+     "nome": "VANINI",
+     "gL": 68,
+     "gR": 111,
+     "pL": 3.0551020166705136,
+     "pR": 3.474748729598154
+    },
+    {
+     "uf": "SC",
+     "mun": 80489,
+     "nome": "ARABUTÃ",
+     "gL": 139,
+     "gR": 179,
+     "pL": 3.7207003362686453,
+     "pR": 4.135572501733797
+    },
+    {
+     "uf": "RO",
+     "mun": 604,
+     "nome": "MINISTRO ANDREAZZA",
+     "gL": 133,
+     "gR": 172,
+     "pL": 2.3736996592519546,
+     "pR": 2.7800825518868644
+    },
+    {
+     "uf": "RS",
+     "mun": 88331,
+     "nome": "SALVADOR DO SUL",
+     "gL": 281,
+     "gR": 368,
+     "pL": 5.4310475303091525,
+     "pR": 5.8344180655232725
+    },
+    {
+     "uf": "RS",
+     "mun": 84999,
+     "nome": "IPÊ",
+     "gL": 171,
+     "gR": 270,
+     "pL": 3.220728892336372,
+     "pR": 3.6239748778611136
+    },
+    {
+     "uf": "RS",
+     "mun": 89028,
+     "nome": "ARROIO DO PADRE",
+     "gL": 85,
+     "gR": 143,
+     "pL": 3.16161866130856,
+     "pR": 3.563527537521849
+    },
+    {
+     "uf": "GO",
+     "mun": 92860,
+     "nome": "GUARINOS",
+     "gL": 112,
+     "gR": 125,
+     "pL": 7.015417032149807,
+     "pR": 7.407659890927121
+    },
+    {
+     "uf": "TO",
+     "mun": 92002,
+     "nome": "BERNARDO SAYÃO",
+     "gL": 8,
+     "gR": -1,
+     "pL": 2.138941098053815,
+     "pR": 2.5291086944773
+    },
+    {
+     "uf": "RS",
+     "mun": 85839,
+     "nome": "CÂNDIDO GODÓI",
+     "gL": 188,
+     "gR": 267,
+     "pL": 3.3531721662414027,
+     "pR": 3.741564675863862
+    },
+    {
+     "uf": "SC",
+     "mun": 81817,
+     "nome": "LACERDÓPOLIS",
+     "gL": 58,
+     "gR": 98,
+     "pL": 2.7055095933814473,
+     "pR": 3.093306974665888
+    },
+    {
+     "uf": "SC",
+     "mun": 81345,
+     "nome": "TREVISO",
+     "gL": 165,
+     "gR": 184,
+     "pL": 5.02889384086222,
+     "pR": 5.4127465376866635
+    },
+    {
+     "uf": "SC",
+     "mun": 81361,
+     "nome": "IOMERÊ",
+     "gL": 107,
+     "gR": 151,
+     "pL": 3.837135841761616,
+     "pR": 4.21876222646691
+    },
+    {
+     "uf": "SC",
+     "mun": 83372,
+     "nome": "SÃO MARTINHO",
+     "gL": 109,
+     "gR": 140,
+     "pL": 3.6751133582119513,
+     "pR": 4.05280686970827
+    },
+    {
+     "uf": "SC",
+     "mun": 81876,
+     "nome": "LAURENTINO",
+     "gL": 188,
+     "gR": 274,
+     "pL": 3.187723202561807,
+     "pR": 3.552544083899556
+    },
+    {
+     "uf": "SC",
+     "mun": 82015,
+     "nome": "MAJOR GERCINO",
+     "gL": 117,
+     "gR": 185,
+     "pL": 3.394800946422047,
+     "pR": 3.759412090143932
+    },
+    {
+     "uf": "RS",
+     "mun": 89303,
+     "nome": "MATO QUEIMADO",
+     "gL": 67,
+     "gR": 82,
+     "pL": 3.889697067658032,
+     "pR": 4.2533775137727154
+    },
+    {
+     "uf": "BA",
+     "mun": 38997,
+     "nome": "SEBASTIÃO LARANJEIRAS",
+     "gL": 155,
+     "gR": 137,
+     "pL": 1.5558835303251528,
+     "pR": 1.9103209757407036
+    },
+    {
+     "uf": "PI",
+     "mun": 12050,
+     "nome": "SÃO JULIÃO",
+     "gL": -74,
+     "gR": 49,
+     "pL": 1.6860692590879411,
+     "pR": 2.0280313671266983
+    },
+    {
+     "uf": "RS",
+     "mun": 85766,
+     "nome": "RELVADO",
+     "gL": 83,
+     "gR": 138,
+     "pL": 3.4510780675773263,
+     "pR": 3.7865576380921473
+    },
+    {
+     "uf": "RS",
+     "mun": 87505,
+     "nome": "PRESIDENTE LUCENA",
+     "gL": 116,
+     "gR": 152,
+     "pL": 4.671726566956869,
+     "pR": 4.9971476052285695
+    },
+    {
+     "uf": "BA",
+     "mun": 33995,
+     "nome": "CACULÉ",
+     "gL": 934,
+     "gR": 684,
+     "pL": 2.3083473118135633,
+     "pR": 2.632516289558123
+    },
+    {
+     "uf": "RS",
+     "mun": 86614,
+     "nome": "FLORES DA CUNHA",
+     "gL": 888,
+     "gR": 1353,
+     "pL": 3.850886106480442,
+     "pR": 4.172148396472075
+    },
+    {
+     "uf": "SC",
+     "mun": 82139,
+     "nome": "MODELO",
+     "gL": 165,
+     "gR": 191,
+     "pL": 5.085956704784433,
+     "pR": 5.406620893056324
+    },
+    {
+     "uf": "MG",
+     "mun": 48976,
+     "nome": "NOVA MÓDICA",
+     "gL": 43,
+     "gR": 57,
+     "pL": 2.5578476468490208,
+     "pR": 2.877773016219598
+    },
+    {
+     "uf": "PR",
+     "mun": 74187,
+     "nome": "BRASILÂNDIA DO SUL",
+     "gL": 109,
+     "gR": 120,
+     "pL": 2.7110808141719787,
+     "pR": 3.0253532943551598
+    },
+    {
+     "uf": "RS",
+     "mun": 85154,
+     "nome": "ANTÔNIO PRADO",
+     "gL": 331,
+     "gR": 527,
+     "pL": 3.208983557258824,
+     "pR": 3.5215688666419664
+    },
+    {
+     "uf": "BA",
+     "mun": 39470,
+     "nome": "UIBAÍ",
+     "gL": 637,
+     "gR": 329,
+     "pL": 1.744402834898029,
+     "pR": 2.01672864755352
+    },
+    {
+     "uf": "BA",
+     "mun": 38350,
+     "nome": "RIO DE CONTAS",
+     "gL": 445,
+     "gR": 302,
+     "pL": 1.7563189370528476,
+     "pR": 2.0268485588012086
+    },
+    {
+     "uf": "AC",
+     "mun": 1066,
+     "nome": "PORTO WALTER",
+     "gL": -787,
+     "gR": -657,
+     "pL": 2.3260632729029895,
+     "pR": 2.565931644504893
+    },
+    {
+     "uf": "RS",
+     "mun": 88269,
+     "nome": "CHUVISCA",
+     "gL": 191,
+     "gR": 247,
+     "pL": 4.725382108341508,
+     "pR": 4.94844002714776
+    },
+    {
+     "uf": "RS",
+     "mun": 87416,
+     "nome": "MARIANO MORO",
+     "gL": 88,
+     "gR": 105,
+     "pL": 3.7357012085616703,
+     "pR": 3.956606483746017
+    },
+    {
+     "uf": "GO",
+     "mun": 93564,
+     "nome": "GAMELEIRA DE GOIÁS",
+     "gL": 250,
+     "gR": 264,
+     "pL": 8.092742692492916,
+     "pR": 8.299009884826669
+    },
+    {
+     "uf": "SP",
+     "mun": 61964,
+     "nome": "MESÓPOLIS",
+     "gL": 50,
+     "gR": 65,
+     "pL": 2.0550505969515576,
+     "pR": 2.25839296882846
+    },
+    {
+     "uf": "PR",
+     "mun": 74284,
+     "nome": "ENTRE RIOS DO OESTE",
+     "gL": 107,
+     "gR": 152,
+     "pL": 2.8906201916172574,
+     "pR": 3.073723406437845
+    },
+    {
+     "uf": "RS",
+     "mun": 84930,
+     "nome": "FAGUNDES VARELA",
+     "gL": 80,
+     "gR": 129,
+     "pL": 3.3963324080769435,
+     "pR": 3.5745803301377
+    },
+    {
+     "uf": "RS",
+     "mun": 87076,
+     "nome": "ILÓPOLIS",
+     "gL": 105,
+     "gR": 180,
+     "pL": 2.87514137707475,
+     "pR": 3.0479621906426058
+    },
+    {
+     "uf": "SC",
+     "mun": 80349,
+     "nome": "SANTA TEREZINHA",
+     "gL": 176,
+     "gR": 246,
+     "pL": 2.8606705745555683,
+     "pR": 3.0216823666209036
+    },
+    {
+     "uf": "BA",
+     "mun": 39314,
+     "nome": "TEOLÂNDIA",
+     "gL": 566,
+     "gR": 334,
+     "pL": 1.8806422253466737,
+     "pR": 2.039779073658604
+    },
+    {
+     "uf": "PR",
+     "mun": 76716,
+     "nome": "MALLET",
+     "gL": 433,
+     "gR": 493,
+     "pL": 4.790359627158108,
+     "pR": 4.910951689014786
+    },
+    {
+     "uf": "MG",
+     "mun": 43117,
+     "nome": "CEDRO DO ABAETÉ",
+     "gL": 36,
+     "gR": 38,
+     "pL": 3.3753194596568115,
+     "pR": 3.493367409030057
+    },
+    {
+     "uf": "RS",
+     "mun": 87041,
+     "nome": "MATO LEITÃO",
+     "gL": 204,
+     "gR": 231,
+     "pL": 5.53185018600132,
+     "pR": 5.645319849670494
+    },
+    {
+     "uf": "SC",
+     "mun": 82872,
+     "nome": "RIO DO OESTE",
+     "gL": 248,
+     "gR": 306,
+     "pL": 4.479122359652313,
+     "pR": 4.586428546902777
+    },
+    {
+     "uf": "PR",
+     "mun": 75183,
+     "nome": "CAMPINA DO SIMÃO",
+     "gL": 163,
+     "gR": 164,
+     "pL": 4.514748706391597,
+     "pR": 4.62176150500217
+    },
+    {
+     "uf": "RS",
+     "mun": 86720,
+     "nome": "GARRUCHOS",
+     "gL": 109,
+     "gR": 98,
+     "pL": 3.3878655310780603,
+     "pR": 3.4933775321849883
+    },
+    {
+     "uf": "RS",
+     "mun": 87610,
+     "nome": "NOVA BASSANO",
+     "gL": 185,
+     "gR": 335,
+     "pL": 2.606504856527693,
+     "pR": 2.701315442973129
+    },
+    {
+     "uf": "BA",
+     "mun": 39640,
+     "nome": "VEREDA",
+     "gL": 168,
+     "gR": 140,
+     "pL": 1.9876161015838445,
+     "pR": 2.0653370552389694
+    },
+    {
+     "uf": "SC",
+     "mun": 81167,
+     "nome": "ERMO",
+     "gL": 76,
+     "gR": 94,
+     "pL": 3.00264406335054,
+     "pR": 3.069707357838092
+    },
+    {
+     "uf": "PR",
+     "mun": 74381,
+     "nome": "IGUATU",
+     "gL": 77,
+     "gR": 80,
+     "pL": 2.6768549802257677,
+     "pR": 2.7427254393546487
+    },
+    {
+     "uf": "RS",
+     "mun": 87483,
+     "nome": "PORTO VERA CRUZ",
+     "gL": 57,
+     "gR": 62,
+     "pL": 3.330827067669173,
+     "pR": 3.383458646616544
+    },
+    {
+     "uf": "CE",
+     "mun": 13420,
+     "nome": "ARARENDÁ",
+     "gL": 332,
+     "gR": 204,
+     "pL": 1.6065901667273952,
+     "pR": 1.6558211807903456
+    },
+    {
+     "uf": "RS",
+     "mun": 87327,
+     "nome": "PARECI NOVO",
+     "gL": 156,
+     "gR": 211,
+     "pL": 4.779910901080512,
+     "pR": 4.8203746092692406
+    },
+    {
+     "uf": "SC",
+     "mun": 82155,
+     "nome": "MONDAÍ",
+     "gL": 330,
+     "gR": 357,
+     "pL": 4.8109077647199125,
+     "pR": 4.847362731028526
+    },
+    {
+     "uf": "SC",
+     "mun": 81353,
+     "nome": "IBIRAMA",
+     "gL": 609,
+     "gR": 827,
+     "pL": 4.453100162794549,
+     "pR": 4.484159760380868
+    },
+    {
+     "uf": "RS",
+     "mun": 86185,
+     "nome": "MORRO REDONDO",
+     "gL": 287,
+     "gR": 333,
+     "pL": 5.529349406905193,
+     "pR": 5.5509830030671115
+    },
+    {
+     "uf": "RS",
+     "mun": 87173,
+     "nome": "IVOTI",
+     "gL": 801,
+     "gR": 877,
+     "pL": 5.248172159217809,
+     "pR": 5.263882311705559
+    }
+   ],
+   "cidades_eliminados_15pct_ou_mais_por_UF": {
+    "GO": 100,
+    "SP": 1
+   },
+   "corte_eliminados_municipio": {
+    "faixas_fixas_pct_V1": {
+     "0-4": {
+      "cidades": 1127,
+      "media_F_menos_L": -4.24816558617294,
+      "media_ponderada_V1": -4.3461582973196435,
+      "pct_flavio_mais_pontos": 2.0408163265306123
+     },
+     "4-6": {
+      "cidades": 2071,
+      "media_F_menos_L": -4.555983464358068,
+      "media_ponderada_V1": -5.085900380045586,
+      "pct_flavio_mais_pontos": 1.4002897151134719
+     },
+     "6-8": {
+      "cidades": 1349,
+      "media_F_menos_L": -4.326360762621558,
+      "media_ponderada_V1": -5.892483527254247,
+      "pct_flavio_mais_pontos": 3.558191252779837
+     },
+     "8-10": {
+      "cidades": 623,
+      "media_F_menos_L": -4.536276766508251,
+      "media_ponderada_V1": -5.250212641059836,
+      "pct_flavio_mais_pontos": 4.815409309791333
+     },
+     "10-15": {
+      "cidades": 300,
+      "media_F_menos_L": -3.891459030961058,
+      "media_ponderada_V1": -5.522361099888253,
+      "pct_flavio_mais_pontos": 11.0
+     },
+     "15-100": {
+      "cidades": 101,
+      "media_F_menos_L": -2.234964274135963,
+      "media_ponderada_V1": -2.4546298937021,
+      "pct_flavio_mais_pontos": 18.81188118811881
+     }
+    },
+    "quintis": {
+     "Q1 (1.2 a 4.0)": {
+      "cidades": 1114,
+      "media_F_menos_L": -4.241023989228678,
+      "media_ponderada_V1": -4.333793162564362,
+      "pct_flavio_mais_pontos": 2.064631956912029
+     },
+     "Q2 (4.0 a 4.9)": {
+      "cidades": 1114,
+      "media_F_menos_L": -4.6656422197274745,
+      "media_ponderada_V1": -4.922277567892037,
+      "pct_flavio_mais_pontos": 0.807899461400359
+     },
+     "Q3 (4.9 a 6.2)": {
+      "cidades": 1114,
+      "media_F_menos_L": -4.437930201321425,
+      "media_ponderada_V1": -5.307643803486318,
+      "pct_flavio_mais_pontos": 2.064631956912029
+     },
+     "Q4 (6.2 a 7.8)": {
+      "cidades": 1114,
+      "media_F_menos_L": -4.347723515011507,
+      "media_ponderada_V1": -5.884287160266963,
+      "pct_flavio_mais_pontos": 3.680430879712747
+     },
+     "Q5 (7.8 a 33.1)": {
+      "cidades": 1115,
+      "media_F_menos_L": -4.098125711944032,
+      "media_ponderada_V1": -5.353394362988212,
+      "pct_flavio_mais_pontos": 7.713004484304934
+     }
+    },
+    "correlacao": 0.10011158639041165,
+    "inclinacao_sem_peso_por_ponto": [
+     0.07992133933017587,
+     0.08911820848103927
+    ],
+    "inclinacao_peso_V1_por_ponto": [
+     -0.002579393390417406,
+     0.11161762771885511
+    ],
+    "multipla_sem_peso_[Cury,Renan,Caiado,Zema,Flavio1T]": {
+     "coef": [
+      -0.44837612557965045,
+      -0.26310117541726225,
+      0.07781337195952186,
+      -0.31517928494833813,
+      0.04316257093646241
+     ],
+     "ep_agrupado_UF": [
+      0.14097694763696186,
+      0.25135292325040476,
+      0.0350289238125844,
+      0.40706739327521235,
+      0.012617125188215589
+     ]
+    }
+   },
+   "corte_eliminados_UF_correlacao": 0.3003714581909636
+  }
+ },
+ "conferencias": {
+  "T7_2018_igual_ao_registrado": true,
+  "T7_2022_igual_ao_registrado": true,
+  "T7_amostra_igual": true,
+  "T37_amostra_b_L_somado": [
+   0.5219767403892386,
+   0.5219767403892387
+  ],
+  "T14_amostra_com_grupos_registrado_0.0507": 0.0507222131418288,
+  "T14_2018_calibracao_0.0063": 0.006263623550178153,
+  "T14_2022_calibracao_0.0377": 0.03766056589836101,
+  "T38_municipios_igual_ao_oficial": {
+   "municipios": [
+    5571,
+    5571
+   ],
+   "soma_L2": [
+    64056078,
+    64056078
+   ],
+   "soma_R2": [
+    59654544,
+    59654544
+   ],
+   "flavio_mais_votos_que_lula": [
+    339,
+    339
+   ],
+   "flavio_mais_pontos_que_lula": [
+    182,
+    182
+   ],
+   "viraram_de_flavio_para_lula": [
+    211,
+    211
+   ],
+   "viraram_de_lula_para_flavio": [
+    1,
+    1
+   ]
+  },
+  "T38_UF_diferencas_contra_totais_oficiais": []
+ },
+ "criterios": {
+  "T7": {
+   "maior_a_ref": 5.268543391493725,
+   "maior_b_ref": 1.0863316825083904,
+   "limite_sinal_a": 10.268543391493726,
+   "limite_sinal_b": 6.086331682508391,
+   "limite_sem_sinal_a": 7.268543391493725,
+   "limite_sem_sinal_b": 3.0863316825083906,
+   "a_2026": 8.991296160895825,
+   "b_2026": 1.4195944450911928,
+   "veredito": "INCONCLUSIVO",
+   "veredito_sem_exterior": "INCONCLUSIVO",
+   "troca_equivalente_tabela_adendo4_pela_a": 0.010448044891377292,
+   "troca_equivalente_tabela_adendo4_pela_b": 0.007847486787885542
+  },
+  "T14": {
+   "coef": 0.039289620125311654,
+   "ep": 0.0006711678606704087,
+   "z_acima_de_0.071": -47.24657083998901,
+   "veredito": "SEM SINAL",
+   "coef_sem_grupos": 0.03895913535857192,
+   "ep_sem_grupos": 0.000670799810105469,
+   "veredito_sem_grupos": "SEM SINAL",
+   "coef_sem_exterior": 0.04024012973032132,
+   "troca_equivalente_contra_2018": 3.3193890218966833,
+   "troca_equivalente_contra_2022": 0.1653204930324123
+  },
+  "T37": {
+   "letra_principal": "padrão da forma A",
+   "veredito": "INCONCLUSIVO (Adendo 17: a medida registrada não se interpreta, b_L + b_F = 1 por identidade)"
+  },
+  "T38": {
+   "veredito": "DESCRITIVO"
+  }
+ }
+}

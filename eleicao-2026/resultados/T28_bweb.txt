@@ -1,0 +1,240 @@
+T28. Cauda de comparecimento extremo com voto concentrado, com o bweb completo do 2º turno de 2026 (Adendo 9)
+Script: scripts/analisar_T28.py. Números completos: resultados/T28_bweb.json.
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 9, antes dos dados):
+- Seções com 100 aptos ou mais, sem as especiais. Esperado por beta-binomial em torno da média do local, calibrado por
+  simulação nula como no T4. Contar observados e esperados de comparecimento de 95% ou mais com fatia de Lula de 80% ou
+  mais, o mesmo para Flávio, e aumento de comparecimento de 15 pontos ou mais.
+- Sinal: O/E calibrado de Lula de pelo menos 1,5 vez o maior das referências (2º turno de 2022 e 1º de 2026), com excesso
+  acima de 3 vezes a raiz do esperado e O/E de Flávio normal.
+- Sem sinal: O/E até 1,1 vez o das referências.
+
+VEREDITO PELA LETRA: SEM SINAL
+
+Resumo
+- Lula (comparecimento >= 95% e Lula >= 80% dos válidos): O/E calibrado no 2º turno de 2026 = 2.739 (ep 0.224);
+  referências: 2º turno de 2022 3.168, 1º turno de 2026 3.881; maior = 2026_1T (3.881, ep 0.448).
+  Razão 2026 sobre a maior referência: 0.706 (ep 0.100). Limiar de sinal 1,5; de sem sinal 1,1.
+- Flávio (o mesmo com Flávio >= 80%): O/E calibrado 1.628 (ep 0.350); referências 2022 2.378, 2026 1T 3.951; razão 0.412 (ep 0.195).
+- Excesso de Lula sobre o esperado calibrado: 188 observadas contra 68.6 esperadas, excesso +119.4, 3 x raiz do esperado = 24.9 (z +14.4).
+- Condições: razão de Lula >= 1,5: não; excesso > 3 raiz(E): sim; Flávio normal (razão <= 1,1): sim; razão de Lula <= 1,1: sim.
+- Só contra o 2º turno de 2022 (sem o 1º turno de 2026): razão de Lula 0.865; ainda até 1,1.
+- Sem calibração (O/E bruto): Lula 2026 2T 1.168, 2026 1T 1.406, 2022 2T 1.022; razão sobre o maior 0.831.
+- O O/E calibrado fica acima de 1 em todas as eleições e turnos (a nula da beta-binomial em torno da média do local
+  subestima a cauda conjunta em toda parte); o 2º turno de 2026 fica abaixo das duas referências registradas.
+- Escala: as 188 seções do evento de Lula no 2º turno somam 36.713 votantes e margem de Lula sobre Flávio de 28.904 votos; as 23 de Flávio, margem de Flávio de 3.136. A virada exigiria 2,22 milhões (troca) ou 4,43 milhões (acréscimo).
+
+1. Leituras declaradas (pontos em que o registro é ambíguo; marcadas como desvio do registro)
+  1. Seções especiais: as da definição do T15 (seções em situação especial): boletim não apurado ou anulado, comparecimento zero, boletim emitido por junta apuradora (campo NR_JUNTA_APURADORA do bweb; só existe para 2026) e seção não instalada (sem boletim). É a única definição de 'especiais' escrita no pré-registro e a única aplicável às três eleições com os arquivos locais. A leitura 'seções especiais' do TSE (presídio e voto em trânsito) só é identificável em 2026 (cadastro de locais de 2026) e vai como robustez R1, comparando 2026 com 2026.
+  2. Fatia de Lula (e de Flávio): votos do candidato sobre os votos válidos da seção no turno. No 2º turno é a fatia entre os dois. No 1º turno de 2026 os válidos excluem o 28 cassado (Adendo 6). A fatia entre os dois no 1º turno vai como robustez R2.
+  3. 'Contar ... e aumento de comparecimento de 15 pontos ou mais' foi lido como uma terceira contagem, separada (comparecimento do 2º turno menos o do 1º na mesma seção, em pontos dos aptos). O critério de sinal só fala de Lula e Flávio, então essa contagem é relatada sem veredito próprio, com o 2º turno de 2022 como referência (o 1º turno de 2026 não tem turno anterior). As combinações aumento de 15 pontos com fatia de 80% vão como descritivo.
+  4. 'O/E de Flávio normal': O/E calibrado de Flávio no 2º turno de 2026 até 1,1 vez o maior das referências (a mesma faixa do 'sem sinal').
+  5. 'Excesso acima de 3 vezes a raiz do esperado': excesso = observados menos o esperado calibrado (E x R_nulo), como o campo excesso_Z0_vs_nulo do T4; a forma do T4 original (esperado vezes o maior das referências) vai ao lado.
+  6. 'O/E até 1,1 vez o das referências' (sem sinal): comparado ao maior O/E calibrado das referências, o mesmo termo de comparação do sinal.
+  7. Na nula, comparecimento e fatia do candidato são independentes dentro do local; a fração de válidos do comparecimento é a da própria seção. Na simulação, os votos de Lula e de Flávio são sorteados cada um pela sua beta-binomial (o estimador de cada evento só usa os votos do próprio candidato).
+  8. Evento de aumento: seções com os dois turnos, 100 aptos ou mais nos dois, nenhuma especial em nenhum dos dois; nula condicional ao comparecimento do 1º turno da própria seção (a média do local é a da variação).
+  9. Referências descritivas, fora do critério: 2º turno de 2018 (Haddad e Bolsonaro) e 1º turno de 2022.
+
+2. Amostras
+  2026_2T: boletins 499.205, menos_de_100_aptos 2.773, especiais 27, na_amostra 496.405
+  2026_1T: boletins 499.206, menos_de_100_aptos 2.767, especiais 28, na_amostra 496.411
+  2026_aumento: boletins_2T 499.205, menos_de_100_aptos_em_algum_turno 2.775, especiais_em_algum_turno 27, na_amostra 496.403
+  R1_2026_2T: boletins 499.205, menos_de_100_aptos 2.773, excluidas_presidio_ou_transito 186, especiais 27, na_amostra 496.219
+  R1_2026_1T: boletins 499.206, menos_de_100_aptos 2.767, excluidas_presidio_ou_transito 188, especiais 28, na_amostra 496.223
+  R1_2026_aumento: boletins_2T 499.205, menos_de_100_aptos_em_algum_turno 2.775, excluidas_presidio_ou_transito 186, especiais_em_algum_turno 27, na_amostra 496.217
+  R2_2026_1T_fatia_entre_os_dois: boletins 499.206, menos_de_100_aptos 2.767, especiais 28, na_amostra 496.411
+  2022_2T: boletins 472.028, menos_de_100_aptos 2.726, especiais 1, na_amostra 469.301
+  2022_1T: boletins 472.028, menos_de_100_aptos 2.722, especiais 4, na_amostra 469.302
+  2022_aumento: boletins_2T 472.028, menos_de_100_aptos_em_algum_turno 2.726, especiais_em_algum_turno 4, na_amostra 469.298
+  R2_2022_1T_fatia_entre_os_dois: boletins 472.028, menos_de_100_aptos 2.722, especiais 4, na_amostra 469.302
+  2018_2T: boletins 454.448, menos_de_100_aptos 5.307, especiais 1, na_amostra 449.140
+  2018_aumento: boletins_2T 454.448, menos_de_100_aptos_em_algum_turno 5.307, especiais_em_algum_turno 5, na_amostra 449.136
+  Juntas apuradoras (só exterior): 1º turno 28, 2º turno 29 seções. Seções em presídio ou voto em trânsito no cadastro de 2026: 1º turno 396, 2º turno 396.
+
+3. Resultados por eleição e turno (O = observadas; E = esperado bruto; R = O/E; R_nulo = O/E médio nas simulações nulas; Rc = R/R_nulo)
+  conjunto                               evento                    O         E       R     ep  R_nulo     dp      Rc     ep    E cal
+  2026_2T                                esquerda>=80%           188     161.0   1.168  0.082   0.426  0.040   2.739  0.224     68.6
+  2026_2T                                direita>=80%             23      35.4   0.649  0.135   0.399  0.051   1.628  0.350     14.1
+  2026_2T                                só comparecimento       479     663.9   0.721  0.032   0.451  0.020   1.601  0.077    299.2
+                                         rho observado comp 0.00533, L 0.00398, R 0.00398; ajustado comp 0.00449, L 0.00337, R 0.00336
+  2026_1T                                esquerda>=80%           101      71.8   1.406  0.147   0.362  0.040   3.881  0.448     26.0
+  2026_1T                                direita>=80%             10      10.7   0.932  0.321   0.236  0.129   3.951  1.670      2.5
+  2026_1T                                só comparecimento       384     348.6   1.102  0.056   0.391  0.023   2.816  0.161    136.4
+                                         rho observado comp 0.00551, L 0.00423, R 0.00395; ajustado comp 0.00467, L 0.00356, R 0.00332
+  2026_aumento                           aumento>=15              64      43.0   1.487  0.184   0.712  0.038   2.090  0.264     30.6
+  2026_aumento                           aumento e esq>=80%       46      28.1   1.640  0.309   0.807  0.066   2.031  0.390     22.6
+  2026_aumento                           aumento e dir>=80%        0       0.1   0.000  0.000   0.612  1.368   0.000    nan      0.1
+                                         rho observado aum 0.00000, L 0.00398, R 0.00398; ajustado aum 0.00000, L 0.00333, R 0.00334
+  R1_2026_2T                             esquerda>=80%           188     159.5   1.179  0.084   0.439  0.028   2.687  0.207     70.0
+  R1_2026_2T                             direita>=80%             23      35.4   0.650  0.137   0.401  0.042   1.623  0.349     14.2
+  R1_2026_2T                             só comparecimento       460     636.4   0.723  0.034   0.424  0.013   1.707  0.083    269.5
+                                         rho observado comp 0.00533, L 0.00397, R 0.00397; ajustado comp 0.00448, L 0.00337, R 0.00336
+  R1_2026_1T                             esquerda>=80%           101      71.7   1.409  0.144   0.334  0.052   4.212  0.519     24.0
+  R1_2026_1T                             direita>=80%             10      10.7   0.933  0.317   0.256  0.128   3.644  1.482      2.7
+  R1_2026_1T                             só comparecimento       363     317.7   1.143  0.062   0.343  0.024   3.333  0.208    108.9
+                                         rho observado comp 0.00551, L 0.00421, R 0.00394; ajustado comp 0.00466, L 0.00356, R 0.00330
+  R1_2026_aumento                        aumento>=15              64      43.0   1.487  0.174   0.765  0.030   1.946  0.230     32.9
+  R1_2026_aumento                        aumento e esq>=80%       46      28.1   1.640  0.287   0.865  0.058   1.896  0.336     24.3
+  R1_2026_aumento                        aumento e dir>=80%        0       0.1   0.000  0.000   0.195  0.435   0.000    nan      0.0
+                                         rho observado aum 0.00000, L 0.00397, R 0.00397; ajustado aum 0.00000, L 0.00336, R 0.00332
+  R2_2026_1T_fatia_entre_os_dois         esquerda>=80%           124      90.6   1.369  0.119   0.357  0.022   3.832  0.348     32.4
+  R2_2026_1T_fatia_entre_os_dois         direita>=80%             17      20.5   0.828  0.212   0.235  0.069   3.518  1.014      4.8
+  R2_2026_1T_fatia_entre_os_dois         só comparecimento       384     348.6   1.102  0.054   0.372  0.031   2.963  0.181    129.6
+                                         rho observado comp 0.00551, L 0.00464, R 0.00464; ajustado comp 0.00468, L 0.00390, R 0.00389
+  R3_2026_2T_25sim                       esquerda>=80%           188     161.0   1.168  0.082   0.434  0.035   2.691  0.194     69.9
+  R3_2026_2T_25sim                       direita>=80%             23      35.4   0.649  0.138   0.398  0.079   1.631  0.353     14.1
+  R3_2026_2T_25sim                       só comparecimento       479     663.9   0.721  0.031   0.438  0.017   1.646  0.072    291.0
+                                         rho observado comp 0.00533, L 0.00398, R 0.00398; ajustado comp 0.00448, L 0.00335, R 0.00335
+  R3_2026_1T_25sim                       esquerda>=80%           101      71.8   1.406  0.143   0.373  0.046   3.771  0.394     26.8
+  R3_2026_1T_25sim                       direita>=80%             10      10.7   0.932  0.316   0.315  0.109   2.959  1.025      3.4
+  R3_2026_1T_25sim                       só comparecimento       384     348.6   1.102  0.056   0.373  0.021   2.950  0.153    130.2
+                                         rho observado comp 0.00551, L 0.00423, R 0.00395; ajustado comp 0.00465, L 0.00353, R 0.00333
+  2022_2T                                esquerda>=80%            51      49.9   1.022  0.135   0.323  0.056   3.168  0.486     16.1
+  2022_2T                                direita>=80%             25      26.5   0.943  0.177   0.396  0.031   2.378  0.455     10.5
+  2022_2T                                só comparecimento       179     311.9   0.574  0.042   0.382  0.018   1.502  0.114    119.2
+                                         rho observado comp 0.00595, L 0.00415, R 0.00415; ajustado comp 0.00499, L 0.00349, R 0.00350
+  2022_1T                                esquerda>=80%            55      50.9   1.081  0.145   0.359  0.092   3.015  0.532     18.2
+  2022_1T                                direita>=80%              8       6.3   1.266  0.406   0.323  0.178   3.915  1.583      2.0
+  2022_1T                                só comparecimento       190     307.6   0.618  0.044   0.378  0.032   1.635  0.131    116.2
+                                         rho observado comp 0.00625, L 0.00412, R 0.00390; ajustado comp 0.00526, L 0.00346, R 0.00325
+  2022_aumento                           aumento>=15              27       4.6   5.886  2.699   0.431  0.165  13.649  6.678      2.0
+  2022_aumento                           aumento e esq>=80%        7       2.9   2.437  2.070   0.614  0.324   3.968  3.498      1.8
+  2022_aumento                           aumento e dir>=80%        2       0.0  68.775 98.168   0.000  0.000     nan    nan      0.0
+                                         rho observado aum 0.00000, L 0.00415, R 0.00415; ajustado aum 0.00000, L 0.00348, R 0.00350
+  R2_2022_1T_fatia_entre_os_dois         esquerda>=80%            69      68.4   1.009  0.122   0.315  0.054   3.203  0.456     21.5
+  R2_2022_1T_fatia_entre_os_dois         direita>=80%             11      14.4   0.764  0.217   0.297  0.090   2.570  0.806      4.3
+  R2_2022_1T_fatia_entre_os_dois         só comparecimento       190     307.6   0.618  0.044   0.363  0.021   1.702  0.129    111.6
+                                         rho observado comp 0.00625, L 0.00467, R 0.00467; ajustado comp 0.00524, L 0.00391, R 0.00391
+  R3_2022_2T_25sim                       esquerda>=80%            51      49.9   1.022  0.138   0.344  0.061   2.974  0.415     17.1
+  R3_2022_2T_25sim                       direita>=80%             25      26.5   0.943  0.181   0.440  0.086   2.142  0.419     11.7
+  R3_2022_2T_25sim                       só comparecimento       179     311.9   0.574  0.043   0.375  0.027   1.528  0.117    117.1
+                                         rho observado comp 0.00595, L 0.00415, R 0.00415; ajustado comp 0.00502, L 0.00352, R 0.00352
+  2018_2T                                esquerda>=80%            50      73.9   0.677  0.097   0.350  0.040   1.935  0.293     25.8
+  2018_2T                                direita>=80%            103     167.3   0.616  0.058   0.633  0.054   0.973  0.098    105.9
+  2018_2T                                só comparecimento       383     898.1   0.426  0.021   0.540  0.017   0.789  0.041    485.2
+                                         rho observado comp 0.00587, L 0.00517, R 0.00517; ajustado comp 0.00490, L 0.00432, R 0.00430
+  2018_aumento                           aumento>=15              37       7.6   4.872  2.253   0.729  0.115   6.682  3.126      5.5
+  2018_aumento                           aumento e esq>=80%       20       3.4   5.890  4.380   0.774  0.269   7.612  5.783      2.6
+  2018_aumento                           aumento e dir>=80%        0       0.0   0.000  0.000   0.000  0.000     nan    nan      0.0
+                                         rho observado aum 0.00000, L 0.00517, R 0.00517; ajustado aum 0.00000, L 0.00431, R 0.00433
+  Em 2018, esquerda = Haddad (13), direita = Bolsonaro (17); em 2022, Lula (13) e Bolsonaro (22); em 2026, Lula (13) e Flávio (22).
+
+4. Critério (principal)
+  Lula: Rc 2026 2T 2.739 (0.224); maior referência 2026_1T 3.881 (0.448); razão 0.706 (0.100); excesso +119.4 contra 3 raiz(E) 24.9; forma do T4 original: esperado x maior referência 266.4, excesso -78.4 (z -4.80)
+  Flávio: Rc 2026 2T 1.628 (0.350); maior referência 2026_1T 3.951 (1.670); razão 0.412 (0.195); excesso +8.9 contra 3 raiz(E) 11.3; forma do T4 original: esperado x maior referência 55.8, excesso -32.8 (z -4.39)
+  Veredito: SEM SINAL
+
+5. Robustez (relatada ao lado, sem substituir o critério)
+  R1_presidio_e_transito_fora_(so_2026): Lula razão 0.638 (ep 0.093; Rc 2.687 contra R1_2026_1T 4.212); Flávio razão 0.445 (ep 0.205); veredito pela mesma regra: SEM SINAL
+  R1b_principal_contra_so_2026_1T: Lula razão 0.706 (ep 0.100; Rc 2.739 contra 2026_1T 3.881); Flávio razão 0.412 (ep 0.195); veredito pela mesma regra: SEM SINAL
+  R2_fatia_entre_os_dois_no_1T: Lula razão 0.715 (ep 0.087; Rc 2.739 contra R2_2026_1T_fatia_entre_os_dois 3.832); Flávio razão 0.463 (ep 0.166); veredito pela mesma regra: SEM SINAL
+  R3_25_simulacoes: Lula razão 0.714 (ep 0.090; Rc 2.691 contra R3_2026_1T_25sim 3.771); Flávio razão 0.551 (ep 0.225); veredito pela mesma regra: SEM SINAL
+  D_todas_as_referencias_descritivo: Lula razão 0.706 (ep 0.100; Rc 2.739 contra 2026_1T 3.881); Flávio razão 0.412 (ep 0.195); veredito pela mesma regra: SEM SINAL
+
+6. Aumento de comparecimento de 15 pontos ou mais (2º contra 1º turno na mesma seção; sem critério próprio de sinal)
+  aumento>=15         : 2026 O 64 E cal 30.6 Rc 2.090 (0.264); 2022 O 27 E cal 2.0 Rc 13.649 (6.678); razão 2026/2022 0.153; 2018 (descritivo) Rc 6.682
+  aumento e esq>=80%  : 2026 O 46 E cal 22.6 Rc 2.031 (0.390); 2022 O 7 E cal 1.8 Rc 3.968 (3.498); razão 2026/2022 0.512; 2018 (descritivo) Rc 7.612
+  aumento e dir>=80%  : 2026 O 0 E cal 0.1 Rc 0.000 (nan); 2022 O 2 E cal 0.0 Rc nan (nan); razão 2026/2022 nan; 2018 (descritivo) Rc nan
+
+7. Descritivo
+  Evento de Lula no 2º turno de 2026: 188 seções; 0 em presídio ou trânsito; 1 em local temporário; 67 também estavam no evento de Lula no 1º turno.
+  Votos nessas seções: Lula 32.387, Flávio 3.483, comparecimento 36.713.
+  Evento de Flávio no 2º turno de 2026: 23 seções; Flávio 3.742, Lula 606.
+  Por UF, evento de Lula (O / esperado calibrado): 2026 2T | 2026 1T | 2022 2T
+    AC:    0 /    0.0 |    0 /    0.0 |    0 /    0.0
+    AL:    3 /    0.8 |    3 /    0.5 |    0 /    0.0
+    AM:    6 /    2.5 |    7 /    1.3 |    2 /    0.3
+    AP:    0 /    0.0 |    0 /    0.1 |    0 /    0.0
+    BA:   43 /   16.3 |   15 /    2.5 |   12 /    3.0
+    CE:   31 /   17.9 |   19 /    5.7 |    9 /    5.5
+    DF:    2 /    0.0 |    0 /    0.0 |    0 /    0.0
+    ES:    1 /    0.1 |    0 /    0.0 |    0 /    0.0
+    GO:    0 /    0.0 |    0 /    0.0 |    0 /    0.0
+    MA:   14 /    3.8 |    8 /    2.3 |    7 /    1.4
+    MG:    6 /    0.3 |    3 /    0.0 |    3 /    0.6
+    MS:    0 /    0.1 |    0 /    0.0 |    0 /    0.1
+    MT:    3 /    0.8 |    0 /    0.2 |    2 /    0.0
+    PA:   13 /    2.3 |   17 /    4.1 |    3 /    0.1
+    PB:    6 /    2.2 |    2 /    0.4 |    0 /    0.6
+    PE:   11 /    5.0 |    0 /    0.6 |    2 /    0.7
+    PI:   25 /   10.6 |   19 /    7.0 |    6 /    2.9
+    PR:    0 /    0.0 |    0 /    0.0 |    0 /    0.0
+    RJ:    2 /    0.0 |    1 /    0.0 |    0 /    0.0
+    RN:    5 /    1.5 |    1 /    0.2 |    0 /    0.3
+    RO:    1 /    0.1 |    0 /    0.1 |    0 /    0.0
+    RR:    1 /    0.2 |    1 /    0.2 |    0 /    0.0
+    RS:    1 /    0.2 |    1 /    0.1 |    2 /    0.0
+    SC:    0 /    0.0 |    0 /    0.0 |    1 /    0.0
+    SE:    8 /    1.6 |    4 /    0.3 |    2 /    0.2
+    SP:    1 /    0.0 |    0 /    0.0 |    0 /    0.0
+    TO:    5 /    2.4 |    0 /    0.5 |    0 /    0.3
+    ZZ:    0 /    0.0 |    0 /    0.0 |    0 /    0.0
+  Por UF, evento de Flávio (O / esperado calibrado): 2026 2T | 2026 1T | 2022 2T
+    MG:    2 /    0.0 |    2 /    0.0 |    0 /    0.0
+    PA:    1 /    0.0 |    1 /    0.0 |    0 /    0.0
+    PR:    3 /    1.3 |    0 /    0.2 |    3 /    0.6
+    RS:    7 /    4.6 |    2 /    0.6 |   10 /    4.0
+    SC:   10 /    7.7 |    5 /    1.6 |   12 /    5.6
+  Seções do evento aumento e Lula >= 80% (2026): 46; aumento e Flávio >= 80%: 0.
+  A lista das seções de cada evento, com a probabilidade calibrada sob a nula, está no JSON (serve ao T27).
+
+7b. Descritivo complementar, fora do registro (seções do evento com probabilidade calibrada sob a nula abaixo de 1e-6)
+  Contagem por conjunto (evento de Lula / evento de Flávio): 2026_2T 41 / 3; 2026_1T 29 / 3; 2022_2T 17 / 1
+  Seções do 2º turno de 2026 nessa condição, com o 1º turno da mesma seção (aptos, comparecimento, Lula, Flávio, outros):
+    Lula PA|4421|101|163 NOVO REPARTIMENTO | ALDEIA PARANATINGA - ESCOLA YOPAKA (Convencional) | 2T: aptos 323, comp 310, Lula 308, Flávio 1; 1T: aptos 323, comp 263, Lula 260, Flávio 0, outros 0 | p 3.3e-33
+    Lula RO|19|1|213 GUAJARÁ-MIRIM | MARECHAL RONDON - ESCOLA INDÍGENA (Convencional) | 2T: aptos 248, comp 236, Lula 212, Flávio 21; 1T: aptos 248, comp 233, Lula 203, Flávio 22, outros 5 | p 1.4e-30
+    Lula MT|90824|57|85 GAÚCHA DO NORTE | ESCOLA INDÍGENA MUNICIPAL ULUPUWENE (Convencional) | 2T: aptos 119, comp 114, Lula 111, Flávio 3; 1T: aptos 119, comp 113, Lula 107, Flávio 2, outros 2 | p 1.4e-24
+    Lula RJ|58017|147|286 ANGRA DOS REIS | COLÉGIO INDÍGENA ESTADUAL KARAI KUERY RENDA (Convencional) | 2T: aptos 167, comp 161, Lula 159, Flávio 2; 1T: aptos 167, comp 153, Lula 147, Flávio 3, outros 3 | p 1.8e-24
+    Lula BA|38113|112|407 PRADO | COLÉGIO ESTADUAL INDÍGENA DE CORUMBAUZINHO (Convencional) | 2T: aptos 187, comp 178, Lula 167, Flávio 9; 1T: aptos 187, comp 175, Lula 160, Flávio 10, outros 1 | p 2.9e-14
+    Lula MG|48291|117|89 MENDES PIMENTEL | ESCOLA MUNICIPAL PINGO DE GENTE (Convencional) | 2T: aptos 139, comp 135, Lula 105, Flávio 24; 1T: aptos 139, comp 126, Lula 88, Flávio 23, outros 9 | p 4.7e-14
+    Lula RJ|58653|71|458 NITERÓI | FACULDADE DE ENGENHARIA DA UFF (Convencional) | 2T: aptos 293, comp 279, Lula 226, Flávio 50; 1T: aptos 293, comp 279, Lula 224, Flávio 38, outros 16 | p 1.7e-13
+    Flávio PA|4120|58|276 ELDORADO DOS CARAJÁS | EMEF VITORINO FREIRE (Convencional) | 2T: aptos 128, comp 123, Lula 21, Flávio 100; 1T: aptos 128, comp 123, Lula 18, Flávio 97, outros 3 | p 3.6e-13
+    Lula SP|70793|121|451 SÃO CARLOS | UNIVERSIDADE FEDERAL DE SAO CARLOS (Convencional) | 2T: aptos 262, comp 249, Lula 207, Flávio 36; 1T: aptos 268, comp 259, Lula 205, Flávio 34, outros 19 | p 5.8e-13
+    Lula MG|46353|169|236 ITABIRINHA | ESCOLA MUNICIPAL CÂNDIDO DE PAULA (Convencional) | 2T: aptos 120, comp 116, Lula 99, Flávio 14; 1T: aptos 120, comp 112, Lula 87, Flávio 14, outros 5 | p 7.8e-13
+    Lula MA|7315|23|329 BARRA DO CORDA | ESCOLA INDÍGENA IRENO ROSA (Convencional) | 2T: aptos 302, comp 292, Lula 289, Flávio 3; 1T: aptos 302, comp 292, Lula 280, Flávio 9, outros 0 | p 7.7e-12
+    Lula MG|47392|270|191 LADAINHA | POSTO DE SAÚDE - ALDEIA VERDE (Convencional) | 2T: aptos 121, comp 115, Lula 108, Flávio 5; 1T: aptos 121, comp 108, Lula 95, Flávio 7, outros 1 | p 1.2e-11
+    Lula MA|7315|23|468 BARRA DO CORDA | UNIDADE INTEGRADA DA ALDEIA JATOBÁ (Convencional) | 2T: aptos 260, comp 248, Lula 236, Flávio 4; 1T: aptos 260, comp 248, Lula 229, Flávio 4, outros 0 | p 6.3e-11
+    Flávio MG|47791|164|161 MACHADO | ESCOLA MUNICIPAL CLÓVIS DE ARAÚJO DIAS - (BAIRRO DA CONCEIÇÃO) (Convencional) | 2T: aptos 135, comp 129, Lula 7, Flávio 120; 1T: aptos 135, comp 130, Lula 4, Flávio 119, outros 3 | p 7.3e-11
+    Lula MG|40282|63|194 JAÍBA | ESCOLA MUNICIPAL ELIAS CORREIA LEITE (Convencional) | 2T: aptos 103, comp 103, Lula 94, Flávio 9; 1T: aptos 103, comp 100, Lula 78, Flávio 11, outros 3 | p 3.3e-10
+    Lula DF|97012|14|416 BRASÍLIA | CENTRO DE ENSINO MEDIO PAULO FREIRE (Convencional) | 2T: aptos 353, comp 343, Lula 278, Flávio 62; 1T: aptos 353, comp 341, Lula 257, Flávio 58, outros 21 | p 4.3e-10
+    Lula MA|7730|48|203 DOM PEDRO | ESCOLA MUNICIPAL CASTRO ALVES (Convencional) | 2T: aptos 233, comp 226, Lula 185, Flávio 35; 1T: aptos 233, comp 222, Lula 164, Flávio 36, outros 12 | p 5.2e-10
+    Lula ES|56316|27|184 CONCEIÇÃO DA BARRA | EMEF MÁRIO FLORENTINO (Convencional) | 2T: aptos 107, comp 104, Lula 93, Flávio 9; 1T: aptos 107, comp 101, Lula 84, Flávio 9, outros 4 | p 1.9e-09
+    Lula PA|4570|9|186 CURUÇÁ | EMEIF LAURA DA SILVA MENDES (Convencional) | 2T: aptos 168, comp 163, Lula 132, Flávio 31; 1T: aptos 168, comp 162, Lula 117, Flávio 34, outros 5 | p 4.5e-09
+    Lula CE|15954|98|218 ITAREMA | EMEF JÚLIO JOSÉ DE MOURA (Convencional) | 2T: aptos 200, comp 195, Lula 175, Flávio 16; 1T: aptos 200, comp 188, Lula 163, Flávio 17, outros 2 | p 5.4e-09
+    Lula AM|2771|24|77 SILVES | COMUNIDADE DO IGARAPÉ AÇU (Convencional) | 2T: aptos 113, comp 111, Lula 104, Flávio 4; 1T: aptos 113, comp 110, Lula 102, Flávio 4, outros 3 | p 1.2e-08
+    Lula MG|44857|109|170 ESPINOSA | ESCOLA MUNICIPAL MONTEIRO LOBATO (Convencional) | 2T: aptos 117, comp 114, Lula 97, Flávio 14; 1T: aptos 117, comp 115, Lula 95, Flávio 13, outros 1 | p 1.6e-08
+    Lula MG|44377|261|77 DIVINÉSIA | QUADRA POLIESPORTIVA RAIMUNDO DOS SANTOS (Convencional) | 2T: aptos 166, comp 165, Lula 140, Flávio 20; 1T: aptos 165, comp 157, Lula 124, Flávio 17, outros 12 | p 1.6e-08
+    Lula BA|36536|76|200 JAGUAQUARA | ESCOLA JOSÉ RAIMUNDO DAMASCENO (Convencional) | 2T: aptos 154, comp 152, Lula 132, Flávio 19; 1T: aptos 154, comp 151, Lula 123, Flávio 21, outros 2 | p 2.3e-08
+    Lula MA|7315|23|471 BARRA DO CORDA | UNIDADE INTEGRADA BOM JARDIM (Convencional) | 2T: aptos 130, comp 124, Lula 110, Flávio 11; 1T: aptos 130, comp 123, Lula 99, Flávio 12, outros 0 | p 3.6e-08
+    Lula MA|9555|78|298 BOM JARDIM | U. I. DE EDUC. ESC. PAPE JAPOHARIPA' YRUHU MA'ITUHUMA'A (Convencional) | 2T: aptos 137, comp 132, Lula 125, Flávio 4; 1T: aptos 137, comp 131, Lula 122, Flávio 2, outros 3 | p 4.7e-08
+    Lula RN|17590|33|279 MOSSORÓ | ESCOLA MUNICIPAL ADOLFO SABINO DA SILVA (Convencional) | 2T: aptos 226, comp 215, Lula 169, Flávio 41; 1T: aptos 225, comp 210, Lula 151, Flávio 41, outros 9 | p 5.9e-08
+    Lula AL|28258|10|326 PALMEIRA DOS ÍNDIOS | ESCOLA ESTADUAL INDÍGENA PAJÉ MIGUEL SELESTINO DA SILVA (Convencional) | 2T: aptos 111, comp 106, Lula 94, Flávio 12; 1T: aptos 111, comp 107, Lula 91, Flávio 9, outros 4 | p 8.2e-08
+    Lula PA|4251|65|327 BARCARENA | EMEIF LIMEIRA (Convencional) | 2T: aptos 115, comp 113, Lula 106, Flávio 5; 1T: aptos 115, comp 114, Lula 110, Flávio 2, outros 0 | p 8.5e-08
+    Lula DF|97012|14|424 BRASÍLIA | UNB - PAVILHAO JOAO CALMON (Convencional) | 2T: aptos 390, comp 372, Lula 337, Flávio 32; 1T: aptos 390, comp 361, Lula 313, Flávio 30, outros 16 | p 8.8e-08
+    Flávio MG|49611|211|130 PATROCÍNIO | CENTRO COMUNITARIO DE CAXAMBU (Convencional) | 2T: aptos 127, comp 122, Lula 20, Flávio 99; 1T: aptos 127, comp 121, Lula 16, Flávio 93, outros 6 | p 8.9e-08
+    Lula CE|13730|37|617 CAUCAIA | ESCOLA INDÍGENA DIREITO DE APRENDER DO POVO ANACÉ(COMUN INDÍGENA) (Convencional) | 2T: aptos 197, comp 188, Lula 156, Flávio 22; 1T: aptos 198, comp 193, Lula 156, Flávio 25, outros 6 | p 1.0e-07
+    Lula TO|95338|32|70 GOIATINS | ESCOLA ESTADUAL INDÍGENA CROKROC (Convencional) | 2T: aptos 345, comp 333, Lula 300, Flávio 5; 1T: aptos 345, comp 320, Lula 314, Flávio 3, outros 0 | p 1.2e-07
+    Lula AL|27634|37|187 IGREJA NOVA | UNIDADE BASICA DE SAÚDE MANOEL ROQUE GREGORIO DOS STS (Convencional) | 2T: aptos 157, comp 154, Lula 131, Flávio 18; 1T: aptos 157, comp 154, Lula 120, Flávio 21, outros 2 | p 2.2e-07
+    Lula PB|19968|55|144 MARCAÇÃO | EEIEFM INDIO PEDRO MAXIMO DE LIMA (Convencional) | 2T: aptos 318, comp 305, Lula 260, Flávio 42; 1T: aptos 318, comp 293, Lula 240, Flávio 42, outros 3 | p 2.3e-07
+    Lula MA|7544|97|207 FERNANDO FALCÃO | ESCOLA INTEGRADA AMIDIPÊ CANELA (Convencional) | 2T: aptos 201, comp 197, Lula 191, Flávio 6; 1T: aptos 201, comp 189, Lula 183, Flávio 4, outros 1 | p 3.3e-07
+    Lula MA|7730|48|204 DOM PEDRO | ESCOLA MUNICIPAL LINO PIRES (Convencional) | 2T: aptos 109, comp 108, Lula 95, Flávio 13; 1T: aptos 109, comp 103, Lula 88, Flávio 12, outros 1 | p 3.6e-07
+    Lula PB|19291|55|145 BAÍA DA TRAIÇÃO | ESCOLA MUNICIPAL DE ENSINO FUNDAMENTAL CENTRO SOCIAL SAO MIGUEL (Convencional) | 2T: aptos 359, comp 352, Lula 309, Flávio 37; 1T: aptos 359, comp 328, Lula 277, Flávio 41, outros 1 | p 4.2e-07
+    Lula PE|23639|130|110 CAETÉS | ESCOLA MUNICIPAL DOM HÉLDER CÂMARA (Convencional) | 2T: aptos 268, comp 255, Lula 226, Flávio 19; 1T: aptos 268, comp 244, Lula 192, Flávio 17, outros 15 | p 5.7e-07
+    Lula BA|37990|37|203 PLANALTINO | ESCOLA MUNICIPAL ANTONIO CARLOS MAGALHAES (Convencional) | 2T: aptos 177, comp 171, Lula 148, Flávio 22; 1T: aptos 177, comp 162, Lula 142, Flávio 16, outros 0 | p 6.0e-07
+    Lula SE|32476|23|146 TOBIAS BARRETO | CENTRO COMUNITÁRIO ANTÔNIO JOSÉ FONTES (Convencional) | 2T: aptos 259, comp 251, Lula 210, Flávio 34; 1T: aptos 259, comp 250, Lula 196, Flávio 36, outros 10 | p 6.5e-07
+    Lula PA|5517|11|580 SÃO MIGUEL DO GUAMÁ | EMEIF ANTÔNIO RODRIGUES (Convencional) | 2T: aptos 127, comp 121, Lula 115, Flávio 4; 1T: aptos 127, comp 118, Lula 111, Flávio 0, outros 5 | p 7.1e-07
+    Lula PE|25178|55|245 PESQUEIRA | ESCOLA MUNICIPAL ORONCIO TEIXEIRA GUEIROS (Convencional) | 2T: aptos 195, comp 187, Lula 163, Flávio 20; 1T: aptos 195, comp 178, Lula 150, Flávio 19, outros 5 | p 7.6e-07
+    Lula PI|11576|12|239 PEDRO II | ESCOLA DO ASSENTAMENTO ARARA (Convencional) | 2T: aptos 115, comp 112, Lula 96, Flávio 14; 1T: aptos 115, comp 110, Lula 94, Flávio 15, outros 1 | p 8.3e-07
+
+8. Limites
+- O teste só vê enchimento ou troca concentrada em poucas seções (comparecimento perto de 100% e voto quase todo num lado).
+  Uma troca espalhada de poucos votos por seção não muda essa cauda.
+- A nula trata comparecimento e fatia como independentes dentro do local e todas as seções do local com a mesma média;
+  o que não for capturado por isso aparece também nas referências, e por isso a comparação é contra elas.
+- O cadastro de locais de 2022 não está nos arquivos locais: presídios e voto em trânsito não podem ser retirados em 2022.
+- No evento de aumento, o rho do método dos momentos fica no piso (1e-6) em 2018, 2022 e 2026: a variação do comparecimento
+  da mesma seção entre turnos varia menos que uma binomial (são os mesmos eleitores), e a beta-binomial não representa isso.
+  A nula do aumento é então binomial; os Rc do aumento medem a cauda pesada (seções com mudança grande) e têm erro grande
+  nas referências (esperado de 2 a 6 seções). Por isso a contagem de aumento é só descritiva.
+
+Cálculo principal rodado em 29/10/2026 01:51 UTC (1712.8 s); texto gerado em 29/10/2026 01:54 UTC.

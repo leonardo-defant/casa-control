@@ -1,0 +1,122 @@
+T29. Matriz de transferência por UF com inferência ecológica calibrada (bweb completo do 2º turno de 2026)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 9.
+Modelo: multinomial-Dirichlet de transição (Brown e Payne; média do modelo RxC de Rosen, Jiang, King e Tanner),
+ajustado em cada UF por quase-verossimilhança (EM acelerado), com as seções como unidades.
+Linhas: o que o eleitor fez no 1º turno (esquerda, direita, outros, branco+nulo, abstenção; frações dos aptos).
+Colunas: o que fez no 2º turno (esquerda, direita, branco+nulo, abstenção). Erro-padrão sanduíche agrupado por local.
+País = células das UFs ponderadas pelo eleitorado da linha. Valores em % dos eleitores da linha (pontos).
+
+1) Validação registrada (antes de abrir 2026): troca de 2% dos votos do adversário plantada no 2º turno.
+  2022 (registrada), célula Lula para Bolsonaro: sem troca 0,00%, com troca 0,81%; recuperado 0,81 pontos contra 1,92 plantados na célula (erro -1,11; contra 2,00: -1,19).
+     UFs com erro de até 1 ponto: 8 de 27; maior erro absoluto numa UF: 1,95 ponto. Passa: não.
+  2018 (robustez), célula Bolsonaro para Haddad: sem troca 0,01%, com troca 0,05%; recuperado 0,04 pontos contra 1,97 plantados na célula (erro -1,93; contra 2,00: -1,96).
+     UFs com erro de até 1 ponto: 2 de 27; maior erro absoluto numa UF: 2,00 ponto. Passa: não.
+  Validação do registro (2022): NÃO PASSA (teste sem poder).
+
+2) Célula do adversário para quem ganhou terreno (país, com erro-padrão):
+  2018 Bolsonaro para Haddad: 0,01% (ep 0,00)
+  2022 Lula para Bolsonaro: 0,00% (ep 0,00)
+  2026 Flávio para Lula: 0,21% (ep 0,02; IC95 0,18 a 0,24)
+  2026 com os eliminados separados (robustez): 0,24% (ep 0,02)
+
+3) Por UF (célula em %, ep; referências 2018 e 2022 da mesma UF; marca * = cumpre as condições de UF do sinal):
+   UF   2026 (ep)        lim.inf.95   2018     2022     eliminados separados   seções
+   AP    9,94 (1,33)               7,33     0,00     0,00     9,85 (1,33)     1914  *
+   AM    3,10 (0,37)               2,36     0,00     0,00     3,23 (0,36)     8157  *
+   PI    2,06 (0,39)               1,31     0,00     0,00     2,87 (0,40)    10225
+   TO    1,42 (0,33)               0,79     0,00     0,00     1,52 (0,33)     4384
+   CE    1,36 (0,23)               0,91     0,00     0,00     1,56 (0,22)    23765
+   MA    1,27 (0,23)               0,81     0,00     0,04     1,54 (0,25)    18093
+   RR    1,27 (0,39)               0,50     0,00     0,00     1,28 (0,40)     1519
+   AC    0,38 (0,75)              -1,08     2,14     0,00     0,48 (0,75)     2270
+   RN    0,18 (0,42)              -0,64     0,00     0,00     0,39 (0,42)     8115
+   PB    0,14 (0,21)              -0,27     0,00     0,00     0,29 (0,21)    10712
+   SE    0,03 (0,44)              -0,82     0,00     0,00     0,33 (0,44)     5923
+   PA    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    20827
+   AL    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     7101
+   MT    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     8287
+   PE    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    21418
+   RO    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     4698
+   ES    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     9844
+   DF    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     6969
+   RJ    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    37675
+   MG    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    52062
+   GO    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    15686
+   PR    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    27142
+   BA    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    35476
+   SC    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    17326
+   SP    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)   103656
+   MS    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)     7106
+   RS    0,00 (0,00) (fronteira)   0,00     0,00     0,00     0,00 (0,00)    27547
+
+4) Matriz do país em cada ano (linha = 1º turno, coluna = 2º turno, % dos eleitores da linha):
+  2018:                       L             R   branco_nulo     abstencao
+    L                94,46 (0,05)    0,01 (0,01)    1,92 (0,03)    3,61 (0,04)
+    R                 0,01 (0,00)   98,47 (0,03)    1,06 (0,02)    0,45 (0,03)
+    outros           55,91 (0,10)   27,07 (0,09)   13,04 (0,05)    3,98 (0,06)
+    branco_nulo      22,27 (0,21)   15,13 (0,17)   61,02 (0,12)    1,58 (0,07)
+    abstencao         1,29 (0,05)    1,61 (0,04)    0,87 (0,03)   96,23 (0,06)
+  2022:                       L             R   branco_nulo     abstencao
+    L                96,01 (0,03)    0,00 (0,00)    1,20 (0,02)    2,80 (0,03)
+    R                 0,01 (0,00)   99,75 (0,02)    0,16 (0,01)    0,08 (0,01)
+    outros           36,06 (0,14)   44,62 (0,13)   17,25 (0,07)    2,06 (0,10)
+    branco_nulo      16,66 (0,22)   26,58 (0,22)   54,61 (0,13)    2,15 (0,16)
+    abstencao         2,95 (0,05)    3,85 (0,04)    0,79 (0,02)   92,40 (0,06)
+  2026:                       L             R   branco_nulo     abstencao
+    L                98,51 (0,03)    0,00 (0,00)    0,34 (0,01)    1,15 (0,03)
+    R                 0,21 (0,02)   98,45 (0,03)    0,53 (0,01)    0,81 (0,03)
+    outros           42,70 (0,16)   38,89 (0,15)   13,41 (0,06)    5,00 (0,12)
+    branco_nulo      60,75 (0,16)    1,49 (0,14)   37,07 (0,09)    0,69 (0,13)
+    abstencao        10,25 (0,06)    2,62 (0,04)    0,64 (0,02)   86,48 (0,07)
+  2026 eliminados separados:                       L             R   branco_nulo     abstencao
+    L                98,51 (0,03)    0,00 (0,00)    0,34 (0,01)    1,16 (0,03)
+    R                 0,24 (0,02)   98,43 (0,03)    0,54 (0,01)    0,79 (0,03)
+    Cury             53,97 (0,31)   29,22 (0,31)   12,76 (0,13)    4,06 (0,26)
+    Renan            39,54 (0,33)   35,99 (0,31)   15,67 (0,13)    8,80 (0,27)
+    Caiado           33,07 (0,34)   51,82 (0,33)   11,40 (0,14)    3,72 (0,24)
+    Zema              4,17 (0,66)   78,88 (0,88)   13,98 (0,42)    2,96 (0,78)
+    demais           78,16 (0,76)    7,44 (0,60)   13,24 (0,53)    1,16 (0,35)
+    branco_nulo      60,36 (0,17)    1,61 (0,15)   37,29 (0,09)    0,74 (0,14)
+    abstencao        10,24 (0,06)    2,70 (0,04)    0,63 (0,02)   86,42 (0,07)
+
+5) Descritivos:
+  Limite inferior determinístico (Duncan e Davis) da célula, 2018: 0,000% (1 de 453699 seções com limite positivo)
+  Limite inferior determinístico (Duncan e Davis) da célula, 2022: 0,000% (7 de 471010 seções com limite positivo)
+  Limite inferior determinístico (Duncan e Davis) da célula, 2026: 0,000% (15 de 497897 seções com limite positivo)
+  Regressão de Goodman sem restrição (fora do registro, só para mostrar para que lado a célula vai sem o limite
+  de 0 a 1; é linear, então recupera qualquer troca plantada por construção):
+    2018: país -5,61 pontos (ep 0,06); UFs com valor negativo: 25 de 27
+    2022: país -1,22 pontos (ep 0,03); UFs com valor negativo: 27 de 27
+    2026: país -2,42 pontos (ep 0,04); UFs com valor negativo: 22 de 27
+  UFs com a célula do modelo presa em zero (fronteira): 2018 26 de 27; 2022 26 de 27; 2026 16 de 27
+  rho (superdispersão da Dirichlet, variância de Brown e Payne) entre as UFs, mínimo e máximo: 2018 0,0176 a 0,0844; 2022 0,0203 a 0,1291; 2026 0,0193 a 0,0889
+  UFs de 2026 com célula de 3% ou mais: 2; que cumprem as três condições com a faixa da própria UF: 2; com a faixa de todas as UFs das referências (0,00 a 2,14): 2; com a faixa nacional: 2.
+
+6) Critério registrado:
+  Sinal: célula Flávio para Lula de 3% ou mais no país e em pelo menos 20 UFs, com intervalo acima de 1%, fora da
+         faixa de 2018 e 2022 para quem ganhou terreno.
+  Sem sinal: célula até 2% no país e dentro da faixa das referências.
+  País: 0,21% (IC95 0,18 a 0,24); faixa das referências 0,00 a 0,01.
+  País cumpre o sinal: não; UFs que cumprem: 2 (precisa de 20). País até 2%: sim; dentro da faixa: não.
+  Veredito pela letra: SEM PODER
+
+7) Leitura:
+  Validação registrada: com 2% plantados em 2022, a célula do país sobe 0,81 ponto, contra 1,92 plantados (erro -1,11; o limite é 1 ponto); 8 UFs passam. Em 2018 (robustez), sobe 0,04 ponto contra 1,97.
+  Nas referências, a célula do adversário para quem ganhou terreno fica presa em zero em 26 (2018) e 26 (2022) de 27 UFs, porque sem a restrição de 0 a 1 ela seria negativa (Goodman: -5,61 pontos em 2018
+  e -1,22 em 2022). Uma troca plantada primeiro gasta essa folga negativa e o modelo a repassa para outras células.
+  Se a validação falha, o registro manda declarar o teste sem poder. Em 2026 a célula do país é 0,21% (zero em 16 UFs; 3% ou mais em 2: AM, AP).
+  Isso não indica troca, mas também não exclui uma troca uniforme de 2%, que este estimador não veria inteira.
+  A matriz de 2026 sai só como descrição.
+
+Escolhas e desvios do registro:
+  - Estimador: o registro diz "multinomial-Dirichlet ou King" sem fixar a estimação. Usei o modelo multinomial-Dirichlet de transição (Brown e Payne, 1986), cuja média é a do modelo RxC de Rosen, Jiang, King e Tanner (2001), estimado por quase-verossimilhança (equações multinomiais, não viesadas para a média do multinomial-Dirichlet), com uma matriz por UF comum às seções da UF, a superdispersão da Dirichlet (rho) estimada por momentos e coberta pelo erro-padrão sanduíche. Não rodei a versão hierárquica bayesiana (uma matriz por seção, por MCMC, como no ei.MD.bayes do R): com cerca de 470 mil seções por ano e 15 parâmetros livres por seção, eu não teria como verificar a convergência do MCMC aqui. A primeira versão deste script ponderava cada seção por 1/(1+(N-1)rho), com rho pela estatística de Pearson contra a multinomial simples; no teste de velocidade com três UFs de 2022 (RR, SP, CE), feito antes de qualquer conta de 2026 e antes da validação, rho saiu zero em duas delas, porque a variância de referência certa é a de Brown e Payne (soma das multinomiais por linha), menor que a da multinomial simples. Tirei a ponderação e passei rho para a variância de Brown e Payne, como descritivo.
+  - Unidade: seção eleitoral (as mesmas nos dois turnos), sem efeito fixo de local: o registro pede a matriz por UF. Fora: exterior, seções sem os dois turnos, seções não apuradas em algum turno (anuladas) e seções sem aptos.
+  - Linhas e colunas: incluem branco+nulo e abstenção, porque os aptos mudam entre os turnos e a matriz precisa fechar o eleitorado. Os aptos do 1º e do 2º turno diferem em cerca de 11% das seções de 2026 e 2022 e 4% das de 2018 (em poucos eleitores; o total nacional é o mesmo); por isso as linhas entram como frações dos aptos do 1º turno e as colunas como contagens do 2º turno. O candidato 28 (candidatura anulada) conta como nulo no 1º turno de 2026, como no total oficial (5.246 votos).
+  - Referências com outros candidatos somados (as bases de 2018 e 2022 não têm voto por candidato). Em 2026 a versão principal também soma os outros, para ser comparável; a versão com Cury, Renan, Caiado, Zema e demais separados sai como robustez.
+  - Validação: a troca plantada segue a convenção do T14 e do T16 (2% dos votos do adversário no 2º turno, pelo valor esperado). Na célula, isso planta 2% vezes a fração dos eleitores do adversário que votaram nele no 2º turno (cerca de 1,9 ponto); o erro é medido contra esse valor e também contra 2,00. Leitura de "recuperação": a diferença entre a célula com e sem a troca. Exigi o erro de até 1 ponto no país e em pelo menos 20 UFs, porque o critério de sinal usa o país e 20 UFs.
+  - "Intervalo acima de 1%": limite inferior do intervalo de 95% (estimativa menos 1,96 erro-padrão) acima de 1%.
+  - "Fora da faixa de 2018 e 2022": no país, acima da maior das duas células nacionais das referências; em cada UF, acima da maior das duas células daquela UF. As leituras com a faixa de todas as UFs das referências e com a faixa nacional saem ao lado. "Dentro da faixa" (sem sinal): entre a menor e a maior célula nacional das referências, pela letra.
+  - Ordem: as referências e a validação são calculadas e gravadas antes de a base de 2026 ser lida neste script, mas o bweb de 2026 já tinha sido aberto por outros testes (T8, T14, T16 e outros, com efeito fixo de local). Nenhuma matriz de transferência do 2º turno de 2026 por UF tinha sido calculada.
+  - Exterior fora do país, como no T16.
+  - Numérico: uma célula abaixo de 1e-5 é tratada como na fronteira (fixa em zero no erro-padrão). Na primeira versão deste script o limite era 1e-7, e células de 1e-6 que ainda desciam para zero entravam como livres; as estimativas eram as mesmas (conferido com 30.000 passos de EM a mais em cinco UFs de 2022: diferença máxima de 4e-6 e condições de KKT satisfeitas). Só o erro-padrão dessas células muda.
+  - Descritivo fora do registro, acrescentado depois de ver a validação: a regressão de Goodman sem restrição, para mostrar por que a validação falha (a célula sem restrição fica negativa e o modelo a prende em zero).

@@ -11,10 +11,11 @@ colunas c (o que fizeram no 2º turno) com probabilidades sorteadas de uma Diric
   Linhas (frações dos aptos do 1º turno da seção): L (esquerda), R (direita), outros, branco+nulo, abstenção.
   Colunas (contagens do 2º turno; N_i = aptos do 2º turno): L, R, branco+nulo, abstenção.
   2018: L = Haddad, R = Bolsonaro. 2022: L = Lula, R = Bolsonaro. 2026: L = Lula, R = Flávio.
-Estimação de B_u, em cada uma das 27 UFs: quase-verossimilhança do Dirichlet-multinomial, isto é, maximizar
-sum_i w_i sum_c Y_ic log(theta_ic) com cada linha de B_u no simplex (algoritmo EM, acelerado por SQUAREM; o problema
-é côncavo, o máximo é único), com w_i = 1 / (1 + (N_i - 1) rho_u) e rho_u pelo método dos momentos (estatística de
-Pearson) do ajuste sem peso; uma reponderação.
+Estimação de B_u, em cada uma das 27 UFs: quase-verossimilhança, isto é, maximizar sum_i sum_c Y_ic log(theta_ic)
+com cada linha de B_u no simplex (algoritmo EM, acelerado por SQUAREM; o problema é côncavo, o máximo é único). As
+equações de estimação são não viesadas para a média do multinomial-Dirichlet, qualquer que seja a precisão da
+Dirichlet; a superdispersão entra no erro-padrão. rho_u (superdispersão da Dirichlet, comum às linhas) sai pelo
+método dos momentos com a variância de Brown e Payne, sum_r N_ir B_rc (1 - B_rc) (1 + (N_ir - 1) rho), descritivo.
 Erro-padrão: sanduíche agrupado por local de votação (cobre a superdispersão da Dirichlet e a correlação dentro do
 local), nas células livres; célula na fronteira (abaixo de 1e-7) fica fixa em zero e é marcada.
 País: a célula de cada UF ponderada pelo número de eleitores daquela linha na UF (sum_i X_ir N_i); erro-padrão pela soma
@@ -45,7 +46,7 @@ limites de Duncan e Davis, a base do King): soma de max(0, votos do ganhador no 
 adversário no 1º) sobre os eleitores do adversário.
 
 Uso: python3 -I analisar_T29.py <secoes2026.json.gz> <candidatos2026_1t.json.gz> <secoes2018.json.gz>
-        <secoes2022.json.gz> <saida.json> <saida.txt>
+        <secoes2022.json.gz> <saida.json> <saida.txt> [referencias.json]
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
@@ -62,7 +63,7 @@ GRUPOS_2026 = [('Cury', '70'), ('Renan', '14'), ('Caiado', '55'), ('Zema', '30')
 LINHAS9 = ['L', 'R'] + [g for g, _ in GRUPOS_2026] + ['demais', 'branco_nulo', 'abstencao']
 TROCA = 0.02
 Z95 = 1.959963984540054
-FRONTEIRA = 1e-7
+FRONTEIRA = 1e-5   # célula abaixo disso: na fronteira (as condições de KKT conferem: o gradiente empurra para baixo de zero)
 TOL, MAXIT = 1e-12, 200000
 ANOS = {'2018': {'ganhador': 'L', 'adversario': 'R', 'nome_g': 'Haddad', 'nome_a': 'Bolsonaro'},
         '2022': {'ganhador': 'R', 'adversario': 'L', 'nome_g': 'Bolsonaro', 'nome_a': 'Lula'},
@@ -123,15 +124,13 @@ def montar(caminho, cand=None):
 
 # ------------------------------------------------------------------ estimação
 def passo_em(B, X, Yw):
-    th = X @ B
-    G = X.T @ np.where(Yw > 0, Yw / np.where(th > 0, th, 1.0), 0.0)
-    Bn = B * G
+    th = np.maximum(X @ B, 1e-300)
+    Bn = B * (X.T @ (Yw / th))
     return Bn / Bn.sum(1, keepdims=True)
 
 
 def logver(B, X, Yw):
-    th = X @ B
-    return float(np.where(Yw > 0, Yw * np.log(np.where(th > 0, th, 1e-300)), 0.0).sum())
+    return float((Yw * np.log(np.maximum(X @ B, 1e-300))).sum())
 
 
 def ajustar(X, Y, w=None, B0=None):
@@ -170,12 +169,13 @@ def ajustar(X, Y, w=None, B0=None):
     return B, {'iteracoes': it, 'avaliacoes_em': aval, 'logver': logver(B, X, Yw), 'convergiu': it < MAXIT}
 
 
-def pearson_rho(B, X, Y):
-    N = Y.sum(1); E = N[:, None] * (X @ B)
-    P = np.where(E > 0, (Y - E) ** 2 / np.where(E > 0, E, 1.0), 0.0).sum(1)
-    C = Y.shape[1]
-    rho = (P.sum() - (C - 1) * len(N)) / ((C - 1) * (N - 1).sum())
-    return max(0.0, float(rho)), float(P.sum() / ((C - 1) * len(N)))
+def rho_brown_payne(B, X, Y):
+    """Momentos: sum_ic (Y - N theta)^2 = sum_irc N_ir B_rc (1 - B_rc) (1 + (N_ir - 1) rho), com N_ir = X_ir N_i."""
+    N = Y.sum(1); Nr = X * N[:, None]
+    res2 = ((Y - N[:, None] * (X @ B)) ** 2).sum()
+    v = (B * (1 - B)).sum(1)                       # por linha r: sum_c B_rc (1 - B_rc)
+    base = (Nr * v).sum(); extra = (Nr * (Nr - 1) * v).sum()
+    return float((res2 - base) / extra), float(res2 / base)
 
 
 def sanduiche(B, X, Y, w, g):
@@ -221,15 +221,11 @@ def sanduiche(B, X, Y, w, g):
 
 
 def estimar_uf(X, Y, g):
-    B1, i1 = ajustar(X, Y)
-    rho, disp = pearson_rho(B1, X, Y)
-    N = Y.sum(1)
-    w = 1.0 / (1.0 + (N - 1.0) * rho)
-    w = w / w.mean()
-    B, i2 = ajustar(X, Y, w, B0=B1)
-    EP, fr, inf = sanduiche(B, X, Y, w, g)
-    return {'B': B, 'EP': EP, 'fronteira': fr, 'rho': rho, 'pearson_por_gl': disp, 'secoes': int(len(Y)),
-            'ajuste_sem_peso': i1, 'ajuste_com_peso': i2, **inf, 'B_sem_peso': B1}
+    B, inf = ajustar(X, Y)
+    rho, razao = rho_brown_payne(B, X, Y)
+    EP, fr, sand = sanduiche(B, X, Y, np.ones(len(Y)), g)
+    return {'B': B, 'EP': EP, 'fronteira': fr, 'rho': rho, 'variancia_sobre_multinomial_por_linha': razao,
+            'secoes': int(len(Y)), 'ajuste': inf, **sand}
 
 
 def plantar(Y, s, ganhador, adversario):
@@ -244,7 +240,10 @@ def rodar_ano(base, linhas, rotulo, troca=0.0, ganhador=None, adversario=None):
     for u in UFS:
         b = base[u]
         Y = b['Y'] if troca == 0 else plantar(b['Y'], troca, ganhador, adversario)
+        t1 = time.time()
         r = estimar_uf(b['X'], Y, b['g'])
+        if time.time() - t1 > 30:
+            log(f'  {rotulo} {u}: {time.time() - t1:.0f}s, {r["ajuste"]["iteracoes"]} iterações')
         r['eleitores_por_linha'] = (b['X'] * b['Y'].sum(1)[:, None]).sum(0)
         r['votos_1t_por_linha'] = b['n1'].sum(0)
         out[u] = r
@@ -267,8 +266,7 @@ def celula(por_uf, linhas, de, para):
     A, EA = nacional(por_uf)
     uf = {u: {'celula': float(por_uf[u]['B'][r, c]), 'ep': float(por_uf[u]['EP'][r, c]),
               'fronteira': bool(por_uf[u]['fronteira'][r, c]), 'secoes': por_uf[u]['secoes'],
-              'locais': por_uf[u]['locais'], 'rho': por_uf[u]['rho'],
-              'celula_sem_peso': float(por_uf[u]['B_sem_peso'][r, c])} for u in UFS}
+              'locais': por_uf[u]['locais'], 'rho': por_uf[u]['rho']} for u in UFS}
     return {'pais': float(A[r, c]), 'ep_pais': float(EA[r, c]), 'por_UF': uf}
 
 
@@ -281,13 +279,33 @@ def resumo_ano(por_uf, linhas):
     return {'linhas': linhas, 'colunas': COLUNAS, 'matriz_pais': matriz_json(A), 'ep_pais': matriz_json(EA),
             'por_UF': {u: {'B': matriz_json(por_uf[u]['B']), 'EP': matriz_json(por_uf[u]['EP']),
                            'fronteira': [[bool(x) for x in l] for l in por_uf[u]['fronteira']],
-                           'rho': por_uf[u]['rho'], 'pearson_por_gl': por_uf[u]['pearson_por_gl'],
+                           'rho': por_uf[u]['rho'],
+                           'variancia_sobre_multinomial_por_linha': por_uf[u]['variancia_sobre_multinomial_por_linha'],
                            'secoes': por_uf[u]['secoes'], 'locais': por_uf[u]['locais'],
                            'escore_relativo_max': por_uf[u]['escore_relativo_max'],
-                           'iteracoes': [por_uf[u]['ajuste_sem_peso']['iteracoes'], por_uf[u]['ajuste_com_peso']['iteracoes']],
-                           'convergiu': por_uf[u]['ajuste_sem_peso']['convergiu'] and por_uf[u]['ajuste_com_peso']['convergiu'],
+                           'iteracoes': por_uf[u]['ajuste']['iteracoes'], 'convergiu': por_uf[u]['ajuste']['convergiu'],
                            'eleitores_por_linha': [float(x) for x in por_uf[u]['eleitores_por_linha']]}
                        for u in UFS}}
+
+
+def goodman(base, linhas, de, para):
+    """Descritivo fora do registro: regressão de Goodman sem restrição (MQP da fatia do eleitorado de 'para' no 2º turno
+    nas frações do 1º turno, sem constante, peso N), por UF; erro agrupado por local. Mostra para que lado a célula
+    seria empurrada sem a restrição de ficar entre 0 e 1."""
+    r, c = linhas.index(de), COLUNAS.index(para)
+    out = {}; num = 0.0; var = 0.0; den = 0.0
+    for u in UFS:
+        b = base[u]; N = b['Y'].sum(1); y = b['Y'][:, c] / N; X = b['X']
+        A = X.T @ (X * N[:, None]); beta = np.linalg.solve(A, X.T @ (N * y))
+        e = y - X @ beta; Sc = X * (N * e)[:, None]
+        G = int(b['g'].max()) + 1
+        Sg = np.column_stack([np.bincount(b['g'], weights=Sc[:, j], minlength=G) for j in range(X.shape[1])])
+        Ai = np.linalg.inv(A); V = Ai @ (Sg.T @ Sg * (G / (G - 1))) @ Ai
+        wr = float((X[:, r] * N).sum())
+        out[u] = {'celula': float(beta[r]), 'ep': float(np.sqrt(V[r, r]))}
+        num += wr * beta[r]; var += wr ** 2 * V[r, r]; den += wr
+    return {'pais': num / den, 'ep_pais': float(np.sqrt(var) / den), 'por_UF': out,
+            'UFs_negativas': sum(x['celula'] < 0 for x in out.values())}
 
 
 def limite_inferior(base, linhas, de, para):
@@ -330,9 +348,9 @@ def validacao(base, linhas, ano, sem, com):
 # ------------------------------------------------------------------ principal
 def main():
     a26, cand26, a18, a22, saida, saida_txt = sys.argv[1:7]
-    saida_ref = saida + '.referencias.json'
+    saida_ref = sys.argv[7] if len(sys.argv) > 7 else saida + '.referencias.json'
     res = {'teste': 'T29', 'registro': 'PRE-REGISTRO-2026-10-26.md, Adendo 9',
-           'modelo': 'multinomial-Dirichlet por UF, quase-verossimilhança com peso 1/(1+(N-1)rho), EM+SQUAREM, '
+           'modelo': 'multinomial-Dirichlet por UF (Brown e Payne), quase-verossimilhança, EM+SQUAREM, '
                      'erro-padrão sanduíche agrupado por local', 'troca_plantada': TROCA, 'referencias': {},
            'validacao': {}, 'exclusoes': {}}
     cel_ref = {}
@@ -346,7 +364,8 @@ def main():
         cel = celula(sem, LINHAS5, cfg['adversario'], cfg['ganhador'])
         cel_ref[ano] = cel
         res['referencias'][ano] = {**cfg, 'celula_adversario_para_ganhador': cel, 'matriz': resumo_ano(sem, LINHAS5),
-                                   'limite_inferior_duncan_davis': limite_inferior(base, LINHAS5, cfg['adversario'], cfg['ganhador'])}
+                                   'limite_inferior_duncan_davis': limite_inferior(base, LINHAS5, cfg['adversario'], cfg['ganhador']),
+                                   'goodman_sem_restricao_descritivo': goodman(base, LINHAS5, cfg['adversario'], cfg['ganhador'])}
         res['validacao'][ano] = validacao(base, LINHAS5, ano, sem, com)
         res['validacao'][ano]['matriz_pais_com_troca'] = matriz_json(nacional(com)[0])
         v = res['validacao'][ano]
@@ -367,7 +386,8 @@ def main():
     cfg = ANOS['2026']
     cel26 = celula(sem26, LINHAS5, 'R', 'L')
     res['2026'] = {**cfg, 'celula_flavio_para_lula': cel26, 'matriz': resumo_ano(sem26, LINHAS5),
-                   'limite_inferior_duncan_davis': limite_inferior(base, LINHAS5, 'R', 'L')}
+                   'limite_inferior_duncan_davis': limite_inferior(base, LINHAS5, 'R', 'L'),
+                   'goodman_sem_restricao_descritivo': goodman(base, LINHAS5, 'R', 'L')}
     del base, sem26; gc.collect()
     base9, _ = montar(a26, cand); del cand; gc.collect()
     sem9 = rodar_ano(base9, LINHAS9, '2026 (robustez, eliminados separados)')
@@ -435,7 +455,7 @@ def escrever_txt(res, caminho):
     P('T29. Matriz de transferência por UF com inferência ecológica calibrada (bweb completo do 2º turno de 2026)')
     P('Registro: PRE-REGISTRO-2026-10-26.md, Adendo 9.')
     P('Modelo: multinomial-Dirichlet de transição (Brown e Payne; média do modelo RxC de Rosen, Jiang, King e Tanner),')
-    P('ajustado em cada UF por quase-verossimilhança (peso 1/(1+(N-1)rho) por seção, EM acelerado), seções como unidades.')
+    P('ajustado em cada UF por quase-verossimilhança (EM acelerado), com as seções como unidades.')
     P('Linhas: o que o eleitor fez no 1º turno (esquerda, direita, outros, branco+nulo, abstenção; frações dos aptos).')
     P('Colunas: o que fez no 2º turno (esquerda, direita, branco+nulo, abstenção). Erro-padrão sanduíche agrupado por local.')
     P('País = células das UFs ponderadas pelo eleitorado da linha. Valores em % dos eleitores da linha (pontos).')
@@ -460,7 +480,7 @@ def escrever_txt(res, caminho):
     c9 = res['2026_eliminados_separados']['celula_flavio_para_lula']
     P(f'  2026 com os eliminados separados (robustez): {q(c9["pais"])}% (ep {q(c9["ep_pais"])})')
     P('')
-    P('3) Por UF (célula em %, ep; referências 2018 e 2022 da mesma UF; rho de 2026; marca * = conta para o sinal):')
+    P('3) Por UF (célula em %, ep; referências 2018 e 2022 da mesma UF; marca * = cumpre as condições de UF do sinal):')
     P('   UF   2026 (ep)        lim.inf.95   2018     2022     eliminados separados   seções')
     for u in sorted(UFS, key=lambda u: -cr['por_UF'][u]['celula']):
         x = cr['por_UF'][u]; r18 = res['referencias']['2018']['celula_adversario_para_ganhador']['por_UF'][u]
@@ -486,9 +506,18 @@ def escrever_txt(res, caminho):
     li = res['2026']['limite_inferior_duncan_davis']
     P(f'  Limite inferior determinístico (Duncan e Davis) da célula, 2026: {q(li["pais"], 3)}% '
       f'({li["secoes_com_limite_positivo"]} de {li["secoes"]} seções com limite positivo)')
+    P('  Regressão de Goodman sem restrição (fora do registro, só para mostrar para que lado a célula vai sem o limite')
+    P('  de 0 a 1; é linear, então recupera qualquer troca plantada por construção):')
+    for ano, gd in (('2018', res['referencias']['2018']['goodman_sem_restricao_descritivo']),
+                    ('2022', res['referencias']['2022']['goodman_sem_restricao_descritivo']),
+                    ('2026', res['2026']['goodman_sem_restricao_descritivo'])):
+        P(f'    {ano}: país {p(gd["pais"])} pontos (ep {q(gd["ep_pais"])}); UFs com valor negativo: {gd["UFs_negativas"]} de 27')
+    fr = {a: sum(res['referencias'][a]['celula_adversario_para_ganhador']['por_UF'][u]['fronteira'] for u in UFS) for a in ('2018', '2022')}
+    fr['2026'] = sum(res['2026']['celula_flavio_para_lula']['por_UF'][u]['fronteira'] for u in UFS)
+    P('  UFs com a célula do modelo presa em zero (fronteira): ' + '; '.join(f'{a} {v} de 27' for a, v in fr.items()))
     rh = {a: [res['referencias'][a]['matriz']['por_UF'][u]['rho'] for u in UFS] for a in ('2018', '2022')}
     rh['2026'] = [res['2026']['matriz']['por_UF'][u]['rho'] for u in UFS]
-    P('  rho (superdispersão da Dirichlet) entre as UFs, mínimo e máximo: ' +
+    P('  rho (superdispersão da Dirichlet, variância de Brown e Payne) entre as UFs, mínimo e máximo: ' +
       '; '.join(f'{a} {min(v):.4f} a {max(v):.4f}'.replace('.', ',') for a, v in rh.items()))
     P(f'  UFs de 2026 com célula de 3% ou mais: {cr["UFs_com_3pct_ou_mais"]}; que cumprem as três condições com a faixa da '
       f'própria UF: {cr["UFs_que_cumprem_sinal"]}; com a faixa de todas as UFs das referências '
@@ -506,6 +535,24 @@ def escrever_txt(res, caminho):
       f'{"sim" if cr["pais_dentro_da_faixa"] else "não"}.')
     P(f'  Veredito pela letra: {cr["veredito_pela_letra"]}')
     P('')
+    v22 = res['validacao']['2022']['pais']; v18 = res['validacao']['2018']['pais']
+    g18 = res['referencias']['2018']['goodman_sem_restricao_descritivo']['pais']
+    g22 = res['referencias']['2022']['goodman_sem_restricao_descritivo']['pais']
+    P('7) Leitura:')
+    fz = {a: sum(res['referencias'][a]['celula_adversario_para_ganhador']['por_UF'][u]['fronteira'] for u in UFS) for a in ('2018', '2022')}
+    fz26 = sum(res['2026']['celula_flavio_para_lula']['por_UF'][u]['fronteira'] for u in UFS)
+    u3 = [u for u in UFS if cr['por_UF'][u]['acima_3pct']]
+    P(f'  Validação registrada: com 2% plantados em 2022, a célula do país sobe {q(v22["recuperada"])} ponto, contra '
+      f'{q(v22["plantada_na_celula"])} plantados (erro {p(v22["erro"])}; o limite é 1 ponto); {res["validacao"]["2022"]["UFs_que_passam"]} '
+      f'UFs passam. Em 2018 (robustez), sobe {q(v18["recuperada"])} ponto contra {q(v18["plantada_na_celula"])}.')
+    P(f'  Nas referências, a célula do adversário para quem ganhou terreno fica presa em zero em {fz["2018"]} (2018) e '
+      f'{fz["2022"]} (2022) de 27 UFs, porque sem a restrição de 0 a 1 ela seria negativa (Goodman: {p(g18)} pontos em 2018')
+    P(f'  e {p(g22)} em 2022). Uma troca plantada primeiro gasta essa folga negativa e o modelo a repassa para outras células.')
+    P(f'  Se a validação falha, o registro manda declarar o teste sem poder. Em 2026 a célula do país é '
+      f'{q(cr["celula_pais_2026"])}% (zero em {fz26} UFs; 3% ou mais em {len(u3)}: {", ".join(u3) or "nenhuma"}).')
+    P('  Isso não indica troca, mas também não exclui uma troca uniforme de 2%, que este estimador não veria inteira.')
+    P('  A matriz de 2026 sai só como descrição.')
+    P('')
     P('Escolhas e desvios do registro:')
     for t in res['desvios_e_escolhas']:
         P('  - ' + t)
@@ -515,14 +562,20 @@ def escrever_txt(res, caminho):
 DESVIOS = [
     'Estimador: o registro diz "multinomial-Dirichlet ou King" sem fixar a estimação. Usei o modelo multinomial-Dirichlet '
     'de transição (Brown e Payne, 1986), cuja média é a do modelo RxC de Rosen, Jiang, King e Tanner (2001), estimado por '
-    'quase-verossimilhança do Dirichlet-multinomial, com uma matriz por UF comum às seções da UF. Não rodei a versão '
-    'hierárquica bayesiana (uma matriz por seção, por MCMC, como no ei.MD.bayes do R): com cerca de 470 mil seções por '
-    'ano e 15 parâmetros livres por seção, o MCMC não converge em tempo útil nesta máquina, e o resultado dependeria do '
-    'número de iterações. A versão usada tem o mesmo modelo de média e a mesma superdispersão da Dirichlet.',
+    'quase-verossimilhança (equações multinomiais, não viesadas para a média do multinomial-Dirichlet), com uma matriz '
+    'por UF comum às seções da UF, a superdispersão da Dirichlet (rho) estimada por momentos e coberta pelo erro-padrão '
+    'sanduíche. Não rodei a versão hierárquica bayesiana (uma matriz por seção, por MCMC, como no ei.MD.bayes do R): com '
+    'cerca de 470 mil seções por ano e 15 parâmetros livres por seção, eu não teria como verificar a convergência do '
+    'MCMC aqui. A primeira versão deste script ponderava cada seção por 1/(1+(N-1)rho), com rho pela estatística de '
+    'Pearson contra a multinomial simples; no teste de velocidade com três UFs de 2022 (RR, SP, CE), feito antes de '
+    'qualquer conta de 2026 e antes da validação, rho saiu zero em duas delas, porque a variância de referência certa é '
+    'a de Brown e Payne (soma das multinomiais por linha), menor que a da multinomial simples. Tirei a ponderação e '
+    'passei rho para a variância de Brown e Payne, como descritivo.',
     'Unidade: seção eleitoral (as mesmas nos dois turnos), sem efeito fixo de local: o registro pede a matriz por UF. '
     'Fora: exterior, seções sem os dois turnos, seções não apuradas em algum turno (anuladas) e seções sem aptos.',
     'Linhas e colunas: incluem branco+nulo e abstenção, porque os aptos mudam entre os turnos e a matriz precisa fechar o '
-    'eleitorado. Os aptos do 1º e do 2º turno diferem em cerca de 10% das seções (em poucos eleitores); por isso as '
+    'eleitorado. Os aptos do 1º e do 2º turno diferem em cerca de 11% das seções de 2026 e 2022 e 4% das de 2018 (em '
+    'poucos eleitores; o total nacional é o mesmo); por isso as '
     'linhas entram como frações dos aptos do 1º turno e as colunas como contagens do 2º turno. O candidato 28 '
     '(candidatura anulada) conta como nulo no 1º turno de 2026, como no total oficial (5.246 votos).',
     'Referências com outros candidatos somados (as bases de 2018 e 2022 não têm voto por candidato). Em 2026 a versão '
@@ -541,6 +594,12 @@ DESVIOS = [
     'bweb de 2026 já tinha sido aberto por outros testes (T8, T14, T16 e outros, com efeito fixo de local). Nenhuma '
     'matriz de transferência do 2º turno de 2026 por UF tinha sido calculada.',
     'Exterior fora do país, como no T16.',
+    'Numérico: uma célula abaixo de 1e-5 é tratada como na fronteira (fixa em zero no erro-padrão). Na primeira versão '
+    'deste script o limite era 1e-7, e células de 1e-6 que ainda desciam para zero entravam como livres; as estimativas eram as mesmas '
+    '(conferido com 30.000 passos de EM a mais em cinco UFs de 2022: diferença máxima de 4e-6 e condições de KKT '
+    'satisfeitas). Só o erro-padrão dessas células muda.',
+    'Descritivo fora do registro, acrescentado depois de ver a validação: a regressão de Goodman sem restrição, para '
+    'mostrar por que a validação falha (a célula sem restrição fica negativa e o modelo a prende em zero).',
 ]
 
 if __name__ == '__main__':

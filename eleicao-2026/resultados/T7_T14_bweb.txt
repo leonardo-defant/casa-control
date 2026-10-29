@@ -1,0 +1,222 @@
+T7 e T14 com o bweb completo do 2º turno de 2026 (Adendos 3, 4 e 8), mais T37 com o bweb (Adendos 16 e 17) e T38 por UF e
+município (Adendo 16, descritivo).
+Script: scripts/analisar_T7_T14.py (python3 -I analisar_T7_T14.py ... para os números; --texto <json> para este texto).
+Números completos: resultados/T7_T14_bweb.json. Rodado em 29/10/2026 com secoes2026.json.gz (bweb do 1º e do 2º turno; a soma
+dos boletins do 2º turno bate voto a voto com o total oficial, T15), candidatos2026_1t.json.gz e as bases de 2018 e 2022 por seção.
+
+Critérios registrados (PRE-REGISTRO-2026-10-26.md, antes dos dados):
+- T7 (Adendo 3): "bolo = votos dos outros candidatos no 1º turno + queda do branco+nulo (se houver) + aumento do comparecimento
+  (se houver). Excesso do candidato que mais ganhou = ganho dele na seção menos o bolo. [...] Estatísticas: (a) % das seções com
+  excesso positivo; (b) soma dos excessos positivos como % do ganho total do candidato. Referências: 2018 (Haddad [...]) e 2022
+  (Bolsonaro [...]). 2026: Lula. Sinal: (a) e (b) de 2026 acima do maior valor das referências em mais de 5 pontos. Sem sinal: (a)
+  e (b) até 2 pontos acima do maior valor das referências. Entre os dois: inconclusivo."
+- Adendo 4 (leitura): "um resultado perto de 35% das seções e 7% do ganho seria compatível com a troca que a Veritá implica; perto
+  de 5% a 9% das seções e 1% a 1,5% do ganho, incompatível. O critério do adendo 3 continua valendo."
+- T14 (Adendo 8): coeficiente dos votos do adversário no 1º turno na regressão do T8 (mesmo local), "com todas as seções do bweb:
+  Sinal: coeficiente acima de 0,071 [...] e a mais de 3 erros-padrão disso. Compatível com a troca que a pesquisa Veritá implicaria
+  (cerca de 6,5%): 0,10 ou mais. Sem sinal: até 0,051. Entre os dois: inconclusivo."
+- T37 (Adendo 16): dF = b_F - f; dL = b_L - l (quatro grupos somados pelo voto do 1º turno; f e l = mediana dos institutos). "Padrão
+  da forma A: |dF| até 0,07 e dL de 0,15 ou mais, a mais de 2,5 erros-padrão [...]. Padrão da forma B: dF de -0,07 ou menos e dL de
+  +0,07 ou mais, os dois a mais de 2,5 erros-padrão. Sem padrão de fraude: |dF| e |dL| até 0,07. Qualquer outro resultado:
+  inconclusivo." Adendo 17: "na especificação do T8, b_L + b_F = 1 por identidade, e a urna não identifica o 'nenhum' dos eleitores
+  dos eliminados. O veredito pela letra é inconclusivo, e a comparação corrigida [...] é post hoc."
+- T38 (Adendo 16): descritivo, sem critério.
+
+VEREDITOS PELA LETRA
+  T7:  INCONCLUSIVO. (a) 8,99% fica entre o limite de sem sinal (7,27%) e o de sinal
+       (10,27%); (b) 1,42% fica abaixo do limite de sem sinal (3,09%). Sinal e sem sinal
+       pedem as duas medidas; com uma em cada faixa, o resultado é inconclusivo.
+  T14: SEM SINAL. Coeficiente 0,0393 (ep 0,0007), abaixo do limite de sem sinal (0,051).
+  T37: INCONCLUSIVO (Adendo 17). Os limiares do Adendo 16, aplicados mecanicamente, caem no "padrão da forma A", mas esse
+       padrão sai da identidade b_L + b_F = 1 e do "nenhum" declarado pelas pesquisas, não dos dados (seção 3).
+  T38: DESCRITIVO.
+
+Conferências (o código reproduz os números já registrados antes de relatar):
+  T7 de 2018 e 2022 iguais a resultados/T7_referencias.txt em todos os campos: sim.
+  T7 nas 3.897 seções da amostra, lidas do bweb: igual a resultados/T7_T8_T14_amostra.txt em todos os campos: sim.
+  T14 da amostra (com grupos) pelo bweb: 0,0507 (registrado 0,0507). T14 sem troca: 2018 0,0063
+  (registrado 0,0063), 2022 0,0377 (registrado 0,0377). T37 da amostra: b_L somado 0,5220 (registrado 0,5220).
+  T38 pelo bweb igual ao T38 feito com os totais oficiais por município e por UF (contagens, somas e ganhos): sim.
+  Tabela do Adendo 4 refeita em 2022 (troca pelo valor esperado, s vezes os votos do adversário no 2º turno): igual a 2 casas: sim.
+
+1. T7, ganho além do bolo da seção
+  Seções com os dois turnos: 2018 454.448, 2022 472.028, 2026 499.205.
+  (erro-padrão por linearização agrupada por local de votação; o registro não pede erro, e o critério compara os valores)
+  candidato              | (a) % seções com excesso | (b) % do ganho em excesso | ganho total   | excesso somado
+  2018 Haddad            |   0,34 (ep 0,01)        |  0,02 (ep 0,00)          |   15.699.141  | 3.598
+  2022 Bolsonaro         |   5,27 (ep 0,04)        |  1,09 (ep 0,01)          |    7.134.009  | 77.499
+  2026 Lula              |   8,99 (ep 0,06)        |  1,42 (ep 0,01)          |   10.376.696  | 147.307
+  Maior referência: (a) 5,27% e (b) 1,09%, as duas de 2022. Limites: sinal (a) > 10,27 e (b) > 6,09;
+  sem sinal (a) <= 7,27 e (b) <= 3,09. 2026: (a) 8,99, 3,72 pontos acima de 2022; (b) 1,42, 0,33 ponto acima.
+  Sem o exterior: (a) 9,01%, (b) 1,43%; veredito INCONCLUSIVO.
+  Seções em que Flávio perdeu votos entre os turnos: 16,5% (2022, Lula: 18,8%; 2018, Bolsonaro: 3,7%).
+  Seções sem bolo (bolo de até 2 votos): 1.744, com ganho somado de Lula de -4.325 votos.
+  Leitura registrada no Adendo 4 (calibração em 2022, troca uniforme de Flávio para Lula; tabela refeita, valores iguais):
+    troca | (a) | (b)
+     0,0% | 5,27 | 1,09
+     1,0% | 8,83 | 1,51
+     2,0% | 12,43 | 2,09
+     3,5% | 19,81 | 3,40
+     6,0% | 35,76 | 6,92
+    2026: (a) 8,99% e (b) 1,42% ficam na faixa que o Adendo 4 chamou de incompatível com a troca da Veritá (5% a 9% e
+    1% a 1,5%), longe de 35% e 7%. Interpolando a tabela (descritivo): (a) equivale a 1,0% de troca sobre a base de 2022 e (b)
+    a 0,8%. A conta supõe que, sem troca, 2026 teria o mesmo nível de 2022; 2018 sem troca deu (a) 0,34% e (b) 0,02%, o que mostra
+    que esse nível varia muito entre eleições.
+  Descritivo, fora do critério: (a) e (b) por faixa da fatia do adversário nos válidos do 1º turno da seção.
+    faixa   | 2026 (adversário Flávio)  | 2022 (adversário Lula)    | 2018 (adversário Bolsonaro)
+    0-35%   | 17,90 e 2,83 (121.858 seç.) |  5,57 e 0,86 (111.468) |  1,00 e 0,06 (131.363)
+    35-50%  |  8,15 e 1,16 (147.272 seç.) |  5,64 e 0,99 (158.055) |  0,15 e 0,01 (107.439)
+    50-65%  |  5,23 e 0,85 (166.161 seç.) |  5,31 e 1,27 (104.484) |  0,04 e 0,00 (156.006)
+    65-100% |  3,72 e 0,81 (63.914 seç.) |  4,28 e 1,87 (98.017) |  0,04 e 0,00 (59.638)
+    Numa troca proporcional aos votos de Flávio, o ganho extra por seção é maior onde Flávio tem mais votos. Em 2026 o excesso se concentra onde
+    Flávio era fraco no 1º turno (abaixo de 35%) e é menor onde ele era forte, nas duas medidas. Em 2022, (a) era quase igual nas
+    quatro faixas e (b) crescia com a força do adversário (de 0,86 a 1,87), o desenho que uma troca reforçaria.
+  Por UF (descritivo; (a) e (b) em %): RN 24,6 e 4,4; MA 24,0 e 6,1; AL 23,4 e 4,1; CE 21,4 e 3,7; SE 20,4 e 2,9; PB 20,1 e 2,8; PI 19,4 e 4,5; PE 16,6 e 1,9; BA 14,0 e 1,9;
+    RJ 12,7 e 2,0; TO 11,5 e 4,1; AM 10,4 e 3,3; PA 10,2 e 2,7; MT 8,1 e 1,9; MS 6,6 e 1,3; ES 5,9 e 1,1; MG 5,7 e 0,7; RR 4,6 e 2,7;
+    RO 3,9 e 1,1; AC 3,3 e 3,1; RS 2,9 e 0,4; SP 2,6 e 0,3; PR 2,0 e 0,3; DF 1,9 e 0,3; SC 1,9 e 0,3; AP 0,8 e 0,3; GO 0,5 e 0,1; exterior 0,8 e 0,1.
+  O mesmo cálculo para Flávio (descritivo): (a) 0,13% e (b) 0,04%. Para quem ganhou menos em 2022 (Lula): 0,36% e 0,12%;
+  em 2018 (Bolsonaro): 0,09% e 0,01%.
+  Amostra (preliminar, 3.897 seções): (a) 10,57% (ep 0,72) e (b) 1,71% (ep 0,15); com o bweb completo, 8,99% e 1,42%.
+  O veredito da amostra (inconclusivo) se mantém.
+  Limite registrado: o T7 não testa a conversão de branco e nulo (ela aparece como queda do branco+nulo, que está dentro do bolo).
+  Excesso positivo também aparece por troca de eleitores entre os turnos (quem votou no 1º e faltou no 2º, substituído por quem
+  faltou no 1º e votou no 2º), sem fraude.
+
+2. T14, marca de troca de votos por seção
+  Regressão do T8, Lula, efeito fixo de local, erro agrupado por local: 499.205 seções, 477.035 em 72.538 locais com 2 ou mais seções.
+  Principal (eliminados separados, como o T8 de 2026 foi registrado): coeficiente dos votos de Flávio no 1º turno 0,0393 (ep 0,0007).
+  Outros agregados (como as referências): 0,0390 (ep 0,0007), veredito SEM SINAL. Sem o exterior: 0,0402.
+  Limites: sem sinal até 0,051; sinal acima de 0,071 a mais de 3 ep (z = -47,2); Veritá 0,10 ou mais.
+  Intervalo de 95%: 0,0380 a 0,0406, inteiro abaixo de 0,051.
+  Referências sem troca (recalculadas, iguais à calibração do Adendo 8): 2018 Haddad 0,0063 (0,0007); 2022 Bolsonaro 0,0377 (0,0006).
+  Calibração registrada: cada ponto de troca sobe o coeficiente cerca de 0,0099 (2018) e 0,0096 (2022).
+  Leitura sem suavizar: 2026 fica no nível de 2022 sem troca (troca equivalente de 0,17% sobre a base de 2022), mas acima de 2018
+  sem troca (troca equivalente de 3,3% sobre a base de 2018). O limite de sem sinal registrado (0,051) aceita, sobre a base de 2018,
+  troca de até cerca de 4,5%, e sobre a de 2022, de até cerca de 1,4%. O teste exclui a troca de 6,5% que a Veritá implicaria sobre
+  qualquer das duas bases. Sobre a base de 2022, a troca equivalente é de 0,17% (ep de cerca de 0,07 ponto de troca); sobre a
+  de 2018, sobram 3,3%, perto dos cerca de 3,6% de troca que a aritmética exige para virar o resultado (Adendo 9). Qual base vale não
+  se sabe: sem troca, o coeficiente variou de 0,006 a 0,041 entre os candidatos de 2018 e 2022 (Adendo 8), e 2026 fica dentro dessa faixa.
+  Amostra (preliminar): 0,0507 (ep 0,0070), no limite; com o bweb completo, 0,0393. O T16 (piso por UF, resultados/T16_bweb.txt) mostra a
+  variação entre UFs: de +0,006 (SC) a +0,096 (PI).
+  Demais coeficientes (Lula; ep entre parênteses): Cury 0,596 (0,003), Renan 0,542 (0,003), Caiado 0,488 (0,003), Zema 0,361 (0,009), demais_outros 0,832 (0,010), queda_branco_nulo 0,638 (0,002), var_comparecimento 0,564 (0,002), proprio_1T -0,013 (0,001).
+  Contexto, mesma regressão para Flávio: próprios votos do 1º turno -0,0393 (ep 0,0007), o mesmo número com sinal trocado, por
+  identidade. Lula perdeu 1,3% dos próprios (ep 0,1). Nas referências, quem ganhou terreno tirou do adversário
+  0,6% (2018) e 3,8% (2022); Lula em 2026, 3,9%. A perda líquida de Flávio é do tamanho da perda do PT
+  nas duas eleições anteriores (Haddad 4,1% em 2018, Lula 3,8% em 2022), com os papéis trocados. Isso também é o que a troca de
+  eleitores entre os turnos produz; o T14 não separa as duas.
+
+3. T37, eleitores dos eliminados: urna contra o declarado
+  Urna (regressão do T8 com grupos, Lula e Flávio empilhados, efeito fixo de local por candidato, erro agrupado por local;
+  954.070 linhas, 72.538 locais). Fração dos votos do 1º turno de cada grupo que a urna põe em Lula (b_L) e em Flávio (b_F):
+    Cury    b_L 0,596 (0,003) | b_F 0,404 (0,003) | "nenhum" -0,000 | 3.448.569 votos no 1º turno
+    Renan   b_L 0,542 (0,003) | b_F 0,458 (0,003) | "nenhum" 0,000 | 2.675.887 votos no 1º turno
+    Caiado  b_L 0,488 (0,003) | b_F 0,512 (0,003) | "nenhum" 0,000 | 2.605.148 votos no 1º turno
+    Zema    b_L 0,361 (0,009) | b_F 0,639 (0,009) | "nenhum" -0,000 | 326.488 votos no 1º turno
+    somados pelo voto do 1º turno: b_L 0,541 (0,002), b_F 0,459 (0,002). Amostra: b_L 0,522 (0,017).
+  Declarado: para cada instituto, a última rodada antes de 25/10 que publicou o cruzamento por candidato eliminado
+  (resultados/contexto_2t_2026_pesquisa_verificada.json, valores conferidos pelo verificador):
+    PoderData 23-24/10: Cury f 0,580 l 0,290 n 0,130; Renan f 0,430 l 0,330 n 0,240; Caiado f 0,460 l 0,300 n 0,240
+    Quaest 17-20/10: Cury f 0,330 l 0,480 n 0,190; Renan f 0,510 l 0,250 n 0,240; Caiado f 0,570 l 0,210 n 0,220
+    AtlasIntel 13-18/10: Cury f 0,424 l 0,521 n 0,055; Renan f 0,335 l 0,319 n 0,346; Caiado f 0,698 l 0,245 n 0,057
+    Ipespe 13-15/10: Cury f 0,500 l 0,310 n 0,190; Renan f 0,400 l 0,200 n 0,400; Caiado f 0,590 l 0,180 n 0,230
+    Nexus 10-12/10: Caiado f 0,550 l 0,270 n 0,180; Zema f 0,800 l 0,120 n 0,080
+    Mediana por grupo: Cury f 0,462 l 0,395 n 0,160 (4 inst.); Renan f 0,415 l 0,284 n 0,293 (4 inst.); Caiado f 0,570 l 0,245 n 0,220 (5 inst.); Zema f 0,800 l 0,120 n 0,080 (1 inst.).
+  Medidas do registro: l = 0,309, f = 0,491; dL = +0,231 (z 140), dF = -0,032 (z -19).
+  Pelos limiares: |dF| <= 0,07 e dL >= 0,15 a mais de 2,5 ep, isto é, "padrão da forma A" (igual lendo os 2,5 ep a partir do limiar: "padrão da forma A").
+  Com a Ideia (rodada não confirmada): dL +0,199, dF -0,018, "padrão da forma A". Só o PoderData de 23-24/10 (única última rodada com
+  cruzamento; sem Zema): dL +0,242, dF -0,046, "padrão da forma A".
+  Por que o padrão não se interpreta: como b_L + b_F = 1 na urna, dL + dF = 1 - l - f = 0,199, a fatia que os eleitores dos
+  eliminados declararam para nenhum dos dois. Com b_F perto de f, dL fica perto desse "nenhum", acima de 0,15, haja ou não conversão.
+  O registro supunha que a urna mostraria o "nenhum"; ela não mostra (Adendo 17). Veredito: INCONCLUSIVO.
+  Comparação post hoc (Adendo 17; feita depois de ver b_F na amostra): fatia de Lula entre os que escolheram um finalista, mesmos grupos.
+    PoderData 23-24/10 (Cury, Renan, Caiado): declarado 38,0%, urna 54,7%
+    Quaest 17-20/10 (Cury, Renan, Caiado): declarado 41,9%, urna 54,7%
+    AtlasIntel 13-18/10 (Cury, Renan, Caiado): declarado 44,0%, urna 54,7%
+    Ipespe 13-15/10 (Cury, Renan, Caiado): declarado 32,4%, urna 54,7%
+    Nexus 10-12/10 (Caiado, Zema): declarado 30,5%, urna 47,4%
+    Ideia (rodada não confirmada) (Cury): declarado 57,1%, urna 59,6%
+    Datafolha 13-14/10 (agregado dos quatro): declarado 37,0%, urna 54,1%
+    A urna fica de 10,7 (AtlasIntel) a 22,4 pontos (Ipespe) acima dos institutos confirmados; só a Ideia, com rodada não
+    confirmada e só Cury, fica perto (57,1% contra 59,6%). Com cerca de 7,1 milhões de eleitores dos eliminados
+    escolhendo um finalista (9,06 milhões menos o "nenhum" declarado de 0,21), cada 10 pontos são cerca de 0,7 milhão de votos para Lula.
+    É regressão ecológica (inclui a troca de eleitores entre os turnos) contra subamostras pequenas e instáveis das pesquisas; o mesmo
+    desenho aparece se houve voto escondido ou decisão tardia nesse grupo. Por grupo, a ordem da urna e das pesquisas é a mesma (Cury
+    mais Lula, Zema mais Flávio).
+
+4. T38, pontos ganhos entre turnos por UF e por município (descritivo), agora somando as seções do bweb nos dois turnos
+  UFs (27 e exterior): Flávio ganhou mais votos que Lula em 0 e mais pontos em 0. Flávio perdeu votos em AC -15.092, AP -13.604, RR -11.647, MA -9.069, AM -1.519, TO -1.405.
+  UF | ganho Lula | ganho Flávio | pontos Lula | pontos Flávio | Flávio - Lula | eliminados % dos válidos do 1º turno (Caiado, Renan, Cury, Zema)
+  RO | +43.779 | +21.394 | +4,50 | +2,15 | -2,34 | 6,5 (1,7, 2,0, 2,6, 0,1)
+  AC | +9.743 | -15.092 | +4,70 | +2,01 | -2,69 | 6,5 (1,8, 1,7, 2,9, 0,1)
+  SC | +291.146 | +220.051 | +5,53 | +2,77 | -2,77 | 8,1 (1,8, 3,0, 3,0, 0,4)
+  GO | +396.675 | +293.446 | +9,28 | +6,06 | -3,22 | 15,2 (12,3, 1,4, 1,4, 0,1)
+  RR | +9.085 | -11.647 | +4,68 | +1,40 | -3,28 | 5,9 (1,1, 2,0, 2,6, 0,1)
+  PR | +511.907 | +346.099 | +6,22 | +2,66 | -3,56 | 8,7 (2,6, 2,7, 3,1, 0,3)
+  ZZ | +42.767 | +27.597 | +6,29 | +2,65 | -3,63 | 8,0 (1,4, 2,6, 2,9, 1,0)
+  MT | +112.486 | +52.518 | +4,76 | +0,91 | -3,85 | 5,5 (1,7, 1,7, 2,0, 0,1)
+  RS | +529.793 | +300.595 | +6,44 | +2,20 | -4,24 | 8,4 (2,5, 2,6, 3,0, 0,3)
+  TO | +38.953 | -1.405 | +5,21 | +0,93 | -4,28 | 6,0 (2,2, 1,4, 2,4, 0,1)
+  ES | +151.937 | +61.310 | +5,87 | +1,59 | -4,28 | 7,3 (1,7, 2,4, 2,9, 0,3)
+  PA | +263.212 | +35.983 | +5,10 | +0,49 | -4,62 | 5,4 (1,1, 1,7, 2,6, 0,1)
+  DF | +149.597 | +69.926 | +7,61 | +2,97 | -4,65 | 10,3 (4,8, 2,6, 2,6, 0,3)
+  MS | +112.118 | +54.541 | +5,72 | +1,00 | -4,72 | 6,5 (1,6, 2,1, 2,6, 0,2)
+  AM | +98.787 | -1.519 | +5,79 | +0,98 | -4,80 | 6,6 (1,3, 1,6, 3,6, 0,1)
+  PI | +130.279 | +8.831 | +4,89 | +0,04 | -4,85 | 4,8 (1,0, 1,5, 2,2, 0,1)
+  BA | +820.487 | +166.176 | +5,14 | +0,15 | -4,99 | 5,2 (1,4, 1,4, 2,3, 0,1)
+  AP | +10.465 | -13.604 | +7,17 | +1,45 | -5,71 | 8,4 (1,8, 2,4, 4,1, 0,1)
+  MG | +1.162.163 | +464.238 | +7,11 | +1,32 | -5,78 | 8,2 (1,9, 2,1, 3,4, 0,8)
+  CE | +480.861 | +62.628 | +5,64 | -0,20 | -5,84 | 5,3 (0,8, 1,9, 2,5, 0,1)
+  PE | +563.542 | +94.511 | +5,75 | -0,23 | -5,98 | 5,4 (1,3, 1,5, 2,5, 0,1)
+  MA | +241.930 | -9.069 | +5,55 | -0,44 | -5,99 | 5,0 (1,3, 1,5, 2,1, 0,1)
+  SP | +2.613.861 | +1.217.155 | +7,95 | +1,91 | -6,04 | 9,5 (2,3, 3,2, 3,6, 0,4)
+  RN | +175.633 | +16.916 | +5,97 | -0,49 | -6,46 | 5,3 (0,8, 1,7, 2,8, 0,1)
+  PB | +252.932 | +33.833 | +6,16 | -0,54 | -6,69 | 5,5 (0,8, 1,7, 2,9, 0,1)
+  SE | +133.022 | +15.515 | +6,78 | -0,16 | -6,95 | 6,5 (2,0, 1,6, 2,9, 0,1)
+  AL | +157.162 | +8.422 | +6,04 | -1,22 | -7,26 | 4,7 (0,8, 1,5, 2,3, 0,1)
+  RJ | +872.372 | +202.189 | +7,48 | +0,09 | -7,39 | 7,3 (2,1, 2,3, 2,6, 0,2)
+  Correlação entre UFs (sem o exterior) de Flávio - Lula com a fatia dos eliminados: +0,30.
+  Municípios (5.571): Lula ganhou mais votos em 5.228, Flávio em 339 (6,1%), 4 empates;
+  Flávio ganhou mais pontos em 182; saldo de Flávio nas 339 cidades em que ganhou mais votos: +25.300.
+  Viraram de Flávio para Lula: 211; de Lula para Flávio: 1 (GO UIRAPURU).
+  Os números são os mesmos do T38 feito com os totais oficiais por município (resultados/T38_municipios.txt).
+  Corte por força dos eliminados (fatia de Caiado, Renan, Cury e Zema nos válidos do 1º turno do município; faixas escolhidas aqui):
+    faixa (%) | cidades | média Flávio - Lula (pontos) | média ponderada pelos válidos | % com Flávio mais pontos
+    0-4       |    1127 |  -4,25 |  -4,35 | 2,0
+    4-6       |    2071 |  -4,56 |  -5,09 | 1,4
+    6-8       |    1349 |  -4,33 |  -5,89 | 3,6
+    8-10      |     623 |  -4,54 |  -5,25 | 4,8
+    10-15     |     300 |  -3,89 |  -5,52 | 11,0
+    15-100    |     101 |  -2,23 |  -2,45 | 18,8
+    quintis: Q1 (1,2 a 4,0): -4,24, 2,1%; Q2 (4,0 a 4,9): -4,67, 0,8%; Q3 (4,9 a 6,2): -4,44, 2,1%; Q4 (6,2 a 7,8): -4,35, 3,7%; Q5 (7,8 a 33,1): -4,10, 7,7%.
+    Cidades com 15% ou mais: GO 100, SP 1.
+    Correlação +0,10; inclinação +0,080 ponto por ponto (ep agrupado por UF 0,089); ponderada pelos válidos -0,003 (0,112).
+    Regressão múltipla, por ponto de fatia no 1º turno (ep agrupado por UF): Cury -0,448 (0,141), Renan -0,263 (0,251), Caiado +0,078 (0,035), Zema -0,315 (0,407), Flávio +0,043 (0,013).
+    Leitura: a virada para Lula foi quase igual nas faixas até 15% (de -3,9 a -4,6 pontos); nas 101 cidades com 15% ou mais
+    (100 em Goiás, terra de Caiado), -2,2: ali Flávio foi relativamente melhor. Onde Cury era forte, Lula foi relativamente
+    melhor, o que combina com a urna (b_L de Cury 0,60) e com parte das pesquisas (Quaest, AtlasIntel e Ideia davam Cury mais Lula).
+
+Escolhas e desvios do registro
+  - Ordem: o bweb de 2026 já tinha sido aberto por outros testes antes deste script. O coeficiente nacional do T14 já tinha aparecido
+    (0,039 sem grupos em resultados/T8_2026_bweb_L.json; 0,0402 com grupos e sem o exterior em resultados/T16_bweb.txt). O T7, o T37 e o
+    corte do T38 por força dos eliminados não tinham sido calculados com o bweb.
+  - T14: principal com os eliminados separados, porque o T8 de 2026 foi registrado assim (Adendo 3) e porque foi a versão relatada na
+    amostra (0,0507). As referências de 2018 e 2022 só têm os outros somados; a versão agregada sai ao lado e dá o mesmo veredito.
+  - Exterior incluído no T7 e no T14, como na amostra, nas referências e no T8 já rodado; sem o exterior, os vereditos não mudam.
+  - T7: votos do candidato 28 (candidatura anulada) contados entre os outros do 1º turno, como em analisar_fluxos.py e na amostra; são
+    5.246 votos em 5.145 seções e não mexem no resultado. O erro-padrão do T7 não estava no registro.
+  - Adendo 4: a tabela foi refeita pelo valor esperado da troca (s vezes os votos do adversário), que reproduz a tabela registrada; com
+    sorteio binomial os valores de (a) ficam 1 a 2 pontos menores. A troca equivalente de 2026 é interpolação descritiva.
+  - T37, declarado: "a última pesquisa de cada instituto que publicar esse cruzamento" lido como a última rodada de cada instituto, antes
+    de 25/10, que publicou o cruzamento por candidato eliminado: PoderData 23-24/10, Quaest 17-20/10, AtlasIntel 13-18/10, Ipespe 13-15/10
+    e Nexus 10-12/10. A Ideia (rodada não confirmada pelo verificador) sai da principal e entra numa variante. O Datafolha só publicou o
+    agregado dos quatro e não entra na mediana por grupo. Zema só aparece separado na Nexus (e no PoderData de 5-7/10, que não é a última
+    rodada do instituto). Grupo sem dado sai da soma, com os pesos renormalizados. A pesquisa entra como fixa, como o registro diz.
+  - T37: "a mais de 2,5 erros-padrão" lido a partir de zero; a leitura a partir do limiar dá o mesmo.
+  - T37, veredito: os limiares do Adendo 16 dão "padrão da forma A", mas o Adendo 17 (registrado em 27/10, antes do bweb) diz que a
+    medida não se interpreta e que o veredito pela letra é inconclusivo. Fica INCONCLUSIVO, com o resultado mecânico relatado acima.
+  - Seções: o T7, o T14 e o T37 usam as 499.205 seções com os dois turnos na base; ficam fora uma seção do exterior só com 1º turno
+    (ZZ|30686|1|443, 2 votantes) e a seção do exterior sem votante que a base não tem (T15). No T38 cada turno soma todas as suas seções.
+  - T38: 2º turno somado das seções do bweb (antes vinha dos totais oficiais por município; dão o mesmo). Município só no Brasil (o
+    exterior entra como linha ZZ na tabela por UF). As faixas do corte por força dos eliminados não estavam no registro.
+
+Veredito pela letra: T7 INCONCLUSIVO; T14 SEM SINAL; T37 INCONCLUSIVO; T38 DESCRITIVO.

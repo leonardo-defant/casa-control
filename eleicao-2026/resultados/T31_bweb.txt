@@ -1,0 +1,156 @@
+T31. Seções votadas em cédula (Adendo 9), com o bweb completo do 2º turno de 2026
+Script: scripts/analisar_T31.py. Números completos: resultados/T31_bweb.json.
+Rodado em 2026-10-29 com o bweb do 2º turno (zips de 26/10, 07h42, hash conferido antes), a base por seção
+dos dois turnos de 2026 (secoes2026.json.gz), os zips do 1º turno do exterior e de MG e a base de 2022 (secoes2022.json.gz).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 9, antes dos dados):
+- Seções do 2º turno de 2026 e de 2022 apuradas pela junta por cédula. Para cada uma, variação da fatia de Lula menos a média
+  das outras seções do local (ou município). Estimativa conjunta com intervalo e efeito mínimo detectável calculado antes.
+- Sinal: efeito de -1,8 ponto ou menos a mais de 2,5 erros-padrão, com 30 seções ou mais. Sem sinal: entre -0,7 e +0,7 com
+  efeito mínimo detectável até 1,8. Acima de 1,8, sem poder.
+
+VEREDITO PELA LETRA: SEM PODER
+Motivo: nenhuma seção de cédula com seção de comparação no local ou no município; EMD indefinido.
+
+Resumo
+- No 2º turno de 2026 nenhuma seção das 27 UFs teve boletim de junta: as 29 seções apuradas por junta estão todas no
+  exterior (29 em ZZ). Delas, 27 têm voto nos dois finalistas nos dois turnos e
+  0 têm outra seção no mesmo local ou na mesma cidade para comparar: cada uma é a única seção da sua cidade.
+  A comparação registrada não existe para nenhuma seção de cédula de 2026; não há efeito estimado e o efeito mínimo detectável
+  é indefinido. O registro pede 30 seções ou mais para sinal e efeito mínimo detectável até 1,8 para sem sinal; nenhuma das
+  duas pernas pode ser cumprida.
+- Referência de 2022: 44 seções do 2º turno com boletim de junta pela marca (sem abertura e sem encerramento),
+  14 com comparação. Efeito -1,28 ponto (ep 0,94), efeito mínimo detectável calculado antes
+  1,80: pela mesma letra, 2022 daria INCONCLUSIVO (e com 14 seções, abaixo das 30 que o sinal pede).
+- Fora do registro (descritivo, sem peso no veredito): no exterior, a variação da fatia de Lula nas 27 seções de cédula de 2026
+  ficou -2,52 ponto em relação à das seções de urna do exterior (ep 1,76); em 2022, +2,46 (ep 1,27).
+  Diferença entre os anos -4,98 (ep 2,17, z -2,30). Contra as seções de urna do exterior com até 100 votos, a
+  diferença de 2026 cai para -1,22 (ep 2,00). Comparação escolhida depois de ver que o
+  registro não tinha comparação, entre comunidades diferentes, com efeito mínimo detectável de 4,93 pontos (item 6).
+
+1. Identificação das seções de cédula
+- 2026, 2º turno: campo NR_JUNTA_APURADORA do bweb, lido nos 28 arquivos (499.207 seções com linha de presidente ou
+  de seção sem voto). Seções com boletim de junta: 29, todas no exterior. Tipo de urna no bweb: {'Apurada': 499207}
+  (o bweb de 2026 não marca a cédula pelo tipo de urna). Todas as de junta são da junta 1, turma 1, e o boletim saiu de duas
+  urnas da junta ({'1808076': 20, '1762246': 9}), com emissão entre 2026-10-25 17:09:52 e 2026-10-25 19:16:45.
+  Com comparecimento zero: 2 (ZZ|29564|1|91, ZZ|30686|1|443).
+- A marca usada em 2022 (boletim sem hora de abertura e sem hora de encerramento) coincide com o campo de junta em 2026, seção a
+  seção: 2º turno, 29 sem as duas horas contra 29 de junta, coincidem: sim.
+  1º turno, MG: 2 de junta e 2 sem as duas horas, coincidem: sim (52.062 seções com presidente no arquivo; urnas da junta 2254078, 2458923).
+  1º turno, ZZ: 28 de junta e 28 sem as duas horas, coincidem: sim (1.309 seções com presidente no arquivo; urnas da junta 1808076).
+  Na base de 2026, as seções sem as duas horas no 1º turno são 30: 28 do exterior e MG|41238|39|168, MG|50075|47|41.
+  As de MG tiveram boletim de junta no 1º turno sem que houvesse votação em cédula no Brasil, segundo o TSE: boletim de junta no
+  Brasil pode ser recuperação de dados de urna, não cédula.
+- 2022, 2º turno, pela marca: 44 seções ({'ZZ': 34, 'PE': 1, 'PA': 4, 'BA': 1, 'RS': 1, 'SC': 1, 'GO': 1, 'DF': 1}); 30 delas também no 1º turno.
+  O campo de junta não está na base de 2022, e o bweb de 2022 não está nos arquivos locais. Não há campo público nesses arquivos
+  que separe a votação em cédula da recuperação de dados pela junta; as 10 seções do Brasil e as 4 do exterior
+  com mais de 300 aptos (ZZ|30635|1|1231, ZZ|30805|1|1693, ZZ|30902|1|3134, ZZ|39063|1|3030) podem ser urna que falhou e foi apurada pela junta, não votação toda em cédula.
+  As outras 30 do exterior são seções pequenas, como as de 2026.
+
+2. Quantas entram na estimativa
+- 2026: 29 seções de junta no 2º turno; 27 com voto nos dois finalistas nos dois turnos; 27 sem nenhuma outra seção no local nem no município; utilizáveis: 0 {}.
+  Sem fatia nos dois turnos ou sem 1º turno: ZZ|29564|1|91, ZZ|30686|1|443.
+- 2022: 44 seções de junta no 2º turno; 43 com voto nos dois finalistas nos dois turnos; 29 sem nenhuma outra seção no local nem no município; utilizáveis: 14 {'municipio': 1, 'local': 13}.
+  Sem fatia nos dois turnos ou sem 1º turno: ZZ|29564|1|91.
+
+3. Efeito mínimo detectável, calculado antes da estimativa
+- Só com as seções de urna (placebo) e o tamanho das seções de cédula: variância de d (variação menos a média das outras do
+  local ou município) nas seções de urna da mesma faixa de votos nos finalistas e do mesmo território; EMD = 2,8 erros-padrão.
+- 2026: indefinido (nenhuma seção utilizável).
+- 2022: N = 14, erro-padrão antes 0,64, EMD 1,80 ponto.
+  O EMD de 2022 usa faixas com menos de 30 seções de urna no placebo: ZZ|51-100 (1 de cédula, 5 de urna). O número fica no limite de 1,8 e não é estável.
+- Desvio-padrão de d nas seções de urna de 2026, por faixa de votos nos finalistas no 2º turno (para escala):
+  exterior: 26-50: 5,9 (n 3); 51-100: 7,1 (n 12); 101-200: 3,5 (n 195); 201-400: 2,3 (n 839); 401 ou mais: 1,7 (n 184)
+  Brasil: 1-10: 2,2 (n 4); 11-25: 10,5 (n 107); 26-50: 5,2 (n 596); 51-100: 4,0 (n 4.760); 101-200: 2,6 (n 79.949); 201-400: 2,0 (n 412.331); 401 ou mais: 1,7 (n 150)
+  No Brasil, uma seção de 26 a 50 votos tem desvio de d de 5,2 pontos; 30 seções de cédula desse tamanho (o das de 2026)
+  dariam EMD de cerca de 2,7 pontos, acima de 1,8, mesmo que tivessem com o que comparar.
+
+4. Estimativa conjunta
+- 2026: sem estimativa (nenhuma seção utilizável).
+- 2022: efeito -1,28 ponto, ep agrupado por município 0,94 (11 municípios; sem agrupar 0,94), z -1,36, IC95 -3,38 a +0,82; N = 14.
+    robustez, comparação só com seções de urna: -0,22 (ep 1,50, N 14)
+    robustez, outras ponderadas por votos: -1,24 (ep 0,85, N 14)
+    robustez, média ponderada pelos votos da seção: -0,59 (ep 0,57, N 14)
+    placebo (20.000 sorteios de seções de urna da mesma faixa e território): média +0,04, dp 0,63; p unilateral inferior 0,020, p bilateral 0,036
+    média de d no placebo da mesma faixa +0,03; efeito descontado -1,31
+    so exterior: -3,99 (ep 2,46, N 4, EMD antes 3,15)
+    so brasil: -0,20 (ep 0,55, N 10, EMD antes 2,18)
+- 2026 e 2022 juntos (robustez): N = 14, efeito -1,28 (ep 0,94), EMD antes 1,80. Só as seções de 2022 entram.
+- Na leitura literal, 4 seções de 2022 têm outras seções de junta entre as de comparação (PA|4898|99|17, PA|4898|99|18, PA|4898|99|19, PA|4898|99|55);
+  quando todas as outras do local são de junta, a seção é comparada só com cédula. A robustez "só com seções de urna" trata isso.
+- Seções de 2022 na estimativa (variação da fatia de Lula; média das outras; d):
+    BA|37877|105|83: 1T 63/9, 2T 78/15; variação -3,63; outras (municipio, 70, 0 de junta) -1,06; d -2,57
+    DF|97012|9|11: 1T 131/167, 2T 153/186; variação +1,17; outras (local, 4, 0 de junta) -0,92; d +2,09
+    GO|92886|26|131: 1T 82/173, 2T 102/199; variação +1,73; outras (local, 6, 0 de junta) -0,90; d +2,63
+    PA|4898|99|17: 1T 79/123, 2T 76/96; variação +5,08; outras (local, 3, 3 de junta) +2,76; d +2,32
+    PA|4898|99|18: 1T 86/122, 2T 75/103; variação +0,79; outras (local, 3, 3 de junta) +4,19; d -3,40
+    PA|4898|99|19: 1T 82/148, 2T 68/100; variação +4,82; outras (local, 3, 3 de junta) +2,84; d +1,98
+    PA|4898|99|55: 1T 98/88, 2T 88/71; variação +2,66; outras (local, 3, 3 de junta) +3,56; d -0,91
+    PE|26212|75|135: 1T 172/29, 2T 164/35; variação -3,16; outras (local, 8, 0 de junta) -1,28; d -1,88
+    RS|89192|54|13: 1T 115/101, 2T 114/123; variação -5,14; outras (local, 5, 0 de junta) -4,91; d -0,23
+    SC|83011|46|22: 1T 69/214, 2T 63/250; variação -4,25; outras (local, 11, 0 de junta) -2,26; d -2,00
+    ZZ|30635|1|1231: 1T 135/158, 2T 146/190; variação -2,62; outras (local, 21, 0 de junta) -1,65; d -0,97
+    ZZ|30805|1|1693: 1T 36/13, 2T 36/32; variação -20,53; outras (local, 3, 0 de junta) -9,42; d -11,11
+    ZZ|39063|1|3030: 1T 218/178, 2T 262/197; variação +2,03; outras (local, 2, 0 de junta) +2,53; d -0,50
+    ZZ|30902|1|3134: 1T 135/97, 2T 135/103; variação -1,47; outras (local, 5, 0 de junta) +1,92; d -3,39
+
+5. Leitura de cada perna do critério (2º turno de 2026)
+- Sinal (efeito <= -1,8 a mais de 2,5 ep, com 30 seções ou mais): não pode ser cumprido; seções utilizáveis 0.
+- Sem sinal (efeito entre -0,7 e +0,7 com EMD até 1,8): não pode ser cumprido; sem efeito estimado e EMD indefinido.
+- Sem poder (EMD acima de 1,8): sim. Veredito: SEM PODER.
+
+6. Descritivo fora do registro (sem peso no veredito): exterior, cédula contra urna
+- As seções de cédula do exterior são cidades pequenas com uma seção só. A comparação que sobra é com todas as seções de urna do
+  exterior. Não é o desenho registrado: compara cidades e países diferentes. As de cédula de 2026 são comunidades pequenas:
+  ABIDJÃ, ACCRA, ANCARA, ARGEL, BAREIN, BISSAU, CIUDAD GUAYANA, CONCEPCIÓN, DAR ES SALAAM, DÍLI, HANÓI, HAVANA, KATMANDU, KIEV, LAGOS, MASCATE, MOSCOU, MUMBAI, NASSAU, PASO LOS LIBRES, PORT OF SPAIN, PORTO PRÍNCIPE, PUERTO IGUAZÚ, RIO BRANCO, SÓFIA, TEERÃ, TRÍPOLI, TUNIS, WINDHOEK.
+  As de urna são as das comunidades com urna, em geral maiores (tamanho mediano abaixo). Comparação escolhida depois de ver que o
+  registro não tinha comparação; a versão de 2022 só com seções de até 300 aptos sai ao lado porque as 4 grandes de 2022 podem não ser cédula.
+- todas as seções de junta:
+    2026: 27 de cédula (798 votos nos finalistas no 2º turno; mediana 26 por seção) e 1.281 de urna (mediana 287; 37 com até 100 votos).
+      variação média por seção: cédula -0,79 (ep 1,76), urna +1,73 (ep 0,08); diferença -2,52 (ep 1,76; EMD com esse ep 4,93)
+      fatia somada de Lula: cédula 1T 55,7, 2T 55,8 (variação +0,1); urna 1T 52,2, 2T 53,9 (variação +1,6)
+      controle de tamanho: seções de urna do exterior com até 100 votos, variação média +0,43 (ep 0,96, 37 seções); cédula menos essas -1,22 (ep 2,00)
+    2022: 33 de cédula (1.918 votos nos finalistas no 2º turno; mediana 31 por seção) e 981 de urna (mediana 293; 29 com até 100 votos).
+      variação média por seção: cédula +1,24 (ep 1,26), urna -1,22 (ep 0,08); diferença +2,46 (ep 1,27; EMD com esse ep 3,55)
+      fatia somada de Lula: cédula 1T 52,4, 2T 52,9 (variação +0,5); urna 1T 53,1, 2T 51,3 (variação -1,8)
+      controle de tamanho: seções de urna do exterior com até 100 votos, variação média -0,91 (ep 0,99, 29 seções); cédula menos essas +2,15 (ep 1,61)
+    2026 menos 2022: -4,98 (ep 2,17, z -2,30); cidades de cédula em comum entre os anos: 23.
+- só as de junta com até 300 aptos:
+    2026: 27 de cédula (798 votos nos finalistas no 2º turno; mediana 26 por seção) e 1.281 de urna (mediana 287; 37 com até 100 votos).
+      variação média por seção: cédula -0,79 (ep 1,76), urna +1,73 (ep 0,08); diferença -2,52 (ep 1,76; EMD com esse ep 4,93)
+      fatia somada de Lula: cédula 1T 55,7, 2T 55,8 (variação +0,1); urna 1T 52,2, 2T 53,9 (variação +1,6)
+      controle de tamanho: seções de urna do exterior com até 100 votos, variação média +0,43 (ep 0,96, 37 seções); cédula menos essas -1,22 (ep 2,00)
+    2022: 29 de cédula (817 votos nos finalistas no 2º turno; mediana 25 por seção) e 981 de urna (mediana 293; 29 com até 100 votos).
+      variação média por seção: cédula +2,19 (ep 1,20), urna -1,22 (ep 0,08); diferença +3,41 (ep 1,20; EMD com esse ep 3,36)
+      fatia somada de Lula: cédula 1T 50,3, 2T 53,2 (variação +2,9); urna 1T 53,1, 2T 51,3 (variação -1,8)
+      controle de tamanho: seções de urna do exterior com até 100 votos, variação média -0,91 (ep 0,99, 29 seções); cédula menos essas +3,10 (ep 1,56)
+    2026 menos 2022: -5,93 (ep 2,13, z -2,78); cidades de cédula em comum entre os anos: 23.
+- Leitura: em 2026 a variação da fatia de Lula nas seções de cédula do exterior foi menor que nas de urna do exterior (-2,52, z -1,43); em 2022, maior (+2,46, z 1,94).
+  Um ganho menor de Lula na cédula é o sentido que a tese preveria. Isso não é resultado do T31: a comparação foi escolhida
+  depois, junta grupos de eleitores diferentes, as seções de cédula somam 798 votos nos finalistas em 2026,
+  o efeito mínimo detectável desta leitura é de 4,93 pontos em 2026 (acima de 1,8) e a diferença entre os anos
+  só isola a urna se as comunidades pequenas e as grandes mudarem igual nos dois anos, o que nada garante (em 2022 os eliminados
+  do 1º turno eram Ciro e Tebet; em 2026, Renan, Caiado, Zema e Cury).
+
+7. Escolhas de leitura e desvios do registro
+- "Apuradas pela junta por cédula": em 2026, boletim com NR_JUNTA_APURADORA diferente de -1. O bweb não separa cédula de
+  recuperação de dados pela junta; toda seção de junta entrou. Em 2026 todas são do exterior, onde a votação em cédula das
+  seções pequenas estava prevista. Desvio de leitura.
+- 2022: o campo de junta não está na base nem nos arquivos locais; marca usada: boletim do 2º turno sem hora de abertura e de
+  encerramento, conferida contra o campo em 2026 (coincide seção a seção). Desvio de dado: a marca não é o campo do registro.
+- "Variação da fatia de Lula": fatia entre os dois finalistas, 2º menos 1º turno, em pontos, como no T17.
+- "Outras seções do local (ou município)": leitura literal, todas as outras (inclusive outras de junta), local primeiro, município
+  se o local não tiver outra; seção sem nenhuma das duas fica fora. Média simples. Só com seções de urna sai como robustez.
+- "Estimativa conjunta": média simples de d por ano, erro-padrão agrupado por município, IC95 com t. 2026 e 2022 juntos sai como
+  robustez. O veredito é o do 2º turno de 2026; 2022 recebe a mesma leitura, como referência.
+- "Efeito mínimo detectável calculado antes": 2,8 erros-padrão (convenção do T17), com o erro-padrão tirado das seções de urna da
+  mesma faixa de votos e território, sem usar a variação das seções de cédula. Com zero seções utilizáveis, indefinido.
+- Com zero seções utilizáveis em 2026, o veredito SEM PODER vem da perna "acima de 1,8, sem poder" lida com EMD indefinido.
+  Não é SEM DADO: o dado existe (o bweb identifica as seções de junta); o que falta é seção de comparação no local ou na cidade.
+- O descritivo do item 6 não estava registrado e não entra no veredito.
+
+8. Limites
+- No Brasil, nenhuma seção votou em cédula no 2º turno de 2026, então o T31 não tem como servir de contraprova física da urna
+  no Brasil. As 27 seções de cédula do exterior com fatia somam 798 votos nos finalistas no 2º turno;
+  28 das 29 de junta do 2º turno também tiveram boletim de junta no 1º turno (campo do bweb do 1º turno).
+- Uma troca feita pelo programa só no Brasil, ou só em urnas que votaram, não seria vista nestas seções de qualquer forma.

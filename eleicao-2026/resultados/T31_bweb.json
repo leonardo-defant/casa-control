@@ -1,0 +1,1580 @@
+{
+ "teste": "T31",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 9",
+ "rodado_em": "2026-10-29T02:08:29Z",
+ "identificacao": {
+  "2026_2T_secoes_no_bweb": 499207,
+  "2026_2T_junta": 29,
+  "2026_2T_junta_por_UF": {
+   "ZZ": 29
+  },
+  "2026_2T_sem_abertura_e_encerramento": 29,
+  "2026_2T_marca_coincide_com_junta": true,
+  "2026_2T_secoes_com_campos_diferentes_entre_linhas": 0,
+  "2026_2T_tipo_de_urna": {
+   "Apurada": 499207
+  },
+  "2026_2T_junta_detalhe": [
+   {
+    "secao": "ZZ|29173|1|494",
+    "cidade": "KATMANDU",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:35:23",
+    "tipo": "Apurada",
+    "aptos": 32,
+    "comparecimento": 13,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29254|1|1",
+    "cidade": "ABIDJÃ",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:32:31",
+    "tipo": "Apurada",
+    "aptos": 91,
+    "comparecimento": 53,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29270|1|3",
+    "cidade": "ACCRA",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:08:08",
+    "tipo": "Apurada",
+    "aptos": 43,
+    "comparecimento": 14,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29297|1|495",
+    "cidade": "ANCARA",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:09:52",
+    "tipo": "Apurada",
+    "aptos": 77,
+    "comparecimento": 39,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29300|1|6",
+    "cidade": "ARGEL",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:25:57",
+    "tipo": "Apurada",
+    "aptos": 48,
+    "comparecimento": 29,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29394|1|28",
+    "cidade": "BISSAU",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:52:59",
+    "tipo": "Apurada",
+    "aptos": 88,
+    "comparecimento": 41,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29564|1|91",
+    "cidade": "CIUDAD GUAYANA",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 19:16:45",
+    "tipo": "Apurada",
+    "aptos": 72,
+    "comparecimento": 0,
+    "sem_votos": true
+   },
+   {
+    "secao": "ZZ|29580|1|96",
+    "cidade": "CONCEPCIÓN",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:22:47",
+    "tipo": "Apurada",
+    "aptos": 78,
+    "comparecimento": 31,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29645|1|380",
+    "cidade": "DÍLI",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:17:32",
+    "tipo": "Apurada",
+    "aptos": 89,
+    "comparecimento": 52,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29750|1|1703",
+    "cidade": "HANÓI",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 18:14:24",
+    "tipo": "Apurada",
+    "aptos": 82,
+    "comparecimento": 34,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29777|1|127",
+    "cidade": "HAVANA",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:56:03",
+    "tipo": "Apurada",
+    "aptos": 92,
+    "comparecimento": 45,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29858|1|1183",
+    "cidade": "KIEV",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:59:36",
+    "tipo": "Apurada",
+    "aptos": 65,
+    "comparecimento": 21,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|29912|1|150",
+    "cidade": "LAGOS",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:53:46",
+    "tipo": "Apurada",
+    "aptos": 82,
+    "comparecimento": 37,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30163|1|647",
+    "cidade": "MOSCOU",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 18:04:50",
+    "tipo": "Apurada",
+    "aptos": 252,
+    "comparecimento": 97,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30171|1|1340",
+    "cidade": "MUMBAI",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 18:09:53",
+    "tipo": "Apurada",
+    "aptos": 55,
+    "comparecimento": 10,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30295|1|348",
+    "cidade": "PASO LOS LIBRES",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:34:43",
+    "tipo": "Apurada",
+    "aptos": 41,
+    "comparecimento": 7,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30325|1|352",
+    "cidade": "PORT OF SPAIN",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:51:08",
+    "tipo": "Apurada",
+    "aptos": 88,
+    "comparecimento": 24,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30333|1|353",
+    "cidade": "PORTO PRÍNCIPE",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 19:00:13",
+    "tipo": "Apurada",
+    "aptos": 33,
+    "comparecimento": 8,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30430|1|384",
+    "cidade": "RIO BRANCO",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:44:56",
+    "tipo": "Apurada",
+    "aptos": 58,
+    "comparecimento": 23,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30546|1|1764",
+    "cidade": "SÓFIA",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:03:14",
+    "tipo": "Apurada",
+    "aptos": 98,
+    "comparecimento": 55,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30597|1|1182",
+    "cidade": "TEERÃ",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:41:53",
+    "tipo": "Apurada",
+    "aptos": 45,
+    "comparecimento": 28,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30686|1|443",
+    "cidade": "TRÍPOLI",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:39:17",
+    "tipo": "Apurada",
+    "aptos": 30,
+    "comparecimento": 0,
+    "sem_votos": true
+   },
+   {
+    "secao": "ZZ|30708|1|444",
+    "cidade": "TUNIS",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:47:59",
+    "tipo": "Apurada",
+    "aptos": 47,
+    "comparecimento": 23,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|30821|1|1524",
+    "cidade": "WINDHOEK",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1762246",
+    "emissao_bu": "2026-10-25 17:42:33",
+    "tipo": "Apurada",
+    "aptos": 37,
+    "comparecimento": 12,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|38962|1|558",
+    "cidade": "DAR ES SALAAM",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:49:19",
+    "tipo": "Apurada",
+    "aptos": 34,
+    "comparecimento": 17,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|39102|1|712",
+    "cidade": "MASCATE",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:58:09",
+    "tipo": "Apurada",
+    "aptos": 97,
+    "comparecimento": 34,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|99155|1|1504",
+    "cidade": "PUERTO IGUAZÚ",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 19:05:18",
+    "tipo": "Apurada",
+    "aptos": 62,
+    "comparecimento": 20,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|99180|1|1228",
+    "cidade": "NASSAU",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 18:29:33",
+    "tipo": "Apurada",
+    "aptos": 69,
+    "comparecimento": 22,
+    "sem_votos": false
+   },
+   {
+    "secao": "ZZ|99473|1|1327",
+    "cidade": "BAREIN",
+    "junta": "1",
+    "turma": "1",
+    "urna": "1808076",
+    "emissao_bu": "2026-10-25 17:30:15",
+    "tipo": "Apurada",
+    "aptos": 69,
+    "comparecimento": 42,
+    "sem_votos": false
+   }
+  ],
+  "2026_1T_exterior_e_MG": {
+   "MG": {
+    "secoes_com_presidente": 52062,
+    "linhas": 6339455,
+    "junta": [
+     "MG|41238|39|168",
+     "MG|50075|47|41"
+    ],
+    "sem_abertura_e_encerramento": [
+     "MG|41238|39|168",
+     "MG|50075|47|41"
+    ],
+    "coincidem": true,
+    "urnas_junta": [
+     "2254078",
+     "2458923"
+    ]
+   },
+   "ZZ": {
+    "secoes_com_presidente": 1309,
+    "linhas": 12035,
+    "junta": [
+     "ZZ|29173|1|494",
+     "ZZ|29254|1|1",
+     "ZZ|29270|1|3",
+     "ZZ|29297|1|495",
+     "ZZ|29300|1|6",
+     "ZZ|29394|1|28",
+     "ZZ|29580|1|96",
+     "ZZ|29645|1|380",
+     "ZZ|29750|1|1703",
+     "ZZ|29777|1|127",
+     "ZZ|29858|1|1183",
+     "ZZ|29912|1|150",
+     "ZZ|30163|1|647",
+     "ZZ|30171|1|1340",
+     "ZZ|30295|1|348",
+     "ZZ|30325|1|352",
+     "ZZ|30333|1|353",
+     "ZZ|30430|1|384",
+     "ZZ|30546|1|1764",
+     "ZZ|30597|1|1182",
+     "ZZ|30686|1|443",
+     "ZZ|30708|1|444",
+     "ZZ|30821|1|1524",
+     "ZZ|38962|1|558",
+     "ZZ|39102|1|712",
+     "ZZ|99155|1|1504",
+     "ZZ|99180|1|1228",
+     "ZZ|99473|1|1327"
+    ],
+    "sem_abertura_e_encerramento": [
+     "ZZ|29173|1|494",
+     "ZZ|29254|1|1",
+     "ZZ|29270|1|3",
+     "ZZ|29297|1|495",
+     "ZZ|29300|1|6",
+     "ZZ|29394|1|28",
+     "ZZ|29580|1|96",
+     "ZZ|29645|1|380",
+     "ZZ|29750|1|1703",
+     "ZZ|29777|1|127",
+     "ZZ|29858|1|1183",
+     "ZZ|29912|1|150",
+     "ZZ|30163|1|647",
+     "ZZ|30171|1|1340",
+     "ZZ|30295|1|348",
+     "ZZ|30325|1|352",
+     "ZZ|30333|1|353",
+     "ZZ|30430|1|384",
+     "ZZ|30546|1|1764",
+     "ZZ|30597|1|1182",
+     "ZZ|30686|1|443",
+     "ZZ|30708|1|444",
+     "ZZ|30821|1|1524",
+     "ZZ|38962|1|558",
+     "ZZ|39102|1|712",
+     "ZZ|99155|1|1504",
+     "ZZ|99180|1|1228",
+     "ZZ|99473|1|1327"
+    ],
+    "coincidem": true,
+    "urnas_junta": [
+     "1808076"
+    ]
+   }
+  },
+  "2026_2T_junta_tambem_de_junta_no_1T": 28,
+  "2026_base_secoes_dois_turnos": 499205,
+  "2026_base_marca_2T": 27,
+  "2026_base_marca_2T_contida_na_junta": true,
+  "2026_base_marca_1T": [
+   "MG|41238|39|168",
+   "MG|50075|47|41",
+   "ZZ|29173|1|494",
+   "ZZ|29254|1|1",
+   "ZZ|29270|1|3",
+   "ZZ|29297|1|495",
+   "ZZ|29300|1|6",
+   "ZZ|29394|1|28",
+   "ZZ|29580|1|96",
+   "ZZ|29645|1|380",
+   "ZZ|29750|1|1703",
+   "ZZ|29777|1|127",
+   "ZZ|29858|1|1183",
+   "ZZ|29912|1|150",
+   "ZZ|30163|1|647",
+   "ZZ|30171|1|1340",
+   "ZZ|30295|1|348",
+   "ZZ|30325|1|352",
+   "ZZ|30333|1|353",
+   "ZZ|30430|1|384",
+   "ZZ|30546|1|1764",
+   "ZZ|30597|1|1182",
+   "ZZ|30686|1|443",
+   "ZZ|30708|1|444",
+   "ZZ|30821|1|1524",
+   "ZZ|38962|1|558",
+   "ZZ|39102|1|712",
+   "ZZ|99155|1|1504",
+   "ZZ|99180|1|1228",
+   "ZZ|99473|1|1327"
+  ],
+  "2022_marca_2T_exterior": 34,
+  "2022_marca_2T_brasil": 10,
+  "2022_marca_2T_exterior_mais_de_300_aptos": [
+   "ZZ|30635|1|1231",
+   "ZZ|30805|1|1693",
+   "ZZ|30902|1|3134",
+   "ZZ|39063|1|3030"
+  ],
+  "2022_marca_2T_aptos": {
+   "BA|37877|105|83": 176,
+   "DF|97012|9|11": 418,
+   "GO|92886|26|131": 387,
+   "PA|4898|99|17": 375,
+   "PA|4898|99|18": 321,
+   "PA|4898|99|19": 319,
+   "PA|4898|99|55": 269,
+   "PE|26212|75|135": 244,
+   "RS|89192|54|13": 296,
+   "SC|83011|46|22": 383,
+   "ZZ|29254|1|1": 77,
+   "ZZ|29270|1|3": 53,
+   "ZZ|29394|1|28": 78,
+   "ZZ|29564|1|91": 75,
+   "ZZ|29580|1|96": 70,
+   "ZZ|29777|1|127": 87,
+   "ZZ|29874|1|146": 33,
+   "ZZ|29912|1|150": 70,
+   "ZZ|30333|1|353": 44,
+   "ZZ|29645|1|380": 90,
+   "ZZ|30430|1|384": 47,
+   "ZZ|29882|1|390": 82,
+   "ZZ|30708|1|444": 34,
+   "ZZ|39322|1|490": 72,
+   "ZZ|29173|1|494": 33,
+   "ZZ|29297|1|495": 58,
+   "ZZ|38962|1|558": 34,
+   "ZZ|30163|1|647": 221,
+   "ZZ|39102|1|712": 95,
+   "ZZ|39020|1|1004": 98,
+   "ZZ|30597|1|1182": 39,
+   "ZZ|99180|1|1228": 65,
+   "ZZ|30635|1|1231": 779,
+   "ZZ|99287|1|1259": 34,
+   "ZZ|99473|1|1327": 50,
+   "ZZ|30171|1|1340": 55,
+   "ZZ|99155|1|1504": 30,
+   "ZZ|30821|1|1524": 71,
+   "ZZ|30805|1|1693": 793,
+   "ZZ|29750|1|1703": 50,
+   "ZZ|29378|1|1735": 98,
+   "ZZ|30546|1|1764": 58,
+   "ZZ|39063|1|3030": 781,
+   "ZZ|30902|1|3134": 399
+  },
+  "2022_marca_2T": 44,
+  "2022_marca_2T_por_UF": {
+   "ZZ": 34,
+   "PE": 1,
+   "PA": 4,
+   "BA": 1,
+   "RS": 1,
+   "SC": 1,
+   "GO": 1,
+   "DF": 1
+  },
+  "2022_marca_2T_lista": [
+   "BA|37877|105|83",
+   "DF|97012|9|11",
+   "GO|92886|26|131",
+   "PA|4898|99|17",
+   "PA|4898|99|18",
+   "PA|4898|99|19",
+   "PA|4898|99|55",
+   "PE|26212|75|135",
+   "RS|89192|54|13",
+   "SC|83011|46|22",
+   "ZZ|29173|1|494",
+   "ZZ|29254|1|1",
+   "ZZ|29270|1|3",
+   "ZZ|29297|1|495",
+   "ZZ|29378|1|1735",
+   "ZZ|29394|1|28",
+   "ZZ|29564|1|91",
+   "ZZ|29580|1|96",
+   "ZZ|29645|1|380",
+   "ZZ|29750|1|1703",
+   "ZZ|29777|1|127",
+   "ZZ|29874|1|146",
+   "ZZ|29882|1|390",
+   "ZZ|29912|1|150",
+   "ZZ|30163|1|647",
+   "ZZ|30171|1|1340",
+   "ZZ|30333|1|353",
+   "ZZ|30430|1|384",
+   "ZZ|30546|1|1764",
+   "ZZ|30597|1|1182",
+   "ZZ|30635|1|1231",
+   "ZZ|30708|1|444",
+   "ZZ|30805|1|1693",
+   "ZZ|30821|1|1524",
+   "ZZ|30902|1|3134",
+   "ZZ|38962|1|558",
+   "ZZ|39020|1|1004",
+   "ZZ|39063|1|3030",
+   "ZZ|39102|1|712",
+   "ZZ|39322|1|490",
+   "ZZ|99155|1|1504",
+   "ZZ|99180|1|1228",
+   "ZZ|99287|1|1259",
+   "ZZ|99473|1|1327"
+  ],
+  "2022_marca_1T": 120,
+  "2022_marca_nos_dois_turnos": 30
+ },
+ "2026_e_2022_juntos_robustez": {
+  "N": 14,
+  "efeito": -1.2803084699500704,
+  "ep": 0.9427614765498845,
+  "municipios": 11,
+  "ep_antes": 0.6426484967583228,
+  "emd_antes": 1.7994157909233037
+ },
+ "descritivo_exterior_2026_menos_2022": {
+  "todas": {
+   "dif": -4.982584321302323,
+   "ep": 2.1700450766549766,
+   "cidades_em_comum": 23,
+   "z": -2.2960741115031325
+  },
+  "ate_300_aptos": {
+   "dif": -5.932493064221076,
+   "ep": 2.1319382721368667,
+   "cidades_em_comum": 23,
+   "z": -2.782675812782735
+  }
+ },
+ "anos": {
+  "2026": {
+   "cedula_total": 29,
+   "cedula_com_fatia_nos_dois_turnos": 27,
+   "cedula_sem_fatia_ou_sem_1T": [
+    "ZZ|29564|1|91",
+    "ZZ|30686|1|443"
+   ],
+   "cedula_sem_secao_de_comparacao": [
+    "ZZ|39102|1|712",
+    "ZZ|30163|1|647",
+    "ZZ|30333|1|353",
+    "ZZ|30708|1|444",
+    "ZZ|29394|1|28",
+    "ZZ|29300|1|6",
+    "ZZ|29777|1|127",
+    "ZZ|30546|1|1764",
+    "ZZ|30295|1|348",
+    "ZZ|99180|1|1228",
+    "ZZ|99473|1|1327",
+    "ZZ|29270|1|3",
+    "ZZ|30430|1|384",
+    "ZZ|29254|1|1",
+    "ZZ|30597|1|1182",
+    "ZZ|29645|1|380",
+    "ZZ|29912|1|150",
+    "ZZ|29173|1|494",
+    "ZZ|30325|1|352",
+    "ZZ|29297|1|495",
+    "ZZ|30171|1|1340",
+    "ZZ|29580|1|96",
+    "ZZ|29750|1|1703",
+    "ZZ|38962|1|558",
+    "ZZ|30821|1|1524",
+    "ZZ|99155|1|1504",
+    "ZZ|29858|1|1183"
+   ],
+   "cedula_utilizaveis": 0,
+   "utilizaveis_por_nivel": {},
+   "placebo": {
+    "ZZ|1-10": {
+     "n": 0,
+     "media": null,
+     "var": null,
+     "dp": null
+    },
+    "ZZ|11-25": {
+     "n": 0,
+     "media": null,
+     "var": null,
+     "dp": null
+    },
+    "ZZ|26-50": {
+     "n": 3,
+     "media": 1.0894080920655014,
+     "var": 34.524328834582974,
+     "dp": 5.875740705186281
+    },
+    "ZZ|51-100": {
+     "n": 12,
+     "media": 0.31757803583498195,
+     "var": 51.07055094413302,
+     "dp": 7.146366275537031
+    },
+    "ZZ|101-200": {
+     "n": 195,
+     "media": 0.3192972381479295,
+     "var": 12.098208730456125,
+     "dp": 3.4782479397616446
+    },
+    "ZZ|201-400": {
+     "n": 839,
+     "media": -0.03156346495741186,
+     "var": 5.327505988245838,
+     "dp": 2.3081390747192505
+    },
+    "ZZ|401 ou mais": {
+     "n": 184,
+     "media": -0.1983653024176886,
+     "var": 2.977015700839618,
+     "dp": 1.7254030546048127
+    },
+    "BR|1-10": {
+     "n": 4,
+     "media": 2.8324372880475797,
+     "var": 4.980242931884164,
+     "dp": 2.2316457899685074
+    },
+    "BR|11-25": {
+     "n": 107,
+     "media": -1.75844737227211,
+     "var": 109.97593712291247,
+     "dp": 10.48694126630413
+    },
+    "BR|26-50": {
+     "n": 596,
+     "media": -0.8291519918836464,
+     "var": 26.934892882603712,
+     "dp": 5.189883706077017
+    },
+    "BR|51-100": {
+     "n": 4760,
+     "media": -0.34744677838235943,
+     "var": 15.884870307221208,
+     "dp": 3.985582806468987
+    },
+    "BR|101-200": {
+     "n": 79949,
+     "media": -0.012995351006515948,
+     "var": 6.81307114158989,
+     "dp": 2.6101860358200315
+    },
+    "BR|201-400": {
+     "n": 412331,
+     "media": -0.01636236078828635,
+     "var": 4.182409263910986,
+     "dp": 2.045093949898387
+    },
+    "BR|401 ou mais": {
+     "n": 150,
+     "media": -0.05684847452159083,
+     "var": 3.0576143418488297,
+     "dp": 1.7486035404999127
+    }
+   },
+   "emd_antes": {
+    "N": 0,
+    "ep_antes": null,
+    "emd": null,
+    "emd_texto": "indefinido (nenhuma seção utilizável)"
+   },
+   "estimativa": {
+    "rotulo": "2026",
+    "N": 0,
+    "emd_antes": {
+     "N": 0,
+     "ep_antes": null,
+     "emd": null,
+     "emd_texto": "indefinido (nenhuma seção utilizável)"
+    },
+    "efeito": null
+   },
+   "veredito_pela_letra": [
+    "SEM PODER",
+    "nenhuma seção de cédula com seção de comparação no local ou no município; EMD indefinido"
+   ],
+   "descritivo_exterior_fora_do_registro": {
+    "todas": {
+     "N_cedula": 27,
+     "N_urna": 1281,
+     "max_aptos": null,
+     "media_variacao_cedula": -0.7863266289102229,
+     "ep_cedula": 1.7601916091509981,
+     "media_variacao_urna": 1.7339657046351524,
+     "ep_urna": 0.07954799400607951,
+     "dif": -2.5202923335453753,
+     "ep_dif": 1.761988190731133,
+     "emd_com_ep_realizado": 4.933566934047172,
+     "mediana_votos_finalistas_2T": {
+      "cedula": 26.0,
+      "urna": 287.0
+     },
+     "urna_com_ate_100_votos": 37,
+     "urna_ate_100_votos_media_variacao": 0.4306337223712403,
+     "urna_ate_100_votos_ep": 0.9553174656512499,
+     "dif_vs_urna_ate_100_votos": -1.2169603512814633,
+     "ep_dif_vs_urna_ate_100_votos": 2.002724634367867,
+     "fatia_somada_cedula": {
+      "1T": 55.65092989985694,
+      "2T": 55.764411027568926
+     },
+     "fatia_somada_urna": {
+      "1T": 52.22997744405927,
+      "2T": 53.851256427749
+     },
+     "votos_finalistas_cedula": {
+      "1T": 699,
+      "2T": 798
+     },
+     "cidades_cedula": [
+      "ZZ|29173",
+      "ZZ|29254",
+      "ZZ|29270",
+      "ZZ|29297",
+      "ZZ|29300",
+      "ZZ|29394",
+      "ZZ|29580",
+      "ZZ|29645",
+      "ZZ|29750",
+      "ZZ|29777",
+      "ZZ|29858",
+      "ZZ|29912",
+      "ZZ|30163",
+      "ZZ|30171",
+      "ZZ|30295",
+      "ZZ|30325",
+      "ZZ|30333",
+      "ZZ|30430",
+      "ZZ|30546",
+      "ZZ|30597",
+      "ZZ|30708",
+      "ZZ|30821",
+      "ZZ|38962",
+      "ZZ|39102",
+      "ZZ|99155",
+      "ZZ|99180",
+      "ZZ|99473"
+     ]
+    },
+    "ate_300_aptos": {
+     "N_cedula": 27,
+     "N_urna": 1281,
+     "max_aptos": 300,
+     "media_variacao_cedula": -0.7863266289102229,
+     "ep_cedula": 1.7601916091509981,
+     "media_variacao_urna": 1.7339657046351524,
+     "ep_urna": 0.07954799400607951,
+     "dif": -2.5202923335453753,
+     "ep_dif": 1.761988190731133,
+     "emd_com_ep_realizado": 4.933566934047172,
+     "mediana_votos_finalistas_2T": {
+      "cedula": 26.0,
+      "urna": 287.0
+     },
+     "urna_com_ate_100_votos": 37,
+     "urna_ate_100_votos_media_variacao": 0.4306337223712403,
+     "urna_ate_100_votos_ep": 0.9553174656512499,
+     "dif_vs_urna_ate_100_votos": -1.2169603512814633,
+     "ep_dif_vs_urna_ate_100_votos": 2.002724634367867,
+     "fatia_somada_cedula": {
+      "1T": 55.65092989985694,
+      "2T": 55.764411027568926
+     },
+     "fatia_somada_urna": {
+      "1T": 52.22997744405927,
+      "2T": 53.851256427749
+     },
+     "votos_finalistas_cedula": {
+      "1T": 699,
+      "2T": 798
+     },
+     "cidades_cedula": [
+      "ZZ|29173",
+      "ZZ|29254",
+      "ZZ|29270",
+      "ZZ|29297",
+      "ZZ|29300",
+      "ZZ|29394",
+      "ZZ|29580",
+      "ZZ|29645",
+      "ZZ|29750",
+      "ZZ|29777",
+      "ZZ|29858",
+      "ZZ|29912",
+      "ZZ|30163",
+      "ZZ|30171",
+      "ZZ|30295",
+      "ZZ|30325",
+      "ZZ|30333",
+      "ZZ|30430",
+      "ZZ|30546",
+      "ZZ|30597",
+      "ZZ|30708",
+      "ZZ|30821",
+      "ZZ|38962",
+      "ZZ|39102",
+      "ZZ|99155",
+      "ZZ|99180",
+      "ZZ|99473"
+     ]
+    }
+   }
+  },
+  "2022": {
+   "cedula_total": 44,
+   "cedula_com_fatia_nos_dois_turnos": 43,
+   "cedula_sem_fatia_ou_sem_1T": [
+    "ZZ|29564|1|91"
+   ],
+   "cedula_sem_secao_de_comparacao": [
+    "ZZ|29254|1|1",
+    "ZZ|29270|1|3",
+    "ZZ|29394|1|28",
+    "ZZ|29580|1|96",
+    "ZZ|29777|1|127",
+    "ZZ|29874|1|146",
+    "ZZ|29912|1|150",
+    "ZZ|30333|1|353",
+    "ZZ|29645|1|380",
+    "ZZ|30430|1|384",
+    "ZZ|29882|1|390",
+    "ZZ|30708|1|444",
+    "ZZ|39322|1|490",
+    "ZZ|29173|1|494",
+    "ZZ|29297|1|495",
+    "ZZ|38962|1|558",
+    "ZZ|30163|1|647",
+    "ZZ|39102|1|712",
+    "ZZ|39020|1|1004",
+    "ZZ|30597|1|1182",
+    "ZZ|99180|1|1228",
+    "ZZ|99287|1|1259",
+    "ZZ|99473|1|1327",
+    "ZZ|30171|1|1340",
+    "ZZ|99155|1|1504",
+    "ZZ|30821|1|1524",
+    "ZZ|29750|1|1703",
+    "ZZ|29378|1|1735",
+    "ZZ|30546|1|1764"
+   ],
+   "cedula_utilizaveis": 14,
+   "utilizaveis_por_nivel": {
+    "municipio": 1,
+    "local": 13
+   },
+   "placebo": {
+    "ZZ|1-10": {
+     "n": 0,
+     "media": null,
+     "var": null,
+     "dp": null
+    },
+    "ZZ|11-25": {
+     "n": 0,
+     "media": null,
+     "var": null,
+     "dp": null
+    },
+    "ZZ|26-50": {
+     "n": 2,
+     "media": -6.972651508949416,
+     "var": 218.5045351473923,
+     "dp": 14.78189890194735
+    },
+    "ZZ|51-100": {
+     "n": 5,
+     "media": 0.9078085933613105,
+     "var": 8.180637609830455,
+     "dp": 2.860181394567564
+    },
+    "ZZ|101-200": {
+     "n": 119,
+     "media": 0.25652682874982247,
+     "var": 10.265795568717213,
+     "dp": 3.204028022461291
+    },
+    "ZZ|201-400": {
+     "n": 643,
+     "media": 0.013815971512290559,
+     "var": 4.787984057226018,
+     "dp": 2.1881462604739244
+    },
+    "ZZ|401 ou mais": {
+     "n": 167,
+     "media": -0.07262744749083978,
+     "var": 2.4300584928116744,
+     "dp": 1.55886448827718
+    },
+    "BR|1-10": {
+     "n": 6,
+     "media": 4.183968036378265,
+     "var": 188.45437158406742,
+     "dp": 13.72786842827638
+    },
+    "BR|11-25": {
+     "n": 84,
+     "media": 0.6204628425471643,
+     "var": 73.41275392274214,
+     "dp": 8.56812429430982
+    },
+    "BR|26-50": {
+     "n": 632,
+     "media": -0.4986702737424119,
+     "var": 34.91386618718507,
+     "dp": 5.908795663008247
+    },
+    "BR|51-100": {
+     "n": 5237,
+     "media": -0.20393707259897004,
+     "var": 14.588427256549926,
+     "dp": 3.819479972005342
+    },
+    "BR|101-200": {
+     "n": 74856,
+     "media": -0.04202566404494229,
+     "var": 6.182733314252922,
+     "dp": 2.486510268278199
+    },
+    "BR|201-400": {
+     "n": 389340,
+     "media": 0.008787579005975994,
+     "var": 3.814667917673698,
+     "dp": 1.9531174869100163
+    },
+    "BR|401 ou mais": {
+     "n": 845,
+     "media": 0.04201579186078872,
+     "var": 2.8575782625680883,
+     "dp": 1.6904372992122743
+    }
+   },
+   "emd_antes": {
+    "N": 14,
+    "ep_antes": 0.6426484967583228,
+    "emd": 1.7994157909233037,
+    "faixas_sem_placebo": [],
+    "faixas_usadas": {
+     "BR|51-100": {
+      "secoes_de_cedula": 1,
+      "secoes_de_urna_no_placebo": 5237
+     },
+     "BR|201-400": {
+      "secoes_de_cedula": 4,
+      "secoes_de_urna_no_placebo": 389340
+     },
+     "BR|101-200": {
+      "secoes_de_cedula": 5,
+      "secoes_de_urna_no_placebo": 74856
+     },
+     "ZZ|201-400": {
+      "secoes_de_cedula": 2,
+      "secoes_de_urna_no_placebo": 643
+     },
+     "ZZ|51-100": {
+      "secoes_de_cedula": 1,
+      "secoes_de_urna_no_placebo": 5
+     },
+     "ZZ|401 ou mais": {
+      "secoes_de_cedula": 1,
+      "secoes_de_urna_no_placebo": 167
+     }
+    }
+   },
+   "estimativa": {
+    "rotulo": "2022",
+    "N": 14,
+    "emd_antes": {
+     "N": 14,
+     "ep_antes": 0.6426484967583228,
+     "emd": 1.7994157909233037,
+     "faixas_sem_placebo": [],
+     "faixas_usadas": {
+      "BR|51-100": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 5237
+      },
+      "BR|201-400": {
+       "secoes_de_cedula": 4,
+       "secoes_de_urna_no_placebo": 389340
+      },
+      "BR|101-200": {
+       "secoes_de_cedula": 5,
+       "secoes_de_urna_no_placebo": 74856
+      },
+      "ZZ|201-400": {
+       "secoes_de_cedula": 2,
+       "secoes_de_urna_no_placebo": 643
+      },
+      "ZZ|51-100": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 5
+      },
+      "ZZ|401 ou mais": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 167
+      }
+     }
+    },
+    "efeito": -1.2803084699500704,
+    "ep": 0.9427614765498845,
+    "municipios": 11,
+    "ep_sem_agrupar": 0.9387182200896707,
+    "z": -1.358040715277705,
+    "ic95": [
+     -3.3809119440068,
+     0.8202950041066595
+    ],
+    "t_975": 2.228138851986259,
+    "emd_com_ep_realizado": 2.6397321343396767,
+    "robustez": {
+     "so_urna_na_comparacao": {
+      "N": 14,
+      "efeito": -0.2191798374271788,
+      "ep": 1.5016312248416062
+     },
+     "outras_ponderadas_por_votos": {
+      "N": 14,
+      "efeito": -1.2393839817269066,
+      "ep": 0.8450497458291065
+     },
+     "media_ponderada_pelos_votos_da_secao": {
+      "N": 14,
+      "efeito": -0.5904969135553136,
+      "ep": 0.5743787954419014
+     },
+     "media_do_placebo_mesma_faixa": 0.03456414372109102,
+     "efeito_menos_media_do_placebo": -1.3148726136711615,
+     "placebo_sorteios": {
+      "n": 20000,
+      "media": 0.03672473226569784,
+      "dp": 0.6321703730644624,
+      "p_unilateral_inferior": 0.020098995050247488,
+      "p_bilateral": 0.036498175091245436
+     }
+    },
+    "secoes": [
+     {
+      "secao": "BA|37877|105|83",
+      "nivel": "municipio",
+      "n_outras": 70,
+      "L1": 63,
+      "R1": 9,
+      "L2": 78,
+      "R2": 15,
+      "variacao": -3.629032258064513,
+      "media_outras": -1.0565795702533622,
+      "d": -2.5724526878111504,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "DF|97012|9|11",
+      "nivel": "local",
+      "n_outras": 4,
+      "L1": 131,
+      "R1": 167,
+      "L2": 153,
+      "R2": 186,
+      "variacao": 1.1730118192076977,
+      "media_outras": -0.9170535476025519,
+      "d": 2.09006536681025,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "GO|92886|26|131",
+      "nivel": "local",
+      "n_outras": 6,
+      "L1": 82,
+      "R1": 173,
+      "L2": 102,
+      "R2": 199,
+      "variacao": 1.7301804442707291,
+      "media_outras": -0.9011708117037619,
+      "d": 2.631351255974491,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "PA|4898|99|17",
+      "nivel": "local",
+      "n_outras": 3,
+      "L1": 79,
+      "R1": 123,
+      "L2": 76,
+      "R2": 96,
+      "variacao": 5.077135620538797,
+      "media_outras": 2.756811361447364,
+      "d": 2.3203242590914335,
+      "outras_de_junta_na_comparacao": 3
+     },
+     {
+      "secao": "PA|4898|99|18",
+      "nivel": "local",
+      "n_outras": 3,
+      "L1": 86,
+      "R1": 122,
+      "L2": 75,
+      "R2": 103,
+      "variacao": 0.7886776145203112,
+      "media_outras": 4.186297363453526,
+      "d": -3.3976197489332147,
+      "outras_de_junta_na_comparacao": 3
+     },
+     {
+      "secao": "PA|4898|99|19",
+      "nivel": "local",
+      "n_outras": 3,
+      "L1": 82,
+      "R1": 148,
+      "L2": 68,
+      "R2": 100,
+      "variacao": 4.824016563146999,
+      "media_outras": 2.841184380577964,
+      "d": 1.9828321825690347,
+      "outras_de_junta_na_comparacao": 3
+     },
+     {
+      "secao": "PA|4898|99|55",
+      "nivel": "local",
+      "n_outras": 3,
+      "L1": 98,
+      "R1": 88,
+      "L2": 88,
+      "R2": 71,
+      "variacao": 2.657739906674783,
+      "media_outras": 3.5632765994020357,
+      "d": -0.9055366927272526,
+      "outras_de_junta_na_comparacao": 3
+     },
+     {
+      "secao": "PE|26212|75|135",
+      "nivel": "local",
+      "n_outras": 8,
+      "L1": 172,
+      "R1": 29,
+      "L2": 164,
+      "R2": 35,
+      "variacao": -3.160079001975047,
+      "media_outras": -1.2837401022444335,
+      "d": -1.8763388997306134,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "RS|89192|54|13",
+      "nivel": "local",
+      "n_outras": 5,
+      "L1": 115,
+      "R1": 101,
+      "L2": 114,
+      "R2": 123,
+      "variacao": -5.139474917955933,
+      "media_outras": -4.910065459199731,
+      "d": -0.22940945875620233,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "SC|83011|46|22",
+      "nivel": "local",
+      "n_outras": 11,
+      "L1": 69,
+      "R1": 214,
+      "L2": 63,
+      "R2": 250,
+      "variacao": -4.253829914539564,
+      "media_outras": -2.25662220984826,
+      "d": -1.997207704691304,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "ZZ|30635|1|1231",
+      "nivel": "local",
+      "n_outras": 21,
+      "L1": 135,
+      "R1": 158,
+      "L2": 146,
+      "R2": 190,
+      "variacao": -2.622704371851131,
+      "media_outras": -1.6532534334999032,
+      "d": -0.9694509383512278,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "ZZ|30805|1|1693",
+      "nivel": "local",
+      "n_outras": 3,
+      "L1": 36,
+      "R1": 13,
+      "L2": 36,
+      "R2": 32,
+      "variacao": -20.52821128451381,
+      "media_outras": -9.415241580463253,
+      "d": -11.112969704050556,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "ZZ|39063|1|3030",
+      "nivel": "local",
+      "n_outras": 2,
+      "L1": 218,
+      "R1": 178,
+      "L2": 262,
+      "R2": 197,
+      "variacao": 2.0301049712814434,
+      "media_outras": 2.5286530411080865,
+      "d": -0.4985480698266431,
+      "outras_de_junta_na_comparacao": 0
+     },
+     {
+      "secao": "ZZ|30902|1|3134",
+      "nivel": "local",
+      "n_outras": 5,
+      "L1": 135,
+      "R1": 97,
+      "L2": 135,
+      "R2": 103,
+      "variacao": -1.4669660967835396,
+      "media_outras": 1.9223916420844909,
+      "d": -3.3893577388680303,
+      "outras_de_junta_na_comparacao": 0
+     }
+    ]
+   },
+   "veredito_pela_letra": [
+    "INCONCLUSIVO",
+    "nem sinal nem sem sinal, com EMD até 1,8"
+   ],
+   "robustez_so_exterior": {
+    "rotulo": "2022 so_exterior",
+    "N": 4,
+    "emd_antes": {
+     "N": 4,
+     "ep_antes": 1.123239294882611,
+     "emd": 3.145070025671311,
+     "faixas_sem_placebo": [],
+     "faixas_usadas": {
+      "ZZ|201-400": {
+       "secoes_de_cedula": 2,
+       "secoes_de_urna_no_placebo": 643
+      },
+      "ZZ|51-100": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 5
+      },
+      "ZZ|401 ou mais": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 167
+      }
+     }
+    },
+    "efeito": -3.9925816127741145,
+    "ep": 2.456477747479106,
+    "municipios": 4,
+    "ep_sem_agrupar": 2.4564777474791057,
+    "z": -1.6253278161674345,
+    "ic95": [
+     -11.810190144250624,
+     3.8250269187023953
+    ],
+    "t_975": 3.182446305283701,
+    "emd_com_ep_realizado": 6.878137692941497,
+    "robustez": {
+     "so_urna_na_comparacao": {
+      "N": 4,
+      "efeito": -3.9925816127741145,
+      "ep": 2.456477747479106
+     },
+     "outras_ponderadas_por_votos": {
+      "N": 4,
+      "efeito": -3.6686994563524307,
+      "ep": 2.1682859154403484
+     },
+     "media_ponderada_pelos_votos_da_secao": {
+      "N": 4,
+      "efeito": -1.9227231253973396,
+      "ep": 1.0707255730661576
+     },
+     "media_do_placebo_mesma_faixa": 0.21570327222376293,
+     "efeito_menos_media_do_placebo": -4.208284884997878,
+     "placebo_sorteios": {
+      "n": 20000,
+      "media": 0.21108803407180443,
+      "dp": 1.072729081053024,
+      "p_unilateral_inferior": 0.000199990000499975,
+      "p_bilateral": 0.00024998750062496874
+     }
+    }
+   },
+   "robustez_so_brasil": {
+    "rotulo": "2022 so_brasil",
+    "N": 10,
+    "emd_antes": {
+     "N": 10,
+     "ep_antes": 0.7794919210518434,
+     "emd": 2.1825773789451612,
+     "faixas_sem_placebo": [],
+     "faixas_usadas": {
+      "BR|51-100": {
+       "secoes_de_cedula": 1,
+       "secoes_de_urna_no_placebo": 5237
+      },
+      "BR|201-400": {
+       "secoes_de_cedula": 4,
+       "secoes_de_urna_no_placebo": 389340
+      },
+      "BR|101-200": {
+       "secoes_de_cedula": 5,
+       "secoes_de_urna_no_placebo": 74856
+      }
+     }
+    },
+    "efeito": -0.19539921282045292,
+    "ep": 0.5459526922637145,
+    "municipios": 7,
+    "ep_sem_agrupar": 0.7208755999249185,
+    "z": -0.3579050265513998,
+    "ic95": [
+     -1.5312973256849782,
+     1.1404989000440724
+    ],
+    "t_975": 2.4469118511448595,
+    "emd_com_ep_realizado": 1.5286675383384003,
+    "robustez": {
+     "so_urna_na_comparacao": {
+      "N": 10,
+      "efeito": 1.2901808727115953,
+      "ep": 1.2526449321423643
+     },
+     "outras_ponderadas_por_votos": {
+      "N": 10,
+      "efeito": -0.2676577918766968,
+      "ep": 0.5425091846777467
+     },
+     "media_ponderada_pelos_votos_da_secao": {
+      "N": 10,
+      "efeito": 0.08888291934791495,
+      "ep": 0.6519133494470907
+     },
+     "media_do_placebo_mesma_faixa": -0.03789150767997775,
+     "efeito_menos_media_do_placebo": -0.15750770514047516,
+     "placebo_sorteios": {
+      "n": 20000,
+      "media": -0.04355613875627085,
+      "dp": 0.7692715640913483,
+      "p_unilateral_inferior": 0.4189290535473226,
+      "p_bilateral": 0.8416079196040198
+     }
+    }
+   },
+   "descritivo_exterior_fora_do_registro": {
+    "todas": {
+     "N_cedula": 33,
+     "N_urna": 981,
+     "max_aptos": null,
+     "media_variacao_cedula": 1.2398941906941912,
+     "ep_cedula": 1.2638965128589623,
+     "media_variacao_urna": -1.2223977970627569,
+     "ep_urna": 0.08401699364703803,
+     "dif": 2.462291987756948,
+     "ep_dif": 1.26668593204414,
+     "emd_com_ep_realizado": 3.5467206097235917,
+     "mediana_votos_finalistas_2T": {
+      "cedula": 31.0,
+      "urna": 293.0
+     },
+     "urna_com_ate_100_votos": 29,
+     "urna_ate_100_votos_media_variacao": -0.9070124559859288,
+     "urna_ate_100_votos_ep": 0.9931157316150007,
+     "dif_vs_urna_ate_100_votos": 2.14690664668012,
+     "ep_dif_vs_urna_ate_100_votos": 1.6073933095537767,
+     "fatia_somada_cedula": {
+      "1T": 52.38095238095238,
+      "2T": 52.86757038581856
+     },
+     "fatia_somada_urna": {
+      "1T": 53.13816230201203,
+      "2T": 51.295114477511596
+     },
+     "votos_finalistas_cedula": {
+      "1T": 1743,
+      "2T": 1918
+     },
+     "cidades_cedula": [
+      "ZZ|29173",
+      "ZZ|29254",
+      "ZZ|29270",
+      "ZZ|29297",
+      "ZZ|29378",
+      "ZZ|29394",
+      "ZZ|29580",
+      "ZZ|29645",
+      "ZZ|29750",
+      "ZZ|29777",
+      "ZZ|29874",
+      "ZZ|29882",
+      "ZZ|29912",
+      "ZZ|30163",
+      "ZZ|30171",
+      "ZZ|30333",
+      "ZZ|30430",
+      "ZZ|30546",
+      "ZZ|30597",
+      "ZZ|30635",
+      "ZZ|30708",
+      "ZZ|30805",
+      "ZZ|30821",
+      "ZZ|30902",
+      "ZZ|38962",
+      "ZZ|39020",
+      "ZZ|39063",
+      "ZZ|39102",
+      "ZZ|39322",
+      "ZZ|99155",
+      "ZZ|99180",
+      "ZZ|99287",
+      "ZZ|99473"
+     ]
+    },
+    "ate_300_aptos": {
+     "N_cedula": 29,
+     "N_urna": 981,
+     "max_aptos": 300,
+     "media_variacao_cedula": 2.1898029336129436,
+     "ep_cedula": 1.1972884183455845,
+     "media_variacao_urna": -1.2223977970627569,
+     "ep_urna": 0.08401699364703803,
+     "dif": 3.4122007306757007,
+     "ep_dif": 1.2002326490834843,
+     "emd_com_ep_realizado": 3.360651417433756,
+     "mediana_votos_finalistas_2T": {
+      "cedula": 25.0,
+      "urna": 293.0
+     },
+     "urna_com_ate_100_votos": 29,
+     "urna_ate_100_votos_media_variacao": -0.9070124559859288,
+     "urna_ate_100_votos_ep": 0.9931157316150007,
+     "dif_vs_urna_ate_100_votos": 3.0968153895988726,
+     "ep_dif_vs_urna_ate_100_votos": 1.5555636962482988,
+     "fatia_somada_cedula": {
+      "1T": 50.323415265200516,
+      "2T": 53.24357405140759
+     },
+     "fatia_somada_urna": {
+      "1T": 53.13816230201203,
+      "2T": 51.295114477511596
+     },
+     "votos_finalistas_cedula": {
+      "1T": 773,
+      "2T": 817
+     },
+     "cidades_cedula": [
+      "ZZ|29173",
+      "ZZ|29254",
+      "ZZ|29270",
+      "ZZ|29297",
+      "ZZ|29378",
+      "ZZ|29394",
+      "ZZ|29580",
+      "ZZ|29645",
+      "ZZ|29750",
+      "ZZ|29777",
+      "ZZ|29874",
+      "ZZ|29882",
+      "ZZ|29912",
+      "ZZ|30163",
+      "ZZ|30171",
+      "ZZ|30333",
+      "ZZ|30430",
+      "ZZ|30546",
+      "ZZ|30597",
+      "ZZ|30708",
+      "ZZ|30821",
+      "ZZ|38962",
+      "ZZ|39020",
+      "ZZ|39102",
+      "ZZ|39322",
+      "ZZ|99155",
+      "ZZ|99180",
+      "ZZ|99287",
+      "ZZ|99473"
+     ]
+    }
+   }
+  }
+ },
+ "veredito": "SEM PODER",
+ "motivo_veredito": "nenhuma seção de cédula com seção de comparação no local ou no município; EMD indefinido"
+}
