@@ -1,0 +1,1220 @@
+{
+ "teste": "T27",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 9",
+ "criterio_registrado": "Por seção, o excesso de cada vetor sobre a maior taxa de 2018, 2022 e do 1º turno de 2026, em votos (T21, votos depois das 17h, T15, T7, T28, T17, T23). Cada voto entra uma vez, no vetor de maior valor da seção. Somar e comparar com 2,22 milhões (troca) e 4,43 milhões (acréscimo). Sem sinal: soma até 0,5 milhão. Sinal: 2,2 milhões ou mais. Entre os dois: inconclusivo. Chegar perto não prova fraude.",
+ "leituras": "(fixadas neste arquivo antes de rodar; cada uma sai no resultado e as que o registro não fixa são desvio declarado):\n  L1. \"Taxa\" de um vetor numa eleição = total do vetor dividido pelo total da sua base, com a regra do teste que o mediu.\n      \"A maior\" = o máximo entre as referências que têm o dado. Excesso da seção = quantidade do vetor na seção no 2º turno\n      de 2026 menos essa taxa vezes a base da seção, em votos (a forma do T4: observados menos esperados vezes a maior\n      referência). A taxa da própria seção em cada referência sai como robustez (R1, só onde existe: T21).\n  L2. A seção entra com max(0, maior excesso entre os vetores): um déficit não compensa o excesso de outra seção (leitura de\n      teto) e cada voto entra uma vez, no vetor de maior valor da seção. A soma líquida de cada vetor sai ao lado.\n  L3. Vetores e quantidades por seção (votos):\n      T21: q = NH2 - NH1 (liberações sem biometria de quem tem biometria cadastrada, campo QT_ELEI_BIOM_SEM_HABILITACAO,\n           a mais no 2º turno); base = C2 - C1; taxa = NH/comparecimento (a \"proporção\" do T21). Só as 27 UFs (no exterior o\n           campo é zero nos dois turnos).\n      T15: q = max(0, C2 - A1) (votantes do 2º turno acima dos aptos da seção no 1º turno; inclui o comparecimento acima dos\n           aptos do 2º turno, que é zero) + saldo positivo das seções especiais (votos tirados de Flávio; o de 2026 é -2, a\n           favor de Flávio, e entra como zero); base = C2; taxa nas referências pela mesma conta entre os turnos.\n      T7:  q = max(0, ganho - bolo) do candidato que mais ganhou (a conta do T7); base = max(0, ganho); taxa = soma de q\n           sobre soma da base (2018 Haddad, 2022 Bolsonaro).\n      T28: evento L (comparecimento >= 95% e Lula >= 80% dos válidos): q = votos de Lula na seção do evento; esperado =\n           Rc da maior referência vezes a probabilidade calibrada da seção sob a nula (P x R_nulo do T28). Evento D (aumento\n           de comparecimento de 15 pontos ou mais): q = C2 - C1 na seção do evento, esperado pela mesma regra com o Rc do\n           evento D das referências. O valor do T28 na seção é o maior dos dois.\n      T23: q = efeito encolhido da zona (BLUP do T23, pontos/100) vezes os votos nos finalistas da seção, nas zonas extremas\n           a favor do 13 (a medida em votos do próprio T23); base = votos nos finalistas; taxa nas referências pela mesma conta.\n  L4. Referências: 2018, 2022 e 1º turno de 2026 onde o vetor existe. O 1º turno de 2026 não tem turno anterior, então não\n      define taxa para T7, T15 (aptos entre turnos), T23 e evento D; para T15 o comparecimento acima dos aptos do 1º turno\n      de 2026 é zero. T21: as bases de 2018 e 2022 não têm o campo de biometria (falta QT_ELEITORES_BIOMETRIA_NH do bweb\n      de 2018 e 2022, que não está nos arquivos locais); só o 1º turno de 2026 dá a taxa.\n  L5. Fora da soma, por falta de dado por seção na base completa: T17 (atributo da máquina: o teste só existe na amostra e na\n      extensão dos Adendos 10 e 11) e votos depois das 17h (só os logs da amostra registram a hora de cada voto; o bweb\n      traz só a hora de encerramento da seção).\n  Erro-padrão da soma: bootstrap de Poisson dos locais de votação, calculado na forma fechada (variância = soma dos\n  quadrados das somas por local), com as taxas de referência fixas.",
+ "conferencias": {
+  "T7_referencias_iguais_ao_T7": true,
+  "T23_referencias_iguais_ao_T23": true,
+  "T23_valores": {
+   "2018": [
+    9091.44953881733,
+    9091.449538817329
+   ],
+   "2022": [
+    4403.950488349252,
+    4403.950488349252
+   ]
+  },
+  "T7_2026_igual_ao_T7": true,
+  "T28_L_secoes_e_votos": [
+   188,
+   32387,
+   188,
+   32387
+  ],
+  "T28_D_O_e_E_bruto": [
+   64,
+   43.030580629511526,
+   64,
+   43.030580629511526
+  ],
+  "T23_2026_igual_ao_T23": [
+   1365.602827872536,
+   1365.602827872536
+  ],
+  "T21_totais_NH_27_UFs": [
+   8342249,
+   8632488
+  ],
+  "T21_secoes_e_comparecimento_diferente_da_base": [
+   497897,
+   0
+  ]
+ },
+ "referencias": {
+  "2018": {
+   "T7": {
+    "excesso_total": 3598.0,
+    "ganho_total": 15699141.0,
+    "ganho_positivo_total": 15789363.0,
+    "taxa_sobre_ganho_positivo": 0.0002278749307365978,
+    "taxa_registrada_b_sobre_ganho_liquido": 0.0002291845139807331
+   },
+   "T15": {
+    "q_total": 7.0,
+    "comparecimento_2T": 115933451.0,
+    "taxa": 6.037946718242693e-08,
+    "secoes_com_q": 1,
+    "secoes_comparecimento_acima_dos_aptos_2T": 0,
+    "secoes_comparecimento_acima_dos_aptos_1T": 0
+   },
+   "T23": {
+    "sigma2_zona": 0.41064693202799885,
+    "limiar_pontos": 1.2816347873368588,
+    "zonas_extremas_a_favor_do_13": 7,
+    "votos_zonas_extremas_a_favor_do_13": 9091.44953881733,
+    "votos_zonas_positivas_do_13": 85603.59603427825,
+    "votos_finalistas_2T": 104652031.0,
+    "taxa_extremas": 8.687313042990375e-05,
+    "taxa_positivas": 0.0008179831314910482
+   },
+   "secoes_com_os_dois_turnos": 454448
+  },
+  "2022": {
+   "T7": {
+    "excesso_total": 77499.0,
+    "ganho_total": 7134009.0,
+    "ganho_positivo_total": 7186964.0,
+    "taxa_sobre_ganho_positivo": 0.010783273716133822,
+    "taxa_registrada_b_sobre_ganho_liquido": 0.010863316825083904
+   },
+   "T15": {
+    "q_total": 0.0,
+    "comparecimento_2T": 124252796.0,
+    "taxa": 0.0,
+    "secoes_com_q": 0,
+    "secoes_comparecimento_acima_dos_aptos_2T": 0,
+    "secoes_comparecimento_acima_dos_aptos_1T": 0
+   },
+   "T23": {
+    "sigma2_zona": 0.09135706456286835,
+    "limiar_pontos": 0.6045066238276248,
+    "zonas_extremas_a_favor_do_13": 7,
+    "votos_zonas_extremas_a_favor_do_13": 4403.950488349252,
+    "votos_zonas_positivas_do_13": 40488.06783250898,
+    "votos_finalistas_2T": 118254184.0,
+    "taxa_extremas": 3.724139256120741e-05,
+    "taxa_positivas": 0.00034238169393236
+   },
+   "secoes_com_os_dois_turnos": 472028
+  }
+ },
+ "principal": {
+  "rotulo": "principal",
+  "soma": 1177854.8025444534,
+  "ep": 6068.626672717011,
+  "secoes_com_excesso": 274892,
+  "por_vetor_vencedor": {
+   "T21": {
+    "secoes_em_que_e_o_maior": 243680,
+    "votos_atribuidos": 1040951.3076907708
+   },
+   "T15": {
+    "secoes_em_que_e_o_maior": 5,
+    "votos_atribuidos": 23.999946020756337
+   },
+   "T7": {
+    "secoes_em_que_e_o_maior": 30514,
+    "votos_atribuidos": 105914.1390758323
+   },
+   "T28": {
+    "secoes_em_que_e_o_maior": 210,
+    "votos_atribuidos": 30139.113231383024
+   },
+   "T23": {
+    "secoes_em_que_e_o_maior": 483,
+    "votos_atribuidos": 826.2426004464462
+   }
+  },
+  "por_uf": {
+   "AC": 4010.309709438941,
+   "AL": 24404.782731361833,
+   "AM": 19962.70303069931,
+   "AP": 4108.288297268521,
+   "BA": 104135.69464475571,
+   "CE": 71846.83970918584,
+   "DF": 9450.105767921788,
+   "ES": 18192.588541077013,
+   "GO": 28187.1702880124,
+   "MA": 52924.01333928397,
+   "MG": 118085.6508966756,
+   "MS": 11740.850263309192,
+   "MT": 17045.403480749148,
+   "PA": 49754.13412124364,
+   "PB": 31309.433367100253,
+   "PE": 61472.20954453132,
+   "PI": 33257.24369883216,
+   "PR": 42787.45067070827,
+   "RJ": 115932.88120078902,
+   "RN": 25771.176155724715,
+   "RO": 8964.750534821425,
+   "RR": 3377.1557387535854,
+   "RS": 71479.96602910358,
+   "SC": 38169.05731403279,
+   "SE": 17295.800619121146,
+   "SP": 186721.74587380723,
+   "TO": 7445.83399600488,
+   "ZZ": 21.562980140153755
+  },
+  "fracao_de_2_22_milhoes": 0.5305652263713754,
+  "fracao_de_4_43_milhoes": 0.2658814452696283
+ },
+ "vetores": {
+  "T21": {
+   "secoes_com_valor": 497897,
+   "secoes_com_excesso_positivo": 253214,
+   "soma_das_partes_positivas": 1059686.7450177502,
+   "ep": 5273.352635833314,
+   "soma_das_partes_negativas": -964463.0488412252,
+   "soma_liquida": 95223.6961765249,
+   "ep_soma_liquida": 4581.786814688859
+  },
+  "T15": {
+   "secoes_com_valor": 499205,
+   "secoes_com_excesso_positivo": 6,
+   "soma_das_partes_positivas": 24.999941613055235,
+   "ep": 15.198652701887305,
+   "soma_das_partes_negativas": -7.742767434741506,
+   "soma_liquida": 17.25717417831373,
+   "ep_soma_liquida": 15.198682301563633
+  },
+  "T7": {
+   "secoes_com_valor": 499205,
+   "secoes_com_excesso_positivo": 44885,
+   "soma_das_partes_positivas": 135738.98432244826,
+   "ep": 1179.802709780859,
+   "soma_das_partes_negativas": -100962.22822947212,
+   "soma_liquida": 34776.756092976124,
+   "ep_soma_liquida": 1165.6835978313381
+  },
+  "T28": {
+   "secoes_com_valor": 252,
+   "secoes_com_excesso_positivo": 211,
+   "soma_das_partes_positivas": 30205.105861435124,
+   "ep": 2344.1529880519,
+   "soma_das_partes_negativas": -9949.286992660152,
+   "soma_liquida": 20255.81886877497,
+   "ep_soma_liquida": 4694.8785081745555,
+   "evento_L": {
+    "secoes_com_valor": 188,
+    "secoes_com_excesso_positivo": 180,
+    "soma_das_partes_positivas": 28817.425985651964,
+    "ep": 2327.511849643742,
+    "soma_das_partes_negativas": -514.7075661288667,
+    "soma_liquida": 28302.718419523102,
+    "ep_soma_liquida": 2343.3865378839996
+   },
+   "evento_D": {
+    "secoes_com_valor": 64,
+    "secoes_com_excesso_positivo": 31,
+    "soma_das_partes_positivas": 1387.6798757831602,
+    "ep": 278.8222034928662,
+    "soma_das_partes_negativas": -9434.579426531287,
+    "soma_liquida": -8046.899550748127,
+    "ep_soma_liquida": 4068.2212010390217
+   },
+   "nota_soma_liquida": "a soma líquida do T28 só cobre as seções dos eventos (a probabilidade das demais não foi gravada no T28); o excesso em seções contra a maior referência vai ao lado",
+   "excesso_L_em_secoes_contra_maior_referencia": -78.39203940355628,
+   "excesso_D_em_secoes_contra_maior_referencia": -353.9904824187463
+  },
+  "T23": {
+   "secoes_com_valor": 497897,
+   "secoes_com_excesso_positivo": 779,
+   "soma_das_partes_positivas": 1346.453904970655,
+   "ep": 161.42340901407601,
+   "soma_das_partes_negativas": -10727.980077668639,
+   "soma_liquida": -9381.526172697984,
+   "ep_soma_liquida": 168.4610536224423
+  },
+  "T21_R1_taxa_da_propria_secao": {
+   "secoes_com_valor": 497897,
+   "secoes_com_excesso_positivo": 252612,
+   "soma_das_partes_positivas": 1059488.308530291,
+   "ep": 5262.690549847032,
+   "soma_das_partes_negativas": -980146.2787547081,
+   "soma_liquida": 79342.0297755828,
+   "ep_soma_liquida": 4604.365627050908
+  },
+  "T23_R3_zonas_positivas": {
+   "secoes_com_valor": 497897,
+   "secoes_com_excesso_positivo": 69443,
+   "soma_das_partes_positivas": 22507.99484243898,
+   "ep": 424.2169303185659,
+   "soma_das_partes_negativas": -80919.44177406083,
+   "soma_liquida": -58411.44693162186,
+   "ep_soma_liquida": 572.5807841180196
+  }
+ },
+ "robustez": {
+  "R1_T21_taxa_da_propria_secao_no_1T": {
+   "rotulo": "R1",
+   "soma": 1177565.7508907379,
+   "ep": 6059.8384563224645,
+   "secoes_com_excesso": 274343,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 243375,
+     "votos_atribuidos": 1041215.4184561782
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30273,
+     "votos_atribuidos": 105364.48630910076
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 30139.113231383024
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 480,
+     "votos_atribuidos": 822.7329480551841
+    }
+   },
+   "por_uf": {
+    "AC": 3623.023798987723,
+    "AL": 24344.0287009047,
+    "AM": 19350.86578745919,
+    "AP": 3355.823585720146,
+    "BA": 103993.2378700854,
+    "CE": 71848.36260508106,
+    "DF": 9784.514902249372,
+    "ES": 18371.13336808252,
+    "GO": 28483.703795900103,
+    "MA": 52524.11039088796,
+    "MG": 118704.84761873944,
+    "MS": 11628.41298398561,
+    "MT": 17190.39450680604,
+    "PA": 49017.34962813591,
+    "PB": 31315.716509027672,
+    "PE": 62048.79338935076,
+    "PI": 33290.142353796065,
+    "PR": 42438.41926615086,
+    "RJ": 114721.23730126795,
+    "RN": 25383.309463868354,
+    "RO": 8895.376495838766,
+    "RR": 2879.4465881547067,
+    "RS": 70561.14548252664,
+    "SC": 37891.9363995302,
+    "SE": 17254.74860183674,
+    "SP": 191297.14356216617,
+    "TO": 7346.962954057721,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5304350229237558,
+   "fracao_de_4_43_milhoes": 0.26581619658933137
+  },
+  "R2a_T28_margem_de_Lula": {
+   "rotulo": "R2a",
+   "soma": 1174562.9587381626,
+   "ep": 5974.615261245678,
+   "secoes_com_excesso": 274892,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 243680,
+     "votos_atribuidos": 1040951.3076907708
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30514,
+     "votos_atribuidos": 105914.1390758323
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 26847.269425092494
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 483,
+     "votos_atribuidos": 826.2426004464462
+    }
+   },
+   "por_uf": {
+    "AC": 4010.309709438941,
+    "AL": 24374.582731479677,
+    "AM": 19952.70397280331,
+    "AP": 4108.288297268521,
+    "BA": 103306.94071562785,
+    "CE": 71182.69784673413,
+    "DF": 9356.10577891241,
+    "ES": 18183.5885411436,
+    "GO": 28187.1702880124,
+    "MA": 52817.08885149399,
+    "MG": 117999.65089883977,
+    "MS": 11740.850263309192,
+    "MT": 17042.403480749148,
+    "PA": 49604.26902131013,
+    "PB": 31150.393466316506,
+    "PE": 61251.85996219829,
+    "PI": 32820.679355222266,
+    "PR": 42787.45067070827,
+    "RJ": 115880.88120078905,
+    "RN": 25639.32971042703,
+    "RO": 8943.750534821425,
+    "RR": 3375.155756354748,
+    "RS": 71449.13527085513,
+    "SC": 38169.05731403279,
+    "SE": 17082.90059908707,
+    "SP": 186685.7458738073,
+    "TO": 7438.405646279805,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5290824138460192,
+   "fracao_de_4_43_milhoes": 0.26513836540364843
+  },
+  "R2b_T28_comparecimento": {
+   "rotulo": "R2b",
+   "soma": 1181893.9648184786,
+   "ep": 6201.944015427378,
+   "secoes_com_excesso": 274892,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 243680,
+     "votos_atribuidos": 1040951.3076907708
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30514,
+     "votos_atribuidos": 105914.1390758323
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 34178.275505408135
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 483,
+     "votos_atribuidos": 826.2426004464462
+    }
+   },
+   "por_uf": {
+    "AC": 4010.309709438941,
+    "AL": 24440.282755625172,
+    "AM": 20013.695231184047,
+    "AP": 4108.288297268521,
+    "BA": 105150.92362798766,
+    "CE": 72648.1259204179,
+    "DF": 9550.105755905444,
+    "ES": 18203.58854099563,
+    "GO": 28187.1702880124,
+    "MA": 53054.82262988441,
+    "MG": 118190.6508940047,
+    "MS": 11740.850263309192,
+    "MT": 17048.403480749148,
+    "PA": 49928.9639770947,
+    "PB": 31491.24924562456,
+    "PE": 61736.86936315693,
+    "PI": 33797.47295099984,
+    "PR": 42787.45067070827,
+    "RJ": 115987.881200789,
+    "RN": 25935.22525588818,
+    "RO": 8988.750534821425,
+    "RR": 3379.1557211524228,
+    "RS": 71513.68717093783,
+    "SC": 38169.05731403279,
+    "SE": 17552.27107163959,
+    "SP": 186763.7458738071,
+    "TO": 7493.404092902527,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5323846688371525,
+   "fracao_de_4_43_milhoes": 0.26679322004931794
+  },
+  "R3_T23_todas_as_zonas_com_efeito_a_favor_do_13": {
+   "rotulo": "R3",
+   "soma": 1188138.8892812051,
+   "ep": 6110.996636783035,
+   "secoes_com_excesso": 306927,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 242229,
+     "votos_atribuidos": 1040498.9262879769
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30395,
+     "votos_atribuidos": 105846.97427258575
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 30139.113231383024
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 34088,
+     "votos_atribuidos": 11629.87554323885
+    }
+   },
+   "por_uf": {
+    "AC": 4010.309709438941,
+    "AL": 24560.75075632637,
+    "AM": 20018.645245812768,
+    "AP": 4150.814568779008,
+    "BA": 104666.10480493713,
+    "CE": 72266.06833745017,
+    "DF": 10097.555393420673,
+    "ES": 18384.864010833004,
+    "GO": 28398.64972132485,
+    "MA": 52971.835856346974,
+    "MG": 118804.35393903463,
+    "MS": 11810.85545711643,
+    "MT": 17056.34688122944,
+    "PA": 50005.19248331295,
+    "PB": 31507.094628634477,
+    "PE": 61799.57524154526,
+    "PI": 33257.24369883216,
+    "PR": 43204.486548964516,
+    "RJ": 116791.60300554705,
+    "RN": 25969.640458672915,
+    "RO": 8981.613402417806,
+    "RR": 3414.3563489257594,
+    "RS": 71881.24418326745,
+    "SC": 38265.844080079216,
+    "SE": 17441.563856858913,
+    "SP": 190953.35218570285,
+    "TO": 7447.361496253263,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5351976978744167,
+   "fracao_de_4_43_milhoes": 0.2682029095442901
+  },
+  "R4_sem_o_T21": {
+   "rotulo": "R4",
+   "soma": 167105.05079619295,
+   "ep": 2637.0443029249836,
+   "secoes_com_excesso": 45768,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 0,
+     "votos_atribuidos": 0.0
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 6,
+     "votos_atribuidos": 24.99994161305523
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 44806,
+     "votos_atribuidos": 135585.3187322213
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 211,
+     "votos_atribuidos": 30205.105861435128
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 745,
+     "votos_atribuidos": 1289.6262609234827
+    }
+   },
+   "por_uf": {
+    "AC": 287.7609843321881,
+    "AL": 6175.847056020766,
+    "AM": 4293.027181179728,
+    "AP": 29.185565560089074,
+    "BA": 20413.2382918419,
+    "CE": 22163.476460477552,
+    "DF": 1625.6278524448721,
+    "ES": 1571.6365010078462,
+    "GO": 180.52256321306186,
+    "MA": 16005.45710840705,
+    "MG": 8501.27117201016,
+    "MS": 1616.9933641201737,
+    "MT": 2191.357199919783,
+    "PA": 8824.62759456711,
+    "PB": 7560.33485344334,
+    "PE": 11616.976437812298,
+    "PI": 9020.731979379738,
+    "PR": 1325.375554493744,
+    "RJ": 17315.069290141095,
+    "RN": 8015.237147661293,
+    "RO": 680.0174047066328,
+    "RR": 405.0268377705247,
+    "RS": 2339.296996105403,
+    "SC": 925.8910595628417,
+    "SE": 4832.5926459186085,
+    "SP": 7235.720511138006,
+    "TO": 1931.188202816988,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.07527254540369052,
+   "fracao_de_4_43_milhoes": 0.037721230428034526
+  },
+  "R5_sem_o_T21_e_com_as_leituras_mais_largas_de_T28_e_T23": {
+   "rotulo": "R5",
+   "soma": 190778.45034322806,
+   "ep": 2964.0847309947994,
+   "secoes_com_excesso": 109371,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 0,
+     "votos_atribuidos": 0.0
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 6,
+     "votos_atribuidos": 24.99994161305523
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 44580,
+     "votos_atribuidos": 135458.3982955807
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 211,
+     "votos_atribuidos": 34244.26813546025
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 64574,
+     "votos_atribuidos": 21050.783970574037
+    }
+   },
+   "por_uf": {
+    "AC": 287.7609843321881,
+    "AL": 6510.528533909461,
+    "AM": 4464.202528894267,
+    "AP": 125.65873674552024,
+    "BA": 22448.866349216034,
+    "CE": 23830.818483665476,
+    "DF": 2795.5137167908215,
+    "ES": 1923.0753452868148,
+    "GO": 588.64000415683,
+    "MA": 16240.880354209867,
+    "MG": 10041.461633981018,
+    "MS": 1722.7940811621852,
+    "MT": 2217.8426737965992,
+    "PA": 9531.860226662837,
+    "PB": 8160.043719605916,
+    "PE": 12521.935477261348,
+    "PI": 9560.961231547424,
+    "PR": 1945.8855860959457,
+    "RJ": 19415.487099347753,
+    "RN": 8598.230305731391,
+    "RO": 735.6134958661678,
+    "RR": 489.41050552320047,
+    "RS": 3230.0023392279863,
+    "SC": 1118.8581144546804,
+    "SE": 5368.351634854444,
+    "SP": 14901.014453759113,
+    "TO": 1981.189747002616,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.08593623889334598,
+   "fracao_de_4_43_milhoes": 0.04306511294429528
+  },
+  "R6_T21_taxa_menos_0,5_ponto": {
+   "rotulo": "R6",
+   "soma": 1185208.134922649,
+   "ep": 6102.431018881752,
+   "secoes_com_excesso": 276406,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 245270,
+     "votos_atribuidos": 1048486.8298049599
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30442,
+     "votos_atribuidos": 105738.54671861442
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 30139.113231383024
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 479,
+     "votos_atribuidos": 819.6452216707067
+    }
+   },
+   "por_uf": {
+    "AC": 3914.768537521775,
+    "AL": 24440.994354085793,
+    "AM": 19848.138784227034,
+    "AP": 3967.734834770673,
+    "BA": 105103.9350538173,
+    "CE": 72152.62830220853,
+    "DF": 9520.469785808531,
+    "ES": 18324.290908988245,
+    "GO": 28365.521711255205,
+    "MA": 52822.05470570248,
+    "MG": 119159.35319115741,
+    "MS": 11844.792615007871,
+    "MT": 17123.950693149778,
+    "PA": 49550.72272782078,
+    "PB": 31477.486780304433,
+    "PE": 62062.98212398996,
+    "PI": 33265.486191938755,
+    "PR": 43237.57041793513,
+    "RJ": 116592.8732996014,
+    "RN": 25939.814033011255,
+    "RO": 8958.248967097174,
+    "RR": 3302.6615455349606,
+    "RS": 72002.64566148267,
+    "SC": 38452.711591176354,
+    "SE": 17371.935915026257,
+    "SP": 188960.90305556945,
+    "TO": 7421.896154319678,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5338775382534455,
+   "fracao_de_4_43_milhoes": 0.26754133971165894
+  },
+  "R6_T21_taxa_mais_0,5_ponto": {
+   "rotulo": "R6",
+   "soma": 1170623.0497143492,
+   "ep": 6035.525288699156,
+   "secoes_com_excesso": 273907,
+   "por_vetor_vencedor": {
+    "T21": {
+     "secoes_em_que_e_o_maior": 242628,
+     "votos_atribuidos": 1033576.9560351912
+    },
+    "T15": {
+     "secoes_em_que_e_o_maior": 5,
+     "votos_atribuidos": 23.999946020756337
+    },
+    "T7": {
+     "secoes_em_que_e_o_maior": 30578,
+     "votos_atribuidos": 106051.35176856318
+    },
+    "T28": {
+     "secoes_em_que_e_o_maior": 210,
+     "votos_atribuidos": 30139.113231383024
+    },
+    "T23": {
+     "secoes_em_que_e_o_maior": 486,
+     "votos_atribuidos": 831.6287331911406
+    }
+   },
+   "por_uf": {
+    "AC": 4107.788608052497,
+    "AL": 24371.10311941687,
+    "AM": 20079.68432357109,
+    "AP": 4253.97171415247,
+    "BA": 103180.33369027196,
+    "CE": 71544.35015402366,
+    "DF": 9380.535559577338,
+    "ES": 18062.523213803077,
+    "GO": 28011.227335131785,
+    "MA": 53029.233150394204,
+    "MG": 117022.81939715584,
+    "MS": 11638.739830247836,
+    "MT": 16968.520977060747,
+    "PA": 49961.77071166254,
+    "PB": 31143.239009857574,
+    "PE": 60889.44426624792,
+    "PI": 33250.07215899738,
+    "PR": 42343.49400814222,
+    "RJ": 115280.9583326168,
+    "RN": 25604.210097973766,
+    "RO": 8971.444309538312,
+    "RR": 3453.828425141355,
+    "RS": 70961.49076639456,
+    "SC": 37887.72507660304,
+    "SE": 17220.379043757144,
+    "SP": 184512.41685873587,
+    "TO": 7470.182595681323,
+    "ZZ": 21.562980140153755
+   },
+   "fracao_de_2_22_milhoes": 0.5273076800515086,
+   "fracao_de_4_43_milhoes": 0.26424899542084634
+  },
+  "R7_sem_piso_em_zero": {
+   "soma": 1177851.408585138,
+   "ep": 6068.616431169172,
+   "secoes": 499205
+  }
+ },
+ "descritivo_fora_do_registro": {
+  "soma_sem_deduplicar": 1227002.2890482172,
+  "soma_das_somas_liquidas": 140892.0021397563,
+  "T21_por_tamanho_do_excesso": {
+   "0-5": {
+    "secoes_positivas": 173661,
+    "votos_positivos": 395429.2240876506,
+    "secoes_negativas": 171705,
+    "votos_negativos": 382255.0286918775
+   },
+   "5-20": {
+    "secoes_positivas": 78761,
+    "votos_positivos": 640354.9300152387,
+    "secoes_negativas": 70646,
+    "votos_negativos": 556659.6722963454
+   },
+   "20-50": {
+    "secoes_positivas": 737,
+    "votos_positivos": 17963.987109584974,
+    "secoes_negativas": 473,
+    "votos_negativos": 11890.660242899798
+   },
+   "50-mais": {
+    "secoes_positivas": 55,
+    "votos_positivos": 5938.603805275886,
+    "secoes_negativas": 118,
+    "votos_negativos": 13657.687610102577
+   }
+  },
+  "T21_espelho_excesso_do_1T_sobre_o_2T": 964463.0488412252,
+  "T21b_coeficientes": {
+   "sem_biometria": 0.5203426480793595,
+   "ep_sem": 0.00230382504210633,
+   "com_biometria": 0.5219381067038616,
+   "ep_com": 0.0018462008558904131
+  }
+ },
+ "taxas_de_referencia": {
+  "T21": {
+   "maior": 0.06677321139680482,
+   "de": "2026_1T",
+   "disponiveis": {
+    "2026_1T": 0.06677321139680482
+   },
+   "ausentes": {
+    "2018": "sem o campo de biometria nas bases locais",
+    "2022": "sem o campo de biometria nas bases locais"
+   },
+   "2026_2T_para_comparar": 0.06751799236744112
+  },
+  "T15": {
+   "maior": 6.037946718242693e-08,
+   "de": "2018",
+   "disponiveis": {
+    "2018": 6.037946718242693e-08,
+    "2022": 0.0,
+    "2026_1T": 0.0
+   },
+   "2026_2T_para_comparar": 1.949529428045341e-07
+  },
+  "T7": {
+   "maior": 0.010783273716133822,
+   "de": "2022",
+   "disponiveis": {
+    "2018": 0.0002278749307365978,
+    "2022": 0.010783273716133822
+   },
+   "2026_2T_para_comparar": 0.014115775867463284,
+   "ausente": {
+    "2026_1T": "não há turno anterior"
+   }
+  },
+  "T28_L": {
+   "maior": 3.8805535356055474,
+   "de": "2026_1T",
+   "disponiveis": {
+    "2022_2T": 3.1675608277663185,
+    "2026_1T": 3.8805535356055474,
+    "2018_2T": 1.9352328701036037
+   },
+   "ep": {
+    "2022_2T": 0.4864840999257831,
+    "2026_1T": 0.4475853362903251,
+    "2018_2T": 0.29324879746257543
+   },
+   "2026_2T_para_comparar": 2.7386106068607377
+  },
+  "T28_D": {
+   "maior": 13.648555935191748,
+   "de": "2022",
+   "disponiveis": {
+    "2022": 13.648555935191748,
+    "2018": 6.681996347768583
+   },
+   "2026_2T_para_comparar": 2.089778635144101,
+   "ausente": {
+    "2026_1T": "não há turno anterior"
+   }
+  },
+  "T23": {
+   "maior": 8.687313042990375e-05,
+   "de": "2018",
+   "disponiveis": {
+    "2018": 8.687313042990375e-05,
+    "2022": 3.724139256120741e-05
+   },
+   "2026_2T_para_comparar": 1.1038686943733384e-05,
+   "ausente": {
+    "2026_1T": "não há turno anterior"
+   }
+  },
+  "T23_positivas_R3": {
+   "maior": 0.0008179831314910482,
+   "de": "2018",
+   "disponiveis": {
+    "2018": 0.0008179831314910482,
+    "2022": 0.00034238169393236
+   },
+   "2026_2T_para_comparar": 0.00034582119432431186
+  }
+ },
+ "descritivo_2026": {
+  "T7": {
+   "excesso_total": 147307.0,
+   "ganho_total": 10376696.0,
+   "ganho_positivo_total": 10435629.0,
+   "taxa_sobre_ganho_positivo": 0.014115775867463284
+  },
+  "T15": {
+   "q_total": 25.0,
+   "secoes_com_q": 6,
+   "taxa_2026": 1.949529428045341e-07,
+   "secoes_comparecimento_acima_dos_aptos_2T": 0,
+   "secoes_comparecimento_acima_dos_aptos_1T": 0,
+   "saldo_secoes_especiais_2026": -2,
+   "saldo_secoes_especiais_2022": 0,
+   "saldo_secoes_especiais_2018": -76
+  },
+  "T23": {
+   "sigma2_zona": 0.08570104400230541,
+   "limiar_pontos": 0.5854948129652573,
+   "zonas_extremas_a_favor": 2,
+   "votos_ext": 1365.602827872536,
+   "votos_pos": 42781.75505064349,
+   "votos_finalistas": 123710622.0,
+   "taxa_extremas": 1.1038686943733384e-05,
+   "taxa_positivas": 0.00034582119432431186
+  },
+  "T21": {
+   "NH1": 8342249,
+   "C1": 124934069,
+   "NH2": 8632488,
+   "C2": 127854631
+  },
+  "T28_secoes_evento_D": [
+   {
+    "secao": "BA|35157|156|131",
+    "aumento_votantes": 54,
+    "p_nula_calibrada": 2.8825637129924847e-05
+   },
+   {
+    "secao": "BA|36854|180|149",
+    "aumento_votantes": 66,
+    "p_nula_calibrada": 8.181515890019436e-06
+   },
+   {
+    "secao": "BA|34290|127|55",
+    "aumento_votantes": 65,
+    "p_nula_calibrada": 5.430195622352191e-05
+   },
+   {
+    "secao": "BA|30899|82|265",
+    "aumento_votantes": 60,
+    "p_nula_calibrada": 5.183541756288767e-09
+   },
+   {
+    "secao": "BA|39659|41|250",
+    "aumento_votantes": 64,
+    "p_nula_calibrada": 8.617800723712439e-05
+   },
+   {
+    "secao": "BA|30791|77|127",
+    "aumento_votantes": 27,
+    "p_nula_calibrada": 1.0668029685166252e-06
+   },
+   {
+    "secao": "BA|33413|123|102",
+    "aumento_votantes": 53,
+    "p_nula_calibrada": 6.790070334200086e-05
+   },
+   {
+    "secao": "BA|36170|201|60",
+    "aumento_votantes": 18,
+    "p_nula_calibrada": 0.0022671753422611905
+   },
+   {
+    "secao": "MG|46833|141|417",
+    "aumento_votantes": 63,
+    "p_nula_calibrada": 0.19253256567685298
+   },
+   {
+    "secao": "MG|41238|39|168",
+    "aumento_votantes": 84,
+    "p_nula_calibrada": 7.861061416788545e-06
+   },
+   {
+    "secao": "MG|41505|4|158",
+    "aumento_votantes": 55,
+    "p_nula_calibrada": 0.16603770737007362
+   },
+   {
+    "secao": "RJ|60011|169|137",
+    "aumento_votantes": 81,
+    "p_nula_calibrada": 7.104523210029033e-05
+   },
+   {
+    "secao": "RS|87572|99|66",
+    "aumento_votantes": 48,
+    "p_nula_calibrada": 2.8297849244832396e-05
+   },
+   {
+    "secao": "PE|23094|64|218",
+    "aumento_votantes": 60,
+    "p_nula_calibrada": 6.812824025251365e-08
+   },
+   {
+    "secao": "PE|25631|116|5",
+    "aumento_votantes": 64,
+    "p_nula_calibrada": 0.004317264851535838
+   },
+   {
+    "secao": "PE|25798|76|81",
+    "aumento_votantes": 59,
+    "p_nula_calibrada": 2.9928360363346265e-07
+   },
+   {
+    "secao": "PE|23752|130|112",
+    "aumento_votantes": 62,
+    "p_nula_calibrada": 6.48055998405472e-07
+   },
+   {
+    "secao": "PR|75663|146|434",
+    "aumento_votantes": 60,
+    "p_nula_calibrada": 0.11983995812640685
+   },
+   {
+    "secao": "PR|78298|100|69",
+    "aumento_votantes": 28,
+    "p_nula_calibrada": 0.00029523887831867226
+   },
+   {
+    "secao": "CE|13013|26|125",
+    "aumento_votantes": 44,
+    "p_nula_calibrada": 0.030222325198160985
+   },
+   {
+    "secao": "CE|14699|16|100",
+    "aumento_votantes": 63,
+    "p_nula_calibrada": 2.6868116101006167e-05
+   },
+   {
+    "secao": "CE|14699|16|18",
+    "aumento_votantes": 39,
+    "p_nula_calibrada": 0.05851277859205107
+   },
+   {
+    "secao": "PA|5452|53|218",
+    "aumento_votantes": 52,
+    "p_nula_calibrada": 1.4778405165198162e-11
+   },
+   {
+    "secao": "PA|5835|106|330",
+    "aumento_votantes": 84,
+    "p_nula_calibrada": 0.7046718453022329
+   },
+   {
+    "secao": "PA|5835|106|244",
+    "aumento_votantes": 70,
+    "p_nula_calibrada": 0.7083931340580023
+   },
+   {
+    "secao": "PA|5835|106|365",
+    "aumento_votantes": 53,
+    "p_nula_calibrada": 0.7116601992244885
+   },
+   {
+    "secao": "MA|8958|83|146",
+    "aumento_votantes": 27,
+    "p_nula_calibrada": 9.165168606655617e-07
+   },
+   {
+    "secao": "MT|98310|35|321",
+    "aumento_votantes": 61,
+    "p_nula_calibrada": 5.968812430353865e-12
+   },
+   {
+    "secao": "MS|90115|1|160",
+    "aumento_votantes": 54,
+    "p_nula_calibrada": 0.6077892805568391
+   },
+   {
+    "secao": "MS|90115|1|115",
+    "aumento_votantes": 46,
+    "p_nula_calibrada": 0.6081311490845369
+   },
+   {
+    "secao": "MS|90514|8|441",
+    "aumento_votantes": 29,
+    "p_nula_calibrada": 0.0003365667882642243
+   },
+   {
+    "secao": "MS|90735|43|404",
+    "aumento_votantes": 45,
+    "p_nula_calibrada": 0.04189824350168118
+   },
+   {
+    "secao": "MS|91316|19|140",
+    "aumento_votantes": 50,
+    "p_nula_calibrada": 0.5723155873303242
+   },
+   {
+    "secao": "MS|90115|1|130",
+    "aumento_votantes": 47,
+    "p_nula_calibrada": 0.6089974792881822
+   },
+   {
+    "secao": "MS|90115|1|99",
+    "aumento_votantes": 58,
+    "p_nula_calibrada": 0.5494672332933473
+   },
+   {
+    "secao": "MS|90115|1|147",
+    "aumento_votantes": 53,
+    "p_nula_calibrada": 0.603291823326759
+   },
+   {
+    "secao": "MS|91570|31|73",
+    "aumento_votantes": 52,
+    "p_nula_calibrada": 0.005368875535260358
+   },
+   {
+    "secao": "MS|91316|19|246",
+    "aumento_votantes": 25,
+    "p_nula_calibrada": 0.5245403262463102
+   },
+   {
+    "secao": "MS|90115|1|191",
+    "aumento_votantes": 63,
+    "p_nula_calibrada": 0.5436104928681954
+   },
+   {
+    "secao": "MS|90115|1|151",
+    "aumento_votantes": 65,
+    "p_nula_calibrada": 0.5594490974198251
+   },
+   {
+    "secao": "MS|55026|43|396",
+    "aumento_votantes": 52,
+    "p_nula_calibrada": 9.812093099792614e-07
+   },
+   {
+    "secao": "MS|90115|1|149",
+    "aumento_votantes": 50,
+    "p_nula_calibrada": 0.6417635543558917
+   },
+   {
+    "secao": "MS|90557|28|66",
+    "aumento_votantes": 46,
+    "p_nula_calibrada": 0.327399802201934
+   },
+   {
+    "secao": "MS|90557|28|79",
+    "aumento_votantes": 44,
+    "p_nula_calibrada": 0.3226955427802695
+   },
+   {
+    "secao": "MS|90557|28|92",
+    "aumento_votantes": 48,
+    "p_nula_calibrada": 0.31131591305915024
+   },
+   {
+    "secao": "MS|90115|1|141",
+    "aumento_votantes": 55,
+    "p_nula_calibrada": 0.6268405288981675
+   },
+   {
+    "secao": "MS|90557|28|74",
+    "aumento_votantes": 45,
+    "p_nula_calibrada": 0.3069999565323843
+   },
+   {
+    "secao": "MS|91847|1|179",
+    "aumento_votantes": 57,
+    "p_nula_calibrada": 0.7021301526140874
+   },
+   {
+    "secao": "MS|91820|28|97",
+    "aumento_votantes": 20,
+    "p_nula_calibrada": 0.006949397632280397
+   },
+   {
+    "secao": "MS|90557|28|67",
+    "aumento_votantes": 45,
+    "p_nula_calibrada": 0.3258729462993348
+   },
+   {
+    "secao": "MS|91847|1|164",
+    "aumento_votantes": 33,
+    "p_nula_calibrada": 0.25732003011822896
+   },
+   {
+    "secao": "MS|90115|1|158",
+    "aumento_votantes": 67,
+    "p_nula_calibrada": 0.5381676916238541
+   },
+   {
+    "secao": "MS|90115|1|204",
+    "aumento_votantes": 64,
+    "p_nula_calibrada": 0.0009902376504974067
+   },
+   {
+    "secao": "MS|90115|1|93",
+    "aumento_votantes": 54,
+    "p_nula_calibrada": 0.600255537295066
+   },
+   {
+    "secao": "MS|90115|1|52",
+    "aumento_votantes": 55,
+    "p_nula_calibrada": 0.5586551767721528
+   },
+   {
+    "secao": "MS|90557|28|75",
+    "aumento_votantes": 54,
+    "p_nula_calibrada": 0.2948855962607155
+   },
+   {
+    "secao": "MS|90557|28|83",
+    "aumento_votantes": 50,
+    "p_nula_calibrada": 0.3228101690095898
+   },
+   {
+    "secao": "MS|90735|43|411",
+    "aumento_votantes": 57,
+    "p_nula_calibrada": 0.12133325118048624
+   },
+   {
+    "secao": "MS|91847|1|177",
+    "aumento_votantes": 55,
+    "p_nula_calibrada": 0.7096636607500045
+   },
+   {
+    "secao": "SP|71072|2|539",
+    "aumento_votantes": 64,
+    "p_nula_calibrada": 0.06279662694322213
+   },
+   {
+    "secao": "SP|71072|2|491",
+    "aumento_votantes": 60,
+    "p_nula_calibrada": 0.0599713301312243
+   },
+   {
+    "secao": "SP|71870|330|127",
+    "aumento_votantes": 56,
+    "p_nula_calibrada": 0.20233019303502897
+   },
+   {
+    "secao": "SP|71072|2|532",
+    "aumento_votantes": 59,
+    "p_nula_calibrada": 0.05693452157456026
+   },
+   {
+    "secao": "SP|71072|2|506",
+    "aumento_votantes": 59,
+    "p_nula_calibrada": 0.07668716405492995
+   }
+  ]
+ },
+ "veredito": "INCONCLUSIVO",
+ "fora_da_soma": {
+  "T17": "atributo da máquina: o teste só foi rodado na amostra (3.897 seções) e nos locais dos Adendos 10 e 11; não há coeficiente nem valor por seção na base completa",
+  "votos_depois_das_17h": "a hora de cada voto só existe nos logs da amostra; o bweb traz só a hora de encerramento da seção"
+ },
+ "segundos": 76.4,
+ "rodado_em_utc": "2026-10-29T03:25:55Z"
+}

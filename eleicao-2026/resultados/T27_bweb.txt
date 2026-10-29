@@ -1,0 +1,134 @@
+T27. Teto somado dos vetores medidos (Adendo 9), com o bweb completo do 2º turno de 2026
+Script: scripts/analisar_T27.py. Números completos: resultados/T27_bweb.json.
+Bases: secoes2026.json.gz (1º e 2º turno), secoes2018.json.gz, secoes2022.json.gz, candidatos2026_1t.json.gz, o cache de
+biometria do T21 (nh_secoes_2026.json.gz, lido dos zips do bweb dos dois turnos), os zips do exterior (juntas, como no T28) e
+os resultados já gravados de T7, T15, T21, T23 e T28 (resultados/*_bweb.json).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 9, antes dos dados):
+  "Por seção, o excesso de cada vetor sobre a maior taxa de 2018, 2022 e do 1º turno de 2026, em votos (T21, votos depois das 17h, T15, T7, T28, T17, T23). Cada voto entra uma vez, no vetor de maior valor da seção. Somar e comparar com 2,22 milhões (troca) e 4,43 milhões (acréscimo). Sem sinal: soma até 0,5 milhão. Sinal: 2,2 milhões ou mais. Entre os dois: inconclusivo. Chegar perto não prova fraude."
+
+VEREDITO PELA LETRA: INCONCLUSIVO
+
+Resumo
+- Soma dos excessos por seção, cada voto uma vez no vetor de maior valor da seção: 1.177.855 votos (ep 6.069), em 274.892 seções.
+  Limites: sem sinal até 500.000; sinal 2.200.000 ou mais. A soma é 53,1% dos 2,22 milhões da troca e 26,6% dos 4,43 milhões do acréscimo.
+- Votos atribuídos a cada vetor (o maior da seção): T21 1.040.951 (243.680 seções); T15 24 (5 seções); T7 105.914 (30.514 seções); T28 30.139 (210 seções); T23 826 (483 seções).
+- Fora da soma, sem dado por seção na base completa: T17 (o teste só existe na amostra de 3.897 seções e nos locais dos
+  Adendos 10 e 11) e votos depois das 17h (a hora de cada voto só está nos logs da amostra; o bweb tem só a hora de
+  encerramento da seção). Os dois ficam listados e não entram na soma.
+
+1. Leituras declaradas (o registro não fixa estes pontos; cada um é desvio declarado do registro)
+  (fixadas neste arquivo antes de rodar; cada uma sai no resultado e as que o registro não fixa são desvio declarado):
+  L1. "Taxa" de um vetor numa eleição = total do vetor dividido pelo total da sua base, com a regra do teste que o mediu.
+  "A maior" = o máximo entre as referências que têm o dado. Excesso da seção = quantidade do vetor na seção no 2º turno
+  de 2026 menos essa taxa vezes a base da seção, em votos (a forma do T4: observados menos esperados vezes a maior
+  referência). A taxa da própria seção em cada referência sai como robustez (R1, só onde existe: T21).
+  L2. A seção entra com max(0, maior excesso entre os vetores): um déficit não compensa o excesso de outra seção (leitura de
+  teto) e cada voto entra uma vez, no vetor de maior valor da seção. A soma líquida de cada vetor sai ao lado.
+  L3. Vetores e quantidades por seção (votos):
+  T21: q = NH2 - NH1 (liberações sem biometria de quem tem biometria cadastrada, campo QT_ELEI_BIOM_SEM_HABILITACAO,
+  a mais no 2º turno); base = C2 - C1; taxa = NH/comparecimento (a "proporção" do T21). Só as 27 UFs (no exterior o
+  campo é zero nos dois turnos).
+  T15: q = max(0, C2 - A1) (votantes do 2º turno acima dos aptos da seção no 1º turno; inclui o comparecimento acima dos
+  aptos do 2º turno, que é zero) + saldo positivo das seções especiais (votos tirados de Flávio; o de 2026 é -2, a
+  favor de Flávio, e entra como zero); base = C2; taxa nas referências pela mesma conta entre os turnos.
+  T7:  q = max(0, ganho - bolo) do candidato que mais ganhou (a conta do T7); base = max(0, ganho); taxa = soma de q
+  sobre soma da base (2018 Haddad, 2022 Bolsonaro).
+  T28: evento L (comparecimento >= 95% e Lula >= 80% dos válidos): q = votos de Lula na seção do evento; esperado =
+  Rc da maior referência vezes a probabilidade calibrada da seção sob a nula (P x R_nulo do T28). Evento D (aumento
+  de comparecimento de 15 pontos ou mais): q = C2 - C1 na seção do evento, esperado pela mesma regra com o Rc do
+  evento D das referências. O valor do T28 na seção é o maior dos dois.
+  T23: q = efeito encolhido da zona (BLUP do T23, pontos/100) vezes os votos nos finalistas da seção, nas zonas extremas
+  a favor do 13 (a medida em votos do próprio T23); base = votos nos finalistas; taxa nas referências pela mesma conta.
+  L4. Referências: 2018, 2022 e 1º turno de 2026 onde o vetor existe. O 1º turno de 2026 não tem turno anterior, então não
+  define taxa para T7, T15 (aptos entre turnos), T23 e evento D; para T15 o comparecimento acima dos aptos do 1º turno
+  de 2026 é zero. T21: as bases de 2018 e 2022 não têm o campo de biometria (falta QT_ELEITORES_BIOMETRIA_NH do bweb
+  de 2018 e 2022, que não está nos arquivos locais); só o 1º turno de 2026 dá a taxa.
+  L5. Fora da soma, por falta de dado por seção na base completa: T17 (atributo da máquina: o teste só existe na amostra e na
+  extensão dos Adendos 10 e 11) e votos depois das 17h (só os logs da amostra registram a hora de cada voto; o bweb
+  traz só a hora de encerramento da seção).
+  Erro-padrão da soma: bootstrap de Poisson dos locais de votação, calculado na forma fechada (variância = soma dos
+  quadrados das somas por local), com as taxas de referência fixas.
+
+2. Conferências (o código reproduz os números já registrados antes de somar)
+  T7 de 2018 e 2022 iguais ao T7 registrado: sim; T7 de 2026 igual: sim.
+  T23, votos nas zonas extremas a favor do 13: 2018 9.091,4 (registrado 9.091,4), 2022 4.404,0 (4.404,0), 2026 1.365,6 (1.365,6).
+  T28, evento de Lula: 188 seções e 32.387 votos de Lula na lista (registrado 188 e 32.387); evento de aumento: O 64 e esperado bruto 43,0 (registrado 64 e 43,0).
+  T21: NH das 27 UFs 8.342.249 no 1º turno e 8.632.488 no 2º (T21: 8.342.249 e 8.632.488); 497.897 seções, comparecimento diferente da base em 0.
+
+3. Taxas de referência (a maior entra no cálculo)
+  T21 (NH por votante): 1º turno de 2026 6,677%; 2018 e 2022 sem o campo (QT_ELEITORES_BIOMETRIA_NH) nas bases
+       locais. Para comparar, 2º turno de 2026: 6,752%.
+  T15 (votantes acima dos aptos do 1º turno, por votante do 2º): 2018 0,0000%, 2022 0,0000%, 1º turno de 2026 0 (comparecimento acima dos aptos: 0 seções); maior 2018. 2026: 0,0000%.
+  T7 (excesso sobre o ganho positivo): 2018 0,023%, 2022 1,078%; maior 2022. 2026: 1,412%. (O (b) registrado, sobre o ganho líquido: 2018 0,023%, 2022 1,086%.)
+  T28 evento de Lula (O/E calibrado): 2022 2T 3,168 (ep 0,486), 2026 1T 3,881 (ep 0,448), 2018 2T 1,935; maior 2026_1T. 2026 2T: 2,739.
+  T28 evento de aumento de 15 pontos (O/E calibrado): 2022 13,649, 2018 6,682; maior 2022. 2026: 2,090.
+  T23 (votos deslocados nas zonas extremas a favor do 13, por voto nos finalistas): 2018 0,0087%, 2022 0,0037%; maior 2018. 2026: 0,0011%.
+
+4. Cada vetor sozinho (excesso por seção sobre a maior taxa; partes positivas, partes negativas e soma líquida, em votos)
+  T21 : 497.897 seções com valor, 253.214 com excesso positivo; positivas 1.059.687 (ep 5.273); negativas -964.463; líquida 95.224 (ep 4.582)
+  T15 : 499.205 seções com valor, 6 com excesso positivo; positivas 25 (ep 15); negativas -8; líquida 17 (ep 15)
+  T7  : 499.205 seções com valor, 44.885 com excesso positivo; positivas 135.739 (ep 1.180); negativas -100.962; líquida 34.777 (ep 1.166)
+  T28 : 252 seções com valor, 211 com excesso positivo; positivas 30.205 (ep 2.344); negativas -9.949; líquida 20.256 (ep 4.695)
+  T23 : 497.897 seções com valor, 779 com excesso positivo; positivas 1.346 (ep 161); negativas -10.728; líquida -9.382 (ep 168)
+        T28 por evento: Lula 28.817 votos em 180 seções; aumento 1.388 em 31. A soma líquida do T28 só cobre as seções dos eventos; em seções, o excesso contra a maior referência é -78,4 (Lula) e -354,0 (aumento); negativo quer dizer menos seções do que a maior referência daria.
+  T21 com a taxa da própria seção no 1º turno (R1): positivas 1.059.488 (ep 5.263); negativas -980.146; líquida 79.342 (ep 4.604).
+  T23 com todas as zonas de efeito a favor do 13 (R3): positivas 22.508; líquida -58.411.
+
+5. Soma do T27 e robustez (cada voto uma vez, no vetor de maior valor da seção)
+  principal: 1.177.855 (ep 6.069) => INCONCLUSIVO
+  R1_T21_taxa_da_propria_secao_no_1T: 1.177.566 (ep 6.060) => pela mesma regra, INCONCLUSIVO
+  R2a_T28_margem_de_Lula: 1.174.563 (ep 5.975) => pela mesma regra, INCONCLUSIVO
+  R2b_T28_comparecimento: 1.181.894 (ep 6.202) => pela mesma regra, INCONCLUSIVO
+  R3_T23_todas_as_zonas_com_efeito_a_favor_do_13: 1.188.139 (ep 6.111) => pela mesma regra, INCONCLUSIVO
+  R4_sem_o_T21: 167.105 (ep 2.637) => pela mesma regra, SEM SINAL
+  R5_sem_o_T21_e_com_as_leituras_mais_largas_de_T28_e_T23: 190.778 (ep 2.964) => pela mesma regra, SEM SINAL
+  R6_T21_taxa_menos_0,5_ponto: 1.185.208 (ep 6.102) => pela mesma regra, INCONCLUSIVO
+  R6_T21_taxa_mais_0,5_ponto: 1.170.623 (ep 6.036) => pela mesma regra, INCONCLUSIVO
+  R7_sem_piso_em_zero: 1.177.851 (ep 6.069) => pela mesma regra, INCONCLUSIVO
+
+  Descritivo: sem deduplicar (soma das partes positivas de cada vetor) 1.227.002; soma das somas líquidas dos vetores 140.892 (a do T28 só nas seções dos eventos).
+
+6. Por UF, soma principal (votos)
+  SP 186.722; MG 118.086; RJ 115.933; BA 104.136; CE 71.847; RS 71.480; PE 61.472; MA 52.924; PA 49.754; PR 42.787; SC 38.169; PI 33.257; PB 31.309; GO 28.187; RN 25.771; AL 24.405; AM 19.963; ES 18.193; SE 17.296; MT 17.045; MS 11.741; DF 9.450; RO 8.965; TO 7.446; AP 4.108; AC 4.010; RR 3.377; ZZ 22
+
+7. T21 por tamanho do excesso da seção (descritivo, fora do registro)
+  faixa (votos) | seções com excesso | votos | seções com déficit | votos
+  0-5        |   173.661 |   395.429 |   171.705 |   382.255
+  5-20       |    78.761 |   640.355 |    70.646 |   556.660
+  20-50      |       737 |    17.964 |       473 |    11.891
+  50-mais    |        55 |     5.939 |       118 |    13.658
+
+8. Leitura
+- Pela letra, 1.177.855 votos ficam entre 0,5 e 2,2 milhões: INCONCLUSIVO. A distância é grande nos dois sentidos em erros-padrão (112 ep acima de 0,5 milhão e 168 abaixo de 2,2 milhões); o erro-padrão mede só a variação
+  entre locais e não a escolha de leitura, que pesa muito mais (abaixo).
+- O T21 responde por 1.040.951 dos 1.177.855 votos (88,4%). As partes positivas do
+  T21 (1.059.687) e as negativas (964.463) quase se anulam: a soma líquida é 95.224 (ep 4.582), o mesmo excesso nacional
+  sobre a proporção do 1º turno que o T21 relatou (+95.224). O teto por seção soma a metade positiva da variação das liberações sem
+  biometria de uma seção para outra entre os turnos; a mesma conta com os turnos trocados e a mesma taxa (excesso do 1º turno sobre o 2º) daria
+  964.463. Com a taxa da própria seção (R1) o total vai a 1.177.566; com a taxa do
+  1º turno 0,5 ponto abaixo ou acima (R6, no lugar das referências de 2018 e 2022 que faltam), a 1.185.208 e 1.170.623.
+- Sem o T21, os outros vetores somam 167.105 (ep 2.637), abaixo de 0,5 milhão; com as leituras mais largas de T28 e
+  T23, 190.778. O T7 dá 105.914, o T28 30.139, o T23 826 e o T15 24.
+- Teto não é estimativa de fraude: ele conta cada liberação sem biometria a mais como um voto que poderia ter sido inserido. O
+  T21(b) mediu, dentro do local, 0,520 voto de Lula por liberação sem biometria a mais (ep 0,002) e 0,522 por habilitação com biometria a mais
+  (ep 0,002); votos inseridos para Lula dariam perto de 1. Isso é outro teste e não entra na conta do T27.
+- Mesmo como teto, a soma fica em 53,1% dos 2,22 milhões que a troca exigiria e em 26,6% dos 4,43 milhões do acréscimo.
+  "Chegar perto não prova fraude" (registro); aqui a soma não chega ao limite de sinal.
+- Ficam de fora, sem dado por seção na base completa: T17 e votos depois das 17h. Na amostra, o T17 de urnas antigas contra novas
+  deu 0,0 ponto (ep 0,14) e o T30 por horário foi lido como composição (resultados/ADENDO9_resultados_amostra.txt); nenhum dos dois
+  tem valor por seção para entrar aqui. O bweb tem o número da urna nos dois turnos, o que permitiria refazer parte do T17
+  (modelo e urna trocada, sem contingência) na base completa; isso não foi feito nesta rodada.
+
+9. Desvios do registro
+- Todas as leituras L1 a L5 acima: o registro não diz o que é "taxa" de cada vetor, qual base multiplica a taxa, se a seção sem
+  excesso entra com zero, nem que votos contar em T28 e T23. A leitura escolhida é a mais literal que conseguimos: taxa de cada
+  eleição como um número, a forma do T4 para o excesso e piso em zero por seção. Sem o piso (R7) a soma é 1.177.851: o T15
+  vale cerca de zero em toda seção, então o máximo entre os vetores já fica perto de zero ou acima dele.
+- T21 sem as referências de 2018 e 2022 (campo de biometria ausente nas bases locais); só o 1º turno de 2026 dá a taxa.
+- T7, T15 (aptos entre turnos), T23 e o evento de aumento do T28 não têm taxa no 1º turno de 2026 (não há turno anterior).
+- T7 usa como base o ganho positivo da seção (e a taxa das referências pela mesma base), para que a seção em que Lula perdeu votos
+  não ganhe excesso; o (b) registrado usa o ganho líquido (1,086% em 2022 contra 1,078% aqui).
+- T17 e votos depois das 17h ficam fora da soma (sem dado por seção na base completa).
+- Ordem: a principal e as robustez R1 a R6 estavam no script na primeira rodada completa (29/10, 03h21 UTC, mesmo número da
+  principal); depois dela entraram só a R7, o descritivo da seção 7 e o texto de leitura, sem mudar a principal.
