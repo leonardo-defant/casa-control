@@ -546,3 +546,30 @@ O que já vi e que toca estes testes (transparência): o T8 e o T35 (Flávio per
 
 1. L4: os valores de referência escritos no Adendo 18 como "Quaest já conhecida: Caiado 36%, Cury 47%, Zema 36%" não são da Quaest publicada. Saíram de `resultados/decomposicao_fluxos_2026.txt`, montado com números ainda não conferidos, e o 47% de Cury era a fatia de Flávio (a de Lula seria 53%). O critério manda usar a mediana dos institutos, e foi o que o teste usou, com os valores conferidos em `resultados/contexto_2t_2026_pesquisa_verificada.json`. Com os números do registro, com os conferidos ou com qualquer outra leitura testada, o veredito é o mesmo (INCONCLUSIVO).
 2. Nada mais do Adendo 18 foi alterado. Os resultados estão em `resultados/ADENDO18_resultados.txt` e em `resultados/testes_adendo18_com_conferencia.json`, com as correções apontadas pelas conferências.
+
+## Adendo 20 (30/10/2026, antes de rodar qualquer teste abaixo): testes forenses nos boletins que ainda não foram feitos
+
+Pedido do Léo: com todos os dados, principalmente os boletins de urna, apontar onde há possibilidade de fraude e trazer os dados que possam dar pistas, com testes estatísticos. Regra do Adendo 18 mantida: nenhuma eleição anterior como régua. Os controles são o 1º turno de 2026 nas mesmas seções, simulações de contagem limpa (sorteio binomial a partir da fatia da própria seção ou do local) e o lado de Flávio como espelho. Ficam de fora o que já rodou com o bweb completo: canto de comparecimento extremo (T28), componente de zona e degrau na fronteira (T23), liberação sem biometria em média (T21), troca uniforme e governador (T14, T16, T22b).
+
+### F2. Dígitos, porcentagens redondas e boletins repetidos (todas as seções do Brasil; exterior fora)
+- (a) Último dígito dos votos de Lula e de Flávio por seção, só contagens de 50 ou mais. Estatística: qui-quadrado contra uniforme. Referência: 200 simulações em que cada contagem é sorteada de uma binomial com a fatia do local de votação da seção, mesmo total de válidos. Sinal: o qui-quadrado observado de Lula ou de Flávio no 2º turno passa do percentil 99,9 das simulações e o do mesmo candidato no 1º turno fica abaixo do percentil 99. Sem sinal: abaixo do percentil 95 nos dois candidatos no 2º turno. Entre os dois: inconclusivo.
+- (b) Porcentagens redondas: fração de seções em que 100 x Lula / válidos, ou 100 x comparecimento / aptos, cai a 0,1 ponto ou menos de um múltiplo de 5. Mesma referência simulada. Sinal: excesso do observado sobre a média simulada acima de 4 desvios-padrão da simulação no 2º turno, para Lula ou para o comparecimento, e pelo menos o dobro do excesso padronizado do 1º turno. Sem sinal: dentro de 2 desvios-padrão. Entre os dois: inconclusivo.
+- (c) Boletins repetidos: pares de seções da mesma zona com Lula, Flávio, branco e nulo idênticos no 2º turno, comparecimento de 100 ou mais. Esperado pela mesma simulação. Sinal: observado de pelo menos 3 vezes o esperado e 20 pares ou mais. Sem sinal: até 1,5 vez o esperado.
+
+### F4. Modelo de urna no bweb inteiro
+- Mapa do número da urna para o modelo pelos logs da amostra (o log informa o modelo; o boletim, o número). Só se aplica ao bweb se as faixas forem limpas: cada faixa com um modelo só em 99% ou mais das urnas da amostra. Se não forem, o teste fica SEM PODER.
+- Virada de Lula (fatia entre os dois finalistas, 2º turno menos 1º) com efeito fixo de local, erro agrupado por local, peso pelos votos dos finalistas no 2º turno, um indicador por modelo (referência: o mais comum). Placebo: a fatia do 1º turno como variável.
+- Sinal: algum modelo com 5.000 seções ou mais e diferença de 1,0 ponto ou mais a favor de Lula, a mais de 4 erros-padrão. Sem sinal: todos com diferença abaixo de 0,3 em valor absoluto e erro-padrão até 0,15. Entre os dois: inconclusivo.
+
+### F5. Caudas: seções que destoam do previsto pelo próprio 1º turno
+- Previsão: a regressão do T8 com efeito fixo de local (ganho de Lula e de Flávio contra os votos do 1º turno da seção) dá L2 e R2 previstos e a fatia prevista p. Para cada seção, z = (fatia observada - p) / raiz(p(1-p)/n), n = votos dos finalistas no 2º turno.
+- Sinal: o número de seções com z acima de +4 é pelo menos 1,3 vez o de seções com z abaixo de -4, com 200 ou mais acima de +4, e pelo menos 30% das seções acima de +4 ficam em até 10 zonas. Sem sinal: razão entre 0,8 e 1,25. Entre os dois: inconclusivo. Relatar também a margem líquida movida pelas duas caudas.
+- Arquivos de urna: boletim, RDV, log e assinatura das 30 seções com maior z e das 10 com menor z. Sinal no arquivo: assinatura inválida, boletim diferente do bweb, RDV diferente do boletim, votos no log diferentes do comparecimento, ou anomalia A2 a A5 do T3, em qualquer uma delas.
+
+### F6. Eleitor a mais sem biometria, nas pontas
+- Do bweb dos dois turnos: variação das liberações sem biometria (QT_ELEI_BIOM_SEM_HABILITACAO, 2º turno menos 1º) sobre os aptos. Grupo: o 1% de seções com a maior variação, desde que a variação seja de 10 ou mais.
+- Virada de Lula do grupo contra as outras seções do mesmo local (efeito fixo de local, erro agrupado por local, peso pelos votos dos finalistas no 2º turno). Sinal: diferença de 2,0 pontos ou mais a favor de Lula, a mais de 4 erros-padrão, com 1.000 seções ou mais no grupo. Sem sinal: diferença abaixo de 0,5 em valor absoluto com erro-padrão até 0,25. Entre os dois: inconclusivo.
+- Logs: 40 seções do grupo e 40 de controle sorteadas nos mesmos locais (semente 20261030). Rajada de fim de dia = 10 ou mais habilitações sem biometria depois das 16h locais. Sinal no log: a fração de seções do grupo com rajada é pelo menos 3 vezes a dos controles e são 5 seções ou mais.
+
+### F8. O que os EUA e os observadores disseram (pesquisa, sem critério numérico)
+- Texto, data e órgão de cada declaração do governo dos EUA sobre o 2º turno de 2026, se fala em indícios de fraude e quais; relatórios de observação internacional (OEA, UE, Centro Carter, Parlasul e outros); posição e auditoria do PL. Cada indício concreto que der para conferir nos dados públicos é conferido; o que não der é relatado como tal.
