@@ -1,0 +1,113 @@
+{
+ "secoes": 497897,
+ "grupos": {
+  "ate_17h00m59": {
+   "secoes": 125624,
+   "votantes_2t": 31599960,
+   "lula_1t_pct_dois": 46.27,
+   "lula_2t_pct_dois": 49.01,
+   "virada_pts": 2.74,
+   "margem_lula_1t": -2028678,
+   "margem_lula_2t": -607102,
+   "margem_2t_se_votassem_com_a_fatia_do_1t": -2283228
+  },
+  "17h01_17h02_antes_da_liminar": {
+   "secoes": 237646,
+   "votantes_2t": 60539024,
+   "lula_1t_pct_dois": 48.75,
+   "lula_2t_pct_dois": 51.52,
+   "virada_pts": 2.77,
+   "margem_lula_1t": -1305770,
+   "margem_lula_2t": 1780483,
+   "margem_2t_se_votassem_com_a_fatia_do_1t": -1468844
+  },
+  "17h03_17h48_liminar_sem_ordem_do_TSE": {
+   "secoes": 127333,
+   "votantes_2t": 33589430,
+   "lula_1t_pct_dois": 51.79,
+   "lula_2t_pct_dois": 54.64,
+   "virada_pts": 2.85,
+   "margem_lula_1t": 1025086,
+   "margem_lula_2t": 3013761,
+   "margem_2t_se_votassem_com_a_fatia_do_1t": 1162230
+  },
+  "17h49_18h59": {
+   "secoes": 942,
+   "votantes_2t": 264958,
+   "lula_1t_pct_dois": 52.55,
+   "lula_2t_pct_dois": 55.6,
+   "virada_pts": 3.05,
+   "margem_lula_1t": 11289,
+   "margem_lula_2t": 28668,
+   "margem_2t_se_votassem_com_a_fatia_do_1t": 13051
+  },
+  "19h_ou_mais": {
+   "secoes": 6352,
+   "votantes_2t": 1861259,
+   "lula_1t_pct_dois": 51.93,
+   "lula_2t_pct_dois": 55.18,
+   "virada_pts": 3.25,
+   "margem_lula_1t": 59621,
+   "margem_lula_2t": 185724,
+   "margem_2t_se_votassem_com_a_fatia_do_1t": 69077
+  }
+ },
+ "brasil": {
+  "margem_lula_1t": -2238452,
+  "margem_lula_2t": 4401534,
+  "lula_1t_pct_dois": 48.98,
+  "lula_2t_pct_dois": 51.78
+ },
+ "abertas_depois_das_17h00m59": {
+  "secoes": 372273,
+  "votantes_2t": 96254671,
+  "lula_1t_pct_dois": 49.87,
+  "lula_2t_pct_dois": 52.69,
+  "margem_lula_1t": -209774,
+  "margem_lula_2t": 5008636
+ },
+ "virada_menos_media_do_mun": {
+  "ate_17h00m59": {
+   "pts": -0.024,
+   "secoes": 125587
+  },
+  "17h01_17h02_antes_da_liminar": {
+   "pts": 0.002,
+   "secoes": 237604
+  },
+  "17h03_17h48_liminar_sem_ordem_do_TSE": {
+   "pts": 0.02,
+   "secoes": 127260
+  },
+  "19h_ou_mais": {
+   "pts": -0.036,
+   "secoes": 6352
+  },
+  "17h49_18h59": {
+   "pts": 0.132,
+   "secoes": 942
+  }
+ },
+ "virada_menos_media_do_loc": {
+  "ate_17h00m59": {
+   "pts": -0.011,
+   "secoes": 113146
+  },
+  "17h01_17h02_antes_da_liminar": {
+   "pts": 0.001,
+   "secoes": 209435
+  },
+  "17h03_17h48_liminar_sem_ordem_do_TSE": {
+   "pts": 0.009,
+   "secoes": 105287
+  },
+  "17h49_18h59": {
+   "pts": 0.03,
+   "secoes": 730
+  },
+  "19h_ou_mais": {
+   "pts": -0.005,
+   "secoes": 3712
+  }
+ }
+}
