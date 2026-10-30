@@ -1,0 +1,988 @@
+{
+ "teste": "F8 do Adendo 20 (pesquisa, sem critério numérico)",
+ "registro_commit": "d976d4d",
+ "veredito_pela_letra": "DESCRITIVO (o F8 não tem limiar)",
+ "pesquisa_feita_em": "30/10/2026",
+ "eua": [
+  {
+   "id": "U1",
+   "data": "reportado em 17/10/2026 (resposta sem data)",
+   "orgao": "Departamento de Estado (Assuntos Legislativos, Katherine Bowles, segundo a BPMoney)",
+   "texto": "Resposta a democratas do Congresso (Sanders e 30 deputados): os EUA apoiam o direito do povo brasileiro a um \"free and fair electoral process\"; continuarão a dialogar com o povo, o setor privado e o \"governo eleito\". Não se comprometeu a reconhecer o resultado certificado.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "sem compromisso",
+   "links": [
+    "https://ua.news/en/world/derzhdep-ssha-ne-poobitsiav-viznati-sertifikovanii-rezultat-viboriv-u-braziliyi-the-rio-times",
+    "https://bpmoney.com.br/politica/musk-questiona-vitoria-lula-casa-branca-silencio/"
+   ],
+   "confianca": "media (texto integral da carta não publicado)"
+  },
+  {
+   "id": "U2",
+   "data": "24/10/2026",
+   "orgao": "Reuters (reportagem, não declaração oficial)",
+   "texto": "Com 10 fontes: Darren Beattie e Ricardo Pita, nomeados políticos do Departamento de Estado, lideraram uma campanha para devolver os Bolsonaro ao poder (sanções a Moraes, designação de PCC e CV como terroristas). Não fala de urna, apuração ou fraude.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "não se aplica",
+   "links": [
+    "https://www.internazionale.it/ultime-notizie-reuters/2026/10/24/inside-the-trump-administration-campaign-to-return-brazil-s-bolsonaro-clan-to-power"
+   ],
+   "confianca": "alta (via republicação)"
+  },
+  {
+   "id": "U3",
+   "data": "25/10/2026 (dia da votação)",
+   "orgao": "Trump, a repórteres",
+   "texto": "\"Não quero entrar nesse assunto, mas estamos monitorando.\"",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "não se aplica",
+   "links": [
+    "https://www.cnnbrasil.com.br/internacional/trump-diz-que-monitora-segundo-turno-da-eleicao-presidencial-no-brasil/"
+   ],
+   "confianca": "alta"
+  },
+  {
+   "id": "U4",
+   "data": "26/10/2026",
+   "orgao": "Departamento de Estado / Casa Branca (segundo a Folha)",
+   "texto": "O Departamento de Estado tinha uma nota de felicitação pronta; a administração Trump mandou adiar a divulgação \"para avaliar a situação política no Brasil\" depois da contestação de Flávio. A embaixada não disse quando a nota sairia.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "nota de reconhecimento retida",
+   "links": [
+    "https://tribunadonorte.com.br/tn-nas-eleicoes-2026/governo-trump-adia-comunicado-sobre-vitoria-de-lula-apos-contestacao-de-flavio-bolsonaro/",
+    "https://m.imirante.com/noticias/mundo/2026/10/26/ipolitica-governo-trump-adia-nota-oficial-vitoria-lula-apos-contestacao-flavio-bolsonaro"
+   ],
+   "confianca": "media (texto original da Folha não lido)"
+  },
+  {
+   "id": "U5",
+   "data": "26/10/2026",
+   "orgao": "Trump, a repórteres na Joint Base Andrews (Maryland); trecho repostado pela conta Rapid Response 47 da Casa Branca, segundo o Poder360",
+   "texto": "\"I didn't take sides but it looked like another rigged election frankly... it was a terrible look for the world.\"; \"I thought it had a very bad look, the way it was tabulated.\"; \"The extension given was very strange.\"; \"it looked so corrupt, so terrible\"; \"Elections have to be indisputable\"; \"I like Lula\"; \"I'm not running Brazil. I'm running the US.\"",
+   "fala_em_fraude": true,
+   "indicios": [
+    "prorrogação do horário (\"extension\")",
+    "a forma da apuração (\"the way it was tabulated\"), sem detalhe"
+   ],
+   "reconhecimento": "não",
+   "sem_prova": "AP, Reuters, AFP e CNN Brasil registram que ele não apresentou prova",
+   "links": [
+    "https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html",
+    "https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/",
+    "https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html",
+    "https://www.yahoo.com/news/politics/articles/white-house-blocks-congratulation-lula-191039931.html",
+    "https://www.poder360.com.br/poder-eleicoes-2026/trump-afirma-que-eleicoes-brasileiras-parecem-fraudadas/"
+   ],
+   "confianca": "alta"
+  },
+  {
+   "id": "U6",
+   "data": "enviado em 26/10/2026; revelado pela Folha em 29/10/2026",
+   "orgao": "Embaixada dos EUA em Brasília (telegrama ao Departamento de Estado)",
+   "texto": "Título: \"Eleições no Brasil: Lula é eleito em resultado surpreendente, mas definitivo; Flávio Bolsonaro considera resultado impossível de aceitar\". Votação \"majoritariamente pacífica\"; observadores internacionais sem dúvida sobre o resultado (OEA: \"nenhuma dúvida sobre os resultados\"); ampliação do horário \"mal administrada\"; cerca de 34 mil votos depois das 17h (uns 0,03%) contra diferença de 4,4 milhões; Lula reconhecido por \"pelo menos 54 países\", com EUA, El Salvador e Argentina entre as exceções.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "avaliação diplomática interna de vitória definitiva; não é reconhecimento formal",
+   "links": [
+    "https://jornaldebrasilia.com.br/noticias/politica-e-poder/embaixada-dos-eua-em-brasilia-destacou-em-relatorio-vitoria-definitiva-de-lula/",
+    "https://jornaldebrasilia.com.br/noticias/politica-e-poder/embaixada-dos-eua-reconhece-vitoria-de-lula/"
+   ],
+   "confianca": "media (documento não publicado; relato da Folha, Isabella Menon, republicado pela Folhapress)"
+  },
+  {
+   "id": "U7",
+   "data": "27/10/2026",
+   "orgao": "Departamento de Estado (alto funcionário, à Reuters); Departamento de Segurança Interna",
+   "texto": "\"The State Department will issue visas to Flavio Bolsonaro and his family and allow them entry into the United States.\" DHS: a família foi inspecionada e liberada conforme \"applicable immigration laws and procedures\". Nenhum comentário sobre o resultado.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "silêncio",
+   "links": [
+    "https://www.yahoo.com/news/world/articles/brazil-wonders-where-earth-flavio-154803613.html",
+    "https://www.washingtonpost.com/world/2026/10/27/brazil-flavio-bolsonaro-passport-lula/c1bb7428-d22f-11f1-9931-2a41b76fc976_story.html",
+    "https://www.manilatimes.net/2026/10/30/world/trump-hardens-stance-on-brazil-election-disgrace/2457682"
+   ],
+   "confianca": "alta"
+  },
+  {
+   "id": "U8",
+   "data": "27/10/2026",
+   "orgao": "Trump, comício em Corpus Christi (Texas)",
+   "texto": "Chamou os democratas de \"the greatest cheaters of elections\" e disse que o Brasil \"is doing a pretty good job also, aren't they?\"; \"not nice\"; \"didn't take sides\"; \"it didn't look too good\". Sem dizer o que o Brasil fez.",
+   "fala_em_fraude": true,
+   "indicios": [],
+   "reconhecimento": "não",
+   "links": [
+    "https://www.riotimesonline.com/trump-cites-brazil-election-texas-rally-2026/"
+   ],
+   "confianca": "media (relato secundário de transcrição)"
+  },
+  {
+   "id": "U9",
+   "data": "28/10/2026",
+   "orgao": "Trump, a repórteres antes de ir a Ohio",
+   "texto": "\"Mas sei que demos a ele autorização para entrar no país; veremos o que acontece\"; \"Mas não vou me envolver. Foi uma eleição muito estranha, isso é certo\"; \"Como vocês sabem, não tomei partido na eleição\"; \"Achei que ele e sua família foram tratados de forma muito injusta\". Não comentou a carta de Flávio.",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "não",
+   "links": [
+    "https://www.cnnbrasil.com.br/internacional/trump-diz-que-eua-permitiram-entrada-de-flavio-mas-que-nao-vai-se-envolver/"
+   ],
+   "confianca": "alta"
+  },
+  {
+   "id": "U10",
+   "data": "29/10/2026",
+   "orgao": "Trump, a repórteres na Joint Base Andrews",
+   "texto": "\"I think the election was a disgrace in Brazil\"; \"a very great embarrassment to the people of Brazil\"; \"I don't want to comment on it right now\" (sobre quem é o vencedor legítimo); \"Vou falar com ele\"; o mercado brasileiro foi \"through the floor\".",
+   "fala_em_fraude": "implícito (vergonha), sem a palavra fraude",
+   "indicios": [
+    "queda da bolsa (não é indício de fraude eleitoral)"
+   ],
+   "reconhecimento": "recusou-se a dizer",
+   "links": [
+    "https://www.manilatimes.net/2026/10/30/world/trump-hardens-stance-on-brazil-election-disgrace/2457682",
+    "https://www.riotimesonline.com/trump-brazil-vote-disgrace-lula-call-2026/"
+   ],
+   "confianca": "alta (AFP)"
+  },
+  {
+   "id": "U11",
+   "data": "até 30/10/2026",
+   "orgao": "Casa Branca, Departamento de Estado, Rubio",
+   "texto": "Nenhuma nota formal de reconhecimento nem de não reconhecimento; nenhuma declaração de Rubio sobre o resultado; nenhuma sanção ou tarifa nova ligada ao resultado (a tarifa da Seção 301, em vigor desde 22/07/2026, é anterior). Até 29/10, o governo dos EUA não tinha enviado mensagem formal de congratulação (Folha). Nenhum documento oficial com indício de fraude foi publicado; o \"dossiê\" citado na CNN Brasil em 28/10 não tem texto (L8).",
+   "fala_em_fraude": false,
+   "indicios": [],
+   "reconhecimento": "nem reconhece nem rejeita formalmente",
+   "links": [
+    "https://www.riotimesonline.com/trump-brazil-vote-disgrace-lula-call-2026/",
+    "https://jornaldebrasilia.com.br/noticias/politica-e-poder/embaixada-dos-eua-em-brasilia-destacou-em-relatorio-vitoria-definitiva-de-lula/"
+   ],
+   "confianca": "media (ausência de prova é limitada ao que a busca alcança)"
+  }
+ ],
+ "observadores": [
+  {
+   "id": "O1",
+   "orgao": "OEA, Missão de Observação Eleitoral (chefe José Miguel Insulza)",
+   "data": "27/10/2026 (relatório preliminar do 2º turno)",
+   "texto": "88 observadores de 22 nacionalidades, 21 UFs, DF e 5 cidades no exterior; 977 seções em 388 locais; 179 observadores nos dois turnos. \"É importante destacar que a OEA não tem dúvidas quanto à integridade dos dados oficiais\"; os dados do TSE coincidem com o que os observadores colheram em campo. A prorrogação \"provocou confusão entre funcionários eleitorais, partidos e eleitores\", \"situação inédita\"; demora do TSE em responder às campanhas; decisões monocráticas contraditórias; falta de transporte em algumas localidades e dificuldades em comunidades indígenas. Recomenda regras mais claras para a atuação do STF em matéria eleitoral e melhor comunicação STF e TSE. Parabenizou Lula e Alckmin.",
+   "fraude": "não encontrou",
+   "links": [
+    "http://www.oas.org/fpdb/press/2026_MOE_Brasil_Segundo_Turno_Relatorio_Preliminar_POR.pdf (403 para mim, desafio Cloudflare; não contornado)",
+    "https://sbtnews.sbt.com.br/noticia/politica/oea-reconhece-legitimidade-no-resultado-das-eleicoes",
+    "https://www.brasilparalelo.com.br/noticias/oea-reconhece-resultado-eleitoral-e-aponta-problemas-na-votacao",
+    "https://diariodopara.com.br/eleicoes-2026/oea-reconhece-resultado-das-eleicoes-no-brasil-e-confirma-integridade-dos-dados-oficiais/",
+    "https://iclnoticias.com.br/observadores-internacionais-enterram-suspeitas/"
+   ]
+  },
+  {
+   "id": "O2",
+   "orgao": "Centro Carter, missão de especialistas (Jennie Lincoln), 4 pessoas",
+   "data": "27/10/2026",
+   "texto": "Elogia o TSE pela administração do 2º turno; \"the controversial two-hour extension of the voting hours that was determined after polls had closed\" criou um ambiente operacional difícil; resultados \"announced within hours of polls closing\"; \"Candidates and their supporters should respect the announced results\"; \"Any evidence-based concerns should be pursued through established legal processes\". Escopo: lei, tecnologia e educação do eleitor; \"did not assess the conduct of voting\". Relatório final depois.",
+   "fraude": "não trata",
+   "links": [
+    "https://www.cartercenter.org/news/carter-center-election-expert-mission-commends-brazils-democratic-presidential-runoff-election/"
+   ]
+  },
+  {
+   "id": "O3",
+   "orgao": "Parlasul, Missão de Observação Eleitoral",
+   "data": "25/10/2026, noite",
+   "texto": "\"A Missão de Observação Eleitoral do Parlamento do Mercosul no segundo turno das eleições brasileiras segue atenta ao andamento e ao encerramento do pleito, especialmente às implicações da decisão do Supremo Tribunal Federal de prorrogar a votação e às posteriores determinações do Tribunal Superior Eleitoral, em defesa da transparência e da segurança jurídica do processo democrático.\" Relatório do 2º turno não achado.",
+   "fraude": "não fala",
+   "links": [
+    "https://www.cnnbrasil.com.br/internacional/parlasul-expressa-preocupacao-com-prorrogacao-do-horario-de-votacao/"
+   ]
+  },
+  {
+   "id": "O4",
+   "orgao": "União Europeia, missão de peritos eleitorais (5 ou 6 especialistas)",
+   "data": "sem declaração sobre o 2º turno até 30/10/2026",
+   "texto": "Anunciou antes da votação que confrontaria amostras de boletins de urna com os resultados oficiais, sem apuração paralela; relatório final previsto para novembro, ao TSE e ao Itamaraty.",
+   "fraude": "sem dado",
+   "links": [
+    "https://www.gazetadopovo.com.br/eleicoes/2026/uniao-europeia-vai-confrontar-boletins-de-urna-com-resultados-oficiais-do-tse/"
+   ]
+  },
+  {
+   "id": "O5",
+   "orgao": "Uniore, RojaE-CPLP (chefe João Carlos Pires Trindade), Liga dos Estados Árabes",
+   "data": "credenciadas para o 2º turno",
+   "texto": "Nenhum comunicado do 2º turno achado. Os relatórios preliminares do 1º turno (compilação do TSE de 07/10) foram favoráveis.",
+   "fraude": "sem dado",
+   "links": [
+    "https://timesbrasil.com.br/brasil/decisao-2026-7-orgaos-internacionais-que-estao-de-olho-no-2o-turno-das-eleicoes-no-brasil/",
+    "https://www.tse.jus.br/comunicacao/noticias/arquivos/moes-relatorios-compilados-7-10.26"
+   ]
+  },
+  {
+   "id": "O6",
+   "orgao": "IFES, Transparencia Electoral (Leandro Querido)",
+   "data": "-",
+   "texto": "Nenhuma missão ou declaração sobre o 2º turno de 2026 achada.",
+   "fraude": "sem dado",
+   "links": []
+  }
+ ],
+ "pl_e_auditorias": [
+  {
+   "id": "P1",
+   "quem": "PL, nota de Valdemar Costa Neto",
+   "data": "26/10/2026",
+   "texto": "\"Reconhecemos o resultado presidencial, proclamado pelo Tribunal Superior Eleitoral (TSE)\"; \"os questionamentos levantados precisam ser devidamente esclarecidos\"; \"a ampliação expressiva dos gastos públicos com benefícios sociais às vésperas da votação levanta questionamentos\". Não fala de auditoria, boletim nem fiscalização.",
+   "links": [
+    "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/partido-de-flavio-pl-reconhece-vitoria-de-lula-nas-eleicoes",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/pl-reconhece-vitoria-de-lula-mas-cobra-explicacoes/"
+   ]
+  },
+  {
+   "id": "P2",
+   "quem": "Rogério Marinho (PL-RN), coordenador da campanha de Flávio e líder da oposição no Senado",
+   "data": "28 e 29/10/2026",
+   "texto": "\"Eu não posso fazer essa afirmação, não tenho provas\"; \"O PL não pode fazer essa afirmação, nem eu, porque não há provas nesse sentido\". Disse não ter sido consultado sobre a carta.",
+   "links": [
+    "https://www.cnnbrasil.com.br/politica/tse-e-aliados-defendem-eleicao-apos-carta-com-teor-golpista-de-flavio/",
+    "https://www.opovo.com.br/noticias/mundo/2026/10/30/aliados-de-flavio-defendem-resultado-das-eleicoes-apos-senador-divulgar-carta-falando-em-fraude.html"
+   ]
+  },
+  {
+   "id": "P3",
+   "quem": "Flávio Bolsonaro",
+   "data": "25/10 a 28/10/2026",
+   "texto": "25/10: não reconhece, pedirá anulação; fiscais do PL retirados da sala-cofre; prorrogação. 26/10 (vídeo): \"Vou pedir, sim, a cassação da chapa do Lula\" (compra de voto pelos benefícios). 28/10 (carta, já nos EUA): \"vi estarrecido uma fraude eleitoral se concretizar diante dos meus olhos\"; \"uma impossibilidade matemática se concretizasse e Lula acrescentasse mais de 10 milhões de votos do primeiro para o segundo turno\"; \"a ordem só chegou depois do fim do horário legal, quando as urnas já estavam encerradas\"; \"Eleitores ficaram submetidos a regras diferentes\"; \"sete minutos após essa repugnante fraude eleitoral\" (sobre a decisão judicial). Voto do dia: pediu a apoiadores que vigiassem depois das 17h se mesários votavam por ausentes.",
+   "links": [
+    "https://www.metropoles.com/mundo/em-carta-flavio-se-declara-verdadeiro-presidente-eleito-do-brasil",
+    "https://www.infomoney.com.br/politica/flavio-nao-reconhece-resultado-da-eleicao-e-diz-que-pedira-anulacao-ao-tse/",
+    "https://www.gazetadopovo.com.br/eleicoes/2026/pl-reconhece-vitoria-de-lula-mas-cobra-explicacoes/",
+    "https://www.riotimesonline.com/brazil-vote-dispute-claims-facts-2026/"
+   ]
+  },
+  {
+   "id": "P4",
+   "quem": "TSE, resposta sobre a sala-cofre",
+   "data": "26/10/2026",
+   "texto": "Afirmação falsa: a sala-cofre não é aberta à visitação; dois fiscais do PL acompanharam o Teste de Integridade e a totalização na Sala de Totalização; \"Há registro de presença nos locais visitados, além de filmagem na Sala de Totalização\".",
+   "links": [
+    "https://www.agencialupa.org/eleicoes/2026/10/26/tse-desmente-que-fiscais-do-pl-tenham-sido-retirados-de-sala-cofre/"
+   ]
+  },
+  {
+   "id": "P5",
+   "quem": "Ação judicial e auditoria do PL",
+   "data": "até 30/10/2026",
+   "texto": "Nenhuma ação do PL ou de Flávio pedindo anulação achada no TSE; a AIJE pela cassação de Lula e Alckmin (35 medidas em ano eleitoral) é do Novo, de 19 ou 20/10, anterior ao 2º turno. Nenhum relatório de auditoria do PL nem comparação de boletins impressos achado.",
+   "links": [
+    "https://www.metropoles.com/colunas/neila-guimaraes/novo-pede-cassacao-da-chapa-de-lula-por-medidas-em-ano-eleitoral"
+   ]
+  },
+  {
+   "id": "P6",
+   "quem": "Auditorias independentes (GitHub, não oficiais)",
+   "data": "26 a 29/10/2026",
+   "texto": "ioraysilva: soma igual em 5.757 de 5.757 municípios; RDV igual ao boletim em 499.206 seções; sem biometria 8.632.488 (6,73%). Mateus Costa Cruz (Mateusinho28): 34.319 votos entre 17h e 19h, 11 depois das 19h, 322 sem hora; 7.353 urnas encerradas depois das 17h45; 499.170 urnas com log igual ao comparecimento; anomalias de arquivo nomeadas. ivanmneto92-sys: assinatura, certificado, hash, recontagem e boletim corretos em 499.178 de 499.178 urnas; 34.584 votos a partir das 17h (TSE 34.393); certificado da AC URNA vencido em 18/07/2026 pela regra estrita X.509. luiseduardoluz: 497.897 boletins somam o oficial em 6.106 zonas; 70 seções do exterior sem boletim. Nenhuma comparou boletins impressos (não há base pública de fotos).",
+   "links": [
+    "https://github.com/ioraysilva/auditoria-urnas-2026",
+    "https://github.com/Mateusinho28/auditoria-eleicao-2t-2026",
+    "https://github.com/ivanmneto92-sys/auditoria-presidente-2026",
+    "https://github.com/luiseduardoluz/eleicoes-2026-urnas"
+   ]
+  }
+ ],
+ "conferencias_resumo": [
+  {
+   "indicio": "Soma dos boletins igual ao resultado oficial (OEA, embaixada, auditorias)",
+   "quem": "O1, U6, P6",
+   "resultado": "CONFERE",
+   "numeros": "499.205 seções com votos; diferença zero em Lula (64256232), Flávio (59826041), branco, nulo e comparecimento; margem 4430191."
+  },
+  {
+   "indicio": "\"The extension given was very strange\" / prorrogação decidida depois do fechamento / \"mal administrada\" / \"confusão\"",
+   "quem": "U5, U6, O1, O2, O3, P3",
+   "resultado": "CONFERE como fato administrativo; NÃO CONFERE como mudança do resultado",
+   "numeros": "6773 seções mantidas abertas até 18h30 ou mais (de 497897), 2072 intermediárias; 364287 (73.2%) já encerradas às 17h03 de Brasília; 160 municípios com regras diferentes; virada nas mantidas abertas contra o mesmo local +0.007 (ep 0.049); margem sem elas 4208922, pior caso 2414527."
+  },
+  {
+   "indicio": "\"the way it was tabulated\" (pausa da totalização)",
+   "quem": "U5",
+   "resultado": "CONFERE a pausa; não há sinal de manipulação nela (L8)",
+   "numeros": "primeiro boletim 17:05:10; 1868 até 17:07:59; nenhum de 17:07:27 a 19:03:37 (116 min); 99% às 21:09:39; 100% às 23:21:40."
+  },
+  {
+   "indicio": "Resultados em poucas horas",
+   "quem": "O2",
+   "resultado": "CONFERE",
+   "numeros": "50% às 20:26:26, 90% às 21:01:27, 99% às 21:09:39."
+  },
+  {
+   "indicio": "34 mil votos depois das 17h, uns 0,03%, contra 4,4 milhões",
+   "quem": "U6, TSE, P6",
+   "resultado": "CONFERE (fração e margem); a contagem por hora vem dos logs, não do bweb",
+   "numeros": "34.393 / 128236074 = 0.0268%; 0.78% da margem."
+  },
+  {
+   "indicio": "\"Impossibilidade matemática\": Lula +10 milhões; \"Math doesn't add up\"",
+   "quem": "P3, Musk",
+   "resultado": "NÃO CONFERE",
+   "numeros": "ganho de Lula 10376696, de Flávio 3721538; soma 14098234 = eliminados 9321993 + queda de branco e nulo 1816000 + aumento do comparecimento 2960241. Seções em que Lula ganha mais que a folga: 44885 (excesso 147307); espelho Flávio: 665 (1643)."
+  },
+  {
+   "indicio": "106 seções com zero voto para Flávio",
+   "quem": "redes, citado por ioraysilva",
+   "resultado": "CONFERE a contagem; NÃO É anomalia nova",
+   "numeros": "2º turno 106 seções (Lula 14860 votos nelas); 1º turno 81; nessas 106, Flávio tinha 118 votos no 1º turno (50 já zeradas, 90 com 2 ou menos); Lula zerado: 4 (2º) e 8 (1º)."
+  },
+  {
+   "indicio": "Mesários votando por ausentes depois das 17h",
+   "quem": "P3 (dia da votação)",
+   "resultado": "NÃO CONFERE com os testes já feitos",
+   "numeros": "comparecimento acima dos aptos: 0 seções; igual aos aptos com 50 ou mais: 9 (1º turno 10); F6: SEM SINAL na regressão e no log."
+  },
+  {
+   "indicio": "Ordem chegou com as urnas já encerradas; regras diferentes",
+   "quem": "P3, O2",
+   "resultado": "CONFERE em parte",
+   "numeros": "73.2% das seções do Brasil já tinham encerrado às 17h03; 160 municípios com seções mantidas abertas e seções encerradas no horário (31891117 votantes nesses municípios)."
+  },
+  {
+   "indicio": "Auditorias: 7.353 urnas depois das 17h45; 8.632.488 sem biometria; seções nomeadas",
+   "quem": "P6",
+   "resultado": "CONFERE (17h45: 7.357 aqui; biometria: igual; seções nomeadas: comparecimentos batem)",
+   "numeros": "{\"depois_17h45\": 7357, \"sem_biometria\": {\"todas\": 8632488, \"pct_comp_todas\": 6.731715757299307, \"brasil\": 8632488, \"pct_comp_brasil\": 6.7517992367441115}, \"nomeadas\": {\"SP|64777|395|298\": {\"nome\": \"GUARULHOS\", \"apt\": 350, \"comp\": 268, \"L\": 135, \"R\": 125, \"enc_local\": \"17:03:46\", \"tipo\": \"Apurada\", \"agregadas\": \"#NULO#\", \"na_amostra_T3\": false}, \"ES|57932|9|85\": {\"nome\": \"SANTA MARIA DE JETIBÁ\", \"apt\": 371, \"comp\": 308, \"L\": 80, \"R\": 218, \"enc_local\": \"17:00:42\", \"tipo\": \"Apurada\", \"agregadas\": \"#NULO#\", \"na_amostra_T3\": false}, \"ES|57932|9|112\": {\"nome\": \"SANTA MARIA DE JETIBÁ\", \"apt\": 340, \"comp\": 304, \"L\": 60, \"R\": 229, \"enc_local\": \"19:43:21\", \"tipo\": \"Apurada\", \"agregadas\": \"#NULO#\", \"na_amostra_T3\": false}, \"CE|14176|21|136\": {\"nome\": \"IPU\", \"apt\": 235, \"comp\": 215, \"L\": 181, \"R\": 30, \"enc_local\": \"17:00:59\", \"tipo\": \"Apurada\", \"agregadas\": \"#NULO#\", \"na_amostra_T3\": false}, \"bweb_2t_sem_base\": {\"ZZ|30686|1|443\": {\"nome\": \"TRÍPOLI\", \"aptos_bweb\": \"30\", \"comp_bweb\": \"0\", \"tipo\": \"Apurada\"}, \"ZZ|29564|1|91\": {\"nome\": \"CIUDAD GUAYANA\", \"aptos_bweb\": \"72\", \"comp_bweb\": \"0\", \"tipo\": \"Apurada\"}}}}"
+  },
+  {
+   "indicio": "\"Urnas encerradas após 17h: Flávio 52,40%, +1.748.468\"",
+   "quem": "ioraysilva",
+   "resultado": "NÃO REPRODUZ com o bweb inteiro em nenhum dos seis cortes",
+   "numeros": "[{\"corte\": \"local>17:00:00\", \"secoes\": 465872, \"R_pct_2t\": 47.48684285658266, \"margem_R_2t\": -5844932}, {\"corte\": \"local>17:00:59\", \"secoes\": 347155, \"R_pct_2t\": 46.474955270349405, \"margem_R_2t\": -6150002}, {\"corte\": \"local>17:05:59\", \"secoes\": 36742, \"R_pct_2t\": 42.77493615361298, \"margem_R_2t\": -1402432}, {\"corte\": \"brasilia>17:00:59\", \"secoes\": 372273, \"R_pct_2t\": 47.310111660444115, \"margem_R_2t\": -5008636}, {\"corte\": \"brasilia>17:05:59\", \"secoes\": 38587, \"R_pct_2t\": 43.3485872897359, \"margem_R_2t\": -1350170}, {\"corte\": \"brasilia>17:15:59\", \"secoes\": 8845, \"R_pct_2t\": 44.301412564744595, \"margem_R_2t\": -278748}]"
+  },
+  {
+   "indicio": "70 seções do exterior sem boletim (luiseduardoluz) contra 2 seções (Mateus Costa Cruz)",
+   "quem": "P6",
+   "resultado": "CONFERE a versão de 2 seções; a de 70 não aparece no bweb",
+   "numeros": "{\"secoes_no_bweb\": 1310, \"com_agregacao\": 1216, \"secoes_agregadas_listadas\": 1216, \"comp_zero\": 2}"
+  },
+  {
+   "indicio": "Falta de transporte (motivo da prorrogação; OEA)",
+   "quem": "O1, pedido da coligação de Lula",
+   "resultado": "NÃO APARECE no comparecimento (descritivo; a causa não é conferível)",
+   "numeros": "{\"resto_BA\": 3.02, \"brasil\": 1.85, \"SALVADOR\": 4.37, \"outras_UFs\": 1.44, \"resto_SP\": 2.62, \"SÃO PAULO\": 3.03}"
+  },
+  {
+   "indicio": "Bolsa \"through the floor\"; abuso de poder e gastos sociais; fiscais retirados da sala-cofre; \"dossiê\"; corrupção no STF",
+   "quem": "U10, P1, P3, L8",
+   "resultado": "NÃO CONFERÍVEL com os dados locais (não são dados de votação)",
+   "numeros": "-"
+  }
+ ],
+ "conferencias_numeros": {
+  "registro": "F8 do Adendo 20 (PRE-REGISTRO-2026-10-26.md, commit d976d4d): o que os EUA e os observadores disseram, e a conferência\nnos dados locais de cada indício concreto.\n\nRegistro (escrito antes de rodar, Adendo 20, F8):\n  \"Texto, data e órgão de cada declaração do governo dos EUA sobre o 2º turno de 2026, se fala em indícios de fraude e\n  quais; relatórios de observação internacional (OEA, UE, Centro Carter, Parlasul e outros); posição e auditoria do PL.\n  Cada indício concreto que der para conferir nos dados públicos é conferido; o que não der é relatado como tal.\"\n  O F8 não tem limiar numérico: o veredito pela letra é DESCRITIVO, e cada indício sai como CONFERE, NÃO CONFERE,\n  CONFERE EM PARTE ou NÃO CONFERÍVEL (sem dado local).\n\nO que a pesquisa achou e motivou cada conferência (fontes no texto de saída, resultados/F8_eua_observadores.txt):\n  Governo dos EUA. Trump, 26/10: \"looked like another rigged election\", \"the way it was tabulated\", \"The extension given\n  was very strange\". 27/10 (comício no Texas): o Brasil \"is doing a pretty good job also\" (de fraudar), \"it didn't look\n  too good\". 28/10: \"Foi uma eleição muito estranha\", \"não vou me envolver\". 29/10: \"the election was a disgrace in\n  Brazil\", \"a very great embarrassment\", a bolsa \"through the floor\"; não diz se reconhece Lula. Departamento de Estado:\n  nota de felicitação retida (26/10), vistos para Flávio e família (27/10), sem comentário sobre o resultado. Embaixada\n  em Brasília (telegrama de 26/10, revelado pela Folha em 29/10): vitória \"surpreendente, mas definitiva\"; ampliação do\n  horário \"mal administrada\"; cerca de 34 mil votos depois das 17h, uns 0,03%, contra margem de 4,4 milhões.\n  Observadores. OEA (27/10): \"não tem dúvidas quanto à integridade dos dados oficiais\"; dados do TSE coincidem com o que\n  os observadores colheram em 977 seções; a prorrogação gerou confusão; problemas de transporte. Centro Carter (27/10):\n  prorrogação \"controversa\", decidida \"after polls had closed\"; resultados \"within hours of polls closing\". Parlasul\n  (25/10): atenta às \"implicações da decisão do STF de prorrogar a votação\". UE: sem declaração sobre o 2º turno até\n  30/10; anunciou que confrontaria amostras de boletins com o resultado oficial.\n  PL e Flávio. PL (26/10): reconhece o resultado e cobra esclarecimentos (gastos sociais). Rogério Marinho (28 e 29/10):\n  \"não há provas\". Flávio (25 a 28/10): a prorrogação mudou as regras; a ordem \"só chegou depois do fim do horário\n  legal, quando as urnas já estavam encerradas\"; \"Eleitores ficaram submetidos a regras diferentes\"; Lula \"acrescentou\n  mais de 10 milhões de votos\", uma \"impossibilidade matemática\"; fiscais do PL retirados da sala-cofre; no dia, pediu a\n  apoiadores que vigiassem depois das 17h se mesários votavam por ausentes. Musk (26/10): \"Math doesn't add up\".\n  Auditorias independentes (GitHub, não oficiais): soma dos boletins igual ao oficial; RDV igual ao boletim; assinaturas\n  válidas; 34.319 a 34.584 votos depois das 17h; 7.353 urnas encerradas depois das 17h45; 8.632.488 eleitores liberados\n  sem biometria (6,73%); \"urnas encerradas após 17h: Flávio 52,40%, +1.748.468; no 1º turno 55,20%, +3.397.055\";\n  seções sem log ou com log trocado (Guarulhos 395/298, Santa Maria de Jetibá 9/85 e 9/112), seção sem RDV (CE\n  14176/21/136), duas seções do exterior sem boletim (102 eleitores); \"106 seções com zero voto para Flávio\" (alegação\n  que circulou).\n\nEspecificação fixada aqui antes de rodar (o registro não fixa nada disso; tudo é desvio declarado):\n  E0. Fuso: o mesmo do L1 e do L8 (hora cheia modal da abertura do município no turno, sem junta; deslocamento = modal -\n      8; hora de Brasília = hora local - deslocamento). Exterior (ZZ) fora das contas de horário. Antes de fixar os\n      grupos de E2, olhei só a distribuição do encerramento local por UF no 2º turno (sem votos; script\n      explora_enc.py na pasta de trabalho). Ela mostra o aglomerado das 19h00 a 19h15 de Brasília em RJ, SP, BA, PE,\n      PB, SE, DF e poucos outros, e nada em PR e SC.\n  E1. Soma (OEA, embaixada, auditorias): Lula, Flávio, branco, nulo e comparecimento do 2º turno na base, contra o oficial\n      do TSE guardado em resultados/soma_oficial_2t.json (consulta das 23:27:02 de 25/10). Seções com 2º turno na base.\n      Margem e fração 34.393 / comparecimento (TSE) para a frase da embaixada.\n  E2. Prorrogação (Trump, embaixada, OEA, Carter, Parlasul, Flávio). Grupos por encerramento em Brasília no 2º turno, Brasil:\n      \"no horário\" até 17:15:59; \"intermediária\" de 17:16:00 a 18:29:59; \"mantida aberta\" de 18:30:00 em diante (a ordem\n      saiu às 17h03 e valia até as 19h para as seções ainda abertas). (a) Contagens por grupo e por UF; seções já\n      encerradas às 17:03:00 de Brasília (hora da liminar, conforme resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt).\n      (b) \"Regras diferentes\": municípios com pelo menos uma seção mantida aberta e pelo menos uma no horário; quantos\n      e quantos eleitores. (c) \"Ajudou um lado\": por UF com 50 ou mais seções mantidas abertas, fatia de Lula entre os\n      finalistas no 2º e no 1º turno, nas mantidas abertas e nas demais da mesma UF, e a virada (2º menos 1º, pontos).\n      (d) Regressão da virada da seção contra o indicador \"mantida aberta\", efeito fixo de local de votação, peso\n      L2+R2, erro agrupado por local (como no L8, com este corte). (e) Margem nacional sem as mantidas abertas e no pior\n      caso (todo o comparecimento delas como voto líquido de Lula).\n  E3. Pausa e rapidez da apuração (Trump \"tabulated\"; Carter \"within hours\"). DT_BU_RECEBIDO do 2º turno, todas as seções:\n      primeiro recebimento, boletins até 17:07:59, maior intervalo sem recebimento entre 17h e 23h59, horários de 50%,\n      90%, 99% e 100% das seções.\n  E4. \"Mais de 10 milhões\" e \"Math doesn't add up\" (Flávio, Musk). Mesmas seções nos dois turnos (base): ganho de Lula e de\n      Flávio; votos dos eliminados no 1º turno (O1); queda de branco+nulo; aumento do comparecimento; a identidade\n      contábil nacional. Por seção: \"folga\" = O1 + max(0, BN1 - BN2) + max(0, comp2 - comp1). Contagem de seções em que\n      o ganho de Lula passa a folga (só possível se eleitor de Flávio do 1º turno trocou de lado, ou se o eleitorado da\n      seção mudou), soma do excesso, e o mesmo para Flávio (espelho). Também a dispersão: seções em que Lula ganha e\n      Flávio perde votos. Descritivo, sem limiar.\n  E5. Indícios clássicos citados nas redes e nas auditorias: seções com zero voto para um finalista (comparecimento 1 ou\n      mais), nos dois turnos e nos dois lados; seções com comparecimento acima dos aptos; seções com comparecimento\n      igual aos aptos e 50 aptos ou mais. Dois turnos, dois lados.\n  E6. Números das auditorias independentes. (a) Urnas do Brasil encerradas depois das 17h45 de Brasília (Mateus Costa Cruz:\n      7.353). (b) Soma de QT_ELEI_BIOM_SEM_HABILITACAO no 2º turno e fração do comparecimento (ioraysilva: 8.632.488,\n      6,73%). (c) Tentativa de reproduzir \"urnas encerradas após 17h: Flávio 52,40%, +1.748.468; 1º turno 55,20%,\n      +3.397.055\" com seis cortes fixados aqui: relógio local depois de 17:00:00, 17:00:59, 17:05:59; Brasília depois de\n      17:00:59, 17:05:59, 17:15:59 (Brasil, mesmas seções no 1º turno). Reproduz se a fatia de Flávio bate em 0,05 ponto\n      e a margem em 0,5%. (d) Seções nomeadas: Guarulhos (SP) zona 395 seção 298; Santa Maria de Jetibá (ES) zona 9\n      seções 85 e 112; CE 14176/21/136; as duas seções do exterior sem boletim: o que o bweb e a base dizem delas e se\n      estão na amostra de arquivos de urna (T3).\n  E7. Transporte (OEA; motivo do pedido da coligação de Lula: frota de ônibus reduzida em Salvador e São Paulo):\n      comparecimento / aptos no 1º e no 2º turno nas capitais Salvador e São Paulo, no resto de BA e de SP e no Brasil\n      (mesmas seções). Descritivo: a frota menor deveria aparecer como comparecimento menor.\n  Acrescentado depois da primeira rodada (declarado, descritivo): em E5, como estavam no 1º turno as seções com Flávio\n  zerado no 2º; em E6, as seções do exterior no bweb do 2º turno (quantas, quantas com agregação, quantas sem voto),\n  para comparar as duas auditorias que divergem sobre isso (2 seções contra 70).\n  Fora: falas sem fato verificável (bolsa, abuso de poder, gastos sociais, sala-cofre, \"dossiê\") ficam como NÃO\n  CONFERÍVEL no texto; o número de votos depois das 17h vem do TSE, das auditorias e do T3 (amostra), porque o bweb\n  não tem a hora de cada voto.\n\n",
+  "E1_soma": {
+   "secoes_com_2t_na_base": 499205,
+   "base": {
+    "L": 64256232,
+    "R": 59826041,
+    "B": 1430496,
+    "N": 2723305,
+    "comp": 128236074
+   },
+   "oficial": {
+    "L": 64256232,
+    "R": 59826041,
+    "B": 1430496,
+    "N": 2723305,
+    "comp": 128236074
+   },
+   "diferenca": {
+    "L": 0,
+    "R": 0,
+    "B": 0,
+    "N": 0,
+    "comp": 0
+   },
+   "secoes_totalizadas_oficial": 499248,
+   "margem": 4430191,
+   "L_pct_validos": 51.7851828842626,
+   "votos_depois_17h_TSE": 34393,
+   "pct_do_comparecimento": 0.026820066247505363,
+   "pct_da_margem": 0.7763322168276717
+  },
+  "E2_prorrogacao": {
+   "secoes_brasil": 497897,
+   "por_grupo": {
+    "no_horario": 489052,
+    "mantida_aberta": 6773,
+    "intermediaria": 2072
+   },
+   "comp_por_grupo": {
+    "no_horario": 125318190,
+    "mantida_aberta": 1987007,
+    "intermediaria": 549434
+   },
+   "por_uf_mantida_aberta": {
+    "AC": 1,
+    "AL": 2,
+    "BA": 986,
+    "DF": 17,
+    "ES": 2,
+    "GO": 1,
+    "MA": 3,
+    "MG": 3,
+    "MT": 9,
+    "PA": 9,
+    "PB": 311,
+    "PE": 697,
+    "PI": 7,
+    "PR": 1,
+    "RJ": 3005,
+    "RN": 3,
+    "RS": 4,
+    "SC": 1,
+    "SE": 53,
+    "SP": 1658
+   },
+   "por_uf_intermediaria": {
+    "AC": 2,
+    "AL": 17,
+    "AM": 50,
+    "AP": 3,
+    "BA": 224,
+    "CE": 41,
+    "DF": 70,
+    "ES": 6,
+    "GO": 13,
+    "MA": 79,
+    "MG": 49,
+    "MS": 6,
+    "MT": 11,
+    "PA": 73,
+    "PB": 20,
+    "PE": 110,
+    "PI": 16,
+    "PR": 20,
+    "RJ": 463,
+    "RN": 23,
+    "RO": 9,
+    "RR": 8,
+    "RS": 18,
+    "SC": 7,
+    "SE": 9,
+    "SP": 721,
+    "TO": 4
+   },
+   "ja_encerradas_ate_17h03m00_brasilia": 364287,
+   "comp_ja_encerradas_ate_17h03": 92404291,
+   "pct_secoes_ja_encerradas_ate_17h03": 73.16513254749476,
+   "municipios_com_secao_mantida_aberta": 161,
+   "municipios_mistos": 160,
+   "comparecimento_nos_mistos": 31891117,
+   "secoes_nos_mistos": {
+    "mantida_aberta": 6745,
+    "no_horario": 106485,
+    "intermediaria": 1382
+   },
+   "maiores_municipios_mantidas_abertas": [
+    {
+     "mun": "RJ|60011",
+     "nome": "RIO DE JANEIRO",
+     "no_horario": 10404,
+     "mantida_aberta": 2139,
+     "intermediaria": 92
+    },
+    {
+     "mun": "SP|71072",
+     "nome": "SÃO PAULO",
+     "no_horario": 24543,
+     "mantida_aberta": 1562,
+     "intermediaria": 578
+    },
+    {
+     "mun": "BA|38490",
+     "nome": "SALVADOR",
+     "no_horario": 4302,
+     "mantida_aberta": 747,
+     "intermediaria": 75
+    },
+    {
+     "mun": "RJ|58777",
+     "nome": "PETRÓPOLIS",
+     "mantida_aberta": 297,
+     "no_horario": 507
+    },
+    {
+     "mun": "PB|20516",
+     "nome": "JOÃO PESSOA",
+     "mantida_aberta": 293,
+     "no_horario": 1414,
+     "intermediaria": 7
+    },
+    {
+     "mun": "RJ|58378",
+     "nome": "ITABORAÍ",
+     "mantida_aberta": 241,
+     "no_horario": 298,
+     "intermediaria": 1
+    },
+    {
+     "mun": "PE|25313",
+     "nome": "RECIFE",
+     "no_horario": 3235,
+     "mantida_aberta": 229,
+     "intermediaria": 17
+    },
+    {
+     "mun": "RJ|58971",
+     "nome": "SÃO GONÇALO",
+     "no_horario": 1899,
+     "mantida_aberta": 112,
+     "intermediaria": 8
+    },
+    {
+     "mun": "RJ|58653",
+     "nome": "NITERÓI",
+     "no_horario": 976,
+     "intermediaria": 278,
+     "mantida_aberta": 73
+    },
+    {
+     "mun": "BA|35157",
+     "nome": "FEIRA DE SANTANA",
+     "no_horario": 1152,
+     "mantida_aberta": 61,
+     "intermediaria": 5
+    },
+    {
+     "mun": "PE|24570",
+     "nome": "JABOATÃO DOS GUARARAPES",
+     "no_horario": 1266,
+     "intermediaria": 24,
+     "mantida_aberta": 52
+    },
+    {
+     "mun": "PE|25097",
+     "nome": "PASSIRA",
+     "mantida_aberta": 49,
+     "no_horario": 30
+    },
+    {
+     "mun": "PE|24910",
+     "nome": "OLINDA",
+     "no_horario": 844,
+     "mantida_aberta": 48,
+     "intermediaria": 1
+    },
+    {
+     "mun": "BA|36854",
+     "nome": "LAURO DE FREITAS",
+     "no_horario": 365,
+     "mantida_aberta": 45,
+     "intermediaria": 3
+    },
+    {
+     "mun": "PE|23574",
+     "nome": "CABO DE SANTO AGOSTINHO",
+     "no_horario": 451,
+     "mantida_aberta": 41,
+     "intermediaria": 4
+    }
+   ],
+   "por_uf_fatias": {
+    "BA": {
+     "mantidas_abertas": 986,
+     "L2_abertas": 72.30220240894869,
+     "L1_abertas": 70.07635839025673,
+     "virada_abertas": 2.2258440186919586,
+     "L2_demais": 71.28047784853169,
+     "L1_demais": 69.86546313505593,
+     "virada_demais": 1.415014713475756,
+     "margem_L_abertas_2t": 130872,
+     "ganho_liquido_L_abertas_2t_menos_1t": 30120
+    },
+    "PB": {
+     "mantidas_abertas": 311,
+     "L2_abertas": 52.81226220241331,
+     "L1_abertas": 50.44641225837099,
+     "virada_abertas": 2.365849944042317,
+     "L2_demais": 67.9893770797798,
+     "L1_demais": 65.47798315145138,
+     "virada_demais": 2.511393928328417,
+     "margem_L_abertas_2t": 5174,
+     "ganho_liquido_L_abertas_2t_menos_1t": 4441
+    },
+    "PE": {
+     "mantidas_abertas": 697,
+     "L2_abertas": 65.7748279252704,
+     "L1_abertas": 63.72831409390025,
+     "virada_abertas": 2.0465138313701488,
+     "L2_demais": 69.32239157062693,
+     "L1_demais": 67.27835488807355,
+     "virada_demais": 2.044036682553383,
+     "margem_L_abertas_2t": 64172,
+     "ganho_liquido_L_abertas_2t_menos_1t": 14604
+    },
+    "RJ": {
+     "mantidas_abertas": 3005,
+     "L2_abertas": 45.73855323698077,
+     "L1_abertas": 41.56085311308397,
+     "virada_abertas": 4.177700123896798,
+     "L2_demais": 47.01311608681981,
+     "L1_demais": 42.74882407516811,
+     "virada_demais": 4.264292011651698,
+     "margem_L_abertas_2t": -73984,
+     "ganho_liquido_L_abertas_2t_menos_1t": 53451
+    },
+    "SE": {
+     "mantidas_abertas": 53,
+     "L2_abertas": 65.7498223169865,
+     "L1_abertas": 63.64300795842131,
+     "virada_abertas": 2.106814358565188,
+     "L2_demais": 69.57129923845703,
+     "L1_demais": 67.23364385229529,
+     "virada_demais": 2.3376553861617424,
+     "margem_L_abertas_2t": 4432,
+     "ganho_liquido_L_abertas_2t_menos_1t": 1072
+    },
+    "SP": {
+     "mantidas_abertas": 1658,
+     "L2_abertas": 57.23344605065987,
+     "L1_abertas": 54.50832477793153,
+     "virada_abertas": 2.7251212727283445,
+     "L2_demais": 45.96973869459768,
+     "L1_demais": 42.18602592923609,
+     "virada_demais": 3.7837127653615923,
+     "margem_L_abertas_2t": 62077,
+     "ganho_liquido_L_abertas_2t_menos_1t": 29757
+    }
+   },
+   "regressao_fe_local": {
+    "n": 475803,
+    "grupos": 72445,
+    "coef": {
+     "mantida_aberta": 0.00720303612980453
+    },
+    "ep": {
+     "mantida_aberta": 0.049494703558196615
+    },
+    "n_mantida_aberta": 6773
+   },
+   "margem_brasil": 4401534,
+   "margem_sem_mantidas_abertas": 4208922,
+   "margem_pior_caso": 2414527,
+   "L_pct_mantidas_abertas": 55.0277947158716
+  },
+  "E3_apuracao": {
+   "secoes_com_recebimento": 499205,
+   "primeiro": "17:05:10",
+   "ate_17h07m59": 1868,
+   "maior_intervalo_sem_recebimento": {
+    "de": "17:07:27",
+    "ate": "19:03:37",
+    "minutos": 116.16666666666667
+   },
+   "p50": "20:26:26",
+   "p90": "21:01:27",
+   "p99": "21:09:39",
+   "p100": "23:21:40"
+  },
+  "E4_dez_milhoes": {
+   "secoes_nos_dois_turnos": 499205,
+   "contas": {
+    "dL": 10376696,
+    "dR": 3721538,
+    "O1": 9321993,
+    "O2": 0,
+    "BN1": 5969801,
+    "BN2": 4153801,
+    "C1": 125275833,
+    "C2": 128236074,
+    "L1": 53879536,
+    "R1": 56104503,
+    "L2": 64256232,
+    "R2": 59826041,
+    "identidade_dL_mais_dR": 14098234,
+    "identidade_O1_mais_quedaBN_mais_dC_menos_O2": 14098234
+   },
+   "secoes_ganho_L_passa_folga": 44885,
+   "excesso_L_votos": 147307,
+   "secoes_ganho_R_passa_folga": 665,
+   "excesso_R_votos": 1643,
+   "secoes_L_ganha_e_R_perde": 75764,
+   "L1_pct_validos_finalistas": 45.160781141392754,
+   "R1_pct_validos": 47.02570528873176
+  },
+  "E5_classicos": {
+   "1": {
+    "R_zero": 81,
+    "L_nas_R_zero": 9549,
+    "comp_igual_aptos_50mais": 10,
+    "L_zero": 8,
+    "R_nas_L_zero": 507,
+    "ufs_R_zero": {
+     "AM": 19,
+     "PA": 13,
+     "MA": 12,
+     "BA": 6,
+     "MG": 5,
+     "TO": 5,
+     "MT": 3,
+     "RR": 3
+    },
+    "ufs_L_zero": {
+     "RS": 3,
+     "PA": 2,
+     "MG": 1,
+     "PR": 1,
+     "SP": 1
+    }
+   },
+   "2": {
+    "R_zero": 106,
+    "L_nas_R_zero": 14860,
+    "comp_igual_aptos_50mais": 9,
+    "L_zero": 4,
+    "R_nas_L_zero": 296,
+    "ufs_R_zero": {
+     "AM": 30,
+     "MA": 20,
+     "PA": 16,
+     "RR": 8,
+     "TO": 7,
+     "MT": 5,
+     "BA": 4,
+     "AC": 3
+    },
+    "ufs_L_zero": {
+     "RS": 2,
+     "PA": 2
+    }
+   },
+   "R_zero_2t_no_1t": {
+    "secoes": 106,
+    "com_1t": 106,
+    "R1_zero_tambem": 50,
+    "R1_ate_2": 90,
+    "R1_soma": 118,
+    "L1_soma": 14389,
+    "O1_soma": 135,
+    "L2_soma": 14860,
+    "comp2_soma": 15222
+   }
+  },
+  "E6_auditorias": {
+   "urnas_brasil_encerradas_depois_17h45_brasilia": 7357,
+   "pct": 1.4776148480509022,
+   "sem_biometria_2t": {
+    "todas": 8632488,
+    "pct_comp_todas": 6.731715757299307,
+    "brasil": 8632488,
+    "pct_comp_brasil": 6.7517992367441115
+   },
+   "reproducao_52_40": [
+    {
+     "corte": "local>17:00:00",
+     "secoes": 465872,
+     "R_pct_2t": 47.48684285658266,
+     "margem_R_2t": -5844932,
+     "R_pct_1t_mesmas": 50.24784768818613,
+     "margem_R_1t_mesmas": 509301,
+     "reproduz": false
+    },
+    {
+     "corte": "local>17:00:59",
+     "secoes": 347155,
+     "R_pct_2t": 46.474955270349405,
+     "margem_R_2t": -6150002,
+     "R_pct_1t_mesmas": 49.24770459917777,
+     "margem_R_1t_mesmas": -1158603,
+     "reproduz": false
+    },
+    {
+     "corte": "local>17:05:59",
+     "secoes": 36742,
+     "R_pct_2t": 42.77493615361298,
+     "margem_R_2t": -1402432,
+     "R_pct_1t_mesmas": 45.655351745437535,
+     "margem_R_1t_mesmas": -735896,
+     "reproduz": false
+    },
+    {
+     "corte": "brasilia>17:00:59",
+     "secoes": 372273,
+     "R_pct_2t": 47.310111660444115,
+     "margem_R_2t": -5008636,
+     "R_pct_1t_mesmas": 50.12715753311064,
+     "margem_R_1t_mesmas": 209774,
+     "reproduz": false
+    },
+    {
+     "corte": "brasilia>17:05:59",
+     "secoes": 38587,
+     "R_pct_2t": 43.3485872897359,
+     "margem_R_2t": -1350170,
+     "R_pct_1t_mesmas": 46.25606092406831,
+     "margem_R_1t_mesmas": -665359,
+     "reproduz": false
+    },
+    {
+     "corte": "brasilia>17:15:59",
+     "secoes": 8845,
+     "R_pct_2t": 44.301412564744595,
+     "margem_R_2t": -278748,
+     "R_pct_1t_mesmas": 47.398999547997086,
+     "margem_R_1t_mesmas": -110139,
+     "reproduz": false
+    }
+   ],
+   "secoes_nomeadas": {
+    "SP|64777|395|298": {
+     "nome": "GUARULHOS",
+     "apt": 350,
+     "comp": 268,
+     "L": 135,
+     "R": 125,
+     "enc_local": "17:03:46",
+     "tipo": "Apurada",
+     "agregadas": "#NULO#",
+     "na_amostra_T3": false,
+     "T3": null
+    },
+    "ES|57932|9|85": {
+     "nome": "SANTA MARIA DE JETIBÁ",
+     "apt": 371,
+     "comp": 308,
+     "L": 80,
+     "R": 218,
+     "enc_local": "17:00:42",
+     "tipo": "Apurada",
+     "agregadas": "#NULO#",
+     "na_amostra_T3": false,
+     "T3": null
+    },
+    "ES|57932|9|112": {
+     "nome": "SANTA MARIA DE JETIBÁ",
+     "apt": 340,
+     "comp": 304,
+     "L": 60,
+     "R": 229,
+     "enc_local": "19:43:21",
+     "tipo": "Apurada",
+     "agregadas": "#NULO#",
+     "na_amostra_T3": false,
+     "T3": null
+    },
+    "CE|14176|21|136": {
+     "nome": "IPU",
+     "apt": 235,
+     "comp": 215,
+     "L": 181,
+     "R": 30,
+     "enc_local": "17:00:59",
+     "tipo": "Apurada",
+     "agregadas": "#NULO#",
+     "na_amostra_T3": false
+    },
+    "bweb_2t_sem_base": {
+     "ZZ|30686|1|443": {
+      "nome": "TRÍPOLI",
+      "aptos_bweb": "30",
+      "comp_bweb": "0",
+      "tipo": "Apurada"
+     },
+     "ZZ|29564|1|91": {
+      "nome": "CIUDAD GUAYANA",
+      "aptos_bweb": "72",
+      "comp_bweb": "0",
+      "tipo": "Apurada"
+     }
+    }
+   },
+   "exterior_bweb_2t": {
+    "secoes_no_bweb": 1310,
+    "com_agregacao": 1216,
+    "secoes_agregadas_listadas": 1216,
+    "comp_zero": 2
+   },
+   "amostra_T3_secoes_com_log_diferente_do_bu": 0,
+   "amostra_T3_secoes": 835
+  },
+  "E7_transporte": {
+   "1": {
+    "resto_BA": {
+     "comp": 7492008,
+     "apt": 9357273,
+     "pct": 80.0661474769412
+    },
+    "brasil": {
+     "comp": 124934069,
+     "apt": 157828968,
+     "pct": 79.15788247440102
+    },
+    "SALVADOR": {
+     "comp": 1561593,
+     "apt": 1955479,
+     "pct": 79.85731373233872
+    },
+    "outras_UFs": {
+     "comp": 89448476,
+     "apt": 112393324,
+     "pct": 79.58522162757639
+    },
+    "resto_SP": {
+     "comp": 19425581,
+     "apt": 24977768,
+     "pct": 77.77148462584807
+    },
+    "SÃO PAULO": {
+     "comp": 7006411,
+     "apt": 9145124,
+     "pct": 76.61362492187094
+    }
+   },
+   "2": {
+    "resto_BA": {
+     "comp": 7774978,
+     "apt": 9357420,
+     "pct": 83.08890698504503
+    },
+    "brasil": {
+     "comp": 127854631,
+     "apt": 157828819,
+     "pct": 81.0084190010951
+    },
+    "SALVADOR": {
+     "comp": 1647069,
+     "apt": 1955471,
+     "pct": 84.22876125496109
+    },
+    "outras_UFs": {
+     "comp": 91068195,
+     "apt": 112392337,
+     "pct": 81.02704991355417
+    },
+    "resto_SP": {
+     "comp": 20080318,
+     "apt": 24977622,
+     "pct": 80.3932335912522
+    },
+    "SÃO PAULO": {
+     "comp": 7284071,
+     "apt": 9145969,
+     "pct": 79.64241951836924
+    }
+   },
+   "variacao_pontos": {
+    "resto_BA": 3.0227595081038316,
+    "brasil": 1.8505365266940856,
+    "SALVADOR": 4.371447522622361,
+    "outras_UFs": 1.4418282859777776,
+    "resto_SP": 2.621748965404123,
+    "SÃO PAULO": 3.028794596498301
+   }
+  }
+ }
+}

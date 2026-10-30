@@ -1,0 +1,298 @@
+F8 do Adendo 20: o que o governo dos EUA, os observadores internacionais e o PL disseram sobre o 2º turno de 2026, e a
+conferência nos dados locais de cada indício concreto
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 20, F8 (commit d976d4d, 30/10/2026 12:11:50 UTC). Pesquisa na web em 30/10/2026.
+Script das conferências: scripts/analisar_F8.py. Números completos e lista das declarações: resultados/F8_eua_observadores.json.
+Bases: bweb dos dois turnos (cache do L1, extraído dos 28 zips do 2º turno e dos zips do 1º), votos por seção
+(secoes2026.json.gz), total oficial do TSE (resultados/soma_oficial_2t.json), amostra de arquivos de urna (T3).
+
+Critério registrado (Adendo 20, antes de rodar):
+  "Texto, data e órgão de cada declaração do governo dos EUA sobre o 2º turno de 2026, se fala em indícios de fraude e
+  quais; relatórios de observação internacional (OEA, UE, Centro Carter, Parlasul e outros); posição e auditoria do PL.
+  Cada indício concreto que der para conferir nos dados públicos é conferido; o que não der é relatado como tal."
+
+VEREDITO PELA LETRA: DESCRITIVO (o F8 não tem limiar numérico).
+Resumo: até 30/10 o governo dos EUA não reconheceu formalmente o resultado, mas também não o rejeitou formalmente. Quem
+falou em fraude foi Trump, em falas a repórteres e num comício, sem prova; os únicos fatos concretos que ele citou foram a
+prorrogação do horário e, sem detalhe, "a forma como foi apurada". Nenhum órgão dos EUA publicou documento com indício de
+fraude. O único documento oficial conhecido é o telegrama da própria embaixada em Brasília (26/10, revelado pela Folha em
+29/10), que chama a vitória de Lula de "surpreendente, mas definitiva". OEA e Centro Carter validaram o resultado e
+criticaram a prorrogação. O PL reconheceu o resultado, e o coordenador da campanha de Flávio disse que não há provas. Não
+achei auditoria do PL nem comparação de boletins impressos. Dos indícios concretos, os que tratam de fatos (prorrogação,
+pausa da totalização, regras diferentes entre seções) conferem com os dados, mas nenhum muda o resultado; os que afirmam
+fraude ("impossibilidade matemática", Flávio vencendo nas urnas que fecharam tarde) não conferem.
+
+1. Governo dos EUA, em ordem de data
+U1. Departamento de Estado, resposta a democratas do Congresso (relatada em 17/10, antes do 2º turno; assinada, segundo a
+    BPMoney, por Katherine Bowles, de Assuntos Legislativos). Os EUA apoiam "a free and fair electoral process" e vão
+    dialogar com o "governo eleito". Não se comprometeu a reconhecer o resultado certificado. Fraude: não.
+U2. Reuters, 24/10 (reportagem, não é declaração oficial). Darren Beattie e Ricardo Pita, nomeados políticos do Departamento
+    de Estado, lideraram uma campanha para devolver os Bolsonaro ao poder. Não trata de urna nem de apuração.
+U3. Trump, 25/10, no dia da votação: "Não quero entrar nesse assunto, mas estamos monitorando" (CNN Brasil).
+U4. Departamento de Estado e Casa Branca, 26/10 (Folha, via Tribuna do Norte e Imirante). Havia uma nota de felicitação
+    pronta; a administração mandou segurar "para avaliar a situação política no Brasil". A embaixada não deu data.
+U5. Trump, 26/10, a repórteres na Joint Base Andrews (AFP, AP, Reuters, Telegraph; repostado pela conta Rapid Response 47 da
+    Casa Branca, segundo o Poder360): "it looked like another rigged election frankly... it was a terrible look for the
+    world"; "I thought it had a very bad look, the way it was tabulated"; "The extension given was very strange"; "it
+    looked so corrupt, so terrible"; "Elections have to be indisputable". Na mesma fala: "I didn't take sides", "I like
+    Lula", "I'm not running Brazil. I'm running the US". Fraude: sim, como impressão. Indícios citados: a prorrogação e a
+    apuração (sem dizer o quê). Prova: nenhuma, segundo AP, Reuters, AFP e CNN Brasil.
+U6. Embaixada dos EUA em Brasília, telegrama ao Departamento de Estado enviado em 26/10, revelado pela Folha (Isabella
+    Menon) em 29/10. Título: "Eleições no Brasil: Lula é eleito em resultado surpreendente, mas definitivo; Flávio
+    Bolsonaro considera resultado impossível de aceitar". Votação "majoritariamente pacífica"; observadores sem dúvida
+    sobre o resultado (OEA: "nenhuma dúvida sobre os resultados"); ampliação do horário "mal administrada"; cerca de 34
+    mil votos depois das 17h, uns 0,03%, contra diferença de 4,4 milhões; Lula reconhecido por "pelo menos 54 países",
+    com EUA, El Salvador e Argentina entre as exceções. É avaliação diplomática interna, não reconhecimento formal (o
+    título "Embaixada dos EUA reconhece vitória de Lula", do Jornal de Brasília, exagera). Fraude: não.
+U7. Departamento de Estado, 27/10 (alto funcionário, à Reuters): "The State Department will issue visas to Flavio Bolsonaro
+    and his family and allow them entry into the United States." O Departamento de Segurança Interna disse que a família
+    foi liberada conforme as "applicable immigration laws and procedures". Nada sobre o resultado.
+U8. Trump, 27/10, comício em Corpus Christi, Texas (Rio Times, a partir de transcrição): chamou os democratas de "the
+    greatest cheaters of elections" e disse que o Brasil "is doing a pretty good job also, aren't they?"; "not nice";
+    "it didn't look too good". Sem dizer o que o Brasil fez.
+U9. Trump, 28/10, antes de ir a Ohio (CNN Brasil): "demos a ele autorização para entrar no país"; "não vou me envolver.
+    Foi uma eleição muito estranha, isso é certo"; "não tomei partido"; Flávio e família "tratados de forma muito
+    injusta". Não comentou a carta em que Flávio se diz presidente eleito.
+U10. Trump, 29/10, Joint Base Andrews (AFP; Rio Times): "I think the election was a disgrace in Brazil"; "a very great
+    embarrassment to the people of Brazil"; sobre quem é o vencedor legítimo, "I don't want to comment on it right now";
+    "vou falar com ele"; a bolsa brasileira "through the floor". Não citou nenhuma irregularidade.
+U11. Até 30/10: nenhuma nota formal de reconhecimento nem de não reconhecimento da Casa Branca ou do Departamento de
+    Estado; nenhuma declaração de Rubio sobre o resultado achada; nenhuma sanção ou tarifa nova ligada ao resultado (a
+    tarifa da Seção 301, em vigor desde 22/07/2026, é anterior). Até 29/10 não havia mensagem formal de congratulação.
+    O "dossiê" citado numa análise da CNN Brasil em 28/10 não tem texto publicado (já conferido no L8).
+Resposta à pergunta "os EUA disseram haver indícios de fraude?": Trump disse que a eleição "pareceu fraudada", "corrupta"
+e uma "vergonha". Nenhum órgão do governo dos EUA apresentou indício de fraude, e o único documento conhecido, o da
+embaixada, diz o contrário. "Não reconheceu" é verdade só no sentido de não ter publicado reconhecimento: não houve
+declaração formal de não reconhecimento.
+
+2. Observadores internacionais
+O1. OEA, Missão de Observação Eleitoral, chefe José Miguel Insulza; relatório preliminar do 2º turno de 27/10. 88
+    observadores de 22 nacionalidades em 21 UFs, no DF e em 5 cidades do exterior; 977 seções em 388 locais; 179
+    observadores nos dois turnos. "É importante destacar que a OEA não tem dúvidas quanto à integridade dos dados
+    oficiais"; os dados do TSE coincidem com o que os observadores colheram em campo. Críticas: a prorrogação "provocou
+    confusão entre funcionários eleitorais, partidos e eleitores", "situação inédita"; demora do TSE em responder às
+    campanhas; decisões monocráticas contraditórias; falta de transporte em algumas localidades e dificuldades em
+    comunidades indígenas. Recomenda regras mais claras para a atuação do STF em matéria eleitoral e melhor comunicação
+    entre STF e TSE. Parabenizou Lula e Alckmin. O PDF da OEA deu 403 (desafio do Cloudflare, não contornado); os trechos
+    vêm de SBT News, Brasil Paralelo, Diário do Pará e ICL (Jamil Chade).
+O2. Centro Carter, missão de especialistas (Jennie Lincoln, 4 pessoas), 27/10. Elogia o TSE; "the controversial two-hour
+    extension of the voting hours that was determined after polls had closed"; resultados "announced within hours of
+    polls closing"; "Candidates and their supporters should respect the announced results"; "Any evidence-based concerns
+    should be pursued through established legal processes". Escopo restrito (lei, tecnologia, educação do eleitor); "did
+    not assess the conduct of voting". Relatório final depois.
+O3. Parlasul, comunicado da noite de 25/10: a missão "segue atenta ao andamento e ao encerramento do pleito, especialmente
+    às implicações da decisão do Supremo Tribunal Federal de prorrogar a votação e às posteriores determinações do
+    Tribunal Superior Eleitoral, em defesa da transparência e da segurança jurídica do processo democrático". Sem
+    relatório do 2º turno achado. Não fala em fraude.
+O4. União Europeia, missão de peritos (5 ou 6 especialistas): nenhuma declaração sobre o 2º turno até 30/10. Disse antes
+    da votação que confrontaria amostras de boletins com o resultado oficial; relatório final previsto para novembro.
+O5. Uniore, RojaE-CPLP (chefe João Carlos Pires Trindade) e Liga dos Estados Árabes: credenciadas; nenhum comunicado do 2º
+    turno achado.
+O6. IFES e Transparencia Electoral: nenhuma missão nem declaração sobre o 2º turno de 2026 achada.
+
+3. PL, Flávio e auditorias
+P1. PL, nota de Valdemar Costa Neto, 26/10: "Reconhecemos o resultado presidencial, proclamado pelo Tribunal Superior
+    Eleitoral (TSE)"; "os questionamentos levantados precisam ser devidamente esclarecidos"; os gastos com benefícios
+    sociais "às vésperas da votação" levantam questionamentos. Não fala de auditoria, boletim nem fiscalização.
+P2. Rogério Marinho (PL-RN), coordenador da campanha e líder da oposição no Senado, 28 e 29/10: "Eu não posso fazer essa
+    afirmação, não tenho provas"; "O PL não pode fazer essa afirmação, nem eu, porque não há provas nesse sentido".
+P3. Flávio: 25/10, não reconhece, pedirá anulação, fiscais do PL retirados da sala-cofre, prorrogação; 26/10, "Vou pedir,
+    sim, a cassação da chapa do Lula" (benefícios como compra de voto); 28/10, carta: "uma fraude eleitoral se
+    concretizar diante dos meus olhos"; "uma impossibilidade matemática se concretizasse e Lula acrescentasse mais de 10
+    milhões de votos"; "a ordem só chegou depois do fim do horário legal, quando as urnas já estavam encerradas";
+    "Eleitores ficaram submetidos a regras diferentes". No dia da votação pediu a apoiadores que vigiassem, depois das
+    17h, se mesários votavam por ausentes.
+P4. TSE sobre a sala-cofre (26/10, Lupa): afirmação falsa; a sala-cofre não é aberta à visitação; dois fiscais do PL
+    acompanharam o Teste de Integridade e a totalização; "Há registro de presença nos locais visitados, além de filmagem
+    na Sala de Totalização".
+P5. Até 30/10 não achei ação do PL ou de Flávio pedindo anulação no TSE. A AIJE pela cassação de Lula e Alckmin (35
+    medidas em ano eleitoral) é do Novo, de 19 ou 20/10, anterior ao 2º turno. Não achei relatório de auditoria do PL nem
+    comparação de boletins impressos com o site do TSE.
+P6. Auditorias independentes no GitHub (não oficiais, sem revisão): ioraysilva (soma igual em 5.757 municípios; RDV igual
+    ao boletim em 499.206 seções), Mateus Costa Cruz (Mateusinho28: 34.319 votos entre 17h e 19h, 11 depois das 19h, 322
+    sem hora; 7.353 urnas encerradas depois das 17h45; log igual ao comparecimento em 499.170 urnas), ivanmneto92-sys
+    (assinatura, certificado, hash, recontagem e boletim corretos em 499.178 de 499.178 urnas; 34.584 votos a partir das
+    17h), luiseduardoluz (soma igual em 6.106 zonas). Nenhuma acha fraude. Nenhuma comparou boletins impressos: não há
+    base pública de fotos dos boletins afixados.
+
+4. Conferência nos dados locais (scripts/analisar_F8.py)
+C1. Soma dos boletins igual ao oficial (OEA, embaixada, auditorias). CONFERE. 499.205 seções com votos: Lula 64.256.232,
+    Flávio 59.826.041, branco 1.430.496, nulo 2.723.305, comparecimento 128.236.074; diferença zero em tudo. Margem
+    4.430.191 (51,79% dos válidos). A OEA diz que os dados de 977 seções batem; quais seções, não é público: NÃO
+    CONFERÍVEL seção a seção.
+C2. Prorrogação (Trump "very strange"; embaixada "mal administrada"; OEA "confusão"; Carter "after polls had closed";
+    Parlasul). CONFERE como fato administrativo. Encerramento em hora de Brasília, Brasil (497.897 seções): 489.052 até
+    17h15, 2.072 entre 17h16 e 18h29, 6.773 mantidas abertas até 18h30 ou mais (1.987.007 votantes no dia, 1,55%).
+    364.287 seções (73,2%) já tinham encerrado às 17h03, hora da liminar. As mantidas abertas estão em RJ 3.005, SP
+    1.658, BA 986, PE 697, PB 311, SE 53, DF 17 e poucas em outras UFs; PR e SC, onde a campanha de Flávio pediu
+    extensão, têm 1 cada. Por cidade: Rio de Janeiro 2.139 abertas contra 10.404 no horário; São Paulo 1.562 contra
+    24.543; Salvador 747 contra 4.302; Petrópolis 297 contra 507; João Pessoa 293; Itaboraí 241; Recife 229.
+    NÃO CONFERE como mudança do resultado: dentro do mesmo local de votação, a virada de Lula nas seções mantidas
+    abertas foi igual à das vizinhas (+0,007 ponto, erro-padrão 0,049; 475.803 seções em 72.445 locais). Retirando por
+    inteiro as mantidas abertas (com os votos da manhã), Lula ainda vence no Brasil por 4.208.922; no pior caso absurdo
+    (todo votante delas como voto líquido de Lula), por 2.414.527.
+C3. "Ordem chegou com as urnas já encerradas" e "regras diferentes" (Flávio, Carter). CONFERE EM PARTE. 73,2% das
+    seções já tinham encerrado às 17h03; as outras seguiam abertas com fila ou por ordem. Em 160 municípios houve
+    seções mantidas abertas ao lado de seções encerradas no horário (6.745 contra 106.485 seções; 31.891.117 votantes
+    nesses municípios). Ou seja: eleitores do mesmo município tiveram, de fato, horários diferentes.
+C4. "the way it was tabulated" (Trump). CONFERE a pausa; nenhum sinal de manipulação nela. Primeiro boletim às 17:05:10;
+    1.868 até 17:07:59; nenhum boletim recebido entre 17:07:27 e 19:03:37 (116 minutos); 50% às 20:26:26, 90% às
+    21:01:27, 99% às 21:09:39, 100% às 23:21:40. No L8, a posição na fila de chegada não mudou a virada dentro do local
+    (+0,01, ep 0,06).
+C5. "Resultados em poucas horas" (Carter). CONFERE (horários do C4).
+C6. 34 mil votos depois das 17h, uns 0,03%, contra 4,4 milhões (embaixada, TSE). CONFERE: 34.393 / 128.236.074 = 0,027%
+    do comparecimento e 0,78% da margem. O bweb não tem a hora de cada voto; o número vem dos logs (TSE, duas auditorias
+    com 34.319 e 34.584, e a amostra do T3, uns 33 mil).
+C7. "Impossibilidade matemática: Lula +10 milhões" (Flávio) e "Math doesn't add up" (Musk). NÃO CONFERE. Nas mesmas
+    499.205 seções: Lula +10.376.696, Flávio +3.721.538, soma 14.098.234; do outro lado, votos dos eliminados no 1º
+    turno 9.321.993 + queda de branco e nulo 1.816.000 + aumento do comparecimento 2.960.241 = 14.098.234. A conta fecha
+    exatamente. Por seção (descritivo): em 44.885 seções (9,0%) o ganho de Lula passa toda a "folga" (eliminados, queda
+    de branco e nulo, aumento do comparecimento), o que só acontece se eleitores de Flávio do 1º turno trocaram de lado
+    ou se o eleitorado da seção mudou; o excesso soma 147.307 votos (mediana 3 por seção, máximo 55). No espelho, Flávio
+    passa a folga em 665 seções (1.643 votos). É a mesma marca do T8 e do T35 (Flávio perde parte dos próprios eleitores),
+    espalhada: as 10 zonas com mais excesso somam 2,8% dele.
+C8. "106 seções com zero voto para Flávio" (redes). CONFERE a contagem; NÃO É anomalia nova. 106 seções no 2º turno
+    (AM 30, MA 20, PA 16, RR 8, TO 7, MT 5, BA 4, AC 3; Lula tem 14.860 votos nelas). No 1º turno da mesma eleição havia
+    81. Nessas 106, Flávio tinha só 118 votos no 1º turno (50 já zeradas, 90 com 2 votos ou menos). Lula zerado: 4 seções
+    no 2º turno, 8 no 1º.
+C9. Mesários votando por ausentes depois das 17h (pedido de Flávio aos apoiadores). NÃO CONFERE com o que já foi testado:
+    nenhuma seção com comparecimento acima dos aptos nos dois turnos; comparecimento igual aos aptos com 50 aptos ou mais
+    em 9 seções no 2º turno e 10 no 1º; F6 (liberações sem biometria nas pontas): SEM SINAL na regressão e no log.
+C10. Números das auditorias. CONFEREM. Urnas do Brasil encerradas depois das 17h45 de Brasília: 7.357 aqui contra 7.353
+    (diferença de fuso). Liberações sem biometria no 2º turno: 8.632.488, 6,73% do comparecimento, igual ao ioraysilva.
+    Seções nomeadas por Mateus Costa Cruz: Guarulhos 395/298 tem comparecimento 268, os 268 votos "sem hora" (sem log);
+    Santa Maria de Jetibá 9/85 tem 308 e 9/112 tem 304, que somam os 612 votos do pacote de log trocado (a 112 encerrou às
+    19:43:21); as duas seções do exterior sem voto (Trípoli, 30 aptos; Ciudad Guayana, 72) somam os 102 eleitores citados.
+    CE 14176/21/136 (Ipu), sem RDV segundo o ioraysilva: comparecimento 215, Lula 181, Flávio 30; a falta do RDV não é
+    conferível aqui (não está na amostra). Nenhuma dessas seções está na amostra de arquivos de urna.
+C11. "Urnas encerradas após 17h: Flávio 52,40%, +1.748.468; 1º turno 55,20%, +3.397.055" (ioraysilva, que diz ser uma
+    amostra). NÃO REPRODUZ com o bweb inteiro: nos seis cortes testados (relógio local depois de 17:00:00, 17:00:59,
+    17:05:59; Brasília depois de 17:00:59, 17:05:59, 17:15:59), Lula vence nas seções que encerraram tarde, com Flávio
+    entre 42,8% e 47,5%. Flávio só lidera nas que encerraram ATÉ 17:00:59 de Brasília (50,99%, +607.102; L8), recorte
+    que seleciona o Sul e o Centro-Oeste.
+C12. "70 seções do exterior sem boletim" (luiseduardoluz) contra "2 seções" (Mateus Costa Cruz). O bweb tem 1.310
+    linhas do exterior, só 2 sem voto: confere a versão de 2. O total oficial lista 499.248 seções contra 499.207 linhas
+    no bweb; a diferença de 41 deve ser de seções agregadas contadas à parte (não verificado). Como a soma é igual ao
+    oficial, nenhum boletim faltante carrega voto.
+C13. Falta de transporte (motivo do pedido da coligação de Lula; OEA cita transporte). NÃO APARECE no comparecimento:
+    do 1º para o 2º turno, Salvador foi de 79,86% para 84,23% (+4,37 pontos), o resto da BA +3,02, São Paulo (capital)
+    de 76,61% para 79,64% (+3,03), o resto de SP +2,62, as outras UFs +1,44, o Brasil +1,85. A causa não é conferível:
+    sem os problemas, o aumento poderia ter sido maior.
+C14. NÃO CONFERÍVEIS com os dados locais: a bolsa "through the floor"; abuso de poder e gastos sociais; fiscais retirados da
+    sala-cofre (o TSE diz ter filmagem); o "dossiê"; a ligação com o narcotráfico e com o STF.
+
+5. O que isso significa
+- A frase "os EUA não reconheceram e disseram haver indícios de fraude" mistura duas coisas. É fato que, até 30/10, a Casa
+  Branca e o Departamento de Estado não publicaram reconhecimento (a nota estava pronta e foi retida). Mas o que existe
+  sobre fraude são falas de Trump, sem prova, e o único indício concreto que ele citou, a prorrogação, confere como fato e
+  não muda o resultado. A própria embaixada dos EUA disse ao Departamento de Estado que a vitória foi "definitiva".
+- Os observadores com mais gente em campo (OEA, 977 seções) e o Centro Carter validaram os dados e ao mesmo tempo
+  criticaram a prorrogação e a confusão. Os dados mostram essa confusão: 6.773 seções em 161 municípios ficaram abertas
+  até as 19h, em 160 deles ao lado de seções que fecharam às 17h, com RJ à frente (estado que não estava em nenhum dos pedidos) e PR e
+  SC quase sem nenhuma (onde a campanha de Flávio pediu). Isso é falha de administração, e é legítimo criticá-la. Não é
+  fraude de contagem: as seções que ficaram abertas viraram igual às vizinhas, e uns 34 mil votos depois das 17h não
+  cobrem 0,8% da margem.
+- O PL não sustenta a tese: reconheceu o resultado, e o coordenador da campanha disse que não há provas. A acusação de
+  fraude é de Flávio, e as duas afirmações dele que dá para medir (a conta dos 10 milhões e a sala-cofre) não se
+  sustentam (uma pela conta, a outra pela resposta do TSE, que não pude verificar por imagem).
+- Ceticismo no outro sentido: todas as conferências usam números que saem do sistema eleitoral (boletins, carimbos de
+  hora, logs). Uma urna que gravasse errado já no boletim passaria por todas elas. Os observadores também não recontam
+  votos; a OEA compara o que viu nas seções com o publicado. O que o F8 mostra é que nenhum dos atores citados (EUA,
+  observadores, PL) aponta uma marca concreta nos dados públicos; não mostra que a urna está certa. Esse é o papel dos
+  testes T2, T3, T18 e F2 a F6. E a única verificação que não depende do sistema, comparar fotos de boletins impressos
+  afixados nas seções com o site, não foi feita por ninguém que eu tenha achado: nem pelo PL, nem pelas auditorias.
+
+6. Pistas (fora do critério, com números)
+- As 44.885 seções em que o ganho de Lula passa a folga (C7), por UF: RN 24,6% das seções, MA 24,0%, AL 23,4%, CE 21,4%,
+  SE 20,4%, PB 20,1%, PI 19,4%, PE 16,6%, BA 14,0%, RJ 12,7%; no outro extremo GO 0,5%, AP 0,8%, SC 1,9%, DF 1,9%, PR 2,0%,
+  SP 2,6%. O espelho de Flávio é quase nulo em todas (máximo BA 130 seções). O RJ, estado de Flávio, aparece com 4.787
+  seções e 17.601 votos de excesso, o maior excesso absoluto depois do CE (17.792). Zonas com mais excesso: CE 15490/36 e
+  CE 13730/120 (473 votos cada), RJ 58190/75 (463), MA 7234/13 (430), MA 7579/4 (419). É compatível com troca de
+  lado espalhada e também seria o desenho de um desvio pequeno e difuso; o T8, o T35 e o F5 já olharam isso, e o F5 tem
+  a lista das caudas. Vale cruzar essas zonas com os arquivos de urna.
+- A prorrogação no RJ: 3.005 seções mantidas abertas, 2.139 na capital, sem pedido conhecido para o RJ. Vale achar a
+  ordem do TRE-RJ e saber quem decidiu quais seções ficavam abertas. Nas mantidas abertas do RJ, Flávio vence (Lula
+  45,74%) e a virada (+4,18) é igual à das outras seções do estado (+4,26). Em SP, as mantidas abertas viraram menos que o
+  resto do estado (+2,73 contra +3,78); na BA, mais (+2,23 contra +1,42).
+- Santa Maria de Jetibá (ES) 9/112 encerrou às 19:43:21, depois do horário da prorrogação, e seu log veio no pacote de
+  outra seção (9/85). Guarulhos 395/298 não tem log publicado. São defeitos de publicação que valem um pedido ao TSE
+  dos arquivos corretos; votos: Lula 60 e Flávio 229 na 9/112, Lula 135 e Flávio 125 na 395/298.
+- 36 seções do Brasil encerraram depois das 19h15 de Brasília (L8) e 11 votos foram dados depois das 19h (duas auditorias
+  concordam). Não mudam nada, mas são votos fora da ordem e merecem a lista nominal.
+- A auditoria ivanmneto92-sys diz que o certificado da AC URNA venceu em 18/07/2026 pela regra estrita X.509, antes do
+  1º turno. O T18 verificou as 1.059 assinaturas ECDSA da amostra com a chave da AC recuperada, mas não a validade do
+  certificado da própria AC (a raiz não é pública). Vale perguntar ao TSE.
+- A mesma auditoria acha 34.584 votos a partir das 17h, contra 34.393 do TSE (191 a mais) sem explicar; Mateus Costa Cruz
+  acha 34.330 no Brasil. A diferença deve ser de fuso ou de corte, mas não está resolvida.
+- A explicação oficial da prorrogação (frota de ônibus menor em Salvador e São Paulo) não aparece no comparecimento: as
+  duas capitais tiveram aumento maior que o resto dos seus estados (C13).
+- Contradição entre auditorias: 70 seções do exterior sem boletim (luiseduardoluz) contra 2 (Mateus Costa Cruz) e
+  499.248 seções no total oficial contra 499.207 linhas no bweb (C12).
+- A OEA visitou 977 seções e diz que os números batem, mas a lista não é pública. Pedir a lista à OEA permitiria conferir
+  essas seções no bweb, que seria a única comparação independente com boletim visto em campo.
+
+7. Decisões e desvios (o F8 não fixa nada além da pesquisa)
+- Todas as especificações das conferências (E0 a E7) foram escritas no docstring de scripts/analisar_F8.py antes de rodar.
+  Antes de fixar os grupos da prorrogação olhei só a distribuição do encerramento local por UF, sem votos (script
+  explora_enc.py na pasta de trabalho). Desvio declarado: os cortes 17h15 e 18h30 e a definição de "mantida aberta" são
+  meus.
+- Acrescentado depois da primeira rodada (declarado no docstring): o 1º turno das 106 seções com Flávio zerado e a
+  contagem de seções do exterior no bweb.
+- Exploratório depois do resultado, fora do registro: a distribuição por UF e por zona do excesso de Lula sobre a folga
+  (pistas, item 6; script explora_folga.py na pasta de trabalho).
+
+8. O que ficou de fora
+- O PDF do relatório da OEA (403, desafio do Cloudflare, não contornado); usei a imprensa. O site do TSE e o do Jornal Opção
+  também deram 403. O texto da Folha sobre o telegrama, só pela republicação da Folhapress.
+- Posts no X (exigem login). O texto integral da resposta do Departamento de Estado aos democratas (não publicado).
+- A hora de cada voto (só nos logs; usei o TSE, as auditorias e o T3). A lista das 977 seções da OEA. Fotos de boletins
+  impressos (não existe base pública).
+- Nenhum relatório final de observação saiu até 30/10 (OEA, Carter e UE prometem para depois).
+
+Fontes
+Governo dos EUA:
+- CNN Brasil, 25/10: https://www.cnnbrasil.com.br/internacional/trump-diz-que-monitora-segundo-turno-da-eleicao-presidencial-no-brasil/
+- AFP via Yahoo, 26/10: https://www.yahoo.com/news/politics/articles/trump-slams-rigged-brazil-election-202144653.html
+- AP via Boston Globe, 26/10: https://www.bostonglobe.com/2026/10/26/world/brazil-lula-leftist-denies-trump-ally/
+- Reuters via Yahoo, 26/10: https://www.yahoo.com/news/politics/articles/brazil-heads-back-future-flavio-070702211.html
+- Telegraph via Yahoo, 26/10: https://www.yahoo.com/news/politics/articles/white-house-blocks-congratulation-lula-191039931.html
+- Poder360, 26/10: https://www.poder360.com.br/poder-eleicoes-2026/trump-afirma-que-eleicoes-brasileiras-parecem-fraudadas/
+- Tribuna do Norte (Folha), 26/10: https://tribunadonorte.com.br/tn-nas-eleicoes-2026/governo-trump-adia-comunicado-sobre-vitoria-de-lula-apos-contestacao-de-flavio-bolsonaro/
+- Imirante (Folha), 26/10: https://m.imirante.com/noticias/mundo/2026/10/26/ipolitica-governo-trump-adia-nota-oficial-vitoria-lula-apos-contestacao-flavio-bolsonaro
+- Reuters via Yahoo, 28/10 (vistos): https://www.yahoo.com/news/world/articles/brazil-wonders-where-earth-flavio-154803613.html
+- Washington Post, 27/10: https://www.washingtonpost.com/world/2026/10/27/brazil-flavio-bolsonaro-passport-lula/c1bb7428-d22f-11f1-9931-2a41b76fc976_story.html
+- Rio Times, 28/10 (comício): https://www.riotimesonline.com/trump-cites-brazil-election-texas-rally-2026/
+- CNN Brasil, 28/10: https://www.cnnbrasil.com.br/internacional/trump-diz-que-eua-permitiram-entrada-de-flavio-mas-que-nao-vai-se-envolver/
+- AFP via Manila Times, 30/10: https://www.manilatimes.net/2026/10/30/world/trump-hardens-stance-on-brazil-election-disgrace/2457682
+- Rio Times, 30/10: https://www.riotimesonline.com/trump-brazil-vote-disgrace-lula-call-2026/
+- Jornal de Brasília (Folhapress, Isabella Menon), 29/10: https://jornaldebrasilia.com.br/noticias/politica-e-poder/embaixada-dos-eua-em-brasilia-destacou-em-relatorio-vitoria-definitiva-de-lula/
+- Jornal de Brasília, 29/10: https://jornaldebrasilia.com.br/noticias/politica-e-poder/embaixada-dos-eua-reconhece-vitoria-de-lula/
+- Rio Times via ua.news, 17/10: https://ua.news/en/world/derzhdep-ssha-ne-poobitsiav-viznati-sertifikovanii-rezultat-viboriv-u-braziliyi-the-rio-times
+- BPMoney, 26/10: https://bpmoney.com.br/politica/musk-questiona-vitoria-lula-casa-branca-silencio/
+- Reuters, 24/10 (via Internazionale): https://www.internazionale.it/ultime-notizie-reuters/2026/10/24/inside-the-trump-administration-campaign-to-return-brazil-s-bolsonaro-clan-to-power
+Observadores:
+- OEA, relatório preliminar do 2º turno (403 para mim): http://www.oas.org/fpdb/press/2026_MOE_Brasil_Segundo_Turno_Relatorio_Preliminar_POR.pdf
+- SBT News, 27/10: https://sbtnews.sbt.com.br/noticia/politica/oea-reconhece-legitimidade-no-resultado-das-eleicoes
+- Brasil Paralelo, 28/10: https://www.brasilparalelo.com.br/noticias/oea-reconhece-resultado-eleitoral-e-aponta-problemas-na-votacao
+- Diário do Pará, 29/10: https://diariodopara.com.br/eleicoes-2026/oea-reconhece-resultado-das-eleicoes-no-brasil-e-confirma-integridade-dos-dados-oficiais/
+- ICL Notícias (Jamil Chade), 27/10: https://iclnoticias.com.br/observadores-internacionais-enterram-suspeitas/
+- Centro Carter, 27/10: https://www.cartercenter.org/news/carter-center-election-expert-mission-commends-brazils-democratic-presidential-runoff-election/
+- CNN Brasil (Parlasul), 25/10: https://www.cnnbrasil.com.br/internacional/parlasul-expressa-preocupacao-com-prorrogacao-do-horario-de-votacao/
+- Gazeta do Povo (UE): https://www.gazetadopovo.com.br/eleicoes/2026/uniao-europeia-vai-confrontar-boletins-de-urna-com-resultados-oficiais-do-tse/
+- Times Brasil, 18/10 (sete missões): https://timesbrasil.com.br/brasil/decisao-2026-7-orgaos-internacionais-que-estao-de-olho-no-2o-turno-das-eleicoes-no-brasil/
+PL, Flávio, TSE e auditorias:
+- Agência Brasil, 26/10: https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/partido-de-flavio-pl-reconhece-vitoria-de-lula-nas-eleicoes
+- Gazeta do Povo, 26/10: https://www.gazetadopovo.com.br/eleicoes/2026/pl-reconhece-vitoria-de-lula-mas-cobra-explicacoes/
+- CNN Brasil, 29/10: https://www.cnnbrasil.com.br/politica/tse-e-aliados-defendem-eleicao-apos-carta-com-teor-golpista-de-flavio/
+- O Povo (DW), 30/10: https://www.opovo.com.br/noticias/mundo/2026/10/30/aliados-de-flavio-defendem-resultado-das-eleicoes-apos-senador-divulgar-carta-falando-em-fraude.html
+- Metrópoles, 28/10 (carta): https://www.metropoles.com/mundo/em-carta-flavio-se-declara-verdadeiro-presidente-eleito-do-brasil
+- InfoMoney, 25/10: https://www.infomoney.com.br/politica/flavio-nao-reconhece-resultado-da-eleicao-e-diz-que-pedira-anulacao-ao-tse/
+- Rio Times, 25/10 (alegações do dia): https://www.riotimesonline.com/brazil-vote-dispute-claims-facts-2026/
+- Agência Lupa, 26/10 (sala-cofre): https://www.agencialupa.org/eleicoes/2026/10/26/tse-desmente-que-fiscais-do-pl-tenham-sido-retirados-de-sala-cofre/
+- Metrópoles (AIJE do Novo): https://www.metropoles.com/colunas/neila-guimaraes/novo-pede-cassacao-da-chapa-de-lula-por-medidas-em-ano-eleitoral
+- https://github.com/ioraysilva/auditoria-urnas-2026
+- https://github.com/Mateusinho28/auditoria-eleicao-2t-2026
+- https://github.com/ivanmneto92-sys/auditoria-presidente-2026
+- https://github.com/luiseduardoluz/eleicoes-2026-urnas
+Arquivos do projeto usados: resultados/L8_dossie_eua.txt, resultados/trump_musk_2t_2026_verificado.json,
+resultados/F6_sem_biometria.txt, resultados/soma_oficial_2t.json, resultados/T3_logs_amostra.json,
+resultados/T18_assinaturas_amostra_inteira.json, resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt (hora da liminar).

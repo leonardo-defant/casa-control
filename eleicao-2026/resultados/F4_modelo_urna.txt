@@ -1,0 +1,65 @@
+F4 do Adendo 20: modelo de urna no bweb inteiro
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 20 (commit d976d4d). Script: scripts/analisar_F4.py.
+
+VEREDITO PELA LETRA: INCONCLUSIVO
+Leitura da regressão pelo critério: INCONCLUSIVO
+  Por quê: nenhum modelo chega perto do sinal (1,0 ponto a favor de Lula a mais de 4 erros-padrão), mas o "sem sinal"
+  exige diferença abaixo de 0,3 e erro-padrão até 0,15 em todos, e UE2013 (diferença -0,105, erro-padrão 0,155), UE2015 (diferença -0,139, erro-padrão 0,152) passam do limite.
+
+1. Mapa número da urna para modelo (logs da amostra do 2º turno)
+  Seções na pasta: 3.903; com log: 3.897; pacotes ilegíveis: 0.
+  Urnas distintas com linha 'Identificação do Modelo de Urna': 3.948; conflitos (mais de um modelo para o mesmo número): 0.
+  Urnas por modelo nos logs: UE2013 98, UE2015 979, UE2020 1.288, UE2022 1.583
+  Urna do boletim presente no log da seção: 3.897 de 3.897; com linha de modelo: 3.897.
+
+2. Faixas (um intervalo por modelo, cortes que maximizam acertos)
+  Acertos: 3.948 de 3.948 urnas.
+  UE2013: de 1.650.839 a 1.716.597; urnas da amostra 98, do modelo 98 (pureza 100,00%); outros: nenhum; primeiro e último número da amostra 1.650.839 e 1.682.840.
+  UE2015: de 1.716.597 a 1.924.068; urnas da amostra 979, do modelo 979 (pureza 100,00%); outros: nenhum; primeiro e último número da amostra 1.750.354 e 1.848.115.
+  UE2020: de 1.924.068 a 2.249.285; urnas da amostra 1.288, do modelo 1.288 (pureza 100,00%); outros: nenhum; primeiro e último número da amostra 2.000.022 e 2.248.467.
+  UE2022: de 2.249.285 a 2.473.540; urnas da amostra 1.583, do modelo 1.583 (pureza 100,00%); outros: nenhum; primeiro e último número da amostra 2.250.103 e 2.473.540.
+  Só a urna do boletim de cada seção: UE2013 100,00% de 93; UE2015 100,00% de 966; UE2020 100,00% de 1.268; UE2022 100,00% de 1.570
+  Faixas limpas (99% ou mais em todas): SIM.
+  Segunda leitura, faixas antigas de scripts/modelos.py: UE2013 1.650.000-1.749.999: 100,00% de 98; UE2015 1.750.000-1.999.999: 100,00% de 979; UE2020 2.000.000-2.249.999: 100,00% de 1.288; UE2022 2.250.000-2.599.999: 100,00% de 1.583; urnas da amostra fora delas: 0.
+
+3. Aplicação ao bweb do 2º turno
+  Seções do bweb: 499.205; sem modelo (número fora do intervalo da amostra): 954; na zona de corte: 631.
+  Seções por modelo: None 954, UE2013 12.147, UE2015 87.500, UE2020 200.504, UE2022 198.100
+  Concordância com as faixas antigas: 99,809% das seções.
+  Conferência nas seções da amostra: urna do bweb igual à do boletim em 3.897 de 3.897; modelo pela faixa igual ao do log em 3.897 (diferentes: 0).
+
+4. Regressão registrada (virada de Lula, efeito fixo de local, peso L2+R2, erro agrupado por local)
+  Seções: 476.073; locais: 72.504; locais com mais de um modelo: 8.466. Referência: UE2020.
+  UE2013 contra UE2020: -0,105 ponto (erro-padrão 0,155; z -0,7); seções 11.794, em locais mistos 6.074; locais com o modelo e a referência 14; placebo (fatia do 1º turno) 0,852 (0,301).
+  UE2015 contra UE2020: -0,139 ponto (erro-padrão 0,152; z -0,9); seções 83.732, em locais mistos 19.184; locais com o modelo e a referência 74; placebo (fatia do 1º turno) 0,718 (0,295).
+  UE2022 contra UE2020: 0,004 ponto (erro-padrão 0,022; z 0,2); seções 188.701, em locais mistos 22.522; locais com o modelo e a referência 5.343; placebo (fatia do 1º turno) -0,036 (0,045).
+  Referência UE2020: 191.846 seções, 23.097 em locais mistos.
+  Médias brutas ponderadas (sem efeito fixo, só descritivo): UE2020 virada 2,98, fatia de Lula 1º turno 48,55, 2º turno 51,53 (200.504 seções); UE2013 virada 2,74, fatia de Lula 1º turno 51,12, 2º turno 53,85 (12.147 seções); UE2015 virada 2,94, fatia de Lula 1º turno 49,05, 2º turno 51,98 (87.500 seções); UE2022 virada 2,95, fatia de Lula 1º turno 48,87, 2º turno 51,82 (198.100 seções)
+  Intervalo de 95% e o que seria preciso: a margem do 2º turno no bweb é de 4.430.191 votos; para inverter,
+  2.215.095 votos teriam de ter passado de Flávio para Lula.
+  UE2020: 49.513.158 votos nos finalistas; se só este modelo respondesse pela margem, a fatia de Lula nele teria de estar 4,5 pontos acima (é a referência).
+  UE2013: 3.040.763 votos nos finalistas; se só este modelo respondesse pela margem, a fatia de Lula nele teria de estar 72,8 pontos acima; intervalo de 95% contra UE2020: -0,41 a 0,20.
+  UE2015: 22.050.169 votos nos finalistas; se só este modelo respondesse pela margem, a fatia de Lula nele teria de estar 10,0 pontos acima; intervalo de 95% contra UE2020: -0,44 a 0,16.
+  UE2022: 49.237.044 votos nos finalistas; se só este modelo respondesse pela margem, a fatia de Lula nele teria de estar 4,5 pontos acima; intervalo de 95% contra UE2020: -0,04 a 0,05.
+  Conferência fora do registro (bootstrap por local, 200 réplicas, semente 20261030, 8.466 locais mistos): UE2013 -0,105, erro-padrão 0,159; UE2015 -0,139, erro-padrão 0,157; UE2022 0,004, erro-padrão 0,021.
+  Locais com mais de um modelo, por combinação: UE2020+UE2022 5.310 (SP 2.786, SE 730, AL 538, TO 486, MA 164, BA 109); UE2013+UE2015 3.033 (SP 621, PR 350, PE 337, RS 236, RJ 227, MG 195); UE2015+UE2020 41 (SP 38, AM 3); UE2015+UE2022 33 (SP 32, MT 1); UE2015+UE2020+UE2022 26 (SP 26); UE2013+UE2015+UE2022 5 (SP 5); UE2013+UE2015+UE2020+UE2022 5 (SP 5); UE2013+UE2020 5 (SP 5); UE2013+UE2022 4 (MT 2, SP 2); UE2013+UE2020+UE2022 2 (SP 2); UE2013+UE2015+UE2020 2 (SP 2)
+
+5. Todos os pares de modelos (fora do veredito)
+  contra UE2013: UE2015 -0,034 (0,030); UE2020 0,105 (0,155); UE2022 0,109 (0,155)
+  contra UE2015: UE2013 0,034 (0,030); UE2020 0,139 (0,152); UE2022 0,143 (0,153)
+  contra UE2020: UE2013 -0,105 (0,155); UE2015 -0,139 (0,152); UE2022 0,004 (0,022)
+  contra UE2022: UE2013 -0,109 (0,155); UE2015 -0,143 (0,153); UE2020 -0,004 (0,022)
+
+6. Robustez (descritiva, fora do veredito)
+  a_covariaveis_T17: n 476.073, locais 72.504; UE2013 0,027 (0,142); UE2015 -0,021 (0,139); UE2022 -0,003 (0,021); leitura pelo critério: SEM SINAL
+  b_mesma_urna_nos_dois_turnos: n 471.670, locais 72.278; UE2013 -0,099 (0,158); UE2015 -0,120 (0,155); UE2022 0,005 (0,022); leitura pelo critério: INCONCLUSIVO
+  c_sem_exterior: n 474.883, locais 72.412; UE2013 -0,103 (0,155); UE2015 -0,139 (0,152); UE2022 0,004 (0,022); leitura pelo critério: INCONCLUSIVO
+  d_faixas_antigas_modelos_py: n 477.035, locais 72.538; UE2013 -0,100 (0,156); UE2015 -0,132 (0,153); UE2022 0,005 (0,022); leitura pelo critério: INCONCLUSIVO
+  e_sem_zona_de_corte: n 475.428, locais 72.451; UE2013 -0,105 (0,156); UE2015 -0,137 (0,153); UE2022 0,004 (0,022); leitura pelo critério: INCONCLUSIVO
+
+7. Pistas descritivas
+  Urnas que aparecem em mais de uma seção do 2º turno no bweb: 2: 1808076 em 18 seções (ZZ|29173|1|494, ZZ|29270|1|3, ZZ|29297|1|495, ZZ|29580|1|96...); 1762246 em 9 seções (ZZ|29254|1|1, ZZ|29300|1|6, ZZ|29394|1|28, ZZ|29750|1|1703...)
+  Seções do exterior sem horário de abertura no bweb do 2º turno: 27 (as das urnas repetidas acima estão entre elas).
+  Troca de urna entre os turnos (modelo do 1º para o do 2º): UE2020->UE2020 1.389, UE2022->UE2022 829, UE2015->UE2013 677, UE2015->UE2015 644, UE2013->UE2013 338, UE2022->UE2020 180, UE2020->UE2022 152, UE2013->UE2015 146, UE2015->None 16, UE2015->UE2022 13, UE2013->None 10, None->UE2013 8, UE2015->UE2020 8, UE2013->UE2022 7, UE2022->None 5, None->UE2015 5, None->UE2022 5, None->UE2020 2, None->None 1
+
+Desvios declarados (decisões que o registro não fixa, tomadas antes de calcular a regressão): ver o docstring do script, D1 a D10.

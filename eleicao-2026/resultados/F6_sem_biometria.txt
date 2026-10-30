@@ -1,0 +1,162 @@
+F6 do Adendo 20: eleitor a mais sem biometria, nas pontas (bweb completo dos dois turnos de 2026 e logs de 80 seções)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 20, commit d976d4d (30/10/2026 12:11:50 UTC). Script: scripts/analisar_F6.py.
+
+1. Extração e conferência
+  1º turno: 499.206 seções, 3.800.511 linhas do cargo 1, linhas discordantes na mesma seção 0, valores inválidos do campo nenhum.
+  2º turno: 499.205 seções, 1.931.103 linhas do cargo 1, linhas discordantes na mesma seção 0, valores inválidos do campo nenhum.
+  Conferência com a base e com o cache do T21: {"no_bweb_e_nao_na_base_1": 0, "no_bweb_e_nao_na_base_2": 0, "NH_diferente_do_cache_T21_1": 0, "secoes_conferidas_com_cache_T21_1": 499206, "NH_diferente_do_cache_T21_2": 0, "secoes_conferidas_com_cache_T21_2": 499205}
+  Universo (27 UFs, dois turnos, campo válido, aptos > 0): 497.897 seções; fora: {"exterior": 1309}.
+
+2. Grupo
+  x = 100 (NH2 - NH1) / aptos do 2º turno. 1% do universo = 4.979 seções; corte x >= +4,673 pontos (4987 seções com empates). Com NH2 - NH1 >= 10: G = 4.427 seções.
+  Percentis de x (pontos): {"0.5": -5.167, "1": -4.348, "5": -2.623, "25": -0.87, "50": 0.0, "75": 1.196, "95": 2.99, "99": 4.673, "99.5": 5.455}
+  Percentis de NH2 - NH1: {"0.5": -14.0, "1": -12.0, "5": -8.0, "25": -3.0, "50": 0.0, "75": 4.0, "95": 9.0, "99": 14.0, "99.5": 17.0}
+  Espelho (1% de menor x, com NH2 - NH1 <= -10): corte x <= -4,348; 3.963 seções.
+
+                                               G     espelho       resto    universo
+  seções                                   4.427       3.963     489.507     497.897
+  NH 1º turno                            101.662     145.464   8.095.123   8.342.249
+  NH 2º turno                            182.278      73.082   8.377.128   8.632.488
+  variação NH                             80.616     -72.382     282.005     290.239
+  variação comparecimento                 38.464      10.592   2.871.506   2.920.562
+  % NH no comparecimento 1T                9,869      16,556       6,580       6,677
+  % NH no comparecimento 2T               17,059       8,219       6,654       6,752
+  var NH / var comp                        2,096      -6,834       0,098       0,099
+  % seções com var NH > var comp          84,436       4,592      24,983      25,350
+  mediana var NH                          16,000     -15,000       0,000       0,000
+  % urna trocada                           4,585       3,053       0,835       0,886
+  % com agregação                          6,076       4,189       2,960       2,998
+  % aptos diferentes                       7,770       8,176      11,182      11,128
+  fatia de Lula 1T (pond.)                56,756      51,523      48,735      48,822
+  virada bruta (pond.)                     2,232       2,365       2,967       2,957
+
+3. Regressão registrada (virada de Lula contra o indicador de G, efeito fixo de local, peso L2+R2, erro agrupado por local)
+  Diferença G menos outras seções do mesmo local: -0,072 pontos (ep 0,034, z -2,12); 475.803 seções, 72.445 locais; seções de G na regressão 4.004, que identificam 3.990 em 3.717 locais.
+  Critério: sinal pede >= +2,0, z > 4 e 1.000 seções ou mais; sem sinal pede |dif| < 0,5 e ep <= 0,25.
+  VEREDITO (regressão): SEM SINAL. Contando só as seções que identificam: SEM SINAL.
+  Margem implícita (2 x dif x votos dos finalistas de G na regressão): -1.362 votos, contra a margem nacional Lula menos Flávio no 2º turno de 4.401.534.
+
+  Robustez e controles (fora do critério):
+   placebo_fatia_Lula_1T: grupo +0,519 (ep 0,071, z +7,3); n 475.803; indicador na regressão 4004
+   covariaveis: grupo -0,024 (ep 0,031, z -0,8)  var_comparecimento_pts +0,047 (ep 0,002, z +29,6)  fatia_Lula_1T -0,175 (ep 0,001, z -209,9)  log_aptos -0,464 (ep 0,041, z -11,4); n 475.803; indicador na regressão 4004
+   sem_peso: grupo -0,070 (ep 0,035, z -2,0); n 475.803; indicador na regressão 4004
+   so_apuradas_sem_agregacao_aptos_iguais: grupo -0,097 (ep 0,037, z -2,6); n 408.534; indicador na regressão 3461
+   urna_trocada_como_covariavel: grupo -0,071 (ep 0,034, z -2,1)  urna_trocada -0,020 (ep 0,032, z -0,6); n 475.803; indicador na regressão 4004
+   efeito_fixo_municipio: grupo -0,182 (ep 0,030, z -6,0); n 497.897; indicador na regressão 4427
+   y_var_comparecimento_pts_aptos: grupo +0,979 (ep 0,038, z +25,8); n 475.803; indicador na regressão 4004
+   y_var_branco_nulo_pts: grupo -0,123 (ep 0,028, z -4,4); n 475.803; indicador na regressão 4004
+   espelho_sozinho: espelho -0,066 (ep 0,037, z -1,8); n 475.803; indicador na regressão 3529
+   grupo_e_espelho_juntos: grupo -0,073 (ep 0,034, z -2,2)  espelho -0,068 (ep 0,037, z -1,8); n 475.803; indicador na regressão 4004
+   dose_continua_x_pts: x_var_NH_pts_aptos -0,002 (ep 0,002, z -1,4); n 475.803
+   placebo_espelho_fatia_Lula_1T: espelho +0,240 (ep 0,076, z +3,1); n 475.803; indicador na regressão 3529
+
+  Onde está G (UFs com mais seções do grupo):
+   BA 570 (1,61% das seções); MG 420 (0,81% das seções); RS 408 (1,48% das seções); CE 395 (1,66% das seções); RJ 371 (0,98% das seções); SP 334 (0,32% das seções); PI 292 (2,86% das seções); PE 278 (1,30% das seções); MA 206 (1,14% das seções); SC 159 (0,92% das seções); PR 154 (0,57% das seções); PB 138 (1,29% das seções); PA 115 (0,55% das seções); AL 104 (1,46% das seções); GO 88 (0,56% das seções); RN 72 (0,89% das seções); SE 72 (1,22% das seções); ES 61 (0,62% das seções); MS 58 (0,82% das seções); MT 44 (0,53% das seções); RO 38 (0,81% das seções); AM 24 (0,29% das seções); TO 10 (0,23% das seções); DF 8 (0,11% das seções); AC 3 (0,13% das seções); RR 3 (0,20% das seções); AP 2 (0,10% das seções)
+  Concentração: 2318 zonas, 2063 municípios, 4147 locais; 2,9% de G nas 10 zonas com mais seções de G: BA|36854|180 (16), CE|14397|10 (15), CE|14753|47 (14), MA|8494|93 (13), BA|35157|156 (12), CE|15296|11 (12), CE|15377|9 (12), GO|96253|49 (12), PI|12211|16 (12), RJ|60011|9 (11)
+  Locais com mais seções de G: SP|66630|77|1023 (4), BA|35157|156|1988 (3), MG|42234|64|1155 (3), PE|25054|92|1082 (3), PE|23752|130|1031 (3), PE|25631|116|1236 (3), PR|74683|121|1015 (3), PR|77070|92|1023 (3), CE|14397|10|1112 (3), CE|14753|47|1104 (3)
+
+4. Logs (40 do grupo e 40 de controle no mesmo local, semente 20261030)
+  grupo: 40 com log, 0 sem log; log completo no 2º turno 40, no 1º 40; M igual ao NH do bweb 40 de 40 (2T) e 40 de 40 (1T); contingência 3; seções com falha do leitor no 2T 0, no 1T 0.
+    2º turno: habilitações 9.097, B 6.608, M 2.069 (22,7%), S 420; M depois das 16h locais 97 (4,7% das M; habilitações depois das 16h: 4,4% de todas; M entre as de depois das 16h: 24,4%); M depois das 17h 1; timeouts de dedo 433; como o mesário liberou as M: {"digital_nova": 238, "mesario_identificado": 1445, "digital_gravada_depois_do_registro": 386}
+    1º turno: habilitações 8.793, B 7.122, M 1.274 (14,5%), S 397; M depois das 16h locais 264 (20,7% das M; habilitações depois das 16h: 14,2% de todas; M entre as de depois das 16h: 21,1%); M depois das 17h 147; timeouts de dedo 210; como o mesário liberou as M: {"mesario_identificado": 685, "digital_nova": 154, "digital_gravada_depois_do_registro": 435}
+  controle: 40 com log, 0 sem log; log completo no 2º turno 40, no 1º 40; M igual ao NH do bweb 40 de 40 (2T) e 40 de 40 (1T); contingência 1; seções com falha do leitor no 2T 0, no 1T 0.
+    2º turno: habilitações 9.291, B 7.796, M 1.008 (10,8%), S 487; M depois das 16h locais 47 (4,7% das M; habilitações depois das 16h: 5,2% de todas; M entre as de depois das 16h: 9,7%); M depois das 17h 0; timeouts de dedo 298; como o mesário liberou as M: {"mesario_identificado": 690, "digital_nova": 77, "digital_gravada_depois_do_registro": 241}
+    1º turno: habilitações 9.054, B 7.500, M 1.082 (12,0%), S 472; M depois das 16h locais 147 (13,6% das M; habilitações depois das 16h: 12,8% de todas; M entre as de depois das 16h: 12,7%); M depois das 17h 63; timeouts de dedo 284; como o mesário liberou as M: {"mesario_identificado": 676, "digital_nova": 135, "digital_gravada_depois_do_registro": 271}
+
+  Rajada de fim de dia (10 ou mais M depois das 16h locais, dia 25/10):
+   principal_M_16h_local: grupo 1 de 40 (2,5%), controle 0 de 40 (0,0%); NÃO ATINGE O SINAL NO LOG
+   M_mais_S_16h_local: grupo 2 de 40 (5,0%), controle 0 de 40 (0,0%); NÃO ATINGE O SINAL NO LOG
+   M_16h_brasilia: grupo 1 de 40 (2,5%), controle 0 de 40 (0,0%); NÃO ATINGE O SINAL NO LOG
+   principal_so_logs_completos: grupo 1 de 40 (2,5%), controle 0 de 40 (0,0%); NÃO ATINGE O SINAL NO LOG
+   placebo_dia_1T_mesma_urna: grupo 3 de 40 (7,5%), controle 3 de 40 (7,5%); NÃO ATINGE O SINAL NO LOG
+  VEREDITO (logs): NÃO ATINGE O SINAL NO LOG.
+
+  Habilitações M por hora do relógio da urna, soma das seções (2º turno; 1º turno entre parênteses):
+   hora                7          8          9         10         11         12         13         14         15         16         17         18         19
+   grupo            2(3)   333(118)   361(127)   312(127)   250(141)    184(97)   201(120)   181(143)   148(134)    96(117)      1(75)      0(42)      0(25)
+   controle         6(4)   206(119)   190(132)   147(142)    96(125)    91(100)    73(103)    76(109)    76(101)     47(84)      0(49)      0(14)       0(0)
+  Todas as habilitações por hora (2º turno; 1º entre parênteses):
+   grupo          39(37)  1597(815)  1521(951) 1365(1003)  1156(952)   851(975)   785(949)   738(935)   647(924)   397(747)     1(321)     0(124)      0(55)
+   controle       45(41)  1710(873)  1592(969) 1467(1038) 1042(1024)  783(1005)  757(1041)   711(969)   699(932)   481(796)     3(266)     1(100)       0(0)
+
+  Pareado na mesma seção (logs completos nos dois dias), 2º turno menos 1º: {"grupo": {"secoes": 40, "var_M": 795, "var_M_16h": -167, "var_comp": 308, "var_B": -514}, "controle": {"secoes": 40, "var_M": -74, "var_M_16h": -100, "var_comp": 236, "var_B": 296}}
+
+  Seções do grupo (sorteadas), com o controle do mesmo local:
+   seção                   NH1  NH2   C1   C2  virada  M16h maxM30 rajada   controle: seção, NH1, NH2, M16h, rajada
+   AL|28592|19|136          36   52  220  244    +2,5     7     10    não   AL|28592|19|135, 41, 53, 4, não
+   BA|33472|73|202           8   19  156  155    +0,8     2      4    não   BA|33472|73|164, 20, 26, 0, não
+   BA|34290|127|10          13   35  271  290    +0,9     3      7    não   BA|34290|127|3, 17, 18, 2, não
+   BA|35475|176|239         13   27  240  250    +1,1     2      5    não   BA|35475|176|87, 22, 18, 2, não
+   BA|35890|89|102          22   38  231  247    +1,8     2      8    não   BA|35890|89|103, 16, 14, 0, não
+   BA|36854|180|236        245  286  299  316    +5,3     8     23    não   BA|36854|180|179, 21, 29, 2, não
+   BA|36854|180|547        221  324  328  355    +2,3     9     29    não   BA|36854|180|118, 36, 42, 1, não
+   BA|37583|119|49          13   30  140  141    +0,7     0      7    não   BA|37583|119|47, 25, 36, 5, não
+   CE|13331|69|84           20   31  182  189    +2,7     4      6    não   CE|13331|69|12, 19, 24, 4, não
+   CE|13773|108|88          16   38  235  239    +1,2     1      6    não   CE|13773|108|8, 32, 36, 1, não
+   CE|14176|21|27           30   48  275  293    +2,3     0      9    não   CE|14176|21|32, 36, 31, 2, não
+   CE|14419|75|17           34   50  182  192    +1,9     4      9    não   CE|14419|75|100, 13, 14, 0, não
+   CE|14753|47|168          39   58  257  256    +2,9     2      8    não   CE|14753|47|233, 48, 21, 2, não
+   CE|14796|44|27           32   52  229  230    -1,7     6      8    não   CE|14796|44|131, 28, 13, 0, não
+   CE|15970|55|103          41   74  266  277    -1,7     0     10    não   CE|15970|55|72, 48, 28, 2, não
+   ES|56995|53|978          67  104  248  255    +3,1    24     19    sim   ES|56995|53|996, 21, 23, 5, não
+   GO|92150|123|6            9   23  186  179    +1,5     1      5    não   GO|92150|123|11, 11, 14, 1, não
+   MA|7072|49|242            6   26  207  201    +8,9     1      7    não   MA|7072|49|109, 3, 7, 0, não
+   MA|8494|93|73            18   43  241  239    +8,9     0     15    não   MA|8494|93|215, 26, 23, 1, não
+   MG|40533|213|10          13   26  187  206    +4,8     0      7    não   MG|40533|213|142, 9, 5, 0, não
+   MG|42935|164|88          16   30  225  216    +2,9     0      6    não   MG|42935|164|71, 9, 11, 0, não
+   MG|43753|94|98           15   26  139  158    +1,8     1      8    não   MG|43753|94|138, 9, 11, 0, não
+   MG|50458|217|52           4   30  176  193    +1,4     1      6    não   MG|50458|217|58, 24, 9, 0, não
+   MS|91650|9|58            12   22  139  149    +1,5     0      4    não   MS|91650|9|53, 35, 32, 0, não
+   PA|5630|8|137             9   24  238  210    -0,4     3      7    não   PA|5630|8|260, 18, 17, 0, não
+   PB|19674|68|87           14   26  186  185    +3,4     1      5    não   PB|19674|68|24, 16, 18, 1, não
+   PB|21296|25|141          26   38  198  218    +0,5     1      7    não   PB|21296|25|150, 19, 11, 1, não
+   PI|11630|29|12           19   31  155  162    -2,6     0      7    não   PI|11630|29|9, 19, 21, 0, não
+   PR|75299|86|26           46   62  205  217    -1,9     4     10    não   PR|75299|86|133, 25, 18, 0, não
+   PR|76295|24|84           31   46  236  244    +3,7     0     13    não   PR|76295|24|97, 30, 12, 2, não
+   RJ|58335|103|227          8   20  199  205    +6,1     1      4    não   RJ|58335|103|231, 13, 10, 0, não
+   RJ|58696|27|67            1   17  236  252    +3,2     0      4    não   RJ|58696|27|112, 14, 10, 0, não
+   RJ|60011|5|350           19   37  258  262    +0,8     2      5    não   RJ|60011|5|349, 21, 28, 0, não
+   RJ|60011|9|181           61   86  318  346    +1,8     0     14    não   RJ|60011|9|185, 36, 32, 1, não
+   RN|16632|43|14           16   27  188  191    +1,1     2      6    não   RN|16632|43|98, 6, 6, 0, não
+   RO|671|34|72              5   21  174  172    +1,0     0      5    não   RO|671|34|56, 12, 11, 0, não
+   RS|88820|29|71           32   49  232  244    +3,1     1      9    não   RS|88820|29|57, 38, 44, 0, não
+   SE|31054|1|462           23   43  271  266    +4,2     2      7    não   SE|31054|1|457, 25, 22, 0, não
+   SP|68411|155|60          13   31  263  269    +4,9     2      6    não   SP|68411|155|67, 210, 205, 8, não
+   SP|70793|121|105          8   19  172  183    +1,2     0      4    não   SP|70793|121|308, 11, 5, 0, não
+
+5. Exploratório, fora do registro (escrito depois de ver o resultado pela letra; pistas, sem veredito)
+  NH acima de 30pct 2T: 348 seções em 229 municípios; virada contra o mesmo local +0,033 (ep 0,122); fatia de Lula no 1º turno 57,8%; municípios: BA|36854 (10), RJ|60011 (10), SP|71072 (10), BA|39136 (7), PA|5436 (7)
+  NH acima de 30pct 1T: 393 seções em 256 municípios; virada contra o mesmo local +0,119 (ep 0,117); fatia de Lula no 1º turno 54,9%; municípios: SP|71072 (12), BA|36854 (10), ES|56995 (9), GO|96253 (8), PA|5436 (8)
+  NH acima de 30pct nos dois: 182 seções em 130 municípios; virada contra o mesmo local +0,093 (ep 0,163); fatia de Lula no 1º turno 59,1%; municípios: BA|36854 (7), PA|5436 (7), BA|39136 (6), BA|38890 (5), SP|71072 (5)
+  NH acima de 50pct 2T: 97 seções em 60 municípios; virada contra o mesmo local +0,001 (ep 0,186); fatia de Lula no 1º turno 58,8%; municípios: BA|36854 (9), RJ|60011 (6), SP|71072 (5), BA|34290 (4), BA|39136 (4)
+  NH acima de 50pct 1T: 138 seções em 82 municípios; virada contra o mesmo local -0,024 (ep 0,157); fatia de Lula no 1º turno 55,0%; municípios: BA|36854 (9), GO|96253 (7), BA|30872 (6), BA|39136 (5), SP|71072 (5)
+  NH acima de 50pct nos dois: 65 seções em 42 municípios; virada contra o mesmo local +0,038 (ep 0,225); fatia de Lula no 1º turno 60,4%; municípios: BA|36854 (7), BA|39136 (4), BA|30872 (3), SC|81639 (3), BA|39330 (2)
+  NH acima de 80pct 2T: 62 seções em 41 municípios; virada contra o mesmo local +0,306 (ep 0,215); fatia de Lula no 1º turno 61,2%; municípios: BA|36854 (7), BA|34290 (4), BA|39136 (4), BA|30872 (3), SP|71072 (3)
+  NH acima de 80pct 1T: 76 seções em 49 municípios; virada contra o mesmo local +0,008 (ep 0,224); fatia de Lula no 1º turno 57,5%; municípios: BA|36854 (6), BA|30872 (5), BA|39136 (5), SP|71072 (4), BA|38830 (3)
+  NH acima de 80pct nos dois: 37 seções em 24 municípios; virada contra o mesmo local +0,282 (ep 0,268); fatia de Lula no 1º turno 63,9%; municípios: BA|36854 (5), BA|39136 (4), BA|30872 (3), PE|23817 (2), PR|79294 (2)
+  Urna trocada entre os turnos (4413 seções): variação média de NH 0,54 contra 0,58; contra o mesmo local, +0,041 pontos do comparecimento (ep 0,116).
+  % de M entre as habilitações por hora, grupo_1T: 7h 8,1, 8h 14,5, 9h 13,4, 10h 12,7, 11h 14,8, 12h 9,9, 13h 12,6, 14h 15,3, 15h 14,5, 16h 15,7, 17h 23,4
+  % de M entre as habilitações por hora, grupo_2T: 7h 5,1, 8h 20,9, 9h 23,7, 10h 22,9, 11h 21,6, 12h 21,6, 13h 25,6, 14h 24,5, 15h 22,9, 16h 24,2, 17h 100,0
+  % de M entre as habilitações por hora, controle_1T: 7h 9,8, 8h 13,6, 9h 13,6, 10h 13,7, 11h 12,2, 12h 10,0, 13h 9,9, 14h 11,2, 15h 10,8, 16h 10,6, 17h 18,4
+  % de M entre as habilitações por hora, controle_2T: 7h 13,3, 8h 12,0, 9h 11,9, 10h 10,0, 11h 9,2, 12h 11,6, 13h 9,6, 14h 10,7, 15h 10,9, 16h 9,8, 17h 0,0
+  Tentativas de digital antes de cada M no 2º turno (papel|tentativas: M): {"controle|4": 1008, "grupo|4": 2069}
+  Blocos de log das seções com contingência no 2º turno:
+   BA|36854|180|547 (grupo), bloco 0, urna 01655960, contingência às None: 160 habilitações de 08:02:47 a 11:23:30, 133 M
+   BA|36854|180|547 (grupo), bloco 1, urna 01666658, contingência às 11:30:35: 195 habilitações de 11:44:40 a 16:57:35, 191 M
+   ES|56995|53|978 (grupo), bloco 0, urna 01667042, contingência às None: 197 habilitações de 08:00:33 a 14:27:16, 50 M
+   ES|56995|53|978 (grupo), bloco 2, urna 01652301, contingência às 14:36:44: 58 habilitações de 14:51:22 a 16:48:25, 54 M
+   MA|8494|93|73 (grupo), bloco 1, urna 01659430, contingência às None: 75 habilitações de 08:02:36 a 09:48:10, 28 M
+   MA|8494|93|73 (grupo), bloco 2, urna 01675940, contingência às 09:56:53: 164 habilitações de 10:11:11 a 16:46:40, 15 M
+   RS|88820|29|57 (controle), bloco 0, urna 01846465, contingência às None: 241 habilitações de 08:01:03 a 16:22:24, 44 M
+   RS|88820|29|57 (controle), bloco 1, urna 01846843, contingência às 16:51:16: 3 habilitações de 17:02:39 a 17:05:01, 0 M
+
+Desvios e decisões (o registro não fixou; escritas no docstring antes de rodar; D1 a D12 de analisar_F6.py):
+  D2: exterior fora do universo (campo zero em todas as seções do exterior).
+  D3: denominador = aptos do 2º turno.
+  D4: 1% = round(0,01 N) seções de maior x, empates incluídos; "variação de 10 ou mais" lida em liberações (NH2 - NH1 >= 10).
+  D5: virada em pontos da fatia entre os finalistas; local = UF|município|zona|local do 2º turno; só seções com L+R > 0 nos dois turnos.
+  D6: "1.000 seções no grupo" contadas na amostra da regressão (locais com 2 ou mais seções).
+  D8: sorteio de 40 do grupo entre as que têm controle no mesmo local e 1 controle por seção, mesmo gerador, sem repetir.
+  D10: "habilitação sem biometria" no log = habilitação manual de eleitor com biometria (pedido de dado pessoal), a mesma coisa que o campo do bweb conta; a mensagem "Tipo de habilitação do eleitor [manual]" não existe nos logs de 2026.
+  D11: "depois das 16h locais" = 16:00:00 ou depois no relógio da urna, dia 25/10/2026, todos os logs do pacote.
+  D12: o registro não define "sem sinal" para os logs; fora do sinal, a leitura é "não atinge o sinal no log".

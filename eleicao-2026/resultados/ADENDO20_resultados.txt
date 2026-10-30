@@ -1,0 +1,50 @@
+ADENDO 20: TESTES FORENSES NOS BOLETINS E MAPA DE ONDE UMA FRAUDE SERIA POSSÍVEL
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 20, commit d976d4d (30/10/2026 12:11:50 UTC), antes de rodar. Cada
+teste foi refeito por outro agente com código próprio. Detalhes em resultados/testes_adendo20_com_conferencia.json.
+
+RESULTADOS PELA LETRA
+F2 dígitos, porcentagens redondas e boletins repetidos: SEM SINAL nos três itens. Último dígito de Lula no 2º turno
+   mais uniforme que a contagem limpa simulada (qui-quadrado 13,2 contra p95 de 44). Pista: Estância (SE), zona 6,
+   38 de 177 contagens de Lula terminadas em 0. Os 48 pacotes baixados (38 mais 10 controles) têm assinatura válida,
+   boletim igual ao bweb, RDV igual ao boletim voto a voto e log igual ao comparecimento: o número foi gravado pela
+   própria urna. Caso de controle pior no 1º turno (Flávio, CE zona 50).
+F4 modelo de urna: INCONCLUSIVO por falta de poder (erro-padrão 0,155 e 0,152 contra o limite de 0,15). Virada igual
+   em todos os modelos no mesmo local (de -0,14 a +0,004 ponto). Pista fraca: no mesmo local, as urnas antigas
+   (UE2013 e UE2015) têm Lula 0,6 a 0,75 ponto acima das novas nos dois turnos (z de 2 a 3; 75 de 123 locais
+   mistos, quase todos em SP). Teto de 7% da margem mesmo se tudo fosse alteração.
+F5 caudas: INCONCLUSIVO pela letra (13 seções puxadas para Lula contra 57 para Flávio; o desvio aponta para Flávio).
+   Margem líquida movida pelas caudas: -704 votos. As 40 seções mais extremas: assinatura, boletim, RDV e log batem
+   em 40 de 40, zero anomalias de log nos dois turnos.
+F6 eleitor a mais sem biometria: SEM SINAL na regressão (-0,07 ponto) e no log (1 rajada em 40 contra 0 em 40;
+   o sinal pedia 5). A alta de liberação manual é troca de digital por liberação, com gente no leitor, e não foi
+   para Lula. Pistas administrativas: Lauro de Freitas, Simões Filho e Dias d'Ávila (BA) com seções acima de 80% de
+   liberação manual nos dois turnos; Serra (ES) 53/978 com urna de contingência que liberou 54 de 58 sem digital.
+F8 EUA e observadores: DESCRITIVO. Os EUA não reconheceram nem rejeitaram formalmente. As falas de fraude são de
+   Trump, sem prova; o telegrama da embaixada chama o resultado de surpreendente, mas definitivo. OEA sem dúvidas
+   sobre os dados oficiais; Centro Carter elogiou o TSE e criticou a prorrogação; PL reconheceu o resultado.
+   Nenhuma comparação pública de boletins impressos.
+
+MAPA: ONDE UMA FRAUDE TERIA DE ESTAR E O QUE APARECEU
+1. Entre a urna e o total (transmissão, totalização): boletins assinados, iguais ao bweb e ao total oficial (T1,
+   T15, T18, L1 extra, F5, F2, F8). FECHADA.
+2. Boletim escrito ou mexido por gente (zona, cartório): dígitos, números redondos, repetidos (F2), componente de
+   zona (T23). FECHADA.
+3. Mesário votando por quem faltou: T3, T9, T21, T28, F6. FECHADA no que os dados mostram.
+4. Carga, mídia, urna trocada, lote ou modelo: L2, T20, F4. Sem sinal; F4 sem poder para urna antiga contra nova.
+5. Prorrogação: L8, F8. Sem efeito em votos (cerca de 34 mil votos depois das 17h). Falha de administração real.
+6. Programa da urna: os dados do próprio sistema não alcançam. Para virar o resultado, teria de agir em quase todas
+   as urnas, mexer em cerca de 1,8% dos votos dos finalistas, ser coerente em boletim, RDV e log, ser assinado com a
+   chave de cada urna, mexer também no governador aliado onde houve 2º turno (T22b), e reconhecer o teste de
+   integridade para passar em cerca de 650 urnas testadas. Pistas compatíveis com isso e com comportamento comum ao
+   mesmo tempo: erro das pesquisas concentrado no eleitor de direita do 1º turno (L5), assimetria de perda por força
+   local do adversário (L3, T35), exterior sem biometria com virada 0,76 ponto abaixo do previsto (L7). Contra:
+   mesmos institutos erraram 3,4 pontos para o outro lado no 1º turno; Colômbia e Peru em 2026, com papel, tiveram o
+   mesmo erro de pesquisa; seções com pouca digital viraram igual às vizinhas.
+
+O QUE FECHARIA A PORTA 6
+- Compilação independente do código-fonte e comparação com o resumo do programa assinado em 04/09.
+- Detalhes do teste de integridade (divergência do DF, se houve teste com biometria no 2º turno, vídeos).
+- Resposta do TSE sobre a validade do certificado da AC URNA (uma auditoria diz que venceu em 18/07/2026).
+- Lista das 977 seções visitadas pela OEA, para comparar com o bweb.
+- Relatório do TCU (até 24/11) e da missão da UE (novembro).
