@@ -1,0 +1,76 @@
+F18. Certificados de urna emitidos depois do vencimento da AC URNA (Adendo 22)
+
+VEREDITO PELA LETRA DO ADENDO 22
+  SEM SINAL. Nenhum dos 1499 certificados lidos deixa de conferir com a AC publicada.
+  Emitidos depois de 18/07/2026 (descritivo): 0 de 1.499 na amostra; fração estimada 0,000% (IC 95% 0,000% a 0,246%); estimativa nacional 0 seções (IC 95% 0 a 245) de 99.647 com urna antiga.
+
+NÚMEROS
+  Quadro: 99.647 seções do 2º turno com urna UE2013 ou UE2015 pelas faixas do F4 (UE2013 12.147, UE2015 87.500), 99.622 urnas distintas, 24 estratos (UF, com ZZ = exterior). Estratos sem amostra pela alocação proporcional: TO.
+  Amostra: 1.500 seções, semente 20261031; lista baixada igual à sorteada: sim.
+  Situação das seções: ok 1.499; aux sem vsc 1.
+    sem certificado: ZZ|30163|1|647 (aux sem vsc; tipos no aux: busa, logsa, rdv, sa; urna no bweb 1762246)
+  AC publicada: a mesma cópia do pacote do TSE usada no F12 (zip e certificados com o mesmo SHA-256 do F12: sim). AC URNA: serial 3, de 2011-07-22T21:59:57 a 2026-07-18T21:59:57 UTC.
+  Certificados lidos: 1.499 (AC URNA 1.499); assinatura confere com a AC apontada: 1.499 de 1.499; emissor igual ao titular da AC byte a byte: 1.499.
+  Controles: TBS com 1 bit trocado ou assinatura com 1 byte trocado aceitos 0 vezes em 2.998; certificado que confere também com outra AC: 0.
+  Falhas pelo critério: 0.
+  Principal (data UTC do notBefore de 19/07/2026 em diante): 0 de 1.499; fração 0,000%, IC 95% 0,000% a 0,246% (Wald 0,000% a 0,000%); nacional 0 de 99.647 (IC 0 a 245).
+  Depois do instante do fim da AC URNA (2026-07-18 21:59:57 UTC): 0 de 1.499; fração 0,000%, IC 95% 0,000% a 0,246% (Wald 0,000% a 0,000%); nacional 0 de 99.647 (IC 0 a 245).
+  Data de Brasília (UTC-3) de 19/07/2026 em diante: 0 de 1.499; fração 0,000%, IC 95% 0,000% a 0,246% (Wald 0,000% a 0,000%); nacional 0 de 99.647 (IC 0 a 245).
+  Sem o exterior (data UTC): 0 de 1.481; fração 0,000%, IC 95% 0,000% a 0,249% (Wald 0,000% a 0,000%); nacional 0 de 98.381 (IC 0 a 245).
+  Só certificados da AC URNA (data UTC): 0 de 1.499; fração 0,000%, IC 95% 0,000% a 0,246% (Wald 0,000% a 0,000%); nacional 0 de 99.647 (IC 0 a 245).
+  Descritivo: emitidos em qualquer data de 2026: 0 de 1.499; fração 0,000%, IC 95% 0,000% a 0,246% (Wald 0,000% a 0,000%); nacional 0 de 99.647 (IC 0 a 245).
+  Não resposta: 1 seção ({'ZZ': 1}); limites extremos da fração: 0,000% a 0,067%.
+  Emissão mais recente: 2024-08-19T19:09:36+00:00; da AC URNA: 2024-08-19T19:09:36+00:00.
+  Emissão por ano e AC: AC URNA 2013 171, AC URNA 2014 1, AC URNA 2016 1316, AC URNA 2017 2, AC URNA 2019 1, AC URNA 2020 1, AC URNA 2022 4, AC URNA 2023 1, AC URNA 2024 2.
+  Emitidos em 2026: 0; com fim em 31/12/2037 23:00 UTC: 1 certificado no total.
+
+CONFERÊNCIAS DESCRITIVAS
+  SHA-256 do vsc igual ao do aux.json: {'True': 1499}; resumo do bloco de hardware: {'True': 1499}; assinatura do bloco de hardware pela chave do certificado: {'True': 1499}.
+  Urna do certificado diferente da do bweb: 0 [].
+  Modelo do bloco 2: {'UE2015': 1321, 'UE2013': 178}; diferente da faixa: 0 []; AC diferente da do modelo: 0 []; seções na zona de corte: 4.
+  Seriais da AC URNA: de 2547317 a 3451478 (22 bits no máximo); Spearman data x serial 1,000; inversões na ordem da data 0.
+  Serial repetido em urnas diferentes: 0; chave repetida: 0; vsc com arquivo de outra seção: 0; seções com mais de um vsc: 0.
+  Fim de validade mais comum: [('2030-03-11', 130), ('2030-04-22', 96), ('2030-03-09', 75), ('2030-04-26', 73), ('2030-03-01', 63)].
+  Assinatura de hardware (horário local): de 20261025T160307 a 20261025T191106; assinatura de software: {'SEVIN 20260708 / 202607021654': 1499}.
+  Seções também na amostra antiga do 2º turno (F12): 16; comparáveis 16; mesmo certificado 16.
+
+EXPLORAÇÃO E1 (fora do registro, escolhida depois de ver resultado parcial; não vale como teste)
+  Certificados distintos da AC URNA (F18 + amostra2t + Marília): 2.543 {'F18': 1499, 'amostra2t': 1043, 'marilia_1t': 1}; Spearman data x serial 1,0000; inversões 0; serial com duas datas: 0.
+  Faixa de serial por AC (todas as origens): AC UE2020 1.268 certificados, de 410 a 1380025; AC UE2022 1.570 certificados, de 620 a 1363753; AC URNA 2.560 certificados, de 2547317 a 3452776.
+  Último emitido antes do fim da AC: RS|85693|12|26 (amostra2t), serial 3452473, 2026-07-17T13:39:43 UTC.
+  Depois do fim da AC: SP|66818|400|141 (marilia_1t), serial 3452776, 2026-08-03T18:10:52 UTC.
+  Seriais entre o último antes e o primeiro depois: 303.
+  Densidade (só a amostra F18): 11 certificados emitidos de 2017 até o fim da AC, cerca de 731 no quadro, para 23.311 seriais: 31,9 seriais por certificado do quadro. Nessa razão, os 303 seriais de 17/07 a 03/08/2026 dariam cerca de 9,5 certificados do quadro e 0,14 esperados na amostra F18.
+  A seção de Marília está no quadro do F18: sim (urna no bweb 1682645); o total nacional verdadeiro é então de pelo menos 1.
+  Saltos entre os mais recentes (seriais, dias):
+    GO|94153|95|135 3446195 2020-08-29 -> PE|23930|59|31 3446948 2020-09-23: 753 seriais em 24,9 dias
+    PE|23930|59|31 3446948 2020-09-23 -> BA|30872|186|124 3448207 2020-11-09: 1.259 seriais em 47,0 dias
+    BA|30872|186|124 3448207 2020-11-09 -> ES|56995|53|321 3448497 2022-05-17: 290 seriais em 553,9 dias
+    ES|56995|53|321 3448497 2022-05-17 -> PB|20516|77|102 3448506 2022-05-17: 9 seriais em 0,0 dias
+    PB|20516|77|102 3448506 2022-05-17 -> MA|8494|93|49 3449361 2022-08-02: 855 seriais em 77,0 dias
+    MA|8494|93|49 3449361 2022-08-02 -> MG|43737|192|86 3449363 2022-08-02: 2 seriais em 0,0 dias
+    MG|43737|192|86 3449363 2022-08-02 -> SP|70777|166|147 3450490 2023-08-16: 1.127 seriais em 378,9 dias
+    SP|70777|166|147 3450490 2023-08-16 -> PR|79413|84|52 3451144 2024-04-25: 654 seriais em 253,0 dias
+    PR|79413|84|52 3451144 2024-04-25 -> PE|25593|52|139 3451478 2024-08-19: 334 seriais em 116,2 dias
+    PE|25593|52|139 3451478 2024-08-19 -> AL|28436|50|31 3452174 2026-06-10: 696 seriais em 660,0 dias
+    AL|28436|50|31 3452174 2026-06-10 -> RS|85693|12|26 3452473 2026-07-17: 299 seriais em 36,8 dias
+    RS|85693|12|26 3452473 2026-07-17 -> SP|66818|400|141 3452776 2026-08-03: 303 seriais em 17,2 dias
+
+  Por UF (N do quadro, n sorteado, lidos, emitidos em 2026, depois de 18/07):
+    AL 1.494/23/23/0/0; AM 2.174/33/33/0/0; BA 7.937/119/119/0/0; CE 4.265/64/64/0/0; DF 1.373/21/21/0/0; ES 2.470/37/37/0/0; GO 2.766/42/42/0/0; MA 3.614/54/54/0/0; MG 9.075/137/137/0/0; MS 1.167/18/18/0/0; MT 1.419/21/21/0/0; PA 4.520/68/68/0/0; PB 2.536/38/38/0/0; PE 4.545/68/68/0/0; PI 2.037/31/31/0/0; PR 5.840/88/88/0/0; RJ 8.290/125/125/0/0; RN 1.477/22/22/0/0; RS 4.570/69/69/0/0; SC 4.060/61/61/0/0; SE 925/14/14/0/0; SP 21.818/328/328/0/0; TO 9/0/0/0/0; ZZ 1.266/19/18/0/0
+
+DESVIOS (decisões não fixadas pelo registro, tomadas antes de sortear, baixar e calcular; texto completo no docstring)
+  D1. Quadro = seções do bweb do 2º turno (base trab2t/secoes2026.json.gz), Brasil e exterior; urna = NR_URNA_EFETIVADA do 2º turno.
+  D2. Modelo pelas faixas do F4 com o classificador do F4/F10; fora da faixa sai; zona de corte recebe o modelo do corte.
+  D3. Estrato = UF do bweb, exterior (ZZ) como estrato próprio; leitura sem o exterior ao lado.
+  D4. Alocação proporcional por maiores restos (Hamilton), sem mínimo por estrato; estrato com zero sorteadas recebe a fração dos outros.
+  D5. Ordem (município, zona, seção); numpy default_rng(20261031), estratos em ordem alfabética, choice sem reposição; sem substituição.
+  D6. Download com baixar_arquivos_urna.py, pleito 3221, tipo vota (aux.json e -vota.vsc), TAXA=1.0, pasta nova adendo22/F18_arq.
+  D7. vsc do último índice de hash do aux presente no disco (como F12 e T18); outros vsc só descritivos.
+  D8. Certificado do bloco 1 do vsc lido com o código do F12; data de emissão = notBefore (UTC); serial = serialNumber.
+  D9. Confere = AKI aponta AC publicada, emissor = titular da AC e assinatura confere (ECDSA P-521/SHA-512 ou Ed521), AC do pacote do TSE na cópia do F12.
+  D10. Depois de 18/07/2026 = data UTC do notBefore de 19/07 em diante; ao lado, depois do instante do fim da AC e pela data de Brasília.
+  D11. Estimador estratificado; IC 95% de Korn e Graubard (Clopper-Pearson com tamanho efetivo e ajuste de graus de liberdade); Wald ao lado; unidade = seção.
+  D12. Não resposta suposta ao acaso dentro do estrato; limites extremos relatados.
+  D13. Conferências descritivas: hash do aux, bloco de hardware assinado pela urna, urna do certificado x bweb, bloco 2, repetições, seriais, sobreposição com a amostra2t.
+  D14. Veredito: SINAL se algum certificado não confere com a AC publicada; senão SEM SINAL; fração e estimativa sem critério.

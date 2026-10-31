@@ -1,0 +1,18 @@
+ADENDO 22: DESDOBRAMENTOS (RESULTADOS)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 22, commit f12121e (31/10/2026 14:52:48 UTC), antes de rodar. Cada
+item refeito por outro agente com código próprio. Detalhes em resultados/testes_adendo22_com_conferencia.json.
+
+F16 urnas antigas com o perfil do eleitorado por seção: INCONCLUSIVO pela letra (0,39 ponto, ep 0,21). O perfil
+   (idade, gênero, instrução) explica só 0,05 dos 0,74 ponto; os outros cargos explicam 0,30. A conferência achou o
+   motivo da sobra: em 4 dos 119 locais "mistos" (os 3 de Manaus zona 70 e um de SP), as seções novas votaram em
+   outro prédio, o local usado no pleito, que o bweb não mostra. Com o local de fato usado, o coeficiente cai para
+   0,12 (ep 0,18). A pista das urnas antigas fica sem força.
+F17 relatórios completos das pesquisas: com os relatórios, as pesquisas se dividem por método. As de painel online
+   calibrado mediram os eleitores dos eliminados perto da urna (AtlasIntel final 50,3%; Palver 51,5% e 52,7%,
+   contra cerca de 54% na urna); as de telefone e presenciais, entre 28% e 45%. A diferença entre urna e pesquisa
+   nesse grupo depende de quem mede. A própria Quaest atribuiu o erro ao modelo de eleitor provável e à volta de
+   quem faltou no 1º turno. Correção do F13: o Nexus 10-12/10 estava lido errado (43,3%, não 37,9%).
+F18 certificados de urna depois do vencimento da AC URNA: 0 de 1.499 urnas antigas sorteadas com certificado emitido
+   depois de 18/07/2026 (limite de 95%: 245 seções no país); todas as assinaturas conferem. O caso de Marília
+   (certificado de 03/08/2026) existe, mas é raro. Falha de gestão de alcance pequeno.

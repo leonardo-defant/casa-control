@@ -154,6 +154,16 @@ Critérios escritos antes de rodar (commit bc7decb); cada teste conferido por ou
 | L7, teste de integridade | DESCRITIVO | Fraude pega por azar não cola; o furo de desenho é um programa que reconheça o teste (modalidade principal sem digital), que só a leitura e a compilação do código excluem |
 | L8, "dossiê" dos EUA | DESCRITIVO | Não há documento; a prorrogação não muda o resultado; o 1º turno também teve paradas no recebimento |
 
+### 5.5 Adendos 20 a 22: testes forenses nos boletins e o que não depende de ninguém
+
+Critérios antes de rodar (commits d976d4d, 913af7a e f12121e); cada teste conferido por outro agente com código próprio (`resultados/ADENDO20_resultados.txt`, `ADENDO21_resultados.txt`, `ADENDO22_resultados.txt` e os `testes_adendo2x_com_conferencia.json`).
+
+- Sem sinal: dígitos, porcentagens redondas e boletins repetidos (F2); caudas e as 40 seções extremas (F5); eleitor a mais sem biometria (F6); mídia do 2º turno por computador (F9, com pouco poder); teste de integridade (F11); assinaturas e certificados (F12, F18); 64 casos pendentes arquivo por arquivo (F14).
+- Urnas antigas (F4, F10, F16): a vantagem de Lula nelas vem de locais em que as seções novas votaram em outro prédio; com o local de fato usado, some.
+- Pesquisas (F13, F17): a diferença urna contra pesquisa nos eleitores dos eliminados depende do método; os painéis online calibrados mediram perto da urna.
+- Falhas de gestão e de procedimento: certificado da AC URNA vencido em 18/07/2026 (cadeia vencida pela regra estrita nas urnas antigas; ao menos um certificado emitido depois); Volta Redonda (urnas de duas escolas suspensas às 17h e encerradas às 19h por um título que não é de mesário); mesma mídia do 2º turno em duas urnas do RJ; divergências do teste de integridade sempre na CLDF. Nenhuma muda votos.
+- Fica sem resposta com dado público: um programa da urna que reconheça o teste de integridade (só a compilação independente do código exclui). Pendente: perfil do comparecimento do 2º turno (não publicado), relatórios do TCU e da UE.
+
 ## 6. Pendências
 
 - **Boletins completos do 2º turno (bweb):** publicados em 28/10 (`reproducao/consultas_bweb_2t.txt`); os testes da seção 7 e os testes estendidos rodaram (`resultados/testes_bweb_2t_com_conferencia.json`). Registro anterior: o TSE ainda não publicou (consulta registrada em `reproducao/consultas_bweb_2t.txt`: em 27/10 às 02h01 UTC, o pacote só tinha os 56 arquivos do 1º turno, de 06/10). O do 1º turno saiu dois dias depois da votação. Quando o do 2º sair, `rodar_2026.sh` (que exige DADOS com as bases de 2018, 2022 e do 1º turno de 2026, fora do repositório) baixa o bweb, compara a soma de cada UF e do Brasil com o total oficial e roda T4 (seções com branco e nulo zerado), T5 do 2º turno, os testes da seção 7 do documento original (modelo, branco e nulo por seção, governador), T8, T35 com todas as seções e, se LOCAIS apontar para os CSV de locais de votação de 2026, o T34 (salto na divisa Sul/não Sul; referência de 2022 pronta: +0,005). Falta script para o T15 completo, T16 (piso por UF), T21 a T23 com o bweb, T27 a T29, T31, T32 e as calibrações do T7 e do T14; para o T7 (`analisar_fluxos.py`) e para o T14 com os grupos dos eliminados (com `candidatos2026_1t.json.gz`), falta só a chamada no `rodar_2026.sh`.
