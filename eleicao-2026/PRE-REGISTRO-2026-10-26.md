@@ -573,3 +573,36 @@ Pedido do Léo: com todos os dados, principalmente os boletins de urna, apontar 
 
 ### F8. O que os EUA e os observadores disseram (pesquisa, sem critério numérico)
 - Texto, data e órgão de cada declaração do governo dos EUA sobre o 2º turno de 2026, se fala em indícios de fraude e quais; relatórios de observação internacional (OEA, UE, Centro Carter, Parlasul e outros); posição e auditoria do PL. Cada indício concreto que der para conferir nos dados públicos é conferido; o que não der é relatado como tal.
+
+## Adendo 21 (31/10/2026, antes de rodar qualquer teste abaixo): o que dá para fazer sem pedir nada a ninguém
+
+Pedido do Léo: fazer tudo o que não depende de pedir algo a alguém. Regra do Adendo 18 mantida (nenhuma eleição anterior como régua). Os dados de trabalho foram movidos para /home/user/trabalho-eleicao (fora do repositório), com os mesmos arquivos.
+
+### F9. Computador que gerou a mídia de resultado do 2º turno
+- No 2º turno a urna fica com a carga do 1º e recebe uma mídia nova, gerada nos computadores das zonas. O log registra "MR gerada pelo computador", a data e o usuário. Uma mídia adulterada num computador apareceria nas urnas dele.
+- Para cada seção da amostra de logs: resíduo da virada de Lula (fatia entre os finalistas, 2º turno menos 1º) contra as outras seções do mesmo local no bweb, ponderado pelos votos dos finalistas. Média do resíduo por computador. Estatística: variância ponderada entre computadores; referência: 2.000 permutações dos computadores entre as seções da mesma UF.
+- Sinal: p da permutação abaixo de 0,001 e pelo menos um computador com 10 ou mais seções da amostra e resíduo médio de +2,0 pontos ou mais a favor de Lula a mais de 4 erros-padrão. Sem sinal: p acima de 0,05. Entre os dois: inconclusivo.
+- Descritivo: datas de geração da mídia fora da janela de 05 a 23/10, usuário e computador fora da zona da seção.
+
+### F10. Urnas antigas: o mesmo desvio aparece nos outros cargos?
+- Nos locais com urna antiga (UE2013 ou UE2015) e nova (UE2020 ou UE2022) no 1º turno: diferença antiga menos nova, dentro do local, na fatia de Lula entre os finalistas (presidente) e num índice de perfil feito só com os outros cargos do 1º turno (fatia da federação PT/PCdoB/PV nos válidos para deputado federal e para deputado estadual, e fatia do candidato a senador do campo de Lula, quando houver).
+- Escala: inclinação b da fatia de Lula sobre o índice, entre seções, dentro do local, nas seções desses locais. Estatística: D = (diferença no presidente) - b x (diferença no índice), erro por bootstrap de locais (2.000).
+- Sinal de máquina: D de +0,5 ponto ou mais a mais de 3 erros-padrão. Sem sinal: |D| abaixo de 0,3 com erro-padrão até 0,2. Entre os dois: inconclusivo.
+
+### F11. Arquivos públicos do teste de integridade do 2º turno
+- Achar o que o TSE e os TREs publicaram (lista de urnas, relatórios, boletins, logs, RDV, vídeos, contagem das cédulas). Se houver arquivos de urna: conferir boletim contra a contagem das cédulas, versão do programa e verificação de assinatura no log contra as urnas reais, e o modo de habilitação usado. Sinal: alguma urna de teste com boletim diferente das cédulas sem explicação documentada, ou com programa diferente das urnas reais. Sem critério para o resto.
+
+### F12. Certificados e resumos dos programas
+- Achar os certificados públicos da AC URNA, AC UE2020 e AC UE2022 e conferir, com código próprio, se os certificados das urnas da amostra foram assinados por elas e em que prazo de validade. Conferir a alegação de que o certificado da AC URNA venceu em 18/07/2026. Achar os resumos digitais publicados dos programas lacrados em 04/09 e comparar com qualquer resumo obtenível dos arquivos de urna. Sinal: certificado de urna que não se valida pela AC publicada, ou resumo de programa diferente do publicado. Sem critério para o resto.
+
+### F13. Pesquisas independentes da urna
+- Pesquisas feitas depois da eleição com a lembrança do voto nos dois turnos, boca de urna do dia 25/10 e os relatórios finais completos (com tabelas cruzadas) dos institutos. Para cada uma: fatia de Lula entre os eleitores dos eliminados que escolheram um finalista. Descritivo, com a régua: "confere com a urna" se ficar a 5 pontos ou menos de 52% a 54%; "confere com as pesquisas de antes" se ficar entre 32% e 44%; entre os dois, intermediário.
+
+### F14. Casos pendentes, arquivo por arquivo
+- Boletim, RDV, log e assinatura de: as 37 seções com mais de 80% de liberação sem biometria nos dois turnos (F6), ES|56995|53|978 e as outras seções do local, as 17 seções da zona 90 de Volta Redonda mantidas abertas, AC|1554|3|160, AC|1040|4|160, AC|1066|4|313, RR|3026|6|97 e AM|2097|18|37 e 39; e o 1º turno de AM|2399|45|63 se o arquivo existir. Sinal: assinatura inválida, boletim diferente do bweb, RDV diferente do boletim, votos no log diferentes do comparecimento, ou anomalia A2 a A5. Descritivo: quem liberou (mesário identificado ou não), horário das liberações e contingências.
+
+### F15. Quem foi votar a mais: perfil do comparecimento
+- Dado aberto do TSE de comparecimento e abstenção por zona, faixa etária, gênero e escolaridade, nos dois turnos de 2026.
+- (a) Conferência: comparecimento por zona no perfil contra a soma do bweb. Sinal: alguma zona com diferença acima de 0,5% sem explicação.
+- (b) Entre as zonas da mesma UF, relação entre a variação do comparecimento de 16 a 34 anos (em pontos) e a virada de Lula na zona, ponderada pelos votos dos finalistas. Incoerência: inclinação negativa a mais de 3 erros-padrão. Coerente: positiva a mais de 3 erros-padrão. Entre os dois: inconclusivo.
+- (c) Descritivo: variação do comparecimento por faixa etária, gênero e escolaridade no país.
