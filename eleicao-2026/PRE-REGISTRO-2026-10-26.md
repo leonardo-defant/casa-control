@@ -606,3 +606,17 @@ Pedido do Léo: fazer tudo o que não depende de pedir algo a alguém. Regra do 
 - (a) Conferência: comparecimento por zona no perfil contra a soma do bweb. Sinal: alguma zona com diferença acima de 0,5% sem explicação.
 - (b) Entre as zonas da mesma UF, relação entre a variação do comparecimento de 16 a 34 anos (em pontos) e a virada de Lula na zona, ponderada pelos votos dos finalistas. Incoerência: inclinação negativa a mais de 3 erros-padrão. Coerente: positiva a mais de 3 erros-padrão. Entre os dois: inconclusivo.
 - (c) Descritivo: variação do comparecimento por faixa etária, gênero e escolaridade no país.
+
+## Adendo 22 (31/10/2026, depois do Adendo 21 e antes de rodar o que segue): três desdobramentos que também não dependem de ninguém
+
+### F16. Urnas antigas com o perfil do eleitorado por seção
+- Dado aberto do TSE: perfil do eleitorado por seção eleitoral de 2026 (faixa etária, gênero, instrução), nas UFs dos 119 locais mistos do F10 (SP, AM, MT).
+- Na amostra do F10 (mesmas seções, mesmo peso L1+R1, efeito fixo de local), regressão da fatia de Lula no 1º turno sobre o indicador de urna antiga, o índice do F10 e o perfil da seção (fração de 16 a 34 anos, de 60 ou mais, de mulheres, com superior completo e com fundamental incompleto ou menos). Erro por bootstrap de locais (2.000, semente 20261031).
+- Sinal de máquina: coeficiente da urna antiga de +0,5 ponto ou mais a mais de 3 erros-padrão. Sem sinal: valor absoluto abaixo de 0,3 com erro-padrão até 0,2. Entre os dois: inconclusivo.
+
+### F17. Relatórios completos das pesquisas finais
+- Procurar os relatórios completos (PDF ou tabela) com o voto no 2º turno por voto no 1º turno das pesquisas de 20 a 24/10 (Quaest, Datafolha, AtlasIntel, Nexus, CNT/MDA, Palver, Ipespe, Gerp e outras) e as rodadas anteriores que faltaram no F13. Mesma conta e mesma régua do F13.
+
+### F18. Certificados de urna emitidos depois do vencimento da AC URNA
+- Amostra estratificada por UF de 1.500 seções do 2º turno com urna antiga (UE2013 ou UE2015, pelas faixas do F4), semente 20261031. Baixar o .vsc e conferir a assinatura de cada certificado de urna com a AC URNA publicada e a data de emissão.
+- Descritivo, sem critério de sinal: fração e estimativa nacional (com intervalo de 95%) de certificados emitidos depois de 18/07/2026, e se algum certificado não confere com a AC publicada (isso seria sinal).
