@@ -1,0 +1,315 @@
+F11. Arquivos públicos do teste de integridade do 2º turno (Adendo 21)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 21 (commit 913af7a, 31/10/2026 10:36:29 UTC). Script: scripts/analisar_F11.py.
+Pesquisa e downloads em 31/10/2026. As páginas jus.br (www.tse.jus.br, sites dos TREs, sintse) deram HTTP 403 ao curl e ao leitor
+de páginas; não houve contorno. O que vem delas saiu do resumo do buscador e está marcado com a confiança no JSON.
+
+Critério registrado (antes de rodar):
+  "Achar o que o TSE e os TREs publicaram (lista de urnas, relatórios, boletins, logs, RDV, vídeos, contagem das
+  cédulas). Se houver arquivos de urna: conferir boletim contra a contagem das cédulas, versão do programa e
+  verificação de assinatura no log contra as urnas reais, e o modo de habilitação usado. Sinal: alguma urna de teste
+  com boletim diferente das cédulas sem explicação documentada, ou com programa diferente das urnas reais. Sem
+  critério para o resto."
+
+VEREDITO PELA LETRA: SEM SINAL, com alcance limitado
+  1) Arquivos do teste: nenhum boletim, RDV ou log de urna testada foi publicado; uma portaria de 2024 (teste com
+     biometria) veda fornecê-los, e não confirmei a regra de 2026. A conferência arquivo por arquivo que o registro
+     pede não pôde ser feita no arquivo do próprio teste.
+  2) Boletim contra cédulas, pelo que foi publicado: 1 divergência (DF, CLDF), com causa dada pela autoridade do teste
+     ("erro humano de digitação"). Pela decisão D2 é explicação documentada incompleta e não aciona o sinal. Na
+     leitura estrita (ata ou relatório publicado com o voto identificado) acionaria, por falta de documento, não por
+     indício de adulteração. Nas demais UFs com resultado publicado (TSE, SP, SC), sem divergência.
+  3) Programa, por extensão (D3): 54 urnas de teste identificadas pelo número de série (AL 20, PB 1, SP 33). Nos
+     arquivos públicos do 1º turno dessas mesmas urnas, com a mesma carga: versão diferente da das urnas reais em 0
+     (sem versão lida: 0); componente verificado que nenhuma urna real do mesmo modelo verificou em 0; verificação de
+     assinatura sem SUCESSO em 0; falha no arquivo de assinatura (.vsc) em 0; número da urna no boletim diferente do
+     bweb em 0. Nenhuma urna de teste com programa diferente das reais.
+
+1. O que foi publicado (inventário completo, com fonte e confiança, no JSON)
+- lista de urnas, SP, lista completa: achado. 51 seções: 30 de integridade (Centro Cultural São Paulo), 3 com
+  biometria (Unip Paraíso, 6ª zona), 10 de autenticidade e 8 de gestão de riscos (reserva para problemas no
+  transporte). 34 das 51 escolhidas pelas entidades, sem dizer quais.
+- lista de urnas, AL, lista completa: achado. 23 seções: 18 de integridade (auditório da OAB, Maceió), 2 com biometria
+  (Unima/Afya, 2ª zona, seções 355 e 365) e 3 de autenticidade.
+- lista de urnas, PB, lista parcial: achado em parte. Texto diz 23 urnas (20 de integridade, 1 com biometria, e 3 de
+  autenticidade), mas lista 22 e só dá número de seção para 4 das de integridade (João Pessoa 1ª zona 297 com
+  biometria; Cabedelo 181; Campina Grande 171 e 254, sem zona) e para as 3 de autenticidade. 4 indicadas pelas
+  instituições, sem dizer quais.
+- lista de urnas, SC, GO, MG, PA, MS, RS, RJ, DF, MT, ES, PR e demais: lista existe ou foi anunciada, não lida. SC:
+  página do TRE-SC com o resultado do sorteio (25 seções de integridade, mais biometria e autenticidade, pelo resumo
+  do buscador). GO: 35 seções, 25 de integridade (2 com biometria) e 8 de autenticidade (soma 33, o texto diz 35). PA:
+  35 urnas, 25 de integridade e 8 de autenticidade (mesma conta que não fecha). MG: 33 de integridade e 10 de
+  autenticidade, lista por região. MS: 20 e 3, em PDF. RS: 35 sorteadas. RJ: 31 de integridade, 2 com biometria (FGV)
+  e 10 de autenticidade. DF: 20 (16 na CLDF, 2 no TSE, 2 com biometria na Escola Canadense). MT: 20 (1 com biometria).
+  ES: 18 em ambiente controlado. PR: 27 (2 com biometria). RN: repete o 1º turno, 18 mais 2 com biometria e 3 de
+  autenticidade. RR: 20 e 3. SP, MG, RJ e BA: 33 cada (Agência Brasil).
+- lista de urnas, Total nacional: não publicado. Nenhuma fonte dá o total de urnas do teste no 2º turno.
+- arquivos de urna do teste (boletim, RDV, log), Publicação: não publicados. Nenhum arquivo de urna do teste foi
+  achado em TSE, TREs, dados abertos ou imprensa. A Portaria TSE 765/2024, que regulou o teste com biometria em 2024,
+  diz no art. 19: "É vedado o fornecimento dos arquivos de imagem do Boletim de Urna (BU), do Registro Digital do Voto
+  (RDV) e dos logs das urnas objetos do teste de integridade." O buscador atribuiu o mesmo texto à Res. TSE
+  23.758/2026 numa busca e não o achou nela em outra; não confirmei se a vedação vale em 2026 nem se cobre a
+  modalidade em ambiente controlado. No site de resultados, o pacote das seções do teste é o da urna reserva (ver a
+  conferência).
+- contagem das cédulas, Quantidade e composição: só totais parciais. TSE (Museu do Voto): 389 votos em 2 urnas. SP:
+  "mais de 16 mil cédulas" preenchidas para o 2º turno (no 1º, 16.400 = 400 por urna x 41 urnas). Demais UFs: não
+  publicado. Composição das cédulas (quantos votos em cada candidato, brancos e nulos): não publicada em nenhuma UF.
+- relatórios, TCU: fiscalização autorizada; relatório ainda não publicado. Acórdão 2.558/2026-TCU-Plenário (TC
+  019.754/2026-4, 16/09/2026, relator Odair Cunha), lido no PDF: autoriza a fiscalização dos testes de integridade com
+  e sem biometria nos 27 TREs, custo previsto de R$ 1.000.010,00 (404 HDs), com base no Acordo de Cooperação Técnica
+  51/2026 (vigência até 31/12/2031). Relatório consolidado ao TSE em até 30 dias corridos depois do 2º turno (até
+  24/11/2026): não saiu.
+- relatórios, Empresas de auditoria externa dos TREs: não localizados (2026). Relatórios de 2026 não localizados (em
+  2024 saíram no site do TSE, um por UF e turno). Pelo atestado do TRE-AL sobre o contrato de 2022 (Maciel
+  Consultores), o relatório conclusivo traz o relatório de resultados divergentes do sistema de apoio (comparação
+  entre o RDV da urna e as cédulas digitadas), a contagem manual independente de pelo menos uma urna e cópias
+  digitalizadas da zerésima e do boletim da urna e do sistema de apoio (art. 66, § 1º, da Res. 23.673/2021). São os
+  únicos documentos por urna previstos.
+- relatórios, Atas do 2º turno: existem em SP, não lidas. O TRE-SP publicou as atas do teste de integridade e do teste
+  com biometria do 2º turno e a lista de urnas (resumo do buscador da página "Dados, arquivos e relatórios"). Atas de
+  outros TREs: não localizadas.
+- divergência do DF, Relatório ou ata: não localizado. Só a nota: das 16 urnas da CLDF, "a única divergência
+  verificada foi um erro humano de digitação" (juiz João Marcos Guimarães Silva). Urna, seção, cargo, número de votos,
+  direção e trecho do vídeo: não divulgados.
+- vídeos, Transmissões: existem, não assistidas. Transmissão ao vivo no YouTube: TSE (Museu do Voto, câmeras 24
+  horas), TV Câmara Distrital (CLDF), canais dos TREs (AL, PA e outros), Alesc (SC). Pelo estudo técnico preliminar do
+  TRE-AL (10/07/2026): uma câmera por urna focada no terminal do eleitor, mais 4 de ambiente, microfone para quem
+  canta o voto, gravação em 2 vias mais 2 de reserva, e gravação além das 17h "caso haja incongruência nos
+  resultados". O trecho da divergência do DF não foi localizado.
+- dados abertos, Logs do Gedai do 2º turno: achado e lido (AL, SP e PB). Conjunto "Resultados - 2026 - Logs do sistema
+  de preparação das urnas eletrônicas (Gedai) - 2º turno", 27 UFs e exterior, carregados em 24/10 (13h29) e 25/10
+  (13h27). Formato zip > jez > jez > gedai-ue.log. Registra a correspondência seção-urna transmitida por computador.
+  Não há registro do teste de integridade como tal.
+- norma, Res. TSE 23.758/2026: achado (texto citado em documento primário). O estudo técnico preliminar do TRE-AL
+  transcreve a redação dada pela Res. 23.758/2026 à Res. 23.673/2021: duas modalidades (ambiente controlado, com
+  servidores, e com biometria de voluntários perto das seções); art. 53-A; art. 59-A: de 5% a 10% das urnas do teste
+  com biometria. A cartilha do TRE-SP de 2026 cita "Res. 23.769/2026" para o mesmo assunto (numeração diferente).
+
+2. Boletim contra cédulas no 2º turno, pelo publicado
+- DF (TSE, Museu do Voto): urnas 2, 389 votos; divergências 0; auditoria terminou sem divergências.
+- DF (CLDF): urnas 16; divergências 1; "a única divergência verificada foi um erro humano de digitação" (juiz João
+  Marcos Guimarães Silva). Classificação (D2): documentada incompleta: causa dada pela autoridade do teste em nota
+  oficial; urna, cargo, votos, direção e vídeo não publicados. Leitura estrita: não há ata nem relatório publicado com
+  o voto identificado; aciona o sinal por falta de documento.
+- DF (biometria, Escola Canadense): urnas 2; divergências n/d; resultado não publicado à parte.
+- SP: urnas 33; divergências 0; concluído sem divergências (30 no CCSP e 3 com biometria na Unip).
+- SC: urnas 27; divergências 0; 27 urnas, 2 com biometria; "sem intercorrências".
+- AL: urnas 20; divergências n/d; notícia do resultado (23 urnas auditadas) não fala em divergência.
+- MT: urnas 20; divergências n/d; notícia do TRE-MT sem frase explícita de resultado no resumo; nota interna anterior
+  dizia "sem divergência", não confirmada.
+- demais UFs: urnas n/d; divergências n/d; só anúncio do sorteio ou notícia sem resultado; nenhuma outra divergência
+  relatada.
+
+3. As urnas de teste nos registros públicos (listas publicadas contra o bweb do 2º turno)
+  Grupo S (do L7): seções cuja urna do 2º turno é outra e foi carregada no sábado 24/10. Pela regra, a urna da seção
+  escolhida vai para o teste e a seção vota numa reserva carregada no sábado; a urna testada é a do 1º turno.
+  SP, integridade (com e sem biometria): 33 na lista, 33 achadas no bweb, 33 em S.
+  SP, autenticidade: 10 na lista, 10 achadas no bweb, 0 em S.
+  SP, gestão de riscos: 8 na lista, 8 achadas no bweb, 7 em S.
+  AL, integridade (com e sem biometria): 20 na lista, 20 achadas no bweb, 20 em S.
+  AL, autenticidade: 3 na lista, 3 achadas no bweb, 0 em S.
+  PB, integridade (com e sem biometria): 4 na lista, 2 achadas no bweb, 1 em S.
+  PB, autenticidade: 3 na lista, 3 achadas no bweb, 0 em S.
+  Urna testada que votou em alguma seção no 2º turno: 0 de 54; em todo S, urna do 1º turno que votou no 2º: 0 de 706.
+  As seções de autenticidade mantiveram a urna e a carga de setembro, como a regra prevê.
+  Fora de T: PB|20516|1|297: 1º turno versão ['10.23.0.0 - Praia da Barra do Cahy'], sem SUCESSO 0, .vsc 0 falhas; 2º
+    turno versão ['10.23.0.0 - Praia da Barra do Cahy'], modelos no log ['UE2013', 'UE2015'].
+  Fora de T: PB|19810|17|171: 1º turno versão ['10.23.0.0 - Praia da Barra do Cahy'], sem SUCESSO 0, .vsc 0 falhas; 2º
+    turno versão ['10.23.0.0 - Praia da Barra do Cahy'], modelos no log ['UE2020'].
+  Fora de T: PB|19810|16|254: 1º turno versão ['10.23.0.0 - Praia da Barra do Cahy'], sem SUCESSO 0, .vsc 0 falhas; 2º
+    turno versão ['10.23.0.0 - Praia da Barra do Cahy'], modelos no log ['UE2020'].
+  Trocas de urna entre os turnos no país: outra carga | urna do 1º turno não votou no 2º: 3.639; carga 24/10 | urna do
+  1º turno não votou no 2º: 706; outra carga | urna do 1º turno votou em outra seção no 2º: 90.
+  Logs do Gedai (dados abertos): seções de integridade das listas com correspondência de outra urna transmitida em
+  24/10 (a reserva): AL 20 de 20 (urna original transmitida em setembro em 20); PB 4 de 4 (urna original transmitida
+  em setembro em 4); SP 32 de 33 (urna original transmitida em setembro em 33).
+
+4. Programa das urnas de teste (arquivos públicos do 1º turno das mesmas urnas)
+  Referência, urnas reais da amostra: versão 10.23.0.0 - Praia da Barra do Cahy em todas as 3.864 com log do dia 04/10
+  e em todas as 3.895 do dia 25/10; 31 componentes verificados por modelo na inicialização; verificação sem SUCESSO no
+  04/10: 1 urna; no 25/10: 0.
+  54 urnas de teste: boletim lido em 54, log do dia em 54; resultado acima. Modelos: UE2015 10, UE2020 29, UE2022 15.
+  Emissor do certificado da urna (no .vsc) e chave de software iguais às das urnas reais (AC URNA para UE2013 e
+  UE2015, AC UE2020, AC UE2022; SEVIN 20260708).
+  Para comparar, nas urnas do 1º turno de SP, AL e PB (faixas de modelos.py): UE2013 2,1%, UE2015 19,2%, UE2020 39,7%
+  e UE2022 39,0%. Nenhuma UE2013 entre as 54 de teste; ao acaso, com 33 de SP, 20 de AL e 1 da PB, o esperado seria
+  1,5 e a chance de nenhuma, 22%. Não é desvio que mereça peso.
+  Por urna (seção, tipo no teste, urna testada, modelo, versão no boletim, verificações no 04/10 sem SUCESSO, parte biométrica no 1º turno):
+    AL|27855|2|365 MACEIÓ, com biometria: urna 2014749 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,7%
+    AL|27855|2|355 MACEIÓ, com biometria: urna 2030860 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 93,3%
+    AL|27855|1|375 MACEIÓ, ambiente controlado: urna 2072691 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 96,1%
+    AL|28835|20|84 TRAIPU, ambiente controlado: urna 2071158 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 94,8%
+    AL|27855|54|566 MACEIÓ, ambiente controlado: urna 2073421 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 97,6%
+    AL|27936|26|29 MARECHAL DEODORO, ambiente controlado: urna 2072478 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 95,1%
+    AL|28592|19|234 SANTANA DO IPANEMA, ambiente controlado: urna 1769015 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 91,8%
+    AL|27219|9|12 BRANQUINHA, ambiente controlado: urna 2446211 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 89,3%
+    AL|28070|29|76 MONTEIRÓPOLIS, ambiente controlado: urna 2036781 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 89,6%
+    AL|28436|50|37 POÇO DAS TRINCHEIRAS, ambiente controlado: urna 1807867 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 87,9%
+    AL|27014|39|63 ÁGUA BRANCA, ambiente controlado: urna 1814411 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 87,8%
+    AL|27570|44|32 GIRAU DO PONCIANO, ambiente controlado: urna 2036524 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 85,7%
+    AL|27456|7|150 CORURIPE, ambiente controlado: urna 2027679 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 94,8%
+    AL|27898|14|129 MARAGOGI, ambiente controlado: urna 2449761 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 92,8%
+    AL|27510|49|80 FEIRA GRANDE, ambiente controlado: urna 2071772 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 96,3%
+    AL|28274|11|15 PÃO DE AÇÚCAR, ambiente controlado: urna 1772288 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 84,8%
+    AL|27758|53|5 JOAQUIM GOMES, ambiente controlado: urna 2457092 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 92,4%
+    AL|28673|51|90 SÃO JOSÉ DA TAPERA, ambiente controlado: urna 1772608 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 84,3%
+    AL|27634|37|187 IGREJA NOVA, ambiente controlado: urna 2072071 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 94,2%
+    AL|28932|34|96 TEOTÔNIO VILELA, ambiente controlado: urna 2432314 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 86,0%
+    SP|71072|5|36 SÃO PAULO, ambiente controlado: urna 2050346 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 83,8%
+    SP|71072|255|72 SÃO PAULO, ambiente controlado: urna 2358515 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 84,9%
+    SP|71072|327|256 SÃO PAULO, ambiente controlado: urna 2146734 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 83,8%
+    SP|71072|247|68 SÃO PAULO, ambiente controlado: urna 2046600 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 88,9%
+    SP|71072|20|25 SÃO PAULO, ambiente controlado: urna 2049582 UE2020, 10.23.0.0, 68 verificações, 0 sem SUCESSO, biometria 90,6%
+    SP|71072|320|521 SÃO PAULO, ambiente controlado: urna 1823117 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 82,4%
+    SP|71072|405|256 SÃO PAULO, ambiente controlado: urna 1836882 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 89,6%
+    SP|63134|303|3 CARAPICUÍBA, ambiente controlado: urna 2379376 UE2022, 10.23.0.0, 68 verificações, 0 sem SUCESSO, biometria 85,1%
+    SP|65056|115|7 IGARATÁ, ambiente controlado: urna 2327291 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 87,9%
+    SP|70718|273|270 SANTOS, ambiente controlado: urna 1823747 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 88,0%
+    SP|68977|219|488 POÁ, ambiente controlado: urna 2282394 UE2022, 10.23.0.0, 68 verificações, 0 sem SUCESSO, biometria 92,8%
+    SP|64670|319|160 GUARAREMA, ambiente controlado: urna 2141715 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 87,1%
+    SP|65439|189|131 ITANHAÉM, ambiente controlado: urna 2013679 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,5%
+    SP|62812|192|27 CAIEIRAS, ambiente controlado: urna 2068036 UE2020, 10.23.0.0, 68 verificações, 0 sem SUCESSO, biometria 86,3%
+    SP|68713|68|211 PIQUETE, ambiente controlado: urna 2095518 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 94,0%
+    SP|71838|141|1 TAUBATÉ, ambiente controlado: urna 2086547 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 81,5%
+    SP|68314|323|75 PAULÍNIA, ambiente controlado: urna 1830007 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,4%
+    SP|72370|345|16 VINHEDO, ambiente controlado: urna 2215710 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,1%
+    SP|62910|275|377 CAMPINAS, ambiente controlado: urna 2166746 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 92,1%
+    SP|63797|229|138 DIVINOLÂNDIA, ambiente controlado: urna 2133710 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 94,8%
+    SP|62693|59|9 CABREÚVA, ambiente controlado: urna 2321688 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 72,4%
+    SP|64955|191|13 IBIÚNA, ambiente controlado: urna 2333561 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 88,1%
+    SP|61018|157|71 ADAMANTINA, ambiente controlado: urna 2137717 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 93,7%
+    SP|61417|9|22 ANDRADINA, ambiente controlado: urna 2314346 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,8%
+    SP|61557|299|72 ARAÇATUBA, ambiente controlado: urna 2384739 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 93,2%
+    SP|62090|21|234 BARRETOS, ambiente controlado: urna 2293058 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 93,9%
+    SP|63835|241|113 DOIS CÓRREGOS, ambiente controlado: urna 2085100 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 91,8%
+    SP|61719|129|4 AREIÓPOLIS, ambiente controlado: urna 2084747 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 88,2%
+    SP|69051|135|332 PONTAL, ambiente controlado: urna 2394607 UE2022, 10.23.0.0, 102 verificações, 0 sem SUCESSO, biometria 92,4%
+    SP|64874|410|19 IBATÉ, ambiente controlado: urna 2291707 UE2022, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 85,9%
+    SP|71072|6|61 SÃO PAULO, com biometria: urna 2050170 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,7%
+    SP|71072|6|315 SÃO PAULO, com biometria: urna 2047625 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 88,1%
+    SP|71072|6|310 SÃO PAULO, com biometria: urna 2050260 UE2020, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 90,5%
+    PB|19658|57|181 CABEDELO, ambiente controlado: urna 1796925 UE2015, 10.23.0.0, 34 verificações, 0 sem SUCESSO, biometria 87,8%
+
+5. Urnas reserva que votaram nas seções do teste no 25/10 (arquivos públicos do 2º turno)
+  54 seções: versão diferente 0 (sem versão lida 0); componente novo 0; verificação sem SUCESSO 0; falha no .vsc 0;
+  urna do boletim diferente do bweb 0. O aux.json do 2º turno lista um só pacote em 54 das 54 seções, e o boletim
+  desse pacote é o da reserva em 54: o boletim do teste não está no site de resultados.
+  Carga das reservas no sábado 24/10, pelo log: primeira linha entre 06:39:11 e 13:30:08; verificações da carga sem
+  SUCESSO: 0.
+
+6. Superconjunto S (706 seções, todas as UFs; contém as urnas de teste das UFs sem lista)
+  Urnas do 1º turno (as que saíram da seção no sábado): 706 seções, boletim 706, log do dia 706; versão diferente 0
+  (sem versão lida 0); componente novo 0; sem SUCESSO 0; falha no .vsc 0; urna do boletim diferente do bweb 0.
+  Reservas (2º turno), só as baixadas (as de T, controles e extras em S; D6 não pede as demais): 63 seções, boletim
+  63, log do dia 63; versão diferente 0 (sem versão lida 0); componente novo 0; sem SUCESSO 0; falha no .vsc 0; urna
+  do boletim diferente do bweb 0.
+  Modelos das urnas do 1º turno em S: UE2013 13, UE2015 138, UE2020 265, UE2022 290.
+
+7. Modo de habilitação
+  No teste, só pelas listas: ambiente controlado (habilitação pelo caderno de votação, sem digital) e com biometria
+  (voluntários). SP 30 e 3; AL 18 e 2; PB pelo menos 1 com biometria; DF 2 com biometria; RJ 2; SC 2; PR 2; MT 1. Na
+  votação real, as mesmas urnas de teste no 1º turno tiveram 89,7% das habilitações por biometria (13.480
+  habilitações); as reservas no 2º turno, 89,0%; as urnas do 1º turno de S, 88,8%. Nada nos arquivos públicos mostra o
+  modo usado no teste em si.
+
+8. O que isso significa
+- Quem está de fora não consegue conferir o teste de integridade do 2º turno arquivo por arquivo: não foi publicado o
+  boletim, o RDV nem o log de nenhuma urna testada, e uma portaria de 2024 veda fornecê-los. O que existe é a palavra
+  dos TREs (sem divergência no TSE, em SP e em SC; uma no DF, atribuída a digitação), atas e vídeos que não deu para
+  ler, e, mais tarde, os relatórios das empresas de auditoria (com cópia digitalizada do boletim e da zerésima de cada
+  urna) e o do TCU, previsto até 24/11/2026.
+- O que dá para conferir de fora é a identidade e o programa das urnas testadas, por um caminho indireto: a urna
+  testada é a que votou na seção no 1º turno, com a mesma carga, e os arquivos públicos dela no 1º turno mostram a
+  mesma versão, os mesmos componentes verificados com sucesso e o certificado da própria urna validando as
+  assinaturas, como nas urnas reais. Isso afasta a hipótese de terem ido para o teste aparelhos com outro programa
+  instalado: nas urnas das listas de SP, AL e PB, nome por nome, e, sem lista, no grupo S inteiro, que contém as urnas
+  de teste das outras UFs.
+- O que isso não afasta: um programa igual em todas as urnas que se comportasse de outro jeito ao perceber que está em
+  teste (L7). Esse cenário não deixa marca nos arquivos do 1º turno nem nas reservas; só o log do próprio teste
+  mostraria o que a urna viu (habilitação, volume, ritmo). Também não afasta uma troca do programa da urna testada
+  entre o 1º turno e o dia do teste, que só o log do teste mostraria. Essas duas portas continuam fechadas só pela
+  inspeção do código e pela cadeia de compilação e assinatura do TSE.
+- A única discordância entre urna e papel em 2026 (DF, 2º turno) segue sem urna, cargo, tamanho, direção e trecho de
+  vídeo publicados. Um erro de digitação conferido pelo vídeo não tem a cara de fraude (seria um voto isolado, sem
+  direção sistemática), mas hoje isso é afirmação da autoridade do teste, não dado público.
+- Os registros públicos mostram que o procedimento deixou a marca prevista: nas listas de SP e AL, todas as seções de
+  integridade votaram numa reserva carregada no sábado, a urna original não votou em lugar nenhum no 2º turno, as de
+  autenticidade ficaram com a urna e a carga de setembro, e o Gedai registrou a correspondência da reserva no sábado
+  (menos numa seção de SP, sem registro). Não há sinal de que o teste tenha usado urnas diferentes das sorteadas, mas
+  a conferência do papel continua dependendo do que os TREs publicarem.
+
+9. Pistas (para investigar, inclusive fora do critério)
+- Divergência do DF (CLDF, 2º turno): pedir ao TRE-DF (Lei de Acesso à Informação) urna, seção, cargo, voto digitado e
+  voto da cédula, horário e trecho do vídeo. No TRE-AL, pelo estudo técnico da contratação, cada urna do teste tem
+  câmera própria e gravação em 4 vias; se o DF seguiu o mesmo padrão (a CLDF transmitiu ao vivo), o trecho existe.
+  Depende de pedir; fica para quem puder.
+- Relatórios das empresas de auditoria externa de 2026 e relatório consolidado do TCU (até 24/11/2026): pelo art. 66,
+  § 1º, da Res. 23.673, cada relatório traz a contagem manual independente de pelo menos uma urna e cópia digitalizada
+  da zerésima e do boletim da urna e do sistema de apoio. Serão os únicos documentos por urna do teste. Acompanhar o
+  site do TSE (arquivos-teste-de-integridade) e o do TCU (TC 019.754/2026-4).
+- Urna real com verificação de assinatura sem SUCESSO no dia do 1º turno: BA|33553|169|132, 04/10/2026 08:24:40 GAP
+  Verificação de assinatura - Etapa [2] - [/uenux/bin/avusrbin.vst] - [ERRO]. Na amostra, é a única entre 3.864 urnas
+  com log do 04/10. A urna recusou iniciar ("Erro na verificação de integridade do sistema", "Validação de árvore
+  genérica mal sucedida"), foi desligada e substituída por contingência (urna 02277331, 08h36). É o comportamento
+  previsto, mas a causa (mídia ou aparelho) não é pública.
+- Grupo S diferente do número anunciado (seções em S contra urnas de integridade anunciadas): BA 36 contra 33; CE 36
+  contra 27; ES 20 contra 18; GO 29 contra 25; PA 27 contra 25; PB 19 contra 20; PE 26 contra 27; PR 30 contra 27; RN
+  22 contra 20; SC 30 contra 27; SP 72 contra 33. Em SP, 7 das 8 seções de "gestão de riscos" (reserva para problemas
+  no transporte) também tiveram a urna retirada no sábado (a urna original não votou no 2º turno); sobram 32 trocas de
+  sábado em SP sem explicação na lista. Podem ser trocas comuns de véspera; não dá para saber.
+- Gedai: na seção SP|61719|129|4 (I) o sábado registrou outra urna além da que votou: 2083911 em 24/10/2026 11:59:31;
+  votou a 2325051. Saber qual urna foi para a seção e o destino da outra.
+- Gedai: na seção de integridade SP|62693|59|9 não aparece, no log público do 2º turno, a correspondência da urna
+  reserva 2121919 no sábado (só a da urna original, em 24/09/2026 16:32:05), embora o bweb dê a carga da reserva em
+  24/10. Pode ser log de computador que não entrou no arquivo publicado.
+- Gedai: na seção SP|70718|273|270 (I) o sábado registrou outra urna além da que votou: 1822708 em 24/10/2026
+  12:51:55, 1822708 em 24/10/2026 14:58:44; votou a 1679332. Saber qual urna foi para a seção e o destino da outra.
+- Gedai: na seção SP|71072|346|66 (R) o sábado registrou outra urna além da que votou: 2356841 em 24/10/2026 13:00:43;
+  votou a 2298041. Saber qual urna foi para a seção e o destino da outra.
+- Gedai: na seção SP|72370|345|16 (I) o sábado registrou outra urna além da que votou: 2214549 em 24/10/2026 10:15:09,
+  2214549 em 24/10/2026 13:03:45; votou a 2326420. Saber qual urna foi para a seção e o destino da outra.
+- João Pessoa, seção 297 da 1ª zona (teste com biometria, PB): a reserva carregada no sábado (01797582, UE2015)
+  reiniciou às 11h31 e às 13h16 do domingo e foi trocada às 13h35 por uma urna de contingência carregada em setembro
+  (01659991, UE2013), que é a que aparece no boletim. Por que a reserva falhou não está publicado.
+- Números que não fecham nas fontes: PB anuncia 20 urnas de integridade e lista 19 (só 4 com número de seção); GO e PA
+  anunciam 35 urnas e dizem 25 de integridade e 8 de autenticidade (33). Processo do TCU citado com três números: TC
+  019.754/2026-4 (Acórdão 2.558/2026, a proposta de fiscalização, lida), TC 020.282/2026-5 (L7) e TC 018.879/2026-8 (o
+  acordo). A norma de 2026 aparece como Res. 23.758 e como Res. 23.769.
+- Relatórios "ocorreje" do TSE de 25/10 (12h45 e 18h00): o buscador ora os descreve como ocorrências de urnas, ora
+  como contagem de participantes do teste com biometria (SP 254 de 3.280 às 18h). Não deu para ler (403). Se for a
+  segunda leitura, é o único número público do volume do teste com biometria.
+- Portaria TSE 765/2024, art. 15: os boletins do teste com biometria levam a expressão "Teste de Integridade com
+  Biometria", "poderá" ser por carimbo. Se em 2026 a expressão sai impressa pela urna, o programa sabe que está em
+  teste; se é carimbo, não. Vale confirmar no relatório de auditoria ou numa ata com foto do boletim.
+- Urna real SP|66079|63|214 (02290625, amostra): a carga de setembro ficou gravada no log com data de 25/10/2026,
+  13h07, até a linha "Data e hora atualizada" mudar para 25/09/2026, 13h08. Relógio um mês adiantado na carga. Sem
+  efeito nos votos, mas confunde qualquer conferência por data no log.
+
+10. Desvios e decisões
+- O registro pede a conferência nos arquivos do teste. Como nenhum foi publicado, a parte do programa foi feita por
+  extensão (D3), com os arquivos do 1º turno das mesmas urnas, e a parte do boletim contra cédulas ficou no que foi
+  publicado (D8). Decisões D1 a D8 escritas no docstring antes de baixar ou ler arquivo de urna das seções do teste.
+- "Explicação documentada" (D2): adotei a leitura em que a causa dada em nota oficial basta, e relato também a leitura
+  estrita, em que o caso do DF acionaria o sinal por falta de ata ou relatório publicado.
+- T só com seções de lista que estão em S. Ficou de fora a seção com biometria de João Pessoa (PB|20516|1|297): a
+  reserva carregada no sábado (urna 01797582) foi trocada por uma urna de contingência carregada em setembro
+  (01659991) às 13h35 do domingo, e por isso a seção não entra em S. Ficaram de fora também as duas seções de Campina
+  Grande, de lista ambígua (sem zona); a única candidata de cada uma em S foi conferida. As três passam em todas as
+  conferências; incluí-las não muda nada.
+- Componentes comparados só nas verificações do aplicativo de votação na inicialização (GAP). As da carga (SCUE)
+  ficaram à parte porque, ao montar a referência e antes de ler qualquer urna de teste, apareceu na amostra uma urna
+  de SP com a carga gravada com o relógio um mês adiantado e outro formato de linha. Resultado sem SUCESSO é contado
+  em qualquer aplicativo.
+- Correção feita depois de ver os dados das reservas: a comparação de componentes de log com duas urnas (contingência)
+  usava só o primeiro modelo e marcou por engano um componente da UE2015 na seção de João Pessoa; passou a usar a
+  união dos modelos presentes. Não afeta nenhuma urna de T no 1º turno (nenhuma tem dois modelos no log).
+- A lista de SP veio de reprodução da imprensa (a página do TRE-SP deu 403), lida por leitor automático; foi conferida
+  contra o bweb: as 51 seções casam por zona, seção e município. A de AL também casa nas 23.
+- RDV não baixado: o do teste não existe publicado, e o das urnas reais não entra na conferência do registro.
+- Reservas de S no 2º turno: só as de T, dos controles e das extras foram baixadas. A D6 pede o 1º turno de S; o
+  download das demais reservas foi parado de propósito antes de começar.
+- S é a definição do L7 (urna do 2º turno diferente e carga em 24/10). Ela deixa de fora seções do teste cuja reserva
+  foi trocada no domingo (como a de João Pessoa) e inclui trocas de sábado que não são teste (em SP, 7 das 8 seções de
+  gestão de riscos e mais 32).
+
+Arquivos: resultados/F11_teste_integridade_arquivos.json (tudo, inclusive a tabela por urna, as listas casadas com o bweb e o inventário com
+links); downloads em /home/user/trabalho-eleicao/adendo21/F11_dl_* (fora do repositório).

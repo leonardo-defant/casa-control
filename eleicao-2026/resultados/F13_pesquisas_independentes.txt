@@ -1,0 +1,213 @@
+F13 do Adendo 21: pesquisas independentes da urna. Rodado em 31/10/2026.
+Script: scripts/analisar_F13.py. Números: resultados/F13_pesquisas_independentes.json.
+
+Critério registrado (Adendo 21, commit 913af7a, antes de rodar):
+  "Pesquisas feitas depois da eleição com a lembrança do voto nos dois turnos, boca de urna do dia 25/10 e os relatórios finais
+  completos (com tabelas cruzadas) dos institutos. Para cada uma: fatia de Lula entre os eleitores dos eliminados que escolheram
+  um finalista. Descritivo, com a régua: confere com a urna se ficar a 5 pontos ou menos de 52% a 54%; confere com as pesquisas
+  de antes se ficar entre 32% e 44%; entre os dois, intermediário."
+  Decisões onde o registro não fixa (D1 a D11, desvios declarados): docstring do script, escrita às 11h49 UTC de 31/10, antes
+  de qualquer busca; cópia com sha256 em /home/user/trabalho-eleicao/adendo21/F13_scripts/decisoes_antes_de_buscar.*.
+  Faixas (D3): urna 47 a 59; pesquisas de antes 32 a 44; intermediário entre 44 e 47; fora disso, "abaixo das pesquisas de
+  antes" (< 32) ou "acima da urna" (> 59). Tomadas depois de ver números, também desvios: (1) no erro amostral de uma coluna só
+  (AtlasIntel, só Renan), o n do grupo usa a fatia daquele candidato; (2) a média combinada do item 2 é pós-hoc e não recebe régua.
+
+VEREDITO PELA LETRA
+  (i) Pesquisa feita depois da eleição com a lembrança do voto nos dois turnos: SEM DADOS. Nenhuma achada até 31/10/2026.
+  (ii) Boca de urna nacional de presidente em 25/10: SEM DADOS. Nenhuma achada.
+  (iii) Relatórios finais (última rodada de cada instituto, campo terminando de 21 a 24/10) com o 2º turno cruzado pelo voto
+       no 1º turno: três fontes, nenhuma com o relatório completo além do PoderData.
+      PoderData 23-24/10     s =  36,8%  -> CONFERE COM AS PESQUISAS DE ANTES  (cobertura 100% dos votos dos eliminados; confiança alta)
+      Colectta 23/10         s =  45,4%  -> INTERMEDIÁRIO  (cobertura 94% dos votos dos eliminados; confiança média)
+      AtlasIntel 18-23/10    s =  42,9%  -> CONFERE COM AS PESQUISAS DE ANTES  (cobertura 29% dos votos dos eliminados; confiança média)
+  Nenhuma das três fica na faixa da urna (47 a 59).
+  PoderData 23-24/10: IC95 de 29,9 a 43,7 (deff 1), de 27,1 a 46,5 (deff 2); toca: abaixo das pesquisas de antes; confere com as pesquisas de antes; intermediário.
+  Colectta 23/10: IC95 de 36,3 a 54,5 (deff 1), de 32,6 a 58,3 (deff 2); toca: confere com as pesquisas de antes; intermediário; confere com a urna.
+  AtlasIntel 18-23/10: IC95 de 30,4 a 55,4 (deff 1), de 25,2 a 60,6 (deff 2); toca: abaixo das pesquisas de antes; confere com as pesquisas de antes; intermediário; confere com a urna; acima da urna.
+
+1. Por fonte (fatia de Lula entre os que escolheram um finalista; pesos = votos oficiais do 1º turno de cada grupo, D2)
+  PoderData 23-24/10 | PoderData | campo 23 e 24/10/2026 | BR-02828/2026 | n 4.000 | confiança alta | F13
+      Augusto Cury                   L  29,0  F  58,0  fatia L  33,3%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan Santos                   L  33,0  F  43,0  fatia L  43,4%  (representa Renan; 2.675.887 votos no 1º turno)
+      Ronaldo Caiado                 L  30,0  F  46,0  fatia L  39,5%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Outro candidato                L  15,0  F  65,0  fatia L  18,8%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 36,8% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~235, n efetivo ~189. ep 3,5 (IC95 29,9 a 43,7) com efeito de desenho 1; ep 5,0 (IC95 27,1 a 46,5) com 2.
+      sensibilidade a_so_colunas_nomeadas: 38,0% (confere com as pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 38,7% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      nota: tabela "Voto no 1º turno"; branco/nulo e não sabe: Cury 11 e 2, Renan 19 e 5, Caiado 20 e 4, Outro 0 e 20; ponderação inclui "resultado do 1º turno"; não publica o tamanho das subamostras nem a lembrança por candidato
+      lido em: /home/user/trabalho-eleicao/adendo21/F13_dl_poderdata24out/pd24out.pdf (sha256 9c41cf86fa7c7e72aee800c181781ce226acd369f680861301330fd235f38450), p. 10
+      fonte: https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf
+  Colectta 23/10 | Colectta (Brazil Economy) | campo 23/10/2026 | BR-05601/2026 | n 3.000 | confiança média | F13
+      Augusto Cury                   L  33,4  F  37,5  fatia L  47,1%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan Santos                   L  30,4  F  40,9  fatia L  42,6%  (representa Renan; 2.675.887 votos no 1º turno)
+      Ronaldo Caiado                 L  30,7  F  35,9  fatia L  46,1%  (representa Caiado; 2.605.148 votos no 1º turno)
+      s = 45,4% -> intermediário. Cobertura 94%. n do grupo ~165, n efetivo ~115. ep 4,6 (IC95 36,3 a 54,5) com efeito de desenho 1; ep 6,6 (IC95 32,6 a 58,3) com 2.
+      sensibilidade c_media_simples_das_nomeadas: 45,3% (intermediário)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      nota: "Dos que escolheram Augusto Cury, 37,5% pretendem votar no senador, contra 33,4% em Lula." / "Entre os apoiadores de Renan Santos, os percentuais são de 40,9% e 30,4%, respectivamente." / "No eleitorado de Ronaldo Caiado, Flávio registra 35,9%, ante 30,7% do presidente." Sem Zema e sem outros; sem branco/nulo por coluna; relatório não achado
+      lido em: matéria de 24/10/2026 10h49 (atualizada 26/10 21h47), lida por WebFetch em 31/10/2026; trechos literais no JSON
+      fonte: https://brazileconomy.com.br/mais-lidas/2026/10/lula-tem-503-dos-votos-validos-e-flavio-497-aponta-pesquisa-brazil-economycolectta/
+  AtlasIntel 18-23/10 | AtlasIntel/Bloomberg | campo 18 a 23/10/2026 | BR-06380/2026 | n 4.990 | confiança média | F13
+      Renan Santos                   L  30,7  F  40,8  fatia L  42,9%  (representa Renan; 2.675.887 votos no 1º turno)
+      s = 42,9% -> confere com as pesquisas de antes. Cobertura 29%. n do grupo ~84, n efetivo ~60. ep 6,4 (IC95 30,4 a 55,4) com efeito de desenho 1; ep 9,0 (IC95 25,2 a 60,6) com 2.
+      sensibilidade c_media_simples_das_nomeadas: 42,9% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,2% (bweb), 49,3% (amostra do T37)
+      nota: "Entre os eleitores de Renan Santos no primeiro turno, 40,8% declaram voto no senador, 30,7% no presidente" (branco, nulo ou indeciso 28,6%). Só Renan publicado; Cury, Caiado e outros não aparecem; relatório não achado
+      lido em: matéria da Bloomberg Línea de 24/10/2026 22h53, lida por WebFetch em 31/10/2026
+      fonte: https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/
+  PoderData 19-21/10 | PoderData | campo 19 a 21/10 | BR-07926/2026 | n 4.000 | confiança alta | referência (rodada anterior, sem régua)
+      Cury                           L  48,0  F  42,0  fatia L  53,3%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  34,0  F  49,0  fatia L  41,0%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  30,0  F  49,0  fatia L  38,0%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Outro                          L  20,0  F  70,0  fatia L  22,2%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 43,8% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~235, n efetivo ~199. ep 3,5 (IC95 36,9 a 50,7) com efeito de desenho 1; ep 5,0 (IC95 34,0 a 53,5) com 2.
+      sensibilidade a_so_colunas_nomeadas: 45,3% (intermediário)
+      sensibilidade c_media_simples_das_nomeadas: 44,1% (intermediário)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf
+  Quaest 17-20/10 | Quaest | campo 17 a 20/10 | BR-08535/2026 | n 2.154 | confiança média | referência (rodada anterior, sem régua)
+      Cury                           L  48,0  F  33,0  fatia L  59,3%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  25,0  F  51,0  fatia L  32,9%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  21,0  F  57,0  fatia L  26,9%  (representa Caiado; 2.605.148 votos no 1º turno)
+      s = 41,9% -> confere com as pesquisas de antes. Cobertura 94%. n do grupo ~118, n efetivo ~93. ep 5,1 (IC95 31,8 a 51,9) com efeito de desenho 1; ep 7,2 (IC95 27,7 a 56,0) com 2.
+      sensibilidade c_media_simples_das_nomeadas: 39,7% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://www.diariodepernambuco.com.br/politica/2026/10/11727201-quaest-48-dos-eleitores-de-augusto-cury-migram-para-lula-e-33-para-flavio.html
+  AtlasIntel 13-18/10 | AtlasIntel/Bloomberg | campo 13 a 18/10 | BR-02418/2026 | n 4.998 | confiança média | referência (rodada anterior, sem régua)
+      Cury                           L  52,1  F  42,4  fatia L  55,1%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  31,9  F  33,5  fatia L  48,8%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  24,5  F  69,8  fatia L  26,0%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Outros (inclui Zema)           L  30,7  F  61,3  fatia L  33,4%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 43,3% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~293, n efetivo ~252. ep 3,1 (IC95 37,2 a 49,4) com efeito de desenho 1; ep 4,4 (IC95 34,7 a 52,0) com 2.
+      sensibilidade a_so_colunas_nomeadas: 44,0% (intermediário)
+      sensibilidade c_media_simples_das_nomeadas: 43,3% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/
+  Ipespe 13-15/10 | Ipespe/Abrapel | campo 13 a 15/10 | BR-00223/2026 | n 1.500 | confiança alta | referência (rodada anterior, sem régua)
+      Cury                           L  31,0  F  50,0  fatia L  38,3%  (representa Cury; 3.448.569 votos no 1º turno)
+      Caiado                         L  18,0  F  59,0  fatia L  23,4%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Renan                          L  20,0  F  40,0  fatia L  33,3%  (representa Renan; 2.675.887 votos no 1º turno)
+      Outros                         L  27,0  F  55,0  fatia L  32,9%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 32,4% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~88, n efetivo ~65. ep 5,8 (IC95 21,0 a 43,8) com efeito de desenho 1; ep 8,2 (IC95 16,3 a 48,5) com 2.
+      sensibilidade a_so_colunas_nomeadas: 32,4% (confere com as pesquisas de antes)
+      sensibilidade b_pesos_pela_lembranca_da_pesquisa: 31,9% (abaixo das pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 31,7% (abaixo das pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf
+  Datafolha 13-14/10 | Datafolha | campo 13 e 14/10 | BR-00466/2026 | n 2.520 | confiança alta | referência (rodada anterior, sem régua)
+      Cury, Renan, Caiado ou Zema    L  27,0  F  46,0  fatia L  37,0%  (representa Cury+Renan+Caiado+Zema; 9.056.092 votos no 1º turno)
+      s = 37,0% -> confere com as pesquisas de antes. Cobertura 97%. n do grupo ~144, n efetivo ~105. ep 4,7 (IC95 27,7 a 46,2) com efeito de desenho 1; ep 6,7 (IC95 23,9 a 50,0) com 2.
+      fonte: https://static.poder360.com.br/uploads/2026/10/datafolha-15out2026-pesquisa-nacional.pdf
+  Quaest 10-13/10 | Quaest | campo 10 a 13/10 | BR-08729/2026 | n 2.154 | confiança média | referência (rodada anterior, sem régua)
+      Cury                           L  34,0  F  30,0  fatia L  53,1%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  14,0  F  40,0  fatia L  25,9%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  23,0  F  42,0  fatia L  35,4%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Outros                         L  33,0  F  38,0  fatia L  46,5%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 40,6% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~126, n efetivo ~78. ep 5,5 (IC95 29,7 a 51,5) com efeito de desenho 1; ep 7,8 (IC95 25,2 a 56,0) com 2.
+      sensibilidade a_so_colunas_nomeadas: 40,1% (confere com as pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 38,1% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/16/quaest-traz-transferencia-de-voto-no-2-turno-a-flavio-e-lula.html
+  Nexus 10-12/10 | Nexus/BTG | campo 10 a 12/10 | BR-07997/2026 | n 2.002 | confiança média | referência (rodada anterior, sem régua)
+      Zema                           L  12,0  F  80,0  fatia L  13,0%  (representa Zema; 326.488 votos no 1º turno)
+      Caiado                         L  27,0  F  55,0  fatia L  32,9%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Outros candidatos              L  32,0  F  45,0  fatia L  41,6%  (representa Cury+Renan+esquerda+demais; 6.385.111 votos no 1º turno)
+      s = 37,9% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~118, n efetivo ~93. ep 5,0 (IC95 28,0 a 47,8) com efeito de desenho 1; ep 7,1 (IC95 23,9 a 51,8) com 2.
+      sensibilidade a_so_colunas_nomeadas: 30,5% (abaixo das pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 23,0% (abaixo das pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 47,4% (bweb), 52,8% (amostra do T37)
+      fonte: https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/
+  AtlasIntel 3-8/10 | AtlasIntel/Bloomberg | campo 3 a 8/10 | BR-03663/2026 | n 5.026 | confiança média | referência (rodada anterior, sem régua)
+      Cury                           L  50,4  F  38,9  fatia L  56,4%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  28,1  F  40,3  fatia L  41,1%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  26,9  F  54,9  fatia L  32,9%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Demais candidatos              L  14,8  F  83,4  fatia L  15,1%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 43,0% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~295, n efetivo ~241. ep 3,2 (IC95 36,8 a 49,3) com efeito de desenho 1; ep 4,5 (IC95 34,2 a 51,9) com 2.
+      sensibilidade a_so_colunas_nomeadas: 45,3% (intermediário)
+      sensibilidade c_media_simples_das_nomeadas: 43,5% (confere com as pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://tvtnews.com.br/?p=805894
+  Ipespe 6-8/10 | Ipespe/Abrapel | campo 6 a 8/10 | BR-00933/2026 | n 1.500 | confiança alta | referência (rodada anterior, sem régua)
+      Cury                           L  29,0  F  50,0  fatia L  36,7%  (representa Cury; 3.448.569 votos no 1º turno)
+      Caiado                         L  15,0  F  56,0  fatia L  21,1%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Renan                          L  20,0  F  36,0  fatia L  35,7%  (representa Renan; 2.675.887 votos no 1º turno)
+      Outros                         L  40,0  F  40,0  fatia L  50,0%  (representa Zema+esquerda+demais; 587.143 votos no 1º turno)
+      s = 33,0% -> confere com as pesquisas de antes. Cobertura 100%. n do grupo ~88, n efetivo ~62. ep 6,0 (IC95 21,3 a 44,8) com efeito de desenho 1; ep 8,5 (IC95 16,4 a 49,6) com 2.
+      sensibilidade a_so_colunas_nomeadas: 31,7% (abaixo das pesquisas de antes)
+      sensibilidade b_pesos_pela_lembranca_da_pesquisa: 31,1% (abaixo das pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 31,2% (abaixo das pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,7% (bweb), 52,6% (amostra do T37)
+      fonte: https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-abrapel-10out2026.pdf
+  Datafolha 6-7/10 | Datafolha | campo 6 e 7/10 | BR-02949/2026 | n 2.520 | confiança média | referência (rodada anterior, sem régua)
+      Cury, Renan, Caiado ou Zema    L  32,0  F  46,0  fatia L  41,0%  (representa Cury+Renan+Caiado+Zema; 9.056.092 votos no 1º turno)
+      s = 41,0% -> confere com as pesquisas de antes. Cobertura 97%. n do grupo ~144, n efetivo ~112. ep 4,7 (IC95 31,9 a 50,1) com efeito de desenho 1; ep 6,6 (IC95 28,2 a 53,9) com 2.
+      fonte: https://www.diariodepernambuco.com.br/politica/2026/10/11726210-datafolha-46-dos-eleitores-de-candidatos-derrotados-no-1-turno-migram-para-flavio-bolsonaro.html
+  PoderData 5-7/10 | PoderData | campo 5 a 7/10 | BR-08134/2026 | n 3.000 | confiança alta | referência (rodada anterior, sem régua)
+      Cury                           L  27,0  F  56,0  fatia L  32,5%  (representa Cury; 3.448.569 votos no 1º turno)
+      Renan                          L  25,0  F  48,0  fatia L  34,2%  (representa Renan; 2.675.887 votos no 1º turno)
+      Caiado                         L  19,0  F  57,0  fatia L  25,0%  (representa Caiado; 2.605.148 votos no 1º turno)
+      Zema                           L  10,0  F  72,0  fatia L  12,2%  (representa Zema; 326.488 votos no 1º turno)
+      Outro                          L  39,0  F  19,0  fatia L  67,2%  (representa esquerda+demais; 260.655 votos no 1º turno)
+      s = 30,9% -> abaixo das pesquisas de antes. Cobertura 100%. n do grupo ~176, n efetivo ~136. ep 4,0 (IC95 23,1 a 38,7) com efeito de desenho 1; ep 5,6 (IC95 19,9 a 41,9) com 2.
+      sensibilidade a_so_colunas_nomeadas: 30,1% (abaixo das pesquisas de antes)
+      sensibilidade c_media_simples_das_nomeadas: 26,0% (abaixo das pesquisas de antes)
+      urna com as mesmas colunas nomeadas e os mesmos pesos: 54,1% (bweb), 52,2% (amostra do T37)
+      fonte: https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf
+
+2. O que os números significam
+  - Rodadas anteriores (5 a 21/10), mesmo cálculo: de 30,9% a 43,8%, com uma abaixo de 32 (PoderData 5-7/10). Coerente com a faixa
+    "pesquisas de antes" do registro (32 a 44).
+  - Urna (regressão do T8 com grupos, mesmo local; regressão ecológica): Cury 59,6, Renan 54,2, Caiado 48,8, Zema 36,1 (bweb);
+    todos os eliminados num grupo 54,1 (ep 0,2); amostra do T37 52,2 (ep 1,7).
+  - Distância da urna, com as mesmas colunas nomeadas e os mesmos pesos (urna menos pesquisa, bweb / amostra): PoderData 23-24/10 16,8 / 14,6 pontos; Colectta 23/10 9,3 / 7,2 pontos; AtlasIntel 18-23/10 11,3 / 6,4 pontos.
+  - Média combinada pós-hoc (sem régua; PoderData 23-24/10 e Colectta 23/10; pesos 1/ep^2): 39,9% (ep 2,8; IC95 34,4 a 45,4) com deff 1; 39,9% (IC95 32,2 a 47,7) com deff 2.
+    Diferença entre as duas: 8,6 pontos (ep 5,8, z 1,49): presencial (Colectta) e telefone automático (PoderData) não se distinguem
+    pelo erro amostral.
+  - Por candidato, todas as rodadas que o separam (descritivo pós-hoc; mediana das pesquisas e urna no bweb):
+      Cury    10 rodadas, de 32,5 a 59,3, mediana 50,1; urna 59,6 (amostra 54,0); urna menos mediana 9,5 pontos
+      Renan   11 rodadas, de 25,9 a 48,8, mediana 41,0; urna 54,2 (amostra 49,3); urna menos mediana 13,2 pontos
+      Caiado  11 rodadas, de 21,1 a 46,1, mediana 32,9; urna 48,8 (amostra 54,2); urna menos mediana 15,9 pontos
+      Zema     2 rodadas, de 12,2 a 13,0, mediana 12,6; urna 36,1 (amostra 41,8); urna menos mediana 23,5 pontos
+  - Leitura: as pesquisas de véspera que publicaram o cruzamento repetem o que as rodadas anteriores diziam (eleitores dos
+    eliminados com Flávio na frente entre os que escolhem), e ficam abaixo do que a urna implica. A diferença urna x pesquisa nos
+    eliminados, que o T37 e o L5 já tinham, continua. Não há medida feita depois do voto (lembrança ou boca de urna) que diga se
+    os eleitores dos eliminados mudaram nos últimos dias, se a pesquisa os mediu mal, ou se a regressão da urna os atribui mal.
+  - Poder: o grupo é pequeno (5,9% dos aptos). Uma fonte sozinha tem ep de 3,5 a 6,4 pontos (deff 1) e não separa 40 de 50.
+    No próprio PoderData, a fatia de Lula entre os eleitores de Cury foi de 53,3% (19-21/10) para 33,3% (23-24/10) em três dias,
+    o que mostra o ruído das subamostras; a coluna "Outro candidato" do PoderData final (Flávio 65, Lula 15, branco/nulo 0, não
+    sabe 20) é de umas 15 entrevistas.
+
+3. O que não foi achado
+  pos_eleicao: Nenhuma pesquisa nacional com campo depois de 25/10/2026 achada até 31/10/2026 (Placar das Pesquisas lista a última nacional em 24/10; a lista da Wikipedia em inglês também). A BBC News Brasil (reproduzida pelo Em Dia ES em 27/10, 17h15) cita especialistas que sugerem reentrevistar quem participou das pesquisas e checar se votou e se manteve o voto, como proposta, não como estudo feito.
+  boca_de_urna: Nenhuma boca de urna nacional de presidente em 25/10/2026 achada (Wikipedia e Placar não listam; buscas por Ipec, AtlasIntel, Quaest e Datafolha sem resultado). A AtlasIntel diz (TMC, 26 ou 27/10) que teve um "último tracking, com campo encerrado às 8h do dia da eleição" com Lula em 49,7%; é pesquisa de véspera estendida, não boca de urna, e o cruzamento não foi achado.
+  quem_deixou_ou_passou_a_votar: Nenhuma pesquisa pós-eleição mede quem deixou de votar ou passou a votar. O que existe é de antes do 2º turno: PoderData 23-24/10 (11% da amostra não votou no 1º turno; entre eles Lula 50, Flávio 35, branco/nulo 15; com certeza vai votar 65%), Colectta 23/10 (7,4% da amostra ponderada não votou; Lula 51,8 x Flávio 34,3), Nexus 23-24/10 (não compareceu: Lula 53,2 x 46,8 nos válidos) e Datafolha 23-24/10 (propensão média ou baixa, 24%: Lula 52 x 48). A AtlasIntel explica o erro pela volta de eleitores ao 2º turno, sem número de pesquisa feita depois.
+  Relatórios finais sem cruzamento achado:
+    - Nexus/BTG 23-24/10 (BR-08234/2026, n 2.000): só "votou no 1º turno" (Flávio 51,2 x Lula 48,8 nos válidos) e "não compareceu" (Lula 53,2 x Flávio 46,8); nenhuma coluna de eliminados (Bloomberg Línea 24/10; Tribuna de Jundiaí); relatório não achado (static.poder360: 404 nos nomes do padrão da rodada de 19/10)
+    - Quaest 23-24/10 (BR-09158/2026, n 3.702): cruzamento não publicado na imprensa achada; o PDF baixado de static.poder360.com.br/uploads/2026/10/Pesquisa-Quaest-Nacional-24-out.pdf é a impressão da matéria do g1 sobre aprovação, sem tabelas; g1 bloqueado para a ferramenta de leitura
+    - Datafolha 23-24/10 (BR-09540/2026, n 4.050): só total, válidos e propensão de comparecer (alta 76%: Flávio 52 x 48; média ou baixa 24%: Lula 52 x 48); relatório não achado (404 nos nomes do padrão do relatório de 15/10)
+    - Ipespe/Abrapel 20-22/10 (n 1.500): matérias (Midiamax, SBT) sem o recall; PDF não achado (404 nos nomes do padrão das rodadas anteriores)
+    - Futura 23-24/10 (BR-09726/2026, n 2.000): Gazeta do Povo sem cruzamento
+    - Gerp 22-24/10 (BR-09327/2026, n 2.400): CNN diz "confira a íntegra abaixo", mas o documento não está na página lida
+    - CNT/MDA 21-23/10, Palver 22-24/10, Veritá 19-23/10, Instituto França 21-23/10, Vetor 23/10, 100% Cidades 24/10, Vox Brasil 20-22/10, Real Time Big Data 19-22/10, Alfa 19-22/10: nenhum cruzamento por voto no 1º turno achado
+
+4. Limites
+  - Pesquisa de véspera mede intenção, não voto. Quem decidiu ou mudou no dia, e quem não ia votar e votou, fica de fora.
+  - Subamostras pequenas e não publicadas; o n foi estimado pela fatia oficial dos eliminados (D4).
+  - O PoderData pondera pelo resultado do 1º turno; a ponderação acerta o tamanho do grupo, não a escolha dentro dele.
+  - Colectta e AtlasIntel finais vêm de matéria, não do relatório (confiança média). A AtlasIntel cobre só Renan (29% dos
+    eliminados); a urna para Renan é 54,2 (bweb) ou 49,3 (amostra do T37), as duas acima dos 42,9 da AtlasIntel.
+  - A urna aqui é regressão ecológica entre seções do mesmo local; erra se o eleitor de um eliminado mora junto de outro tipo de
+    eleitor (limite já escrito no L4).
+  - Regra do Adendo 18: nenhuma eleição anterior foi usada como régua.
+
+5. Pistas (fora do critério)
+  1. Distância urna x pesquisa cresce do eliminado mais ao centro para o mais à direita: Cury 9,5 pontos, Renan 13,2, Caiado 15,9, Zema 23,5 (urna no bweb menos a mediana das rodadas; item por_grupo_descritivo deste JSON). O L4 viu o mesmo dentro das UFs de origem (GO Caiado 45,9 x 26,9; MG Zema 34,7 x 12,6; SP Cury 57,8 x 46,7; resultados/L4_bweb.txt). O padrão cabe em três leituras que estes dados não separam: viés ecológico (a regressão dá ao eleitor de Caiado e Zema o movimento dos vizinhos), mudança tardia ou abstenção desses eleitores depois da pesquisa, ou votos movidos de Flávio para Lula em proporção parecida em todo lugar.
+  2. Institutos discordam muito sobre os eleitores de Cury (maior grupo, 37% dos eliminados): de 32,5% (PoderData 5-7/10) a 59,3% (Quaest 17-20/10); o PoderData foi de 53,3% (19-21/10) para 33,3% (23-24/10) em três dias. Quaest 17-20/10 e AtlasIntel 13-18/10 (59,3 e 55,1) ficam perto da urna para Cury (59,6); a diferença urna x pesquisa fica sobretudo em Renan, Caiado e Zema.
+  3. Quem não votou no 1º turno: PoderData final 58,8% para Lula entre os que escolhem (50 x 35), Colectta 60,2% (51,8 x 34,3), Nexus 53,2%; a regressão da urna no aumento do comparecimento dá 56,4% (L5). Bate; a diferença não está nos que passaram a votar.
+  4. A AtlasIntel diz ter feito um "último tracking, com campo encerrado às 8h do dia da eleição" (Lula 49,7%; TMC, https://tmc.com.br/politica/atlasintel-pesquisas-subestimaram-comparecimento-lula-2turno-2026). É a medida mais próxima do voto que existe; o cruzamento por voto no 1º turno não foi publicado.
+  5. Relatórios completos que podem existir e não foram lidos: Quaest e Datafolha de 23-24/10 (o g1 cita "página especial com todos os detalhes"; g1 bloqueado para a ferramenta), Nexus 23-24/10, Gerp 22-24/10 (CNN diz "confira a íntegra"), Ipespe 20-22/10. Dá para abrir num navegador comum, sem pedir nada a ninguém; o registro no PesqEle do TSE (BR-09158, BR-09540, BR-08234, BR-09327) também.
+  6. Ipespe 20-22/10 aparece com o mesmo registro da rodada de 13-15/10 (BR-00223/2026, Midiamax e SeuDinheiro); a Gazeta do Povo grafa o Datafolha final como "BR-BR-09540/2026". Detalhes de registro a conferir no PesqEle.
+  7. O "Relatório Pericial Independente" que circula desde 28/10 (Aos Fatos, 29/10, https://aosfatos.org/noticias/relatorio-fraude-eleitoral-distorce-dados-omite-fatos; o TSE também checou) já foi conferido neste repositório (checagens/relatorio_pericial_instagram, commit a4e44b8): não é pista nova para o F13.
+  8. Flávio não reconheceu o resultado alegando a extensão do horário de votação (Wikipedia em inglês, seção Aftermath); liga com o F14 (17 seções da zona 90 de Volta Redonda mantidas abertas) e com o L1.
+  9. Nenhuma pesquisa pós-eleição mediu quem deixou de votar ou passou a votar; a BBC (27/10) registra a sugestão de especialistas de reentrevistar quem respondeu às pesquisas. Um painel desses (pedir aos institutos) é o teste que separa as leituras acima.

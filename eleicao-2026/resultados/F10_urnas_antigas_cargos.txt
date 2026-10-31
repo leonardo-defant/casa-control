@@ -1,0 +1,116 @@
+F10 do Adendo 21: urnas antigas, o mesmo desvio aparece nos outros cargos?
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 21 (commit 913af7a, 31/10/2026 10:36:29 UTC). Script: scripts/analisar_F10.py.
+
+VEREDITO PELA LETRA: INCONCLUSIVO
+  D = 0,441 ponto, erro-padrão por bootstrap de locais 0,208 (2000 réplicas, semente 20261031); z 2,12.
+  Critério: sinal de máquina se D >= +0,5 a mais de 3 erros-padrão; sem sinal se |D| < 0,3 com erro-padrão até 0,2; senão inconclusivo.
+
+1. Amostra
+  Seções na base (Brasil, 1º turno, três cargos com válidos, modelo definido): 496.996. Fora: exterior 1.309, sem modelo 901, outros filtros 0.
+  Conferência: comparecimento de presidente diferente do dos outros cargos em 17.204 seções (sempre maior no presidente; compatível com eleitor em trânsito de outra UF, que só vota para presidente). Soma dos votos igual ao comparecimento em todos os cargos (falhas: nenhuma).
+  Locais com urna antiga e nova: 119; seções 1.332 (antigas 492, novas 840).
+  Locais por UF: SP 113, AM 3, MT 3
+  Seções por modelo: UE2013 53, UE2015 439, UE2020 429, UE2022 411
+  Combinações de modelo nos locais: UE2015+UE2020 38; UE2015+UE2022 31; UE2015+UE2020+UE2022 25; UE2013+UE2015+UE2022 6; UE2013+UE2020 6; UE2013+UE2015+UE2020+UE2022 5; UE2013+UE2022 4; UE2013+UE2020+UE2022 2; UE2013+UE2015+UE2020 2
+  Médias ponderadas por modelo na amostra (sem efeito fixo, só descritivo): UE2013: P 48,66, I 25,61, federal 16,89, estadual 19,20, senador 40,73 (53 seções); UE2015: P 41,24, I 19,92, federal 11,59, estadual 13,94, senador 34,23 (439 seções); UE2020: P 42,90, I 21,30, federal 12,16, estadual 14,99, senador 36,74 (429 seções); UE2022: P 40,32, I 19,47, federal 10,63, estadual 13,71, senador 34,07 (411 seções)
+
+2. Estatística registrada (efeito fixo de local, peso L1+R1)
+  Diferença antiga menos nova no presidente (fatia de Lula no 1º turno), dP: 0,744 (ep 0,306).
+  Diferença antiga menos nova no índice de perfil, dI: 0,262 (ep 0,172).
+  Inclinação b da fatia de Lula sobre o índice, dentro do local: 1,156 (ep 0,036).
+  D = dP - b x dI = 0,744 - 1,156 x 0,262 = 0,441; IC95 percentil 0,05 a 0,87.
+  Inclinação que zeraria D (dP/dI): 2,836.
+  Conferência com lib.fe_ols (CR1): dP 0,744 (0,302); dI 0,262 (0,171); b 1,156 (0,035); ep de D pelo método delta sem covariâncias 0,362.
+
+3. Componentes do índice e leituras da inclinação (mesma amostra, fora do veredito)
+  R2_federal: dP 0,744 (ep 0,306); dI 0,224 (ep 0,195); b 0,712 (ep 0,038); D 0,585 (ep 0,263; z 2,2; IC95 0,10 a 1,10); leitura pelo critério: INCONCLUSIVO
+  R2_estadual: dP 0,744 (ep 0,306); dI 0,111 (ep 0,183); b 0,718 (ep 0,034); D 0,665 (ep 0,264; z 2,5; IC95 0,17 a 1,20); leitura pelo critério: INCONCLUSIVO
+  R2_senador: dP 0,744 (ep 0,306); dI 0,453 (ep 0,242); b 0,906 (ep 0,021); D 0,334 (ep 0,193; z 1,7; IC95 -0,03 a 0,73); leitura pelo critério: INCONCLUSIVO
+  R2_so_deputados: dP 0,744 (ep 0,306); dI 0,167 (ep 0,173); b 0,851 (ep 0,038); D 0,602 (ep 0,255; z 2,4; IC95 0,14 a 1,11); leitura pelo critério: INCONCLUSIVO
+  R2_senador_so_PT_PCdoB_PV_no_indice: dP 0,744 (ep 0,306); dI 0,167 (ep 0,173); b 0,851 (ep 0,038); D 0,602 (ep 0,255; z 2,4; IC95 0,14 a 1,11); leitura pelo critério: INCONCLUSIVO
+  R3_b_com_indicador: dP 0,744 (ep 0,306); dI 0,262 (ep 0,172); b 1,153 (ep 0,035); D 0,442 (ep 0,209; z 2,1; IC95 0,05 a 0,87); leitura pelo critério: INCONCLUSIVO
+  R8_federal_instrumentado_pelo_estadual: dP 0,744 (ep 0,306); dI 0,224 (ep 0,195); b 1,110 (ep 0,061); D 0,496 (ep 0,271; z 1,8; IC95 -0,04 a 1,03); leitura pelo critério: INCONCLUSIVO
+  R8_estadual_instrumentado_pelo_federal: dP 0,744 (ep 0,306); dI 0,111 (ep 0,183); b 0,991 (ep 0,049); D 0,635 (ep 0,264; z 2,4; IC95 0,14 a 1,18); leitura pelo critério: INCONCLUSIVO
+  R8_deputados_instrumentado_pelo_senador: dP 0,744 (ep 0,306); dI 0,167 (ep 0,173); b 2,332 (ep 0,131); D 0,354 (ep 0,350; z 1,0; IC95 -0,32 a 1,04); leitura pelo critério: INCONCLUSIVO
+
+4. Robustez (fora do veredito)
+  R1_presidente_2t [P2] (1.332 seções, 119 locais): dP 0,628 (ep 0,275); dI 0,262 (ep 0,172); b 0,947 (ep 0,037); D 0,379 (ep 0,200; z 1,9; IC95 -0,00 a 0,79); leitura pelo critério: INCONCLUSIVO
+  R1_virada [virada] (1.332 seções, 119 locais): dP -0,116 (ep 0,156); dI 0,262 (ep 0,172); b -0,208 (ep 0,022); D -0,062 (ep 0,152; z -0,4; IC95 -0,35 a 0,25); leitura pelo critério: SEM SINAL
+  R1_presidente_1t_mesma_amostra_do_2t [principal] (1.332 seções, 119 locais): dP 0,744 (ep 0,306); dI 0,262 (ep 0,172); b 1,156 (ep 0,036); D 0,441 (ep 0,208; z 2,1; IC95 0,05 a 0,87); leitura pelo critério: INCONCLUSIVO
+  R4_sem_peso [principal] (1.332 seções, 119 locais): dP 0,863 (ep 0,335); dI 0,274 (ep 0,182); b 1,176 (ep 0,038); D 0,540 (ep 0,224; z 2,4; IC95 0,11 a 0,98); leitura pelo critério: INCONCLUSIVO
+  R5_20_ou_mais_votantes [principal] (1.332 seções, 119 locais): dP 0,744 (ep 0,306); dI 0,262 (ep 0,172); b 1,156 (ep 0,036); D 0,441 (ep 0,208; z 2,1; IC95 0,05 a 0,87); leitura pelo critério: INCONCLUSIVO
+  R6_faixas_modelos_py [principal] (1.332 seções, 119 locais): dP 0,744 (ep 0,306); dI 0,262 (ep 0,172); b 1,156 (ep 0,036); D 0,441 (ep 0,208; z 2,1; IC95 0,05 a 0,87); leitura pelo critério: INCONCLUSIVO
+  R6_sem_zona_de_corte [principal] (1.330 seções, 119 locais): dP 0,743 (ep 0,307); dI 0,256 (ep 0,172); b 1,158 (ep 0,036); D 0,447 (ep 0,208; z 2,2; IC95 0,06 a 0,87); leitura pelo critério: INCONCLUSIVO
+  R7_so_SP [principal] (1.259 seções, 113 locais): dP 0,532 (ep 0,292); dI 0,200 (ep 0,182); b 1,135 (ep 0,032); D 0,304 (ep 0,189; z 1,6; IC95 -0,07 a 0,66); leitura pelo critério: INCONCLUSIVO
+  R7_sem_SP [principal] (73 seções, 6 locais): dP 3,293 (ep 0,870); dI 1,005 (ep 0,446); b 1,801 (ep 0,274); D 1,482 (ep 0,852; z 1,7; IC95 -0,40 a 2,84); leitura pelo critério: INCONCLUSIVO
+  D12_sem_secoes_com_conferencia_falha [principal] (1.253 seções, 115 locais): dP 0,634 (ep 0,295); dI 0,249 (ep 0,175); b 1,151 (ep 0,033); D 0,348 (ep 0,199; z 1,8; IC95 -0,04 a 0,74); leitura pelo critério: INCONCLUSIVO
+  R10_UE2013_contra_novas [principal] (193 seções, 25 locais): dP 2,076 (ep 0,760); dI 0,966 (ep 0,411); b 1,116 (ep 0,110); D 0,998 (ep 0,686; z 1,5; IC95 -0,17 a 2,48); leitura pelo critério: INCONCLUSIVO
+  R10_UE2015_contra_novas [principal] (1.188 seções, 107 locais): dP 0,571 (ep 0,319); dI 0,154 (ep 0,180); b 1,170 (ep 0,035); D 0,391 (ep 0,214; z 1,8; IC95 -0,01 a 0,83); leitura pelo critério: INCONCLUSIVO
+  R9_calibracao_UE2022_contra_UE2020 [principal] (43.362 seções, 5.190 locais): dP -0,049 (ep 0,046); dI -0,010 (ep 0,025); b 1,200 (ep 0,010); D -0,037 (ep 0,034; z -1,1; IC95 -0,10 a 0,03); leitura pelo critério: SEM SINAL
+  R9_calibracao_UE2022_contra_UE2020 [R3_b_com_indicador] (43.362 seções, 5.190 locais): dP -0,049 (ep 0,046); dI -0,010 (ep 0,025); b 1,200 (ep 0,010); D -0,037 (ep 0,034; z -1,1; IC95 -0,10 a 0,03); leitura pelo critério: SEM SINAL
+  R9_calibracao_UE2013_contra_UE2015 [principal] (20.490 seções, 2.553 locais): dP 0,181 (ep 0,073); dI 0,126 (ep 0,041); b 1,157 (ep 0,011); D 0,035 (ep 0,054; z 0,6; IC95 -0,07 a 0,14); leitura pelo critério: SEM SINAL
+  R9_calibracao_UE2013_contra_UE2015 [R3_b_com_indicador] (20.490 seções, 2.553 locais): dP 0,181 (ep 0,073); dI 0,126 (ep 0,041); b 1,156 (ep 0,011); D 0,035 (ep 0,054; z 0,6; IC95 -0,07 a 0,14); leitura pelo critério: SEM SINAL
+
+5. Diferenças descritivas antiga menos nova no mesmo desenho (R11)
+  PLdf: 0,145 (ep 0,244; 1.332 seções, 119 locais)
+  PLde: 0,013 (ep 0,274; 1.332 seções, 119 locais)
+  comp_pct: 0,187 (ep 0,335; 1.332 seções, 119 locais)
+  bn_pct: 0,017 (ep 0,094; 1.332 seções, 119 locais)
+  log_apt: -0,025 (ep 0,009; 1.332 seções, 119 locais)
+  Idf: 0,224 (ep 0,195; 1.332 seções, 119 locais)
+  Ide: 0,111 (ep 0,183; 1.332 seções, 119 locais)
+  IsA: 0,453 (ep 0,242; 1.332 seções, 119 locais)
+  IsB: n/d (ep n/d; 0 seções, 0 locais)
+  P2: 0,628 (ep 0,275; 1.332 seções, 119 locais)
+  virada: -0,116 (ep 0,156; 1.332 seções, 119 locais)
+
+6. Senador: candidatos do campo de Lula
+  Fonte: TSE, https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip (consulta_cand_2026_BRASIL.csv, gerado 31/10/2026 05:30:47; sha256 do zip 305c43ed10bb84f9...).
+  Regra principal: candidato a senador registrado pela coligação que inclui a Federação Brasil da Esperança (PT/PCdoB/PV) ou pela própria federação.
+    AC: 131 JORGE VIANA (PT)
+    AL: 156 DR. WANDERLEY (MDB); 151 RENAN (MDB)
+    AM: 155 EDUARDO BRAGA (MDB)
+    AP: 444 ALLINY SERRÃO (UNIÃO); 130 RANDOLFE (PT)
+    BA: 133 RUI COSTA (PT); 130 JAQUES WAGNER (PT)
+    CE: 400 CID GOMES (PSB); 180 LUIZIANNE (REDE)
+    DF: 123 LEILA DO VÔLEI (PDT); 131 ERIKA KOKAY (PT)
+    ES: 133 FABIANO CONTARATO (PT)
+    GO: 400 ISAURA LEMOS (PSB); 500 CINTIA DIAS (PSOL)
+    MA: 133 ELIZIANE GAMA (PT); 500 ENILTON RODRIGUES (PSOL)
+    MG: 131 MARÍLIA CAMPOS (PT); 500 ÁUREA CAROLINA (PSOL)
+    MS: 133 VANDER LOUBET (PT); 400 SORAYA (PSB)
+    MT: 555 FÁVARO (PSD); 400 PEDRO TAQUES (PSB)
+    PA: 151 HELDER (MDB); 444 CHICÃO (UNIÃO)
+    PB: 100 NABOR (REPUBLICANOS); 400 JOAO AZEVÊDO (PSB)
+    PE: 130 HUMBERTO COSTA (PT); 123 MARÍLIA ARRAES (PDT)
+    PI: 555 JÚLIO CÉSAR O JULIM DO LULA (PSD); 151 MARCELO CASTRO (MDB)
+    PR: 132 DR ROSINHA (PT); 131 GLEISI (PT)
+    RJ: 555 PEDRO PAULO (PSD); 131 BENEDITA DA SILVA (PT)
+    RN: 131 SAMANDA DE LULA (PT); 123 RAFAEL MOTTA (PDT)
+    RO: 133 LUCIANA OLIVEIRA (PT); 432 AIRES MOTA (PV)
+    RR: 433 HIPERION DE OLIVEIRA (PV)
+    RS: 500 MANUELA D ÁVILA (PSOL); 131 PIMENTA (PT)
+    SC: 500 AFRÂNIO BOPPRÉ (PSOL); 133 DÉCIO LIMA (PT)
+    SE: 131 ROGERIO CARVALHO (PT); 444 ANDRÉ MOURA (UNIÃO)
+    SP: 400 SIMONE TEBET (PSB); 180 MARINA SILVA (REDE)
+    TO: 133 PAULO MOURÃO (PT)
+  UFs sem candidato pela regra principal: nenhuma.
+  Regra alternativa (candidato a senador de PT, PCdoB ou PV); UFs sem candidato: AL, AM, CE, GO, MT, PA, PB, PI, SP.
+  Conferência no bweb: candidatos ausentes nenhum; partido no bweb diferente do cadastro nenhum.
+
+7. Conferências do bweb
+  Tipos de voto (cargo|tipo: linhas): {'6|1': 23086841, '7|1': 24872474, '5|1': 4215820, '7|2': 485383, '6|4': 2086485, '7|3': 481657, '5|3': 497860, '6|3': 485537, '6|2': 492270, '5|2': 496513, '7|4': 3099486, '8|1': 551961, '8|3': 6924, '8|4': 38106, '8|2': 6967}
+  Seções duplicadas entre zips: 0.
+
+8. Exploração DEPOIS de ver o resultado (fora do registro e do veredito; escolhida depois, não vale como teste)
+  E1. D sem cada zona (46 zonas): menores sem AM|2550|70 (3 locais) 0,289; sem SP|71072|420 (20 locais) 0,318; sem SP|71838|141 (5 locais) 0,392; maiores sem SP|71072|353 (1 locais) 0,485; sem SP|65579|56 (2 locais) 0,494; sem SP|66478|345 (6 locais) 0,496.
+  E2/E3 todos (1.332 seções, 119 locais): principal: dP 0,744, dI 0,262, b 1,156, D 0,441 (ep 0,208; leitura se fosse o registrado: INCONCLUSIVO); I_dois_lados: dP 0,744, dI 0,183, b 0,606, D 0,633 (ep 0,196; leitura se fosse o registrado: SINAL DE MÁQUINA); so_PL_deputados: dP 0,744, dI 0,079, b -0,761, D 0,805 (ep 0,244; leitura se fosse o registrado: SINAL DE MÁQUINA)
+  E2/E3 so_AM (40 seções, 3 locais): principal: dP 3,684, dI 0,294, b 2,383, D 2,982 (ep 0,390; leitura se fosse o registrado: SINAL DE MÁQUINA); I_dois_lados: dP 3,684, dI 2,409, b 1,142, D 0,933 (ep 0,617; leitura se fosse o registrado: INCONCLUSIVO); so_PL_deputados: dP 3,684, dI -2,115, b -1,495, D 0,523 (ep 0,546; leitura se fosse o registrado: INCONCLUSIVO)
+  E2/E3 so_MT (33 seções, 3 locais): principal: dP 2,527, dI 2,400, b 1,368, D -0,757 (ep 0,106; leitura se fosse o registrado: INCONCLUSIVO); I_dois_lados: dP 2,527, dI 3,869, b 0,855, D -0,780 (ep 0,383; leitura se fosse o registrado: INCONCLUSIVO); so_PL_deputados: dP 2,527, dI -1,470, b -1,226, D 0,725 (ep 0,991; leitura se fosse o registrado: INCONCLUSIVO)
+  E2/E3 sem_AM (1.292 seções, 116 locais): principal: dP 0,586, dI 0,261, b 1,139, D 0,289 (ep 0,185; leitura se fosse o registrado: SEM SINAL); I_dois_lados: dP 0,586, dI 0,064, b 0,594, D 0,549 (ep 0,188; leitura se fosse o registrado: INCONCLUSIVO); so_PL_deputados: dP 0,586, dI 0,197, b -0,740, D 0,732 (ep 0,241; leitura se fosse o registrado: SINAL DE MÁQUINA)
+  E2/E3 so_SP (1.259 seções, 113 locais): principal: dP 0,532, dI 0,200, b 1,135, D 0,304 (ep 0,189; leitura se fosse o registrado: INCONCLUSIVO); I_dois_lados: dP 0,532, dI -0,043, b 0,590, D 0,557 (ep 0,192; leitura se fosse o registrado: INCONCLUSIVO); so_PL_deputados: dP 0,532, dI 0,244, b -0,735, D 0,711 (ep 0,244; leitura se fosse o registrado: INCONCLUSIVO)
+  E4. Só locais com 2 ou mais seções de cada grupo (791 seções, 66 locais): D 0,346 (ep 0,230).
+  E5. Posição relativa da seção antiga no local (0 = menor número, 1 = maior): antiga menos nova 0,046 (ep 0,049); no AM -0,541 (ep 0,008); coeficiente da antiga em P com índice e posição 0,431 (ep CR1 0,213).
+  E6. Arquivos de urna do 1º turno das 40 seções dos 3 locais de Manaus, zona 70: modelo do log igual ao da faixa em 40, urna do boletim igual à do bweb em 40, presidente do boletim igual ao bweb em 40, senador em 40; versão 10.23.0.0 - Praia da Barra do Cahy.
+
+Desvios declarados (decisões que o registro não fixa, tomadas antes de calcular): ver o docstring do script, D1 a D12 e R1 a R11.

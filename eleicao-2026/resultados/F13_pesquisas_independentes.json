@@ -1,0 +1,1699 @@
+{
+ "teste": "F13 do Adendo 21: pesquisas independentes da urna",
+ "data": "31/10/2026",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 21, commit 913af7a (31/10/2026 10:36:29 UTC)",
+ "regua": "confere com a urna: 47 a 59 (52 a 54 mais ou menos 5); confere com as pesquisas de antes: 32 a 44; intermediário: entre 44 e 47 (D3)",
+ "decisoes_antes": "docstring deste script; cópia em /home/user/trabalho-eleicao/adendo21/F13_scripts/decisoes_antes_de_buscar.py, sha256 f11d8b3c9dd07e913071d8af884e92343073c8e6dfa0ae74923641b052b4e08c, 31/10/2026 11h49 UTC",
+ "urna": {
+  "por_grupo_bweb": {
+   "Cury": [
+    59.64,
+    0.27
+   ],
+   "Renan": [
+    54.22,
+    0.29
+   ],
+   "Caiado": [
+    48.8,
+    0.31
+   ],
+   "Zema": [
+    36.1,
+    0.86
+   ]
+  },
+  "por_grupo_amostra_T37": {
+   "Cury": [
+    54.0,
+    2.96
+   ],
+   "Renan": [
+    49.31,
+    3.07
+   ],
+   "Caiado": [
+    54.18,
+    3.31
+   ],
+   "Zema": [
+    41.82,
+    8.37
+   ]
+  },
+  "todos": {
+   "bweb, todos os eliminados num grupo (L5, so_urna_regressao)": [
+    54.07,
+    0.17
+   ],
+   "amostra do T37, quatro grupos somados pelos votos do 1º turno": [
+    52.2,
+    1.74
+   ]
+  },
+  "oficial_2T_L_validos": 51.79,
+  "oficial_1T_validos": {
+   "Flavio": 47.03,
+   "Lula": 45.16,
+   "eliminados": 7.81
+  }
+ },
+ "fontes": [
+  {
+   "id": "PoderData 23-24/10",
+   "papel": "F13",
+   "instituto": "PoderData",
+   "campo": "23 e 24/10/2026",
+   "registro": "BR-02828/2026",
+   "n": 4000,
+   "metodo": "telefone IVR",
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+   "arquivo": "/home/user/trabalho-eleicao/adendo21/F13_dl_poderdata24out/pd24out.pdf (sha256 9c41cf86fa7c7e72aee800c181781ce226acd369f680861301330fd235f38450), p. 10",
+   "nota": "tabela \"Voto no 1º turno\"; branco/nulo e não sabe: Cury 11 e 2, Renan 19 e 5, Caiado 20 e 4, Outro 0 e 20; ponderação inclui \"resultado do 1º turno\"; não publica o tamanho das subamostras nem a lembrança por candidato",
+   "s": 36.78,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 234.8,
+   "fracao_que_escolhe_finalista": 0.803,
+   "n_efetivo": 188.6,
+   "deff1": {
+    "ep": 3.51,
+    "ic95": [
+     29.9,
+     43.7
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes"
+    ]
+   },
+   "deff2": {
+    "ep": 4.97,
+    "ic95": [
+     27.1,
+     46.5
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 37.99,
+     "faixa": "confere com as pesquisas de antes"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 38.74,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Augusto Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 29,
+     "F": 58,
+     "fatia_L": 33.3,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan Santos",
+     "representa": [
+      "Renan"
+     ],
+     "L": 33,
+     "F": 43,
+     "fatia_L": 43.4,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Ronaldo Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 30,
+     "F": 46,
+     "fatia_L": 39.5,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Outro candidato",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 15,
+     "F": 65,
+     "fatia_L": 18.8,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Colectta 23/10",
+   "papel": "F13",
+   "instituto": "Colectta (Brazil Economy)",
+   "campo": "23/10/2026",
+   "registro": "BR-05601/2026",
+   "n": 3000,
+   "metodo": "presencial, 101 municípios",
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://brazileconomy.com.br/mais-lidas/2026/10/lula-tem-503-dos-votos-validos-e-flavio-497-aponta-pesquisa-brazil-economycolectta/",
+   "arquivo": "matéria de 24/10/2026 10h49 (atualizada 26/10 21h47), lida por WebFetch em 31/10/2026; trechos literais no JSON",
+   "nota": "\"Dos que escolheram Augusto Cury, 37,5% pretendem votar no senador, contra 33,4% em Lula.\" / \"Entre os apoiadores de Renan Santos, os percentuais são de 40,9% e 30,4%, respectivamente.\" / \"No eleitorado de Ronaldo Caiado, Flávio registra 35,9%, ante 30,7% do presidente.\" Sem Zema e sem outros; sem branco/nulo por coluna; relatório não achado",
+   "s": 45.42,
+   "faixa": "intermediário",
+   "cobertura_dos_eliminados": 0.937,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan"
+   ],
+   "n_grupo_estimado": 165.0,
+   "fracao_que_escolhe_finalista": 0.697,
+   "n_efetivo": 115.1,
+   "deff1": {
+    "ep": 4.64,
+    "ic95": [
+     36.3,
+     54.5
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 6.56,
+    "ic95": [
+     32.6,
+     58.3
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "c_media_simples_das_nomeadas": {
+     "s": 45.28,
+     "faixa": "intermediário"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Augusto Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 33.4,
+     "F": 37.5,
+     "fatia_L": 47.1,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan Santos",
+     "representa": [
+      "Renan"
+     ],
+     "L": 30.4,
+     "F": 40.9,
+     "fatia_L": 42.6,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Ronaldo Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 30.7,
+     "F": 35.9,
+     "fatia_L": 46.1,
+     "peso_votos_1T": 2605148
+    }
+   ]
+  },
+  {
+   "id": "AtlasIntel 18-23/10",
+   "papel": "F13",
+   "instituto": "AtlasIntel/Bloomberg",
+   "campo": "18 a 23/10/2026",
+   "registro": "BR-06380/2026",
+   "n": 4990,
+   "metodo": "recrutamento digital aleatório",
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://www.bloomberglinea.com.br/brasil/pesquisas-indicam-cenario-acirrado-com-flavio-e-lula-empatados-dentro-da-margem-de-erro/",
+   "arquivo": "matéria da Bloomberg Línea de 24/10/2026 22h53, lida por WebFetch em 31/10/2026",
+   "nota": "\"Entre os eleitores de Renan Santos no primeiro turno, 40,8% declaram voto no senador, 30,7% no presidente\" (branco, nulo ou indeciso 28,6%). Só Renan publicado; Cury, Caiado e outros não aparecem; relatório não achado",
+   "s": 42.94,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 0.2872,
+   "grupos_cobertos": [
+    "Renan"
+   ],
+   "n_grupo_estimado": 84.1,
+   "fracao_que_escolhe_finalista": 0.715,
+   "n_efetivo": 60.1,
+   "deff1": {
+    "ep": 6.38,
+    "ic95": [
+     30.4,
+     55.4
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 9.03,
+    "ic95": [
+     25.2,
+     60.6
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna",
+     "acima da urna"
+    ]
+   },
+   "sensibilidade": {
+    "c_media_simples_das_nomeadas": {
+     "s": 42.94,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.22,
+   "urna_mesmas_colunas_amostra_T37": 49.31,
+   "por_coluna": [
+    {
+     "coluna": "Renan Santos",
+     "representa": [
+      "Renan"
+     ],
+     "L": 30.7,
+     "F": 40.8,
+     "fatia_L": 42.9,
+     "peso_votos_1T": 2675887
+    }
+   ]
+  }
+ ],
+ "referencias": [
+  {
+   "id": "PoderData 19-21/10",
+   "papel": "ref",
+   "instituto": "PoderData",
+   "campo": "19 a 21/10",
+   "registro": "BR-07926/2026",
+   "n": 4000,
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf",
+   "s": 43.79,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 234.8,
+   "fracao_que_escolhe_finalista": 0.849,
+   "n_efetivo": 199.3,
+   "deff1": {
+    "ep": 3.51,
+    "ic95": [
+     36.9,
+     50.7
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 4.97,
+    "ic95": [
+     34.0,
+     53.5
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 45.33,
+     "faixa": "intermediário"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 44.09,
+     "faixa": "intermediário"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 48,
+     "F": 42,
+     "fatia_L": 53.3,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 34,
+     "F": 49,
+     "fatia_L": 41.0,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 30,
+     "F": 49,
+     "fatia_L": 38.0,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Outro",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 20,
+     "F": 70,
+     "fatia_L": 22.2,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Quaest 17-20/10",
+   "papel": "ref",
+   "instituto": "Quaest",
+   "campo": "17 a 20/10",
+   "registro": "BR-08535/2026",
+   "n": 2154,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://www.diariodepernambuco.com.br/politica/2026/10/11727201-quaest-48-dos-eleitores-de-augusto-cury-migram-para-lula-e-33-para-flavio.html",
+   "s": 41.86,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 0.937,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan"
+   ],
+   "n_grupo_estimado": 118.5,
+   "fracao_que_escolhe_finalista": 0.786,
+   "n_efetivo": 93.1,
+   "deff1": {
+    "ep": 5.11,
+    "ic95": [
+     31.8,
+     51.9
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 7.23,
+    "ic95": [
+     27.7,
+     56.0
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "c_media_simples_das_nomeadas": {
+     "s": 39.69,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 48,
+     "F": 33,
+     "fatia_L": 59.3,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 25,
+     "F": 51,
+     "fatia_L": 32.9,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 21,
+     "F": 57,
+     "fatia_L": 26.9,
+     "peso_votos_1T": 2605148
+    }
+   ]
+  },
+  {
+   "id": "AtlasIntel 13-18/10",
+   "papel": "ref",
+   "instituto": "AtlasIntel/Bloomberg",
+   "campo": "13 a 18/10",
+   "registro": "BR-02418/2026",
+   "n": 4998,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/",
+   "s": 43.33,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 293.3,
+   "fracao_que_escolhe_finalista": 0.859,
+   "n_efetivo": 252.1,
+   "deff1": {
+    "ep": 3.12,
+    "ic95": [
+     37.2,
+     49.4
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 4.41,
+    "ic95": [
+     34.7,
+     52.0
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 44.05,
+     "faixa": "intermediário"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 43.3,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 52.1,
+     "F": 42.4,
+     "fatia_L": 55.1,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 31.9,
+     "F": 33.5,
+     "fatia_L": 48.8,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 24.5,
+     "F": 69.8,
+     "fatia_L": 26.0,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Outros (inclui Zema)",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 30.7,
+     "F": 61.3,
+     "fatia_L": 33.4,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Ipespe 13-15/10",
+   "papel": "ref",
+   "instituto": "Ipespe/Abrapel",
+   "campo": "13 a 15/10",
+   "registro": "BR-00223/2026",
+   "n": 1500,
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf",
+   "lembranca": {
+    "Cury": 2,
+    "Caiado": 2,
+    "Renan": 2,
+    "outro_com_zema": 1
+   },
+   "s": 32.41,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 88.0,
+   "fracao_que_escolhe_finalista": 0.739,
+   "n_efetivo": 65.1,
+   "deff1": {
+    "ep": 5.8,
+    "ic95": [
+     21.0,
+     43.8
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes"
+    ]
+   },
+   "deff2": {
+    "ep": 8.21,
+    "ic95": [
+     16.3,
+     48.5
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 32.37,
+     "faixa": "confere com as pesquisas de antes"
+    },
+    "b_pesos_pela_lembranca_da_pesquisa": {
+     "s": 31.85,
+     "faixa": "abaixo das pesquisas de antes",
+     "pesos": {
+      "Cury": 2,
+      "Caiado": 2,
+      "Renan": 2,
+      "outro_com_zema": 1
+     }
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 31.66,
+     "faixa": "abaixo das pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 31,
+     "F": 50,
+     "fatia_L": 38.3,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 18,
+     "F": 59,
+     "fatia_L": 23.4,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 20,
+     "F": 40,
+     "fatia_L": 33.3,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Outros",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 27,
+     "F": 55,
+     "fatia_L": 32.9,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Datafolha 13-14/10",
+   "papel": "ref",
+   "instituto": "Datafolha",
+   "campo": "13 e 14/10",
+   "registro": "BR-00466/2026",
+   "n": 2520,
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/datafolha-15out2026-pesquisa-nacional.pdf",
+   "s": 36.99,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 0.972,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema"
+   ],
+   "n_grupo_estimado": 143.8,
+   "fracao_que_escolhe_finalista": 0.73,
+   "n_efetivo": 104.9,
+   "deff1": {
+    "ep": 4.71,
+    "ic95": [
+     27.7,
+     46.2
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário"
+    ]
+   },
+   "deff2": {
+    "ep": 6.66,
+    "ic95": [
+     23.9,
+     50.0
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {},
+   "por_coluna": [
+    {
+     "coluna": "Cury, Renan, Caiado ou Zema",
+     "representa": [
+      "Cury",
+      "Renan",
+      "Caiado",
+      "Zema"
+     ],
+     "L": 27,
+     "F": 46,
+     "fatia_L": 37.0,
+     "peso_votos_1T": 9056092
+    }
+   ]
+  },
+  {
+   "id": "Quaest 10-13/10",
+   "papel": "ref",
+   "instituto": "Quaest",
+   "campo": "10 a 13/10",
+   "registro": "BR-08729/2026",
+   "n": 2154,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://www.opovo.com.br/noticias/politica/eleicoes/2026/10/16/quaest-traz-transferencia-de-voto-no-2-turno-a-flavio-e-lula.html",
+   "s": 40.61,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 126.4,
+   "fracao_que_escolhe_finalista": 0.618,
+   "n_efetivo": 78.2,
+   "deff1": {
+    "ep": 5.55,
+    "ic95": [
+     29.7,
+     51.5
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 7.85,
+    "ic95": [
+     25.2,
+     56.0
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 40.15,
+     "faixa": "confere com as pesquisas de antes"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 38.15,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 34,
+     "F": 30,
+     "fatia_L": 53.1,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 14,
+     "F": 40,
+     "fatia_L": 25.9,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 23,
+     "F": 42,
+     "fatia_L": 35.4,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Outros",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 33,
+     "F": 38,
+     "fatia_L": 46.5,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Nexus 10-12/10",
+   "papel": "ref",
+   "instituto": "Nexus/BTG",
+   "campo": "10 a 12/10",
+   "registro": "BR-07997/2026",
+   "n": 2002,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/",
+   "s": 37.89,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 117.5,
+   "fracao_que_escolhe_finalista": 0.789,
+   "n_efetivo": 92.7,
+   "deff1": {
+    "ep": 5.04,
+    "ic95": [
+     28.0,
+     47.8
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 7.12,
+    "ic95": [
+     23.9,
+     51.8
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 30.48,
+     "faixa": "abaixo das pesquisas de antes"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 22.99,
+     "faixa": "abaixo das pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 47.39,
+   "urna_mesmas_colunas_amostra_T37": 52.8,
+   "por_coluna": [
+    {
+     "coluna": "Zema",
+     "representa": [
+      "Zema"
+     ],
+     "L": 12,
+     "F": 80,
+     "fatia_L": 13.0,
+     "peso_votos_1T": 326488
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 27,
+     "F": 55,
+     "fatia_L": 32.9,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Outros candidatos",
+     "representa": [
+      "Cury",
+      "Renan",
+      "esquerda",
+      "demais"
+     ],
+     "L": 32,
+     "F": 45,
+     "fatia_L": 41.6,
+     "peso_votos_1T": 6385111
+    }
+   ]
+  },
+  {
+   "id": "AtlasIntel 3-8/10",
+   "papel": "ref",
+   "instituto": "AtlasIntel/Bloomberg",
+   "campo": "3 a 8/10",
+   "registro": "BR-03663/2026",
+   "n": 5026,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://tvtnews.com.br/?p=805894",
+   "s": 43.03,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 295.0,
+   "fracao_que_escolhe_finalista": 0.818,
+   "n_efetivo": 241.2,
+   "deff1": {
+    "ep": 3.19,
+    "ic95": [
+     36.8,
+     49.3
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 4.51,
+    "ic95": [
+     34.2,
+     51.9
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 45.32,
+     "faixa": "intermediário"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 43.47,
+     "faixa": "confere com as pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 50.4,
+     "F": 38.9,
+     "fatia_L": 56.4,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 28.1,
+     "F": 40.3,
+     "fatia_L": 41.1,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 26.9,
+     "F": 54.9,
+     "fatia_L": 32.9,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Demais candidatos",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 14.8,
+     "F": 83.4,
+     "fatia_L": 15.1,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Ipespe 6-8/10",
+   "papel": "ref",
+   "instituto": "Ipespe/Abrapel",
+   "campo": "6 a 8/10",
+   "registro": "BR-00933/2026",
+   "n": 1500,
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-abrapel-10out2026.pdf",
+   "lembranca": {
+    "Cury": 2,
+    "Caiado": 2,
+    "Renan": 2
+   },
+   "s": 33.03,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 88.0,
+   "fracao_que_escolhe_finalista": 0.702,
+   "n_efetivo": 61.8,
+   "deff1": {
+    "ep": 5.98,
+    "ic95": [
+     21.3,
+     44.8
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário"
+    ]
+   },
+   "deff2": {
+    "ep": 8.46,
+    "ic95": [
+     16.4,
+     49.6
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 31.72,
+     "faixa": "abaixo das pesquisas de antes"
+    },
+    "b_pesos_pela_lembranca_da_pesquisa": {
+     "s": 31.07,
+     "faixa": "abaixo das pesquisas de antes",
+     "pesos": {
+      "Cury": 2,
+      "Caiado": 2,
+      "Renan": 2
+     }
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 31.18,
+     "faixa": "abaixo das pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.74,
+   "urna_mesmas_colunas_amostra_T37": 52.62,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 29,
+     "F": 50,
+     "fatia_L": 36.7,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 15,
+     "F": 56,
+     "fatia_L": 21.1,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 20,
+     "F": 36,
+     "fatia_L": 35.7,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Outros",
+     "representa": [
+      "Zema",
+      "esquerda",
+      "demais"
+     ],
+     "L": 40,
+     "F": 40,
+     "fatia_L": 50.0,
+     "peso_votos_1T": 587143
+    }
+   ]
+  },
+  {
+   "id": "Datafolha 6-7/10",
+   "papel": "ref",
+   "instituto": "Datafolha",
+   "campo": "6 e 7/10",
+   "registro": "BR-02949/2026",
+   "n": 2520,
+   "amostra_tipo": "eleitores",
+   "confianca": "média",
+   "fonte": "https://www.diariodepernambuco.com.br/politica/2026/10/11726210-datafolha-46-dos-eleitores-de-candidatos-derrotados-no-1-turno-migram-para-flavio-bolsonaro.html",
+   "s": 41.03,
+   "faixa": "confere com as pesquisas de antes",
+   "cobertura_dos_eliminados": 0.972,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema"
+   ],
+   "n_grupo_estimado": 143.8,
+   "fracao_que_escolhe_finalista": 0.78,
+   "n_efetivo": 112.1,
+   "deff1": {
+    "ep": 4.65,
+    "ic95": [
+     31.9,
+     50.1
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "deff2": {
+    "ep": 6.57,
+    "ic95": [
+     28.2,
+     53.9
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "sensibilidade": {},
+   "por_coluna": [
+    {
+     "coluna": "Cury, Renan, Caiado ou Zema",
+     "representa": [
+      "Cury",
+      "Renan",
+      "Caiado",
+      "Zema"
+     ],
+     "L": 32,
+     "F": 46,
+     "fatia_L": 41.0,
+     "peso_votos_1T": 9056092
+    }
+   ]
+  },
+  {
+   "id": "PoderData 5-7/10",
+   "papel": "ref",
+   "instituto": "PoderData",
+   "campo": "5 a 7/10",
+   "registro": "BR-08134/2026",
+   "n": 3000,
+   "amostra_tipo": "eleitores",
+   "confianca": "alta",
+   "fonte": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-8out26-final.pdf",
+   "s": 30.9,
+   "faixa": "abaixo das pesquisas de antes",
+   "cobertura_dos_eliminados": 1.0,
+   "grupos_cobertos": [
+    "Caiado",
+    "Cury",
+    "Renan",
+    "Zema",
+    "demais",
+    "esquerda"
+   ],
+   "n_grupo_estimado": 176.1,
+   "fracao_que_escolhe_finalista": 0.774,
+   "n_efetivo": 136.3,
+   "deff1": {
+    "ep": 3.96,
+    "ic95": [
+     23.1,
+     38.7
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes"
+    ]
+   },
+   "deff2": {
+    "ep": 5.6,
+    "ic95": [
+     19.9,
+     41.9
+    ],
+    "faixas_tocadas": [
+     "abaixo das pesquisas de antes",
+     "confere com as pesquisas de antes"
+    ]
+   },
+   "sensibilidade": {
+    "a_so_colunas_nomeadas": {
+     "s": 30.12,
+     "faixa": "abaixo das pesquisas de antes"
+    },
+    "c_media_simples_das_nomeadas": {
+     "s": 25.99,
+     "faixa": "abaixo das pesquisas de antes"
+    }
+   },
+   "urna_mesmas_colunas_bweb": 54.07,
+   "urna_mesmas_colunas_amostra_T37": 52.23,
+   "por_coluna": [
+    {
+     "coluna": "Cury",
+     "representa": [
+      "Cury"
+     ],
+     "L": 27,
+     "F": 56,
+     "fatia_L": 32.5,
+     "peso_votos_1T": 3448569
+    },
+    {
+     "coluna": "Renan",
+     "representa": [
+      "Renan"
+     ],
+     "L": 25,
+     "F": 48,
+     "fatia_L": 34.2,
+     "peso_votos_1T": 2675887
+    },
+    {
+     "coluna": "Caiado",
+     "representa": [
+      "Caiado"
+     ],
+     "L": 19,
+     "F": 57,
+     "fatia_L": 25.0,
+     "peso_votos_1T": 2605148
+    },
+    {
+     "coluna": "Zema",
+     "representa": [
+      "Zema"
+     ],
+     "L": 10,
+     "F": 72,
+     "fatia_L": 12.2,
+     "peso_votos_1T": 326488
+    },
+    {
+     "coluna": "Outro",
+     "representa": [
+      "esquerda",
+      "demais"
+     ],
+     "L": 39,
+     "F": 19,
+     "fatia_L": 67.2,
+     "peso_votos_1T": 260655
+    }
+   ]
+  }
+ ],
+ "sem_cruzamento": [
+  {
+   "fonte": "Nexus/BTG 23-24/10 (BR-08234/2026, n 2.000)",
+   "situacao": "só \"votou no 1º turno\" (Flávio 51,2 x Lula 48,8 nos válidos) e \"não compareceu\" (Lula 53,2 x Flávio 46,8); nenhuma coluna de eliminados (Bloomberg Línea 24/10; Tribuna de Jundiaí); relatório não achado (static.poder360: 404 nos nomes do padrão da rodada de 19/10)"
+  },
+  {
+   "fonte": "Quaest 23-24/10 (BR-09158/2026, n 3.702)",
+   "situacao": "cruzamento não publicado na imprensa achada; o PDF baixado de static.poder360.com.br/uploads/2026/10/Pesquisa-Quaest-Nacional-24-out.pdf é a impressão da matéria do g1 sobre aprovação, sem tabelas; g1 bloqueado para a ferramenta de leitura"
+  },
+  {
+   "fonte": "Datafolha 23-24/10 (BR-09540/2026, n 4.050)",
+   "situacao": "só total, válidos e propensão de comparecer (alta 76%: Flávio 52 x 48; média ou baixa 24%: Lula 52 x 48); relatório não achado (404 nos nomes do padrão do relatório de 15/10)"
+  },
+  {
+   "fonte": "Ipespe/Abrapel 20-22/10 (n 1.500)",
+   "situacao": "matérias (Midiamax, SBT) sem o recall; PDF não achado (404 nos nomes do padrão das rodadas anteriores)"
+  },
+  {
+   "fonte": "Futura 23-24/10 (BR-09726/2026, n 2.000)",
+   "situacao": "Gazeta do Povo sem cruzamento"
+  },
+  {
+   "fonte": "Gerp 22-24/10 (BR-09327/2026, n 2.400)",
+   "situacao": "CNN diz \"confira a íntegra abaixo\", mas o documento não está na página lida"
+  },
+  {
+   "fonte": "CNT/MDA 21-23/10, Palver 22-24/10, Veritá 19-23/10, Instituto França 21-23/10, Vetor 23/10, 100% Cidades 24/10, Vox Brasil 20-22/10, Real Time Big Data 19-22/10, Alfa 19-22/10",
+   "situacao": "nenhum cruzamento por voto no 1º turno achado"
+  }
+ ],
+ "nao_achado": {
+  "pos_eleicao": "Nenhuma pesquisa nacional com campo depois de 25/10/2026 achada até 31/10/2026 (Placar das Pesquisas lista a última nacional em 24/10; a lista da Wikipedia em inglês também). A BBC News Brasil (reproduzida pelo Em Dia ES em 27/10, 17h15) cita especialistas que sugerem reentrevistar quem participou das pesquisas e checar se votou e se manteve o voto, como proposta, não como estudo feito.",
+  "boca_de_urna": "Nenhuma boca de urna nacional de presidente em 25/10/2026 achada (Wikipedia e Placar não listam; buscas por Ipec, AtlasIntel, Quaest e Datafolha sem resultado). A AtlasIntel diz (TMC, 26 ou 27/10) que teve um \"último tracking, com campo encerrado às 8h do dia da eleição\" com Lula em 49,7%; é pesquisa de véspera estendida, não boca de urna, e o cruzamento não foi achado.",
+  "quem_deixou_ou_passou_a_votar": "Nenhuma pesquisa pós-eleição mede quem deixou de votar ou passou a votar. O que existe é de antes do 2º turno: PoderData 23-24/10 (11% da amostra não votou no 1º turno; entre eles Lula 50, Flávio 35, branco/nulo 15; com certeza vai votar 65%), Colectta 23/10 (7,4% da amostra ponderada não votou; Lula 51,8 x Flávio 34,3), Nexus 23-24/10 (não compareceu: Lula 53,2 x 46,8 nos válidos) e Datafolha 23-24/10 (propensão média ou baixa, 24%: Lula 52 x 48). A AtlasIntel explica o erro pela volta de eleitores ao 2º turno, sem número de pesquisa feita depois."
+ },
+ "pistas": [
+  "Distância urna x pesquisa cresce do eliminado mais ao centro para o mais à direita: Cury 9,5 pontos, Renan 13,2, Caiado 15,9, Zema 23,5 (urna no bweb menos a mediana das rodadas; item por_grupo_descritivo deste JSON). O L4 viu o mesmo dentro das UFs de origem (GO Caiado 45,9 x 26,9; MG Zema 34,7 x 12,6; SP Cury 57,8 x 46,7; resultados/L4_bweb.txt). O padrão cabe em três leituras que estes dados não separam: viés ecológico (a regressão dá ao eleitor de Caiado e Zema o movimento dos vizinhos), mudança tardia ou abstenção desses eleitores depois da pesquisa, ou votos movidos de Flávio para Lula em proporção parecida em todo lugar.",
+  "Institutos discordam muito sobre os eleitores de Cury (maior grupo, 37% dos eliminados): de 32,5% (PoderData 5-7/10) a 59,3% (Quaest 17-20/10); o PoderData foi de 53,3% (19-21/10) para 33,3% (23-24/10) em três dias. Quaest 17-20/10 e AtlasIntel 13-18/10 (59,3 e 55,1) ficam perto da urna para Cury (59,6); a diferença urna x pesquisa fica sobretudo em Renan, Caiado e Zema.",
+  "Quem não votou no 1º turno: PoderData final 58,8% para Lula entre os que escolhem (50 x 35), Colectta 60,2% (51,8 x 34,3), Nexus 53,2%; a regressão da urna no aumento do comparecimento dá 56,4% (L5). Bate; a diferença não está nos que passaram a votar.",
+  "A AtlasIntel diz ter feito um \"último tracking, com campo encerrado às 8h do dia da eleição\" (Lula 49,7%; TMC, https://tmc.com.br/politica/atlasintel-pesquisas-subestimaram-comparecimento-lula-2turno-2026). É a medida mais próxima do voto que existe; o cruzamento por voto no 1º turno não foi publicado.",
+  "Relatórios completos que podem existir e não foram lidos: Quaest e Datafolha de 23-24/10 (o g1 cita \"página especial com todos os detalhes\"; g1 bloqueado para a ferramenta), Nexus 23-24/10, Gerp 22-24/10 (CNN diz \"confira a íntegra\"), Ipespe 20-22/10. Dá para abrir num navegador comum, sem pedir nada a ninguém; o registro no PesqEle do TSE (BR-09158, BR-09540, BR-08234, BR-09327) também.",
+  "Ipespe 20-22/10 aparece com o mesmo registro da rodada de 13-15/10 (BR-00223/2026, Midiamax e SeuDinheiro); a Gazeta do Povo grafa o Datafolha final como \"BR-BR-09540/2026\". Detalhes de registro a conferir no PesqEle.",
+  "O \"Relatório Pericial Independente\" que circula desde 28/10 (Aos Fatos, 29/10, https://aosfatos.org/noticias/relatorio-fraude-eleitoral-distorce-dados-omite-fatos; o TSE também checou) já foi conferido neste repositório (checagens/relatorio_pericial_instagram, commit a4e44b8): não é pista nova para o F13.",
+  "Flávio não reconheceu o resultado alegando a extensão do horário de votação (Wikipedia em inglês, seção Aftermath); liga com o F14 (17 seções da zona 90 de Volta Redonda mantidas abertas) e com o L1.",
+  "Nenhuma pesquisa pós-eleição mediu quem deixou de votar ou passou a votar; a BBC (27/10) registra a sugestão de especialistas de reentrevistar quem respondeu às pesquisas. Um painel desses (pedir aos institutos) é o teste que separa as leituras acima."
+ ],
+ "resumo": {
+  "fontes_com_regua": 3,
+  "por_faixa": {
+   "confere com as pesquisas de antes": 2,
+   "intermediário": 1
+  },
+  "pos_eleicao_com_lembranca": 0,
+  "boca_de_urna": 0,
+  "veredito": "Pela letra: nenhuma pesquisa pós-eleição e nenhuma boca de urna achadas (essas partes ficam SEM DADOS). Relatórios finais com cruzamento: PoderData 23-24/10 36,8% (confere com as pesquisas de antes); Colectta 23/10 45,4% (intermediário); AtlasIntel 18-23/10 42,9% (confere com as pesquisas de antes).",
+  "referencias_min_max": [
+   30.9,
+   43.79
+  ],
+  "combinado_pos_hoc": {
+   "deff1": {
+    "s": 39.92,
+    "ep": 2.8,
+    "ic95": [
+     34.4,
+     45.4
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário"
+    ]
+   },
+   "deff2": {
+    "s": 39.93,
+    "ep": 3.96,
+    "ic95": [
+     32.2,
+     47.7
+    ],
+    "faixas_tocadas": [
+     "confere com as pesquisas de antes",
+     "intermediário",
+     "confere com a urna"
+    ]
+   },
+   "fontes": [
+    "PoderData 23-24/10",
+    "Colectta 23/10"
+   ],
+   "diferenca_entre_as_duas": {
+    "dif": 8.64,
+    "ep_deff1": 5.82,
+    "z": 1.49
+   }
+  },
+  "por_grupo_descritivo": {
+   "Cury": {
+    "n_rodadas": 10,
+    "minimo": 32.5,
+    "mediana": 50.1,
+    "maximo": 59.3,
+    "urna_bweb": 59.64,
+    "urna_amostra_T37": 54.0,
+    "urna_menos_mediana": 9.5,
+    "rodadas": [
+     [
+      "PoderData 23-24/10",
+      33.3
+     ],
+     [
+      "Colectta 23/10",
+      47.1
+     ],
+     [
+      "PoderData 19-21/10",
+      53.3
+     ],
+     [
+      "Quaest 17-20/10",
+      59.3
+     ],
+     [
+      "AtlasIntel 13-18/10",
+      55.1
+     ],
+     [
+      "Ipespe 13-15/10",
+      38.3
+     ],
+     [
+      "Quaest 10-13/10",
+      53.1
+     ],
+     [
+      "AtlasIntel 3-8/10",
+      56.4
+     ],
+     [
+      "Ipespe 6-8/10",
+      36.7
+     ],
+     [
+      "PoderData 5-7/10",
+      32.5
+     ]
+    ]
+   },
+   "Renan": {
+    "n_rodadas": 11,
+    "minimo": 25.9,
+    "mediana": 41.0,
+    "maximo": 48.8,
+    "urna_bweb": 54.22,
+    "urna_amostra_T37": 49.31,
+    "urna_menos_mediana": 13.2,
+    "rodadas": [
+     [
+      "PoderData 23-24/10",
+      43.4
+     ],
+     [
+      "Colectta 23/10",
+      42.6
+     ],
+     [
+      "AtlasIntel 18-23/10",
+      42.9
+     ],
+     [
+      "PoderData 19-21/10",
+      41.0
+     ],
+     [
+      "Quaest 17-20/10",
+      32.9
+     ],
+     [
+      "AtlasIntel 13-18/10",
+      48.8
+     ],
+     [
+      "Ipespe 13-15/10",
+      33.3
+     ],
+     [
+      "Quaest 10-13/10",
+      25.9
+     ],
+     [
+      "AtlasIntel 3-8/10",
+      41.1
+     ],
+     [
+      "Ipespe 6-8/10",
+      35.7
+     ],
+     [
+      "PoderData 5-7/10",
+      34.2
+     ]
+    ]
+   },
+   "Caiado": {
+    "n_rodadas": 11,
+    "minimo": 21.1,
+    "mediana": 32.9,
+    "maximo": 46.1,
+    "urna_bweb": 48.8,
+    "urna_amostra_T37": 54.18,
+    "urna_menos_mediana": 15.9,
+    "rodadas": [
+     [
+      "PoderData 23-24/10",
+      39.5
+     ],
+     [
+      "Colectta 23/10",
+      46.1
+     ],
+     [
+      "PoderData 19-21/10",
+      38.0
+     ],
+     [
+      "Quaest 17-20/10",
+      26.9
+     ],
+     [
+      "AtlasIntel 13-18/10",
+      26.0
+     ],
+     [
+      "Ipespe 13-15/10",
+      23.4
+     ],
+     [
+      "Quaest 10-13/10",
+      35.4
+     ],
+     [
+      "Nexus 10-12/10",
+      32.9
+     ],
+     [
+      "AtlasIntel 3-8/10",
+      32.9
+     ],
+     [
+      "Ipespe 6-8/10",
+      21.1
+     ],
+     [
+      "PoderData 5-7/10",
+      25.0
+     ]
+    ]
+   },
+   "Zema": {
+    "n_rodadas": 2,
+    "minimo": 12.2,
+    "mediana": 12.6,
+    "maximo": 13.0,
+    "urna_bweb": 36.1,
+    "urna_amostra_T37": 41.82,
+    "urna_menos_mediana": 23.5,
+    "rodadas": [
+     [
+      "Nexus 10-12/10",
+      13.0
+     ],
+     [
+      "PoderData 5-7/10",
+      12.2
+     ]
+    ]
+   }
+  }
+ }
+}

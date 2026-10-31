@@ -1,0 +1,153 @@
+F15. Quem foi votar a mais: perfil do comparecimento (Adendo 21, commit 913af7a, 31/10/2026 10:36:29 UTC)
+Script: scripts/analisar_F15.py. Números completos: resultados/F15_perfil_comparecimento.json.
+Rodado em 31/10/2026 12:51 UTC. Decisões escritas no docstring do script antes de calcular (sha256 do script no momento das decisões: f183ce780f0f995e...).
+
+Critério registrado (PRE-REGISTRO-2026-10-26.md, Adendo 21, antes de rodar):
+- Dado aberto do TSE de comparecimento e abstenção por zona, faixa etária, gênero e escolaridade, nos dois turnos de 2026.
+- (a) Conferência: comparecimento por zona no perfil contra a soma do bweb. Sinal: alguma zona com diferença acima de 0,5%
+  sem explicação.
+- (b) Entre as zonas da mesma UF, relação entre a variação do comparecimento de 16 a 34 anos (em pontos) e a virada de Lula
+  na zona, ponderada pelos votos dos finalistas. Incoerência: inclinação negativa a mais de 3 erros-padrão. Coerente:
+  positiva a mais de 3 erros-padrão. Entre os dois: inconclusivo.
+- (c) Descritivo: variação do comparecimento por faixa etária, gênero e escolaridade no país.
+
+VEREDITO PELA LETRA
+- (a) 1º turno: SEM SINAL. (a) 2º turno: SEM DADO (o perfil publicado não tem o 2º turno).
+- (b): SEM DADO (sem o 2º turno no perfil não existe a variação de 16 a 34 anos por zona).
+- (c): variação entre turnos SEM DADO; só as taxas do 1º turno são descritas.
+- F15 como um todo: INCOMPLETO. O registro pede os dois turnos e o TSE só publicou o 1º (arquivo de 21/10/2026, gerado em 13/10/2026). O script roda as três partes sozinho quando o arquivo passar a ter NR_TURNO = 2.
+
+1. O que o TSE publicou (verificado em 31/10/2026)
+- Conjunto "Comparecimento e Abstenção - 2026" (dadosabertos.tse.jus.br, comparecimento-e-abstencao-2026), criado em 21/10/2026 13:19 UTC e não alterado depois. Arquivo perfil_comparecimento_abstencao_2026.zip (cdn.tse.jus.br, Last-Modified 21/10/2026 16:40:26 GMT, 229.213.668 bytes, sha256 abd1af8ff28a80b4e861edafd9f544a8f3f667e1c2e146911d083bf7cc34f023).
+- Turnos presentes no perfil: [1]; data de geração das linhas: ['13/10/2026'].
+- Arquivo de transferência temporária (sha256 818aa548c3935ee511c00b7351ffd0faf33439f4eb396fbe7da842ff9312ed65): só o 1º turno, 500.281 linhas.
+- Painel de estatísticas do TSE (sig.tse.jus.br): 403 do servidor (Akamai, Access Denied); não foi contornado.
+- Detalhe da apuração por município e zona (Last-Modified 30/10/2026 22:46:49 GMT, sha256 f76ff26f2d8121e1070e05ab207549cb60c41b8c95598d6e0d722640decfd842): tem os dois turnos, sem perfil; usado na conferência fora do critério (seção 3).
+- Perfil do eleitorado por seção, julho de 2026 (28 arquivos, 91.015.804 linhas): aptos por seção e faixa, sem comparecimento; usado na estimativa ecológica (seção 6).
+
+2. (a) Conferência do perfil contra o bweb
+- 1º turno, zona (UF|zona): 2641 zonas. Comparecimento total: perfil 125.277.230, bweb 125.275.835 (diferença 1.395). Aptos: perfil 158.745.463, bweb 158.745.007.
+  Zonas com comparecimento idêntico: 8. Diferença relativa absoluta: mediana 0,192%, p90 0,471%, p99 1,380%, máxima 3,384%.
+  Acima de 0,5% sem ajuste: 228; explicadas pela transferência temporária (E1): 228; por seção não instalada (E2): 0; sem explicação: 0. Com o ajuste E1 aplicado a todas: 2611 zonas idênticas, 0 acima de 0,5%.
+  Coluna QT_COMPARECIMENTO_TTE do perfil igual à soma do arquivo TTE por origem em 2641 zonas e por destino em 8.
+  Leitura fina (UF|município|zona): 6292 unidades, 706 acima de 0,5% sem ajuste, 647 explicadas por E1, 40 por E2, 19 sem explicação.
+  Exemplos de zonas acima de 0,5% explicadas:
+    SP|234: perfil 19558, bweb 19421 (0,71%), TTE origem 57, destino 11, ajustado 19512 (0,47%), E1
+    ZZ|1: perfil 344661, bweb 341766 (0,85%), TTE origem 2167, destino 0, ajustado 342494 (0,21%), E1
+    DF|1: perfil 61991, bweb 63136 (-1,81%), TTE origem 933, destino 2077, ajustado 63135 (-0,00%), E1
+    SC|103: perfil 65770, bweb 67075 (-1,95%), TTE origem 160, destino 1464, ajustado 67074 (-0,00%), E1
+    MG|34: perfil 85635, bweb 86309 (-0,78%), TTE origem 641, destino 1314, ajustado 86308 (-0,00%), E1
+    SP|2: perfil 115975, bweb 117937 (-1,66%), TTE origem 935, destino 2896, ajustado 117936 (-0,00%), E1
+    AL|2: perfil 134205, bweb 135642 (-1,06%), TTE origem 708, destino 2145, ajustado 135642 (0,00%), E1
+    AL|33: perfil 79402, bweb 79810 (-0,51%), TTE origem 331, destino 739, ajustado 79810 (0,00%), E1
+    AM|1: perfil 82007, bweb 82532 (-0,64%), TTE origem 1027, destino 1552, ajustado 82532 (0,00%), E1
+    AM|10: perfil 13311, bweb 13063 (1,90%), TTE origem 418, destino 170, ajustado 13063 (0,00%), E1
+- 2º turno: sem dado (o perfil não traz este turno).
+- bweb do 1º turno lido dos zips: 499.206 seções, 0 linhas discordantes na mesma seção; contra a base: 0 seções só no zip, 0 só na base, 0 com comparecimento diferente.
+- bweb do 2º turno lido dos zips: 499.205 seções, 0 linhas discordantes na mesma seção; contra a base: 0 seções só no zip, 0 só na base, 0 com comparecimento diferente.
+- Perfil: 11.060.908 linhas nos CSVs por UF, 0 com aptos diferente de comparecimento + abstenção; _BRASIL.csv contra a soma das UFs: 28 pares turno-UF, 0 diferentes, 11.060.908 linhas.
+
+3. Fora do critério: detalhe da apuração por zona (TSE, 30/10/2026) contra a soma do bweb, cargo Presidente
+- 1º turno: 2641 zonas; comparecimento idêntico em 2641, aptos idênticos em 2640, acima de 0,5% em 0. Totais: munzona 125.275.835, bweb 125.275.835; aptos munzona 158.745.502, bweb 158.745.007.
+  Leitura fina (UF|município|zona): 6292 unidades, comparecimento idêntico em 6292, aptos idênticos em 6251, acima de 0,5% em 0.
+    ZZ|1: comparecimento munzona 341766 x bweb 341766 (d 0); aptos 916534 x 916039 (d 495)
+- 2º turno: 2641 zonas; comparecimento idêntico em 2641, aptos idênticos em 2640, acima de 0,5% em 0. Totais: munzona 128.236.074, bweb 128.236.074; aptos munzona 158.745.502, bweb 158.744.977.
+  Leitura fina (UF|município|zona): 6292 unidades, comparecimento idêntico em 6292, aptos idênticos em 6250, acima de 0,5% em 0.
+    ZZ|1: comparecimento munzona 381443 x bweb 381443 (d 0); aptos 916683 x 916158 (d 525)
+
+4. (b) Variação do comparecimento de 16 a 34 anos contra a virada de Lula, entre zonas da mesma UF
+- SEM DADO: o perfil publicado não tem o 2º turno, então a variação de 16 a 34 anos por zona não existe no dado oficial.
+
+5. (c) Comparecimento por faixa etária, gênero e escolaridade no país (27 UFs)
+- A variação entre turnos não existe no dado oficial. Taxas do 1º turno (o que existe):
+  faixa 16-17: aptos 1.631.813, compareceram 1.425.749, taxa 87,37%
+  faixa 16-34: aptos 49.114.657, compareceram 38.088.307, taxa 77,55%
+  faixa 18-24: aptos 17.491.115, compareceram 13.487.955, taxa 77,11%
+  faixa 25-34: aptos 29.991.729, compareceram 23.174.603, taxa 77,27%
+  faixa 35-44: aptos 31.017.380, compareceram 25.603.936, taxa 82,55%
+  faixa 45-59: aptos 40.364.382, compareceram 34.931.911, taxa 86,54%
+  faixa 60-69: aptos 20.115.255, compareceram 17.552.428, taxa 87,26%
+  faixa 70-79: aptos 11.705.265, compareceram 7.273.093, taxa 62,14%
+  faixa 80 ou mais: aptos 5.508.439, compareceram 1.482.213, taxa 26,91%
+  gênero não informado: aptos 23.336, compareceram 11.031, taxa 47,27%
+  gênero masculino: aptos 74.453.859, compareceram 58.153.304, taxa 78,11%
+  gênero feminino: aptos 83.349.392, compareceram 66.768.234, taxa 80,11%
+  instrução não informado: aptos 19.993, compareceram 8.997, taxa 45,00%
+  instrução analfabeto: aptos 5.518.553, compareceram 2.877.960, taxa 52,15%
+  instrução lê e escreve: aptos 9.613.618, compareceram 6.785.653, taxa 70,58%
+  instrução ensino fundamental incompleto: aptos 33.573.056, compareceram 25.677.998, taxa 76,48%
+  instrução ensino fundamental completo: aptos 9.677.287, compareceram 7.477.705, taxa 77,27%
+  instrução ensino médio incompleto: aptos 28.800.976, compareceram 22.799.667, taxa 79,16%
+  instrução ensino médio completo: aptos 44.029.033, compareceram 36.622.459, taxa 83,18%
+  instrução superior incompleto: aptos 8.910.380, compareceram 7.398.032, taxa 83,03%
+  instrução superior completo: aptos 17.683.691, compareceram 15.284.098, taxa 86,43%
+  total todos: aptos 157.826.587, compareceram 124.932.569, taxa 79,16%
+
+6. Fora do critério, sem veredito: estimativa ecológica (perfil do eleitorado por seção + bweb dos dois turnos)
+- Seções usadas: 497.507 (sem perfil por seção: 390; agregação mudou entre os turnos: 0; sem os dois turnos: 0). Zonas estimadas: 2636 (com menos de 30 seções: 4; mal condicionadas: 0).
+- Calibração no 1º turno (estimado por zona contra o perfil verdadeiro do 1º turno):
+    16 a 34: 2636 zonas, correlação 0,841, erro médio absoluto 4,07 pontos, viés -3,73, inclinação do verdadeiro sobre o estimado 0,599; nacional estimado 73,82% x verdadeiro 77,55%; p10 a p90 estimado 65,3 a 81,5, verdadeiro 71,5 a 83,4.
+    35 a 59: 2636 zonas, correlação 0,738, erro médio absoluto 2,01 pontos, viés 1,24, inclinação do verdadeiro sobre o estimado 0,577; nacional estimado 86,05% x verdadeiro 84,81%; p10 a p90 estimado 81,3 a 90,8, verdadeiro 81,3 a 88,7.
+    60 a 69: 2636 zonas, correlação 0,130, erro médio absoluto 10,08 pontos, viés 5,49, inclinação do verdadeiro sobre o estimado 0,027; nacional estimado 92,75% x verdadeiro 87,26%; p10 a p90 estimado 76,2 a 109,9, verdadeiro 82,9 a 90,1.
+    70 ou mais: 2636 zonas, correlação 0,681, erro médio absoluto 8,38 pontos, viés -0,94, inclinação do verdadeiro sobre o estimado 0,371; nacional estimado 49,92% x verdadeiro 50,86%; p10 a p90 estimado 31,3 a 71,4, verdadeiro 41,7 a 61,5.
+    Pela régua escrita antes (J com correlação de 0,5 ou mais e erro médio absoluto de 5 pontos ou menos): UTILIZÁVEL.
+- Nas seções usadas, o comparecimento foi de 79,15% para 81,01% (1,85 ponto).
+- Variação estimada por grupo (média das zonas ponderada pelos eleitores do grupo):
+    16 a 34: 0,61 ponto (p10 -3,8, mediana 1,0, p90 3,5 entre zonas)
+    35 a 59: 1,28 ponto (p10 -1,3, mediana 1,2, p90 3,2 entre zonas)
+    60 a 69: 2,86 ponto (p10 -5,4, mediana 2,6, p90 11,3 entre zonas)
+    70 ou mais: 6,60 ponto (p10 -0,5, mediana 6,9, p90 15,7 entre zonas)
+- Indicação para (b): 2636 zonas, coef 0,0472, ep (UF) 0,0410, t 1,15; ep HC1 0,0115, t 4,12. A régua de B5 leria INCONCLUSIVO (HC1: COERENTE). Exploratório: não é o teste registrado.
+- Descritivo: virada de Lula contra a variação total do comparecimento da zona (bweb): 2636 zonas, coef 0,0700, ep (UF) 0,0676, t 1,04; ep HC1 0,0173, t 4,04.
+- Dentro do mesmo local de votação (efeito fixo de local, peso aptos do 2º turno, erro agrupado por local; referência 35 a 59):
+    comparecimento do 1º turno: 475.680 seções, 72.406 locais; J -11,34 (ep 0,07), V 5,80 (ep 0,16), W -39,66 (ep 0,14) pontos por fração inteira do grupo
+    variação do comparecimento: 475.680 seções, 72.406 locais; J -1,12 (ep 0,03), V 2,27 (ep 0,09), W 6,82 (ep 0,07) pontos por fração inteira do grupo
+    verdade do 1º turno no país (perfil): J menos M -7,26, V menos M 2,45, W menos M -33,94 pontos
+
+7. Desvios e decisões (todas escritas no docstring antes de calcular)
+- A1: zona = UF|NR_ZONA (municípios da zona somados); leitura secundária UF|município|zona.
+- A3: bweb lido dos zips, cargo Presidente, uma linha por seção; conferido contra a base.
+- A4: 0,5% medido sobre o comparecimento do bweb da zona, em valor absoluto.
+- A5: explicações aceitas fixadas antes: E1 transferência temporária (ajuste origem e destino pelo arquivo TTE do TSE), E2 seção não instalada; "sem sinal" de (a) = complemento do sinal.
+- A6: conferência por zona com o detalhe da apuração (munzona), fora do critério, porque é o único dado por zona do 2º turno.
+- B1 a B5: unidade, faixa 16 a 34 com 16 e 17, efeito fixo de UF, erro agrupado por UF, HC1 ao lado (só valem quando sair o 2º turno).
+- C1: país = 27 UFs; sem o 2º turno, (c) só descreve o 1º.
+- X1 a X9: estimativa ecológica fora do critério, com calibração no 1º turno e régua de utilidade escrita antes; não tem veredito.
+
+8. O que fica sem teste
+- Quem de fato compareceu a mais no 2º turno por idade, gênero e escolaridade: só o perfil oficial do 2º turno responde.
+- (b) pela letra e a variação de (c) pela letra.
+- (a) do 2º turno pela letra (perfil contra bweb).
+- A estimativa ecológica não separa quem votou: ela supõe que, dentro da zona, a taxa de cada grupo não depende da seção.
+
+9. Depois de rodar (pós-hoc, fora do registro, não muda nenhum veredito)
+- P1. Zonas com resíduo depois do ajuste E1: 30 de 2641 (soma 1395). Negativos: 21 zonas, soma -35 (de -1 a -8, compatível com o mesmo eleitor em dois tipos de transferência, que o leiame admite). Positivos (perfil acima do bweb): 9 zonas, soma 1430, todos abaixo de 0,5% da zona:
+    ZZ|1: +728 (0,213% da zona): NASSAU (ZZ|99180|1) +50, 263,16% do município, 1 seções, TTE origem 1 destino 0; DÍLI (ZZ|29645|1) +42, 89,36% do município, 1 seções, TTE origem 1 destino 0; CONCEPCIÓN (ZZ|29580|1) +41, 113,89% do município, 1 seções, TTE origem 0 destino 0; ANCARA (ZZ|29297|1) +40, 108,11% do município, 1 seções, TTE origem 0 destino 0; e mais 54 unidades (lista no JSON)
+    MG|39: +220 (0,227% da zona): BELO HORIZONTE (MG|41238|39) +220, 0,23% do município, 296 seções, TTE origem 296 destino 619
+    SP|421: +93 (0,069% da zona): SÃO PAULO (SP|71072|421) +93, 0,07% do município, 545 seções, TTE origem 339 destino 404
+    SP|418: +92 (0,062% da zona): SÃO PAULO (SP|71072|418) +92, 0,06% do município, 522 seções, TTE origem 312 destino 236
+    SP|234: +91 (0,469% da zona): FARTURA (SP|64092|234) +91, 0,95% do município, 39 seções, TTE origem 33 destino 6
+    SP|42: +90 (0,156% da zona): CRUZEIRO (SP|63690|42) +90, 0,20% do município, 174 seções, TTE origem 148 destino 53
+    RS|93: +73 (0,143% da zona): VENÂNCIO AIRES (RS|89559|93) +73, 0,17% do município, 170 seções, TTE origem 55 destino 10
+    PR|93: +31 (0,096% da zona): IVAIPORÃ (PR|76236|93) +31, 0,16% do município, 82 seções, TTE origem 51 destino 16
+    BA|108: +12 (0,031% da zona): SÃO GONÇALO DOS CAMPOS (BA|38857|108) +12, 0,05% do município, 93 seções, TTE origem 78 destino 8
+- P2. Exterior: 48 cidades em que o perfil marca mais presentes que o bweb e (perfil com 100% dos aptos presentes ou sem boletim): 7 com seção no bweb e 100% no perfil, 41 sem boletim; excesso do perfil 692. Exemplos:
+    NASSAU (ZZ|99180|1): perfil 70 de 70 aptos; bweb 19 de 69 (1 seção); eleitores em seção não instalada (munzona) 0
+    DÍLI (ZZ|29645|1): perfil 90 de 90 aptos; bweb 47 de 89 (1 seção); eleitores em seção não instalada (munzona) 0
+    ANCARA (ZZ|29297|1): perfil 77 de 77 aptos; bweb 37 de 77 (1 seção); eleitores em seção não instalada (munzona) 0
+    RIO BRANCO (ZZ|30430|1): perfil 58 de 58 aptos; bweb 23 de 58 (1 seção); eleitores em seção não instalada (munzona) 0
+    TBILISI (ZZ|99104|1): perfil 29 de 29 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 29
+    TRÍPOLI (ZZ|30686|1): perfil 30 de 30 aptos; bweb 2 de 30 (1 seção); eleitores em seção não instalada (munzona) 0
+    CHUY (ZZ|29521|1): perfil 27 de 27 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 27
+    KINSHASA (ZZ|29874|1): perfil 27 de 27 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 27
+    LUSACA (ZZ|99287|1): perfil 27 de 27 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 25
+    CIUDAD GUAYANA (ZZ|29564|1): perfil 26 de 72 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 0
+    TUNIS (ZZ|30708|1): perfil 47 de 47 aptos; bweb 22 de 47 (1 seção); eleitores em seção não instalada (munzona) 0
+    BRIDGETOWN (ZZ|29424|1): perfil 22 de 22 aptos; bweb 0 de 0 (0 seção); eleitores em seção não instalada (munzona) 22
+- P3. Virada de Lula na seção contra a composição etária, dentro do local (475.680 seções, 72.406 locais; pontos de virada por fração inteira do grupo, referência 35 a 59): J 1,58 (ep 0,03), V -1,54 (ep 0,09), W 0,31 (ep 0,07). Com a variação do comparecimento da seção: J 1,63, V -1,64, W -0,00, variação do comparecimento 0,0445 (ep 0,0017).
+    Virada da zona contra a variação estimada de cada grupo (efeito fixo de UF, erro agrupado por UF): 16 a 34 coef 0,0472, t 1,15; 35 a 59 coef 0,0553, t 1,74; 60 a 69 coef 0,0060, t 2,02; 70 ou mais coef -0,0122, t -4,16.
+
+10. O que os números significam
+- (a) no 1º turno: o perfil põe o eleitor com transferência temporária na zona de origem (a coluna de TTE do perfil bate com a soma por origem em 2641 de 2641 zonas), e o bweb o conta onde ele votou. Feita essa troca, 2611 zonas batem voto a voto e nenhuma passa de 0,5%. Pela letra, sem sinal. O cadastro de presença e os boletins do 1º turno contam a mesma coisa, com resíduo total de 1395 eleitores em 125 milhões.
+- O que sobra e não tem explicação documentada é pequeno e sempre no mesmo sentido (perfil acima do bweb): o exterior (692 a mais nas cidades listadas em P2, onde o perfil dá 100% de presença ou não há boletim, o que parece regra de cadastro para quem não pôde votar, mas o leiame não diz) e 8 municípios do Brasil com +12 a +220, o maior em proporção FARTURA (SP|64092|234), +91, 0,95% do município. Nada disso mexe em votos: é o cadastro de presença com mais gente do que os boletins.
+- (b) e a variação de (c) não existem no dado oficial. A estimativa ecológica passou na régua de utilidade (erro médio de 4,1 pontos contra o limite de 5, correlação 0,84, viés de -3,7 pontos, inclinação 0,60: as estimativas por zona são mais espalhadas que o real). Ela indica variação de 0,6 ponto nos de 16 a 34, 1,3 nos de 35 a 59, 2,9 nos de 60 a 69 e 6,6 nos de 70 ou mais: o comparecimento a mais veio sobretudo dos mais velhos e pouco dos jovens. A relação com a virada é positiva e fraca nos jovens (t 1,15 com erro por UF) e negativa nos de 70 ou mais (t -4,16, pós-hoc): onde os idosos foram mais votar, Lula virou menos. Isso não é a incoerência que o registro procura; é o sentido esperado se os idosos a mais votaram mais em Flávio. Vale como pista, não como teste, até o TSE publicar o perfil do 2º turno.

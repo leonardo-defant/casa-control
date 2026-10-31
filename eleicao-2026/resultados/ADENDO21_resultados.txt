@@ -1,0 +1,32 @@
+ADENDO 21: O QUE DÁ PARA FAZER SEM PEDIR NADA A NINGUÉM (RESULTADOS)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 21, commit 913af7a (31/10/2026 10:36:29 UTC), antes de rodar. Cada
+item foi refeito por outro agente com código próprio. Detalhes em resultados/testes_adendo21_com_conferencia.json.
+
+F9 computador que gerou a mídia do 2º turno: SEM SINAL, mas o teste registrado quase não tinha poder (na maioria
+   dos locais todas as urnas usaram a mídia do mesmo computador). Onde dá para comparar computadores no mesmo local
+   (22% do peso), nenhuma diferença (p 0,13). A urna recusou uma mídia do 2º turno com assinatura inválida
+   (MG|51632|247|72): a checagem de assinatura da mídia funciona. Pista: a mesma mídia (série 3482056B) usada ao
+   mesmo tempo em duas urnas de locais diferentes no RJ (zona 119), o que indica duas cópias físicas.
+F10 urnas antigas nos outros cargos: INCONCLUSIVO. Sobra de 0,44 ponto para Lula (z 2,1) depois de descontar o
+   perfil medido pelos deputados e senador. Vem quase toda de duas zonas (Manaus 70 e São Paulo 420), onde as urnas
+   foram distribuídas por bloco de número de seção; sem elas, 0,13. Os 123 pacotes do 1º turno conferidos (todos os
+   cargos) batem com o bweb. Teto: 4% a 5% da margem.
+F11 teste de integridade: SEM SINAL, com alcance limitado. Nenhum arquivo das urnas testadas é publicado. As 54
+   urnas de teste identificadas têm o mesmo programa das urnas reais. Todas as divergências urna contra papel
+   publicadas em 2026 foram no mesmo lugar, a CLDF (duas no 1º turno, uma no 2º), atribuídas a erro de digitação.
+F12 certificados: SEM SINAL nas assinaturas (3.897 de 3.897 conferem com a AC publicada). A alegação de que o
+   certificado da AC URNA venceu em 18/07/2026 CONFERE: 27% das urnas (as antigas) votaram com a cadeia vencida pela
+   regra estrita, e há ao menos um certificado de urna emitido depois do vencimento (Marília, 03/08/2026). Falha de
+   gestão, não adulteração. Resumos dos programas: SEM DADO (os arquivos públicos não trazem programa nem resumo).
+F13 pesquisas independentes: não houve boca de urna nacional nem pesquisa pós-eleição com voto lembrado. O relatório
+   completo do PoderData dá 37% a 38% dos eleitores dos eliminados para Lula, contra 54,7% pela urna (3,2 a 4,6
+   erros-padrão). A Palver de 10 a 13/10, calibrada pelo voto do 1º turno, deu 52,7%, dentro da faixa da urna. A
+   diferença não tem forma de troca pura de Flávio para Lula: nos eleitores de Renan a fatia de Lula bate com a
+   pesquisa e a de Flávio é que falta; nos de Caiado a de Flávio bate e Lula fica com os indecisos.
+F14 casos pendentes: SEM SINAL em 64 pacotes (boletim, RDV, log e assinatura batem; zero anomalias). Volta Redonda:
+   as urnas de duas escolas foram suspensas às 17h00, desligadas por cerca de duas horas sem nenhum voto depois das
+   16h59 e encerradas entre 19h13 e 19h47 por um mesmo título que não é de mesário registrado. Falha de procedimento.
+F15 perfil do comparecimento: INCOMPLETO. O TSE só publicou o 1º turno. No 1º turno o cadastro de presença e os
+   boletins batem zona a zona depois do ajuste de transferência temporária. A estimativa indireta sugere que o
+   comparecimento a mais do 2º turno veio sobretudo de eleitores mais velhos.

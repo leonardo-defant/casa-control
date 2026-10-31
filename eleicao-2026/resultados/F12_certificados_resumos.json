@@ -1,0 +1,2473 @@
+{
+ "teste": "F12",
+ "registro": "Adendo 21 do PRE-REGISTRO-2026-10-26.md (commit 913af7a)",
+ "fontes_das_ac": {
+  "pacote_TSE_v2": {
+   "nomes": [
+    "acurna.crt",
+    "acue2020.crt",
+    "acue2022.crt"
+   ],
+   "origem": "formato-arquivos-bu-rdv-ass-digital-v2.zip (cópia em github.com/doccaz/urnas-br, docv2), python/lib/mr_util.py, _AC_RAIZ_UE_PEMS",
+   "sha256_zip": "1e423054f32b8ba056960c58ada167d702c2618cc4d1dfd5de88f5090c84a235",
+   "data_interna_mr_util": "2024-09-25 23:06",
+   "comentario_do_TSE": "obtidos em dpc.acue2020.tse.jus.br"
+  },
+  "var_ue": {
+   "origem": "github.com/epicleet/var-ue, var-ue.py, trusted_issuers"
+  },
+  "ivanmneto92": {
+   "nomes": [
+    "acue2020.pem",
+    "acue2022.pem",
+    "acurna.pem"
+   ],
+   "origem": "github.com/ivanmneto92-sys/auditoria-presidente-2026, certificados/"
+  },
+  "dataurnas": {
+   "nomes": [
+    "acue2020.pem",
+    "acue2022.pem",
+    "acurna.pem"
+   ],
+   "origem": "github.com/alissonlinneker/dataurnas-br, data/certificados/ac/"
+  }
+ },
+ "comparacao_entre_fontes_sha256_der": {
+  "AC URNA": {
+   "por_fonte": {
+    "pacote_TSE_v2": "dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d",
+    "var_ue": "dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d",
+    "ivanmneto92": "dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d",
+    "dataurnas": "dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d"
+   },
+   "todas_iguais": true,
+   "fontes": 4
+  },
+  "AC UE2020": {
+   "por_fonte": {
+    "pacote_TSE_v2": "77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376",
+    "var_ue": "77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376",
+    "ivanmneto92": "77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376",
+    "dataurnas": "77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376"
+   },
+   "todas_iguais": true,
+   "fontes": 4
+  },
+  "AC UE2022": {
+   "por_fonte": {
+    "pacote_TSE_v2": "6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293",
+    "var_ue": "6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293",
+    "ivanmneto92": "6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293",
+    "dataurnas": "6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293"
+   },
+   "todas_iguais": true,
+   "fontes": 4
+  }
+ },
+ "acs_publicadas": {
+  "AC URNA": {
+   "titular": "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurna@tse.jus.br,C=BR,ST=DF,CN=AC URNA",
+   "emissor": "1.2.840.113549.1.9.1=acraizue@tse.jus.br,L=Brasilia,ST=DF,CN=AC RAIZ UE,OU=STI,O=TSE,C=BR",
+   "serial": 3,
+   "validade_inicio_utc": "2011-07-22T21:59:57+00:00",
+   "validade_fim_utc": "2026-07-18T21:59:57+00:00",
+   "algoritmo_assinatura": "1.2.840.10045.4.3.4",
+   "tipo_chave": "ecdsa",
+   "ski": "cdaaf4b29701b3f0deb2b54258594a6d34ada48a",
+   "aki": "8668837bbbe348cd19b61030a489d5dfde6742c0",
+   "aki_emissor": [
+    "1.2.840.113549.1.9.1=acraizue@tse.jus.br,L=Brasilia,ST=DF,CN=AC RAIZ UE,OU=STI,O=TSE,C=BR"
+   ],
+   "aki_serial_do_emissor": 1,
+   "ski_igual_sha1_da_chave": true,
+   "ca": true,
+   "assina_certificados": true,
+   "lcr": [
+    "http://lcr.acraizue.tse.jus.br/acraizue.crl"
+   ],
+   "politica": [
+    "http://dpc.acraizue.tse.jus.br/DPC-PC-ACRAIZUE.pdf"
+   ],
+   "sha256_der": "dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d",
+   "sha256_chave": "662ad0ee4b903e2eae39696f24a3ddf829b82275d53c8ed98631d9f5ffca8ea1"
+  },
+  "AC UE2020": {
+   "titular": "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acue2020@tse.jus.br,C=BR,ST=DF,CN=AC UE2020",
+   "emissor": "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurnav2@tse.jus.br,C=BR,ST=DF,CN=AC URNA v2",
+   "serial": 5,
+   "validade_inicio_utc": "2021-07-05T21:31:56+00:00",
+   "validade_fim_utc": "2037-07-01T21:31:56+00:00",
+   "algoritmo_assinatura": "1.3.6.1.4.1.44588.2.1",
+   "tipo_chave": "ed521",
+   "ski": "bcb3545deeea432e1e832e81283cb8ae948e400b",
+   "aki": "d02566c491034b3a9313b3074921eca9b500e21f",
+   "aki_emissor": [],
+   "aki_serial_do_emissor": null,
+   "ski_igual_sha1_da_chave": true,
+   "ca": true,
+   "assina_certificados": true,
+   "lcr": [
+    "http://lcr.acurnav2.tse.jus.br/acurnav2.crl"
+   ],
+   "politica": [
+    "http://dpc.acurnav2.tse.jus.br/DPC-PC-ACURNAV2.PDF"
+   ],
+   "sha256_der": "77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376",
+   "sha256_chave": "76531df69dc0a57df909e5d5a10a29aa1a0899800a0d7318d71f5c1995d39758"
+  },
+  "AC UE2022": {
+   "titular": "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acue2022@tse.jus.br,C=BR,ST=DF,CN=AC UE2022",
+   "emissor": "L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurnav2@tse.jus.br,C=BR,ST=DF,CN=AC URNA v2",
+   "serial": 8,
+   "validade_inicio_utc": "2023-02-28T13:46:49+00:00",
+   "validade_fim_utc": "2039-02-24T13:46:49+00:00",
+   "algoritmo_assinatura": "1.3.6.1.4.1.44588.2.1",
+   "tipo_chave": "ed521",
+   "ski": "bb7c517f294a5b96f9bf6a964c4f255a755f698a",
+   "aki": "d02566c491034b3a9313b3074921eca9b500e21f",
+   "aki_emissor": [],
+   "aki_serial_do_emissor": null,
+   "ski_igual_sha1_da_chave": true,
+   "ca": true,
+   "assina_certificados": true,
+   "lcr": [
+    "http://lcr.acurnav2.tse.jus.br/acurnav2.crl"
+   ],
+   "politica": [
+    "http://dpc.acurnav2.tse.jus.br/DPC-PC-ACURNAV2.PDF"
+   ],
+   "sha256_der": "6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293",
+   "sha256_chave": "3b4914762577f56ddf24835259d18306e300111670dcf38491115c397b53ec93"
+  }
+ },
+ "holocron": {
+  "manifesto": "pc1holo.html",
+  "titulos": [
+   "Eleições Gerais 2026",
+   "HOLOCRON - 02/09/2026"
+  ],
+  "arquivos_de_certificado_listados": {
+   "ACHSM-DesktopJE-RegistroAssinatura.cer": "3SmYs2oM7Xj0y+RUvNN5oi/Eq6NcRaWGnh7GlJmB9vTeFyzHV6ugWvArZBBWS+lUkZGqWmUgCkKzRlUCGKSKsA==",
+   "ACHSM-DesktopJE-RegistroSigilo.cer": "9t1DMifHVw2r3Ll/tjZN5m9xzFjIzyenfmcNSoQh+9QP5YGMQewUxipD2fE0zeFbwnNxm4lxbEyD8DVwXzdmhA==",
+   "acraiz-ue.pem": "O/LBooMqsk+Zx//zxVwXr0lboFIPwvgVj/nILBlZQaC+HZtQ1PuAFEdaWga458oPijiuUl5umAjVO+2bIcgt0g==",
+   "acraizuev2.cer": "2a/T+2kuy0njwNLrSgqlAkala9p7FF6PL8x3327/M+xY9RHeQTytbeSSBEqib40aFS0q0Ir9HuL0LVwhRi6ozw==",
+   "acue2020.cer": "LLveJWbhgUEiPfm/WlQL2b1Y0UtSdzvLlKB+tDAhM60rQ869y7/iEw3yQKSkMKVVN3goJsmB/m21MASvdxKhzg==",
+   "acue2022.cer": "nawawQDNRHwS4X5kYuMNZhn+aTv/ZDxzdIhbMP0mQ6rqGZ6Q5YkiTjeRSmhEEUztze7D94pBvHQAkXdI28eYeQ==",
+   "acurnav2.cer": "OTL7MHgqDbasQvSjBMWk5SkqBf5UTV7V3YjQ/kWqe8ZYZfayRLLJRJAtnS9USj4MIVg5ejiWM5ZGKiAJ1usOgw==",
+   "uedadoschaves.cer": "l53c8mSMeMbCyya3/60NGSxKrAuCVxDZjD8ZUmhyI2IFI7zOoIVGilCRUFN/4FACIOx5+SVTQFDTsPDsJ8zM+A=="
+  },
+  "conferencia": {
+   "AC URNA": {
+    "formas_que_conferem": {},
+    "formas_testadas": 7,
+    "listado_no_manifesto": false
+   },
+   "AC UE2020": {
+    "formas_que_conferem": {
+     "PEM LF com quebra final (canônico)": [
+      "acue2020.cer"
+     ],
+     "arquivo acue2020.pem de ivanmneto92": [
+      "acue2020.cer"
+     ],
+     "arquivo acue2020.pem de dataurnas": [
+      "acue2020.cer"
+     ]
+    },
+    "formas_testadas": 7,
+    "listado_no_manifesto": true
+   },
+   "AC UE2022": {
+    "formas_que_conferem": {
+     "PEM LF com quebra final (canônico)": [
+      "acue2022.cer"
+     ],
+     "arquivo acue2022.pem de ivanmneto92": [
+      "acue2022.cer"
+     ],
+     "arquivo acue2022.pem de dataurnas": [
+      "acue2022.cer"
+     ]
+    },
+    "formas_testadas": 7,
+    "listado_no_manifesto": true
+   }
+  }
+ },
+ "raiz_recuperada_D8": {
+  "candidatos": 2,
+  "aki_da_ac_urna": "8668837bbbe348cd19b61030a489d5dfde6742c0",
+  "candidatos_com_sha1_igual_ao_aki": [
+   {
+    "sha256_spki": "3a80c26f178b845ed4f4bf47d68beec37c4bfdd006bcf320a42ec5e6005f2474",
+    "verifica_ac_urna": true
+   }
+  ]
+ },
+ "urnas_2t": {
+  "contagem": {
+   "certificados": 3897,
+   "formato_PEM": 2838,
+   "formato_DER": 1059
+  },
+  "por_ac": {
+   "AC UE2022": {
+    "certificados": 1570,
+    "dn_igual_byte_a_byte": 1570,
+    "assinatura_ok": 1570,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 1570,
+    "urna_valida_no_dia": 1570,
+    "ac_valida_na_assinatura": 1570,
+    "emitido_dentro_da_validade_da_ac": 1570,
+    "urna_vence_depois_da_ac": 0,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 1570,
+    "modelo_bloco2_UE2022": 1570,
+    "algoritmo_bloco2_eddsa": 1570
+   },
+   "AC UE2020": {
+    "certificados": 1268,
+    "dn_igual_byte_a_byte": 1268,
+    "assinatura_ok": 1268,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 1268,
+    "urna_valida_no_dia": 1268,
+    "ac_valida_na_assinatura": 1268,
+    "emitido_dentro_da_validade_da_ac": 1268,
+    "urna_vence_depois_da_ac": 10,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 1268,
+    "modelo_bloco2_UE2020": 1268,
+    "algoritmo_bloco2_eddsa": 1268
+   },
+   "AC URNA": {
+    "certificados": 1059,
+    "dn_igual_byte_a_byte": 1059,
+    "assinatura_ok": 1059,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 1059,
+    "urna_valida_no_dia": 1059,
+    "ac_valida_na_assinatura": 0,
+    "emitido_dentro_da_validade_da_ac": 1059,
+    "urna_vence_depois_da_ac": 1059,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 0,
+    "modelo_bloco2_UE2015": 966,
+    "algoritmo_bloco2_ecdsa": 1059,
+    "modelo_bloco2_UE2013": 93
+   }
+  },
+  "falhas": [],
+  "emitidos_depois_do_fim_da_ac": [],
+  "a_menos_de_1_dia_de_um_limite": [],
+  "n_a_menos_de_1_dia_de_um_limite": 0,
+  "modelo_do_bloco2_diferente_do_esperado_para_a_ac": [],
+  "n_modelo_div": 0,
+  "modelo_da_faixa_do_numero_diferente_do_bloco2": [],
+  "n_faixa_div": 0,
+  "ano_de_emissao_por_ac": {
+   "AC UE2020 2022": 1249,
+   "AC UE2020 2023": 13,
+   "AC UE2020 2024": 5,
+   "AC UE2020 2026": 1,
+   "AC UE2022 2023": 1160,
+   "AC UE2022 2024": 408,
+   "AC UE2022 2025": 1,
+   "AC UE2022 2026": 1,
+   "AC URNA 2013": 90,
+   "AC URNA 2014": 2,
+   "AC URNA 2016": 962,
+   "AC URNA 2017": 1,
+   "AC URNA 2020": 2,
+   "AC URNA 2026": 2
+  },
+  "emissao_mais_recente_por_ac": {
+   "AC URNA": "2026-07-17T13:39:43+00:00",
+   "AC UE2022": "2026-07-17T13:49:50+00:00",
+   "AC UE2020": "2026-08-31T16:02:52+00:00"
+  },
+  "fim_mais_cedo_por_ac": {
+   "AC URNA": "2027-04-08T07:13:02+00:00",
+   "AC UE2022": "2037-01-25T13:04:20+00:00",
+   "AC UE2020": "2035-12-31T00:42:53+00:00"
+  },
+  "hw_criacao_min_max": [
+   "20261025T150125",
+   "20261025T190617"
+  ],
+  "sw_usuario": {
+   "SEVIN 20260708": 3897
+  },
+  "sw_conjunto_de_chaves": {
+   "202607021654": 3897
+  },
+  "secoes_sem_vsc": 6,
+  "emitidos_em_2026": [
+   {
+    "secao": "AL|28436|50|31",
+    "urna": 1682840,
+    "ac": "AC URNA",
+    "emissao_utc": "2026-06-10T18:10:26+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true
+   },
+   {
+    "secao": "RS|85693|12|26",
+    "urna": 1848115,
+    "ac": "AC URNA",
+    "emissao_utc": "2026-07-17T13:39:43+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true
+   },
+   {
+    "secao": "SP|64777|185|162",
+    "urna": 2471688,
+    "ac": "AC UE2022",
+    "emissao_utc": "2026-07-17T13:49:50+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true
+   },
+   {
+    "secao": "BA|33634|75|240",
+    "urna": 2016370,
+    "ac": "AC UE2020",
+    "emissao_utc": "2026-08-31T16:02:52+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true
+   }
+  ]
+ },
+ "urnas_1t_80": {
+  "contagem": {
+   "certificados": 80,
+   "formato_DER": 34,
+   "formato_PEM": 46
+  },
+  "por_ac": {
+   "AC URNA": {
+    "certificados": 34,
+    "dn_igual_byte_a_byte": 34,
+    "assinatura_ok": 34,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 34,
+    "urna_valida_no_dia": 34,
+    "ac_valida_na_assinatura": 0,
+    "emitido_dentro_da_validade_da_ac": 34,
+    "urna_vence_depois_da_ac": 34,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 0,
+    "modelo_bloco2_UE2015": 29,
+    "algoritmo_bloco2_ecdsa": 34,
+    "modelo_bloco2_UE2013": 5
+   },
+   "AC UE2022": {
+    "certificados": 28,
+    "dn_igual_byte_a_byte": 28,
+    "assinatura_ok": 28,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 28,
+    "urna_valida_no_dia": 28,
+    "ac_valida_na_assinatura": 28,
+    "emitido_dentro_da_validade_da_ac": 28,
+    "urna_vence_depois_da_ac": 0,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 28,
+    "modelo_bloco2_UE2022": 28,
+    "algoritmo_bloco2_eddsa": 28
+   },
+   "AC UE2020": {
+    "certificados": 18,
+    "dn_igual_byte_a_byte": 18,
+    "assinatura_ok": 18,
+    "controle_tbs_adulterado_aceito": 0,
+    "controle_assinatura_trocada_aceita": 0,
+    "verifica_tambem_com_outra_ac": 0,
+    "urna_valida_na_assinatura": 18,
+    "urna_valida_no_dia": 18,
+    "ac_valida_na_assinatura": 18,
+    "emitido_dentro_da_validade_da_ac": 18,
+    "urna_vence_depois_da_ac": 0,
+    "caminho_estrito_rfc5280_ok_na_assinatura": 18,
+    "modelo_bloco2_UE2020": 18,
+    "algoritmo_bloco2_eddsa": 18
+   }
+  },
+  "falhas": [],
+  "emitidos_depois_do_fim_da_ac": [],
+  "a_menos_de_1_dia_de_um_limite": [],
+  "n_a_menos_de_1_dia_de_um_limite": 0,
+  "modelo_do_bloco2_diferente_do_esperado_para_a_ac": [],
+  "n_modelo_div": 0,
+  "modelo_da_faixa_do_numero_diferente_do_bloco2": [],
+  "n_faixa_div": 0,
+  "ano_de_emissao_por_ac": {
+   "AC UE2020 2022": 18,
+   "AC UE2022 2023": 19,
+   "AC UE2022 2024": 9,
+   "AC URNA 2013": 5,
+   "AC URNA 2016": 29
+  },
+  "emissao_mais_recente_por_ac": {
+   "AC UE2020": "2022-07-19T01:52:19+00:00",
+   "AC UE2022": "2024-03-14T21:29:38+00:00",
+   "AC URNA": "2016-09-29T05:49:39+00:00"
+  },
+  "fim_mais_cedo_por_ac": {
+   "AC UE2020": "2036-01-19T06:06:42+00:00",
+   "AC UE2022": "2037-05-08T05:19:37+00:00",
+   "AC URNA": "2027-04-08T07:37:16+00:00"
+  },
+  "hw_criacao_min_max": [
+   "20261004T170219",
+   "20261004T221814"
+  ],
+  "sw_usuario": {
+   "SEVIN 20260708": 80
+  },
+  "sw_conjunto_de_chaves": {
+   "202607021654": 80
+  },
+  "comparacao_com_2t": {
+   "mesma_urna": 78,
+   "mesma_urna_mesmo_certificado": 78,
+   "urna_diferente": 2
+  },
+  "casos": [
+   [
+    "BA|34193|53|220",
+    2424958,
+    2393632
+   ],
+   [
+    "BA|34193|53|298",
+    2407010,
+    2425268
+   ]
+  ]
+ },
+ "unicidade": {
+  "serial_repetido_em_urnas_diferentes": [],
+  "chave_repetida_em_urnas_diferentes": [],
+  "urna_com_mais_de_um_certificado": []
+ },
+ "secao_marilia_citada_pela_dataurnas": [
+  {
+   "secao": "SP|66818|400|141",
+   "turno": "1t",
+   "urna_no_certificado": 1682645,
+   "urna_no_boletim": 1682645,
+   "ac": "AC URNA",
+   "emissao_utc": "2026-08-03T18:10:52+00:00",
+   "fim_utc": "2037-12-31T23:00:00+00:00",
+   "assinatura_ok": true,
+   "controle_adulterado_aceito": false,
+   "modelo_bloco2": "UE2013",
+   "emitido_depois_do_fim_da_ac": true,
+   "hw_quando": "20261004T171017"
+  },
+  {
+   "secao": "SP|66818|400|141",
+   "turno": "2t",
+   "urna_no_certificado": 1682645,
+   "urna_no_boletim": 1682645,
+   "ac": "AC URNA",
+   "emissao_utc": "2026-08-03T18:10:52+00:00",
+   "fim_utc": "2037-12-31T23:00:00+00:00",
+   "assinatura_ok": true,
+   "controle_adulterado_aceito": false,
+   "modelo_bloco2": "UE2013",
+   "emitido_depois_do_fim_da_ac": true,
+   "hw_quando": "20261025T170623"
+  }
+ ],
+ "alegacao_ac_urna": {
+  "alegacao": "certificado da AC URNA vencido em 18/07/2026 pela regra estrita do X.509",
+  "quem": [
+   "ivanmneto92-sys/auditoria-presidente-2026, README.md, seção Limitações (commit 7a7ccc6, 28/10/2026)",
+   "alissonlinneker/dataurnas-br, data/certificados/README.md, Observação sobre a AC URNA (commit 12f0433, 15/10/2026)"
+  ],
+  "validade_fim_no_certificado_publicado_utc": "2026-07-18T21:59:57+00:00",
+  "confere_a_data": true,
+  "certificados_de_urna_da_ac_urna_2t": 1059,
+  "desses_com_assinatura_ok": 1059,
+  "desses_com_ac_valida_na_data_da_assinatura": 0,
+  "desses_com_caminho_estrito_ok": 0,
+  "desses_emitidos_dentro_da_validade_da_ac": 1059,
+  "emitidos_depois_do_fim_da_ac_2t": 0,
+  "acurna_no_manifesto_holocron": false,
+  "secao_marilia_emitido_depois_do_fim": [
+   {
+    "secao": "SP|66818|400|141",
+    "turno": "1t",
+    "urna_no_certificado": 1682645,
+    "urna_no_boletim": 1682645,
+    "ac": "AC URNA",
+    "emissao_utc": "2026-08-03T18:10:52+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true,
+    "controle_adulterado_aceito": false,
+    "modelo_bloco2": "UE2013",
+    "emitido_depois_do_fim_da_ac": true,
+    "hw_quando": "20261004T171017"
+   },
+   {
+    "secao": "SP|66818|400|141",
+    "turno": "2t",
+    "urna_no_certificado": 1682645,
+    "urna_no_boletim": 1682645,
+    "ac": "AC URNA",
+    "emissao_utc": "2026-08-03T18:10:52+00:00",
+    "fim_utc": "2037-12-31T23:00:00+00:00",
+    "assinatura_ok": true,
+    "controle_adulterado_aceito": false,
+    "modelo_bloco2": "UE2013",
+    "emitido_depois_do_fim_da_ac": true,
+    "hw_quando": "20261025T170623"
+   }
+  ]
+ },
+ "manifestos": {
+  "fonte": "github.com/havaianasdestruido/resumos-eleicao-2026 (cópia de terceiros; D4)",
+  "zips_e_data_interna": {
+   "hash_confea (1).zip": "2026-09-03 18:41",
+   "hash_confea.zip": "2026-09-03 18:41",
+   "hash_mp (1).zip": "2026-09-03 18:41",
+   "hash_mp.zip": "2026-09-03 18:41",
+   "hash_oab (1).zip": "2026-09-03 18:41",
+   "hash_oab.zip": "2026-09-03 18:41",
+   "hash_tse (1).zip": "2026-09-03 18:41",
+   "hash_tse.zip": "2026-09-03 18:41",
+   "itnm1infm.zip": "2026-09-03 18:41",
+   "itnm1jecn.zip": "2026-09-03 18:41",
+   "itnm1recm.zip": "2026-09-03 18:41",
+   "itnm1stca.zip": "2026-09-03 18:41",
+   "itnm1stco.zip": "2026-09-03 18:41",
+   "itnm1stct.zip": "2026-09-03 18:41",
+   "itnm1stot.zip": "2026-09-03 18:41",
+   "itnm1stre.zip": "2026-09-03 18:41",
+   "itnm1stse.zip": "2026-09-03 18:41",
+   "itnm1totl.zip": "2026-09-03 18:41",
+   "itnm1tran.zip": "2026-09-03 18:41",
+   "itnm1traw.zip": "2026-09-03 18:41",
+   "path1u13.zip": "2026-09-03 18:41",
+   "path1u15.zip": "2026-09-03 18:41",
+   "path1u20.zip": "2026-09-03 18:41",
+   "path1u22.zip": "2026-09-03 18:41",
+   "pc1crip.zip": "2026-09-03 18:41",
+   "pc1geda.zip": "2026-09-03 18:41",
+   "pc1holo.zip": "2026-09-03 18:41",
+   "pc1hsfg.zip": "2026-09-03 18:41",
+   "pc1sis1.zip": "2026-09-03 18:41",
+   "pc1sort.zip": "2026-09-03 18:41",
+   "pc1tran.zip": "2026-09-03 18:41",
+   "pc1vota.zip": "2026-09-03 18:41"
+  },
+  "por_manifesto": {
+   "hash_confea (1)": {
+    "arquivo": "HASH_CONFEA.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "CONFEA - 02/09/2026"
+    ],
+    "itens": 4,
+    "hash_geral": 0,
+    "formato_ok": 4
+   },
+   "hash_confea": {
+    "arquivo": "HASH_CONFEA.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "CONFEA - 01/09/2026"
+    ],
+    "itens": 11,
+    "hash_geral": 0,
+    "formato_ok": 11
+   },
+   "hash_mp (1)": {
+    "arquivo": "HASH_MP.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "MP - 02/09/2026"
+    ],
+    "itens": 4,
+    "hash_geral": 0,
+    "formato_ok": 4
+   },
+   "hash_mp": {
+    "arquivo": "HASH_MP.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "MP - 01/09/2026"
+    ],
+    "itens": 11,
+    "hash_geral": 0,
+    "formato_ok": 11
+   },
+   "hash_oab (1)": {
+    "arquivo": "HASH_OAB.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "OAB - 02/09/2026"
+    ],
+    "itens": 4,
+    "hash_geral": 0,
+    "formato_ok": 4
+   },
+   "hash_oab": {
+    "arquivo": "HASH_OAB.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "OAB - 01/09/2026"
+    ],
+    "itens": 11,
+    "hash_geral": 0,
+    "formato_ok": 11
+   },
+   "hash_tse (1)": {
+    "arquivo": "HASH_TSE.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "TSE - 02/09/2026"
+    ],
+    "itens": 4,
+    "hash_geral": 0,
+    "formato_ok": 4
+   },
+   "hash_tse": {
+    "arquivo": "HASH_TSE.html",
+    "titulos": [
+     "Mídia de Verificação",
+     "TSE - 01/09/2026"
+    ],
+    "itens": 11,
+    "hash_geral": 0,
+    "formato_ok": 11
+   },
+   "itnm1infm": {
+    "arquivo": "itnm1INFM.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Info Arquivos Urna - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1jecn": {
+    "arquivo": "itnm1JECN.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "JE Connect - JEC - 02/09/2026"
+    ],
+    "itens": 96,
+    "hash_geral": 1,
+    "formato_ok": 96
+   },
+   "itnm1recm": {
+    "arquivo": "itnm1RECM.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Rec Arquivos Urna - 02/09/2026"
+    ],
+    "itens": 3,
+    "hash_geral": 0,
+    "formato_ok": 3
+   },
+   "itnm1stca": {
+    "arquivo": "itnm1STCA.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Candidato - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1stco": {
+    "arquivo": "itnm1STCO.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Correspondência - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1stct": {
+    "arquivo": "itnm1STCT.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Controle da Totalização - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1stot": {
+    "arquivo": "itnm1STOT.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Totalização - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1stre": {
+    "arquivo": "itnm1STRE.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Relatórios - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1stse": {
+    "arquivo": "itnm1STSE.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SISTOT Seção - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1totl": {
+    "arquivo": "itnm1TOTL.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Sistema de Gerenciamento da Totalização - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "itnm1tran": {
+    "arquivo": "itnm1TRAN.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Transportador JEC - 02/09/2026"
+    ],
+    "itens": 148,
+    "hash_geral": 1,
+    "formato_ok": 148
+   },
+   "itnm1traw": {
+    "arquivo": "itnm1TRAW.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Transportador Web - 02/09/2026"
+    ],
+    "itens": 1,
+    "hash_geral": 0,
+    "formato_ok": 1
+   },
+   "path1u13": {
+    "arquivo": "path1u13.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Urna 2013 - 02/09/2026"
+    ],
+    "itens": 639,
+    "hash_geral": 28,
+    "formato_ok": 639
+   },
+   "path1u15": {
+    "arquivo": "path1u15.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Urna 2015 - 02/09/2026"
+    ],
+    "itens": 640,
+    "hash_geral": 28,
+    "formato_ok": 640
+   },
+   "path1u20": {
+    "arquivo": "path1u20.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Urna 2020 - 02/09/2026"
+    ],
+    "itens": 644,
+    "hash_geral": 28,
+    "formato_ok": 644
+   },
+   "path1u22": {
+    "arquivo": "path1u22.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Urna 2022 - 02/09/2026"
+    ],
+    "itens": 644,
+    "hash_geral": 28,
+    "formato_ok": 644
+   },
+   "pc1crip": {
+    "arquivo": "pc1crip.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "CRIPTO SEVIN - 02/09/2026"
+    ],
+    "itens": 10,
+    "hash_geral": 1,
+    "formato_ok": 10
+   },
+   "pc1geda": {
+    "arquivo": "pc1geda.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "GEDAI-UE - 02/09/2026"
+    ],
+    "itens": 70,
+    "hash_geral": 1,
+    "formato_ok": 70
+   },
+   "pc1holo": {
+    "arquivo": "pc1holo.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "HOLOCRON - 02/09/2026"
+    ],
+    "itens": 138,
+    "hash_geral": 1,
+    "formato_ok": 138
+   },
+   "pc1hsfg": {
+    "arquivo": "pc1hsfg.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "HOT SWAP FLASH - 02/09/2026"
+    ],
+    "itens": 8,
+    "hash_geral": 1,
+    "formato_ok": 8
+   },
+   "pc1sis1": {
+    "arquivo": "pc1sis1.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Subsistema de Instalação e Segurança - SIS - 02/09/2026"
+    ],
+    "itens": 27,
+    "hash_geral": 1,
+    "formato_ok": 27
+   },
+   "pc1sort": {
+    "arquivo": "pc1sort.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "SORTEIO - 02/09/2026"
+    ],
+    "itens": 34,
+    "hash_geral": 1,
+    "formato_ok": 34
+   },
+   "pc1tran": {
+    "arquivo": "pc1TRAN.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "Transportador Desktop - 02/09/2026"
+    ],
+    "itens": 148,
+    "hash_geral": 1,
+    "formato_ok": 148
+   },
+   "pc1vota": {
+    "arquivo": "pc1vota.html",
+    "titulos": [
+     "Eleições Gerais 2026",
+     "VOTAÇÃO - 02/09/2026"
+    ],
+    "itens": 35,
+    "hash_geral": 1,
+    "formato_ok": 35
+   }
+  }
+ },
+ "resumos": {
+  "a_resumos_dos_arquivos_do_vsc_nos_manifestos": {
+   "arquivos_conferidos": {
+    "bu.dat": 3897,
+    "rdv.dat": 3897,
+    "jufa.dat": 3897,
+    "imgbu.dat": 3897,
+    "imgze.dat": 3897,
+    "hash.dat": 3897,
+    "wsqbio.jez": 3897,
+    "wsqman.jez": 3897,
+    "wsqmes.jez": 3897,
+    "mr.ver": 3897,
+    "log.jez": 3897
+   },
+   "encontrados_em_algum_manifesto": {},
+   "mr_ver_resumos_distintos": 1,
+   "mr_ver_tamanho": 1025,
+   "mr_ver_resumo": "MkbOl8qAM3prDnBzJBvuZz1BVPogGacKOXowukIeridWNhYp0CAjRNXzjosdAK6QP5sWOo6CSEW5F1DOY97RYA=="
+  },
+  "b_pacotes_verificados_nos_logs": {
+   "status_das_verificacoes": {
+    "SUCESSO": 1352279,
+    "ERRO": 2
+   },
+   "nao_sucesso": [
+    [
+     "BA|33553|169|132",
+     "GAP",
+     "/uenux/bin/avusrbin.vst",
+     "ERRO"
+    ],
+    [
+     "PB|21873|33|98",
+     "GAP",
+     "/dsk/fe/estatico/infomidia.vsc",
+     "ERRO"
+    ]
+   ],
+   "n_nao_sucesso": 2,
+   "secoes": {
+    "todos os .vst do GAP no resumo do modelo": 3885,
+    "algum .vst do GAP fora do resumo do modelo": 12,
+    "seção sem arquivos de urna": 6
+   },
+   "por_classe": {
+    "dado da carga (/dsk/) | sem resumo publicado": 70671,
+    "pacote de programa | em outro resumo publicado": 12,
+    "pacote de programa | mesmo nome de arquivo em outro resumo publicado, com outro caminho": 11691,
+    "pacote de programa | no resumo do modelo (arquivos base)": 140293,
+    "pacote de programa | no resumo do modelo (lista da UF)": 3897,
+    "pacote de programa | no resumo do modelo (lista da UF, com /dsk/fe/ no lugar de /dsk/fi/)": 3897,
+    "pacote de programa | sem resumo publicado": 38970
+   },
+   "tabela": [
+    [
+     "GAP",
+     "/dsk/fe/estatico/<mun zona secao>-lo.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1572,
+      "UE2020": 1269,
+      "UE2015": 966,
+      "UE2013": 94
+     },
+     3901
+    ],
+    [
+     "GAP",
+     "/dsk/fe/estatico/infomidia.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1571,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3898
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/<mun zona secao>-lo.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1573,
+      "UE2020": 1269,
+      "UE2015": 967,
+      "UE2013": 95
+     },
+     3904
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/dadoscarga.vsu",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o00000br-pu.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o01219-cp.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o03220<uf>-ste.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o06257<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o06259<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/o06261<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 74,
+      "UE2015": 47,
+      "UE2013": 8,
+      "UE2020": 42
+     },
+     171
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/jez/avgm.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06257<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 3140,
+      "UE2020": 2536,
+      "UE2015": 1932,
+      "UE2013": 186
+     },
+     7794
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06257br00000-ca.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06257br00000-fo.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06259<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 3140,
+      "UE2020": 2536,
+      "UE2015": 1932,
+      "UE2013": 186
+     },
+     7794
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06259<uf><00000>-ca.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06259<uf><00000>-fo.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/o06261<uf>-ce.vsc",
+     "sem resumo publicado",
+     "dado da carga (/dsk/)",
+     {
+      "UE2022": 148,
+      "UE2015": 94,
+      "UE2013": 16,
+      "UE2020": 84
+     },
+     342
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2013/avmodue.vst",
+     "em outro resumo publicado",
+     "pacote de programa",
+     {
+      "UE2015": 2
+     },
+     2
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2015/avmodue.vst",
+     "em outro resumo publicado",
+     "pacote de programa",
+     {
+      "UE2013": 7
+     },
+     7
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2020/avmodue.vst",
+     "em outro resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1
+     },
+     1
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2022/avmodue.vst",
+     "em outro resumo publicado",
+     "pacote de programa",
+     {
+      "UE2020": 2
+     },
+     2
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/jez/avpart_ofi.vst",
+     "mesmo nome de arquivo em outro resumo publicado, com outro caminho",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/jez/vota_apl.vst",
+     "mesmo nome de arquivo em outro resumo publicado, com outro caminho",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/jez/vota_ofi.vst",
+     "mesmo nome de arquivo em outro resumo publicado, com outro caminho",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/bin/avbin.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/boot/boot/avboot.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/etc/RHVoice/avrhvoice.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/etc/avetc.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/lib/avlib.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/lib/modules/avmod.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2013/avmodue.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2013": 93
+     },
+     93
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2015/avmodue.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2015": 966
+     },
+     966
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2020/avmodue.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2020": 1268
+     },
+     1268
+    ],
+    [
+     "GAP",
+     "/lib/modules/ue2022/avmodue.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570
+     },
+     1570
+    ],
+    [
+     "GAP",
+     "/lib/plugins/generic/avlibqtgeneric.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/lib/plugins/imageformats/avlibqtimageformats.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/lib/plugins/platforms/avlibqtplatforms.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/share/RHVoice/languages/Brazilian-Portuguese/avsharerhvoicelang.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/share/RHVoice/languages/Brazilian-Portuguese/userdict/src/avsharerhvoicelangdict.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/share/RHVoice/voices/Leticia-F123/16000/avsharerhvoice24khz.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/share/RHVoice/voices/Leticia-F123/avsharerhvoiceleticia.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/bin/avpart90.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/bin/avpart91.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/bin/avpart97.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/bin/avpart99.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/bin/avusrbin.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1571,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3898
+    ],
+    [
+     "GAP",
+     "/uenux/lib/avusrlib.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/uenux/lib/avusrlibue.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/bin/avbin.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/boot/boot/avboot.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/etc/RHVoice/avrhvoice.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/etc/avetc.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/avlib.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/modules/avmod.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/plugins/generic/avlibqtgeneric.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/plugins/imageformats/avlibqtimageformats.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/plugins/platforms/avlibqtplatforms.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/share/RHVoice/languages/Brazilian-Portuguese/avsharerhvoicelang.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/share/RHVoice/languages/Brazilian-Portuguese/userdict/src/avsharerhvoicelangdict.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/share/RHVoice/voices/Leticia-F123/16000/avsharerhvoice24khz.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/share/RHVoice/voices/Leticia-F123/avsharerhvoiceleticia.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/bin/avusrbin.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/lib/avusrlib.vst",
+     "no resumo do modelo (arquivos base)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/dsk/fi/estatico/chave/avusrchave.vst",
+     "no resumo do modelo (lista da UF)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/dsk/fe/estatico/chave/avusrchave.vst",
+     "no resumo do modelo (lista da UF, com /dsk/fe/ no lugar de /dsk/fi/)",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "GAP",
+     "/boot/boot/avbootcfg.vsu",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/boot/boot/avbootcfg.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/modules/ue2013/avmodue2013.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/modules/ue2015/avmodue2015.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/modules/ue2020/avmodue2020.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/lib/modules/ue2022/avmodue2022.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/lib/avusrlibue2013.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/lib/avusrlibue2015.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/lib/avusrlibue2020.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ],
+    [
+     "SCUE",
+     "/uenux/lib/avusrlibue2022.vst",
+     "sem resumo publicado",
+     "pacote de programa",
+     {
+      "UE2022": 1570,
+      "UE2020": 1268,
+      "UE2015": 966,
+      "UE2013": 93
+     },
+     3897
+    ]
+   ],
+   "secoes_com_modelo_do_log_diferente_do_vsc": [
+    {
+     "secao": "AL|27910|50|89",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01768591"
+      ],
+      [
+       "01668115"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "MG|46337|132|25",
+     "modelo_vsc": "UE2015",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01652094"
+      ],
+      [
+       "01840360"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "MG|46337|132|26",
+     "modelo_vsc": "UE2015",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01673903"
+      ],
+      [
+       "01754281"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "MG|46337|132|65",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01653361"
+      ],
+      [
+       "01752183"
+      ],
+      [
+       "01653361"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "MG|49174|88|144",
+     "modelo_vsc": "UE2020",
+     "modelos_no_log": [
+      "UE2020",
+      "UE2022"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "02473385"
+      ],
+      [
+       "02054885"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "PE|24996|37|143",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01774499"
+      ],
+      [
+       "01660932"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "RJ|60011|216|133",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01761105"
+      ],
+      [
+       "01670980"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "RS|88269|12|208",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01804130"
+      ],
+      [
+       "01680026"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "SE|31054|1|231",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01767299"
+      ],
+      [
+       "01670953"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "SP|64416|297|177",
+     "modelo_vsc": "UE2020",
+     "modelos_no_log": [
+      "UE2020",
+      "UE2022"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "02375131"
+      ],
+      [
+       "02145415"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "SP|64777|185|162",
+     "modelo_vsc": "UE2022",
+     "modelos_no_log": [
+      "UE2020",
+      "UE2022"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "02124615"
+      ],
+      [
+       "02471688"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    },
+    {
+     "secao": "SP|71293|109|146",
+     "modelo_vsc": "UE2013",
+     "modelos_no_log": [
+      "UE2013",
+      "UE2015"
+     ],
+     "urnas_por_bloco_do_log": [
+      [
+       "01781755"
+      ],
+      [
+       "01669296"
+      ]
+     ],
+     "explicado_por_troca_de_urna_no_log": true
+    }
+   ],
+   "secoes_com_erro_de_assinatura_no_log": [
+    {
+     "secao": "AL|28231|11|58",
+     "urnas_por_bloco_do_log": [
+      [
+       "01766638"
+      ],
+      [
+       "01766638"
+      ]
+     ],
+     "urna_do_vsc": 1766638,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "01766638"
+       ],
+       "votos_por_dia": {},
+       "primeiro_erro": "2026-09-19T10:02:37",
+       "contexto": [
+        "19/09/2026 09:53:38 | INFO | 01766638 | LOGD | Urna ligada em 19/09/2026 às 09:51:30",
+        "19/09/2026 10:01:11 | INFO | 01766638 | LOGD | Urna ligada em 19/09/2026 às 10:00:04",
+        "19/09/2026 10:02:37 | WHAT | 01766638 | GAP | WHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN | pacote: (/d"
+       ]
+      },
+      {
+       "urnas": [
+        "01766638"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 288,
+        "25/10/2026": 271
+       },
+       "primeiro_erro": null,
+       "contexto": []
+      }
+     ],
+     "linhas": [
+      "19/09/2026 10:02:37\tWHAT\t01766638\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |"
+     ],
+     "verificacoes_nao_sucesso": []
+    },
+    {
+     "secao": "BA|33553|169|132",
+     "urnas_por_bloco_do_log": [
+      [
+       "02305138"
+      ],
+      [
+       "02277331"
+      ]
+     ],
+     "urna_do_vsc": 2277331,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "02305138"
+       ],
+       "votos_por_dia": {},
+       "primeiro_erro": "2026-10-04T08:24:40",
+       "contexto": [
+        "04/10/2026 08:14:52 | INFO | 02305138 | LOGD | Urna ligada em 04/10/2026 às 08:14:15",
+        "04/10/2026 08:23:55 | INFO | 02305138 | LOGD | Urna ligada em 04/10/2026 às 08:23:18",
+        "04/10/2026 08:24:40 | INFO | 02305138 | GAP | Verificação de assinatura - Etapa [2] - [/uenux/bin/avusrbin.vst] - [ERRO]",
+        "04/10/2026 08:24:40 | ERRO | 02305138 | GAP | Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitua a urna.",
+        "04/10/2026 08:24:40 | WHAT | 02305138 | GAP | WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pacote: (/uenu"
+       ]
+      },
+      {
+       "urnas": [
+        "02277331"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 303,
+        "25/10/2026": 328
+       },
+       "primeiro_erro": null,
+       "contexto": []
+      }
+     ],
+     "linhas": [
+      "04/10/2026 08:24:40\tERRO\t02305138\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitu",
+      "04/10/2026 08:24:40\tWHAT\t02305138\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pa"
+     ],
+     "verificacoes_nao_sucesso": [
+      [
+       "GAP",
+       "/uenux/bin/avusrbin.vst",
+       "ERRO"
+      ]
+     ]
+    },
+    {
+     "secao": "MG|46337|132|267",
+     "urnas_por_bloco_do_log": [
+      [
+       "01655466"
+      ]
+     ],
+     "urna_do_vsc": 1655466,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "01655466"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 320,
+        "25/10/2026": 338
+       },
+       "primeiro_erro": "2026-10-04T15:37:35",
+       "contexto": [
+        "04/10/2026 15:23:18 | ALERTA | 01655466 | VOTA | Carga da [ALIMENTAÇÃO BATERIA INTERNA]: [CRÍTICA]",
+        "04/10/2026 15:34:57 | INFO | 01655466 | LOGD | Urna ligada em 04/10/2026 às 15:33:50",
+        "04/10/2026 15:37:35 | ERRO | 01655466 | GAP | Erro na verificação de assinatura do arquivo - vota.vsu",
+        "04/10/2026 15:37:35 | INFO | 01655466 | GAP | Início da sincronização dos arquivos dinâmicos",
+        "04/10/2026 15:37:35 | INFO | 01655466 | GAP | Origem da sincronização dos arquivos dinâmicos na MI",
+        "04/10/2026 15:39:03 | INFO | 01655466 | VOTA | Urna pronta para receber votos"
+       ]
+      }
+     ],
+     "linhas": [
+      "04/10/2026 15:37:35\tERRO\t01655466\tGAP\tErro na verificação de assinatura do arquivo - vota.vsu\tDC388E0544500252"
+     ],
+     "verificacoes_nao_sucesso": []
+    },
+    {
+     "secao": "MG|51632|247|72",
+     "urnas_por_bloco_do_log": [
+      [
+       "02066207"
+      ]
+     ],
+     "urna_do_vsc": 2066207,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "02066207"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 224,
+        "25/10/2026": 230
+       },
+       "primeiro_erro": "2026-10-16T12:18:50",
+       "contexto": [
+        "16/10/2026 12:17:31 | INFO | 02066207 | LOGD | Urna ligada em 16/10/2026 às 12:16:54",
+        "16/10/2026 12:18:43 | INFO | 02066207 | GAP | Número de série da MR: D53A6962",
+        "16/10/2026 12:18:44 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 12:18:44 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:45:21",
+        "16/10/2026 12:18:50 | ERRO | 02066207 | GAP | GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de 2º turno e t",
+        "16/10/2026 12:20:33 | INFO | 02066207 | LOGD | Urna ligada em 16/10/2026 às 12:19:56",
+        "16/10/2026 12:21:46 | INFO | 02066207 | GAP | Número de série da MR: D53A6962",
+        "16/10/2026 12:21:46 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 12:21:46 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:45:21",
+        "16/10/2026 12:21:52 | ERRO | 02066207 | GAP | GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de 2º turno e t",
+        "16/10/2026 12:24:03 | INFO | 02066207 | LOGD | Urna ligada em 16/10/2026 às 12:23:26",
+        "16/10/2026 12:25:16 | INFO | 02066207 | GAP | Número de série da MR: D53A6962",
+        "16/10/2026 12:25:16 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 12:25:16 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:45:21",
+        "16/10/2026 12:25:22 | ERRO | 02066207 | GAP | GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de 2º turno e t",
+        "16/10/2026 12:29:12 | INFO | 02066207 | LOGD | Urna ligada em 16/10/2026 às 12:28:31",
+        "16/10/2026 12:30:25 | INFO | 02066207 | GAP | Número de série da MR: D53A6962",
+        "16/10/2026 12:30:25 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 12:30:25 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:45:21",
+        "16/10/2026 12:30:31 | ERRO | 02066207 | GAP | GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de 2º turno e t",
+        "16/10/2026 13:35:50 | INFO | 02066207 | LOGD | Urna ligada em 16/10/2026 às 13:35:13",
+        "16/10/2026 13:37:02 | INFO | 02066207 | GAP | Número de série da MR: EB67986F",
+        "16/10/2026 13:37:03 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 13:37:03 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:23:03",
+        "16/10/2026 13:37:19 | INFO | 02066207 | GAP | Mídia de resultado de 2º turno",
+        "16/10/2026 13:43:43 | INFO | 02066207 | GAP | Número de série da MR: EB67986F",
+        "16/10/2026 13:43:43 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02",
+        "16/10/2026 13:43:43 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:23:03",
+        "16/10/2026 13:44:00 | INFO | 02066207 | GAP | Mídia de resultado de 2º turno"
+       ]
+      }
+     ],
+     "linhas": [
+      "16/10/2026 12:18:50\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ",
+      "16/10/2026 12:21:52\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ",
+      "16/10/2026 12:25:22\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ",
+      "16/10/2026 12:30:31\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de "
+     ],
+     "verificacoes_nao_sucesso": []
+    },
+    {
+     "secao": "PB|21873|33|98",
+     "urnas_por_bloco_do_log": [
+      [
+       "02352462"
+      ]
+     ],
+     "urna_do_vsc": 2352462,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "02352462"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 239,
+        "25/10/2026": 240
+       },
+       "primeiro_erro": "2026-09-22T10:16:58",
+       "contexto": [
+        "22/09/2026 10:16:31 | INFO | 02352462 | LOGD | Urna ligada em 22/09/2026 às 10:15:37",
+        "22/09/2026 10:16:03 | INFO | 02352462 | LOGD | Urna ligada em 22/09/2026 às 10:15:23",
+        "22/09/2026 10:16:58 | INFO | 02352462 | GAP | Verificação de assinatura - Etapa [26] - [/dsk/fe/estatico/infomidia.vsc] - [ERRO]",
+        "22/09/2026 10:16:58 | ERRO | 02352462 | GAP | Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga.",
+        "22/09/2026 10:16:58 | WHAT | 02352462 | GAP | WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura SEVIN | pacote: (/ds",
+        "22/09/2026 10:18:51 | INFO | 02352462 | LOGD | Urna ligada em 22/09/2026 às 10:18:14",
+        "22/09/2026 10:25:52 | ERRO | 02352462 | ATUE | Salvando EG na mídia de votação | O estado geral não foi salvo (1175) | Erro inesperado ao salvar o estado geral na mídia de votação Desligue e ligue a urna. Se o erro persi",
+        "22/09/2026 10:27:20 | INFO | 02352462 | LOGD | Urna ligada em 22/09/2026 às 10:26:43",
+        "22/09/2026 10:34:23 | INFO | 02352462 | LOGD | Urna ligada em 22/09/2026 às 10:33:46",
+        "22/09/2026 10:35:43 | INFO | 02352462 | GAP | Início do procedimento de contingência de MV",
+        "22/09/2026 10:35:51 | INFO | 02352462 | GAP | Término do processo de contingência de MV",
+        "22/09/2026 10:35:51 | INFO | 02352462 | GAP | Contingência de MV executada com sucesso"
+       ]
+      }
+     ],
+     "linhas": [
+      "22/09/2026 10:16:58\tERRO\t02352462\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga.\t9400EA31263EE73",
+      "22/09/2026 10:16:58\tWHAT\t02352462\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura SEVIN | "
+     ],
+     "verificacoes_nao_sucesso": [
+      [
+       "GAP",
+       "/dsk/fe/estatico/infomidia.vsc",
+       "ERRO"
+      ]
+     ]
+    },
+    {
+     "secao": "RJ|58831|198|95",
+     "urnas_por_bloco_do_log": [
+      [
+       "02398211"
+      ]
+     ],
+     "urna_do_vsc": 2398211,
+     "blocos_do_log": [
+      {
+       "urnas": [
+        "02398211"
+       ],
+       "votos_por_dia": {
+        "04/10/2026": 198,
+        "25/10/2026": 200
+       },
+       "primeiro_erro": "2026-09-24T10:26:38",
+       "contexto": [
+        "24/09/2026 10:22:34 | INFO | 02398211 | LOGD | Urna ligada em 24/09/2026 às 10:21:40",
+        "24/09/2026 10:25:55 | INFO | 02398211 | LOGD | Urna ligada em 24/09/2026 às 10:25:18",
+        "24/09/2026 10:26:38 | WHAT | 02398211 | GAP | WHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN | pacote: (/d",
+        "24/09/2026 10:28:21 | INFO | 02398211 | LOGD | Urna ligada em 24/09/2026 às 10:27:44",
+        "24/09/2026 10:29:03 | WHAT | 02398211 | GAP | WHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN | pacote: (/d",
+        "24/09/2026 10:30:55 | INFO | 02398211 | LOGD | Urna ligada em 24/09/2026 às 10:30:18"
+       ]
+      }
+     ],
+     "linhas": [
+      "24/09/2026 10:26:38\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |",
+      "24/09/2026 10:29:03\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |"
+     ],
+     "verificacoes_nao_sucesso": []
+    }
+   ],
+   "linhas_de_assinatura_com_falha_ou_erro": [
+    [
+     "AL|28231|11|58",
+     "19/09/2026 10:02:37\tWHAT\t01766638\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |"
+    ],
+    [
+     "BA|33553|169|132",
+     "04/10/2026 08:24:40\tERRO\t02305138\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitu"
+    ],
+    [
+     "BA|33553|169|132",
+     "04/10/2026 08:24:40\tWHAT\t02305138\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pa"
+    ],
+    [
+     "MG|46337|132|267",
+     "04/10/2026 15:37:35\tERRO\t01655466\tGAP\tErro na verificação de assinatura do arquivo - vota.vsu\tDC388E0544500252"
+    ],
+    [
+     "MG|51632|247|72",
+     "16/10/2026 12:18:50\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de "
+    ],
+    [
+     "MG|51632|247|72",
+     "16/10/2026 12:21:52\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de "
+    ],
+    [
+     "MG|51632|247|72",
+     "16/10/2026 12:25:22\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de "
+    ],
+    [
+     "MG|51632|247|72",
+     "16/10/2026 12:30:31\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de "
+    ],
+    [
+     "PB|21873|33|98",
+     "22/09/2026 10:16:58\tERRO\t02352462\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga.\t9400EA31263EE73"
+    ],
+    [
+     "PB|21873|33|98",
+     "22/09/2026 10:16:58\tWHAT\t02352462\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura SEVIN | "
+    ],
+    [
+     "RJ|58831|198|95",
+     "24/09/2026 10:26:38\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |"
+    ],
+    [
+     "RJ|58831|198|95",
+     "24/09/2026 10:29:03\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |"
+    ]
+   ],
+   "n_linhas_de_assinatura_com_falha_ou_erro": 12,
+   "logs_com_erro_de_leitura": [],
+   "n_logs_com_erro": 0
+  },
+  "c_versoes": {
+   "boletim": {
+    "10.23.0.0 - Praia da Barra do Cahy": 3897
+   },
+   "log_por_aplicacao": {
+    "SCUE | 10.23.0.0 - Praia da Barra do Cahy": 3897,
+    "GAP | 10.23.0.0 - Praia da Barra do Cahy": 3897,
+    "ATUE | 10.23.0.0 - Praia da Barra do Cahy": 3897,
+    "VOTA | 10.23.0.0 - Praia da Barra do Cahy": 3897,
+    "VPP | 10.23.0.0 - Praia da Barra do Cahy": 58,
+    "ADH | 10.23.0.0 - Praia da Barra do Cahy": 1
+   },
+   "modelo_no_log_x_modelo_do_vsc": {
+    "UE2022 | UE2022": 1570,
+    "UE2020 | UE2020": 1268,
+    "UE2015 | UE2015": 966,
+    "UE2013 | UE2013": 93,
+    "UE2013 | UE2015": 7,
+    "UE2015 | UE2013": 2,
+    "UE2020 | UE2022": 2,
+    "UE2022 | UE2020": 1
+   }
+  },
+  "resumo_de_programa_obtenivel_dos_arquivos_de_urna": false
+ },
+ "veredito": {
+  "certificados": "SEM SINAL",
+  "resumos_de_programa": "SEM DADO (nenhum resumo de programa sai dos arquivos públicos de urna)",
+  "leitura_estrita_rfc5280": "1059 de 1059 certificados emitidos pela AC URNA não passariam na validação de caminho do RFC 5280 na data da assinatura, porque o certificado publicado da AC URNA venceu antes"
+ }
+}

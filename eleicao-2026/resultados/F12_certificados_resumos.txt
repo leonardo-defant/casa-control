@@ -1,0 +1,265 @@
+F12. Certificados das autoridades certificadoras da urna e resumos digitais dos programas (Adendo 21)
+
+VEREDITO PELA LETRA DO ADENDO 21
+  Certificados: SEM SINAL. Nenhum certificado de urna da amostra deixa de se validar pela AC publicada:
+  3897 de 3897 assinaturas conferem com a chave da AC que o certificado aponta, com emissor igual ao titular da AC byte a byte.
+  Resumos dos programas: SEM DADO (nenhum resumo de programa sai dos arquivos públicos de urna).
+  Alegação da AC URNA: CONFERE. O certificado publicado da AC URNA vale até 2026-07-18 21:59:57 UTC.
+
+NÚMEROS
+  AC publicadas: AC URNA (ECDSA P-521, emitida pela AC RAIZ UE, 22/07/2011 a 18/07/2026), AC UE2020 (Ed521, emitida pela AC URNA v2,
+  05/07/2021 a 01/07/2037) e AC UE2022 (Ed521, AC URNA v2, 28/02/2023 a 24/02/2039). O mesmo certificado, byte a byte, nas 4 fontes
+  (pacote do TSE, var-ue, ivanmneto92-sys, dataurnas-br). O SHA-512 de acue2020.cer e acue2022.cer no resumo do HOLOCRON é o do PEM
+  desses certificados; o HOLOCRON não lista nenhum acurna; lista acraiz-ue.pem, acraizuev2.cer e acurnav2.cer, que não achei.
+  Urnas do 2º turno: 3897 certificados (AC UE2022 1570, AC UE2020 1268, AC URNA 1059).
+  Assinatura confere: 3897 de 3897. Controles: TBS com 1 bit trocado ou assinatura com 1 byte trocado aceitos 0 vezes em 7794.
+  Nenhum certificado Ed521 confere também com a outra AC Ed521. Modelo e algoritmo do bloco 2 do vsc batem com a AC em 3897 de 3897;
+  o modelo pela faixa do número da urna bate com o bloco 2 em 3897 de 3897. Serial ou chave repetidos em urnas diferentes: 0.
+  Validade: todos os 3897 certificados de urna válidos no momento da assinatura (25/10/2026, 15h a 19h locais).
+  AC URNA: 1059 de 1059 emitidos dentro da validade dela (o mais recente em 2026-07-17),
+  mas a AC estava vencida no momento da assinatura em 1059 de 1059; todos vencem depois da AC (2027 a 2037).
+  Leitura estrita do RFC 5280 na data da assinatura: 0 de 1059 da AC URNA passam; AC UE2020 e AC UE2022: 2838 de 2838.
+  1º turno (80 seções, fora da amostra): 80 de 80 conferem; mesma urna e mesmo certificado nos dois turnos em 78; urna trocada em 2.
+  Seção SP|66818|400|141 (Marília, citada pela dataurnas-br): urna UE2013 1682645 (a mesma do boletim), certificado emitido em 2026-08-03 18:10:52 UTC,
+  15 dias e 20 horas depois do fim da AC URNA publicada; a assinatura confere com a chave dela: sim (nos dois turnos).
+  Certificados de urna emitidos em 2026 na amostra: 4 (AC URNA 2026-06-10, AC URNA 2026-07-17, AC UE2022 2026-07-17, AC UE2020 2026-08-31), todos com fim em 31/12/2037 23:00 UTC.
+  Resumos publicados (cópia de terceiros): urna 2013 639 linhas, 2015 640, 2020 644, 2022 644, datadas de 02/09/2026, todas no formato SHA-512.
+  Dos arquivos de urna: 42867 resumos SHA-512 listados nos vsc (11 arquivos por seção); 0 aparecem em algum resumo publicado. Nenhum é de programa.
+  Logs: 1352279 verificações de assinatura de pacote com SUCESSO e 2 com ERRO.
+  Os 24 pacotes de programa que o GAP verifica a cada partida estão no resumo publicado do modelo da urna em 3885 seções;
+  nas outras 12, o log tem duas urnas de modelos diferentes (troca registrada) em 12 de 12.
+  Versão em todos os boletins e em todos os aplicativos do log: 10.23.0.0 - Praia da Barra do Cahy.
+
+O QUE ISSO SIGNIFICA
+  Os certificados das urnas da amostra foram emitidos pelas três AC que o TSE publica no pacote de documentação, e nenhum aponta para
+  outra AC. Isso fecha a cadeia até as AC intermediárias: um pacote trocado com certificado forjado exigiria a chave privada de uma
+  delas. Não fecha até a raiz (AC RAIZ UE e AC URNA v2 não estão publicadas em lugar que eu consiga baixar), e a AC publicada só é
+  "do TSE" por duas cópias de terceiros que concordam entre si (o pacote de documentação e o resumo do HOLOCRON).
+  A alegação sobre a AC URNA é verdadeira e precisa: o certificado publicado venceu em 18/07/2026, antes dos dois turnos. Pela
+  regra estrita do X.509, a cadeia dos 27% da amostra com urna antiga (UE2013 e UE2015) estaria vencida no dia da assinatura. Isso não mostra
+  arquivo adulterado: as assinaturas conferem e cada certificado de urna está dentro da própria validade. Mostra um problema de gestão
+  da AC: ou há um certificado renovado da AC URNA, com a mesma chave, que não foi publicado, ou a chave continuou em uso depois do
+  vencimento. A urna de Marília com certificado emitido em 03/08/2026 pela mesma chave confirma que a chave assinou depois do fim.
+  Os resumos dos programas não podem ser comparados com os arquivos públicos de urna: eles não trazem nenhum arquivo de programa nem
+  resumo de programa (o hash.dat, que pode conter isso, é listado no vsc mas não é publicado). O que dá para ver é indireto: a urna
+  registra que verificou a assinatura de cada pacote e que deu certo, e os nomes dos pacotes batem com a lista publicada do modelo.
+  Esse registro é feito pelo próprio programa da urna: um programa trocado poderia escrever o mesmo log.
+
+PISTAS (fora do critério; tudo no JSON)
+  1. A chave da AC URNA assinou depois do vencimento publicado: Marília, emitido em 03/08/2026 (fora da amostra; nenhum caso na amostra,
+     onde os 2 certificados da AC URNA de 2026 são de 2026-06-10, 2026-07-17). Os 4 certificados de urna de 2026 da amostra e o de
+     Marília têm fim fixo em 31/12/2037 23:00 UTC; os anteriores vencem cerca de 14 anos depois da emissão. Mudou o perfil de emissão em 2026.
+     Falta achar um certificado renovado da AC URNA (mesma chave) e saber por que o pacote de documentação traz o vencido.
+  2. O resumo do HOLOCRON 2026 lista acraiz-ue.pem, acraizuev2.cer e acurnav2.cer (SHA-512 no JSON, holocron) e não lista a AC URNA.
+     Com esses arquivos a cadeia fecharia até a raiz e daria para conferir byte a byte. A chave da AC RAIZ UE recuperada da assinatura
+     da AC URNA (D8) tem SHA-256 do SubjectPublicKeyInfo 3a80c26f178b845ed4f4bf47d68beec37c4bfdd006bcf320a42ec5e6005f2474.
+  AL|28231|11|58: urnas no log [['01766638'], ['01766638']], urna do vsc 1766638, votos por bloco [{}, {'04/10/2026': 288, '25/10/2026': 271}]; primeiro erro ['2026-09-19T10:02:37', None].
+       19/09/2026 10:02:37 | WHAT | 01766638 | GAP | WHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN | pacote: (/d
+  BA|33553|169|132: urnas no log [['02305138'], ['02277331']], urna do vsc 2277331, votos por bloco [{}, {'04/10/2026': 303, '25/10/2026': 328}]; primeiro erro ['2026-10-04T08:24:40', None].
+       04/10/2026 08:24:40 | INFO | 02305138 | GAP | Verificação de assinatura - Etapa [2] - [/uenux/bin/avusrbin.vst] - [ERRO]
+       04/10/2026 08:24:40 | ERRO | 02305138 | GAP | Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitua a urna.
+       04/10/2026 08:24:40 | WHAT | 02305138 | GAP | WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pacote: (/uenu
+  MG|46337|132|267: urnas no log [['01655466']], urna do vsc 1655466, votos por bloco [{'04/10/2026': 320, '25/10/2026': 338}]; primeiro erro ['2026-10-04T15:37:35'].
+       04/10/2026 15:23:18 | ALERTA | 01655466 | VOTA | Carga da [ALIMENTAÇÃO BATERIA INTERNA]: [CRÍTICA]
+       04/10/2026 15:37:35 | ERRO | 01655466 | GAP | Erro na verificação de assinatura do arquivo - vota.vsu
+       04/10/2026 15:37:35 | INFO | 01655466 | GAP | Início da sincronização dos arquivos dinâmicos
+       04/10/2026 15:37:35 | INFO | 01655466 | GAP | Origem da sincronização dos arquivos dinâmicos na MI
+       04/10/2026 15:39:03 | INFO | 01655466 | VOTA | Urna pronta para receber votos
+  MG|51632|247|72: urnas no log [['02066207']], urna do vsc 2066207, votos por bloco [{'04/10/2026': 224, '25/10/2026': 230}]; primeiro erro ['2026-10-16T12:18:50'].
+       16/10/2026 12:18:43 | INFO | 02066207 | GAP | Número de série da MR: D53A6962
+       16/10/2026 12:18:44 | INFO | 02066207 | GAP | MR gerada pelo computador: ZMG247STD02
+       16/10/2026 12:18:44 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:45:21
+       16/10/2026 12:18:50 | ERRO | 02066207 | GAP | GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de 2º turno e t
+       16/10/2026 13:37:02 | INFO | 02066207 | GAP | Número de série da MR: EB67986F
+       16/10/2026 13:37:03 | INFO | 02066207 | GAP | Data e hora da geração da MR: 15/10/2026 às 13:23:03
+       16/10/2026 13:37:19 | INFO | 02066207 | GAP | Mídia de resultado de 2º turno
+  PB|21873|33|98: urnas no log [['02352462']], urna do vsc 2352462, votos por bloco [{'04/10/2026': 239, '25/10/2026': 240}]; primeiro erro ['2026-09-22T10:16:58'].
+       22/09/2026 10:16:58 | INFO | 02352462 | GAP | Verificação de assinatura - Etapa [26] - [/dsk/fe/estatico/infomidia.vsc] - [ERRO]
+       22/09/2026 10:16:58 | ERRO | 02352462 | GAP | Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga.
+       22/09/2026 10:16:58 | WHAT | 02352462 | GAP | WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura SEVIN | pacote: (/ds
+       22/09/2026 10:25:52 | ERRO | 02352462 | ATUE | Salvando EG na mídia de votação | O estado geral não foi salvo (1175) | Erro inesperado ao salvar o estado geral na mídia de votação Desligue e ligue a urna. Se o erro persi
+       22/09/2026 10:35:43 | INFO | 02352462 | GAP | Início do procedimento de contingência de MV
+       22/09/2026 10:35:51 | INFO | 02352462 | GAP | Término do processo de contingência de MV
+       22/09/2026 10:35:51 | INFO | 02352462 | GAP | Contingência de MV executada com sucesso
+  RJ|58831|198|95: urnas no log [['02398211']], urna do vsc 2398211, votos por bloco [{'04/10/2026': 198, '25/10/2026': 200}]; primeiro erro ['2026-09-24T10:26:38'].
+       24/09/2026 10:26:38 | WHAT | 02398211 | GAP | WHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN | pacote: (/d
+  12 seções com módulo de outro modelo no log: em 12 há troca de urna registrada (lista no JSON).
+  Pacotes de programa verificados nos logs sem resumo publicado com esse nome: 10 (GAP /boot/boot/avbootcfg.vsu, SCUE /boot/boot/avbootcfg.vst, SCUE /lib/modules/ue2013/avmodue2013.vst, SCUE /lib/modules/ue2015/avmodue2015.vst, SCUE /lib/modules/ue2020/avmodue2020.vst, SCUE /lib/modules/ue2022/avmodue2022.vst, SCUE /uenux/lib/avusrlibue2013.vst, SCUE /uenux/lib/avusrlibue2015.vst, SCUE /uenux/lib/avusrlibue2020.vst, SCUE /uenux/lib/avusrlibue2022.vst).
+     Com o mesmo nome em outro resumo (GEDAI-UE, caminho do Windows): /dsk/fe/estatico/jez/avpart_ofi.vst, /dsk/fe/estatico/jez/vota_apl.vst, /dsk/fe/estatico/jez/vota_ofi.vst. O avbootcfg.vsu é gerado na urna;
+     segundo o trecho da página do TSE mostrado pelo buscador, avbootcfg.vsu e uenux.cfg não têm hash publicado (a página não abriu daqui).
+  mr.ver: o mesmo arquivo (1025 bytes, um único SHA-512) nas 3897 urnas de todos os modelos; não está nos resumos e não é
+     publicado. hash.dat (19,8 a 20,4 KB, diferente em cada seção) é assinado no vsc e não é publicado; se tiver os resumos dos programas
+     instalados, publicá-lo permitiria a comparação que o F12 pede.
+  Assinatura de software: as 3897 seções do 2º turno e as 80 do 1º usam o mesmo usuário e conjunto de chaves (SEVIN 20260708; 202607021654),
+     com algoritmo CEPESC, que não dá para verificar com informação pública.
+  AC UE2020: 10 certificados de urna vencem depois da própria AC. AC URNA: 1059 de 1059.
+  O bloco 2 do vsc, que o T18 deixou sem significado, é (modelo do equipamento, algoritmo) do esquema do TSE: 22/20 com EdDSA, 15/13 com ECDSA.
+  Fontes: o pacote do TSE e os resumos dos programas vieram de cópias de terceiros, porque o site do TSE dá 403 daqui. As duas cópias
+     concordam entre si nos certificados AC UE2020 e AC UE2022. Conferir com o site do TSE a partir de outra rede fecharia esse ponto.
+  Não reproduzi o HASH GERAL dos resumos (11 métodos tentados): a consistência interna das listas não foi conferida.
+
+DETALHE
+
+Veredito pela letra: certificados SEM SINAL; resumos de programa SEM DADO (nenhum resumo de programa sai dos arquivos públicos de urna).
+Leitura estrita (descritiva, D2): 1059 de 1059 certificados emitidos pela AC URNA não passariam na validação de caminho do RFC 5280 na data da assinatura, porque o certificado publicado da AC URNA venceu antes.
+
+1. Certificados das AC usados como "publicados" (D1)
+  AC URNA: emissor 1.2.840.113549.1.9.1=acraizue@tse.jus.br,L=Brasilia,ST=DF,CN=AC RAIZ UE,OU=STI,O=TSE,C=BR; serial 3; validade 2011-07-22T21:59:57 a 2026-07-18T21:59:57 UTC; assinatura 1.2.840.10045.4.3.4; chave ecdsa; SKI cdaaf4b29701b3f0deb2b54258594a6d34ada48a; AKI 8668837bbbe348cd19b61030a489d5dfde6742c0; CA True; assina certificados True; SKI = SHA-1 da chave: True; SHA-256 (DER) dc20a4c3b8aef01794b80efe8e143e1fbf719707e00bb0d4ba8865191dc2731d
+  AC UE2020: emissor L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurnav2@tse.jus.br,C=BR,ST=DF,CN=AC URNA v2; serial 5; validade 2021-07-05T21:31:56 a 2037-07-01T21:31:56 UTC; assinatura 1.3.6.1.4.1.44588.2.1; chave ed521; SKI bcb3545deeea432e1e832e81283cb8ae948e400b; AKI d02566c491034b3a9313b3074921eca9b500e21f; CA True; assina certificados True; SKI = SHA-1 da chave: True; SHA-256 (DER) 77f31bef3d8eb35f0cc969a2b9bba3ff2a498cc339d29a375d3181e0547c0376
+  AC UE2022: emissor L=Brasilia,OU=STI,O=TSE,1.2.840.113549.1.9.1=acurnav2@tse.jus.br,C=BR,ST=DF,CN=AC URNA v2; serial 8; validade 2023-02-28T13:46:49 a 2039-02-24T13:46:49 UTC; assinatura 1.3.6.1.4.1.44588.2.1; chave ed521; SKI bb7c517f294a5b96f9bf6a964c4f255a755f698a; AKI d02566c491034b3a9313b3074921eca9b500e21f; CA True; assina certificados True; SKI = SHA-1 da chave: True; SHA-256 (DER) 6ae65790dae7cc5d97394e461204744c8e2f7a810d0303af828d4d3dbecfa293
+  Mesmo certificado nas fontes:
+    AC URNA: 4 fontes, todas iguais: True
+    AC UE2020: 4 fontes, todas iguais: True
+    AC UE2022: 4 fontes, todas iguais: True
+  Resumo publicado do HOLOCRON (pc1holo.html, cópia de terceiros):
+    AC URNA: listado e igual: False; formas que conferem: nenhuma
+    AC UE2020: listado e igual: True; formas que conferem: PEM LF com quebra final (canônico) -> ['acue2020.cer'], arquivo acue2020.pem de ivanmneto92 -> ['acue2020.cer'], arquivo acue2020.pem de dataurnas -> ['acue2020.cer']
+    AC UE2022: listado e igual: True; formas que conferem: PEM LF com quebra final (canônico) -> ['acue2022.cer'], arquivo acue2022.pem de ivanmneto92 -> ['acue2022.cer'], arquivo acue2022.pem de dataurnas -> ['acue2022.cer']
+    Arquivos de certificado listados no HOLOCRON: ACHSM-DesktopJE-RegistroAssinatura.cer, ACHSM-DesktopJE-RegistroSigilo.cer, acraiz-ue.pem, acraizuev2.cer, acue2020.cer, acue2022.cer, acurnav2.cer, uedadoschaves.cer
+  D8 (robustez): 2 candidatos a chave da AC RAIZ UE recuperados da assinatura da AC URNA; com SHA-1 igual ao AKI 8668837bbbe348cd19b61030a489d5dfde6742c0: [{'sha256_spki': '3a80c26f178b845ed4f4bf47d68beec37c4bfdd006bcf320a42ec5e6005f2474', 'verifica_ac_urna': True}]
+
+2. Certificados das urnas, amostra do 2º turno
+  Contagem: {'certificados': 3897, 'formato_PEM': 2838, 'formato_DER': 1059}
+  AC UE2022: {'certificados': 1570, 'dn_igual_byte_a_byte': 1570, 'assinatura_ok': 1570, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 1570, 'urna_valida_no_dia': 1570, 'ac_valida_na_assinatura': 1570, 'emitido_dentro_da_validade_da_ac': 1570, 'urna_vence_depois_da_ac': 0, 'caminho_estrito_rfc5280_ok_na_assinatura': 1570, 'modelo_bloco2_UE2022': 1570, 'algoritmo_bloco2_eddsa': 1570}
+  AC UE2020: {'certificados': 1268, 'dn_igual_byte_a_byte': 1268, 'assinatura_ok': 1268, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 1268, 'urna_valida_no_dia': 1268, 'ac_valida_na_assinatura': 1268, 'emitido_dentro_da_validade_da_ac': 1268, 'urna_vence_depois_da_ac': 10, 'caminho_estrito_rfc5280_ok_na_assinatura': 1268, 'modelo_bloco2_UE2020': 1268, 'algoritmo_bloco2_eddsa': 1268}
+  AC URNA: {'certificados': 1059, 'dn_igual_byte_a_byte': 1059, 'assinatura_ok': 1059, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 1059, 'urna_valida_no_dia': 1059, 'ac_valida_na_assinatura': 0, 'emitido_dentro_da_validade_da_ac': 1059, 'urna_vence_depois_da_ac': 1059, 'caminho_estrito_rfc5280_ok_na_assinatura': 0, 'modelo_bloco2_UE2015': 966, 'algoritmo_bloco2_ecdsa': 1059, 'modelo_bloco2_UE2013': 93}
+  Falhas pelo critério: 0 []
+  Emitidos depois do fim da validade da AC: 0 []
+  Ano de emissão por AC: {'AC UE2020 2022': 1249, 'AC UE2020 2023': 13, 'AC UE2020 2024': 5, 'AC UE2020 2026': 1, 'AC UE2022 2023': 1160, 'AC UE2022 2024': 408, 'AC UE2022 2025': 1, 'AC UE2022 2026': 1, 'AC URNA 2013': 90, 'AC URNA 2014': 2, 'AC URNA 2016': 962, 'AC URNA 2017': 1, 'AC URNA 2020': 2, 'AC URNA 2026': 2}
+  Emissão mais recente por AC: {'AC URNA': '2026-07-17T13:39:43+00:00', 'AC UE2022': '2026-07-17T13:49:50+00:00', 'AC UE2020': '2026-08-31T16:02:52+00:00'}; fim mais cedo: {'AC URNA': '2027-04-08T07:13:02+00:00', 'AC UE2022': '2037-01-25T13:04:20+00:00', 'AC UE2020': '2035-12-31T00:42:53+00:00'}
+  Criação da assinatura de hardware (local): ['20261025T150125', '20261025T190617']; a menos de 1 dia de um limite de validade: 0
+  Modelo do bloco 2 diferente do esperado para a AC: 0 []
+  Modelo pela faixa do número diferente do bloco 2: 0 []
+  Assinatura de software: usuário {'SEVIN 20260708': 3897}; conjunto de chaves {'202607021654': 3897}
+
+3. Certificados das urnas, 80 seções do 1º turno (D7, descritivo)
+  Contagem: {'certificados': 80, 'formato_DER': 34, 'formato_PEM': 46}
+  AC URNA: {'certificados': 34, 'dn_igual_byte_a_byte': 34, 'assinatura_ok': 34, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 34, 'urna_valida_no_dia': 34, 'ac_valida_na_assinatura': 0, 'emitido_dentro_da_validade_da_ac': 34, 'urna_vence_depois_da_ac': 34, 'caminho_estrito_rfc5280_ok_na_assinatura': 0, 'modelo_bloco2_UE2015': 29, 'algoritmo_bloco2_ecdsa': 34, 'modelo_bloco2_UE2013': 5}
+  AC UE2022: {'certificados': 28, 'dn_igual_byte_a_byte': 28, 'assinatura_ok': 28, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 28, 'urna_valida_no_dia': 28, 'ac_valida_na_assinatura': 28, 'emitido_dentro_da_validade_da_ac': 28, 'urna_vence_depois_da_ac': 0, 'caminho_estrito_rfc5280_ok_na_assinatura': 28, 'modelo_bloco2_UE2022': 28, 'algoritmo_bloco2_eddsa': 28}
+  AC UE2020: {'certificados': 18, 'dn_igual_byte_a_byte': 18, 'assinatura_ok': 18, 'controle_tbs_adulterado_aceito': 0, 'controle_assinatura_trocada_aceita': 0, 'verifica_tambem_com_outra_ac': 0, 'urna_valida_na_assinatura': 18, 'urna_valida_no_dia': 18, 'ac_valida_na_assinatura': 18, 'emitido_dentro_da_validade_da_ac': 18, 'urna_vence_depois_da_ac': 0, 'caminho_estrito_rfc5280_ok_na_assinatura': 18, 'modelo_bloco2_UE2020': 18, 'algoritmo_bloco2_eddsa': 18}
+  Falhas pelo critério: 0 []
+  Emitidos depois do fim da validade da AC: 0 []
+  Ano de emissão por AC: {'AC UE2020 2022': 18, 'AC UE2022 2023': 19, 'AC UE2022 2024': 9, 'AC URNA 2013': 5, 'AC URNA 2016': 29}
+  Emissão mais recente por AC: {'AC UE2020': '2022-07-19T01:52:19+00:00', 'AC UE2022': '2024-03-14T21:29:38+00:00', 'AC URNA': '2016-09-29T05:49:39+00:00'}; fim mais cedo: {'AC UE2020': '2036-01-19T06:06:42+00:00', 'AC UE2022': '2037-05-08T05:19:37+00:00', 'AC URNA': '2027-04-08T07:37:16+00:00'}
+  Criação da assinatura de hardware (local): ['20261004T170219', '20261004T221814']; a menos de 1 dia de um limite de validade: 0
+  Modelo do bloco 2 diferente do esperado para a AC: 0 []
+  Modelo pela faixa do número diferente do bloco 2: 0 []
+  Assinatura de software: usuário {'SEVIN 20260708': 80}; conjunto de chaves {'202607021654': 80}
+  1º contra 2º turno na mesma seção: {'mesma_urna': 78, 'mesma_urna_mesmo_certificado': 78, 'urna_diferente': 2} [('BA|34193|53|220', 2424958, 2393632), ('BA|34193|53|298', 2407010, 2425268)]
+
+  Emitidos em 2026 (2º turno): [{'secao': 'AL|28436|50|31', 'urna': 1682840, 'ac': 'AC URNA', 'emissao_utc': '2026-06-10T18:10:26+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True}, {'secao': 'RS|85693|12|26', 'urna': 1848115, 'ac': 'AC URNA', 'emissao_utc': '2026-07-17T13:39:43+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True}, {'secao': 'SP|64777|185|162', 'urna': 2471688, 'ac': 'AC UE2022', 'emissao_utc': '2026-07-17T13:49:50+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True}, {'secao': 'BA|33634|75|240', 'urna': 2016370, 'ac': 'AC UE2020', 'emissao_utc': '2026-08-31T16:02:52+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True}]
+  Seção citada pela dataurnas-br (fora da amostra): [{'secao': 'SP|66818|400|141', 'turno': '1t', 'urna_no_certificado': 1682645, 'urna_no_boletim': 1682645, 'ac': 'AC URNA', 'emissao_utc': '2026-08-03T18:10:52+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True, 'controle_adulterado_aceito': False, 'modelo_bloco2': 'UE2013', 'emitido_depois_do_fim_da_ac': True, 'hw_quando': '20261004T171017'}, {'secao': 'SP|66818|400|141', 'turno': '2t', 'urna_no_certificado': 1682645, 'urna_no_boletim': 1682645, 'ac': 'AC URNA', 'emissao_utc': '2026-08-03T18:10:52+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True, 'controle_adulterado_aceito': False, 'modelo_bloco2': 'UE2013', 'emitido_depois_do_fim_da_ac': True, 'hw_quando': '20261025T170623'}]
+  Unicidade (2º turno e 1º): serial repetido em urnas diferentes 0; chave repetida 0; urna com mais de um certificado 0 []
+
+4. Alegação: certificado da AC URNA vencido em 18/07/2026
+  alegacao: certificado da AC URNA vencido em 18/07/2026 pela regra estrita do X.509
+  quem: ['ivanmneto92-sys/auditoria-presidente-2026, README.md, seção Limitações (commit 7a7ccc6, 28/10/2026)', 'alissonlinneker/dataurnas-br, data/certificados/README.md, Observação sobre a AC URNA (commit 12f0433, 15/10/2026)']
+  validade_fim_no_certificado_publicado_utc: 2026-07-18T21:59:57+00:00
+  confere_a_data: True
+  certificados_de_urna_da_ac_urna_2t: 1059
+  desses_com_assinatura_ok: 1059
+  desses_com_ac_valida_na_data_da_assinatura: 0
+  desses_com_caminho_estrito_ok: 0
+  desses_emitidos_dentro_da_validade_da_ac: 1059
+  emitidos_depois_do_fim_da_ac_2t: 0
+  acurna_no_manifesto_holocron: False
+  secao_marilia_emitido_depois_do_fim: [{'secao': 'SP|66818|400|141', 'turno': '1t', 'urna_no_certificado': 1682645, 'urna_no_boletim': 1682645, 'ac': 'AC URNA', 'emissao_utc': '2026-08-03T18:10:52+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True, 'controle_adulterado_aceito': False, 'modelo_bloco2': 'UE2013', 'emitido_depois_do_fim_da_ac': True, 'hw_quando': '20261004T171017'}, {'secao': 'SP|66818|400|141', 'turno': '2t', 'urna_no_certificado': 1682645, 'urna_no_boletim': 1682645, 'ac': 'AC URNA', 'emissao_utc': '2026-08-03T18:10:52+00:00', 'fim_utc': '2037-12-31T23:00:00+00:00', 'assinatura_ok': True, 'controle_adulterado_aceito': False, 'modelo_bloco2': 'UE2013', 'emitido_depois_do_fim_da_ac': True, 'hw_quando': '20261025T170623'}]
+
+5. Resumos digitais dos programas
+  Fonte: github.com/havaianasdestruido/resumos-eleicao-2026 (cópia de terceiros; D4)
+    hash_confea (1): Mídia de Verificação / CONFEA - 02/09/2026; 4 linhas; formato SHA-512 ok 4; HASH GERAL 0
+    hash_confea: Mídia de Verificação / CONFEA - 01/09/2026; 11 linhas; formato SHA-512 ok 11; HASH GERAL 0
+    hash_mp (1): Mídia de Verificação / MP - 02/09/2026; 4 linhas; formato SHA-512 ok 4; HASH GERAL 0
+    hash_mp: Mídia de Verificação / MP - 01/09/2026; 11 linhas; formato SHA-512 ok 11; HASH GERAL 0
+    hash_oab (1): Mídia de Verificação / OAB - 02/09/2026; 4 linhas; formato SHA-512 ok 4; HASH GERAL 0
+    hash_oab: Mídia de Verificação / OAB - 01/09/2026; 11 linhas; formato SHA-512 ok 11; HASH GERAL 0
+    hash_tse (1): Mídia de Verificação / TSE - 02/09/2026; 4 linhas; formato SHA-512 ok 4; HASH GERAL 0
+    hash_tse: Mídia de Verificação / TSE - 01/09/2026; 11 linhas; formato SHA-512 ok 11; HASH GERAL 0
+    itnm1infm: Eleições Gerais 2026 / Info Arquivos Urna - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1jecn: Eleições Gerais 2026 / JE Connect - JEC - 02/09/2026; 96 linhas; formato SHA-512 ok 96; HASH GERAL 1
+    itnm1recm: Eleições Gerais 2026 / Rec Arquivos Urna - 02/09/2026; 3 linhas; formato SHA-512 ok 3; HASH GERAL 0
+    itnm1stca: Eleições Gerais 2026 / SISTOT Candidato - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1stco: Eleições Gerais 2026 / SISTOT Correspondência - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1stct: Eleições Gerais 2026 / SISTOT Controle da Totalização - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1stot: Eleições Gerais 2026 / SISTOT Totalização - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1stre: Eleições Gerais 2026 / SISTOT Relatórios - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1stse: Eleições Gerais 2026 / SISTOT Seção - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1totl: Eleições Gerais 2026 / Sistema de Gerenciamento da Totalização - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    itnm1tran: Eleições Gerais 2026 / Transportador JEC - 02/09/2026; 148 linhas; formato SHA-512 ok 148; HASH GERAL 1
+    itnm1traw: Eleições Gerais 2026 / Transportador Web - 02/09/2026; 1 linhas; formato SHA-512 ok 1; HASH GERAL 0
+    path1u13: Eleições Gerais 2026 / Urna 2013 - 02/09/2026; 639 linhas; formato SHA-512 ok 639; HASH GERAL 28
+    path1u15: Eleições Gerais 2026 / Urna 2015 - 02/09/2026; 640 linhas; formato SHA-512 ok 640; HASH GERAL 28
+    path1u20: Eleições Gerais 2026 / Urna 2020 - 02/09/2026; 644 linhas; formato SHA-512 ok 644; HASH GERAL 28
+    path1u22: Eleições Gerais 2026 / Urna 2022 - 02/09/2026; 644 linhas; formato SHA-512 ok 644; HASH GERAL 28
+    pc1crip: Eleições Gerais 2026 / CRIPTO SEVIN - 02/09/2026; 10 linhas; formato SHA-512 ok 10; HASH GERAL 1
+    pc1geda: Eleições Gerais 2026 / GEDAI-UE - 02/09/2026; 70 linhas; formato SHA-512 ok 70; HASH GERAL 1
+    pc1holo: Eleições Gerais 2026 / HOLOCRON - 02/09/2026; 138 linhas; formato SHA-512 ok 138; HASH GERAL 1
+    pc1hsfg: Eleições Gerais 2026 / HOT SWAP FLASH - 02/09/2026; 8 linhas; formato SHA-512 ok 8; HASH GERAL 1
+    pc1sis1: Eleições Gerais 2026 / Subsistema de Instalação e Segurança - SIS - 02/09/2026; 27 linhas; formato SHA-512 ok 27; HASH GERAL 1
+    pc1sort: Eleições Gerais 2026 / SORTEIO - 02/09/2026; 34 linhas; formato SHA-512 ok 34; HASH GERAL 1
+    pc1tran: Eleições Gerais 2026 / Transportador Desktop - 02/09/2026; 148 linhas; formato SHA-512 ok 148; HASH GERAL 1
+    pc1vota: Eleições Gerais 2026 / VOTAÇÃO - 02/09/2026; 35 linhas; formato SHA-512 ok 35; HASH GERAL 1
+  (a) Resumos dos arquivos do vsc encontrados em algum manifesto: nenhum (conferidos 42867); mr.ver: 1 resumo distinto, 1025 bytes
+  (b) Verificações de assinatura nos logs: {'SUCESSO': 1352279, 'ERRO': 2}; não SUCESSO: 2; seções: {'todos os .vst do GAP no resumo do modelo': 3885, 'algum .vst do GAP fora do resumo do modelo': 12, 'seção sem arquivos de urna': 6}; logs com erro de leitura: 0
+      Linhas de assinatura com falha ou erro: 12 [('AL|28231|11|58', '19/09/2026 10:02:37\tWHAT\t01766638\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |'), ('BA|33553|169|132', '04/10/2026 08:24:40\tERRO\t02305138\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitu'), ('BA|33553|169|132', '04/10/2026 08:24:40\tWHAT\t02305138\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pa'), ('MG|46337|132|267', '04/10/2026 15:37:35\tERRO\t01655466\tGAP\tErro na verificação de assinatura do arquivo - vota.vsu\tDC388E0544500252'), ('MG|51632|247|72', '16/10/2026 12:18:50\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ')]
+      Por classe (soma de seções x pacote): {'dado da carga (/dsk/) | sem resumo publicado': 70671, 'pacote de programa | em outro resumo publicado': 12, 'pacote de programa | mesmo nome de arquivo em outro resumo publicado, com outro caminho': 11691, 'pacote de programa | no resumo do modelo (arquivos base)': 140293, 'pacote de programa | no resumo do modelo (lista da UF)': 3897, 'pacote de programa | no resumo do modelo (lista da UF, com /dsk/fe/ no lugar de /dsk/fi/)': 3897, 'pacote de programa | sem resumo publicado': 38970}
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fe/estatico/<mun zona secao>-lo.vsc: 3901 ({'UE2022': 1572, 'UE2020': 1269, 'UE2015': 966, 'UE2013': 94})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fe/estatico/infomidia.vsc: 3898 ({'UE2022': 1571, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/<mun zona secao>-lo.vsc: 3904 ({'UE2022': 1573, 'UE2020': 1269, 'UE2015': 967, 'UE2013': 95})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/dadoscarga.vsu: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o00000br-pu.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o01219-cp.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o03220<uf>-ste.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o06257<uf>-ce.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o06259<uf>-ce.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] GAP /dsk/fi/estatico/o06261<uf>-ce.vsc: 171 ({'UE2022': 74, 'UE2015': 47, 'UE2013': 8, 'UE2020': 42})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/jez/avgm.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06257<uf>-ce.vsc: 7794 ({'UE2022': 3140, 'UE2020': 2536, 'UE2015': 1932, 'UE2013': 186})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06257br00000-ca.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06257br00000-fo.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06259<uf>-ce.vsc: 7794 ({'UE2022': 3140, 'UE2020': 2536, 'UE2015': 1932, 'UE2013': 186})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06259<uf><00000>-ca.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06259<uf><00000>-fo.vsc: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [dado da carga (/dsk/) | sem resumo publicado] SCUE /dsk/fe/estatico/o06261<uf>-ce.vsc: 342 ({'UE2022': 148, 'UE2015': 94, 'UE2013': 16, 'UE2020': 84})
+      [pacote de programa | em outro resumo publicado] GAP /lib/modules/ue2013/avmodue.vst: 2 ({'UE2015': 2})
+      [pacote de programa | em outro resumo publicado] GAP /lib/modules/ue2015/avmodue.vst: 7 ({'UE2013': 7})
+      [pacote de programa | em outro resumo publicado] GAP /lib/modules/ue2020/avmodue.vst: 1 ({'UE2022': 1})
+      [pacote de programa | em outro resumo publicado] GAP /lib/modules/ue2022/avmodue.vst: 2 ({'UE2020': 2})
+      [pacote de programa | mesmo nome de arquivo em outro resumo publicado, com outro caminho] SCUE /dsk/fe/estatico/jez/avpart_ofi.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | mesmo nome de arquivo em outro resumo publicado, com outro caminho] SCUE /dsk/fe/estatico/jez/vota_apl.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | mesmo nome de arquivo em outro resumo publicado, com outro caminho] SCUE /dsk/fe/estatico/jez/vota_ofi.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | no resumo do modelo (lista da UF)] GAP /dsk/fi/estatico/chave/avusrchave.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | no resumo do modelo (lista da UF, com /dsk/fe/ no lugar de /dsk/fi/)] SCUE /dsk/fe/estatico/chave/avusrchave.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] GAP /boot/boot/avbootcfg.vsu: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /boot/boot/avbootcfg.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /lib/modules/ue2013/avmodue2013.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /lib/modules/ue2015/avmodue2015.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /lib/modules/ue2020/avmodue2020.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /lib/modules/ue2022/avmodue2022.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /uenux/lib/avusrlibue2013.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /uenux/lib/avusrlibue2015.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /uenux/lib/avusrlibue2020.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      [pacote de programa | sem resumo publicado] SCUE /uenux/lib/avusrlibue2022.vst: 3897 ({'UE2022': 1570, 'UE2020': 1268, 'UE2015': 966, 'UE2013': 93})
+      Seções com modelo no log diferente do vsc: 12
+        {'secao': 'AL|27910|50|89', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01768591'], ['01668115']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'MG|46337|132|25', 'modelo_vsc': 'UE2015', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01652094'], ['01840360']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'MG|46337|132|26', 'modelo_vsc': 'UE2015', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01673903'], ['01754281']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'MG|46337|132|65', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01653361'], ['01752183'], ['01653361']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'MG|49174|88|144', 'modelo_vsc': 'UE2020', 'modelos_no_log': ['UE2020', 'UE2022'], 'urnas_por_bloco_do_log': [['02473385'], ['02054885']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'PE|24996|37|143', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01774499'], ['01660932']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'RJ|60011|216|133', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01761105'], ['01670980']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'RS|88269|12|208', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01804130'], ['01680026']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'SE|31054|1|231', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01767299'], ['01670953']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'SP|64416|297|177', 'modelo_vsc': 'UE2020', 'modelos_no_log': ['UE2020', 'UE2022'], 'urnas_por_bloco_do_log': [['02375131'], ['02145415']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'SP|64777|185|162', 'modelo_vsc': 'UE2022', 'modelos_no_log': ['UE2020', 'UE2022'], 'urnas_por_bloco_do_log': [['02124615'], ['02471688']], 'explicado_por_troca_de_urna_no_log': True}
+        {'secao': 'SP|71293|109|146', 'modelo_vsc': 'UE2013', 'modelos_no_log': ['UE2013', 'UE2015'], 'urnas_por_bloco_do_log': [['01781755'], ['01669296']], 'explicado_por_troca_de_urna_no_log': True}
+      Seções com erro de assinatura no log: 6
+        AL|28231|11|58: urnas por bloco [['01766638'], ['01766638']]; urna do vsc 1766638; []; ['19/09/2026 10:02:37\tWHAT\t01766638\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |']
+        BA|33553|169|132: urnas por bloco [['02305138'], ['02277331']]; urna do vsc 2277331; [['GAP', '/uenux/bin/avusrbin.vst', 'ERRO']]; ['04/10/2026 08:24:40\tERRO\t02305138\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o erro persistir, substitu', '04/10/2026 08:24:40\tWHAT\t02305138\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura TSE | pa']
+        MG|46337|132|267: urnas por bloco [['01655466']]; urna do vsc 1655466; []; ['04/10/2026 15:37:35\tERRO\t01655466\tGAP\tErro na verificação de assinatura do arquivo - vota.vsu\tDC388E0544500252']
+        MG|51632|247|72: urnas por bloco [['02066207']]; urna do vsc 2066207; []; ['16/10/2026 12:18:50\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ', '16/10/2026 12:21:52\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ', '16/10/2026 12:25:22\tERRO\t02066207\tGAP\tGAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc. Desligue a urna, insira uma nova mídia de resultado de ']
+        PB|21873|33|98: urnas por bloco [['02352462']]; urna do vsc 2352462; [['GAP', '/dsk/fe/estatico/infomidia.vsc', 'ERRO']]; ['22/09/2026 10:16:58\tERRO\t02352462\tGAP\tInicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova carga.\t9400EA31263EE73', '22/09/2026 10:16:58\tWHAT\t02352462\tGAP\tWHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao validar assinatura SEVIN | ']
+        RJ|58831|198|95: urnas por bloco [['02398211']]; urna do vsc 2398211; []; ['24/09/2026 10:26:38\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |', '24/09/2026 10:29:03\tWHAT\t02398211\tGAP\tWHAT: static void gap::impl::CValidadorUrna::ValidaFlashExterna():745:9342 - Falha durante leitura do serial de votação da MV. Falha ao validar assinatura SEVIN |']
+  (c) Versão no boletim: {'10.23.0.0 - Praia da Barra do Cahy': 3897}
+      Versão no log: {'SCUE | 10.23.0.0 - Praia da Barra do Cahy': 3897, 'GAP | 10.23.0.0 - Praia da Barra do Cahy': 3897, 'ATUE | 10.23.0.0 - Praia da Barra do Cahy': 3897, 'VOTA | 10.23.0.0 - Praia da Barra do Cahy': 3897, 'VPP | 10.23.0.0 - Praia da Barra do Cahy': 58, 'ADH | 10.23.0.0 - Praia da Barra do Cahy': 1}
+      Modelo no log x modelo do vsc: {'UE2022 | UE2022': 1570, 'UE2020 | UE2020': 1268, 'UE2015 | UE2015': 966, 'UE2013 | UE2013': 93, 'UE2013 | UE2015': 7, 'UE2015 | UE2013': 2, 'UE2020 | UE2022': 2, 'UE2022 | UE2020': 1}

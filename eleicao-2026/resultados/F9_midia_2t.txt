@@ -1,0 +1,152 @@
+F9 do Adendo 21: computador que gerou a mídia de resultado (MR) do 2º turno
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 21, commit 913af7a (31/10/2026 10:36:29 UTC). Script: scripts/analisar_F9.py.
+
+VEREDITO PELA LETRA: SEM SINAL
+  p da permutação = 1,0000 (V observado 0,1694; mediana das permutações 0,5367; percentil 95 0,5890).
+  Computadores com 10 ou mais seções, média de +2,0 ou mais e mais de 4 erros-padrão: 0.
+
+1. Extração dos logs
+  Pastas da amostra: 3.903; com log: 3.897; sem log: 6 (BA|36250|27|189, BA|36250|27|191, BA|36897|117|101, BA|36897|117|102, MG|43710|313|10, MG|43710|313|106); pacotes ilegíveis: 0.
+  Seções com MR [VOTA] identificada: 3.897; sem: 0.
+  Regra usada (D3): {"transicao_da_urna_do_boletim": 3880, "transicao_de_outra_urna": 17}
+  Fora do resíduo: {"sem_outra_secao_valida_no_local": 107}
+  Na estatística: 3.790 seções, 517 computadores, 26 UFs; computadores com 10 ou mais seções: 112.
+  Seções por computador (percentis 25, 50, 75, 90, 99): 3, 5, 8, 14, 31.
+
+2. Estatística registrada
+  Média geral do resíduo (ponderada): -0,002 ponto.
+  V observado / mediana permutada: 0,316.
+  Percentis de V nas permutações: 1: 0,4675, 5: 0,4875, 50: 0,5367, 95: 0,5890, 99: 0,6139, 99.9: 0,6497
+  Computadores com 10 ou mais seções, ordenados por média/EP (primeiros 15 e últimos 5):
+    computador         seções locais    média      EP       z  EP perm  z perm  zonas das seções
+    RMSWGM06               10      2    0,002   0,000   16,92    0,689    0,01  19,39
+    RALWGERA13             10      3    0,493   0,271    1,82    0,605    0,77  11,51
+    ZRS012WKS80            19      2    0,002   0,001    1,76    0,463    0,01  12
+    RCEWGEDAI15            24      3    0,145   0,100    1,44    0,369    0,37  28,80,93
+    ZBA053WKS01           149     42    0,047   0,034    1,40    0,124    0,02  53
+    RALWGERA19             11      6    0,814   0,593    1,37    0,566    1,43  15,50
+    ZPA043STD92            14      2    0,109   0,089    1,22    0,515    0,17  43
+    ZMG132STD02           269     37    0,003   0,003    1,17    0,097    0,01  132
+    RPBWGM07               50      6    0,007   0,006    1,11    0,203    0,00  4,30
+    RPBWGM05               10      2    0,027   0,028    0,99    0,602    0,03  10,72
+    ZBA027WKS01            25      5    0,084   0,088    0,95    0,384    0,12  27
+    ZRS162WKS80            51     16    0,015   0,017    0,89    0,267    0,02  162
+    RGOWGED003             18      2    0,001   0,001    0,88    0,439    0,00  127,145
+    ZRS053WKS81            14      3    0,007   0,009    0,81    0,561   -0,00  53
+    CSC014W057149          11      3    0,015   0,019    0,79    0,539    0,10  14
+    ...
+    RGOWGED015             10      2   -0,009   0,007   -1,31    0,616   -0,02  50,74
+    ZPE061WKS03            14      2   -0,072   0,053   -1,37    0,437   -0,14  61
+    ZPR089STD04            11      2   -0,157   0,082   -1,92    0,619   -0,23  89
+    ZMG299STD02            16      2   -0,003   0,001   -3,02    0,531   -0,01  299
+    ZMA054WKS71010         11      2   -0,003   0,000 -318,73    0,524   -0,06  54
+  Observação: quando um computador cobre locais inteiros da amostra, os resíduos se anulam dentro de cada local e
+  o erro-padrão agrupado fica quase nulo (z de dezenas ou centenas com média perto de zero). Esses z não indicam
+  desvio; a coluna "EP perm" (C3) é a leitura estável. Nenhum deles chega perto de +2,0 pontos.
+  Maiores médias (10 ou mais seções):
+    RALWGERA19         n 11, locais 6, média 0,814, EP 0,593, z 1,37
+    RALWGERA13         n 10, locais 3, média 0,493, EP 0,271, z 1,82
+    RROWS27059         n 10, locais 1, média 0,316, EP 0,940, z 0,34
+    ZSP414STD01        n 13, locais 1, média 0,233, EP 0,682, z 0,34
+    ZSP287STD12        n 12, locais 1, média 0,180, EP 0,495, z 0,36
+    ZSP246STD11        n 12, locais 1, média 0,161, EP 0,578, z 0,28
+    RCEWGEDAI15        n 24, locais 3, média 0,145, EP 0,100, z 1,44
+    RCEWGEDAI14        n 29, locais 12, média 0,117, EP 0,162, z 0,72
+
+3. Descritivo do registro
+  Datas de geração da MR do 2º turno (dia: seções): 2026-10-10: 331, 2026-10-11: 273, 2026-10-12: 387, 2026-10-13: 932, 2026-10-14: 949, 2026-10-15: 687, 2026-10-16: 179, 2026-10-17: 35, 2026-10-18: 35, 2026-10-19: 26, 2026-10-20: 27, 2026-10-21: 21, 2026-10-22: 14, 2026-10-24: 1
+  Fora da janela de 05 a 23/10: 1 seção(ões).
+    PA|4650|6|31: gerada 24/10/2026 às 12:24:33, lida 24/10/2026 12:36:59, computador ZPA006STD91, usuário 040762521317, série 61B5B282, resíduo -1,078
+  Outras MR [VOTA] do pacote fora da janela: 0.
+  Computador e zona: {"fora_da_zona": 92, "na_zona": 3164, "sem_zona_no_nome_R": 641}
+  Computadores fora da zona da seção (computador: seções): ZDF012WKS23: 15, ZPR137STD07: 13, ZDF012WKS10: 12, ZPR137STD02: 11, ZDF012WKS12: 8, ZPR175STD03: 8, ZAC001STD29: 5, ZDF012WKS09: 4, ZAC001STD25: 3, ZDF012WKS20: 3, ZAC001STD33: 2, ZPE056WST01: 2, ZAC001STD15: 1, ZAC001STD013: 1, ZAC001STD39: 1, ZAC001STD34: 1, ZDF012WKS11: 1, ZDF012WKS01: 1
+  Computador com UF diferente da seção: 0.
+  Usuário fora da zona (zona mais comum do usuário na amostra): 185 seções; usuários em 2 ou mais zonas: 25.
+    000952732470: zonas {"4": 2, "8": 1, "7": 5, "1": 4}
+    003316142496: zonas {"1": 4, "5": 3}
+    004542912461: zonas {"1": 5, "5": 1}
+    021197801767: zonas {"39": 8, "3": 11, "50": 60, "37": 12, "11": 14, "15": 5, "51": 10}
+    007015282534: zonas {"1": 1, "7": 1}
+    037858890701: zonas {"21": 4, "79": 2, "78": 3, "54": 1, "40": 3, "65": 3}
+    051432550728: zonas {"21": 3, "54": 1}
+    000311420710: zonas {"6": 28, "12": 4}
+    042715870736: zonas {"6": 30, "59": 2}
+    032824860760: zonas {"108": 2, "25": 5}
+    045286680701: zonas {"33": 3, "57": 3}
+    047974110779: zonas {"64": 2, "24": 3}
+    023151162011: zonas {"11": 3, "3": 16, "4": 9}
+    048860831023: zonas {"145": 10, "127": 8}
+    027580951040: zonas {"28": 9, "44": 9}
+    037786541074: zonas {"74": 6, "50": 4}
+    018292711929: zonas {"39": 5, "19": 5}
+    058901231309: zonas {"7": 8, "13": 2, "50": 8}
+    011575261937: zonas {"58": 5, "7": 1, "2": 8}
+    021001091201: zonas {"72": 6, "10": 4}
+  Usuários: 466; com dígitos verificadores de título válidos: 466; seções em que a UF do título do usuário difere da UF da seção: 534.
+
+4. Leituras complementares (fora do veredito)
+  C1. Locais na estatística: 634; com 2 ou mais seções da amostra: 625; com 2 ou mais computadores: 113; seções nesses locais: 849 (22,4% do peso).
+      Só nesses locais: V 0,6875; p permutando na UF 0,8661; p permutando dentro do local 0,1339.
+      RALWGERA12         n 20, locais 8, média -0,095, EP 0,247
+      RALWGERA17         n 16, locais 9, média -0,254, EP 0,207
+      ZRJ007STD92        n 16, locais 1, média 0,100, EP 0,400
+      RALWGERA11         n 15, locais 8, média 0,068, EP 0,323
+      RCEWGEDAI13        n 15, locais 7, média -0,215, EP 0,299
+      RCEWGEDAI15        n 13, locais 2, média 0,267, EP 0,103
+      ZSP246STD01        n 13, locais 1, média -0,149, EP 0,410
+      ZSP287STD19        n 13, locais 1, média -0,167, EP 0,469
+      ZSP414STD01        n 13, locais 1, média 0,233, EP 0,682
+      RALWGERA18         n 12, locais 5, média -0,516, EP 0,405
+  C2. Poder (112 computadores com 10 ou mais seções). Fração do deslocamento que sobrevive ao resíduo (percentis 10, 25, 50, 75, 90): -0,00, -0,00, 0,00, 0,09, 0,49; abaixo de 0,1: 84.
+      Cumpririam o critério do computador com +2, +5 e +10 pontos: {"2": 0, "5": 12, "10": 17}; dariam sinal completo (com p < 0,001) com +2, +5 e +10: {"2": 0, "5": 0, "10": 0}.
+      Menor p de V com o deslocamento num computador só (+2, +5, +10): 1,0000, 1,0000, 0,8171; computadores com p < 0,05: {"2": 0, "5": 0, "10": 0}.
+  C3. Com o EP da permutação, cumpririam o critério: [].
+  C4. Resíduo médio nos grupos do descritivo:
+      data_fora_da_janela: n 1, média -1,078, EP n/d, locais 1
+      computador_fora_da_zona: n 92, média -0,007, EP 0,038, locais 14
+      computador_sem_zona_no_nome: n 621, média -0,002, EP 0,002, locais 114
+      computador_na_zona: n 3077, média -0,002, EP 0,004, locais 508
+      usuario_fora_da_zona: n 185, média -0,132, EP 0,065, locais 49
+  C5. Data da MR contra a extração do T10: {"data_da_mr_escolhida_na_lista_do_T10": 834, "diferente": 1}
+      MR presente em 25/10 igual à da transição: {"igual": 3892, "sem_mr_lida_em_25_10": 2, "diferente": 3}
+      MR lida antes da data de geração: 0; número de série em 2 ou mais seções: 2.
+      Seções com 2 ou mais computadores de MR [VOTA]: {"PE|26018|61|89": ["ZPE056WST01", "ZPE061WKS03"]}
+      Série AD908E50 em: MG|46337|132|65 (urna 01653361, local MG|46337|132|1201, computador ZMG132STD02, gerada 15/10/2026 às 08:57:05, transição lida em 17/10/2026 08:49:34, série em 25/10: 5305EA65, resíduo -1,792); MG|46337|132|78 (urna 01776744, local MG|46337|132|1260, computador ZMG132STD02, gerada 15/10/2026 às 08:57:05, transição lida em 19/10/2026 16:19:08, série em 25/10: AD908E50, resíduo 2,796)
+      Série 3482056B em: RJ|60011|119|405 (urna 01775423, local RJ|60011|119|1457, computador ZRJ119STD94, gerada 15/10/2026 às 13:07:33, transição lida em 16/10/2026 09:24:49, série em 25/10: 3482056B, resíduo 1,077); RJ|60011|119|419 (urna 01789622, local RJ|60011|119|1694, computador ZRJ119STD94, gerada 15/10/2026 às 13:07:33, transição lida em 16/10/2026 11:15:21, série em 25/10: 3482056B, resíduo -2,739)
+      Seções com 2 ou mais números de série de MR [VOTA]: 6 {"MG|46337|132|43": ["6387F1F2", "9004C88C"], "MG|46337|132|65": ["45F13C0D", "5305EA65", "AD908E50", "C3B098FC"], "MG|51632|247|72": ["D53A6962", "EB67986F"], "PE|26018|61|89": ["C6A7B51F", "E68EB503"], "SP|62030|19|59": ["2E82AC18", "73D89E18"], "SP|70572|307|417": ["2ACB9041", "9A8996E7", "DACAB9E7"]}
+      Outras MR no pacote: {"[SA,RED,VPP,ATUE]": 70, "[VPP]": 5, "[RED,VPP,ATUE]": 1, "[RED]": 1, "[ADH]": 1}
+      Computador da MR do 2º turno e o da mídia de carga: {"computador_diferente_da_carga": 1324, "mesmo_computador_da_carga": 2573}
+      "Problema ao desmontar a MR" (rotina): 12726 linhas em 3897 seções.
+      Erros e alertas ligados à MR (aplicativo, nível, mensagem: linhas, seções):
+        GAP ERRO "Erro de leitura da mídia de resultado": 21 linhas, 8 seções
+        ATUE ERRO "Mídia de Resultado - Erro ao detectar a mídia de resultado: Mídia de resultados ausente": 15 linhas, 8 seções
+        VOTA ERRO "Erro de leitura e escrita na mídia de resultado": 14 linhas, 9 seções
+        VOTA ERRO "Mídia de resultado não estava presente": 12 linhas, 8 seções
+        GAP WHAT "WHAT: void comum::IInterfaceInit::DesmontarMRSemDesabilitar():190:7242 - Falha ao desmontar mídia de resultado (#)": 7 linhas, 7 seções
+        GAP ERRO "GAP erro 73 | Validação do VOTA | Erro verificando assinatura do arquivo turno2.jez em /dsk/mr/turno2.vsc.": 4 linhas, 1 seções (MG|51632|247|72)
+        GAP INFO "Existem arquivos inválidos na mídia de resultado.": 3 linhas, 1 seções (MG|46612|137|31)
+        GAP ERRO "Validando a mídia de resultado | Mídia de resultado inválida (#) | Arquivo de inicialização inválido. Por favor, troque a mídia de resultado.": 2 linhas, 2 seções (MG|46337|132|26, MG|46337|132|52)
+        GAP WHAT "WHAT: gap::CGAP::ResultadoContingencia gap::CGAP::ExecutaContingenciaUrna():582:9306 - Arquivo de inicialização inválido. Por favor, troque a mídia de resultado": 2 linhas, 2 seções (MG|46337|132|26, MG|46337|132|52)
+        VOTA ERRO "Mídia de resultado inválida para gravação de resultados": 2 linhas, 1 seções (PB|21873|33|96)
+        GAP WHAT "WHAT: void comum::IInterfaceInit::MontarMRSemHabilitar():165:7240 - Falha ao montar mídia de resultado (#)": 1 linhas, 1 seções (MS|90794|39|44)
+        GAP ERRO "GAP erro 3 | Descompactação dos dados de 2º turno da MR para a MI | Erro ao descompactar os dados de 2º turno da mídia de resultado para a mídia interna.": 1 linhas, 1 seções (PE|26018|61|89)
+        ATUE ERRO "Mídia de Resultado - Erro ao detectar a mídia de resultado: Falha ao montar a mídia de resultado": 1 linhas, 1 seções (RJ|60011|7|200)
+
+5. O que isso significa
+  Pela letra, SEM SINAL: p = 1,0000, acima de 0,05, e nenhum computador com 10 ou mais seções chega a
+  +2,0 pontos. Mas o p perto de 1 não é sinal de limpeza: é efeito do desenho. A amostra é feita de locais inteiros e
+  só 113 dos 625 locais com duas ou mais seções têm mais de um computador; o resíduo contra o próprio local
+  zera a média de um computador que cobre o local inteiro, e a permutação dentro da UF não respeita isso, por isso o V
+  observado fica abaixo de todas as permutações.
+  Poder: na mediana dos computadores com 10 ou mais seções, sobrevive 0,00 do deslocamento; um desvio de +2, +5
+  ou +10 pontos num computador daria sinal completo em 0, 0 e 0 dos 112 computadores.
+  Ou seja: o F9, como registrado, não enxergaria uma mídia adulterada que fosse usada em todas as urnas de um local.
+  Onde o teste enxerga (locais com mais de um computador, 849 seções), a permutação dentro do local dá p = 0,1339:
+  nenhuma diferença entre computadores do mesmo local além do acaso.
+  O descritivo não traz, sozinho, indício de adulteração: uma MR fora da janela (gerada na véspera, 24/10, e lida 12
+  minutos depois), computadores fora da zona concentrados em poucas UFs (DF, PR, AC e um caso em PE), nenhuma MR lida
+  antes de gerada. Entre 05 e 25/10 só há duas falhas de conteúdo da MR do 2º turno: MG|51632|247|72 (assinatura do
+  turno2.vsc recusada 4 vezes, MR trocada por outra do mesmo computador antes da transição) e PE|26018|61|89 (erro ao
+  descompactar os dados do 2º turno depois da transição; a urna passou a usar uma MR gerada 6 minutos antes num
+  computador de outra zona). As demais mensagens de erro de MR são de setembro e do 1º turno, ou de montagem e
+  desmontagem. Um caso pede conferência física: a mesma série de MR em duas urnas de locais diferentes no dia da eleição.
