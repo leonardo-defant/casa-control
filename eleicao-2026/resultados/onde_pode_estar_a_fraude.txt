@@ -1,0 +1,45 @@
+ONDE PODE ESTAR A FRAUDE: CLASSES DE ATAQUE DOCUMENTADAS E O QUE OS DADOS DE 2026 MOSTRAM
+
+Pesquisa de 01/11/2026, no nível de resumo publicado (sem passo a passo). Fontes, mapa completo e conferência
+independente em resultados/onde_pode_estar_a_fraude.json.
+
+O QUE JÁ FOI DOCUMENTADO (tudo em laboratório; nenhuma fraude de software documentada em eleição real)
+- TPS 2009: emanação de radiofrequência do teclado, a centímetros da urna (sigilo). Teclado blindado depois.
+- TPS 2012: embaralhamento previsível do RDV permitiu reordenar 474 de 475 votos de uma votação simulada (sigilo).
+  Corrigido.
+- TPS 2016: quatro falhas, três de sigilo e uma que permitia alterar resultado pelo código verificador do boletim
+  digitado em contingência. Daí vieram os autenticadores e o QR Code assinado no boletim.
+- TPS 2017: a mais grave. Com acesso à mídia de instalação, em laboratório, o grupo de Diego Aranha executou código
+  próprio na urna (chave compartilhada embutida e bibliotecas sem verificação de assinatura): quebrou o sigilo de
+  eleitores específicos, mudou mensagens na tela e adulterou o log. Houve progresso para desviar votos, mas o desvio
+  não foi demonstrado. Corrigido e reconfirmado em 2018. Os próprios pesquisadores concluíram que a carga ficou mais
+  robusta contra atacante externo, mas o sistema seguia vulnerável a atacante interno privilegiado.
+- TPS 2019 a 2025: achados menores na preparação de mídias e na transmissão (2025: kit JE-Connect/VPN), corrigidos
+  e reconfirmados (último teste de confirmação em maio de 2026).
+- Fora do Brasil (Diebold, Sequoia, urnas da Índia, revisões da Califórnia e de Ohio, Academias Nacionais dos EUA
+  2018): assinatura de código prova que o programa é o assinado, não que é honesto; teste paralelo pode ser driblado
+  por programa que perceba o teste; a única defesa considerada suficiente é papel conferível pelo eleitor com
+  auditoria por amostragem.
+
+MAPA, DA CLASSE MAIS PARA A MENOS COMPATÍVEL COM TUDO O QUE SE SABE
+1. Programa adulterado no desenvolvimento, na compilação ou na assinatura (insider): atingiria todas as urnas de
+   uma vez e deixaria boletim, RDV e log coerentes. Não se exclui com dado público; sem indício positivo.
+2. Programa que reconhece o teste de integridade: acoplado à classe 1; é o único jeito de passar pelas cerca de
+   650 urnas testadas. Não se exclui com dado público; as seções com pouca biometria viraram igual às vizinhas.
+3. Chaves e certificados: assinaturas conferem (3.897 de 3.897 e 1.499 de 1.499); falha de gestão na AC URNA.
+4. Troca do programa depois da lacração (mídia de carga): alvo do TPS 2017, corrigido; versão única e verificações
+   com sucesso nos logs de 2026.
+5. Firmware e hardware: não auditável com dado público; a diferença por modelo some com o prédio de fato usado.
+6. Mídias e carga nas zonas: alcance regional; sem sinal (teste com pouco poder).
+7. Transmissão e totalização: a mais verificável; zero divergência entre boletins e total oficial.
+8. Mesário e habilitação: casos locais reais possíveis; sem escala para virar 2,2 milhões; sem sinal.
+9. RDV e sigilo: afeta sigilo, não contagem.
+10. Acesso físico à urna: alcance local; logs coerentes.
+11. Intrusão na rede do TSE (2018) e falso positivo de auditoria (logs inválidos de 2022): sem indício de ter
+    atingido a urna.
+
+O QUE FECHARIA AS CLASSES 1 E 2 (depende de outros)
+- Compilação independente do código-fonte comparada com o programa assinado em 04/09/2026.
+- Publicação dos resumos dos programas instalados (hash.dat) e dos relatórios das entidades que inspecionaram o código.
+- Detalhe da divergência do teste de integridade na CLDF.
+- Relatórios do TCU (até 24/11/2026) e da missão da UE.

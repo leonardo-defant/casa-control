@@ -1,0 +1,811 @@
+{
+ "descricao": "Pesquisa (01/11/2026): classes de ataque documentadas publicamente contra a urna brasileira e contra urnas DRE em geral, no nível de resumo publicado, sem detalhe operacional; mapa de cada classe contra os controles de 2026 e os testes do projeto; conferência independente (fatos, exageros, ausência de detalhe operacional). As correções da conferência estão em conferencia.correcoes_ao_mapa.",
+ "pesquisas": [
+  {
+   "tema": "TPS",
+   "achados": [
+    {
+     "nome": "Classe estrutural (a mais importante): atacante interno com acesso privilegiado + ausencia de registro fisico auditavel e de recontagem",
+     "o_que_conseguiu": "Nenhum ataque de TPS alterou uma eleicao real. Mas o ponto central dos pesquisadores (sobretudo Aranha) nao e um hack externo magico: e que o sistema e puramente eletronico, sem registro fisico conferivel pelo eleitor, entao um software desonesto introduzido por quem tem acesso privilegiado ao desenvolvimento ou a cadeia de carga poderia, em tese, alterar votos sem deixar rastro conferivel. O boletim de urna (BU) e produzido pelo mesmo software que votou, logo comparar BUs publicados NAO pega uma fraude dentro da urna, so pega adulteracao em transmissao/totalizacao. O TPS admitidamente nao modela bem esse adversario interno de longo prazo.",
+     "condicoes_e_acesso": "Exigiria insider com acesso prolongado e privilegiado a cadeia de desenvolvimento/compilacao/assinatura, nao um invasor remoto no dia da eleicao. E a hipotese de maior impacto e menor detectabilidade justamente por nao haver trilha fisica independente.",
+     "correcao": "Mitigacoes do TSE: assinatura digital da cadeia hardware-software, lacres, teste de integridade no dia com votacao paralela (amostra de urnas), BU publicado por secao para totalizacao independente. Limite reconhecido na literatura: a votacao paralela e por amostra e simulada, e nao substitui um registro fisico verificavel pelo eleitor. O voto impresso foi tentado (2002, 2020) e suspenso pelo STF, entao essa trilha nao existe em 2026.",
+     "quem": "Diego Aranha e coautores (Unicamp/UnB/UFCG/UFPE/UFSCar); debate academico recorrente",
+     "ano": "2012-2018 (critica recorrente)",
+     "relevancia_2026": "E aqui que a pergunta 'onde pode estar a fraude' honestamente aponta: menos num ataque externo no dia, mais no risco de insider + impossibilidade de recontagem independente. Em 2026 os controles que funcionam de fato sao a conferencia/totalizacao paralela dos BUs publicados por secao (pega transmissao/totalizacao) e o teste de integridade; o que continua sem solucao estrutural e a ausencia de registro fisico.",
+     "fontes": [
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.welivesecurity.com/br/2018/10/17/diego-aranha-os-testes-de-seguranca-nas-urnas-eletronicas/"
+     ]
+    },
+    {
+     "nome": "TPS 2009: captacao de emanacoes do teclado (TEMPEST) contra o sigilo do voto",
+     "o_que_conseguiu": "O perito Sergio Freitas da Silva captou interferencia/som emitido pelas teclas da urna e, a partir disso, conseguiu identificar o que era digitado, ameacando o sigilo do voto (nao a integridade do resultado). Foi premiado pelo teste mais sofisticado da edicao.",
+     "condicoes_e_acesso": "Ataque de canal lateral com equipamento simples (radio), mas segundo a analise da epoca so era viavel a poucos centimetros da urna; o proprio autor considerou a exploracao em eleicao real muito improvavel.",
+     "correcao": "Fonte secundaria (apresentacao de peritos) indica que o TSE passou a blindar teclado e conexoes apos o achado. Nao localizei relatorio oficial detalhando a correcao (confirmar).",
+     "quem": "Sergio Freitas da Silva (investigador individual)",
+     "ano": "2009 (1a edicao)",
+     "relevancia_2026": "Baixa como vetor de fraude de resultado: afeta sigilo pontual, exige proximidade fisica, e as urnas atuais tem outro design. Serve de exemplo de que o TPS produz achados reais e o TSE reage.",
+     "fontes": [
+      "https://www.conjur.com.br/2009-nov-21/depois-teste-invasao-tse-conclui-urna-eletronica-inviolavel/",
+      "https://serpro.gov.br/menu/noticias/noticias-antigas/dia-de-testes-de-hackers-em-urnas-do-tse-termina-sem-ameaca-ao-sistema"
+     ]
+    },
+    {
+     "nome": "TPS 2012: quebra do sigilo pela reordenacao do RDV (gerador de aleatorios inseguro) e falhas de desenvolvimento",
+     "o_que_conseguiu": "A equipe (primeira com acesso ao codigo-fonte) recuperou a ordem em que os votos foram digitados em uma eleicao simulada (reordenou 474 de 475 votos), usando apenas produtos publicos da eleicao. Isso violaria o sigilo do voto (p.ex. de uma secao controlada por mesario malicioso ou de eleitor com horario conhecido). Documentou tambem armazenamento/compartilhamento inseguro de chaves criptograficas e verificacao insuficiente de integridade.",
+     "condicoes_e_acesso": "Acesso ao codigo-fonte sem termo de sigilo e ao equipamento, em laboratorio do TSE, por poucos dias. A causa raiz do sigilo foi a geracao previsivel de numeros aleatorios usada para embaralhar o registro.",
+     "correcao": "O TSE corrigiu a rotina de embaralhamento do RDV apos 2012. Porem, pesquisadores apontaram que parte do problema (chaves no codigo, qualidade do gerador) persistia em 2017. Nao localizei um 'teste de confirmacao' formal nos moldes atuais para esta edicao (lacuna).",
+     "quem": "Grupo liderado por Diego Aranha (UnB/Unicamp)",
+     "ano": "2012 (2a edicao)",
+     "relevancia_2026": "A falha especifica foi corrigida ha mais de uma decada. Relevancia hoje e didatica: mostra como 'erros banais' de engenharia (aleatoriedade/chaves) ja comprometeram sigilo, reforcando a necessidade de revisao continua de codigo.",
+     "fontes": [
+      "https://www.welivesecurity.com/br/2018/10/17/diego-aranha-os-testes-de-seguranca-nas-urnas-eletronicas/",
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.lasca.ic.unicamp.br/media/publications/relatorio-urna.pdf"
+     ]
+    },
+    {
+     "nome": "TPS 2016: quatro vulnerabilidades (tres de sigilo, uma de alteracao de resultado)",
+     "o_que_conseguiu": "Especialistas selecionados identificaram quatro vulnerabilidades: tres comprometiam o sigilo do voto (uma delas no recurso de audio para eleitores com deficiencia visual, que permitiria ao presidente da secao inferir votos de outros eleitores) e uma permitia alterar o resultado (ligada ao codigo verificador do boletim de urna para digitacao manual).",
+     "condicoes_e_acesso": "Codigo-fonte entregue cerca de dois meses antes, mas apenas tres dias de teste, em ambiente controlado; nesta edicao passou a vigorar um termo de confidencialidade, criticado pelos pesquisadores por reduzir a transparencia.",
+     "correcao": "O entao presidente do TSE afirmou que as sugestoes seriam consideradas e que ja se preparavam solucoes. As reportagens nao detalham quais correcoes foram efetivamente aplicadas nem um relatorio de confirmacao especifico (lacuna).",
+     "quem": "Grupos selecionados pelo TSE (imprensa nao nomeia todos)",
+     "ano": "2016 (3a edicao, pos-modelo 2015)",
+     "relevancia_2026": "Mostra que ja houve achado de 'alteracao de resultado' em laboratorio, mas ligado a mecanismos perifericos (codigo verificador do BU, recurso de audio), nao a troca massiva de votos. Util para saber que classe de controle (conferencia do BU) precisa continuar robusta.",
+     "fontes": [
+      "https://congressoemfoco.com.br/noticias/urna-eletronica-e-vulneravel-mostram-testes",
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf"
+     ]
+    },
+    {
+     "nome": "TPS 2017: execucao de codigo arbitrario (o achado mais profundo ja documentado)",
+     "o_que_conseguiu": "Combinando varias falhas, a equipe comprometeu as duas principais propriedades: sigilo e integridade do software. Recuperou a chave que protege a midia de instalacao (compartilhada entre urnas), leu o conteudo, achou duas bibliotecas sem verificacao de assinatura e injetou codigo que dava controle sobre a maquina. Com isso demonstrou: violar o sigilo de eleitores especificos, manipular mensagens na tela para orientar o voto, e adulterar o log. Havia progresso para desviar votos, mas o evento terminou antes de executar a versao final do ataque de desvio.",
+     "condicoes_e_acesso": "Acesso, em laboratorio, aos cartoes de memoria de instalacao do software (a midia que carrega ate dezenas de urnas) e ao codigo-fonte com chaves supostamente removidas (uma chave ficou no kernel). Os pesquisadores ressaltam que o tempo gasto no TPS nao representa uma tentativa real; e que num ataque real nao seria preciso tocar nas urnas no dia da votacao, so na cadeia de carga antes.",
+     "correcao": "O teste de confirmacao (2018) apresentou contramedidas: correcao da verificacao de integridade, automatizacao das assinaturas, camadas extras de ofuscacao e derivacao dinamica de chaves com apoio da BIOS. Conclusao dos proprios investigadores: a carga ficou mais robusta contra atacante externo, mas o sistema seguia vulneravel a atacante interno privilegiado.",
+     "quem": "Equipe coordenada por Diego Aranha (Unicamp, UFCG, UFPE, UFSCar, Hekima)",
+     "ano": "2017 (4a edicao)",
+     "relevancia_2026": "Alta como mapa de 'onde doeria': mostra que a cadeia de preparacao/carga da midia e o ponto critico, e que a defesa depende de sigilo de chaves e de verificacao de integridade bem feita. As falhas concretas foram corrigidas e reconfirmadas; o alerta que permanece e o atacante interno, nao o invasor externo no dia.",
+     "fontes": [
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+      "https://www.tse.jus.br/imprensa/noticias-tse/2017/Dezembro/investigadores-promovem-alteracoes-importantes-no-sistema-de-seguranca-da-urna"
+     ]
+    },
+    {
+     "nome": "TPS 2019: acesso a dados fora do ambiente previsto (disco criptografado / arquivos do Gedai-UE)",
+     "o_que_conseguiu": "Segundo o relatorio da comissao, um grupo conseguiu montar o disco criptografado fora do ambiente SIS e, por consequencia, capturar arquivos do Gedai-UE (software que prepara as midias da urna). Afeta confidencialidade/integridade da preparacao, nao um desvio de votos demonstrado. A comissao observou que as equipes ja conheciam o sistema de edicoes anteriores, o que ajudou no exito.",
+     "condicoes_e_acesso": "Cinco grupos e tres investigadores individuais, todos com plano de ataque, em ambiente controlado com acesso a codigo e equipamento definidos pelo TSE.",
+     "correcao": "A Secretaria de TI do TSE publicou relatorio tecnico com acoes de mitigacao, e houve teste de confirmacao em agosto de 2020 para verificar as correcoes. O detalhamento por achado esta no relatorio oficial (que nao consegui abrir de forma automatizada, 403).",
+     "quem": "Cinco grupos e tres investigadores individuais (comissao instituida pela Portaria TSE 601/2019)",
+     "ano": "2019 (5a edicao)",
+     "relevancia_2026": "Media: reforca que a cadeia de preparacao de midia (Gedai) e recorrentemente o alvo, em linha com 2017. Correcoes reportadas e confirmadas em 2020.",
+     "fontes": [
+      "https://www.cnj.jus.br/justica-eleitoral-realiza-nova-rodada-de-testes-com-sistema-eletronico-de-votacao/",
+      "https://tiinside.com.br/10/12/2019/tse-divulgado-relatorio-final-dos-testes-das-urnas-de-2019-para-consulta/",
+      "https://www.justicaeleitoral.jus.br/tps/arquivos/tps_2019_relatorio_final-atualizado_17_12_2019.pdf"
+     ]
+    },
+    {
+     "nome": "TPS 2021: cinco de 29 planos com achados, concentrados em transmissao/recepcao de resultados",
+     "o_que_conseguiu": "Dos 29 planos, cinco foram concluidos com achados relevantes, atacando principalmente os sistemas de transmissao e recepcao de resultados; um achado envolveu um parametro no codigo-fonte cuja condicao inicial foi percebida pelo investigador. Segundo a comissao, nenhum achado alterou votos, quebrou o sigilo ou comprometeu a integridade do processo.",
+     "condicoes_e_acesso": "Ambiente controlado do TSE, com acesso a codigo e equipamento; comissao avaliadora com dez membros (MPF, OAB, Congresso, PF, Confea e outros).",
+     "correcao": "Teste de confirmacao de 11 a 13 de maio de 2022: os participantes tentaram repetir os ataques na versao corrigida e, segundo a comissao, as barreiras se mostraram fortes e efetivas. Relatorio final em 30 de maio de 2022 concluiu sistema 'integro e seguro'.",
+     "quem": "Grupos participantes; Comissao Avaliadora 2021",
+     "ano": "2021 (6a edicao, ciclo das eleicoes 2022)",
+     "relevancia_2026": "Media-alta para o foco da auditoria: aponta transmissao/totalizacao como superficie sensivel. E exatamente a classe que a conferencia independente dos BUs publicados por secao consegue checar. Ressalva: 'nenhum alterou votos' e avaliacao da propria comissao do TSE, nao verificacao independente externa.",
+     "fontes": [
+      "https://tecnoblog.net/noticias/tse-acha-5-falhas-na-urna-eletronica-mas-diz-que-nenhuma-altera-eleicoes/",
+      "https://www.conjur.com.br/2021-nov-27/teste-publico-seguranca-urnas-eletronicas-chega-fim/",
+      "https://www.justicaeleitoral.jus.br/tps/arquivos/2021/relatorio-da-comissao-avaliadora-2021.pdf"
+     ]
+    },
+    {
+     "nome": "TPS 2023: 35 planos executados, 7 achados sem comprometer integridade/sigilo/resultado",
+     "o_que_conseguiu": "O TSE contabilizou 35 planos executados e 7 achados. Segundo o relatorio, os ataques nao fragilizaram a integridade nem o sigilo do voto; os achados foram de menor gravidade (exemplo citado: mensagem de erro na inicializacao da urna).",
+     "condicoes_e_acesso": "Realizado de 27 de novembro a 2 de dezembro de 2023, em ambiente controlado; nesta edicao a USP acompanhou a avaliacao de seguranca antes, durante e depois.",
+     "correcao": "Teste de confirmacao de 15 a 17 de maio de 2024: a equipe tecnica do TSE apresentou o codigo anterior e o revisado com as melhorias; relatorio de confirmacao com resultado ao fim de maio de 2024. Antes das eleicoes municipais de 2024 houve ainda teste de PF e UFMS. O detalhamento por achado esta no relatorio oficial (403 ao acesso automatizado).",
+     "quem": "Grupos participantes; Comissao Avaliadora 2023; USP",
+     "ano": "2023 (7a edicao, ciclo 2024)",
+     "relevancia_2026": "Media: edicao do ciclo anterior ao de 2026; achados leves e reportados corrigidos. Serve de linha de base recente do que a revisao de codigo encontra e corrige.",
+     "fontes": [
+      "https://jornalopcao.com.br/brasil/novo-teste-de-urnas-mostra-falhas-mas-achados-nao-comprometem-integridade-sigilo-ou-resultado-das-eleicoes-560751/",
+      "https://www.tre-sp.jus.br/comunicacao/noticias/2023/Dezembro/teste-da-urna-2023-relatorio-da-comissao-de-avaliacao-aponta-contribuicoes",
+      "https://jornaldebrasilia.com.br/noticias/politica-e-poder/eleicoes-2024-pf-e-universidade-fazem-teste-em-urnas-eletronicas/"
+     ]
+    },
+    {
+     "nome": "TPS 2025: 29 de 35 planos executados, 4 achados (destaque para o kit de transmissao JE-Connect/VPN)",
+     "o_que_conseguiu": "Quatro dos 29 planos executados geraram achados (com seis pontos de aprimoramento): visualizar pastas que deveriam estar protegidas; extrair arquivos para locais diferentes dos autorizados; travar um dos sistemas testados; e problemas em componentes de codigo aberto usados pelo Kit JE-Connect, que transmite dados da urna por VPN. Segundo o TSE, nenhum plano alterou votos/resultados, quebrou sigilo ou comprometeu a integridade.",
+     "condicoes_e_acesso": "Ambiente controlado, com acesso e condicoes definidos pelo tribunal (diferentes de uma eleicao real), sobre a urna modelo UE2022; investigadores externos convidados.",
+     "correcao": "O TSE atualizou/retirou componentes vulneraveis, reforcou validacao e controle de acesso e corrigiu a falha que travava o Kit JE-Connect. No teste de confirmacao de 13 a 15 de maio de 2026, os proprios investigadores repetiram os testes e constataram que as vulnerabilidades tinham sido corrigidas.",
+     "quem": "Investigadores externos; Comissao Avaliadora 2025 (relatorio parcial publicado)",
+     "ano": "2025 (8a edicao, ciclo das eleicoes de 2026)",
+     "relevancia_2026": "A mais relevante por ser a edicao do ciclo atual: o alvo concreto foi a transmissao (JE-Connect/VPN e dependencias open-source), reforcando que a superficie a vigiar em 2026 e transmissao/totalizacao, justamente onde a conferencia publica dos BUs por secao e capaz de detectar divergencia. Nota: a afirmacao de que 'hackers invadiram 35 vezes' e falsa (foram 35 planos inscritos, 29 executados, nenhum alterou resultado).",
+     "fontes": [
+      "https://www.aosfatos.org/noticias/hackers-urnas-eletronicas-teste-seguranca/",
+      "https://www.tse.jus.br/eleicoes/arquivos/relatorio-parcial-da-comissao-avaliadora-2025-versao-final/@@display-file/file/relatorio-parcial-da-comissao-avaliadora-2025-versao-final.pdf"
+     ]
+    }
+   ],
+   "lacunas": "Limites desta pesquisa (acesso em 01/11/2026): (1) O portal de arquivos do TSE (justicaeleitoral.jus.br/tps) devolveu 403 ao acesso automatizado, inclusive via download direto; conforme a regra do projeto, nao contornei o bloqueio e usei fontes alternativas (artigos dos pesquisadores, imprensa de referencia, paginas de noticia do proprio TSE e fact-checks). Por isso o detalhamento achado-a-achado e o texto exato dos relatorios de confirmacao de 2019, 2021, 2023 e 2025 nao foram lidos na integra, apenas resumidos a partir de fontes secundarias e do relatorio parcial 2025; os PDFs oficiais ficaram listados em /home/user/trabalho-eleicao/fraude_metodos/brasil/fontes_tps.txt para conferencia manual. (2) Para 2009, 2012 e 2016 nao localizei relatorio de 'teste de confirmacao' no formato padronizado das edicoes recentes; as correcoes dessas edicoes aparecem em relato dos pesquisadores e da imprensa, nem sempre em documento oficial por achado. (3) O relatorio tecnico Unicamp/LASCA 2012 nao abriu (503); foi citado via o artigo SBC 2018 dos mesmos autores, que o referencia. (4) Varias afirmacoes de que 'nenhum achado altera a eleicao' sao avaliacoes da propria comissao avaliadora/TSE; nao sao verificacao independente, e os pesquisadores (Aranha et al.) divergem quanto ao risco de atacante interno. (5) Nao avaliei edicoes/testes fora do escopo TPS (por exemplo o teste de integridade do dia da eleicao e a votacao paralela) a nao ser como controle citado. IMPORTANTE: tudo aqui esta em nivel de resumo publicado; nenhum passo operacional, codigo, parametro, nome de ferramenta de exploracao ou metodo de evasao foi incluido, por decisao de seguranca.",
+   "resumo": "Onde a fraude 'poderia estar', pela leitura dos Testes Publicos de Seguranca (TPS) do TSE (edicoes 2009, 2012, 2016, 2017, 2019, 2021, 2023, 2025) e dos relatorios dos pesquisadores: a resposta honesta tem duas camadas. Camada 1, os achados concretos: ao longo das oito edicoes, grupos com acesso ao codigo-fonte e ao equipamento em laboratorio, por poucos dias, encontraram falhas reais. As mais graves foram em 2017, quando a equipe de Diego Aranha obteve execucao de codigo arbitrario a partir da midia de instalacao do software (chave recuperada, bibliotecas sem assinatura), demonstrando violacao de sigilo de eleitores especificos, manipulacao da tela e adulteracao do log, com progresso (nao concluido) para desvio de votos. Antes, 2012 quebrou o sigilo reordenando o registro por causa de aleatoriedade insegura, e 2016 achou quatro falhas (uma permitindo alterar resultado via codigo verificador do BU). Nas edicoes recentes (2019, 2021, 2023, 2025) os achados migraram para a cadeia de preparacao de midia (Gedai) e, sobretudo, para a transmissao/recepcao de resultados (em 2025, o Kit JE-Connect/VPN e dependencias open-source). Padrao importante: o TSE corrigiu cada classe e, nas edicoes a partir de 2017, reconfirmou as correcoes em testes de confirmacao (2018, 2020, 2022, 2024 e maio/2026). Nenhum desses achados e prova de que alguma eleicao real tenha sido alterada; sao resultados de laboratorio, em condicoes de acesso que nao existem no dia da votacao. Camada 2, a critica estrutural que os pesquisadores mantem: o risco de maior impacto e menor detectabilidade nao e o invasor externo no dia, e sim um atacante interno com acesso prolongado a cadeia de desenvolvimento/carga, combinado a ausencia de um registro fisico verificavel pelo eleitor e de recontagem independente (o voto impresso foi suspenso pelo STF). Como o boletim de urna e gerado pelo mesmo software que registrou os votos, comparar BUs publicados detecta fraude em transmissao/totalizacao, mas nao detectaria uma adulteracao feita dentro da propria urna. Para a auditoria de 2026, isso define onde olhar com ceticismo util: (a) a transmissao e a totalizacao, checaveis pela conferencia e totalizacao independente dos BUs publicados por secao (o controle que de fato pega essa classe); (b) a integridade da cadeia de preparacao de midia e de chaves, coberta pelas correcoes pos-TPS e pelo teste de integridade com votacao paralela, cujo limite reconhecido e ser por amostra e simulado; e (c) a hipotese de insider, que nenhum controle puramente eletronico fecha por completo sem trilha fisica. Ceticismo nos dois sentidos: nao ha evidencia publica de fraude consumada, e tampouco ha prova forte de impossibilidade; o que existe e um historico de vulnerabilidades encontradas e corrigidas e uma lacuna estrutural (auditabilidade fisica) que continua em aberto."
+  },
+  {
+   "tema": "BRASIL",
+   "resumo": "Fontes brasileiras fora do TPS: SBC 2002, Aranha e outros 2014 (Cadernos Adenauer), auditoria do PSDB 2014 (publicada em 2015), Aranha e van de Graaf 2018, relatório do Ministério da Defesa 2022, relatório do IVL/PL 2022 e a resposta a ele, auditoria do TCU 2021 a 2023 e a proposta de fiscalização de 2026, Carter Center 2022 e OEA 2018. Nenhuma delas documenta fraude por manipulação de software em eleição real. O que elas descrevem são classes de ameaça e lacunas de verificação. O mapa, do maior para o menor impacto potencial:\n\n(1) O agente interno no desenvolvimento, na compilação ou na assinatura, e a cadeia de suprimento de firmware. É a classe de maior alcance, porque atingiria todas as urnas e passaria nas verificações de assinatura e hash. Essas verificações só provam que o programa é o mesmo que foi lacrado, não que ele é honesto. Os críticos (SBC 2002, Aranha 2014, PSDB 2014, Defesa 2022) dizem que, numa urna DRE sem registro independente, ela não pode ser descartada e deixaria pouca ou nenhuma marca. As fontes institucionais (TCU, e em parte Carter e OEA) não acharam falha capaz de comprometer o resultado, mas registraram pontos fracos: processo de desenvolvimento seguro implantado só em parte, hardware sem certificação completa e acesso à rede durante a compilação sem esclarecimento público.\n\n(2) O teste de integridade poderia ser detectado pela urna. É a lacuna mais citada (PSDB 2014, Defesa 2022, Carter 2022). O piloto com biometria (2022), que em 2026 virou modalidade regulamentada mas voluntária, responde só em parte.\n\n(3) Classes locais com casos reais e pequena escala: o mesário que vota por ausentes, inclusive em 2026 (caso de Salvador), lacres reaproveitados ou mal inspecionados, e falhas na carga e nas mídias nas zonas.\n\n(4) Totalização e transmissão. É a classe mais verificável com dados públicos. Todas as conferências independentes entre BU impresso e BU publicado (PSDB 2014, Defesa 2022, TCU 2022) deram zero divergência.\n\nPara 2026, a fraude que importa (a interna e consistente) quase não deixaria marca em BU, RDV e log, porque os três saem do mesmo software. As marcas que existem servem para as classes locais: modo de habilitação e horários no log, eventos de carga e substituição de urna, e confronto do BU impresso com o publicado. Também há os relatórios do teste de integridade, que em 2026 o TCU acompanha nos 27 TREs. A alegação do IVL/PL em 2022 mostra o risco oposto: tomar um artefato técnico (o ID fixo no log dos modelos antigos) ou diferenças entre modelos de urna, que se confundem com a geografia, como sinal de fraude.\n\nOs arquivos baixados estão em /home/user/trabalho-eleicao/fraude_metodos/brasil_fora_tps/. Usei uma subpasta própria porque outro agente passou a gravar na pasta brasil/ que eu tinha criado.",
+   "achados": [
+    {
+     "nome": "Agente interno no desenvolvimento, na compilação e na assinatura (modelo de ameaça do sistema)",
+     "ano": "2002, 2014, 2015 e 2018",
+     "quem": "SBC (van de Graaf e Custódio, 2002); Aranha, Karam, Miranda e Scarel (Cadernos Adenauer, 2014); auditoria contratada pelo PSDB (equipe de USP e ITA, relatório de 2015); Aranha e van de Graaf (IEEE Security & Privacy, 2018)",
+     "o_que_conseguiu": "Nenhuma demonstração de fraude real. As conclusões são de análise. SBC 2002: 'até onde sabemos, a urna eletrônica é segura' e nada suspeito foi achado, mas a correção dos programas 'baseia-se em confiar na boa fé dos técnicos do TSE', e não dá para declarar a urna 100% segura. Aranha e outros 2014: os mecanismos foram projetados contra o atacante externo e ignoram o interno; a assinatura digital atesta a origem do software, não a honestidade dele; numa urna DRE, software adulterado causaria distorção sem vestígio. PSDB 2014: a avaliação de riscos classificou como 'catastrófico/gravíssimo' o comprometimento, por agente interno ou hacker ligado a ele, de compilador, processo de compilação, certificados, sistema operacional, BIOS, rotinas criptográficas de terceiros (CEPESC) e software da votação paralela. IEEE 2018 (só consultei o resumo): o sistema está desatualizado diante de propriedades de segurança modernas.",
+     "condicoes_e_acesso": "Exigiria acesso legítimo e privilegiado antes da lacração: desenvolvedor, quem compila e assina, fornecedor de componente embarcado, ou conluio entre eles. Um programa malicioso assinado na cerimônia passa por todas as verificações de assinatura e hash nas zonas e nas seções. Segundo o PSDB, parte dos procedimentos críticos, como a compilação e a sequência de totalização, não podia ser repetida nem conferida por auditores externos.",
+     "correcao": "Ao longo do tempo: código-fonte aberto às entidades fiscalizadoras 12 meses antes da eleição. Em 2022, Unicamp, UFPE e USP inspecionaram o código nas próprias instalações e disseram não ter achado problemas significativos, mas avisaram que a verificação completa e a garantia de ausência de código malicioso estavam fora do escopo (Carter Center). Chaves criptográficas foram removidas do código-fonte (Carter Center). Em 2023, o TCU determinou um plano de ação para implantar por completo o processo de desenvolvimento seguro (Portaria TSE 540/2021). Os críticos dizem que o ponto estrutural, a falta de um registro independente do software, continua.",
+     "relevancia_2026": "É a classe de maior impacto (todas as urnas) e a que menos marca deixa: BU, RDV e log são gerados pelo mesmo software, então uma adulteração bem feita seria internamente consistente. Controles de 2026: inspeção de código desde out/2025, com inspeções da SBC, do Senado, da CNC e do União Brasil; TPS concluído em maio/2026 sem falha que comprometesse sigilo ou resultado, segundo o TSE; lacração em setembro; teste de integridade com e sem biometria, acompanhado pelo TCU. Marcas possíveis nos dados públicos: só indiretas, como divergência em teste de integridade, ou padrões que acompanhem a versão de software ou o modelo de urna e não a geografia. Nenhuma é conclusiva sozinha.",
+     "fontes": [
+      "https://www.sbc.org.br/wp-content/uploads/2024/07/tse-1.pdf",
+      "http://www.kas.de/wf/doc/13775-1442-5-30.pdf",
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://doi.org/10.1109/MSEC.2018.2875318",
+      "https://dfaranha.github.io/project/evotingbr/",
+      "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+      "https://www.opovo.com.br/noticias/politica/2026/07/29/tse-reafirma-mecanismos-de-seguranca-das-urnas-eletronicas-apos-criticas-ao-sistema-eleitoral.html"
+     ]
+    },
+    {
+     "nome": "Acesso à rede durante a compilação e limites da inspeção de código (fiscalização das Forças Armadas)",
+     "ano": "2022",
+     "quem": "Equipe das Forças Armadas de Fiscalização e Auditoria do Sistema Eletrônico de Votação (EFASEV), Ministério da Defesa; relatório de 9/11/2022",
+     "o_que_conseguiu": "Não apontou fraude. Achou zero inconsistência entre BU impresso e BU publicado: 442 BUs no 1º turno e 501 no 2º, com 95% de confiança. O teste de integridade sem biometria correu 'em conformidade'. Mas registrou: só análise estática, sem acesso ao controle de versões e às bibliotecas de terceiros, num sistema de mais de 17 milhões de linhas, de modo que 'não há certeza de que o código presente nas urnas é exatamente o que foi verificado'. Os computadores da compilação acessaram infraestrutura de rede para obter fontes ou bibliotecas, sem informar quais estruturas, o que 'pode configurar relevante risco'; um pedido de esclarecimento ficou sem resposta. Conclusão: 'não permite afirmar que o SEV está isento da influência de um eventual código malicioso'. Recomendou analisar os binários efetivamente executados.",
+     "condicoes_e_acesso": "Fiscalização formal, sem teste ofensivo. O risco descrito é hipotético: se a rede acessada na compilação estivesse comprometida, o binário assinado poderia diferir do código inspecionado. Explorar isso exigiria acesso à rede interna do TSE ou ao repositório.",
+     "correcao": "O TSE respondeu que o relatório não apontou fraude ou inconsistência. Giuseppe Janino, ex-secretário de TI do TSE, disse à imprensa que a compilação ocorre em máquinas desligadas da rede e que alterações seriam verificáveis contra a versão guardada (fonte secundária). Não achei esclarecimento técnico público do TSE especificamente sobre o acesso à rede na compilação. O TCU (2023) registrou implantação parcial dos requisitos de 'ambiente de compilação e implantação de software' e mandou concluir o processo de desenvolvimento seguro.",
+     "relevancia_2026": "O controle relevante é poder comparar o código inspecionado com o binário lacrado (reprodutibilidade da compilação), e eu não confirmei se isso existe em 2026. Nos dados públicos, essa classe não deixa marca direta. O que há é conferir se os hashes publicados na lacração de 2026 batem com os verificados nas zonas e nas urnas, nas atas das cerimônias.",
+     "fontes": [
+      "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+      "https://www.poder360.com.br/governo/defesa-nao-ve-fraude-em-eleicao-mas-sugere-melhorias-ao-tse/",
+      "https://jornalgrandebahia.com.br/?p=1005476",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+     ]
+    },
+    {
+     "nome": "Gestão das chaves criptográficas (cifração das mídias e assinatura dos arquivos de resultado)",
+     "ano": "2012 a 2017 (publicado em 2014 e 2019); correções relatadas em 2022",
+     "quem": "Aranha e outros (Cadernos Adenauer, 2014); Aranha, Barbosa, Cardoso, Araújo e Matias (Computers & Security, 2019); auditoria do PSDB (2015)",
+     "o_que_conseguiu": "Documentaram, a partir do código e de testes, que a chave de cifração das mídias era uma só para todas as urnas e ficava no próprio código-fonte. Isso deixava qualquer pessoa com acesso ao repositório, e em tese um atacante externo que analisasse a mídia, em condições de abrir o conteúdo dos cartões. A chave de assinatura dos produtos de votação (BU, RDV, log) era compartilhada pelas urnas de uma mesma UF. Se vazasse, permitiria forjar um arquivo que seria aceito como autêntico em nome de uma urna. O PSDB 2014 também apontou chaves de verificação embutidas no código compilado. O artigo de 2019 (resumo) relata que essas chaves permitiram inspecionar as mídias de instalação.",
+     "condicoes_e_acesso": "Acesso ao código-fonte ou a uma mídia de instalação, mais tempo de análise. Forjar o resultado de uma seção exigiria ainda injetar o arquivo forjado no fluxo de transmissão no lugar do legítimo, e ele teria de bater com o BU impresso afixado na seção e entregue aos fiscais.",
+     "correcao": "Segundo o Carter Center (2022), o TSE removeu todas as chaves criptográficas do código-fonte depois das críticas, o que permitiu levar o código para universidades. Os testes de confirmação de 2017 introduziram contramedidas na carga. Um material do TSE sobre o hardware (TPS 2023) diria que cada urna moderna tem pares de chaves próprios e um módulo de segurança certificado ICP-Brasil, mas não consegui abri-lo (403); a informação vem só de trecho de busca e não está verificada.",
+     "relevancia_2026": "Controle de 2026: assinatura dos arquivos da urna, BU impresso com QR Code assinado, e o aplicativo Boletim na Mão e terceiros conferindo a assinatura. Marca nos dados públicos: um BU forjado só passaria sem ser notado se ninguém comparasse com o papel. Confronto em amostra entre o BU impresso (foto ou QR coletado na seção) e o BU publicado pelo TSE, além da coerência entre BU, log e RDV da mesma urna (carga, horários, contagens), detectaria substituição de arquivo.",
+     "fontes": [
+      "http://www.kas.de/wf/doc/13775-1442-5-30.pdf",
+      "https://doi.org/10.1016/j.cose.2019.06.009",
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+      "https://www.justicaeleitoral.jus.br/tps/arquivos/2023/apresentacoes/teste2023-cotel-hardware-da-urna-eletronica-1.pdf"
+     ]
+    },
+    {
+     "nome": "Cadeia de suprimento de hardware e firmware (BIOS, módulo de segurança, fornecedores terceiros)",
+     "ano": "2014 (relatório de 2015), 2022 e 2023",
+     "quem": "Auditoria do PSDB (2015); TCU, 4ª etapa (Acórdão 2489/2023); USP (laboratório LARC, testes da UE2020 em 2022, citados pelo TCU)",
+     "o_que_conseguiu": "PSDB 2014: o TSE negou acesso aos códigos-fonte da BIOS e do circuito de segurança. Parte crítica do software (rotinas da ABIN/CEPESC) não estaria em posse do TSE. O modo de implantação do módulo de segurança daria, 'em tese', momentos de acesso a pessoas de fora do TSE (ABIN, Diebold, Módulo, empresas de 'exercitação' das urnas) para inserir portas dos fundos. TCU 2023: não há certificação do hardware completo da urna nem do processo de desenvolvimento; o módulo de segurança embarcado tem certificação INMETRO/ICP-Brasil e o resto tem laudos de laboratórios acreditados. A USP testou a UE2020 em 2022 e não achou vulnerabilidades, segundo relato citado pelo TCU.",
+     "condicoes_e_acesso": "Fornecedor ou fabricante com acesso ao firmware ou ao módulo de segurança antes da entrega, ou insider que gere a gravação desse firmware. O PSDB trata isso como possibilidade teórica, sem evidência de ocorrência.",
+     "correcao": "O TCU recomendou ao TSE certificar o hardware e o processo de desenvolvimento ou demonstrar que isso não é relevante. Hoje o TSE projeta a urna e o fabricante a produz (Positivo, para a UE2020). Em 2026, diante da alegação de Flávio Bolsonaro de que haveria urnas da Smartmatic, o TSE disse que a empresa nunca forneceu urnas nem software, só serviços de conexão de dados e voz, e perdeu a licitação de 2020; Flávio depois admitiu ter se expressado mal. Há tensão com o relatório do PSDB de 2014, que dizia que funcionários da Smartmatic teriam tido acesso em momentos de carga e transmissão por contratos com TSE e TREs; não consegui resolver essa divergência.",
+     "relevancia_2026": "Em 2026 convivem modelos de várias gerações, sendo o UE2022 o mais recente segundo o Aos Fatos. Marca possível: um ataque de firmware tenderia a se concentrar num modelo. Mas comparar resultados por modelo é armadilha, porque o modelo se correlaciona com região e porte do município, e foi exatamente esse o erro estatístico apontado no relatório do IVL/PL de 2022. A comparação só vale entre urnas de modelos diferentes no mesmo local de votação ou município.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+      "https://jornaldebrasilia.com.br/noticias/politica-e-poder/tse-nega-que-smartmatic-tenha-fornecido-urnas-ao-brasil/",
+      "https://www.infomoney.com.br/politica/flavio-diz-que-aceitara-resultado-das-urnas-e-reconhece-erro-ao-citar-smartmatic/",
+      "https://www.aosfatos.org/noticias/tse-novas-urnas-eletronicas-eleicoes/"
+     ]
+    },
+    {
+     "nome": "Geração de mídias e carga das urnas nas zonas e TREs",
+     "ano": "2014 e 2022",
+     "quem": "Auditoria do PSDB (2015); Defesa/EFASEV (2022); TCU (Acórdão 2489/2023)",
+     "o_que_conseguiu": "PSDB 2014: a geração de mídias ocorreria em computadores ligados à Internet; o TSE recusou os dados de controle do sistema de geração de mídias; a carga não pôde ser certificada com confiabilidade. Defesa 2022, em 15 TREs: assinaturas e hashes dos programas de geração de mídias e de instalação coincidiam com os lacrados; houve verificação de integridade em pelo menos 3% das urnas preparadas por zona; nenhuma inconformidade. TCU 2023, numa amostra de 54 seções: em uma UF a comissão de auditoria (CAVE) não acompanhou a troca das urnas sorteadas para o teste de integridade; houve baixa participação de partidos nas cerimônias de geração de mídias e preparação.",
+     "condicoes_e_acesso": "Acesso físico ou lógico aos computadores de geração de mídias de um cartório ou TRE, ou às mídias entre a geração e a carga. O alcance seria regional, e as assinaturas verificadas na carga barrariam software não assinado.",
+     "correcao": "A verificação de assinatura e hash na carga e a verificação por amostragem nas cerimônias públicas (registradas pela Defesa em 2022). O TCU recomendou mais publicidade das cerimônias e comunicação padronizada com as entidades fiscalizadoras.",
+     "relevancia_2026": "Controle: cerimônias públicas de geração de mídias e preparação, verificação de hashes e tabela de correspondência urna-seção. Marcas nos dados públicos: o log de cada urna registra a carga (identificação, data e hora); cargas fora da janela da cerimônia, urnas fora da tabela de correspondência ou excesso de urnas substituídas numa zona seriam anomalias verificáveis. As atas das cerimônias de 2026 (TREs) são a contraprova documental.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+     ]
+    },
+    {
+     "nome": "Acesso físico à urna e eficácia dos lacres",
+     "ano": "2014 e 2022",
+     "quem": "Auditoria do PSDB (2015); TCU (acompanhamento de 2022, Acórdão 2489/2023)",
+     "o_que_conseguiu": "PSDB 2014: os lacres são 'só parcialmente efetivos' para revelar ataque ao software. Uma inspeção leiga, como a de fiscais e mesários, pode não perceber um lacre removido e recolocado. Houve 'inúmeros casos' de lacres irregulares, e nenhum disparou investigação. TCU 2022: em 4 de 54 seções da amostra, o presidente da mesa reaproveitou o mesmo lacre depois de retirar a mídia de resultado; o TCU anotou que isso 'indica que os lacres podem ser removidos sem rompimento' e chamou de fragilidade a corrigir.",
+     "condicoes_e_acesso": "Acesso físico à urna entre a lacração e a votação (depósito, transporte, seção) ou entre o fim da votação e o recolhimento. Sozinho não basta: trocar ou alterar o software ainda esbarraria na verificação de assinatura na inicialização. O lacre é uma camada de evidência de violação, não a barreira principal.",
+     "correcao": "O TCU deu ciência ao TSE e pediu reforço de treinamento. Em 2026 o TSE cita lacres físicos fornecidos pela Casa da Moeda. Não achei avaliação independente desses lacres.",
+     "relevancia_2026": "Classe de alcance local. Marcas: o log da urna registra ligamentos, desligamentos e inserção ou remoção de mídias com horário; eventos fora do expediente ou entre a carga e a eleição seriam anômalos. Atas de seção e relatórios de urnas substituídas (o TCU recomendou publicá-los) complementam.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+      "https://www.opovo.com.br/noticias/politica/2026/07/29/tse-reafirma-mecanismos-de-seguranca-das-urnas-eletronicas-apos-criticas-ao-sistema-eleitoral.html"
+     ]
+    },
+    {
+     "nome": "Habilitação do eleitor: mesário votando no lugar de ausentes e liberação sem biometria",
+     "ano": "2014, 2018, 2023 e 2026",
+     "quem": "Auditoria do PSDB (2015); Missão da OEA (2018); Aos Fatos (2023); caso policial em Salvador (1º turno de 2026)",
+     "o_que_conseguiu": "PSDB 2014 classificou 'votar como um eleitor que ainda não votou' como risco baixo em eleição nacional e médio em cidade pequena. Motivos: o mesário tem a lista de quem ainda não votou e a biometria não é obrigatória; o TSE não cruza votos com justificativas nem analisa logs para achar mesários reincidentes; o alcance é seção a seção. OEA 2018: quando a digital não confere, o mesário libera a urna com senha própria. Aos Fatos 2023: depois de quatro tentativas sem biometria, a liberação é feita com conferência do documento e do ano de nascimento. Em 4/10/2026, em Salvador, uma mesária foi presa em flagrante, suspeita de ter votado no lugar de um eleitor em trânsito já identificado; caso em investigação, sem condenação.",
+     "condicoes_e_acesso": "Só exige ser mesário, ou ter conluio na mesa, e ausência ou omissão de fiscais. Não envolve alterar software. O impacto por seção é limitado ao número de faltosos.",
+     "correcao": "A biometria reduz a classe, mas não a elimina, porque existe o caminho alternativo de liberação. A punição depende de denúncia ou de detecção na seção, como no caso de Salvador, em que o eleitor não conseguiu votar.",
+     "relevancia_2026": "É a classe mais provável de ter ocorrências reais em 2026, e com efeito pequeno no agregado. Deixa marcas claras nos dados públicos: o log registra para cada voto se a habilitação foi por biometria ou não, e com que horário. Um percentual de liberações sem biometria muito acima do das seções vizinhas, votos concentrados nos minutos finais ou rajadas de liberações manuais são sinais testáveis. Eleitores que chegam e constam como já votados geram registro em ata.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://aceproject.org/ero-en/regions/americas/BR/brazil-general-elections-final-report-2018/view",
+      "https://www.aosfatos.org/noticias/video-gilmar-mendes-mesario-pianista/",
+      "https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026"
+     ]
+    },
+    {
+     "nome": "Sigilo do voto: vínculo entre identidade e voto, e embaralhamento do RDV",
+     "ano": "2002 e 2012 (publicado em 2014)",
+     "quem": "SBC (2002); Aranha e outros (Cadernos Adenauer, 2014)",
+     "o_que_conseguiu": "SBC 2002: como o terminal do mesário, onde se digita a identificação, é ligado eletronicamente à urna, 'uma mudança simples de software' permitiria vincular eleitor e voto; não acharam vestígio de que isso tenha sido implementado. Aranha 2014: o embaralhamento do RDV usava uma semente previsível a partir de informação pública, o que permitiu reconstruir a ordem dos votos; combinada com os horários do log, permitiria descobrir o voto de quem votou num horário conhecido (risco de coação). O RDV é produzido pelo mesmo software que o BU, logo não serve como verificação independente.",
+     "condicoes_e_acesso": "Para o vínculo identidade-voto: software adulterado, ou seja, de novo o cenário de insider. Para a reversão do embaralhamento: só os arquivos públicos e o conhecimento do método defeituoso.",
+     "correcao": "O defeito do embaralhamento foi corrigido depois do TPS de 2012, tema detalhado pelo agente de TPS. A arquitetura do terminal do mesário ligado à urna continua.",
+     "relevancia_2026": "Afeta o sigilo, não a contagem, mas é relevante para coação e compra de voto verificável. Nos dados públicos de 2026, RDV e log são publicados por seção; a marca de uma quebra de sigilo seria externa, como relatos de coação. Uma fraude de contagem não aparece no RDV, que é coerente com o BU por construção.",
+     "fontes": [
+      "https://www.sbc.org.br/wp-content/uploads/2024/07/tse-1.pdf",
+      "http://www.kas.de/wf/doc/13775-1442-5-30.pdf",
+      "https://revistapesquisa.fapesp.br/en/brazils-electronic-voting-machine-comes-of-age/"
+     ]
+    },
+    {
+     "nome": "Falta de trilha independente do software e limites da auditoria pós-eleição",
+     "ano": "2002, 2014, 2021 e 2022",
+     "quem": "SBC (2002); auditoria do PSDB (2015); TCU (Acórdão 2522/2021); Carter Center (2022)",
+     "o_que_conseguiu": "SBC 2002: a urna deve ser tratada como 'caixa preta' e só o voto impresso convenceria um cético. PSDB 2014: 'impossível determinar, com algum nível de confiabilidade, se foram justos o registro e a apuração'. Os auditores não puderam ler diretamente as mídias, só por programas da própria mídia, e não verificaram compiladores nem BIOS. Em 2021 o partido declarou considerar a eleição de 2014 limpa (fonte secundária). TCU 2021: o sistema é auditável sem voto impresso. Carter 2022: numa DRE pura, se a urna registrar errado não há como recuperar a intenção do eleitor; não há regras para auditoria pós-eleição nem procedimento claro se o teste de integridade falhar por culpa da máquina; o TSE vê as auditorias sobretudo como 'medidas de construção de confiança'.",
+     "condicoes_e_acesso": "Não é ataque, é lacuna de detecção. Ela aumenta o valor de qualquer ataque interno, porque reduz a chance de ele ser provado depois.",
+     "correcao": "O Congresso rejeitou o voto impresso em 2021. O Carter Center recomendou que o TSE publique regras de auditoria pós-eleição, com acesso às urnas e ao software. O TCU recomendou regulamentar prazos e locais de publicação de logs do transportador e do receptor, logs de urna, RDV, imagens de BU, relatórios de urnas substituídas e de BUs em pendência. Não verifiquei se isso foi adotado em 2026.",
+     "relevancia_2026": "Define o teto da auditoria do Léo: com dados públicos é possível provar ou descartar fraude de totalização e anomalias locais (habilitação, carga, substituição), mas não excluir uma adulteração interna consistente. Pedir os logs do transportador e do receptor e o relatório de urnas substituídas de 2026 ampliaria o alcance.",
+     "fontes": [
+      "https://www.sbc.org.br/wp-content/uploads/2024/07/tse-1.pdf",
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://www.metropoles.com/brasil/politica-brasil/bolsonaro-ressuscita-video-de-2015-em-que-psdb-diz-que-urnas-sao-inauferiveis",
+      "https://eleicoes.tcu.gov.br/TCU_nas_eleicoes_2022.pdf",
+      "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+     ]
+    },
+    {
+     "nome": "Transmissão e totalização (alteração depois que o BU sai da urna)",
+     "ano": "2014 e 2022",
+     "quem": "Auditoria do PSDB (2015); Defesa/EFASEV (2022); TCU (2022)",
+     "o_que_conseguiu": "Nenhuma fonte achou alteração. PSDB 2014: 'não foram encontrados indícios de fraudes ou de erros sistemáticos' na transmissão e na totalização, mas não foi possível reconstruir a evolução da totalização por falta de dados de controle. Defesa 2022: 442 e 501 BUs conferidos, zero divergência. TCU 2022: 559 BUs no 1º turno e 604 no 2º coletados nas seções com o Boletim na Mão, mais uma amostra de 4.161 BUs com 99% de confiança e 2% de margem, sem divergência. A Defesa e o TCU pediram os logs do transportador, do receptor e do banco da totalização para reproduzir a ordem de chegada; a Defesa não os recebeu.",
+     "condicoes_e_acesso": "Exigiria acesso ao sistema central (insider ou intrusão) e passaria por cima de BUs impressos, assinados e afixados nas seções, que qualquer um pode fotografar.",
+     "correcao": "Publicação dos BUs em tempo real desde 2022 e aplicativo Boletim na Mão. O TCU recomendou melhorias no aplicativo (leitura dos QR Codes, campo de voto em trânsito) e a publicação dos logs da totalização.",
+     "relevancia_2026": "É a classe mais barrada e a mais verificável: a soma dos BUs publicados tem de dar o total oficial, e cada BU publicado tem de bater com o papel da seção. A marca seria qualquer divergência entre BU impresso ou QR e BU publicado, ou entre a soma dos BUs e o total. Uma amostra aleatória de BUs fotografados ou lidos em 2026 testa isso com poder estatístico alto.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+      "https://eleicoes.tcu.gov.br/TCU_nas_eleicoes_2022.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+     ]
+    },
+    {
+     "nome": "Intrusão na rede interna do TSE (2018)",
+     "ano": "2018 (investigação da PF aberta em 8/11/2018; reportagem de 2022)",
+     "quem": "Invasor externo não identificado nas fontes consultadas; investigação da Polícia Federal pedida pelo próprio TSE",
+     "o_que_conseguiu": "Segundo a imprensa, um invasor teve acesso a sistemas internos do TSE (intranet) entre abril e setembro de 2018, pelo relato dele. Ele alegou ter visto código-fonte; o TSE diz que o código não foi violado e que qualquer alteração impediria a execução nas urnas. Em 2019 o TSE informou à PF que os logs tinham sido apagados por empresa terceirizada durante manutenção de firewall. O delegado do caso disse não ter achado indício de fraude nas urnas. Em agosto de 2022 o inquérito ainda não estava concluído.",
+     "condicoes_e_acesso": "Intrusão remota na rede administrativa. Para afetar a urna, o invasor teria de chegar ao ambiente de desenvolvimento ou compilação e sobreviver à inspeção e à lacração, o que nenhuma fonte indica ter ocorrido.",
+     "correcao": "Segundo o TCU, depois disso foram criados uma unidade de segurança cibernética (2019), um SOC com SIEM em parceria com o Serpro e uma política de segurança da informação; o TCU ainda via implantação parcial em 2023.",
+     "relevancia_2026": "Mostra que a rede corporativa do TSE é alvo real e que a perda de logs limitou a perícia, o que reforça o ponto da Defesa sobre o ambiente de compilação. Nos dados públicos de 2026 não deixa marca; a verificação seria institucional (PF, TCU).",
+     "fontes": [
+      "https://www.acessa.com/politica/2022/08/3106-entenda-inquerito-do-ataque-hacker-ao-tse-utilizado-por-bolsonaro-para-questionar-urnas.html",
+      "https://www.metropoles.com/brasil/apuracao-citada-por-bolsonaro-foi-pedida-pelo-tse-a-pf-em-2018",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+     ]
+    },
+    {
+     "nome": "Detecção do teste de integridade (votação paralela) por software malicioso",
+     "ano": "2014, 2018, 2022 e 2026",
+     "quem": "Auditoria do PSDB (2015); Missão da OEA (2018); Defesa/EFASEV (2022); Carter Center (2022); TCU (2023 e Acórdão 2558/2026)",
+     "o_que_conseguiu": "PSDB 2014: o teste 'não simulou as condições normais de votação', e o procedimento introduziu sinais que um software fraudador poderia usar para 'adormecer' durante o teste; com urnas biométricas o teste ficaria 'inócuo'. OEA 2018: recomendou aumentar a amostra. Defesa 2022: o teste sem biometria não reproduz o uso normal; a faixa de 75% a 82% de cédulas ficava abaixo do comparecimento real em cerca de 1/3 das seções; o piloto com biometria foi 'inconclusivo' (58 urnas, escolhidas com até 10 dias de antecedência e sem aleatoriedade, adesão média de 13%); 'não permite afirmar' isenção de código malicioso. Carter 2022: a baixa adesão no piloto permitiria a uma urna preparada reconhecer o teste pela abstenção alta; recomendou estudar participação obrigatória e um procedimento para divergência causada pela máquina, porque os operadores sempre presumiam erro humano. TCU 2022: 641 urnas testadas, sem divergência.",
+     "condicoes_e_acesso": "Pressupõe que já exista software malicioso na urna (classes de insider ou de cadeia de suprimento). A detecção do teste dependeria de diferenças entre a urna testada e a urna em uso real. Os autores tratam isso como capacidade possível, não demonstrada numa eleição.",
+     "correcao": "O TSE ampliou a amostra (cerca de 100 urnas antes, 641 em 2022) e criou o piloto com biometria em 2022. Em 2026 há uma modalidade com biometria regulamentada (Resolução TSE 23.758/2026, segundo a página do TSE, que não consegui abrir), com participação voluntária. O TCU autorizou auditar o teste de integridade, com e sem biometria, nos 27 TREs (Acórdão 2558/2026), e 55 auditores acompanharam o 1º turno. Em 2023 o TCU já tinha recomendado um relatório consolidado dos testes.",
+     "relevancia_2026": "É o principal controle contra a classe interna, e a crítica de Carter e da Defesa (participação voluntária, abstenção atípica) continua relevante se a adesão em 2026 tiver sido baixa. Marcas: relatórios de cada urna testada (cédulas x BU), percentual de cédulas inseridas e taxa de adesão com biometria por urna; divergência registrada e atribuída a 'erro humano' merece conferência do vídeo. Um teste aprovado não exclui fraude ciente do teste, e uma falha isolada não prova fraude.",
+     "fontes": [
+      "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+      "https://aceproject.org/ero-en/regions/americas/BR/brazil-general-elections-final-report-2018/view",
+      "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+      "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+      "https://static.poder360.com.br/uploads/2026/09/019.754-2026-4-OJC-Proposta-de-Fiscalizacao-Integridade-das-Urnas.pdf",
+      "https://www.oliberal.com/eleicoes/tse-55-auditores-do-tcu-acompanham-teste-de-integridade-no-brasil-nao-ha-intercorrencias-1.1176812",
+      "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-758-de-2-de-marco-de-2026"
+     ]
+    },
+    {
+     "nome": "Alegação de 'logs inválidos' nas urnas de modelos antigos (relatório do IVL para o PL)",
+     "ano": "2022",
+     "quem": "Instituto Voto Legal, contratado pelo PL; resposta de pesquisadores da USP, UFSCar e UFPA; decisão do presidente do TSE",
+     "o_que_conseguiu": "O relatório afirmou que os logs das urnas UE2009 a UE2015 seriam inválidos, porque o campo de identificação da urna traz um valor fixo, e que por isso não daria para ligar log, BU e RDV. Com base nisso, a coligação pediu a anulação de votos do 2º turno nessas urnas. Os pesquisadores mostraram que o valor fixo é um defeito de software sem efeito sobre a autenticidade: outros campos (carga, mídia, seção, local, zona, município) e a assinatura digital de cada arquivo permitem associar log e urna. Também criticaram a estatística, que pressupunha distribuição homogênea dos modelos de urna. O TSE rejeitou o pedido e multou a coligação em R$ 22,9 milhões por litigância de má-fé.",
+     "condicoes_e_acesso": "Não é ataque. É um caso documentado de falso positivo de auditoria: um artefato técnico real tratado como prova de fraude.",
+     "correcao": "Defeito do campo de identificação nos modelos antigos reconhecido como cosmético. Não verifiquei se foi corrigido nos modelos ainda em uso em 2026.",
+     "relevancia_2026": "Lição de método para a auditoria de 2026: (a) diferenças de resultado por modelo de urna são confundidas por geografia e perfil socioeconômico; (b) a associação entre arquivos deve usar a assinatura e os campos de carga, seção e zona, não um único campo; (c) mensagens com nome de eleitor no log, também alegadas, não revelam o voto.",
+     "fontes": [
+      "https://www.leiagora.com.br/uploads/PL-Relatorio-Tecnico-Logs-Invalidos-das-Urnas-Eletronicas-v0.7-15-11-2022-(1).pdf",
+      "https://static.poder360.com.br/2022/12/Analise-Bug04030201_USPUFSCarUFPAoutros.pdf",
+      "https://www.poder360.com.br/eleicoes/alegacoes-do-pl-sobre-urnas-nao-tem-fundamentos-diz-estudo-da-usp/",
+      "https://www.aosfatos.org/noticias/relatorio-pl-tse-bolsonaro-segundo-turno/",
+      "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-rejeita-pedido-e-multa-pl-em-r-229-mi-por-acao-contra-urnas/"
+     ]
+    },
+    {
+     "nome": "Fiscalização limitada pela baixa participação de partidos e pelas condições de inspeção",
+     "ano": "2018, 2021 a 2023 e 2026",
+     "quem": "Missão da OEA (2018); TCU (Acórdão 2489/2023); Carter Center (2022); Defesa (2022)",
+     "o_que_conseguiu": "OEA 2018: presença 'extremamente baixa' de partidos nas atividades públicas; recomendou ampliar o TPS, garantir técnicos de partidos nas verificações e estudar certificação das urnas. TCU 2023: partidos 'comprovadamente não atuam efetivamente' na fiscalização; no ciclo 2022, o PL foi ao TSE inspecionar o código em 9/12/2021 mas não fez a inspeção; não há menção a vulnerabilidades nas atas das entidades. Carter 2022: partidos raramente verificam hashes na carga e, quando verificam, usam ferramentas do próprio TSE; na sala do TSE só se permitem análise estática e anotações à mão, sob acordo de confidencialidade. Defesa 2022: as mesmas restrições limitaram a análise.",
+     "condicoes_e_acesso": "Não é ataque. É o fator que determina a chance de as classes acima serem detectadas por terceiros independentes.",
+     "correcao": "Acesso ampliado a universidades fora do TSE em 2022 e inspeções no ciclo 2026 (SBC, Senado, CNC, União Brasil, segundo o TSE).",
+     "relevancia_2026": "Para a auditoria: conferir quais entidades verificaram hashes nas cerimônias de carga de 2026 e se usaram ferramentas próprias; a ausência de fiscalização partidária numa seção é o contexto em que a classe da habilitação (mesário) fica mais fácil.",
+     "fontes": [
+      "https://aceproject.org/ero-en/regions/americas/BR/brazil-general-elections-final-report-2018/view",
+      "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+      "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+      "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+      "https://www.opovo.com.br/noticias/politica/2026/07/29/tse-reafirma-mecanismos-de-seguranca-das-urnas-eletronicas-apos-criticas-ao-sistema-eleitoral.html"
+     ]
+    }
+   ],
+   "lacunas": "1) O texto completo de Aranha e van de Graaf, 'The Good, the Bad, and the Ugly' (IEEE S&P 2018), é pago e o ResearchGate deu 403. Usei só o resumo (via Semantic Scholar) e o artigo de 2014 dos mesmos grupos. O artigo de 2014 e a palestra de Aranha se baseiam em achados do TPS de 2012 e 2017; esse detalhe técnico fica com o agente de TPS.\n2) O site do TSE (tse.jus.br e justicaeleitoral.jus.br) deu 403 para: relatório final da OEA 2022, relatório do Carter Center em inglês, texto da Resolução TSE 23.758/2026, apresentação de hardware do TPS 2023 e notícias do TSE. Usei a versão em português do Carter Center pelo site do Carter Center, e para a OEA só o relatório final de 2018 (via ACE Project). Recomendações da OEA para 2022 e da missão da OEA de 2026 ficaram sem fonte primária. Que cada urna moderna tenha chaves próprias vem só de trecho de busca, não verificado.\n3) O portal do TCU bloqueou a navegação, mas os PDFs dos acórdãos baixaram direto (etapa 3, Acórdão 1611/2022; etapas 4 e 5, Acórdão 2489/2023; proposta de 2026, Acórdão 2558/2026, via Poder360). Não li as recomendações específicas do Acórdão 3143/2021 (pessoas e insiders), só o status de monitoramento. A peça do TCU sobre gestão de senhas de oficialização é sigilosa.\n4) A cópia do relatório do PSDB 2014 está hospedada no site de Amílcar Brunazo, crítico conhecido do sistema. É a mesma referência citada pelo Carter Center, mas não achei cópia oficial do partido.\n5) Não achei esclarecimento técnico público do TSE especificamente sobre o acesso à rede durante a compilação apontado pela Defesa (só a fala de Janino na imprensa). Também não achei nota posterior da SBC (2021 a 2026) com posição institucional, além do relatório de 2002 e da inspeção de código de junho de 2026.\n6) Não consegui confirmar o caso do mesário condenado em Santa Catarina (2016) que apareceu em resumo de busca, por isso ficou fora. O artigo do TRE-SC de 2004 sobre o RDV e a coação por combinação de votos deu 403.\n7) O inquérito da PF sobre a intrusão de 2018 estava inconcluso em agosto de 2022; não achei desfecho.\n8) Não verifiquei, para 2026: adesão real ao teste com biometria, publicação dos logs do transportador e do receptor, relatório de urnas substituídas, e se a compilação de 2026 é reproduzível por terceiros. São os pontos que mais ampliariam a auditoria.\n9) Arquivos baixados (PDFs; o do Ministério da Defesa é escaneado e foi lido como imagem): /home/user/trabalho-eleicao/fraude_metodos/brasil_fora_tps/ (carter2022_final_pt.pdf, kas2014.pdf, md2022_relatorio_efasev.pdf, oea2018_final.pdf, psdb2014_relatorio.pdf, sbc_tse-1.pdf, tcu_2026_proposta_fiscalizacao.pdf, tcu_auditorias_processo_eleitoral.pdf, tcu_etapa3.pdf, tcu_etapa4.pdf, tcu_nas_eleicoes_2022.pdf). A pasta /home/user/trabalho-eleicao/fraude_metodos/brasil/ que criei passou a receber arquivos de outro agente, então mudei os meus de lugar."
+  },
+  {
+   "tema": "INTERNACIONAL",
+   "resumo": "Revisão da literatura internacional sobre urnas eletrônicas de registro direto (DRE), feita no nível de resumo publicado, sem instruções operacionais. O achado central, repetido por quase todos os estudos, é estrutural e não sobre um bug específico: em uma DRE sem registro em papel conferível pelo eleitor, um software malicioso que troque a contagem pode, em princípio, também apagar os próprios rastros (logs, contadores, relatórios), de modo que a contagem passa a depender da confiança no software, e nenhuma inspeção dos registros gerados pela própria urna prova que ela contou certo. Daí decorre a leitura das defesas: (1) assinatura de código prova que o binário não mudou em relação ao que foi assinado, mas não prova que esse binário está correto ou livre de porta dos fundos; assinar software vulnerável só garante que todas as urnas têm a mesma falha. (2) Inicialização verificada tem o mesmo limite: atesta integridade, não correção, e a literatura considera a atestação por software insuficiente na prática. (3) Teste paralelo e teste de integridade pegam erro e má configuração, mas um programa pode, em tese, detectar que está sendo testado (relógio, ausência de condições de dia de eleição, um gatilho secreto) e agir honestamente só no teste; além disso a amostra testável é pequena demais para descartar fraude dirigida. (4) A única defesa que a literatura considera suficiente é a independência do software (Rivest): papel conferível pelo eleitor mais auditoria por amostragem de risco (risk-limiting audit), de modo que o resultado possa ser verificado sem confiar no computador. As Academias Nacionais dos EUA (2018) recomendaram retirar de serviço, o quanto antes, máquinas sem capacidade de auditoria independente e adotar cédula de papel legível e auditoria por amostragem de risco. Relevância para 2026: a urna brasileira é uma DRE sem voto impresso conferível pelo eleitor; ela tem assinatura digital do software, verificação de integridade e teste de integridade com votação paralela, exatamente as três defesas que a literatura classifica como úteis contra erro e troca grosseira, porém insuficientes, sozinhas, para descartar software malicioso dirigido. Isso define onde uma eventual fraude de software precisaria estar (na cadeia de quem compila, assina e carrega o software, com acesso privilegiado) e qual é o limite de qualquer auditoria que só olhe dados gerados pela própria urna.",
+   "achados": [
+    {
+     "nome": "Análise do código-fonte do Diebold AccuVote-TS (relatório Hopkins)",
+     "quem": "Kohno, Stubblefield, Rubin, Wallach",
+     "ano": "2003/2004",
+     "o_que_conseguiu": "Primeira análise independente de código de uma DRE amplamente usada, a partir de código-fonte vazado da Diebold. Concluíram que o sistema ficava muito abaixo de padrões mínimos de segurança e era inadequado para eleição geral. Apontaram criptografia fraca: chave embutida e compartilhada entre máquinas, DES de 56 bits em modo CBC com vetor de inicialização fixo, e uma função pública (CRC) usada como se fosse integridade, além de controles de acesso fracos que permitiriam, por exemplo, um eleitor votar mais de uma vez. O argumento mais citado é de classe, não de bug: qualquer sistema sem papel pode ter falhas assim apesar de ter sido certificado.",
+     "condicoes_e_acesso": "Acesso ao código-fonte (vazado) para leitura. É um estudo de código, não uma demonstração em hardware. Vários dos problemas descritos pressupõem acesso à máquina ou ao cartão para serem explorados.",
+     "correcao": "A Diebold contestou a relevância para condições reais de votação (não a análise do código em si) e disse cumprir padrões federais; afirmou depois ter corrigido o problema da chave compartilhada, mas, segundo Rubin, não teria liberado o código atualizado para reanálise. A recomendação dos autores foi migrar para sistemas com trilha de papel conferível pelo eleitor.",
+     "relevancia_2026": "Mostra que certificação e cumprir padrão não equivalem a segurança, e que criptografia mal usada (chave fixa compartilhada) transforma uma falha em falha de toda a frota. Para 2026, é a pergunta a fazer sobre o gerenciamento de chaves e sobre se a certificação brasileira testa segurança ou só função.",
+     "fontes": [
+      "https://homes.cs.washington.edu/~yoshi/papers/eVoting/index.html",
+      "https://www.cerias.purdue.edu/assets/pdf/bibtex_archive/accuvote-study.pdf",
+      "https://spectrum.ieee.org/security-experts-question-leading-evoting-system"
+     ]
+    },
+    {
+     "nome": "Roubo de votos por software malicioso e vírus que se propaga (AccuVote-TS)",
+     "quem": "Feldman, Halderman, Felten (Princeton)",
+     "ano": "2006 (publicado em EVT 2007)",
+     "o_que_conseguiu": "Com acesso a uma máquina real, demonstraram software malicioso que transfere votos de um candidato para outro e que, no nível de classe, reescreve todos os registros, logs e contadores da própria urna, de modo que exame forense desses registros não encontra nada de errado (invisibilidade forense). Construíram também, como demonstração, um vírus que passa de máquina para máquina durante a atividade normal de pré e pós eleição e instala o programa que rouba votos em cada urna infectada.",
+     "condicoes_e_acesso": "Acesso físico breve à máquina ou ao seu cartão de memória removível, da ordem de um minuto, para instalar o código. O vírus explora o vai e vem de cartões e atualizações entre máquinas e central durante a rotina eleitoral. Sem necessidade de código-fonte para a parte de hardware.",
+     "correcao": "Alguns problemas poderiam ser corrigidos em software; outros exigiriam trocar hardware, e também mudanças de procedimento (controle de cadeia de custódia dos cartões e das máquinas). A recomendação de fundo é papel conferível e auditoria.",
+     "relevancia_2026": "Define a classe mais importante para a suspeita do usuário: se existir código malicioso dentro da urna, ele pode, em tese, mascarar os próprios rastros, o que limita o que qualquer auditoria baseada só em logs, BU e RDV da urna pode provar. O ponto de 2026 é a cadeia de custódia (cartões, carga, lacres) e o fato de que a defesa real contra isso é poder recontar fora do computador.",
+     "fontes": [
+      "https://citp.princeton.edu/our-work/publications/security-analysis-diebold-accuvote-ts-voting-machine",
+      "https://jhalderm.com/pub/papers/ts-evt07.pdf"
+     ]
+    },
+    {
+     "nome": "California Top-to-Bottom Review (revisão oficial de três fabricantes)",
+     "quem": "Equipes vermelhas e de código coordenadas por Matt Bishop e David Wagner, para a Secretaria de Estado da Califórnia (sistemas Diebold/GEMS, Hart InterCivic, Sequoia)",
+     "ano": "2007",
+     "o_que_conseguiu": "Revisão encomendada pelo próprio governo estadual. As equipes acharam vulnerabilidades sérias e exploráveis nos três sistemas. Em resumo de classe: conseguiram sobrescrever firmware em máquinas dos três fabricantes; contornar lacres físicos em um dos equipamentos; e executar comandos arbitrários no banco de dados central de um deles por meio de consultas comuns. Bishop registrou que os resultados eram reprodutíveis e indicavam a vulnerabilidade dos três.",
+     "condicoes_e_acesso": "Acesso de laboratório às máquinas e ao software, com documentação do fabricante; parte dos ataques pressupõe acesso físico ao equipamento ou acesso ao sistema central de gestão eleitoral. Não é ataque remoto pela internet.",
+     "correcao": "Em agosto de 2007 a Secretária de Estado retirou ou recondicionou a certificação dos sistemas (Sequoia, Premier/Diebold, Hart) e descertificou totalmente o Inkavote Plus da ES&S por não cumprimento da revisão. Na prática, forçou mais papel e auditoria e limites de uso das DRE.",
+     "relevancia_2026": "É o modelo de auditoria independente conduzida pelo próprio Estado, com equipe vermelha e código aberto aos revisores, o tipo de acesso que uma auditoria séria pede. Serve de referência do que o TSE permite ou não aos investigadores em 2026 e de que firmware e sistema central, não só a urna, entram no escopo.",
+     "fontes": [
+      "https://sos.ca.gov/elections/ovsta/frequently-requested-information/top-bottom-review",
+      "https://nob.cs.ucdavis.edu/bishop/notes/2007-CaSoS/index.html",
+      "https://www.eff.org/deeplinks/2007/08/following-blistering-review-highlighted-widespread-vulnerabilities-california-dece"
+     ]
+    },
+    {
+     "nome": "Projeto EVEREST (revisão oficial de Ohio)",
+     "quem": "Equipes da Penn State, University of Pennsylvania e WebWise, para a Secretaria de Estado de Ohio (ES&S, Hart InterCivic, Premier/Diebold)",
+     "ano": "2007 (artigos em USENIX EVT 2008)",
+     "o_que_conseguiu": "Segunda grande revisão oficial, confirmando a da Califórnia em outro conjunto de máquinas e equipes. Achou fraquezas exploráveis nos três fabricantes: em nível de classe, caminhos que permitiriam a um eleitor ou mesário votar mais de uma vez, infectar uma seção com software do tipo vírus ou corromper votos já registrados, às vezes de forma irreversível. A conclusão acadêmica foi que a segurança da eleição, nesses sistemas, repousava quase inteiramente em procedimentos físicos.",
+     "condicoes_e_acesso": "Acesso de laboratório aos equipamentos e documentação; exploração pressupõe acesso físico de eleitor ou mesário à máquina, ou acesso aos cartões e ao sistema de retaguarda. O relatório público saiu redigido (havia versão confidencial não redigida).",
+     "correcao": "A resposta foi reforço de procedimentos e migração para papel e contagem óptica; o Brennan Center chegou a criticar parte das recomendações. A lição de fundo repetiu a das demais: procedimento físico sozinho não substitui registro auditável independente do software.",
+     "relevancia_2026": "Reforça que o resultado não é de um fabricante isolado: dois Estados, equipes diferentes, mesma conclusão de classe. Para 2026, sublinha que se a defesa depende quase só de lacre e procedimento, a cadeia de custódia e a fiscalização presencial viram o ponto crítico.",
+     "fontes": [
+      "https://static.usenix.org/events/evt08/tech/full_papers/butler/butler_html/",
+      "https://static.usenix.org/events/evt08/tech/full_papers/aviv/aviv.pdf",
+      "https://www.mattblaze.org/papers/ohio-stmt.pdf"
+     ]
+    },
+    {
+     "nome": "Sequoia AVC Advantage: derrota de defesa anti injeção de código por programação orientada a retorno",
+     "quem": "Checkoway, Feldman, Kantor, Halderman, Felten, Shacham",
+     "ano": "2009 (EVT/WOTE 2009)",
+     "o_que_conseguiu": "A máquina foi projetada para resistir a injeção de código: o software fica em memória somente leitura e o hardware recusa executar instruções vindas da RAM. Os autores mostraram, em hardware real, que essa defesa pode ser contornada por programação orientada a retorno, que encadeia pedacinhos de código já presentes no sistema, sem injetar código novo. Com isso montaram uma demonstração capaz de deslocar qualquer fração desejada de votos de um candidato para outro. O ponto de classe: hardware que impede injeção de código não impede esse tipo de ataque.",
+     "condicoes_e_acesso": "Trabalharam sem código-fonte, só com material do site do fabricante e engenharia reversa do hardware. O ataque demonstrado entra por um cartucho com conteúdo malicioso inserido em uma porta da máquina, com navegação pelos menus. A cobertura indica que bastariam alguns minutos de acesso físico, por exemplo na véspera. Reiniciar a partir da ROM remove o código, mas a demonstração podia simular um reinício normal.",
+     "correcao": "Não há correção simples: a lição é que defesas de arquitetura (somente leitura, sem execução em RAM) são insuficientes por si. A recomendação de fundo é independência do software e papel auditável.",
+     "relevancia_2026": "Importante para não exagerar nem minimizar o valor da inicialização verificada e da memória protegida da urna: são barreiras reais contra o ataque ingênuo, mas a literatura já mostrou uma classe de técnica que contorna esse tipo exato de proteção quando há acesso físico. Não prova fraude; mostra que a proteção não é prova de impossibilidade.",
+     "fontes": [
+      "https://jhalderm.com/pub/papers/avc-evt09.pdf",
+      "https://jacobsschool.ucsd.edu/news/release/873"
+     ]
+    },
+    {
+     "nome": "Urnas da Índia: ataques por hardware em DRE simples",
+     "quem": "Wolchok, Wustrow, Halderman, Prasad, Gonggrijp e outros",
+     "ano": "2010 (ACM CCS 2010)",
+     "o_que_conseguiu": "Primeira análise independente da urna indiana, feita sobre uma máquina obtida de fonte anônima. Demonstraram, com hardware feito sob medida, duas classes de ataque que, em conjunto, podem alterar o resultado e violar o sigilo do voto. O argumento é que um projeto simples e com poucas salvaguardas faz o sistema depender inteiramente da segurança física da máquina, com muito menos transparência que a urna de papel, pois não há registro conferível pelo eleitor para recontar.",
+     "condicoes_e_acesso": "Apenas acesso físico breve às máquinas, ao alcance de insiders desonestos ou de outros criminosos. A página oficial do estudo descreve esse acesso breve como requisito comum às duas demonstrações, sem detalhar por ataque (evito o detalhe de hardware).",
+     "correcao": "Recomendaram revisão imediata dos procedimentos de segurança e inspeção das urnas em busca de sinais de fraude e, no longo prazo, adoção de um sistema com mais segurança e transparência. Autoridades indianas contestaram, chegando a chamar as máquinas de perfeitas.",
+     "relevancia_2026": "É o caso mais próximo do brasileiro em espírito: DRE nacional, sem papel conferível, defendida como infalível pela autoridade. Mostra que, nessa arquitetura, a fraude plausível é a que exige acesso físico privilegiado, e que a ausência de papel conferível é o que impede checar o software por fora.",
+     "fontes": [
+      "https://indiaevm.org/paper.html",
+      "https://jhalderm.com/pub/papers/evm-ccs10.pdf"
+     ]
+    },
+    {
+     "nome": "Limite do teste paralelo e do teste de integridade (software que detecta que está sendo testado)",
+     "quem": "Síntese: Stark e Xie; Appel, DeMillo e Stark; e a literatura de logic-and-accuracy e parallel testing",
+     "ano": "2007 a 2020",
+     "o_que_conseguiu": "Resultado teórico e estatístico, não uma invasão. Testes de lógica e exatidão e o teste paralelo detectam erro, defeito e má configuração, mas não descartam, de forma confiável, software malicioso feito para se esconder. Um programa pode, em tese, reconhecer que está em teste (por não ser horário de votação do dia da eleição, por padrão de entrada, ou por não receber um gatilho secreto que só o fraudador conhece) e agir honestamente no teste. Além disso, Stark e Xie estimam que a amostra necessária para pegar, com confiança, uma alteração em pequena fração dos votos seria maior que o comparecimento típico de uma jurisdição. Logo, passar no teste não prova ausência de fraude dirigida.",
+     "condicoes_e_acesso": "Não requer acesso: é limite de método. Pressupõe apenas a hipótese de que já exista software malicioso na máquina, hipótese que os testes acima não conseguem refutar sozinhos.",
+     "correcao": "A literatura trata esses testes como úteis, porém insuficientes; a defesa considerada suficiente é recontar papel conferível por amostragem de risco. Mitigação parcial: teste paralelo em volume, aleatório, indistinguível da votação real e sem dar pistas à máquina de que é teste, reduz, mas não elimina, o risco.",
+     "relevancia_2026": "Vai direto ao teste de integridade do TSE (votação paralela em urnas sorteadas, com biometria). É um controle de valor real contra troca grosseira, mas a literatura internacional diz que ele não pode, por desenho, provar que a urna não contém software que se comporta bem só quando percebe que está sendo testado. Por isso o que mais importa auditar é se o teste é indistinguível da eleição real e se a amostra é significativa.",
+     "fontes": [
+      "https://arxiv.org/pdf/1908.08144v2.pdf",
+      "https://www.stat.berkeley.edu/~stark/Preprints/bmd-p19.pdf"
+     ]
+    },
+    {
+     "nome": "Limite da assinatura de código e da inicialização verificada (integridade não é correção)",
+     "quem": "Gardner, Yasinsac e outros (atestação em DRE Diebold); Rivest (independência do software); e literatura correlata",
+     "ano": "2007 a 2023",
+     "o_que_conseguiu": "Resultado conceitual. Assinatura digital e verificação de integridade no boot provam que o binário é igual ao que foi assinado e não foi trocado, mas não provam que o binário é correto ou livre de porta dos fundos. Um estudo de atestação por software em DRE concluiu que o estado da arte não era robusto o bastante para garantir, de forma verificável por humanos, a integridade da urna na prática, e frisou que validar que o software não mudou não é o mesmo que garantir que ele não contém código malicioso. Um capítulo sobre a urna brasileira faz o mesmo ponto: assinar software vulnerável tem o efeito oposto ao desejado, pois dá certeza matemática de que todas as urnas têm a mesma falha explorável.",
+     "condicoes_e_acesso": "Não requer acesso: é limite de garantia. A ameaça que ele não cobre é o adversário com acesso privilegiado ao que é compilado e assinado (cadeia de build e de chaves), que assina software já comprometido.",
+     "correcao": "A defesa que a literatura considera suficiente é a independência do software de Rivest: o sistema deve ser tal que uma mudança ou erro de software não detectado não possa causar uma mudança não detectável no resultado. Na prática: registro conferível pelo eleitor (papel) mais auditoria por amostragem de risco. Assinatura e boot verificado permanecem úteis, mas como camada, não como prova de correção.",
+     "relevancia_2026": "Toca o coração da defesa técnica da urna brasileira (assinatura digital do software, verificação de integridade, hash publicado). São bons contra troca pós-assinatura, mas não respondem onde a fraude de software teria que estar: antes da assinatura, em quem compila e assina. Por isso o alvo de auditoria é a cerimônia de lacração e assinatura, o controle das chaves e quem tem acesso ao código que será assinado.",
+     "fontes": [
+      "https://static.usenix.org/events/evt07/tech/full_papers/gardner/gardner_html",
+      "https://people.csail.mit.edu/rivest/pubs/Riv08b.pdf",
+      "https://www.lasca.ic.unicamp.br/media/publications/chapter-final.pdf"
+     ]
+    },
+    {
+     "nome": "Securing the Vote (Academias Nacionais dos EUA): recomendação sobre DRE sem papel",
+     "quem": "National Academies of Sciences, Engineering, and Medicine",
+     "ano": "2018",
+     "o_que_conseguiu": "Não é um ataque, é a síntese de política feita pela instância científica mais alta dos EUA, consolidando a literatura acima em recomendações. Pontos centrais: as eleições devem usar cédula de papel legível pelo ser humano; máquinas que não oferecem capacidade de auditoria independente (por exemplo, DRE sem trilha de papel conferível pelo eleitor) devem ser retiradas de serviço o quanto antes; e os Estados devem exigir auditoria por amostragem de risco (risk-limiting audit) antes de certificar o resultado, o que, com a tecnologia atual, requer papel. O raciocínio explícito: é quase impossível determinar se máquinas sem papel foram comprometidas e se as contagens foram alteradas.",
+     "condicoes_e_acesso": "Não se aplica; é documento de recomendação a partir da revisão da literatura e de audiências com especialistas.",
+     "correcao": "Esta é, ela mesma, a correção recomendada pela literatura: independência do software via papel conferível mais auditoria por amostragem de risco, começando por pilotos e implantação plena em uma década.",
+     "relevancia_2026": "É a referência que coloca a urna brasileira, uma DRE sem voto impresso conferível pelo eleitor, exatamente na categoria que as Academias recomendaram aposentar. Não afirma que houve fraude; afirma que, sem papel conferível, não se consegue provar por auditoria que não houve. Para o projeto do usuário, é o argumento mais forte e mais defensável sobre onde está o limite estrutural, e também o contraponto cético: a recomendação é sobre capacidade de auditar, não sobre evidência de fraude concreta.",
+     "fontes": [
+      "https://www.nationalacademies.org/news/2018/09/securing-the-vote-new-report",
+      "https://blog.citp.princeton.edu/2018/09/11/securing-the-vote-national-academies-report/"
+     ]
+    }
+   ],
+   "lacunas": "Limites desta pesquisa e cautelas, nos dois sentidos. (1) Nenhum desses estudos é sobre a urna brasileira: são Diebold, Sequoia, Hart, ES&S e a urna indiana. Transferir conclusões para o Brasil de 2026 exige cuidado, porque a urna brasileira tem defesas específicas (assinatura digital, verificação de integridade, teste de integridade com biometria, lacração acompanhada por fiscais e partidos) que os aparelhos americanos dos anos 2000 não tinham. A literatura internacional diz onde essas defesas ajudam e onde não bastam sozinhas; não diz que a urna brasileira foi fraudada. (2) O achado forte é de classe e de capacidade de auditar, não de evidência: dizer que uma arquitetura sem papel conferível não permite provar ausência de fraude não é o mesmo que dizer que houve fraude. Evitar essa confusão é a principal cautela cética. (3) Quase todos os ataques demonstrados exigem acesso físico privilegiado (à máquina, ao cartão, ao sistema central, à cadeia de compilação e assinatura) ou acesso de insider; não são ataques remotos pela internet. Isso desloca a pergunta para controle de acesso e cadeia de custódia, e torna implausível a ideia de fraude em massa remota sem insider. (4) Vários itens vieram de resumos, executivos e cobertura de imprensa, não do texto integral dos artigos; marquei isso onde ocorreu. A página oficial do estudo indiano não nomeia as duas classes de ataque por nome, então descrevi só o que ela afirma. A ligação direta entre Rivest e verified boot foi apresentada como inferência, não como citação literal. (5) Não busquei aqui os documentos oficiais brasileiros de 2026 (TSE, TCU, Ministério da Defesa, OEA) nem os relatórios dos Testes Públicos de Segurança da urna; o casamento entre cada classe de ataque internacional e o controle brasileiro concreto que a barraria, e a marca que deixaria nos dados públicos (BU, RDV, logs, zerésima, hashes), é o próximo passo e deveria ser feito contra essas fontes primárias brasileiras antes de qualquer afirmação sobre o pleito de 25/10/2026. (6) A tentativa de abrir a página da Princeton CITP retornou 403; contornei usando outras fontes, sem burlar o bloqueio. Nenhum arquivo precisou ser baixado; a pasta /home/user/trabalho-eleicao/fraude_metodos/internacional foi criada e está vazia."
+  },
+  {
+   "tema": "ANO2026",
+   "resumo": "Resposta direta, em chave de auditoria (nao instrucoes de ataque). A urna e DRE: grava o voto direto, sem registro em papel conferivel pelo eleitor. Logo, uma fraude capaz de mudar o resultado presidencial sem deixar rastro teria de estar DENTRO do programa que conta os votos. A literatura publica (sobretudo os Testes Publicos de Seguranca, TPS, do proprio TSE) ja demonstrou tres portas de entrada no software: (1) a midia de carga/instalacao, antes da eleicao; (2) o gerador de numeros aleatorios e o RDV, que afeta o sigilo; e (3) a conferencia de boletim na apuracao em contingencia, que afeta a totalizacao. O ataque mais profundo ja documentado (TPS 2017) mostrou que, com acesso a midia de carga, era possivel assumir controle do software e, em tese, desviar votos, imprimindo depois um boletim, um log e um RDV ja coerentes com o numero fraudado. Nada disso foi fraude em eleicao real: todas as demonstracoes ocorreram em teste controlado do TSE e cada uma foi seguida de correcao. O ponto central, repetido por Diego Aranha, pela auditoria de 2014 e pelo relatorio das Forcas Armadas de 2022, e que os testes de funcionalidade (zeresima, RDV, votacao paralela, teste de integridade) nao excluem um software que reconheca quando esta sendo testado e so entao se comporte de forma honesta (analogia com o caso Volkswagen de 2015). Em 2026, no desenho dos controles, isso so e barrado pela leitura do codigo por terceiros mais a garantia de que o programa assinado em 04/09/2026 veio desse codigo, garantia hoje dada pela cerimonia do TSE e nao por uma compilacao independente. Os arquivos locais F12 e L7 mostram o residuo: os resumos (hashes) dos programas instalados nao saem dos arquivos publicos de urna, entao a correspondencia entre codigo inspecionado e programa que rodou nao e verificavel so com dado publico. Cetico nos dois sentidos: nada disso e indicio de que exista fraude em 2026 (3897 de 3897 assinaturas da amostra conferem, os boletins batem com a totalizacao, e nenhuma fonte achou no codigo a regra que reconheceria o teste), mas tambem nao se pode dizer que o teste de integridade, sozinho, prove a ausencia de software malicioso. \"Onde a fraude poderia estar\", portanto, e um conjunto estreito e bem mapeado: dentro do programa assinado, dependente de furar a inspecao de codigo e a cadeia de compilacao, e de reconhecer o teste de integridade em quase todas as urnas testadas.",
+   "achados": [
+    {
+     "nome": "TPS 2009: captura de emanacao do teclado (ataque ao sigilo)",
+     "o_que_conseguiu": "A equipe vencedora do primeiro TPS inferiu votos captando emissoes de radiofrequencia do teclado da urna, sem acesso ao codigo-fonte. Quebra de sigilo, nao de integridade: nao muda o total, revelaria em quem a pessoa votou.",
+     "condicoes_e_acesso": "Sem codigo-fonte; exigia proximidade fisica do equipamento e instrumentacao para captar o sinal, em ambiente de teste do TSE.",
+     "correcao": "O TSE informou ter blindado o teclado contra esse tipo de captacao depois do teste.",
+     "quem": "Equipe independente no 1o TPS (formato de competicao); relatado pelo TSE e pela imprensa.",
+     "ano": "2009",
+     "relevancia_2026": "Baixa para o resultado: e canal lateral de hardware, de sigilo, ja mitigado; nao serve para mudar quem ganhou.",
+     "fontes": [
+      "https://www.conjur.com.br/2009-nov-21/depois-teste-invasao-tse-conclui-urna-eletronica-inviolavel/",
+      "https://serpro.gov.br/menu/noticias/noticias-antigas/dia-de-testes-de-hackers-em-urnas-do-tse-termina-sem-ameaca-ao-sistema",
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174 (secao de trabalhos relacionados)"
+     ]
+    },
+    {
+     "nome": "TPS 2012: quebra do sigilo pela previsibilidade do embaralhamento do RDV",
+     "o_que_conseguiu": "Com informacao publica (RDV e horarios no log) e uma semente de aleatoriedade previsivel no trecho de codigo que embaralha os votos, a equipe reconstruiu a ordem dos votos de uma secao, o que permitiria revelar o voto de uma secao inteira ou de uma pessoa cujo horario de voto se conheca. Documentou tambem compartilhamento massivo de chaves, guarda insegura de segredo e verificacao de integridade insuficiente.",
+     "condicoes_e_acesso": "Primeira inspecao de codigo-fonte sem termo de sigilo, mais os arquivos publicos de urna (RDV e log). Quebra de sigilo; nao altera totais. Descricao em nivel de resumo publicado.",
+     "correcao": "O gerador de aleatoriedade foi melhorado nas edicoes seguintes, mas pesquisadores seguiram apontando que os algoritmos usados nao sao adequados para uso criptografico.",
+     "quem": "Equipe de Diego Aranha (Unicamp) e colegas; relatorio da equipe vencedora (2014).",
+     "ano": "2012",
+     "relevancia_2026": "Afeta o sigilo, nao o total. O RDV continua apontado como ponto fragil; essa linhagem e a origem do argumento de que um software poderia reconhecer o teste (analogia Volkswagen).",
+     "fontes": [
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.welivesecurity.com/br/2018/10/17/diego-aranha-os-testes-de-seguranca-nas-urnas-eletronicas/",
+      "https://www.lasca.ic.unicamp.br/media/publications/relatorio-urna.pdf (relatorio 2012; deu 503 ao acesso, citado via artigo de 2018)"
+     ]
+    },
+    {
+     "nome": "TPS 2016: forja de codigo verificador de Boletim de Urna na apuracao em contingencia",
+     "o_que_conseguiu": "Primeiro ataque bem-sucedido a integridade de resultados em TPS: a equipe forjou codigos de verificacao de boletim que o Sistema de Apuracao aceitava no caso de contingencia (digitacao manual).",
+     "condicoes_e_acesso": "Escopo do TPS ampliado para o GEDAI-UE e parte da transmissao, sob termo de sigilo; ambiente de teste do TSE.",
+     "correcao": "Desde 2016 os boletins passaram a trazer autenticadores (SipHash) e um QR Code assinado com os totais, para conferencia publica. E o antecessor direto do boletim impresso com QR Code usado em 2026.",
+     "quem": "Equipe de Aranha e colaboradores; registrado pelo TSE.",
+     "ano": "2016",
+     "relevancia_2026": "Esse controle (QR Code/boletim impresso) pega fraude na totalizacao e na transmissao, e foi o que o PL conferiu em 2026. Nao pega fraude dentro do programa da urna, que imprimiria o boletim ja com o numero alterado.",
+     "fontes": [
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf"
+     ]
+    },
+    {
+     "nome": "TPS 2017: execucao de codigo arbitrario na urna (controle total do software)",
+     "o_que_conseguiu": "A exploracao mais profunda ja feita de um sistema de votacao de larga escala em teste restrito. Combinando a recuperacao de uma chave simetrica embutida e compartilhada entre todas as urnas (que protege a midia de instalacao) com a deteccao de modulos sem verificacao de integridade, a equipe injetou codigo e assumiu controle do software. Demonstraram: adulteracao do log; quebra do sigilo do voto; alteracao de mensagens na tela para orientar o eleitor a um candidato hipotetico; e tinham pronto, sem tempo de carregar no equipamento real, um ataque que trocava o voto antes de grava-lo. Peritos da PF recuperaram a mesma chave por engenharia reversa, confirmando que nem o codigo-fonte era necessario. Resumo em nivel publicado, sem passo a passo.",
+     "condicoes_e_acesso": "Acesso a midia de carga (flash de instalacao), que um atacante poderia manipular antes da eleicao; cada midia instala ate cerca de 50 urnas, o que amplia o alcance. Tudo em ambiente de teste do TSE, com tempo e ferramentas limitados.",
+     "correcao": "Nos testes de confirmacao o TSE corrigiu a verificacao de integridade, automatizou as assinaturas, somou camadas de ofuscacao e passou a derivar chaves em tempo de execucao com apoio da BIOS. Avaliacao dos pesquisadores: a carga ficou mais robusta, mas o sistema seguia vulneravel a ataque interno.",
+     "quem": "Aranha, Barbosa, Cardoso, Luders, Matias (Unicamp, UFCG, UFPE, UFSCar e outros); artigo SBSeg/SBC 2018 e relatorio de contramedidas do TSE 2018.",
+     "ano": "2017",
+     "relevancia_2026": "E a demonstracao-matriz de que um programa adulterado pode mudar votos e ainda gerar boletim, log e RDV coerentes com o numero fraudado. Em 2026 isso e barrado, no desenho, pela inspecao do codigo por terceiros mais a garantia de que o programa assinado em 04/09/2026 veio desse codigo; o furo de logica e que essa garantia depende da cerimonia do TSE, nao de compilacao independente, e que os resumos dos programas nao saem dos arquivos publicos de urna (ver F12 local).",
+     "fontes": [
+      "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+      "https://www.tse.jus.br/imprensa/noticias-tse/2017/Dezembro/investigadores-promovem-alteracoes-importantes-no-sistema-de-seguranca-da-urna"
+     ]
+    },
+    {
+     "nome": "TPS 2019 a 2025: achados menores, classificados como mitigaveis",
+     "o_que_conseguiu": "Nas edicoes seguintes os pesquisadores seguiram achando fragilidades, mas de menor gravidade; TSE e comissoes avaliadoras classificaram os achados como mitigaveis e disseram que nenhum alterou votos ou resultado. 2021: cerca de 5 falhas relatadas. 2025 (8a edicao): 38 planos aprovados; a reportagem fala em 29 ataques executados, nenhum mudando votos; tres planos com achados foram ao teste de confirmacao em maio de 2026.",
+     "condicoes_e_acesso": "Ambiente de teste do TSE, tempo curto, escopo definido pelo TSE (a biometria ficou historicamente fora de escopo). O proprio formato e uma limitacao apontada pelos pesquisadores.",
+     "correcao": "Correcoes aplicadas e reverificadas em teste de confirmacao a cada ciclo. Os relatorios finais do TPS 2025 (previstos para julho de 2026) nao foram localizados; so ha os relatorios parciais de dez/2025 e a nota do teste de confirmacao de maio/2026.",
+     "quem": "Comissoes avaliadora e reguladora do TSE; pesquisadores participantes; imprensa (fonte secundaria para o detalhe dos achados).",
+     "ano": "2019, 2021, 2023, 2025",
+     "relevancia_2026": "Sao o teste adversarial pre-eleicao do ciclo de 2026. O limite estrutural (tempo curto, condicoes artificiais, nao procura codigo plantado por dentro, conflito de interesse) e o mesmo que a critica academica levanta; por isso o TPS nao substitui a leitura de codigo nem a verificacao da compilacao.",
+     "fontes": [
+      "https://tecnoblog.net/noticias/tse-acha-5-falhas-na-urna-eletronica-mas-diz-que-nenhuma-altera-eleicoes/",
+      "https://www.conjur.com.br/2021-nov-27/teste-publico-seguranca-urnas-eletronicas-chega-fim/",
+      "https://jornalopcao.com.br/brasil/novo-teste-de-urnas-mostra-falhas-mas-achados-nao-comprometem-integridade-sigilo-ou-resultado-das-eleicoes-560751/",
+      "https://www.aosfatos.org/noticias/hackers-urnas-eletronicas-teste-seguranca/",
+      "https://www.jornalopcao.com.br/ultimas-noticias/teste-da-urna-2025-nao-identifica-falhas-que-comprometam-eleicoes-aponta-tse-778661/",
+      "https://www.tse.jus.br/comunicacao/noticias/2026/Maio/eleicoes-2026-teste-de-confirmacao-comeca-nesta-quarta-13-e-valida-melhorias-nos-sistemas-eleitorais"
+     ]
+    },
+    {
+     "nome": "Auditoria pos-eleicao de 2014: laudo inconclusivo sobre auditabilidade",
+     "o_que_conseguiu": "Nao e ataque, e limitacao documentada: a primeira auditoria pos-eleicao, apos o 2o turno de 2014, foi considerada inconclusiva; o laudo registrou que o material disponibilizado nao permite a plena auditagem da eleicao.",
+     "condicoes_e_acesso": "Auditoria encomendada por partido (PSDB), com apoio tecnico academico, sobre os produtos publicos da eleicao; apontados conflito de interesse e influencia do contexto politico.",
+     "correcao": "Nao aplicavel; a critica de ausencia de recontagem e de registro fisico conferivel segue de pe.",
+     "quem": "Equipe tecnica contratada pelo PSDB com participacao de pesquisadores de universidade; relatado por Aranha.",
+     "ano": "2014",
+     "relevancia_2026": "Sustenta o ponto de que, sem registro em papel conferivel pelo eleitor, nao ha recontagem independente. O teste de integridade de 2026 e a resposta do TSE a isso, mas cobre poucas centenas de urnas (cerca de 650, teto 706).",
+     "fontes": [
+      "/home/user/trabalho-eleicao/fraude_metodos/brasil_fora_tps/psdb2014_relatorio.pdf (relatorio local)",
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf"
+     ]
+    },
+    {
+     "nome": "Classe estrutural: teste de funcionalidade nao exclui software que reconhece o teste",
+     "o_que_conseguiu": "Nao e falha pontual, e o limite do modelo. Como a urna e DRE (sem registro conferivel pelo eleitor), zeresima, RDV, votacao paralela e teste de integridade so comparam a saida do programa com uma simulacao. Um programa malicioso poderia agir de forma honesta so quando detecta que esta em teste (analogia com o software da Volkswagen em 2015) e fraudar na votacao real. O relatorio das Forcas Armadas (EFASEV) de 2022 reconheceu que testes de funcionalidade nao permitem afastar a existencia de codigo malicioso.",
+     "condicoes_e_acesso": "Depende de o codigo conter uma regra de reconhecimento do teste. Os dados de 2026 (L7) mostram que o teste tem marcas: na modalidade principal, nenhuma habilitacao por biometria no dia (marca que nenhuma urna real da amostra apresentou); na modalidade com biometria, quase so biometria e poucos eleitores (marca presente em cerca de 0,2% das urnas reais). Isso e o limite do que o teste prova, nao indicio de que a regra exista.",
+     "correcao": "A resposta do TSE foi o teste de integridade com biometria (piloto em 2022, ampliado desde 2024), que usa eleitores reais; mas cobre fracao pequena das urnas (cerca de 30 a 65 no pais em 2026) e tem a sua propria marca detectavel.",
+     "quem": "Diego Aranha (critica academica); Ministerio da Defesa/EFASEV 2022 (via resumo secundario e arquivo local L7, pois o PDF e escaneado); The Carter Center 2022; arquivos locais L7 e F12.",
+     "ano": "2015 a 2026",
+     "relevancia_2026": "E o centro do 'onde a fraude poderia estar': dentro do programa assinado, com uma regra que reconhece o teste. Em 2026, so a leitura do codigo por terceiros e a garantia da compilacao fecham essa porta; o teste de integridade, sozinho, nao fecha. Para mover o resultado (margem de Lula de 4,43 milhoes, 1,79% dos finalistas), a fraude teria de reconhecer o teste em quase todas as ~650 urnas testadas.",
+     "fontes": [
+      "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+      "https://www.gazetadopovo.com.br/republica/relatorio-ministerio-defesa-nao-aponta-fraude-nas-urnas-eleicoes/",
+      "/home/user/trabalho-eleicao/fraude_metodos/brasil_fora_tps/carter2022_final_pt.pdf",
+      "/home/user/casa-control/eleicao-2026/resultados/L7_teste_integridade.txt"
+     ]
+    },
+    {
+     "nome": "Residuo 2026: correspondencia entre codigo inspecionado e programa instalado nao e verificavel so com dado publico",
+     "o_que_conseguiu": "Conferencia local (F12) sobre a amostra do 2o turno de 2026: 3897 de 3897 assinaturas de certificado conferem com as AC publicadas e os boletins batem com a totalizacao, ou seja, nenhum sinal de adulteracao nos dados. Mas os resumos (hashes) dos programas instalados nao saem dos arquivos publicos de urna (o hash.dat nao e publicado), entao, so com dado publico, nao da para comparar o programa que rodou com o codigo inspecionado. Alem disso, o certificado publicado da AC URNA estava vencido no dia (problema de gestao da AC, nao prova de fraude), e a cadeia fecha ate as AC intermediarias, mas nao ate a raiz a partir do que foi possivel baixar.",
+     "condicoes_e_acesso": "Analise sobre arquivos publicos de urna da amostra, sem contornar bloqueios (paginas jus.br deram 403; usadas copias de terceiros que concordam entre si). Nao e ataque; e o mapa de onde a confianca repousa.",
+     "correcao": "Fecharia o ponto: publicar os resumos dos programas instalados (ou o hash.dat), os relatorios das entidades que inspecionaram o codigo, e uma compilacao independente a partir do codigo; mais o relatorio consolidado do TCU (ate 24/11/2026).",
+     "quem": "Arquivos locais da auditoria F12 e L7; copias de terceiros dos resumos e do pacote do TSE; cerimonia de lacracao de 04/09/2026 relatada pela Agencia Senado; inspecao de Uniao Brasil relatada pelo Poder360.",
+     "ano": "2026",
+     "relevancia_2026": "E exatamente o ponto do ciclo de 2026: os controles que dependem so do sistema do TSE (compilacao, carga, verificacao de autenticidade, RDV e log) nao sao verificaveis de fora so com dado publico. A resposta as entradas demonstradas em TPS (midia de carga, modulos sem assinatura) hoje mora na confianca na cerimonia de 04/09 e na leitura do codigo pelas entidades (Uniao Brasil primeiro, em maio; Senado em junho; MP Eleitoral, CNMP e CGU depois; PL nao localizado entre os inspetores de 2026).",
+     "fontes": [
+      "/home/user/casa-control/eleicao-2026/resultados/F12_certificados_resumos.txt",
+      "/home/user/casa-control/eleicao-2026/resultados/L7_teste_integridade.txt",
+      "https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026",
+      "https://www.poder360.com.br/poder-eleicoes/uniao-brasil-inspeciona-codigos-fonte-de-urnas-para-eleicoes-2026/",
+      "https://www.cnnbrasil.com.br/politica/tse-abre-codigos-fonte-para-inspecao-das-urnas-nas-eleicoes-de-2026/"
+     ]
+    }
+   ],
+   "lacunas": "Fontes e limites: (1) Os relatorios finais do TPS 2025 (previstos para 22/07/2026) e o detalhamento tecnico dos tres achados mitigaveis nao foram localizados; so ha os relatorios parciais de dez/2025 e a nota do teste de confirmacao de maio/2026. A contagem exata de achados ('tres') e de ataques ('29') vem de fonte secundaria. (2) Nao foi encontrado registro de inspecao do codigo-fonte pelo PL em 2026 (Uniao Brasil foi o primeiro partido, em 25/05; Senado em 10/06; MP Eleitoral, CNMP e CGU depois). (3) O relatorio das Forcas Armadas de 2022 (EFASEV) baixado esta em PDF escaneado, ilegivel a extracao automatica; a frase de que testes de funcionalidade nao afastam codigo malicioso vem do resumo secundario (Gazeta do Povo) e do arquivo local L7, nao do PDF primario lido. (4) Os relatorios do TCU (consolidado em ate 30 dias apos o 2o turno, ate 24/11/2026) e das empresas de auditoria externa dos TREs de 2026 ainda nao sairam; sem eles, o resultado por TRE do teste de integridade e o total nacional de urnas testadas ficam estimados. (5) Paginas do TSE e dos TREs (jus.br) deram HTTP 403 ao leitor automatizado; os pontos que vem delas estao como fonte secundaria e os bloqueios nao foram contornados. (6) A correspondencia entre codigo inspecionado e programa instalado nao e verificavel so com dado publico (o hash.dat/resumo dos programas nao e publicado); depende dos relatorios das entidades que inspecionaram e da cerimonia de compilacao, nao de compilacao independente. (7) Nao foi feita pesquisa internacional comparada em profundidade (a pasta internacional ficou vazia); o contexto de que maquinas DRE no exterior (Diebold nos EUA, Nedap na Holanda, EVM na India) tem vulnerabilidades analogas a ataque interno vem da secao de trabalhos relacionados do artigo de 2018, nao de leitura dos estudos originais. (8) Todas as demonstracoes de ataque descritas foram em testes controlados do TSE, resumidas no nivel de relatorio publicado e deliberadamente sem detalhe operacional; nenhuma delas e, por si, evidencia de fraude em eleicao real."
+  }
+ ],
+ "mapa": {
+  "classes": [
+   {
+    "classe": "Programa adulterado no desenvolvimento, na compilacao ou na assinatura (insider na cadeia de build)",
+    "exigiria": "Insider com acesso legitimo e prolongado a cadeia de desenvolvimento, compilacao ou assinatura do programa (desenvolvedor, quem compila e assina, ou fornecedor de componente embarcado), ou conluio entre eles. Nao exige agir urna a urna: um programa malicioso assinado na cerimonia atingiria de uma so vez quase todas as ~499 mil urnas. Para virar 2.215.095 votos (1,79% dos ~124 milhoes de finalistas, cerca de 249 votos de finalistas por secao), o desvio precisaria estar embutido no proprio programa e ser coerente em boletim, RDV e log. E a classe de maior alcance, menor numero de pessoas e menor detectabilidade, porque numa urna sem registro em papel conferivel pelo eleitor nao ha recontagem independente. Documentada em laboratorio no TPS 2017 (execucao de codigo a partir da midia de carga, com progresso, nao concluido, para desvio de votos).",
+    "controle_e_limite": "Inspecao do codigo-fonte por entidades (out/2025 a set/2026: Uniao Brasil, Senado, MP Eleitoral, CGU, SBC, CNMP, CNC); TPS (dez/2025, teste de confirmacao mai/2026, sem falha que comprometesse resultado segundo o TSE); compilacao e assinatura publica em 04/09/2026; teste de integridade. Limite conhecido: a assinatura digital prova que o binario e igual ao que foi assinado, nao que o binario e honesto ou livre de porta dos fundos (Aranha e van de Graaf; Academias Nacionais dos EUA, 2018); a inspecao e feita no TSE, sobre o material que o TSE mostra, com tempo e escopo limitados; nao ha compilacao reproduzivel por terceiro que ligue o codigo lido ao programa assinado; o teste de integridade e por amostra e simulado.",
+    "marca": "Quase nenhuma marca direta nos dados publicos: boletim, RDV e log saem do mesmo programa e seriam internamente coerentes. Marcas so indiretas: divergencia no teste de integridade; padrao que acompanhe a versao de software e nao a geografia; conferencia de que os resumos (hashes) dos programas instalados batem com o codigo inspecionado.",
+    "testes_do_projeto": "F12_certificados_resumos.txt: 3897 de 3897 assinaturas de hardware conferem com a AC publicada, mas os resumos dos programas instalados nao saem dos arquivos publicos de urna (o hash.dat e listado no vsc e nao e publicado), entao so com dado publico nao da para comparar o programa que rodou com o codigo inspecionado. L7_teste_integridade.txt e ADENDO18_resultados.txt (L7): o furo esta no desenho dos controles, nao no resultado.",
+    "estado": "Impossivel de excluir so com dado publico. Sem indicio positivo: as assinaturas conferem, os boletins batem com a totalizacao e nenhuma fonte achou no codigo a regra do desvio. E a hipotese estrutural que nenhum controle puramente eletronico fecha sem trilha fisica.",
+    "fecharia": "Compilacao independente do codigo-fonte e comparacao com o resumo do programa assinado em 04/09/2026; publicacao dos resumos dos programas instalados (hash.dat); divulgacao dos relatorios das entidades que inspecionaram o codigo; relatorio consolidado do TCU (ate 24/11/2026).",
+    "fontes": [
+     "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+     "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+     "https://www.nationalacademies.org/news/2018/09/securing-the-vote-new-report",
+     "https://www12.senado.leg.br/noticias/materias/2026/09/04/tse-conclui-assinatura-e-lacracao-dos-sistemas-das-eleicoes-de-2026",
+     "https://www.poder360.com.br/poder-eleicoes/uniao-brasil-inspeciona-codigos-fonte-de-urnas-para-eleicoes-2026/"
+    ]
+   },
+   {
+    "classe": "Troca do programa depois da lacracao (midia de carga e instalacao antes da votacao)",
+    "exigiria": "Acesso, antes da votacao, a midia de instalacao que carrega o programa (cada midia prepara dezenas de urnas), de modo a substituir ou injetar codigo que sobrevivesse a verificacao de assinatura na partida. Foi o alvo concreto do achado mais profundo em laboratorio (TPS 2017: chave simetrica embutida e compartilhada entre urnas, mais modulos sem verificacao de assinatura). Para virar 2,2 milhoes de votos precisaria atingir a cadeia de carga de muitas zonas, nao de uma urna so.",
+    "controle_e_limite": "Verificacao de assinatura e de integridade na partida da urna (o GAP valida os pacotes a cada ligar); correcoes pos-TPS 2017 e 2018 reconfirmadas em testes de confirmacao (ate mai/2026): verificacao de integridade corrigida, assinaturas automatizadas, derivacao dinamica de chaves com apoio da BIOS. Limite conhecido: os proprios investigadores concluiram que a carga ficou mais robusta contra atacante externo, mas o sistema seguia vulneravel a atacante interno privilegiado; a verificacao e feita pelo mesmo programa, entao um programa trocado poderia escrever o mesmo log de sucesso.",
+    "marca": "O log da urna registra a verificacao de assinatura de cada pacote (sucesso ou erro), a versao do programa e a carga; um pacote recusado deixaria erro no log. Versao ou componente novo entre turnos seria anomalia.",
+    "testes_do_projeto": "ADENDO9_resultados_amostra.txt (T10): mesma versao 10.23.0.0 nas 3.897 urnas, nenhum componente novo no 2o turno; 1 urna com bandeira vermelha pela letra (erro de verificacao em 22/09, na preparacao, com causa no log, aceita como explicacao so em leitura posterior). F12_certificados_resumos.txt: 1.352.279 verificacoes de assinatura de pacote com sucesso e 2 com erro, ambas de preparacao, com troca de midia registrada; os nomes dos pacotes batem com a lista publicada do modelo.",
+    "estado": "Nao excluida em absoluto, mas sem indicio nos dados: nenhuma troca de programa entre turnos, versao unica, verificacoes de assinatura com sucesso na votacao. A verificacao e feita pelo proprio programa, entao o teste e cego a um programa ja comprometido na origem (cai na classe anterior).",
+    "fecharia": "Atas das cerimonias de carga e geracao de midia de 2026; comparacao dos hashes publicados na lacracao com os verificados nas zonas; compilacao independente que ligue codigo e binario assinado.",
+    "fontes": [
+     "https://sol.sbc.org.br/index.php/sbseg/article/download/4243/4174",
+     "https://www.ic.unicamp.br/~dfaranha/mts18-sp-diegoaranha.pdf",
+     "https://www.tse.jus.br/imprensa/noticias-tse/2017/Dezembro/investigadores-promovem-alteracoes-importantes-no-sistema-de-seguranca-da-urna",
+     "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf"
+    ]
+   },
+   {
+    "classe": "Chaves de assinatura e certificados (cifracao das midias e assinatura dos arquivos de resultado)",
+    "exigiria": "Vazamento ou uso indevido de chave de cifracao das midias (historicamente uma so para todas as urnas e, segundo relatos de 2012 a 2017, dentro do codigo-fonte) ou da chave de assinatura dos produtos de votacao, para abrir o conteudo das midias ou forjar um arquivo aceito como autentico. Forjar o resultado de uma secao exigiria ainda injetar o arquivo no fluxo de transmissao no lugar do legitimo e bater com o boletim impresso afixado na secao.",
+    "controle_e_limite": "Segundo o Carter Center (2022), o TSE removeu as chaves do codigo-fonte apos as criticas; cada urna moderna teria pares de chaves proprios e modulo de seguranca certificado (informacao de trecho de busca, nao verificada). Assinatura dos arquivos da urna, boletim impresso com QR Code assinado, conferencia por terceiros. Limite conhecido: a cadeia de certificados fecha ate as AC intermediarias, mas nao ate a raiz a partir do que foi possivel baixar; o certificado publicado da AC URNA estava vencido no dia (problema de gestao da AC, nao prova de fraude).",
+    "marca": "Um arquivo forjado so passaria sem ser notado se ninguem comparasse com o papel; serial ou chave repetidos em urnas diferentes, ou certificado que apontasse para outra AC, seriam anomalias verificaveis.",
+    "testes_do_projeto": "F12_certificados_resumos.txt e F18_certificados_pos_vencimento.txt: 3897 de 3897 (e 1499 de 1499 na amostra estratificada do F18) conferem com a AC publicada; emissor igual ao titular byte a byte; serial ou chave repetidos em urnas diferentes: 0; controles de adulteracao (1 bit/1 byte trocado) aceitos 0 vezes. Alegacao do certificado da AC URNA vencido em 18/07/2026: confere (falha de gestao); caso de Marilia (certificado emitido em 03/08/2026 pela mesma chave) existe mas e raro.",
+    "estado": "Excluida como adulteracao pelos dados publicos no que a assinatura cobre (as assinaturas conferem). Fica um ponto de gestao em aberto (AC URNA vencida) sem efeito sobre votos. A assinatura de software (formato proprio, algoritmo CEPESC) nao e verificavel com informacao publica.",
+    "fecharia": "Resposta do TSE sobre a validade da AC URNA e publicacao do certificado renovado; publicacao da AC RAIZ UE e AC URNA v2 para fechar a cadeia ate a raiz e conferir byte a byte.",
+    "fontes": [
+     "http://www.kas.de/wf/doc/13775-1442-5-30.pdf",
+     "https://doi.org/10.1016/j.cose.2019.06.009",
+     "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf"
+    ]
+   },
+   {
+    "classe": "Cadeia de suprimento de hardware e firmware (BIOS, modulo de seguranca, fornecedores)",
+    "exigiria": "Fornecedor ou fabricante com acesso ao firmware ou ao modulo de seguranca antes da entrega, ou insider que gere a gravacao desse firmware, de modo a implantar porta dos fundos antes da lacracao. Tratado pela auditoria do PSDB de 2014 como possibilidade teorica, sem evidencia de ocorrencia; nenhum estudo documenta uso em eleicao real.",
+    "controle_e_limite": "Modulo de seguranca embarcado com certificacao INMETRO/ICP-Brasil; laudos de laboratorios acreditados; hoje o TSE projeta a urna e o fabricante a produz. Limite conhecido (TCU, 2023): nao ha certificacao do hardware completo nem do processo de desenvolvimento; o TCU recomendou certificar ou demonstrar que nao e relevante. Convivem em 2026 modelos de varias geracoes (UE2013, UE2015, UE2020, UE2022).",
+    "marca": "Um ataque de firmware tenderia a se concentrar num modelo. Mas comparar resultado por modelo e armadilha: o modelo se correlaciona com regiao e porte do municipio (erro estatistico do relatorio do IVL/PL de 2022). So vale comparar modelos diferentes no mesmo local de votacao.",
+    "testes_do_projeto": "F4_modelo_urna.txt: virada igual em todos os modelos no mesmo local (de -0,14 a +0,004 ponto), inconclusivo por falta de poder, com pista fraca de urnas antigas 0,6 a 0,75 ponto acima das novas no mesmo local; teto de 7% da margem. F10_urnas_antigas_cargos.txt e F16_urnas_antigas_perfil.txt: a sobra de Lula nas urnas antigas vem de locais em que as secoes novas votaram em outro predio; com o local de fato usado, cai para 0,12 (ep 0,18) e some.",
+    "estado": "Nao excluida por completo (nao da para auditar firmware com dado publico), mas sem indicio: a diferenca por modelo se explica por geografia e por artefato de qual predio votou. Teto estimado de 4% a 7% da margem mesmo no pior caso.",
+    "fecharia": "Certificacao independente do hardware e do firmware; comparacao controlada de modelos diferentes no mesmo local; laudo do modulo de seguranca por terceiros.",
+    "fontes": [
+     "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+     "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+     "https://www.aosfatos.org/noticias/tse-novas-urnas-eletronicas-eleicoes/",
+     "https://indiaevm.org/paper.html"
+    ]
+   },
+   {
+    "classe": "Geracao de midias e carga das urnas nas zonas e TREs",
+    "exigiria": "Acesso fisico ou logico aos computadores de geracao de midias de um cartorio ou TRE, ou as midias entre a geracao e a carga. O alcance seria regional; as assinaturas verificadas na carga barrariam software nao assinado. Para virar 2,2 milhoes de votos precisaria atingir muitas zonas ao mesmo tempo.",
+    "controle_e_limite": "Cerimonias publicas de geracao de midias e preparacao; verificacao de hash e assinatura na carga; verificacao por amostragem (a Defesa registrou em 2022 verificacao em pelo menos 3% das urnas por zona). Limite conhecido: baixa participacao de partidos nas cerimonias (TCU, 2023); em uma UF a comissao de auditoria nao acompanhou a troca das urnas sorteadas; o PSDB (2014) apontou geracao em computadores ligados a internet, sem acesso aos dados de controle.",
+    "marca": "O log de cada urna registra a carga (identificacao, data e hora da geracao da MR, computador); carga fora da janela da cerimonia, urna fora da tabela de correspondencia ou excesso de urnas substituidas numa zona seriam anomalias; a mesma midia usada em urnas diferentes indicaria copia.",
+    "testes_do_projeto": "ADENDO9_resultados_amostra.txt (T20): 426 urnas com pendencia, todas com explicacao no proprio log; em aberto pela letra ate as atas de carga. F9_midia_2t.txt: sem sinal entre computadores no mesmo local (p 0,13), com pouco poder; a urna recusou uma midia do 2o turno com assinatura invalida (a checagem funciona); pista de uma mesma midia (serie 3482056B) em duas urnas de locais diferentes no RJ, indicando duas copias fisicas.",
+    "estado": "Nao excluida como caminho regional de baixo alcance, mas sem indicio de uso para desvio; o teste de computador de geracao teve pouco poder.",
+    "fecharia": "Atas das cerimonias de geracao de midias e carga de 2026; tabela de correspondencia urna-secao; relatorio de urnas substituidas; esclarecimento das copias de midia no RJ.",
+    "fontes": [
+     "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+     "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+     "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf"
+    ]
+   },
+   {
+    "classe": "Acesso fisico a urna no deposito ou na secao e eficacia dos lacres",
+    "exigiria": "Acesso fisico a urna entre a lacracao e a votacao (deposito, transporte, secao) ou entre o fim da votacao e o recolhimento. Sozinho nao basta: trocar ou alterar o software ainda esbarraria na verificacao de assinatura na partida; o lacre e camada de evidencia de violacao, nao a barreira principal. Alcance local, inviavel para virar 2,2 milhoes sem atingir o programa.",
+    "controle_e_limite": "Lacres fisicos (Casa da Moeda em 2026), verificacao de assinatura na partida, fiscais e mesarios. Limite conhecido: PSDB (2014) classificou os lacres como so parcialmente efetivos; o TCU (2022) achou, em 4 de 54 secoes da amostra, lacre reaproveitado pelo presidente da mesa, e anotou que podem ser removidos sem rompimento (fragilidade a corrigir); nao ha avaliacao independente dos lacres de 2026.",
+    "marca": "O log registra ligamentos, desligamentos e insercao ou remocao de midias com horario; eventos fora do expediente ou entre a carga e a eleicao seriam anomalos; atas de secao e relatorios de urnas substituidas complementam.",
+    "testes_do_projeto": "ADENDO9_resultados_amostra.txt (T3): zero anomalias em 3.897 logs (nenhum voto antes da abertura ou depois do encerramento, nenhum sem habilitacao). ADENDO18_resultados.txt (L1) e conferencia de arquivos: as 18 secoes com horario estranho tem boletim, log e assinatura coerentes com o bweb, aberturas tardias com causa no log. F14_casos_pendentes.txt: Volta Redonda (urnas de duas escolas suspensas as 17h e encerradas as 19h por um titulo que nao e de mesario), falha de procedimento, sem voto depois do horario.",
+    "estado": "Excluida como fonte de desvio em massa pelos dados publicos: nenhuma urna reaberta, logs coerentes. Resta falha de procedimento local sem efeito em votos.",
+    "fecharia": "Atas de secao e relatorio de urnas substituidas de 2026; avaliacao independente dos lacres.",
+    "fontes": [
+     "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+     "https://portal.tcu.gov.br/data/files/3F/92/D1/69/99D8C8103A4A64C8F18818A8/29.11%20eleicoes%20014.328-2021-6-JPJ-quarta%20etapa%20auditoria%20urnas%20eleicoes.pdf",
+     "https://jhalderm.com/pub/papers/ts-evt07.pdf"
+    ]
+   },
+   {
+    "classe": "Deteccao do teste de integridade (software que reconhece que esta sendo testado)",
+    "exigiria": "Pressupoe que ja exista software malicioso na urna (classes de insider ou de cadeia de carga). Para virar 2,2 milhoes de votos sem ser pego, o programa teria de ficar honesto em praticamente todas as ~650 urnas testadas (teto 706), nas duas modalidades, reconhecendo o teste de dentro da urna (por exemplo pela ausencia de biometria no dia, pelo volume de eleitores, ou pelo ritmo). E a classe de limite teorico mais citada na literatura (PSDB 2014, Defesa 2022, Carter 2022, Stark e Xie), com analogia ao caso Volkswagen de 2015.",
+    "controle_e_limite": "Teste de integridade (votacao paralela) em urnas sorteadas na vespera, em parte pelos partidos, com modalidade com biometria (Res. TSE 23.758/2026), acompanhado pelo TCU nos 27 TREs. Limite conhecido: cobre poucas centenas de urnas; a modalidade principal tem a marca de nenhuma biometria no dia (que nenhuma urna real da amostra teve) e a modalidade com biometria tem a marca oposta (quase so digital e poucos eleitores, ~0,2% das urnas reais); um teste aprovado nao exclui fraude ciente do teste. So a leitura do codigo e a garantia da compilacao fecham essa porta.",
+    "marca": "Nos dados: se o programa ficasse honesto nas secoes reais com pouca biometria, a virada nelas seria menor que a das vizinhas. Relatorios de cada urna testada (cedulas x boletim), percentual de biometria e taxa de adesao; divergencia atribuida a erro humano merece conferencia do video.",
+    "testes_do_projeto": "L7_teste_integridade.txt: as 97 secoes reais com metade ou mais sem biometria viraram igual as vizinhas (0,00, ep 0,19); o exterior (sem biometria) virou 0,76 ponto abaixo do previsto (ep 0,15), na direcao da tese mas menos da metade do que viraria a eleicao; a chance de a fraude ao acaso nao cair entre as testadas fica abaixo de 1 em 100 mil. F11_teste_integridade_arquivos.txt: nenhum arquivo de urna testada e publicado; 54 urnas de teste identificadas tem o mesmo programa das reais; todas as divergencias de 2026 foram na CLDF (duas no 1o turno, uma no 2o), atribuidas a erro de digitacao.",
+    "estado": "Impossivel de excluir so com dado publico: o teste, por desenho, nao prova que a urna nao contem software que se comporta bem so no teste. Sem indicio positivo de que a regra exista. E o ponto central de onde a fraude poderia estar junto da classe 1.",
+    "fecharia": "Leitura do codigo por terceiros e compilacao independente; detalhe da divergencia do DF (urna, cargo, direcao, video); numero de urnas e votos da modalidade com biometria; relatorio do TCU e das auditorias externas dos TREs.",
+    "fontes": [
+     "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-758-de-2-de-marco-de-2026",
+     "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+     "https://cartercenter.org/resources/pdfs/news/peace_publications/election_reports/brazil/brazil-final-report-2022-portuguese.pdf",
+     "https://arxiv.org/pdf/1908.08144v2.pdf",
+     "https://www.oliberal.com/eleicoes/tse-55-auditores-do-tcu-acompanham-teste-de-integridade-no-brasil-nao-ha-intercorrencias-1.1176812"
+    ]
+   },
+   {
+    "classe": "Mesario e habilitacao do eleitor (voto por ausentes e liberacao sem biometria)",
+    "exigiria": "So exige ser mesario, ou conluio na mesa, e ausencia de fiscais; nao envolve alterar software. O impacto por secao e limitado ao numero de faltosos, entao nao escala para 2,2 milhoes. Classe com casos reais e pequena escala (caso de Salvador, 1o turno de 2026, mesaria presa em flagrante, sem condenacao).",
+    "controle_e_limite": "Biometria obrigatoria com caminho alternativo de liberacao manual apos tentativas; o log registra o modo de habilitacao. Limite conhecido: a biometria reduz mas nao elimina, porque existe a liberacao manual; o TSE nao cruza votos com justificativas nem analisa logs para achar mesarios reincidentes; a deteccao depende de denuncia ou de flagrante na secao.",
+    "marca": "O log registra, para cada voto, se a habilitacao foi por biometria ou nao, e o horario; percentual de liberacao manual muito acima das secoes vizinhas, rajadas de liberacoes manuais ou votos concentrados nos minutos finais sao sinais testaveis; eleitor que consta como ja votado gera registro em ata.",
+    "testes_do_projeto": "ADENDO9_resultados_amostra.txt (T9): sem biometria 12,2% a 12,4% das habilitacoes; por eleitor a mais, 0,139 sem biometria (mesma proporcao da base); ganho de Lula por habilitacao a mais 0,56 sem e 0,51 com (votos inseridos levariam a perto de 1): sem sinal. F6_sem_biometria.txt: regressao sem sinal (-0,07 ponto); 1 rajada em 40 secoes contra 0 em 40 controles (sinal pedia 5); pistas administrativas na BA e ES sem direcao a favor de Lula. testes_bweb_2t_com_conferencia.json (T21): inconclusivo, +95 mil liberacoes a mais, cerca de 6,5% do necessario mesmo no teto.",
+    "estado": "Excluida como fonte de desvio em escala pelos dados publicos; ocorrencias locais reais e provaveis, com efeito pequeno no agregado.",
+    "fecharia": "Cruzamento de logs de habilitacao com justificativas; investigacao de secoes com liberacao manual atipica; conferencia do caso de Salvador.",
+    "fontes": [
+     "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+     "https://aceproject.org/ero-en/regions/americas/BR/brazil-general-elections-final-report-2018/view",
+     "https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026"
+    ]
+   },
+   {
+    "classe": "Transmissao e totalizacao (alteracao depois que o boletim sai da urna)",
+    "exigiria": "Acesso ao sistema central (insider ou intrusao) para trocar arquivos ou alterar a soma depois que o boletim foi gerado. Passaria por cima dos boletins impressos, assinados e afixados nas secoes, que qualquer um pode fotografar; a soma dos boletins publicados teria de deixar de bater com o total oficial.",
+    "controle_e_limite": "Publicacao dos boletins em tempo real desde 2022, aplicativo Boletim na Mao, QR Code assinado, conferencia independente da soma. Limite conhecido: o controle e cego a fraude dentro do programa da urna, que imprimiria o boletim ja alterado; a Defesa e o TCU pediram os logs do transportador, do receptor e da totalizacao para reproduzir a ordem de chegada, e a Defesa nao os recebeu. Em 2025 o TPS teve achados no Kit JE-Connect/VPN, corrigidos no teste de confirmacao.",
+    "marca": "Qualquer divergencia entre boletim impresso ou QR e boletim publicado, ou entre a soma dos boletins e o total oficial. E a classe mais verificavel com dado publico.",
+    "testes_do_projeto": "testes_bweb_2t_com_conferencia.json (T15): os boletins do 2o turno somam voto a voto o oficial de cada municipio, UF, exterior e Brasil, sem sinal. ADENDO9_resultados_amostra.txt (T18) e F12: assinatura de hardware valida em 42.867 de 42.867 arquivos e 3.897 de 3.897 blocos; boletim igual ao bweb, RDV igual ao boletim, log igual ao comparecimento em todas as amostras forenses (F14 em 64 pacotes, F5 em 40 secoes extremas).",
+    "estado": "Excluida pelos dados publicos no que a soma e a assinatura cobrem: todas as conferencias independentes deram zero divergencia. Nao fecha fraude dentro do programa (classe 1), que o boletim nao detecta.",
+    "fecharia": "Publicacao dos logs do transportador, do receptor e da totalizacao; comparacao em amostra entre boletim impresso recolhido (PL) e boletim publicado.",
+    "fontes": [
+     "http://www.brunazo.eng.br/voto-e/arquivos/RelatorioAuditoriaEleicao2014-PSDB.pdf",
+     "https://static.poder360.com.br/2022/11/Relatorio_EFASEV.pdf",
+     "https://eleicoes.tcu.gov.br/TCU_nas_eleicoes_2022.pdf",
+     "https://www.aosfatos.org/noticias/hackers-urnas-eletronicas-teste-seguranca/"
+    ]
+   },
+   {
+    "classe": "RDV e sigilo do voto (vinculo identidade-voto e reordenacao do RDV)",
+    "exigiria": "Para o vinculo identidade-voto: software adulterado (de novo o cenario de insider), ja que o terminal do mesario e ligado eletronicamente a urna. Para reverter o embaralhamento do RDV: so os arquivos publicos e o conhecimento de um metodo defeituoso (como a semente previsivel usada ate 2012). Afeta o sigilo, nao a contagem; serve a coacao e a compra de voto verificavel, nao a virar o total.",
+    "controle_e_limite": "Rotina de embaralhamento do RDV corrigida apos o TPS 2012; RDV e log publicados por secao. Limite conhecido: a arquitetura do terminal do mesario ligado a urna continua; o RDV e gerado pelo mesmo programa que o boletim, entao nao serve como verificacao independente da contagem.",
+    "marca": "Uma fraude de contagem nao aparece no RDV, que e coerente com o boletim por construcao. A marca de uma quebra de sigilo seria externa (relatos de coacao). Nulo digitado com o numero de um finalista seria anomalia.",
+    "testes_do_projeto": "T19_nulos_rdv_amostra.json e ADENDO9_resultados_amostra.txt (T19): 5.087 nulos de presidente com digitos, nenhum digitado 13 ou 22 (sinal forte ausente); nenhum numero nulo raro repetido 5 vezes ou mais; brancos sobre brancos mais nulos 37,2% no 1o turno e 33,8% no 2o (descritivo). F5 e F14: RDV igual ao boletim voto a voto em todas as secoes conferidas.",
+    "estado": "Excluida como fonte de alteracao de contagem (o RDV e coerente por construcao e o sinal forte esta ausente). O risco de sigilo e estrutural e nao se mede por contagem.",
+    "fecharia": "Compilacao independente do codigo do embaralhamento; o sigilo so se fecha com registro conferivel, que nao existe (voto impresso suspenso pelo STF).",
+    "fontes": [
+     "https://www.sbc.org.br/wp-content/uploads/2024/07/tse-1.pdf",
+     "http://www.kas.de/wf/doc/13775-1442-5-30.pdf",
+     "https://revistapesquisa.fapesp.br/en/brazils-electronic-voting-machine-comes-of-age/"
+    ]
+   },
+   {
+    "classe": "Outras: intrusao na rede do TSE e falso positivo de auditoria (logs invalidos)",
+    "exigiria": "Intrusao remota na rede administrativa do TSE (caso de 2018, investigado pela PF, sem indicio de fraude nas urnas): para afetar a urna o invasor teria de chegar ao ambiente de desenvolvimento ou compilacao e sobreviver a inspecao e a lacracao (recai na classe 1). Separadamente, o falso positivo de auditoria (relatorio do IVL/PL de 2022 sobre logs invalidos) nao e ataque: e tomar um artefato tecnico ou diferenca entre modelos como prova de fraude.",
+    "controle_e_limite": "Unidade de seguranca cibernetica e SOC/SIEM criados apos 2018 (implantacao parcial segundo o TCU em 2023). Limite conhecido: logs apagados por terceirizada limitaram a pericia de 2018; a rede corporativa e alvo real. Para o falso positivo: a associacao entre arquivos deve usar a assinatura e os campos de carga, secao e zona, nao um unico campo; diferenca por modelo de urna e confundida por geografia.",
+    "marca": "A intrusao na rede nao deixa marca nos dados publicos de urna (verificacao e institucional, PF e TCU). O falso positivo: um campo fixo no log dos modelos antigos que se confunde com fraude.",
+    "testes_do_projeto": "F12_certificados_resumos.txt e F10/F16: a cadeia de certificados e os campos de carga ligam log e urna apesar do campo fixo; a vantagem de Lula nas urnas antigas some com o local de fato usado (F16: cai para 0,12, ep 0,18). F2_digitos.txt: sem sinal em digitos, porcentagens redondas e boletins repetidos.",
+    "estado": "Intrusao na rede: nao excluida como evento, mas sem indicio de ter atingido a urna; verificavel so por PF e TCU. Falso positivo: demonstra o risco oposto, de ler artefato tecnico como fraude; os testes do projeto mostram que a associacao entre arquivos se sustenta.",
+    "fecharia": "Desfecho do inquerito da PF de 2018; para o falso positivo, usar assinatura e campos de carga/secao/zona, nunca um unico campo, e comparar modelos so no mesmo local.",
+    "fontes": [
+     "https://www.acessa.com/politica/2022/08/3106-entenda-inquerito-do-ataque-hacker-ao-tse-utilizado-por-bolsonaro-para-questionar-urnas.html",
+     "https://www.leiagora.com.br/uploads/PL-Relatorio-Tecnico-Logs-Invalidos-das-Urnas-Eletronicas-v0.7-15-11-2022-(1).pdf",
+     "https://static.poder360.com.br/2022/12/Analise-Bug04030201_USPUFSCarUFPAoutros.pdf",
+     "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-rejeita-pedido-e-multa-pl-em-r-229-mi-por-acao-contra-urnas/"
+    ]
+   }
+  ],
+  "ordem": "Criterio da ordem: da classe mais compativel com tudo o que se sabe (maior alcance potencial + menor detectabilidade com dado publico + nao excluida) para a menos compativel (alcance local ou ja excluida pelos dados). (1) Programa adulterado no desenvolvimento/compilacao: a mais compativel, porque atingiria todas as urnas de uma vez, deixaria pouca ou nenhuma marca (BU, RDV e log saem do mesmo programa) e nenhum controle so-eletronico a fecha; impossivel de excluir so com dado publico. (2) Deteccao do teste de integridade: logicamente acoplada a (1), e o unico caminho pelo qual uma fraude de programa passaria pelo principal controle; impossivel de excluir so com dado publico, mas sem indicio positivo. (3) Chaves de assinatura: poderia ter grande alcance, mas as assinaturas conferem em 3897 de 3897 e o unico achado real e de gestao (AC URNA vencida), sem efeito em votos. (4) Troca do programa depois da lacracao (midia de carga): alvo historico mais grave (TPS 2017), mas corrigido e reconfirmado; sem sinal nos logs de 2026. (5) Firmware/hardware: nao auditavel com dado publico, mas a diferenca por modelo se explica por geografia e artefato de predio. (6) Carga e midias nas zonas: alcance regional, sem indicio, teste com pouco poder. (7) Transmissao e totalizacao: a mais verificavel, e deu zero divergencia em todas as conferencias; praticamente excluida. (8) Mesario e habilitacao: casos reais mas de escala local, incapaz de virar 2,2 milhoes; excluida como fonte de desvio em massa. (9) RDV e sigilo: afeta sigilo, nao contagem, e o sinal forte esta ausente; excluida como alteracao de contagem. (10) Acesso fisico a urna: alcance local e logs coerentes; excluida como desvio em massa. (11) Outras (intrusao na rede de 2018, falso positivo dos logs invalidos): sem indicio de ter atingido a urna, e o caso dos logs e exemplo documentado de leitura equivocada de artefato tecnico como fraude.",
+  "conclusao": "Mapa honesto de onde uma fraude poderia estar na eleicao de 25/10/2026, lido ao nivel de resumo publicado, sem passo a passo operacional. A urna e DRE (grava o voto direto, sem papel conferivel pelo eleitor), entao uma fraude capaz de mudar o resultado presidencial sem deixar rastro teria de estar DENTRO do programa que conta os votos, e teria de: agir em quase todas as ~499 mil urnas, mover ~2,2 milhoes de votos (1,79% dos finalistas), ser coerente em boletim, RDV e log, ser assinada com a chave de cada urna, mexer tambem no governador aliado onde houve 2o turno, e reconhecer o teste de integridade em praticamente todas as ~650 urnas testadas. A literatura (TPS do TSE em 2009 a 2025, Aranha e coautores, auditoria do PSDB de 2014, Defesa 2022, Carter 2022, TCU, e a literatura internacional sobre DRE: Hopkins, Princeton, California e Ohio, India, Academias dos EUA 2018) nunca documentou fraude de software em eleicao real; documentou vulnerabilidades em laboratorio (a mais profunda no TPS 2017, execucao de codigo a partir da midia de carga), cada uma corrigida e, a partir de 2017, reconfirmada em testes de confirmacao. O ponto estrutural que permanece, repetido por todos os criticos, nao e um hack externo no dia: e o risco de insider na cadeia de desenvolvimento/compilacao/assinatura, combinado a ausencia de registro fisico conferivel e de recontagem independente (voto impresso suspenso pelo STF). Os testes do projeto cobrem o que o dado publico alcanca e nenhum virou sinal: transmissao e totalizacao fechadas (soma dos boletins igual ao oficial, 3897 de 3897 assinaturas conferindo), insercao de votos e habilitacao sem sinal, carga/midia/modelo sem sinal, prorrogacao com ~34 mil votos depois das 17h sem efeito no resultado, certificados conferindo (so a AC URNA vencida como falha de gestao). O que NAO se exclui so com dado publico e exatamente a classe 1 somada a classe 7: um programa que reconheca o teste de integridade e desvie votos, porque o boletim, o RDV e o log saem do mesmo programa e seriam coerentes, e porque os resumos dos programas instalados (hash.dat) nao sao publicados, entao a correspondencia entre o codigo inspecionado e o programa que rodou nao e verificavel de fora. Cetico nos dois sentidos: nao ha evidencia publica de fraude consumada (as assinaturas batem, os boletins batem, nenhuma fonte achou no codigo a regra do desvio), e tampouco ha prova de impossibilidade, porque uma arquitetura sem papel conferivel nao permite provar por auditoria que nao houve. O que fecharia a duvida nao e mais analise dos dados de urna, e sim o que esta fora deles: compilacao independente ligando o codigo lido ao programa assinado em 04/09/2026, publicacao dos resumos dos programas, o detalhe da divergencia do DF no teste de integridade, e os relatorios do TCU (ate 24/11/2026) e da missao da UE."
+ },
+ "conferencia": {
+  "findings_placeholder": "true",
+  "fatos_errados": [
+   "TPS 2009 (tema TPS da pesquisa): o corpo do achado diz que Sergio Freitas 'captou interferencia/som emitido pelas teclas da urna'. A fonte primaria (Aranha et al., SBC 2018) diz captura de FREQUENCIAS DE RADIO emitidas pelo teclado, ou seja emanacao eletromagnetica (TEMPEST), nao som/acustica. O proprio titulo do achado diz 'TEMPEST' e o tema ANO2026 diz corretamente 'emissoes de radiofrequencia'. 'Som emitido pelas teclas' e erro factual e contradiz a fonte (nao afeta o MAPA, que nao lista 2009).",
+   "Datas do voto impresso (pesquisa TPS, achado 'Classe estrutural'): 'O voto impresso foi tentado (2002, 2020) e suspenso pelo STF'. 2002 (experiencia) esta certo, mas '2020' como tentativa e impreciso: a previsao de voto impresso (Lei 13.165/2015) foi suspensa pelo STF em 2018 (ADI 5889), antes da aplicacao em 2020; houve ainda lei de 2009 derrubada em 2013. Os slides do Aranha dizem '2018: STF suspende'. O MAPA evita datas ('voto impresso suspenso pelo STF') e fica correto.",
+   "Pesquisa ANO2026 (resumo e achado 'Classe estrutural'): 'margem de Lula de 4,43 milhoes, 1,79% dos finalistas' junta duas grandezas erradas. 4,43 milhoes = 3,57% dos 124,08 milhoes de finalistas; 1,79% = 2,2 milhoes (metade da margem, o que precisa mudar de lado). O MAPA (conclusao) ja separa certo: 'mover ~2,2 milhoes (1,79% dos finalistas)' e, a parte, 'margem de 4,43 milhoes'. Erro so na pesquisa.",
+   "Atribuicao de fonte do numero do exterior no MAPA (classe 7): o '0,76 ponto abaixo do previsto (ep 0,15)' e atribuido a L7_teste_integridade.txt, mas esse arquivo nao traz esse numero (traz o bruto 1,62 contra 2,80 e diz 'nao serve como indicio nem a favor nem contra'). O 0,76 (ep 0,15) esta em ADENDO18_resultados.txt e em testes_adendo18_com_conferencia.json. Numero real, arquivo citado errado.",
+   "Atribuicao de fonte do numero das urnas antigas no MAPA (classes 5 e 11): o 'cai para 0,12 (ep 0,18)' e atribuido a F16_urnas_antigas_perfil.txt. O veredito de F16 e INCONCLUSIVO com coeficiente 0,39 (ep 0,21); o 0,12 (ep 0,18) esta em ADENDO22_resultados.txt (refinamento de F16 usando o predio de fato usado na eleicao). Numero real, mas em ADENDO22, nao em F16."
+  ],
+  "exageros": [
+   "MAPA classe 7 (deteccao do teste), sentido pro-fraude: apresenta o exterior como '0,76 ponto abaixo do previsto... na direcao da tese' sem registrar que a propria analise ajustada do projeto (ADENDO18 / testes_adendo18_com_conferencia.json) conclui que, pesadas as duas hipoteses, o dado 'pende de leve CONTRA a tese (razao de cerca de 3 a 1)', e que L7 diz que 'nao serve como indicio nem a favor nem contra'. Chamar de 'na direcao da tese' sem esse contrapeso inclina de leve para a fraude. Corrigir para preservar o ceticismo nos dois sentidos.",
+   "Pesquisa/MAPA, nuance do TPS 2017 (nao superdimensionar): 'ataque de desvio de votos estava pronto' vem dos slides do Aranha; o artigo revisado por pares (SBC 2018) e mais cauteloso ('progresso substancial', versao definitiva NAO executada; a versao simples so impediu o armazenamento e disparou erro de consistencia). A pesquisa e o mapa dizem que o desvio nao foi concluido, o que esta correto; manter claro que o desvio NAO foi demonstrado, so houve progresso.",
+   "Pequeno exagero de alcance no MAPA classe 8 (habilitacao): 'testes_bweb_2t_com_conferencia.json (T21): inconclusivo, +95 mil liberacoes a mais, cerca de 6,5% do necessario mesmo no teto'. O +95.224 e a estimativa central do excesso, nao o teto; o teto documentado em T21 e +290.239 (e ate ~400 mil sob condicao). Dizer '+95 mil ... mesmo no teto' confunde a estimativa central com o teto e subdimensiona o limite superior."
+  ],
+  "remover_detalhe_operacional": [
+   "A PESQUISA e o MAPA (texto entregue) estao em nivel de resumo publicado: nao encontrei passo a passo, codigo, comandos, nomes de ferramenta de exploracao, enderecos de memoria, parametros nem receita de evasao. Nada a remover do texto por esse criterio.",
+   "Unico trecho limitrofe: MAPA classe 7 enumera as marcas que um programa malicioso poderia usar para reconhecer o teste de integridade (nenhuma biometria no dia, volume baixo de eleitores, ritmo). E a critica ja publicada (Carter, Defesa, Stark e Xie, analogia Volkswagen) e a leitura dos dados publicos do proprio projeto (L7), em nivel conceitual, sem como implementar. Fica dentro do resumo publicado; e o ponto a vigiar e, se quiser errar pelo lado estrito, suavizar para 'o teste tem marcas que o distinguem da votacao real' sem listar as tres marcas.",
+   "Alerta para a redacao final (nao e trecho do texto atual, e dos arquivos-fonte): os PDFs/txt baixados em /home/user/trabalho-eleicao/fraude_metodos/brasil/ (aranha_slides.txt e sbc_2018_tps2017.txt) contem detalhe operacional dos papers (trecho em assembly, o algoritmo de derivacao da chave AES-XTS, srand(time(NULL)), a troca da mensagem de tela para o candidato 99). Sao as fontes publicadas, nao o entregavel; a pesquisa acertou em NAO copiar isso. Na resposta ao Leo, continuar sem reproduzir esses trechos."
+  ],
+  "testes_conferidos": "Conferidos no repositorio /home/user/casa-control/eleicao-2026/resultados: todos os testes citados pelo MAPA existem e dizem o que o mapa afirma. Confirmados: F12 (3897 de 3897 assinaturas de certificado conferem; 1.352.279 verificacoes de assinatura de pacote com sucesso e 2 com erro, ambas de preparacao com troca de modelo; AC URNA vencida em 18/07/2026; cadeia fecha ate as AC intermediarias, nao ate a raiz; caso Marilia 03/08/2026). T15 (499.207 boletins somam voto a voto o oficial: Lula 64.256.232, Flavio 59.826.041, diferenca zero em todos os niveis; margem 4.430.191, metade 2.215.095 = 1,79%). L7 (~650 urnas no teste, teto 706; 97 secoes reais com >=50% sem biometria viraram 0,00 ep 0,19; chance <1 em 100 mil). ADENDO9: T9 (sem biometria 12,2/12,4%, 0,139 por eleitor, ganho de Lula 0,56 sem e 0,51 com), T18 (assinatura de hardware valida em 42.867 de 42.867 arquivos e 3.897 de 3.897 blocos), T3 (zero anomalias de log), T19 (nenhum nulo digitado 13 ou 22; sinal forte ausente). F6 (regressao -0,07; 1 rajada em 40 contra 0 em 40). T21 (+95.224 excesso, INCONCLUSIVO). F2 (sem sinal em digito, porcentagem redonda e boletim repetido). F4 (INCONCLUSIVO; UE2013/UE2015 levemente negativos no mesmo local). F16/ADENDO22 (coeficiente da urna antiga 0,39 ep 0,21 inconclusivo, cai para 0,12 ep 0,18 com o predio de fato usado). L6_governadores existe. Ressalva de citacao: dois numeros corretos estao em arquivos de refinamento e nao no arquivo citado (exterior 0,76 em ADENDO18, nao em L7; urna antiga 0,12 em ADENDO22, nao em F16). Nao reproduzi nem rodei scripts dos diretorios de dados baixados.",
+  "ordem_se_sustenta": "Sim, a ordem se sustenta. O criterio e declarado (maior alcance potencial + menor detectabilidade so com dado publico + nao excluida, descendo ate alcance local ou ja excluida) e e aplicado de forma consistente aos 11 itens. A classe 1 (programa adulterado na cadeia de build) no topo e coerente com toda a literatura verificada (Aranha/SBC 2018, Academias dos EUA 2018, Carter 2022, PSDB 2014): e o ponto estrutural de insider, sem recontagem fisica, que nenhum controle so-eletronico fecha. A classe 2 (deteccao do teste de integridade) em segundo e explicitamente um apendice logico da classe 1, o que o mapa reconhece ('logicamente acoplada a (1)'); poderia ate ser fundida na classe 1, mas destaca-la como o mecanismo que fura o principal controle e defensavel. As classes 7 a 11 (transmissao, habilitacao, RDV, acesso fisico, outras), de alcance local ou praticamente excluidas pelos dados (soma dos boletins bate, assinaturas conferem, logs coerentes), estao bem no fim. A conclusao mantem o ceticismo nos dois sentidos (nao ha prova de fraude, nem prova de impossibilidade). Nenhuma troca de ordem se justifica.",
+  "correcoes_ao_mapa": [
+   "Classe 7, exterior: reescrever 'na direcao da tese' para incluir que a analise ajustada do projeto (ADENDO18 / testes_adendo18_com_conferencia.json) conclui que o dado pende de leve CONTRA a tese (cerca de 3 a 1) e que L7 diz 'nao serve como indicio nem a favor nem contra'. Como esta, inclina de leve para a fraude.",
+   "Corrigir atribuicoes de arquivo: o numero do exterior 0,76 (ep 0,15) esta em ADENDO18_resultados.txt, nao em L7_teste_integridade.txt; o numero da urna antiga 0,12 (ep 0,18) esta em ADENDO22_resultados.txt (refinamento de F16), nao em F16_urnas_antigas_perfil.txt (cujo veredito e 0,39 ep 0,21, INCONCLUSIVO).",
+   "Classe 10 (transmissao): 'amostra de 4.161 BUs' deve dizer que o TCU analisou 4.577 BUs (4.161 era o minimo estatistico para 99% de confianca e 2% de margem). Os 559 BUs do 1o turno e 604 do 2o estao confirmados no Acordao do TCU (tcu_etapa4).",
+   "Classe 8 (habilitacao): nao apresentar '+95 mil ... mesmo no teto'. O +95.224 e a estimativa central do excesso; o teto documentado em T21 e +290.239 (ate ~400 mil sob condicao). Ajustar a fracao do 'necessario' de acordo.",
+   "Pesquisa (nao propaga ao mapa, mas corrigir para a resposta ao Leo): TPS 2009 e emanacao de radiofrequencia/eletromagnetica (TEMPEST), nao 'som'; e as datas do voto impresso sao experiencia em 2002 e suspensao pelo STF em 2018 (nao '2020'), alem da rejeicao no Congresso em 2021.",
+   "Deixar explicito, onde o mapa fala do TPS 2017, que o desvio de votos NAO foi demonstrado (so houve progresso; a versao que rodou apenas impediu o armazenamento e disparou erro), para nao soar que o desvio foi concluido."
+  ]
+ }
+}
