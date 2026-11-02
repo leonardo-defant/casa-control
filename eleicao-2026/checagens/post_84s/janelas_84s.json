@@ -1,0 +1,323 @@
+{
+ "boletins_2t": 499205,
+ "boletins_1t": 499206,
+ "lula_flavio_2t": [
+  64256232,
+  59826041
+ ],
+ "primeiro_e_ultimo_2t": [
+  "17:05:10",
+  "23:21:40"
+ ],
+ "virada_nacional_media_por_secao": 2.903,
+ "dp_virada_por_secao": 2.372,
+ "janelas_2t": 4845,
+ "janelas_2t_com_z_ingenuo_acima_de_5": 3270,
+ "janelas_2t_com_z_ingenuo_abaixo_de_menos_5": 1298,
+ "janelas_1t_com_z_ingenuo_acima_de_5": 7991,
+ "janelas_1t_com_z_ingenuo_abaixo_de_menos_5": 874,
+ "janelas_2t_com_z_virada_acima_de_4": 610,
+ "janelas_2t_com_z_virada_abaixo_de_menos_4": 670,
+ "top_crescimento_placar_2t": [
+  {
+   "inicio": "20:28:19",
+   "boletins": 10758,
+   "votos": 2660023,
+   "fatia_janela": 53.51,
+   "acumulado_antes": 50.17,
+   "acumulado_depois": 50.303,
+   "crescimento_placar_pts": 0.133,
+   "z_ingenuo": 109.0,
+   "virada_media": 2.82,
+   "z_virada": -3.47
+  },
+  {
+   "inicio": "20:28:20",
+   "boletins": 10772,
+   "votos": 2663325,
+   "fatia_janela": 53.51,
+   "acumulado_antes": 50.17,
+   "acumulado_depois": 50.303,
+   "crescimento_placar_pts": 0.133,
+   "z_ingenuo": 109.2,
+   "virada_media": 2.83,
+   "z_virada": -3.34
+  },
+  {
+   "inicio": "20:28:18",
+   "boletins": 10647,
+   "votos": 2630920,
+   "fatia_janela": 53.52,
+   "acumulado_antes": 50.169,
+   "acumulado_depois": 50.301,
+   "crescimento_placar_pts": 0.132,
+   "z_ingenuo": 108.8,
+   "virada_media": 2.82,
+   "z_virada": -3.74
+  },
+  {
+   "inicio": "20:28:21",
+   "boletins": 10722,
+   "votos": 2650935,
+   "fatia_janela": 53.5,
+   "acumulado_antes": 50.171,
+   "acumulado_depois": 50.303,
+   "crescimento_placar_pts": 0.132,
+   "z_ingenuo": 108.5,
+   "virada_media": 2.83,
+   "z_virada": -3.29
+  },
+  {
+   "inicio": "20:28:17",
+   "boletins": 10469,
+   "votos": 2589624,
+   "fatia_janela": 53.53,
+   "acumulado_antes": 50.167,
+   "acumulado_depois": 50.297,
+   "crescimento_placar_pts": 0.13,
+   "z_ingenuo": 108.1,
+   "virada_media": 2.81,
+   "z_virada": -3.95
+  }
+ ],
+ "top_z_ingenuo_2t_depois_das_19h": [
+  {
+   "inicio": "20:39:13",
+   "boletins": 10274,
+   "votos": 2543403,
+   "fatia_janela": 54.86,
+   "acumulado_antes": 50.715,
+   "acumulado_depois": 50.843,
+   "crescimento_placar_pts": 0.128,
+   "z_ingenuo": 132.3,
+   "virada_media": 2.75,
+   "z_virada": -6.67
+  },
+  {
+   "inicio": "20:39:12",
+   "boletins": 10162,
+   "votos": 2515650,
+   "fatia_janela": 54.88,
+   "acumulado_antes": 50.715,
+   "acumulado_depois": 50.842,
+   "crescimento_placar_pts": 0.127,
+   "z_ingenuo": 132.0,
+   "virada_media": 2.74,
+   "z_virada": -6.71
+  },
+  {
+   "inicio": "20:39:14",
+   "boletins": 10258,
+   "votos": 2540434,
+   "fatia_janela": 54.85,
+   "acumulado_antes": 50.717,
+   "acumulado_depois": 50.844,
+   "crescimento_placar_pts": 0.127,
+   "z_ingenuo": 131.7,
+   "virada_media": 2.74,
+   "z_virada": -6.98
+  },
+  {
+   "inicio": "20:39:15",
+   "boletins": 10272,
+   "votos": 2544537,
+   "fatia_janela": 54.81,
+   "acumulado_antes": 50.72,
+   "acumulado_depois": 50.846,
+   "crescimento_placar_pts": 0.126,
+   "z_ingenuo": 130.6,
+   "virada_media": 2.74,
+   "z_virada": -7.08
+  },
+  {
+   "inicio": "20:39:16",
+   "boletins": 10249,
+   "votos": 2539699,
+   "fatia_janela": 54.72,
+   "acumulado_antes": 50.724,
+   "acumulado_depois": 50.847,
+   "crescimento_placar_pts": 0.123,
+   "z_ingenuo": 127.4,
+   "virada_media": 2.74,
+   "z_virada": -6.97
+  }
+ ],
+ "top_z_ingenuo_1t_lula": [
+  {
+   "inicio": "20:00:54",
+   "boletins": 8589,
+   "votos": 2004421,
+   "fatia_janela": 55.66,
+   "acumulado_antes": 47.475,
+   "acumulado_depois": 47.645,
+   "crescimento_placar_pts": 0.169,
+   "z_ingenuo": 232.1
+  },
+  {
+   "inicio": "20:00:55",
+   "boletins": 8578,
+   "votos": 2002764,
+   "fatia_janela": 55.66,
+   "acumulado_antes": 47.478,
+   "acumulado_depois": 47.647,
+   "crescimento_placar_pts": 0.169,
+   "z_ingenuo": 231.8
+  },
+  {
+   "inicio": "20:00:51",
+   "boletins": 8586,
+   "votos": 2004304,
+   "fatia_janela": 55.64,
+   "acumulado_antes": 47.469,
+   "acumulado_depois": 47.638,
+   "crescimento_placar_pts": 0.169,
+   "z_ingenuo": 231.6
+  },
+  {
+   "inicio": "20:00:56",
+   "boletins": 8532,
+   "votos": 1991423,
+   "fatia_janela": 55.66,
+   "acumulado_antes": 47.481,
+   "acumulado_depois": 47.649,
+   "crescimento_placar_pts": 0.168,
+   "z_ingenuo": 231.1
+  },
+  {
+   "inicio": "20:00:53",
+   "boletins": 8584,
+   "votos": 2004036,
+   "fatia_janela": 55.58,
+   "acumulado_antes": 47.473,
+   "acumulado_depois": 47.641,
+   "crescimento_placar_pts": 0.168,
+   "z_ingenuo": 229.9
+  }
+ ],
+ "top_z_ingenuo_1t_flavio": [
+  {
+   "inicio": "17:10:09",
+   "boletins": 469,
+   "votos": 93137,
+   "fatia_janela": 43.71,
+   "acumulado_antes": 56.057,
+   "acumulado_depois": 52.724,
+   "crescimento_placar_pts": -3.334,
+   "z_ingenuo": -75.9
+  },
+  {
+   "inicio": "17:10:07",
+   "boletins": 464,
+   "votos": 91786,
+   "fatia_janela": 43.7,
+   "acumulado_antes": 56.111,
+   "acumulado_depois": 52.784,
+   "crescimento_placar_pts": -3.327,
+   "z_ingenuo": -75.8
+  },
+  {
+   "inicio": "17:10:08",
+   "boletins": 464,
+   "votos": 91966,
+   "fatia_janela": 43.71,
+   "acumulado_antes": 56.083,
+   "acumulado_depois": 52.771,
+   "crescimento_placar_pts": -3.312,
+   "z_ingenuo": -75.6
+  },
+  {
+   "inicio": "17:10:04",
+   "boletins": 465,
+   "votos": 92084,
+   "fatia_janela": 43.88,
+   "acumulado_antes": 56.21,
+   "acumulado_depois": 52.877,
+   "crescimento_placar_pts": -3.333,
+   "z_ingenuo": -75.4
+  },
+  {
+   "inicio": "17:10:05",
+   "boletins": 464,
+   "votos": 91862,
+   "fatia_janela": 43.83,
+   "acumulado_antes": 56.183,
+   "acumulado_depois": 52.856,
+   "crescimento_placar_pts": -3.327,
+   "z_ingenuo": -75.4
+  }
+ ],
+ "top_z_virada_2t": [
+  {
+   "inicio": "21:06:17",
+   "boletins": 9726,
+   "votos": 2518521,
+   "fatia_janela": 52.66,
+   "acumulado_antes": 51.718,
+   "acumulado_depois": 51.738,
+   "crescimento_placar_pts": 0.02,
+   "z_ingenuo": 30.1,
+   "virada_media": 3.29,
+   "z_virada": 16.09
+  },
+  {
+   "inicio": "21:06:16",
+   "boletins": 9634,
+   "votos": 2494281,
+   "fatia_janela": 52.63,
+   "acumulado_antes": 51.718,
+   "acumulado_depois": 51.737,
+   "crescimento_placar_pts": 0.019,
+   "z_ingenuo": 28.8,
+   "virada_media": 3.29,
+   "z_virada": 16.07
+  },
+  {
+   "inicio": "21:06:18",
+   "boletins": 9650,
+   "votos": 2500057,
+   "fatia_janela": 52.64,
+   "acumulado_antes": 51.719,
+   "acumulado_depois": 51.738,
+   "crescimento_placar_pts": 0.019,
+   "z_ingenuo": 29.3,
+   "virada_media": 3.29,
+   "z_virada": 16.01
+  },
+  {
+   "inicio": "21:06:25",
+   "boletins": 9840,
+   "votos": 2554294,
+   "fatia_janela": 52.58,
+   "acumulado_antes": 51.723,
+   "acumulado_depois": 51.741,
+   "crescimento_placar_pts": 0.018,
+   "z_ingenuo": 27.2,
+   "virada_media": 3.28,
+   "z_virada": 15.85
+  },
+  {
+   "inicio": "21:06:19",
+   "boletins": 9553,
+   "votos": 2476174,
+   "fatia_janela": 52.66,
+   "acumulado_antes": 51.72,
+   "acumulado_depois": 51.739,
+   "crescimento_placar_pts": 0.019,
+   "z_ingenuo": 29.6,
+   "virada_media": 3.29,
+   "z_virada": 15.81
+  }
+ ],
+ "primeira_janela_apos_retomada_19h": {
+  "inicio": "19:03:37",
+  "boletins": 5651,
+  "votos": 1392845,
+  "fatia_janela": 51.13,
+  "acumulado_antes": 55.531,
+  "acumulado_depois": 52.27,
+  "crescimento_placar_pts": -3.261,
+  "z_ingenuo": -104.6,
+  "virada_media": 2.66,
+  "z_virada": -7.78
+ }
+}

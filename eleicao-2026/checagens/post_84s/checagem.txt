@@ -1,0 +1,23 @@
+CHECAGEM DO POST "84,7 SEGUNDOS DA APURAÇÃO" (Felipe Cecílio, @FelipeCecilio_, sem data no print)
+
+Afirmação: "padrões de crescimento sistemático dos votos de Lula que seriam matematicamente impossíveis durante um
+intervalo de 84,7 segundos da apuração". O relatório não foi publicado; a janela exata não é conhecida.
+
+O que foi feito: todas as 4.845 janelas de 84,7 s da chegada dos boletins ao TSE no 2º turno (DT_BU_RECEBIDO,
+499.205 boletins, de 17:05:10 a 23:21:40) e as mesmas janelas no 1º turno, como controle. Script janelas_84s.py,
+números em janelas_84s.json.
+
+1. A conta do "impossível": tratando cada voto como um sorteio independente, 3.270 janelas do 2º turno são
+   "impossíveis" a favor de Lula (z acima de 5) e 1.298 a favor de Flávio. No 1º turno, que Flávio venceu e que não
+   teve prorrogação, são 7.991 a favor de Lula. Os boletins chegam em blocos por região, então essa conta acusa
+   "impossível" em quase toda janela, nos dois turnos. Não serve para detectar fraude.
+2. Maior "crescimento" do placar de Lula em 84,7 s (depois das 17h30): +0,13 ponto, às 20:28, com boletins de
+   lugares em que Lula é mais forte (53,5% na janela). No 1º turno houve janela maior: +0,17 ponto às 20:00.
+3. O teste que importa é se as seções que chegaram numa janela mudaram mais que as outras entre os turnos. A virada
+   das janelas varia para os dois lados (610 janelas acima e 670 abaixo da virada nacional, por composição regional),
+   e a maior diferença a favor de Lula é de +0,4 ponto, cerca de 10 mil votos de margem. Dentro do mesmo local de
+   votação, a ordem de chegada não muda nada (L8: +0,01 ponto, ep 0,06).
+4. A ordem de chegada não altera votos: o total é a soma dos boletins, cada um impresso e afixado na seção, assinado
+   pela urna. A soma bate com o oficial (T15) e as assinaturas conferem (T18, F12, F18).
+Conclusão: com os dados públicos, nenhuma janela de 84,7 s tem crescimento de Lula fora do que a chegada por região
+explica. A afirmação só pode ser checada de fato quando o relatório disser qual janela e qual conta.
