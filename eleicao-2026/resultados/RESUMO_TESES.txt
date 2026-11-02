@@ -1,0 +1,69 @@
+RESUMO DAS TESES DE FRAUDE NO 2º TURNO DE 2026 E O QUE OS DADOS MOSTRARAM (02/11/2026)
+
+Cada linha: tese, de onde veio, situação, onde está a prova no repositório.
+
+A. ONDE OS VOTOS TERIAM SIDO MEXIDOS
+1. Troca de números na transmissão ou na totalização, inclusive durante a pausa das 17h07 às 19h03.
+   FECHADA. A soma dos 499.207 boletins é igual ao total oficial; boletins assinados pela urna e afixados na seção;
+   o 1º turno também teve pausas. (T1, T15, T18, F12, L8)
+2. Prorrogação: votos depois das 17h, "Flávio ganhou até as 17h", "urnas abertas depois das 17h deram a vitória".
+   FECHADA. Cerca de 34 mil votos depois das 17h; "até as 17h" mistura fusos; a virada foi igual em todos os
+   horários de fechamento; Lula já vencia por 1,17 milhão nas urnas fechadas antes da liminar.
+   (L8, F8, checagens/relatorio_pericial_instagram)
+3. Mesário votando por quem faltou (liberação sem biometria), inclusive o vídeo de Lauro de Freitas 180/280.
+   SEM SINAL. Onde a liberação manual mais cresceu, Lula cresceu igual ou menos que as vizinhas; os logs mostram
+   gente no leitor; a seção 280 já liberava 78% sem digital no 1º turno e virou igual ao prédio. Fragilidade real:
+   leitor ruim em urnas antigas e digital nova aceita quando nem o mesário é reconhecido. (T3, T9, T21, F6, F14,
+   checagens/reel_hugo_hal)
+4. Comparecimento inflado ("4 milhões a mais", "reduzir a abstenção"). NÃO CONFERE O NÚMERO: foram 2,96 milhões. É
+   o primeiro aumento grande da história num 2º turno (fato real), mas os eleitores a mais se dividiram como o
+   resto, e mesmo todos para Lula ele venceria por 1,47 milhão. Perfil do 2º turno ainda não publicado pelo TSE.
+   (contexto_virada_2t, checagens/reel_felipe_cecilio, F15)
+5. Branco e nulo convertidos em voto de Lula. SEM SINAL FORTE. Nenhum nulo digitado 13 ou 22; a queda de branco e
+   nulo foi 64% para Lula pela urna, contra 66% nas pesquisas; T5 inconclusivo nas UFs com governador. (T5, T19)
+6. Troca de votos de Flávio para Lula no programa, por igual ou dirigida. NÃO EXCLUÍDA EM ABSOLUTO, SEM INDÍCIO. Na
+   mesma urna, o governador aliado de Flávio perdeu eleitores na mesma proporção (T22b); o núcleo do PL perdeu
+   menos (L3); as seções extremas pendem para Flávio (F5); dígitos normais (F2). (T14, T16, T22b, L3, F2, F5)
+7. Fraude num lote ou modelo de urna (urnas antigas). CAIU. A vantagem de Lula nas urnas antigas vinha de locais
+   em que as seções novas votaram em outro prédio. (F4, F10, F16)
+8. Mídia do 2º turno ou carga nas zonas. SEM SINAL. A urna recusou mídia com assinatura inválida; pista de mídia
+   copiada no RJ (zona 119). (L2, T20, F9)
+9. Boletim inventado ou alterado por gente. SEM SINAL. Último dígito, porcentagens redondas e boletins repetidos
+   normais; Estância (SE) conferida voto a voto pelo RDV. (F2)
+10. Horários impossíveis e urnas reabertas. SEM SINAL. Atrasos e encerramentos tardios com causa no log; nenhum voto
+   fora de hora. Volta Redonda: urnas suspensas às 17h e encerradas às 19h por quem não era mesário, sem voto
+   depois das 16h59 (falha de procedimento). (L1, F14)
+11. "Crescimento impossível de Lula em 84,7 segundos da apuração". NÃO SE SUSTENTA. A conta de sorteio acusa
+   "impossível" em quase toda janela, e mais no 1º turno; nenhuma janela com virada anormal. (checagens/post_84s)
+12. Certificado vencido da AC URNA. CONFERE COMO FALHA DE GESTÃO: venceu em 18/07/2026; urnas antigas votaram com a
+   cadeia vencida pela regra estrita; caso raro de certificado emitido depois. As assinaturas conferem: não é
+   adulteração. (F12, F18)
+13. Programa adulterado na origem (insider na compilação ou assinatura) que reconhece o teste de integridade.
+   NÃO DÁ PARA EXCLUIR COM DADO PÚBLICO, SEM INDÍCIO. É a única porta aberta: boletim, RDV e log sairiam
+   coerentes. Fecha com compilação independente e publicação dos resumos dos programas instalados.
+   (L7, F11, F12, onde_pode_estar_a_fraude.txt)
+
+B. TESES DE LÓGICA E CONTEXTO
+14. "Ninguém ganha 11 milhões em 21 dias contra quem venceu o 1º turno". Lula +10,4 mi e Flávio +3,7 mi; virada
+   de 2,8 pontos, abaixo da mediana dos 2º turnos; o 1º turno foi o mais apertado da história; 2022 é o espelho;
+   Colômbia e Peru 2026, com papel, tiveram o mesmo erro de pesquisa. O que é inédito: Lula com 111% dos votos
+   dos eliminados e o comparecimento subindo. (contexto_virada_2t, contexto_virada_com_critica.json)
+15. "Flávio perdeu 4% dos próprios eleitores; a centro-direita apoiou". Eleitores de Caiado e Zema foram em maioria
+   para Flávio; a perda de Flávio foi menor no núcleo do PL; padrão de comportamento, que um desvio regulado pela
+   força local de Lula também produziria. (L3, L4, T35)
+16. "Todas as pesquisas erraram para o mesmo lado". INCOERÊNCIA REAL pela letra (L5a), a pista mais forte. Mas os
+   painéis online calibrados (AtlasIntel final, Palver) mediram os eleitores dos eliminados perto da urna; o erro
+   depende do método. Sem pesquisa pós-eleição nem boca de urna. (L5, F13, F17)
+17. Governadores aliados: Lula virou mais onde o governador era de Flávio. Incoerência pela letra explicada por
+   geografia; aparece invertida do lado de Lula. (L6)
+18. EUA, Trump e "dossiê". Não há documento; Trump falou em fraude sem prova; o telegrama da embaixada chama o
+   resultado de "surpreendente, mas definitivo"; OEA sem dúvidas sobre os dados. (L8, F8)
+
+C. O QUE FICA DE PÉ
+- Aberto, sem indício: programa adulterado na origem que reconhece o teste (13).
+- Não explicado por completo: a diferença entre urna e pesquisas no eleitor de direita do 1º turno (16) e o
+  aumento inédito do comparecimento (4).
+- Falhas reais sem efeito em votos: certificado da AC URNA, Volta Redonda, mídia copiada no RJ, divergências do
+  teste de integridade sempre na CLDF, leitores de digital ruins em urnas antigas, confusão da prorrogação.
+- O que resolveria: compilação independente do código, publicação dos resumos dos programas instalados, detalhe da
+  divergência da CLDF, perfil do comparecimento do 2º turno, relatórios do TCU (até 24/11) e da missão da UE.
