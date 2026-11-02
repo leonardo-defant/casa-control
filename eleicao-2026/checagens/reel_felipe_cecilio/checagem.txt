@@ -1,0 +1,20 @@
+CHECAGEM DO REEL DE FELIPE CECÍLIO (@felipececilio.reserva, 28/10/2026)
+
+Base: bweb completo dos dois turnos de 2026 (secoes2026.json.gz) e 3.875 urnas da amostra de logs com os dois dias
+na mesma urna. Script: conferir_reel.py; números: conferir_reel.json.
+
+1. "4 milhões de eleitores a mais no 2º turno": NÃO CONFERE. O comparecimento foi de 125.275.835 para 128.236.074,
+   +2.960.239 (abstenção de 21,08% para 19,22%). O que subiu 4,8 milhões foi o número de votos válidos, porque
+   branco e nulo caíram 1,8 milhão.
+2. "Historicamente menos gente vota no 2º turno": CONFERE. O comparecimento caiu em 6 dos 7 segundos turnos de 1989
+   a 2018 (de -1,4 a -4,6 milhões) e subiu só 0,57 milhão em 2022. 2026 é o primeiro aumento grande. Já estava
+   registrado no projeto (resultados/contexto_virada_2t.txt). Mesmo que todos os 2,96 milhões de eleitores a mais
+   fossem votos inventados para Lula, ele venceria por 1,47 milhão.
+3. "Seções vazias, sem fila, menos comprovantes": em parte confere como percepção, não como total. O comparecimento
+   caiu em 98.521 seções (19,8%) e caiu mais de 5% em 16.218; subiu em 380.771 (76,5%). Na mesma urna, o tempo
+   mediano da habilitação ao voto caiu de 56 s no 1º turno para 10 s no 2º, e o pico passou de 35 para 50 votos por
+   hora, com quase o mesmo número de eleitores por urna (257 e 261). Com um voto só, a fila some.
+4. "Caderno de comprovantes não bate com o resultado no 2º turno": NÃO VERIFICÁVEL sem caso concreto. Seria a única
+   contagem física independente da urna. Para checar: UF, município, zona, seção e a contagem do caderno, comparadas
+   com o comparecimento do boletim e com as habilitações do log da urna. Nas cerca de 350 seções conferidas arquivo
+   por arquivo neste projeto, votos no log, comparecimento no boletim e bweb batem em todas.

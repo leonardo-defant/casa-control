@@ -1,0 +1,62 @@
+{
+ "brasil_e_exterior": {
+  "comp1": 125275835,
+  "apt1": 158745007,
+  "val1": 119306034,
+  "bn1": 5969801,
+  "comp2": 128236074,
+  "apt2": 158744977,
+  "val2": 124082273,
+  "bn2": 4153801,
+  "dif_comp": 2960239,
+  "dif_val": 4776239,
+  "abst1_pct": 21.08,
+  "abst2_pct": 19.22
+ },
+ "so_brasil": {
+  "comp1": 124934069,
+  "apt1": 157828968,
+  "val1": 118975029,
+  "bn1": 5959040,
+  "comp2": 127854631,
+  "apt2": 157828819,
+  "val2": 123710622,
+  "bn2": 4144009,
+  "dif_comp": 2920562,
+  "dif_val": 4735593,
+  "abst1_pct": 20.84,
+  "abst2_pct": 18.99
+ },
+ "secoes": {
+  "n": 497897,
+  "comparecimento_caiu": 98521,
+  "igual": 18605,
+  "subiu": 380771,
+  "caiu_mais_de_5pct": 16218,
+  "pct_caiu": 19.79
+ },
+ "cenario_extremo": {
+  "margem_lula": 4430191,
+  "aumento_comparecimento": 2960239,
+  "margem_sem_nenhum_eleitor_a_mais_supondo_todos_lula": 1469952
+ },
+ "ritmo_amostra": {
+  "urnas_com_os_dois_dias": 3875,
+  "dur_mediana_s": {
+   "1t": 56.0,
+   "2t": 10
+  },
+  "pico_votos_hora": {
+   "1t": 35,
+   "2t": 50
+  },
+  "gap_mediano_s": {
+   "1t": 103.0,
+   "2t": 71
+  },
+  "votos_por_urna": {
+   "1t": 257,
+   "2t": 261
+  }
+ }
+}
