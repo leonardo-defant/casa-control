@@ -1,0 +1,16 @@
+CHECAGEM DO POST "SUPOSTO PASSO A PASSO DA FRAUDE NAS URNAS" (Felipe Cecílio, @FelipeCecilio_)
+
+1º "Adiar o encerramento e o início da apuração": 98,5% das seções fecharam antes da ordem do TSE das 17h49; cerca
+   de 34 mil votos depois das 17h. Cada urna imprime e afixa o boletim na seção antes de transmitir; a pausa da
+   totalização (17h07 a 19h03) não toca nas urnas. (L8, F8, checagens/relatorio_pericial_instagram)
+2º "Implementar o software" durante o atraso: as urnas não têm rede, o programa é assinado e verificado a cada vez
+   que a urna liga, e os boletins já estavam impressos nas seções. Trocar números na totalização faria o total
+   diferir dos boletins; a soma dos boletins bate com o oficial (T15) e as assinaturas conferem (T18, F12, F18).
+   Um programa adulterado teria de estar na urna antes da lacração de 04/09 e não precisaria de atraso nenhum.
+3º "Reduzir abstenção e brancos e nulos": a abstenção caiu de 21,08% para 19,22% (+2,96 milhões) e branco e nulo
+   caíram 1,82 milhão. Cada voto no log tem a habilitação de um eleitor do cadastro, cerca de 88% por digital; o
+   comparecimento a mais se dividiu como o resto; e mesmo que todos fossem votos inventados para Lula, ele venceria
+   por 1,47 milhão. A queda de branco e nulo foi 64% para Lula pela urna, contra 66% nas pesquisas.
+4º "Manipular para a virada parecer natural": uma tese em que tanto o anormal quanto o normal viram prova não pode
+   ser testada. O que dá para testar foi testado: teste de integridade, governador na mesma urna, dígitos, caudas,
+   modelos de urna, mídia, seções extremas. Sem sinal (Adendos 18, 20, 21 e 22).

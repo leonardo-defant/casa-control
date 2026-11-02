@@ -1,0 +1,464 @@
+{
+ "BA|36854|180|268": {
+  "urna_1t_2t": [
+   1657731,
+   1657731
+  ],
+  "comp_1t_2t": [
+   286,
+   330
+  ],
+  "aptos": 412,
+  "lula_flavio_1t": [
+   167,
+   92
+  ],
+  "lula_flavio_2t": [
+   217,
+   101
+  ],
+  "virada_pts": 3.76,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 330,
+   "habilitados": 330,
+   "liberacoes_manuais": 22,
+   "pct_manual": 6.7,
+   "quem_autorizou": {
+    "digital_nova_salva": 3,
+    "digital_gravada_no_dia": 19
+   },
+   "maior_sequencia_manual": 1,
+   "seg_pedido_ate_confere": {
+    "mediana": 7,
+    "min": 3,
+    "p90": 10,
+    "ate_3s": 1,
+    "n": 23
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 286,
+   "habilitados": 286,
+   "liberacoes_manuais": 19,
+   "pct_manual": 6.6,
+   "quem_autorizou": {
+    "digital_nova_salva": 2,
+    "digital_gravada_no_dia": 17
+   },
+   "maior_sequencia_manual": 1,
+   "seg_pedido_ate_confere": {
+    "mediana": 6,
+    "min": 2,
+    "p90": 10,
+    "ate_3s": 5,
+    "n": 19
+   }
+  }
+ },
+ "BA|36854|180|280": {
+  "urna_1t_2t": [
+   1670777,
+   1670777
+  ],
+  "comp_1t_2t": [
+   283,
+   324
+  ],
+  "aptos": 401,
+  "lula_flavio_1t": [
+   165,
+   90
+  ],
+  "lula_flavio_2t": [
+   214,
+   100
+  ],
+  "virada_pts": 3.45,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 324,
+   "habilitados": 324,
+   "liberacoes_manuais": 291,
+   "pct_manual": 89.8,
+   "quem_autorizou": {
+    "mesario_identificado": 168,
+    "digital_nova_salva": 75,
+    "digital_gravada_no_dia": 48
+   },
+   "maior_sequencia_manual": 29,
+   "seg_pedido_ate_confere": {
+    "mediana": 3,
+    "min": 1,
+    "p90": 6,
+    "ate_3s": 196,
+    "n": 291
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 283,
+   "habilitados": 283,
+   "liberacoes_manuais": 222,
+   "pct_manual": 78.4,
+   "quem_autorizou": {
+    "mesario_identificado": 177,
+    "digital_nova_salva": 5,
+    "digital_gravada_no_dia": 39
+   },
+   "maior_sequencia_manual": 25,
+   "seg_pedido_ate_confere": {
+    "mediana": 4,
+    "min": 1,
+    "p90": 8,
+    "ate_3s": 84,
+    "n": 221
+   }
+  }
+ },
+ "BA|36854|180|296": {
+  "urna_1t_2t": [
+   1666524,
+   1666524
+  ],
+  "comp_1t_2t": [
+   306,
+   332
+  ],
+  "aptos": 405,
+  "lula_flavio_1t": [
+   166,
+   103
+  ],
+  "lula_flavio_2t": [
+   206,
+   116
+  ],
+  "virada_pts": 2.27,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 332,
+   "habilitados": 332,
+   "liberacoes_manuais": 58,
+   "pct_manual": 17.5,
+   "quem_autorizou": {
+    "mesario_identificado": 52,
+    "digital_nova_salva": 4,
+    "digital_gravada_no_dia": 2
+   },
+   "maior_sequencia_manual": 4,
+   "seg_pedido_ate_confere": {
+    "mediana": 5.0,
+    "min": 2,
+    "p90": 7,
+    "ate_3s": 18,
+    "n": 58
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 306,
+   "habilitados": 306,
+   "liberacoes_manuais": 42,
+   "pct_manual": 13.7,
+   "quem_autorizou": {
+    "digital_nova_salva": 19,
+    "mesario_identificado": 16,
+    "digital_gravada_no_dia": 7
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 8,
+    "min": 3,
+    "p90": 13,
+    "ate_3s": 1,
+    "n": 43
+   }
+  }
+ },
+ "BA|36854|180|309": {
+  "urna_1t_2t": [
+   1650255,
+   1650255
+  ],
+  "comp_1t_2t": [
+   287,
+   301
+  ],
+  "aptos": 398,
+  "lula_flavio_1t": [
+   150,
+   101
+  ],
+  "lula_flavio_2t": [
+   187,
+   102
+  ],
+  "virada_pts": 4.94,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 301,
+   "habilitados": 301,
+   "liberacoes_manuais": 12,
+   "pct_manual": 4.0,
+   "quem_autorizou": {
+    "mesario_identificado": 11,
+    "digital_nova_salva": 1
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 10.0,
+    "min": 6,
+    "p90": 20,
+    "ate_3s": 0,
+    "n": 12
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 287,
+   "habilitados": 287,
+   "liberacoes_manuais": 15,
+   "pct_manual": 5.2,
+   "quem_autorizou": {
+    "digital_nova_salva": 3,
+    "mesario_identificado": 12
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 10,
+    "min": 5,
+    "p90": 16,
+    "ate_3s": 0,
+    "n": 15
+   }
+  }
+ },
+ "BA|36854|180|480": {
+  "urna_1t_2t": [
+   1674309,
+   1674309
+  ],
+  "comp_1t_2t": [
+   287,
+   312
+  ],
+  "aptos": 402,
+  "lula_flavio_1t": [
+   164,
+   92
+  ],
+  "lula_flavio_2t": [
+   204,
+   98
+  ],
+  "virada_pts": 3.49,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 312,
+   "habilitados": 312,
+   "liberacoes_manuais": 34,
+   "pct_manual": 10.9,
+   "quem_autorizou": {
+    "mesario_identificado": 34
+   },
+   "maior_sequencia_manual": 4,
+   "seg_pedido_ate_confere": {
+    "mediana": 7.0,
+    "min": 3,
+    "p90": 11,
+    "ate_3s": 2,
+    "n": 34
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 287,
+   "habilitados": 287,
+   "liberacoes_manuais": 38,
+   "pct_manual": 13.2,
+   "quem_autorizou": {
+    "mesario_identificado": 38
+   },
+   "maior_sequencia_manual": 4,
+   "seg_pedido_ate_confere": {
+    "mediana": 7.0,
+    "min": 3,
+    "p90": 13,
+    "ate_3s": 1,
+    "n": 38
+   }
+  }
+ },
+ "BA|36854|180|496": {
+  "urna_1t_2t": [
+   1674099,
+   1674099
+  ],
+  "comp_1t_2t": [
+   296,
+   304
+  ],
+  "aptos": 404,
+  "lula_flavio_1t": [
+   149,
+   96
+  ],
+  "lula_flavio_2t": [
+   193,
+   97
+  ],
+  "virada_pts": 5.74,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 304,
+   "habilitados": 304,
+   "liberacoes_manuais": 41,
+   "pct_manual": 13.5,
+   "quem_autorizou": {
+    "mesario_identificado": 31,
+    "digital_nova_salva": 1,
+    "digital_gravada_no_dia": 7
+   },
+   "maior_sequencia_manual": 3,
+   "seg_pedido_ate_confere": {
+    "mediana": 9,
+    "min": 3,
+    "p90": 21,
+    "ate_3s": 1,
+    "n": 39
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 296,
+   "habilitados": 296,
+   "liberacoes_manuais": 23,
+   "pct_manual": 7.8,
+   "quem_autorizou": {
+    "mesario_identificado": 17,
+    "digital_nova_salva": 1,
+    "digital_gravada_no_dia": 5
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 10.0,
+    "min": 5,
+    "p90": 14,
+    "ate_3s": 0,
+    "n": 24
+   }
+  }
+ },
+ "BA|36854|180|508": {
+  "urna_1t_2t": [
+   1676693,
+   1676693
+  ],
+  "comp_1t_2t": [
+   285,
+   298
+  ],
+  "aptos": 400,
+  "lula_flavio_1t": [
+   159,
+   96
+  ],
+  "lula_flavio_2t": [
+   193,
+   99
+  ],
+  "virada_pts": 3.74,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 298,
+   "habilitados": 298,
+   "liberacoes_manuais": 34,
+   "pct_manual": 11.4,
+   "quem_autorizou": {
+    "digital_nova_salva": 32,
+    "mesario_identificado": 2
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 3.0,
+    "min": 2,
+    "p90": 10,
+    "ate_3s": 18,
+    "n": 34
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 285,
+   "habilitados": 285,
+   "liberacoes_manuais": 23,
+   "pct_manual": 8.1,
+   "quem_autorizou": {
+    "digital_nova_salva": 21,
+    "digital_gravada_no_dia": 2
+   },
+   "maior_sequencia_manual": 1,
+   "seg_pedido_ate_confere": {
+    "mediana": 6,
+    "min": 2,
+    "p90": 9,
+    "ate_3s": 5,
+    "n": 23
+   }
+  }
+ },
+ "BA|36854|180|514": {
+  "urna_1t_2t": [
+   1656076,
+   1656076
+  ],
+  "comp_1t_2t": [
+   311,
+   320
+  ],
+  "aptos": 402,
+  "lula_flavio_1t": [
+   173,
+   97
+  ],
+  "lula_flavio_2t": [
+   201,
+   110
+  ],
+  "virada_pts": 0.56,
+  "bu_igual_bweb": true,
+  "2t": {
+   "votos": 320,
+   "habilitados": 320,
+   "liberacoes_manuais": 34,
+   "pct_manual": 10.6,
+   "quem_autorizou": {
+    "digital_nova_salva": 3,
+    "mesario_identificado": 24,
+    "digital_gravada_no_dia": 7
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 7.0,
+    "min": 3,
+    "p90": 22,
+    "ate_3s": 1,
+    "n": 34
+   }
+  },
+  "1t_mesma_urna": {
+   "votos": 311,
+   "habilitados": 311,
+   "liberacoes_manuais": 30,
+   "pct_manual": 9.6,
+   "quem_autorizou": {
+    "mesario_identificado": 24,
+    "digital_nova_salva": 3,
+    "digital_gravada_no_dia": 3
+   },
+   "maior_sequencia_manual": 2,
+   "seg_pedido_ate_confere": {
+    "mediana": 16,
+    "min": 3,
+    "p90": 46,
+    "ate_3s": 1,
+    "n": 31
+   }
+  }
+ }
+}

@@ -1,0 +1,22 @@
+CHECAGEM DO REEL DE @hugo.hal (parte 2, "sequência de votos com liberação por mesários")
+Seção mostrada: Lauro de Freitas (BA), zona 180, seção 280, log do 2º turno (25/10/2026).
+
+Baixados do TSE, em 02/11/2026, boletim, RDV, log e assinatura das 8 seções do mesmo prédio (local 1554).
+Assinaturas válidas nas 8 (88 arquivos); boletim igual ao bweb e RDV igual ao boletim nas 8. Script
+analisar_local_1554.py, números em local_1554.json.
+
+Seção 280, 2º turno:
+- 324 votos, 324 habilitações. 291 liberações manuais (89,8%): o eleitor pôs o dedo 4 vezes, a digital não bateu,
+  o mesário digitou o dado pessoal (ano de nascimento), que conferiu, e uma digital autorizou.
+- Quem autorizou: 168 por mesário identificado pela digital (58%); 75 por uma digital que não bateu com nenhum
+  arquivo e foi salva em arquivo novo; 48 por uma digital igual a uma das salvas no próprio dia.
+- Maior sequência de liberações manuais seguidas: 29 (não 178).
+- Tempo do pedido do dado pessoal até "confere": mediana de 3 s (196 de 291 em até 3 s). Nas vizinhas, de 5 a 10 s;
+  na 508 também 3 s.
+- Mesma urna (UE2013, 1670777) no 1º turno, quando Flávio venceu no país: 222 liberações manuais (78,4%).
+  O problema da leitura de digital já existia antes.
+- Lula foi de 64,7% (165 x 90) no 1º turno para 68,2% (214 x 100): virada de +3,45, igual à média das 7 vizinhas
+  do prédio (de +0,56 a +5,74, média cerca de +3,5), que tiveram de 4% a 17% de liberação manual.
+Leitura: leitor de digital ruim numa urna antiga, nos dois turnos, com o mesmo resultado das vizinhas. A fragilidade
+real é de procedimento: quando nem o mesário é reconhecido, a urna aceita e salva uma digital nova. Fica registrado
+no log, com a digital guardada; vale o TRE-BA conferir de quem são as digitais, mas o resultado da seção não destoa.
