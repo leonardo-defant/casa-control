@@ -1,0 +1,74 @@
+CAÇA AO FURO: A ÚNICA PORTA ABERTA, DECOMPOSTA EM HIPÓTESES E TESTES (03/11/2026)
+
+Enquadramento: perícia. Para cada hipótese de como a contagem teria sido desviada, derivamos a ASSINATURA que
+ela deixaria, o TESTE que a detecta, a SITUAÇÃO (já rodado ou não) e o PRÓXIMO PASSO. Não há aqui nenhum
+procedimento de execução nem de encobrimento: encobrir é justamente apagar a assinatura, que é o que o perito
+procura. Toda assinatura abaixo é um ponto de coleta de prova.
+
+PREMISSA. Tudo o que a urna produz (boletim, RDV, log, assinatura) sai do mesmo programa. Se o programa foi
+adulterado na origem, esses quatro batem entre si por construção. Logo, prova de desvio no programa só vem de algo
+que NÃO passa pelo programa: (i) o código-fonte compilado por terceiro contra o binário assinado; (ii) o boletim
+impresso e afixado na seção, fotografado por fiscais, contra o publicado; (iii) uma assinatura da contagem que a
+urna não controla. Nenhuma das três é um número que eu extraia do dado público de hoje; as três são coleta.
+
+------------------------------------------------------------------------------------------------------------
+H1. O PROGRAMA PRECISA DECIDIR QUANDO TRAPACEAR (ficar honesto no teste de integridade)
+Assinatura: o teste de integridade tem marcas que a votação real não tem. A principal é NENHUMA biometria no dia
+(ambiente controlado, sem eleitor). Um programa que se cale quando "não há biometria" se trairia nas seções REAIS
+que, por acaso, também votaram quase sem biometria: nelas a virada seria menor que a das vizinhas.
+Teste: F6, L7. As 97 seções reais com metade ou mais sem digital viraram igual às vizinhas (0,00, ep 0,19). O
+exterior, que não usa biometria, virou 0,76 ponto abaixo do previsto (ep 0,15): a direção que a hipótese prevê,
+porém menos da metade do que viraria a eleição, e com um contrapeso (razão de cerca de 3 a 1 contra a tese).
+Situação: o único sinal fraco de toda a investigação está aqui. Não é prova; é a pista para afunilar.
+Próximo passo COM dado público: refazer o exterior pareando por composição do 1º turno e por país, com critério
+registrado antes, separando "sem biometria" de "voto no exterior" (são confundidos). Eu rodo isso.
+Próximo passo FORA do dado: pedir ao TSE quantas urnas e votos tiveram a modalidade com biometria no 2º turno e
+o detalhe da divergência do DF (a única urna x papel que não bateu).
+
+H2. O PROGRAMA PRECISA ESCOLHER DE QUEM TIRAR O VOTO
+Assinatura muda conforme a regra:
+(a) fração fixa em toda urna -> não cria degrau; quase não deixa marca na urna. Só a comparação com cargo de baixo
+    (governador) a pega, e só onde há 2º turno de governador.
+(b) proporcional à força local de Lula -> perda de Flávio cresce com a força de Lula na seção (L3, T35).
+(c) poupa os redutos de Flávio -> assimetria de fidelidade (T35).
+Teste: T14, T16 (troca uniforme: sem sinal ou piso), T22b (governador aliado na mesma urna perdeu na mesma
+proporção), L3/T35 (assimetria existe, mas é também o que o comportamento produz).
+Situação: a assinatura (b)/(c) EXISTE nos dados, mas o comportamento normal do eleitor produz a mesma coisa; a
+urna sozinha não separa as duas. É o limite estrutural.
+Próximo passo: o único separador honesto é o cargo de baixo na MESMA urna. O RDV é embaralhado por cargo (não dá
+para ligar o voto de presidente ao de governador do mesmo eleitor: a lei do sigilo bloqueia). Então só resta a
+comparação agregada por seção (T22b). Reforçar T22b com todas as seções dos 6 estados de 2º turno de governador,
+critério antes. Eu rodo.
+
+H3. OS QUATRO ARQUIVOS PRECISAM BATER ENTRE SI
+Assinatura: nenhuma, se o programa é a fonte dos quatro. Bater entre si NÃO é prova de honestidade.
+Teste: T15, T18, F12, F18, F5, F14 batem tudo -> esperado tanto numa eleição limpa quanto numa fraude de programa.
+Situação: isso exclui fraude na transmissão e na totalização (quem mexesse DEPOIS da urna quebraria a soma), não
+exclui fraude DENTRO do programa.
+Próximo passo: sai do dado. (i) Boletim impresso afixado na seção, fotografado por fiscal, contra o publicado: o
+PL recolheu boletins; confrontar uma amostra deles com o bweb é a prova direta que ninguém publicou. (ii) Hash dos
+programas instalados (hash.dat, assinado mas não publicado) contra o resumo do que foi lacrado em 04/09.
+
+H4. "SE REPETE HÁ VÁRIAS ELEIÇÕES"
+Assinatura: se o mesmo mecanismo roda desde 2014/2018/2022, a assinatura (b)/(c) de H2 apareceria crescendo ou
+estável ao longo dos anos nas MESMAS seções, e a distância urna x pesquisa teria o mesmo sinal todo ano.
+Problema: o Adendo 18 proíbe usar outras eleições como régua quando se supõe que todas são fraudadas. Então um
+teste assim não decide; só descreve. Vale como descrição, com o aviso de que não é prova.
+Próximo passo: montar a série da assinatura de H2 em 2014-2022 nas mesmas seções, declarando antes que é
+descritivo. Eu rodo, com a ressalva registrada.
+
+------------------------------------------------------------------------------------------------------------
+A PISTA VIVA QUE NÃO É DA URNA: PESQUISA x URNA NO ELEITOR DE DIREITA DO 1º TURNO (L5, F13, F17)
+É a maior incoerência que sobrou. A urna dá 52-54% dos eleitores dos eliminados a Lula; as pesquisas de telefone e
+presenciais, 32-45%; as de painel online calibrado (AtlasIntel final, Palver), 50-53%, perto da urna. Cabe em:
+fraude dirigida a esse grupo; erro de método das pesquisas; abstenção diferencial; viés da regressão ecológica.
+Separador: só uma medida feita DEPOIS do voto (pesquisa de recordação com urnas de verdade na mão, ou boca de urna
+do dia). Não existe publicada. É a peça que falta, e é coletável (um instituto pode fazer).
+
+PRIORIDADE DE COLETA (do que decide mais para o que decide menos)
+1. Compilação independente do código-fonte contra o binário assinado em 04/09. Decide H1-H3 de uma vez.
+2. Publicação do hash.dat dos programas instalados. Confirma 1 em escala.
+3. Amostra de boletins impressos recolhidos (PL) x bweb. Decide H3 sem depender do TSE.
+4. Detalhe da divergência do DF no teste de integridade (urna, cargo, direção, vídeo).
+5. Pesquisa de recordação pós-voto, estratificada, sobre o eleitor dos eliminados.
+6. Perfil do comparecimento do 2º turno (TSE ainda não publicou).
