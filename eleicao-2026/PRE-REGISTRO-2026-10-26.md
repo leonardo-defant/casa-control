@@ -639,3 +639,21 @@ Pedido do Léo: fazer tudo o que não depende de pedir algo a alguém. Regra do 
 - Anos: 2014 (se o bweb de 2014 estiver publicado e der para ligar as seções), 2018, 2022 e 2026.
 - Duas séries: (a) A(ano) do T35, pela função de scripts/analisar_curva_forca.py sem mudança, sempre nas mesmas seções entre os anos; (b) o erro da última pesquisa Datafolha e Ibope/Ipec do 2º turno na fatia do candidato do PT (urna menos pesquisa), da série já conferida em resultados/contexto_virada_2t.txt.
 - Sem veredito de fraude (Adendo 18: se todas as eleições são suspeitas, nenhuma é régua). Leitura fixada antes: "consistente com o mesmo mecanismo a favor do PT" se, em pelo menos 3 dos anos com dado, A(ano) ficar a favor do candidato do PT (o candidato do PT perde menos, A de +0,015 ou mais no sentido do PT) e a urna ficar acima da pesquisa para o candidato do PT; "inconsistente" se isso falhar em pelo menos 2 dos anos anteriores a 2026.
+
+## Adendo 24 (03/11/2026, antes de rodar): checagem do reel @assis.salvioli ("digitais órfãs" e liberação sem biometria)
+
+Afirmações principais do reel (degravação do Léo): as seções com mais de 10% de eleitores sem biometria deram 97,65% da margem de Lula; nas mesmas seções houve troca de um para um entre eleitores com e sem biometria; dentro da mesma cidade, os 1,28 milhão de votos liberados por digital "órfã" (que não existia em nenhum arquivo da urna, score zero) dão a Lula 15,6 pontos a mais; seções com até 139 erros de ano de nascimento (Xique-Xique, BA; Coronel José Dias, PI). O RDV não liga eleitor a voto, então "em quem votou quem foi liberado por digital órfã" só pode ser estimado por comparação entre seções.
+
+### C1. Nível contra mudança, pelo grau de liberação sem biometria (bweb inteiro)
+- Faixas de seção pela fração QT_ELEI_BIOM_SEM_HABILITACAO / comparecimento no 2º turno (0 a 5%, 5 a 10%, mais de 10%). Em cada faixa: margem de Lula no 2º turno, margem nas mesmas seções no 1º turno, virada (fatia de Lula entre os finalistas, 2º menos 1º turno).
+- Dentro do local de votação: virada contra a faixa (efeito fixo de local, erro agrupado por local, peso L2+R2).
+- Leitura fixada antes: se a faixa de mais de 10% já dava a Lula a maior parte da margem no 1º turno (que Flávio venceu no país) e a virada dentro do local não difere entre faixas (|diferença| abaixo de 0,5 ponto com erro-padrão até 0,25), o placar por faixa é composição, não desvio. Se a virada dentro do local na faixa de mais de 10% for 1,0 ponto ou mais acima da de 0 a 5%, a mais de 4 erros-padrão, é sinal.
+
+### C2. Digitais órfãs e o voto da seção (amostra de 3.897 logs, locais quase inteiros)
+- Por seção e por dia (25/10 e, quando a mesma urna, 04/10): votos liberados por digital que não estava em nenhum arquivo ("Não encontrou digital coletada em nenhum dos arquivos"), por digital gravada no dia, por mesário identificado e por biometria do eleitor.
+- Regressão dentro do local: fatia de Lula entre os finalistas no 2º turno contra a fração de votos liberados por digital órfã, com a fatia de Lula no 1º turno como controle; o coeficiente b estima quanto mais de Lula têm esses votos (o reel diz +0,156). Placebo: a mesma regressão com a fatia do 1º turno como variável e a fração de órfãs do 2º turno como explicativa.
+- Sinal: b de 0,10 ou mais a mais de 4 erros-padrão. Sem sinal: |b| abaixo de 0,05 com erro-padrão até 0,025. Entre os dois: inconclusivo.
+
+### C3. Casos citados, arquivo por arquivo
+- Baixar boletim, RDV, log e assinatura de todas as seções do 2º turno de Xique-Xique (BA) e de Coronel José Dias (PI). Contar por seção: "Dado digitado não confere", liberações, digitais órfãs, "O eleitor identificado já votou", respostas "Todas as pessoas presentes já votaram? SIM" seguidas de retomada da votação depois das 17h. Conferir assinatura, boletim contra bweb, RDV contra boletim, votos no log contra comparecimento, e a virada da seção contra as outras do mesmo local e do município.
+- Sinal: assinatura inválida, boletim diferente do bweb, RDV diferente do boletim, votos no log diferentes do comparecimento, voto computado sem habilitação, ou seção com muitos erros de ano de nascimento cuja virada passe a das outras do mesmo local em 5 pontos ou mais.
