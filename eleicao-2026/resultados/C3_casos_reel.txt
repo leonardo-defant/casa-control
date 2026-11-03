@@ -1,0 +1,344 @@
+C3 (Adendo 24): casos citados no reel de @assis.salvioli, arquivo por arquivo (Xique-Xique/BA e Coronel José Dias/PI)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 24 (commit ca110bb, 03/11/2026 04:24:10 UTC). Script: scripts/analisar_C3_reel.py.
+
+Letra do registro
+- Boletim, RDV, log e assinatura de todas as seções do 2º turno de Xique-Xique (BA) e de Coronel José Dias (PI). Contar por seção:
+  "Dado digitado não confere", liberações, digitais órfãs, "O eleitor identificado já votou", respostas "Todas as pessoas presentes
+  já votaram? SIM" seguidas de retomada da votação depois das 17h. Conferir assinatura, boletim contra bweb, RDV contra boletim, votos
+  no log contra comparecimento, e a virada da seção contra as outras do mesmo local e do município.
+- Sinal: assinatura inválida, boletim diferente do bweb, RDV diferente do boletim, votos no log diferentes do comparecimento, voto
+  computado sem habilitação, ou seção com muitos erros de ano de nascimento cuja virada passe a das outras do mesmo local em 5 pontos ou mais.
+- O reel: "erra o ano de nascimento até 139 vezes na mesma seção"; painel: "139 erros em Xique-Xique/BA e 79 em Coronel José Dias/PI".
+
+Seleção
+- BA|XIQUE-XIQUE: código 39713 no bweb do 2º turno, zona 68, 124 seções (19 com seção agregada), 48 locais.
+- PI|CORONEL JOSÉ DIAS: código 10243 no bweb do 2º turno, zona 13, 24 seções (6 com seção agregada), 14 locais.
+- Base secoes2026: 148 seções com 2º turno nos dois códigos, as mesmas do bweb (148).
+
+Resultado pela letra
+- Boletim igual ao bweb: 148 de 148. RDV igual ao boletim: 148 de 148. Votos no log = comparecimento: 148 de 148. Assinatura ok: 148 de 148.
+- Voto computado sem habilitação (A3): 0. Fora do sinal do C3: A2_antes 0, A2_depois 0, A4_menos_2s 0, A5_rajadas 0.
+- Assinaturas (verificar_assinaturas.py): seções com vsc 148, bloco de hardware ok 148, arquivos com assinatura ok 1628 de 1628, resumos ok 444 de 444, SHA-256 do vsc igual ao aux 148, urna do certificado igual à do boletim 148; falhas 0.
+- Seções com muitos erros de ano de nascimento (20 ou mais no 25/10, D5): 1: PI|10243|13|199 (item da virada: sem comparação).
+- Seções com sinal: 0.
+- VEREDITO: SEM SINAL.
+
+Contagens por município (log do pacote; 2º turno em 25/10; 1º turno = dia 04/10 no mesmo log, só nas seções em que a urna é a mesma)
+- BA|XIQUE-XIQUE, 2º turno (124 seções com o dia no log, 28095 votos): erros de ano de nascimento 102 ("Dado digitado não confere" 74, "Ano de nascimento digitado é diferente do cadastro" 26, inválido 2); maior por seção: 6 (BA|39713|68|202); maior "não confere" por seção 6.
+    liberações sem biometria (M) 2907: mesário identificado 1888, digital gravada no dia 530, digital órfã 489; sem biometria cadastrada 1629; biometria 23559. "O eleitor identificado já votou" 36 (maior sequência numa seção 4); respostas SIM 138, seguidas de voto depois das 17h 1, seguidas de cancelamento do encerramento 11.
+- BA|XIQUE-XIQUE, 1º turno, mesma urna (124 seções com o dia no log, 27416 votos): erros de ano de nascimento 179 ("Dado digitado não confere" 136, "Ano de nascimento digitado é diferente do cadastro" 42, inválido 1); maior por seção: 38 (BA|39713|68|81); maior "não confere" por seção 28.
+    liberações sem biometria (M) 2945: mesário identificado 1748, digital gravada no dia 591, digital órfã 606; sem biometria cadastrada 1574; biometria 22916. "O eleitor identificado já votou" 56 (maior sequência numa seção 6); respostas SIM 132, seguidas de voto depois das 17h 0, seguidas de cancelamento do encerramento 5.
+    virada do município (média das seções ponderada por L2+R2): +0,90 pontos.
+- PI|CORONEL JOSÉ DIAS, 2º turno (24 seções com o dia no log, 4504 votos): erros de ano de nascimento 87 ("Dado digitado não confere" 85, "Ano de nascimento digitado é diferente do cadastro" 1, inválido 1); maior por seção: 68 (PI|10243|13|199); maior "não confere" por seção 66.
+    liberações sem biometria (M) 652: mesário identificado 408, digital gravada no dia 163, digital órfã 81; sem biometria cadastrada 46; biometria 3806. "O eleitor identificado já votou" 14 (maior sequência numa seção 6); respostas SIM 24, seguidas de voto depois das 17h 0, seguidas de cancelamento do encerramento 0.
+- PI|CORONEL JOSÉ DIAS, 1º turno, mesma urna (23 seções com o dia no log, 4513 votos): erros de ano de nascimento 94 ("Dado digitado não confere" 91, "Ano de nascimento digitado é diferente do cadastro" 2, inválido 1); maior por seção: 70 (PI|10243|13|199); maior "não confere" por seção 68.
+    liberações sem biometria (M) 631: mesário identificado 371, digital gravada no dia 194, digital órfã 66; sem biometria cadastrada 38; biometria 3848. "O eleitor identificado já votou" 20 (maior sequência numa seção 8); respostas SIM 25, seguidas de voto depois das 17h 0, seguidas de cancelamento do encerramento 2.
+    virada do município (média das seções ponderada por L2+R2): +1,23 pontos.
+
+Os números do reel (139 e 79)
+- Contagens por seção iguais a 139 ou 79: BA|39713|68|5 turno 1 hab_B=139; BA|39713|68|205 turno 2 hab_B=139; BA|39713|68|263 turno 1 hab_B=139; PI|10243|13|204 turno 2 hab_B=139
+- Contexto (D10), amostra nacional de 3897 seções do 2º turno: erros de ano de nascimento por seção em 25/10 com média 0,67, mediana 0, p90 2, p99 5, máximo 13; 0 seções com 20 ou mais. Só "não confere": p99 4, máximo 11.
+  Maiores da amostra (erros, não confere, ano diferente/inválido, seção): 13 (11, 2) ce|13897|0095|0262; 10 (8, 2) ba|38490|0015|0505; 9 (9, 0) am|02550|0062|0488; 9 (4, 5) mg|54070|0280|0233; 9 (4, 5) mg|47430|0156|0046; 9 (3, 6) rj|58424|0225|0008; 9 (2, 7) rj|60011|0167|0064; 9 (0, 9) rj|58190|0075|0135.
+
+O que isso quer dizer
+- Nas 148 seções dos dois municípios, o boletim é igual ao bweb, o RDV é igual ao boletim, o log conta os mesmos votos do
+  comparecimento, não há voto computado sem habilitação, e a assinatura de hardware de cada urna confere. O limite é o de sempre: os
+  quatro arquivos saem do mesmo software; um software adulterado que gravasse tudo coerente não seria visto aqui.
+- Erros de ano de nascimento no 2º turno: em Xique-Xique, 102 na cidade inteira (124 seções), no máximo
+  6 numa seção (BA|39713|68|202). Em Coronel José Dias, 87 na cidade, 68 deles numa só seção (PI|10243|13|199). Nenhuma seção
+  tem 139 nem 79 erros, nem 139 ou 79 liberações, órfãs, "já votou" ou tentativas, em nenhum dos dois dias que o log traz (as únicas
+  coincidências são o número de habilitações biométricas de 4 seções, que nada têm a ver com erro). Na amostra nacional de 3897 seções, o máximo por seção é 13 e o percentil 99 é 5: a seção PI|10243|13|199
+  é real e fora da curva; Xique-Xique não é.
+- Em PI|10243|13|199 os erros não são um eleitor errando 68 vezes: são 67 tentativas de habilitação com erro ao longo do dia
+  ({'08h': 17, '09h': 13, '10h': 12, '11h': 12, '12h': 7, '13h': 2, '14h': 3, '15h': 1, '16h': 1}), com no máximo 2 erros numa tentativa (a urna cancela depois do segundo dado errado).
+  Em 65 delas o eleitor foi liberado logo depois, na mesma tentativa, e votou; quem autorizou: digital gravada
+  no dia 55, digital órfã 8, mesário identificado 1, sem biometria cadastrada 1.
+  Em 64 das 67 o roteiro é o mesmo: a biometria do eleitor falha, a urna pede o dado pessoal, o mesário digita o ano, "não
+  confere", digita de novo, "confere", e uma digital autoriza no lugar do mesário. O log não grava o que foi digitado.
+  Na mesma urna, no 1º turno (que Flávio venceu no país), o mesmo quadro: 70 erros, 61 liberados na mesma tentativa (mesário identificado 28, digital gravada no dia 29, órfã 3, sem biometria cadastrada 1).
+  Lula já tinha 93,9% dos votos dos finalistas no 1º turno e foi a 96,2%: virada de +2,30, contra +1,16 das outras seções do município. A seção é a única do seu local, então o item do sinal fica "sem
+  comparação" pela regra fixada; contra o município a diferença é de +1,14 pontos, longe dos 5.
+- "Já votou": a maior sequência é de 8 no 1º turno (PI|10243|13|199) e de 6 no 2º turno (PI|10243|13|242). Cada linha é a urna recusando
+  um título de quem já tinha votado: a mensagem não habilita ninguém.
+  As sequências de 6 ou mais (BA|39713|68|196 6 de 19:14:01 a 19:19:41; PI|10243|13|242 6 de 17:00:56 a 17:03:02; PI|10243|13|199 8 de 18:13:30 a 18:18:21; PI|10243|13|242 7 de 17:01:49 a 17:06:18)
+  ficam a minutos do pedido de encerramento e nenhuma é seguida de voto (E3).
+- SIM seguida de retomada depois das 17h: 1 caso em 148 seções no 2º turno (ver E4).
+- Liberações sem biometria nas mesmas urnas: Xique-Xique 2945 no 1º turno e 2907 no 2º (órfãs 606 e 489); Coronel José Dias 631 e 652 (órfãs 66 e 81). O volume é o mesmo nos dois turnos.
+  M do log (classes do C2) igual ao QT_ELEI_BIOM_SEM_HABILITACAO do bweb em 148 de 148 seções.
+  "Score zero" (2º turno): das 570 liberações por digital órfã nas duas cidades, 1 tem todos os scores da comparação iguais a
+  zero, 6 não têm linha de score, e o maior score de uma órfã é 19 (baixo, por isso não bateu com nenhum mesário; não é zero).
+  "Score zero" (1º turno): das 672 liberações por digital órfã nas duas cidades, 1 tem todos os scores da comparação iguais a
+  zero, 10 não têm linha de score, e o maior score de uma órfã é 19 (baixo, por isso não bateu com nenhum mesário; não é zero).
+  As seções com mais órfãs no 2º turno têm quase o mesmo número no 1º turno na mesma urna (2º e 1º turno; virada contra o município): BA|39713|68|78 46 e 40 (-0,0); BA|39713|68|260 30 e 32 (+0,3); BA|39713|68|36 29 e 29 (+0,1); PI|10243|13|242 27 e 26 (+0,9); BA|39713|68|10 21 e 28 (-3,4).
+- Virada dos municípios: Xique-Xique +0,90, Coronel José Dias +1,23 pontos.
+
+Seção por seção, 2º turno (nc = "Dado digitado não confere", ad = ano diferente, ai = ano inválido; M = liberação sem biometria de eleitor com
+biometria cadastrada, MI mesário identificado, DG digital gravada no dia, OR digital órfã; S = sem biometria cadastrada; seq = maior sequência
+de "já votou"; ret17 = respostas SIM seguidas de voto às 17h ou depois; virada em pontos; local/mun = diferença contra as outras seções
+do local (número de outras entre parênteses) e do município, ponderada por L2+R2)
+
+BA|XIQUE-XIQUE
+  BA|39713|68|1      loc  1015 votos  278 | erros   2 (nc 0, ad 2, ai 0) | M 26 (MI 24, DG 1, OR 1) S 24 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,6 local +3,3 (2) mun +2,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|3      loc  1015 votos  290 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 2, DG 1, OR 19) S 32 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,9 local -4,2 (2) mun -1,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|4      loc  1104 votos  329 | erros   0 (nc 0, ad 0, ai 0) | M 29 (MI 23, DG 4, OR 2) S 15 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,1 local +2,2 (7) mun +2,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|5      loc  1104 votos  164 | erros   0 (nc 0, ad 0, ai 0) | M 15 (MI 13, DG 1, OR 1) S 6 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,8 local -0,5 (7) mun -0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|6      loc  1066 votos  219 | erros   0 (nc 0, ad 0, ai 0) | M 33 (MI 1, DG 28, OR 4) S 10 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,2 local +1,3 (12) mun +2,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|7      loc  1040 votos  184 | erros   0 (nc 0, ad 0, ai 0) | M 15 (MI 0, DG 0, OR 15) S 10 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,8 local +1,0 (4) mun -0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|8      loc  1040 votos  191 | erros   0 (nc 0, ad 0, ai 0) | M 20 (MI 1, DG 18, OR 1) S 11 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,1 local -0,1 (4) mun -1,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|9      loc  1040 votos  185 | erros   0 (nc 0, ad 0, ai 0) | M 12 (MI 12, DG 0, OR 0) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,1 local +3,9 (4) mun +2,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|10     loc  1040 votos  186 | erros   0 (nc 0, ad 0, ai 0) | M 23 (MI 2, DG 0, OR 21) S 15 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,4 local -3,0 (4) mun -3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|11     loc  1821 votos  213 | erros   0 (nc 0, ad 0, ai 0) | M 30 (MI 24, DG 2, OR 4) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,6 local -0,5 (3) mun -0,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|12     loc  1821 votos  216 | erros   1 (nc 0, ad 1, ai 0) | M 13 (MI 1, DG 1, OR 11) S 16 | já votou 0 (seq 0) | SIM 2 ret17 0 canc 1 | virada +1,6 local +0,9 (3) mun +0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|13     loc  1066 votos  224 | erros   0 (nc 0, ad 0, ai 0) | M 11 (MI 9, DG 0, OR 2) S 23 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,2 local -0,9 (12) mun +0,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|14     loc  1066 votos  234 | erros   1 (nc 1, ad 0, ai 0) | M 20 (MI 2, DG 15, OR 3) S 23 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,6 local +0,7 (12) mun +1,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|15     loc  1074 votos  179 | erros   1 (nc 1, ad 0, ai 0) | M 14 (MI 14, DG 0, OR 0) S 18 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,9 local -1,9 (1) mun -1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|16     loc  1074 votos  192 | erros   0 (nc 0, ad 0, ai 0) | M 23 (MI 22, DG 0, OR 1) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,0 local +1,9 (1) mun +0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|17     loc  1139 votos  265 | erros   0 (nc 0, ad 0, ai 0) | M 20 (MI 20, DG 0, OR 0) S 25 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,9 local -1,6 (1) mun -2,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|18     loc  1066 votos  231 | erros   1 (nc 1, ad 0, ai 0) | M 29 (MI 24, DG 3, OR 2) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,2 local +1,3 (12) mun +2,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|19     loc  1104 votos  320 | erros   1 (nc 0, ad 1, ai 0) | M 21 (MI 19, DG 0, OR 2) S 62 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,3 local -4,4 (7) mun -3,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|21     loc  1104 votos  342 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 6, DG 10, OR 1) S 23 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +4,1 local +3,5 (7) mun +3,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|22     loc  1112 votos  282 | erros   3 (nc 3, ad 0, ai 0) | M 27 (MI 20, DG 5, OR 2) S 17 | já votou 2 (seq 2) | SIM 1 ret17 0 canc 0 | virada +1,1 local - (0) mun +0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|24     loc  1120 votos  316 | erros   0 (nc 0, ad 0, ai 0) | M 14 (MI 6, DG 4, OR 4) S 17 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,4 local +1,3 (2) mun +0,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|25     loc  1120 votos  309 | erros   0 (nc 0, ad 0, ai 0) | M 63 (MI 60, DG 1, OR 2) S 17 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,0 local -2,2 (2) mun -1,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|27     loc  1139 votos  267 | erros   0 (nc 0, ad 0, ai 0) | M 24 (MI 18, DG 4, OR 2) S 17 | já votou 0 (seq 0) | SIM 2 ret17 0 canc 1 | virada -0,3 local +1,6 (1) mun -1,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|28     loc  1104 votos  173 | erros   0 (nc 0, ad 0, ai 0) | M 11 (MI 9, DG 0, OR 2) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,3 local +2,2 (7) mun +2,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|29     loc  1104 votos  174 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 15, DG 1, OR 1) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,1 local -2,6 (7) mun -2,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|30     loc  1155 votos  169 | erros   1 (nc 0, ad 1, ai 0) | M 12 (MI 7, DG 3, OR 2) S 16 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,5 local -0,5 (2) mun -0,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|31     loc  1155 votos  182 | erros   1 (nc 1, ad 0, ai 0) | M 33 (MI 30, DG 0, OR 3) S 1 | já votou 1 (seq 1) | SIM 2 ret17 0 canc 1 | virada +2,8 local +2,9 (2) mun +1,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|32     loc  1155 votos  188 | erros   0 (nc 0, ad 0, ai 0) | M 21 (MI 0, DG 0, OR 21) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,6 local -2,3 (2) mun -1,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|33     loc  1163 votos  143 | erros   1 (nc 1, ad 0, ai 0) | M 13 (MI 13, DG 0, OR 0) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,5 local +1,6 (1) mun +1,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|34     loc  1180 votos  200 | erros   0 (nc 0, ad 0, ai 0) | M 8 (MI 6, DG 0, OR 2) S 19 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada -0,5 local -1,7 (5) mun -1,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|35     loc  1180 votos  210 | erros   0 (nc 0, ad 0, ai 0) | M 37 (MI 9, DG 27, OR 1) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,8 local +1,1 (5) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|36     loc  1180 votos  229 | erros   3 (nc 1, ad 2, ai 0) | M 29 (MI 0, DG 0, OR 29) S 18 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,0 local +0,2 (5) mun +0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|37     loc  1180 votos  225 | erros   0 (nc 0, ad 0, ai 0) | M 24 (MI 24, DG 0, OR 0) S 14 | já votou 0 (seq 0) | SIM 3 ret17 0 canc 2 | virada -0,8 local -2,1 (5) mun -1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|38     loc  1244 votos  295 | erros   1 (nc 1, ad 0, ai 0) | M 26 (MI 13, DG 12, OR 1) S 22 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,8 local -0,8 (7) mun -0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|39     loc  1066 votos  230 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 16, DG 0, OR 0) S 9 | já votou 1 (seq 1) | SIM 3 ret17 1 canc 2 | virada -0,1 local -2,3 (12) mun -1,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|40     loc  1210 votos  227 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 1, DG 0, OR 21) S 15 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,9 local - (0) mun -1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|41     loc  1228 votos  287 | erros   0 (nc 0, ad 0, ai 0) | M 31 (MI 29, DG 1, OR 1) S 20 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,7 local - (0) mun +2,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|43     loc  1163 votos  263 | erros   1 (nc 0, ad 1, ai 0) | M 25 (MI 23, DG 1, OR 1) S 13 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,9 local -1,6 (1) mun +0,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|44     loc  1244 votos  288 | erros   0 (nc 0, ad 0, ai 0) | M 26 (MI 25, DG 0, OR 1) S 20 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,6 local +0,1 (7) mun +0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|45     loc  1244 votos  283 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 16, DG 0, OR 0) S 16 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,9 local +2,8 (7) mun +3,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|46     loc  1244 votos  297 | erros   0 (nc 0, ad 0, ai 0) | M 21 (MI 21, DG 0, OR 0) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,7 local -0,9 (7) mun -0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|47     loc  1066 votos  224 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 11, DG 3, OR 2) S 17 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,0 local +2,2 (12) mun +3,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|48     loc  1260 votos  241 | erros   1 (nc 1, ad 0, ai 0) | M 17 (MI 13, DG 1, OR 3) S 25 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -3,5 local -5,1 (3) mun -4,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|49     loc  1260 votos  236 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 12, DG 1, OR 3) S 25 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,0 local -0,4 (3) mun -1,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|50     loc  1295 votos  222 | erros   0 (nc 0, ad 0, ai 0) | M 21 (MI 18, DG 2, OR 1) S 13 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,6 local -4,0 (2) mun -2,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|51     loc  1180 votos  213 | erros   1 (nc 0, ad 1, ai 0) | M 14 (MI 14, DG 0, OR 0) S 15 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,8 local +1,1 (5) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|52     loc  1295 votos  229 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 12, DG 0, OR 5) S 17 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,1 local +1,7 (2) mun +1,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|53     loc  1457 votos  248 | erros   1 (nc 1, ad 0, ai 0) | M 26 (MI 20, DG 4, OR 2) S 21 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,7 local +2,2 (4) mun +2,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|54     loc  1457 votos  252 | erros   0 (nc 0, ad 0, ai 0) | M 40 (MI 35, DG 3, OR 2) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,1 local -1,0 (4) mun +0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|55     loc  1325 votos  149 | erros   0 (nc 0, ad 0, ai 0) | M 20 (MI 12, DG 5, OR 3) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,5 local - (0) mun +1,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|57     loc  1333 votos  230 | erros   0 (nc 0, ad 0, ai 0) | M 29 (MI 19, DG 8, OR 2) S 5 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,9 local +3,8 (1) mun -0,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|58     loc  1333 votos  235 | erros   4 (nc 4, ad 0, ai 0) | M 26 (MI 9, DG 16, OR 1) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,9 local -3,8 (1) mun -3,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|76     loc  1511 votos  269 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 19, DG 2, OR 1) S 25 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,2 local +3,2 (3) mun +3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|77     loc  1511 votos  267 | erros   0 (nc 0, ad 0, ai 0) | M 42 (MI 38, DG 0, OR 4) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,9 local -1,3 (3) mun -0,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|78     loc  1511 votos  272 | erros   0 (nc 0, ad 0, ai 0) | M 47 (MI 1, DG 0, OR 46) S 17 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,9 local -1,3 (3) mun -0,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|79     loc  1538 votos  254 | erros   0 (nc 0, ad 0, ai 0) | M 25 (MI 13, DG 10, OR 2) S 9 | já votou 2 (seq 2) | SIM 1 ret17 0 canc 0 | virada +0,5 local - (0) mun -0,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|80     loc  1546 votos  279 | erros   0 (nc 0, ad 0, ai 0) | M 30 (MI 30, DG 0, OR 0) S 6 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,3 local -1,7 (3) mun -1,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|81     loc  1554 votos  212 | erros   0 (nc 0, ad 0, ai 0) | M 25 (MI 0, DG 22, OR 3) S 13 | já votou 3 (seq 3) | SIM 1 ret17 0 canc 0 | virada +3,2 local - (0) mun +2,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|82     loc  1805 votos  303 | erros   2 (nc 1, ad 1, ai 0) | M 76 (MI 23, DG 44, OR 9) S 10 | já votou 4 (seq 2) | SIM 1 ret17 0 canc 0 | virada -2,5 local - (0) mun -3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|83     loc  1813 votos  145 | erros   1 (nc 1, ad 0, ai 0) | M 8 (MI 0, DG 5, OR 3) S 12 | já votou 0 (seq 0) | SIM 2 ret17 0 canc 0 | virada +1,4 local +1,9 (1) mun +0,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|84     loc  1570 votos  172 | erros   0 (nc 0, ad 0, ai 0) | M 18 (MI 17, DG 0, OR 1) S 10 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +3,4 local +3,9 (2) mun +2,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|85     loc  1570 votos  181 | erros   0 (nc 0, ad 0, ai 0) | M 25 (MI 25, DG 0, OR 0) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,2 local -3,0 (2) mun -2,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|86     loc  1570 votos  173 | erros   1 (nc 1, ad 0, ai 0) | M 21 (MI 13, DG 4, OR 4) S 9 | já votou 3 (seq 3) | SIM 1 ret17 0 canc 0 | virada +0,2 local -0,8 (2) mun -0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|87     loc  1597 votos  297 | erros   1 (nc 1, ad 0, ai 0) | M 45 (MI 40, DG 2, OR 3) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,3 local - (0) mun -0,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|88     loc  1600 votos  134 | erros   0 (nc 0, ad 0, ai 0) | M 11 (MI 3, DG 4, OR 4) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,6 local - (0) mun -0,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|89     loc  1619 votos  140 | erros   1 (nc 1, ad 0, ai 0) | M 18 (MI 16, DG 1, OR 1) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,5 local - (0) mun -2,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|90     loc  1635 votos  190 | erros   0 (nc 0, ad 0, ai 0) | M 14 (MI 0, DG 0, OR 14) S 13 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,8 local +0,9 (3) mun +1,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|91     loc  1643 votos  185 | erros   0 (nc 0, ad 0, ai 0) | M 19 (MI 2, DG 0, OR 17) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,5 local - (0) mun -3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|93     loc  1651 votos  277 | erros   1 (nc 1, ad 0, ai 0) | M 44 (MI 43, DG 0, OR 1) S 6 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +1,6 local - (0) mun +0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|100    loc  1066 votos  224 | erros   4 (nc 2, ad 2, ai 0) | M 17 (MI 15, DG 0, OR 2) S 26 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,6 local -1,5 (12) mun -0,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|101    loc  1244 votos  297 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 17, DG 0, OR 0) S 13 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,3 local +3,1 (7) mun +3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|102    loc  1562 votos  171 | erros   1 (nc 0, ad 1, ai 0) | M 9 (MI 8, DG 0, OR 1) S 10 | já votou 0 (seq 0) | SIM 2 ret17 0 canc 0 | virada -0,1 local -1,1 (1) mun -1,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|106    loc  1457 votos  250 | erros   0 (nc 0, ad 0, ai 0) | M 37 (MI 24, DG 3, OR 10) S 22 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +3,4 local +1,9 (4) mun +2,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|108    loc  1120 votos  320 | erros   6 (nc 4, ad 2, ai 0) | M 19 (MI 18, DG 0, OR 1) S 20 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,1 local +0,8 (2) mun +0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|110    loc  1040 votos  217 | erros   2 (nc 2, ad 0, ai 0) | M 30 (MI 30, DG 0, OR 0) S 12 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -1,1 local -1,5 (4) mun -2,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|112    loc  1546 votos  282 | erros   5 (nc 5, ad 0, ai 0) | M 39 (MI 34, DG 4, OR 1) S 2 | já votou 5 (seq 4) | SIM 3 ret17 0 canc 2 | virada -0,9 local -2,4 (3) mun -1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|113    loc  1635 votos  186 | erros   4 (nc 3, ad 1, ai 0) | M 18 (MI 6, DG 11, OR 1) S 7 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +0,5 local -2,2 (3) mun -0,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|114    loc  1066 votos  242 | erros   2 (nc 2, ad 0, ai 0) | M 17 (MI 16, DG 0, OR 1) S 27 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,1 local -1,0 (12) mun +0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|115    loc  1066 votos  239 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 16, DG 4, OR 2) S 34 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,1 local -2,1 (12) mun -0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|116    loc  1821 votos  209 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 11, DG 10, OR 1) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,2 local -1,0 (3) mun -0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|118    loc  1104 votos  162 | erros   0 (nc 0, ad 0, ai 0) | M 14 (MI 5, DG 6, OR 3) S 3 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,7 local -2,2 (7) mun -1,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|119    loc  1244 votos  282 | erros   0 (nc 0, ad 0, ai 0) | M 13 (MI 13, DG 0, OR 0) S 22 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,9 local -0,6 (7) mun +0,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|121    loc  1350 votos  209 | erros   4 (nc 0, ad 3, ai 1) | M 18 (MI 1, DG 16, OR 1) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -4,3 local -4,3 (1) mun -5,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|122    loc  1368 votos  252 | erros   0 (nc 0, ad 0, ai 0) | M 37 (MI 35, DG 1, OR 1) S 6 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,0 local +0,2 (1) mun -0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|123    loc  1376 votos  247 | erros   2 (nc 1, ad 1, ai 0) | M 41 (MI 36, DG 3, OR 2) S 12 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,7 local - (0) mun -1,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|124    loc  1384 votos  255 | erros   0 (nc 0, ad 0, ai 0) | M 41 (MI 6, DG 31, OR 4) S 12 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,9 local - (0) mun -1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|126    loc  1406 votos  201 | erros   1 (nc 1, ad 0, ai 0) | M 31 (MI 22, DG 3, OR 6) S 11 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,5 local -5,1 (1) mun -3,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|129    loc  1252 votos  247 | erros   0 (nc 0, ad 0, ai 0) | M 23 (MI 18, DG 3, OR 2) S 18 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +2,6 local +2,4 (3) mun +1,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|131    loc  1180 votos  230 | erros   1 (nc 0, ad 1, ai 0) | M 11 (MI 11, DG 0, OR 0) S 18 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,0 local +1,3 (5) mun +1,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|133    loc  1244 votos  284 | erros   0 (nc 0, ad 0, ai 0) | M 19 (MI 18, DG 0, OR 1) S 22 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,1 local -1,8 (7) mun -1,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|134    loc  1260 votos  248 | erros   1 (nc 0, ad 1, ai 0) | M 15 (MI 13, DG 0, OR 2) S 25 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,8 local +3,4 (3) mun +1,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|135    loc  1635 votos  195 | erros   1 (nc 1, ad 0, ai 0) | M 12 (MI 11, DG 0, OR 1) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,5 local -0,9 (3) mun +0,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|136    loc  1457 votos  253 | erros   1 (nc 0, ad 1, ai 0) | M 13 (MI 13, DG 0, OR 0) S 22 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,7 local -0,3 (4) mun +0,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|177    loc  1066 votos  227 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 9, DG 6, OR 2) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,9 local -0,1 (12) mun +1,0 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|180    loc  1244 votos  286 | erros   1 (nc 0, ad 1, ai 0) | M 17 (MI 17, DG 0, OR 0) S 15 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,2 local -1,9 (7) mun -1,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|186    loc  1406 votos  109 | erros   2 (nc 2, ad 0, ai 0) | M 5 (MI 5, DG 0, OR 0) S 3 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,6 local +5,1 (1) mun +1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|187    loc  1821 votos  194 | erros   0 (nc 0, ad 0, ai 0) | M 13 (MI 13, DG 0, OR 0) S 11 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,4 local +0,6 (3) mun +0,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|188    loc  1252 votos  241 | erros   2 (nc 2, ad 0, ai 0) | M 50 (MI 33, DG 13, OR 4) S 29 | já votou 2 (seq 2) | SIM 1 ret17 0 canc 0 | virada -1,7 local -3,3 (3) mun -2,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|190    loc  1546 votos  283 | erros   2 (nc 2, ad 0, ai 0) | M 27 (MI 8, DG 9, OR 10) S 3 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,4 local +3,3 (3) mun +2,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|191    loc  1350 votos  177 | erros   1 (nc 1, ad 0, ai 0) | M 24 (MI 21, DG 1, OR 2) S 12 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,0 local +4,3 (1) mun -0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|192    loc  1066 votos  223 | erros   1 (nc 0, ad 1, ai 0) | M 16 (MI 15, DG 0, OR 1) S 22 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,4 local +0,4 (12) mun +1,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|193    loc  1686 votos  330 | erros   4 (nc 4, ad 0, ai 0) | M 54 (MI 53, DG 0, OR 1) S 11 | já votou 1 (seq 1) | SIM 3 ret17 0 canc 1 | virada +1,2 local - (0) mun +0,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|194    loc  1678 votos  216 | erros   2 (nc 1, ad 1, ai 0) | M 37 (MI 21, DG 13, OR 3) S 12 | já votou 5 (seq 4) | SIM 1 ret17 0 canc 0 | virada -1,5 local - (0) mun -2,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|195    loc  1716 votos  225 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 0, DG 15, OR 1) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,7 local - (0) mun -3,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|196    loc  1694 votos  266 | erros   0 (nc 0, ad 0, ai 0) | M 22 (MI 0, DG 21, OR 1) S 9 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,0 local - (0) mun +1,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|197    loc  1708 votos  211 | erros   2 (nc 2, ad 0, ai 0) | M 20 (MI 7, DG 11, OR 2) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,8 local - (0) mun -0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|198    loc  1724 votos  179 | erros   0 (nc 0, ad 0, ai 0) | M 38 (MI 35, DG 1, OR 2) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,1 local - (0) mun +0,2 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|201    loc  1066 votos  221 | erros   0 (nc 0, ad 0, ai 0) | M 16 (MI 0, DG 0, OR 16) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,7 local +0,7 (12) mun +1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|202    loc  1791 votos  201 | erros   6 (nc 6, ad 0, ai 0) | M 41 (MI 33, DG 6, OR 2) S 8 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,7 local - (0) mun +0,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|203    loc  1783 votos  104 | erros   2 (nc 2, ad 0, ai 0) | M 18 (MI 1, DG 13, OR 4) S 3 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,3 local - (0) mun +0,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|204    loc  1368 votos  199 | erros   1 (nc 1, ad 0, ai 0) | M 25 (MI 24, DG 0, OR 1) S 10 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,2 local -0,2 (1) mun -1,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|205    loc  1562 votos  154 | erros   2 (nc 2, ad 0, ai 0) | M 11 (MI 11, DG 0, OR 0) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,0 local +1,1 (1) mun +0,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|206    loc  1813 votos  143 | erros   0 (nc 0, ad 0, ai 0) | M 25 (MI 24, DG 0, OR 1) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,5 local -1,9 (1) mun -1,4 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|209    loc  1252 votos  240 | erros   2 (nc 2, ad 0, ai 0) | M 31 (MI 5, DG 14, OR 12) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,5 local +2,3 (3) mun +1,6 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|260    loc  1511 votos  234 | erros   0 (nc 0, ad 0, ai 0) | M 35 (MI 5, DG 0, OR 30) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,2 local -0,8 (3) mun +0,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|261    loc  1260 votos  239 | erros   3 (nc 3, ad 0, ai 0) | M 25 (MI 21, DG 3, OR 1) S 6 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,8 local +2,0 (3) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|262    loc  1252 votos  234 | erros   0 (nc 0, ad 0, ai 0) | M 18 (MI 2, DG 12, OR 4) S 19 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,4 local -1,5 (3) mun -1,3 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|263    loc  1104 votos  148 | erros   0 (nc 0, ad 0, ai 0) | M 8 (MI 0, DG 0, OR 8) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,7 local +0,4 (7) mun +0,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|264    loc  1066 votos  217 | erros   0 (nc 0, ad 0, ai 0) | M 18 (MI 3, DG 7, OR 8) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +3,4 local +1,5 (12) mun +2,5 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|265    loc  1635 votos  173 | erros   1 (nc 0, ad 0, ai 1) | M 20 (MI 14, DG 5, OR 1) S 11 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,0 local +2,4 (3) mun +3,1 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|267    loc  1295 votos  199 | erros   1 (nc 1, ad 0, ai 0) | M 26 (MI 17, DG 4, OR 5) S 21 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,7 local +2,4 (2) mun +1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|268    loc  1015 votos  139 | erros   0 (nc 0, ad 0, ai 0) | M 9 (MI 7, DG 1, OR 1) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,7 local +1,5 (2) mun +1,8 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|273    loc  1546 votos  238 | erros   0 (nc 0, ad 0, ai 0) | M 41 (MI 41, DG 0, OR 0) S 14 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,6 local +0,9 (3) mun +0,7 | BU ok RDV ok log ok ass ok A3 0
+  BA|39713|68|278    loc  1457 votos  235 | erros   0 (nc 0, ad 0, ai 0) | M 8 (MI 8, DG 0, OR 0) S 1 | já votou 0 (seq 0) | SIM 2 ret17 0 canc 1 | virada -0,3 local -2,8 (4) mun -1,2 | BU ok RDV ok log ok ass ok A3 0
+
+PI|CORONEL JOSÉ DIAS
+  PI|10243|13|78     loc  1023 votos  242 | erros   2 (nc 2, ad 0, ai 0) | M 53 (MI 48, DG 3, OR 2) S 1 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +0,9 local +0,3 (1) mun -0,3 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|79     loc  1023 votos  188 | erros   1 (nc 1, ad 0, ai 0) | M 43 (MI 43, DG 0, OR 0) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,7 local -0,3 (1) mun -0,6 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|102    loc  1066 votos  210 | erros   1 (nc 1, ad 0, ai 0) | M 13 (MI 12, DG 0, OR 1) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,8 local -0,8 (3) mun +0,6 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|103    loc  1058 votos  243 | erros   0 (nc 0, ad 0, ai 0) | M 31 (MI 31, DG 0, OR 0) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,2 local +2,0 (4) mun +3,1 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|104    loc  1058 votos  232 | erros   0 (nc 0, ad 0, ai 0) | M 20 (MI 20, DG 0, OR 0) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +4,1 local +1,9 (4) mun +3,0 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|105    loc  1058 votos  238 | erros   0 (nc 0, ad 0, ai 0) | M 30 (MI 4, DG 25, OR 1) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,5 local -2,8 (4) mun -0,7 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|106    loc  1066 votos  211 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 16, DG 0, OR 1) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,5 local -2,4 (3) mun -0,7 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|107    loc  1066 votos  238 | erros   1 (nc 1, ad 0, ai 0) | M 35 (MI 33, DG 0, OR 2) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,1 local -0,4 (3) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|145    loc  1244 votos  237 | erros   0 (nc 0, ad 0, ai 0) | M 26 (MI 22, DG 2, OR 2) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,4 local -0,8 (1) mun -1,7 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|199    loc  1082 votos  267 | erros  68 (nc 66, ad 1, ai 1) | M 64 (MI 1, DG 55, OR 8) S 1 | já votou 5 (seq 3) | SIM 1 ret17 0 canc 0 | virada +2,3 local - (0) mun +1,1 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|204    loc  1090 votos  174 | erros   4 (nc 4, ad 0, ai 0) | M 35 (MI 3, DG 31, OR 1) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -0,8 local -1,3 (1) mun -2,1 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|205    loc  1228 votos  172 | erros   0 (nc 0, ad 0, ai 0) | M 30 (MI 30, DG 0, OR 0) S 0 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -2,6 local - (0) mun -3,9 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|206    loc  1112 votos  135 | erros   1 (nc 1, ad 0, ai 0) | M 29 (MI 28, DG 0, OR 1) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,3 local - (0) mun +1,1 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|207    loc  1120 votos  194 | erros   0 (nc 0, ad 0, ai 0) | M 28 (MI 12, DG 13, OR 3) S 2 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada -5,8 local - (0) mun -7,3 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|208    loc  1236 votos  132 | erros   2 (nc 2, ad 0, ai 0) | M 24 (MI 14, DG 7, OR 3) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,3 local - (0) mun +0,1 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|241    loc  1147 votos  115 | erros   1 (nc 1, ad 0, ai 0) | M 21 (MI 0, DG 19, OR 2) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,0 local - (0) mun +0,8 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|242    loc  1163 votos  148 | erros   2 (nc 2, ad 0, ai 0) | M 28 (MI 1, DG 0, OR 27) S 1 | já votou 6 (seq 6) | SIM 1 ret17 0 canc 0 | virada +2,1 local - (0) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|243    loc  1171 votos   84 | erros   0 (nc 0, ad 0, ai 0) | M 13 (MI 9, DG 1, OR 3) S 0 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +2,8 local - (0) mun +1,6 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|244    loc  1180 votos  129 | erros   0 (nc 0, ad 0, ai 0) | M 34 (MI 34, DG 0, OR 0) S 3 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,3 local - (0) mun -1,0 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|249    loc  1066 votos  296 | erros   2 (nc 2, ad 0, ai 0) | M 12 (MI 8, DG 3, OR 1) S 1 | já votou 1 (seq 1) | SIM 1 ret17 0 canc 0 | virada +4,3 local +2,8 (3) mun +3,3 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|268    loc  1090 votos  169 | erros   2 (nc 2, ad 0, ai 0) | M 30 (MI 26, DG 1, OR 3) S 4 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,5 local +1,3 (1) mun -0,7 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|286    loc  1244 votos  153 | erros   0 (nc 0, ad 0, ai 0) | M 12 (MI 0, DG 0, OR 12) S 7 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +0,4 local +0,8 (1) mun -0,9 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|290    loc  1058 votos  173 | erros   0 (nc 0, ad 0, ai 0) | M 17 (MI 13, DG 3, OR 1) S 10 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +2,1 local -0,7 (4) mun +0,9 | BU ok RDV ok log ok ass ok A3 0
+  PI|10243|13|310    loc  1058 votos  124 | erros   0 (nc 0, ad 0, ai 0) | M 7 (MI 0, DG 0, OR 7) S 1 | já votou 0 (seq 0) | SIM 1 ret17 0 canc 0 | virada +1,7 local -1,1 (4) mun +0,5 | BU ok RDV ok log ok ass ok A3 0
+
+Seções descritas (D8): as de muitos erros e, em cada município, a de mais erros de ano de nascimento e a de mais "não confere"
+
+* BA|39713|68|202 (local 1791; abaixo de 20 erros): 6 erros de ano de nascimento em 25/10 (não confere 6, ano diferente 0, ano inválido 0); erros por hora {'08h': 6}; último erro 08:47:22, votos depois dele 169; votos 08:05:20 a 16:40:02.
+    3 tentativas de habilitação com erro (maior número de erros numa tentativa: 2); desfechos {'cancelada': 3, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 1}; classe dos habilitados {}; mesário (pseudônimo) dos MI {}.
+    liberações no dia: M 41 (MI 33, DG 6, OR 2, MX 0), S 8, B 152; NH do bweb 41; mesários no log 3.
+    virada +1,65 (Lula 89,6% no 1º turno, 91,2% no 2º); outras 0 do local - (diferença -); município sem ela +0,90 (diferença +0,76); urna 1T 2304975 2T 2304975; agregação None/None.
+    mesma urna no 1º turno (04/10): 201 votos, 2 erros de ano de nascimento (não confere 2, ano diferente 0), erros por hora {'08h': 1, '14h': 1}; 2 tentativas com erro, desfechos {'habilitado': 2, 'habilitado_e_votou': 2}, classe dos habilitados {'OR': 1, 'DG': 1}, mesário dos MI {}; M 36 (MI 0, DG 32, OR 4), S 7, B 158.
+    "já votou" 0 (maior sequência 0 None); SIM: 17:02:57 (0 votos depois)
+    tentativas com erro (3):
+      08:41:51-08:42:17 2 erro(s) (não confere 2) -> cancelada; tentativa seguinte 31 s depois: cancelada, com 2 erro(s)
+      08:43:41-08:43:56 2 erro(s) (não confere 2) -> cancelada; tentativa seguinte 36 s depois: cancelada, com 2 erro(s)
+      08:46:56-08:47:22 2 erro(s) (não confere 2) -> cancelada; tentativa seguinte 46 s depois: habilitado por B, votou 08:48:37
+
+* PI|10243|13|199 (local 1082; MUITOS ERROS): 68 erros de ano de nascimento em 25/10 (não confere 66, ano diferente 1, ano inválido 1); erros por hora {'08h': 17, '09h': 13, '10h': 12, '11h': 12, '12h': 7, '13h': 2, '14h': 3, '15h': 1, '16h': 1}; último erro 16:44:21, votos depois dele 1; votos 08:03:37 a 16:44:43.
+    67 tentativas de habilitação com erro (maior número de erros numa tentativa: 2); desfechos {'habilitado': 65, 'habilitado_e_votou': 65, 'cancelada': 1, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 1, 'Justificativa recebida': 1}; classe dos habilitados {'OR': 8, 'DG': 55, 'S': 1, 'MI': 1}; mesário (pseudônimo) dos MI {'A': 1}.
+    liberações no dia: M 64 (MI 1, DG 55, OR 8, MX 0), S 1, B 202; NH do bweb 64; mesários no log 4.
+    virada +2,30 (Lula 93,9% no 1º turno, 96,2% no 2º); outras 0 do local - (diferença -); município sem ela +1,16 (diferença +1,14); urna 1T 2207119 2T 2207119; agregação 305/305.
+    mesma urna no 1º turno (04/10): 270 votos, 70 erros de ano de nascimento (não confere 68, ano diferente 1), erros por hora {'08h': 6, '09h': 9, '10h': 4, '11h': 10, '12h': 8, '13h': 7, '14h': 5, '15h': 8, '16h': 4, '17h': 7, '18h': 2}; 66 tentativas com erro, desfechos {'habilitado': 61, 'habilitado_e_votou': 61, 'cancelada': 4, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 3, 'Justificativa recebida': 1}, classe dos habilitados {'OR': 3, 'MI': 28, 'DG': 29, 'S': 1}, mesário dos MI {'C': 28}; M 60 (MI 28, DG 29, OR 3), S 1, B 209.
+    "já votou" 5 (maior sequência 3 ['16:29:23', '16:30:24', 0]); SIM: 17:01:58 (0 votos depois)
+    tentativas com erro (67):
+      08:08:59 1 erro(s) (não confere 1) -> habilitado 08:09:15 por OR, votou 08:09:33
+      08:14:52 1 erro(s) (não confere 1) -> habilitado 08:15:07 por DG, votou 08:15:21
+      08:18:08 1 erro(s) (não confere 1) -> habilitado 08:18:18 por DG, votou 08:18:26
+      08:19:48 1 erro(s) (não confere 1) -> habilitado 08:20:06 por DG, votou 08:20:10
+      08:21:17 1 erro(s) (não confere 1) -> habilitado 08:21:30 por DG, votou 08:21:44
+      08:26:20 1 erro(s) (não confere 1) -> habilitado 08:26:30 por DG, votou 08:26:41
+      08:28:51 1 erro(s) (não confere 1) -> habilitado 08:29:00 por DG, votou 08:29:14
+      08:30:11 1 erro(s) (não confere 1) -> habilitado 08:30:20 por DG, votou 08:30:31
+      08:31:39 1 erro(s) (não confere 1) -> habilitado 08:31:49 por DG, votou 08:32:09
+      08:33:45 1 erro(s) (não confere 1) -> habilitado 08:33:53 por DG, votou 08:34:10
+      08:39:21 1 erro(s) (não confere 1) -> habilitado 08:39:31 por DG, votou 08:39:39
+      08:42:41 1 erro(s) (não confere 1) -> habilitado 08:42:53 por DG, votou 08:43:24
+      08:45:37 1 erro(s) (não confere 1) -> habilitado 08:45:48 por DG, votou 08:46:02
+      08:47:05 1 erro(s) (não confere 1) -> habilitado 08:47:17 por DG, votou 08:47:30
+      08:51:57 1 erro(s) (não confere 1) -> habilitado 08:52:09 por DG, votou 08:52:19
+      08:53:07 1 erro(s) (não confere 1) -> habilitado 08:53:19 por DG, votou 08:53:28
+      08:54:13 1 erro(s) (não confere 1) -> habilitado 08:54:22 por DG, votou 08:54:37
+      09:04:18 1 erro(s) (não confere 1) -> habilitado 09:04:29 por DG, votou 09:04:41
+      09:06:56 1 erro(s) (não confere 1) -> habilitado 09:07:07 por DG, votou 09:07:19
+      09:08:14 1 erro(s) (não confere 1) -> habilitado 09:08:22 por DG, votou 09:08:32
+      09:09:52 1 erro(s) (não confere 1) -> habilitado 09:10:02 por DG, votou 09:10:11
+      09:12:04 1 erro(s) (não confere 1) -> habilitado 09:12:13 por DG, votou 09:12:24
+      09:29:22 1 erro(s) (não confere 1) -> habilitado 09:29:49 por OR, votou 09:30:00
+      09:39:38 1 erro(s) (não confere 1) -> habilitado 09:40:15 por DG, votou 09:40:23
+      09:41:35-09:41:40 2 erro(s) (não confere 2) -> cancelada; tentativa seguinte 29 s depois: habilitado por DG, votou 09:43:15, com 1 erro(s)
+      09:42:50 1 erro(s) (não confere 1) -> habilitado 09:43:01 por DG, votou 09:43:15
+      09:56:31 1 erro(s) (não confere 1) -> habilitado 09:56:42 por DG, votou 09:56:52
+      09:58:00 1 erro(s) (não confere 1) -> habilitado 09:58:12 por DG, votou 09:58:26
+      09:59:44 1 erro(s) (não confere 1) -> habilitado 09:59:54 por DG, votou 10:00:13
+      10:02:49 1 erro(s) (não confere 1) -> habilitado 10:03:06 por DG, votou 10:03:21
+      10:04:14 1 erro(s) (não confere 1) -> habilitado 10:04:26 por DG, votou 10:04:42
+      10:10:17 1 erro(s) (não confere 1) -> habilitado 10:10:26 por DG, votou 10:10:36
+      10:11:42 1 erro(s) (não confere 1) -> habilitado 10:11:52 por OR, votou 10:12:15
+      10:14:29 1 erro(s) (não confere 1) -> habilitado 10:14:41 por DG, votou 10:14:50
+      10:27:49 1 erro(s) (não confere 1) -> habilitado 10:28:26 por DG, votou 10:28:41
+      10:31:34 1 erro(s) (não confere 1) -> habilitado 10:31:45 por OR, votou 10:31:58
+      10:34:04 1 erro(s) (não confere 1) -> habilitado 10:34:27 por DG, votou 10:34:33
+      10:46:52 1 erro(s) (não confere 1) -> habilitado 10:47:07 por DG, votou 10:47:13
+      10:51:02 1 erro(s) (não confere 1) -> habilitado 10:51:20 por DG, votou 10:51:44
+      10:55:40 1 erro(s) (não confere 1) -> habilitado 10:55:53 por DG, votou 10:56:09
+      10:58:38 1 erro(s) (ano diferente 1) -> habilitado 10:58:50 por S, votou 10:59:01
+      11:02:11 1 erro(s) (não confere 1) -> habilitado 11:02:30 por DG, votou 11:02:43
+      11:09:47 1 erro(s) (não confere 1) -> habilitado 11:10:04 por DG, votou 11:10:12
+      11:11:06 1 erro(s) (não confere 1) -> habilitado 11:11:18 por DG, votou 11:11:38
+      11:12:49 1 erro(s) (não confere 1) -> habilitado 11:13:00 por DG, votou 11:13:08
+      11:15:48 1 erro(s) (não confere 1) -> habilitado 11:16:01 por DG, votou 11:16:08
+      11:19:31 1 erro(s) (não confere 1) -> habilitado 11:19:44 por DG, votou 11:20:21
+      11:30:55 1 erro(s) (não confere 1) -> habilitado 11:31:12 por DG, votou 11:31:54
+      11:33:01 1 erro(s) (não confere 1) -> habilitado 11:33:17 por DG, votou 11:33:34
+      11:35:21 1 erro(s) (não confere 1) -> habilitado 11:35:34 por DG, votou 11:35:42
+      11:37:52 1 erro(s) (não confere 1) -> habilitado 11:38:05 por DG, votou 11:38:17
+      11:47:19 1 erro(s) (não confere 1) -> habilitado 11:47:43 por OR, votou 11:47:59
+      11:54:01 1 erro(s) (não confere 1) -> habilitado 11:54:14 por OR, votou 11:54:24
+      12:04:17 1 erro(s) (não confere 1) -> habilitado 12:04:31 por DG, votou 12:04:44
+      12:05:50 1 erro(s) (não confere 1) -> habilitado 12:06:06 por DG, votou 12:06:20
+      12:17:28 1 erro(s) (não confere 1) -> habilitado 12:17:38 por DG, votou 12:17:51
+      12:24:04 1 erro(s) (não confere 1) -> habilitado 12:24:14 por DG, votou 12:24:22
+      12:25:26 1 erro(s) (não confere 1) -> habilitado 12:25:34 por DG, votou 12:25:48
+      12:55:32 1 erro(s) (não confere 1) -> habilitado 12:55:41 por DG, votou 12:55:50
+      12:57:33 1 erro(s) (não confere 1) -> habilitado 12:57:49 por DG, votou 12:58:04
+      13:27:21 1 erro(s) (não confere 1) -> habilitado 13:27:36 por DG, votou 13:27:46
+      13:52:38 1 erro(s) (não confere 1) -> habilitado 13:52:52 por OR, votou 13:53:07
+      14:46:25 1 erro(s) (não confere 1) -> habilitado 14:46:34 por DG, votou 14:46:41
+      14:47:34 1 erro(s) (não confere 1) -> habilitado 14:47:44 por DG, votou 14:47:49
+      14:58:59 1 erro(s) (não confere 1) -> habilitado 14:59:26 por OR, votou 14:59:37
+      15:27:18 1 erro(s) (ano inválido 1) -> Justificativa recebida; tentativa seguinte 36 s depois: sem desfecho (nova identificação)
+      16:44:21 1 erro(s) (não confere 1) -> habilitado 16:44:37 por MI (mesário A), votou 16:44:43
+
+Exploratório, fora do registro (escrito depois de ver o resultado pela letra; contexto, sem veredito)
+- E1. Erros de ano de nascimento em todos os dias do log (preparação, 04/10 e 25/10): maiores por seção PI|10243|13|199 138; BA|39713|68|81 38; BA|39713|68|126 26; BA|39713|68|188 15; PI|10243|13|204 14.
+  Município BA|39713: 04/10/2026: 179 (não confere 136, ano diferente 42, inválido 1); 25/10/2026: 102 (não confere 74, ano diferente 26, inválido 2).
+  Município PI|10243: 04/10/2026: 94 (não confere 91, ano diferente 2, inválido 1); 25/10/2026: 87 (não confere 85, ano diferente 1, inválido 1).
+  Mais perto de 139: 138 (PI|10243|13|199 todos os dias); 136 (município BA|39713 04/10/2026 nao_confere); 102 (município BA|39713 25/10/2026 erros).
+  Mais perto de 79: 74 (município BA|39713 25/10/2026 nao_confere); 85 (município PI|10243 25/10/2026 nao_confere); 87 (município PI|10243 25/10/2026 erros).
+  Iguais a 139 ou 79: nenhuma.
+- E2. Dia 04/10 na mesma urna, seções com 20 ou mais erros:
+  BA|39713|68|81: 38 erros (não confere 28, ano diferente 10), por hora {'08h': 15, '09h': 4, '10h': 6, '11h': 11, '12h': 2}; 20 tentativas com erro, desfechos {'cancelada': 15, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 7, 'sem desfecho (nova identificação)': 5}, classe dos habilitados {}; liberações do dia {'B': 186, 'MI': 0, 'DG': 14, 'OR': 2, 'MX': 0, 'S': 14, 'X': 0}; votos depois do último erro 125; erros no 25/10: 0.
+  BA|39713|68|126: 25 erros (não confere 22, ano diferente 3), por hora {'08h': 21, '09h': 1, '12h': 2, '13h': 1}; 14 tentativas com erro, desfechos {'sem desfecho (nova identificação)': 1, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 5, 'cancelada': 11, 'habilitado': 2, 'habilitado_e_votou': 2}, classe dos habilitados {'S': 1, 'DG': 1}; liberações do dia {'B': 141, 'MI': 0, 'DG': 28, 'OR': 13, 'MX': 0, 'S': 10, 'X': 0}; votos depois do último erro 96; erros no 25/10: 1.
+  PI|10243|13|199: 70 erros (não confere 68, ano diferente 1), por hora {'08h': 6, '09h': 9, '10h': 4, '11h': 10, '12h': 8, '13h': 7, '14h': 5, '15h': 8, '16h': 4, '17h': 7, '18h': 2}; 66 tentativas com erro, desfechos {'habilitado': 61, 'habilitado_e_votou': 61, 'cancelada': 4, 'nao_habilitado_e_a_seguinte_habilitada_em_ate_120s': 3, 'Justificativa recebida': 1}, classe dos habilitados {'OR': 3, 'MI': 28, 'DG': 29, 'S': 1}; liberações do dia {'B': 209, 'MI': 28, 'DG': 29, 'OR': 3, 'MX': 0, 'S': 1, 'X': 0}; votos depois do último erro 0; erros no 25/10: 68.
+- E3. Maior sequência de "O eleitor identificado já votou" (sem habilitação entre uma e outra), por município e turno:
+  BA|XIQUE-XIQUE 2T: BA|39713|68|112 4 seguidas de 17:01:15 a 17:06:03, 0 votos depois, pedido de encerramento às 17:07:08; BA|39713|68|194 4 seguidas de 17:02:50 a 17:19:38, 0 votos depois, pedido de encerramento às 17:20:18.
+  BA|XIQUE-XIQUE 1T: BA|39713|68|196 6 seguidas de 19:14:01 a 19:19:41, 0 votos depois, pedido de encerramento às 19:24:20; BA|39713|68|19 3 seguidas de 11:32:00 a 11:34:03, 227 votos depois, pedido de encerramento às 18:53:50.
+  PI|CORONEL JOSÉ DIAS 2T: PI|10243|13|242 6 seguidas de 17:00:56 a 17:03:02, 0 votos depois, pedido de encerramento às 17:03:30; PI|10243|13|199 3 seguidas de 16:29:23 a 16:30:24, 2 votos depois, pedido de encerramento às 17:01:53.
+  PI|CORONEL JOSÉ DIAS 1T: PI|10243|13|199 8 seguidas de 18:13:30 a 18:18:21, 0 votos depois, pedido de encerramento às 18:19:12; PI|10243|13|242 7 seguidas de 17:01:49 a 17:06:18, 0 votos depois, pedido de encerramento às 17:06:40.
+- E4. Respostas SIM seguidas de voto: BA|39713|68|39 (2º turno): SIM às 17:01:28, encerramento cancelado, depois habilitação 17:03:22 classe B e voto 17:03:33.
+- E5. Seções com diferença contra o local de 5 pontos ou mais (em valor absoluto): BA|39713|68|48 -5,09 (3 outra(s) no local; 1 erros; M 17, OR 3; 241 votos); BA|39713|68|126 -5,11 (1 outra(s) no local; 1 erros; M 31, OR 6; 201 votos); BA|39713|68|186 +5,11 (1 outra(s) no local; 2 erros; M 5, OR 0; 109 votos).
+
+Desvios declarados (decisões que o registro não fixa, tomadas antes de baixar e de abrir qualquer log; ver o docstring do script):
+D1 municípios pelo nome no bweb do 2º turno; D2 download e pacote mais recente; D3 conferências com as funções do F14, A3 como "voto
+computado sem habilitação"; D4 erros de ano de nascimento = "Dado digitado não confere" (o que o registro nomeia) mais "Ano de nascimento
+digitado é diferente do cadastro" e "Ano de nascimento inválido", separados; liberações e órfãs pelas classes do C2; "já votou" seguido sem
+habilitação entre um e outro; SIM seguida de voto às 17h ou depois no mesmo bloco; D5 "muitos" = 20 ou mais erros em 25/10; D6 virada
+contra as outras do local ponderada por L2+R2, +5 no sentido de Lula; D7 "sem sinal" = nenhum dos seis itens; D8 a D11 descritivos.

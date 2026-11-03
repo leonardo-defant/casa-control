@@ -1,0 +1,137 @@
+C1 do Adendo 24: nível contra mudança pelo grau de liberação sem biometria (bweb inteiro), checagem do reel @assis.salvioli
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 24, C1 (commit ca110bb, 03/11/2026 04:24:10 UTC). Script: scripts/analisar_C1_reel.py.
+
+1. Extração e conferência
+  Linhas discordantes do cargo 1 na mesma seção: 1º turno 0, 2º turno 0; valores inválidos do campo: 1º nenhum, 2º nenhum.
+  Conferência com a base e com o cache do F6: {"conferidas_1": 499206, "conferidas_2": 499205, "NH_conferido_com_F6_1": 499206, "NH_conferido_com_F6_2": 499205}
+  Universo (D2): 497.897 seções; fora: {"exterior": 1309}; com L+R > 0 nos dois turnos: 497.897.
+  NH no 2º turno 8.632.488 (6,752% do comparecimento de 127.854.631); no 1º turno 8.342.249.
+  Margem de Lula (27 UFs): 1º turno -2.238.452, 2º turno 4.401.534. Exterior no 2º turno: 1.308 seções, margem 28.657.
+  Universos candidatos ao total do reel (492.988 urnas): {"27_UFs": 497897, "sem_agregacao_no_2T": 482971, "apuradas_no_2T": 497897, "apuradas_sem_agregacao_2T": 482971, "com_L_mais_R_nos_dois_turnos": 497897, "com_NH2_maior_que_zero": 497412, "margem_Lula_2T_sem_agregacao": 3574916, "margem_Lula_2T_apuradas": 4401534}
+
+2. Faixas pela fração NH / comparecimento do 2º turno (D3, D4)
+  faixa              seções   compar. 2T      NH 2T  margem Lula 1T  margem Lula 2T  margem 1T pts  margem 2T pts  fatia L 1T  fatia L 2T  virada agreg.  virada média
+  A 0 a 5%          175.703   46.512.668  1.630.824      -1.523.787       1.027.449          -3,82          +2,28       48,09       51,14          +3,05         +3,19
+  B 5 a 10%         237.829   61.262.571  4.336.218      -1.370.129       1.762.398          -2,61          +2,97       48,70       51,49          +2,79         +2,94
+  C mais de 10%      84.365   20.079.392  2.665.446         655.464       1.611.687          +3,78          +8,28       51,89       54,14          +2,25         +2,49
+  Parte da margem nacional do 2º turno: A 23,3%, B 40,0%, C 36,6%. Parte da mudança da margem nacional entre os turnos: A 38,4%, B 47,2%, C 14,4%.
+
+3. Regressão registrada (virada contra a faixa, efeito fixo de local, peso L2+R2, erro agrupado por local; A é a referência)
+   principal: B -0,062 (ep 0,007, z -8,6)  C -0,117 (ep 0,011, z -10,3); n 475.803, grupos 72.445
+   Seções que identificam (em locais com mais de uma faixa): {"A": 158186, "B": 212745, "C": 67462, "locais_com_mais_de_uma_faixa": 60655}
+  D6 (faixa C já dava a Lula metade ou mais da margem do 2º turno no 1º): não; M1_C = 655.464, M2_C = 1.611.687, razão 0,407; faixa C acima da margem nacional do 1º turno: sim.
+  D7 (|B - A| e |C - A| abaixo de 0,5 com ep até 0,25): sim. Critério de sinal (C - A >= 1,0 a mais de 4 ep): não.
+  VEREDITO: INCONCLUSIVO (a faixa C não dava a Lula, no 1º turno, metade ou mais da margem do 2º turno).
+  Ao lado (D6, sem mudar o veredito): no 1º turno a faixa C era a única com Lula à frente (655.464), contra -2.893.916 nas faixas A e B; pela leitura 'faixa C acima da margem nacional do 1º turno' a condição de nível valeria e a leitura seria composição. Distância de margem entre C e A, em pontos dos finalistas: +7,61 no 1º turno e +6,00 no 2º.
+
+  Robustez e controles (D8, fora do critério):
+   placebo_y_fatia_Lula_1T: B +0,377 (ep 0,015, z +24,8)  C +0,766 (ep 0,025, z +31,1); n 475.803, grupos 72.445
+   sem_peso: B -0,061 (ep 0,007, z -8,3)  C -0,117 (ep 0,012, z -10,0); n 475.803, grupos 72.445
+   covariaveis: B -0,009 (ep 0,007, z -1,4)  C -0,018 (ep 0,011, z -1,7)  fatia_Lula_1T -0,175 (ep 0,001, z -209,4)  var_comp_pts_aptos +0,048 (ep 0,002, z +29,6)  log_aptos -0,464 (ep 0,041, z -11,4); n 475.803, grupos 72.445
+   efeito_fixo_municipio: B -0,183 (ep 0,019, z -9,5)  C -0,372 (ep 0,027, z -13,6); n 497.897, grupos 5.571
+   sem_efeito_fixo_pais: B -0,249 (ep n/d, z n/d)  C -0,693 (ep n/d, z n/d); n 497.897, grupos 1
+   faixa_pela_fracao_do_1T: B -0,056 (ep 0,007, z -7,9)  C -0,122 (ep 0,012, z -10,6); n 475.803, grupos 72.445
+   faixa_NH2_sobre_aptos: B -0,084 (ep 0,007, z -11,8)  C -0,152 (ep 0,015, z -10,5); n 475.803, grupos 72.445
+   so_apuradas_sem_agregacao_aptos_iguais_mesma_urna: B -0,061 (ep 0,008, z -7,7)  C -0,121 (ep 0,013, z -9,6); n 404.749, grupos 66.975
+   dose_continua: pts_NH2_sobre_C2 -0,012 (ep 0,001, z -11,9); n 475.803, grupos 72.445
+   faixa_C_dividida_10_20_e_mais_20: B -0,062 (ep 0,007, z -8,6)  C_10_20 -0,114 (ep 0,011, z -10,0)  C_mais_20 -0,253 (ep 0,043, z -5,8); n 475.803, grupos 72.445
+
+  Faixas por UF (seções A/B/C, % de C, fração NH 2T, margem de Lula 2T):
+   AC 1242/883/145 (6,4%, NH 5,0%, -143.202); AL 2527/3186/1388 (19,5%, NH 7,0%, 408.481); AM 4133/3464/560 (6,9%, NH 5,4%, 170.538); AP 1187/673/54 (2,8%, NH 4,6%, 24.294); BA 10604/16736/8136 (22,9%, NH 7,5%, 3.876.497); CE 7995/10609/5161 (21,7%, NH 7,1%, 2.216.646); DF 4448/2377/144 (2,1%, NH 4,5%, -154.318); ES 3909/4681/1254 (12,7%, NH 6,3%, -292.539); GO 5938/7081/2667 (17,0%, NH 6,6%, -759.779); MA 7318/8420/2355 (13,0%, NH 6,3%, 1.578.260); MG 17376/25552/9134 (17,5%, NH 6,8%, 109.313); MS 2151/3453/1502 (21,1%, NH 7,2%, -298.919); MT 2828/4250/1209 (14,6%, NH 6,6%, -656.932); PA 10250/8605/1972 (9,5%, NH 5,6%, 490.509); PB 3036/5572/2104 (19,6%, NH 7,3%, 928.849); PE 7860/10258/3300 (15,4%, NH 6,5%, 2.284.959); PI 2049/4416/3760 (36,8%, NH 9,0%, 1.128.130); PR 8257/14065/4820 (17,8%, NH 7,0%, -1.724.940); RJ 9900/19963/7812 (20,7%, NH 7,4%, -603.640); RN 1546/4411/2158 (26,6%, NH 8,1%, 676.187); RO 1752/2388/558 (11,9%, NH 6,3%, -379.936); RR 1074/416/29 (1,9%, NH 4,1%, -136.170); RS 5208/13881/8458 (30,7%, NH 8,5%, -1.049.826); SC 4416/9083/3827 (22,1%, NH 7,5%, -1.801.757); SE 1846/3019/1058 (17,9%, NH 7,0%, 555.687); SP 44390/48722/10544 (10,2%, NH 6,0%, -2.019.904); TO 2463/1665/256 (5,8%, NH 4,9%, -24.954)
+
+4. Placar do reel (pedido da tarefa, fora do Adendo 24; descritivo)
+  Tela do reel: 0 a 5% 45.615 urnas, Flávio 52 x 48 e +443.504 para o 22; até 10% 221.532 urnas (44,9%), 50,09 x 49,91; mais de 10% 271.456 urnas, +4.254.754 para Lula (97,65% da margem). Total implícito 492.988 urnas; margem implícita 4.357.147.
+  Com o campo do bweb (NH / comparecimento do 2º turno), 27 UFs:
+    0 a 5%         175.703 seções (35,29%), Lula 51,14 x Flávio 48,86, margem de Lula 1.027.449 (23,34% da margem)
+    5 a 10%        237.829 seções (47,77%), Lula 51,49 x Flávio 48,51, margem de Lula 1.762.398 (40,04% da margem)
+    até 10%        413.532 seções (83,06%), Lula 51,34 x Flávio 48,66, margem de Lula 2.789.847 (63,38% da margem)
+    mais de 10%     84.365 seções (16,94%), Lula 54,14 x Flávio 45,86, margem de Lula 1.611.687 (36,62% da margem)
+    total 497.897 seções, margem 4.401.534
+
+5. O que o boletim diz sobre "sem biometria" (amostra de boletins do 2º turno)
+  Pacotes 3.897, erros de leitura 0; conferência: {"lidos": 3897, "soma_igual_ao_comparecimento_do_boletim": 3897, "no_bweb": 3897, "terceiro_igual_ao_NH_do_bweb": 3897, "comparecimento_igual_ao_bweb": 3897, "votos_13_22_iguais_ao_bweb": 3897, "secao_do_boletim_igual_a_pasta": 3897}
+  Campo [2:1] contra o classificador de log do F6 (300 sorteados): {"conferidos": 300, "S_igual": 295, "B_igual": 291, "M_igual": 300, "tres_iguais": 290, "log_completo": 300, "tres_iguais_log_completo": 290}
+  Amostra: 3.897 seções, comparecimento 1.002.610; sem biometria cadastrada (S) 50.913 (5,08%), com biometria liberados sem ela (M = campo do bweb) 73.773 (7,36%), S + M 12,44%; S/M = 0,690.
+  Amostra, definição M (campo do bweb):
+    0 a 5%           1.169 seções (30,00%), Lula 53,93 x Flávio 46,07, margem de Lula 23.464 (29,71% da margem)
+    5 a 10%          1.864 seções (47,83%), Lula 52,65 x Flávio 47,35, margem de Lula 24.707 (31,29% da margem)
+    até 10%          3.033 seções (77,83%), Lula 53,15 x Flávio 46,85, margem de Lula 48.171 (61,00% da margem)
+    mais de 10%        864 seções (22,17%), Lula 57,49 x Flávio 42,51, margem de Lula 30.794 (39,00% da margem)
+    total 3.897 seções, margem 78.965
+  Amostra, definição S + M (toda habilitação que não foi por biometria):
+    0 a 5%             285 seções (7,31%), Lula 52,25 x Flávio 47,75, margem de Lula 3.057 (3,87% da margem)
+    5 a 10%          1.301 seções (33,38%), Lula 51,46 x Flávio 48,54, margem de Lula 9.594 (12,15% da margem)
+    até 10%          1.586 seções (40,70%), Lula 51,60 x Flávio 48,40, margem de Lula 12.651 (16,02% da margem)
+    mais de 10%      2.311 seções (59,30%), Lula 55,79 x Flávio 44,21, margem de Lula 66.314 (83,98% da margem)
+    total 3.897 seções, margem 78.965
+  Estimativa nacional de S: (i) razão S/C2 por UF = 6.224.496 (ep 237.441); (ii) razão S/S_hat do perfil = 7.279.504 (ep 136.927), nas UFs com perfil. UFs na amostra: 26; comparecimento das UFs fora da amostra: 308.597.
+  NH + S (i) = 14.856.984, contra os 15.709.293 do reel (o reel menos NH = 7.076.805); comparecimento menos (NH + S) = 112.997.647, contra os 110,9 milhões 'com biometria' da cena 4.
+
+6. Proxy nacional pelo perfil do eleitorado por seção (P4)
+  UFs com perfil: 27 (AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO).
+  Conferência S_hat contra S na amostra: {"secoes_amostra_com_perfil": 3897, "soma_S": 50913, "soma_S_hat": 92686.33796478751, "razao_S_sobre_S_hat": 0.5493042568942833, "correlacao_S_S_hat": 0.8905527668666852, "correlacao_fracoes": 0.8880053563700617, "erro_absoluto_medio_por_secao": 11.14989217815043, "S_medio_por_secao": 13.064665127020785, "faixa_igual_com_S_hat": 0.8373107518604055, "S_sobre_aptos_sem_cadastro": 0.442637060736207, "C_sobre_aptos_na_amostra": 0.8195382643552638}
+  Cobertura: {"secoes_com_perfil": 497508, "secoes_universo": 497897, "ufs": ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"], "margem_Lula_2T_nas_UFs_com_perfil": 4389541}
+  Soma NH + S_hat nas UFs com perfil 21.882.131; S_hat 13.252.226; aptos sem cadastro biométrico no perfil 16.567.384 de 155.783.453.
+  Definição (NH + S_hat) / comparecimento:
+    0 a 5%          29.702 seções (5,97%), Lula 51,53 x Flávio 48,47, margem de Lula 221.810 (5,05% da margem)
+    5 a 10%        132.972 seções (26,73%), Lula 51,54 x Flávio 48,46, margem de Lula 1.032.588 (23,52% da margem)
+    até 10%        162.674 seções (32,70%), Lula 51,54 x Flávio 48,46, margem de Lula 1.254.398 (28,58% da margem)
+    mais de 10%    334.834 seções (67,30%), Lula 51,89 x Flávio 48,11, margem de Lula 3.135.143 (71,42% da margem)
+    total 497.508 seções, margem 4.389.541
+  Definição (NH + S_hat calibrado pela amostra) / comparecimento:
+    0 a 5%          47.051 seções (9,46%), Lula 51,26 x Flávio 48,74, margem de Lula 294.713 (6,71% da margem)
+    5 a 10%        183.515 seções (36,89%), Lula 51,96 x Flávio 48,04, margem de Lula 1.817.190 (41,40% da margem)
+    até 10%        230.566 seções (46,34%), Lula 51,82 x Flávio 48,18, margem de Lula 2.111.903 (48,11% da margem)
+    mais de 10%    266.942 seções (53,66%), Lula 51,73 x Flávio 48,27, margem de Lula 2.277.638 (51,89% da margem)
+    total 497.508 seções, margem 4.389.541
+  Definição sem cadastro biométrico / eleitores (perfil):
+    0 a 5%         231.501 seções (46,53%), Lula 52,64 x Flávio 47,36, margem de Lula 2.989.311 (68,10% da margem)
+    5 a 10%        104.447 seções (20,99%), Lula 53,29 x Flávio 46,71, margem de Lula 1.729.567 (39,40% da margem)
+    até 10%        335.948 seções (67,53%), Lula 52,85 x Flávio 47,15, margem de Lula 4.718.878 (107,50% da margem)
+    mais de 10%    161.560 seções (32,47%), Lula 49,60 x Flávio 50,40, margem de Lula -329.337 (-7,50% da margem)
+    total 497.508 seções, margem 4.389.541
+  Campo do bweb nas mesmas seções:
+    0 a 5%         175.467 seções (35,27%), Lula 51,14 x Flávio 48,86, margem de Lula 1.020.205 (23,24% da margem)
+    5 a 10%        237.729 seções (47,78%), Lula 51,48 x Flávio 48,52, margem de Lula 1.758.457 (40,06% da margem)
+    até 10%        413.196 seções (83,05%), Lula 51,33 x Flávio 48,67, margem de Lula 2.778.662 (63,30% da margem)
+    mais de 10%     84.312 seções (16,95%), Lula 54,14 x Flávio 45,86, margem de Lula 1.610.879 (36,70% da margem)
+    total 497.508 seções, margem 4.389.541
+
+7. Exploratório, fora do critério (P5): a regressão do C1 com as faixas pela definição do reel
+   P5_regressao_faixas_reel_pais: B -0,019 (ep 0,015, z -1,3)  C +0,016 (ep 0,015, z +1,1); n 475.681, grupos 72.406
+   P5_placebo_faixas_reel_pais: B -0,145 (ep 0,033, z -4,3)  C -0,101 (ep 0,035, z -2,9); n 475.681, grupos 72.406
+   P5_regressao_amostra_S_mais_M: B -0,083 (ep 0,152, z -0,5)  C -0,007 (ep 0,159, z -0,0); n 3.781, grupos 625
+   P5_regressao_amostra_campo_M: B -0,035 (ep 0,080, z -0,4)  C -0,064 (ep 0,118, z -0,5); n 3.781, grupos 625
+   P5_placebo_amostra_S_mais_M: B +0,253 (ep 0,337, z +0,7)  C +0,309 (ep 0,379, z +0,8); n 3.781, grupos 625
+   P5_dose_amostra_S_e_M: pts_S +0,0217 (ep 0,0113), pts_M +0,0084 (ep 0,0109); n 3781, locais 625
+
+8. Exploratório acrescentado depois de ver o resultado pela letra (P6; sem veredito)
+  Faixas do reel no país, (NH + S_hat calibrado)/C2:
+    A 0 a 5%          47.051 seções; margem de Lula 1T -323.594 (-3,09 pts), 2T 294.713 (+2,52 pts); fatia de Lula 48,46 -> 51,26; virada agregada +2,80; parte da mudança da margem 9,3%
+    B 5 a 10%        183.515 seções; margem de Lula 1T -631.565 (-1,53 pts), 2T 1.817.190 (+3,92 pts); fatia de Lula 49,24 -> 51,96; virada agregada +2,73; parte da mudança da margem 36,9%
+    C mais de 10%    266.942 seções; margem de Lula 1T -1.294.615 (-2,24 pts), 2T 2.277.638 (+3,47 pts); fatia de Lula 48,88 -> 51,73; virada agregada +2,85; parte da mudança da margem 53,8%
+  Faixas do reel na amostra, (M + S do boletim)/C2:
+    A 0 a 5%             285 seções; margem de Lula 1T -468 (-0,77 pts), 2T 3.057 (+4,51 pts); fatia de Lula 49,61 -> 52,25; virada agregada +2,64; parte da mudança da margem 6,3%
+    B 5 a 10%          1.301 seções; margem de Lula 1T -6.474 (-2,21 pts), 2T 9.594 (+2,92 pts); fatia de Lula 48,90 -> 51,46; virada agregada +2,56; parte da mudança da margem 28,9%
+    C mais de 10%      2.311 seções; margem de Lula 1T 30.334 (+6,00 pts), 2T 66.314 (+11,57 pts); fatia de Lula 53,00 -> 55,79; virada agregada +2,79; parte da mudança da margem 64,7%
+   a_regressao_faixas_reel_calibrado_pais: B -0,009 (ep 0,012, z -0,8)  C +0,006 (ep 0,013, z +0,5); n 475.681, grupos 72.406
+   a_placebo_faixas_reel_calibrado_pais: B +0,087 (ep 0,025, z +3,4)  C +0,161 (ep 0,029, z +5,5); n 475.681, grupos 72.406
+  Ordenação (reel: Flávio 52 x 48 nas 45.615 de menor fração; +4.254.754 para Lula nas 271.456 de maior):
+    campo_bweb: 45.615 menores Lula 51,54% (margem 352.696, fração até 2,83%); 271.456 maiores Lula 52,36% (margem 3.101.683, fração desde 5,78%)
+    NH_mais_S_hat_calibrado: 45.615 menores Lula 51,27% (margem 288.427, fração até 4,97%); 271.456 maiores Lula 51,76% (margem 2.348.992, fração desde 9,89%)
+    S_hat_calibrado_sozinho: 45.615 menores Lula 54,60% (margem 980.490, fração até 0,18%); 271.456 maiores Lula 51,09% (margem 1.492.927, fração desde 2,67%)
+  Proxy calibrado contra S exato na amostra: {"k_calibracao": 0.5493042568942833, "faixa_igual": 0.867590454195535, "matriz_linhas_exato_colunas_proxy_ABC": [[242, 42, 1], [60, 1077, 164], [1, 248, 2062]]}
+  "Prova 1" do reel na amostra de logs (S, B, M por dia; seções com log completo nos dois dias):
+    {"completo_2T": 3897, "completo_1T": 3873, "M2_igual_NH2_bweb": 3888, "M1_igual_NH1_bweb": 3824, "completos_nos_dois": 3873}
+    1º turno {"B": 856522, "S": 48614, "M": 70816}; 2º turno {"B": 872569, "S": 50751, "M": 73283}; variação B 16.047, S 2.137, M 2.467, comparecimento 20.921; correlação entre var B e var S+M -0,395
+    Seções onde B caiu e S+M subiu: 800 (20,7%); var B -5.879, var S+M 5.273, var comparecimento -528; reposição 89,7% (reel: 95.672 urnas, -605.192 e +606.644, 99,76%)
+    Espelho, seções onde B subiu e S+M caiu: 1.215 (31,4%); var B 13.266, var S+M -5.570, var comparecimento 7.765
+    virada_contra_o_mesmo_local: +0,129 (ep 0,084); n 3756, locais 623
+    placebo_fatia_Lula_1T: -0,380 (ep 0,169); n 3756, locais 623
+
+Desvios e decisões (o registro não fixou; escritas no docstring antes de rodar): D1 a D8 e P1 a P5 de analisar_C1_reel.py.
+  D3: "0 a 5%" inclui 5% exatos; "5 a 10%" inclui 10% exatos; comparação em inteiros.
+  D6: "a maior parte da margem no 1º turno" lida como M1_C >= 0,5 M2_C, com M2_C > 0.
+  D7: "não difere entre faixas" exige B - A e C - A dentro do limite; o caso intermediário é INCONCLUSIVO.
+  P1 a P5: pedido da tarefa, fora do Adendo 24; descritivo, sem veredito.
+  P6: acrescentado depois de ver o resultado pela letra; exploratório, sem veredito.

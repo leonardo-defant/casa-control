@@ -1,0 +1,204 @@
+C4 do Adendo 24 (tarefa PAINEL): o painel citado pelo reel @assis.salvioli (DfHTWubBajq), essencia-ai.com
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 24 (commit ca110bb, 03/11/2026 04:24:10 UTC). O Adendo fixa C1 a C3; a
+leitura do painel não tem critério registrado nem veredito de sinal. Script: scripts/analisar_C4_painel.py.
+
+RESULTADO: O PAINEL NÃO PÔDE SER LIDO SEM BAIXAR E RODAR CÓDIGO DO SITE.
+  A página https://essencia-ai.com/auditoria-2026 (link "Auditoria 2026" no rodapé de essencia-ai.com) responde
+  HTTP 200, sem login e sem 403. O HTML servido só tem cabeçalho, menu e rodapé: a rota é um componente de cliente
+  do Next.js ("ClientPageRoot" no payload: sim) e o conteúdo é montado no navegador
+  pelo arquivo /_next/static/chunks/app/auditoria-2026/page-5b00515a946c9376.js.
+  A regra da tarefa proíbe baixar ou rodar código do site; esse arquivo não foi baixado. Logo nenhuma das perguntas
+  tem resposta com trecho do painel: fonte de dados, definições, método do +15,6 e dos 2,51 milhões ficam sem leitura.
+  Abaixo, para cada pergunta: (i) painel; (ii) o que o próprio reel diz (degravação, trecho literal); (iii) o que a
+  aritmética dos números do reel permite inferir (inferência nossa, não do painel); (iv) o que C1 e C2 já mediram.
+
+1. Tentativas (03/11/2026, depois do commit do Adendo; curl com user agent padrão, sem cookies; D1 a D3)
+  https://essencia-ai.com/: 200; agência de IA (produto Dashfy, consultoria); o único link ao tema é "Auditoria 2026" no rodapé [34.540 bytes, sha256 24ddf04b5a3f17ee...]
+  https://essencia-ai.com/auditoria-2026: 200, sem login e sem 403; texto visível só menu e rodapé [19.033 bytes, sha256 02d25ffdd7d98d4a...]
+  https://essencia-ai.com/sobre-nos: 200; institucional [27.778 bytes, sha256 74b94ff6ea17e83a...]
+  https://essencia-ai.com/solucoes: 200; institucional [30.656 bytes, sha256 95d9ef6f2ff2bbff...]
+  https://essencia-ai.com/produtos: 200; produto Dashfy [26.389 bytes, sha256 5479b71b83bc1e1c...]
+  https://essencia-ai.com/termos-de-servico: 200 [24.695 bytes, sha256 ebee8a136456f9fe...]
+  https://essencia-ai.com/politica-de-privacidade: 200 [24.854 bytes, sha256 352bfdd2b2c59b3d...]
+  https://essencia-ai.com/robots.txt: 404 [20.153 bytes, sha256 520c33c9c1ec0dae...]
+  https://essencia-ai.com/sitemap.xml: 404 [20.154 bytes, sha256 e1d9a0ca4e5b3a2d...]
+  WebFetch de https://essencia-ai.com/auditoria-2026 (leitor sem JavaScript): resposta: "apenas menu de navegação, dados de contato, redes sociais e rodapé"
+  https://archive.org/wayback/available?url=essencia-ai.com/auditoria-2026: 200; "archived_snapshots": {} (nenhuma cópia arquivada) [67 bytes, sha256 1b5775f11f37f636...]
+  https://web.archive.org/cdx/search/cdx?url=essencia-ai.com*: conexão reiniciada no proxy, duas tentativas; sem resposta
+  https://archive.ph/newest/https://essencia-ai.com/auditoria-2026: 429 com desafio; não contornado [59.079 bytes, sha256 3638ddad8938c19d...]
+  https://www.instagram.com/assis.salvioli/ (link da bio): 302 para https://www.instagram.com/accounts/login/; não contornado
+  Busca na web, 6 consultas (domínio essencia-ai.com; "digitais órfãs"; nome do autor; EssencIA "Auditoria 2026"; números exatos 1.280.132, 2.514.969 e 15.709.293): nada indexado do painel nem dos números
+  Data do servidor: home Tue, 03 Nov 2026 04:59:10 GMT; auditoria-2026 Tue, 03 Nov 2026 04:59:32 GMT.
+  Servidor da auditoria-2026: x-fah-adapter: nextjs-14.0.21; x-nextjs-prerender: 1 (a home traz
+  x-fah-adapter: nextjs-14.0.21; x-nextjs-prerender: 1).
+  Termos da eleição no texto visível de cada página (urna, biometr, eleiç, TSE, Lula, Flávio, órfã, score):
+    home.html: nenhum
+    auditoria-2026.html: nenhum
+    sobre-nos.html: nenhum
+    solucoes.html: nenhum
+    produtos.html: nenhum
+    termos-de-servico.html: nenhum
+    politica-de-privacidade.html: nenhum
+
+2. O que o HTML da auditoria-2026 entrega (trechos)
+  <title>: "EssencIA: Inteligência Artificial Estratégica"
+  <meta name="description">: "EssencIA - Soluções inovadoras e acessíveis em Inteligência Artificial para decisões críticas de negócios."
+  Payload do servidor (React Server Components): a:I[894,[],"ClientPageRoot"] e
+  b:I[705,[..., "26","static/chunks/app/auditoria-2026/page-5b00515a946c9376.js"],"default"]; a página é {"Component":"$b","searchParams":{},"params":{}}.
+  Ou seja, o servidor não manda nenhum dado do painel; tudo vem do arquivo da página (estático) ou de chamadas que ele
+  faz no navegador. Qual dos dois, não dá para saber sem ler o código.
+  Texto visível, inteiro (410 caracteres; travessão do original trocado por hífen): "EssencIA: Inteligência Artificial Estratégica Essenc IA pt Contato pt Essenc IA Essência Soluções em Inteligência Artificial - agência brasileira sediada no Rio de Janeiro. Site Início Dashfy Soluções Sobre Auditoria 2026 Contato contato@essencia-ai.com essencia-ai.com Agendar diagnóstico Social Instagram LinkedIn © 2026 EssencIA. Todos os direitos reservados. Privacidade Termos A IA certa para a dor certa."
+  Quem publica: "Essência Soluções em Inteligência Artificial, agência brasileira sediada no Rio de Janeiro" (rodapé).
+  Nenhum autor, metodologia ou base para baixar no HTML de nenhuma página; o único contato é o geral, contato@essencia-ai.com.
+
+3. As perguntas, uma a uma
+
+3a. Qual a fonte de dados
+  (i) Painel: não lido.
+  (ii) Reel: "Abrimos a caixa-preta das 497 mil urnas do TSE com Inteligência Artificial"; "Nós auditamos com
+  inteligência artificial as 497 mil urnas, lemos os logs segundo a segundo e cruzamos com 2022"; "Gravado no arquivo
+  .jez de 51 mil urnas"; "Não é boato, é dado oficial". Telas: 497.897 urnas; 455.785 seções pareadas 2022/2026;
+  99,71% de match exato log x boletim.
+  (iii) Inferência: logs de urna (.logjez) e boletins do TSE de 2022 e 2026. 497.897 é exatamente o nosso universo
+  de seções das 27 UFs no 2º turno, sem exterior (C1). Mas as faixas da cena 2 somam 492.988 urnas
+  (4.909 a menos) e a margem implícita é 4.357.147 (44.387 a menos que
+  os 4.401.534 das 27 UFs): o painel usa pelo menos dois universos, e o reel não diz qual filtro dá 492.988.
+  O "sem agregação" do C1 dá 482.971, não 492.988.
+  (iv) Na amostra de 3.897 logs, votos no log = comparecimento do bweb em 3.897 de 3.897 seções no 2º turno (C2).
+  Os 0,29% sem "match exato" do reel seriam cerca de 1.444 urnas; o reel não diz o que é match.
+
+3b. Como definem "sem biometria"
+  (i) Painel: não lido.
+  (ii) Reel: "Onde está a anomalia real? Nos 15,7 milhões de votos sem biometria habilitados na mesa" (cena 1);
+  telas: 15.709.293 e, em outro painel, 15.709.193 (o próprio reel difere em 100);
+  cena 2: "urnas com biometria degradada"; cena 4: "com biometria 110,9 milhões (51,43% Lula)".
+  (iii) Inferência: 15,7 milhões não é o campo do bweb QT_ELEI_BIOM_SEM_HABILITACAO (8.632.488 no 2º turno, C1).
+  Bate com S + M: eleitor sem biometria cadastrada (S, habilitado pelo ano de nascimento, nunca passa pelo leitor)
+  mais eleitor com biometria liberado sem ela (M). Nossa estimativa de NH + S: 14.856.984 (razão por UF)
+  a 15.909.409 (perfil); 15.709.293 cai entre as duas. As faixas da cena 2, em
+  proporção de urnas (0 a 5% 9,25%, 5 a 10% 35,68%, mais de 10% 55,06%), reproduzem as do proxy
+  NH + S calibrado (9,46%, 36,89%, 53,66%) e não as do campo do bweb (35,29%, 47,77%, 16,94%).
+  Se for isso, "habilitados na mesa" está errado para cerca de 7.076.805 deles (15.709.293 menos 8.632.488):
+  S é atributo do cadastro (o eleitor nunca coletou digital), não decisão do mesário, e se concentra por região e idade.
+  Conta da cena 4: 110,9 + 5,78 + 1,47 + 1,28 = 119,43 milhões. Comparecimento das 27 UFs menos 15.709.293
+  = 112.145.338, não 110,9 milhões. Duas leituras dão 110,9 e não se separam sem o painel: (a) universo de
+  492.988 urnas, comparecimento cerca de 126.594.052 (proporcional), menos 15.709.293 = 110.884.759;
+  (b) 112.145.338 menos as 1.280.132 órfãs = 110.865.206 (órfãs tiradas duas vezes).
+
+3c. Como definem "digital órfã"
+  (i) Painel: não lido.
+  (ii) Reel: "Todo o salto na mesma cidade vem de 1 milhão e 280 mil liberações onde a digital usada não existia em
+  nenhum arquivo da urna" (cena 4); "destrava a urna com digitais de score zero que não existiam em nenhum arquivo"
+  (cena 5); tela de abertura: "1.280.132 digitais órfãs (score zero)".
+  (iv) O log (C2, D2): na liberação manual a urna pede a digital do mesário, compara com cada mesário registrado
+  ("Batimento de digitais retornou o score N") e termina numa de três mensagens. A órfã é "Capturada a digital do
+  mesário" seguida de "Não encontrou digital coletada em nenhum dos arquivos, vai salvar a digital em novo arquivo."
+  A digital não existia antes, mas a urna a grava; as liberações seguintes com o mesmo dedo saem como "Digital
+  coletada bate com uma digital gravada após o registro inicial de mesário" (DG, o "mesário substituto" do reel).
+  Contagem: amostra 11.054 órfãs em 73.773 liberações manuais (14,98%), 3.897 seções; aplicada ao
+  NH nacional, 1.293.475; o reel diz 1.280.132 (-1,0%).
+  Repartição das manuais: reel MI 67,8%, DG 17,2%, OR 15,0%; amostra 67,5%, 17,5%, 15,0%.
+  Como contagem, o 1,28 milhão do reel é plausível; o que muda é o que ele quer dizer (3d e 3e).
+
+3d. Como definem "score zero"
+  (i) Painel: não lido.
+  (ii) Reel: "digitais de score zero" e "1.280.132 digitais órfãs (score zero)": trata toda órfã como score zero.
+  (iv) Log (C2, seção 8), maior score de comparação em cada órfã do 2º turno: 0 em 13 (0,12%),
+  1 a 9 em 5.882 (53,2%), 10 a 19 em 5.085 (46,0%), 20 ou mais em 0,
+  sem linha de score em 76; mediana 9. Os batimentos aceitos têm score 20 ou mais
+  em todos os casos (mediana DG 85, MI 88). Órfã é score abaixo do corte, não zero.
+  Se "score zero" fosse literal, seriam cerca de 1.505 no país (13/11.054 de 1.280.132).
+
+3e. Como calcularam os +15,6 pontos de Lula nos votos liberados por digital órfã
+  (i) Painel: não lido. O reel não diz se é comparação entre seções ou regressão, nem quais controles.
+  (ii) Reel: "E olha a prova definitiva dentro da mesma cidade, nas 5.570 cidades: quando a digital do eleitor falha
+  mas o mesário oficial assina com o dedo, em 5,8 milhões de votos, o voto em Lula é 51,36%, idêntico à biometria.
+  E se for um mesário substituto usando o mesmo dedo o dia todo? Testamos: desvio zero. Todo o salto na mesma cidade
+  vem de 1 milhão e 280 mil liberações onde a digital usada não existia em nenhum arquivo da urna." Telas: com
+  biometria 110,9 mi (51,43%); mesário oficial 5,78 mi (51,36%); substituto cerca de 1,47 mi (51,40%); órfãs 1,28 mi,
+  "salto de +15,6 pp". Cena 3, prova 3: "+4,2 pp no mesmo prédio, +8,8 pp digitais órfãs".
+  (iii) Inferência: o RDV não liga eleitor a voto; dar uma fatia de Lula a cada tipo de liberação só se faz comparando
+  seções (inferência ecológica), por exemplo fatia da seção contra as frações de cada tipo, com efeito fixo de
+  município ("dentro da mesma cidade, nas 5.570 cidades"). Nada no reel fala de controle pelo voto da mesma seção no
+  1º turno. A mesma grandeza cai de +15,6 (cidade) para +8,8 (prédio): quanto mais fina a comparação, menor o efeito,
+  que é o desenho de composição. "Desvio zero" do substituto e 51,36 contra 51,43 são diferenças de 0,07 ponto, o que
+  pede um erro-padrão que o reel não mostra.
+  (iv) C2 (amostra, 3.781 seções em 625 locais): especificação registrada (dentro do local, controle do 1º turno)
+  b = -0,027 (ep 0,018), SEM SINAL; +0,156 fica a 10,0 ep. Dentro do município com controle:
+  -0,021 (ep 0,013). Dentro do município sem controle, a mais parecida com a frase do reel:
+  +0,084 (ep 0,081), que nesta amostra não exclui +0,156 (0,9 ep).
+  Conta ingênua (fatia ponderada pelos votos órfãos contra pelos biométricos): 55,89% contra
+  53,96% = +1,92 pontos; dentro do município +0,30 ponto.
+  Fração de órfãs nos votos por modelo de urna: UE2013 1,56%; UE2015 1,75%; UE2020 0,86%; UE2022 0,86%. A fração acompanha o equipamento e o local.
+
+3f. O que dizem dos 2,51 milhões "descontando estado e porte"
+  (i) Painel: não lido.
+  (ii) Reel: "São 858 mil votos de impacto na margem dentro da mesma cidade, 5,67 milhões de votos suspeitos em 114 mil
+  urnas anômalas e um saldo líquido nacional, descontando estado e porte, de 2 milhões e 514 mil votos de vantagem
+  para o 13 no bloco sem biometria." Tela: "+2.514.969 votos líquidos pró-13 (57,7% da margem nacional)".
+  (iii) Aritmética: 2.514.969 / 4.357.147 = 57,72% (bate com 57,7%); / 4.401.534 = 57,14% (não bate).
+  O denominador é a margem do universo de 492.988 urnas. 2.514.969 / 15.709.293 = 0,160: 16,0 pontos
+  de margem por voto do bloco, ou fatia de Lula cerca de 8,0 pontos acima do esperado, se a conta for essa.
+  "Descontando estado e porte" sugere ajuste por UF e tamanho da seção; o reel não fala de controle pelo 1º turno nem
+  por município ou local.
+  (iv) C1, campo do bweb: a faixa de mais de 10% já dava a Lula 655.464 no 1º turno, quando as outras
+  duas davam a Flávio -2.893.916; dentro do local, a virada da faixa de mais de 10% foi
+  0,117 ponto MENOR que a de 0 a 5% (ep 0,011). Com a definição do reel (NH + S calibrado),
+  dentro do local: virada C - A = +0,006 (ep 0,013) e nível do 1º turno C - A = +0,161 (ep 0,029, z 5,5),
+  em pontos: dentro do mesmo local, as faixas diferem pouco no nível e nada na mudança; a distância do placar
+  nacional vem de comparar locais diferentes. Ajustar só por UF e porte deixa de fora a geografia dentro da UF.
+  Com a mesma definição, o placar do reel não se reproduz: faixa de mais de 10% com 51,89% da margem
+  (2.277.638), não 97,65% (4.254.754); faixa de 0 a 5% com Lula 51,26%,
+  não Flávio 52 x 48.
+  858.727: 858.727 / 1.280.132 = 0,6708, e 51,43% + 15,6 = 67,03%. Coincide com o total de
+  votos de Lula estimado entre as órfãs, não com impacto na margem. O excesso de margem dessas órfãs sobre a biometria
+  seria 1.280.132 x 2 x 0,156 = 399.401. Hipótese a conferir no painel.
+  5.677.789 votos em 114.095 urnas: 49,8 votos por urna, 23,1% das 492.988 urnas;
+  o reel não define "anômala".
+
+4. Contagem contra conclusão
+  Se sustentam como contagem: 1,28 milhão de órfãs (projeção da amostra 1.293.475); repartição MI, DG, OR;
+  15,7 milhões como S + M (14.856.984 a 15.909.409); 497.897 seções.
+  Rótulos errados: "score zero" (13 de 11.054 na amostra); "habilitados na mesa" para os 15,7 milhões (cerca de
+  7,1 milhões são eleitores sem biometria cadastrada); "não existia em nenhum arquivo" (a urna cria o arquivo na hora).
+  Conclusões sem apoio: +15,6 (b = -0,027, ep 0,018, na especificação registrada); 97,65% da margem (composição; com
+  a definição do reel, 51,89%); 2,51 milhões (sem controle do 1º turno).
+  Cena 5 (liberações depois das 17h): das 11.054 órfãs do 2º turno na amostra, 2 às 17h ou depois; no 1º turno,
+  271. O pico é às 8h (2.620 no 2º turno, 23,7%), na abertura.
+
+5. Pistas (o que merece investigação, com números)
+  P1. Ler o painel: alguém abre https://essencia-ai.com/auditoria-2026 num navegador comum e salva texto e capturas, ou
+      a coordenação autoriza ler /_next/static/chunks/app/auditoria-2026/page-5b00515a946c9376.js como texto, sem rodar (a rota é
+      pré-renderizada, x-nextjs-prerender: 1; o conteúdo pode estar todo nesse arquivo ou vir de chamadas dele).
+  P2. Universo de 492.988 urnas e margem 4.357.147: 4.909 urnas e 44.387 votos de margem a menos
+      que as 27 UFs; o filtro não é "sem agregação" (482.971).
+  P3. 858.727 = 0,6708 x 1.280.132, que é 51,43% + 15,6 pontos: se confirmado, o "impacto na margem"
+      é o total de votos de Lula estimado entre as órfãs; o excesso seria cerca de 399.401, e só se o +15,6 valesse.
+  P4. Gradiente: +15,6 (cidade), +8,8 (prédio), -2,7 (local com controle do 1º turno, C2). Pedir o método da prova 3
+      ("+4,2 pp no mesmo prédio") e comparar com a nossa diferença de nível dentro do local, +0,161 ponto no 1º turno.
+  P5. A especificação mais parecida com a do reel (município, sem 1º turno) dá +0,084 (ep 0,081) e não exclui +0,156.
+      Com todos os logs o erro cairia para algo entre 0,007 e 0,022 (conta grosseira pela raiz do número de seções ou
+      de municípios). Mesmo replicado, seria nível sem controle do 1º turno; a especificação registrada já deu SEM SINAL.
+  P6. Score zero: 13 de 11.054 órfãs (0,12%). Ver se o painel chama de "score zero" outra coisa (por exemplo o score de
+      uma das comparações, não o maior; ou a ausência de linha de score, 76 casos).
+  P7. Órfãs depois das 17h: 2 no 2º turno e 271 no 1º, na amostra. A cena 5 junta "sala vazia pós-17h" (1.635 seções)
+      com órfãs: cruzar, nessas seções, se há órfã depois da resposta "SIM" (o C3 faz isso em Xique-Xique e Coronel José Dias).
+  P8. 15.709.293 contra 15.709.193 nas telas do próprio reel: digitação ou duas versões da base.
+  P9. 99,71% de match log x boletim (cerca de 1.444 urnas fora); na amostra, 3.897 de 3.897, inclusive as 13 seções com
+      contingência quando o log aninhado é lido. Perguntar o que o painel chama de match.
+  P10. 2,51 milhões = 16,0 pontos de margem por voto do bloco. Refazer "descontando estado e porte" no bweb com S + M
+      estimado, com e sem controle do 1º turno; o C1 já dá virada C - A = +0,006 (ep 0,013) dentro do local.
+
+6. Desvios declarados (D1 a D8 no docstring, escritos antes de calcular)
+  Escopo: a tarefa PAINEL não está no Adendo 24; é descritiva e não muda nenhum veredito de C1 a C3.
+  D1: só HTML; o arquivo da página e todos os .js, .css e fontes do site ficaram de fora (regra da tarefa).
+  D2: sem contorno; archive.ph (429) e Instagram (login) pararam onde bloquearam.
+  D4: trechos do reel vêm da degravação (legendas), não de áudio; inferências marcadas como "Inferência".
+  D6: margem do reel 4.357.147 e universo 492.988 (implícitos, C1); D7: projeção sem peso; D8: score zero literal.
+  WebFetch foi usado como segundo leitor da página (não executa JavaScript; só confirmou o vazio).
+
+7. Arquivos
+  Downloads: /home/user/trabalho-eleicao/adendo24/C4_painel_dl/ (HTML, cabeçalhos, resposta do Wayback e do archive.ph).
+  Extrator de texto usado à mão: /home/user/trabalho-eleicao/adendo24/C4_scripts/texto_html.py.
+  Resultados lidos: resultados/C1_nivel_mudanca_biometria.json, resultados/C2_digitais_orfas.json.
+  Degravação: /root/.claude/uploads/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/a50a6d9b-degravacao_DfHTWubBajq.md.

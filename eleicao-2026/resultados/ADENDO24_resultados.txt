@@ -1,0 +1,102 @@
+ADENDO 24: CHECAGEM DO REEL @assis.salvioli, "DIGITAIS ÓRFÃS" E LIBERAÇÃO SEM BIOMETRIA (RESULTADOS)
+
+Registro: Adendo 24, commit ca110bb (03/11/2026 04:24:10 UTC), antes de rodar. Cada teste refeito por outro agente
+com código próprio. Detalhes, números e correções em resultados/testes_adendo24_com_conferencia.json. A leitura do
+painel do autor feita pelo conferente está em resultados/C4_conferencia_painel/.
+
+RESUMO EM UMA LINHA
+As contagens do reel batem com os logs, e o painel do autor bate com a base oficial seção por seção. A conclusão não
+se sustenta: o +15,6 e os 2,51 milhões são diferença de NÍVEL que já existia no 1º turno. Com o 1º turno como controle,
+na base nacional do próprio painel, o efeito das órfãs dentro do local é -0,13 ponto (ep 0,38).
+
+C1, faixas por liberação sem biometria (bweb inteiro, 497.897 seções)
+  Pela letra: INCONCLUSIVO pela leitura D6(a) que fixei antes; COMPOSIÇÃO pelas outras três leituras razoáveis do
+  registro (conferente). Nenhuma leitura dá sinal.
+  Dentro do local, a virada da faixa de mais de 10% ficou ABAIXO da faixa de 0 a 5%: -0,117 ponto (ep 0,011). O
+  registro pedia +1,0 para sinal. Placebo com a fatia de Lula no 1º turno: +0,766 (a relação é de nível).
+  A faixa de mais de 10% já era a única com Lula à frente no 1º turno (+655.464, contra -2.893.916 nas outras duas).
+  Correção da régua: a D6(a) reprovaria até uma composição pura com virada uniforme (razão 0,40 contra 0,50). Ela mede
+  o tamanho da virada nacional, não nível contra mudança. O conteúdo é de composição.
+  O "sem biometria" do reel NÃO é o campo do bweb (8.632.488). É S + M: eleitor sem biometria cadastrada mais eleitor
+  liberado sem biometria. O próprio boletim traz as três contagens [S, B, M]; M = bweb em 3.897 de 3.897.
+  Com a tabela do próprio painel (SemBio = comparecimento menos biométricos), o placar do reel se reproduz:
+    0 a 5%: 45.867 seções, Lula 48,04%, -447.821.  5 a 10%: 177.139, 50,61%, +546.790.
+    Mais de 10%: 274.879, 53,18%, +4.303.053, 97,75% da margem.
+  Nas mesmas seções, no 1º turno: a faixa de mais de 10% já dava +536.299 a Lula contra -2.774.135 nas outras, e a
+  virada foi a MENOR nela: +2,73, contra +2,84 e +2,97.
+  "Prova 1" (troca um por um): no país, pelo bweb, 91.014 seções com reposição de 84,9% (reel: 95.672 e 99,76%). O
+  espelho (biometria subindo, sem biometria caindo) tem 176.173 seções. As seções da "prova" viraram MENOS para Lula
+  que as vizinhas do mesmo local: -0,079 (ep 0,009). É seleção de um lado só.
+  "Prova 2": na tabela do painel, a liberação manual (SemMes) CAIU do 1º para o 2º turno, de 3.200.857 para 2.776.077.
+  Cota para um desvio igual nos dois turnos (exploratório): se toda a inclinação de nível dentro do local fosse troca
+  de votos liberados sem biometria, daria uns 1,16 milhão de margem. Para virar a eleição seria preciso 3,8 vezes isso.
+
+C2, digitais órfãs e o voto da seção (3.897 logs do 2º turno)
+  Pela letra: SEM SINAL. Dentro do local, com o 1º turno como controle: b = -0,027 (ep 0,018); o reel diz +0,156, a
+  10 erros-padrão. Placebo -0,019 (ep 0,032). Efeito mínimo detectável 0,052: o teste tinha poder.
+  Na base nacional do painel (conferente), mesma especificação: b = -0,0013 (ep 0,0038). Sem o 1º turno, a mesma base
+  reproduz o reel: +0,156 (ep 0,028) dentro do município e +0,090 dentro do local (o "+8,8 no mesmo prédio"). O
+  placebo (fatia do 1º turno contra órfãs do 2º) dá +0,181 no município. A relação já estava no voto do 1º turno.
+  Contagem: "digital órfã" é categoria real do log. São 15,0% das liberações manuais, o que projeta 1,29 milhão no
+  país (reel: 1,28 milhão). Divisão mesário identificado, digital gravada e órfã: 67,5 / 17,5 / 15,0 (reel: 67,8 /
+  17,2 / 15,0).
+  "Score zero" é rótulo errado. O limiar de batimento é 20: toda órfã tem score abaixo de 20 (mediana 9, máximo 19).
+  Todos os scores zero: 13 de 10.980 órfãs com linha de score (0,12%).
+  Na mesma urna, as órfãs CAÍRAM do 1º turno (que Flávio venceu) para o 2º: de 13.033 para 10.935 (-16%). O aumento das
+  liberações manuais veio de mesário identificado (+15%). A variação das órfãs não explica a virada (+0,014).
+  O que as órfãs acompanham é hardware e procedimento: o dobro nas urnas UE2013 e UE2015. A primeira vez que um dedo
+  não cadastrado autoriza vira órfã (arquivo novo); cada reuso do mesmo dedo vira "digital gravada".
+
+C3, Xique-Xique (BA) e Coronel José Dias (PI), arquivo por arquivo (148 seções, 740 arquivos)
+  Pela letra: SEM SINAL. Assinatura ok em 148 de 148 (Ed521 conferido do zero pelo conferente), boletim igual ao bweb,
+  RDV igual ao boletim, votos do log iguais ao comparecimento, nenhum voto sem habilitação.
+  Correção feita na conferência: o 139 e o 79 do reel EXISTEM. Somando no 25/10 "não confere", "ano diferente do
+  cadastro" e "Dado digitado está incompleto":
+    BA|39713|68|82 (Xique-Xique): 1 + 1 + 137 = 139.   PI|10243|13|199 (Coronel José Dias): 66 + 1 + 12 = 79.
+  O que os arquivos mostram nessas duas seções:
+    BA 82: 137 "incompleto" em 49 tentativas, 117 deles no mesmo segundo de outro (tecla repetida ou CONFIRMA antes de
+    terminar). As 49 terminam com o eleitor liberado e votando uma vez. Mesmo quadro no 1º turno (63). Virada -2,46,
+    ou seja, -3,40 contra o município, no sentido de Flávio.
+    PI 199: um erro por eleitor, quase sempre seguido do ano certo, o dia inteiro, nos dois turnos e na mesma urna.
+    Virada +1,14 contra o município (Lula já tinha 93,9% no 1º turno).
+  "8 vezes seguidas em já votou": PI 199 no 1º turno (04/10), das 18:13:30 às 18:18:21, depois do último voto e sem
+  voto depois. "Cancela o encerramento": 1 caso em 148, um eleitor reconhecido pela própria digital às 17:03.
+
+C4, painel do autor (essencia-ai.com/auditoria-2026)
+  O primeiro agente parou por regra que ele mesmo criou (não baixar .js). O conferente leu o arquivo da página como
+  texto, sem executar nada, mais o dossiê em PDF e a "Tabela Mestra" v21 (497.885 seções, 40 campos). Hashes em
+  resultados/C4_conferencia_painel/sha256_arquivos_do_painel.txt.
+  A tabela bate com a base oficial em 497.885 de 497.885 seções nos votos, e com os nossos logs em 98% a 99,9% das
+  3.897 seções. O autor leu os logs de verdade.
+  O que o painel tem de errado, além da conclusão:
+    - a coluna "Órfãs (SemMes)" do dossiê é o campo NaoAssoc, que é a digital GRAVADA no dia (o "mesário substituto"
+      que o próprio reel diz ter desvio zero), não a órfã;
+    - exemplos errados: o Caso 1 (Pedro do Rosário 15/350, 162 x 6) é chave de Grajaú; o 162 x 6 é a seção 106/163. O
+      Caso 2 (Xique-Xique 82, 252 x 65) é 251 x 46 no oficial. Das 8 "seções críticas", 5 não existem e 2 são de outros
+      municípios;
+    - quatro totais diferentes para "sem biometria" (15.709.293, 15.709.193, 15.884.298 e 15.956.083) e três
+      universos (497.897, 497.885 e 492.988 seções);
+    - o "pareamento com 2022" não está em nenhum arquivo publicado;
+    - a página diz "Sem Cadastro +3,23 pp de desvio" e o dossiê diz que a distorção não ocorre sem cadastro.
+  Os 2,51 milhões "controlados por UF e porte": reconstruídos entre 1,76 e 3,52 milhões sem o 1º turno. Com o 1º turno
+  como controle: -18.505 (IC -102.138 a +65.127). Os 858 mil "intra-município": 893.045 sem o 1º turno; dentro do local
+  com o 1º turno, +47.129 (IC -72.628 a +166.887).
+
+LEITURA
+1. O reel é o mais bem feito de todos os que checamos: as contagens e a base estão certas.
+2. O erro é de método. Todas as comparações do painel são de nível, sem o 1º turno. Seção com mais liberação sem
+   biometria e mais órfã já votava mais em Lula no 1º turno, que Flávio venceu. Quando se mede a MUDANÇA entre os
+   turnos dentro do mesmo local, o efeito some, nos nossos logs e na base do próprio autor.
+3. As órfãs são uma lacuna real de auditoria: depois das falhas, a urna aceita qualquer dedo como autorização do
+   mesário e o grava. Não deixa marca no voto nestes dados, mas merece resposta do TSE.
+4. Limite de sempre: os arquivos saem do mesmo software. Um programa adulterado na origem que gravasse tudo coerente
+   não apareceria aqui.
+
+O QUE SÓ OUTROS PODEM RESPONDER
+- TRE-MG: de quem são as digitais salvas em Itabira (MG|46337, zona 132; 1.541 órfãs no 2º turno). Os arquivos
+  wsqmes.jez e wsqman.jez constam no log como arquivos de resultado e não estão no pacote público.
+- TRE-BA: caderno de votação, composição da mesa e estado do teclado do terminal do mesário na BA|39713|68|82.
+- TRE-PI: caderno de votação da PI|10243|13|199 e de quem é a digital gravada às 08:09:10 de 25/10.
+- TSE: o limiar de batimento (20?), a regra que salva a digital do autorizador e se houve orientação para registrar
+  melhor a biometria dos mesários no 2º turno (mesário identificado +15%).
+- Autor do reel: o método do +15,6, o filtro do universo de 492.988 seções e a regra do "score zero".

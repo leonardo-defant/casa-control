@@ -1,0 +1,1648 @@
+{
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 24, C1 (commit ca110bb, 03/11/2026 04:24:10 UTC)",
+ "extracao": {
+  "conferencia": {
+   "conferidas_1": 499206,
+   "conferidas_2": 499205,
+   "NH_conferido_com_F6_1": 499206,
+   "NH_conferido_com_F6_2": 499205
+  },
+  "linhas_discordantes_1T": 0,
+  "linhas_discordantes_2T": 0,
+  "valores_invalidos_1T": {},
+  "valores_invalidos_2T": {}
+ },
+ "universo": {
+  "secoes": 497897,
+  "fora": {
+   "exterior": 1309
+  },
+  "com_L_mais_R_nos_dois_turnos": 497897,
+  "NH_2T": 8632488,
+  "NH_1T": 8342249,
+  "comparecimento_2T": 127854631,
+  "comparecimento_1T": 124934069,
+  "L2": 64056078,
+  "R2": 59654544,
+  "L1": 53722151,
+  "R1": 55960603
+ },
+ "exterior": {
+  "secoes": 1308,
+  "L2": 200154,
+  "R2": 171497,
+  "comp2": 381443
+ },
+ "universos_candidatos": {
+  "27_UFs": 497897,
+  "sem_agregacao_no_2T": 482971,
+  "apuradas_no_2T": 497897,
+  "apuradas_sem_agregacao_2T": 482971,
+  "com_L_mais_R_nos_dois_turnos": 497897,
+  "com_NH2_maior_que_zero": 497412,
+  "margem_Lula_2T_sem_agregacao": 3574916,
+  "margem_Lula_2T_apuradas": 4401534
+ },
+ "C1_tabela": {
+  "A": {
+   "secoes": 175703,
+   "comparecimento_2T": 46512668,
+   "NH_2T": 1630824,
+   "L1": 19164062,
+   "R1": 20687849,
+   "L2": 22997470,
+   "R2": 21970021,
+   "margem_Lula_1T": -1523787,
+   "margem_Lula_2T": 1027449,
+   "margem_Lula_1T_pts": -3.823623414194617,
+   "margem_Lula_2T_pts": 2.284870641326197,
+   "fatia_Lula_1T": 48.08818829290269,
+   "fatia_Lula_2T": 51.1424353206631,
+   "virada_agregada": 3.054247027760404,
+   "virada_media_ponderada": 3.1854289508567164,
+   "parte_da_margem_nacional_2T_pct": 23.34297542629456,
+   "parte_da_mudanca_da_margem_nacional_pct": 38.42230992655708
+  },
+  "B": {
+   "secoes": 237829,
+   "comparecimento_2T": 61262571,
+   "NH_2T": 4336218,
+   "L1": 25566137,
+   "R1": 26936266,
+   "L2": 30521272,
+   "R2": 28758874,
+   "margem_Lula_1T": -1370129,
+   "margem_Lula_2T": 1762398,
+   "margem_Lula_1T_pts": -2.6096500763974557,
+   "margem_Lula_2T_pts": 2.9729987507115787,
+   "fatia_Lula_1T": 48.69517496180127,
+   "fatia_Lula_2T": 51.48649937535579,
+   "virada_agregada": 2.79132441355452,
+   "virada_media_ponderada": 2.936436837989279,
+   "parte_da_margem_nacional_2T_pct": 40.040540411592865,
+   "parte_da_mudanca_da_margem_nacional_pct": 47.17671091475193
+  },
+  "C": {
+   "secoes": 84365,
+   "comparecimento_2T": 20079392,
+   "NH_2T": 2665446,
+   "L1": 8991952,
+   "R1": 8336488,
+   "L2": 10537336,
+   "R2": 8925649,
+   "margem_Lula_1T": 655464,
+   "margem_Lula_2T": 1611687,
+   "margem_Lula_1T_pts": 3.782590931439876,
+   "margem_Lula_2T_pts": 8.280780157822656,
+   "fatia_Lula_1T": 51.891295465719935,
+   "fatia_Lula_2T": 54.14039007891133,
+   "virada_agregada": 2.249094613191396,
+   "virada_media_ponderada": 2.4923906272897622,
+   "parte_da_margem_nacional_2T_pct": 36.61648416211257,
+   "parte_da_mudanca_da_margem_nacional_pct": 14.400979158690998
+  },
+  "_nacional": {
+   "margem_Lula_1T": -2238452,
+   "margem_Lula_2T": 4401534,
+   "secoes": 497897
+  }
+ },
+ "C1_regressao": {
+  "n": 475803,
+  "grupos": 72445,
+  "coef": {
+   "B": -0.06166045443178079,
+   "C": -0.11708487690043944
+  },
+  "ep": {
+   "B": 0.0071821602383424134,
+   "C": 0.01138780481448424
+  },
+  "z": {
+   "B": -8.585223997454495,
+   "C": -10.281602012665184
+  },
+  "identificam": {
+   "A": 158186,
+   "B": 212745,
+   "C": 67462,
+   "locais_com_mais_de_uma_faixa": 60655
+  }
+ },
+ "C1_leitura": {
+  "veredito": "INCONCLUSIVO",
+  "motivo": "a faixa C não dava a Lula, no 1º turno, metade ou mais da margem do 2º turno",
+  "D6_faixa_C_ja_dava_margem_no_1T": false,
+  "D7_virada_igual_entre_faixas": true,
+  "criterio_sinal": false,
+  "M1_C": 655464,
+  "M2_C": 1611687,
+  "M1_C_sobre_M2_C": 0.40669435194302617,
+  "faixa_C_acima_da_margem_nacional_1T": true
+ },
+ "C1_robustez": {
+  "placebo_y_fatia_Lula_1T": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": 0.376638121641426,
+    "C": 0.7664996203326321
+   },
+   "ep": {
+    "B": 0.01520471768723261,
+    "C": 0.024676415783736347
+   },
+   "z": {
+    "B": 24.77113547183377,
+    "C": 31.0620321464114
+   },
+   "identificam": {
+    "A": 158186,
+    "B": 212745,
+    "C": 67462,
+    "locais_com_mais_de_uma_faixa": 60655
+   }
+  },
+  "sem_peso": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": -0.061347768002699414,
+    "C": -0.11689718484234528
+   },
+   "ep": {
+    "B": 0.0073477193183559405,
+    "C": 0.011671489525500445
+   },
+   "z": {
+    "B": -8.34922584065528,
+    "C": -10.015618365328825
+   },
+   "identificam": {
+    "A": 158186,
+    "B": 212745,
+    "C": 67462,
+    "locais_com_mais_de_uma_faixa": 60655
+   }
+  },
+  "covariaveis": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": -0.009301263667830227,
+    "C": -0.01823240101245448,
+    "fatia_Lula_1T": -0.1750869131858014,
+    "var_comp_pts_aptos": 0.04752815083494608,
+    "log_aptos": -0.46365435129028976
+   },
+   "ep": {
+    "B": 0.006788469962517946,
+    "C": 0.010811308355847926,
+    "fatia_Lula_1T": 0.0008361181862688909,
+    "var_comp_pts_aptos": 0.001603196361869777,
+    "log_aptos": 0.040702286984680244
+   },
+   "z": {
+    "B": -1.3701561204787667,
+    "C": -1.6864194797100966,
+    "fatia_Lula_1T": -209.40450292931968,
+    "var_comp_pts_aptos": 29.645869941667605,
+    "log_aptos": -11.391358708290829
+   },
+   "identificam": {
+    "A": 158186,
+    "B": 212745,
+    "C": 67462,
+    "locais_com_mais_de_uma_faixa": 60655
+   }
+  },
+  "efeito_fixo_municipio": {
+   "n": 497897,
+   "grupos": 5571,
+   "coef": {
+    "B": -0.18252874642113076,
+    "C": -0.37218464201721263
+   },
+   "ep": {
+    "B": 0.019182657158873698,
+    "C": 0.027301031992805824
+   },
+   "z": {
+    "B": -9.515300456521732,
+    "C": -13.63262173075685
+   },
+   "identificam": {
+    "A": 175695,
+    "B": 237806,
+    "C": 84023,
+    "locais_com_mais_de_uma_faixa": 5533
+   }
+  },
+  "sem_efeito_fixo_pais": {
+   "n": 497897,
+   "grupos": 1,
+   "coef": {
+    "B": -0.24899211286743694,
+    "C": -0.6930383235669529
+   },
+   "ep": {
+    "B": NaN,
+    "C": NaN
+   },
+   "z": {
+    "B": NaN,
+    "C": NaN
+   },
+   "identificam": {
+    "A": 175703,
+    "B": 237829,
+    "C": 84365,
+    "locais_com_mais_de_uma_faixa": 1
+   },
+   "nota": "um grupo só: diferença bruta no país; erro-padrão agrupado não se aplica"
+  },
+  "faixa_pela_fracao_do_1T": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": -0.056460819921934,
+    "C": -0.12206964271412113
+   },
+   "ep": {
+    "B": 0.00716963505548196,
+    "C": 0.01153299681915208
+   },
+   "z": {
+    "B": -7.874992169756759,
+    "C": -10.584381893820364
+   },
+   "identificam": {
+    "A": 158499,
+    "B": 213732,
+    "C": 65396,
+    "locais_com_mais_de_uma_faixa": 60527
+   }
+  },
+  "faixa_NH2_sobre_aptos": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": -0.08375699019083123,
+    "C": -0.15228727077461773
+   },
+   "ep": {
+    "B": 0.0071018061101129635,
+    "C": 0.01457053999360534
+   },
+   "z": {
+    "B": -11.79375906525544,
+    "C": -10.451724564872197
+   },
+   "identificam": {
+    "A": 203562,
+    "B": 179963,
+    "C": 32500,
+    "locais_com_mais_de_uma_faixa": 57229
+   }
+  },
+  "so_apuradas_sem_agregacao_aptos_iguais_mesma_urna": {
+   "n": 404749,
+   "grupos": 66975,
+   "coef": {
+    "B": -0.060860183376642014,
+    "C": -0.1206556695846506
+   },
+   "ep": {
+    "B": 0.007880530024449684,
+    "C": 0.01251538500841861
+   },
+   "z": {
+    "B": -7.7228540704521995,
+    "C": -9.640587924661547
+   },
+   "identificam": {
+    "A": 133564,
+    "B": 178043,
+    "C": 56394,
+    "locais_com_mais_de_uma_faixa": 55381
+   }
+  },
+  "dose_continua": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "pts_NH2_sobre_C2": -0.012462763951332145
+   },
+   "ep": {
+    "pts_NH2_sobre_C2": 0.0010432788871437074
+   }
+  },
+  "faixa_C_dividida_10_20_e_mais_20": {
+   "n": 475803,
+   "grupos": 72445,
+   "coef": {
+    "B": -0.06176914968112663,
+    "C_10_20": -0.11427518349323194,
+    "C_mais_20": -0.25279032682031516
+   },
+   "ep": {
+    "B": 0.00718225038739088,
+    "C_10_20": 0.01142011843536068,
+    "C_mais_20": 0.043291590468100036
+   },
+   "z": {
+    "B": -8.600250109571258,
+    "C_10_20": -10.006479717355296,
+    "C_mais_20": -5.839247855922202
+   },
+   "secoes": {
+    "C_10_20": 80331,
+    "C_mais_20": 4034
+   }
+  }
+ },
+ "C1_tabela_faixa_do_1T": {
+  "A": {
+   "secoes": 176851,
+   "comparecimento_2T": 47089047,
+   "NH_2T": 1939615,
+   "L1": 19637792,
+   "R1": 20738993,
+   "L2": 23526133,
+   "R2": 22001738,
+   "margem_Lula_1T": -1101201,
+   "margem_Lula_2T": 1524395,
+   "margem_Lula_1T_pts": -2.7273122414278403,
+   "margem_Lula_2T_pts": 3.3482677017776648,
+   "fatia_Lula_1T": 48.63634387928608,
+   "fatia_Lula_2T": 51.67413385088883,
+   "virada_agregada": 3.0377899716027486,
+   "virada_media_ponderada": 3.170205104464481,
+   "parte_da_margem_nacional_2T_pct": 34.633266492999944,
+   "parte_da_mudanca_da_margem_nacional_pct": 39.5421918058261
+  },
+  "B": {
+   "secoes": 239208,
+   "comparecimento_2T": 61516114,
+   "NH_2T": 4308559,
+   "L1": 25581530,
+   "R1": 27121938,
+   "L2": 30555992,
+   "R2": 28968945,
+   "margem_Lula_1T": -1540408,
+   "margem_Lula_2T": 1587047,
+   "margem_Lula_1T_pts": -2.9227829940906354,
+   "margem_Lula_2T_pts": 2.6661884581247017,
+   "fatia_Lula_1T": 48.53860850295468,
+   "fatia_Lula_2T": 51.333094229062354,
+   "virada_agregada": 2.7944857261076734,
+   "virada_media_ponderada": 2.9394889564711937,
+   "parte_da_margem_nacional_2T_pct": 36.05667933043343,
+   "parte_da_mudanca_da_margem_nacional_pct": 47.10032521152906
+  },
+  "C": {
+   "secoes": 81838,
+   "comparecimento_2T": 19249470,
+   "NH_2T": 2384314,
+   "L1": 8502829,
+   "R1": 8099672,
+   "L2": 9973953,
+   "R2": 8683861,
+   "margem_Lula_1T": 403157,
+   "margem_Lula_2T": 1290092,
+   "margem_Lula_1T_pts": 2.4282907737816126,
+   "margem_Lula_2T_pts": 6.91448633800294,
+   "fatia_Lula_1T": 51.214145386890806,
+   "fatia_Lula_2T": 53.45724316900147,
+   "virada_agregada": 2.2430977821106666,
+   "virada_media_ponderada": 2.49316075087408,
+   "parte_da_margem_nacional_2T_pct": 29.310054176566624,
+   "parte_da_mudanca_da_margem_nacional_pct": 13.357482982644843
+  },
+  "_nacional": {
+   "margem_Lula_1T": -2238452,
+   "margem_Lula_2T": 4401534,
+   "secoes": 497897
+  }
+ },
+ "C1_faixas_por_UF": {
+  "AC": {
+   "A": 1242,
+   "B": 883,
+   "C": 145,
+   "pct_C": 6.387665198237886,
+   "margem_Lula_2T": -143202,
+   "fracao_NH_2T_pct": 4.993673592649905
+  },
+  "AL": {
+   "A": 2527,
+   "B": 3186,
+   "C": 1388,
+   "pct_C": 19.546542740459092,
+   "margem_Lula_2T": 408481,
+   "fracao_NH_2T_pct": 6.962070718250162
+  },
+  "AM": {
+   "A": 4133,
+   "B": 3464,
+   "C": 560,
+   "pct_C": 6.865269094029668,
+   "margem_Lula_2T": 170538,
+   "fracao_NH_2T_pct": 5.4266331335059865
+  },
+  "AP": {
+   "A": 1187,
+   "B": 673,
+   "C": 54,
+   "pct_C": 2.8213166144200628,
+   "margem_Lula_2T": 24294,
+   "fracao_NH_2T_pct": 4.578173149601721
+  },
+  "BA": {
+   "A": 10604,
+   "B": 16736,
+   "C": 8136,
+   "pct_C": 22.933814409741796,
+   "margem_Lula_2T": 3876497,
+   "fracao_NH_2T_pct": 7.453316673117848
+  },
+  "CE": {
+   "A": 7995,
+   "B": 10609,
+   "C": 5161,
+   "pct_C": 21.71681043551441,
+   "margem_Lula_2T": 2216646,
+   "fracao_NH_2T_pct": 7.125397292510361
+  },
+  "DF": {
+   "A": 4448,
+   "B": 2377,
+   "C": 144,
+   "pct_C": 2.0662935858803273,
+   "margem_Lula_2T": -154318,
+   "fracao_NH_2T_pct": 4.502215941935899
+  },
+  "ES": {
+   "A": 3909,
+   "B": 4681,
+   "C": 1254,
+   "pct_C": 12.738724095895977,
+   "margem_Lula_2T": -292539,
+   "fracao_NH_2T_pct": 6.284248721782291
+  },
+  "GO": {
+   "A": 5938,
+   "B": 7081,
+   "C": 2667,
+   "pct_C": 17.00242254239449,
+   "margem_Lula_2T": -759779,
+   "fracao_NH_2T_pct": 6.637939554466209
+  },
+  "MA": {
+   "A": 7318,
+   "B": 8420,
+   "C": 2355,
+   "pct_C": 13.016083568230808,
+   "margem_Lula_2T": 1578260,
+   "fracao_NH_2T_pct": 6.295213566837889
+  },
+  "MG": {
+   "A": 17376,
+   "B": 25552,
+   "C": 9134,
+   "pct_C": 17.54446621336099,
+   "margem_Lula_2T": 109313,
+   "fracao_NH_2T_pct": 6.806931784180298
+  },
+  "MS": {
+   "A": 2151,
+   "B": 3453,
+   "C": 1502,
+   "pct_C": 21.137067267098228,
+   "margem_Lula_2T": -298919,
+   "fracao_NH_2T_pct": 7.2466540396121575
+  },
+  "MT": {
+   "A": 2828,
+   "B": 4250,
+   "C": 1209,
+   "pct_C": 14.589115482080366,
+   "margem_Lula_2T": -656932,
+   "fracao_NH_2T_pct": 6.597456330736467
+  },
+  "PA": {
+   "A": 10250,
+   "B": 8605,
+   "C": 1972,
+   "pct_C": 9.468478417438902,
+   "margem_Lula_2T": 490509,
+   "fracao_NH_2T_pct": 5.55905284881091
+  },
+  "PB": {
+   "A": 3036,
+   "B": 5572,
+   "C": 2104,
+   "pct_C": 19.64152352501867,
+   "margem_Lula_2T": 928849,
+   "fracao_NH_2T_pct": 7.26621615710974
+  },
+  "PE": {
+   "A": 7860,
+   "B": 10258,
+   "C": 3300,
+   "pct_C": 15.407601083201046,
+   "margem_Lula_2T": 2284959,
+   "fracao_NH_2T_pct": 6.525196332568183
+  },
+  "PI": {
+   "A": 2049,
+   "B": 4416,
+   "C": 3760,
+   "pct_C": 36.77261613691932,
+   "margem_Lula_2T": 1128130,
+   "fracao_NH_2T_pct": 9.002513583620185
+  },
+  "PR": {
+   "A": 8257,
+   "B": 14065,
+   "C": 4820,
+   "pct_C": 17.758455530174636,
+   "margem_Lula_2T": -1724940,
+   "fracao_NH_2T_pct": 6.988203853080296
+  },
+  "RJ": {
+   "A": 9900,
+   "B": 19963,
+   "C": 7812,
+   "pct_C": 20.735235567352355,
+   "margem_Lula_2T": -603640,
+   "fracao_NH_2T_pct": 7.445346535616305
+  },
+  "RN": {
+   "A": 1546,
+   "B": 4411,
+   "C": 2158,
+   "pct_C": 26.592729513247072,
+   "margem_Lula_2T": 676187,
+   "fracao_NH_2T_pct": 8.099074579579304
+  },
+  "RO": {
+   "A": 1752,
+   "B": 2388,
+   "C": 558,
+   "pct_C": 11.877394636015326,
+   "margem_Lula_2T": -379936,
+   "fracao_NH_2T_pct": 6.265927086694946
+  },
+  "RR": {
+   "A": 1074,
+   "B": 416,
+   "C": 29,
+   "pct_C": 1.9091507570770243,
+   "margem_Lula_2T": -136170,
+   "fracao_NH_2T_pct": 4.097901146155018
+  },
+  "RS": {
+   "A": 5208,
+   "B": 13881,
+   "C": 8458,
+   "pct_C": 30.70388790067884,
+   "margem_Lula_2T": -1049826,
+   "fracao_NH_2T_pct": 8.452984031962202
+  },
+  "SC": {
+   "A": 4416,
+   "B": 9083,
+   "C": 3827,
+   "pct_C": 22.088191157797528,
+   "margem_Lula_2T": -1801757,
+   "fracao_NH_2T_pct": 7.509643968474917
+  },
+  "SE": {
+   "A": 1846,
+   "B": 3019,
+   "C": 1058,
+   "pct_C": 17.862569643761606,
+   "margem_Lula_2T": 555687,
+   "fracao_NH_2T_pct": 6.968490971657352
+  },
+  "SP": {
+   "A": 44390,
+   "B": 48722,
+   "C": 10544,
+   "pct_C": 10.172107740989427,
+   "margem_Lula_2T": -2019904,
+   "fracao_NH_2T_pct": 5.964313692514749
+  },
+  "TO": {
+   "A": 2463,
+   "B": 1665,
+   "C": 256,
+   "pct_C": 5.839416058394161,
+   "margem_Lula_2T": -24954,
+   "fracao_NH_2T_pct": 4.946253677614235
+  }
+ },
+ "P1_placar_campo_bweb": {
+  "0_a_5": {
+   "secoes": 175703,
+   "pct_secoes": 35.28902564184962,
+   "fatia_Lula": 51.1424353206631,
+   "fatia_Flavio": 48.8575646793369,
+   "margem_Lula": 1027449,
+   "parte_da_margem_pct": 23.34297542629456
+  },
+  "ate_10": {
+   "secoes": 413532,
+   "pct_secoes": 83.05573241051864,
+   "fatia_Lula": 51.33808644506733,
+   "fatia_Flavio": 48.66191355493267,
+   "margem_Lula": 2789847,
+   "parte_da_margem_pct": 63.38351583788743
+  },
+  "mais_de_10": {
+   "secoes": 84365,
+   "pct_secoes": 16.94426758948136,
+   "fatia_Lula": 54.14039007891133,
+   "fatia_Flavio": 45.85960992108867,
+   "margem_Lula": 1611687,
+   "parte_da_margem_pct": 36.61648416211257
+  },
+  "5_a_10": {
+   "secoes": 237829,
+   "pct_secoes": 47.766706768669025,
+   "fatia_Lula": 51.48649937535579,
+   "fatia_Flavio": 48.51350062464421,
+   "margem_Lula": 1762398,
+   "parte_da_margem_pct": 40.040540411592865
+  },
+  "_total": {
+   "secoes": 497897,
+   "margem_Lula": 4401534
+  }
+ },
+ "P1_reel": {
+  "secoes_0_5": 45615,
+  "secoes_ate_10": 221532,
+  "secoes_mais_10": 271456,
+  "secoes_total": 492988,
+  "margem_0_5_Flavio": 443504,
+  "fatia_ate_10_Lula": 50.09,
+  "fatia_ate_10_Flavio": 49.91,
+  "margem_mais_10_Lula": 4254754,
+  "parte_margem_mais_10": 97.65,
+  "sem_biometria_total": 15709293,
+  "sem_biometria_total_outro_painel": 15709193,
+  "com_biometria_milhoes": 110.9,
+  "urnas": 497897,
+  "pct_ate_10_do_Brasil": 44.9,
+  "fatia_0_5_Flavio": 52.0,
+  "fatia_0_5_Lula": 48.0
+ },
+ "P2_boletins": {
+  "pacotes": 3897,
+  "erros_de_leitura": 0,
+  "conferencia": {
+   "lidos": 3897,
+   "soma_igual_ao_comparecimento_do_boletim": 3897,
+   "no_bweb": 3897,
+   "terceiro_igual_ao_NH_do_bweb": 3897,
+   "comparecimento_igual_ao_bweb": 3897,
+   "votos_13_22_iguais_ao_bweb": 3897,
+   "secao_do_boletim_igual_a_pasta": 3897
+  },
+  "validacao_log_300": {
+   "conferidos": 300,
+   "S_igual": 295,
+   "B_igual": 291,
+   "M_igual": 300,
+   "tres_iguais": 290,
+   "log_completo": 300,
+   "tres_iguais_log_completo": 290
+  },
+  "erros": {}
+ },
+ "P3_amostra": {
+  "secoes": 3897,
+  "S": 50913,
+  "B": 877924,
+  "M": 73773,
+  "comparecimento": 1002610,
+  "S_pct_comp": 5.078046299159195,
+  "M_pct_comp": 7.358095371081477,
+  "SM_pct_comp": 12.436141670240671,
+  "S_sobre_M": 0.6901305355617909,
+  "placar_def_M": {
+   "0_a_5": {
+    "secoes": 1169,
+    "pct_secoes": 29.99743392353092,
+    "fatia_Lula": 53.93284792898615,
+    "fatia_Flavio": 46.06715207101385,
+    "margem_Lula": 23464,
+    "parte_da_margem_pct": 29.714430443867535
+   },
+   "ate_10": {
+    "secoes": 3033,
+    "pct_secoes": 77.82909930715935,
+    "fatia_Lula": 53.15322509907219,
+    "fatia_Flavio": 46.84677490092781,
+    "margem_Lula": 48171,
+    "parte_da_margem_pct": 61.002976002026216
+   },
+   "mais_de_10": {
+    "secoes": 864,
+    "pct_secoes": 22.170900692840647,
+    "fatia_Lula": 57.48910463442157,
+    "fatia_Flavio": 42.51089536557843,
+    "margem_Lula": 30794,
+    "parte_da_margem_pct": 38.997023997973784
+   },
+   "5_a_10": {
+    "secoes": 1864,
+    "pct_secoes": 47.83166538362843,
+    "fatia_Lula": 52.65364778563742,
+    "fatia_Flavio": 47.34635221436258,
+    "margem_Lula": 24707,
+    "parte_da_margem_pct": 31.288545558158678
+   },
+   "_total": {
+    "secoes": 3897,
+    "margem_Lula": 78965
+   }
+  },
+  "placar_def_S_mais_M": {
+   "0_a_5": {
+    "secoes": 285,
+    "pct_secoes": 7.313317936874519,
+    "fatia_Lula": 52.2549901892805,
+    "fatia_Flavio": 47.7450098107195,
+    "margem_Lula": 3057,
+    "parte_da_margem_pct": 3.8713354017602737
+   },
+   "ate_10": {
+    "secoes": 1586,
+    "pct_secoes": 40.69797279958943,
+    "fatia_Lula": 51.59587753711857,
+    "fatia_Flavio": 48.40412246288143,
+    "margem_Lula": 12651,
+    "parte_da_margem_pct": 16.02102197175964
+   },
+   "mais_de_10": {
+    "secoes": 2311,
+    "pct_secoes": 59.30202720041057,
+    "fatia_Lula": 55.78591570924016,
+    "fatia_Flavio": 44.21408429075984,
+    "margem_Lula": 66314,
+    "parte_da_margem_pct": 83.97897802824036
+   },
+   "5_a_10": {
+    "secoes": 1301,
+    "pct_secoes": 33.38465486271491,
+    "fatia_Lula": 51.45990955073619,
+    "fatia_Flavio": 48.54009044926381,
+    "margem_Lula": 9594,
+    "parte_da_margem_pct": 12.149686569999368
+   },
+   "_total": {
+    "secoes": 3897,
+    "margem_Lula": 78965
+   }
+  }
+ },
+ "P4_perfil_info": {
+  "arquivos": {
+   "perfil_eleitor_secao_2026_BA.zip": {
+    "secoes": 37931,
+    "linhas": 6405905,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_RJ.zip": {
+    "secoes": 38738,
+    "linhas": 6943093,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_MG.zip": {
+    "secoes": 54179,
+    "linhas": 9668420,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_RS.zip": {
+    "secoes": 27708,
+    "linhas": 4956342,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_PR.zip": {
+    "secoes": 27333,
+    "linhas": 4949255,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_CE.zip": {
+    "secoes": 25639,
+    "linhas": 4059108,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_PE.zip": {
+    "secoes": 22049,
+    "linhas": 4164596,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_PA.zip": {
+    "secoes": 22072,
+    "linhas": 3634518,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_SC.zip": {
+    "secoes": 17536,
+    "linhas": 3299012,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_MA.zip": {
+    "secoes": 19752,
+    "linhas": 3152020,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_PB.zip": {
+    "secoes": 10823,
+    "linhas": 1933910,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_GO.zip": {
+    "secoes": 16216,
+    "linhas": 3056357,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_PI.zip": {
+    "secoes": 11244,
+    "linhas": 1624772,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_ES.zip": {
+    "secoes": 10107,
+    "linhas": 1775846,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_MT.zip": {
+    "secoes": 8969,
+    "linhas": 1737758,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_RN.zip": {
+    "secoes": 8334,
+    "linhas": 1521213,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_AM.zip": {
+    "secoes": 8575,
+    "linhas": 1498257,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_AL.zip": {
+    "secoes": 7241,
+    "linhas": 1380274,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_MS.zip": {
+    "secoes": 7272,
+    "linhas": 1298400,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_SE.zip": {
+    "secoes": 6052,
+    "linhas": 958607,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_RO.zip": {
+    "secoes": 4936,
+    "linhas": 849216,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_DF.zip": {
+    "secoes": 7042,
+    "linhas": 1233369,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_AC.zip": {
+    "secoes": 2411,
+    "linhas": 380863,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_AP.zip": {
+    "secoes": 1968,
+    "linhas": 336007,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_TO.zip": {
+    "secoes": 4480,
+    "linhas": 760117,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_RR.zip": {
+    "secoes": 1622,
+    "linhas": 248807,
+    "invalidos": 0
+   },
+   "perfil_eleitor_secao_2026_SP.zip": {
+    "secoes": 103841,
+    "linhas": 18678629,
+    "invalidos": 0
+   }
+  },
+  "ufs": [
+   "AC",
+   "AL",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RR",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ]
+ },
+ "P4_conferencia_S_hat": {
+  "secoes_amostra_com_perfil": 3897,
+  "soma_S": 50913,
+  "soma_S_hat": 92686.33796478751,
+  "razao_S_sobre_S_hat": 0.5493042568942833,
+  "correlacao_S_S_hat": 0.8905527668666852,
+  "correlacao_fracoes": 0.8880053563700617,
+  "erro_absoluto_medio_por_secao": 11.14989217815043,
+  "S_medio_por_secao": 13.064665127020785,
+  "faixa_igual_com_S_hat": 0.8373107518604055,
+  "S_sobre_aptos_sem_cadastro": 0.442637060736207,
+  "C_sobre_aptos_na_amostra": 0.8195382643552638
+ },
+ "P5_regressao_faixas_reel_pais": {
+  "n": 475681,
+  "grupos": 72406,
+  "coef": {
+   "B": -0.019103272739557885,
+   "C": 0.01603955754602975
+  },
+  "ep": {
+   "B": 0.014772643249927497,
+   "C": 0.0151987176135547
+  },
+  "z": {
+   "B": -1.2931519712730923,
+   "C": 1.0553230840821175
+  },
+  "identificam": {
+   "A": 27695,
+   "B": 120853,
+   "C": 167143,
+   "locais_com_mais_de_uma_faixa": 44560
+  }
+ },
+ "P5_placebo_faixas_reel_pais": {
+  "n": 475681,
+  "grupos": 72406,
+  "coef": {
+   "B": -0.1445167653888955,
+   "C": -0.10143669730679995
+  },
+  "ep": {
+   "B": 0.033234080680531734,
+   "C": 0.035455264773271315
+  },
+  "z": {
+   "B": -4.348450820050885,
+   "C": -2.860977007377198
+  },
+  "identificam": {
+   "A": 27695,
+   "B": 120853,
+   "C": 167143,
+   "locais_com_mais_de_uma_faixa": 44560
+  }
+ },
+ "P4_placar_perfil": {
+  "cobertura": {
+   "secoes_com_perfil": 497508,
+   "secoes_universo": 497897,
+   "ufs": [
+    "AC",
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO"
+   ],
+   "margem_Lula_2T_nas_UFs_com_perfil": 4389541
+  },
+  "def_NH_mais_S_hat": {
+   "0_a_5": {
+    "secoes": 29702,
+    "pct_secoes": 5.9701552537848634,
+    "fatia_Lula": 51.530372171388436,
+    "fatia_Flavio": 48.469627828611564,
+    "margem_Lula": 221810,
+    "parte_da_margem_pct": 5.053147925944876
+   },
+   "ate_10": {
+    "secoes": 162674,
+    "pct_secoes": 32.69776566406972,
+    "fatia_Lula": 51.54121708082109,
+    "fatia_Flavio": 48.45878291917891,
+    "margem_Lula": 1254398,
+    "parte_da_margem_pct": 28.576974221222674
+   },
+   "mais_de_10": {
+    "secoes": 334834,
+    "pct_secoes": 67.30223433593028,
+    "fatia_Lula": 51.88949197596782,
+    "fatia_Flavio": 48.11050802403218,
+    "margem_Lula": 3135143,
+    "parte_da_margem_pct": 71.42302577877733
+   },
+   "5_a_10": {
+    "secoes": 132972,
+    "pct_secoes": 26.72761041028486,
+    "fatia_Lula": 51.54356675873762,
+    "fatia_Flavio": 48.45643324126238,
+    "margem_Lula": 1032588,
+    "parte_da_margem_pct": 23.523826295277797
+   },
+   "_total": {
+    "secoes": 497508,
+    "margem_Lula": 4389541
+   }
+  },
+  "def_NH_mais_S_hat_calibrado": {
+   "0_a_5": {
+    "secoes": 47051,
+    "pct_secoes": 9.457335359431406,
+    "fatia_Lula": 51.260968163477244,
+    "fatia_Flavio": 48.739031836522756,
+    "margem_Lula": 294713,
+    "parte_da_margem_pct": 6.713982168067231
+   },
+   "ate_10": {
+    "secoes": 230566,
+    "pct_secoes": 46.34417939008016,
+    "fatia_Lula": 51.82055069601936,
+    "fatia_Flavio": 48.17944930398064,
+    "margem_Lula": 2111903,
+    "parte_da_margem_pct": 48.112160246367445
+   },
+   "mais_de_10": {
+    "secoes": 266942,
+    "pct_secoes": 53.65582060991984,
+    "fatia_Lula": 51.73452721077173,
+    "fatia_Flavio": 48.26547278922827,
+    "margem_Lula": 2277638,
+    "parte_da_margem_pct": 51.887839753632555
+   },
+   "5_a_10": {
+    "secoes": 183515,
+    "pct_secoes": 36.88684403064875,
+    "fatia_Lula": 51.96173952109888,
+    "fatia_Flavio": 48.03826047890112,
+    "margem_Lula": 1817190,
+    "parte_da_margem_pct": 41.39817807830021
+   },
+   "_total": {
+    "secoes": 497508,
+    "margem_Lula": 4389541
+   }
+  },
+  "def_sem_cadastro_sobre_eleitores": {
+   "0_a_5": {
+    "secoes": 231501,
+    "pct_secoes": 46.53211606647531,
+    "fatia_Lula": 52.639452006113004,
+    "fatia_Flavio": 47.360547993886996,
+    "margem_Lula": 2989311,
+    "parte_da_margem_pct": 68.10076497747714
+   },
+   "ate_10": {
+    "secoes": 335948,
+    "pct_secoes": 67.52615033326097,
+    "fatia_Lula": 52.84656837461485,
+    "fatia_Flavio": 47.15343162538515,
+    "margem_Lula": 4718878,
+    "parte_da_margem_pct": 107.50276623455619
+   },
+   "mais_de_10": {
+    "secoes": 161560,
+    "pct_secoes": 32.47384966673903,
+    "fatia_Lula": 49.59610871595618,
+    "fatia_Flavio": 50.40389128404382,
+    "margem_Lula": -329337,
+    "parte_da_margem_pct": -7.502766234556187
+   },
+   "5_a_10": {
+    "secoes": 104447,
+    "pct_secoes": 20.99403426678566,
+    "fatia_Lula": 53.293203567161974,
+    "fatia_Flavio": 46.706796432838026,
+    "margem_Lula": 1729567,
+    "parte_da_margem_pct": 39.40200125707904
+   },
+   "_total": {
+    "secoes": 497508,
+    "margem_Lula": 4389541
+   }
+  },
+  "def_campo_bweb_nas_mesmas_secoes": {
+   "0_a_5": {
+    "secoes": 175467,
+    "pct_secoes": 35.26918160109988,
+    "fatia_Lula": 51.13522709471351,
+    "fatia_Flavio": 48.86477290528649,
+    "margem_Lula": 1020205,
+    "parte_da_margem_pct": 23.24172390689596
+   },
+   "ate_10": {
+    "secoes": 413196,
+    "pct_secoes": 83.05313683398056,
+    "fatia_Lula": 51.33335671190151,
+    "fatia_Flavio": 48.66664328809849,
+    "margem_Lula": 2778662,
+    "parte_da_margem_pct": 63.301880538306854
+   },
+   "mais_de_10": {
+    "secoes": 84312,
+    "pct_secoes": 16.94686316601944,
+    "fatia_Lula": 54.13902590895957,
+    "fatia_Flavio": 45.86097409104043,
+    "margem_Lula": 1610879,
+    "parte_da_margem_pct": 36.698119461693146
+   },
+   "5_a_10": {
+    "secoes": 237729,
+    "pct_secoes": 47.78395523288068,
+    "fatia_Lula": 51.48357848116219,
+    "fatia_Flavio": 48.51642151883781,
+    "margem_Lula": 1758457,
+    "parte_da_margem_pct": 40.06015663141089
+   },
+   "_total": {
+    "secoes": 497508,
+    "margem_Lula": 4389541
+   }
+  },
+  "soma_NH_mais_S_hat": 21882130.997319773,
+  "soma_S_hat": 13252225.997319775,
+  "aptos_perfil": 155783453.0,
+  "aptos_sem_cadastro_perfil": 16567384.0
+ },
+ "P3_estimativa_nacional": {
+  "i_razao_S_sobre_C2_por_UF": 6224496.389537901,
+  "ep_i": 237441.4098941553,
+  "ii_razao_S_sobre_S_hat": 7279504.153652843,
+  "ep_ii": 136926.95969693642,
+  "ufs_na_amostra": [
+   "AC",
+   "AL",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "DF",
+   "ES",
+   "GO",
+   "MA",
+   "MG",
+   "MS",
+   "MT",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "PR",
+   "RJ",
+   "RN",
+   "RO",
+   "RS",
+   "SC",
+   "SE",
+   "SP",
+   "TO"
+  ],
+  "comparecimento_UFs_fora_da_amostra": 308597.0,
+  "nota_ii": "S_hat nacional só nas UFs com perfil; se faltar UF, (ii) cobre só essas UFs",
+  "NH_2T_universo": 8632488,
+  "NH_mais_S_i": 14856984.3895379,
+  "NH_mais_S_ii_nas_UFs_com_perfil": 15909409.153652843,
+  "comparecimento_2T_universo": 127854631,
+  "com_biometria_i": 112997646.6104621,
+  "reel_15709293_menos_NH": 7076805
+ },
+ "P5_regressao_amostra_S_mais_M": {
+  "n": 3781,
+  "grupos": 625,
+  "coef": {
+   "B": -0.0827065705343202,
+   "C": -0.007237680579479105
+  },
+  "ep": {
+   "B": 0.15181104534869083,
+   "C": 0.15855502521332895
+  },
+  "z": {
+   "B": -0.5447994271059371,
+   "C": -0.045647752694946864
+  },
+  "identificam": {
+   "A": 266,
+   "B": 1159,
+   "C": 1427,
+   "locais_com_mais_de_uma_faixa": 420
+  }
+ },
+ "P5_regressao_amostra_campo_M": {
+  "n": 3781,
+  "grupos": 625,
+  "coef": {
+   "B": -0.0354124298822303,
+   "C": -0.06378020460744299
+  },
+  "ep": {
+   "B": 0.07985326335059342,
+   "C": 0.11787051875318967
+  },
+  "z": {
+   "B": -0.44346878757794855,
+   "C": -0.5411039612118196
+  },
+  "identificam": {
+   "A": 1058,
+   "B": 1660,
+   "C": 723,
+   "locais_com_mais_de_uma_faixa": 516
+  }
+ },
+ "P5_placebo_amostra_S_mais_M": {
+  "n": 3781,
+  "grupos": 625,
+  "coef": {
+   "B": 0.25259957625115204,
+   "C": 0.3085831762762263
+  },
+  "ep": {
+   "B": 0.3371451887579385,
+   "C": 0.378984861790547
+  },
+  "z": {
+   "B": 0.7492308497171288,
+   "C": 0.814236153967465
+  },
+  "identificam": {
+   "A": 266,
+   "B": 1159,
+   "C": 1427,
+   "locais_com_mais_de_uma_faixa": 420
+  }
+ },
+ "P5_dose_amostra_S_e_M": {
+  "n": 3781,
+  "grupos": 625,
+  "coef": {
+   "pts_S": 0.021722964733613327,
+   "pts_M": 0.008397412486496727
+  },
+  "ep": {
+   "pts_S": 0.011309594625337451,
+   "pts_M": 0.010907791775688683
+  }
+ },
+ "P6_exploratorio_pos_resultado": {
+  "a_tabela_faixas_reel_pais_S_hat_calibrado": {
+   "A": {
+    "secoes": 47051,
+    "comparecimento_2T": 12065345,
+    "NH_2T": 352864,
+    "L1": 5079821,
+    "R1": 5403415,
+    "L2": 5990347,
+    "R2": 5695634,
+    "margem_Lula_1T": -323594,
+    "margem_Lula_2T": 294713,
+    "margem_Lula_1T_pts": -3.0867758772195915,
+    "margem_Lula_2T_pts": 2.5219363269544934,
+    "fatia_Lula_1T": 48.4566120613902,
+    "fatia_Lula_2T": 51.260968163477244,
+    "virada_agregada": 2.8043561020870413,
+    "virada_media_ponderada": 3.0326897406828155,
+    "parte_da_margem_nacional_2T_pct": 6.713982168067231,
+    "parte_da_mudanca_da_margem_nacional_pct": 9.312813144127068
+   },
+   "B": {
+    "secoes": 183515,
+    "comparecimento_2T": 47825812,
+    "NH_2T": 2563117,
+    "L1": 20344906,
+    "R1": 20976471,
+    "L2": 24066486,
+    "R2": 22249296,
+    "margem_Lula_1T": -631565,
+    "margem_Lula_2T": 1817190,
+    "margem_Lula_1T_pts": -1.5284219594134048,
+    "margem_Lula_2T_pts": 3.9234790421977546,
+    "fatia_Lula_1T": 49.235789020293296,
+    "fatia_Lula_2T": 51.96173952109888,
+    "virada_agregada": 2.725950500805581,
+    "virada_media_ponderada": 2.9290402040420327,
+    "parte_da_margem_nacional_2T_pct": 41.39817807830021,
+    "parte_da_mudanca_da_margem_nacional_pct": 36.88264527289336
+   },
+   "C": {
+    "secoes": 266942,
+    "comparecimento_2T": 67909615,
+    "NH_2T": 5713924,
+    "L1": 28266125,
+    "R1": 29560740,
+    "L2": 33966756,
+    "R2": 31689118,
+    "margem_Lula_1T": -1294615,
+    "margem_Lula_2T": 2277638,
+    "margem_Lula_1T_pts": -2.2387777722344104,
+    "margem_Lula_2T_pts": 3.4690544215434556,
+    "fatia_Lula_1T": 48.88061111388279,
+    "fatia_Lula_2T": 51.73452721077173,
+    "virada_agregada": 2.8539160968889377,
+    "virada_media_ponderada": 2.9653246039730328,
+    "parte_da_margem_nacional_2T_pct": 51.887839753632555,
+    "parte_da_mudanca_da_margem_nacional_pct": 53.80454158297957
+   },
+   "_nacional": {
+    "margem_Lula_1T": -2249774,
+    "margem_Lula_2T": 4389541,
+    "secoes": 497508
+   }
+  },
+  "a_regressao_faixas_reel_calibrado_pais": {
+   "n": 475681,
+   "grupos": 72406,
+   "coef": {
+    "B": -0.00923896419059783,
+    "C": 0.006104758395384369
+   },
+   "ep": {
+    "B": 0.011741216521672631,
+    "C": 0.013075795031894252
+   },
+   "z": {
+    "B": -0.7868830434686221,
+    "C": 0.4668747392027597
+   },
+   "identificam": {
+    "A": 44044,
+    "B": 162054,
+    "C": 148200,
+    "locais_com_mais_de_uma_faixa": 49765
+   }
+  },
+  "a_placebo_faixas_reel_calibrado_pais": {
+   "n": 475681,
+   "grupos": 72406,
+   "coef": {
+    "B": 0.08704748464169451,
+    "C": 0.1611734311077151
+   },
+   "ep": {
+    "B": 0.02533860333213125,
+    "C": 0.029407656242988585
+   },
+   "z": {
+    "B": 3.435370272808674,
+    "C": 5.480662238975345
+   },
+   "identificam": {
+    "A": 44044,
+    "B": 162054,
+    "C": 148200,
+    "locais_com_mais_de_uma_faixa": 49765
+   }
+  },
+  "d_ordenacao": {
+   "campo_bweb": {
+    "menores_45615": {
+     "fatia_Lula": 51.53653527623532,
+     "margem_Lula": 352696,
+     "fracao_max_pct": 2.834008097165992
+    },
+    "maiores_271456": {
+     "fatia_Lula": 52.356849501755015,
+     "margem_Lula": 3101683,
+     "fracao_min_pct": 5.777777777777778
+    }
+   },
+   "NH_mais_S_hat_calibrado": {
+    "menores_45615": {
+     "fatia_Lula": 51.27169651096603,
+     "margem_Lula": 288427,
+     "fracao_max_pct": 4.971430274255668
+    },
+    "maiores_271456": {
+     "fatia_Lula": 51.75928290395999,
+     "margem_Lula": 2348992,
+     "fracao_min_pct": 9.892324010335955
+    }
+   },
+   "S_hat_calibrado_sozinho": {
+    "menores_45615": {
+     "fatia_Lula": 54.5990713392895,
+     "margem_Lula": 980490,
+     "fracao_max_pct": 0.17605905669688568
+    },
+    "maiores_271456": {
+     "fatia_Lula": 51.09149878562812,
+     "margem_Lula": 1492927,
+     "fracao_min_pct": 2.6736047901934143
+    }
+   }
+  },
+  "a_tabela_faixas_reel_amostra_S_exato": {
+   "A": {
+    "secoes": 285,
+    "comparecimento_2T": 69967,
+    "NH_2T": 2027,
+    "L1": 30140,
+    "R1": 30608,
+    "L2": 35420,
+    "R2": 32363,
+    "margem_Lula_1T": -468,
+    "margem_Lula_2T": 3057,
+    "margem_Lula_1T_pts": -0.7703957331928624,
+    "margem_Lula_2T_pts": 4.509980378560996,
+    "fatia_Lula_1T": 49.61480213340357,
+    "fatia_Lula_2T": 52.2549901892805,
+    "virada_agregada": 2.6401880558769264,
+    "virada_media_ponderada": 3.0537599727583786,
+    "parte_da_margem_nacional_2T_pct": 3.8713354017602737,
+    "parte_da_mudanca_da_margem_nacional_pct": 6.343008295395246
+   },
+   "B": {
+    "secoes": 1301,
+    "comparecimento_2T": 339671,
+    "NH_2T": 17999,
+    "L1": 143388,
+    "R1": 149862,
+    "L2": 169088,
+    "R2": 159494,
+    "margem_Lula_1T": -6474,
+    "margem_Lula_2T": 9594,
+    "margem_Lula_1T_pts": -2.2076726342710997,
+    "margem_Lula_2T_pts": 2.9198191014723873,
+    "fatia_Lula_1T": 48.89616368286445,
+    "fatia_Lula_2T": 51.45990955073619,
+    "virada_agregada": 2.563745867871745,
+    "virada_media_ponderada": 2.8210298877393085,
+    "parte_da_margem_nacional_2T_pct": 12.149686569999368,
+    "parte_da_mudanca_da_margem_nacional_pct": 28.91332121713782
+   },
+   "C": {
+    "secoes": 2311,
+    "comparecimento_2T": 592972,
+    "NH_2T": 53747,
+    "L1": 268014,
+    "R1": 237680,
+    "L2": 319689,
+    "R2": 253375,
+    "margem_Lula_1T": 30334,
+    "margem_Lula_2T": 66314,
+    "margem_Lula_1T_pts": 5.998489204934209,
+    "margem_Lula_2T_pts": 11.57183141848031,
+    "fatia_Lula_1T": 52.9992446024671,
+    "fatia_Lula_2T": 55.78591570924016,
+    "virada_agregada": 2.7866711067730563,
+    "virada_media_ponderada": 2.967583586200736,
+    "parte_da_margem_nacional_2T_pct": 83.97897802824036,
+    "parte_da_mudanca_da_margem_nacional_pct": 64.74367048746693
+   },
+   "_nacional": {
+    "margem_Lula_1T": 23392,
+    "margem_Lula_2T": 78965,
+    "secoes": 3897
+   }
+  },
+  "b_proxy_calibrado": {
+   "k_calibracao": 0.5493042568942833,
+   "faixa_igual": 0.867590454195535,
+   "matriz_linhas_exato_colunas_proxy_ABC": [
+    [
+     242,
+     42,
+     1
+    ],
+    [
+     60,
+     1077,
+     164
+    ],
+    [
+     1,
+     248,
+     2062
+    ]
+   ]
+  },
+  "c_prova_1_amostra": {
+   "contagem": {
+    "completo_2T": 3897,
+    "completo_1T": 3873,
+    "M2_igual_NH2_bweb": 3888,
+    "M1_igual_NH1_bweb": 3824,
+    "completos_nos_dois": 3873
+   },
+   "soma_1T": {
+    "B": 856522,
+    "S": 48614,
+    "M": 70816
+   },
+   "soma_2T": {
+    "B": 872569,
+    "S": 50751,
+    "M": 73283
+   },
+   "var_B": 16047,
+   "var_S": 2137,
+   "var_M": 2467,
+   "var_comp": 20921,
+   "B_caiu_e_SM_subiu": {
+    "secoes": 800,
+    "pct": 20.655822359927704,
+    "var_B": -5879,
+    "var_SM": 5273,
+    "var_comp": -528,
+    "reposicao_pct": 89.69212451097125
+   },
+   "B_subiu_e_SM_caiu": {
+    "secoes": 1215,
+    "pct": 31.371030209140198,
+    "var_B": 13266,
+    "var_SM": -5570,
+    "var_comp": 7765
+   },
+   "correlacao_var_B_var_SM": -0.39528061445404533,
+   "reel": {
+    "urnas": 95672,
+    "var_com_bio": -605192,
+    "var_sem_bio": 606644,
+    "reposicao_pct": 99.76
+   },
+   "virada_contra_o_mesmo_local": {
+    "n": 3756,
+    "grupos": 623,
+    "coef": {
+     "B_caiu_SM_subiu": 0.12911091193080876
+    },
+    "ep": {
+     "B_caiu_SM_subiu": 0.08412188171690083
+    }
+   },
+   "placebo_fatia_Lula_1T": {
+    "n": 3756,
+    "grupos": 623,
+    "coef": {
+     "B_caiu_SM_subiu": -0.38002383125937367
+    },
+    "ep": {
+     "B_caiu_SM_subiu": 0.16888318640889072
+    }
+   }
+  }
+ },
+ "tempo_s": 29.353951930999756
+}

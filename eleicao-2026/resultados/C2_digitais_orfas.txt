@@ -1,0 +1,137 @@
+C2 do Adendo 24: digitais órfãs e o voto da seção (amostra de logs do 2º turno, locais quase inteiros)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 24, commit ca110bb (03/11/2026 04:24:10 UTC). Script: scripts/analisar_C2_reel.py.
+Reel checado: @assis.salvioli (DfHTWubBajq), cena 4: "1 milhão e 280 mil liberações onde a digital usada não existia em
+nenhum arquivo da urna", "salto de +15,6 pp" para Lula; mesário oficial 5,78 milhões (51,36%), substituto 1,47 milhão (51,40%).
+
+VEREDITO PELA LETRA: SEM SINAL
+  b = -0,027 (erro-padrão 0,018, z -1,5); o reel diz +0,156. Sinal pede b >= 0,10 a mais de 4
+  erros-padrão; sem sinal pede |b| < 0,05 com erro-padrão até 0,025.
+
+1. Leitura e conferência
+  Pastas: 3903; com log: 3897; sem log: 6 (BA|36250|27|189, BA|36250|27|191, BA|36897|117|101, BA|36897|117|102, MG|43710|313|10, MG|43710|313|106); pacotes com mais de um log: 0.
+  2º turno (25/10): seções com votos no log 3.897; log completo (votos no log = comparecimento do bweb) 3.897;
+    liberações manuais (MI+DG+OR+MX) = NH do bweb em 3.888 de 3.897 logs completos; diferenças {"0": 3888, "1": 9}.
+    linhas "Não encontrou digital..." 11.056, habilitações OR 11.056; linhas "bate com uma digital gravada" 12.890, habilitações DG 12.890; linhas "Mesário N habilitou" 49.840, habilitações MI 49.836;
+    janelas com duas autorizações 0; votos sem habilitação antes 0; habilitações sem voto 80; seções com contingência 13.
+  1º turno (04/10, no mesmo log): seções com votos no log 3.875; log completo (votos no log = comparecimento do bweb) 3.873;
+    liberações manuais (MI+DG+OR+MX) = NH do bweb em 3.824 de 3.873 logs completos; diferenças {"0": 3824, "1": 46, "2": 3}.
+    linhas "Não encontrou digital..." 13.126, habilitações OR 13.126; linhas "bate com uma digital gravada" 14.575, habilitações DG 14.575; linhas "Mesário N habilitou" 43.208, habilitações MI 43.208;
+    janelas com duas autorizações 0; votos sem habilitação antes 0; habilitações sem voto 348; seções com contingência 29.
+  1º turno na mesma urna (urna igual na base): 3.855; com log de 04/10 completo: 3.855.
+
+2. Como os votos foram liberados (votos computados, pela classe da habilitação anterior)
+  classe                                   2º turno (todas)        1º turno (mesma urna)   2º turno (mesmas seções)
+  B   biometria do eleitor                  877.924 (87,56%)      852.287 (87,76%)      868.489 (87,55%)
+  MI  mesário identificado                   49.830 ( 4,97%)       42.904 ( 4,42%)       49.311 ( 4,97%)
+  DG  digital gravada no dia                 12.889 ( 1,29%)       14.491 ( 1,49%)       12.687 ( 1,28%)
+  OR  digital órfã (arquivo novo)            11.054 ( 1,10%)       13.033 ( 1,34%)       10.935 ( 1,10%)
+  MX  manual sem autorização vista                0 ( 0,00%)            0 ( 0,00%)            0 ( 0,00%)
+  S   sem biometria cadastrada               50.913 ( 5,08%)       48.434 ( 4,99%)       50.564 ( 5,10%)
+  X   indeterminada                               0 ( 0,00%)            0 ( 0,00%)            0 ( 0,00%)
+  2º turno: 3.897 seções, 1.002.610 votos; manuais 73.773; entre as manuais: MI 67,5%, DG 17,5%, OR 15,0%; subtipos de MI {"arquivos_coletados": 40345, "cadastro_de_eleitores": 9491}; B sem linha de tipo 47.
+  1º turno: 3.855 seções, 971.149 votos; manuais 70.428; entre as manuais: MI 60,9%, DG 20,6%, OR 18,5%; subtipos de MI {"cadastro_de_eleitores": 8178, "arquivos_coletados": 34762}; B sem linha de tipo 24.
+  2º turno, mesmas seções: 3.855 seções, 991.986 votos; manuais 72.933; entre as manuais: MI 67,6%, DG 17,4%, OR 15,0%; subtipos de MI {"arquivos_coletados": 39919, "cadastro_de_eleitores": 9398}; B sem linha de tipo 47.
+  Reel: MI 5,78 mi, DG 1,47 mi, OR 1,28 mi (soma 8,53 mi; frações 67,8%, 17,2%, 15,0%); NH nacional do 2º turno no F6: 8.632.488.
+  Ordem de grandeza, sem peso amostral: OR / manuais na amostra = 14,98% -> 1.293.475 no país; OR / votos = 1,103% -> 1.409.626.
+
+3. Regressão registrada (fatia de Lula no 2º turno contra a fração de votos OR, controle fatia do 1º turno; efeito fixo de local,
+   peso L2+R2, erro agrupado por local; frações de 0 a 1)
+  b(f_OR) = -0,027 (ep 0,018); controle s1 +0,819 (ep 0,009); 3.781 seções em 625 locais.
+  Placebo (fatia do 1º turno contra a fração OR do 2º turno, sem controle): -0,019 (ep 0,032).
+  Variação que identifica: fração OR média ponderada 1,10%; desvio-padrão dentro do local 1,74 pontos (dentro do município 1,90); seções com OR 2.971; locais onde a fração varia 610 de 741.
+  Efeito mínimo detectável (80%, 2,8 ep): 0,052.
+  VEREDITO: SEM SINAL.
+
+4. Robustez (fixada antes, fora do critério)
+  a_so_logs_completos_denominador_bweb: f_OR -0,027 (ep 0,018, z -1,5)  s1 +0,819 (ep 0,009, z +89,9); n 3.781, grupos 625
+  b_sem_peso: f_OR -0,023 (ep 0,020, z -1,2)  s1 +0,823 (ep 0,010, z +82,9); n 3.781, grupos 625
+  c_sem_controle_1T: f_OR -0,043 (ep 0,032, z -1,4); n 3.781, grupos 625
+  d_efeito_fixo_municipio: f_OR -0,021 (ep 0,013, z -1,6)  s1 +0,908 (ep 0,017, z +52,2); n 3.897, grupos 411
+  e_efeito_fixo_municipio_sem_controle: f_OR +0,084 (ep 0,081, z +1,0); n 3.897, grupos 411
+  f_todas_as_fracoes: f_OR -0,015 (ep 0,020, z -0,7)  f_DG +0,029 (ep 0,016, z +1,8)  f_MI +0,020 (ep 0,010, z +1,9)  f_S +0,015 (ep 0,011, z +1,4)  s1 +0,819 (ep 0,009, z +89,9); n 3.781, grupos 625
+  g_mudanca_virada_contra_var_orfas: var_f_OR +0,014 (ep 0,024, z +0,6); n 3.739, grupos 622
+  h_1T_sozinho_s1_contra_orfas_1T: f_OR1 +0,014 (ep 0,033, z +0,4); n 3.739, grupos 622
+  h2_2T_mesmas_secoes_s2_contra_orfas_2T_sem_controle: f_OR -0,039 (ep 0,032, z -1,2); n 3.739, grupos 622
+
+5. Fração de órfãs por modelo de urna (faixas do F4)
+  2º turno, todas as seções:
+    UE2013         93 seções    24.045 votos; OR    374 (1,56% dos votos, 15,1% das manuais); manuais 10,3% dos votos; seções com OR 78,5%
+    UE2015        966 seções   252.484 votos; OR  4.427 (1,75% dos votos, 16,4% das manuais); manuais 10,7% dos votos; seções com OR 86,1%
+    UE2020      1.268 seções   320.041 votos; OR  2.747 (0,86% dos votos, 13,5% das manuais); manuais 6,4% dos votos; seções com OR 72,5%
+    UE2022      1.570 seções   406.040 votos; OR  3.506 (0,86% dos votos, 14,6% das manuais); manuais 5,9% dos votos; seções com OR 73,1%
+  1º turno, mesma urna, log completo:
+    UE2013         88 seções    22.143 votos; OR    449 (2,03% dos votos, 20,5% das manuais); manuais 9,9% dos votos; seções com OR 87,5%
+    UE2015        959 seções   243.872 votos; OR  5.234 (2,15% dos votos, 20,4% das manuais); manuais 10,5% dos votos; seções com OR 88,6%
+    UE2020      1.249 seções   309.975 votos; OR  3.218 (1,04% dos votos, 16,9% das manuais); manuais 6,2% dos votos; seções com OR 74,4%
+    UE2022      1.559 seções   395.159 votos; OR  4.132 (1,05% dos votos, 17,5% das manuais); manuais 6,0% dos votos; seções com OR 73,3%
+  2º turno, as mesmas seções:
+    UE2013         88 seções    22.779 votos; OR    363 (1,59% dos votos, 15,4% das manuais); manuais 10,3% dos votos; seções com OR 79,5%
+    UE2015        959 seções   250.535 votos; OR  4.408 (1,76% dos votos, 16,5% das manuais); manuais 10,7% dos votos; seções com OR 86,1%
+    UE2020      1.249 seções   315.326 votos; OR  2.687 (0,85% dos votos, 13,4% das manuais); manuais 6,3% dos votos; seções com OR 72,4%
+    UE2022      1.559 seções   403.346 votos; OR  3.477 (0,86% dos votos, 14,6% das manuais); manuais 5,9% dos votos; seções com OR 73,0%
+
+6. Mesma urna nos dois turnos (log completo nos dois dias)
+  3.855 seções: OR 13.033 no 1º turno (1,34% dos votos) e 10.935 no 2º (1,10%).
+  Correlação entre seções da fração OR nos dois turnos 0,79 (contagem 0,79); mais OR no 2º 1.237, menos 1.522, igual 1.096 (zero nos dois 398).
+  As 193 seções (5%) com mais OR no 2º turno: 4.318 OR no 2º e 3.902 no 1º na mesma urna.
+  Por modelo: UE2013 2,03% no 1º e 1,59% no 2º; UE2015 2,15% no 1º e 1,76% no 2º; UE2020 1,04% no 1º e 0,85% no 2º; UE2022 1,05% no 1º e 0,86% no 2º
+
+7. Concentração das órfãs (2º turno)
+  11.054 órfãs em 3.897 seções: zero em 926 (23,8%); 10 ou mais em 252; 30 ou mais em 35.
+  Fração das órfãs no 1% de seções com mais: 12,9%; no 5%: 39,3%; no 10%: 54,1%. Gini por seção 0,66, por local 0,59, por município 0,68.
+  Régua: todas as liberações manuais têm 12,3% no 5% de seções com mais e Gini 0,30. Variância sobre média das órfãs por seção 9,8 (Poisson daria 1).
+  10 municípios com mais órfãs: 39,7% do total; MG|46337 (1541), SP|71072 (954), BA|34193 (530), RJ|60011 (329), CE|13382 (224), MG|46078 (207), AL|28436 (159), RS|89575 (158), BA|38490 (149), AL|27910 (141)
+  Órfãs entre as manuais, pelo número de manuais da seção: 1-9: 18,2% de 4.312 (643 seções); 10-29: 14,6% de 47.807 (2683 seções); 30-59: 15,3% de 20.875 (557 seções); 60-99999: 13,1% de 788 (11 seções)
+  Órfãs entre as manuais, pelo número de mesários com digital comparada: 0: 23,2% de 280 (16 seções); 1: 1,4% de 1.589 (140 seções); 2: 4,1% de 3.762 (241 seções); 3: 13,1% de 8.972 (514 seções); 4: 16,1% de 56.777 (2864 seções); 5: 21,4% de 1.785 (91 seções); 6: 21,6% de 617 (31 seções)
+  As 15 seções com mais órfãs no 2º turno:
+    seção                  modelo   votos manuais   OR   DG   MI mes.comp  OR 1T  man 1T  virada  Lula 2T
+    BA|34193|53|301        UE2022    339      50   50    0    0        5     64      65    -0,6    76,2
+    MG|46078|160|255       UE2015    313      50   49    0    1        4     48      48    +2,3    53,6
+    MG|46337|132|122       UE2015    198      49   48    1    0        4     47      48    -0,9    47,4
+    MG|46337|132|83        UE2015    225      60   48   12    0        3     66      72    +2,1    45,6
+    MG|46337|132|217       UE2015    320      46   46    0    0        4     37      39    +2,6    45,9
+    RJ|60011|169|67        UE2015    204      47   46    1    0        4     32      32    +4,8    52,3
+    MG|46337|132|9         UE2015    262      44   44    0    0        4     66      66    +6,6    55,6
+    PE|23817|106|229       UE2013    327      44   44    0    0        4     37      37    +0,8    58,0
+    MG|46078|160|153       UE2015    326      44   43    1    0        4     29      29    +3,3    52,4
+    AL|28436|50|20         UE2015    240      41   40    0    1        4     40      40    +3,5    83,8
+    MG|46337|132|321       UE2015    282      44   40    1    3        4     43      45    +6,3    51,5
+    AL|27910|50|89         UE2013    240      38   38    0    0        4     38      38    +1,2    79,9
+    CE|13382|6|415         UE2020    271      38   38    0    0        4     28      28    +1,6    77,1
+    GO|94790|88|58         UE2015    244      38   38    0    0        4     37      37    +6,6    44,5
+    MG|44458|103|143       UE2022    329      38   38    0    0        4     20      20    +6,2    45,0
+
+8. Score das digitais (linhas "Batimento de digitais retornou o score N")
+  2º turno: maior score das órfãs {"0": 13, "1-9": 5882, "10-19": 5085, "20-49": 0, "50+": 0} (mediana 9); órfãs com todos os scores zero 13; sem linha de score 76.
+    score que bateu: DG {"0": 0, "1-9": 0, "10-19": 0, "20-49": 3463, "50+": 9427} (mediana 85); MI {"0": 0, "1-9": 0, "10-19": 0, "20-49": 8768, "50+": 31577} (mediana 88); DG antes da primeira OR do bloco 11.
+  1º turno: maior score das órfãs {"0": 19, "1-9": 7094, "10-19": 5899, "20-49": 0, "50+": 0} (mediana 9); órfãs com todos os scores zero 19; sem linha de score 114.
+    score que bateu: DG {"0": 0, "1-9": 0, "10-19": 0, "20-49": 3605, "50+": 10970} (mediana 89); MI {"0": 0, "1-9": 0, "10-19": 0, "20-49": 8091, "50+": 26896} (mediana 85); DG antes da primeira OR do bloco 7.
+  Órfãs por hora do relógio da urna, 2º turno (1º): 7h 55 (62), 8h 2620 (2363), 9h 1869 (1796), 10h 1515 (1561), 11h 1244 (1378), 12h 1006 (1344), 13h 938 (1400), 14h 759 (1174), 15h 633 (1005), 16h 391 (749), 17h 2 (199), 18h 0 (58), 19h 0 (14)
+
+9. Exploratório (escrito depois de ver o resultado pela letra; pistas, sem veredito)
+  E1. Dummies explícitas de local: b -0,027; erro-padrão 0,0184 na convenção de lib.fe_ols e 0,0202 contando as 625 dummies (as duas abaixo de 0,025).
+  E2. Placebo com efeito fixo de município: +0,116 (ep 0,088); compare com a robustez (e), +0,084.
+  E3. Conta ingênua (fatia de Lula entre os finalistas das seções, ponderada pelos votos órfãos contra a ponderada pelos votos biométricos):
+    2T: órfãs 55,89%, biometria 53,96%, diferença +1,92 pontos; dentro do município +0,30 pontos.
+    2T_fatia_do_1T_mesmas_secoes: órfãs 52,99%, biometria 51,04%, diferença +1,95 pontos; dentro do município +0,41 pontos.
+    1T_mesma_urna: órfãs 52,86%, biometria 51,08%, diferença +1,78 pontos; dentro do município +0,49 pontos.
+  E4. Municípios com mais órfãs (virada ponderada, pontos; "10+" = seções com 10 ou mais órfãs no 2º turno):
+    MG|46337 Itabira               277 seções; OR  1541 no 2º e  1897 no 1º; manuais 8305 e 7687; MI 5111, DG 1652 no 2º; Lula 2º 55,3%; virada da cidade +4,25, 10+ (39) +4,02, outras +4,29
+    SP|71072 São Paulo             262 seções; OR   954 no 2º e  1065 no 1º; manuais 4741 e 4681; MI 2862, DG 925 no 2º; Lula 2º 53,4%; virada da cidade +3,18, 10+ (25) +2,74, outras +3,22
+    BA|34193 Campo Formoso         208 seções; OR   530 no 2º e   671 no 1º; manuais 2681 e 2605; MI 1697, DG 454 no 2º; Lula 2º 69,5%; virada da cidade +1,32, 10+ (13) +0,58, outras +1,38
+    RJ|60011 Rio de Janeiro         72 seções; OR   329 no 2º e   440 no 1º; manuais 2199 e 2126; MI 1427, DG 443 no 2º; Lula 2º 52,2%; virada da cidade +2,83, 10+ (7) +3,50, outras +2,76
+    CE|13382 Banabuiú               56 seções; OR   224 no 2º e   194 no 1º; manuais 1166 e 1129; MI 721, DG 221 no 2º; Lula 2º 79,2%; virada da cidade +1,70, 10+ (8) +1,48, outras +1,75
+    MG|46078 Ijaci                  16 seções; OR   207 no 2º e   177 no 1º; manuais 510 e 479; MI 210, DG 93 no 2º; Lula 2º 50,7%; virada da cidade +3,84, 10+ (6) +4,21, outras +3,62
+    AL|28436 Poço das Trincheiras   34 seções; OR   159 no 2º e   187 no 1º; manuais 1310 e 1137; MI 813, DG 338 no 2º; Lula 2º 83,0%; virada da cidade +1,75, 10+ (4) +1,94, outras +1,73
+    RS|89575 Vera Cruz              67 seções; OR   158 no 2º e   162 no 1º; manuais 1397 e 1243; MI 920, DG 319 no 2º; Lula 2º 38,5%; virada da cidade +4,00, 10+ (4) +4,52, outras +3,97
+    BA|38490 Salvador               37 seções; OR   149 no 2º e   135 no 1º; manuais 546 e 491; MI 298, DG 99 no 2º; Lula 2º 77,9%; virada da cidade +2,15, 10+ (5) +2,23, outras +2,14
+    AL|27910 Maravilha              26 seções; OR   141 no 2º e   221 no 1º; manuais 1013 e 952; MI 758, DG 114 no 2º; Lula 2º 77,9%; virada da cidade +2,89, 10+ (4) +3,88, outras +2,72
+
+10. Desvios declarados (decisões que o registro não fixa; docstring do script, escritas antes de rodar)
+  D2: além das quatro categorias do registro, S (eleitor sem biometria cadastrada, por ano de nascimento) e B sem linha de tipo; S entra no denominador.
+  D3: votos atribuídos à classe da última habilitação antes de cada voto computado; denominador = votos computados no log do dia.
+  D4: frações de 0 a 1 (y, x e controle), para b ser comparável ao +0,156 do reel.
+  D5: peso L2+R2 e efeito fixo do local do 2º turno (o registro não fixa o peso).
+  D6: placebo sem controle, mesmo peso e efeito fixo.
+  D8: robustez (a) a (h), fora do critério.
+  D13: ordem de grandeza nacional sem peso amostral (a amostra não é aleatória simples do país).

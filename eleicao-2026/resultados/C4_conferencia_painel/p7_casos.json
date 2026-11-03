@@ -1,0 +1,1112 @@
+{
+ "secoes": {
+  "pagina_caso1": {
+   "citado": {
+    "uf": "MA",
+    "mun": "Pedro do Rosário",
+    "zona": 15,
+    "secao": 350,
+    "escola": "Escola Municipal São José",
+    "L": 162,
+    "F": 6
+   },
+   "achado": [
+    {
+     "mun_tabela": "GRAJAÚ",
+     "zona": 15,
+     "secao": 350,
+     "escola_tabela": "COLÉGIO MILITAR 2 DE JULHO, ANTIGO CAMINHO DO FUTURO",
+     "c2": 315,
+     "L2": 181,
+     "R2": 132,
+     "pL": 57.8,
+     "sembio": 44,
+     "dn2": 0,
+     "sm2": 0,
+     "dbio": 4,
+     "score_0a7": 1
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 72,
+   "zonas_do_municipio": [
+    106
+   ],
+   "max_secao_do_municipio": 252
+  },
+  "pagina_caso2": {
+   "citado": {
+    "uf": "BA",
+    "mun": "Xique-Xique",
+    "zona": null,
+    "secao": 82,
+    "escola": null,
+    "L": 252,
+    "F": 65
+   },
+   "achado": [
+    {
+     "mun_tabela": "XIQUE-XIQUE",
+     "zona": 68,
+     "secao": 82,
+     "escola_tabela": "ESCOLA MUNICIPAL RAUL MARÇAL DA SILVA",
+     "c2": 303,
+     "L2": 251,
+     "R2": 46,
+     "pL": 84.5,
+     "sembio": 86,
+     "dn2": 9,
+     "sm2": 53,
+     "dbio": -8,
+     "score_0a7": 2
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 124,
+   "zonas_do_municipio": [
+    68
+   ],
+   "max_secao_do_municipio": 278
+  },
+  "rank2": {
+   "citado": {
+    "uf": "BA",
+    "mun": "Curaçá",
+    "zona": 82,
+    "secao": 120,
+    "escola": "Colégio Estadual de Curaçá"
+   },
+   "achado": [
+    {
+     "mun_tabela": "CÍCERO DANTAS",
+     "zona": 82,
+     "secao": 120,
+     "escola_tabela": "COLÉGIO LOURDES CARVALHO NEVES BATISTA",
+     "c2": 251,
+     "L2": 163,
+     "R2": 79,
+     "pL": 67.4,
+     "sembio": 21,
+     "dn2": 1,
+     "sm2": 1,
+     "dbio": 2,
+     "score_0a7": 0
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 96,
+   "zonas_do_municipio": [
+    85
+   ],
+   "max_secao_do_municipio": 111
+  },
+  "rank3": {
+   "citado": {
+    "uf": "BA",
+    "mun": "Salvador",
+    "zona": 1,
+    "secao": 45,
+    "escola": "Instituto Federal da Bahia"
+   },
+   "achado": [
+    {
+     "mun_tabela": "SALVADOR",
+     "zona": 1,
+     "secao": 45,
+     "escola_tabela": "COLÉGIO ESTADUAL DEPUTADO MANOEL NOVAES",
+     "c2": 243,
+     "L2": 187,
+     "R2": 47,
+     "pL": 79.9,
+     "sembio": 30,
+     "dn2": 2,
+     "sm2": 6,
+     "dbio": 8,
+     "score_0a7": 1
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 5124,
+   "zonas_do_municipio": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "max_secao_do_municipio": 958
+  },
+  "rank4": {
+   "citado": {
+    "uf": "PI",
+    "mun": "Coronel José Dias",
+    "zona": 23,
+    "secao": 12,
+    "escola": "Unidade Escolar Maria José"
+   },
+   "achado": [],
+   "secoes_do_municipio_na_tabela": 24,
+   "zonas_do_municipio": [
+    13
+   ],
+   "max_secao_do_municipio": 310
+  },
+  "rank5": {
+   "citado": {
+    "uf": "PA",
+    "mun": "Belém",
+    "zona": 2,
+    "secao": 555,
+    "escola": "Escola Técnica Federal"
+   },
+   "achado": [],
+   "secoes_do_municipio_na_tabela": 2988,
+   "zonas_do_municipio": [
+    1,
+    28,
+    29,
+    30,
+    73,
+    76,
+    95,
+    96,
+    97,
+    98
+   ],
+   "max_secao_do_municipio": 910
+  },
+  "rank6": {
+   "citado": {
+    "uf": "AM",
+    "mun": "Manaus",
+    "zona": 31,
+    "secao": 210,
+    "escola": "Colégio Militar de Manaus"
+   },
+   "achado": [],
+   "secoes_do_municipio_na_tabela": 4013,
+   "zonas_do_municipio": [
+    1,
+    2,
+    31,
+    32,
+    37,
+    40,
+    58,
+    59,
+    62,
+    63,
+    65,
+    68
+   ],
+   "max_secao_do_municipio": 1080
+  },
+  "rank7": {
+   "citado": {
+    "uf": "CE",
+    "mun": "Fortaleza",
+    "zona": 3,
+    "secao": 912,
+    "escola": "Escola Estadual Justiniano"
+   },
+   "achado": [],
+   "secoes_do_municipio_na_tabela": 5335,
+   "zonas_do_municipio": [
+    1,
+    2,
+    3,
+    80,
+    82,
+    83,
+    85,
+    93,
+    94,
+    95,
+    112,
+    113
+   ],
+   "max_secao_do_municipio": 948
+  },
+  "rank8": {
+   "citado": {
+    "uf": "RN",
+    "mun": "Natal",
+    "zona": 1,
+    "secao": 33,
+    "escola": "Escola Municipal Natal"
+   },
+   "achado": [],
+   "secoes_do_municipio_na_tabela": 1477,
+   "zonas_do_municipio": [
+    1,
+    2,
+    3,
+    4,
+    69
+   ],
+   "max_secao_do_municipio": 642
+  },
+  "dossie_SaoLuis": {
+   "citado": {
+    "uf": "MA",
+    "mun": "São Luís",
+    "zona": 2,
+    "secao": 97,
+    "escola": "IFMA Campus Monte Castelo",
+    "c2": 158,
+    "sb": 152,
+    "dn": 86,
+    "pL": 70.1
+   },
+   "achado": [
+    {
+     "mun_tabela": "SÃO LUÍS",
+     "zona": 2,
+     "secao": 97,
+     "escola_tabela": "IFMA - CAMPUS MONTE CASTELO",
+     "c2": 158,
+     "L2": 108,
+     "R2": 46,
+     "pL": 70.1,
+     "sembio": 152,
+     "dn2": 6,
+     "sm2": 92,
+     "dbio": -2,
+     "score_0a7": 3
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 2273,
+   "zonas_do_municipio": [
+    1,
+    2,
+    3,
+    10,
+    76,
+    89
+   ],
+   "max_secao_do_municipio": 895
+  },
+  "dossie_SaoPaulo": {
+   "citado": {
+    "uf": "SP",
+    "mun": "São Paulo",
+    "zona": 392,
+    "secao": 40,
+    "escola": "EMEF Dona Jenny Gomes",
+    "c2": 210,
+    "sb": 145,
+    "dn": 80,
+    "dbio": -88,
+    "pL": 54.0
+   },
+   "achado": [
+    {
+     "mun_tabela": "SÃO PAULO",
+     "zona": 392,
+     "secao": 40,
+     "escola_tabela": "EMEF. DONA JENNY GOMES",
+     "c2": 210,
+     "L2": 108,
+     "R2": 92,
+     "pL": 54.0,
+     "sembio": 145,
+     "dn2": 3,
+     "sm2": 83,
+     "dbio": -88,
+     "score_0a7": 4
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 26683,
+   "zonas_do_municipio": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    20,
+    246,
+    247,
+    248,
+    249,
+    250
+   ],
+   "max_secao_do_municipio": 1060
+  },
+  "dossie_NovaIguacu": {
+   "citado": {
+    "uf": "RJ",
+    "mun": "Nova Iguaçu",
+    "zona": 158,
+    "secao": 48,
+    "escola": "CIEP 021 General Osório",
+    "sb": 66,
+    "dn": 33,
+    "dbio": -23,
+    "pL": 51.8
+   },
+   "achado": [
+    {
+     "mun_tabela": "NOVA IGUAÇU",
+     "zona": 158,
+     "secao": 48,
+     "escola_tabela": "CIEP 021 - GENERAL OSORIO",
+     "c2": 261,
+     "L2": 127,
+     "R2": 118,
+     "pL": 51.8,
+     "sembio": 66,
+     "dn2": 5,
+     "sm2": 38,
+     "dbio": -23,
+     "score_0a7": 3
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 1829,
+   "zonas_do_municipio": [
+    27,
+    84,
+    156,
+    157,
+    158,
+    159
+   ],
+   "max_secao_do_municipio": 702
+  },
+  "dossie_GovValadares": {
+   "citado": {
+    "uf": "MG",
+    "mun": "Governador Valadares",
+    "zona": 118,
+    "secao": 79,
+    "escola": "EE Israel Pinheiro",
+    "c2": 243,
+    "sb": 59,
+    "dn": 55,
+    "dbio": -9,
+    "pL": 35.7
+   },
+   "achado": [
+    {
+     "mun_tabela": "GOVERNADOR VALADARES",
+     "zona": 118,
+     "secao": 79,
+     "escola_tabela": "ESCOLA ESTADUAL ISRAEL PINHEIRO",
+     "c2": 243,
+     "L2": 85,
+     "R2": 153,
+     "pL": 35.7,
+     "sembio": 59,
+     "dn2": 3,
+     "sm2": 58,
+     "dbio": -9,
+     "score_0a7": 1
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 661,
+   "zonas_do_municipio": [
+    118,
+    119,
+    318
+   ],
+   "max_secao_do_municipio": 436
+  },
+  "dossie_MonsenhorPaulo": {
+   "citado": {
+    "uf": "MG",
+    "mun": "Monsenhor Paulo",
+    "zona": 61,
+    "secao": 27,
+    "escola": "EM Professor João Mestre",
+    "c2": 257,
+    "sb": 92,
+    "dn": 27,
+    "dbio": -11,
+    "pL": 51.4
+   },
+   "achado": [
+    {
+     "mun_tabela": "MONSENHOR PAULO",
+     "zona": 61,
+     "secao": 27,
+     "escola_tabela": "ESCOLA MUNICIPAL PROFESSOR JOÃO MESTRE",
+     "c2": 257,
+     "L2": 129,
+     "R2": 122,
+     "pL": 51.4,
+     "sembio": 92,
+     "dn2": 4,
+     "sm2": 31,
+     "dbio": -11,
+     "score_0a7": 2
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 20,
+   "zonas_do_municipio": [
+    61
+   ],
+   "max_secao_do_municipio": 88
+  },
+  "dossie_BeloOriente": {
+   "citado": {
+    "uf": "MG",
+    "mun": "Belo Oriente",
+    "zona": 176,
+    "secao": 156,
+    "escola": "EM José Lagares de Lima",
+    "c2": 199,
+    "sb": 54,
+    "dn": 25,
+    "dbio": -9,
+    "pL": 56.2
+   },
+   "achado": [
+    {
+     "mun_tabela": "BELO ORIENTE",
+     "zona": 176,
+     "secao": 156,
+     "escola_tabela": "ESCOLA MUNICIPAL JOSÉ LAGARES DE LIMA",
+     "c2": 199,
+     "L2": 108,
+     "R2": 84,
+     "pL": 56.2,
+     "sembio": 54,
+     "dn2": 5,
+     "sm2": 30,
+     "dbio": -9,
+     "score_0a7": 2
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 70,
+   "zonas_do_municipio": [
+    176
+   ],
+   "max_secao_do_municipio": 223
+  },
+  "dossie_Teresina": {
+   "citado": {
+    "uf": "PI",
+    "mun": "Teresina",
+    "zona": 63,
+    "secao": 189,
+    "escola": "EM Centro dos Afonsinhos",
+    "c2": 276,
+    "sb": 40,
+    "dn": 33,
+    "dbio": 1,
+    "pL": 90.3
+   },
+   "achado": [
+    {
+     "mun_tabela": "TERESINA",
+     "zona": 63,
+     "secao": 189,
+     "escola_tabela": "ESCOLA MUNICIPAL CENTRO DOS AFONSINHOS",
+     "c2": 276,
+     "L2": 243,
+     "R2": 26,
+     "pL": 90.3,
+     "sembio": 40,
+     "dn2": 2,
+     "sm2": 35,
+     "dbio": 1,
+     "score_0a7": 1
+    }
+   ],
+   "secoes_do_municipio_na_tabela": 1843,
+   "zonas_do_municipio": [
+    1,
+    2,
+    63,
+    97,
+    98
+   ],
+   "max_secao_do_municipio": 647
+  }
+ },
+ "municipios": {
+  "Monsenhor Paulo/MG": {
+   "dossie": [
+    20,
+    5504,
+    1551,
+    238,
+    89,
+    49.2
+   ],
+   "tabela": [
+    20,
+    5504,
+    1551,
+    238,
+    48,
+    49.2
+   ],
+   "tabela_sm2": 137
+  },
+  "Rio Grande/RS": {
+   "dossie": [
+    460,
+    113317,
+    28860,
+    5505,
+    1933,
+    63.9
+   ],
+   "tabela": [
+    460,
+    113317,
+    28906,
+    5505,
+    931,
+    63.9
+   ],
+   "tabela_sm2": 2864
+  },
+  "Belo Oriente/MG": {
+   "dossie": [
+    70,
+    15768,
+    3691,
+    857,
+    206,
+    50.1
+   ],
+   "tabela": [
+    70,
+    15768,
+    3691,
+    857,
+    522,
+    50.1
+   ],
+   "tabela_sm2": 728
+  },
+  "Itaú de Minas/MG": {
+   "dossie": [
+    35,
+    9703,
+    1990,
+    468,
+    183,
+    41.5
+   ],
+   "tabela": [
+    35,
+    9703,
+    2117,
+    468,
+    84,
+    41.5
+   ],
+   "tabela_sm2": 267
+  },
+  "Lajedo/PE": {
+   "dossie": [
+    91,
+    27998,
+    4345,
+    1579,
+    309,
+    69.7
+   ],
+   "tabela": [
+    91,
+    27998,
+    4464,
+    1579,
+    330,
+    69.7
+   ],
+   "tabela_sm2": 639
+  },
+  "Araruama/RJ": {
+   "dossie": [
+    325,
+    85207,
+    13278,
+    3536,
+    973,
+    35.2
+   ],
+   "tabela": [
+    325,
+    85207,
+    13278,
+    3536,
+    896,
+    35.2
+   ],
+   "tabela_sm2": 1869
+  },
+  "Nova Iguaçu/RJ": {
+   "dossie": [
+    1830,
+    483076,
+    74479,
+    18644,
+    5050,
+    41.0
+   ],
+   "tabela": [
+    1829,
+    482827,
+    74679,
+    18651,
+    6811,
+    41.0
+   ],
+   "tabela_sm2": 11864
+  },
+  "Barra Mansa/RJ": {
+   "dossie": [
+    452,
+    107377,
+    16547,
+    5272,
+    1362,
+    47.6
+   ],
+   "tabela": [
+    452,
+    107377,
+    16547,
+    5272,
+    1123,
+    47.6
+   ],
+   "tabela_sm2": 2485
+  },
+  "Arcoverde/PE": {
+   "dossie": [
+    171,
+    43757,
+    5444,
+    2489,
+    506,
+    75.1
+   ],
+   "tabela": [
+    171,
+    43757,
+    5444,
+    2489,
+    209,
+    75.1
+   ],
+   "tabela_sm2": 715
+  },
+  "São Paulo/SP": {
+   "dossie": [
+    26683,
+    7284071,
+    879482,
+    279856,
+    80932,
+    55.5
+   ],
+   "tabela": [
+    26683,
+    7284071,
+    883497,
+    279990,
+    85040,
+    55.5
+   ],
+   "tabela_sm2": 166039
+  },
+  "Várzea Grande/MT": {
+   "dossie": [
+    581,
+    159751,
+    18928,
+    9171,
+    2211,
+    42.6
+   ],
+   "tabela": [
+    581,
+    159751,
+    19270,
+    9189,
+    1839,
+    42.6
+   ],
+   "tabela_sm2": 4044
+  },
+  "São Luís/MA": {
+   "dossie": [
+    2273,
+    638743,
+    72207,
+    33360,
+    10601,
+    62.1
+   ],
+   "tabela": [
+    2273,
+    638743,
+    72951,
+    33372,
+    7382,
+    62.1
+   ],
+   "tabela_sm2": 18051
+  },
+  "Sumaré/SP": {
+   "dossie": [
+    579,
+    159487,
+    16935,
+    4850,
+    1240,
+    43.4
+   ],
+   "tabela": [
+    579,
+    159487,
+    16937,
+    4850,
+    2076,
+    43.4
+   ],
+   "tabela_sm2": 3316
+  },
+  "Monte Alto/SP": {
+   "dossie": [
+    116,
+    28759,
+    2978,
+    1189,
+    300,
+    31.2
+   ],
+   "tabela": [
+    116,
+    28759,
+    2978,
+    1189,
+    261,
+    31.2
+   ],
+   "tabela_sm2": 561
+  },
+  "Vitória/ES": {
+   "dossie": [
+    799,
+    221625,
+    22601,
+    9228,
+    2452,
+    48.2
+   ],
+   "tabela": [
+    799,
+    221625,
+    22907,
+    9239,
+    1348,
+    48.2
+   ],
+   "tabela_sm2": 3801
+  },
+  "Governador Valadares/MG": {
+   "dossie": [
+    661,
+    152142,
+    14809,
+    6409,
+    1708,
+    39.6
+   ],
+   "tabela": [
+    661,
+    152142,
+    14833,
+    6409,
+    1864,
+    39.6
+   ],
+   "tabela_sm2": 3572
+  },
+  "Parnamirim/RN": {
+   "dossie": [
+    427,
+    125381,
+    11908,
+    4554,
+    1032,
+    48.9
+   ],
+   "tabela": [
+    427,
+    125381,
+    12212,
+    4554,
+    794,
+    48.9
+   ],
+   "tabela_sm2": 1826
+  },
+  "Medianeira/PR": {
+   "dossie": [
+    126,
+    30827,
+    2808,
+    1588,
+    389,
+    30.7
+   ],
+   "tabela": [
+    126,
+    30827,
+    2808,
+    1588,
+    184,
+    30.7
+   ],
+   "tabela_sm2": 573
+  },
+  "Redenção/PA": {
+   "dossie": [
+    205,
+    49733,
+    4522,
+    1719,
+    285,
+    28.0
+   ],
+   "tabela": [
+    205,
+    49733,
+    4522,
+    1719,
+    299,
+    28.0
+   ],
+   "tabela_sm2": 584
+  },
+  "Teresina/PI": {
+   "dossie": [
+    1843,
+    510258,
+    44512,
+    19636,
+    4652,
+    68.0
+   ],
+   "tabela": [
+    1843,
+    510258,
+    44580,
+    19636,
+    3236,
+    68.0
+   ],
+   "tabela_sm2": 7888
+  },
+  "Macapá/AP": {
+   "dossie": [
+    1027,
+    251314,
+    20923,
+    7556,
+    1636,
+    51.0
+   ],
+   "tabela": [
+    1027,
+    251314,
+    21006,
+    7566,
+    1899,
+    51.0
+   ],
+   "tabela_sm2": 3535
+  },
+  "Alvorada/TO": {
+   "dossie": [
+    31,
+    6174,
+    494,
+    277,
+    74,
+    40.3
+   ],
+   "tabela": [
+    31,
+    6174,
+    494,
+    277,
+    40,
+    40.3
+   ],
+   "tabela_sm2": 114
+  },
+  "São Caetano do Sul/SP": {
+   "dossie": [
+    391,
+    126104,
+    9964,
+    5028,
+    1542,
+    41.7
+   ],
+   "tabela": [
+    391,
+    126104,
+    9964,
+    5028,
+    1024,
+    41.7
+   ],
+   "tabela_sm2": 2566
+  },
+  "Bom Jesus do Oeste/SC": {
+   "dossie": [
+    9,
+    1677,
+    133,
+    110,
+    3,
+    32.1
+   ],
+   "tabela": [
+    9,
+    1677,
+    133,
+    110,
+    6,
+    32.1
+   ],
+   "tabela_sm2": 9
+  },
+  "Jundiaí/SP": {
+   "dossie": [
+    974,
+    273936,
+    20709,
+    13371,
+    3409,
+    38.3
+   ],
+   "tabela": [
+    974,
+    273936,
+    20881,
+    13381,
+    1593,
+    38.3
+   ],
+   "tabela_sm2": 5008
+  },
+  "Uberlândia/MG": {
+   "dossie": [
+    1703,
+    443275,
+    33402,
+    15812,
+    4319,
+    47.6
+   ],
+   "tabela": [
+    1703,
+    443275,
+    33654,
+    15835,
+    3032,
+    47.6
+   ],
+   "tabela_sm2": 7368
+  },
+  "Queimados/RJ": {
+   "dossie": [
+    326,
+    87195,
+    6119,
+    2608,
+    702,
+    44.5
+   ],
+   "tabela": [
+    326,
+    87195,
+    6119,
+    2608,
+    672,
+    44.5
+   ],
+   "tabela_sm2": 1374
+  },
+  "Campo Grande/MS": {
+   "dossie": [
+    2189,
+    527124,
+    35342,
+    20640,
+    4583,
+    38.9
+   ],
+   "tabela": [
+    2189,
+    527124,
+    35821,
+    20647,
+    2876,
+    38.9
+   ],
+   "tabela_sm2": 7459
+  },
+  "Londrina/PR": {
+   "dossie": [
+    1200,
+    325335,
+    19504,
+    13948,
+    2929,
+    30.8
+   ],
+   "tabela": [
+    1200,
+    325335,
+    19632,
+    13948,
+    1371,
+    30.8
+   ],
+   "tabela_sm2": 4301
+  }
+ },
+ "faixas_1T": {
+  "A_0a5": {
+   "urnas": 45867,
+   "margem_2T": -447821,
+   "pL_2T": 48.04,
+   "margem_1T": -1004274,
+   "pL_1T_H2H": 45.06,
+   "virada_pp": 2.97,
+   "com_1T": 45867
+  },
+  "B_5a10": {
+   "urnas": 177139,
+   "margem_2T": 546790,
+   "pL_2T": 50.61,
+   "margem_1T": -1769861,
+   "pL_1T_H2H": 47.77,
+   "virada_pp": 2.84,
+   "com_1T": 177139
+  },
+  "C_mais10": {
+   "urnas": 274879,
+   "margem_2T": 4303053,
+   "pL_2T": 53.18,
+   "margem_1T": 536299,
+   "pL_1T_H2H": 50.45,
+   "virada_pp": 2.73,
+   "com_1T": 274879
+  }
+ }
+}
