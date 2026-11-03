@@ -1,0 +1,52 @@
+F20 (Adendo 23, H2): governador na mesma urna nas UFs com 2º turno de governador
+Rodado em 03/11/2026. Classificação gravada antes: resultados/F20_classificacao_governadores.json
+
+UFs e aliados de Flávio: AC 11, AM 22, DF 11, ES 10, TO 44. RN fora (nenhum finalista do campo de Flávio).
+Base: 39739 seções das 6 UFs com presidente e governador nos dois turnos; governador do 2º turno por candidato lido dos zips, igual à base em 39739 seções, diferente em 0.
+
+PRINCIPAL (empilhado, 31624 seções, 61098 linhas, 4540 locais)
+  próprio Flávio -0,0426 (EP 0,0026); próprio aliado -0,0892 (EP 0,0052)
+  D observado +0,0466 (EP 0,0049); critério do T22b: INCONCLUSIVO
+  D com troca simulada de 3,6% só no presidente +0,0122 (EP 0,0049); deslocamento +0,0345
+  z da exclusão 4,93 (limiar 4): EXCLUSÃO
+  D natural que uma troca de 3,6% deixaria igual ao observado: +0,0811
+  menor troca que o D separaria a 4 EP (descritivo): 2,92% dos votos de Flávio
+
+Por UF (descritivo, mesmos limiares):
+  AC: 2270 seções; próprio Flávio -0,0584 (0,0097), aliado -0,1046 (0,0142); D +0,0462 (0,0159) [INCONCLUSIVO]; D 3,6% +0,0124; z 1,52
+  AM: 8157 seções; próprio Flávio -0,0791 (0,0072), aliado -0,0687 (0,0121); D -0,0104 (0,0115) [SEM SINAL]; D 3,6% -0,0436; z 2,04
+  DF: 6969 seções; próprio Flávio -0,0282 (0,0058), aliado -0,0384 (0,0073); D +0,0103 (0,0067) [SEM SINAL]; D 3,6% -0,0247; z 3,71
+  ES: 9844 seções; próprio Flávio -0,0214 (0,0034), aliado -0,0703 (0,0066); D +0,0489 (0,0060) [INCONCLUSIVO]; D 3,6% +0,0137; z 4,13
+  TO: 4384 seções; próprio Flávio -0,0685 (0,0057), aliado -0,3664 (0,0137); D +0,2979 (0,0153) [INCONCLUSIVO]; D 3,6% +0,2644; z 1,56
+
+Robustezas (descritivas):
+  so_AM_DF_ES_adendo14: D +0,0130 (0,0047) [SEM SINAL]; D 3,6% -0,0217; z 5,21 [EXCLUSÃO]
+  aliado_trocado_AC10_TO45: D +0,0220 (0,0048) [INCONCLUSIVO]; D 3,6% -0,0124; z 5,13 [EXCLUSÃO]
+  sem_AC: D +0,0481 (0,0051) [INCONCLUSIVO]; D 3,6% +0,0136; z 4,76 [EXCLUSÃO]
+  sem_AM: D +0,0581 (0,0054) [INCONCLUSIVO]; D 3,6% +0,0233; z 4,60 [EXCLUSÃO]
+  sem_DF: D +0,0642 (0,0060) [INCONCLUSIVO]; D 3,6% +0,0298; z 4,02 [EXCLUSÃO]
+  sem_ES: D +0,0616 (0,0069) [INCONCLUSIVO]; D 3,6% +0,0276; z 3,49 [sem exclusão]
+  sem_TO: D +0,0137 (0,0045) [SEM SINAL]; D 3,6% -0,0209; z 5,39 [EXCLUSÃO]
+
+Espelho (AM 55, DF 13): próprio Lula -0,0227 (0,0041), governador do campo de Lula -0,0244 (0,0064); espelho +0,0017 (0,0062)
+  AM: próprio Lula -0,0320, governador -0,0440, espelho +0,0121 (0,0077)
+  DF: próprio Lula -0,0066, governador -0,0138, espelho +0,0072 (0,0088)
+  conferência: próprio Lula pela regressão espelhada -0,022673 contra -adversário_1T da regressão de Flávio -0,022673
+  RN (fora do registro, Cadu 13): próprio Lula -0,0100, Cadu -0,0181, espelho +0,0081 (0,0082)
+
+Variação do comparecimento entre turnos (presidente): AC -7,10%; AM -1,90%; DF +2,01%; ES +2,42%; RN +2,85%; TO -1,08%; Brasil_com_exterior +2,36%
+Contexto agregado por UF (% do comparecimento de cada cargo):
+  AC: Flávio 62,0 -> 63,4 (-5,0% dos votos); aliado 11 44,8 -> 60,1 (+24,6% dos votos); virada de Lula +2,64 pontos
+  AM: Flávio 43,7 -> 44,5 (-0,2% dos votos); aliado 22 22,7 -> 36,5 (+57,8% dos votos); virada de Lula +2,28 pontos
+  DF: Flávio 49,7 -> 52,4 (+7,7% dos votos); aliado 11 45,4 -> 53,2 (+19,6% dos votos); virada de Lula +3,10 pontos
+  ES: Flávio 52,4 -> 53,7 (+5,0% dos votos); aliado 10 44,6 -> 47,9 (+9,8% dos votos); virada de Lula +2,83 pontos
+  TO: Flávio 48,6 -> 49,0 (-0,3% dos votos); aliado 44 40,1 -> 32,4 (-20,0% dos votos); virada de Lula +2,37 pontos
+
+DEPOIS DE VER O RESULTADO (descritivo, fora do registro), AM e DF:
+  sem troca: D +0,0014 (0,0064); espelho +0,0017 (0,0062); C = D - espelho -0,0003 (0,0097)
+  com troca simulada de 3,6%: D -0,0326 (0,0063); espelho +0,0025 (0,0062); C = D - espelho -0,0351 (0,0096)
+  AM: C sem troca -0,0225 (0,0142); com troca -0,0568
+  DF: C sem troca +0,0030 (0,0127); com troca -0,0322
+  espelho recalculado com a troca de 3,6%: +0,0025 (0,0062)
+
+VEREDITO PELA LETRA: INCONCLUSIVO pelo critério do T22b (D = +0,0466, EP 0,0049); EXCLUSÃO pelo acréscimo do Adendo 23 (z = 4,93, limiar 4)

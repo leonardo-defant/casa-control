@@ -1,0 +1,141 @@
+{
+ "teste": "F20 (Adendo 23, H2 de resultados/CACA_AO_FURO.txt): governador na mesma urna nas 6 UFs com 2º turno de governador",
+ "gravado_em_utc": "2026-11-03T01:19Z",
+ "estado_ao_gravar": "Gravado antes de calcular qualquer número do F20: nenhuma base por seção aberta nesta tarefa, nenhum script do F20 escrito ou rodado. Já se conhecia, de rodadas anteriores, o T22b em AM, DF e ES (D = +0,013, EP 0,0047; por UF AM -0,010, DF +0,010, ES +0,049) e a calibração de 3,6% (D = -0,022), registrados em resultados/testes_bweb_2t_com_conferencia.json. Não se conhecia nada de t22b em AC, RN ou TO.",
+ "regra_do_registro": "Adendo 23, F20: 'em AC, AM, DF, ES, RN e TO, qual finalista do 2º turno de governador é do campo de Flávio (apoio declarado a Flávio no 2º turno ou partido ou coligação do PL) e qual do campo de Lula. UF sem um finalista claramente do campo de Flávio fica de fora.'",
+ "decisoes_tomadas_antes_de_calcular": {
+  "D1_leitura_do_campo_de_Flavio": "Um finalista é do campo de Flávio se atende a (a) declarou apoio ou voto em Flávio no 2º turno presidencial, ou (b) é filiado ao PL ou tem o PL na coligação registrada para governador. Basta uma das duas, como diz a letra ('ou').",
+  "D2_dois_finalistas_no_campo_de_Flavio": "Ponto não fixado pela letra. Em AC e TO os dois finalistas atendem a (a). A letra exclui só a UF SEM finalista do campo de Flávio, e o t22b precisa de um único aliado por UF. Regra decidida aqui: entra como aliado o único finalista que atende às duas condições, (a) e (b); se os dois atendem às duas, ou nenhum atende a (b), a UF sai. Resultado: AC entra com 11 Mailza Assis (PL na coligação Avança Acre); TO entra com 44 Professora Dorinha (PL na coligação União pelo Tocantins, e o próprio Flávio pediu voto nela). Declarado como desvio. Robustez fixada aqui (descritiva, fora do critério): o mesmo cálculo com o outro finalista como aliado (AC 10 Alan Rick, TO 45 Vicentinho Júnior) e o mesmo cálculo sem AC e TO (só AM, DF e ES, o conjunto do Adendo 14).",
+  "D3_campo_de_Lula": "A letra não define o campo de Lula. Leitura: finalista que declarou apoio ou voto em Lula no 2º turno, ou que teve apoio declarado de Lula e não está no campo de Flávio. Usado só no descritivo do espelho.",
+  "D4_funcao_sem_mudanca": "A função t22b de scripts/analisar_pres_gov.py é chamada sem mudança no código. As UFs e os aliados entram trocando o dicionário ALIADO_FLAVIO do módulo em tempo de execução (FINALISTAS já traz os pares de AC e TO). A calibração usa t22b_com_troca de scripts/analisar_T22.py sem mudança, com s = 0,036.",
+  "D5_exclusao": "Como no Adendo 23: z = (D observado - D simulado com 3,6%) / raiz(EP observado^2 + EP simulado^2). EXCLUSÃO se z > 4. Aplicado ao D empilhado das UFs classificadas (o veredito); por UF, relatado como descritivo.",
+  "D6_veredito_por_UF": "O critério do T22b (sinal: D <= -0,03 a mais de 2,5 EP; sem sinal: |D| <= 0,015) decide pelo D empilhado. Por UF, os mesmos limiares são relatados como descritivo, sem veredito próprio.",
+  "D7_espelho": "Coeficiente próprio de Lula menos o do governador do campo de Lula, com a mesma especificação do t22b espelhada (ganho de Lula entre turnos contra os próprios votos do 1º turno, os de Flávio, os dos demais, a queda do branco+nulo e a variação do comparecimento; o mesmo no governador do campo de Lula), empilhada, efeito fixo de local por cargo, erro agrupado por local, pela função ols_cluster do mesmo módulo. Nas UFs do F20 com finalista do campo de Lula: AM e DF. RN fica fora do F20 (sem finalista do campo de Flávio); o espelho de RN vai só como contexto fora do registro."
+ },
+ "ufs": [
+  {
+   "uf": "AC",
+   "finalistas": [
+    {"numero": "11", "nome": "Mailza Assis", "partido": "PP", "coligacao": "Avança Acre: federação União Progressista (PP e União Brasil), MDB, PDT, PL e Democrata", "pl_na_coligacao": true, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende a (a) e (b))"},
+    {"numero": "10", "nome": "Alan Rick", "partido": "Republicanos", "coligacao": "Trabalho da Esperança: Republicanos, Novo, PSD e Avante", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende só a (a)); Flávio pediu voto nele em 07/10"}
+   ],
+   "aliado_de_Flavio_no_F20": "11",
+   "campo_de_Lula": null,
+   "entra_no_F20": true,
+   "como_entra": "pela regra D2 (os dois no campo de Flávio; só Mailza atende às duas condições)",
+   "evidencia": "Congresso em Foco, 24/10/2026: Mailza (PP, 11) pela Avança Acre, 'formada pela federação PP-União, MDB, PDT, PL e Democrata'; Alan Rick (Republicanos, 10) pela Trabalho da Esperança, 'composta por Republicanos, Novo, PSD e Avante'. Metrópoles, 05/08/2026: convenção de Mailza com 'MDB, PL, PDT e Democrata 35'. O Antagonista, 09/10/2026: os dois apoiam Flávio; Mailza: 'Os dois lados apoiam o Flávio, os dois lados têm voto para o 22'; Flávio pediu votos para Alan Rick. A Gazeta, 08/10/2026: Flávio, 'lá no Acre Alan Rick 10 também para governador'. Campo de Lula: nenhum finalista; Thor Dantas (PSB, apoiado por Lula no 1º turno) ficou em 4º e não declarou apoio no 2º turno.",
+   "fontes": [
+    "https://www.congressoemfoco.com.br/noticia/123517/quem-sao-os-candidatos-ao-governo-do-acre-no-segundo-turno",
+    "https://www.metropoles.com/brasil/acre-alianca-de-6-partidos-oficializa-candidatura-de-mailza-a-governo",
+    "https://oantagonista.com.br/brasil/mailza-e-alan-rick-apoiam-flavio-no-2o-turno-no-acre/",
+    "https://agazeta.net/apos-aparecer-com-mailza-flavio-bolsonaro-pede-votos-para-alan-rick-no-segundo-turno/",
+    "https://oaltoacre.com/mailza-assis-e-alan-rick-buscam-apoio-de-flavio-bolsonaro-no-acre/",
+    "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-vao-ao-2o-turno-no-acre/",
+    "https://opalaciano.com.br/acre/thor-dantas-diz-que-voto-branco-e-nulo-sao-opcao-e-afirma-que-campo-progressista-pode-decidir-eleicao-no-acre/"
+   ],
+   "ressalva": "Flávio fez palanque duplo no AC. A escolha de Mailza vem só da regra de desempate pelo PL; o outro finalista vai na robustez."
+  },
+  {
+   "uf": "AM",
+   "finalistas": [
+    {"numero": "22", "nome": "Professora Maria do Carmo", "partido": "PL", "coligacao": "Mudar é Urgente: PL e Novo", "pl_na_coligacao": true, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio"},
+    {"numero": "55", "nome": "Omar Aziz", "partido": "PSD", "coligacao": "Força Amazonas: PSD, Republicanos, MDB e federação Brasil da Esperança (PT, PCdoB, PV)", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": false, "campo": "Lula (pediu 'Lula 13 e Omar 55'; apoio de Lula)"}
+   ],
+   "aliado_de_Flavio_no_F20": "22",
+   "campo_de_Lula": "55",
+   "entra_no_F20": true,
+   "como_entra": "direto (só um finalista no campo de Flávio)",
+   "evidencia": "Poder360, 04/10/2026: 'Maria do Carmo é a candidata de Flávio Bolsonaro (PL) na disputa estadual'. Rios de Notícias, 20/10/2026: Flávio em Manaus, 'Eu preciso da Professora Maria como governadora do Amazonas'. BNC Amazonas, 09/10/2026: Omar, 'Lula 13 e Omar 55'. TSE, 25/10/2026: Omar 61,42% x Maria do Carmo 38,58%; coligação de Omar com a federação do PT.",
+   "fontes": [
+    "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-e-professora-maria-do-carmo-vao-para-2o-turno-no-am/",
+    "https://www.riosdenoticias.com.br/eu-preciso-da-professora-maria-como-governadora-afirma-flavio-bolsonaro-durante-bloquinho-do-22-em-manaus/",
+    "https://bncamazonas.com.br/poder/lula-vai-ganhar-maior-presenca-na-propaganda-de-omar-aziz/",
+    "https://www.congressoemfoco.com.br/noticia/123434/quem-sao-os-candidatos-ao-governo-do-amazonas-no-segundo-turno",
+    "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/omar-aziz-e-eleito-governador-do-amazonas"
+   ]
+  },
+  {
+   "uf": "DF",
+   "finalistas": [
+    {"numero": "11", "nome": "Celina Leão", "partido": "PP", "coligacao": "PP, União Brasil, Republicanos, MDB, Podemos (presença formal do PL divergente entre as fontes)", "pl_na_coligacao": null, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende a (a))"},
+    {"numero": "13", "nome": "Leandro Grass", "partido": "PT", "coligacao": "PT e aliados de esquerda, PSB no 2º turno", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": false, "campo": "Lula (palanque conjunto com Lula em Ceilândia, 09/10)"}
+   ],
+   "aliado_de_Flavio_no_F20": "11",
+   "campo_de_Lula": "13",
+   "entra_no_F20": true,
+   "como_entra": "direto (só um finalista no campo de Flávio)",
+   "evidencia": "O Hoje, 07/10/2026: Celina, 'Nós aqui no Distrito Federal já estávamos com essa aliança desde o primeiro turno', em reunião com o PL depois do apoio do PP e do União a Flávio. O Hoje, 12/10/2026: 'Nós não vamos deixar a petezada invadir o DF de jeito nenhum'. SBT News, 09/10/2026: Lula em ato com Grass em Ceilândia. A presença formal do PL na coligação de Celina diverge entre as fontes (O Povo, 02/08/2026, diz que não; Correio da Manhã diz que sim); não muda nada, porque ela atende a (a).",
+   "fontes": [
+    "https://ohoje.com/2026/10/07/em-reuniao-com-o-pl-celina-leao-diz-que-apoio-do-centro-pode-ampliar-votos-de-flavio-bolsonaro/",
+    "https://ohoje.com/2026/10/12/celina-leao-critica-lula-e-diz-que-nao-vai-deixar-o-pt-avancar-no-df/",
+    "https://sbtnews.sbt.com.br/noticia/politica/em-ato-no-df-lula-diz-que-vai-derrotar-ladroes-do-brb",
+    "https://www.opovo.com.br/noticias/politica/2026/08/02/sem-ibaneis-celina-leao-lanca-candidatura-ao-gdf-e-defende-seus-quatro-meses-de-gestao.html",
+    "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/08/307339-celina-leaoe-oficializada-candidata-a-reeleicao.html"
+   ]
+  },
+  {
+   "uf": "ES",
+   "finalistas": [
+    {"numero": "10", "nome": "Lorenzo Pazolini", "partido": "Republicanos", "coligacao": "Paz pra Viver um Novo Tempo: Republicanos, PL e Democrata; vice Eliane Leal (PL)", "pl_na_coligacao": true, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende a (a) e (b))"},
+    {"numero": "15", "nome": "Ricardo Ferraço", "partido": "MDB", "coligacao": "MDB e PP; vice Camillo Neves (PP)", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": false, "campo": "nenhum (neutro na disputa presidencial)"}
+   ],
+   "aliado_de_Flavio_no_F20": "10",
+   "campo_de_Lula": null,
+   "entra_no_F20": true,
+   "como_entra": "direto (só um finalista no campo de Flávio)",
+   "evidencia": "Congresso em Foco, 24/10/2026: Pazolini (10) 'na coligação Paz pra Viver um Novo Tempo, formada por Republicanos, PL e Democrata', vice Eliane Leal (PL); Ferraço (15), MDB/PP. ES Hoje, 08/10/2026: Flávio, 'Quem vota Flávio Bolsonaro para presidente, vota Pazolini'; o Republicanos oficializou apoio a Flávio. A Gazeta, 18/10/2026: 'Ricardo não declarou apoio a nenhum candidato a presidente da República'.",
+   "fontes": [
+    "https://www.congressoemfoco.com.br/noticia/123202/quem-sao-os-candidatos-ao-governo-do-espirito-santo-no-segundo-turno",
+    "https://eshoje.com.br/politica/2026/10/brasilia-pazolini-2o-turno/",
+    "https://www.agazeta.com.br/colunas/leticia-goncalves/presidente-estadual-do-pt-declara-apoio-a-ricardo-ferraco-no-2-turno-1026"
+   ]
+  },
+  {
+   "uf": "RN",
+   "finalistas": [
+    {"numero": "44", "nome": "Allyson Bezerra", "partido": "União Brasil", "coligacao": "Esperança e Trabalho: União Brasil, PP, MDB, PSD, Republicanos, Avante, Solidariedade e PRD", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": false, "campo": "nenhum (neutro; recusou apoiar Flávio)"},
+    {"numero": "13", "nome": "Cadu de Lula", "partido": "PT", "coligacao": "Time que Cuida (PT, vice do PSB)", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": false, "campo": "Lula"}
+   ],
+   "aliado_de_Flavio_no_F20": null,
+   "campo_de_Lula": "13",
+   "entra_no_F20": false,
+   "como_entra": "sai pela letra: nenhum finalista do campo de Flávio",
+   "evidencia": "Agora RN, 09/10/2026: Rogério Marinho (PL) relata que Allyson 'não tinha como assumir apoio à candidatura de Flávio Bolsonaro' e o PL decidiu 'liberar o partido'. Agora RN, 08/10/2026: Allyson reafirma neutralidade. A coligação de Allyson não tem o PL (o PL teve candidato próprio no 1º turno, Álvaro Dias, 22). Lula fez ato com Cadu em Natal em 10/10/2026. Nuance: o MDB do RN (partido do vice de Allyson) apoiou Flávio em 14/10; isso não é apoio do candidato e não atende a (a) nem a (b).",
+   "fontes": [
+    "https://agorarn.com.br/politica/pl-neutro-allyson-apoio-flavio-rogerio/",
+    "https://agorarn.com.br/politica/allyson-reafirma-neutralidade/",
+    "https://en.wikipedia.org/wiki/2026_Rio_Grande_do_Norte_general_election",
+    "https://tmc.com.br/politica/lula-cadu-caminhada-natal-segundo-turno-rn/",
+    "https://blogdobarreto.com.br/partido-do-vice-de-allyson-anuncia-apoio-a-flavio-bolsonaro/"
+   ]
+  },
+  {
+   "uf": "TO",
+   "finalistas": [
+    {"numero": "44", "nome": "Professora Dorinha", "partido": "União Brasil", "coligacao": "União pelo Tocantins: União Brasil, Republicanos, PL, Progressistas, Podemos, Solidariedade e PRD", "pl_na_coligacao": true, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende a (a) e (b); Flávio pediu voto nela)"},
+    {"numero": "45", "nome": "Vicentinho Júnior", "partido": "PSDB", "coligacao": "Pra Cima Tocantins: federação PSDB-Cidadania e MDB", "pl_na_coligacao": false, "apoio_declarado_a_Flavio_2t": true, "campo": "Flávio (atende só a (a)); recebeu apoios individuais de lulistas, sem apoio de Lula ou do PT"}
+   ],
+   "aliado_de_Flavio_no_F20": "44",
+   "campo_de_Lula": null,
+   "entra_no_F20": true,
+   "como_entra": "pela regra D2 (os dois no campo de Flávio; só Dorinha atende às duas condições)",
+   "evidencia": "O Girassol, 07/10/2026: Flávio, 'Para o futuro do Tocantins, o melhor é Dorinha. Dorinha governadora 44'; Dorinha, 'Para presidente, Flávio Bolsonaro 22'. Conexão TO, 05/08/2026: coligação União pelo Tocantins com 'União Brasil, Republicanos, Partido Liberal, Progressistas, Podemos, Solidariedade e PRD'. Congresso em Foco, 24/10/2026: Vicentinho (PSDB, 45) pela 'Pra Cima Tocantins, formada pelo MDB e pela Federação PSDB-Cidadania'. Terra, 25/10/2026: Vicentinho sobre Flávio, 'Vou dar meu voto a ele porque ele é a minha melhor opção'. Resultado: Vicentinho 64,52% x Dorinha 35,48%, depois de Dorinha liderar o 1º turno.",
+   "fontes": [
+    "https://ogirassol.com.br/politica/flavio-bolsonaro-declara-apoio-a-dorinha-no-segundo-turno-para-o-futuro-do-tocantins-o-melhor-e-dorinha/",
+    "https://conexaoto.com.br/2026/08/05/dorinha-e-oficializada-candidata-ao-governo-do-tocantins-chapa-uniao-pelo-tocantins-reune-8-partidos",
+    "https://www.congressoemfoco.com.br/noticia/123288/quem-sao-os-candidatos-ao-governo-do-tocantins-no-segundo-turno",
+    "https://www.terra.com.br/noticias/brasil/policia/quem-e-vicentinho-junior-eleito-governador-de-tocantins,afa64c61cbc5844b4f808a6ded24988d7ae06hpo.html",
+    "https://clebertoledo.com.br/em-off/katia-escolhe-vicentinho-no-2o-turno-e-destaca-declaracao-de-voto-do-tucano-em-flavio-antes-da-eleicao-nao-agiu-com-oportunismo-nao-foi-hipocrita/"
+   ],
+   "ressalva": "A disputa de governador no TO virou no 2º turno (a aliada classificada perdeu terreno). Isso é dinâmica própria do cargo de baixo e pesa no D do TO no sentido positivo, sem relação com o voto de presidente."
+  }
+ ],
+ "resumo": {
+  "ufs_no_F20": {"AC": "11", "AM": "22", "DF": "11", "ES": "10", "TO": "44"},
+  "ufs_fora": {"RN": "nenhum finalista do campo de Flávio"},
+  "campo_de_Lula_para_o_espelho": {"AM": "55", "DF": "13"},
+  "robustez_aliado_trocado": {"AC": "10", "TO": "45"},
+  "robustez_conjunto_do_adendo14": ["AM", "DF", "ES"]
+ },
+ "classificacao_anterior_no_repositorio": "resultados/alinhamento_governadores_2t_2026.json (Adendo 14, conferida por dois agentes). Ela tirava AC e TO porque os dois finalistas estavam no campo de Flávio. O Adendo 23 trocou a regra (inclui 'partido ou coligação do PL' e exclui só a UF sem finalista do campo de Flávio); as fontes de apoio declarado vêm em parte de lá, e as coligações foram conferidas de novo nesta tarefa nas páginas listadas."
+}

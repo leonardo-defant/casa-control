@@ -1,0 +1,26 @@
+ADENDO 23: OS TRÊS TESTES DA CAÇA AO FURO (RESULTADOS)
+
+Registro: Adendo 23, commit 863a34e (03/11/2026 01:13:05 UTC), antes de rodar. Cada teste refeito por outro agente
+com código próprio. Detalhes em resultados/testes_adendo23_com_conferencia.json.
+
+F19 (H1, exterior sem biometria contra seções do Brasil de composição igual): INCONCLUSIVO pela letra.
+  D = -0,65 ponto (ep 0,16 por cidade; 0,27 por país). Direção da hipótese, mas 36% do desvio de 1,79 que viraria
+  a eleição; mesmo se todo o D fosse desvio, Lula venceria por 2,8 milhões (1,2 milhão no extremo do intervalo por
+  país). A falta não é uniforme, como seria um gatilho "sem biometria": concentra-se em Japão, Paraguai, Líbano,
+  Espanha, Austrália e Argentina; nos EUA é zero (-0,05). Sem o Japão, -0,46. Pelo mesmo método, 2022 dá +0,12 no
+  agregado, com vários dos mesmos países já negativos.
+F20 (H2, governador na mesma urna, 5 UFs classificadas): INCONCLUSIVO pelo critério do T22b (D = +0,047, do lado
+  contrário ao de uma troca só no presidente); SEM SINAL se AC e TO, onde os dois finalistas eram do campo de
+  Flávio, ficam de fora (+0,013). Nenhuma leitura dá sinal; só o AM vai no sentido da hipótese, dentro do ruído.
+  CORREÇÃO DO REGISTRO: a "EXCLUSÃO" que acrescentei no Adendo 23 é mecânica. Ela compara o D com ele mesmo
+  deslocado pela troca simulada e dá o mesmo z com ou sem troca real; não tem poder sem supor que o D natural seja
+  perto de zero, e o D natural varia de -0,010 a +0,298 entre UFs. Não vale como exclusão. O que resta de mais limpo
+  (pós-resultado): em AM e DF, Lula e o governador dele perderam eleitores na mesma taxa, e Flávio e o aliado
+  também; a diferença fica a 3,6 erros-padrão do que uma troca de 3,6% produziria, supondo simetria entre os lados.
+F21 (H4, série 2014, 2018, 2022, 2026): INCONSISTENTE com o mesmo mecanismo a favor do PT. Em 2014, 2018 e 2022 a
+  urna ficou ABAIXO das pesquisas para o candidato do PT (Datafolha -0,36, -0,13, -1,10); só em 2026 ficou acima
+  (+2,79). Na assimetria de perda própria, o PT perdeu mais em 2018 e 2022 e houve empate em 2014; só em 2026 a
+  direita perdeu mais, por um fio no limiar. Pistas pós-hoc: a curva por faixa de 2026 se parece com a de 2014
+  (Aécio contra Dilma no governo), o que sugere vantagem de quem governa; e as 37.986 seções novas de 2026, que não
+  existiam em 2022, têm assimetria bem maior (-0,058 contra -0,011) com virada agregada quase igual (2,88 contra
+  2,79). Vale um teste registrado sobre o que são essas seções.

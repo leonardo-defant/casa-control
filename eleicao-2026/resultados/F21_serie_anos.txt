@@ -1,0 +1,92 @@
+F21 (H4, Adendo 23): "se repete há várias eleições". Série descritiva, sem veredito de fraude (Adendo 18).
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 23, commit 863a34e (03/11/2026 01:13:05 UTC), antes de rodar.
+Script: scripts/analisar_F21.py (python3 -I). Números completos: resultados/F21_serie_anos.json.
+
+1. Base de 2014: bweb do TSE (dadosabertos.tse.jus.br, "Resultados - 2014 - Boletim de Urna"; cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/), 1º turno gerado em 14/10/2014, 2º em 28/10/2014, 27 UFs e exterior; 56 zips, cada um conferido pelo .sha1 publicado. Soma das seções contra o oficial:
+   turno 1: 428.854 seções; L 43.267.668 (oficial 43.267.668, dif +0); R 34.897.211 (oficial 34.897.211, dif +0); validos 104.023.802 (oficial 104.023.802, dif +0); comp 115.122.883 (oficial 115.122.883, dif +0); B 4.420.489 (oficial 4.420.489, dif +0); N 6.678.592 (oficial 6.678.592, dif +0)
+   turno 2: 428.852 seções; L 54.501.118 (oficial 54.501.118, dif +0); R 51.041.155 (oficial 51.041.155, dif +0); validos 105.542.273 (oficial 105.542.273, dif +0); comp 112.683.879 (oficial 112.683.879, dif +0); B 1.921.819 (oficial 1.921.819, dif +0); N 5.219.787 (oficial 5.219.787, dif +0)
+
+2. Ligação das seções pela chave UF|município|zona|seção (seções com os dois turnos nos dois anos)
+   2018-2022: 437.834 ligadas; mesmo número de local 97,2%; mediana aptos(2º ano)/aptos(1º ano) 1,003; correlação da fatia do PT no 1º turno: bruta 0,886, dentro do município 0,811
+   2022-2026: 461.219 ligadas; mesmo número de local 96,3%; mediana aptos(2º ano)/aptos(1º ano) 0,970; correlação da fatia do PT no 1º turno: bruta 0,963, dentro do município 0,881
+   2018-2026: 434.876 ligadas; mesmo número de local 93,9%; mediana aptos(2º ano)/aptos(1º ano) 0,970; correlação da fatia do PT no 1º turno: bruta 0,842, dentro do município 0,758
+   2014-2018: 350.133 ligadas; mesmo número de local 97,6%; mediana aptos(2º ano)/aptos(1º ano) 0,979; correlação da fatia do PT no 1º turno: bruta 0,874, dentro do município 0,810
+   2014-2026: 340.005 ligadas; mesmo número de local 92,1%; mediana aptos(2º ano)/aptos(1º ano) 0,938; correlação da fatia do PT no 1º turno: bruta 0,765, dentro do município 0,637
+   Regra fixada para 2014: (i) interseção dos 4 anos 331.087 seções = 66,3% das de 2026 (mínimo 50%): cumpre; (ii) correlação dentro do município 2014-2018 0,810 contra 2018-2022 0,811, razão 0,999 (mínimo 0,8): cumpre. 2014 ENTRA na série principal.
+
+3. Série principal: anos 2014, 2018, 2022, 2026, nas mesmas 331.087 seções (66,3% das de 2026), função ano() do T35 importada sem mudança.
+   A = média, pelo inverso da variância, de d = próprio(direita) - próprio(esquerda) pelas faixas; o PT é sempre a esquerda.
+   "No sentido do PT" = -A (positivo: o candidato do PT perde menos dos próprios eleitores). Limiar: +0,015.
+   ano  | A (ep)             | sentido do PT | A favorece PT | erro médio da pesquisa no PT | urna acima
+   2014 | -0,0011 (0,0015) |       +0,0011 |           não |                        -0,86 | não
+   2018 | +0,0111 (0,0014) |       -0,0111 |           não |                        -0,63 | não
+   2022 | +0,0293 (0,0012) |       -0,0293 |           não |                        -2,10 | não
+   2026 | -0,0151 (0,0014) |       +0,0151 |           sim |                        +2,79 | sim
+
+   Faixas (fatia do adversário no local, 1º turno): coeficiente dos próprios votos do PT e da direita, e d
+   2014 0,00-0,35: PT -0,0467 (0,0012), direita -0,0308 (0,0014), d +0,0159 (0,0018); locais 28.630/17.616
+   2014 0,35-0,50: PT -0,0770 (0,0024), direita -0,1108 (0,0026), d -0,0338 (0,0034); locais 11.914/12.054
+   2014 0,50-0,65: PT -0,0927 (0,0033), direita -0,1371 (0,0039), d -0,0445 (0,0051); locais 7.152/8.829
+   2014 0,65-1,00: PT -0,1078 (0,0078), direita -0,1828 (0,0053), d -0,0751 (0,0095); locais 1.711/10.908
+   2018 0,00-0,35: PT -0,0360 (0,0014), direita -0,0206 (0,0009), d +0,0154 (0,0017); locais 16.602/30.271
+   2018 0,35-0,50: PT -0,0768 (0,0024), direita -0,0784 (0,0030), d -0,0017 (0,0039); locais 10.876/6.638
+   2018 0,50-0,65: PT -0,1129 (0,0025), direita -0,1094 (0,0039), d +0,0034 (0,0046); locais 15.880/5.618
+   2018 0,65-1,00: PT -0,1371 (0,0051), direita -0,1424 (0,0052), d -0,0053 (0,0073); locais 5.935/6.766
+   2022 0,00-0,35: PT -0,0325 (0,0011), direita -0,0157 (0,0014), d +0,0168 (0,0018); locais 17.206/11.021
+   2022 0,35-0,50: PT -0,0564 (0,0015), direita -0,0177 (0,0013), d +0,0387 (0,0022); locais 14.552/15.450
+   2022 0,50-0,65: PT -0,0717 (0,0017), direita -0,0338 (0,0020), d +0,0380 (0,0026); locais 14.066/10.577
+   2022 0,65-1,00: PT -0,0959 (0,0042), direita -0,0538 (0,0028), d +0,0421 (0,0051); locais 3.535/12.311
+   2026 0,00-0,35: PT -0,0241 (0,0016), direita -0,0232 (0,0014), d +0,0008 (0,0021); locais 13.702/15.621
+   2026 0,35-0,50: PT -0,0324 (0,0018), direita -0,0447 (0,0015), d -0,0122 (0,0025); locais 13.556/14.526
+   2026 0,50-0,65: PT -0,0389 (0,0017), direita -0,0687 (0,0024), d -0,0298 (0,0030); locais 16.052/9.614
+   2026 0,65-1,00: PT -0,0493 (0,0034), direita -0,1144 (0,0033), d -0,0652 (0,0047); locais 6.535/10.084
+
+4. Pesquisas (urna menos pesquisa na fatia do candidato do PT, pontos dos válidos; resultados/contexto_virada_2t)
+   2014 Dilma (urna 51,64): Datafolha 52 -> -0,36 (24 e 25/10/2014); Ibope 53 -> -1,36 (divulgada 25/10/2014 (a matéria escreve "24 e 25 de setembro", erro de digitação))
+   2018 Haddad (urna 44,87): Datafolha 45 -> -0,13 (26 e 27/10/2018); Ibope 46 -> -1,13 (26 e 27/10/2018)
+   2022 Lula (urna 50,90): Datafolha 52 -> -1,10 (28 e 29/10/2022); Ipec 54 -> -3,10 (27 a 29/10/2022)
+   2026 Lula (urna 51,79): Datafolha 49 -> +2,79 (23 e 24/10/2026); Ipsos-Ipec sem pesquisa
+
+5. Leitura fixada antes: INCONSISTENTE (sem veredito de fraude)
+   Anos com dado: 2014, 2018, 2022, 2026. Condição (A no sentido do PT de +0,015 ou mais E urna acima da pesquisa) por ano: 2014 não, 2018 não, 2022 não, 2026 sim. Cumprem 1 (consistente pede 3). Anos anteriores a 2026 que falham: 3 (2 bastam para inconsistente).
+   Robustez (cada instituto em separado): inconsistente (2014 não, 2018 não, 2022 não, 2026 sim)
+   Robustez (r1, só 2018-2022-2026 nas mesmas seções): inconsistente (2018 não, 2022 não, 2026 não)
+   Robustez (r2, universo do T35 original): inconsistente (2014 não, 2018 não, 2022 não, 2026 sim)
+
+6. Conferência da função do T35 (universo original contra resultados/T35_curva_forca_bweb.json)
+   2018: A aqui +0,022041, no T35 +0,022041, seções 434.876 e 434.876: igual
+   2022: A aqui +0,028140, no T35 +0,028140, seções 461.219 e 461.219: igual
+   2026: A aqui -0,019951, no T35 -0,019951, seções 499.205 e 499.205: igual
+   Sensibilidade de A ao conjunto de seções (A e erro-padrão):
+   2014: principal -0,0011 (0,0015; 331.087 seções); r2 -0,0008 (0,0015; 340.005 seções)
+   2018: principal +0,0111 (0,0014; 331.087 seções); r1 +0,0224 (0,0011; 429.210 seções); r2 +0,0220 (0,0011; 434.876 seções)
+   2022: principal +0,0293 (0,0012; 331.087 seções); r1 +0,0251 (0,0010; 429.210 seções); r2 +0,0281 (0,0008; 461.219 seções)
+   2026: principal -0,0151 (0,0014; 331.087 seções); r1 -0,0130 (0,0012; 429.210 seções); r2 -0,0200 (0,0008; 499.205 seções)
+
+7. O que isso significa
+   A leitura registrada pede o mesmo sinal a favor do PT, nas duas séries, em pelo menos 3 anos. Isso só acontece em 2026.
+   Pesquisas: a urna ficou ABAIXO da última Datafolha e da última Ibope/Ipec para o candidato do PT em 2014 (-0,86 em média), 2018 (-0,63) e 2022 (-2,10); só em 2026 ficou acima (+2,79, Datafolha). Uma distância urna x pesquisa a favor do PT "que se repete" não existe na série: 2026 é o único ano com esse sinal.
+   A do T35: em 2018 (+0,0111) e 2022 (+0,0293) o candidato do PT perdeu MAIS dos próprios eleitores que o da direita; em 2014 os dois perderam o mesmo na média (-0,0011); em 2026 Flávio perdeu mais (-0,0151). Também não há um sinal a favor do PT que se repita.
+   2026 passa no limiar por pouco: +0,0151 contra +0,0150 nas 331.087 seções da série; com só 2018-2022-2026 (r1) dá +0,0130 e não passaria; no universo do T35 dá +0,0200. Isso não muda a leitura (os três anos anteriores falham nos dois critérios).
+   Cético nos dois sentidos: (a) a leitura INCONSISTENTE diz que o padrão de 2026 não aparece em 2014, 2018 e 2022; não diz que 2026 é limpa nem que é fraudada. Pelo Adendo 18, a série não serve de régua. (b) O erro-padrão de A (cerca de 0,001) subestima a incerteza real: só trocar o conjunto de seções muda A em até 0,0114 (2018: de +0,0111 a +0,0224), oito a dez vezes o erro-padrão. Diferenças de A menores que uns 0,01 entre anos não devem ser lidas. (c) São quatro eleições: uma série, não uma distribuição.
+
+8. Pistas (descritivas, vistas depois de rodar; nada aqui foi registrado antes)
+   d por faixa de força do adversário (menos de 35%, 35-50%, 50-65%, 65% ou mais), mesmas seções:
+   2014: +0,0159, -0,0338, -0,0445, -0,0751
+   2018: +0,0154, -0,0017, +0,0034, -0,0053
+   2022: +0,0168, +0,0387, +0,0380, +0,0421
+   2026: +0,0008, -0,0122, -0,0298, -0,0652
+   (1) O formato da curva de 2026 (a direita perde cada vez mais que o PT conforme o PT é mais forte no local) já existia em 2014, com Aécio, e mais forte: na faixa de 65% ou mais, Aécio perdeu 18,3% dos próprios eleitores e Dilma 10,8%; em 2026, Flávio 11,4% e Lula 4,9%. O A de 2014 dá perto de zero só porque a faixa de menos de 35%, a de mais locais e menor erro-padrão, vai no sentido oposto e pesa mais na média. Em 2014 a urna ficou abaixo das pesquisas para o PT. Ou seja: a assinatura (b)/(c) de H2 apareceu numa eleição em que o PT ficou abaixo das pesquisas; ela não é exclusiva de 2026 e não anda junto com o erro das pesquisas.
+   (2) O sentido de d nas faixas de 35% para cima acompanha quem estava no governo, nos quatro anos (o A de 2014, perto de zero, não): 2014 (Dilma, PT, no governo): a direita perde mais nas faixas de 35% para cima; 2018 (sem candidato à reeleição): quase igual, fora da faixa de menos de 35%; 2022 (Bolsonaro no governo): o PT perde mais em todas as faixas; 2026 (Lula no governo): a direita perde mais. Isso é post hoc e são quatro pontos. É compatível com uma vantagem natural de quem governa e também com um mecanismo "a favor do governo", que não é a hipótese H4 registrada (a favor do PT). Separar as duas pede anos com o governo de um lado e o PT do outro antes de 2014 (2002: Serra no governo) e com o PT no governo (2006, 2010); o TSE publica votação por seção desses anos (votacao_secao), não bweb, e a ligação com 2014 teria de ser testada como aqui, com critério registrado antes.
+   (3) Pesquisas no candidato do governo: 2014 Dilma -0,86, 2022 Bolsonaro +2,10, 2026 Lula +2,79 (urna menos pesquisa). Duas vezes acima e uma abaixo: também não há regularidade.
+
+9. Decisões não fixadas no registro, tomadas antes de calcular A (escritas no docstring do script)
+   D1. 2014 pelo bweb do TSE (publicado, 56 zips com .sha1, todos conferidos); colunas pelo LEIAME do zip; L = 13, R = 45, sem c28.
+   D2. Regra para "dá para ligar" 2014, fixada antes de calcular A: interseção dos 4 anos com 50% ou mais das seções de 2026 e correlação dentro do município 2014-2018 de pelo menos 0,8 vez a de 2018-2022.
+   D3. "Mesmas seções" = interseção das chaves com os dois turnos em todos os anos da série; robustez r1 (2018-2022-2026) e r2 (universo do T35 original).
+   D4. "No sentido do PT" = -A (o PT é sempre a esquerda na função); condição pela estimativa pontual, sem exigir erros-padrão.
+   D5. Urna acima da pesquisa = média dos erros de Datafolha e Ibope/Ipec acima de zero; robustez: cada instituto. 2026 só Datafolha.
+   D6. Ano com dado = A calculado e pelo menos uma pesquisa.
+   D7. Caso intermediário chamado "entre os dois" (o registro não o nomeia).
+   D8. Zips do 1º turno de 2014 apagados depois da extração, por falta de disco; SHA1 guardados no JSON.
+   Ocorrência: dois downloads (bweb_2t_MS e bweb_2t_SC) vieram como página "Access Denied" da CDN na rodada com 3 downloads em paralelo; o SHA1 não bateu, o arquivo foi descartado e baixado de novo, um por vez, com o mesmo curl, sem mudar user agent nem cabeçalho; os dois conferiram com o SHA1 publicado.
