@@ -620,3 +620,22 @@ Pedido do Léo: fazer tudo o que não depende de pedir algo a alguém. Regra do 
 ### F18. Certificados de urna emitidos depois do vencimento da AC URNA
 - Amostra estratificada por UF de 1.500 seções do 2º turno com urna antiga (UE2013 ou UE2015, pelas faixas do F4), semente 20261031. Baixar o .vsc e conferir a assinatura de cada certificado de urna com a AC URNA publicada e a data de emissão.
 - Descritivo, sem critério de sinal: fração e estimativa nacional (com intervalo de 95%) de certificados emitidos depois de 18/07/2026, e se algum certificado não confere com a AC publicada (isso seria sinal).
+
+## Adendo 23 (03/11/2026, antes de rodar qualquer teste abaixo): os três testes da caça ao furo (resultados/CACA_AO_FURO.txt)
+
+### F19 (H1). O exterior, sem biometria, contra seções do Brasil de composição igual
+- Hipótese que se testa: um programa que fica honesto quando a urna não tem nenhuma habilitação por biometria no dia. Única votação real nessa condição: o exterior.
+- Pareamento: cada seção do exterior com pelo menos 30 votos nos finalistas no 2º turno é pareada com as 20 seções do Brasil mais próximas em: fatia de Lula entre os finalistas no 1º turno, fatia dos outros candidatos, fatia de branco e nulo, e variação do comparecimento entre os turnos (pontos dos aptos), distância euclidiana sobre as variáveis padronizadas. D = virada média (fatia de Lula entre os finalistas, 2º menos 1º turno) do exterior menos a dos pares, ponderada pelos votos dos finalistas no 2º turno. Erro por bootstrap de cidades do exterior (2.000, semente 20261103).
+- Robustez fixada antes: pareamento só com seções do Brasil de urna antiga (UE2013 ou UE2015, faixas do F4); só com seções de capital; sem a variação do comparecimento; com 10 e com 50 pares.
+- Sinal (compatível com programa que se cala sem biometria e desvio do tamanho que vira a eleição): D de -1,5 ponto ou menos a mais de 4 erros-padrão. Sem sinal: |D| abaixo de 0,5 com erro-padrão até 0,25. Entre os dois: inconclusivo. Relatar a fração do desvio de 1,79 ponto que D representaria.
+
+### F20 (H2). Governador na mesma urna nas 6 UFs com 2º turno de governador
+- Classificação, gravada com fonte antes de calcular: em AC, AM, DF, ES, RN e TO, qual finalista do 2º turno de governador é do campo de Flávio (apoio declarado a Flávio no 2º turno ou partido ou coligação do PL) e qual do campo de Lula. UF sem um finalista claramente do campo de Flávio fica de fora.
+- Estatística: a mesma função t22b de scripts/analisar_pres_gov.py, sem mudança, nas UFs classificadas, empilhada e por UF. Calibração: D com troca simulada só no voto de presidente de 3,6% dos votos de Flávio (t22b_com_troca de analisar_T22.py).
+- Critério do T22b sem mudança (sinal: D de -0,03 ou menos a mais de 2,5 erros-padrão; sem sinal: D entre -0,015 e +0,015). Acrescentado: EXCLUSÃO, se o D observado ficar acima do D simulado com 3,6% a mais de 4 erros-padrão (soma das variâncias), a troca só no presidente do tamanho que vira a eleição fica excluída nessas UFs.
+- Descritivo: o espelho (coeficiente próprio de Lula menos o do governador do campo de Lula).
+
+### F21 (H4). "Se repete há várias eleições": série descritiva
+- Anos: 2014 (se o bweb de 2014 estiver publicado e der para ligar as seções), 2018, 2022 e 2026.
+- Duas séries: (a) A(ano) do T35, pela função de scripts/analisar_curva_forca.py sem mudança, sempre nas mesmas seções entre os anos; (b) o erro da última pesquisa Datafolha e Ibope/Ipec do 2º turno na fatia do candidato do PT (urna menos pesquisa), da série já conferida em resultados/contexto_virada_2t.txt.
+- Sem veredito de fraude (Adendo 18: se todas as eleições são suspeitas, nenhuma é régua). Leitura fixada antes: "consistente com o mesmo mecanismo a favor do PT" se, em pelo menos 3 dos anos com dado, A(ano) ficar a favor do candidato do PT (o candidato do PT perde menos, A de +0,015 ou mais no sentido do PT) e a urna ficar acima da pesquisa para o candidato do PT; "inconsistente" se isso falhar em pelo menos 2 dos anos anteriores a 2026.
