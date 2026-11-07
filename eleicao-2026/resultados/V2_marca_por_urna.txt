@@ -1,0 +1,103 @@
+V2 do Adendo 25: marca de "k votos fixos por urna" nos dados por seção (checagem do vídeo "10 votos extras para Lula por urna")
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 25, V2 (commit 587cc65, 07/11/2026 12:10:37 UTC). Script: scripts/analisar_V2_video.py.
+Decisões que o registro não fixa: no docstring do script, gravadas antes de calcular (cópia com hora UTC e hash em adendo25/V2/docstring_antes_de_rodar.txt). Exploratório marcado como tal.
+
+0. Dados
+  Base por seção (trab2t/secoes2026.json.gz) conferida contra o bweb inteiro: 499.206 seções no 1º turno e 499.205 no 2º, 0 e 0 sem par; discordâncias em local, urna, tipo, aptos, comparecimento, agregação, L, R, O, B e N: 0 e 0.
+  Universo: 497.897 seções das 27 UFs com os dois turnos, todas apuradas e com L+R > 0 nos dois. Exterior (UF ZZ na chave) fora: 1.309 seções no 1º turno, 1.308 no 2º.
+  1º turno: Lula 53.722.151, Flávio 55.960.603 (margem de Lula -2.238.452). 2º turno: Lula 64.056.078, Flávio 59.654.544 (margem +4.401.534). Fatia de Lula entre os finalistas: 48,98% e 51,78%.
+
+1. Literal: seções com menos de 10 votos de Lula no 2º turno
+  175 de 497.897 seções (0,035%) têm L2 < 10 e somam 1.098 votos de Lula; 4 têm L2 = 0. Seções por valor de L2, de 0 a 9: 0: 4, 1: 6, 2: 3, 3: 7, 4: 22, 5: 21, 6: 15, 7: 27, 8: 37, 9: 33.
+  Dessas 175: 1 com comparecimento do 2º turno abaixo de 10 (nas demais cabiam 10 votos); 3 agregadas; 175 com a mesma urna nos dois turnos. Lula tinha 995 votos nelas no 1º turno.
+  Por UF (seções com L2 < 10 e votos de Lula nelas): AC 2 (13 votos); AM 5 (26 votos); AP 1 (7 votos); BA 1 (1 voto); CE 1 (7 votos); DF 1 (7 votos); ES 1 (6 votos); GO 4 (29 votos); MG 18 (108 votos); MS 1 (8 votos); MT 10 (71 votos); PA 36 (220 votos); PR 16 (103 votos); RJ 1 (7 votos); RO 2 (16 votos); RR 1 (8 votos); RS 59 (362 votos); SC 8 (58 votos); SP 7 (41 votos). Nenhuma em AL, MA, PB, PE, PI, RN, SE, TO.
+  Descritivo: L2 - L1 < 10 em 71.003 seções (14,26%), com soma de L2 - L1 de +297.405 nelas; Lula perdeu votos (L2 < L1) em 9.575 (soma -58.796).
+  Por UF, seções com L2 - L1 < 10: AC 1.600; AL 842; AM 3.133; AP 1.072; BA 5.299; CE 3.397; DF 285; ES 2.228; GO 599; MA 6.294; MG 4.800; MS 1.536; MT 2.769; PA 8.233; PB 591; PE 822; PI 3.931; PR 3.066; RJ 2.150; RN 879; RO 2.614; RR 1.050; RS 4.146; SC 2.854; SE 431; SP 4.026; TO 2.356.
+
+2. Dose pelo tamanho (regressão do veredito)
+  y = fatia de Lula entre os finalistas no 2º turno menos a do 1º (fração); x = 1/N2, N2 = L2 + R2; efeito fixo de local do 2º turno; peso N2; erro agrupado por local (lib.fe_ols, CR1).
+  b = +0,951 votos por urna (ep 0,068, z +14,0); 475.803 seções em 72.445 locais (22.094 seções sozinhas no local saem).
+  Previsto por 10 votos por urna: b = 4,822 se acrescentados (10 x (1 - 0,518)); b = 10 se trocados de Flávio para Lula. Sem efeito fixo: perto de zero.
+  Robustez (fixada antes, não muda o veredito):
+   a) x = 1/aptos do 2º turno: b +0,260 (ep 0,087, z +3,0); 475.803 seções em 72.445 locais
+   b) sem peso: b +0,500 (ep 0,080, z +6,2); 475.803 seções em 72.445 locais
+   c) efeito fixo de município: b -0,685 (ep 0,058, z -11,8); 497.897 seções em 5.571 municípios
+   d) mesma urna e apuradas nos dois turnos: b +0,945 (ep 0,069, z +13,8); 471.380 seções em 72.218 locais
+   e) sem seções agregadas: b +1,103 (ep 0,074, z +14,8); 463.123 seções em 69.103 locais
+   f) d e e juntos: b +1,098 (ep 0,075, z +14,7); 458.823 seções em 68.897 locais
+   g) x = 1/N1 (tamanho do 1º turno): b +1,632 (ep 0,062, z +26,1); 475.803 seções em 72.445 locais
+  Calibração (k plantado em toda seção, regressão principal refeita):
+   10 por urna: acrescentados b +5,349 (variação +4,397, prevista +4,822); trocados b +10,767 (variação +9,815, prevista +10,000).
+   1 por urna: acrescentados b +1,392 (variação +0,440, prevista +0,482); trocados b +1,951 (variação +0,999, prevista +1,000).
+
+3. Comparecimento
+  y = comp2/apt2 - comp1/apt1; x = 1/apt2; efeito fixo de local do 2º turno, peso apt2, erro agrupado por local. Um acréscimo de k eleitores por urna daria coeficiente perto de k.
+   coeficiente: b -3,351 (ep 0,094, z -35,5); 475.803 seções em 72.445 locais
+   só aptos iguais, mesma urna, sem agregação: b -3,538 (ep 0,110, z -32,1); 404.749 seções em 66.975 locais
+  Comparecimento: 124.934.069 no 1º turno, 127.854.631 no 2º (+2.920.562); 55.406 seções com aptos diferentes entre os turnos.
+
+4. Faixas de N2: virada da seção menos a média (ponderada por N2) das outras seções do mesmo local, em pontos
+  faixa          seções  com vizinhas  N2 médio   média simples (ep)   ponderada por N2 (ep)   previsto por 10/urna: acréscimo  troca
+  até 50            707          144      37,8    +0,309 (0,426)       +0,201 (0,411)          +9,90   +20,52
+  51 a 100        4.760        1.706      79,7    +0,073 (0,095)       +0,093 (0,091)          +3,80    +7,87
+  101 a 200      79.949       70.466     170,6    +0,053 (0,005)       +0,051 (0,005)          +0,17    +0,36
+  201 a 300     341.314      333.575     254,5    +0,001 (0,001)       +0,000 (0,001)          -0,02    -0,05
+  mais de 300    71.167       69.912     320,5    -0,036 (0,004)       -0,037 (0,004)          -0,05    -0,11
+  Seções sozinhas no local (fora): 22.094. Erro agrupado por local (72.445 locais).
+
+5. Placebos (mesma especificação do item 2)
+   2022, Lula e Bolsonaro, 1º para 2º turno: b -1,004 (ep 0,059, z -17,0); 447.228 seções em 68.579 locais
+   2018, Haddad e Bolsonaro, 1º para 2º turno: b -0,839 (ep 0,061, z -13,8); 426.891 seções em 66.772 locais
+   nível do 1º turno de 2026 (fatia de Lula contra 1/N1, local do 1º turno): b +3,017 (ep 0,141, z +21,4); 475.803 seções em 72.445 locais
+   ao lado: nível do 2º turno de 2026 (fatia de Lula contra 1/N2): b +2,773 (ep 0,151, z +18,4); 475.803 seções em 72.445 locais
+
+6. Veredito pela letra
+  b = +0,951, ep 0,068, z +14,0; b + 2 ep = +1,088. Sinal exige b >= 2,5 a mais de 4 ep; sem sinal, b + 2 ep < 2,5.
+  VEREDITO: SEM SINAL. Placebos e comparecimento ficam ao lado e não mudam o veredito.
+
+7. Em votos
+  Margem de Lula no 2º turno nas 27 UFs: +4.401.534 (1º turno -2.238.452; mudança +6.639.986). O vídeo: 4.978.970 votos (10 x 497.897).
+  com b (+0,951), nas 497.897 urnas: troca de Flávio para Lula, 473.726 votos e 947.451 de margem; acréscimo (1,97 por urna), 982.405 votos e de margem.
+  com b - 2 ep (+0,815), nas 497.897 urnas: troca de Flávio para Lula, 405.947 votos e 811.894 de margem; acréscimo (1,69 por urna), 841.846 votos e de margem.
+  com b + 2 ep (+1,088), nas 497.897 urnas: troca de Flávio para Lula, 541.504 votos e 1.083.009 de margem; acréscimo (2,26 por urna), 1.122.963 votos e de margem.
+  Mesmo lendo todo o b como efeito fixo por urna, o limite de cima (1.122.963 de margem) é 22,6% dos 4.978.970 do vídeo e 25,5% da margem.
+
+8. Exploratório (acrescentado depois de ver o resultado; sem veredito)
+  O b de 2026 é positivo e os dos placebos, negativos. As mesmas variantes nos três anos, b (ep), e o quanto um efeito fixo real de 10 por urna mudaria cada variante em 2026 (calibração):
+  variante                                       2026              2022              2018         2026-2022  2026-2018   +10 acresc.  +10 troca
+  principal (item 2)                            +0,951 (0,068)   -1,004 (0,059)   -0,839 (0,061)     +1,96     +1,79      +4,40      +9,82
+  a) x = 1/aptos do 2º turno                    +0,260 (0,087)   -0,688 (0,079)   -0,361 (0,088)     +0,95     +0,62      +4,28     +11,72
+  b) sem peso                                   +0,500 (0,080)   -0,612 (0,071)   -0,402 (0,096)     +1,11     +0,90      +4,38      +9,71
+  c) efeito fixo de município                   -0,685 (0,058)   +0,030 (0,097)   -2,650 (0,224)     -0,72     +1,96      +3,83      +9,16
+  f) mesma urna, apuradas, sem agregadas        +1,098 (0,075)   -1,020 (0,060)   -0,826 (0,062)     +2,12     +1,92      +4,47      +9,80
+  g) x = 1/N1 (tamanho do 1º turno)             +1,632 (0,062)   -0,481 (0,054)   +1,312 (0,071)     +2,11     +0,32      +2,94      +8,22
+  E3) com fatia dos outros no 1º turno          +0,806 (0,068)   -1,012 (0,059)   -1,085 (0,058)     +1,82     +1,89      +4,38      +9,81
+  E5) cinco regressores (não é teste de dose)   +2,649 (0,150)   -1,875 (0,130)   -3,185 (0,166)     +4,52     +5,83      +5,01      +9,70
+  Comparecimento (item 3) nos três anos: 2026 -3,351 (ep 0,094); 2022 -2,794 (ep 0,091); 2018 -1,191 (ep 0,053).
+  E4, leitura extrema (não é estimativa): se toda a diferença da especificação principal para o placebo fosse efeito fixo por urna:
+   contra 2022: diferença +1,956 (ep 0,090), 1.947.375 de margem na troca, 2.019.217 no acréscimo; nas variantes a, b, c, f, g e E3 a diferença vai de -0,72 a +2,12.
+   contra 2018: diferença +1,790 (ep 0,091), 1.782.920 de margem na troca, 1.848.696 no acréscimo; nas variantes a, b, c, f, g e E3 a diferença vai de +0,32 a +1,96.
+  E6: pela fatia de quem ganhou terreno no 2º turno, b = +0,951 (Lula, 2026), +1,004 (Bolsonaro, 2022) e -0,839 (Haddad, 2018).
+
+9. Leitura
+  Literal: 175 urnas (174 com comparecimento de 10 ou mais) têm menos de 10 votos de Lula no 2º turno. "10 a mais em toda urna" não se sustenta ao pé da letra.
+  Dose: b = +0,951 (ep 0,068), contra 4,822 a 10 previstos; plantar 10 por urna levaria b a +5,349 (acréscimo) ou +10,767 (troca). Pela letra: SEM SINAL.
+  Faixas: onde 10 votos pesariam mais, a virada fica a +0,31 (ep 0,43) pontos da média do local nas seções até 50 e a +0,07 (ep 0,09) de 51 a 100, contra +9,90 a +20,52 e +3,80 a +7,87 previstos.
+  Comparecimento: coeficiente -3,351, o oposto dos +10 que 10 eleitores a mais por urna dariam, e abaixo de 2022 (-2,794) e 2018 (-1,191).
+  Ressalva (exploratório): o b de 2026 difere de zero e dos placebos (+1,96 contra 2022, +1,79 contra 2018). Essa diferença muda de tamanho e de sinal entre variantes (-0,72 a +2,12 contra 2022), enquanto um efeito fixo real de 10 por urna deslocaria todas, de +2,94 a +11,72. Pela fatia de quem ganhou terreno, 2022 deu +1,004 a Bolsonaro, do tamanho dos +0,951 de Lula em 2026. Mesmo lendo toda a diferença como efeito fixo por urna, daria até 2.019.217 de margem, 40,6% dos 4.978.970 e 45,9% da margem.
+  O V2 testa um acréscimo fixo por urna. Não testa fraude proporcional nem concentrada em poucas urnas; a origem dos 5.354.957 é o V1.
+
+10. Desvios (decisões que o registro não fixa, escritas no docstring antes de calcular)
+  D1: contas na base por seção, não relendo o bweb a cada conta; a base foi conferida campo a campo contra o bweb dos dois turnos (item 0).
+  D2: exterior (UF ZZ) fora; universo de 497.897 seções; nas regressões, L+R > 0 nos dois turnos (nenhuma seção saiu por isso).
+  D3: L2 < 10 contado nas seções das 27 UFs com 2º turno; ao lado, distribuição, comparecimento abaixo de 10, agregadas, L2 - L1 < 10 e L2 < L1.
+  D4: local = UF|município|zona|NR_LOCAL_VOTACAO do 2º turno (lib.chave_local); locais com uma seção só saem da regressão (22.094 seções), como no lib.fe_ols.
+  D5: robustez fixada antes, com (c) agrupando o erro por município e (f) e (g) acrescentados antes de rodar.
+  D6: previsto exato 4,822 (acréscimo, 10 x (1 - fatia de Lula no 2º turno)) a 10 (troca); o registro arredonda para 5 a 10.
+  D7: calibração por k plantado (10 e 1, acréscimo e troca), fora do critério.
+  D8: comparecimento com peso apt2; ao lado, só aptos iguais, mesma urna e sem agregação.
+  D9: faixas pela média das outras seções do local ponderada por N2 (sem a própria); seções sozinhas no local fora; média simples e ponderada; ep agrupado por local.
+  D10: placebos sem filtro de tipo de urna; L e R de 2018 e 2022 conferidos no código e nos totais; nível do 2º turno de 2026 ao lado.
+  D11: "a mais de 4 erros-padrão" lido como b/ep > 4.
+  D12: votos por troca (margem 2b por urna) e por acréscimo (b/(1 - fatia) por urna), vezes 497.897.
+  Exploratório E1 a E6 acrescentado depois de ver o resultado; o E5 veio de um protótipo rodado antes de o bloco ser escrito e está aqui por transparência.

@@ -1,0 +1,148 @@
+V1 do Adendo 25: os números do vídeo "10 votos extras para Lula por urna" (reprodução e origem; descritivo)
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 25, V1 (commit 587cc65, 07/11/2026 12:10:37 UTC). Sem veredito de sinal.
+Script: scripts/analisar_V1_video.py (python3 -I). Números: resultados/V1_aritmetica_video.json.
+Fonte: bweb dos dois turnos (linhas de Presidente), conferido seção a seção com a base secoes2026.json.gz.
+  Conferência com a base: 1º turno 499.206 seções iguais, 0 diferentes, 0 só no bweb, 0 só na base; 2º turno 499.205 iguais, 0 diferentes, 0 só no bweb, 0 só na base.
+
+1. Os números do vídeo nos dados (todas as seções de cada turno; exterior = UF "ZZ")
+                              27 UFs         exterior          total
+  boletins 1º turno               497.897            1.309        499.206
+  boletins 2º turno               497.897            1.308        499.205
+  Lula 1º turno                53.722.151          157.387     53.879.538
+  Lula 2º turno                64.056.078          200.154     64.256.232
+  ganho de Lula                10.333.927           42.767     10.376.694
+  Flávio 1º turno              55.960.603          143.900     56.104.503
+  Flávio 2º turno              59.654.544          171.497     59.826.041
+  ganho de Flávio               3.693.941           27.597      3.721.538
+  eliminados 1T (sem o 28)      9.287.152           29.595      9.316.747
+  28 anulado (1º turno)             5.123              123          5.246
+  válidos 1º turno            118.969.906          330.882    119.300.788
+  válidos 2º turno            123.710.622          371.651    124.082.273
+  válidos novos                 4.740.716           40.769      4.781.485
+  nominais 1T (com o 28)      118.975.029          331.005    119.306.034
+  nominais novos (com o 28)     4.735.593           40.646      4.776.239
+  brancos 1º turno              2.294.982            5.816      2.300.798
+  brancos 2º turno              1.425.821            4.675      1.430.496
+  nulos 1º turno (sem 28)       3.664.058            4.945      3.669.003
+  nulos 2º turno                2.718.188            5.117      2.723.305
+  comparecimento 1º turno     124.934.069          341.766    125.275.835
+  comparecimento 2º turno     127.854.631          381.443    128.236.074
+  aumento do comparecimento     2.920.562           39.677      2.960.239
+  queda do branco+nulo          1.815.031              969      1.816.000
+  Onde cada número do vídeo aparece exatamente: nominais_novos 4.781.485: todas/total/d_validos; ganho_L_27UF 10.333.927: todas/27UF/ganho_L, pareadas/27UF/ganho_L; exterior 42.767: todas/exterior/ganho_L; total 10.376.694: todas/total/ganho_L; urnas 497.897: todas/27UF/boletins_1t, todas/27UF/boletins_2t, pareadas/27UF/boletins_1t, pareadas/27UF/boletins_2t
+  4.781.485 = válidos novos (sem o 28) do total, Brasil mais exterior, com todas as seções; nas 27 UFs os válidos novos são 4.740.716. O vídeo divide um número que inclui o exterior por um número de urnas que o exclui.
+  4.781.485 / 497.897 = 9,6034; o certo nas 27 UFs seria 4.740.716 / 497.897 = 9,5215.
+  10.333.927 é o ganho de Lula nas 27 UFs (sim); 42.767 é o ganho no exterior (sim); 10.376.694 é o ganho total (sim).
+  Só com seções que têm os dois turnos, o ganho total é 10.376.696 (o exterior tem uma seção só no 1º turno, ZZ|30686|1|443).
+
+2. Urnas, boletins e seções no 2º turno
+  27UF: boletins 497.897; urnas distintas (NR_URNA_EFETIVADA) 497.897; urna em mais de um boletim 0; boletins com seção agregada 14.926 (16.567 seções agregadas; seções eleitorais 514.464); urna trocada entre os turnos 4.413; tipo diferente de apurada 0 (1º) e 0 (2º); troca ou tipo 4.413.
+  exterior: boletins 1.308; urnas distintas (NR_URNA_EFETIVADA) 1.283; urna em mais de um boletim 2; boletins com seção agregada 1.216 (1.364 seções agregadas; seções eleitorais 2.672); urna trocada entre os turnos 22; tipo diferente de apurada 0 (1º) e 0 (2º); troca ou tipo 22.
+  total: boletins 499.205; urnas distintas (NR_URNA_EFETIVADA) 499.180; urna em mais de um boletim 2; boletins com seção agregada 16.142 (17.931 seções agregadas; seções eleitorais 517.136); urna trocada entre os turnos 4.435; tipo diferente de apurada 0 (1º) e 0 (2º); troca ou tipo 4.435.
+  Oficial (secoes_tot): {'br': 499248, 'zz': 1351, 'uf27': 497897}.
+  497.897 é o número de boletins (seções com boletim) do 2º turno nas 27 UFs (sim) e também o de urnas distintas (sim). Não é o número de seções eleitorais (514.464, contando as agregadas).
+
+3. De onde vêm os 5.354.957
+  (a) 10.333.927 menos 10 x 497.897 = 5.354.957 (igual). O número sai da própria conta.
+  Critério do registro: alguma quantidade calculada sem o ganho de Lula e sem o número de urnas a 535 votos ou menos.
+  (b) Votos de cada eliminado no 1º turno (bweb):
+      70 ESCRITOR AUGUSTO CURY 3.448.569; 14 RENAN SANTOS 2.675.887; 55 RONALDO CAIADO 2.605.148; 30 ZEMA 326.488; 80 SAMARA 122.911; 16 HERTZ DIAS 43.103; 27 CLARIANA BARAO 40.043; 21 EDMILSON COSTA 22.693; 35 VETERINÁRIO WILSON GRASSI 16.881; 29 RUI COSTA PIMENTA 15.024; 28 LEONARDO AVALANCHE 5.246 (total)
+      27 UFs: 70 3.438.835; 14 2.667.307; 55 2.600.440; 30 323.159; 80 121.858; 16 42.730; 27 39.218; 21 22.272; 35 16.508; 29 14.825; 28 5.123
+      exterior: 70 9.734; 14 8.580; 55 4.708; 30 3.329; 80 1.053; 27 825; 21 421; 35 373; 16 373; 29 199; 28 123
+      27UF: 8.191 subconjuntos, 2 a 535 votos ou menos. Mais próximo sem branco e nulo: 5.354.818 (distância 139: 14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 28 (anulado)); com branco ou nulo: 5.355.264 (distância 307: 30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + 29 RUI COSTA PIMENTA + brancos).
+      exterior: 8.191 subconjuntos, 0 a 535 votos ou menos. Mais próximo sem branco e nulo: 29.718 (distância 5.325.239: 35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado)); com branco ou nulo: 40.479 (distância 5.314.478: 35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado) + brancos + nulos).
+      total: 8.191 subconjuntos, 2 a 535 votos ou menos. Mais próximo sem branco e nulo: 5.356.043 (distância 1.086: 14 RENAN SANTOS + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA); com branco ou nulo: 5.355.154 (distância 197: 30 ZEMA + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + brancos).
+  (c) Frações redondas (1% a 100%, passo 0,5%):
+      27UF/O1_sem28: base 9.287.152; fração exata 57,660%; mais próxima 57,5% = 5.340.112,4 (distância 14.844,6); dentro 0.
+      27UF/O1_com28: base 9.292.275; fração exata 57,628%; mais próxima 57,5% = 5.343.058,1 (distância 11.898,9); dentro 0.
+      27UF/O1_mais_B1_N1: base 15.251.315; fração exata 35,111%; mais próxima 35,0% = 5.337.960,2 (distância 16.996,8); dentro 0.
+      exterior/O1_sem28: base 29.595; fração exata 18.094,127%; mais próxima 100,0% = 29.595,0 (distância 5.325.362,0); dentro 0.
+      exterior/O1_com28: base 29.718; fração exata 18.019,237%; mais próxima 100,0% = 29.718,0 (distância 5.325.239,0); dentro 0.
+      exterior/O1_mais_B1_N1: base 40.479; fração exata 13.228,976%; mais próxima 100,0% = 40.479,0 (distância 5.314.478,0); dentro 0.
+      total/O1_sem28: base 9.316.747; fração exata 57,477%; mais próxima 57,5% = 5.357.129,5 (distância 2.172,5); dentro 0.
+      total/O1_com28: base 9.321.993; fração exata 57,444%; mais próxima 57,5% = 5.360.146,0 (distância 5.189,0); dentro 0.
+      total/O1_mais_B1_N1: base 15.291.794; fração exata 35,019%; mais próxima 35,0% = 5.352.127,9 (distância 2.829,1); dentro 0.
+  (d) Estimativas de transferência do repositório (66 números; dentro da tolerância: 0). As 5 mais próximas:
+      regressão da urna: b_L_eliminados x eliminados (9.316.747, universo do L5): 5.037.699 (distância 317.258, ep 15.417, distância de 20,6 ep)
+      regressão da urna: b_L_eliminados x O1 sem o 28 das 27 UFs: 5.021.696 (distância 333.261, ep 15.368, distância de 21,7 ep)
+      contexto da virada 2026/virada_diferenca_votos: 6.655.156 (distância 1.300.199)
+      L5b AtlasIntel 13-18/10: do saldo para Lula (fidelidade_100): 6.907.869 (distância 1.552.912)
+      L5b PoderData 19-21/10: do saldo para Lula (fidelidade_100): 6.912.608 (distância 1.557.651)
+      Conferência das taxas do L5 (refeito menos gravado): máx. |dif| 0,00.
+      Varredura ampla (412 números de 100 mil a 100 milhões em três JSON): mais próximo contexto_virada_2t.json/eleicoes/2014/votos/nulos2 = 5.219.787,0 (distância 135.170,0); dentro 0.
+  (e) Pesquisas finais do L5 (66 números; dentro 0). Mais próximas:
+      Real Time Big Data: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T): 5.679.955 (distância 324.998)
+      Gerp: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T): 5.679.955 (distância 324.998)
+      AtlasIntel: ganho pelas duas pesquisas: 4.977.109 (distância 377.848)
+  Extra, fora do registro (totais sem o ganho de Lula e sem urnas; dentro 0). Mais próximas:
+      27UF: O1 sem o 28 menos ganho de Flávio: 5.593.211 (distância 238.254)
+      total: O1 sem o 28 menos ganho de Flávio: 5.595.209 (distância 240.252)
+      27UF: O1 com o 28 menos ganho de Flávio: 5.598.334 (distância 243.377)
+  Resultado pela letra: dentro de 535 votos ficam 2 somas de subconjunto nas 27 UFs, 0 no exterior e 2 no total (família b); frações 0; transferências do repositório 0 (varredura 0); pesquisas 0.
+      na tolerância, 27UF: 5.354.818 (distância 139): 14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 28 (anulado)
+      na tolerância, 27UF: 5.355.264 (distância 307): 30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + 29 RUI COSTA PIMENTA + brancos
+      na tolerância, total: 5.355.154 (distância 197): 30 ZEMA + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + brancos
+      na tolerância, total: 5.355.345 (distância 388): 30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + brancos
+  Como há somas na tolerância, a cláusula do registro 'se nada bater, fica registrado como resíduo' não se cumpre pela letra.
+  Exploratório (feito depois de ver esses acertos; não muda limiar nem a leitura pela letra):
+      27UF/todos os elementos: 8.191 subconjuntos; um número inteiro qualquer entre 4.854.957 e 5.854.957 tem em média 0,89 subconjuntos a 535 votos ou menos; 56,0% desses números têm pelo menos um, 24,1% têm 2 ou mais (5.354.957 tem 2); 21,5% têm um subconjunto a 139 votos ou menos (a menor distância achada para 5.354.957).
+      27UF/só eliminados, com o 28: 2.047 subconjuntos; um número inteiro qualquer entre 4.854.957 e 5.854.957 tem em média 0,27 subconjuntos a 535 votos ou menos; 22,5% desses números têm pelo menos um, 22,5% têm 1 ou mais (5.354.957 tem 1); 7,0% têm um subconjunto a 139 votos ou menos (a menor distância achada para 5.354.957).
+      total/todos os elementos: 8.191 subconjuntos; um número inteiro qualquer entre 4.854.957 e 5.854.957 tem em média 0,88 subconjuntos a 535 votos ou menos; 53,7% desses números têm pelo menos um, 23,5% têm 2 ou mais (5.354.957 tem 2); 27,7% têm um subconjunto a 197 votos ou menos (a menor distância achada para 5.354.957).
+      total/só eliminados, com o 28: 2.047 subconjuntos; um número inteiro qualquer entre 4.854.957 e 5.854.957 tem em média 0,27 subconjuntos a 535 votos ou menos; 20,7% desses números têm pelo menos um (5.354.957 tem 0); 34,5% têm um subconjunto a 1.086 votos ou menos (a menor distância achada para 5.354.957).
+      grupos políticos, 27UF: todos os eliminados (sem o 28) 9.287.152 (distância 3.932.195); Cury, Renan, Caiado e Zema 9.029.741 (distância 3.674.784); Cury, Renan e Caiado 8.706.582 (distância 3.351.625); apoiaram Flávio (Zema, Caiado, Clariana, Cury, Grassi) 6.418.160 (distância 1.063.203); apoiaram Lula (Samara, Hertz, Edmilson) 186.860 (distância 5.168.097); Renan (liberou) e Rui Costa Pimenta (PCO, nulo) 2.682.132 (distância 2.672.825)
+      grupos políticos, total: todos os eliminados (sem o 28) 9.316.747 (distância 3.961.790); Cury, Renan, Caiado e Zema 9.056.092 (distância 3.701.135); Cury, Renan e Caiado 8.729.604 (distância 3.374.647); apoiaram Flávio (Zema, Caiado, Clariana, Cury, Grassi) 6.437.129 (distância 1.082.172); apoiaram Lula (Samara, Hertz, Edmilson) 188.707 (distância 5.166.250); Renan (liberou) e Rui Costa Pimenta (PCO, nulo) 2.690.911 (distância 2.664.046)
+      Com o subconjunto mais próximo no lugar dos 5.354.957, a sobra seria 4.979.109 = 10,00028 por urna (resto 139 na divisão por 497.897): o '10 exato' só sai com o resíduo.
+  Leitura: os acertos são combinações sem sentido político (misturam candidatos que apoiaram Flávio, Lula e o nulo, com o 28 anulado), nenhum é exato, e o número de acertos é o que qualquer alvo dessa faixa tem por acaso. Nenhuma estimativa de transferência nem número de pesquisa chega perto. O 5.354.957 só sai exato como 10.333.927 menos 10 x 497.897.
+
+4. A mesma conta em outros casos: com a "transferência" escolhida como ganho menos k x urnas, qualquer k sai exato
+  Lula 2026: ganho 10.333.927, urnas (boletins do 2º turno, 27 UFs) 497.897, ganho por urna 20,76
+     k=5: transferência 7.844.442, sobra 2.489.485 = 5 x urnas; k=8: transferência 6.350.751, sobra 3.983.176 = 8 x urnas; k=10: transferência 5.354.957, sobra 4.978.970 = 10 x urnas; k=12: transferência 4.359.163, sobra 5.974.764 = 12 x urnas; k=15: transferência 2.865.472, sobra 7.468.455 = 15 x urnas
+  Flávio 2026: ganho 3.693.941, urnas (boletins do 2º turno, 27 UFs) 497.897, ganho por urna 7,42
+     k=5: transferência 1.204.456, sobra 2.489.485 = 5 x urnas; k=8: transferência -289.235, sobra 3.983.176 = 8 x urnas; k=10: transferência -1.285.029, sobra 4.978.970 = 10 x urnas; k=12: transferência -2.280.823, sobra 5.974.764 = 12 x urnas; k=15: transferência -3.774.514, sobra 7.468.455 = 15 x urnas
+  Lula 2022: ganho 3.072.523, urnas (boletins do 2º turno, 27 UFs) 471.010, ganho por urna 6,52
+     k=5: transferência 717.473, sobra 2.355.050 = 5 x urnas; k=8: transferência -695.557, sobra 3.768.080 = 8 x urnas; k=10: transferência -1.637.577, sobra 4.710.100 = 10 x urnas; k=12: transferência -2.579.597, sobra 5.652.120 = 12 x urnas; k=15: transferência -3.992.627, sobra 7.065.150 = 15 x urnas
+  Bolsonaro 2022: ganho 7.111.293, urnas (boletins do 2º turno, 27 UFs) 471.010, ganho por urna 15,10
+     k=5: transferência 4.756.243, sobra 2.355.050 = 5 x urnas; k=8: transferência 3.343.213, sobra 3.768.080 = 8 x urnas; k=10: transferência 2.401.193, sobra 4.710.100 = 10 x urnas; k=12: transferência 1.459.173, sobra 5.652.120 = 12 x urnas; k=15: transferência 46.143, sobra 7.065.150 = 15 x urnas
+  Haddad 2018 (extra): ganho 15.664.711, urnas (boletins do 2º turno, 27 UFs) 453.704, ganho por urna 34,53
+     k=5: transferência 13.396.191, sobra 2.268.520 = 5 x urnas; k=8: transferência 12.035.079, sobra 3.629.632 = 8 x urnas; k=10: transferência 11.127.671, sobra 4.537.040 = 10 x urnas; k=12: transferência 10.220.263, sobra 5.444.448 = 12 x urnas; k=15: transferência 8.859.151, sobra 6.805.560 = 15 x urnas
+  Bolsonaro 2018 (extra): ganho 8.502.876, urnas (boletins do 2º turno, 27 UFs) 453.704, ganho por urna 18,74
+     k=5: transferência 6.234.356, sobra 2.268.520 = 5 x urnas; k=8: transferência 4.873.244, sobra 3.629.632 = 8 x urnas; k=10: transferência 3.965.836, sobra 4.537.040 = 10 x urnas; k=12: transferência 3.058.428, sobra 5.444.448 = 12 x urnas; k=15: transferência 1.697.316, sobra 6.805.560 = 15 x urnas
+  Com uma transferência estimada de forma independente, o 'k' não sai inteiro: regressão da urna T = 5.021.696 (ep 15.368) dá k = 10,669 (ep 0,031); PoderData final T = 2.752.744 (ep 259.959) dá k = 15,23 (ep 0,52); mediana dos institutos T = 2.612.517 dá k = 15,51.
+  Esse k é só o resto médio por urna: inclui o que Lula ganhou com a queda do branco+nulo, com o aumento do comparecimento e com a
+  troca entre as bases, que a mesma regressão atribui em parte a Lula (L5b). Um resto médio por urna existe para qualquer candidato e
+  qualquer eleição; ele não diz que cada urna recebeu o mesmo acréscimo. Essa é a pergunta do V2.
+
+5. Identidade contábil: ganho de Lula + ganho de Flávio = nominais novos + votos dos eliminados no 1º turno
+  todas/27UF: O2 = 0; com o 28 como nominal 14.027.868 = 14.027.868 (diferença 0); em válidos 14.027.868 = 14.027.868 (diferença 0).
+  todas/exterior: O2 = 0; com o 28 como nominal 70.364 = 70.364 (diferença 0); em válidos 70.364 = 70.364 (diferença 0).
+  todas/total: O2 = 0; com o 28 como nominal 14.098.232 = 14.098.232 (diferença 0); em válidos 14.098.232 = 14.098.232 (diferença 0).
+  pareadas/total: O2 = 0; com o 28 como nominal 14.098.234 = 14.098.234 (diferença 0); em válidos 14.098.234 = 14.098.234 (diferença 0).
+  A divisão do ganho de Lula (10.333.927, 27 UFs) entre transferência T e votos novos V não é identificável pelos totais:
+  os totais dão duas equações (ganho de Lula e de Flávio) e há mais incógnitas (eliminados para Lula, para Flávio e para ninguém;
+  branco, nulo e abstenção para cada lado; troca entre as bases; quem votou no 1º turno e faltou no 2º). Qualquer T de 0 a
+  9.287.152 (todos os eliminados) fecha as mesmas contas; o vídeo escolheu T = 5.354.957 sem mostrar a origem.
+  O que a divisão do vídeo implica: se os 'votos novos' fossem os válidos novos das 27 UFs (4.740.716), Flávio teria -238.254 votos novos (negativo), e o ganho dele (3.693.941) exigiria 3.932.195 votos dos eliminados (pela identidade, essa leitura põe todo eleitor dos eliminados num dos dois; sobram 0). Com os números do próprio vídeo, 4.781.485 menos 4.978.970 = -197.485.
+  O que o repositório estima para essa divisão: regressão da urna (L5b, ecológica, mesmo local) 54,07% (ep 0,17%) dos eliminados para Lula, T = 5.021.696 (ep 15.368) nas 27 UFs, V = 5.312.231; pesquisas (L5b, taxas declaradas) T de 2.160.892 a 3.468.827; PoderData final 2.752.744 (ep 259.959 com efeito de desenho 1, 365.875 com 2). As duas fontes discordam entre si (é o erro do 2º turno do L5a);
+  distância a 5.354.957: regressão 333.261 votos (21,7 ep); pesquisas de 1.886.130 a 3.194.065 votos.
+  Os 4.978.970 'votos novos' do vídeo passam dos válidos novos que ele mesmo cita (4.781.485) em 197.485, dos válidos novos das 27 UFs (4.740.716) em 238.254, e do aumento do comparecimento nas 27 UFs (2.920.562) em 2.058.408 (1,70 vezes). 'Votos acrescentados' sem eleitor a mais exigiriam comparecimento a mais;
+  o aumento real de comparecimento dá 5,87 eleitores por urna, para os dois candidatos juntos.
+
+6. Conclusão (DESCRITIVO)
+  Números do vídeo achados exatamente nos dados: 4.781.485 sim; 10.333.927 sim; 42.767 sim; 10.376.694 sim; 497.897 sim.
+  Origem do 5.354.957: resíduo da conta (10.333.927 menos 10 x 497.897, exato), com uma ressalva pela letra. Na busca de
+  subconjuntos, 2 somas nas 27 UFs e 2 no total ficam a 535 votos ou menos (a melhor a 139 votos),
+  então a cláusula 'se nada bater' não se cumpre literalmente. O exploratório mostra que esses acertos são o que qualquer número
+  dessa faixa tem por acaso, que nenhum é exato nem é um grupo político, e as outras famílias (frações, transferências estimadas,
+  pesquisas) não chegam perto. A igualdade '4.978.970 = 10 x 497.897' é construída pela escolha da transferência; a mesma
+  escolha dá qualquer k para Lula, para Flávio e para 2022.
+  O V1 não testa se houve acréscimo fixo por urna; isso é o V2.
+
+Desvios e decisões fora do registro (escritas no docstring antes de calcular): D1 a D12 do script. Os principais: universo
+"27 UFs" = UF diferente de ZZ e todas as seções de cada turno (pareadas ao lado); o 28 tratado nas duas definições; elementos
+da busca de subconjuntos (eliminados, o 28, brancos e nulos); três bases para as frações; lista fechada de estimativas de
+transferência e de números das pesquisas, mais uma varredura de todos os números de três JSON; família extra (O1 menos ganho
+de Flávio, comparecimento, branco+nulo), fora do registro; Haddad e Bolsonaro 2018, fora do registro; erro-padrão das
+transferências da regressão (ep do coeficiente vezes a base) e do PoderData final (binomial com as subamostras do L5).
+Exploratório, feito depois de ver o resultado (X1 a X3 no docstring): acaso das somas de subconjunto, grupos políticos dos
+eliminados e a conta do vídeo com o subconjunto mais próximo. A primeira rodada contava universos em vez de subconjuntos na
+frase de resultado (dizia 2 em vez de 4); corrigido antes desta versão.

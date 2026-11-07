@@ -1,0 +1,3160 @@
+{
+ "teste": "V1 do Adendo 25 (descritivo)",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 25, V1, commit 587cc65 (07/11/2026 12:10:37 UTC)",
+ "video": {
+  "nominais_novos": 4781485,
+  "urnas": 497897,
+  "ganho_L_27UF": 10333927,
+  "transferencia": 5354957,
+  "votos_novos": 4978970,
+  "exterior": 42767,
+  "total": 10376694,
+  "k": 10
+ },
+ "alvo": 5354957,
+ "tolerancia": 535,
+ "leitura_bweb": {
+  "1": {
+   "arquivos": 28,
+   "de_cache": true,
+   "secoes": 499206,
+   "contagens": {
+    "linhas": 67858974,
+    "linhas_filtradas": 3800511,
+    "cargo_errado": 0,
+    "incoerentes": 0
+   },
+   "tipos_votavel": {
+    "2|Branco": 472724,
+    "1|Nominal": 2835340,
+    "3|Nulo": 492447
+   }
+  },
+  "2": {
+   "arquivos": 28,
+   "de_cache": true,
+   "secoes": 499205,
+   "contagens": {
+    "linhas": 2088107,
+    "linhas_filtradas": 1931103,
+    "cargo_errado": 0,
+    "incoerentes": 0
+   },
+   "tipos_votavel": {
+    "1|Nominal": 998300,
+    "2|Branco": 447601,
+    "3|Nulo": 485202
+   }
+  }
+ },
+ "conferencia_base": {
+  "1": {
+   "so_no_bweb": 0,
+   "so_na_base": 0,
+   "iguais": 499206
+  },
+  "2": {
+   "so_no_bweb": 0,
+   "so_na_base": 0,
+   "iguais": 499205
+  }
+ },
+ "totais": {
+  "todas": {
+   "27UF": {
+    "boletins_1t": 497897,
+    "boletins_2t": 497897,
+    "L1": 53722151,
+    "R1": 55960603,
+    "O1_com28": 9292275,
+    "c28_1": 5123,
+    "O1_sem28": 9287152,
+    "B1": 2294982,
+    "N1": 3664058,
+    "comp1": 124934069,
+    "apt1": 157828968,
+    "outro_tipo1": 0,
+    "L2": 64056078,
+    "R2": 59654544,
+    "O2": 0,
+    "B2": 1425821,
+    "N2": 2718188,
+    "comp2": 127854631,
+    "apt2": 157828819,
+    "outro_tipo2": 0,
+    "nominais1": 118975029,
+    "nominais2": 123710622,
+    "validos1": 118969906,
+    "validos2": 123710622,
+    "d_nominais": 4735593,
+    "d_validos": 4740716,
+    "ganho_L": 10333927,
+    "ganho_R": 3693941,
+    "d_comp": 2920562,
+    "queda_BN": 1815031,
+    "queda_BN_com28": 1820154
+   },
+   "exterior": {
+    "boletins_1t": 1309,
+    "boletins_2t": 1308,
+    "L1": 157387,
+    "R1": 143900,
+    "O1_com28": 29718,
+    "c28_1": 123,
+    "O1_sem28": 29595,
+    "B1": 5816,
+    "N1": 4945,
+    "comp1": 341766,
+    "apt1": 916039,
+    "outro_tipo1": 0,
+    "L2": 200154,
+    "R2": 171497,
+    "O2": 0,
+    "B2": 4675,
+    "N2": 5117,
+    "comp2": 381443,
+    "apt2": 916158,
+    "outro_tipo2": 0,
+    "nominais1": 331005,
+    "nominais2": 371651,
+    "validos1": 330882,
+    "validos2": 371651,
+    "d_nominais": 40646,
+    "d_validos": 40769,
+    "ganho_L": 42767,
+    "ganho_R": 27597,
+    "d_comp": 39677,
+    "queda_BN": 969,
+    "queda_BN_com28": 1092
+   },
+   "total": {
+    "boletins_1t": 499206,
+    "boletins_2t": 499205,
+    "L1": 53879538,
+    "R1": 56104503,
+    "O1_com28": 9321993,
+    "c28_1": 5246,
+    "O1_sem28": 9316747,
+    "B1": 2300798,
+    "N1": 3669003,
+    "comp1": 125275835,
+    "apt1": 158745007,
+    "outro_tipo1": 0,
+    "L2": 64256232,
+    "R2": 59826041,
+    "O2": 0,
+    "B2": 1430496,
+    "N2": 2723305,
+    "comp2": 128236074,
+    "apt2": 158744977,
+    "outro_tipo2": 0,
+    "nominais1": 119306034,
+    "nominais2": 124082273,
+    "validos1": 119300788,
+    "validos2": 124082273,
+    "d_nominais": 4776239,
+    "d_validos": 4781485,
+    "ganho_L": 10376694,
+    "ganho_R": 3721538,
+    "d_comp": 2960239,
+    "queda_BN": 1816000,
+    "queda_BN_com28": 1821246
+   }
+  },
+  "pareadas": {
+   "27UF": {
+    "boletins_1t": 497897,
+    "boletins_2t": 497897,
+    "L1": 53722151,
+    "R1": 55960603,
+    "O1_com28": 9292275,
+    "c28_1": 5123,
+    "O1_sem28": 9287152,
+    "B1": 2294982,
+    "N1": 3664058,
+    "comp1": 124934069,
+    "apt1": 157828968,
+    "outro_tipo1": 0,
+    "L2": 64056078,
+    "R2": 59654544,
+    "O2": 0,
+    "B2": 1425821,
+    "N2": 2718188,
+    "comp2": 127854631,
+    "apt2": 157828819,
+    "outro_tipo2": 0,
+    "nominais1": 118975029,
+    "nominais2": 123710622,
+    "validos1": 118969906,
+    "validos2": 123710622,
+    "d_nominais": 4735593,
+    "d_validos": 4740716,
+    "ganho_L": 10333927,
+    "ganho_R": 3693941,
+    "d_comp": 2920562,
+    "queda_BN": 1815031,
+    "queda_BN_com28": 1820154
+   },
+   "exterior": {
+    "boletins_1t": 1308,
+    "boletins_2t": 1308,
+    "L1": 157385,
+    "R1": 143900,
+    "O1_com28": 29718,
+    "c28_1": 123,
+    "O1_sem28": 29595,
+    "B1": 5816,
+    "N1": 4945,
+    "comp1": 341764,
+    "apt1": 916009,
+    "outro_tipo1": 0,
+    "L2": 200154,
+    "R2": 171497,
+    "O2": 0,
+    "B2": 4675,
+    "N2": 5117,
+    "comp2": 381443,
+    "apt2": 916158,
+    "outro_tipo2": 0,
+    "nominais1": 331003,
+    "nominais2": 371651,
+    "validos1": 330880,
+    "validos2": 371651,
+    "d_nominais": 40648,
+    "d_validos": 40771,
+    "ganho_L": 42769,
+    "ganho_R": 27597,
+    "d_comp": 39679,
+    "queda_BN": 969,
+    "queda_BN_com28": 1092
+   },
+   "total": {
+    "boletins_1t": 499205,
+    "boletins_2t": 499205,
+    "L1": 53879536,
+    "R1": 56104503,
+    "O1_com28": 9321993,
+    "c28_1": 5246,
+    "O1_sem28": 9316747,
+    "B1": 2300798,
+    "N1": 3669003,
+    "comp1": 125275833,
+    "apt1": 158744977,
+    "outro_tipo1": 0,
+    "L2": 64256232,
+    "R2": 59826041,
+    "O2": 0,
+    "B2": 1430496,
+    "N2": 2723305,
+    "comp2": 128236074,
+    "apt2": 158744977,
+    "outro_tipo2": 0,
+    "nominais1": 119306032,
+    "nominais2": 124082273,
+    "validos1": 119300786,
+    "validos2": 124082273,
+    "d_nominais": 4776241,
+    "d_validos": 4781487,
+    "ganho_L": 10376696,
+    "ganho_R": 3721538,
+    "d_comp": 2960241,
+    "queda_BN": 1816000,
+    "queda_BN_com28": 1821246
+   }
+  }
+ },
+ "numeros_do_video_encontrados": {
+  "nominais_novos": [
+   "todas/total/d_validos"
+  ],
+  "ganho_L_27UF": [
+   "todas/27UF/ganho_L",
+   "pareadas/27UF/ganho_L"
+  ],
+  "exterior": [
+   "todas/exterior/ganho_L"
+  ],
+  "total": [
+   "todas/total/ganho_L"
+  ],
+  "urnas": [
+   "todas/27UF/boletins_1t",
+   "todas/27UF/boletins_2t",
+   "pareadas/27UF/boletins_1t",
+   "pareadas/27UF/boletins_2t"
+  ]
+ },
+ "urnas": {
+  "27UF": {
+   "boletins_2t": 497897,
+   "urnas_distintas_2t": 497897,
+   "urnas_em_mais_de_um_boletin": 0,
+   "urna_vazia_ou_zero": 0,
+   "boletins_com_agregacao": 14926,
+   "secoes_agregadas": 16567,
+   "secoes_eleitorais_2t": 514464,
+   "boletins_1t": 497897,
+   "urnas_distintas_1t": 497897,
+   "boletins_com_agregacao_1t": 14926,
+   "secoes_agregadas_1t": 16567,
+   "secoes_com_os_dois_turnos": 497897,
+   "urna_trocada": 4413,
+   "tipo_nao_apurada_1t": 0,
+   "tipo_nao_apurada_2t": 0,
+   "urna_trocada_ou_tipo_diferente": 4413,
+   "tipos_urna_2t": {
+    "Apurada": 497897
+   },
+   "tipos_urna_1t": {
+    "Apurada": 497897
+   },
+   "so_1t": [],
+   "so_2t": []
+  },
+  "exterior": {
+   "boletins_2t": 1308,
+   "urnas_distintas_2t": 1283,
+   "urnas_em_mais_de_um_boletin": 2,
+   "urna_vazia_ou_zero": 0,
+   "boletins_com_agregacao": 1216,
+   "secoes_agregadas": 1364,
+   "secoes_eleitorais_2t": 2672,
+   "boletins_1t": 1309,
+   "urnas_distintas_1t": 1282,
+   "boletins_com_agregacao_1t": 1216,
+   "secoes_agregadas_1t": 1364,
+   "secoes_com_os_dois_turnos": 1308,
+   "urna_trocada": 22,
+   "tipo_nao_apurada_1t": 0,
+   "tipo_nao_apurada_2t": 0,
+   "urna_trocada_ou_tipo_diferente": 22,
+   "tipos_urna_2t": {
+    "Apurada": 1308
+   },
+   "tipos_urna_1t": {
+    "Apurada": 1309
+   },
+   "so_1t": [
+    "ZZ|30686|1|443"
+   ],
+   "so_2t": []
+  },
+  "total": {
+   "boletins_2t": 499205,
+   "urnas_distintas_2t": 499180,
+   "urnas_em_mais_de_um_boletin": 2,
+   "urna_vazia_ou_zero": 0,
+   "boletins_com_agregacao": 16142,
+   "secoes_agregadas": 17931,
+   "secoes_eleitorais_2t": 517136,
+   "boletins_1t": 499206,
+   "urnas_distintas_1t": 499179,
+   "boletins_com_agregacao_1t": 16142,
+   "secoes_agregadas_1t": 17931,
+   "secoes_com_os_dois_turnos": 499205,
+   "urna_trocada": 4435,
+   "tipo_nao_apurada_1t": 0,
+   "tipo_nao_apurada_2t": 0,
+   "urna_trocada_ou_tipo_diferente": 4435,
+   "tipos_urna_2t": {
+    "Apurada": 499205
+   },
+   "tipos_urna_1t": {
+    "Apurada": 499206
+   },
+   "so_1t": [
+    "ZZ|30686|1|443"
+   ],
+   "so_2t": []
+  },
+  "oficial_secoes_tot": {
+   "br": 499248,
+   "zz": 1351,
+   "uf27": 497897
+  }
+ },
+ "origem_5354957": {
+  "a_conta": {
+   "ganho": 10333927,
+   "k": 10,
+   "urnas": 497897,
+   "resultado": 5354957,
+   "igual": true
+  },
+  "b_eliminados": {
+   "votos_por_eliminado": {
+    "27UF": [
+     [
+      70,
+      "ESCRITOR AUGUSTO CURY",
+      3438835
+     ],
+     [
+      14,
+      "RENAN SANTOS",
+      2667307
+     ],
+     [
+      55,
+      "RONALDO CAIADO",
+      2600440
+     ],
+     [
+      30,
+      "ZEMA",
+      323159
+     ],
+     [
+      80,
+      "SAMARA",
+      121858
+     ],
+     [
+      16,
+      "HERTZ DIAS",
+      42730
+     ],
+     [
+      27,
+      "CLARIANA BARAO",
+      39218
+     ],
+     [
+      21,
+      "EDMILSON COSTA",
+      22272
+     ],
+     [
+      35,
+      "VETERINÁRIO WILSON GRASSI",
+      16508
+     ],
+     [
+      29,
+      "RUI COSTA PIMENTA",
+      14825
+     ],
+     [
+      28,
+      "LEONARDO AVALANCHE",
+      5123
+     ]
+    ],
+    "exterior": [
+     [
+      70,
+      "ESCRITOR AUGUSTO CURY",
+      9734
+     ],
+     [
+      14,
+      "RENAN SANTOS",
+      8580
+     ],
+     [
+      55,
+      "RONALDO CAIADO",
+      4708
+     ],
+     [
+      30,
+      "ZEMA",
+      3329
+     ],
+     [
+      80,
+      "SAMARA",
+      1053
+     ],
+     [
+      27,
+      "CLARIANA BARAO",
+      825
+     ],
+     [
+      21,
+      "EDMILSON COSTA",
+      421
+     ],
+     [
+      35,
+      "VETERINÁRIO WILSON GRASSI",
+      373
+     ],
+     [
+      16,
+      "HERTZ DIAS",
+      373
+     ],
+     [
+      29,
+      "RUI COSTA PIMENTA",
+      199
+     ],
+     [
+      28,
+      "LEONARDO AVALANCHE",
+      123
+     ]
+    ],
+    "total": [
+     [
+      70,
+      "ESCRITOR AUGUSTO CURY",
+      3448569
+     ],
+     [
+      14,
+      "RENAN SANTOS",
+      2675887
+     ],
+     [
+      55,
+      "RONALDO CAIADO",
+      2605148
+     ],
+     [
+      30,
+      "ZEMA",
+      326488
+     ],
+     [
+      80,
+      "SAMARA",
+      122911
+     ],
+     [
+      16,
+      "HERTZ DIAS",
+      43103
+     ],
+     [
+      27,
+      "CLARIANA BARAO",
+      40043
+     ],
+     [
+      21,
+      "EDMILSON COSTA",
+      22693
+     ],
+     [
+      35,
+      "VETERINÁRIO WILSON GRASSI",
+      16881
+     ],
+     [
+      29,
+      "RUI COSTA PIMENTA",
+      15024
+     ],
+     [
+      28,
+      "LEONARDO AVALANCHE",
+      5246
+     ]
+    ]
+   },
+   "busca": {
+    "27UF": {
+     "elementos": [
+      [
+       "30 ZEMA",
+       323159
+      ],
+      [
+       "14 RENAN SANTOS",
+       2667307
+      ],
+      [
+       "70 ESCRITOR AUGUSTO CURY",
+       3438835
+      ],
+      [
+       "80 SAMARA",
+       121858
+      ],
+      [
+       "21 EDMILSON COSTA",
+       22272
+      ],
+      [
+       "35 VETERINÁRIO WILSON GRASSI",
+       16508
+      ],
+      [
+       "55 RONALDO CAIADO",
+       2600440
+      ],
+      [
+       "27 CLARIANA BARAO",
+       39218
+      ],
+      [
+       "16 HERTZ DIAS",
+       42730
+      ],
+      [
+       "29 RUI COSTA PIMENTA",
+       14825
+      ],
+      [
+       "28 (anulado)",
+       5123
+      ],
+      [
+       "brancos",
+       2294982
+      ],
+      [
+       "nulos",
+       3664058
+      ]
+     ],
+     "subconjuntos": 8191,
+     "dentro_da_tolerancia": 2,
+     "lista_dentro": [
+      {
+       "distancia": 139,
+       "soma": 5354818,
+       "itens": "14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 28 (anulado)"
+      },
+      {
+       "distancia": 307,
+       "soma": 5355264,
+       "itens": "30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + 29 RUI COSTA PIMENTA + brancos"
+      }
+     ],
+     "mais_proximos_sem_branco_nulo": [
+      {
+       "distancia": 139,
+       "soma": 5354818,
+       "itens": "14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 28 (anulado)"
+      },
+      {
+       "distancia": 577,
+       "soma": 5354380,
+       "itens": "14 RENAN SANTOS + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 16 HERTZ DIAS + 28 (anulado)"
+      },
+      {
+       "distancia": 2260,
+       "soma": 5352697,
+       "itens": "14 RENAN SANTOS + 21 EDMILSON COSTA + 55 RONALDO CAIADO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA + 28 (anulado)"
+      },
+      {
+       "distancia": 4089,
+       "soma": 5350868,
+       "itens": "14 RENAN SANTOS + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 28 (anulado)"
+      },
+      {
+       "distancia": 5262,
+       "soma": 5349695,
+       "itens": "14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS"
+      }
+     ],
+     "mais_proximos_com_branco_ou_nulo": [
+      {
+       "distancia": 307,
+       "soma": 5355264,
+       "itens": "30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + 29 RUI COSTA PIMENTA + brancos"
+      },
+      {
+       "distancia": 616,
+       "soma": 5355573,
+       "itens": "30 ZEMA + 14 RENAN SANTOS + 21 EDMILSON COSTA + 16 HERTZ DIAS + 28 (anulado) + brancos"
+      },
+      {
+       "distancia": 823,
+       "soma": 5354134,
+       "itens": "30 ZEMA + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA + brancos"
+      },
+      {
+       "distancia": 1042,
+       "soma": 5355999,
+       "itens": "30 ZEMA + 14 RENAN SANTOS + 35 VETERINÁRIO WILSON GRASSI + 27 CLARIANA BARAO + 29 RUI COSTA PIMENTA + brancos"
+      },
+      {
+       "distancia": 1990,
+       "soma": 5356947,
+       "itens": "30 ZEMA + 80 SAMARA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + brancos"
+      }
+     ]
+    },
+    "exterior": {
+     "elementos": [
+      [
+       "35 VETERINÁRIO WILSON GRASSI",
+       373
+      ],
+      [
+       "70 ESCRITOR AUGUSTO CURY",
+       9734
+      ],
+      [
+       "14 RENAN SANTOS",
+       8580
+      ],
+      [
+       "16 HERTZ DIAS",
+       373
+      ],
+      [
+       "30 ZEMA",
+       3329
+      ],
+      [
+       "55 RONALDO CAIADO",
+       4708
+      ],
+      [
+       "21 EDMILSON COSTA",
+       421
+      ],
+      [
+       "27 CLARIANA BARAO",
+       825
+      ],
+      [
+       "80 SAMARA",
+       1053
+      ],
+      [
+       "29 RUI COSTA PIMENTA",
+       199
+      ],
+      [
+       "28 (anulado)",
+       123
+      ],
+      [
+       "brancos",
+       5816
+      ],
+      [
+       "nulos",
+       4945
+      ]
+     ],
+     "subconjuntos": 8191,
+     "dentro_da_tolerancia": 0,
+     "lista_dentro": [],
+     "mais_proximos_sem_branco_nulo": [
+      {
+       "distancia": 5325239,
+       "soma": 29718,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado)"
+      },
+      {
+       "distancia": 5325362,
+       "soma": 29595,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA"
+      },
+      {
+       "distancia": 5325438,
+       "soma": 29519,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 28 (anulado)"
+      },
+      {
+       "distancia": 5325561,
+       "soma": 29396,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA"
+      },
+      {
+       "distancia": 5325612,
+       "soma": 29345,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado)"
+      }
+     ],
+     "mais_proximos_com_branco_ou_nulo": [
+      {
+       "distancia": 5314478,
+       "soma": 40479,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado) + brancos + nulos"
+      },
+      {
+       "distancia": 5314601,
+       "soma": 40356,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + brancos + nulos"
+      },
+      {
+       "distancia": 5314677,
+       "soma": 40280,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 28 (anulado) + brancos + nulos"
+      },
+      {
+       "distancia": 5314800,
+       "soma": 40157,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 16 HERTZ DIAS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + brancos + nulos"
+      },
+      {
+       "distancia": 5314851,
+       "soma": 40106,
+       "itens": "35 VETERINÁRIO WILSON GRASSI + 70 ESCRITOR AUGUSTO CURY + 14 RENAN SANTOS + 30 ZEMA + 55 RONALDO CAIADO + 21 EDMILSON COSTA + 27 CLARIANA BARAO + 80 SAMARA + 29 RUI COSTA PIMENTA + 28 (anulado) + brancos + nulos"
+      }
+     ]
+    },
+    "total": {
+     "elementos": [
+      [
+       "30 ZEMA",
+       326488
+      ],
+      [
+       "14 RENAN SANTOS",
+       2675887
+      ],
+      [
+       "70 ESCRITOR AUGUSTO CURY",
+       3448569
+      ],
+      [
+       "80 SAMARA",
+       122911
+      ],
+      [
+       "21 EDMILSON COSTA",
+       22693
+      ],
+      [
+       "35 VETERINÁRIO WILSON GRASSI",
+       16881
+      ],
+      [
+       "55 RONALDO CAIADO",
+       2605148
+      ],
+      [
+       "27 CLARIANA BARAO",
+       40043
+      ],
+      [
+       "16 HERTZ DIAS",
+       43103
+      ],
+      [
+       "29 RUI COSTA PIMENTA",
+       15024
+      ],
+      [
+       "28 (anulado)",
+       5246
+      ],
+      [
+       "brancos",
+       2300798
+      ],
+      [
+       "nulos",
+       3669003
+      ]
+     ],
+     "subconjuntos": 8191,
+     "dentro_da_tolerancia": 2,
+     "lista_dentro": [
+      {
+       "distancia": 197,
+       "soma": 5355154,
+       "itens": "30 ZEMA + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + brancos"
+      },
+      {
+       "distancia": 388,
+       "soma": 5355345,
+       "itens": "30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + brancos"
+      }
+     ],
+     "mais_proximos_sem_branco_nulo": [
+      {
+       "distancia": 1086,
+       "soma": 5356043,
+       "itens": "14 RENAN SANTOS + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA"
+      },
+      {
+       "distancia": 1974,
+       "soma": 5352983,
+       "itens": "14 RENAN SANTOS + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 29 RUI COSTA PIMENTA"
+      },
+      {
+       "distancia": 2880,
+       "soma": 5352077,
+       "itens": "14 RENAN SANTOS + 21 EDMILSON COSTA + 55 RONALDO CAIADO + 16 HERTZ DIAS + 28 (anulado)"
+      },
+      {
+       "distancia": 3272,
+       "soma": 5358229,
+       "itens": "14 RENAN SANTOS + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 29 RUI COSTA PIMENTA + 28 (anulado)"
+      },
+      {
+       "distancia": 3838,
+       "soma": 5358795,
+       "itens": "14 RENAN SANTOS + 21 EDMILSON COSTA + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 29 RUI COSTA PIMENTA"
+      }
+     ],
+     "mais_proximos_com_branco_ou_nulo": [
+      {
+       "distancia": 197,
+       "soma": 5355154,
+       "itens": "30 ZEMA + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + brancos"
+      },
+      {
+       "distancia": 388,
+       "soma": 5355345,
+       "itens": "30 ZEMA + 80 SAMARA + 55 RONALDO CAIADO + brancos"
+      },
+      {
+       "distancia": 1660,
+       "soma": 5353297,
+       "itens": "30 ZEMA + 21 EDMILSON COSTA + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA + brancos"
+      },
+      {
+       "distancia": 2226,
+       "soma": 5352731,
+       "itens": "30 ZEMA + 35 VETERINÁRIO WILSON GRASSI + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 29 RUI COSTA PIMENTA + 28 (anulado) + brancos"
+      },
+      {
+       "distancia": 2814,
+       "soma": 5357771,
+       "itens": "30 ZEMA + 14 RENAN SANTOS + 21 EDMILSON COSTA + 35 VETERINÁRIO WILSON GRASSI + 29 RUI COSTA PIMENTA + brancos"
+      }
+     ]
+    }
+   }
+  },
+  "c_fracoes": {
+   "27UF/O1_sem28": {
+    "base": 9287152,
+    "fracao_exata": 0.5765984017489969,
+    "mais_proximas": [
+     {
+      "p": 57.5,
+      "valor": 5340112.399999999,
+      "distancia": 14844.600000000559
+     },
+     {
+      "p": 58.0,
+      "valor": 5386548.159999999,
+      "distancia": 31591.159999999218
+     },
+     {
+      "p": 57.0,
+      "valor": 5293676.64,
+      "distancia": 61280.360000000335
+     }
+    ],
+    "dentro": 0
+   },
+   "27UF/O1_com28": {
+    "base": 9292275,
+    "fracao_exata": 0.5762805125763066,
+    "mais_proximas": [
+     {
+      "p": 57.5,
+      "valor": 5343058.125,
+      "distancia": 11898.875
+     },
+     {
+      "p": 58.0,
+      "valor": 5389519.5,
+      "distancia": 34562.5
+     },
+     {
+      "p": 57.0,
+      "valor": 5296596.75,
+      "distancia": 58360.25
+     }
+    ],
+    "dentro": 0
+   },
+   "27UF/O1_mais_B1_N1": {
+    "base": 15251315,
+    "fracao_exata": 0.35111444488557214,
+    "mais_proximas": [
+     {
+      "p": 35.0,
+      "valor": 5337960.25,
+      "distancia": 16996.75
+     },
+     {
+      "p": 35.5,
+      "valor": 5414216.825,
+      "distancia": 59259.825000000186
+     },
+     {
+      "p": 34.5,
+      "valor": 5261703.675,
+      "distancia": 93253.32500000019
+     }
+    ],
+    "dentro": 0
+   },
+   "exterior/O1_sem28": {
+    "base": 29595,
+    "fracao_exata": 180.94127386382834,
+    "mais_proximas": [
+     {
+      "p": 100.0,
+      "valor": 29595.0,
+      "distancia": 5325362.0
+     },
+     {
+      "p": 99.5,
+      "valor": 29447.025,
+      "distancia": 5325509.975
+     },
+     {
+      "p": 99.0,
+      "valor": 29299.05,
+      "distancia": 5325657.95
+     }
+    ],
+    "dentro": 0
+   },
+   "exterior/O1_com28": {
+    "base": 29718,
+    "fracao_exata": 180.1923749915876,
+    "mais_proximas": [
+     {
+      "p": 100.0,
+      "valor": 29718.0,
+      "distancia": 5325239.0
+     },
+     {
+      "p": 99.5,
+      "valor": 29569.41,
+      "distancia": 5325387.59
+     },
+     {
+      "p": 99.0,
+      "valor": 29420.82,
+      "distancia": 5325536.18
+     }
+    ],
+    "dentro": 0
+   },
+   "exterior/O1_mais_B1_N1": {
+    "base": 40479,
+    "fracao_exata": 132.28975518169915,
+    "mais_proximas": [
+     {
+      "p": 100.0,
+      "valor": 40479.0,
+      "distancia": 5314478.0
+     },
+     {
+      "p": 99.5,
+      "valor": 40276.605,
+      "distancia": 5314680.395
+     },
+     {
+      "p": 99.0,
+      "valor": 40074.21,
+      "distancia": 5314882.79
+     }
+    ],
+    "dentro": 0
+   },
+   "total/O1_sem28": {
+    "base": 9316747,
+    "fracao_exata": 0.5747668150696804,
+    "mais_proximas": [
+     {
+      "p": 57.5,
+      "valor": 5357129.524999999,
+      "distancia": 2172.524999999441
+     },
+     {
+      "p": 57.0,
+      "valor": 5310545.789999999,
+      "distancia": 44411.210000000894
+     },
+     {
+      "p": 58.0,
+      "valor": 5403713.26,
+      "distancia": 48756.25999999978
+     }
+    ],
+    "dentro": 0
+   },
+   "total/O1_com28": {
+    "base": 9321993,
+    "fracao_exata": 0.5744433620578775,
+    "mais_proximas": [
+     {
+      "p": 57.5,
+      "valor": 5360145.975,
+      "distancia": 5188.9749999996275
+     },
+     {
+      "p": 57.0,
+      "valor": 5313536.01,
+      "distancia": 41420.99000000022
+     },
+     {
+      "p": 58.0,
+      "valor": 5406755.9399999995,
+      "distancia": 51798.93999999948
+     }
+    ],
+    "dentro": 0
+   },
+   "total/O1_mais_B1_N1": {
+    "base": 15291794,
+    "fracao_exata": 0.3501850077237504,
+    "mais_proximas": [
+     {
+      "p": 35.0,
+      "valor": 5352127.899999999,
+      "distancia": 2829.100000000559
+     },
+     {
+      "p": 35.5,
+      "valor": 5428586.87,
+      "distancia": 73629.87000000011
+     },
+     {
+      "p": 34.5,
+      "valor": 5275668.93,
+      "distancia": 79288.0700000003
+     }
+    ],
+    "dentro": 0
+   }
+  },
+  "d_transferencias": {
+   "conferencia_taxas_L5": {
+    "PoderData 23-24/10 (final)": 0.0,
+    "PoderData 19-21/10": 0.0,
+    "PoderData 5-7/10": 0.0,
+    "Quaest 17-20/10": 0.0,
+    "Quaest 10-13/10": 0.0,
+    "AtlasIntel 13-18/10": 0.0,
+    "AtlasIntel 3-8/10": 0.0,
+    "Ipespe 13-15/10": 0.0,
+    "Ipespe 6-8/10": 0.0,
+    "Datafolha 13-14/10": 0.0,
+    "Datafolha 6-7/10": 0.0,
+    "Nexus 10-12/10": 0.0,
+    "mediana dos institutos": 0.0
+   },
+   "ep_PoderData_final": {
+    "deff_1": 259959.31387295516,
+    "deff_2": 365874.8740914254
+   },
+   "itens": [
+    {
+     "item": "regressão da urna: b_L_eliminados x eliminados (9.316.747, universo do L5)",
+     "valor": 5037698.55036744,
+     "distancia": 317258.4496325599,
+     "sinal": -317258.4496325599,
+     "ep": 15416.842311879185,
+     "dist_em_ep": 20.578692005437574,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: b_L_eliminados x O1 sem o 28 das 27 UFs",
+     "valor": 5021696.109966502,
+     "distancia": 333260.8900334984,
+     "sinal": -333260.8900334984,
+     "ep": 15367.87012789479,
+     "dist_em_ep": 21.685561321121803,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/virada_diferenca_votos",
+     "valor": 6655156,
+     "distancia": 1300199,
+     "sinal": 1300199,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b AtlasIntel 13-18/10: do saldo para Lula (fidelidade_100)",
+     "valor": 6907869.437,
+     "distancia": 1552912.437,
+     "sinal": 1552912.437,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 19-21/10: do saldo para Lula (fidelidade_100)",
+     "valor": 6912608.3,
+     "distancia": 1557651.2999999998,
+     "sinal": 1557651.2999999998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/ganho/lider",
+     "valor": 3721538,
+     "distancia": 1633419,
+     "sinal": -1633419,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/nulos1",
+     "valor": 3674249,
+     "distancia": 1680708,
+     "sinal": -1680708,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b AtlasIntel 3-8/10: do saldo para Lula (fidelidade_100)",
+     "valor": 7099011.001,
+     "distancia": 1744054.0010000002,
+     "sinal": 1744054.0010000002,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b AtlasIntel 13-18/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 3468826.563,
+     "distancia": 1886130.437,
+     "sinal": -1886130.437,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 19-21/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 3464087.7,
+     "distancia": 1890869.2999999998,
+     "sinal": -1890869.2999999998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 19-21/10: dos eliminados para Lula (fidelidade_declarada)",
+     "valor": 3464087.7,
+     "distancia": 1890869.2999999998,
+     "sinal": -1890869.2999999998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/principais_eliminados[0][1]",
+     "valor": 3448569,
+     "distancia": 1906388,
+     "sinal": -1906388,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Quaest 17-20/10: do saldo para Lula (fidelidade_100)",
+     "valor": 7360011.365,
+     "distancia": 2005054.3650000002,
+     "sinal": 2005054.3650000002,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Datafolha 6-7/10: do saldo para Lula (fidelidade_100)",
+     "valor": 7398725.475,
+     "distancia": 2043768.4749999996,
+     "sinal": 2043768.4749999996,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b equivalência: ganho esperado de Lula com o saldo como a pesquisa",
+     "valor": 7400537.586315796,
+     "distancia": 2045580.5863157958,
+     "sinal": 2045580.5863157958,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b AtlasIntel 3-8/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 3277684.9990000003,
+     "distancia": 2077272.0009999997,
+     "sinal": -2077272.0009999997,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Nexus 10-12/10: do saldo para Lula (fidelidade_100)",
+     "valor": 7590891.96,
+     "distancia": 2235934.96,
+     "sinal": 2235934.96,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 23-24/10 (final): do saldo para Lula (fidelidade_100)",
+     "valor": 7623952.43,
+     "distancia": 2268995.4299999997,
+     "sinal": 2268995.4299999997,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Quaest 17-20/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 3016684.635,
+     "distancia": 2338272.365,
+     "sinal": -2338272.365,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Datafolha 6-7/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2977970.525,
+     "distancia": 2376986.475,
+     "sinal": -2376986.475,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/decomposicao_bolo/aumento_comparecimento",
+     "valor": 2960239,
+     "distancia": 2394718,
+     "sinal": -2394718,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b mediana dos institutos: do saldo para Lula (fidelidade_100)",
+     "valor": 7764178.8965,
+     "distancia": 2409221.8965,
+     "sinal": 2409221.8965,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Datafolha 13-14/10: do saldo para Lula (fidelidade_100)",
+     "valor": 7851530.074999999,
+     "distancia": 2496573.0749999993,
+     "sinal": 2496573.0749999993,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: eliminados + branco+nulo + comparecimento",
+     "valor": 7867330.100768415,
+     "distancia": 2512373.1007684153,
+     "sinal": 2512373.1007684153,
+     "ep": 16541.179782940628,
+     "dist_em_ep": 151.8859678533628,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: branco+nulo e comparecimento somados",
+     "valor": 2829631.550400975,
+     "distancia": 2525325.449599025,
+     "sinal": -2525325.449599025,
+     "ep": 5994.297435247559,
+     "dist_em_ep": 421.2879785960656,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 19-21/10: do saldo para Lula (fidelidade_declarada)",
+     "valor": 7923450.01,
+     "distancia": 2568493.01,
+     "sinal": 2568493.01,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Nexus 10-12/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2785804.04,
+     "distancia": 2569152.96,
+     "sinal": -2569152.96,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 23-24/10 (final): dos eliminados para Lula (fidelidade_100)",
+     "valor": 2752743.57,
+     "distancia": 2602213.43,
+     "sinal": -2602213.43,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 23-24/10 (final): dos eliminados para Lula (fidelidade_declarada)",
+     "valor": 2752743.57,
+     "distancia": 2602213.43,
+     "sinal": -2602213.43,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData final: dos eliminados para Lula, com ep (efeito de desenho 1)",
+     "valor": 2752743.57,
+     "distancia": 2602213.43,
+     "sinal": -2602213.43,
+     "ep": 259959.31387295516,
+     "dist_em_ep": 10.010079620658367,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/nulos2",
+     "valor": 2723305,
+     "distancia": 2631652,
+     "sinal": -2631652,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/principais_eliminados[1][1]",
+     "valor": 2675887,
+     "distancia": 2679070,
+     "sinal": -2679070,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Quaest 10-13/10: do saldo para Lula (fidelidade_100)",
+     "valor": 8036617.13,
+     "distancia": 2681660.13,
+     "sinal": 2681660.13,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 23-24/10 (final): do saldo para Lula (fidelidade_declarada)",
+     "valor": 8051499.4399999995,
+     "distancia": 2696542.4399999995,
+     "sinal": 2696542.4399999995,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b mediana dos institutos: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2612517.1035,
+     "distancia": 2742439.8965,
+     "sinal": -2742439.8965,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/principais_eliminados[2][1]",
+     "valor": 2605148,
+     "distancia": 2749809,
+     "sinal": -2749809,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 13-15/10: do saldo para Lula (fidelidade_100)",
+     "valor": 8145006.96,
+     "distancia": 2790049.96,
+     "sinal": 2790049.96,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 5-7/10: do saldo para Lula (fidelidade_100)",
+     "valor": 8147328.25,
+     "distancia": 2792371.25,
+     "sinal": 2792371.25,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Datafolha 13-14/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2525165.9250000003,
+     "distancia": 2829791.0749999997,
+     "sinal": -2829791.0749999997,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 6-8/10: do saldo para Lula (fidelidade_100)",
+     "valor": 8215804.1899999995,
+     "distancia": 2860847.1899999995,
+     "sinal": 2860847.1899999995,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Quaest 10-13/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2340078.87,
+     "distancia": 3014878.13,
+     "sinal": -3014878.13,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/brancos1",
+     "valor": 2300798,
+     "distancia": 3054159,
+     "sinal": -3054159,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 13-15/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2231689.04,
+     "distancia": 3123267.96,
+     "sinal": -3123267.96,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 13-15/10: dos eliminados para Lula (fidelidade_declarada)",
+     "valor": 2231689.04,
+     "distancia": 3123267.96,
+     "sinal": -3123267.96,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 5-7/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2229367.75,
+     "distancia": 3125589.25,
+     "sinal": -3125589.25,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 5-7/10: dos eliminados para Lula (fidelidade_declarada)",
+     "valor": 2229367.75,
+     "distancia": 3125589.25,
+     "sinal": -3125589.25,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: troca de Flávio para Lula (coef x Flávio 1T)",
+     "valor": 2204324.610189408,
+     "distancia": 3150632.389810592,
+     "sinal": -3150632.389810592,
+     "ep": 37655.53925248653,
+     "dist_em_ep": 83.66982527285263,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 6-8/10: dos eliminados para Lula (fidelidade_100)",
+     "valor": 2160891.81,
+     "distancia": 3194065.19,
+     "sinal": -3194065.19,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 6-8/10: dos eliminados para Lula (fidelidade_declarada)",
+     "valor": 2160891.81,
+     "distancia": 3194065.19,
+     "sinal": -3194065.19,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/decomposicao_bolo/queda_nao_validos",
+     "valor": 1821246,
+     "distancia": 3533711,
+     "sinal": -3533711,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: fatia no aumento do comparecimento x aumento",
+     "valor": 1668471.105697658,
+     "distancia": 3686485.894302342,
+     "sinal": -3686485.894302342,
+     "ep": 4642.5014981001705,
+     "dist_em_ep": 794.073172795086,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 13-15/10: do saldo para Lula (fidelidade_declarada)",
+     "valor": 9178098.34,
+     "distancia": 3823141.34,
+     "sinal": 3823141.34,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "L5b Ipespe 6-8/10: do saldo para Lula (fidelidade_declarada)",
+     "valor": 9271145.239999998,
+     "distancia": 3916188.2399999984,
+     "sinal": 3916188.2399999984,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/brancos2",
+     "valor": 1430496,
+     "distancia": 3924461,
+     "sinal": -3924461,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/eliminados",
+     "valor": 9316747,
+     "distancia": 3961790,
+     "sinal": 3961790,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/decomposicao_bolo/eliminados",
+     "valor": 9316747,
+     "distancia": 3961790,
+     "sinal": 3961790,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "regressão da urna: fatia na queda do branco+nulo x queda",
+     "valor": 1161160.4447033172,
+     "distancia": 4193796.5552966828,
+     "sinal": -4193796.5552966828,
+     "ep": 3791.9363895446804,
+     "dist_em_ep": 1105.9775598715294,
+     "dentro": false
+    },
+    {
+     "item": "L5b PoderData 5-7/10: do saldo para Lula (fidelidade_declarada)",
+     "valor": 9652465.98,
+     "distancia": 4297508.98,
+     "sinal": 4297508.98,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/ganho/segundo",
+     "valor": 10376694,
+     "distancia": 5021737,
+     "sinal": 5021737,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/principais_eliminados[3][1]",
+     "valor": 326488,
+     "distancia": 5028469,
+     "sinal": -5028469,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/principais_eliminados[4][1]",
+     "valor": 122911,
+     "distancia": 5232046,
+     "sinal": -5232046,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/bolo",
+     "valor": 14098232,
+     "distancia": 8743275,
+     "sinal": 8743275,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/s1",
+     "valor": 53879538,
+     "distancia": 48524581,
+     "sinal": 48524581,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/l1",
+     "valor": 56104503,
+     "distancia": 50749546,
+     "sinal": 50749546,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/l2",
+     "valor": 59826041,
+     "distancia": 54471084,
+     "sinal": 54471084,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "contexto da virada 2026/votos/s2",
+     "valor": 64256232,
+     "distancia": 58901275,
+     "sinal": 58901275,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    }
+   ],
+   "dentro": 0,
+   "varredura": {
+    "numeros": 412,
+    "mais_proximos": [
+     {
+      "item": "contexto_virada_2t.json/eleicoes/2014/votos/nulos2",
+      "valor": 5219787,
+      "distancia": 135170,
+      "sinal": -135170,
+      "ep": null,
+      "dist_em_ep": null,
+      "dentro": false
+     },
+     {
+      "item": "contexto_virada_2t.json/eleicoes/2018/principais_eliminados[1][1]",
+      "valor": 5096350,
+      "distancia": 258607,
+      "sinal": -258607,
+      "ep": null,
+      "dist_em_ep": null,
+      "dentro": false
+     },
+     {
+      "item": "L5_pesquisas.json/b/por_pesquisa/PoderData 5-7/10/fidelidade_100/dos_eliminados_F",
+      "valor": 4985154.57,
+      "distancia": 369802.4299999997,
+      "sinal": -369802.4299999997,
+      "ep": null,
+      "dist_em_ep": null,
+      "dentro": false
+     },
+     {
+      "item": "L5_pesquisas.json/b/por_pesquisa/PoderData 5-7/10/fidelidade_declarada/dos_eliminados_F",
+      "valor": 4985154.57,
+      "distancia": 369802.4299999997,
+      "sinal": -369802.4299999997,
+      "ep": null,
+      "dist_em_ep": null,
+      "dentro": false
+     },
+     {
+      "item": "contexto_virada_2t.json/eleicoes/1989/virada_diferenca_votos",
+      "valor": 4974306,
+      "distancia": 380651,
+      "sinal": -380651,
+      "ep": null,
+      "dist_em_ep": null,
+      "dentro": false
+     }
+    ],
+    "dentro": 0
+   }
+  },
+  "e_pesquisas": {
+   "itens": [
+    {
+     "item": "Real Time Big Data: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 5679955.039999999,
+     "distancia": 324998.0399999991,
+     "sinal": 324998.0399999991,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 5679955.039999999,
+     "distancia": 324998.0399999991,
+     "sinal": 324998.0399999991,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: ganho pelas duas pesquisas",
+     "valor": 4977108.896000013,
+     "distancia": 377848.10399998724,
+     "sinal": -377848.10399998724,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 4963290.919999997,
+     "distancia": 391666.08000000287,
+     "sinal": -391666.08000000287,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 4963290.919999997,
+     "distancia": 391666.08000000287,
+     "sinal": -391666.08000000287,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 4963290.919999997,
+     "distancia": 391666.08000000287,
+     "sinal": -391666.08000000287,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: ganho pelas duas pesquisas",
+     "valor": 5921952.209999993,
+     "distancia": 566995.2099999934,
+     "sinal": 566995.2099999934,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Real Time Big Data: ganho pelas duas pesquisas",
+     "valor": 4681129.479999997,
+     "distancia": 673827.5200000033,
+     "sinal": -673827.5200000033,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 6225917.041199997,
+     "distancia": 870960.0411999971,
+     "sinal": 870960.0411999971,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: ganho pelas duas pesquisas",
+     "valor": 6420099.341199994,
+     "distancia": 1065142.341199994,
+     "sinal": 1065142.341199994,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 4268430.191199998,
+     "distancia": 1086526.8088000016,
+     "sinal": -1086526.8088000016,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: ganho pelas duas pesquisas",
+     "valor": 4146784.8810000047,
+     "distancia": 1208172.1189999953,
+     "sinal": -1208172.1189999953,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 6824525.014999999,
+     "distancia": 1469568.0149999987,
+     "sinal": 1469568.0149999987,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 6920777.769999996,
+     "distancia": 1565820.7699999958,
+     "sinal": 1565820.7699999958,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 6920777.769999996,
+     "distancia": 1565820.7699999958,
+     "sinal": 1565820.7699999958,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 6920777.769999996,
+     "distancia": 1565820.7699999958,
+     "sinal": 1565820.7699999958,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 6961015.515299998,
+     "distancia": 1606058.5152999982,
+     "sinal": 1606058.5152999982,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 3722468.189999996,
+     "distancia": 1632488.8100000038,
+     "sinal": -1632488.8100000038,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: ganho pelas duas pesquisas",
+     "valor": 7067145.1999999955,
+     "distancia": 1712188.1999999955,
+     "sinal": 1712188.1999999955,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: ganho pelas duas pesquisas",
+     "valor": 7114960.069999993,
+     "distancia": 1760003.0699999928,
+     "sinal": 1760003.0699999928,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: ganho pelas duas pesquisas",
+     "valor": 7114960.069999993,
+     "distancia": 1760003.0699999928,
+     "sinal": 1760003.0699999928,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 7168942.316000007,
+     "distancia": 1813985.316000007,
+     "sinal": 1813985.316000007,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 7293024.589000002,
+     "distancia": 1938067.5890000015,
+     "sinal": 1938067.5890000015,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 7541189.134999998,
+     "distancia": 2186232.134999998,
+     "sinal": 2186232.134999998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 2729810.0060000094,
+     "distancia": 2625146.9939999906,
+     "sinal": -2625146.9939999906,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 8037518.226999998,
+     "distancia": 2682561.226999998,
+     "sinal": 2682561.226999998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Real Time Big Data: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 2481645.4599999953,
+     "distancia": 2873311.5400000047,
+     "sinal": -2873311.5400000047,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 1861234.0950000016,
+     "distancia": 3493722.9049999984,
+     "sinal": -3493722.9049999984,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: ganho implícito (pesquisa 2T x válidos 2T menos Lula real 1T)",
+     "valor": 8906094.138000004,
+     "distancia": 3551137.138000004,
+     "sinal": 3551137.138000004,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: ganho pelas duas pesquisas",
+     "valor": 8928379.294999994,
+     "distancia": 3573422.2949999943,
+     "sinal": 3573422.2949999943,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: (Lula 2T menos Lula 1T, pesquisa) x válidos 2T",
+     "valor": 9058005.929000001,
+     "distancia": 3703048.9290000014,
+     "sinal": 3703048.9290000014,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: ganho pelas duas pesquisas",
+     "valor": 9112206.516599998,
+     "distancia": 3757249.516599998,
+     "sinal": 3757249.516599998,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 9544062.88,
+     "distancia": 4189105.880000001,
+     "sinal": 4189105.880000001,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 10617769.954000002,
+     "distancia": 5262812.954000002,
+     "sinal": 5262812.954000002,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 10737070.74,
+     "distancia": 5382113.74,
+     "sinal": 5382113.74,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 10892161.7618,
+     "distancia": 5537204.7618,
+     "sinal": 5537204.7618,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: ganho pelas duas pesquisas",
+     "valor": 11094919.391000003,
+     "distancia": 5739962.391000003,
+     "sinal": 5739962.391000003,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 11930078.600000001,
+     "distancia": 6575121.6000000015,
+     "sinal": 6575121.6000000015,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 12049379.386,
+     "distancia": 6694422.386,
+     "sinal": 6694422.386,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 14316094.32,
+     "distancia": 8961137.32,
+     "sinal": 8961137.32,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 15031899.036,
+     "distancia": 9676942.036,
+     "sinal": 9676942.036,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 15509102.18,
+     "distancia": 10154145.18,
+     "sinal": 10154145.18,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Real Time Big Data: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 15509102.18,
+     "distancia": 10154145.18,
+     "sinal": 10154145.18,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: eliminados pela pesquisa do 1T x válidos 1T",
+     "valor": 20281133.62,
+     "distancia": 14926176.620000001,
+     "sinal": 14926176.620000001,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: Lula 1T pesquisa x válidos 1T",
+     "valor": 50822134.835999995,
+     "distancia": 45467177.835999995,
+     "sinal": 45467177.835999995,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: Lula 1T pesquisa x válidos 1T",
+     "valor": 52492345.84,
+     "distancia": 47137388.84,
+     "sinal": 47137388.84,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: Lula 1T pesquisa x válidos 1T",
+     "valor": 52492345.84,
+     "distancia": 47137388.84,
+     "sinal": 47137388.84,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: Lula 1T pesquisa x válidos 1T",
+     "valor": 53673423.621400006,
+     "distancia": 48318466.621400006,
+     "sinal": 48318466.621400006,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: Lula 1T pesquisa x válidos 1T",
+     "valor": 53685353.7,
+     "distancia": 48330396.7,
+     "sinal": 48330396.7,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: Lula 1T pesquisa x válidos 1T",
+     "valor": 53685353.7,
+     "distancia": 48330396.7,
+     "sinal": 48330396.7,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: Lula 1T pesquisa x válidos 1T",
+     "valor": 53685353.7,
+     "distancia": 48330396.7,
+     "sinal": 48330396.7,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: Lula 1T pesquisa x válidos 1T",
+     "valor": 54878361.56,
+     "distancia": 49523404.56,
+     "sinal": 49523404.56,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Real Time Big Data: Lula 1T pesquisa x válidos 1T",
+     "valor": 54878361.56,
+     "distancia": 49523404.56,
+     "sinal": 49523404.56,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: Lula 1T pesquisa x válidos 1T",
+     "valor": 56071369.419999994,
+     "distancia": 50716412.419999994,
+     "sinal": 50716412.419999994,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: Lula 1T pesquisa x válidos 1T",
+     "valor": 57025775.708,
+     "distancia": 51670818.708,
+     "sinal": 51670818.708,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Real Time Big Data: Lula 2T pesquisa x válidos 2T",
+     "valor": 59559491.04,
+     "distancia": 54204534.04,
+     "sinal": 54204534.04,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Gerp: Lula 2T pesquisa x válidos 2T",
+     "valor": 59559491.04,
+     "distancia": 54204534.04,
+     "sinal": 54204534.04,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Veritá: Lula 2T pesquisa x válidos 2T",
+     "valor": 60105453.0412,
+     "distancia": 54750496.0412,
+     "sinal": 54750496.0412,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Datafolha: Lula 2T pesquisa x válidos 2T",
+     "valor": 60800313.769999996,
+     "distancia": 55445356.769999996,
+     "sinal": 55445356.769999996,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Quaest: Lula 2T pesquisa x válidos 2T",
+     "valor": 60800313.769999996,
+     "distancia": 55445356.769999996,
+     "sinal": 55445356.769999996,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "PoderData: Lula 2T pesquisa x válidos 2T",
+     "valor": 60800313.769999996,
+     "distancia": 55445356.769999996,
+     "sinal": 55445356.769999996,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "AtlasIntel: Lula 2T pesquisa x válidos 2T",
+     "valor": 61048478.31600001,
+     "distancia": 55693521.31600001,
+     "sinal": 55693521.31600001,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "CNT/MDA: Lula 2T pesquisa x válidos 2T",
+     "valor": 61172560.589,
+     "distancia": 55817603.589,
+     "sinal": 55817603.589,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Nexus/BTG: Lula 2T pesquisa x válidos 2T",
+     "valor": 61420725.135,
+     "distancia": 56065768.135,
+     "sinal": 56065768.135,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Futura: Lula 2T pesquisa x válidos 2T",
+     "valor": 61917054.227,
+     "distancia": 56562097.227,
+     "sinal": 56562097.227,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "Vox Brasil: Lula 2T pesquisa x válidos 2T",
+     "valor": 62785630.138000004,
+     "distancia": 57430673.138000004,
+     "sinal": 57430673.138000004,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    }
+   ],
+   "dentro": 0
+  },
+  "f_extra": {
+   "itens": [
+    {
+     "item": "27UF: O1 sem o 28 menos ganho de Flávio",
+     "valor": 5593211,
+     "distancia": 238254,
+     "sinal": 238254,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: O1 sem o 28 menos ganho de Flávio",
+     "valor": 5595209,
+     "distancia": 240252,
+     "sinal": 240252,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "27UF: O1 com o 28 menos ganho de Flávio",
+     "valor": 5598334,
+     "distancia": 243377,
+     "sinal": 243377,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: O1 com o 28 menos ganho de Flávio",
+     "valor": 5600455,
+     "distancia": 245498,
+     "sinal": 245498,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: válidos novos",
+     "valor": 4781485,
+     "distancia": 573472,
+     "sinal": -573472,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: nominais novos",
+     "valor": 4776239,
+     "distancia": 578718,
+     "sinal": -578718,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "27UF: válidos novos",
+     "valor": 4740716,
+     "distancia": 614241,
+     "sinal": -614241,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "27UF: nominais novos",
+     "valor": 4735593,
+     "distancia": 619364,
+     "sinal": -619364,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: aumento do comparecimento",
+     "valor": 2960239,
+     "distancia": 2394718,
+     "sinal": -2394718,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "27UF: aumento do comparecimento",
+     "valor": 2920562,
+     "distancia": 2434395,
+     "sinal": -2434395,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "total: queda do branco+nulo",
+     "valor": 1816000,
+     "distancia": 3538957,
+     "sinal": -3538957,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "27UF: queda do branco+nulo",
+     "valor": 1815031,
+     "distancia": 3539926,
+     "sinal": -3539926,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: válidos novos",
+     "valor": 40769,
+     "distancia": 5314188,
+     "sinal": -5314188,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: nominais novos",
+     "valor": 40646,
+     "distancia": 5314311,
+     "sinal": -5314311,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: aumento do comparecimento",
+     "valor": 39677,
+     "distancia": 5315280,
+     "sinal": -5315280,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: O1 com o 28 menos ganho de Flávio",
+     "valor": 2121,
+     "distancia": 5352836,
+     "sinal": -5352836,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: O1 sem o 28 menos ganho de Flávio",
+     "valor": 1998,
+     "distancia": 5352959,
+     "sinal": -5352959,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    },
+    {
+     "item": "exterior: queda do branco+nulo",
+     "valor": 969,
+     "distancia": 5353988,
+     "sinal": -5353988,
+     "ep": null,
+     "dist_em_ep": null,
+     "dentro": false
+    }
+   ],
+   "dentro": 0
+  },
+  "dentro_da_tolerancia_por_familia": {
+   "b_subconjuntos": {
+    "27UF": 2,
+    "exterior": 0,
+    "total": 2
+   },
+   "c_fracoes": 0,
+   "d_transferencias": 0,
+   "d_varredura": 0,
+   "e_pesquisas": 0
+  },
+  "quantidades_independentes_dentro_da_tolerancia": 4,
+  "clausula_nada_bate": false,
+  "conclusao_pela_letra": "a cláusula \"se nada bater\" não se cumpre: há somas de subconjunto na tolerância",
+  "exploratorio": {
+   "nota": "exploratório, feito depois de ver que (b) tinha somas de subconjunto dentro da tolerância",
+   "acaso_subconjuntos": {
+    "27UF/todos os elementos": {
+     "subconjuntos": 8191,
+     "alvos": 1000001,
+     "faixa": [
+      4854957,
+      5854957
+     ],
+     "media_acertos_por_alvo": 0.8866641133358867,
+     "fracao_alvos_com_1_ou_mais": 0.5601674398325601,
+     "acertos_observados": 2,
+     "fracao_alvos_com_pelo_menos_os_observados": 0.24072775927224072,
+     "menor_distancia_observada": 139,
+     "fracao_alvos_com_distancia_ate_a_observada": 0.21477378522621476,
+     "mediana_da_menor_distancia": 435.0
+    },
+    "27UF/só eliminados, com o 28": {
+     "subconjuntos": 2047,
+     "alvos": 1000001,
+     "faixa": [
+      4854957,
+      5854957
+     ],
+     "media_acertos_por_alvo": 0.2741757258242742,
+     "fracao_alvos_com_1_ou_mais": 0.2250997749002251,
+     "acertos_observados": 1,
+     "fracao_alvos_com_pelo_menos_os_observados": 0.2250997749002251,
+     "menor_distancia_observada": 139,
+     "fracao_alvos_com_distancia_ate_a_observada": 0.06976793023206977,
+     "mediana_da_menor_distancia": 2505.0
+    },
+    "total/todos os elementos": {
+     "subconjuntos": 8191,
+     "alvos": 1000001,
+     "faixa": [
+      4854957,
+      5854957
+     ],
+     "media_acertos_por_alvo": 0.8761461238538761,
+     "fracao_alvos_com_1_ou_mais": 0.5374614625385374,
+     "acertos_observados": 2,
+     "fracao_alvos_com_pelo_menos_os_observados": 0.234990765009235,
+     "menor_distancia_observada": 197,
+     "fracao_alvos_com_distancia_ate_a_observada": 0.2768627231372769,
+     "mediana_da_menor_distancia": 473.0
+    },
+    "total/só eliminados, com o 28": {
+     "subconjuntos": 2047,
+     "alvos": 1000001,
+     "faixa": [
+      4854957,
+      5854957
+     ],
+     "media_acertos_por_alvo": 0.2698917301082699,
+     "fracao_alvos_com_1_ou_mais": 0.20727979272020727,
+     "acertos_observados": 0,
+     "fracao_alvos_com_pelo_menos_os_observados": null,
+     "menor_distancia_observada": 1086,
+     "fracao_alvos_com_distancia_ate_a_observada": 0.34487565512434487,
+     "mediana_da_menor_distancia": 2937.0
+    }
+   },
+   "grupos_politicos": {
+    "27UF": {
+     "todos os eliminados (sem o 28)": {
+      "soma": 9287152,
+      "distancia": 3932195
+     },
+     "Cury, Renan, Caiado e Zema": {
+      "soma": 9029741,
+      "distancia": 3674784
+     },
+     "Cury, Renan e Caiado": {
+      "soma": 8706582,
+      "distancia": 3351625
+     },
+     "apoiaram Flávio (Zema, Caiado, Clariana, Cury, Grassi)": {
+      "soma": 6418160,
+      "distancia": 1063203
+     },
+     "apoiaram Lula (Samara, Hertz, Edmilson)": {
+      "soma": 186860,
+      "distancia": 5168097
+     },
+     "Renan (liberou) e Rui Costa Pimenta (PCO, nulo)": {
+      "soma": 2682132,
+      "distancia": 2672825
+     }
+    },
+    "total": {
+     "todos os eliminados (sem o 28)": {
+      "soma": 9316747,
+      "distancia": 3961790
+     },
+     "Cury, Renan, Caiado e Zema": {
+      "soma": 9056092,
+      "distancia": 3701135
+     },
+     "Cury, Renan e Caiado": {
+      "soma": 8729604,
+      "distancia": 3374647
+     },
+     "apoiaram Flávio (Zema, Caiado, Clariana, Cury, Grassi)": {
+      "soma": 6437129,
+      "distancia": 1082172
+     },
+     "apoiaram Lula (Samara, Hertz, Edmilson)": {
+      "soma": 188707,
+      "distancia": 5166250
+     },
+     "Renan (liberou) e Rui Costa Pimenta (PCO, nulo)": {
+      "soma": 2690911,
+      "distancia": 2664046
+     }
+    }
+   },
+   "melhor_subconjunto_na_conta_do_video": {
+    "T": 5354818,
+    "itens": "14 RENAN SANTOS + 55 RONALDO CAIADO + 27 CLARIANA BARAO + 16 HERTZ DIAS + 28 (anulado)",
+    "sobra": 4979109,
+    "sobra_por_urna": 10.000279174206714,
+    "resto_da_divisao_por_urnas": 139
+   }
+  },
+  "conclusao": "resíduo da conta, com ressalva pela letra"
+ },
+ "mesma_conta": {
+  "casos": [
+   {
+    "caso": "Lula 2026",
+    "no_registro": true,
+    "ganho": 10333927,
+    "urnas": 497897,
+    "ganho_por_urna": 20.755150161579603,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 7844442,
+      "votos_novos": 2489485,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": 6350751,
+      "votos_novos": 3983176,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": 5354957,
+      "votos_novos": 4978970,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": 4359163,
+      "votos_novos": 5974764,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": 2865472,
+      "votos_novos": 7468455,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   },
+   {
+    "caso": "Flávio 2026",
+    "no_registro": true,
+    "ganho": 3693941,
+    "urnas": 497897,
+    "ganho_por_urna": 7.419086678570066,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 1204456,
+      "votos_novos": 2489485,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": -289235,
+      "votos_novos": 3983176,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": -1285029,
+      "votos_novos": 4978970,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": -2280823,
+      "votos_novos": 5974764,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": -3774514,
+      "votos_novos": 7468455,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   },
+   {
+    "caso": "Lula 2022",
+    "no_registro": true,
+    "ganho": 3072523,
+    "urnas": 471010,
+    "ganho_por_urna": 6.5232648988344195,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 717473,
+      "votos_novos": 2355050,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": -695557,
+      "votos_novos": 3768080,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": -1637577,
+      "votos_novos": 4710100,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": -2579597,
+      "votos_novos": 5652120,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": -3992627,
+      "votos_novos": 7065150,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   },
+   {
+    "caso": "Bolsonaro 2022",
+    "no_registro": true,
+    "ganho": 7111293,
+    "urnas": 471010,
+    "ganho_por_urna": 15.097966072907157,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 4756243,
+      "votos_novos": 2355050,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": 3343213,
+      "votos_novos": 3768080,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": 2401193,
+      "votos_novos": 4710100,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": 1459173,
+      "votos_novos": 5652120,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": 46143,
+      "votos_novos": 7065150,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   },
+   {
+    "caso": "Haddad 2018 (extra)",
+    "no_registro": false,
+    "ganho": 15664711,
+    "urnas": 453704,
+    "ganho_por_urna": 34.526279248144164,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 13396191,
+      "votos_novos": 2268520,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": 12035079,
+      "votos_novos": 3629632,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": 11127671,
+      "votos_novos": 4537040,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": 10220263,
+      "votos_novos": 5444448,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": 8859151,
+      "votos_novos": 6805560,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   },
+   {
+    "caso": "Bolsonaro 2018 (extra)",
+    "no_registro": false,
+    "ganho": 8502876,
+    "urnas": 453704,
+    "ganho_por_urna": 18.741020577292684,
+    "contas": [
+     {
+      "k": 5,
+      "transferencia": 6234356,
+      "votos_novos": 2268520,
+      "k_de_volta": 5.0,
+      "exato": true
+     },
+     {
+      "k": 8,
+      "transferencia": 4873244,
+      "votos_novos": 3629632,
+      "k_de_volta": 8.0,
+      "exato": true
+     },
+     {
+      "k": 10,
+      "transferencia": 3965836,
+      "votos_novos": 4537040,
+      "k_de_volta": 10.0,
+      "exato": true
+     },
+     {
+      "k": 12,
+      "transferencia": 3058428,
+      "votos_novos": 5444448,
+      "k_de_volta": 12.0,
+      "exato": true
+     },
+     {
+      "k": 15,
+      "transferencia": 1697316,
+      "votos_novos": 6805560,
+      "k_de_volta": 15.0,
+      "exato": true
+     }
+    ]
+   }
+  ],
+  "base_2022": {
+   "L1": 57120571,
+   "R1": 50949797,
+   "n1": 471010,
+   "L2": 60193094,
+   "R2": 58061090,
+   "n2": 471010
+  },
+  "base_2018": {
+   "L1": 31322465,
+   "R1": 49163300,
+   "n1": 453706,
+   "L2": 46987176,
+   "R2": 57666176,
+   "n2": 453704
+  },
+  "k_implicito_Lula_2026": {
+   "regressao_urna_27UF": {
+    "T": 5021696.109966502,
+    "ep_T": 15367.87012789479,
+    "k": 10.669337011537523,
+    "ep_k": 0.030865560804533447
+   },
+   "PoderData_final": {
+    "T": 2752743.57,
+    "ep_T": 259959.31387295516,
+    "k": 15.226409136829504,
+    "ep_k": 0.5221146419298673
+   },
+   "mediana_institutos": {
+    "T": 2612517.1035,
+    "k": 15.508046637155877
+   }
+  }
+ },
+ "identidade": {
+  "todas/27UF": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 14027868,
+    "direita": 14027868,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 14027868,
+    "direita": 14027868,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "todas/exterior": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 70364,
+    "direita": 70364,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 70364,
+    "direita": 70364,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "todas/total": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 14098232,
+    "direita": 14098232,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 14098232,
+    "direita": 14098232,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "pareadas/27UF": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 14027868,
+    "direita": 14027868,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 14027868,
+    "direita": 14027868,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "pareadas/exterior": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 70366,
+    "direita": 70366,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 70366,
+    "direita": 70366,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "pareadas/total": {
+   "O2": 0,
+   "nominais": {
+    "esquerda": 14098234,
+    "direita": 14098234,
+    "diferenca": 0
+   },
+   "validos": {
+    "esquerda": 14098234,
+    "direita": 14098234,
+    "diferenca": 0
+   },
+   "comp_menos_BN": 0
+  },
+  "nao_identificabilidade": {
+   "ganho_L": 10333927,
+   "ganho_R": 3693941,
+   "O1_sem28": 9287152,
+   "d_validos": 4740716,
+   "d_nominais": 4735593,
+   "divisao_video": {
+    "T": 5354957,
+    "V": 4978970
+   },
+   "extremos": {
+    "T_zero": {
+     "T": 0,
+     "V": 10333927
+    },
+    "T_maximo": {
+     "T": 9287152,
+     "V": 1046775
+    }
+   },
+   "implicacao_para_Flavio": {
+    "votos_novos_de_Flavio_se_os_novos_fossem_os_validos_novos": -238254,
+    "votos_novos_de_Flavio_com_o_numero_do_video": -197485,
+    "eliminados_para_Flavio_nesse_caso": 3932195,
+    "eliminados_que_sobram_para_ninguem": 0
+   },
+   "estimativas_repositorio": {
+    "regressao_urna": {
+     "fatia": 0.5407143233971514,
+     "ep": 0.0016547451929175693,
+     "T": 5021696.109966502,
+     "ep_T": 15367.87012789479,
+     "V": 5312230.890033498
+    },
+    "PoderData_final": {
+     "T": 2752743.57,
+     "ep_T_deff1": 259959.31387295516,
+     "ep_T_deff2": 365874.8740914254,
+     "V": 7581183.43
+    },
+    "pesquisas_faixa": {
+     "minimo": 2160891.81,
+     "maximo": 3468826.563
+    }
+   }
+  },
+  "comparacao_votos_novos": {
+   "27UF": {
+    "votos_novos_video": 4978970,
+    "nominais_novos": 4735593,
+    "validos_novos": 4740716,
+    "aumento_comparecimento": 2920562,
+    "excesso_sobre_validos_novos": 238254,
+    "excesso_sobre_comparecimento": 2058408,
+    "razao_sobre_comparecimento": 1.7047985969823616
+   },
+   "total": {
+    "votos_novos_video": 4978970,
+    "nominais_novos": 4776239,
+    "validos_novos": 4781485,
+    "aumento_comparecimento": 2960239,
+    "excesso_sobre_validos_novos": 197485,
+    "excesso_sobre_comparecimento": 2018731,
+    "razao_sobre_comparecimento": 1.6819486534702097
+   },
+   "video": {
+    "votos_novos": 4978970,
+    "nominais_novos_do_video": 4781485,
+    "excesso": 197485,
+    "por_urna_video": 9.603361739476236
+   }
+  }
+ },
+ "veredito": "DESCRITIVO"
+}

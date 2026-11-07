@@ -1,0 +1,59 @@
+ADENDO 25: CHECAGEM DO VÍDEO "10 VOTOS EXTRAS PARA LULA POR URNA" (RESULTADOS)
+
+Registro: Adendo 25, commit 587cc65 (07/11/2026 12:10:37 UTC), antes de rodar. Cada teste refeito por outro agente
+com código próprio. Detalhes, números e correções em resultados/testes_adendo25_com_conferencia.json.
+
+RESUMO EM UMA LINHA
+Os números de entrada do vídeo são reais, mas o "exatamente 10 por urna" é fabricado pela conta: os 5.354.957 da
+"terceira via" são o ganho de Lula menos 10 vezes as urnas. A marca física que 10 votos fixos por urna deixariam não
+aparece em nenhum dos três rastros testados.
+
+V1, de onde vêm os números (descritivo)
+  Insumos conferidos no bweb, exatos:
+    10.333.927 = ganho de Lula nas 27 UFs (53.722.151 no 1º turno, 64.056.078 no 2º).
+    42.767 = ganho no exterior. 10.376.694 = ganho total.
+    497.897 = boletins do 2º turno nas 27 UFs, e também urnas distintas (nenhuma urna em dois boletins).
+    4.781.485 = votos válidos novos do Brasil MAIS o exterior. O vídeo divide esse número por urnas SEM o exterior.
+  Os 5.354.957: 10.333.927 menos 10 x 497.897 dá 5.354.957 exato. Não aparece em nenhuma fonte independente:
+    - nenhuma soma dos 10 candidatos eliminados chega a 535 votos dele (registro); a mais próxima fica a 1.086 votos;
+    - nenhuma fração redonda, nenhuma estimativa de transferência do repositório, nenhum número de pesquisa;
+    - varredura de 783.790 números em 194 arquivos de resultados: nenhum a 535 votos.
+    Contando também o candidato 28 (votos anulados) há 1 soma a 139 votos, e somando brancos aparecem mais 3. Um alvo
+    qualquer dessa faixa tem acertos assim por acaso em 13% a 73% das vezes, conforme a família. É acaso.
+  O truque serve para qualquer k: com a "transferência" escolhida como resíduo, sai "8 por urna", "15 por urna", "5 por
+  urna para Flávio" (ganho dele de 3.693.941) ou "10 por urna para Bolsonaro em 2022", todos exatos.
+  Identidade contábil, que fecha com diferença 0: ganho de Lula + ganho de Flávio = válidos novos + votos dos
+  eliminados (10.333.927 + 3.693.941 = 4.740.716 + 9.287.152). Os totais não dizem como o ganho se divide entre
+  "transferência" e "votos novos": qualquer divisão fecha.
+  O que é verdade, com o mesmo rigor: descontando a transferência dos eliminados estimada pela urna (54% deles para
+  Lula), Lula ganhou em média 10,7 votos por urna além dela (15,2 pela tabela do PoderData). Essa média soma o aumento
+  do comparecimento (5,87 eleitores por urna), a queda de branco e nulo (3,66 por urna) e a troca entre as bases dos
+  finalistas. É o mesmo fato já registrado em L5(a), não indício novo, e não diz nada sobre acréscimo fixo.
+
+V2, a marca de um acréscimo fixo por urna (bweb inteiro, 497.897 seções)
+  Pela letra: SEM SINAL. b = +0,951 voto por urna (ep 0,068); o limiar de sinal era 2,5, e a afirmação prevê de 4,8
+  (votos acrescentados) a 10 (votos trocados). Calibração: plantando 10 votos em toda urna, b iria a 5,3 ou 10,8.
+  Literal: 175 urnas tiveram menos de 10 votos de Lula no 2º turno (4 com zero), 174 delas com 10 ou mais eleitores.
+  "10 a mais em toda urna" é falso ao pé da letra.
+  Urnas pequenas: até 50 eleitores, 10 votos mudariam a virada em +10 a +20 pontos. A virada delas fica +0,31 ponto
+  (ep 0,43) acima das vizinhas do mesmo local.
+  Comparecimento: um acréscimo de 10 eleitores por urna daria coeficiente perto de +10. Deu -3,35 (ep 0,09), no sentido
+  contrário. 2022 deu -2,79 e 2018 -1,19.
+  Forma: o k implícito SOBE com o tamanho da seção (0,2 nas de até 100 votos, 6,4 nas de mais de 350). Um k fixo daria
+  o mesmo valor em todas as faixas e apareceria mais nas pequenas. Com controle suave do tamanho, b fica negativo
+  (-1,25 com N; -2,89 com log N). O 1/N mede um gradiente de tamanho cujo sinal muda de eleição para eleição: 2022 dá
+  -1,00 e 2018 -0,84 pela mesma conta.
+  Teto: tomando cada variante fixada antes no limite de cima e como se fosse tudo fraude, no máximo uns 3,0 milhões de
+  margem (votos acrescentados) ou 2,1 milhões (trocados). Nenhuma chega aos 4.978.970 do vídeo nem à margem de
+  4.401.534. Correção do conferente: o "no máximo 1,1 milhão" do primeiro relatório vale só na especificação principal.
+  UF a UF (exploratório, 27 testes): 19 sem sinal, 7 inconclusivos e 1 sinal em Goiás (b +2,50, ep 0,46), onde Lula
+  perdeu por 759.779. O sinal de Goiás some sem peso, com 1/aptos e com efeito fixo de município, e cresce quando se
+  tiram as seções pequenas, o contrário de um k fixo. Valeria de 39 mil a 66 mil votos mesmo se fosse real.
+
+LEITURA
+1. A conta do vídeo é circular: o número que "prova" os 10 votos foi calculado a partir dos 10 votos.
+2. O vídeo mistura universos (4.781.485 com exterior, 497.897 sem) e chama de "votos novos" um resíduo que mistura
+   comparecimento, branco e nulo e troca entre as bases.
+3. Nos dados por seção não há rastro de acréscimo fixo: há urnas com menos de 10 votos de Lula, as urnas pequenas não
+   viraram mais e o comparecimento foi no sentido contrário.
+4. O que fica de pé é o que já estava registrado: Lula ganhou mais do que as pesquisas previam (L5a).
