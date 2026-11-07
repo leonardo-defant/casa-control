@@ -674,3 +674,23 @@ Afirmações do vídeo (resumo enviado pelo Léo, com os números da tela): 4.78
 - Faixas de tamanho (N até 50, 51 a 100, 101 a 200, 201 a 300, mais de 300): virada menos a média do local, por faixa.
 - Placebos, lado a lado, com a mesma especificação: 2022 (Lula e Bolsonaro, 1º para 2º turno) e 2018 (Haddad e Bolsonaro); nível do 1º turno de 2026 contra 1/N do 1º turno.
 - Sinal: b de 2,5 ou mais (metade do menor valor previsto) a mais de 4 erros-padrão. Sem sinal: b + 2 erros-padrão abaixo de 2,5. Entre os dois: inconclusivo. Os placebos e a regressão do comparecimento são relatados ao lado e não mudam o veredito.
+
+## Adendo 26 (07/11/2026, antes de rodar): checagem da postagem "2014 parecida com 2026" (Felipe Cecílio, X)
+
+Afirmação (captura enviada pelo Léo): "Algumas métricas do segundo turno da eleição presidencial de 2014 são muito semelhantes às observadas agora. Há padrões estatísticos que levantam questionamentos e merecem uma investigação rigorosa. Se forem comprovadas irregularidades, isso poderá lançar dúvidas também sobre a legitimidade daquele pleito." A postagem não diz quais métricas nem quais padrões. Sabido antes de rodar (F21, Adendo 23): a curva por faixa de força do adversário de 2026 se parece com a de 2014, e em 2014 a urna ficou abaixo das pesquisas para o PT. O bweb de 2014 não traz a hora de recebimento do boletim.
+
+### P1. O que o autor disse e o caso de 2014 (pesquisa, sem veredito)
+- Procurar em fontes públicas, sem login e sem contornar bloqueio, se o autor disse quais métricas (postagem, fio, vídeo ou entrevista).
+- Auditoria pedida pelo PSDB depois de 2014: o que foi pedido, o que foi feito, o que o relatório concluiu e o que o TSE respondeu, pelo documento original quando houver e por notícias da época.
+- Totalização do 2º turno de 2014: em que momento e por que Dilma passou Aécio no resultado divulgado.
+
+### P2. Métricas de 2014, 2018, 2022 e 2026 lado a lado (base por seção dos quatro anos, sem o exterior)
+- Fixadas antes: (a) fatia do candidato do PT nos válidos do 2º turno; (b) variação da fatia do PT entre os finalistas, do 1º para o 2º turno; (c) quem liderou o 1º turno; (d) variação do comparecimento e (e) de brancos mais nulos, do 1º para o 2º turno; (f) parte da margem do PT que veio do Nordeste; (g) correlação, por município, da fatia do PT no 2º turno de 2026 com a de cada outro ano; (h) dispersão da fatia do PT entre seções (desvio-padrão; fração de seções acima de 80% e abaixo de 20%); (i) curva por faixa e erro das pesquisas, do F21, sem recalcular.
+- Semelhança: em cada métrica, o ano mais perto de 2026. "2014 parecida" naquela métrica se 2014 for o mais perto. Relatar a contagem.
+- Leitura fixada antes: semelhança numa métrica de resultado, composição ou comportamento (todas de P2) não é indício de fraude, porque eleições limpas com a mesma geografia se parecem.
+
+### P3. Padrões usados em perícia eleitoral, nos quatro anos e nos dois turnos (com veredito por ano)
+- Último dígito: votos do candidato do PT e do adversário por seção, só seções com 50 votos ou mais daquele candidato; qui-quadrado contra a uniforme.
+- Canto de enchimento de urna (Klimek e outros, 2012): fração de seções com comparecimento de 95% ou mais dos aptos e fatia do PT de 90% ou mais entre os finalistas.
+- Comparecimento e virada: dentro do município, correlação entre a variação da taxa de comparecimento e a virada do PT do 1º para o 2º turno, por seção.
+- Sinal, por ano: último dígito com p abaixo de 0,001 e alguma frequência a mais de 0,5 ponto de 10%; ou canto acima de 3 vezes a média dos outros três anos no mesmo turno; ou correlação de 0,10 ou mais a mais de 4 erros-padrão. Sem sinal: nenhum dos três. A semelhança de 2014 com 2026 nesses padrões só pesa se 2026 tiver sinal.
