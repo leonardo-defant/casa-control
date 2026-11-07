@@ -1,0 +1,134 @@
+P3 (Adendo 26): padrões de perícia eleitoral em 2014, 2018, 2022 e 2026, dois turnos, sem o exterior.
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 26, P3, commit 5174ff5 (07/11/2026 13:57:56 UTC), antes de rodar.
+Script: scripts/analisar_P3_pericia.py (python3 -I). Números completos: resultados/P3_pericia_4_anos.json.
+Postagem checada: @FelipeCecilio_ (X), republicada em felipececilio.reserva (Instagram): "métricas do 2º turno de 2014
+muito semelhantes às observadas agora" e "padrões estatísticos que levantam questionamentos".
+
+VEREDITO POR ANO, PELA LETRA
+  2014 (Dilma x Aécio): SINAL (último dígito: Aécio (R), 1º turno | canto do PT: 1º turno)
+  2018 (Haddad x Bolsonaro): SINAL (último dígito: Haddad (L), 1º turno)
+  2022 (Lula x Bolsonaro): SEM SINAL
+  2026 (Lula x Flávio): SEM SINAL
+  Leitura do registro: 2026 SEM SINAL pela letra; pelo registro, a semelhança de 2014 com 2026 nestes padrões não pesa, qualquer que seja o resultado de 2014 (2014: SINAL).
+
+O QUE ISSO SIGNIFICA (leitura escrita depois de rodar; o veredito acima é só a letra)
+- 2026: SEM SINAL nos três padrões e nos dois turnos. Último dígito: maior desvio de 10% de 0,306 ponto (limiar 0,5); canto do PT 0,35 vez a média dos outros três anos no 1º turno e 1,75 no 2º (limiar 3); correlação comparecimento x virada 0,027 (ep 0,004) ponderada e 0,024 sem peso (limiar 0,10). Pela regra do registro, a semelhança de 2014 com 2026 nesses padrões não pesa.
+- 2014 (SINAL) e 2018 (SINAL) só batem no 1º turno. No 2º turno de 2014, o turno citado na postagem, nenhuma condição bate: maior desvio do dígito 0,283 ponto, canto do PT 1,12 vez, correlação 0,062 (z 3,2). Ou seja, 2014 e 2026 não se parecem nesses padrões: 2014 bate no 1º turno, 2026 em nada.
+- Exploratório: os dois "sinais" de último dígito são o formato esperado de contagens limpas. Em 16 das 16 séries a frequência desce do dígito 0 para o 9 (0 acima de 9 e inclinação negativa), como acontece quando há mais seções com 150 votos do que com 159; nos dois "sinais" o excesso está no 0. Contagens limpas sorteadas com a fatia do local dão o dígito 0 de Aécio em 10,48% (observado 10,54%) e o de Haddad em 10,82% (observado 10,82%); a regra do registro bate em 124 e 200 de 200 sorteios limpos. Com o corte em 100 votos, 13 das 16 séries cumpririam a regra, inclusive 4 das 4 de 2026. A regra (uniforme e 0,5 ponto) acusa candidatos com muitas contagens pequenas; não separa contagem limpa de mexida.
+- Exploratório: o canto do PT de 2014 (1º turno) tem 175 das 433 seções em Recife. Nelas o PT teve 60,1% dos válidos, Aécio 3,5% e os outros 36,3% (a base não separa os outros por candidato; em Pernambuco a terceira candidata era Marina Silva, do PSB, que substituiu Eduardo Campos): os 90% "entre os finalistas" vêm de tirar o terceiro candidato da conta, não de 90% dos votos. O comparecimento de Recife foi 92,8% no 1º turno de 2014, contra 84,1% a 87,1% em 2018, 2022 e 2026; Recife estava na revisão biométrica de 2013 e 2014 (CJF, 07/03/2013), que cancela títulos não revistos e encolhe os aptos. Isso é compatível com o pico, mas o número de cancelados não foi conferido aqui. No 2º turno só 52 dessas seções ficaram no canto.
+- Exploratório, lado do adversário: o canto passa de 3 vezes em 2018 (1º turno, 2º turno) (Bolsonaro, 118 seções no 1º turno, sobretudo SC e RS; o município com mais, SC|81230, teve 15 de 46 seções com 95% ou mais e comparecimento de 93,7% em 2018, contra 86,8% a 89,4% nos outros anos). Correlação do adversário de 0,10 ou mais: em nenhum ano. Os cantos que passam do limiar aparecem nos dois lados (PT em 2014, direita em 2018) e seguem picos de comparecimento de municípios inteiros; nenhum dos três padrões passa do limiar sempre a favor do mesmo lado.
+- Cético: (a) os cantos são frações de 0,01% a 0,1% das seções, e um município muda a razão (2014, 1º turno: 4,63 com ep 1,94). (b) O último dígito de Bolsonaro no 1º turno de 2018 tem qui-quadrado (139,1) acima dos 200 sorteios limpos (média 84,4), mas o desvio máximo é 0,38 ponto, com o mesmo formato decrescente, e não cumpre a regra; entre 16 séries, uma fora dos 200 sorteios não é raro. (c) A correlação comparecimento x virada muda de sinal entre os anos (2014 0,062, 2018 -0,052, 2022 0,053, 2026 0,027) e fica longe de 0,10 em todos. (d) "Sem sinal" quer dizer que estes três padrões não acusam nada; não prova que a eleição é limpa.
+
+1. Último dígito (contagens de 50 ou mais do candidato; qui-quadrado contra a uniforme, 9 gl)
+   Condição de sinal da série: p < 0,001 E alguma frequência a mais de 0,5 ponto de 10%.
+   ano  turno candidato     contagens   qui2     p            maior desvio (dígito)  p<0,001  desvio>0,5  cumpre
+   2014 1º    Dilma          371.148   191,95      1,6e-36   -0,388 (9)          sim      não       não
+   2014 1º    Aécio          292.082   281,94      1,8e-55    0,538 (0)          sim      sim       sim
+   2014 2º    Dilma          404.450    57,78       3,6e-9   -0,199 (9)          sim      não       não
+   2014 2º    Aécio          362.615   115,45      1,1e-20   -0,283 (9)          sim      não       não
+   2018 1º    Haddad         249.767   655,67     2,3e-135    0,817 (0)          sim      sim       sim
+   2018 1º    Bolsonaro      371.260   139,06      1,6e-25   -0,382 (9)          sim      não       não
+   2018 2º    Haddad         394.339   235,80      9,9e-46    0,381 (0)          sim      não       não
+   2018 2º    Bolsonaro      386.975    50,39       9,1e-8   -0,235 (9)          sim      não       não
+   2022 1º    Lula           453.129    59,91       1,4e-9   -0,206 (8)          sim      não       não
+   2022 1º    Bolsonaro      405.455   103,52      3,0e-18   -0,287 (9)          sim      não       não
+   2022 2º    Lula           456.904    45,58       7,2e-7   -0,203 (8)          sim      não       não
+   2022 2º    Bolsonaro      416.983    75,37      1,3e-12    0,239 (0)          sim      não       não
+   2026 1º    Lula           463.657   118,15      3,2e-21   -0,306 (9)          sim      não       não
+   2026 1º    Flávio         446.568    83,14      3,8e-14    0,263 (0)          sim      não       não
+   2026 2º    Lula           482.250    13,17       0,1550    0,117 (0)          não      não       não
+   2026 2º    Flávio         449.180    71,48      7,8e-12   -0,277 (9)          sim      não       não
+   Frequências (%, dígitos 0 a 9; ep binomial de cada uma entre 0,04 e 0,05 ponto): ver o .json, campo freq_pct.
+
+2. Canto de enchimento (comparecimento >= 95% dos aptos e fatia >= 90% entre os finalistas; seções com L+R > 0)
+   Fração em %; ep agrupado por município; razão = fração do ano / média simples dos outros três anos no mesmo turno.
+   1º turno
+   ano   seções    canto do PT: n  fração % (ep)        razão (ep)      >3  | canto do adversário: n  fração % (ep)        razão  | comp >= 95%: n  fração %  razão
+   2014   427.934             433  0,1012 (0,0415)    4,635 (1,942)  sim  |                      6  0,0014 (0,0006)   0,149  |          2.232    0,522  4,126
+   2018   453.701             161  0,0355 (0,0047)    0,811 (0,279)  não  |                    118  0,0260 (0,0048)  21,334  |            959    0,211  0,920
+   2022   471.010              60  0,0127 (0,0019)    0,248 (0,077)  não  |                      4  0,0008 (0,0004)   0,088  |            262    0,056  0,197
+   2026   497.897              86  0,0173 (0,0026)    0,347 (0,110)  não  |                      7  0,0014 (0,0005)   0,149  |            559    0,112  0,427
+   2º turno
+   ano   seções    canto do PT: n  fração % (ep)        razão (ep)      >3  | canto do adversário: n  fração % (ep)        razão  | comp >= 95%: n  fração %  razão
+   2014   427.936              74  0,0173 (0,0028)    1,115 (0,210)  não  |                      2  0,0005 (0,0003)   0,120  |          1.036    0,242  2,518
+   2018   453.703              62  0,0137 (0,0024)    0,818 (0,163)  não  |                     38  0,0084 (0,0023)   6,681  |            503    0,111  0,792
+   2022   471.010              44  0,0093 (0,0017)    0,515 (0,105)  não  |                      7  0,0015 (0,0006)   0,419  |            232    0,049  0,307
+   2026   497.897             117  0,0235 (0,0033)    1,749 (0,303)  não  |                      9  0,0018 (0,0007)   0,525  |            639    0,128  0,957
+
+3. Comparecimento e virada, por seção, dentro do município
+   x = comp2/apt2 - comp1/apt1; y = L2/(L2+R2) - L1/(L1+R1) (frações). Condição: r >= 0,10 e r > 4 ep (ep primário:
+   regressão padronizada com erro agrupado por município). Ao lado: ep por bootstrap de municípios (2.000) e o
+   coeficiente de y em x dentro do local (lib.fe_ols, peso L2+R2, erro agrupado por local).
+   ano   seções   municípios | ponderada: r (ep; ep boot)        z    | sem peso: r (ep; ep boot)         z    | cumpre | dentro do local: coef (ep)  t
+   2014   427.932    5.570 |  0,0619 (0,0193; 0,0171)    3,2 |  0,0528 (0,0166; 0,0148)    3,2 |    não | -0,0179 (0,0031)   -5,7
+   2018   453.698    5.570 | -0,0522 (0,0070; 0,0064)   -7,5 | -0,0394 (0,0063; 0,0058)   -6,2 |    não | -0,0426 (0,0028)  -15,1
+   2022   471.010    5.570 |  0,0528 (0,0043; 0,0037)   12,2 |  0,0502 (0,0043; 0,0038)   11,7 |    não |  0,0496 (0,0018)   27,0
+   2026   497.897    5.571 |  0,0269 (0,0036; 0,0036)    7,4 |  0,0243 (0,0034; 0,0033)    7,1 |    não |  0,0200 (0,0017)   12,0
+   Conferência: o coeficiente da regressão padronizada é igual a r (maior diferença absoluta 0,000e-12).
+
+4. Exploratório (pedido na tarefa, fora do registro e do veredito; regra fixada antes de rodar): o lado do adversário
+   2014: canto do adversário 1º turno razão 0,149; 2º turno razão 0,120: cumpre em nenhum turno; correlação do adversário (r_R = -r) ponderada -0,0619, sem peso -0,0528: cumpre em nenhum peso.
+   2018: canto do adversário 1º turno razão 21,334; 2º turno razão 6,681: cumpre 1º turno, 2º turno; correlação do adversário (r_R = -r) ponderada 0,0522, sem peso 0,0394: cumpre em nenhum peso.
+   2022: canto do adversário 1º turno razão 0,088; 2º turno razão 0,419: cumpre em nenhum turno; correlação do adversário (r_R = -r) ponderada -0,0528, sem peso -0,0502: cumpre em nenhum peso.
+   2026: canto do adversário 1º turno razão 0,149; 2º turno razão 0,525: cumpre em nenhum turno; correlação do adversário (r_R = -r) ponderada -0,0269, sem peso -0,0243: cumpre em nenhum peso.
+
+5. Robustez declarada antes (não muda o veredito)
+   2014: canto do PT com todas as seções no denominador: razão 1º 4,635; 2º 1,115 (cumpre: 1º turno); correlação com o ep do bootstrap cumpre: nenhum.
+   2018: canto do PT com todas as seções no denominador: razão 1º 0,811; 2º 0,818 (cumpre: nenhum); correlação com o ep do bootstrap cumpre: nenhum.
+   2022: canto do PT com todas as seções no denominador: razão 1º 0,248; 2º 0,515 (cumpre: nenhum); correlação com o ep do bootstrap cumpre: nenhum.
+   2026: canto do PT com todas as seções no denominador: razão 1º 0,347; 2º 1,749 (cumpre: nenhum); correlação com o ep do bootstrap cumpre: nenhum.
+
+6. Universo
+   2014: chaves 428.854; exterior fora 916; 1º turno 427.937 seções (anuladas fora 1); 2º turno 427.936 (anuladas fora 0); pares para a parte 3 427.932 (fora por anulada ou L+R = 0 em algum turno: 4).
+   2018: chaves 454.450; exterior fora 744; 1º turno 453.702 seções (anuladas fora 4); 2º turno 453.703 (anuladas fora 1); pares para a parte 3 453.698 (fora por anulada ou L+R = 0 em algum turno: 6).
+   2022: chaves 472.028; exterior fora 1.018; 1º turno 471.010 seções (anuladas fora 0); 2º turno 471.010 (anuladas fora 0); pares para a parte 3 471.010 (fora por anulada ou L+R = 0 em algum turno: 0).
+   2026: chaves 499.206; exterior fora 1.309; 1º turno 497.897 seções (anuladas fora 0); 2º turno 497.897 (anuladas fora 0); pares para a parte 3 497.897 (fora por anulada ou L+R = 0 em algum turno: 0).
+
+7. EXPLORATÓRIO, decidido DEPOIS de ver as partes 1 a 3 (fora do veredito e da leitura; ver o docstring)
+   E1. Último dígito contra contagens limpas simuladas (modelo do F2: binomial com a fatia do local, mesmos válidos;
+   200 sorteios por ano e turno). "Sorteios que cumprem" = quantos dos 200 sorteios limpos cumprem a regra do registro.
+   ano  turno candidato     qui2 obs  sim média  sims>=obs | dígito 0 obs  sim média (dp)     z    | maior desvio obs  sim máx | sorteios que cumprem
+   2014 1º    Dilma          191,9     183,7     78    |   10,307  10,330 (0,052)   -0,4  |      0,388      0,505 |    1 de 200
+   2014 1º    Aécio          281,9     285,7    109    |   10,538  10,483 (0,059)    0,9  |      0,538      0,629 |  124 de 200
+   2014 2º    Dilma           57,8      50,6     55    |   10,156  10,150 (0,044)    0,1  |      0,199      0,277 |    0 de 200
+   2014 2º    Aécio          115,4      98,5     42    |   10,268  10,247 (0,048)    0,4  |      0,283      0,399 |    0 de 200
+   2018 1º    Haddad         655,7     668,9    121    |   10,817  10,817 (0,060)   -0,0  |      0,817      0,989 |  200 de 200
+   2018 1º    Bolsonaro      139,1      84,4      0    |   10,213  10,226 (0,048)   -0,3  |      0,382      0,350 |    0 de 200
+   2018 2º    Haddad         235,8     260,8    159    |   10,381  10,391 (0,042)   -0,2  |      0,381      0,561 |    6 de 200
+   2018 2º    Bolsonaro       50,4      70,3    178    |   10,130  10,198 (0,046)   -1,5  |      0,235      0,362 |    0 de 200
+   2022 1º    Lula            59,9      44,6     19    |   10,106  10,133 (0,042)   -0,7  |      0,206      0,257 |    0 de 200
+   2022 1º    Bolsonaro      103,5      88,1     37    |   10,182  10,217 (0,045)   -0,8  |      0,287      0,383 |    0 de 200
+   2022 2º    Lula            45,6      28,3     14    |   10,101  10,096 (0,044)    0,1  |      0,203      0,254 |    0 de 200
+   2022 2º    Bolsonaro       75,4      64,4     51    |   10,239  10,182 (0,048)    1,2  |      0,239      0,302 |    0 de 200
+   2026 1º    Lula           118,1     118,0     98    |   10,245  10,224 (0,040)    0,5  |      0,306      0,375 |    0 de 200
+   2026 1º    Flávio          83,1      75,6     60    |   10,263  10,185 (0,045)    1,7  |      0,263      0,319 |    0 de 200
+   2026 2º    Lula            13,2      28,0    187    |   10,117  10,093 (0,043)    0,5  |      0,117      0,229 |    0 de 200
+   2026 2º    Flávio          71,5      68,9     82    |   10,149  10,180 (0,044)   -0,7  |      0,277      0,309 |    0 de 200
+   E2. Último dígito só com contagens de 100 ou mais (descritivo):
+     2014 1º Dilma -0,805 (9), p 2,7e-106 CUMPRIRIA; 2014 1º Aécio 0,784 (0), p 4,4e-69 CUMPRIRIA; 2014 2º Dilma -0,555 (9), p 2,5e-60 CUMPRIRIA; 2014 2º Aécio -0,453 (9), p 1,0e-34
+     2018 1º Haddad 0,840 (0), p 1,7e-55 CUMPRIRIA; 2018 1º Bolsonaro -0,699 (9), p 2,6e-72 CUMPRIRIA; 2018 2º Haddad 0,674 (0), p 3,4e-72 CUMPRIRIA; 2018 2º Bolsonaro -0,360 (9), p 3,0e-16
+     2022 1º Lula 0,648 (0), p 2,2e-109 CUMPRIRIA; 2022 1º Bolsonaro -0,690 (9), p 3,2e-84 CUMPRIRIA; 2022 2º Lula -0,558 (8), p 2,8e-93 CUMPRIRIA; 2022 2º Bolsonaro -0,442 (9), p 2,2e-39
+     2026 1º Lula -0,762 (9), p 6,9e-111 CUMPRIRIA; 2026 1º Flávio 0,646 (0), p 4,8e-83 CUMPRIRIA; 2026 2º Lula 0,530 (0), p 1,0e-69 CUMPRIRIA; 2026 2º Flávio -0,554 (9), p 5,9e-53 CUMPRIRIA
+   E3. Onde estão as seções dos cantos que passaram de 3 vezes, e o canto do PT no 2º turno de 2026 (comparação)
+   2014 1º turno, canto do PT: 433 seções em 138 municípios e 330 locais; por UF: PE 230, CE 48, MA 38, PI 36, PA 20, BA 18; municípios com mais (UF|código): PE|25313 175, PE|24350 15, PI|12190 12, CE|15598 11, MA|8893 10; os 5 primeiros somam 51,5% e os 10 primeiros 58,4%. Comparecimento médio 96,1%, fatia média 93,9%. No 2º turno: 52 no mesmo canto, 121 com comparecimento >= 95%, comparecimento médio 93,7%, fatia média 81,5%. Nos válidos do próprio turno (média por seção): PT 60,1%, adversário 3,5%, outros 36,3%.
+     PE|25313 (Recife), seções com comparecimento >= 95% por ano e turno: 2014 1º 523 de 3.265 (comparecimento 92,8%); 2014 2º 139 de 3.265 (comparecimento 91,7%); 2018 1º 5 de 3.304 (comparecimento 87,1%); 2018 2º 1 de 3.304 (comparecimento 86,6%); 2022 1º 8 de 3.406 (comparecimento 85,8%); 2022 2º 5 de 3.406 (comparecimento 86,7%); 2026 1º 5 de 3.481 (comparecimento 84,1%); 2026 2º 6 de 3.481 (comparecimento 86,4%).
+   2018 1º turno, canto do adversário: 118 seções em 63 municípios e 106 locais; por UF: SC 49, RS 37, SP 17, PR 7, RJ 2, DF 1; municípios com mais (UF|código): SC|81230 10, SC|81612 9, SC|80551 8, RS|89591 6, SC|81752 6; os 5 primeiros somam 33,1% e os 10 primeiros 47,5%. Comparecimento médio 96,2%, fatia média 93,3%. No 2º turno: 27 no mesmo canto, 53 com comparecimento >= 95%, comparecimento médio 94,6%, fatia média 86,8%. Nos válidos do próprio turno (média por seção): PT 5,4%, adversário 75,5%, outros 19,1%.
+     SC|81230, seções com comparecimento >= 95% por ano e turno: 2014 1º 0 de 38 (comparecimento 89,3%); 2014 2º 0 de 38 (comparecimento 88,9%); 2018 1º 15 de 46 (comparecimento 93,7%); 2018 2º 15 de 46 (comparecimento 93,3%); 2022 1º 0 de 46 (comparecimento 88,1%); 2022 2º 1 de 46 (comparecimento 89,4%); 2026 1º 0 de 48 (comparecimento 86,8%); 2026 2º 0 de 48 (comparecimento 88,3%).
+   2018 2º turno, canto do adversário: 38 seções em 24 municípios e 37 locais; por UF: RS 17, SC 14, PR 4, DF 1, MG 1, PE 1; municípios com mais (UF|código): SC|81230 7, PR|79278 3, RS|85839 3, RS|86690 2, SC|80233 2; os 5 primeiros somam 44,7% e os 10 primeiros 63,2%. Comparecimento médio 96,3%, fatia média 92,6%. No 1º turno: 27 no mesmo canto, 27 com comparecimento >= 95%, comparecimento médio 95,6%, fatia média 94,3%. Nos válidos do próprio turno (média por seção): PT 7,4%, adversário 92,6%, outros 0,0%.
+     SC|81230, seções com comparecimento >= 95% por ano e turno: 2014 1º 0 de 38 (comparecimento 89,3%); 2014 2º 0 de 38 (comparecimento 88,9%); 2018 1º 15 de 46 (comparecimento 93,7%); 2018 2º 15 de 46 (comparecimento 93,3%); 2022 1º 0 de 46 (comparecimento 88,1%); 2022 2º 1 de 46 (comparecimento 89,4%); 2026 1º 0 de 48 (comparecimento 86,8%); 2026 2º 0 de 48 (comparecimento 88,3%).
+   2026 2º turno, canto do PT: 117 seções em 89 municípios e 111 locais; por UF: BA 23, CE 17, MA 16, PI 13, PA 12, PE 7; municípios com mais (UF|código): MA|7315 5, TO|96210 5, CE|15415 4, MA|7544 4, BA|37311 3; os 5 primeiros somam 17,9% e os 10 primeiros 28,2%. Comparecimento médio 96,5%, fatia média 95,1%. No 1º turno: 45 no mesmo canto, 51 com comparecimento >= 95%, comparecimento médio 94,5%, fatia média 94,6%. Nos válidos do próprio turno (média por seção): PT 95,1%, adversário 4,9%, outros 0,0%.
+     MA|7315, seções com comparecimento >= 95% por ano e turno: 2014 1º 4 de 227 (comparecimento 84,0%); 2014 2º 0 de 227 (comparecimento 81,3%); 2018 1º 0 de 224 (comparecimento 77,1%); 2018 2º 2 de 224 (comparecimento 75,2%); 2022 1º 3 de 220 (comparecimento 77,4%); 2022 2º 3 de 220 (comparecimento 76,5%); 2026 1º 4 de 241 (comparecimento 80,2%); 2026 2º 5 de 241 (comparecimento 80,6%).
+
+DESVIOS (decisões que o registro não fixa, escritas no docstring antes de calcular, 07/11/2026 14:16:03 UTC)
+  D1. Universo de cada turno: seções do Brasil apuradas e com aptos > 0; cada turno com todas as suas seções.
+  D2. L = candidato do PT e R = adversário do 2º turno, nos dois turnos; outros nominais e o 28 de 2026 fora.
+  D3. Último dígito: 16 séries (ano, turno, candidato); p < 0,001 e desvio > 0,5 ponto na mesma série; as quatro séries do ano contam, porque o registro inclui o adversário no teste.
+  D4. Canto em inteiros; denominador = seções com L+R > 0; razão sobre a média simples dos outros três anos; > 3 em qualquer turno; ep agrupado por município e delta, descritivos.
+  D5. Correlação ponderada (L2+R2) e sem peso; ep primário da regressão padronizada agrupada por município (bootstrap de municípios ao lado); cumpre se uma das duas versões cumprir.
+  D6. Veredito do ano cobre os dois turnos; SINAL se qualquer condição bater.
+  D7 a D10. Leitura do registro aplicada só ao veredito de 2026; lado do adversário exploratório; limiares sem arredondar; ep tratam as seções como sorteio de um processo.
+  Depois de rodar: só o bloco 7 (E1 a E4) e estas leituras; nada nas partes 1 a 3 mudou (conferido entre as rodadas).
+
+FONTES
+  Bases por seção (bweb do TSE): 2014 adendo23/F21_base/secoes2014.json.gz (conferida contra o oficial no F21); 2018 e 2022 dados_ref/; 2026 trab2t/secoes2026.json.gz.
+  Revisão biométrica de Recife: CJF, "Eleitores do DF serão os primeiros a realizar recadastramento biométrico", 07/03/2013, https://www.cjf.jus.br/cjf/outras-noticias/2013/marco/eleitores-do-df-serao-os-primeiros-a-realizar-recadastramento-biometrico (lida em 07/11/2026; lista "PE Recife e outros 52 municípios, 2.438.008 eleitores", até maio de 2014). Nome de PE|25313 (Recife): resultados/T23_bweb.txt.

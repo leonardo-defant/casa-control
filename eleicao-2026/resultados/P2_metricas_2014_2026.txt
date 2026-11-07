@@ -1,0 +1,110 @@
+P2 (Adendo 26): métricas de 2014, 2018, 2022 e 2026 lado a lado. Checagem da postagem "2014 parecida com 2026"
+(@FelipeCecilio_, X). Sem veredito de fraude.
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 26, commit 5174ff5 (07/11/2026 13:57:56 UTC), antes de rodar.
+Script: scripts/analisar_P2_2014.py (python3 -I). Números completos: resultados/P2_metricas_2014_2026.json.
+Universo: por ano, seções com os dois turnos, sem o exterior (UF ZZ). L = candidato do PT; R = adversário.
+  2014 (Dilma x Aécio): 427.936 seções, 5.570 municípios; fora: exterior 916, sem os dois turnos 2; com um turno anulado, mantidas: 1
+  2018 (Haddad x Bolsonaro): 453.704 seções, 5.570 municípios; fora: exterior 744, sem os dois turnos 2; com um turno anulado, mantidas: 3
+  2022 (Lula x Bolsonaro): 471.010 seções, 5.570 municípios; fora: exterior 1.018, sem os dois turnos 0; com um turno anulado, mantidas: 0
+  2026 (Lula x Flávio): 497.897 seções, 5.571 municípios; fora: exterior 1.309, sem os dois turnos 0; com um turno anulado, mantidas: 0
+
+1. Tabela (2026 é a referência; mais perto = menor distância a 2026; em (g), maior correlação; em (c), mesmo lado)
+métrica                                            |     2014 |     2018 |     2022 |     2026 | mais perto | 2014 mais perto
+(a) fatia do PT nos válidos, 2º turno (%)          |    51,68 |    44,90 |    50,90 |    51,78 | 2014       | sim
+(b) variação da fatia do PT, 1º para 2º turno      |    -3,71 |    +5,98 |    -1,95 |    +2,80 | 2018       | não
+(c) lado do líder do 1º turno                      |       PT |  advers. |       PT |  advers. | 2018       | não
+(d) variação do comparecimento (pontos dos aptos)  |    -1,71 |    -0,97 |    +0,36 |    +1,85 | 2022       | não
+(e) variação de brancos+nulos (pontos dos aptos)   |    -2,78 |    +0,53 |    +0,16 |    -1,15 | 2022       | não
+(f) parte da margem do PT vinda do Nordeste (%)    |   345,49 |  -107,36 |   589,68 |   310,20 | 2014       | sim
+(g) correlação municipal com 2026 (bruta)          |    0,889 |    0,958 |    0,989 |     ref. | 2022       | não
+(h) desvio-padrão simples entre seções (pontos)    |    20,06 |    21,89 |    17,90 |    17,29 | 2022       | não
+(i1) curva por faixa, F21 (distância a 2026)       |   0,0153 |   0,0295 |   0,0605 |     ref. | 2014       | sim
+(i2) erro das pesquisas no PT, F21 (pontos)        |    -0,86 |    -0,63 |    -2,10 |    +2,79 | 2018       | não
+(b) em pontos; (i1) mostra a distância de cada ano a 2026 (média das diferenças absolutas de d nas 4 faixas).
+Sem erro amostral em (a) a (f) e (h): são contas sobre todas as seções. Erros-padrão de (g) e (i) no item 2.
+
+2. Detalhes
+  2014: (a) sem exterior 51,68%; base com exterior 51,64%; oficial 51,64%. (b) PT entre finalistas 55,39% no 1º turno, 51,68% no 2º.
+     (c) liderou PT (Dilma) por 8.411.814 votos, 8,10 pontos dos válidos (PT 41,62%, adversário 33,53%).
+     (d) comparecimento 80,71% para 78,99% dos aptos: -2.439.372 votos, -1,71 pontos. (e) brancos+nulos 7,78% para 5,01%: -3.955.405 votos, -2,78 pontos.
+     (f) margem do PT +3.533.025 (+3,35 pontos); Nordeste +12.206.346 (+11,58 pontos), parte 345,5%; fora do Nordeste -8.673.321 (-8,23 pontos).
+     (h) 427.936 seções: desvio-padrão simples 20,06, ponderado 19,72 pontos; acima de 80%: 10,70% (45.787); abaixo de 20%: 3,90% (16.684).
+  2018: (a) sem exterior 44,90%; base com exterior 44,87%; oficial 44,87%. (b) PT entre finalistas 38,92% no 1º turno, 44,90% no 2º.
+     (c) liderou adversário (Bolsonaro) por 17.840.853 votos, 16,70 pontos dos válidos (PT 29,31%, adversário 46,01%).
+     (d) comparecimento 79,81% para 78,83% dos aptos: -1.428.944 votos, -0,97 pontos. (e) brancos+nulos 7,02% para 7,55%: +775.211 votos, +0,53 pontos.
+     (f) margem do PT -10.679.000 (-10,20 pontos); Nordeste +11.465.358 (+10,96 pontos), parte -107,4%; fora do Nordeste -22.144.358 (-21,16 pontos).
+     (h) 453.703 seções: desvio-padrão simples 21,89, ponderado 21,34 pontos; acima de 80%: 10,35% (46.967); abaixo de 20%: 7,85% (35.637).
+  2022: (a) sem exterior 50,90%; base com exterior 50,90%; oficial 50,90%. (b) PT entre finalistas 52,85% no 1º turno, 50,90% no 2º.
+     (c) liderou PT (Lula) por 6.170.774 votos, 5,23 pontos dos válidos (PT 48,43%, adversário 43,20%).
+     (d) comparecimento 79,21% para 79,57% dos aptos: +564.308 votos, +0,36 pontos. (e) brancos+nulos 3,49% para 3,65%: +245.318 votos, +0,16 pontos.
+     (f) margem do PT +2.132.004 (+1,80 pontos); Nordeste +12.572.020 (+10,63 pontos), parte 589,7%; fora do Nordeste -10.440.016 (-8,83 pontos).
+     (h) 471.010 seções: desvio-padrão simples 17,90, ponderado 17,34 pontos; acima de 80%: 8,50% (40.046); abaixo de 20%: 1,40% (6.579).
+  2026: (a) sem exterior 51,78%; base com exterior 51,79%; oficial 51,79%. (b) PT entre finalistas 48,98% no 1º turno, 51,78% no 2º.
+     (c) liderou adversário (Flávio) por 2.238.452 votos, 1,88 pontos dos válidos (PT 45,16%, adversário 47,04%).
+     (d) comparecimento 79,16% para 81,01% dos aptos: +2.920.562 votos, +1,85 pontos. (e) brancos+nulos 3,78% para 2,63%: -1.820.154 votos, -1,15 pontos.
+     (f) margem do PT +4.401.534 (+3,56 pontos); Nordeste +13.653.696 (+11,04 pontos), parte 310,2%; fora do Nordeste -9.252.162 (-7,48 pontos).
+     (h) 497.897 seções: desvio-padrão simples 17,29, ponderado 16,90 pontos; acima de 80%: 7,15% (35.591); abaixo de 20%: 1,42% (7.059).
+  (g) correlação por município com 2026 (erro-padrão por bootstrap de municípios, 2.000 reamostragens):
+     2014: 5.570 municípios; bruta 0,8891 (0,0024); ponderada pelos válidos de 2026 0,8155 (0,0340)
+     2018: 5.570 municípios; bruta 0,9584 (0,0010); ponderada pelos válidos de 2026 0,9339 (0,0089)
+     2022: 5.570 municípios; bruta 0,9887 (0,0003); ponderada pelos válidos de 2026 0,9847 (0,0011)
+     robustez (5.570 municípios dos 4 anos), bruta: maior 2022; diferença da maior para 2014 0,0996 (0,0024); para 2018 0,0303 (0,0009)
+     robustez (5.570 municípios dos 4 anos), ponderada: maior 2022; diferença da maior para 2014 0,1692 (0,0339); para 2018 0,0508 (0,0084)
+  (i) copiado do F21 (série principal, 331.087 seções, sem recalcular): d por faixa de força do adversário
+     (erro-padrão), faixas 0,00-0,35; 0,35-0,50; 0,50-0,65; 0,65-1,00
+     2014: +0,0159 (0,0018); -0,0338 (0,0034); -0,0445 (0,0051); -0,0751 (0,0095). A -0,0011 (0,0015). Erro das pesquisas no PT -0,86
+     2018: +0,0154 (0,0017); -0,0017 (0,0039); +0,0034 (0,0046); -0,0053 (0,0073). A +0,0111 (0,0014). Erro das pesquisas no PT -0,63
+     2022: +0,0168 (0,0018); +0,0387 (0,0022); +0,0380 (0,0026); +0,0421 (0,0051). A +0,0293 (0,0012). Erro das pesquisas no PT -2,10
+     2026: +0,0008 (0,0021); -0,0122 (0,0025); -0,0298 (0,0030); -0,0652 (0,0047). A -0,0151 (0,0014). Erro das pesquisas no PT +2,79
+
+3. Contagem: 2014 é o mais perto de 2026 em 3 de 10 métricas (a, f, i1). Mais perto por ano: 2014 em 3, 2018 em 3, 2022 em 4. Sem empates.
+   Desagregada (17 números, robustez fixada antes): 2014 em 4 (a, f_parte, f_fora_pontos, i1), 2018 em 3, 2022 em 10.
+   2014 é o mais longe de 2026 em 3 métricas: b, d, g.
+
+4. Leitura fixada no registro: semelhança numa métrica de resultado, composição ou comportamento (todas de P2) não é
+   indício de fraude, porque eleições limpas com a mesma geografia se parecem. "2014 parecida" vale em a, f, i1; P2 não dá veredito de fraude.
+
+5. Ao lado, sem mudar a leitura (regra D13, fixada antes): onde 2014 e 2026 são diferentes de modo marcante
+   DIFERENTE: lado do líder do 1º turno (c): 2014 PT, 2026 adversário
+   DIFERENTE: sinal da variação da fatia do PT entre finalistas (b): 2014 -3,71, 2026 +2,80
+   DIFERENTE: sinal da variação do comparecimento em votos (d): 2014 -2.439.372, 2026 +2.920.562
+   DIFERENTE: sinal da variação do comparecimento em pontos (d): 2014 -1,71, 2026 +1,85
+   DIFERENTE: sinal do erro das pesquisas no PT (i2): 2014 -0,86, 2026 +2,79
+   Iguais (mesmo lado ou mesmo sinal): lado do vencedor do 2º turno (sinal de a - 50); sinal da variação de brancos+nulos em votos (e); sinal da variação de brancos+nulos em pontos (e); sinal da parte do Nordeste (f); sinal da margem do PT fora do Nordeste (f); sinal de d na faixa 0,00-0,35 (i1); sinal de d na faixa 0,35-0,50 (i1); sinal de d na faixa 0,50-0,65 (i1); sinal de d na faixa 0,65-1,00 (i1).
+
+6. O que isso significa
+   2014 é o ano mais perto de 2026 em 3 das 10 métricas; 2022 é o mais perto em mais delas (4, e 10 dos 17 números). Pela contagem, 2014 não é o ano mais parecido com 2026.
+   Onde 2014 se parece: o resultado final (PT perto de 51,7% nos dois anos), o peso do Nordeste na margem e a curva
+   por faixa do F21. Onde difere: quem liderou o 1º turno, o sentido da variação do PT entre os turnos, o sentido
+   do comparecimento e o sinal do erro das pesquisas. Pela leitura registrada, nenhuma semelhança daqui é indício
+   de fraude, em 2014 ou em 2026; a postagem não diz quais métricas usou (P1).
+
+7. Exploratório (depois de ver o resultado; fora da contagem e da leitura)
+   (a) e (f) não são independentes: parte do Nordeste = contribuição do Nordeste / margem total.
+   Contribuição do Nordeste, em pontos dos válidos: 2014 +11,58, 2018 +10,96, 2022 +10,63, 2026 +11,04; a mais perto de 2026 é a de 2018.
+   Margem total, em pontos dos válidos: 2014 +3,35, 2018 -10,20, 2022 +1,80, 2026 +3,56; a mais perto de 2026 é a de 2014.
+   A parte de 2014 fica perto da de 2026 pelo denominador (a margem total), que é o mesmo fato de (a): duas
+   vitórias apertadas do PT. Das 3 métricas em que 2014 é o mais perto, duas contam esse mesmo fato.
+   A semelhança da curva (i1) já estava no F21 (pista 1), onde o sentido de d nas faixas de 35% para cima
+   acompanhava quem estava no governo (Dilma em 2014, Lula em 2026; também post hoc).
+   (a) pelo oficial com exterior: mais perto 2014 (distâncias 2014 0,15, 2018 6,92, 2022 0,89).
+   (g): a correlação com 2026 cai com a distância no tempo (bruta, da maior para a menor: 2022, 2018, 2014; ponderada: 2022, 2018, 2014).
+
+8. Decisões que o registro não fixa (no docstring antes de calcular; relatadas como desvios)
+   D1. Universo: por ano, seções com os dois turnos e sem o exterior, sem ligar seções entre anos; seções com um turno anulado ficam como a base as registra (1 em 2014, 3 em 2018); seções sem válidos no 2º turno saem só de (h).
+   D2. 2026: votos do 28 cassado (c28, 1º turno) contados como nulo, como no total oficial.
+   D3. (a) = L/(L+R) do 2º turno no universo; conferência com exterior contra o oficial.
+   D4. (b) = diferença de L/(L+R) entre os turnos, somas do universo, em pontos.
+   D5. (c) semelhança = mesmo lado do líder (PT ou adversário); a margem não desempata.
+   D6. (d) semelhança pela variação em pontos dos aptos; em votos só na contagem desagregada.
+   D7. (e) idem com brancos+nulos.
+   D8. (f) parte = margem do Nordeste / margem total; com margem total negativa (2018) a parte fica negativa, sem reinterpretar; margem fora do Nordeste em pontos só na contagem desagregada.
+   D9. (g) Pearson por município (UF|código), bruta (primária) e ponderada pelos válidos de 2026; bootstrap de municípios (2.000, semente 20261107); robustez nos municípios dos 4 anos com bootstrap pareado.
+   D10. (h) semelhança pelo desvio-padrão simples (seção como unidade); ponderado e frações só na desagregada; frações com desigualdade estrita.
+   D11. (i) copiado do F21 sem recalcular e contado como duas métricas: (i1) curva por faixa (distância = média das diferenças absolutas de d nas 4 faixas, universo do F21) e (i2) erro das pesquisas.
+   D12. Contagem principal em 10 métricas; empate exato conta para todos os empatados; contagem desagregada em 17 números como robustez.
+   D13. "Diferente de modo marcante" = categoria ou sinal diferente (lista fixada antes); diferença só de nível não entra.
+   D14. (a) a (f) e (h) são contas sobre todas as seções, sem erro amostral; (g) com bootstrap; (i) com os erros-padrão do F21.
+   D15. Distâncias com os números sem arredondar.
+   Sabido antes: os totais oficiais com exterior (contexto_virada_2t) já davam (a) a (e) de forma aproximada, e o
+   F21 já dava (i). Depois de rodar mudou só o formato do texto e entrou o item 7 (marcado).

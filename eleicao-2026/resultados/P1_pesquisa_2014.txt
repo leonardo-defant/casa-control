@@ -1,0 +1,374 @@
+P1 DO ADENDO 26: O QUE O AUTOR DISSE E O CASO DE 2014 (pesquisa, sem veredito)
+Feito em 07/11/2026, das 13h59 às 14h20 UTC. Registro: PRE-REGISTRO-2026-10-26.md, Adendo 26 (commit 5174ff5, 07/11/2026 13:57:56 UTC).
+Classificação: DESCRITIVO. P1 é pesquisa; o Adendo 26 não fixa veredito para ela. Números de outras partes vêm do repositório, com a origem indicada.
+Trabalho e cópias locais das fontes: /home/user/trabalho-eleicao/adendo26/P1/ (downloads/, notas/textos/, scripts/, saida/).
+Todos os horários de 2014 abaixo são de Brasília em horário de verão (UTC-2), salvo indicação. Os de 2026 são de Brasília (UTC-3).
+
+====================================================================================================================
+1. O QUE O AUTOR QUIS DIZER (Felipe Cecílio, @FelipeCecilio_ no X, felipececilio.reserva no Instagram)
+====================================================================================================================
+Resposta curta: em nenhuma fonte pública que consegui abrir ele disse QUAIS métricas de 2014 seriam parecidas com 2026.
+Não há métrica para listar com citação literal.
+
+1.1 A postagem (lida no HTML público do X, sem login, 07/11/2026 13:59 UTC)
+  Link: https://x.com/FelipeCecilio_/status/2119055575778570626
+  Publicada em 07/11/2026 às 13:13:14 UTC (10h13 de Brasília). Texto completo, literal:
+  "Algumas métricas do segundo turno da eleição presidencial de 2014 são muito semelhantes às observadas agora. Há padrões
+  estatísticos que levantam questionamentos e merecem uma investigação rigorosa. Se forem comprovadas irregularidades, isso
+  poderá lançar dúvidas também sobre a legitimidade daquele pleito. O Brasil pode estar vivendo uma mentira há 12 anos!"
+  A postagem não tem imagem, vídeo, link nem citação de outra postagem. Não é fio: na página da postagem, sem login, aparecem
+  3 respostas de outras contas e nenhuma do autor. Contagem às 14h00 UTC: 229 curtidas, 35 repostagens, 15 respostas,
+  2 citações, 1.903 visualizações.
+  Respostas visíveis (literais, de terceiros): "Pode? Brasil é o país da mentira."; "Antes vc tinha afirmado, agora disse que
+  pode?"; e uma que sugere comparar abstenções de 2002 e 1998 no Norte e Nordeste. Nenhuma recebeu resposta do autor visível.
+  Perfil: "FELIPE S. CECILIO", bio "Empreendedor em busca de um Brasil maior / Administrador pela FGV", conta de junho de 2020,
+  23 postagens no total. A visão sem login mostra só as 5 mais recentes (todas de 06 e 07/11/2026):
+    06/11 19:22 UTC: "O 08/01 não foi golpe; o 25/10, sim!"
+    06/11 23:59 UTC: "O sistema acreditou que o brasileiro se ajoelharia diante do golpe. Mas se enganou! ..."
+    07/11 13:04 UTC: "Recebemos cerca de 40 mil mensagens no canal de recompensas entre ontem e hoje. Reforço o pedido para que
+                      enviem por lá apenas informações concretas e relevantes, evitando análises pessoais ou fatos já públicos..."
+    07/11 13:13 UTC: a postagem checada.
+    07/11 13:40 UTC: "Hoje, o “terraplanista” não é mais quem questiona a confiabilidade das urnas, mas quem não a questiona!"
+
+1.2 O que ele disse antes, em outras falas (imprensa)
+  Até 07/11 a imprensa registra só argumentos sobre 2026, sem 2014 e sem métrica:
+  - Edson Valério, 30/10/2026 12h58, citando o portal Brazil Urgente: "A matemática não está batendo"; recompensa de R$ 1 milhão
+    "ao programador" que provar manipulação das urnas no 2º turno.
+    https://www.edsonvalerio.com.br/noticia/26427/maringa/brasil/r-1-milhao-por-provas-de-fraude-nas-urnas-no-2-ordm-turno.html
+  - Metrópoles (coluna de Demétrio Vecchioli, 02/11/2026), citando vídeo dele no Instagram: "No primeiro turno sinceramente não
+    sei como um candidato tão fraco igual o Flávio teve quase 50% dos votos válidos, mas o fato é que ele teve, e a partir daí
+    precisa seguir um padrão, uma lógica. E essa lógica não foi seguida no segundo turno". Recompensa elevada a R$ 2 milhões
+    "ao programador que apresentar informações concretas, consistentes e verificáveis, sobre a existência e o eventual uso de
+    um software para manipular os resultados do segundo turno das eleições presidenciais". A coluna diz que ele foi candidato
+    a deputado federal por Goiás pelo PSDB em 2026 (3.746 votos) e pelo MDB em 2022.
+    https://www.metropoles.com/colunas/demetrio-vecchioli/candidato-tenta-descobrir-manipulacao-nas-urnas-apos-receber-so-3-mil-votos
+  - Diário do Centro do Mundo, 02/11/2026: mesma citação do vídeo; ele não respondeu aos pedidos de comentário.
+    https://www.diariodocentrodomundo.com.br/felipe-cecilio-oferece-r-2-milhoes-prova-urnas
+  Nas fontes encontradas, a única "métrica" que ele citou é a do 1º turno de 2026 (Flávio com "quase 50%"). No bweb do 1º turno, Flávio teve
+  56.104.503 votos, 47,03% dos válidos (resultados/candidatos_1t_2026_totais.txt e contexto_virada_2t.txt).
+
+1.3 Onde procurei e o que bloqueou
+  - X, perfil e postagem: abertos sem login (HTML público). Abas "Respostas" e "Mídia": redirecionam para login (HTTP 307). Parei.
+  - Instagram felipececilio.reserva: redireciona para a página de login (HTTP 302). Parei. O vídeo citado pelo Metrópoles não foi visto.
+  - YouTube: busca pública aberta. Canal dele (@felipececilio1858): 30 vídeos, todos da campanha de 2022 (MDB, 1515), nada sobre
+    2014 ou 2026. Um vídeo de terceiros sobre a recompensa (canal O PODER NA MÃO DO POVO, publicado há uns 5 dias, 5 min 51 s)
+    não foi visto: a página de vídeo do YouTube respondeu com o captcha do Google (google.com/sorry). Parei.
+  - Busca na web (várias combinações do nome, das contas, da frase "mentira há 12 anos", de "2014" e "métricas"): nada do autor
+    sobre 2014 além da própria postagem. A postagem tinha menos de 1 hora quando a pesquisa começou.
+  - 180graus.com (matéria sobre a recompensa): HTTP 403. Parei.
+
+1.4 O que circulava antes da postagem comparando 2014 e 2026 (não é do autor; serve só para P2)
+  - Congresso em Foco, 16/10/2026: "Há 12 anos, Datafolha dava a Aécio e Dilma os índices de Flávio e Lula": Datafolha de
+    15/10/2014, Aécio 51% x Dilma 49% nos válidos; Datafolha de 15/10/2026, Flávio 51% x Lula 49%.
+    https://www.congressoemfoco.com.br/noticia/123322/ha-12-anos-datafolha-dava-a-aecio-e-dilma-os-indices-de-flavio-e-lula
+  - Brasil de Fato, 21/10/2026, mesma comparação. https://www.brasildefato.com.br/2026/10/21/ha-12-anos-datafolha-mostrava-aecio-a-frente-de-dilma-petista-virou-o-jogo-e-venceu-eleicao/
+  - Times Brasil (coluna de Bruno Soller, 22/10/2026), em sentido contrário: "Dilma não virou a eleição de 2014. Dilma chegou ao
+    segundo turno na frente e terminou a eleição na frente." https://timesbrasil.com.br/colunas/analise-bruno-soller-mito-virada-2014/
+  - Poder360, "Paralelo entre eleições de 2014 e 2026 não existe": a página respondeu 403/522. Não lida.
+
+====================================================================================================================
+2. A AUDITORIA DO PSDB SOBRE 2014
+====================================================================================================================
+2.1 O pedido (documento original)
+  Petição de 30/10/2014 ("no final da tarde", segundo Terra e Congresso em Foco), nos autos da Apuração de Eleição 1578-04
+  (157804), dirigida ao presidente do TSE, ministro Dias Toffoli. Assinam Carlos Henrique Focesi Sampaio, "Coordenador Jurídico
+  PSDB", e João Almeida dos Santos, "Delegado Nacional". Original: https://www.conjur.com.br/wp-content/uploads/2023/09/peticao-psdb-apuracao-urnas.pdf
+  O que pediu: "a realização de um processo de auditoria nos sistemas de votação e de totalização dos votos, por uma comissão de
+  especialistas formada a partir de representantes indicados pelos partidos políticos", com: (A) cópia dos boletins de urna de
+  todas as seções; (B) demais documentos das seções; (C) arquivos da memória de resultados; (D) "cópia eletrônica dos logs
+  originais e completos das urnas eletrônicas"; (E) logs de transmissão e recebimento; (F1) ordens de serviço do 2º turno;
+  (F2) programas de totalização; (F3) programas e arquivos das urnas "obtidos diretamente das urnas ... mediante escolha
+  aleatória ... em todos os Estados e em pelo menos 10 (dez) cidades de cada Estado"; (F4) análise de todas essas memórias.
+  Motivos alegados: desconfiança nas redes sociais; "O aguardo do encerramento da votação no Estado do Acre, com uma diferença de
+  três horas para os Estados que acompanham o horário de Brasília, enquanto já se procedia a apuração nas demais unidades da
+  federação, com a revelação, às 20h00 do dia 26 de outubro, de um resultado já definido e com pequena margem de diferença";
+  o fim do voto impresso; e uma petição online (CitizenGo) com "mais de 60.000" assinaturas.
+  O partido, na época (nota citada pelo Terra, 30/10/2014): "absoluta confiança de que o TSE cumpriu seu papel". Sampaio: o
+  pedido "nada tem a ver com o pedido de recontagem ou questionamento do resultado".
+  Reação do corregedor-geral eleitoral, João Otávio de Noronha (Congresso em Foco, 01/11/2014): "Se você colocar em xeque o
+  sistema eleitoral, aponte o fato concreto que vamos apurar".
+
+2.2 O que o TSE autorizou (04/11/2014, documento original do voto)
+  Voto do relator Dias Toffoli na AE 1578-04 (cópia publicada pelo Migalhas): https://www.migalhas.com.br/arquivos/2014/11/art20141105-05.pdf
+  Plenário unânime (Toffoli, Gilmar Mendes, Rosa Weber, Henrique Neves, Napoleão Nunes Maia Filho, Luciana Lóssio; Terra, 05/11/2014).
+  Deferiu os pedidos "da seguinte forma, arcando o requerente com os respectivos encargos": BUs pelo site ou cópias; documentos
+  pelas juntas e TREs; memória de resultados "nos termos do art. 42 da Res.-TSE nº 23.397/2013"; logs das urnas "em sua forma
+  original, mediante cópia"; logs de transmissão só nas seções da amostra aleatória; programas de totalização e das urnas pelo
+  procedimento da Res.-TSE 23.397/2013; escolha aleatória "em todos os Estados e em pelo menos 10 (dez) cidades de cada Estado".
+  Negou a comissão de partidos: o subscritor "não detém legitimidade para postular a criação de comissão para os fins ora
+  pretendidos ou para falar em nome de outros partidos". Trecho literal: "a pretensão do partido político, tratada com certo
+  estardalhaço em notas divulgadas à imprensa, não se constitui em nenhuma inovação ou solicitação que já não tenha sido
+  previamente garantida por este Tribunal". O pedido seguiu em autos apartados (classe Petição). Acórdão publicado em 20/11/2014
+  (Conjur, 01/12/2014). Segundo o extrato dos auditores, a Procuradoria-Geral Eleitoral opinou pelo indeferimento e a STI do TSE
+  por atender "dentro de limitações e restrições contidas nas Resoluções TSE 23.397/2013 e 23.399/2013".
+
+2.3 Quem fez a auditoria
+  Comitê Multidisciplinar Independente (CMind) e Instituto Brasileiro de Peritos, contratados pelo PSDB, com professores da
+  Escola Politécnica da USP e do ITA. Autores do extrato técnico (WTE 2015): Amílcar Brunazo Filho, Marco A. M. Carvalho,
+  Márcio C. Teixeira, Marcos A. Simplicio Jr. (EPUSP) e Clovis T. Fernandes (ITA); também auditores: Edson S. Gomi, Felipe R.
+  Campos, Giuliano Giova, Gustavo Batistuzzo, Ney C. Dória Jr. e Wanderley J. Abreu Jr.
+  Extrato: http://www.brunazo.eng.br/voto-e/textos/WTE15_AuditoriaEleicao2014.pdf (6 páginas, escrito pelos próprios auditores).
+  Custo de cerca de R$ 1 milhão, pago pelo PSDB (InfoMoney e Tribuna do Paraná, 2015). O TSE recusou dois auditores, Rodrigo
+  Branco e o professor J. Alex Halderman (Universidade de Michigan), "alegando que sua presença atentaria contra a soberania
+  nacional" (extrato). Trabalho efetivo a partir de janeiro de 2015 (extrato); última diligência em 22/06/2015 (Toffoli, 05/11/2015).
+  Dados: 360 GB, mais de 2,1 milhões de arquivos; 684 urnas de 18 estados examinadas em campo; 10 dias úteis de análise do
+  código-fonte em sala do TSE, sem cópia, compilação nem análise dinâmica.
+
+2.4 O relatório final: datas e conclusões literais
+  Datas: o teor foi antecipado em outubro de 2015 (Conjur, 11/10/2015, citando o UOL; Tribuna do Paraná, citando o Estadão); o PSDB apresentou o relatório
+  em 04/11/2015 (Carlos Sampaio, Bruno Araújo e Flávio Henrique Costa Pereira); foi lido no plenário do TSE em 05/11/2015.
+  Tamanho: 217 páginas (CNN Brasil, 06/05/2022) ou 223 páginas (Tribuna do Paraná, 04/11/2015). Não consegui o texto integral:
+  o site indicado pelos auditores (votoseguro.org) está fora do ar e o Internet Archive foi bloqueado pela política de rede
+  desta sessão. As citações abaixo vêm do extrato dos auditores (WTE 2015) e de trechos do relatório citados pela CNN em 2022.
+
+  Sobre fraude (o que o relatório afirma):
+  - Totalização: "não foram encontrados indícios de fraudes ou de erros sistemáticos que pudessem alterar os resultados depois
+    que estes saem das urnas eletrônicas" (extrato); "a transmissão dos resultados pôde ser auditada e não mostrou sinais de
+    erro" (relatório, via CNN). Base: 503 BUs impressos recolhidos pelo partido, 7.020 fotografados pelo projeto Você Fiscal e
+    684 de urnas auditadas, comparados com os BUs recebidos pelo TSE; a transmissão e a totalização "ocorreram sem sofrer
+    adulteração capaz de inverter o seu resultado final" (extrato).
+  - Votação nas urnas: "considera-se impossível determinar a integridade do software usado e, portanto, se foram justos o
+    registro e a apuração dos votos no 2º turno da eleição de 2014" (extrato); "Fraudes na Votação são possíveis mas costumam
+    ser localizadas e sem potencial de alterar significativamente uma eleição presidencial" (relatório, via CNN).
+  - Denúncias: "As demais denúncias de fraudes foram consideradas falsas ou apenas falhas localizadas (sem potencial de afetar
+    o resultado)" (relatório, via CNN).
+  Sobre auditabilidade:
+  - "Claramente, o sistema eletrônico de votação do TSE não foi projetado para permitir uma auditoria externa independente e
+    efetiva dos resultados que publica" (relatório, via CNN).
+  - "não é possível se fazer uma auditoria contábil da apuração dos votos em um sistema de urnas eletrônicas que é
+    essencialmente dependente de software e não produz um registro material do voto (o voto impresso) que tenha sido visto e
+    conferido pelo eleitor e que possa ser utilizado como trilha de auditoria"; "não foi possível se determinar a confiabilidade
+    dos resultados produzidos pelas urnas eletrônicas" (relatório, via CNN).
+  - "o modelo de auditoria imposto pela autoridade eleitoral ("auditoria comandada pelos auditados") não se enquadra em
+    qualquer modelo reconhecido e padronizado por entidades internacionais que normatizam auditoria de sistemas de informação"
+    (relatório, via CNN).
+  - Ligado ao item 3: "não foi possível reconstruir o gráfico da totalização no tempo dos votos, dado que o TSE não mantém
+    documentos de auditoria que permitam saber em que momento cada BU foi totalizado" (extrato).
+  - Outros achados técnicos (extrato): lacres com irregularidades em cerca de 21% das 684 urnas examinadas; Teste de Votação
+    Paralela pouco efetivo contra software que detecte o teste; biometria com falso positivo médio de 1,41% nas urnas do teste
+    e falso negativo de 6,7% no 2º turno; computadores de geração de mídias sem restrição de acesso à internet.
+  Recomendações: voto impresso conferido pelo eleitor, testes por amostragem, "a unificação do horário de encerramento da
+  votação em todo o território brasileiro", biometria, um Conselho de Acompanhamento das Eleições (InfoMoney, 05/11/2015).
+
+  O que políticos disseram (separado do relatório):
+  - Carlos Sampaio, 04/11/2015: "Não temos elementos para afirmar que não houve fraudes no processo de votação, uma vez que o
+    modelo de auditoria imposto pelo Tribunal Superior Eleitoral não se enquadra em qualquer modelo reconhecido e padronizado por
+    entidades internacionais" (InfoMoney); e que a análise foi impedida "não porque o sistema é inviolável, e sim porque é
+    inauditável" (Tribuna do Paraná/Estadão).
+  - Flávio Henrique Costa Pereira (coordenador jurídico do PSDB), sobre o especialista estrangeiro: "A contratação foi negada
+    pelo TSE, porque feriria, segundo o tribunal, a soberania nacional ao fornecer dados do sistema eleitoral brasileiro para um
+    estrangeiro" (InfoMoney).
+  - Jair Bolsonaro, 07/07/2021 (Rádio Guaíba, via Correio Braziliense): "O Aécio foi eleito em 2014", sem apresentar provas. Na
+    live de 29/07/2021 (CNN): "Não tem como comprovar que as eleições foram ou não foram fraudadas. Vamos apresentar vários indícios aqui".
+  - Aécio Neves, 08/07/2021 (Folhapress, via Jornal de Brasília; Estadão, via IstoÉ): "Eu não acredito que tenha havido fraudes
+    nas urnas em 2014, tampouco acredito que nós estejamos fadados a viver eternamente com as urnas eletrônicas de primeira geração".
+  - PSDB, 2021 (citado pela CNN em 06/05/2022): "o PSDB considera as eleições de 2014 limpas e confia nas urnas eletrônicas.
+    Estará sempre na defesa da democracia". Bruno Araújo, 2021: "O PSDB segue confiando no sistema eleitoral brasileiro".
+
+2.5 A resposta do TSE (05/11/2015, plenário)
+  - Dias Toffoli: "O objetivo da auditoria era verificar a lisura das eleições de 2014, ou seja, averiguar a integridade das
+    urnas eletrônicas e sistemas adjacentes, buscando evidências que comprovassem alguma suspeita ou tese de fraude, e volto a
+    dizer que não foi encontrada nenhuma evidência em tal sentido" (Conjur, 06/11/2015, com informações da assessoria do TSE;
+    trecho final também na Agência Brasil, 05/11/2015). Disse que o relatório estava quatro meses atrasado, que o tribunal
+    despacharia "após a análise mais pormenorizada das áreas técnicas", que a votação paralela com biometria "já está em estudo"
+    e que o horário único "poderá ser implementada para as eleições de 2018". Também: "No ano passado, nenhum partido compareceu
+    a essas audiências" (Estado de Minas, 05/11/2015). Segundo ele, 3.500 urnas ficaram paradas durante a auditoria.
+  - Herman Benjamin: "profunda dificuldade" com a proposta de voto impresso; "Qualquer proposta que venha no sentido de retroceder
+    esses avanços certamente deve receber uma resposta muito dura das instituições e do país como um todo" (Conjur).
+  - Gilmar Mendes: "As fofocas ganham uma velocidade que nós não conhecíamos" (Conjur).
+  - Ministério Público Eleitoral (Humberto Jaques, grafia do Conjur): "para que se saiba quanto custa essa aventura para que ela não se torne uma
+    rotina na Justiça Eleitoral brasileira" (Conjur).
+  Leitura: o TSE e o relatório não se contradizem nos fatos; diferem no enquadramento. O relatório não encontrou fraude na
+  totalização e diz que a votação dentro da urna não pôde ser auditada; o TSE destacou a ausência de evidência de fraude.
+  A página de notícias do próprio TSE (tse.jus.br) respondeu 403 e não foi lida.
+
+====================================================================================================================
+3. A TOTALIZAÇÃO DO 2º TURNO DE 2014 (26/10/2014) E A COMPARAÇÃO COM 2026
+====================================================================================================================
+3.1 Regras e horários
+  - Votação das 8h às 17h na hora LOCAL (Gazeta do Povo, 26/10/2014). Com o horário de verão, Brasília estava em UTC-2 e o Acre
+    e o oeste do Amazonas em UTC-5: três horas de diferença. Roraima, Rondônia e o resto do Amazonas fechavam às 19h de Brasília.
+  - Embargo: Res.-TSE 23.399/2013, art. 210, I: "os dados do resultado para o cargo de Presidente da República serão liberados
+    somente a partir das 17 horas do fuso horário do Acre", ou seja, 20h de Brasília. Regra aprovada por unanimidade em
+    17/12/2013; regras iguais em 2006 e 2010 (voto de Toffoli na AE 1578-04).
+  - A totalização interna começou às 17h01; a planilha do TSE tem 333 parciais, de 17h01 de 26/10 a 02h13 de 27/10 (CNN, 29/07/2021).
+
+3.2 Quem liderava e quando Dilma passou
+  - Internamente (não divulgado): Aécio liderou desde o início. Às 18h32, Aécio 55,4% x Dilma 44,56% (O Tempo, 02/10/2022,
+    citando a planilha do TSE). Às 19h32, "com 88,9% dos votos apurados, Aécio Neves (PSDB), que até então liderava o pleito,
+    era ultrapassado por Dilma Rousseff (PT)" (Folhapress, via Gazeta do Povo, 27/10/2014); Dilma com 50,05% (Bahia Notícias,
+    27/10/2014, citando a Folha). Houve uma única troca de liderança (CNN, 29/07/2021, com a planilha do TSE).
+  - Publicamente: a primeira parcial saiu logo depois das 20h, "já com Dilma à frente de Aécio" (Folhapress), com "cerca de 95%
+    das urnas já estavam apuradas" (Bahia Notícias). 20h22: Dilma 51,38% x Aécio 48,62%; 20h27, com 98% apurado, Dilma 51,45%
+    e eleita matematicamente (Gazeta do Povo, 26/10/2014). Toffoli ligou para Dilma às 20h30. Fim às 02h13 de 27/10 (O Tempo),
+    com seções do Amazonas por último (Estadão, via Gazeta do Povo, 27/10/2014). Resultado: Dilma 51,64% x Aécio 48,36%.
+  - Quem acompanhou a parcial interna: cerca de 30 servidores da STI do TSE, isolados, com celulares desligados (Folhapress;
+    Giuseppe Janino, secretário de TI, à Bahia Notícias).
+
+3.3 Explicação documentada
+  - TSE, nota à CNN (21/07/2021): "a ordem de soma dos boletins de urna, nessa eleição em particular, foi bastante impactada
+    pelos fusos do país e pelo horário de verão. A eleição começou a ser totalizada pelo Sudeste (colégio de forte presença do
+    PSDB). Quando começou a transmissão do Nordeste (colégio de forte presença da esquerda), o cenário se inverteu".
+  - TSE, Fato ou Boato de julho de 2021 (citado pelo O Tempo; a página do TSE deu 403): "Tivessem os Boletins de Urna (BUs) das
+    regiões Norte e Nordeste sido processados antes dos BUs das regiões Sul e Sudeste, não teria havido inversão alguma".
+  - Embargo até 20h: o próprio PSDB citou a espera pelo Acre como fonte de desconfiança (petição de 30/10/2014); o TSE respondeu
+    que a regra é da resolução de 2013, igual a 2006 e 2010. O Conjur (01/12/2014) atribuiu os boatos de "vazamento" a
+    "brincadeiras feitas entre os convidados, de ambos os partidos, e de palpites com base nos números dos resultados das
+    eleições estaduais".
+  - A recomendação do PSDB de horário único entrou em vigor em 2022: "pela primeira vez todos os Estados começaram a votação
+    simultaneamente, sem diferença de fuso horário" (O Tempo, 02/10/2022).
+
+3.4 Conferência EXPLORATÓRIA com a base de 2014 (não registrada antes; decidida depois de ler a explicação do TSE)
+  Script: /home/user/trabalho-eleicao/adendo26/P1/scripts/ordem_fuso_2014.py (decisões no docstring, escritas antes de rodar).
+  Saída: /home/user/trabalho-eleicao/adendo26/P1/saida/ordem_fuso_2014.json. Soma confere com o oficial (Dilma 54.501.118,
+  Aécio 51.041.155). Contagem completa, sem erro-padrão.
+  Hora de encerramento em Brasília | seções  | válidos     | Dilma    | margem de Dilma
+  17h (RS SC PR SP RJ ES MG GO DF)  | 261.005 | 66.543.804  | 42,96%   | -9.369.108
+  18h (Nordeste, PA AP TO, MT MS)   | 154.072 | 35.846.540  | 67,65%   | +12.650.728
+  19h (AM RR RO)                    |  11.222 |  2.634.090  | 56,76%   | +356.100
+  20h (AC)                          |   1.637 |    382.659  | 36,32%   | -104.695
+  exterior (fora da ordenação)      |     916 |    135.180  | 22,98%   | -73.062
+  Se os grupos chegassem em ordem estrita de fechamento, com mistura uniforme dentro do grupo, Dilma passaria Aécio uma única vez,
+  com 87,66% das seções (88,32% dos válidos) somados; o registrado foi 88,9%. É uma caricatura (BUs do grupo de 17h continuam
+  chegando depois das 18h; oeste do AM e Fernando de Noronha ficaram no grupo do estado), mas basta para mostrar que a ordem de
+  fusos produz uma troca de liderança perto do ponto documentado.
+
+3.5 Comparação com 2026 (só o que está no repositório)
+  - Contagem de 2026 (resultados/contexto_2t_2026_pesquisa_verificada.json, imprensa): votação das 8h às 17h de Brasília no país
+    todo, divulgação a partir das 17h. Primeira parcial às 17h06 (1.225 seções, 0,25%): Lula 57,66%. Divulgação suspensa das
+    17h23 às 19h por causa da prorrogação de Zanin. Lula liderou até cerca de 11% (19h39, 10,40%, Lula 50,46%); Flávio passou com
+    13,98% (19h46/47) e teve a maior frente, 333.291 votos, com 30,82% (20h11); Lula voltou à frente com 48,42% a 50,12% (20h26/28)
+    e não perdeu mais. Definido às 21h10 (98,27%); fim às 22h34.
+  - "Flávio ganhou até as 17h" (checagens/relatorio_pericial_instagram/checagem_e_conferencias.json): a frase trata das urnas
+    ENCERRADAS até 17h00 pelo relógio local (DT_ENCERRAMENTO), não da divulgação. No relógio de Brasília nenhuma seção fechou antes
+    das 17:00:00; as de AC, AM, RO, RR, MT e MS caem em "até 17h" porque fecharam às 15h ou 16h locais. Entre as seções fechadas
+    antes da liminar (até 17:02:59 de Brasília), Lula vencia por 1.173.910. A CACA_AO_FURO.txt não trata da ordem de divulgação.
+  - Semelhança: nos dois anos o adversário do PT esteve à frente em parte da contagem e o PT terminou à frente.
+  - Diferenças: (a) em 2014 a liderança de Aécio só existiu na totalização interna, antes do embargo; o público viu Dilma à frente
+    desde a primeira parcial. Em 2026 as duas trocas foram públicas. (b) Em 2014 a ordem é explicada por fusos e horário de verão
+    (documentado pelo TSE e reproduzido acima); em 2026 todos fecharam às 17h de Brasília, e a causa da ordem de chegada dos BUs
+    não está documentada no repositório (as bases por seção não trazem a hora de recebimento do boletim). (c) A ordem de soma não
+    muda o total: a auditoria do PSDB comparou 8.207 BUs impressos (503 + 7.020 + 684) com os recebidos pelo TSE, "Sem erros nos BU, com
+    margem de confiança satisfatória" (apresentação de Brunazo na Câmara, 30/11/2017).
+
+====================================================================================================================
+4. OUTRAS ALEGAÇÕES DE FRAUDE EM 2014 E DESFECHO
+====================================================================================================================
+  (1) "Urna votando sozinha" (vídeo). Desfecho: urna da seção 2 da 85ª Zona Eleitoral, Torres (RS), travou em 26/10/2014 e
+      emitia o som de fim de voto sem parar; foi substituída por volta do meio-dia; a zerésima não tinha votos (Aos Fatos,
+      29/10/2026; E-farsas, 03/11/2026, com documentos do TSE). O mesmo vídeo voltou a circular em 2026 como se fosse da
+      prorrogação. A auditoria do PSDB classificou a denúncia como individual e localizada.
+  (2) Zerésima com 400 votos para Dilma (Campina Grande, PB). Desfecho: montagem. Ministro Henrique Neves no julgamento de
+      04/11/2014: "Na internet, em tese, Elvis Presley está vivo" (Conjur, 01/12/2014). Extrato dos auditores: "grosseira falsificação".
+  (3) Urna que registrava 44 ao digitar 45 (vídeo) e (4) documentos de seção no lixo (vídeo). Desfecho só pelo extrato dos
+      auditores: denúncias "individuais e localizadas, não evidenciando um problema sistêmico, e foram esclarecidas pelo TSE logo
+      no voto inicial que aprovou a auditoria". Não encontrei o texto desse esclarecimento; não está no voto de Toffoli publicado
+      pelo Migalhas.
+  (5) Smartmatic teria fraudado a totalização. Desfecho (auditoria): "não detectou sinais de ataques sistemáticos ou abrangentes,
+      por funcionários da Smartmatic" na transmissão e totalização; na apuração dentro da urna, "não teve como eliminar a possibilidade".
+  (6) Computadores de geração de mídias ligados à internet. Desfecho (auditoria): confirmado que não tinham "qualquer restrição
+      quanto a sua conexão à Internet". É constatação de vulnerabilidade, não de fraude.
+  (7) Eleitor "já votou". Desfecho (auditoria): a análise dos logs "não indicou a ocorrência de números que pudessem inverter o
+      resultado da eleição"; nas urnas do Teste de Votação Paralela houve falso positivo biométrico médio de 1,41%.
+  (8) Eleitor justificado que "votou". Desfecho: não verificado; o TSE negou os arquivos de faltosos e justificativas (auditoria).
+  (9) Fraude de mesário ("votos rápidos e tardios"). Desfecho (auditoria): seções com esse comportamento foram encontradas, mas
+      sem "quantidade e regularidade que pudessem inverter o resultado eleitoral".
+  (10) "Vazamento" do resultado antes das 20h. Desfecho: era o embargo legal; servidores isolados (Folhapress, Bahia Notícias);
+      Conjur atribuiu os boatos a palpites de convidados.
+  (11) "231 inversões" na apuração (vídeo de 2018 com analista anônimo, repetido por Bolsonaro em 21/07/2021). Desfecho: a
+      planilha do TSE tem uma única troca de liderança, às 19h32 (CNN, 29/07/2021); Aos Fatos (29/07/2021): FALSO; TSE, Fato ou
+      Boato de julho de 2021: "é falsa a planilha que mostra inversões" (título; página com 403).
+  (12) "Aécio foi eleito" (Bolsonaro, 07/07/2021). Desfecho: sem prova apresentada; na live de 29/07/2021 ele disse que "Não tem
+      como comprovar"; Aécio e o PSDB negaram fraude (item 2.4).
+  (13) Ações do PSDB no TSE contra a chapa Dilma-Temer (abuso de poder político e econômico na campanha, não contagem de votos).
+      Desfecho: absolvição por 4 a 3 em 09/06/2017 (Jornal do Brasil, 09/06/2017).
+  (14) Petição online de recontagem (CitizenGo, "mais de 60.000" assinaturas, citada na petição do PSDB). Sem efeito próprio.
+
+====================================================================================================================
+5. PISTAS PARA P2 E P3 (descritivas; o autor não disse nada disso)
+====================================================================================================================
+  - Métricas que a imprensa já comparava antes da postagem: Datafolha de 15/10, 51 x 49 contra o PT nos dois anos; margem final
+    parecida (Dilma 51,64%, Lula 51,79%); adversário à frente em parte da contagem nos dois anos (item 3.5).
+  - Diferenças já conhecidas: quem liderou o 1º turno (2014 Dilma, +8.370.457; 2026 Flávio, +2.224.965; contexto_virada_2t.txt);
+    erro das pesquisas no PT com sinal oposto (2014 -0,86; 2026 +2,79; F21); em 2014 a urna ficou abaixo das pesquisas para o PT.
+  - Em 2014, na base, o grupo de 18h (Nordeste, Norte de UTC-3, MT e MS) deu 67,65% a Dilma e +12,65 milhões; isso entra na
+    métrica (f) de P2 (parte da margem que veio do Nordeste), que será calculada lá com a regra registrada.
+  - A frase "não é possível auditar" (do relatório de 2015) é sobre a votação dentro da urna em 2014, com as regras de 2014; não
+    é achado estatístico e não diz que houve fraude.
+
+====================================================================================================================
+6. DESVIOS, DECISÕES E LIMITES
+====================================================================================================================
+  - P1 não pede cálculo. O item 3.4 é exploratório, decidido depois de ler a explicação do TSE e antes de rodar; as decisões estão
+    no docstring do script (D1 a D5): grupos por hora de fechamento em Brasília, oeste do AM no grupo de 19h, Fernando de Noronha
+    no de 18h, exterior fora da ordenação, ordem estrita entre grupos e mistura uniforme dentro do grupo.
+  - Texto integral do relatório do PSDB não obtido: usei o extrato dos próprios auditores (WTE 2015) e trechos citados pela CNN.
+    Onde a citação vem da imprensa, está marcado "via".
+  - Citações de imprensa foram conferidas no texto baixado de cada página (cópias em notas/textos/), não em resumos.
+  - Saídas gravadas em resultados/ do repositório como arquivos NOVOS; nenhum arquivo existente foi alterado; sem commit.
+  - Bloqueios (parei e registrei): X, abas de respostas e mídia (login); Instagram (login); YouTube, página de vídeo (captcha do
+    Google); tse.jus.br e justicaeleitoral.jus.br (403 da CDN); Poder360 (403/522); 180graus (403); Jornal GGN (403); Mais Goiás
+    (403); web.archive.org (bloqueado pela política de rede da sessão); votoseguro.org (site parado). Detalhe em
+    /home/user/trabalho-eleicao/adendo26/P1/notas/registro_buscas.txt.
+
+====================================================================================================================
+7. FONTES (data de publicação; todas acessadas em 07/11/2026 entre 13h59 e 14h20 UTC)
+====================================================================================================================
+  Autor
+  - X, postagem, 07/11/2026: https://x.com/FelipeCecilio_/status/2119055575778570626 ; perfil: https://x.com/FelipeCecilio_
+  - Edson Valério, 30/10/2026: https://www.edsonvalerio.com.br/noticia/26427/maringa/brasil/r-1-milhao-por-provas-de-fraude-nas-urnas-no-2-ordm-turno.html
+  - Metrópoles, 02/11/2026: https://www.metropoles.com/colunas/demetrio-vecchioli/candidato-tenta-descobrir-manipulacao-nas-urnas-apos-receber-so-3-mil-votos
+  - Diário do Centro do Mundo, 02/11/2026: https://www.diariodocentrodomundo.com.br/felipe-cecilio-oferece-r-2-milhoes-prova-urnas
+  - YouTube, canal: https://www.youtube.com/@felipececilio1858/videos
+  Comparações 2014 x 2026 na imprensa
+  - Congresso em Foco, 16/10/2026: https://www.congressoemfoco.com.br/noticia/123322/ha-12-anos-datafolha-dava-a-aecio-e-dilma-os-indices-de-flavio-e-lula
+  - Brasil de Fato, 21/10/2026: https://www.brasildefato.com.br/2026/10/21/ha-12-anos-datafolha-mostrava-aecio-a-frente-de-dilma-petista-virou-o-jogo-e-venceu-eleicao/
+  - Times Brasil, 22/10/2026: https://timesbrasil.com.br/colunas/analise-bruno-soller-mito-virada-2014/
+  Auditoria (documentos)
+  - Petição do PSDB, 30/10/2014: https://www.conjur.com.br/wp-content/uploads/2023/09/peticao-psdb-apuracao-urnas.pdf
+  - Voto de Toffoli, AE 1578-04, 04/11/2014: https://www.migalhas.com.br/arquivos/2014/11/art20141105-05.pdf
+  - Extrato dos auditores, WTE 2015: http://www.brunazo.eng.br/voto-e/textos/WTE15_AuditoriaEleicao2014.pdf
+  - Apresentação de Amílcar Brunazo na Câmara, 30/11/2017: https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cctci/apresentacoes-em-eventos/2017/2017-11-30-ap-eleicoes-de-2014-e-2018/amilcar-brunzao-cmind
+  Auditoria (imprensa da época e posterior)
+  - Terra, 30/10/2014: https://www.terra.com.br/noticias/eleicoes/psdb-pede-ao-tse-auditoria-na-apuracao-de-votos-da-eleicao,7f344fad54369410VgnVCM4000009bcceb0aRCRD.html
+  - Congresso em Foco, 31/10/2014: https://www.congressoemfoco.com.br/noticia/49311/psdb-pede-ao-tse-auditoria-no-sistema-de-apuracao-de-votos
+  - Congresso em Foco, 01/11/2014: https://www.congressoemfoco.com.br/noticia/49296/pedido-de-auditoria-feito-pelo-psdb-nao-e-serio-diz-corregedor
+  - Agência Brasil, 04/11/2014: https://agenciabrasil.ebc.com.br/politica/noticia/2014-11/tse-nega-pedido-do-psdb-para-criar-comissao-para-auditar-eleicoes
+  - Gazeta do Povo (Agência Brasil), 04/11/2014: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/tse-nega-pedido-do-psdb-para-criar-comissao-a-fim-de-auditar-eleicoes-efs2xkzw0hhfqlqn03aliksi6/
+  - Terra, 05/11/2014: https://www.terra.com.br/noticias/eleicoes/tse-aprova-auditoria-do-psdb-sobre-eleicoes-deste-ano,aa8308243fe79410VgnVCM5000009ccceb0aRCRD.html
+  - Conjur, 01/12/2014: https://conjur.com.br/2014-dez-01/tse-isenta-urnas-eletronicas-suspeitas-apresentadas-psdb/
+  - Conjur, 11/10/2015: https://conjur.com.br/2015-out-11/psdb-conclui-nao-houve-fraude-eleicao-2014/
+  - Tribuna do Paraná (Estadão), 04/11/2015: https://www.tribunapr.com.br/noticias/politica/psdb-divulga-auditoria-inconclusiva-sobre-fraude-em-eleicoes-e-quer-voto-impresso/
+  - InfoMoney, 05/11/2015: https://www.infomoney.com.br/politica/auditoria-do-psdb-nao-encontra-fraudes-na-eleicao-mas-faz-constatacoes-preocupantes/
+  - Agência Brasil, 05/11/2015: https://agenciabrasil.ebc.com.br/politica/noticia/2015-11/auditoria-do-psdb-nao-enconrou-fraude-na-eleicao-de-2014-informa-tse
+  - Estado de Minas, 05/11/2015: https://www.em.com.br/app/noticia/politica/2015/11/05/interna_politica,704771/presidente-do-tse-critica-avaliacao-do-psdb-sobre-sistema-eleitoral.shtml
+  - Conjur, 06/11/2015: https://www.conjur.com.br/2015-nov-06/tse-analisa-dados-auditoria-feita-psdb-pleito-2014/
+  - Câmara, 30/11/2017: https://www.camara.leg.br/noticias/528306-relatorio-sobre-auditoria-nas-eleicoes-de-2014-sera-apresentado-hoje
+  - Correio Braziliense, 07/07/2021: https://www.correiobraziliense.com.br/politica/2021/07/4936135-sem-provas-bolsonaro-diz-que-aecio-neves-derrotou-dilma-rousseff-em-2014.html
+  - Jornal de Brasília (Folhapress), 08/07/2021: https://jornaldebrasilia.com.br/noticias/politica-e-poder/aecio-rejeita-suspeita-sem-provas-de-bolsonaro-e-diz-nao-acreditar-em-fraude-nas-urnas-em-2014/
+  - IstoÉ (Estadão), 09/07/2021: https://istoe.com.br/aecio-afirma-nao-acreditar-em-fraudes-nas-urnas-em-2014
+  - CNN Brasil, 29/07/2021: https://www.cnnbrasil.com.br/politica/nao-tem-como-comprovar-que-eleicoes-foram-fraudadas-diz-bolsonaro/
+  - CNN Brasil, 06/05/2022: https://www.cnnbrasil.com.br/politica/psdb-concluiu-em-2014-ser-impossivel-fazer-auditoria-externa-na-urna/
+  Totalização
+  - Gazeta do Povo, 26/10/2014: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/reeleicao-de-dilma-foi-confirmada-as-20h27-com-98-dos-votos-apurados-efethiooim4kipaqaf42oc1n2/
+  - Conjur, 26/10/2014: https://conjur.com.br/2014-out-26/dilma-reeleita-segundo-mandato/
+  - Congresso em Foco, 26/10/2014: https://www.congressoemfoco.com.br/noticia/53585/dilma-se-reelege-na-eleicao-do-imponderavel
+  - Gazeta do Povo (Folhapress), 27/10/2014: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/dilma-so-ultrapassou-aecio-com-889-dos-votos-apurados-efggr8aq1q3m92qcdxix5wpqm/
+  - Gazeta do Povo (Estadão), 27/10/2014: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/na-apuracao-final-dilma-tem-5164-e-aecio-4836-effgj9r8x1hqvjugywm8bsua6/
+  - Bahia Notícias, 27/10/2014: https://www.bahianoticias.com.br/noticia/162414-aecio-liderou-disputa-por-presidencia-ate-quase-90-da-apuracao
+  - CNN Brasil, 21/07/2021: https://www.cnnbrasil.com.br/politica/tse-diz-que-nao-houve-alternancia-suspeita-entre-candidatos-na-apuracao-em-2014/
+  - CNN Brasil, 29/07/2021: https://www.cnnbrasil.com.br/politica/parciais-nao-mostram-inversoes-entre-dilma-e-aecio-apontadas-por-bolsonaro/
+  - O Tempo, 02/10/2022: https://www.otempo.com.br/eleicoes/em-2014-dilma-virou-resultado-das-eleicoes-sobre-aecio-neves-as-19h32-1.2743860
+  - TSE, Fato ou Boato, julho de 2021 (403, não lida): https://www.tse.jus.br/comunicacao/noticias/2021/Julho/fato-ou-boato-e-falsa-a-planilha-que-mostra-inversoes-entre-aecio-neves-e-dilma-rousseff-no-2o-turno-de-2014
+  Outras alegações
+  - Aos Fatos, 29/10/2026: https://www.aosfatos.org/noticias/video-nao-mostra-urna-registrando-votos-sozinha/
+  - E-farsas, 03/11/2026: https://www.e-farsas.com/video-mostra-urna-eletronica-votando-sozinha-sera-verdade.html
+  - Aos Fatos, 29/07/2021: https://www.aosfatos.org/noticias/bolsonaro-promete-provas-de-fraude-mas-apresenta-alegacoes-ja-desmentidas-sobre-urnas-eletronicas/
+  - Jornal do Brasil, 09/06/2017: https://www.jb.com.br/pais/noticias/2017/06/09/por-4-votos-a-3-tse-absolve-michel-temer-de-cassacao/
+
+ARQUIVOS
+  - Este texto: /home/user/casa-control/eleicao-2026/resultados/P1_pesquisa_2014.txt; dados: resultados/P1_pesquisa_2014.json
+  - Script exploratório: /home/user/trabalho-eleicao/adendo26/P1/scripts/ordem_fuso_2014.py; saída: .../P1/saida/ordem_fuso_2014.json
+  - Leitura do X: .../P1/scripts/ler_x.py; postagens visíveis: .../P1/notas/x_postagens_visiveis.jsonl
+  - Baixador de páginas: .../P1/scripts/baixar_texto.py; textos extraídos: .../P1/notas/textos/; PDFs em texto: .../P1/notas/
+  - Registro de buscas e bloqueios: .../P1/notas/registro_buscas.txt

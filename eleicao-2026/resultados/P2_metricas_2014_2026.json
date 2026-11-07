@@ -1,0 +1,1312 @@
+{
+ "teste": "P2, Adendo 26 (commit 5174ff5, 07/11/2026 13:57:56 UTC)",
+ "universo": {
+  "2014": {
+   "chaves": 428854,
+   "exterior": 916,
+   "sem_os_dois_turnos": 2,
+   "anuladas_mantidas": 1,
+   "universo": 427936,
+   "municipios": 5570,
+   "municipios_sem_validos_2t": 0,
+   "ofi_secoes_2t_com_exterior": 428852
+  },
+  "2018": {
+   "chaves": 454450,
+   "exterior": 744,
+   "sem_os_dois_turnos": 2,
+   "anuladas_mantidas": 3,
+   "universo": 453704,
+   "municipios": 5570,
+   "municipios_sem_validos_2t": 0,
+   "ofi_secoes_2t_com_exterior": 454448
+  },
+  "2022": {
+   "chaves": 472028,
+   "exterior": 1018,
+   "sem_os_dois_turnos": 0,
+   "anuladas_mantidas": 0,
+   "universo": 471010,
+   "municipios": 5570,
+   "municipios_sem_validos_2t": 0,
+   "ofi_secoes_2t_com_exterior": 472028
+  },
+  "2026": {
+   "chaves": 499206,
+   "exterior": 1309,
+   "sem_os_dois_turnos": 0,
+   "anuladas_mantidas": 0,
+   "universo": 497897,
+   "municipios": 5571,
+   "municipios_sem_validos_2t": 0,
+   "ofi_secoes_2t_com_exterior": 499205
+  }
+ },
+ "metricas_por_ano": {
+  "2014": {
+   "somas_1t": {
+    "L": 43243312,
+    "R": 34831498,
+    "O": 25816250,
+    "B": 4415655,
+    "N": 6674663,
+    "comp": 114981378,
+    "apt": 142468478,
+    "c28": 0
+   },
+   "somas_2t": {
+    "L": 54470059,
+    "R": 50937034,
+    "O": 0,
+    "B": 1918660,
+    "N": 5216253,
+    "comp": 112542006,
+    "apt": 142468446,
+    "c28": 0
+   },
+   "validos_1t": 103891060,
+   "validos_2t": 105407093,
+   "a": 51.6758952834417,
+   "a_base_com_exterior": 51.639136102365356,
+   "b": -3.7111264717185177,
+   "b_fatia_finalistas_1t": 55.38702175516021,
+   "b_fatia_finalistas_2t": 51.6758952834417,
+   "c_lider": "PT",
+   "c_margem_pt_votos": 8411814,
+   "c_margem_lider_votos": 8411814,
+   "c_margem_lider_pontos_validos": 8.096764052652846,
+   "c_pt_pct_validos_1t": 41.62370852698972,
+   "c_adv_pct_validos_1t": 33.526944474336865,
+   "d_votos": -2439372,
+   "d_taxa_1t": 80.70653916861525,
+   "d_taxa_2t": 78.99433815681545,
+   "d_pontos": -1.7122010117998059,
+   "e_bn_1t": 11090318,
+   "e_bn_2t": 7134913,
+   "e_votos": -3955405,
+   "e_pct_aptos_1t": 7.784401262432241,
+   "e_pct_aptos_2t": 5.008065435064828,
+   "e_pontos": -2.7763358273674132,
+   "f_margem_total_votos": 3533025,
+   "f_margem_ne_votos": 12206346,
+   "f_margem_fora_votos": -8673321,
+   "f_parte_ne_pct": 345.49277177489546,
+   "f_margem_total_pontos": 3.351790566883388,
+   "f_contrib_ne_pontos": 11.580194133614897,
+   "f_margem_fora_pontos": -8.22840356673151,
+   "f_validos_ne": 28153300,
+   "f_fatia_pt_ne": 71.67835742168769,
+   "f_fatia_pt_fora": 44.38647562586345,
+   "h_secoes": 427936,
+   "h_secoes_sem_validos": 0,
+   "h_dp_simples": 20.055937491212088,
+   "h_dp_ponderado": 19.72399922654858,
+   "h_media_simples": 53.04109201899557,
+   "h_acima_80_pct": 10.699497121064832,
+   "h_abaixo_20_pct": 3.8987138263665595,
+   "h_acima_80_n": 45787,
+   "h_abaixo_20_n": 16684
+  },
+  "2018": {
+   "somas_1t": {
+    "L": 31322225,
+    "R": 49163078,
+    "O": 26372204,
+    "B": 3101886,
+    "N": 7201836,
+    "comp": 117161229,
+    "apt": 146805286,
+    "c28": 0
+   },
+   "somas_2t": {
+    "L": 46987176,
+    "R": 57666176,
+    "O": 0,
+    "B": 2479352,
+    "N": 8599581,
+    "comp": 115732285,
+    "apt": 146805278,
+    "c28": 0
+   },
+   "validos_1t": 106857507,
+   "validos_2t": 104653352,
+   "a": 44.89791784213467,
+   "a_base_com_exterior": 44.86976871996942,
+   "b": 5.981216491081797,
+   "b_fatia_finalistas_1t": 38.91670135105287,
+   "b_fatia_finalistas_2t": 44.897917842134675,
+   "c_lider": "adversario",
+   "c_margem_pt_votos": -17840853,
+   "c_margem_lider_votos": 17840853,
+   "c_margem_lider_pontos_validos": 16.69592853219007,
+   "c_pt_pct_validos_1t": 29.312142758486775,
+   "c_adv_pct_validos_1t": 46.008071290676845,
+   "d_votos": -1428944,
+   "d_taxa_1t": 79.80722778606214,
+   "d_taxa_2t": 78.83387203558172,
+   "d_pontos": -0.9733557504804224,
+   "e_bn_1t": 10303722,
+   "e_bn_2t": 11078933,
+   "e_votos": 775211,
+   "e_pct_aptos_1t": 7.018631468079426,
+   "e_pct_aptos_2t": 7.546685753355543,
+   "e_pontos": 0.5280542852761174,
+   "f_margem_total_votos": -10679000,
+   "f_margem_ne_votos": 11465358,
+   "f_margem_fora_votos": -22144358,
+   "f_parte_ne_pct": -107.36359209663826,
+   "f_margem_total_pontos": -10.204164315730662,
+   "f_contrib_ne_pontos": 10.955557352811786,
+   "f_margem_fora_pontos": -21.159721668542446,
+   "f_validos_ne": 29114266,
+   "f_fatia_pt_ne": 69.69027486387601,
+   "f_fatia_pt_fora": 35.342450397136126,
+   "h_secoes": 453703,
+   "h_secoes_sem_validos": 1,
+   "h_dp_simples": 21.890454294402893,
+   "h_dp_ponderado": 21.34096331785711,
+   "h_media_simples": 45.94494916818636,
+   "h_acima_80_pct": 10.351926260130526,
+   "h_abaixo_20_pct": 7.854697897082453,
+   "h_acima_80_n": 46967,
+   "h_abaixo_20_n": 35637
+  },
+  "2022": {
+   "somas_1t": {
+    "L": 57120571,
+    "R": 50949797,
+    "O": 9864826,
+    "B": 1959922,
+    "N": 3483224,
+    "comp": 123378340,
+    "apt": 155758572,
+    "c28": 0
+   },
+   "somas_2t": {
+    "L": 60193094,
+    "R": 58061090,
+    "O": 0,
+    "B": 1763778,
+    "N": 3924686,
+    "comp": 123942648,
+    "apt": 155758349,
+    "c28": 0
+   },
+   "validos_1t": 117935194,
+   "validos_2t": 118254184,
+   "a": 50.90144971107323,
+   "a_base_com_exterior": 50.90240511717216,
+   "b": -1.9535299258981231,
+   "b_fatia_finalistas_1t": 52.85497963697134,
+   "b_fatia_finalistas_2t": 50.90144971107322,
+   "c_lider": "PT",
+   "c_margem_pt_votos": 6170774,
+   "c_margem_lider_votos": 6170774,
+   "c_margem_lider_pontos_validos": 5.232343112099345,
+   "c_pt_pct_validos_1t": 48.433863601394506,
+   "c_adv_pct_validos_1t": 43.20152048929516,
+   "d_votos": 564308,
+   "d_taxa_1t": 79.21126806427064,
+   "d_taxa_2t": 79.57367858335478,
+   "d_pontos": 0.36241051908413624,
+   "e_bn_1t": 5443146,
+   "e_bn_2t": 5688464,
+   "e_votos": 245318,
+   "e_pct_aptos_1t": 3.4946044574676765,
+   "e_pct_aptos_2t": 3.6521085620906266,
+   "e_pontos": 0.15750410462295017,
+   "f_margem_total_votos": 2132004,
+   "f_margem_ne_votos": 12572020,
+   "f_margem_fora_votos": -10440016,
+   "f_parte_ne_pct": 589.6808823998454,
+   "f_margem_total_pontos": 1.8028994221464503,
+   "f_contrib_ne_pontos": 10.631353221294901,
+   "f_margem_fora_pontos": -8.828453799148452,
+   "f_validos_ne": 32497914,
+   "f_fatia_pt_ne": 69.34281074163714,
+   "f_fatia_pt_fora": 43.91297219433634,
+   "h_secoes": 471010,
+   "h_secoes_sem_validos": 0,
+   "h_dp_simples": 17.9015530590811,
+   "h_dp_ponderado": 17.336493549633893,
+   "h_media_simples": 51.67377220942343,
+   "h_acima_80_pct": 8.502154943631771,
+   "h_abaixo_20_pct": 1.3967856308783253,
+   "h_acima_80_n": 40046,
+   "h_abaixo_20_n": 6579
+  },
+  "2026": {
+   "somas_1t": {
+    "L": 53722151,
+    "R": 55960603,
+    "O": 9292275,
+    "B": 2294982,
+    "N": 3664058,
+    "comp": 124934069,
+    "apt": 157828968,
+    "c28": 5123
+   },
+   "somas_2t": {
+    "L": 64056078,
+    "R": 59654544,
+    "O": 0,
+    "B": 1425821,
+    "N": 2718188,
+    "comp": 127854631,
+    "apt": 157828819,
+    "c28": 0
+   },
+   "validos_1t": 118969906,
+   "validos_2t": 123710622,
+   "a": 51.778963652773484,
+   "a_base_com_exterior": 51.7851828842626,
+   "b": 2.7993847847957607,
+   "b_fatia_finalistas_1t": 48.97957886797773,
+   "b_fatia_finalistas_2t": 51.77896365277349,
+   "c_lider": "adversario",
+   "c_margem_pt_votos": -2238452,
+   "c_margem_lider_votos": 2238452,
+   "c_margem_lider_pontos_validos": 1.8815279218594996,
+   "c_pt_pct_validos_1t": 45.15608426218308,
+   "c_adv_pct_validos_1t": 47.03761218404258,
+   "d_votos": 2920562,
+   "d_taxa_1t": 79.15788247440102,
+   "d_taxa_2t": 81.0084190010951,
+   "d_pontos": 1.8505365266940856,
+   "e_bn_1t": 5964163,
+   "e_bn_2t": 4144009,
+   "e_votos": -1820154,
+   "e_pct_aptos_1t": 3.7788772717566017,
+   "e_pct_aptos_2t": 2.6256351826341677,
+   "e_pontos": -1.153242089122434,
+   "f_margem_total_votos": 4401534,
+   "f_margem_ne_votos": 13653696,
+   "f_margem_fora_votos": -9252162,
+   "f_parte_ne_pct": 310.2031246379103,
+   "f_margem_total_pontos": 3.5579273055469725,
+   "f_contrib_ne_pontos": 11.03680167415212,
+   "f_margem_fora_pontos": -7.478874368605147,
+   "f_validos_ne": 35247168,
+   "f_fatia_pt_ne": 69.36850075444359,
+   "f_fatia_pt_fora": 44.77063036675009,
+   "h_secoes": 497897,
+   "h_secoes_sem_validos": 0,
+   "h_dp_simples": 17.289870960220178,
+   "h_dp_ponderado": 16.896642057964748,
+   "h_media_simples": 52.12237204800992,
+   "h_acima_80_pct": 7.148265605135198,
+   "h_abaixo_20_pct": 1.4177631116475897,
+   "h_acima_80_n": 35591,
+   "h_abaixo_20_n": 7059
+  }
+ },
+ "oficial_a_com_exterior": {
+  "2014": 51.64,
+  "2018": 44.87,
+  "2022": 50.9,
+  "2026": 51.79
+ },
+ "g_correlacoes": {
+  "2014": {
+   "municipios": 5570,
+   "so_em_2026": 1,
+   "so_no_outro_ano": 0,
+   "bruta": 0.8890969237412129,
+   "bruta_ep": 0.0024355974477350472,
+   "ponderada": 0.8154831822601488,
+   "ponderada_ep": 0.03400280832542274
+  },
+  "2018": {
+   "municipios": 5570,
+   "so_em_2026": 1,
+   "so_no_outro_ano": 0,
+   "bruta": 0.9584193113222212,
+   "bruta_ep": 0.0010425071300048053,
+   "ponderada": 0.9339017545650676,
+   "ponderada_ep": 0.008870646497487226
+  },
+  "2022": {
+   "municipios": 5570,
+   "so_em_2026": 1,
+   "so_no_outro_ano": 0,
+   "bruta": 0.9886959130873343,
+   "bruta_ep": 0.00031178219263982876,
+   "ponderada": 0.9846550491254847,
+   "ponderada_ep": 0.0011374733232551728
+  },
+  "robustez_4_anos": {
+   "municipios_nos_4_anos": 5570,
+   "bruta": {
+    "por_ano": {
+     "2014": 0.8890969237412129,
+     "2018": 0.9584193113222212,
+     "2022": 0.9886959130873343
+    },
+    "maior": 2022,
+    "diferencas_para_a_maior": {
+     "2014": {
+      "dif": 0.09959898934612144,
+      "ep": 0.002378481887622485
+     },
+     "2018": {
+      "dif": 0.030276601765113043,
+      "ep": 0.0008721531096917895
+     }
+    }
+   },
+   "ponderada": {
+    "por_ano": {
+     "2014": 0.8154831822601488,
+     "2018": 0.9339017545650676,
+     "2022": 0.9846550491254847
+    },
+    "maior": 2022,
+    "diferencas_para_a_maior": {
+     "2014": {
+      "dif": 0.16917186686533592,
+      "ep": 0.03394250439922957
+     },
+     "2018": {
+      "dif": 0.050753294560417106,
+      "ep": 0.008368335213573089
+     }
+    }
+   }
+  }
+ },
+ "i_copiado_do_F21": {
+  "faixas": [
+   "0.00-0.35",
+   "0.35-0.50",
+   "0.50-0.65",
+   "0.65-1.00"
+  ],
+  "d": {
+   "2014": [
+    0.015917151738628815,
+    -0.03378787857322674,
+    -0.0444582952432961,
+    -0.07506477289267074
+   ],
+   "2018": [
+    0.015353313803032526,
+    -0.0016951057039853862,
+    0.00344095378665793,
+    -0.005326311897434016
+   ],
+   "2022": [
+    0.01682967380367552,
+    0.03873822322668087,
+    0.037953544663615946,
+    0.042098603788457305
+   ],
+   "2026": [
+    0.000840307444457216,
+    -0.012216327518431963,
+    -0.02980856881773896,
+    -0.06517212795985433
+   ]
+  },
+  "d_ep": {
+   "2014": [
+    0.0017846198147606848,
+    0.0034044300444090957,
+    0.005073982285934144,
+    0.009477762855208583
+   ],
+   "2018": [
+    0.0016784517649952539,
+    0.003853446445032348,
+    0.004611123766409855,
+    0.007317996767623701
+   ],
+   "2022": [
+    0.0018240347430837293,
+    0.0021668180539400075,
+    0.0026253377979215528,
+    0.005073144997617005
+   ],
+   "2026": [
+    0.0021455938686060364,
+    0.0025319096623252647,
+    0.002990290163662757,
+    0.004712880907212315
+   ]
+  },
+  "A": {
+   "2014": [
+    -0.0010660623220847833,
+    0.001490315602303863
+   ],
+   "2018": [
+    0.01106136099763667,
+    0.0014314796798814008
+   ],
+   "2022": [
+    0.029321408955282315,
+    0.0011973755191614721
+   ],
+   "2026": [
+    -0.01507519108491634,
+    0.0013735134719924276
+   ]
+  },
+  "erro_pesquisa_pt": {
+   "2014": -0.8608638976346441,
+   "2018": -0.6302312800305785,
+   "2022": -2.097594882827842,
+   "2026": 2.7851828842626034
+  },
+  "fonte": "resultados/F21_serie_anos.json (A_serie_principal e serie)"
+ },
+ "semelhanca_principal": {
+  "a": {
+   "distancia": {
+    "2014": 0.10306836933178687,
+    "2018": 6.881045810638817,
+    "2022": 0.8775139417002578
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "rotulo": "fatia do PT nos válidos, 2º turno (%)",
+   "valores": {
+    "2014": 51.6758952834417,
+    "2018": 44.89791784213467,
+    "2022": 50.90144971107323,
+    "2026": 51.778963652773484
+   }
+  },
+  "b": {
+   "distancia": {
+    "2014": 6.510511256514278,
+    "2018": 3.1818317062860366,
+    "2022": 4.752914710693884
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2022,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true,
+   "rotulo": "variação da fatia do PT, 1º para 2º turno",
+   "valores": {
+    "2014": -3.7111264717185177,
+    "2018": 5.981216491081797,
+    "2022": -1.9535299258981231,
+    "2026": 2.7993847847957607
+   }
+  },
+  "c": {
+   "distancia": {
+    "2014": 1.0,
+    "2018": 0.0,
+    "2022": 1.0
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2014,
+    2022
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false,
+   "rotulo": "lado do líder do 1º turno",
+   "valores": {
+    "2014": "PT",
+    "2018": "adversario",
+    "2022": "PT",
+    "2026": "adversario"
+   }
+  },
+  "d": {
+   "distancia": {
+    "2014": 3.5627375384938915,
+    "2018": 2.823892277174508,
+    "2022": 1.4881260076099494
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true,
+   "rotulo": "variação do comparecimento (pontos dos aptos)",
+   "valores": {
+    "2014": -1.7122010117998059,
+    "2018": -0.9733557504804224,
+    "2022": 0.36241051908413624,
+    "2026": 1.8505365266940856
+   }
+  },
+  "e": {
+   "distancia": {
+    "2014": 1.6230937382449793,
+    "2018": 1.6812963743985514,
+    "2022": 1.3107461937453841
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false,
+   "rotulo": "variação de brancos+nulos (pontos dos aptos)",
+   "valores": {
+    "2014": -2.7763358273674132,
+    "2018": 0.5280542852761174,
+    "2022": 0.15750410462295017,
+    "2026": -1.153242089122434
+   }
+  },
+  "f": {
+   "distancia": {
+    "2014": 35.28964713698514,
+    "2018": 417.56671673454855,
+    "2022": 279.47775776193504
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "rotulo": "parte da margem do PT vinda do Nordeste (%)",
+   "valores": {
+    "2014": 345.49277177489546,
+    "2018": -107.36359209663826,
+    "2022": 589.6808823998454,
+    "2026": 310.2031246379103
+   }
+  },
+  "g": {
+   "distancia": {
+    "2014": -0.8890969237412129,
+    "2018": -0.9584193113222212,
+    "2022": -0.9886959130873343
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true,
+   "rotulo": "correlação municipal com 2026 (bruta)",
+   "valores": {
+    "2014": 0.8890969237412129,
+    "2018": 0.9584193113222212,
+    "2022": 0.9886959130873343,
+    "2026": 1.0
+   }
+  },
+  "h": {
+   "distancia": {
+    "2014": 2.7660665309919104,
+    "2018": 4.600583334182716,
+    "2022": 0.6116820988609213
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false,
+   "rotulo": "desvio-padrão simples entre seções (pontos)",
+   "valores": {
+    "2014": 20.055937491212088,
+    "2018": 21.890454294402893,
+    "2022": 17.9015530590811,
+    "2026": 17.289870960220178
+   }
+  },
+  "i1": {
+   "distancia": {
+    "2014": 0.01529769167683498,
+    "2018": 0.029532391709959773,
+    "2022": 0.06049419058349942
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2018,
+    2022
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "rotulo": "curva por faixa, F21 (distância a 2026)",
+   "valores": {
+    "2014": [
+     0.015917151738628815,
+     -0.03378787857322674,
+     -0.0444582952432961,
+     -0.07506477289267074
+    ],
+    "2018": [
+     0.015353313803032526,
+     -0.0016951057039853862,
+     0.00344095378665793,
+     -0.005326311897434016
+    ],
+    "2022": [
+     0.01682967380367552,
+     0.03873822322668087,
+     0.037953544663615946,
+     0.042098603788457305
+    ],
+    "2026": [
+     0.000840307444457216,
+     -0.012216327518431963,
+     -0.02980856881773896,
+     -0.06517212795985433
+    ]
+   }
+  },
+  "i2": {
+   "distancia": {
+    "2014": 3.6460467818972475,
+    "2018": 3.415414164293182,
+    "2022": 4.882777767090445
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2014,
+    2022
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false,
+   "rotulo": "erro das pesquisas no PT, F21 (pontos)",
+   "valores": {
+    "2014": -0.8608638976346441,
+    "2018": -0.6302312800305785,
+    "2022": -2.097594882827842,
+    "2026": 2.7851828842626034
+   }
+  }
+ },
+ "contagem_principal": {
+  "2014_mais_perto": 3,
+  "metricas": 10,
+  "por_ano_mais_perto": {
+   "2014": 3,
+   "2018": 3,
+   "2022": 4
+  }
+ },
+ "semelhanca_desagregada": {
+  "a": {
+   "distancia": {
+    "2014": 0.10306836933178687,
+    "2018": 6.881045810638817,
+    "2022": 0.8775139417002578
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false
+  },
+  "b": {
+   "distancia": {
+    "2014": 6.510511256514278,
+    "2018": 3.1818317062860366,
+    "2022": 4.752914710693884
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2022,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "c": {
+   "distancia": {
+    "2014": 1.0,
+    "2018": 0.0,
+    "2022": 1.0
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2014,
+    2022
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "d_votos": {
+   "distancia": {
+    "2014": 5359934,
+    "2018": 4349506,
+    "2022": 2356254
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "d_pontos": {
+   "distancia": {
+    "2014": 3.5627375384938915,
+    "2018": 2.823892277174508,
+    "2022": 1.4881260076099494
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "e_votos": {
+   "distancia": {
+    "2014": 2135251,
+    "2018": 2595365,
+    "2022": 2065472
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "e_pontos": {
+   "distancia": {
+    "2014": 1.6230937382449793,
+    "2018": 1.6812963743985514,
+    "2022": 1.3107461937453841
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "f_parte": {
+   "distancia": {
+    "2014": 35.28964713698514,
+    "2018": 417.56671673454855,
+    "2022": 279.47775776193504
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false
+  },
+  "f_fora_pontos": {
+   "distancia": {
+    "2014": 0.7495291981263632,
+    "2018": 13.680847299937298,
+    "2022": 1.3495794305433053
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false
+  },
+  "g_bruta": {
+   "distancia": {
+    "2014": -0.8890969237412129,
+    "2018": -0.9584193113222212,
+    "2022": -0.9886959130873343
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "g_ponderada": {
+   "distancia": {
+    "2014": -0.8154831822601488,
+    "2018": -0.9339017545650676,
+    "2022": -0.9846550491254847
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "h_dp_simples": {
+   "distancia": {
+    "2014": 2.7660665309919104,
+    "2018": 4.600583334182716,
+    "2022": 0.6116820988609213
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "h_dp_ponderado": {
+   "distancia": {
+    "2014": 2.827357168583834,
+    "2018": 4.444321259892362,
+    "2022": 0.4398514916691454
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "h_acima_80": {
+   "distancia": {
+    "2014": 3.5512315159296337,
+    "2018": 3.2036606549953275,
+    "2022": 1.3538893384965727
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true
+  },
+  "h_abaixo_20": {
+   "distancia": {
+    "2014": 2.4809507147189698,
+    "2018": 6.436934785434863,
+    "2022": 0.020977480769264423
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2014,
+    2018
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  },
+  "i1": {
+   "distancia": {
+    "2014": 0.01529769167683498,
+    "2018": 0.029532391709959773,
+    "2022": 0.06049419058349942
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2018,
+    2022
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false
+  },
+  "i2": {
+   "distancia": {
+    "2014": 3.6460467818972475,
+    "2018": 3.415414164293182,
+    "2022": 4.882777767090445
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2014,
+    2022
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": false
+  }
+ },
+ "contagem_desagregada": {
+  "2014_mais_perto": 4,
+  "numeros": 17,
+  "por_ano_mais_perto": {
+   "2014": 4,
+   "2018": 3,
+   "2022": 10
+  }
+ },
+ "diferencas_marcantes_2014_2026_regra_D13": [
+  {
+   "item": "lado do líder do 1º turno (c)",
+   "2014": "PT",
+   "2026": "adversario",
+   "diferente": true
+  },
+  {
+   "item": "lado do vencedor do 2º turno (sinal de a - 50)",
+   "2014": "PT",
+   "2026": "PT",
+   "diferente": false
+  },
+  {
+   "item": "sinal da variação da fatia do PT entre finalistas (b)",
+   "2014": -3.7111264717185177,
+   "2026": 2.7993847847957607,
+   "diferente": true
+  },
+  {
+   "item": "sinal da variação do comparecimento em votos (d)",
+   "2014": -2439372,
+   "2026": 2920562,
+   "diferente": true
+  },
+  {
+   "item": "sinal da variação do comparecimento em pontos (d)",
+   "2014": -1.7122010117998059,
+   "2026": 1.8505365266940856,
+   "diferente": true
+  },
+  {
+   "item": "sinal da variação de brancos+nulos em votos (e)",
+   "2014": -3955405,
+   "2026": -1820154,
+   "diferente": false
+  },
+  {
+   "item": "sinal da variação de brancos+nulos em pontos (e)",
+   "2014": -2.7763358273674132,
+   "2026": -1.153242089122434,
+   "diferente": false
+  },
+  {
+   "item": "sinal da parte do Nordeste (f)",
+   "2014": 345.49277177489546,
+   "2026": 310.2031246379103,
+   "diferente": false
+  },
+  {
+   "item": "sinal da margem do PT fora do Nordeste (f)",
+   "2014": -8673321,
+   "2026": -9252162,
+   "diferente": false
+  },
+  {
+   "item": "sinal de d na faixa 0,00-0,35 (i1)",
+   "2014": 0.015917151738628815,
+   "2026": 0.000840307444457216,
+   "diferente": false
+  },
+  {
+   "item": "sinal de d na faixa 0,35-0,50 (i1)",
+   "2014": -0.03378787857322674,
+   "2026": -0.012216327518431963,
+   "diferente": false
+  },
+  {
+   "item": "sinal de d na faixa 0,50-0,65 (i1)",
+   "2014": -0.0444582952432961,
+   "2026": -0.02980856881773896,
+   "diferente": false
+  },
+  {
+   "item": "sinal de d na faixa 0,65-1,00 (i1)",
+   "2014": -0.07506477289267074,
+   "2026": -0.06517212795985433,
+   "diferente": false
+  },
+  {
+   "item": "sinal do erro das pesquisas no PT (i2)",
+   "2014": -0.8608638976346441,
+   "2026": 2.7851828842626034,
+   "diferente": true
+  }
+ ],
+ "leitura_fixada": "semelhança numa métrica de resultado, composição ou comportamento (todas de P2) não é indício de fraude, porque eleições limpas com a mesma geografia se parecem",
+ "parametros": {
+  "semente": 20261107,
+  "bootstrap": 2000,
+  "nordeste": [
+   "AL",
+   "BA",
+   "CE",
+   "MA",
+   "PB",
+   "PE",
+   "PI",
+   "RN",
+   "SE"
+  ]
+ },
+ "desvios": [
+  "D1. Universo: por ano, seções com os dois turnos e sem o exterior, sem ligar seções entre anos; seções com um turno anulado ficam como a base as registra (1 em 2014, 3 em 2018); seções sem válidos no 2º turno saem só de (h).",
+  "D2. 2026: votos do 28 cassado (c28, 1º turno) contados como nulo, como no total oficial.",
+  "D3. (a) = L/(L+R) do 2º turno no universo; conferência com exterior contra o oficial.",
+  "D4. (b) = diferença de L/(L+R) entre os turnos, somas do universo, em pontos.",
+  "D5. (c) semelhança = mesmo lado do líder (PT ou adversário); a margem não desempata.",
+  "D6. (d) semelhança pela variação em pontos dos aptos; em votos só na contagem desagregada.",
+  "D7. (e) idem com brancos+nulos.",
+  "D8. (f) parte = margem do Nordeste / margem total; com margem total negativa (2018) a parte fica negativa, sem reinterpretar; margem fora do Nordeste em pontos só na contagem desagregada.",
+  "D9. (g) Pearson por município (UF|código), bruta (primária) e ponderada pelos válidos de 2026; bootstrap de municípios (2.000, semente 20261107); robustez nos municípios dos 4 anos com bootstrap pareado.",
+  "D10. (h) semelhança pelo desvio-padrão simples (seção como unidade); ponderado e frações só na desagregada; frações com desigualdade estrita.",
+  "D11. (i) copiado do F21 sem recalcular e contado como duas métricas: (i1) curva por faixa (distância = média das diferenças absolutas de d nas 4 faixas, universo do F21) e (i2) erro das pesquisas.",
+  "D12. Contagem principal em 10 métricas; empate exato conta para todos os empatados; contagem desagregada em 17 números como robustez.",
+  "D13. \"Diferente de modo marcante\" = categoria ou sinal diferente (lista fixada antes); diferença só de nível não entra.",
+  "D14. (a) a (f) e (h) são contas sobre todas as seções, sem erro amostral; (g) com bootstrap; (i) com os erros-padrão do F21.",
+  "D15. Distâncias com os números sem arredondar."
+ ],
+ "exploratorio_depois_de_ver": {
+  "nota": "exploratório, depois de ver o resultado; não entra na contagem nem na leitura",
+  "f_contrib_ne_pontos": {
+   "distancia": {
+    "2014": 0.5433924594627779,
+    "2018": 0.08124432134033377,
+    "2022": 0.4054484528572182
+   },
+   "mais_perto": [
+    2018
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2018,
+    2022,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true,
+   "valores": {
+    "2014": 11.580194133614897,
+    "2018": 10.955557352811786,
+    "2022": 10.631353221294901,
+    "2026": 11.03680167415212
+   }
+  },
+  "f_margem_total_pontos": {
+   "distancia": {
+    "2014": 0.2061367386635844,
+    "2018": 13.762091621277634,
+    "2022": 1.7550278834005222
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "valores": {
+    "2014": 3.351790566883388,
+    "2018": -10.204164315730662,
+    "2022": 1.8028994221464503,
+    "2026": 3.5579273055469725
+   }
+  },
+  "f_fatia_pt_ne": {
+   "distancia": {
+    "2014": 2.309856667244105,
+    "2018": 0.32177410943242535,
+    "2022": 0.025690012806450113
+   },
+   "mais_perto": [
+    2022
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2022,
+    2018,
+    2014
+   ],
+   "2014_mais_perto": false,
+   "2014_mais_longe": true,
+   "valores": {
+    "2014": 71.67835742168769,
+    "2018": 69.69027486387601,
+    "2022": 69.34281074163714,
+    "2026": 69.36850075444359
+   }
+  },
+  "f_fatia_pt_fora": {
+   "distancia": {
+    "2014": 0.38415474088664325,
+    "2018": 9.428179969613964,
+    "2022": 0.8576581724137498
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "valores": {
+    "2014": 44.38647562586345,
+    "2018": 35.342450397136126,
+    "2022": 43.91297219433634,
+    "2026": 44.77063036675009
+   }
+  },
+  "a_oficial_com_exterior": {
+   "distancia": {
+    "2014": 0.14999999999999858,
+    "2018": 6.920000000000002,
+    "2022": 0.8900000000000006
+   },
+   "mais_perto": [
+    2014
+   ],
+   "empate": false,
+   "ordem_do_mais_perto_ao_mais_longe": [
+    2014,
+    2022,
+    2018
+   ],
+   "2014_mais_perto": true,
+   "2014_mais_longe": false,
+   "valores": {
+    "2014": 51.64,
+    "2018": 44.87,
+    "2022": 50.9,
+    "2026": 51.79
+   }
+  },
+  "g_ordem_bruta": [
+   2022,
+   2018,
+   2014
+  ],
+  "g_ordem_ponderada": [
+   2022,
+   2018,
+   2014
+  ]
+ }
+}

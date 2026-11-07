@@ -1,0 +1,76 @@
+ADENDO 26: CHECAGEM DA POSTAGEM "2014 PARECIDA COM 2026" (FELIPE CECÍLIO, X) (RESULTADOS)
+
+Registro: Adendo 26, commit 5174ff5 (07/11/2026 13:57:56 UTC), antes de rodar. Cada parte refeita por outro agente.
+Detalhes, números e correções em resultados/testes_adendo26_com_conferencia.json.
+
+RESUMO EM UMA LINHA
+A postagem não diz quais métricas. Nas que medimos, 2014 se parece com 2026 no resultado final, no peso do
+Nordeste e na curva por faixa, e é o oposto em quem liderou o 1º turno, no comparecimento e no erro das pesquisas.
+Os testes de perícia não acusam nada em 2026. A auditoria do PSDB de 2014 não achou fraude na totalização e deixou
+em aberto a votação dentro da urna e um padrão por modelo de urna.
+
+P1, o que o autor disse e o caso de 2014 (pesquisa)
+  Métricas: em nenhuma fonte pública aberta o autor diz quais são. A postagem (07/11/2026 13:13 UTC) não tem imagem,
+  link nem fio. O que ele já alegou sobre 2026 foi checado no repositório (checagens/reel_felipe_cecilio, post_84s,
+  post_passo_a_passo); nenhuma dessas falas cita 2014.
+  Auditoria do PSDB: pedida em 30/10/2014; TSE autorizou o acesso aos dados em 04/11/2014; relatório de 04/11/2015
+  (217 páginas, público). Conclusões:
+    - transmissão e totalização conferidas com 8.207 boletins impressos, sem fraude nem erro sistemático;
+    - a votação dentro da urna não pôde ser auditada com as regras de 2014 ("não foi possível se determinar a
+      confiabilidade dos resultados produzidos pelas urnas eletrônicas");
+    - deixou em aberto um padrão bruto por modelo de urna (pp. 135 e 136): margem de Dilma de +6,40 pontos nas urnas
+      com biometria e +2,64 nas sem; +5,88 nas com circuito MSD e -3,88 nas sem. Os auditores escrevem que não
+      tiveram condições de verificar se isso veio de software adulterado. A comparação é bruta, sem controle do
+      lugar, e a tabela do MSD soma votos a mais que o total oficial.
+  Totalização de 2014: divulgação só a partir de 20h de Brasília. Na contagem interna Aécio liderou até 19h32, quando
+  Dilma passou com 88,9% apurado; a primeira parcial pública já a mostrava à frente. Causa documentada: ordem de
+  chegada por fuso (Sudeste primeiro, Nordeste depois). A conta por grupos de fuso reproduz uma troca com 88,3% dos
+  válidos. Em 2026 o mecanismo foi o mesmo (ordem de chegada por região) com a geografia invertida: o Sudeste chegou
+  por último. Dentro do mesmo local, a posição na fila não muda a virada (L8: +0,01 ponto, ep 0,06).
+  Correção da conferência: o primeiro relatório dizia que em 2026 todas as seções fecharam às 17h; houve prorrogação
+  até 19h (8.814 seções fechadas depois das 17h16, cerca de 34 mil votos).
+
+P2, métricas lado a lado (descritivo)
+  Ano mais perto de 2026 em cada métrica registrada: 2014 em 3 de 10, 2018 em 3, 2022 em 4. 2014 não se destaca; duas
+  das três métricas em que ganha contam o mesmo fato (duas vitórias apertadas do PT).
+                                      2014     2018     2022     2026
+    Fatia do PT no 2º turno (oficial) 51,64    44,87    50,90    51,79    mais perto: 2014
+    Líder do 1º turno                 PT       advers.  PT       advers.  mesmo lado: só 2018
+    Virada do PT entre os turnos      -3,71    +5,98    -1,95    +2,80    pontos entre os finalistas
+    Comparecimento entre os turnos    -1,71    -0,97    +0,36    +1,85    pontos dos aptos
+    Brancos mais nulos                -2,78    +0,53    +0,16    -1,15    pontos dos aptos
+    Erro das pesquisas no PT          -0,86    -0,63    -2,10    +2,79    urna menos pesquisa
+    Correlação municipal com 2026     0,889    0,958    0,989    -
+  Parecido: fatia final (51,64 e 51,79, o par mais próximo da série desde 1989), peso do Nordeste, curva por faixa
+  (F21) e queda de brancos e nulos. Nos dois anos havia presidente do PT tentando a reeleição.
+  Oposto: em 2014 o PT liderou o 1º turno e caiu no 2º; em 2026 o PT estava atrás e subiu. O comparecimento caiu em
+  2014 e subiu em 2026. A urna ficou abaixo das pesquisas para o PT em 2014 e acima em 2026. 2026 é o único ano de
+  1989 a 2026 em que o 2º colocado do 1º turno venceu o 2º.
+  Leitura fixada: semelhança nessas métricas não é indício de fraude.
+
+P3, padrões de perícia eleitoral (veredito por ano, pela letra)
+  2014 SINAL e 2018 SINAL, os dois só no 1º turno; 2022 e 2026 SEM SINAL. No 2º turno de 2014, o citado na
+  postagem, nada bate. Pela leitura registrada, como 2026 não tem sinal, a semelhança com 2014 não pesa.
+  Os sinais de 2014 e 2018 (exploratório, depois do resultado):
+    - Último dígito (Aécio 2014 e Haddad 2018, 1º turno): sorteios limpos do mesmo modelo reproduzem o desvio do
+      dígito 0, que vem de candidatos com muitas contagens pequenas. Não é marca de manipulação.
+    - Canto de enchimento do PT no 1º turno de 2014 (433 seções, 4,6 vezes os outros anos): 230 em Pernambuco, 175 em
+      Recife, onde os 90% "entre os finalistas" vêm de tirar Marina da conta (o PT tinha 31% dos válidos ali), com
+      comparecimento alto compatível com o cadastro enxugado pela revisão biométrica. Fora de PE fica 2,3 vezes.
+    - O canto também passa de 3 vezes do lado do adversário: Bolsonaro em 2018, nos dois turnos (SC e RS).
+  O que pesa a favor da postagem, com o mesmo rigor: no canto do PT do 2º turno, 2026 é o mais alto dos quatro anos
+  (117 seções em 497.897, 1,75 vez a média dos outros, ep 0,30) e 2014 o segundo. Fica abaixo do limiar de 3 e são
+  uns 50 seções a mais, espalhadas por 89 municípios.
+  Transparência: o limiar de 0,5 ponto do último dígito foi fixado quando o F2 já mostrava 0,31 em 2026, então o
+  SEM SINAL de 2026 nesse item era previsível. Com limiar de 0,3, Lula no 1º turno bateria; no modelo limpo do F2, o
+  qui-quadrado observado fica na média dos sorteios.
+
+LEITURA
+1. A postagem não dá métrica, então não pode ser conferida pelo que diz. Nas métricas medidas, 2014 não é o ano
+   mais parecido com 2026; se parece no resultado apertado do PT e na geografia, e é o oposto na dinâmica.
+2. Os padrões de perícia não acusam 2026. Os "sinais" de 2014 e 2018 são do 1º turno e têm explicação mecânica.
+3. A auditoria de 2014 é o melhor precedente para o argumento de auditabilidade, não para fraude: confirmou a
+   totalização e disse que a urna, por dentro, não era auditável com as regras da época.
+4. Pista que fica: o padrão por modelo de urna de 2014 que os auditores deixaram em aberto. Em 2026, o padrão bruto
+   por modelo se explicou pelo local de votação (F4, F10 e F16). Pode ser testado para 2014 dentro do local, com
+   registro novo, se o modelo puder ser tirado do número da urna na base de 2014.

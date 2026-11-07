@@ -1,0 +1,835 @@
+{
+ "teste": "P1 do Adendo 26: o que o autor disse e o caso de 2014 (pesquisa, sem veredito)",
+ "registro": {
+  "arquivo": "PRE-REGISTRO-2026-10-26.md",
+  "secao": "Adendo 26, P1",
+  "commit": "5174ff5",
+  "commit_utc": "2026-11-07T13:57:56Z"
+ },
+ "executado_utc": "2026-11-07T13:59Z a 14:20Z",
+ "veredito": "DESCRITIVO",
+ "item1_autor": {
+  "disse_quais_metricas": false,
+  "metricas_citadas_pelo_autor": [],
+  "postagem": {
+   "url": "https://x.com/FelipeCecilio_/status/2119055575778570626",
+   "criada_utc": "2026-11-07T13:13:14Z",
+   "texto_literal": "Algumas métricas do segundo turno da eleição presidencial de 2014 são muito semelhantes às observadas agora. Há padrões estatísticos que levantam questionamentos e merecem uma investigação rigorosa. Se forem comprovadas irregularidades, isso poderá lançar dúvidas também sobre a legitimidade daquele pleito. O Brasil pode estar vivendo uma mentira há 12 anos!",
+   "midia_link_citacao": null,
+   "fio_do_autor": false,
+   "contagem_14h00_utc": {
+    "curtidas": 229,
+    "repostagens": 35,
+    "respostas": 15,
+    "citacoes": 2,
+    "visualizacoes": 1903
+   },
+   "respostas_visiveis_sem_login": 3,
+   "respostas_do_autor_visiveis": 0
+  },
+  "falas_anteriores_literais": [
+   {
+    "texto": "A matemática não está batendo",
+    "fonte": "Edson Valério, 30/10/2026 (citando Brazil Urgente)"
+   },
+   {
+    "texto": "No primeiro turno sinceramente não sei como um candidato tão fraco igual o Flávio teve quase 50% dos votos válidos, mas o fato é que ele teve, e a partir daí precisa seguir um padrão, uma lógica. E essa lógica não foi seguida no segundo turno",
+    "fonte": "Metrópoles, 02/11/2026, vídeo dele no Instagram (não visto: Instagram exige login)"
+   }
+  ],
+  "onde_procurei": [
+   "X: perfil e postagem sem login (abertos); abas Respostas e Mídia (login, parei)",
+   "Instagram felipececilio.reserva (login, parei)",
+   "YouTube: busca e canal @felipececilio1858 (abertos; só vídeos de 2022); página de vídeo de terceiros sobre a recompensa (captcha do Google, parei)",
+   "Busca web por nome, contas, frase e 2014 (nada além da postagem)",
+   "180graus (403)"
+  ],
+  "comparacoes_2014_2026_de_terceiros_antes_da_postagem": [
+   "Datafolha 15/10/2014 Aécio 51 x Dilma 49 e 15/10/2026 Flávio 51 x Lula 49 (Congresso em Foco 16/10/2026; Brasil de Fato 21/10/2026)",
+   "Times Brasil 22/10/2026: Dilma liderou o 1º turno de 2014; não houve virada"
+  ]
+ },
+ "item2_auditoria_psdb": {
+  "pedido": {
+   "data": "2014-10-30",
+   "processo": "Apuração de Eleição 1578-04 (157804)",
+   "quem": [
+    "Carlos Henrique Focesi Sampaio (Coordenador Jurídico PSDB)",
+    "João Almeida dos Santos (Delegado Nacional)"
+   ],
+   "o_que": "auditoria nos sistemas de votação e totalização por comissão de especialistas indicados pelos partidos: BUs de todas as seções, documentos das seções, memória de resultados, logs originais das urnas, logs de transmissão, ordens de serviço, programas de totalização, programas e arquivos obtidos diretamente de urnas sorteadas em todos os estados (10 cidades por estado)",
+   "motivos_alegados": [
+    "desconfiança nas redes sociais",
+    "espera pelo Acre e revelação às 20h de resultado definido",
+    "fim do voto impresso",
+    "petição online com mais de 60.000 assinaturas"
+   ]
+  },
+  "tse_autorizou": {
+   "data": "2014-11-04",
+   "placar": "unânime",
+   "relator": "Dias Toffoli",
+   "decisao": "deferiu o acesso aos dados e programas nos termos da Res.-TSE 23.397/2013, com custos para o PSDB; negou a comissão de partidos (delegado sem legitimidade)",
+   "acordao_publicado": "2014-11-20",
+   "pareceres": "PGE pelo indeferimento; STI por atender dentro das Res. 23.397 e 23.399 (extrato dos auditores)"
+  },
+  "quem_fez": {
+   "entidades": [
+    "Comitê Multidisciplinar Independente (CMind)",
+    "Instituto Brasileiro de Peritos",
+    "EPUSP",
+    "ITA"
+   ],
+   "autores_do_extrato": [
+    "Amílcar Brunazo Filho",
+    "Marco A. M. Carvalho",
+    "Márcio C. Teixeira",
+    "Marcos A. Simplicio Jr.",
+    "Clovis T. Fernandes"
+   ],
+   "outros_auditores": [
+    "Edson S. Gomi",
+    "Felipe R. Campos",
+    "Giuliano Giova",
+    "Gustavo Batistuzzo",
+    "Ney C. Dória Jr.",
+    "Wanderley J. Abreu Jr."
+   ],
+   "recusados_pelo_tse": [
+    "Rodrigo Branco",
+    "J. Alex Halderman"
+   ],
+   "custo_aprox": "R$ 1 milhão (PSDB)",
+   "inicio_efetivo": "janeiro de 2015",
+   "ultima_diligencia": "2015-06-22"
+  },
+  "relatorio_final": {
+   "apresentado_pelo_psdb": "2015-11-04",
+   "lido_no_tse": "2015-11-05",
+   "paginas": "217 (CNN 2022) ou 223 (Tribuna do Paraná 2015)",
+   "texto_integral_obtido": false,
+   "conclusoes_literais_fraude": [
+    "não foram encontrados indícios de fraudes ou de erros sistemáticos que pudessem alterar os resultados depois que estes saem das urnas eletrônicas (extrato)",
+    "a transmissão dos resultados pôde ser auditada e não mostrou sinais de erro (relatório, via CNN)",
+    "considera-se impossível determinar a integridade do software usado e, portanto, se foram justos o registro e a apuração dos votos no 2º turno da eleição de 2014 (extrato)",
+    "Fraudes na Votação são possíveis mas costumam ser localizadas e sem potencial de alterar significativamente uma eleição presidencial (relatório, via CNN)",
+    "As demais denúncias de fraudes foram consideradas falsas ou apenas falhas localizadas (sem potencial de afetar o resultado) (relatório, via CNN)"
+   ],
+   "conclusoes_literais_auditabilidade": [
+    "Claramente, o sistema eletrônico de votação do TSE não foi projetado para permitir uma auditoria externa independente e efetiva dos resultados que publica (relatório, via CNN)",
+    "não foi possível se determinar a confiabilidade dos resultados produzidos pelas urnas eletrônicas (relatório, via CNN)",
+    "não foi possível reconstruir o gráfico da totalização no tempo dos votos, dado que o TSE não mantém documentos de auditoria que permitam saber em que momento cada BU foi totalizado (extrato)"
+   ],
+   "recomendacoes": [
+    "voto impresso",
+    "testes por amostragem",
+    "unificação do horário de encerramento",
+    "biometria",
+    "Conselho de Acompanhamento das Eleições"
+   ]
+  },
+  "resposta_tse": {
+   "data": "2015-11-05",
+   "toffoli": "O objetivo da auditoria era verificar a lisura das eleições de 2014, ou seja, averiguar a integridade das urnas eletrônicas e sistemas adjacentes, buscando evidências que comprovassem alguma suspeita ou tese de fraude, e volto a dizer que não foi encontrada nenhuma evidência em tal sentido",
+   "horario_unico": "A mudança poderá ser implementada para as eleições de 2018",
+   "votacao_paralela_biometrica": "A medida já está em estudo por este tribunal"
+  },
+  "politicos_depois": [
+   {
+    "quem": "Carlos Sampaio",
+    "data": "2015-11-04",
+    "texto": "Não temos elementos para afirmar que não houve fraudes no processo de votação, uma vez que o modelo de auditoria imposto pelo Tribunal Superior Eleitoral não se enquadra em qualquer modelo reconhecido e padronizado por entidades internacionais"
+   },
+   {
+    "quem": "Jair Bolsonaro",
+    "data": "2021-07-07",
+    "texto": "O Aécio foi eleito em 2014"
+   },
+   {
+    "quem": "Jair Bolsonaro",
+    "data": "2021-07-29",
+    "texto": "Não tem como comprovar que as eleições foram ou não foram fraudadas. Vamos apresentar vários indícios aqui"
+   },
+   {
+    "quem": "Aécio Neves",
+    "data": "2021-07-08",
+    "texto": "Eu não acredito que tenha havido fraudes nas urnas em 2014, tampouco acredito que nós estejamos fadados a viver eternamente com as urnas eletrônicas de primeira geração"
+   },
+   {
+    "quem": "PSDB",
+    "data": "2021",
+    "texto": "o PSDB considera as eleições de 2014 limpas e confia nas urnas eletrônicas. Estará sempre na defesa da democracia"
+   }
+  ]
+ },
+ "item3_totalizacao_2014": {
+  "votacao": "8h às 17h hora local; Brasília em horário de verão (UTC-2); Acre e oeste do AM em UTC-5",
+  "embargo": "Res.-TSE 23.399/2013, art. 210, I: presidente só a partir das 17h do fuso do Acre (20h de Brasília); regra igual em 2006 e 2010",
+  "totalizacao_interna": "17h01 de 26/10 a 02h13 de 27/10; 333 parciais (CNN 29/07/2021)",
+  "lider_interno_inicial": "Aécio; 18h32 Aécio 55,4% x Dilma 44,56% (O Tempo)",
+  "troca": "19h32, 88,9% apurado, Dilma 50,05%; única troca de liderança (Folhapress; Bahia Notícias; CNN)",
+  "primeira_parcial_publica": "logo após 20h, cerca de 95% apurado, Dilma à frente",
+  "parciais_publicas": {
+   "20h22": "Dilma 51,38% x Aécio 48,62%",
+   "20h27": "98% apurado, Dilma 51,45%, eleita"
+  },
+  "explicacao_documentada": [
+   "TSE à CNN (21/07/2021): ordem de soma dos BUs impactada pelos fusos e pelo horário de verão; totalização começou pelo Sudeste; com o Nordeste o cenário se inverteu",
+   "TSE Fato ou Boato 2021 (via O Tempo): se os BUs do Norte e Nordeste tivessem sido processados antes, não teria havido inversão"
+  ],
+  "comparacao_2026": {
+   "fonte_repositorio": [
+    "resultados/contexto_2t_2026_pesquisa_verificada.json",
+    "checagens/relatorio_pericial_instagram/checagem_e_conferencias.json",
+    "resultados/CACA_AO_FURO.txt"
+   ],
+   "linha_do_tempo_2026": [
+    "17h06: 0,25%, Lula 57,66%",
+    "17h23 a 19h: divulgação suspensa (prorrogação)",
+    "19h39: 10,40%, Lula 50,46%",
+    "19h46/47: 13,98%, Flávio 50,03%",
+    "20h11: 30,82%, Flávio +333.291",
+    "20h26/28: 48,42% a 50,12%, Lula volta à frente",
+    "21h10: 98,27%, definido",
+    "22h34: fim"
+   ],
+   "flavio_ganhou_ate_17h": "refere-se a urnas encerradas até 17h00 no relógio local, não à divulgação; no relógio de Brasília nenhuma seção fechou antes de 17:00:00; seções fechadas até 17:02:59 de Brasília: Lula +1.173.910",
+   "semelhanca": "nos dois anos o adversário do PT esteve à frente em parte da contagem e o PT terminou à frente",
+   "diferencas": [
+    "2014: liderança de Aécio só na totalização interna, antes do embargo; 2026: trocas públicas",
+    "2014: ordem explicada por fusos e horário de verão; 2026: votação e fechamento às 17h de Brasília no país todo; causa da ordem de chegada não documentada no repositório"
+   ]
+  }
+ },
+ "item3_exploratorio": {
+  "marcado_exploratorio": true,
+  "script": "/home/user/trabalho-eleicao/adendo26/P1/scripts/ordem_fuso_2014.py",
+  "saida": "/home/user/trabalho-eleicao/adendo26/P1/saida/ordem_fuso_2014.json",
+  "grupos": {
+   "17h": {
+    "secoes": 261005,
+    "L": 28587348,
+    "R": 37956456,
+    "validos": 66543804,
+    "pct_dilma": 42.96,
+    "pct_aecio": 57.04,
+    "margem_dilma": -9369108
+   },
+   "18h": {
+    "secoes": 154072,
+    "L": 24248634,
+    "R": 11597906,
+    "validos": 35846540,
+    "pct_dilma": 67.646,
+    "pct_aecio": 32.354,
+    "margem_dilma": 12650728
+   },
+   "19h": {
+    "secoes": 11222,
+    "L": 1495095,
+    "R": 1138995,
+    "validos": 2634090,
+    "pct_dilma": 56.759,
+    "pct_aecio": 43.241,
+    "margem_dilma": 356100
+   },
+   "20h": {
+    "secoes": 1637,
+    "L": 138982,
+    "R": 243677,
+    "validos": 382659,
+    "pct_dilma": 36.32,
+    "pct_aecio": 63.68,
+    "margem_dilma": -104695
+   },
+   "exterior": {
+    "secoes": 916,
+    "L": 31059,
+    "R": 104121,
+    "validos": 135180,
+    "pct_dilma": 22.976,
+    "pct_aecio": 77.024,
+    "margem_dilma": -73062
+   }
+  },
+  "acumulado_ordem_estrita": [
+   {
+    "ate_grupo": "17h",
+    "fracao_validos": 63.13,
+    "fracao_secoes": 60.99,
+    "pct_dilma_acumulado": 42.96,
+    "margem_dilma_acumulada": -9369108
+   },
+   {
+    "ate_grupo": "18h",
+    "fracao_validos": 97.14,
+    "fracao_secoes": 97.0,
+    "pct_dilma_acumulado": 51.603,
+    "margem_dilma_acumulada": 3281620
+   },
+   {
+    "ate_grupo": "19h",
+    "fracao_validos": 99.64,
+    "fracao_secoes": 99.62,
+    "pct_dilma_acumulado": 51.732,
+    "margem_dilma_acumulada": 3637720
+   },
+   {
+    "ate_grupo": "20h",
+    "fracao_validos": 100.0,
+    "fracao_secoes": 100.0,
+    "pct_dilma_acumulado": 51.676,
+    "margem_dilma_acumulada": 3533025
+   }
+  ],
+  "troca_no_modelo": {
+   "grupo": "18h",
+   "fracao_do_grupo": 0.7406,
+   "fracao_validos_total": 88.32,
+   "fracao_secoes_total": 87.66
+  },
+  "documentado": "88,9% apurado às 19h32"
+ },
+ "item4_outras_alegacoes": [
+  {
+   "alegacao": "urna votando sozinha (vídeo)",
+   "desfecho": "urna travada em Torres (RS), seção 2, 85ª ZE, substituída por volta do meio-dia; zerésima sem votos (Aos Fatos 29/10/2026; E-farsas 03/11/2026); auditoria: individual e localizada; recirculou em 2026"
+  },
+  {
+   "alegacao": "zerésima com 400 votos para Dilma (Campina Grande, PB)",
+   "desfecho": "montagem (Henrique Neves, 04/11/2014, via Conjur); auditoria: grosseira falsificação"
+  },
+  {
+   "alegacao": "urna registrava 44 ao digitar 45 (vídeo); documentos no lixo (vídeo)",
+   "desfecho": "auditoria: individuais e localizadas, esclarecidas pelo TSE no voto que aprovou a auditoria; texto do esclarecimento não localizado"
+  },
+  {
+   "alegacao": "Smartmatic fraudou a totalização",
+   "desfecho": "auditoria: sem sinais na transmissão e totalização; na apuração dentro da urna não foi possível eliminar a possibilidade"
+  },
+  {
+   "alegacao": "computadores de geração de mídias com internet",
+   "desfecho": "auditoria confirmou ausência de restrição de conexão (vulnerabilidade, não fraude)"
+  },
+  {
+   "alegacao": "eleitor já votou",
+   "desfecho": "auditoria: logs sem números capazes de inverter o resultado; falso positivo biométrico médio de 1,41% nas urnas do TVP"
+  },
+  {
+   "alegacao": "eleitor justificado que votou",
+   "desfecho": "não verificado; TSE negou os arquivos"
+  },
+  {
+   "alegacao": "fraude de mesário (votos rápidos e tardios)",
+   "desfecho": "auditoria: casos encontrados, sem quantidade capaz de inverter"
+  },
+  {
+   "alegacao": "vazamento do resultado antes das 20h",
+   "desfecho": "embargo legal; servidores isolados; Conjur atribuiu a palpites de convidados"
+  },
+  {
+   "alegacao": "231 inversões na apuração (vídeo de 2018; Bolsonaro 2021)",
+   "desfecho": "planilha do TSE: uma única troca, 19h32 (CNN 29/07/2021); Aos Fatos: falso; TSE Fato ou Boato 2021"
+  },
+  {
+   "alegacao": "Aécio foi eleito (Bolsonaro 07/07/2021)",
+   "desfecho": "sem prova; live de 29/07/2021: não tem como comprovar; Aécio e PSDB negaram fraude"
+  },
+  {
+   "alegacao": "ações do PSDB contra a chapa Dilma-Temer (abuso de poder na campanha)",
+   "desfecho": "TSE absolveu por 4 a 3 em 09/06/2017"
+  },
+  {
+   "alegacao": "petição online de recontagem (CitizenGo)",
+   "desfecho": "sem efeito próprio; citada na petição do PSDB"
+  }
+ ],
+ "desvios": [
+  "P1 não pede cálculo; item 3.4 (ordem de fusos com a base de 2014) é exploratório, decidido após ler a explicação do TSE e antes de rodar, decisões D1 a D5 no docstring",
+  "relatório integral do PSDB não obtido; usado o extrato dos auditores (WTE 2015) e trechos citados pela CNN",
+  "saídas gravadas como arquivos novos em resultados/ do repositório; nada existente alterado; sem commit"
+ ],
+ "bloqueios": [
+  "X abas Respostas e Mídia: login",
+  "Instagram: login",
+  "YouTube página de vídeo: captcha do Google",
+  "tse.jus.br e justicaeleitoral.jus.br: 403",
+  "Poder360: 403/522",
+  "180graus, Jornal GGN, Mais Goiás: 403",
+  "web.archive.org: bloqueado pela política de rede",
+  "votoseguro.org: site parado",
+  "document.onl: 503"
+ ],
+ "fontes": [
+  {
+   "veiculo": "X (Felipe Cecílio)",
+   "data_publicacao": "2026-11-07T13:13:14Z",
+   "url": "https://x.com/FelipeCecilio_/status/2119055575778570626",
+   "titulo": "postagem checada",
+   "tipo": "primaria",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/downloads/x_perfil/FelipeCecilio__status_2119055575778570626.html"
+  },
+  {
+   "veiculo": "X (Felipe Cecílio)",
+   "data_publicacao": "2026-11-07",
+   "url": "https://x.com/FelipeCecilio_",
+   "titulo": "perfil, 5 postagens visíveis sem login",
+   "tipo": "primaria",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/downloads/x_perfil/x_perfil.html"
+  },
+  {
+   "veiculo": "Edson Valério",
+   "data_publicacao": "2026-10-30",
+   "url": "https://www.edsonvalerio.com.br/noticia/26427/maringa/brasil/r-1-milhao-por-provas-de-fraude-nas-urnas-no-2-ordm-turno.html",
+   "titulo": "R$ 1 milhão por provas de fraude nas urnas no 2º turno",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/edson2026_fc.txt"
+  },
+  {
+   "veiculo": "Metrópoles",
+   "data_publicacao": "2026-11-02",
+   "url": "https://www.metropoles.com/colunas/demetrio-vecchioli/candidato-tenta-descobrir-manipulacao-nas-urnas-apos-receber-so-3-mil-votos",
+   "titulo": "Candidato tenta descobrir manipulação nas urnas após receber só 3 mil votos",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/metropoles2026_fc.txt"
+  },
+  {
+   "veiculo": "Diário do Centro do Mundo",
+   "data_publicacao": "2026-11-02",
+   "url": "https://www.diariodocentrodomundo.com.br/felipe-cecilio-oferece-r-2-milhoes-prova-urnas",
+   "titulo": "Felipe Cecílio oferece R$ 2 mi por prova contra urnas",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/dcm2026_fc.txt"
+  },
+  {
+   "veiculo": "YouTube",
+   "data_publicacao": null,
+   "url": "https://www.youtube.com/@felipececilio1858/videos",
+   "titulo": "canal de Felipe Cecílio (vídeos de 2022)",
+   "tipo": "primaria",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/downloads/youtube/canal_fc.html"
+  },
+  {
+   "veiculo": "Congresso em Foco",
+   "data_publicacao": "2026-10-16",
+   "url": "https://www.congressoemfoco.com.br/noticia/123322/ha-12-anos-datafolha-dava-a-aecio-e-dilma-os-indices-de-flavio-e-lula",
+   "titulo": "Há 12 anos, Datafolha dava a Aécio e Dilma os índices de Flávio e Lula",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cf2026_datafolha.txt"
+  },
+  {
+   "veiculo": "Brasil de Fato",
+   "data_publicacao": "2026-10-21",
+   "url": "https://www.brasildefato.com.br/2026/10/21/ha-12-anos-datafolha-mostrava-aecio-a-frente-de-dilma-petista-virou-o-jogo-e-venceu-eleicao/",
+   "titulo": "Há 12 anos, Datafolha mostrava Aécio à frente de Dilma",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/bdf2026.txt"
+  },
+  {
+   "veiculo": "Times Brasil",
+   "data_publicacao": "2026-10-22",
+   "url": "https://timesbrasil.com.br/colunas/analise-bruno-soller-mito-virada-2014/",
+   "titulo": "Análise: O mito da virada de 2014",
+   "tipo": "opiniao",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/timesbrasil2026.txt"
+  },
+  {
+   "veiculo": "PSDB (petição ao TSE, cópia do Conjur)",
+   "data_publicacao": "2014-10-30",
+   "url": "https://www.conjur.com.br/wp-content/uploads/2023/09/peticao-psdb-apuracao-urnas.pdf",
+   "titulo": "Petição de auditoria especial, AE 157804",
+   "tipo": "documento_original",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/peticao-psdb-apuracao-urnas.txt"
+  },
+  {
+   "veiculo": "TSE (voto do relator, cópia do Migalhas)",
+   "data_publicacao": "2014-11-04",
+   "url": "https://www.migalhas.com.br/arquivos/2014/11/art20141105-05.pdf",
+   "titulo": "AE 1578-04, voto de Dias Toffoli",
+   "tipo": "documento_original",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/migalhas_art20141105-05.txt"
+  },
+  {
+   "veiculo": "Auditores (CMind, EPUSP, ITA)",
+   "data_publicacao": "2015",
+   "url": "http://www.brunazo.eng.br/voto-e/textos/WTE15_AuditoriaEleicao2014.pdf",
+   "titulo": "Auditoria Especial no Sistema Eleitoral 2014 (extrato, WTE 2015)",
+   "tipo": "documento_original",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/WTE15.txt"
+  },
+  {
+   "veiculo": "Câmara dos Deputados (apresentação de Amílcar Brunazo)",
+   "data_publicacao": "2017-11-30",
+   "url": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cctci/apresentacoes-em-eventos/2017/2017-11-30-ap-eleicoes-de-2014-e-2018/amilcar-brunzao-cmind",
+   "titulo": "Auditoria Especial da Eleição 2014, CCTCI",
+   "tipo": "documento_original",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/camara2017_brunazo.txt"
+  },
+  {
+   "veiculo": "Terra",
+   "data_publicacao": "2014-10-30",
+   "url": "https://www.terra.com.br/noticias/eleicoes/psdb-pede-ao-tse-auditoria-na-apuracao-de-votos-da-eleicao,7f344fad54369410VgnVCM4000009bcceb0aRCRD.html",
+   "titulo": "PSDB pede ao TSE auditoria na apuração de votos",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/terra2014pedido.txt"
+  },
+  {
+   "veiculo": "Congresso em Foco",
+   "data_publicacao": "2014-10-31",
+   "url": "https://www.congressoemfoco.com.br/noticia/49311/psdb-pede-ao-tse-auditoria-no-sistema-de-apuracao-de-votos",
+   "titulo": "PSDB pede ao TSE auditoria no sistema de apuração de votos",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cf2014pede.txt"
+  },
+  {
+   "veiculo": "Congresso em Foco",
+   "data_publicacao": "2014-11-01",
+   "url": "https://www.congressoemfoco.com.br/noticia/49296/pedido-de-auditoria-feito-pelo-psdb-nao-e-serio-diz-corregedor",
+   "titulo": "Pedido de auditoria feito pelo PSDB não é sério, diz corregedor",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cf2014corregedor.txt"
+  },
+  {
+   "veiculo": "Agência Brasil",
+   "data_publicacao": "2014-11-04",
+   "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2014-11/tse-nega-pedido-do-psdb-para-criar-comissao-para-auditar-eleicoes",
+   "titulo": "TSE nega pedido do PSDB para criar comissão a fim de auditar eleições",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/ab2014.txt"
+  },
+  {
+   "veiculo": "Gazeta do Povo (Agência Brasil)",
+   "data_publicacao": "2014-11-04",
+   "url": "https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/tse-nega-pedido-do-psdb-para-criar-comissao-a-fim-de-auditar-eleicoes-efs2xkzw0hhfqlqn03aliksi6/",
+   "titulo": "TSE nega pedido do PSDB para criar comissão",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/gazeta2014.txt"
+  },
+  {
+   "veiculo": "Terra",
+   "data_publicacao": "2014-11-05",
+   "url": "https://www.terra.com.br/noticias/eleicoes/tse-aprova-auditoria-do-psdb-sobre-eleicoes-deste-ano,aa8308243fe79410VgnVCM5000009ccceb0aRCRD.html",
+   "titulo": "TSE aprova auditoria do PSDB sobre eleições deste ano",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/terra2014.txt"
+  },
+  {
+   "veiculo": "Conjur",
+   "data_publicacao": "2014-12-01",
+   "url": "https://conjur.com.br/2014-dez-01/tse-isenta-urnas-eletronicas-suspeitas-apresentadas-psdb/",
+   "titulo": "TSE aceita pedido do PSDB e investiga urnas eletrônicas",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/conjur2014dez.txt"
+  },
+  {
+   "veiculo": "Conjur",
+   "data_publicacao": "2015-10-11",
+   "url": "https://conjur.com.br/2015-out-11/psdb-conclui-nao-houve-fraude-eleicao-2014/",
+   "titulo": "PSDB conclui que não houve fraude na eleição de 2014 (o corpo diz: sem conclusão sobre fraude)",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/conjur2015out.txt"
+  },
+  {
+   "veiculo": "Tribuna do Paraná (Estadão)",
+   "data_publicacao": "2015-11-04",
+   "url": "https://www.tribunapr.com.br/noticias/politica/psdb-divulga-auditoria-inconclusiva-sobre-fraude-em-eleicoes-e-quer-voto-impresso/",
+   "titulo": "PSDB divulga auditoria inconclusiva sobre fraude em eleições e quer voto impresso",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/tribuna2015.txt"
+  },
+  {
+   "veiculo": "InfoMoney",
+   "data_publicacao": "2015-11-05",
+   "url": "https://www.infomoney.com.br/politica/auditoria-do-psdb-nao-encontra-fraudes-na-eleicao-mas-faz-constatacoes-preocupantes/",
+   "titulo": "Auditoria do PSDB não encontra fraudes na eleição, mas faz constatações preocupantes",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/infomoney2015.txt"
+  },
+  {
+   "veiculo": "Agência Brasil",
+   "data_publicacao": "2015-11-05",
+   "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2015-11/auditoria-do-psdb-nao-enconrou-fraude-na-eleicao-de-2014-informa-tse",
+   "titulo": "Auditoria do PSDB não encontrou fraude na eleição de 2014, informa TSE",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/ab2015.txt"
+  },
+  {
+   "veiculo": "Estado de Minas",
+   "data_publicacao": "2015-11-05",
+   "url": "https://www.em.com.br/app/noticia/politica/2015/11/05/interna_politica,704771/presidente-do-tse-critica-avaliacao-do-psdb-sobre-sistema-eleitoral.shtml",
+   "titulo": "Presidente do TSE critica avaliação do PSDB sobre sistema eleitoral",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/em2015.txt"
+  },
+  {
+   "veiculo": "Conjur",
+   "data_publicacao": "2015-11-06",
+   "url": "https://www.conjur.com.br/2015-nov-06/tse-analisa-dados-auditoria-feita-psdb-pleito-2014/",
+   "titulo": "Após auditoria do PSDB, TSE reafirma lisura das eleições de 2014",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/conjur2015nov.txt"
+  },
+  {
+   "veiculo": "Agência Câmara",
+   "data_publicacao": "2017-11-30",
+   "url": "https://www.camara.leg.br/noticias/528306-relatorio-sobre-auditoria-nas-eleicoes-de-2014-sera-apresentado-hoje",
+   "titulo": "Relatório sobre auditoria nas eleições de 2014 será apresentado hoje",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/camara2017.txt"
+  },
+  {
+   "veiculo": "Correio Braziliense",
+   "data_publicacao": "2021-07-07",
+   "url": "https://www.correiobraziliense.com.br/politica/2021/07/4936135-sem-provas-bolsonaro-diz-que-aecio-neves-derrotou-dilma-rousseff-em-2014.html",
+   "titulo": "Sem provas, Bolsonaro diz que Aécio Neves derrotou Dilma Rousseff em 2014",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cb2021.txt"
+  },
+  {
+   "veiculo": "Jornal de Brasília (Folhapress)",
+   "data_publicacao": "2021-07-08",
+   "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/aecio-rejeita-suspeita-sem-provas-de-bolsonaro-e-diz-nao-acreditar-em-fraude-nas-urnas-em-2014/",
+   "titulo": "Aécio rejeita suspeita sem provas de Bolsonaro",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/jbr2021.txt"
+  },
+  {
+   "veiculo": "IstoÉ (Estadão Conteúdo)",
+   "data_publicacao": "2021-07-09",
+   "url": "https://istoe.com.br/aecio-afirma-nao-acreditar-em-fraudes-nas-urnas-em-2014",
+   "titulo": "Aécio afirma não acreditar em fraudes nas urnas em 2014",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/istoe2021.txt"
+  },
+  {
+   "veiculo": "CNN Brasil",
+   "data_publicacao": "2021-07-21",
+   "url": "https://www.cnnbrasil.com.br/politica/tse-diz-que-nao-houve-alternancia-suspeita-entre-candidatos-na-apuracao-em-2014/",
+   "titulo": "TSE diz que não houve alternância suspeita entre candidatos na apuração em 2014",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cnn2021_alternancia.txt"
+  },
+  {
+   "veiculo": "CNN Brasil",
+   "data_publicacao": "2021-07-29",
+   "url": "https://www.cnnbrasil.com.br/politica/parciais-nao-mostram-inversoes-entre-dilma-e-aecio-apontadas-por-bolsonaro/",
+   "titulo": "Parciais não mostram inversões entre Dilma e Aécio apontadas por Bolsonaro",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cnn2021parciais.txt"
+  },
+  {
+   "veiculo": "CNN Brasil",
+   "data_publicacao": "2021-07-29",
+   "url": "https://www.cnnbrasil.com.br/politica/nao-tem-como-comprovar-que-eleicoes-foram-fraudadas-diz-bolsonaro/",
+   "titulo": "Não tem como comprovar que eleições foram fraudadas, diz Bolsonaro",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cnn2021_naotem.txt"
+  },
+  {
+   "veiculo": "Aos Fatos",
+   "data_publicacao": "2021-07-29",
+   "url": "https://www.aosfatos.org/noticias/bolsonaro-promete-provas-de-fraude-mas-apresenta-alegacoes-ja-desmentidas-sobre-urnas-eletronicas/",
+   "titulo": "Bolsonaro promete provas de fraude, mas apresenta alegações já desmentidas",
+   "tipo": "checagem",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/aosfatos2021_live.txt"
+  },
+  {
+   "veiculo": "CNN Brasil",
+   "data_publicacao": "2022-05-06",
+   "url": "https://www.cnnbrasil.com.br/politica/psdb-concluiu-em-2014-ser-impossivel-fazer-auditoria-externa-na-urna/",
+   "titulo": "PSDB concluiu, em 2014, ser impossível fazer auditoria externa na urna",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cnn2022.txt"
+  },
+  {
+   "veiculo": "Gazeta do Povo",
+   "data_publicacao": "2014-10-26",
+   "url": "https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/reeleicao-de-dilma-foi-confirmada-as-20h27-com-98-dos-votos-apurados-efethiooim4kipaqaf42oc1n2/",
+   "titulo": "Reeleição de Dilma foi confirmada às 20h27, com 98% dos votos apurados",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/gazeta2014_2027.txt"
+  },
+  {
+   "veiculo": "Conjur",
+   "data_publicacao": "2014-10-26",
+   "url": "https://conjur.com.br/2014-out-26/dilma-reeleita-segundo-mandato/",
+   "titulo": "Dilma Rousseff é reeleita com 53 milhões de votos",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/conjur2014out26.txt"
+  },
+  {
+   "veiculo": "Congresso em Foco",
+   "data_publicacao": "2014-10-26",
+   "url": "https://www.congressoemfoco.com.br/noticia/53585/dilma-se-reelege-na-eleicao-do-imponderavel",
+   "titulo": "Dilma se reelege na eleição do imponderável",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/cf2014imponderavel.txt"
+  },
+  {
+   "veiculo": "Gazeta do Povo (Folhapress)",
+   "data_publicacao": "2014-10-27",
+   "url": "https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/dilma-so-ultrapassou-aecio-com-889-dos-votos-apurados-efggr8aq1q3m92qcdxix5wpqm/",
+   "titulo": "Dilma só ultrapassou Aécio com 88,9% dos votos apurados",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/gazeta2014_889.txt"
+  },
+  {
+   "veiculo": "Gazeta do Povo (Estadão Conteúdo)",
+   "data_publicacao": "2014-10-27",
+   "url": "https://www.gazetadopovo.com.br/vida-publica/eleicoes/2014/na-apuracao-final-dilma-tem-5164-e-aecio-4836-effgj9r8x1hqvjugywm8bsua6/",
+   "titulo": "Na apuração final, Dilma tem 51,64% e Aécio, 48,36%",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/gazeta2014_final.txt"
+  },
+  {
+   "veiculo": "Bahia Notícias",
+   "data_publicacao": "2014-10-27",
+   "url": "https://www.bahianoticias.com.br/noticia/162414-aecio-liderou-disputa-por-presidencia-ate-quase-90-da-apuracao",
+   "titulo": "Aécio liderou disputa por Presidência até quase 90% da apuração",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/bahianoticias2014.txt"
+  },
+  {
+   "veiculo": "O Tempo",
+   "data_publicacao": "2022-10-02",
+   "url": "https://www.otempo.com.br/eleicoes/em-2014-dilma-virou-resultado-das-eleicoes-sobre-aecio-neves-as-19h32-1.2743860",
+   "titulo": "Em 2014, Dilma virou resultado das eleições sobre Aécio Neves às 19h32",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/otempo2022.txt"
+  },
+  {
+   "veiculo": "TSE (Fato ou Boato)",
+   "data_publicacao": "2021-07",
+   "url": "https://www.tse.jus.br/comunicacao/noticias/2021/Julho/fato-ou-boato-e-falsa-a-planilha-que-mostra-inversoes-entre-aecio-neves-e-dilma-rousseff-no-2o-turno-de-2014",
+   "titulo": "É falsa a planilha que mostra inversões entre Aécio Neves e Dilma Rousseff no 2º turno de 2014",
+   "tipo": "primaria",
+   "acessado_utc": "2026-11-07",
+   "status": "bloqueada (HTTP 403); citada via O Tempo",
+   "copia_local": null
+  },
+  {
+   "veiculo": "Aos Fatos",
+   "data_publicacao": "2026-10-29",
+   "url": "https://www.aosfatos.org/noticias/video-nao-mostra-urna-registrando-votos-sozinha/",
+   "titulo": "Vídeo não mostra urna registrando votos sozinha na prorrogação do segundo turno",
+   "tipo": "checagem",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/aosfatos2026_torres.txt"
+  },
+  {
+   "veiculo": "E-farsas",
+   "data_publicacao": "2026-11-03",
+   "url": "https://www.e-farsas.com/video-mostra-urna-eletronica-votando-sozinha-sera-verdade.html",
+   "titulo": "Vídeo mostra urna eletrônica votando sozinha! Será verdade?",
+   "tipo": "checagem",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/efarsas_torres.txt"
+  },
+  {
+   "veiculo": "Jornal do Brasil",
+   "data_publicacao": "2017-06-09",
+   "url": "https://www.jb.com.br/pais/noticias/2017/06/09/por-4-votos-a-3-tse-absolve-michel-temer-de-cassacao/",
+   "titulo": "Por 4 votos a 3, TSE absolve Michel Temer de cassação",
+   "tipo": "imprensa",
+   "acessado_utc": "2026-11-07",
+   "status": "lida",
+   "copia_local": "/home/user/trabalho-eleicao/adendo26/P1/notas/textos/jb2017_chapa.txt"
+  }
+ ],
+ "arquivos": [
+  "/home/user/casa-control/eleicao-2026/resultados/P1_pesquisa_2014.txt",
+  "/home/user/casa-control/eleicao-2026/resultados/P1_pesquisa_2014.json",
+  "/home/user/trabalho-eleicao/adendo26/P1/scripts/ordem_fuso_2014.py",
+  "/home/user/trabalho-eleicao/adendo26/P1/saida/ordem_fuso_2014.json",
+  "/home/user/trabalho-eleicao/adendo26/P1/scripts/ler_x.py",
+  "/home/user/trabalho-eleicao/adendo26/P1/scripts/baixar_texto.py",
+  "/home/user/trabalho-eleicao/adendo26/P1/notas/registro_buscas.txt",
+  "/home/user/trabalho-eleicao/adendo26/P1/notas/x_postagens_visiveis.jsonl"
+ ]
+}
