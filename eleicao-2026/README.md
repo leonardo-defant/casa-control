@@ -2,6 +2,8 @@
 
 Ponto de entrada da pesquisa. Reúne a situação, a tese e os argumentos do Léo (dono da pesquisa), os fatos levantados e conferidos, cada teste feito com o resultado, e o que falta. Atualizado em 27/10/2026, madrugada (UTC). Os números deste arquivo foram conferidos contra os arquivos de `resultados/` por verificadores independentes; onde a fonte é fraca ou o veredito é só descritivo, isso está dito.
 
+**Para retomar numa sessão nova, com outro modelo: `RETOMAR.md`** (onde está tudo, missão, regras, estado até o Adendo 26, pistas abertas e textos prontos para colar). As bases por seção de 2014, 2018, 2022 e 2026 estão em `dados/`, com hashes.
+
 Leitura sugerida:
 1. Este arquivo, inteiro.
 2. `PRE-REGISTRO-2026-10-26.md`: os critérios de cada teste (T1 a T6 no registro inicial, os demais nos adendos 1 a 17), escritos antes de ver os dados. Vale o horário do commit (o Adendo 17 corrige horários escritos à mão nos cabeçalhos).
@@ -194,7 +196,7 @@ Critérios antes de rodar (commits d976d4d, 913af7a e f12121e); cada teste confe
 | `rodar_2026.sh` | rotina para quando o bweb do 2º turno sair |
 | `reproducao/` | listas da amostra, logs de download, ambiente, revisões, consultas ao bweb |
 
-**Dados que não estão no repositório** (ficaram no scratchpad da sessão, que é apagado quando o container é reciclado):
+**Dados:** desde 09/11/2026 as bases por seção (2014, 2018, 2022 e 2026) e os votos por candidato do 1º turno de 2026 estão em `dados/` (ver `dados/LEIAME.md`). Continuam fora do repositório, e se refazem com os scripts abaixo:
 - Bases por seção de 2018 e 2022 (`secoes2018.json.gz`, `secoes2022.json.gz`): vieram nos zips enviados pelo Léo (`eleicao-2026-parte2-secoes2022.zip`, `eleicao-2026-parte3-secoes2018.zip`).
 - Base do 1º turno de 2026 (`secoes2026_1t.json.gz`, `candidatos2026_1t.json.gz` e `candidatos_gov_2026_1t_6ufs.json.gz`, este com os candidatos a governador das 6 UFs, por `extrair_candidatos.py --cargo 3`): refazer a partir do bweb do 1º turno no portal do TSE com `extrair_bweb.py` e `extrair_candidatos.py`.
 - Arquivos de urna da amostra (3.897 seções, mais o estrato G de 2.400 seções): refazer com `sortear_amostra.py` (semente 20261026) e `baixar_arquivos_urna.py`, usando as listas em `reproducao/`.
