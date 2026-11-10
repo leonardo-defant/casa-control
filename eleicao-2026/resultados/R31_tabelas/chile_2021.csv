@@ -1,0 +1,31 @@
+# eleicao: Chile 2021, presidencial, 1o turno 21/11/2021 e 2o turno 19/12/2021
+# tipo_de_voto: cedula de papel
+# A: Gabriel Boric
+# B: Jose Antonio Kast (mais votado no 1o turno)
+# unidades: 16 regioes e Extranjero (exterior)
+# validos: votos validamente emitidos (brancos e nulos fora); no 1o turno, soma dos 7 candidatos
+# fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elección_presidencial_de_Chile_de_2021, tabelas "Resultados por region" do 1o turno (99,99% das mesas, Servel) e do 2o turno (contagem do Servel). O Servel so publica 2021 em paineis Power BI (servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/), sem arquivo por regiao para baixar; historico.servel.cl devolveu erro 502.
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# total_oficial: Tricel: 1o turno Kast 1.961.779, Boric 1.815.024, validos 7.028.345 (tabela de en.wikipedia.org/wiki/2021_Chilean_general_election, fonte Tricel); 2o turno Boric 4.621.231, Kast 3.650.662 (proclamacao do Tricel de 10/01/2022, noticiada por CNN Chile e El Dinamo). Contagem do Servel a 100%: 4.620.890 e 3.650.088.
+# exterior: o 1o turno do exterior NAO esta na tabela por regiao; a linha Extranjero do 1o turno e o total oficial menos a soma das 16 regioes (inclui a diferenca de 0,01% de mesas). O exterior nao passa o filtro de 50 mil.
+# correcoes_de_digitacao_da_fonte: 1o turno, Biobío: soma dos candidatos 621918, linha de validos 611918; usei 611918 (reproduz as porcentagens dos finalistas) | 2o turno, Aisén: Boric 25297 + Kast 20112 difere de validos 46039; usei Boric = 25927 (reproduz a porcentagem publicada 56.32)
+# conferencia_total_nacional: so o 2o turno confere de fato (o 1o fecha por construcao): v1_A soma 1815024 oficial 1815024 dif +0 (+0.000%); v1_B soma 1961779 oficial 1961779 dif +0 (+0.000%); v1_validos soma 7028345 oficial 7028345 dif +0 (+0.000%); v2_A soma 4620671 oficial 4621231 dif -560 (-0.012%); v2_B soma 3649647 oficial 3650662 dif -1015 (-0.028%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Arica y Parinacota;territorio;;;15077;25120;84796;44233;43171
+Tarapacá;territorio;;;19976;33273;109125;55528;58477
+Antofagasta;territorio;;;41490;42252;201314;128004;86195
+Atacama;territorio;;;20418;19015;106109;76251;40223
+Coquimbo;territorio;;;68334;56998;263570;199180;115598
+Valparaíso;territorio;;;223266;211838;793976;545054;373916
+Metropolitana;territorio;;;892358;721187;2876691;2063327;1356555
+O'Higgins;territorio;;;87821;92323;363378;251566;187215
+Maule;territorio;;;78976;127037;403377;240102;250416
+Ñuble;territorio;;;31684;69888;190919;96782;136610
+Biobío;territorio;;;117286;199305;611918;350751;377541
+La Araucanía;territorio;;;65294;165991;393722;184417;278288
+Los Ríos;territorio;;;36976;52916;159622;95285;93511
+Los Lagos;territorio;;;66568;105754;325760;191777;191558
+Aisén;territorio;;;9975;11761;39908;25927;20112
+Magallanes;territorio;;;21137;19292;69077;47835;30205
+"Extranjero (1o turno obtido por diferenca; ver cabecalho)";exterior;;;18388;7829;35083;24652;10056

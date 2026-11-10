@@ -146,6 +146,13 @@ O QUE É EXPLORATÓRIO: tudo o que aparecer no relatório sob o título EXPLORAT
 
 Modos: baixar_c1, baixar_aux, ler <conjunto>, calibrar, rodar, rebaixar <chave> <turno>.
 Uso: python3 -I scripts/analisar_R27_DA.py <modo> [...]
+
+NOTA ESCRITA DEPOIS DE RODAR (não muda nenhuma decisão acima; o texto acima é o da segunda versão gravada antes de rodar,
+SHA-256 2df2d84d17230b7e63b2c6fca52949fc9f52d891028d63a50338fb571f5da569, em R27_DA/docstring_antes_de_rodar_v2.txt).
+A calibração roda dentro do modo rodar. Modos acrescentados depois: relatorio (escreve o JSON e o TXT), transmitidos
+(exploratório X8: os arquivos das seções com caso contra o pacote de arquivos transmitidos dos dados abertos, lido por faixa)
+e os blocos marcados EXPLORATÓRIO. Ordem para refazer: baixar_c1; baixar_aux; ler p2, p1, pp, c1, ant, e2; rodar;
+transmitidos; relatorio. O extrator do bweb usado está em R27_DA/extrair_bweb_DA.py (cópia no fim deste arquivo, em texto).
 """
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
@@ -1253,6 +1260,32 @@ def conferir(f, bw, turno, fuso_h=None, bw1=None, f1=None):
                 gl = [t for D in D1s for t in D['geralog']]
                 if gl:
                     inf['vsc1t_menos_geralog_s'] = t1 - max(gl)
+            # placebo do desenho: I3 e I7 no dia do 1º turno, pelo log do pacote do 2º turno e o boletim do 1º (ao lado)
+            b1 = (p1.get('bu') or {}).get('B') if p1 else None
+            if b1:
+                inf['placebo_1t_conferido'] = True
+                for cargo, nomec in (('c1', 'Presidente'), ('c3', 'Governador')):
+                    vb = votos_bu_B(b1, cargo)[0]
+                    if vb is None:
+                        continue
+                    cl = sum(D['conf'].get(nomec, 0) + D['nsusp'].get(nomec, 0) for D in D1s)
+                    if cl != sum(vb.values()):
+                        R['lado'].setdefault('I3_no_1t', {})[nomec] = {'log_0410': cl, 'boletim_1t': sum(vb.values())}
+                BF1 = bloco_final(log, d1); DF1 = BF1['dias'][d1] if BF1 else None
+                d71 = {}
+                pr1 = [t for D in D1s for t in D['pronta']]
+                ab1, en1, em1 = t_je(b1['ab']), t_je(b1['enc']), t_je(b1['emissao'])
+                if ab1 is not None and pr1 and abs(min(pr1) - ab1) > 1:
+                    d71['i'] = min(pr1) - ab1
+                if en1 is not None and DF1 and DF1['encconf'] and abs(max(DF1['encconf']) - en1) > 1:
+                    d71['ii'] = max(DF1['encconf']) - en1
+                if em1 is not None and DF1 and DF1['inienc'] and DF1['gerabu']:
+                    lo1 = max(DF1['inienc']); gs1 = [t for t, _ in DF1['gerabu'] if t >= lo1]
+                    hi1 = min(gs1) if gs1 else max(t for t, _ in DF1['gerabu'])
+                    if em1 < lo1 - 5 or em1 > hi1 + 5:
+                        d71['iii'] = [em1 - lo1, em1 - hi1]
+                if d71:
+                    R['lado']['I7_no_1t'] = d71
     else:
         inf['mesma_urna'] = False
     # I10
@@ -1422,7 +1455,7 @@ def resumir(nome, res, turno, pasta):
     S['violam_alguma_sem_explicacao'] = sum(1 for r in res if r['I'] and not r['inf'].get('explica'))
     S['rdv_ausente'] = sum(1 for r in res if 'I1' in r['nv'])
     S['com_evento_que_explica'] = sum(1 for r in res if r['inf'].get('explica'))
-    S['eventos'] = dict(collections.Counter(e.split(' com ')[0] if e.startswith('pacote') else e for r in res for e in r['inf'].get('explica', [])))
+    S['eventos'] = dict(collections.Counter('pacote com mais de um log' if e.startswith('pacote') else e for r in res for e in r['inf'].get('explica', [])))
     S['I11_13'] = stats_I11(res, 'z13'); S['I11_22'] = stats_I11(res, 'z22')
     if turno == 2:
         ds = sorted(r['inf']['vsc_menos_fim_do_log_s'] for r in res if 'vsc_menos_fim_do_log_s' in r['inf'])
@@ -1441,6 +1474,9 @@ def resumir(nome, res, turno, pasta):
         dd = sorted(r['inf']['vsc1t_menos_geralog_s'] for r in mu if 'vsc1t_menos_geralog_s' in r['inf'])
         if dd:
             S['vsc1t_menos_geralog_s'] = {'n': len(dd), 'min': dd[0], 'mediana': dd[len(dd) // 2], 'p99': dd[(len(dd) * 99) // 100], 'max': dd[-1]}
+        S['placebo_1t_pelo_log_do_2t'] = {'secoes_conferidas': sum(1 for r in res if r['inf'].get('placebo_1t_conferido')),
+                                          'I3_no_1t': sum(1 for r in res if 'I3_no_1t' in r['lado']), 'I7_no_1t': sum(1 for r in res if 'I7_no_1t' in r['lado']),
+                                          'casos': [[r['k'], r['lado'].get('I3_no_1t'), r['lado'].get('I7_no_1t'), r['inf'].get('explica')] for r in res if 'I3_no_1t' in r['lado'] or 'I7_no_1t' in r['lado']][:40]}
         S['nulo_por_suspensao_presidente'] = sum(r['inf'].get('nsusp_pres', 0) for r in res)
         S['secoes_com_votacao_suspensa'] = sum(1 for r in res if r['inf'].get('suspensa'))
         S['secoes_com_ajuste_de_hora_no_dia'] = sum(1 for r in res if r['inf'].get('ajuste_no_dia'))
@@ -1644,8 +1680,44 @@ def calibrar(F2, bw2, bw1, F1, res_obs, pasta2):
             det.append({'secao': k, 'e': 'e' in r['A'], 'd': 'd2' in r['A'] or 'd1' in r['A'], 'b': 'b_bu' in r['A'], 'c': 'c_bu' in r['A'],
                         'I4': 'I4' in r['I'], 'todas': sorted(r['A'])})
     cal['P3_vsc_trocado_em_5_pares'] = {'plantadas': 10, 'apontadas_por_e': sum(x['e'] for x in det), 'apontadas_por_d': sum(x['d'] for x in det),
-                                        'apontadas_por_b': sum(x['b'] for x in det), 'apontadas_por_I4': sum(x['I4'] for x in det), 'detalhe': det}
+                                        'apontadas_por_b': sum(x['b'] for x in det), 'apontadas_por_c': sum(x['c'] for x in det),
+                                        'apontadas_por_I4': sum(x['I4'] for x in det), 'detalhe': det}
     shutil.rmtree(dest, ignore_errors=True)
+    # P9: controles negativos da assinatura, em 100 seções: 1 byte trocado na assinatura do boletim; 1 bit trocado no
+    # certificado; certificado conferido contra a outra AC do mesmo algoritmo. Nenhum pode ser aceito.
+    from cryptography import x509
+    from cryptography.exceptions import UnsupportedAlgorithm
+    from verificar_assinaturas import entradas, verifica_ass, chave_bruta
+    from analisar_F12 import verifica as verifica_cert
+    g = rng(SEMENTE + 9); c9 = collections.Counter()
+    for k in g.sample(ordem, 100):
+        pac = escolhe_pacote(F2['secoes'][k])
+        bruto = open(os.path.join(pasta_secao(pasta2, k), f"{pac['i']}-{pac['arq']['vsc']['nome']}"), 'rb').read()
+        b1 = parse(bruto)[0][2][1][2]
+        hw_e = entradas(b1[3][2]); cb = next(n_[2] for n_ in b1 if (n_[0], n_[1]) == (2, 1))
+        cert = x509.load_pem_x509_certificate(cb) if cb.lstrip().startswith(b'-----') else x509.load_der_x509_certificate(cb[:read_tlv(cb, 0)[4]])
+        try:
+            pub = cert.public_key(); ked = None
+        except UnsupportedAlgorithm:
+            pub = None; ked = chave_bruta(cert)
+        e = hw_e[pac['arq']['bu']['nome']]
+        c9['secoes'] += 1
+        c9['assinatura_original_aceita'] += bool(verifica_ass(pub, ked, e['ass'], e['sha512']))
+        ruim = bytearray(e['ass']); ruim[len(ruim) // 2] ^= 0x01
+        c9['assinatura_com_1_byte_trocado_aceita'] += bool(verifica_ass(pub, ked, bytes(ruim), e['sha512']))
+        dig = bytearray(e['sha512']); dig[0] ^= 0x01
+        c9['resumo_com_1_bit_trocado_aceito'] += bool(verifica_ass(pub, ked, e['ass'], bytes(dig)))
+        ac = pac['vsc']['cert']['ac']; a_ = ACS[ac]
+        tbs = bytearray(cert.tbs_certificate_bytes); tbs[len(tbs) // 2] ^= 0x01
+        c9['certificado_original_aceito_pela_AC'] += bool(verifica_cert(a_['tipo'], a_['chave'], cert.signature, cert.tbs_certificate_bytes))
+        c9['certificado_com_1_bit_trocado_aceito'] += bool(verifica_cert(a_['tipo'], a_['chave'], cert.signature, bytes(tbs)))
+        for n2, a2 in ACS.items():
+            if n2 != ac and a2['tipo'] == a_['tipo']:
+                c9['certificado_aceito_por_outra_AC'] += bool(verifica_cert(a2['tipo'], a2['chave'], cert.signature, cert.tbs_certificate_bytes))
+                c9['conferencias_contra_outra_AC'] += 1
+    for x_ in ('assinatura_com_1_byte_trocado_aceita', 'resumo_com_1_bit_trocado_aceito', 'certificado_com_1_bit_trocado_aceito', 'certificado_aceito_por_outra_AC', 'conferencias_contra_outra_AC'):
+        c9.setdefault(x_, 0)
+    cal['P9_controles_negativos_da_assinatura'] = dict(c9)
     # P4: cobertura da amostra contra 5.857 seções alteradas
     import numpy as np
     U = universo(); pos = {k: i for i, k in enumerate(U['chaves'])}
@@ -1681,7 +1753,7 @@ def aux_estabilidade():
     """aux.json de hoje contra o baixado em 26/10 (amostra antiga, 2º turno) e contra o das 80 seções do 1º turno."""
     out = {}
     for nome, antiga, hoje in (('2t', ANTIGA, f'{W}/aux_hoje/2t'), ('1t', ANTIGA1, f'{W}/aux_hoje/1t')):
-        c = collections.Counter(); mudou = []; datas0 = collections.Counter(); datas1 = collections.Counter(); mt = []
+        c = collections.Counter(); mudou = []; datas0 = collections.Counter(); datas1 = collections.Counter(); mt = []; reger = collections.Counter()
         for d in sorted(glob.glob(os.path.join(antiga, '*/*/*/*/'))):
             uf, m, z, s = d.rstrip('/').split('/')[-4:]
             k = f'{uf.upper()}|{int(m)}|{int(z)}|{int(s)}'
@@ -1710,6 +1782,8 @@ def aux_estabilidade():
                 dif.append('lista de arquivos')
             if (a0['dg'], a0['hg'], a0['idg']) != (a1['dg'], a1['hg'], a1['idg']):
                 dif.append('indice regerado')
+                if a0['st'] == a1['st']:
+                    reger[f"{uf.upper()} {a0['dg']} -> {a1['dg']}"] += 1
             if a0['f'] != a1['f']:
                 dif.append('campo f')
             for x in dif:
@@ -1719,6 +1793,7 @@ def aux_estabilidade():
             if set(dif) - {'indice regerado'}:
                 mudou.append({'secao': k, 'mudou': dif, 'antes': a0, 'hoje': a1})
         out[nome] = {'contagem': dict(c), 'data_de_geracao_antes': dict(datas0), 'data_de_geracao_hoje': dict(datas1),
+                     'regerados_sem_mudar_estado_por_UF': dict(reger),
                      'baixado_antes_entre': [time.strftime('%Y-%m-%d %H:%M', time.gmtime(min(mt))), time.strftime('%Y-%m-%d %H:%M', time.gmtime(max(mt)))] if mt else None,
                      'casos_com_mudanca_alem_da_data': mudou}
     out['download'] = le('download_aux_hoje.json')
@@ -1742,6 +1817,25 @@ def sobreposicao(F2, Fant):
                     out['diferentes'].append([k, t])
         if p2.get('hash') != pa.get('hash'):
             out['diferentes'].append([k, 'hash do aux.json'])
+    return out
+
+
+def cruzada():
+    """Caminho independente do extrator deste script: base do repositório (dados/secoes2026.json.gz, feita do bweb por outro
+    código e conferida no Adendo 25) contra o boletim lido só pelo decodificar.py. Ao lado, fora do registro."""
+    from lib import carregar
+    d = carregar(os.path.join(REPO, 'dados', 'secoes2026.json.gz'))
+    out = {}
+    for turno, conj in ((2, 'p2'), (1, 'p1')):
+        dif = []; n = 0
+        for k in lista(conj):
+            fs = sorted(glob.glob(os.path.join(pasta_secao(CONJ[conj]['pasta'], k), '*-bu.dat')))
+            if not fs or k not in d or str(turno) not in d[k]:
+                continue
+            sec, _ = bu_para_secao(ler_bu_A(fs[-1])); b = d[k][str(turno)]; n += 1
+            if any(sec[x] != b[x] for x in ('L', 'R', 'O', 'B', 'N', 'comp', 'apt')):
+                dif.append(k)
+        out[f'{turno}t'] = {'secoes': n, 'com_diferenca': len(dif), 'quais': dif[:20]}
     return out
 
 
@@ -1828,6 +1922,9 @@ def modo_rodar(so_obs=False):
             ch1[i1['chave']].add(k)
         d3['chave_em_mais_de_uma_secao_no_1t'] = [sorted(v) for v in ch1.values() if len(v) > 1]
     R['d3_chaves'] = d3
+    R['indices_regerados_p2'] = [{'secao': r['k'], 'aux': r['inf']['aux']} for r in RES['p2']
+                                 if r['inf'].get('aux') and r['inf']['aux']['dg'] != '25/10/2026' and r['inf'].get('pacote_st') == 'Totalizado']
+    R['conferencia_cruzada_base_do_repositorio'] = cruzada()
     # D3-2 aux
     R['aux_estabilidade'] = aux_estabilidade()
     if 'ant' in F:
@@ -1932,7 +2029,7 @@ def exploratorio(F, RES):
             continue
         for r in RES[c]:
             if 'I3' in r['I'] and not r['inf'].get('explica'):
-                x2[f"{c}:{r['k']}"] = {'I3': r['I']['I3'], 'I2_fecha': 'I2' not in r['I'], 'I1_fecha': 'I1' not in r['I'],
+                x2[f"{c}:{r['k']}"] = {'I3': r['I']['I3'], 'I2_fecha': 'I2' not in r['I'], 'I1_fecha': None if 'I1' in r['nv'] else 'I1' not in r['I'],
                                        'detalhe': detalhe_I3(CONJ[c]['pasta'], r['k'], DIA[2])}
     X['X2_I3_confirmacao_sem_voto_computado'] = x2
     x3 = {}
@@ -2038,6 +2135,621 @@ def vereditos(R):
     return V
 
 
+# =====================================================================================================================
+# Relatório
+# =====================================================================================================================
+def nb(x, d=0):
+    if x is None:
+        return 's/d'
+    t = f'{x:,.{d}f}'
+    return t.replace(',', 'X').replace('.', ',').replace('X', '.')
+
+
+def pc(x, d=1):
+    return 's/d' if x is None else nb(100 * x, d) + '%'
+
+
+def dic(d):
+    return '; '.join(f'{k} {nb(v) if isinstance(v, (int, float)) else v}' for k, v in d.items() if v not in (0, None) and not str(k).startswith('None'))
+
+
+def dh(s_):
+    """'20261025T170347' -> '25/10 17:03:47'."""
+    return f'{s_[6:8]}/{s_[4:6]} {s_[9:11]}:{s_[11:13]}:{s_[13:15]}' if s_ and len(s_) == 15 else str(s_)
+
+
+DESVIOS = [
+    'D3-1 (g): o desenho não dá tolerância para a hora de recebimento; fixei igualdade exata antes de rodar. Com 1 segundo de tolerância (a do D3-3) sobrariam 18 seções em vez de 63; o veredito pela letra não muda.',
+    'D3-1 (a): tratei diferença de comparecimento como classe A (mais duro que a letra, que fala em votos por candidato). Não houve nenhuma na amostra principal. Nas 27 seções de junta o campo geral de comparecimento do boletim vem zerado e por isso a regra acusa as 27; o comparecimento do cargo e os votos batem com o bweb.',
+    'D3-1 (c): além dos resumos de bu, rdv e log, verifiquei a assinatura de todos os arquivos listados no vota.vsc (cerca de 11 por seção), inclusive os que o site não publica (a assinatura cobre o resumo listado, não o arquivo).',
+    'D3-1 (d): a "AC das urnas" são as três AC do pacote de documentação do TSE (AC URNA, AC UE2020, AC UE2022), obtidas de cópia de terceiros, como no F12. A cadeia até a raiz e a lista de revogados não foram verificadas (ver a seção da assinatura).',
+    'D3-1, reconferência em outro dia: não foi preciso (X = 0). Para o conferente: os arquivos foram baixados em 10/11; 28 seções da amostra nova também estão na amostra antiga (baixada em 26/10) e os 93 arquivos comuns são idênticos.',
+    'Lista C1: as 27 seções de junta publicam busa.dat, sa.vsc e logsa.jez; o download da onda não os pediu. Baixei os três tipos das 27 seções (135 requisições a 1 por segundo, sem 429).',
+    'D3-3, eventos que explicam: fixei antes de rodar uma lista (mais de um log no pacote, linha de contingência, tipo de urna ou de arquivo diferente de 1, junta) e escrevi que "votação suspensa" não explicaria diferença de contagem. O desenho cita "votação suspensa e retomada" entre as explicações inocentes. O único caso de I3 da amostra é uma urna que desligou no meio de um voto e teve a votação reiniciada: pela minha lista conta como violação sem explicação; pelo texto do desenho, o log explica. Relato dos dois jeitos.',
+    'D3-3 I6: comparei todas as linhas de município, zona e seção do dia do turno no log da urna final. A urna de contingência registra seção 0000 (e às vezes outro município da zona) antes de assumir a seção; por isso toda contingência viola I6 nesta definição. Todas ficaram como explicadas.',
+    'D3-3 I7 (iv): o log publicado termina antes da assinatura dos arquivos; o intervalo de assinatura do 2º turno não existe no log do 2º turno. Usei como violação o carimbo do vota.vsc anterior ao fim do log (5 s) e, ao lado, o carimbo do vota.vsc do 1º turno contra o intervalo de assinatura de 04/10 que o log do 2º turno traz.',
+    'D3-3 I8 (ii): não se aplica às 10 seções do exterior (o fuso não sai dos arquivos).',
+    'D3-3 I10: a lista de linhas de ajuste foi corrigida antes de qualquer resultado (segunda versão do docstring, com hash): só "Data e hora solicitadas", "digitada pelo operador" e "atualizada". A linha "Data e hora da urna alterada ... por ajuste de fuso horário", que só existe em urna do exterior, não estava na lista (a amostra antiga que usei para montar a lista não tem exterior).',
+    'D3-3 I11: defini "igual nos dois turnos" como mesmo sinal e |Z2 - Z1|/raiz(2) < 3. Os dois turnos dão Z perto de -860, mas a diferença passa de 3 porque a composição muda; a definição não serviu. O que decide I11 é a calibração: o plantio não é visto (SEM PODER).',
+    'D3-2: só a parte dos aux.json. O JSON oficial por município continua sem rodar.',
+    'Extensão: só o prefixo já baixado do 2º turno (boletim e RDV), ao lado. O 1º turno da extensão ainda não tinha sido baixado.',
+    'Acrescentados depois da primeira rodada, sem mudar critério nem limiar: os controles negativos P9, a conferência cruzada com a base do repositório, o placebo de I3 e I7 no dia do 1º turno (previsto no desenho, programado depois), a estimativa X7 e a leitura do pacote de arquivos transmitidos X8 (92 pedidos por faixa a cdn.tse.jus.br, a 1 por segundo, sem baixar os zips).',
+    'Pedidos ao site de resultados feitos por este teste: 135 (lista C1) e os aux.json de hoje da amostra antiga, a 1 por segundo, sem nenhum 429. Três tentativas (uma por endereço) nas listas de revogados, todas com 403.',
+]
+
+
+def modo_relatorio():
+    R = le('parcial_tudo.json')
+    S = R['conjuntos']; S2 = S['p2']; S1 = S['p1']; cal = R['calibracao']; V = R['vereditos']; X = R['exploratorio']; alc = R['alcance']
+    ax = R['aux_estabilidade']; I = S2['identidades']
+    casos2 = R['casos']['p2']
+    difs = collections.Counter()
+    for c in casos2:
+        g = (c['classe_B'].get('g') or {}).get('recebimento')
+        if g:
+            d = g['dif_s']
+            difs['recebido' if c['pacote_estado'] != 'Totalizado' else 'negativo' if d < 0 else '1s' if d == 1 else '2a7s'] += 1
+    x4 = X['X4_hora_de_recebimento_aux_menos_bweb']
+    x7 = X['X7_pais_estimado_pelos_boletins_assinados_da_amostra']
+    a2 = ax['2t']['contagem']; a1 = ax['1t']['contagem']
+    aux_mudou_hash = a2.get('mudou: hash', 0) + a1.get('mudou: hash', 0)
+    v_aux = 'SEM SINAL (só desta parte)' if aux_mudou_hash == 0 and a2.get('comparadas', 0) >= 3000 else ('SINAL' if aux_mudou_hash else 'INCONCLUSIVO (download incompleto)')
+    V['D3-2_aux'] = {'veredito': v_aux, 'comparadas_2t': a2.get('comparadas', 0), 'comparadas_1t': a1.get('comparadas', 0), 'resumos_que_mudaram': aux_mudou_hash}
+    V['D3-3']['veredito_I1_a_I10'] = 'SINAL LOCAL pela letra com a lista de eventos fixada antes de rodar (1 seção, I3, 1 linha de log); SEM SINAL se o reinício da votação registrado no log valer como evento que explica, como diz o texto do desenho'
+    V['D3-3']['veredito_I11'] = 'SEM PODER'
+    R['vereditos'] = V
+    R['desvios'] = DESVIOS
+    tx = le('parcial_transmitidos.json')
+    if tx:
+        R['exploratorio']['X8_pacote_de_arquivos_transmitidos'] = tx
+    R['assinatura'] = {
+        'verificado': [
+            'SHA-256 do vota.vsc igual ao campo hash do aux.json',
+            'SHA-512 e tamanho de bu.dat, rdv.dat e log.jez baixados iguais aos listados no bloco de hardware do vota.vsc',
+            'assinatura de hardware de cada arquivo listado e do bloco inteiro, com a chave pública do certificado da urna embutido no vota.vsc (ECDSA P-521 nas UE2013 e UE2015; Ed521 nas UE2020 e UE2022)',
+            'certificado da urna assinado pela AC que ele aponta (AC URNA, AC UE2020 ou AC UE2022, do pacote de documentação do TSE), com emissor igual ao titular da AC',
+            'nome do certificado (UEAO + número) igual à urna do boletim, do bweb e do log',
+            'nenhuma chave pública repetida em seções diferentes; mesma urna, mesma chave nos dois turnos',
+            'bloco de software com os mesmos resumos e tamanhos do bloco de hardware'],
+        'nao_verificado': [
+            'assinatura de software (bloco 0 do vota.vsc): formato próprio, chave SEVIN 20260708 que não é pública; só o resumo foi comparado',
+            'cadeia das AC até a raiz: AC RAIZ UE e AC URNA v2 não estão publicadas onde este ambiente alcança; as três AC intermediárias vêm de cópia de terceiros do pacote do TSE (iguais em 4 fontes, F12)',
+            'lista de certificados revogados: uma tentativa em cada endereço dos certificados (lcr.acue2022, lcr.acue2020 e lcr.acurna .tse.jus.br), as três com resposta 403',
+            'validade da AC na data da assinatura: o certificado publicado da AC URNA venceu em 18/07/2026 (F12); as urnas UE2013 e UE2015 da amostra usam certificado emitido por ela',
+            'se a chave que assinou estava dentro da urna que estava na seção: nenhum arquivo público decide'],
+        'ac_urna_na_amostra': S2['por_ac'].get('AC URNA', 0)}
+    grava('parcial_tudo.json', R)
+    L = []
+    w = L.append
+    n = S2['n']
+    w('R27_DA: AMOSTRA ALEATÓRIA NOVA DE PONTA A PONTA')
+    w('(D3-1: resumo publicado, assinatura da urna, boletim e bweb. D3-3: coerência entre boletim, RDV e log. D3-2: só a parte dos aux.json.)')
+    w('')
+    w('Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), onda D-a, mantido pelos Adendos 28 e 30 (commit a7218fb, 10/11/2026 10:08:24 UTC).')
+    w('Critérios: desenho cego D3 (registro/adendo27/desenho_D3_proposta.json), aplicados pela letra. As decisões que o desenho não fixa estão no')
+    w('docstring de scripts/analisar_R27_DA.py, gravado antes de qualquer conta com votos (hashes e horas em')
+    w(f'{W}/docstring_antes_de_rodar.sha256). Rodado em {R["rodado_em"]}.')
+    w('Amostra: as 3.000 seções de registro/adendo27/amostra_aas_principal.txt, na ordem do sorteio (SHA-256 da lista conferido:')
+    w(f'{R["amostra"]["sha256_da_lista"][:16]}...). Universo: 499.205 seções com boletim no bweb do 2º turno. Margem: 4.430.191.')
+    w('')
+    w('AVISO DE ALCANCE (do próprio registro)')
+    w('  Todos os arquivos conferidos aqui saem da mesma urna e do mesmo canal. O teste enxerga alteração feita DEPOIS da assinatura da urna')
+    w('  (transmissão, recepção, banco da totalização, publicação) e pacote montado fora da urna. É cego para um programa de urna que conte')
+    w('  errado de forma coerente: nesse caso boletim, RDV, log e assinatura concordam entre si. Nada aqui absolve nem acusa o programa.')
+    w('')
+    w('VEREDITO PELA LETRA')
+    w(f'  D3-1, ponta a ponta: {V["D3-1"]["veredito"]}, e só por causa da hora de recebimento.')
+    w(f'    Quebras de classe A (voto ou autenticidade): {S2["X_classe_A"]} em {nb(n)} seções. Seções sem arquivo: {len(S2["sem_arquivo"])}. Assinaturas sem verificar: {S2["assinatura_nao_verificavel"]}.')
+    w(f'    Quebras de classe B (metadado): {S2["secoes_com_classe_B"]} seções, todas no mesmo campo: a hora de recebimento do índice do site difere da do bweb')
+    w(f'    ({difs["1s"]} por 1 segundo, {difs["2a7s"]} por 2 a 7 segundos, {difs["negativo"]} de urna de contingência com o índice 2 e 6 minutos ANTES do bweb, {difs["recebido"]} em que o site hoje')
+    w('    mostra um segundo recebimento do mesmo pacote, de 26 ou 27/10, em estado "Recebido"). A letra manda: havendo só quebra de classe B,')
+    w('    descrever, pedir os arquivos ao TSE e não concluir. O critério de sem sinal (X = 0, n = 3.000, até 7 ausentes) também está cumprido;')
+    w('    vale a cláusula mais específica. O 1º turno das mesmas seções tem a mesma diferença em 373 (12,4%): pelo placebo do desenho, é')
+    w('    característica do formato. Exploratório (X8): nas 6 seções em estado "Recebido" os quatro arquivos do site são byte a byte os do')
+    w('    pacote de arquivos transmitidos do TSE, fechado em 26/10, antes do segundo recebimento em 5 das 6.')
+    w(f'  D3-3, coerência, I1 a I10: SINAL LOCAL pela letra com a lista de eventos que fixei antes de rodar; sem alcance (zero voto de margem).')
+    w('    Uma seção em 3.000 (BA|37311|50|156) tem 185 confirmações de voto para presidente no log e 184 votos no boletim, no RDV, nos votos')
+    w('    computados do log e no bweb. O log registra a causa: o eleitor confirmou às 10:09:01, a urna desligou antes de computar (bateria')
+    w('    crítica), religou às 10:11:37 e o mesário confirmou o reinício da votação às 10:14:50. Esse evento não estava na minha lista de')
+    w('    explicações; o desenho cita "votação suspensa e retomada" entre as explicações inocentes. Lido assim, o veredito é SEM SINAL.')
+    w(f'    O mesmo padrão aparece no dia do 1º turno em {S2.get("placebo_1t_pelo_log_do_2t", {}).get("I3_no_1t")} de {nb(S2.get("placebo_1t_pelo_log_do_2t", {}).get("secoes_conferidas"))} urnas (placebo do desenho), na lista P (1 de 400) e na amostra antiga (1 de 3.897).')
+    w(f'    I6: {I["I6"]["violam"]} seções ({pc(I["I6"]["proporcao"], 2)}), todas urna de contingência, explicadas. I10: {I["I10"]["violam"]} seções ({pc(I["I10"]["proporcao"], 2)}), todas do exterior (ajuste de fuso).')
+    w('    I1, I2, I4, I5, I7, I8 e I9: zero violação.')
+    w('  D3-3, I11 (ordem dos votos no RDV): SEM PODER. O RDV publicado vem agrupado por candidato em 100% dos arquivos, nos dois turnos;')
+    w('    o plantio (ordenar o RDV) não muda nada. A ordem do RDV publicado não carrega informação.')
+    w(f'  D3-2, parte dos aux.json: {v_aux}. {nb(a2.get("comparadas", 0))} índices do 2º turno e {a1.get("comparadas", 0)} do 1º baixados de novo e comparados com os de 26/10:')
+    w(f'    resumo (hash) diferente em {aux_mudou_hash}.')
+    w('')
+    w('RESUMO EM SEIS LINHAS')
+    w(f'  1. Nas 3.000 seções sorteadas, o boletim publicado no site é o que entrou na soma: {nb(x7["votos_conferidos_um_a_um"])} votos conferidos um a um contra o bweb,')
+    w('     diferença zero para o 13, o 22, brancos, nulos, comparecimento e aptos. O mesmo no 1º turno das mesmas seções.')
+    w(f'  2. O boletim é o que a urna assinou: {nb(S2["arquivos_com_resumo_conferido"])} arquivos com o resumo conferido, {nb(S2["assinaturas_de_arquivo_verificadas"])} assinaturas de arquivo e {nb(S2["blocos_de_hardware_com_assinatura_valida"])} de bloco')
+    w('     válidas, 3.000 certificados emitidos pelas AC publicadas, cada um com o número da urna que o bweb e o log dizem; nenhuma chave repetida.')
+    w(f'  3. Em votos: com zero quebra em 3.000, no máximo {nb(alc["principal"]["secoes_no_pais_teto"])} seções do país ({pc(alc["principal"]["limite_superior"], 4)}) podem ter boletim alterado depois da urna;')
+    w(f'     invertendo todos os votos das maiores, isso dá {nb(alc["principal"]["dano_maximo_votos"])} votos de margem, {pc(alc["principal"]["fracao_da_margem"])} dos 4.430.191. Para virar seriam precisas 5.857 seções.')
+    w('  4. Boletim, RDV e log da mesma urna se amarram: RDV igual ao boletim em 3.000 de 3.000; votos computados no log iguais ao')
+    w('     comparecimento em 3.000 de 3.000; urna, carga, mídia e horários fecham. O que sobra são 27 seções com evento operacional registrado.')
+    w('  5. O que NÃO fecha pela letra e fica como caso: 6 seções cujo pacote publicado é um recebimento posterior (26 e 27/10), 57 seções em')
+    w('     que a hora de recebimento não bate por segundos ou minutos, 1 voto confirmado e não computado por queda de energia, e índices')
+    w('     regerados sem aviso. Em nenhum desses casos há diferença de voto, de resumo ou de assinatura.')
+    w('  6. Nada disto alcança a hipótese de programa adulterado na origem. Isso só se decide com o boletim impresso, o caderno de votação')
+    w('     e a memória da urna.')
+    w('')
+    w('PARTE 1. D3-1 NA AMOSTRA PRINCIPAL (2º TURNO, n = 3.000)')
+    w(f'  Arquivos: aux.json, bu.dat, rdv.dat, log.jez e vota.vsc presentes nas {nb(n)} seções. Estado no índice: {dic(S2["aux_estado"])}.')
+    w(f'  Pacotes listados por seção: 1 em todas. Data de geração do índice: {dic(S2["aux_data_geracao"])}.')
+    cz = R.get('conferencia_cruzada_base_do_repositorio', {})
+    w(f'  Conferência cruzada por caminho independente (base do repositório contra o boletim lido pelo decodificar.py): diferenças em {cz.get("2t", {}).get("com_diferenca")} de {nb(cz.get("2t", {}).get("secoes"))}')
+    w(f'  no 2º turno e em {cz.get("1t", {}).get("com_diferenca")} de {nb(cz.get("1t", {}).get("secoes"))} no 1º.')
+    w('  (a) bweb contra bu.dat, cargo 1, por votável: 0 seções com diferença. Dois leitores do boletim (decodificar.py e leitura por posição pela')
+    w('      especificação do TSE) deram o mesmo em 3.000. Comparecimento: 0 diferenças. Aptos: 0. Governador (ao lado, onde houve): 0.')
+    w(f'  (b) SHA-512 e tamanho de bu, rdv e log contra o vota.vsc: {nb(S2["arquivos_com_resumo_conferido"])} arquivos, 0 diferenças.')
+    w(f'  (c) assinatura da urna: {nb(S2["assinaturas_de_arquivo_verificadas"])} de {nb(S2["entradas_listadas_nos_vsc"])} assinaturas de arquivo válidas; {nb(S2["blocos_de_hardware_com_assinatura_valida"])} de {nb(n)} blocos válidos.')
+    w(f'      Por AC: {dic(S2["por_ac"])}. Modelo da urna e algoritmo no vota.vsc: UE2022 Ed521 {S2["modelo_e_algoritmo_do_vsc"].get("[22, 4]", 0)}, UE2020 Ed521 {S2["modelo_e_algoritmo_do_vsc"].get("[20, 4]", 0)},')
+    w(f'      UE2015 ECDSA {S2["modelo_e_algoritmo_do_vsc"].get("[15, 2]", 0)}, UE2013 ECDSA {S2["modelo_e_algoritmo_do_vsc"].get("[13, 2]", 0)}. Chave de software citada: {dic(S2["chave_de_software"])}.')
+    w('  (d) certificado: 3.000 emitidos por AC publicada, com assinatura da AC válida; nome igual à urna do boletim e do bweb em 3.000;')
+    d3 = R['d3_chaves']
+    w(f'      chave repetida em seções diferentes: {len(d3["chave_em_mais_de_uma_secao"])} (em {nb(d3["secoes_distintas_2t_com_chave"])} seções do 2º turno somando principal, lista P e amostra antiga).')
+    et = d3.get('entre_turnos', {})
+    w(f'      Entre os turnos: {nb(et.get("mesma_urna_no_certificado"))} seções com a mesma urna, chave diferente em {et.get("mesma_urna_com_chave_diferente")}; {et.get("urna_diferente")} com urna trocada, mesma chave em {et.get("urna_diferente_com_a_mesma_chave")}.')
+    w(f'      Certificado dentro da validade na hora da assinatura: {nb(S2["certificado_valido_no_carimbo_do_vsc"])} de {nb(S2["certificados_com_datas"])}.')
+    w('  (e) SHA-256 do vota.vsc igual ao campo hash do aux.json: 3.000 de 3.000.')
+    w('  (f) mais de um pacote listado: 0 seções.')
+    w(f'  (g) metadados: chave da seção dentro do boletim, código de carga, urna, abertura, encerramento e emissão iguais ao bweb em 3.000.')
+    w(f'      Hora de recebimento do índice contra DT_BU_RECEBIDO: igual em {nb(n - S2["secoes_com_classe_B"])}; diferente em {S2["secoes_com_classe_B"]} (classe B):')
+    w(f'      {dic(x4["p2"])}.')
+    w('      Ao lado, tudo igual em 3.000: mídia de carga, data da carga, local de votação, pleito e fase do cabeçalho, bloco de software.')
+    o8 = alc['oito_UFs_de_publicacao_em_lote']
+    w(f'  As 8 UFs de publicação em lote (AC, AM, DF, ES, MT, PR, RN, TO): {o8["x"]} quebra de classe A em {o8["n"]} seções; limite de 95% de {pc(o8["limite_superior"], 2)} das')
+    w(f'      {nb(o8["secoes_nessas_UFs"])} seções dessas UFs ({nb(o8["teto_de_secoes_nessas_UFs"])} seções; pior caso {nb(o8["dano_maximo_nessas_UFs"])} votos de margem, {pc(o8["fracao_da_margem"])} da margem). Classe B: {o8["classe_B"]}.')
+    w('')
+    w('PARTE 2. PLACEBO, RÉPLICA E LISTAS À PARTE')
+    w(f'  1º turno das mesmas 3.000 seções (placebo): classe A {S1["X_classe_A"]}; sem arquivo {len(S1["sem_arquivo"])}; {nb(S1["arquivos_com_resumo_conferido"])} arquivos e {nb(S1["assinaturas_de_arquivo_verificadas"])} assinaturas conferidos.')
+    w(f'      Classe B: {S1["secoes_com_classe_B"]} seções, todas na hora de recebimento: {dic(x4["p1"])}.')
+    w(f'      RDV contra boletim (I1) no 1º turno: 0 diferenças para presidente (3.000) e 0 para governador ({nb(X["X1_rdv_publicado_vem_agrupado"]["p1"]["governador"]["rdv"])}).')
+    w('      É o mesmo tipo de diferença do 2º turno, e mais frequente. Pelo placebo do desenho, é característica do formato, não marca do 2º turno.')
+    w('      O estado "Recebido" não aparece no 1º turno: os 6 casos do 2º turno são próprios dele.')
+    if 'ant' in S:
+        Sa = S['ant']
+        w(f'  Amostra antiga (réplica por conglomerado, baixada em 26/10): {nb(Sa["n"])} pastas, {len(Sa["sem_arquivo"])} sem boletim baixado. Classe A: {Sa["X_classe_A"]}.')
+        w(f'      {nb(Sa["arquivos_com_resumo_conferido"])} arquivos e {nb(Sa["assinaturas_de_arquivo_verificadas"])} assinaturas conferidos. Classe B: {Sa["secoes_com_classe_B"]}, todas na hora de recebimento: {dic(x4.get("ant", {}))}.')
+        w(f'      Identidades: I3 em {Sa["identidades"]["I3"]["violam"]}, I6 em {Sa["identidades"]["I6"]["violam"]} (contingência), I7 em {Sa["identidades"]["I7"]["violam"]} (abertura 2 s depois da do boletim); RDV só em {Sa["I11_13"]["m"]}.')
+    if 'pp' in S:
+        Sp = S['pp']
+        w(f'  Lista P (400 prorrogadas, à parte): classe A {Sp["X_classe_A"]}; classe B {Sp["secoes_com_classe_B"]} (recebimento); I3 em {Sp["identidades"]["I3"]["violam"]}, I6 em {Sp["identidades"]["I6"]["violam"]}, I7 em {Sp["identidades"]["I7"]["violam"]}')
+        w(f'      (recuperador de dados). Limite de 95% para classe A na lista: {pc(alc["pp"]["limite_superior_na_lista"], 2)}.')
+    if 'c1' in S:
+        Sc = S['c1']
+        w(f'  Lista C1 (27 seções de junta, todas do exterior, cédula apurada pelo sistema de apuração): votos do boletim iguais ao bweb em 27;')
+        w('      resumos e assinaturas válidos em 27; certificado da AC URNA em 27. A regra acusa as 27 em "comparecimento" porque o campo geral')
+        w('      do boletim de junta vem zerado (o comparecimento do cargo bate com o bweb). Duas urnas assinaram as 27 seções (18 e 9): é a urna')
+        w('      da junta, que apura várias seções. Hora de recebimento diferente do bweb nas 27. Não há log de votação: I2, I3, I6, I7 e I9 não se aplicam.')
+    if 'e2' in S:
+        Se = S['e2']
+        w(f'  Extensão (prefixo de {nb(Se["n"])} seções do mesmo sorteio, só boletim e RDV do 2º turno, ao lado): bweb contra boletim, {Se["classe_A_por_conferencia"].get("a", 0)} diferenças;')
+        w(f'      RDV contra boletim, {Se["identidades"]["I1"]["violam"]}; hora de recebimento diferente em {Se["secoes_com_classe_B"]}. Somando principal e extensão, zero diferença de voto em {nb(n + Se["n"])}.')
+    if 'sobreposicao_nova_antiga' in R:
+        so = R['sobreposicao_nova_antiga']
+        w(f'  Seções nas duas amostras: {so["secoes_em_comum"]}; {so["arquivos_comparados"]} arquivos baixados em 26/10 e em 10/11, {so["iguais"]} idênticos.')
+    w('')
+    w('PARTE 3. D3-3 NA AMOSTRA PRINCIPAL (2º TURNO)')
+    for j, nome in (('I1', 'RDV contra boletim (presidente)'), ('I2', 'votos computados no log contra comparecimento'), ('I3', 'confirmações de voto no log contra votos do cargo'),
+                    ('I4', 'urna do log contra boletim, bweb e certificado'), ('I5', 'código, mídia e data da carga'), ('I6', 'município, zona e seção do log'),
+                    ('I7', 'abertura, encerramento, emissão e carimbo do vsc'), ('I8', 'voto fora da janela; recebimento antes da assinatura'),
+                    ('I9', 'votos de 04/10 no log do 2º turno contra o 1º turno'), ('I10', 'relógio andando para trás sem ajuste')):
+        v = I[j]
+        w(f'  {j:<4}{nome:<52} violam {v["violam"]:>3} de {nb(v["verificadas"])}; explicadas por evento {v["explicadas_por_evento"]:>3}; IC95 {pc(v["ic95"][0], 3)} a {pc(v["ic95"][1], 3)}; país {nb(v["estimativa_nacional"])}')
+    w(f'  I7 ou I8: {S2["violam_I7_ou_I8"]} seções (limiar de sinal: 15). I7, I8 ou I10 sem evento da lista: {S2["violam_horario_sem_explicacao"]} ({pc(S2["violam_horario_sem_explicacao"] / n, 2)}; limiar 0,5%).')
+    w(f'  Seções com evento da lista (contingência, recuperador, mais de um log): {S2["com_evento_que_explica"]} ({pc(S2["com_evento_que_explica"] / n)}): {dic(S2["eventos"])}.')
+    w(f'  Mesma urna nos dois turnos: {nb(S2["mesma_urna_nos_dois_turnos"])}; nelas, os votos de 04/10 no log assinado em 25/10 são iguais ao comparecimento do 1º turno no bweb (I9).')
+    vv = S2.get('vsc_menos_fim_do_log_s', {})
+    w(f'  Carimbo do vota.vsc depois do fim do log: mínimo {vv.get("min")} s, mediana {vv.get("mediana")} s, máximo {vv.get("max")} s. No 1º turno, carimbo dentro do intervalo de')
+    w(f'  assinatura de 04/10 em {nb(S2["vsc1t_no_intervalo_de_assinatura"]["dentro"])} de {nb(S2["vsc1t_no_intervalo_de_assinatura"]["verificadas"])}. Recebimento menos assinatura: mínimo {nb(S2["recebimento_menos_vsc_s"]["min"])} s, mediana {nb(S2["recebimento_menos_vsc_s"]["mediana"])} s.')
+    w(f'  Ao lado: governador (RDV e log contra boletim), cabeçalho do RDV contra boletim, leitor antigo contra leitor novo do RDV: zero diferença.')
+    pl = S2.get('placebo_1t_pelo_log_do_2t', {})
+    w(f'  Placebo do desenho no dia do 1º turno (log do pacote do 2º turno contra o boletim do 1º, {nb(pl.get("secoes_conferidas"))} seções com a mesma urna):')
+    w(f'  I3 de presidente ou governador diferente em {pl.get("I3_no_1t")} (' + '; '.join(c_[0] for c_ in pl.get('casos', [])) + '), sempre 1 confirmação a mais no log, com a urna')
+    w(f'  desligada pela chave logo depois e a votação reiniciada; I7 (abertura, encerramento, emissão) fora da tolerância em {pl.get("I7_no_1t")}.')
+    w(f'  Nulos por suspensão para presidente: {S2["nulo_por_suspensao_presidente"]}. Seções com "Votação suspensa" no dia: {S2["secoes_com_votacao_suspensa"]}. Com reinício da votação no dia: {X["X5_reinicio_da_votacao_no_dia"]["secoes_com_mais_de_uma_urna_pronta_no_dia"]} (I3 em {X["X5_reinicio_da_votacao_no_dia"]["delas_com_I3"]}).')
+    w(f'  I11: Z = {nb(S2["I11_13"]["Z"], 1)} no 2º turno e {nb(S1["I11_13"]["Z"], 1)} no 1º (13 ou não 13); espelho com o 22: {nb(S2["I11_22"]["Z"], 1)} e {nb(S1["I11_22"]["Z"], 1)}. |z| > 3 em {pc(S2["I11_13"]["fracao_abs_z_maior_3"])} das seções nos dois turnos.')
+    w('  O critério de sinal de I11 pede |Z| < 3 no 1º turno: não é o caso. É o formato: ver a calibração e o exploratório X1.')
+    w('')
+    w('PARTE 4. D3-2, OS AUX.JSON')
+    w(f'  Amostra nova, 2º turno: {dic(S2["aux_estado"])}; índice gerado em: {dic(S2["aux_data_geracao"])}.')
+    w(f'  1º turno: {dic(S1["aux_estado"])}; gerado em: {dic(dict(sorted(S1["aux_data_geracao"].items(), key=lambda kv: (kv[0][6:], kv[0][3:5], kv[0][:2]))))}.')
+    w('  Os índices do 1º turno foram regerados em bloco em várias datas (até 05/11 e 09/11); 8 do 2º turno foram regerados em 09/11 às 17:19 (PA, MA, AM)')
+    w('  sem mudar a hora de recebimento nem quebrar nenhuma conferência. O TSE não publica registro dessas regerações.')
+    w(f'  Estabilidade, 2º turno (amostra antiga, baixada entre {ax["2t"]["baixado_antes_entre"][0]} e {ax["2t"]["baixado_antes_entre"][1][-5:]} UTC; hoje, {nb((ax["download"] or {}).get("req"))} pedidos a 1 por segundo,')
+    w(f'  fim em {(ax["download"] or {}).get("fim")}, nenhum 429): {nb(a2.get("comparadas", 0))} índices comparados; {nb(a2.get("iguais em tudo", 0))} iguais em tudo; resumo (hash) diferente em {a2.get("mudou: hash", 0)};')
+    w(f'  {a2.get("mudou: estado", 0)} que estavam "Recebida" e hoje estão "Totalizada"; {a2.get("mudou: indice regerado", 0) - a2.get("mudou: estado", 0)} só com o índice regerado ({dic(ax["2t"].get("regerados_sem_mudar_estado_por_UF", {}))}).')
+    w(f'  Estabilidade, 1º turno (80 seções): {a1.get("comparadas", 0)} comparados; {a1.get("iguais em tudo", 0)} iguais em tudo; resumo diferente em {a1.get("mudou: hash", 0)}; {a1.get("mudou: indice regerado", 0)} só com o índice regerado')
+    w(f'  ({dic(ax["1t"].get("regerados_sem_mudar_estado_por_UF", {}))}).')
+    w('  Leitura: nenhum resumo mudou. Os índices que em 26/10 estavam em estado "Recebida" (com imgbu listado e hora de recebimento 1 a 3 minutos')
+    w('  depois da do bweb) hoje estão "Totalizada", com o MESMO resumo e a hora do bweb. O estado "Recebida" de 26/10 era o índice antigo ainda servido.')
+    w('')
+    w('CALIBRAÇÃO POR EFEITO PLANTADO (dados de 2026)')
+    c = cal
+    w(f'  P1, 5 votos do 22 para o 13 em 30 seções, só no bweb: (a) apontou {c["P1_bweb_5_votos_em_30"]["apontadas_por_a"]} de 30 e {c["P1_bweb_5_votos_em_30"]["apontadas_fora_do_plantio"]} fora; efeito medido {c["P1_bweb_5_votos_em_30"]["efeito_medido_13_menos_22"]} votos de margem, plantado {c["P1_bweb_5_votos_em_30"]["efeito_plantado"]}.')
+    w(f'  P2, 1 byte trocado no bu.dat de 10 seções: (b) apontou {c["P2_um_byte_no_boletim_em_10"]["apontadas_por_b"]} de 10 e (c) {c["P2_um_byte_no_boletim_em_10"]["apontadas_por_c"]} de 10. Só {c["P2_um_byte_no_boletim_em_10"]["tambem_por_a_ou_ilegivel"]} das 10 mudam voto ou deixam o boletim ilegível:')
+    w('      nas outras o byte cai fora dos votos e só o resumo e a assinatura acusam. É a explicação inocente "arquivo corrompido": some ao reler o original.')
+    w(f'  P3, vota.vsc trocado entre 5 pares: (e) apontou {c["P3_vsc_trocado_em_5_pares"]["apontadas_por_e"]} de 10, (d) {c["P3_vsc_trocado_em_5_pares"]["apontadas_por_d"]}, (b) {c["P3_vsc_trocado_em_5_pares"]["apontadas_por_b"]}, (c) {c["P3_vsc_trocado_em_5_pares"].get("apontadas_por_c")}, I4 {c["P3_vsc_trocado_em_5_pares"]["apontadas_por_I4"]}.')
+    p9 = c.get('P9_controles_negativos_da_assinatura', {})
+    w(f'  P9, controles negativos em {p9.get("secoes")} seções: assinatura com 1 byte trocado aceita em {p9.get("assinatura_com_1_byte_trocado_aceita")}; resumo com 1 bit trocado aceito em {p9.get("resumo_com_1_bit_trocado_aceito")};')
+    w(f'      certificado com 1 bit trocado aceito pela AC em {p9.get("certificado_com_1_bit_trocado_aceito")}; certificado aceito por outra AC do mesmo algoritmo em {p9.get("certificado_aceito_por_outra_AC")} de {p9.get("conferencias_contra_outra_AC")}')
+    w(f'      (originais aceitos: {p9.get("assinatura_original_aceita")} e {p9.get("certificado_original_aceito_pela_AC")}).')
+    p4 = c['P4_cobertura']
+    w(f'  P4, cobertura: em {nb(p4["sorteios_ao_acaso"])} sorteios de 5.857 seções alteradas ao acaso, a amostra contém alguma em {nb(p4["sorteios_em_que_a_amostra_contem_alguma"])} (no mínimo {p4["menor_numero_de_secoes_apanhadas"]}, em média {nb(p4["esperado_por_sorteio"], 1)});')
+    w(f'      das 5.857 maiores seções do país, {p4["secoes_da_amostra_entre_as_5857_maiores"]} estão na amostra. Chance teórica de não apanhar nenhuma: cerca de 4 em 10^16.')
+    w(f'  P5, 3 votos movidos só no boletim, 30 seções: I1 apontou {c["P5_boletim_3_votos_em_30"]["apontadas_por_I1"]} de 30, {c["P5_boletim_3_votos_em_30"]["fora_do_plantio"]} fora.')
+    w(f'  P6, 5 a mais no comparecimento do boletim, 30 seções: I2 apontou {c["P6_comparecimento_mais_5_em_30"]["apontadas_por_I2"]} e I3 {c["P6_comparecimento_mais_5_em_30"]["apontadas_por_I3"]} de 30.')
+    w(f'  P7, encerramento do boletim 10 minutos depois, 30 seções: I7 apontou {c["P7_encerramento_mais_10min_em_30"]["apontadas_por_I7"]} de 30.')
+    p8 = c['P8_rdv_ordenado_em_30']
+    w(f'  P8, RDV ordenado por candidato em 30 seções: Z agregado passa de {nb(p8["Z_agregado_observado"], 1)} para {nb(p8["Z_agregado_com_plantio"], 1)}, deslocamento {nb(p8["deslocamento_de_Z"], 2)}. O teste NÃO enxerga o plantado,')
+    w('      porque todo RDV publicado já vem ordenado. I11: SEM PODER.')
+    e1 = c['E1_rdv_reembaralhado_em_30']; e0 = c['I11_todas_reembaralhadas']
+    w(f'  E1, explicação inocente: RDV reembaralhado ao acaso em 30 seções: z mediano {nb(e1["z_mediano_das_plantadas"], 2)}, nenhuma com |z| > 3. Reembaralhando as 3.000: Z = {nb(e0["Z"], 2)},')
+    w(f'      |z| > 3 em {pc(e0["fracao_abs_z_maior_3"], 2)}. A estatística funciona; quem não se comporta como o desenho supôs é o arquivo.')
+    e2 = c['E2_relogio_1h_adiantado_em_30']
+    w(f'  E2, explicação inocente: relógio da urna 1 hora adiantado (boletim, log e vsc) em 30 seções: I7 acusou {e2["apontadas_por_I7"]}, I8 {e2["apontadas_por_I8_ii"]}.')
+    w('  Leitura: D3-1 e as identidades I1, I2, I3 e I7 enxergam o que dizem enxergar, com detecção de 100% e sem falso apontamento.')
+    w('')
+    w('TESTE ESPELHO')
+    w('  Conferência exata não tem lado. O espelho é o 1º turno das mesmas seções, onde Flávio ficou à frente: zero quebra de classe A, como no 2º.')
+    w(f'  Diferenças de voto achadas a favor do 13: {S2["efeito_a"]["a_favor_do_13"]}; a favor do 22: {S2["efeito_a"]["a_favor_do_22"]}. I11 com o 22 no lugar do 13 dá o mesmo resultado.')
+    w('  A hora de recebimento diverge mais no 1º turno (12,4%) do que no 2º (2,1%): o que há de classe B não é próprio do turno em que Lula virou.')
+    w('')
+    w('EM VOTOS DE MARGEM')
+    w(f'  Zero quebra de classe A em 3.000: limite superior de 95% = {pc(alc["principal"]["limite_superior"], 4)} das seções, {nb(alc["principal"]["secoes_no_pais_teto"])} seções no país.')
+    w(f'  Pior caso absoluto (todos os votos das {nb(alc["principal"]["secoes_no_pais_teto"])} maiores invertidos): {nb(alc["principal"]["dano_maximo_votos"])} votos de margem = {pc(alc["principal"]["fracao_da_margem"])} de 4.430.191.')
+    w('  Alteração depois da urna capaz de virar a eleição precisaria de 5.857 seções ou mais; uma amostra de 3.000 não apanhar nenhuma tem chance de 4 em 10^16.')
+    w('  Uma alteração espalhada (4 a 5 votos por seção em todas) apareceria já na primeira seção: não apareceu em nenhuma de 3.000.')
+    w(f'  O que os boletins assinados da amostra dizem do país (N x média, erro de amostra simples): Lula {nb(x7["lula"]["estimativa"])} (ep {nb(x7["lula"]["ep"])}),')
+    w(f'  Flávio {nb(x7["flavio"]["estimativa"])} (ep {nb(x7["flavio"]["ep"])}), margem {nb(x7["margem"]["estimativa"])} (ep {nb(x7["margem"]["ep"])}). Oficial: 64.256.232, 59.826.041 e 4.430.191.')
+    w(f'  I3: 1 seção em 3.000, 1 voto confirmado e não computado. No país, cerca de {nb(I["I3"]["estimativa_nacional"])} seções (IC95 de {nb(N_U * I["I3"]["ic95"][0])} a {nb(N_U * I["I3"]["ic95"][1])}), no máximo 1 voto cada, sem lado.')
+    w('  Os 6 pacotes em estado "Recebido" somam 1.424 votos, iguais aos do bweb e assinados pela urna da seção: o que não fecha neles é uma hora,')
+    w('  não um voto. Nenhuma comparação com outro ano foi usada neste teste.')
+    w('')
+    w('O QUE FOI VERIFICADO NA ASSINATURA E O QUE NÃO FOI')
+    for t in R['assinatura']['verificado']:
+        w('  Verificado: ' + t + '.')
+    for t in R['assinatura']['nao_verificado']:
+        w('  NÃO verificado: ' + t + '.')
+    w(f'  Na amostra principal, {R["assinatura"]["ac_urna_na_amostra"]} seções ({pc(R["assinatura"]["ac_urna_na_amostra"] / n)}) usam urna com certificado da AC URNA, cujo certificado publicado venceu antes dos dois turnos.')
+    w('')
+    w('CASOS INDIVIDUAIS (amostra principal, 2º turno)')
+    w(f'  Arquivos de cada caso: pasta {CONJ["p2"]["pasta"]}/<uf>/<município com 5 dígitos>/<zona com 4>/<seção com 4>/, arquivos aux.json e')
+    w('  0-o03221<uf><município><zona><seção>-bu.dat, -rdv.dat, -log.jez e -vota.vsc. O JSON traz a pasta e a lista de arquivos de cada um.')
+    w('  A. Voto confirmado e não computado (I3):')
+    for kk, v in X['X2_I3_confirmacao_sem_voto_computado'].items():
+        cj, k = kk.split(':')
+        w(f'     {k} ({ {"p2": "amostra principal", "pp": "lista P", "ant": "amostra antiga"}[cj] }): log {v["I3"]["log"]}, boletim {v["I3"]["boletim"]}; ' + ('RDV e votos computados fecham com o boletim.' if v['I1_fecha'] else 'votos computados fecham com o boletim (RDV não baixado nesta seção).' if v['I1_fecha'] is None else 'ver JSON.'))
+        for dd in v['detalhe']:
+            for l in dd['linhas_seguintes'][:3]:
+                w('        ' + l)
+            w('        depois: ' + '; '.join(dd['eventos_ate_o_proximo_voto'][-3:]))
+    w('  B. Pacote publicado em estado "Recebido", recebido depois do dia da eleição (classe B, hora de recebimento):')
+    for r_ in X['X6_pacotes_em_estado_Recebido']:
+        t8 = ((R['exploratorio'].get('X8_pacote_de_arquivos_transmitidos') or {}).get('secoes') or {}).get(r_['secao'])
+        ig = (' Pacote de arquivos transmitidos: ' + ('os 4 arquivos idênticos aos do site.' if t8 and all(isinstance(a_, dict) and a_['igual_ao_do_site'] for a_ in t8['arquivos'].values()) and len(t8['arquivos']) == 4 else 'ver JSON.')) if t8 else ''
+        w(f'     {r_["secao"]}: recebido no site em {r_["recebido_no_site"]}; boletim emitido em {dh(r_["emissao_do_boletim"])}, vota.vsc de {dh(r_["carimbo_do_vsc"])}; comparecimento {r_["comparecimento"]};')
+        w(f'        votos iguais ao bweb; assinatura válida.{ig}')
+    w('  C. Urna de contingência com o índice ANTES do bweb (classe B):')
+    for c_ in casos2:
+        g = (c_['classe_B'].get('g') or {}).get('recebimento')
+        if g and g['dif_s'] < 0:
+            w(f'     {c_["secao"]}: índice {g["aux"]}, bweb {g["bweb"]} ({g["dif_s"]} s); {"; ".join(c_["evento_que_explica"] or [])}.')
+    w('  D. Hora de recebimento do índice 1 a 7 segundos depois da do bweb (classe B), seção e segundos:')
+    lin = [f'{c_["secao"]} (+{c_["classe_B"]["g"]["recebimento"]["dif_s"]})' for c_ in casos2 if (c_['classe_B'].get('g') or {}).get('recebimento') and 0 < c_['classe_B']['g']['recebimento']['dif_s'] < 10]
+    for i in range(0, len(lin), 5):
+        w('     ' + '; '.join(lin[i:i + 5]))
+    w('  E. Urna de contingência (I6: o log da urna reserva traz seção 0000, e às vezes outro município, antes de assumir a seção):')
+    lin = [c_['secao'] + (' (município ' + '/'.join(c_['identidades']['I6']['mun']) + ')' if 'mun' in c_['identidades']['I6'] else '') for c_ in casos2 if 'I6' in c_['identidades']]
+    for i in range(0, len(lin), 5):
+        w('     ' + '; '.join(lin[i:i + 5]))
+    w('  F. Exterior, relógio para trás por ajuste de fuso (I10):')
+    lin = [c_['secao'] for c_ in casos2 if 'I10' in c_['identidades']]
+    w('     ' + '; '.join(lin))
+    w('  G. Índice regerado depois de 25/10 sem nenhuma quebra (não é quebra; fica registrado):')
+    lin = [f'{c_["secao"]} ({c_["aux"]["dg"]} {c_["aux"]["hg"]})' for c_ in R.get('indices_regerados_p2', [])]
+    for i in range(0, len(lin), 4):
+        w('     ' + '; '.join(lin[i:i + 4]))
+    w('  Listas P, C1, amostra antiga e extensão: casos completos no JSON (campo casos).')
+    w('')
+    w('A FAVOR DA TESE (o que pesa ou fica em aberto)')
+    w('  1. Pela letra, D3-1 não fecha: 63 seções com a hora de recebimento diferente da do bweb. Em 6 delas o pacote hoje publicado foi recebido em 26 ou')
+    w('     27/10 e está em estado "Recebido". O TSE não explica o segundo recebimento. (O exploratório X8 mostra que os arquivos não mudaram.)')
+    w('  2. Os índices do site são regerados sem registro público (8 da amostra nova e 24 da antiga no 2º turno, em 09/11: PA, MA, AM, BA e RS;')
+    w('     no 1º turno, em bloco, até 05/11 e 09/11). Onde dá para comparar, o resumo não mudou.')
+    w('  3. Uma urna perdeu um voto confirmado por queda de energia (e o mesmo padrão aparece na lista P, na amostra antiga e em 3 urnas no dia do 1º')
+    w('     turno). O eleitor pode ter votado de novo depois do reinício; o log não diz quem votou. São votos a menos, não a mais, e sem lado conhecido.')
+    w('  4. A assinatura de software não é verificável por terceiros, a cadeia até a raiz e a lista de revogados não estão ao alcance, e 20,5% das urnas da')
+    w('     amostra têm certificado de uma AC cujo certificado publicado estava vencido no dia.')
+    w('  5. O RDV publicado vem ordenado: não serve de registro independente da ordem dos votos, e I11 não testa nada.')
+    w('  6. O teste inteiro é cego para o que a tese mais precisa: programa que conte errado de forma coerente antes de assinar.')
+    w('')
+    w('CONTRA A TESE')
+    w(f'  1. Zero diferença de voto entre o bweb e o boletim assinado em 3.000 seções sorteadas, nos dois turnos, e em mais {nb(S["e2"]["n"]) if "e2" in S else 0} da extensão, 400 prorrogadas,')
+    w('     27 de junta e 3.897 da amostra antiga. Uma troca espalhada de 1,8% feita depois da urna apareceria em quase toda seção.')
+    w('  2. 3.000 de 3.000 pacotes com resumo, assinatura da urna e certificado válidos; nenhuma chave em duas seções; nenhum pacote duplicado.')
+    w('  3. Teto de 9,7% da margem no pior caso absoluto para alteração depois da urna; a amostra apanha pelo menos 16 seções em cada um de 10.000')
+    w('     conjuntos sorteados de 5.857 seções alteradas, e 31 das 5.857 maiores.')
+    w('  4. Boletim, RDV e log fecham em contagem, urna, carga e horário; o que não fecha tem causa operacional registrada no próprio log.')
+    w('  5. O log assinado em 25/10 repete o comparecimento do 1º turno em 2.962 de 2.962 urnas que serviram nos dois turnos.')
+    w('  6. Nenhum resumo de pacote mudou entre 26/10 e 10/11 nas seções em que dá para comparar, e os arquivos das seções com índice regerado ou')
+    w('     com segundo recebimento são byte a byte os do pacote de arquivos transmitidos de 26/10.')
+    w('  7. A hora de recebimento diverge mais no 1º turno do que no 2º.')
+    w('')
+    w('O QUE ISSO SIGNIFICA')
+    w('  Pela letra o D3-1 fica inconclusivo, por um metadado (a hora de recebimento). No que toca a voto e a autenticidade, o resultado é o mais forte')
+    w('  que uma amostra de 3.000 pode dar: o que está no site é o que a urna assinou e é o que foi somado, com teto de 499 seções (9,7% da margem no pior')
+    w('  caso) para o que possa ter escapado. A hipótese de que o resultado foi mudado DEPOIS da urna (transmissão, recepção, banco da totalização,')
+    w('  publicação) fica sem espaço para virar a eleição. Somado ao B5 (bweb igual ao histórico da totalização, passo a passo), a soma oficial é a soma')
+    w('  dos boletins assinados pelas urnas.')
+    w('  Não fica fechada, e este teste não pode fechar, a hipótese de programa adulterado na origem, nem a de presença fabricada de forma coerente.')
+    w('  Para a tese do Léo, o caminho que sobra continua sendo o mesmo das Ondas A e B: papel (via impressa do boletim), caderno de votação e')
+    w('  memória da urna, em seções sorteadas. A lista de amostra_aas_principal.txt serve para isso: as primeiras 300 bastam.')
+    w('')
+    w('PISTAS')
+    w('  1. Pedir ao TSE o motivo do segundo recebimento, em 26 e 27/10, das 6 seções hoje em estado "Recebido" (PR|78255|59|21, PE|25313|8|414,')
+    nrec = len(X['X6_pacotes_em_estado_Recebido']); lo_r, hi_r = cp(nrec, n)
+    w('     AM|2658|35|175, PA|4278|97|449, BA|33499|126|119, BA|36919|101|47) e o registro do receptor para elas. No país seriam cerca de')
+    w(f'     {nb(N_U * nrec / n)} seções ({nrec} em {nb(n)}; IC95 de {nb(N_U * lo_r)} a {nb(N_U * hi_r)}).')
+    w('  2. Pedir o registro de regeração dos índices (aux.json), em especial o lote de 09/11/2026 às 17:19 (PA, MA, AM, BA, RS) e os do 1º turno.')
+    w('  3. Pedir o que significam as duas horas de recebimento (a do índice e a do bweb) e por que diferem em 12% das seções do 1º turno.')
+    w('  4. Pedir os certificados AC RAIZ UE, AC URNA v2 e um AC URNA vigente, e as listas de revogados, por canal oficial.')
+    w('  5. As três urnas com voto confirmado e não computado (BA|37311|50|156, RJ|60011|234|189, MG|46698|139|34) são boas candidatas a conferência')
+    w('     de caderno: o número de assinaturas tem de ser igual ao comparecimento do boletim.')
+    w('  6. O RDV publicado vem ordenado por candidato: qualquer teste futuro que dependa da ordem dos votos (D4-4 não depende) fica sem dado.')
+    w('')
+    w('DESVIOS E DECISÕES FORA DO REGISTRO')
+    for i, t in enumerate(DESVIOS, 1):
+        w(f'  {i}. {t}')
+    w('')
+    w('EXPLORATÓRIO (decidido depois de ver os resultados; não entra em veredito)')
+    x1 = X['X1_rdv_publicado_vem_agrupado']
+    w(f'  X1. RDV agrupado por votável (números em ordem crescente, depois branco, depois nulo): 2º turno {x1["p2"]["presidente"]["agrupados_por_votavel"]} de {x1["p2"]["presidente"]["rdv"]}; 1º turno {x1["p1"]["presidente"]["agrupados_por_votavel"]} de {x1["p1"]["presidente"]["rdv"]}')
+    w(f'      (governador {x1["p1"]["governador"]["agrupados_por_votavel"]} de {x1["p1"]["governador"]["rdv"]}); amostra antiga {x1.get("ant", {}).get("presidente", {}).get("agrupados_por_votavel")} de {x1.get("ant", {}).get("presidente", {}).get("rdv")}.')
+    w('  X2. Os três casos de I3 (principal, lista P e amostra antiga) têm a mesma forma: confirmação, urna desligada ou erro, reinício da votação.')
+    w('      No de MG o próprio programa escreve "O voto do eleitor NÃO foi registrado".')
+    x3 = X['X3_I10_passos_para_tras']
+    w(f'  X3. I10: {x3["secoes"]} seções, {x3["no_exterior"]} do exterior (são as 10 seções do exterior da amostra). Todos os passos para trás estão ligados à linha')
+    w(f'      "Data e hora da urna alterada ... por ajuste de fuso horário" ou à partida seguinte com o relógio anterior. Passos de outro tipo: {len(x3["com_passo_do_tipo_outro"])}.')
+    w('  X4. Hora de recebimento por estado do pacote: ver a Parte 1 (g) e a Parte 2.')
+    w(f'  X5. Seções da amostra com reinício da votação no dia (mais de uma linha "Urna pronta"): {X["X5_reinicio_da_votacao_no_dia"]["secoes_com_mais_de_uma_urna_pronta_no_dia"]}; delas com I3: {X["X5_reinicio_da_votacao_no_dia"]["delas_com_I3"]}.')
+    w('  X6. Os 6 pacotes em estado "Recebido": caso B dos casos individuais.')
+    w('  X7. Estimativa do país pelos boletins assinados da amostra: ver "Em votos de margem".')
+    t8 = X.get('X8_pacote_de_arquivos_transmitidos')
+    if t8:
+        tot = sum(len(v_['arquivos']) for v_ in t8['secoes'].values()); ig = sum(1 for v_ in t8['secoes'].values() for a_ in v_['arquivos'].values() if isinstance(a_, dict) and a_['igual_ao_do_site'])
+        w(f'  X8. Pacote "arquivos transmitidos para totalização" (dados abertos do TSE, um zip por UF, lido por faixa, sem baixar o zip): para as {len(t8["secoes"])} seções')
+        w(f'      da amostra com pacote "Recebido" (6), índice regerado em 09/11 (8), índice antes do bweb (2) ou I3 (1), {ig} de {tot} arquivos (bu, rdv, log e vota.vsc)')
+        w('      são byte a byte iguais aos do site, e o SHA-256 do vota.vsc do zip é o hash do aux.json em todas. Data dos zips (GMT): ' + '; '.join(f'{u} {i_["modificado"][5:22]}' for u, i_ in t8['pacotes'].items()) + '.')
+        w('      Os zips de PR, PA e BA foram fechados antes do segundo recebimento das seções deles (27/10); o do AM, 29 minutos antes; o de PE, depois.')
+        w('      Limite: esses zips também são do TSE e não têm resumo publicado; mostram que o site não mudou depois de 26/10, não o que houve antes.')
+    w('')
+    w('CONTAGEM')
+    w('  Conferências rodadas na amostra principal: 7 de D3-1 (a até g) e 11 de D3-3 (I1 a I11), nos dois turnos onde cabem, mais 9 plantios e 3')
+    w('  explicações inocentes plantadas. Conferência exata não dá sinal por acaso: o que produz apontamento sem irregularidade é evento')
+    w('  operacional (contingência, queda de energia, fuso do exterior, duas horas de recebimento), e foi só isso que apareceu.')
+    w('  Falta, pelo Adendo 27: o conferente independente refazer com código próprio.')
+    txt = '\n'.join(L) + '\n'
+    assert chr(8211) not in txt and chr(8212) not in txt
+    open(SAIDA_TXT, 'w').write(txt)
+    with open(SAIDA_JSON, 'w') as f:
+        json.dump(R, f, indent=1, ensure_ascii=False, default=str)
+    diz('escritos', SAIDA_TXT, SAIDA_JSON)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# EXPLORATÓRIO: os mesmos arquivos no pacote "arquivos transmitidos para totalização" do repositório de dados abertos
+# (decidido depois de ver que 6 seções têm no site um pacote em estado "Recebido", recebido em 26 ou 27/10)
+# ---------------------------------------------------------------------------------------------------------------------
+URL_TX = 'https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_{turno}t_{uf}.zip'
+
+
+def _faixa(url, ini, fim):
+    global _CTX
+    if _CTX is None:
+        _CTX = ssl.create_default_context(cafile=os.environ.get('SSL_CERT_FILE', '/root/.ccr/ca-bundle.crt'))
+    esp = _ult[0] + 1.0 - time.time()
+    if esp > 0:
+        time.sleep(esp)
+    _ult[0] = time.time()
+    req = urllib.request.Request(url, headers={'User-Agent': 'auditoria-eleicao-2026 (pesquisa)'})
+    if ini is None:
+        req.method = 'HEAD'
+    else:
+        req.add_header('Range', f'bytes={ini}-{fim}')
+    try:
+        with urllib.request.urlopen(req, timeout=180, context=_CTX) as r:
+            return (dict(r.headers), r.read() if ini is not None else b'')
+    except urllib.error.HTTPError as e:
+        if e.code in (429, 403):
+            raise Parar(f'{e.code} em {url}')
+        raise
+
+
+def _diretorio_zip(url):
+    import struct
+    cab, _ = _faixa(url, None, None)
+    tam = int(cab['Content-Length'])
+    _, fim = _faixa(url, tam - 70000, tam - 1)
+    i = fim.rfind(b'PK\x05\x06')
+    _, _, _, _, n, sz, off, _ = struct.unpack('<IHHHHIIH', fim[i:i + 22])
+    if off == 0xFFFFFFFF or n == 0xFFFF or sz == 0xFFFFFFFF:
+        j = fim.rfind(b'PK\x06\x06')
+        n = struct.unpack('<Q', fim[j + 32:j + 40])[0]
+        sz, off = struct.unpack('<QQ', fim[j + 40:j + 56])
+    _, cd = _faixa(url, off, off + sz - 1)
+    ents = {}
+    i = 0
+    while cd[i:i + 4] == b'PK\x01\x02':
+        (_, _, _, flag, meth, _, _, crc, cs, us, nl, el, cl, _, _, _, lo) = struct.unpack('<IHHHHHHIIIHHHHHII', cd[i:i + 46])
+        nome = cd[i + 46:i + 46 + nl].decode('latin1'); extra = cd[i + 46 + nl:i + 46 + nl + el]
+        if 0xFFFFFFFF in (cs, us, lo):
+            k = 0
+            while k + 4 <= len(extra):
+                hid, hsz = struct.unpack('<HH', extra[k:k + 4])
+                if hid == 1:
+                    d = extra[k + 4:k + 4 + hsz]; q = 0
+                    if us == 0xFFFFFFFF:
+                        us = struct.unpack('<Q', d[q:q + 8])[0]; q += 8
+                    if cs == 0xFFFFFFFF:
+                        cs = struct.unpack('<Q', d[q:q + 8])[0]; q += 8
+                    if lo == 0xFFFFFFFF:
+                        lo = struct.unpack('<Q', d[q:q + 8])[0]; q += 8
+                k += 4 + hsz
+        ents[nome] = {'meth': meth, 'cs': cs, 'us': us, 'off': lo, 'crc': crc}
+        i += 46 + nl + el + cl
+    return {'tamanho': tam, 'modificado': cab.get('Last-Modified'), 'etag': cab.get('ETag'), 'entradas_no_zip': n, 'lidas': len(ents)}, ents
+
+
+def _membro_zip(url, e):
+    import struct, zlib
+    _, b = _faixa(url, e['off'], e['off'] + 30 + 400 + e['cs'])
+    nl, el = struct.unpack('<HH', b[26:30])
+    dados = b[30 + nl + el:30 + nl + el + e['cs']]
+    if e['meth'] == 8:
+        dados = zlib.decompressobj(-15).decompress(dados)
+    return dados
+
+
+def modo_transmitidos():
+    """Para as seções da amostra principal com pacote "Recebido", índice regerado ou índice antes do bweb: os arquivos do pacote
+    de arquivos transmitidos (dados abertos, por UF) contra os do site. Leitura por faixa: só o diretório do zip e os membros."""
+    res = {r['k']: r for r in le('parcial_res_p2.json.gz')}
+    F2 = le('fatos_p2.json.gz')
+    alvo = []
+    for k in F2['ordem']:
+        r = res[k]; a = r['inf'].get('aux') or {}
+        g = (r['B'].get('g') or {}).get('recebimento')
+        if r['inf'].get('pacote_st') != 'Totalizado':
+            alvo.append((k, 'pacote em estado Recebido'))
+        elif a.get('dg') != '25/10/2026':
+            alvo.append((k, 'índice regerado em ' + str(a.get('dg'))))
+        elif g and g['dif_s'] < 0:
+            alvo.append((k, 'índice antes do bweb (contingência)'))
+        elif 'I3' in r['I']:
+            alvo.append((k, 'I3'))
+    out = {'alvo': len(alvo), 'pacotes': {}, 'secoes': {}, 'parou': None}
+    por_uf = collections.defaultdict(list)
+    for k, motivo in alvo:
+        por_uf[k.split('|')[0]].append((k, motivo))
+    try:
+        for uf in sorted(por_uf, key=lambda u: -len(por_uf[u])):
+            url = URL_TX.format(turno=2, uf=uf)
+            info, ents = _diretorio_zip(url)
+            out['pacotes'][uf] = info
+            for k, motivo in por_uf[uf]:
+                _, m, z, s_ = k.split('|')
+                ident = f'{uf.lower()}{int(m):05d}{int(z):04d}{int(s_):04d}'
+                pac = escolhe_pacote(F2['secoes'][k])
+                reg = {'motivo': motivo, 'arquivos': {}, 'no_zip': sorted(n_.split('/')[-1] for n_ in ents if ident in n_)}
+                for t in ('bu', 'rdv', 'log', 'vsc'):
+                    if t not in pac['arq']:
+                        continue
+                    nm = pac['arq'][t]['nome']
+                    cand = [n_ for n_ in ents if n_.split('/')[-1] == nm]
+                    if not cand:
+                        reg['arquivos'][t] = 'não está no zip'; continue
+                    dados = _membro_zip(url, ents[cand[0]])
+                    reg['arquivos'][t] = {'igual_ao_do_site': hashlib.sha512(dados).hexdigest() == pac['arq'][t]['sha512'], 'tam_zip': len(dados), 'tam_site': pac['arq'][t]['tam']}
+                    if t == 'vsc':
+                        reg['sha256_vsc_zip_igual_ao_hash_do_aux'] = base64.b64encode(hashlib.sha256(dados).digest()).decode().replace('/', '-') == pac.get('aux_hash_txt')
+                out['secoes'][k] = reg
+                grava('parcial_transmitidos.json', out)
+    except Parar as e:
+        out['parou'] = str(e)
+    except Exception as e:  # noqa: BLE001
+        out['parou'] = 'erro: ' + repr(e)[:200]
+    out['fim'] = time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())
+    grava('parcial_transmitidos.json', out)
+    diz('transmitidos', {k: v['arquivos'] if isinstance(v, dict) else v for k, v in out['secoes'].items()}, out['parou'])
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Extrator do bweb usado no preparo (rodado como arquivo à parte, R27_DA/extrair_bweb_DA.py, antes de qualquer conta).
+# Fica aqui em texto; o modo extrair_bweb grava o arquivo e diz como rodar.
+# ---------------------------------------------------------------------------------------------------------------------
+EXTRATOR_BWEB = r'''"""Preparo de dados do R27_DA (sem conta): linhas do bweb dos dois turnos para as seções de interesse.
+
+Guarda, por seção, os metadados da primeira linha do cargo 1 e os votos (tipo, número, quantidade) dos cargos 1 (Presidente)
+e 3 (Governador). Filtro por bytes antes de separar campos. Uso: python3 -I extrair_bweb_DA.py <turno>
+"""
+import csv, glob, gzip, io, json, os, sys, zipfile
+from multiprocessing import Pool
+
+W = '/home/user/trabalho-eleicao/adendo27/R27_DA'
+REG = '/home/user/casa-control/eleicao-2026/registro/adendo27'
+ZIPS = {1: '/home/user/trabalho-eleicao/bweb1t/zips/*.zip', 2: '/home/user/trabalho-eleicao/trab2t/zips2t/*.zip'}
+PAD1 = b';1;"Presidente";'
+PAD3 = b';3;"Governador";'
+META = ['NR_LOCAL_VOTACAO', 'DT_BU_RECEBIDO', 'QT_APTOS', 'QT_COMPARECIMENTO', 'QT_ABSTENCOES', 'CD_TIPO_URNA', 'DS_TIPO_URNA',
+        'NR_URNA_EFETIVADA', 'CD_CARGA_1_URNA_EFETIVADA', 'CD_CARGA_2_URNA_EFETIVADA', 'CD_FLASHCARD_URNA_EFETIVADA',
+        'DT_CARGA_URNA_EFETIVADA', 'DS_SECOES_AGREGADAS', 'DT_ABERTURA', 'DT_ENCERRAMENTO', 'QT_ELEI_BIOM_SEM_HABILITACAO',
+        'DT_EMISSAO_BU', 'NR_JUNTA_APURADORA', 'NR_TURMA_APURADORA', 'CD_PLEITO', 'CD_ELEICAO', 'DT_GERACAO', 'HH_GERACAO']
+
+
+def alvo():
+    ks = set()
+    for nome in ('amostra_aas_principal.txt', 'amostra_aas_extensao.txt', 'estrato_C1_junta.txt', 'estrato_P_prorrogadas_400.txt'):
+        ks.update(l.strip() for l in open(os.path.join(REG, nome)) if l.strip())
+    for d in glob.glob('/home/user/trabalho-eleicao/amostra2t/arq/*/*/*/*/'):
+        uf, m, z, s = d.rstrip('/').split('/')[-4:]
+        ks.add(f'{uf.upper()}|{int(m)}|{int(z)}|{int(s)}')
+    return ks
+
+
+def um(a):
+    zp, ks = a
+    z = zipfile.ZipFile(zp)
+    nome = [n for n in z.namelist() if n.lower().endswith('.csv')][0]
+    out = {}; n1 = 0; nsec = set()
+    with z.open(nome) as raw:
+        fh = io.BufferedReader(raw, 1 << 22)
+        cab = [c.strip().strip('"').replace('SG_ UF', 'SG_UF') for c in fh.readline().decode('latin1').strip().split(';')]
+        ix = {c: i for i, c in enumerate(cab)}
+        iUF, iM, iZ, iS, iC = ix['SG_UF'], ix['CD_MUNICIPIO'], ix['NR_ZONA'], ix['NR_SECAO'], ix['CD_CARGO_PERGUNTA']
+        iTV, iDT, iNV, iNM, iQ = ix['CD_TIPO_VOTAVEL'], ix['DS_TIPO_VOTAVEL'], ix['NR_VOTAVEL'], ix['NM_VOTAVEL'], ix['QT_VOTOS']
+        im = [ix[c] for c in META]
+        for linha in fh:
+            e1 = PAD1 in linha
+            if not e1 and PAD3 not in linha:
+                continue
+            a_ = linha.rstrip(b'\r\n').split(b';')
+            if len(a_) != len(cab):
+                a_ = [x.encode('latin1') for x in next(csv.reader([linha.decode('latin1')], delimiter=';'))]
+            cargo = a_[iC].strip(b'"')
+            if cargo not in (b'1', b'3'):
+                continue
+            k = f"{a_[iUF].strip(b'\"').decode()}|{int(a_[iM].strip(b'\"'))}|{int(a_[iZ].strip(b'\"'))}|{int(a_[iS].strip(b'\"'))}"
+            if cargo == b'1':
+                n1 += 1; nsec.add(k)
+            if k not in ks:
+                continue
+            r = out.setdefault(k, {'meta': None, 'v1': [], 'v3': []})
+            if cargo == b'1' and r['meta'] is None:
+                r['meta'] = {c: a_[i].strip(b'"').decode('latin1') for c, i in zip(META, im)}
+            r['v1' if cargo == b'1' else 'v3'].append([int(a_[iTV].strip(b'"')), a_[iDT].strip(b'"').decode('latin1'), int(a_[iNV].strip(b'"')),
+                                                       a_[iNM].strip(b'"').decode('latin1'), int(a_[iQ].strip(b'"'))])
+    return os.path.basename(zp), n1, len(nsec), out
+
+
+if __name__ == '__main__':
+    turno = int(sys.argv[1])
+    ks = alvo()
+    zs = sorted(glob.glob(ZIPS[turno]), key=lambda p: -os.path.getsize(p))
+    tudo = {}; linhas = 0; secoes = 0
+    with Pool(3) as P:
+        for nome, n1, ns, out in P.imap_unordered(um, [(z, ks) for z in zs]):
+            tudo.update(out); linhas += n1; secoes += ns
+            print('ok', nome, n1, ns, len(out), flush=True)
+    with gzip.open(f'{W}/bweb_{turno}t.json.gz', 'wt') as f:
+        json.dump({'linhas_presidente': linhas, 'secoes_no_bweb': secoes, 'alvo': len(ks), 'secoes': tudo}, f, separators=(',', ':'), ensure_ascii=False)
+    print('turno', turno, 'linhas de presidente', linhas, 'secoes no bweb', secoes, 'alvo', len(ks), 'achadas', len(tudo))
+'''
+
+
 if __name__ == '__main__':
     modo = sys.argv[1] if len(sys.argv) > 1 else ''
     if modo == 'baixar_c1':
@@ -2048,5 +2760,18 @@ if __name__ == '__main__':
         modo_ler(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else None)
     elif modo == 'rodar':
         modo_rodar(so_obs=len(sys.argv) > 2 and sys.argv[2] == 'obs')
+    elif modo == 'relatorio':
+        modo_relatorio()
+    elif modo == 'transmitidos':
+        modo_transmitidos()
+    elif modo == 'extrair_bweb':
+        os.makedirs(W, exist_ok=True)
+        open(os.path.join(W, 'extrair_bweb_DA.py'), 'w').write(EXTRATOR_BWEB)
+        diz('gravado', os.path.join(W, 'extrair_bweb_DA.py'), '; rode com python3 -I <arquivo> 2 e depois 1')
+    elif modo == 'rebaixar':
+        # baixa de novo os arquivos de uma seção em pasta nova (reconferência de quebra de classe A)
+        reg_ = collections.Counter()
+        baixar_secao(int(sys.argv[3]), sys.argv[2], os.path.join(W, 'rebaixar', time.strftime('%Y%m%d')), {'bu', 'rdv', 'log', 'vota', 'busa', 'sa', 'logsa'}, reg_)
+        diz('rebaixar', dict(reg_))
     else:
         print(__doc__)

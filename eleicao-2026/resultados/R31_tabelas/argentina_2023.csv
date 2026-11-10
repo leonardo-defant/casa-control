@@ -1,0 +1,37 @@
+# eleicao: Argentina 2023, presidencial, eleicao geral 22/10/2023 e segundo turno 19/11/2023
+# tipo_de_voto: cedula de papel (boleta partidaria)
+# A: Javier Milei
+# B: Sergio Massa (mais votado na geral)
+# unidades: 24 distritos (23 provincias e a Cidade de Buenos Aires); o voto de residentes no exterior e apurado dentro do distrito do eleitor, sem unidade separada
+# validos: votos afirmativos (soma das 5 formulas; brancos e nulos fora)
+# fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elecciones_presidenciales_de_Argentina_de_2023, tabelas "Resultados por provincia" da geral e do balotaje (escrutinio definitivo). A pagina da DINE (argentina.gob.ar/dine/resultados-electorales/elecciones-2023) so oferece o zip dos resultados PROVISORIOS da geral por mesa (28 MB), sem o segundo turno; nao baixei.
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# total_oficial: escrutinio definitivo (Camara Nacional Electoral/DINE), como na tabela nacional da mesma pagina: geral Massa 9.853.492, Milei 8.034.990, afirmativos 26.791.634; balotaje Milei 14.554.560, Massa 11.598.720
+# correcoes_de_digitacao_da_fonte: nenhuma (todas as linhas reproduzem as porcentagens publicadas)
+# conferencia_total_nacional: v1_A soma 8034990 oficial 8034990 dif +0 (+0.000%); v1_B soma 9853492 oficial 9853492 dif +0 (+0.000%); v1_validos soma 26791634 oficial 26791634 dif +0 (+0.000%); v2_A soma 14554560 oficial 14554560 dif +0 (+0.000%); v2_B soma 11598720 oficial 11598720 dif +0 (+0.000%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Provincia de Buenos Aires Buenos Aires;territorio;;;2593075;4327441;10076525;4801185;4949734
+Ciudad de Buenos Aires Ciudad de Buenos Aires;territorio;;;382488;616182;1914578;1038310;775356
+Provincia de Catamarca Catamarca;territorio;;;78017;104322;243576;125325;111994
+Provincia del Chaco Chaco;territorio;;;200006;313941;718896;357106;359789
+Provincia del Chubut Chubut;territorio;;;121842;111752;346846;197835;137057
+Provincia de Córdoba (Argentina) Córdoba;territorio;;;773428;309044;2303151;1639102;574313
+Provincia de Corrientes Corrientes;territorio;;;189282;262170;704502;366228;322694
+Provincia de Entre Ríos Entre Ríos;territorio;;;252719;283136;849879;529318;331763
+Provincia de Formosa Formosa;territorio;;;105330;189593;362458;154306;202288
+Provincia de Jujuy Jujuy;territorio;;;170966;148103;457698;258754;186315
+Provincia de La Pampa La Pampa;territorio;;;77493;80611;231231;126794;94546
+Provincia de La Rioja (Argentina) La Rioja;territorio;;;90328;98739;240016;126357;108817
+Provincia de Mendoza Mendoza;territorio;;;475272;269326;1121535;784109;317656
+Provincia de Misiones Misiones;territorio;;;309077;277836;732561;405460;309355
+Provincia del Neuquén Neuquén;territorio;;;157187;135881;427814;254613;166700
+Provincia de Río Negro Río Negro;territorio;;;150079;168235;444534;236796;199969
+Provincia de Salta Salta;territorio;;;323105;304880;802288;461685;338925
+Provincia de San Juan (Argentina) San Juan;territorio;;;164117;155794;467792;277621;179706
+Provincia de San Luis San Luis;territorio;;;139894;88235;322860;214938;101232
+Provincia de Santa Cruz Santa Cruz;territorio;;;64687;67336;178175;104531;75706
+Provincia de Santa Fe Santa Fe;territorio;;;664607;607088;2043945;1282012;758396
+Provincia de Santiago del Estero Santiago del Estero;territorio;;;144659;416597;633406;198805;432433
+Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur Tierra del Fuego;territorio;;;36202;40889;107038;55975;48998
+Provincia de Tucumán Tucumán;territorio;;;371130;476361;1060330;557395;514978

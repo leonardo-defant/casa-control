@@ -1,0 +1,24 @@
+# eleicao: Chile 1999/2000, presidencial, 1o turno 12/12/1999 e 2o turno 16/01/2000
+# tipo_de_voto: cedula de papel
+# A: Joaquin Lavin
+# B: Ricardo Lagos (mais votado no 1o turno)
+# unidades: 13 regioes da epoca; nao havia voto no exterior
+# validos: votos validamente emitidos (brancos e nulos fora)
+# fonte: Servel, Sitio Historico Electoral (dados do TRICEL): https://historial.servel.cl/SitioHistorico/paginas/1999/presidencial1v/regiones/candidatos/total/101.htm a 113.htm e o mesmo caminho com presidencial2v; total do pais em .../pais/candidatos/total/1.htm
+# acesso: 10/11/2026
+# fonte_oficial_direta: sim
+# conferencia_total_nacional: contra a pagina do pais do mesmo sitio: v1_A soma 3352199 oficial 3352199 dif +0 (+0.000%); v1_B soma 3383339 oficial 3383339 dif +0 (+0.000%); v1_validos soma 7055128 oficial 7055128 dif +0 (+0.000%); v2_A soma 3495569 oficial 3495569 dif +0 (+0.000%); v2_B soma 3683158 oficial 3683158 dif +0 (+0.000%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Región de Tarapacá;territorio;;;83985;78617;171569;87766;85792
+Región de Antofagasta;territorio;;;80527;107504;198543;83831;116008
+Región de Atacama;territorio;;;42578;62244;111010;45498;67745
+Región de Coquimbo;territorio;;;100985;148558;262345;107352;161302
+Región de Valparaíso;territorio;;;397017;344053;779711;413553;380521
+Región del Libertador General Bernardo O'Higgins;territorio;;;185452;191058;392299;191507;207900
+Región del Maule;territorio;;;210768;225304;451809;222062;240825
+Región del Biobío;territorio;;;402291;463597;911317;424453;510035
+Región de la Araucanía;territorio;;;225279;161045;399163;235959;177776
+Región de los Lagos;territorio;;;256369;219150;491492;267387;238745
+Región Aisén del General Carlos Ibáñez del Campo;territorio;;;20609;18805;40934;21659;19726
+Región de Magallanes y de la Antártica Chilena;territorio;;;31297;40169;74082;32378;41273
+Región Metropolitana de Santiago;territorio;;;1315042;1323235;2770854;1362164;1435510

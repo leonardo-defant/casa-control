@@ -1,0 +1,49 @@
+# eleicao: Colombia 2022, presidencial, 1o turno 29/05/2022 e 2o turno 19/06/2022
+# tipo_de_voto: cedula de papel (tarjeton)
+# A: Rodolfo Hernandez
+# B: Gustavo Petro (mais votado no 1o turno)
+# unidades: 32 departamentos, Bogota D.C. e Consulados (exterior)
+# validos: soma dos candidatos (voto en blanco, nulos e nao marcados fora)
+# fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2022, tabelas por departamento do 1o e do 2o turno (fonte declarada: Registraduria). O sitio da Registraduria (www.registraduria.gov.co) devolveu erro 403 a este cliente; nao insisti.
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# total_oficial: escrutinio oficial (Registraduria), como esta na tabela nacional de en.wikipedia.org/wiki/2022_Colombian_presidential_election: 1o turno Petro 8.542.020, Hernandez 5.965.531, soma dos 8 candidatos 20.808.065; 2o turno Petro 11.292.758, Hernandez 10.604.656 (a declaracao do CNE noticiada na epoca dava Petro 11.291.986)
+# natureza_da_tabela: a tabela por departamento e o PRECONTEO da Registraduria (a soma dos departamentos da exatamente o preconteo nacional: 1o turno Petro 8.527.768 e Hernandez 5.953.209; 2o turno Petro 11.281.013 e Hernandez 10.580.412), nao o escrutinio final
+# correcoes_de_digitacao_da_fonte: 2o turno, Vaupés: Petro 6647 nao reproduz a porcentagem publicada (74.03); usei 6447, da tabela da Wikipedia em ingles
+# conferencia_cruzada: comparada com as tabelas por departamento da Wikipedia em ingles: diferem em Amazonas 1o turno (Hernandez 4.487 aqui, 5.734 la; a soma daqui fecha com o preconteo nacional), Meta 2o turno (Petro 180.923 aqui, 180.293 la; a daqui reproduz a porcentagem), Magdalena 2o turno (302.439 aqui, 302.432 la) e Vaupes 2o turno (corrigido)
+# conferencia_total_nacional: v1_A soma 5953209 oficial 5965531 dif -12322 (-0.207%); v1_B soma 8527768 oficial 8542020 dif -14252 (-0.167%); v1_validos soma 20779664 oficial 20808065 dif -28401 (-0.136%); v2_A soma 10580412 oficial 10604656 dif -24244 (-0.229%); v2_B soma 11281013 oficial 11292758 dif -11745 (-0.104%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Amazonas;territorio;;;4487;10117;21600;10250;12883
+Antioquia;territorio;;;521390;682282;2780021;1822700;942005
+Arauca;territorio;;;56079;23043;94948;69473;32082
+Atlántico;territorio;;;113489;479049;861942;314551;672832
+Bogotá;territorio;;;833016;1769671;3687362;1480198;2253997
+Bolívar;territorio;;;109395;359593;707357;301952;493041
+Boyacá;territorio;;;321045;194972;613847;378899;264270
+Caldas;territorio;;;147287;131908;452223;267988;187346
+Caquetá;territorio;;;65399;47959;138707;88922;72816
+Casanare;territorio;;;125689;42674;193773;143796;57331
+Cauca;territorio;;;56703;388206;544983;122693;515074
+Cesar;territorio;;;140124;190420;427174;215080;250499
+Chocó;territorio;;;9805;96638;131114;25736;127846
+Consulados;exterior;;;42118;95850;300636;185557;114610
+Córdoba;territorio;;;95201;318645;605413;266999;437016
+Cundinamarca;territorio;;;615953;472538;1357388;756454;624965
+Guainía;territorio;;;2892;4966;10336;5716;6536
+Guaviare;territorio;;;14534;11198;29875;17601;14708
+Huila;territorio;;;223473;162609;492756;305799;216533
+La Guajira;territorio;;;37587;113489;204035;85101;162849
+Magdalena;territorio;;;78368;226501;451024;191500;302439
+Meta;territorio;;;253918;135500;477908;307137;180923
+Nariño;territorio;;;66437;433636;605944;126198;592170
+Norte de Santander;territorio;;;367724;107617;672332;557406;149413
+Putumayo;territorio;;;17483;86542;119731;25549;110118
+Quindío;territorio;;;80780;84365;265025;151653;113537
+Risaralda;territorio;;;147122;164204;453548;238963;216227
+San Andrés;territorio;;;2660;5996;14348;7449;8545
+Santander;territorio;;;782378;244179;1159805;871291;310240
+Sucre;territorio;;;40093;198095;358707;140507;262135
+Tolima;territorio;;;242949;191000;607614;388640;251710
+Valle del Cauca;territorio;;;329898;1043911;1914700;695059;1310236
+Vaupés;territorio;;;1063;4741;6911;2148;6447
+Vichada;territorio;;;6670;5654;16577;11447;7634

@@ -1,0 +1,30 @@
+# eleicao: El Salvador 2014, presidencial, 1o turno 02/02/2014 e 2o turno 09/03/2014
+# tipo_de_voto: cedula de papel
+# A: Norman Quijano (ARENA)
+# B: Salvador Sanchez Ceren (FMLN, mais votado no 1o turno)
+# unidades: 14 departamentos e voto no exterior
+# validos: soma dos 5 candidatos
+# fonte: SEGUNDA MAO: en.wikipedia.org/wiki/2014_Salvadoran_presidential_election, tabelas por departamento dos dois turnos (fonte declarada: Psephos, arquivo eleitoral de Adam Carr, que reproduz o TSE). Nao tentei o sitio do TSE de El Salvador.
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# total_oficial: TSE, como na tabela nacional da mesma pagina: 1o turno Sanchez Ceren 1.315.768, Quijano 1.047.592, validos 2.688.936; 2o turno 1.495.815 e 1.489.451
+# aviso: eleicao contestada pelo perdedor (ARENA pediu recontagem e anulacao; o TSE e a Sala Constitucional negaram); margem de 0,22 ponto
+# correcoes_de_digitacao_da_fonte: Chalatenango 2o turno: a tabela em ingles traz Sanchez 53.248 e Quijano 50.016; a em espanhol traz o contrario, e so assim a soma dos departamentos fecha exatamente com o total nacional do TSE (diferenca de 3.232 votos para cada lado); usei a versao em espanhol. Cuscatlan 1o turno: Lemus 270 (espanhol) em vez de 316 (ingles), que fecha os validos nacionais.
+# conferencia_cruzada: comparada com as tabelas da Wikipedia em espanhol: 1o turno Cuscatlán: en [50609, 46118, 15407, 417, 316], es [50609, 46118, 15407, 417, 270]; 1o turno San Miguel: en [106882, 56183, 16711, 677, 298], es [106882, 56182, 16711, 677, 298]; 1o turno Exterior vote: sem par na tabela em espanhol; 2o turno Chalatenango: en [53248, 50016], es [50016, 53248]; 2o turno Exterior vote: sem par na tabela em espanhol
+# conferencia_total_nacional: v1_A soma 1047592 oficial 1047592 dif +0 (+0.000%); v1_B soma 1315768 oficial 1315768 dif +0 (+0.000%); v1_validos soma 2688936 oficial 2688936 dif +0 (+0.000%); v2_A soma 1489451 oficial 1489451 dif +0 (+0.000%); v2_B soma 1495815 oficial 1495815 dif +0 (+0.000%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Ahuachapán;territorio;;;51507;69422;141417;79481;79795
+Cabañas;territorio;;;32731;23691;65193;45055;28292
+Chalatenango;territorio;;;39494;43633;92755;53248;50016
+Cuscatlán;territorio;;;46118;50609;112821;66840;57525
+La Libertad;territorio;;;137909;146254;324284;190837;166083
+La Paz;territorio;;;52585;67665;135356;73317;77666
+La Unión;territorio;;;36638;49253;93846;55991;55051
+Morazán;territorio;;;27785;42612;78690;41910;47232
+San Miguel;territorio;;;56183;106882;180751;87314;120903
+San Salvador;territorio;;;344420;392282;830424;451176;439186
+San Vicente;territorio;;;26857;36846;72856;39724;42279
+Santa Ana;territorio;;;87683;103904;226361;133606;121405
+Sonsonate;territorio;;;59558;104772;192996;95301;121552
+Usulután;territorio;;;47525;76786;139277;74797;87350
+Exterior vote;exterior;;;599;1157;1909;854;1480

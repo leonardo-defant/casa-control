@@ -1,0 +1,39 @@
+# eleicao: Equador 2025, presidencial, 1o turno 09/02/2025 e 2o turno 13/04/2025
+# tipo_de_voto: cedula de papel
+# A: Luisa Gonzalez
+# B: Daniel Noboa (mais votado no 1o turno)
+# unidades: 24 provincias; exterior = 3 circunscricoes especiais somadas
+# ATENCAO: TABELA NAO CONFERIVEL POR SOMA NO 2o TURNO. So o 1o turno tem votos por provincia. O 2o turno por provincia so foi achado em PORCENTAGEM, em corte parcial da noite e da manha seguinte. As colunas v2_A e v2_B sao PSEUDOVOTOS: (votos dos dois finalistas no 1o turno da provincia) x (validos nacionais do 2o turno / votos nacionais dos dois finalistas no 1o turno) x porcentagem publicada. A coluna v1_validos tambem e estimada: soma dos 4 candidatos listados x (validos nacionais / soma nacional dos 4). Pela decisao D12 do script esta eleicao fica FORA da leitura principal e e relatada a parte.
+# fonte: SEGUNDA MAO. 1o turno (votos de Noboa, Gonzalez, Iza e Andrea Gonzalez por provincia): de.wikipedia.org/wiki/Präsidentschaftswahl_in_Ecuador_2025, tabela "Ergebnis nach Provinzen" (as colunas do 2o turno estao vazias la). 2o turno (porcentagens): Bloomberg Linea, 14/04/2025 10:41, https://www.bloomberglinea.com/latinoamerica/ecuador/resultado-elecciones-2025-por-provincias-donde-le-gano-daniel-noboa-a-luisa-gonzalez/ (dados do CNE); comparado com Teleamazonas (corte das 23:00 de 13/04/2025), https://www.teleamazonas.com/resultados-provincias-balotaje-13-abril/. O sitio do CNE (cne.gob.ec) respondeu com pagina de verificacao de visitante humano (captcha): parei. resultados.cne.gob.ec e web.archive.org nao responderam. As paginas da Wikipedia em espanhol, ingles e frances nao tem tabela por provincia.
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# total_oficial: CNE, como nas tabelas nacionais das paginas da Wikipedia em espanhol e ingles: 1o turno Noboa 4.527.606, Gonzalez 4.510.860, validos 10.251.189; 2o turno Noboa 5.870.618, Gonzalez 4.683.260
+# aviso: eleicao contestada pela perdedora (aviso do registro)
+# diferencas_entre_as_duas_fontes_do_2o_turno: Bloomberg menos Teleamazonas, em pontos de Noboa: Morona Santiago -0.04; Zamora Chinchipe -0.02; Santa Elena -0.01; Sucumbíos +0.02; Pichincha +0.03; El Oro +0.04; Guayas +0.06; Loja +0.13; Esmeraldas +0.27; Pastaza +0.35; Orellana +0.64; Galápagos +1.39
+# conferencia_total_nacional: 1o turno confere por soma (Noboa e Gonzalez); validos do 1o turno e todo o 2o turno fecham por construcao e NAO sao conferencia: v1_A soma 4510860 oficial 4510860 dif +0 (+0.000%); v1_B soma 4527606 oficial 4527606 dif +0 (+0.000%); v1_validos soma 10251191 oficial 10251189 dif +2 (+0.000%); v2_A soma 4722505 oficial 4683260 dif +39245 (+0.838%); v2_B soma 5831375 oficial 5870618 dif -39243 (-0.668%) | fatia de Noboa no 2o turno reconstruida com as porcentagens: 55.25% (oficial 55,63%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Azuay;territorio;;;173148;206001;448223;165090;277629
+Bolívar;territorio;;;37832;65281;135580;38878;81524
+Cañar;territorio;;;45356;59415;129934;44555;77782
+Carchi;territorio;;;46118;58084;117917;47039;74634
+Cotopaxi;territorio;;;84358;114512;305872;87103;145110
+Chimborazo;territorio;;;75087;159103;305491;80861;192594
+El Oro;territorio;;;206435;184192;422125;217022;239098
+Esmeraldas;territorio;;;158960;123873;302310;169915;160338
+Guayas;territorio;;;1206486;1083469;2463235;1274111;1399784
+Imbabura;territorio;;;126307;116412;304284;133743;149671
+Loja;territorio;;;99351;168113;303213;99751;212557
+Los Ríos;territorio;;;301486;203286;538857;332954;256449
+Manabí;territorio;;;627888;299913;993922;687499;395859
+Morona Santiago;territorio;;;29175;50231;97261;27473;65247
+Napo;territorio;;;22002;44737;82039;20986;56942
+Pastaza;territorio;;;14427;36232;62003;14114;45039
+Pichincha;territorio;;;700478;906040;1879800;710205;1165666
+Tungurahua;territorio;;;79028;218104;360000;74421;272529
+Zamora Chinchipe;territorio;;;20217;41366;70288;20710;51199
+Galápagos;territorio;;;5292;8834;15973;5540;10954
+Sucumbíos;territorio;;;73392;40892;127786;78025;55420
+Orellana;territorio;;;53929;43494;109702;54080;59677
+Santo Domingo de los Tsáchilas;territorio;;;142638;137616;303550;147030;180212
+Santa Elena;territorio;;;125452;85340;228875;131608;114526
+Exterior (3 circunscricoes somadas);exterior;;;56018;73066;142951;59792;90935

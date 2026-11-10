@@ -1,0 +1,328 @@
+R27_DA: AMOSTRA ALEATÓRIA NOVA DE PONTA A PONTA
+(D3-1: resumo publicado, assinatura da urna, boletim e bweb. D3-3: coerência entre boletim, RDV e log. D3-2: só a parte dos aux.json.)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), onda D-a, mantido pelos Adendos 28 e 30 (commit a7218fb, 10/11/2026 10:08:24 UTC).
+Critérios: desenho cego D3 (registro/adendo27/desenho_D3_proposta.json), aplicados pela letra. As decisões que o desenho não fixa estão no
+docstring de scripts/analisar_R27_DA.py, gravado antes de qualquer conta com votos (hashes e horas em
+/home/user/trabalho-eleicao/adendo27/R27_DA/docstring_antes_de_rodar.sha256). Rodado em 2026-11-10 12:42:27 UTC.
+Amostra: as 3.000 seções de registro/adendo27/amostra_aas_principal.txt, na ordem do sorteio (SHA-256 da lista conferido:
+e91693355ea48ce6...). Universo: 499.205 seções com boletim no bweb do 2º turno. Margem: 4.430.191.
+
+AVISO DE ALCANCE (do próprio registro)
+  Todos os arquivos conferidos aqui saem da mesma urna e do mesmo canal. O teste enxerga alteração feita DEPOIS da assinatura da urna
+  (transmissão, recepção, banco da totalização, publicação) e pacote montado fora da urna. É cego para um programa de urna que conte
+  errado de forma coerente: nesse caso boletim, RDV, log e assinatura concordam entre si. Nada aqui absolve nem acusa o programa.
+
+VEREDITO PELA LETRA
+  D3-1, ponta a ponta: INCONCLUSIVO, e só por causa da hora de recebimento.
+    Quebras de classe A (voto ou autenticidade): 0 em 3.000 seções. Seções sem arquivo: 0. Assinaturas sem verificar: 0.
+    Quebras de classe B (metadado): 63 seções, todas no mesmo campo: a hora de recebimento do índice do site difere da do bweb
+    (45 por 1 segundo, 10 por 2 a 7 segundos, 2 de urna de contingência com o índice 2 e 6 minutos ANTES do bweb, 6 em que o site hoje
+    mostra um segundo recebimento do mesmo pacote, de 26 ou 27/10, em estado "Recebido"). A letra manda: havendo só quebra de classe B,
+    descrever, pedir os arquivos ao TSE e não concluir. O critério de sem sinal (X = 0, n = 3.000, até 7 ausentes) também está cumprido;
+    vale a cláusula mais específica. O 1º turno das mesmas seções tem a mesma diferença em 373 (12,4%): pelo placebo do desenho, é
+    característica do formato. Exploratório (X8): nas 6 seções em estado "Recebido" os quatro arquivos do site são byte a byte os do
+    pacote de arquivos transmitidos do TSE, fechado em 26/10, antes do segundo recebimento em 5 das 6.
+  D3-3, coerência, I1 a I10: SINAL LOCAL pela letra com a lista de eventos que fixei antes de rodar; sem alcance (zero voto de margem).
+    Uma seção em 3.000 (BA|37311|50|156) tem 185 confirmações de voto para presidente no log e 184 votos no boletim, no RDV, nos votos
+    computados do log e no bweb. O log registra a causa: o eleitor confirmou às 10:09:01, a urna desligou antes de computar (bateria
+    crítica), religou às 10:11:37 e o mesário confirmou o reinício da votação às 10:14:50. Esse evento não estava na minha lista de
+    explicações; o desenho cita "votação suspensa e retomada" entre as explicações inocentes. Lido assim, o veredito é SEM SINAL.
+    O mesmo padrão aparece no dia do 1º turno em 3 de 2.962 urnas (placebo do desenho), na lista P (1 de 400) e na amostra antiga (1 de 3.897).
+    I6: 16 seções (0,53%), todas urna de contingência, explicadas. I10: 10 seções (0,33%), todas do exterior (ajuste de fuso).
+    I1, I2, I4, I5, I7, I8 e I9: zero violação.
+  D3-3, I11 (ordem dos votos no RDV): SEM PODER. O RDV publicado vem agrupado por candidato em 100% dos arquivos, nos dois turnos;
+    o plantio (ordenar o RDV) não muda nada. A ordem do RDV publicado não carrega informação.
+  D3-2, parte dos aux.json: SEM SINAL (só desta parte). 3.902 índices do 2º turno e 80 do 1º baixados de novo e comparados com os de 26/10:
+    resumo (hash) diferente em 0.
+
+RESUMO EM SEIS LINHAS
+  1. Nas 3.000 seções sorteadas, o boletim publicado no site é o que entrou na soma: 770.364 votos conferidos um a um contra o bweb,
+     diferença zero para o 13, o 22, brancos, nulos, comparecimento e aptos. O mesmo no 1º turno das mesmas seções.
+  2. O boletim é o que a urna assinou: 9.000 arquivos com o resumo conferido, 32.970 assinaturas de arquivo e 3.000 de bloco
+     válidas, 3.000 certificados emitidos pelas AC publicadas, cada um com o número da urna que o bweb e o log dizem; nenhuma chave repetida.
+  3. Em votos: com zero quebra em 3.000, no máximo 499 seções do país (0,0998%) podem ter boletim alterado depois da urna;
+     invertendo todos os votos das maiores, isso dá 429.108 votos de margem, 9,7% dos 4.430.191. Para virar seriam precisas 5.857 seções.
+  4. Boletim, RDV e log da mesma urna se amarram: RDV igual ao boletim em 3.000 de 3.000; votos computados no log iguais ao
+     comparecimento em 3.000 de 3.000; urna, carga, mídia e horários fecham. O que sobra são 27 seções com evento operacional registrado.
+  5. O que NÃO fecha pela letra e fica como caso: 6 seções cujo pacote publicado é um recebimento posterior (26 e 27/10), 57 seções em
+     que a hora de recebimento não bate por segundos ou minutos, 1 voto confirmado e não computado por queda de energia, e índices
+     regerados sem aviso. Em nenhum desses casos há diferença de voto, de resumo ou de assinatura.
+  6. Nada disto alcança a hipótese de programa adulterado na origem. Isso só se decide com o boletim impresso, o caderno de votação
+     e a memória da urna.
+
+PARTE 1. D3-1 NA AMOSTRA PRINCIPAL (2º TURNO, n = 3.000)
+  Arquivos: aux.json, bu.dat, rdv.dat, log.jez e vota.vsc presentes nas 3.000 seções. Estado no índice: Totalizada 2.994; Recebida 6.
+  Pacotes listados por seção: 1 em todas. Data de geração do índice: 25/10/2026 2.986; 09/11/2026 8; 27/10/2026 4; 26/10/2026 2.
+  Conferência cruzada por caminho independente (base do repositório contra o boletim lido pelo decodificar.py): diferenças em 0 de 3.000
+  no 2º turno e em 0 de 3.000 no 1º.
+  (a) bweb contra bu.dat, cargo 1, por votável: 0 seções com diferença. Dois leitores do boletim (decodificar.py e leitura por posição pela
+      especificação do TSE) deram o mesmo em 3.000. Comparecimento: 0 diferenças. Aptos: 0. Governador (ao lado, onde houve): 0.
+  (b) SHA-512 e tamanho de bu, rdv e log contra o vota.vsc: 9.000 arquivos, 0 diferenças.
+  (c) assinatura da urna: 32.970 de 32.970 assinaturas de arquivo válidas; 3.000 de 3.000 blocos válidos.
+      Por AC: AC UE2022 1.198; AC UE2020 1.186; AC URNA 616. Modelo da urna e algoritmo no vota.vsc: UE2022 Ed521 1198, UE2020 Ed521 1186,
+      UE2015 ECDSA 526, UE2013 ECDSA 90. Chave de software citada: SEVIN 20260708 3.000.
+  (d) certificado: 3.000 emitidos por AC publicada, com assinatura da AC válida; nome igual à urna do boletim e do bweb em 3.000;
+      chave repetida em seções diferentes: 0 (em 7.268 seções do 2º turno somando principal, lista P e amostra antiga).
+      Entre os turnos: 2.962 seções com a mesma urna, chave diferente em 0; 38 com urna trocada, mesma chave em 0.
+      Certificado dentro da validade na hora da assinatura: 3.000 de 3.000.
+  (e) SHA-256 do vota.vsc igual ao campo hash do aux.json: 3.000 de 3.000.
+  (f) mais de um pacote listado: 0 seções.
+  (g) metadados: chave da seção dentro do boletim, código de carga, urna, abertura, encerramento e emissão iguais ao bweb em 3.000.
+      Hora de recebimento do índice contra DT_BU_RECEBIDO: igual em 2.937; diferente em 63 (classe B):
+      Totalizado: igual 2.937; Totalizado: 1 s 45; Totalizado: 2 a 9 s 10; Recebido: mais de 1 h 6; Totalizado: aux antes do bweb 2.
+      Ao lado, tudo igual em 3.000: mídia de carga, data da carga, local de votação, pleito e fase do cabeçalho, bloco de software.
+  As 8 UFs de publicação em lote (AC, AM, DF, ES, MT, PR, RN, TO): 0 quebra de classe A em 436 seções; limite de 95% de 0,68% das
+      75.168 seções dessas UFs (515 seções; pior caso 385.210 votos de margem, 8,7% da margem). Classe B: 16.
+
+PARTE 2. PLACEBO, RÉPLICA E LISTAS À PARTE
+  1º turno das mesmas 3.000 seções (placebo): classe A 0; sem arquivo 0; 6.000 arquivos e 32.970 assinaturas conferidos.
+      Classe B: 373 seções, todas na hora de recebimento: Totalizado: igual 2.627; Totalizado: 1 s 319; Totalizado: 10 s a 1 h 41; Totalizado: mais de 1 h 9; Totalizado: 2 a 9 s 4.
+      RDV contra boletim (I1) no 1º turno: 0 diferenças para presidente (3.000) e 0 para governador (2.990).
+      É o mesmo tipo de diferença do 2º turno, e mais frequente. Pelo placebo do desenho, é característica do formato, não marca do 2º turno.
+      O estado "Recebido" não aparece no 1º turno: os 6 casos do 2º turno são próprios dele.
+  Amostra antiga (réplica por conglomerado, baixada em 26/10): 3.903 pastas, 6 sem boletim baixado. Classe A: 0.
+      8.629 arquivos e 42.867 assinaturas conferidos. Classe B: 284, todas na hora de recebimento: Totalizado: igual 3.618; Totalizado: 1 s 58; Totalizado: aux antes do bweb 2; Totalizado: 10 s a 1 h 1; Totalizado: 2 a 9 s 12; Recebido: 10 s a 1 h 210; Recebido: aux antes do bweb 1.
+      Identidades: I3 em 1, I6 em 13 (contingência), I7 em 1 (abertura 2 s depois da do boletim); RDV só em 835.
+  Lista P (400 prorrogadas, à parte): classe A 0; classe B 3 (recebimento); I3 em 1, I6 em 2, I7 em 1
+      (recuperador de dados). Limite de 95% para classe A na lista: 0,75%.
+  Lista C1 (27 seções de junta, todas do exterior, cédula apurada pelo sistema de apuração): votos do boletim iguais ao bweb em 27;
+      resumos e assinaturas válidos em 27; certificado da AC URNA em 27. A regra acusa as 27 em "comparecimento" porque o campo geral
+      do boletim de junta vem zerado (o comparecimento do cargo bate com o bweb). Duas urnas assinaram as 27 seções (18 e 9): é a urna
+      da junta, que apura várias seções. Hora de recebimento diferente do bweb nas 27. Não há log de votação: I2, I3, I6, I7 e I9 não se aplicam.
+  Extensão (prefixo de 2.641 seções do mesmo sorteio, só boletim e RDV do 2º turno, ao lado): bweb contra boletim, 0 diferenças;
+      RDV contra boletim, 0; hora de recebimento diferente em 35. Somando principal e extensão, zero diferença de voto em 5.641.
+  Seções nas duas amostras: 28; 93 arquivos baixados em 26/10 e em 10/11, 93 idênticos.
+
+PARTE 3. D3-3 NA AMOSTRA PRINCIPAL (2º TURNO)
+  I1  RDV contra boletim (presidente)                      violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I2  votos computados no log contra comparecimento        violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I3  confirmações de voto no log contra votos do cargo    violam   1 de 3.000; explicadas por evento   0; IC95 0,001% a 0,186%; país 166
+  I4  urna do log contra boletim, bweb e certificado       violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I5  código, mídia e data da carga                        violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I6  município, zona e seção do log                       violam  16 de 3.000; explicadas por evento  16; IC95 0,305% a 0,865%; país 2.662
+  I7  abertura, encerramento, emissão e carimbo do vsc     violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I8  voto fora da janela; recebimento antes da assinatura violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I9  votos de 04/10 no log do 2º turno contra o 1º turno  violam   0 de 3.000; explicadas por evento   0; IC95 0,000% a 0,100%; país 0
+  I10 relógio andando para trás sem ajuste                 violam  10 de 3.000; explicadas por evento   3; IC95 0,160% a 0,612%; país 1.664
+  I7 ou I8: 0 seções (limiar de sinal: 15). I7, I8 ou I10 sem evento da lista: 7 (0,23%; limiar 0,5%).
+  Seções com evento da lista (contingência, recuperador, mais de um log): 99 (3,3%): pacote com mais de um log 82; recuperador de dados no log 19; linha de contingência no log 62; tipo de urna 4 40.
+  Mesma urna nos dois turnos: 2.962; nelas, os votos de 04/10 no log assinado em 25/10 são iguais ao comparecimento do 1º turno no bweb (I9).
+  Carimbo do vota.vsc depois do fim do log: mínimo 9 s, mediana 10 s, máximo 114 s. No 1º turno, carimbo dentro do intervalo de
+  assinatura de 04/10 em 2.962 de 2.962. Recebimento menos assinatura: mínimo 236 s, mediana 12.001 s.
+  Ao lado: governador (RDV e log contra boletim), cabeçalho do RDV contra boletim, leitor antigo contra leitor novo do RDV: zero diferença.
+  Placebo do desenho no dia do 1º turno (log do pacote do 2º turno contra o boletim do 1º, 2.962 seções com a mesma urna):
+  I3 de presidente ou governador diferente em 3 (SP|69795|288|125; SP|71617|234|55; CE|13676|22|4), sempre 1 confirmação a mais no log, com a urna
+  desligada pela chave logo depois e a votação reiniciada; I7 (abertura, encerramento, emissão) fora da tolerância em 0.
+  Nulos por suspensão para presidente: 1. Seções com "Votação suspensa" no dia: 72. Com reinício da votação no dia: 154 (I3 em 1).
+  I11: Z = -866,2 no 2º turno e -856,6 no 1º (13 ou não 13); espelho com o 22: -857,5 e -847,6. |z| > 3 em 100,0% das seções nos dois turnos.
+  O critério de sinal de I11 pede |Z| < 3 no 1º turno: não é o caso. É o formato: ver a calibração e o exploratório X1.
+
+PARTE 4. D3-2, OS AUX.JSON
+  Amostra nova, 2º turno: Totalizada 2.994; Recebida 6; índice gerado em: 25/10/2026 2.986; 09/11/2026 8; 27/10/2026 4; 26/10/2026 2.
+  1º turno: Totalizada 3.000; gerado em: 05/10/2026 1.093; 10/10/2026 281; 15/10/2026 355; 20/10/2026 11; 21/10/2026 41; 22/10/2026 137; 23/10/2026 37; 24/10/2026 880; 05/11/2026 151; 09/11/2026 14.
+  Os índices do 1º turno foram regerados em bloco em várias datas (até 05/11 e 09/11); 8 do 2º turno foram regerados em 09/11 às 17:19 (PA, MA, AM)
+  sem mudar a hora de recebimento nem quebrar nenhuma conferência. O TSE não publica registro dessas regerações.
+  Estabilidade, 2º turno (amostra antiga, baixada entre 2026-10-26 10:56 e 13:28 UTC; hoje, 3.983 pedidos a 1 por segundo,
+  fim em 2026-11-10 12:40:49 UTC, nenhum 429): 3.902 índices comparados; 3.667 iguais em tudo; resumo (hash) diferente em 0;
+  211 que estavam "Recebida" e hoje estão "Totalizada"; 24 só com o índice regerado (BA 25/10/2026 -> 09/11/2026 4; MA 25/10/2026 -> 09/11/2026 4; PA 25/10/2026 -> 09/11/2026 6; RS 25/10/2026 -> 09/11/2026 10).
+  Estabilidade, 1º turno (80 seções): 80 comparados; 66 iguais em tudo; resumo diferente em 0; 14 só com o índice regerado
+  (RS 16/10/2026 -> 05/11/2026 14).
+  Leitura: nenhum resumo mudou. Os índices que em 26/10 estavam em estado "Recebida" (com imgbu listado e hora de recebimento 1 a 3 minutos
+  depois da do bweb) hoje estão "Totalizada", com o MESMO resumo e a hora do bweb. O estado "Recebida" de 26/10 era o índice antigo ainda servido.
+
+CALIBRAÇÃO POR EFEITO PLANTADO (dados de 2026)
+  P1, 5 votos do 22 para o 13 em 30 seções, só no bweb: (a) apontou 30 de 30 e 0 fora; efeito medido 300 votos de margem, plantado 300.
+  P2, 1 byte trocado no bu.dat de 10 seções: (b) apontou 10 de 10 e (c) 10 de 10. Só 2 das 10 mudam voto ou deixam o boletim ilegível:
+      nas outras o byte cai fora dos votos e só o resumo e a assinatura acusam. É a explicação inocente "arquivo corrompido": some ao reler o original.
+  P3, vota.vsc trocado entre 5 pares: (e) apontou 10 de 10, (d) 10, (b) 10, (c) 10, I4 10.
+  P9, controles negativos em 100 seções: assinatura com 1 byte trocado aceita em 0; resumo com 1 bit trocado aceito em 0;
+      certificado com 1 bit trocado aceito pela AC em 0; certificado aceito por outra AC do mesmo algoritmo em 0 de 78
+      (originais aceitos: 100 e 100).
+  P4, cobertura: em 10.000 sorteios de 5.857 seções alteradas ao acaso, a amostra contém alguma em 10.000 (no mínimo 16, em média 35,2);
+      das 5.857 maiores seções do país, 31 estão na amostra. Chance teórica de não apanhar nenhuma: cerca de 4 em 10^16.
+  P5, 3 votos movidos só no boletim, 30 seções: I1 apontou 30 de 30, 0 fora.
+  P6, 5 a mais no comparecimento do boletim, 30 seções: I2 apontou 30 e I3 30 de 30.
+  P7, encerramento do boletim 10 minutos depois, 30 seções: I7 apontou 30 de 30.
+  P8, RDV ordenado por candidato em 30 seções: Z agregado passa de -866,2 para -866,2, deslocamento 0,00. O teste NÃO enxerga o plantado,
+      porque todo RDV publicado já vem ordenado. I11: SEM PODER.
+  E1, explicação inocente: RDV reembaralhado ao acaso em 30 seções: z mediano 0,08, nenhuma com |z| > 3. Reembaralhando as 3.000: Z = -0,45,
+      |z| > 3 em 0,17%. A estatística funciona; quem não se comporta como o desenho supôs é o arquivo.
+  E2, explicação inocente: relógio da urna 1 hora adiantado (boletim, log e vsc) em 30 seções: I7 acusou 0, I8 0.
+  Leitura: D3-1 e as identidades I1, I2, I3 e I7 enxergam o que dizem enxergar, com detecção de 100% e sem falso apontamento.
+
+TESTE ESPELHO
+  Conferência exata não tem lado. O espelho é o 1º turno das mesmas seções, onde Flávio ficou à frente: zero quebra de classe A, como no 2º.
+  Diferenças de voto achadas a favor do 13: 0; a favor do 22: 0. I11 com o 22 no lugar do 13 dá o mesmo resultado.
+  A hora de recebimento diverge mais no 1º turno (12,4%) do que no 2º (2,1%): o que há de classe B não é próprio do turno em que Lula virou.
+
+EM VOTOS DE MARGEM
+  Zero quebra de classe A em 3.000: limite superior de 95% = 0,0998% das seções, 499 seções no país.
+  Pior caso absoluto (todos os votos das 499 maiores invertidos): 429.108 votos de margem = 9,7% de 4.430.191.
+  Alteração depois da urna capaz de virar a eleição precisaria de 5.857 seções ou mais; uma amostra de 3.000 não apanhar nenhuma tem chance de 4 em 10^16.
+  Uma alteração espalhada (4 a 5 votos por seção em todas) apareceria já na primeira seção: não apareceu em nenhuma de 3.000.
+  O que os boletins assinados da amostra dizem do país (N x média, erro de amostra simples): Lula 64.350.021 (ep 449.456),
+  Flávio 59.700.092 (ep 456.138), margem 4.649.928 (ep 773.624). Oficial: 64.256.232, 59.826.041 e 4.430.191.
+  I3: 1 seção em 3.000, 1 voto confirmado e não computado. No país, cerca de 166 seções (IC95 de 4 a 926), no máximo 1 voto cada, sem lado.
+  Os 6 pacotes em estado "Recebido" somam 1.424 votos, iguais aos do bweb e assinados pela urna da seção: o que não fecha neles é uma hora,
+  não um voto. Nenhuma comparação com outro ano foi usada neste teste.
+
+O QUE FOI VERIFICADO NA ASSINATURA E O QUE NÃO FOI
+  Verificado: SHA-256 do vota.vsc igual ao campo hash do aux.json.
+  Verificado: SHA-512 e tamanho de bu.dat, rdv.dat e log.jez baixados iguais aos listados no bloco de hardware do vota.vsc.
+  Verificado: assinatura de hardware de cada arquivo listado e do bloco inteiro, com a chave pública do certificado da urna embutido no vota.vsc (ECDSA P-521 nas UE2013 e UE2015; Ed521 nas UE2020 e UE2022).
+  Verificado: certificado da urna assinado pela AC que ele aponta (AC URNA, AC UE2020 ou AC UE2022, do pacote de documentação do TSE), com emissor igual ao titular da AC.
+  Verificado: nome do certificado (UEAO + número) igual à urna do boletim, do bweb e do log.
+  Verificado: nenhuma chave pública repetida em seções diferentes; mesma urna, mesma chave nos dois turnos.
+  Verificado: bloco de software com os mesmos resumos e tamanhos do bloco de hardware.
+  NÃO verificado: assinatura de software (bloco 0 do vota.vsc): formato próprio, chave SEVIN 20260708 que não é pública; só o resumo foi comparado.
+  NÃO verificado: cadeia das AC até a raiz: AC RAIZ UE e AC URNA v2 não estão publicadas onde este ambiente alcança; as três AC intermediárias vêm de cópia de terceiros do pacote do TSE (iguais em 4 fontes, F12).
+  NÃO verificado: lista de certificados revogados: uma tentativa em cada endereço dos certificados (lcr.acue2022, lcr.acue2020 e lcr.acurna .tse.jus.br), as três com resposta 403.
+  NÃO verificado: validade da AC na data da assinatura: o certificado publicado da AC URNA venceu em 18/07/2026 (F12); as urnas UE2013 e UE2015 da amostra usam certificado emitido por ela.
+  NÃO verificado: se a chave que assinou estava dentro da urna que estava na seção: nenhum arquivo público decide.
+  Na amostra principal, 616 seções (20,5%) usam urna com certificado da AC URNA, cujo certificado publicado venceu antes dos dois turnos.
+
+CASOS INDIVIDUAIS (amostra principal, 2º turno)
+  Arquivos de cada caso: pasta /home/user/trabalho-eleicao/adendo27/aas/t2/<uf>/<município com 5 dígitos>/<zona com 4>/<seção com 4>/, arquivos aux.json e
+  0-o03221<uf><município><zona><seção>-bu.dat, -rdv.dat, -log.jez e -vota.vsc. O JSON traz a pasta e a lista de arquivos de cada um.
+  A. Voto confirmado e não computado (I3):
+     BA|37311|50|156 (amostra principal): log 185, boletim 184; RDV e votos computados fecham com o boletim.
+        25/10/2026 10:09:01 | INFO | 02267022 | VOTA | Voto confirmado para [Presidente]
+        25/10/2026 10:12:14 | INFO | 02267022 | LOGD | Início das operações do logd
+        25/10/2026 10:12:14 | INFO | 02267022 | LOGD | Urna ligada em 25/10/2026 às 10:11:37
+        depois: 10:12:55 Bateria interna com carga crítica; 10:14:47 Apresentada tela do reinício da votação; 10:14:50 Mesário confirmou o reinício da votação
+     RJ|60011|234|189 (lista P): log 319, boletim 318; RDV e votos computados fecham com o boletim.
+        25/10/2026 09:27:55 | INFO | 02224900 | VOTA | Voto confirmado para [Presidente]
+        25/10/2026 09:33:19 | INFO | 02224900 | INITJE | Urna desligada pela chave
+        25/10/2026 09:33:20 | INFO | 02224900 | VOTA | Mudança do estado da chave: URNA DESLIGADA
+        depois: 09:34:35 Urna ligada em 25/10/2026 às 09:33:58; 09:37:14 Apresentada tela do reinício da votação; 09:37:42 Mesário confirmou o reinício da votação
+     MG|46698|139|34 (amostra antiga): log 159, boletim 158; votos computados fecham com o boletim (RDV não baixado nesta seção).
+        25/10/2026 13:35:16 | INFO | 01752112 | VOTA | Voto confirmado para [Presidente]
+        25/10/2026 13:36:17 | ERRO | 01752112 | VOTA | Erro inesperado durante a votação | O voto do eleitor NÃO foi registrado (6955) | O
+        25/10/2026 13:36:17 | WHAT | 01752112 | VOTA | WHAT: virtual void api::CEscritorLogTxtFilaMsg::fazLog(uebyte, ESeveridade, const s
+        depois: 14:13:38 Urna ligada em 25/10/2026 às 14:12:12; 14:18:14 Apresentada tela do reinício da votação; 14:18:23 Mesário confirmou o reinício da votação
+  B. Pacote publicado em estado "Recebido", recebido depois do dia da eleição (classe B, hora de recebimento):
+     PR|78255|59|21: recebido no site em 27/10/2026 13:02:57; boletim emitido em 25/10 17:03:47, vota.vsc de 25/10 17:06:49; comparecimento 204;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+     PE|25313|8|414: recebido no site em 26/10/2026 12:04:25; boletim emitido em 25/10 17:06:09, vota.vsc de 25/10 17:07:29; comparecimento 411;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+     AM|2658|35|175: recebido no site em 26/10/2026 18:39:16; boletim emitido em 25/10 16:09:15, vota.vsc de 25/10 16:10:07; comparecimento 116;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+     PA|4278|97|449: recebido no site em 27/10/2026 08:35:04; boletim emitido em 25/10 17:02:23, vota.vsc de 25/10 17:03:09; comparecimento 292;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+     BA|33499|126|119: recebido no site em 27/10/2026 11:10:53; boletim emitido em 25/10 17:05:19, vota.vsc de 25/10 17:06:06; comparecimento 164;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+     BA|36919|101|47: recebido no site em 27/10/2026 09:53:08; boletim emitido em 25/10 17:02:14, vota.vsc de 25/10 17:03:22; comparecimento 237;
+        votos iguais ao bweb; assinatura válida. Pacote de arquivos transmitidos: os 4 arquivos idênticos aos do site.
+  C. Urna de contingência com o índice ANTES do bweb (classe B):
+     SE|31054|2|332: índice 25/10/2026 21:04:31, bweb 2026-10-25 21:11:00 (-389 s); tipo de urna 4; pacote com 5 logs; linha de contingência no log; recuperador de dados no log.
+     AP|6076|5|27: índice 25/10/2026 20:02:27, bweb 2026-10-25 20:04:25 (-118 s); pacote com 2 logs; linha de contingência no log.
+  D. Hora de recebimento do índice 1 a 7 segundos depois da do bweb (classe B), seção e segundos:
+     PR|79278|75|335 (+1); BA|30872|186|3 (+1); SC|81175|64|34 (+1); PR|75353|174|15 (+4); PR|75230|126|12 (+2)
+     RJ|60011|9|233 (+1); PR|74713|78|199 (+6); SC|83631|47|92 (+1); PR|76910|66|222 (+1); SP|71072|371|607 (+1)
+     RR|3018|5|10 (+1); RS|88536|45|96 (+2); CE|13838|20|130 (+1); MA|8508|58|148 (+1); SP|71072|397|461 (+1)
+     CE|15938|8|147 (+1); PR|77771|139|67 (+5); MG|52752|268|69 (+1); SP|64777|394|566 (+1); SP|67130|287|289 (+1)
+     RS|85871|14|32 (+1); DF|97012|4|322 (+4); PR|78018|11|40 (+1); SP|71072|4|445 (+1); SP|70572|383|287 (+1)
+     SE|31410|6|172 (+1); BA|30872|186|17 (+1); RJ|58971|36|543 (+1); DF|97012|19|7 (+5); PA|4278|76|497 (+7)
+     PR|75353|174|305 (+1); MT|98930|43|223 (+1); ES|56111|20|51 (+1); BA|37435|54|36 (+1); SP|70750|283|72 (+1)
+     SC|80551|86|125 (+1); MG|54135|281|105 (+1); PA|5355|104|203 (+2); SP|71072|375|340 (+1); AM|2550|70|737 (+1)
+     MG|43710|93|214 (+1); SE|31690|12|278 (+1); PA|4014|7|265 (+5); RJ|58335|200|28 (+1); SP|69299|101|133 (+1)
+     BA|33391|90|10 (+1); ZZ|29947|1|155 (+1); SC|81051|13|529 (+1); GO|96059|97|50 (+1); PE|23574|15|13 (+1)
+     PA|5550|54|29 (+1); MS|91138|2|32 (+1); PR|79251|199|125 (+1); MS|90514|8|471 (+1); MA|8095|58|21 (+1)
+  E. Urna de contingência (I6: o log da urna reserva traz seção 0000, e às vezes outro município, antes de assumir a seção):
+     PR|75957|67|139 (município 74390/75957); SP|69698|108|67; ES|56430|14|157; SC|81795|95|193; SP|64777|394|530
+     MA|8494|93|138; ES|56251|34|1096; SE|31054|2|332; SP|71072|389|357; RJ|58831|198|84
+     CE|13811|64|109; BA|36293|140|158; RJ|58831|198|137; BA|35092|144|47; PR|75647|114|66 (município 77011/75647)
+     SP|61387|165|30 (município 67059/61387)
+  F. Exterior, relógio para trás por ajuste de fuso (I10):
+     ZZ|30961|1|690; ZZ|29955|1|3900; ZZ|29661|1|512; ZZ|99503|1|3637; ZZ|30341|1|1853; ZZ|30627|1|1783; ZZ|29947|1|155; ZZ|30635|1|3904; ZZ|99490|1|3452; ZZ|30520|1|417
+  G. Índice regerado depois de 25/10 sem nenhuma quebra (não é quebra; fica registrado):
+     PA|4278|30|418 (09/11/2026 17:19:30); MA|8168|93|180 (09/11/2026 17:19:29); PA|5150|44|96 (09/11/2026 17:19:30); PA|4278|97|57 (09/11/2026 17:19:30)
+     PA|4278|97|267 (09/11/2026 17:19:31); MA|8168|93|176 (09/11/2026 17:19:29); PA|4278|97|502 (09/11/2026 17:19:30); AM|2550|65|238 (09/11/2026 17:19:29)
+  Listas P, C1, amostra antiga e extensão: casos completos no JSON (campo casos).
+
+A FAVOR DA TESE (o que pesa ou fica em aberto)
+  1. Pela letra, D3-1 não fecha: 63 seções com a hora de recebimento diferente da do bweb. Em 6 delas o pacote hoje publicado foi recebido em 26 ou
+     27/10 e está em estado "Recebido". O TSE não explica o segundo recebimento. (O exploratório X8 mostra que os arquivos não mudaram.)
+  2. Os índices do site são regerados sem registro público (8 da amostra nova e 24 da antiga no 2º turno, em 09/11: PA, MA, AM, BA e RS;
+     no 1º turno, em bloco, até 05/11 e 09/11). Onde dá para comparar, o resumo não mudou.
+  3. Uma urna perdeu um voto confirmado por queda de energia (e o mesmo padrão aparece na lista P, na amostra antiga e em 3 urnas no dia do 1º
+     turno). O eleitor pode ter votado de novo depois do reinício; o log não diz quem votou. São votos a menos, não a mais, e sem lado conhecido.
+  4. A assinatura de software não é verificável por terceiros, a cadeia até a raiz e a lista de revogados não estão ao alcance, e 20,5% das urnas da
+     amostra têm certificado de uma AC cujo certificado publicado estava vencido no dia.
+  5. O RDV publicado vem ordenado: não serve de registro independente da ordem dos votos, e I11 não testa nada.
+  6. O teste inteiro é cego para o que a tese mais precisa: programa que conte errado de forma coerente antes de assinar.
+
+CONTRA A TESE
+  1. Zero diferença de voto entre o bweb e o boletim assinado em 3.000 seções sorteadas, nos dois turnos, e em mais 2.641 da extensão, 400 prorrogadas,
+     27 de junta e 3.897 da amostra antiga. Uma troca espalhada de 1,8% feita depois da urna apareceria em quase toda seção.
+  2. 3.000 de 3.000 pacotes com resumo, assinatura da urna e certificado válidos; nenhuma chave em duas seções; nenhum pacote duplicado.
+  3. Teto de 9,7% da margem no pior caso absoluto para alteração depois da urna; a amostra apanha pelo menos 16 seções em cada um de 10.000
+     conjuntos sorteados de 5.857 seções alteradas, e 31 das 5.857 maiores.
+  4. Boletim, RDV e log fecham em contagem, urna, carga e horário; o que não fecha tem causa operacional registrada no próprio log.
+  5. O log assinado em 25/10 repete o comparecimento do 1º turno em 2.962 de 2.962 urnas que serviram nos dois turnos.
+  6. Nenhum resumo de pacote mudou entre 26/10 e 10/11 nas seções em que dá para comparar, e os arquivos das seções com índice regerado ou
+     com segundo recebimento são byte a byte os do pacote de arquivos transmitidos de 26/10.
+  7. A hora de recebimento diverge mais no 1º turno do que no 2º.
+
+O QUE ISSO SIGNIFICA
+  Pela letra o D3-1 fica inconclusivo, por um metadado (a hora de recebimento). No que toca a voto e a autenticidade, o resultado é o mais forte
+  que uma amostra de 3.000 pode dar: o que está no site é o que a urna assinou e é o que foi somado, com teto de 499 seções (9,7% da margem no pior
+  caso) para o que possa ter escapado. A hipótese de que o resultado foi mudado DEPOIS da urna (transmissão, recepção, banco da totalização,
+  publicação) fica sem espaço para virar a eleição. Somado ao B5 (bweb igual ao histórico da totalização, passo a passo), a soma oficial é a soma
+  dos boletins assinados pelas urnas.
+  Não fica fechada, e este teste não pode fechar, a hipótese de programa adulterado na origem, nem a de presença fabricada de forma coerente.
+  Para a tese do Léo, o caminho que sobra continua sendo o mesmo das Ondas A e B: papel (via impressa do boletim), caderno de votação e
+  memória da urna, em seções sorteadas. A lista de amostra_aas_principal.txt serve para isso: as primeiras 300 bastam.
+
+PISTAS
+  1. Pedir ao TSE o motivo do segundo recebimento, em 26 e 27/10, das 6 seções hoje em estado "Recebido" (PR|78255|59|21, PE|25313|8|414,
+     AM|2658|35|175, PA|4278|97|449, BA|33499|126|119, BA|36919|101|47) e o registro do receptor para elas. No país seriam cerca de
+     998 seções (6 em 3.000; IC95 de 367 a 2.171).
+  2. Pedir o registro de regeração dos índices (aux.json), em especial o lote de 09/11/2026 às 17:19 (PA, MA, AM, BA, RS) e os do 1º turno.
+  3. Pedir o que significam as duas horas de recebimento (a do índice e a do bweb) e por que diferem em 12% das seções do 1º turno.
+  4. Pedir os certificados AC RAIZ UE, AC URNA v2 e um AC URNA vigente, e as listas de revogados, por canal oficial.
+  5. As três urnas com voto confirmado e não computado (BA|37311|50|156, RJ|60011|234|189, MG|46698|139|34) são boas candidatas a conferência
+     de caderno: o número de assinaturas tem de ser igual ao comparecimento do boletim.
+  6. O RDV publicado vem ordenado por candidato: qualquer teste futuro que dependa da ordem dos votos (D4-4 não depende) fica sem dado.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+  1. D3-1 (g): o desenho não dá tolerância para a hora de recebimento; fixei igualdade exata antes de rodar. Com 1 segundo de tolerância (a do D3-3) sobrariam 18 seções em vez de 63; o veredito pela letra não muda.
+  2. D3-1 (a): tratei diferença de comparecimento como classe A (mais duro que a letra, que fala em votos por candidato). Não houve nenhuma na amostra principal. Nas 27 seções de junta o campo geral de comparecimento do boletim vem zerado e por isso a regra acusa as 27; o comparecimento do cargo e os votos batem com o bweb.
+  3. D3-1 (c): além dos resumos de bu, rdv e log, verifiquei a assinatura de todos os arquivos listados no vota.vsc (cerca de 11 por seção), inclusive os que o site não publica (a assinatura cobre o resumo listado, não o arquivo).
+  4. D3-1 (d): a "AC das urnas" são as três AC do pacote de documentação do TSE (AC URNA, AC UE2020, AC UE2022), obtidas de cópia de terceiros, como no F12. A cadeia até a raiz e a lista de revogados não foram verificadas (ver a seção da assinatura).
+  5. D3-1, reconferência em outro dia: não foi preciso (X = 0). Para o conferente: os arquivos foram baixados em 10/11; 28 seções da amostra nova também estão na amostra antiga (baixada em 26/10) e os 93 arquivos comuns são idênticos.
+  6. Lista C1: as 27 seções de junta publicam busa.dat, sa.vsc e logsa.jez; o download da onda não os pediu. Baixei os três tipos das 27 seções (135 requisições a 1 por segundo, sem 429).
+  7. D3-3, eventos que explicam: fixei antes de rodar uma lista (mais de um log no pacote, linha de contingência, tipo de urna ou de arquivo diferente de 1, junta) e escrevi que "votação suspensa" não explicaria diferença de contagem. O desenho cita "votação suspensa e retomada" entre as explicações inocentes. O único caso de I3 da amostra é uma urna que desligou no meio de um voto e teve a votação reiniciada: pela minha lista conta como violação sem explicação; pelo texto do desenho, o log explica. Relato dos dois jeitos.
+  8. D3-3 I6: comparei todas as linhas de município, zona e seção do dia do turno no log da urna final. A urna de contingência registra seção 0000 (e às vezes outro município da zona) antes de assumir a seção; por isso toda contingência viola I6 nesta definição. Todas ficaram como explicadas.
+  9. D3-3 I7 (iv): o log publicado termina antes da assinatura dos arquivos; o intervalo de assinatura do 2º turno não existe no log do 2º turno. Usei como violação o carimbo do vota.vsc anterior ao fim do log (5 s) e, ao lado, o carimbo do vota.vsc do 1º turno contra o intervalo de assinatura de 04/10 que o log do 2º turno traz.
+  10. D3-3 I8 (ii): não se aplica às 10 seções do exterior (o fuso não sai dos arquivos).
+  11. D3-3 I10: a lista de linhas de ajuste foi corrigida antes de qualquer resultado (segunda versão do docstring, com hash): só "Data e hora solicitadas", "digitada pelo operador" e "atualizada". A linha "Data e hora da urna alterada ... por ajuste de fuso horário", que só existe em urna do exterior, não estava na lista (a amostra antiga que usei para montar a lista não tem exterior).
+  12. D3-3 I11: defini "igual nos dois turnos" como mesmo sinal e |Z2 - Z1|/raiz(2) < 3. Os dois turnos dão Z perto de -860, mas a diferença passa de 3 porque a composição muda; a definição não serviu. O que decide I11 é a calibração: o plantio não é visto (SEM PODER).
+  13. D3-2: só a parte dos aux.json. O JSON oficial por município continua sem rodar.
+  14. Extensão: só o prefixo já baixado do 2º turno (boletim e RDV), ao lado. O 1º turno da extensão ainda não tinha sido baixado.
+  15. Acrescentados depois da primeira rodada, sem mudar critério nem limiar: os controles negativos P9, a conferência cruzada com a base do repositório, o placebo de I3 e I7 no dia do 1º turno (previsto no desenho, programado depois), a estimativa X7 e a leitura do pacote de arquivos transmitidos X8 (92 pedidos por faixa a cdn.tse.jus.br, a 1 por segundo, sem baixar os zips).
+  16. Pedidos ao site de resultados feitos por este teste: 135 (lista C1) e os aux.json de hoje da amostra antiga, a 1 por segundo, sem nenhum 429. Três tentativas (uma por endereço) nas listas de revogados, todas com 403.
+
+EXPLORATÓRIO (decidido depois de ver os resultados; não entra em veredito)
+  X1. RDV agrupado por votável (números em ordem crescente, depois branco, depois nulo): 2º turno 3000 de 3000; 1º turno 3000 de 3000
+      (governador 2990 de 2990); amostra antiga 835 de 835.
+  X2. Os três casos de I3 (principal, lista P e amostra antiga) têm a mesma forma: confirmação, urna desligada ou erro, reinício da votação.
+      No de MG o próprio programa escreve "O voto do eleitor NÃO foi registrado".
+  X3. I10: 10 seções, 10 do exterior (são as 10 seções do exterior da amostra). Todos os passos para trás estão ligados à linha
+      "Data e hora da urna alterada ... por ajuste de fuso horário" ou à partida seguinte com o relógio anterior. Passos de outro tipo: 0.
+  X4. Hora de recebimento por estado do pacote: ver a Parte 1 (g) e a Parte 2.
+  X5. Seções da amostra com reinício da votação no dia (mais de uma linha "Urna pronta"): 154; delas com I3: 1.
+  X6. Os 6 pacotes em estado "Recebido": caso B dos casos individuais.
+  X7. Estimativa do país pelos boletins assinados da amostra: ver "Em votos de margem".
+  X8. Pacote "arquivos transmitidos para totalização" (dados abertos do TSE, um zip por UF, lido por faixa, sem baixar o zip): para as 17 seções
+      da amostra com pacote "Recebido" (6), índice regerado em 09/11 (8), índice antes do bweb (2) ou I3 (1), 68 de 68 arquivos (bu, rdv, log e vota.vsc)
+      são byte a byte iguais aos do site, e o SHA-256 do vota.vsc do zip é o hash do aux.json em todas. Data dos zips (GMT): PA 26 Oct 2026 20:55; BA 26 Oct 2026 20:11; MA 26 Oct 2026 20:29; AM 26 Oct 2026 21:10; PR 26 Oct 2026 21:31; PE 26 Oct 2026 21:05; SE 26 Oct 2026 18:03; AP 26 Oct 2026 20:01.
+      Os zips de PR, PA e BA foram fechados antes do segundo recebimento das seções deles (27/10); o do AM, 29 minutos antes; o de PE, depois.
+      Limite: esses zips também são do TSE e não têm resumo publicado; mostram que o site não mudou depois de 26/10, não o que houve antes.
+
+CONTAGEM
+  Conferências rodadas na amostra principal: 7 de D3-1 (a até g) e 11 de D3-3 (I1 a I11), nos dois turnos onde cabem, mais 9 plantios e 3
+  explicações inocentes plantadas. Conferência exata não dá sinal por acaso: o que produz apontamento sem irregularidade é evento
+  operacional (contingência, queda de energia, fuso do exterior, duas horas de recebimento), e foi só isso que apareceu.
+  Falta, pelo Adendo 27: o conferente independente refazer com código próprio.

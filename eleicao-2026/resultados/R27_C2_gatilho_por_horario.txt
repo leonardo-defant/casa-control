@@ -1,0 +1,357 @@
+R27_C2: GATILHO POR HORÁRIO (D1.4 do desenho cego D1, com o reteste "T30" da equipe vermelha)
+Registro: Adendo 27 (commit 2748895), Adendo 28 (938be19) e Adendo 30 (a7218fb), antes de rodar. Decisões que o registro não fixa:
+docstring de scripts/analisar_R27_C2.py, gravado antes de qualquer conta com votos (R27_C2/docstring_antes_de_rodar.txt).
+
+VEREDITOS PELA LETRA
+  Parte 0 (RDV e ordem de votação): SEM PODER: o programa grava o nulo por suspensão (tipo 6) no fim da lista do cargo, fora da ordem dos demais; o marcador não mede a ordem dos outros votos
+  Parte A (D1.4, letra, UNI com efeito fixo de local): SEM PODER {'10h': 'SEM PODER', '12h': 'SEM PODER', '14h': 'SEM SINAL', '15h': 'SEM SINAL', '16h': 'SEM SINAL'}
+  Parte A na ANT (letra): SEM PODER {'10h': 'SEM PODER', '12h': 'SEM PODER', '14h': 'SEM SINAL', '15h': 'SEM SINAL', '16h': 'SEM SINAL'}
+  Parte A na AAS (letra): SEM PODER {'10h': 'SEM PODER', '12h': 'SEM PODER', '14h': 'SEM PODER', '15h': 'SEM PODER', '16h': 'SEM PODER'}
+  Parte B (T30, letra, UNI com efeito fixo de local): SEM PODER {'SEM PODER': 18}
+  Parte B na ANT (letra): SEM PODER {'SEM PODER': 18}
+  Parte B na AAS (letra): SEM PODER {'SEM PODER': 18}
+  Parte 2 (prorrogação): SEM SINAL: a prorrogação não alcança 10% da margem mesmo que todos os votos dela fossem irregulares
+
+AMOSTRAS
+  Antiga (não aleatória): 3874 seções com os dois dias no log e em U. Aleatória nova: 2976. União: 6823 seções.
+  Fuso por município (8 menos a hora modal de abertura). Seções fora do relógio de Brasília: antiga 180, aleatória 198.
+  Fração nacional dos votos válidos do 2º turno da hora h em diante (Brasília), pela amostra aleatória: 9h 83,2%; 10h 67,6%; 11h 52,5%; 12h 39,7%; 13h 29,7%; 14h 21,1%; 15h 12,8%; 16h 5,2%; 17h 0,0%
+
+PARTE 0, O RDV GUARDA A ORDEM DE VOTAÇÃO?
+  Marcadores (nulo por suspensão de presidente, tipo 6 no RDV): 232. Correlação de postos entre posição no RDV e ordem de votação: 0,181 (erro 0,066; limite de 3 erros 0,197).
+  Fração dos marcadores nas últimas posições da lista do cargo: 100,0%. Posição média normalizada dos brancos 0,959 (n 3311) e dos nulos digitados 0,981 (n 7420); lista uniforme daria 0,500.
+  Leitura: SEM PODER: o programa grava o nulo por suspensão (tipo 6) no fim da lista do cargo, fora da ordem dos demais; o marcador não mede a ordem dos outros votos.
+
+PARTE A, D1.4 (modelo base: y = 100 x L2/(L2+R2), efeito fixo, X do 1º turno e perfil, dose D_h e controle D_h do 1º turno)
+  ANT_local (LETRA): n 3757, grupos 623, municípios 409. Parte: SEM PODER
+    10h: b -0,50 (ep 0,92, z -0,54); Phi -0,190 (IC99 -1,091 a 0,710); votos de margem -843.725; degrau -1,00; placebo 1T 2,83 (ep 1,81); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 0,91; espelho -1 visto em 10%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    12h: b 0,31 (ep 0,92, z 0,34); Phi 0,070 (IC99 -0,457 a 0,596); votos de margem 308.138; degrau -1,04; placebo 1T 1,82 (ep 1,09); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/90%, recuperação em 0,5: 0,94; espelho -1 visto em 78%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    14h: b 0,35 (ep 1,29, z 0,27); Phi 0,041 (IC99 -0,350 a 0,433); votos de margem 183.627; degrau -0,03; placebo 1T 1,50 (ep 1,06); plantio Phi 0,25/0,5/1 enxergado em 0%/6%/100%, recuperação em 0,5: 0,96; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    15h: b -0,24 (ep 1,43, z -0,17); Phi -0,017 (IC99 -0,281 a 0,247); votos de margem -76.709; degrau -3,57; placebo 1T 0,87 (ep 1,18); plantio Phi 0,25/0,5/1 enxergado em 0%/84%/100%, recuperação em 0,5: 0,95; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    16h: b 3,02 (ep 1,87, z 1,62); Phi 0,089 (IC99 -0,052 a 0,229); votos de margem 392.584; degrau 5,31; placebo 1T -0,20 (ep 1,12); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,95; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 1,8; 10h37 -1,2; 11h37 0,1; 12h37 2,0; 13h37 -0,3; 14h37 0,4; 15h37 -1,9
+  AAS_local (LETRA): n 141, grupos 70, municípios 57. Parte: SEM PODER
+    10h: b -20,02 (ep 7,55, z -2,65); Phi -7,585 (IC99 -14,954 a -0,216); votos de margem -33.604.062; degrau 1,95; placebo 1T 3,83 (ep 12,96); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 1,21; espelho -1 visto em 4%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    12h: b -11,04 (ep 6,31, z -1,75); Phi -2,456 (IC99 -6,070 a 1,159); votos de margem -10.878.965; degrau 9,88; placebo 1T 10,79 (ep 6,93); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 1,10; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    14h: b -7,59 (ep 8,23, z -0,92); Phi -0,894 (IC99 -3,396 a 1,607); votos de margem -3.962.716; degrau -17,82; placebo 1T 2,92 (ep 6,22); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 1,21; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    15h: b 4,34 (ep 11,25, z 0,39); Phi 0,312 (IC99 -1,772 a 2,396); votos de margem 1.381.120; degrau 29,94; placebo 1T -1,93 (ep 5,94); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 1,14; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    16h: b -0,03 (ep 16,97, z -0,00); Phi -0,001 (IC99 -1,282 a 1,280); votos de margem -4.315; degrau -13,58; placebo 1T -2,19 (ep 6,51); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 1,15; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    janelas falsas (salto em h:37, z): 9h37 -1,3; 10h37 0,3; 11h37 -1,7; 12h37 1,1; 13h37 0,4; 14h37 -1,4; 15h37 0,2
+  UNI_local (LETRA): n 3898, grupos 693, municípios 447. Parte: SEM PODER
+    10h: b -0,72 (ep 0,92, z -0,78); Phi -0,272 (IC99 -1,168 a 0,624); votos de margem -1.206.024; degrau -1,11; placebo 1T 2,70 (ep 1,78); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/0%, recuperação em 0,5: 0,93; espelho -1 visto em 22%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    12h: b 0,09 (ep 0,91, z 0,10); Phi 0,021 (IC99 -0,501 a 0,542); votos de margem 91.146; degrau -1,11; placebo 1T 1,89 (ep 1,09); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/84%, recuperação em 0,5: 0,95; espelho -1 visto em 88%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    14h: b 0,08 (ep 1,23, z 0,06); Phi 0,009 (IC99 -0,363 a 0,382); votos de margem 41.177; degrau -0,91; placebo 1T 1,33 (ep 1,04); plantio Phi 0,25/0,5/1 enxergado em 0%/4%/100%, recuperação em 0,5: 0,97; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    15h: b -0,13 (ep 1,35, z -0,09); Phi -0,009 (IC99 -0,259 a 0,241); votos de margem -40.672; degrau -2,49; placebo 1T 0,70 (ep 1,13); plantio Phi 0,25/0,5/1 enxergado em 0%/94%/100%, recuperação em 0,5: 0,95; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    16h: b 2,85 (ep 1,82, z 1,57); Phi 0,083 (IC99 -0,054 a 0,221); votos de margem 369.635; degrau 4,84; placebo 1T -0,16 (ep 1,07); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,95; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 1,9; 10h37 -1,1; 11h37 -0,1; 12h37 2,3; 13h37 -0,0; 14h37 0,3; 15h37 -1,9
+  ANT_municipio (ao lado): n 3873, grupos 410, municípios 410. Parte: SEM PODER
+    10h: b 0,55 (ep 0,77, z 0,71); Phi 0,208 (IC99 -0,542 a 0,957); votos de margem 919.779; degrau -0,18; placebo 1T 4,72 (ep 2,09); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/22%, recuperação em 0,5: 0,85; espelho -1 visto em 5%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    12h: b 1,50 (ep 1,24, z 1,21); Phi 0,333 (IC99 -0,375 a 1,042); votos de margem 1.476.087; degrau 1,30; placebo 1T 3,39 (ep 1,06); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/98%, recuperação em 0,5: 0,88; espelho -1 visto em 7%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    14h: b 1,53 (ep 1,57, z 0,97); Phi 0,180 (IC99 -0,297 a 0,658); votos de margem 799.079; degrau -0,02; placebo 1T 2,84 (ep 1,05); plantio Phi 0,25/0,5/1 enxergado em 0%/18%/100%, recuperação em 0,5: 0,86; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    15h: b 1,90 (ep 2,15, z 0,88); Phi 0,136 (IC99 -0,262 a 0,535); votos de margem 604.499; degrau -1,77; placebo 1T 2,66 (ep 1,10); plantio Phi 0,25/0,5/1 enxergado em 0%/76%/100%, recuperação em 0,5: 0,85; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    16h: b 5,52 (ep 2,86, z 1,93); Phi 0,162 (IC99 -0,054 a 0,378); votos de margem 717.041; degrau 6,40; placebo 1T 2,39 (ep 1,06); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,87; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 1,7; 10h37 -1,5; 11h37 0,1; 12h37 2,9; 13h37 -0,9; 14h37 1,0; 15h37 -1,3
+  AAS_municipio (ao lado): n 2022, grupos 455, municípios 455. Parte: SEM PODER
+    10h: b 3,00 (ep 1,26, z 2,39); Phi 1,138 (IC99 -0,088 a 2,364); votos de margem 5.042.067; degrau 1,77; placebo 1T 2,70 (ep 3,10); plantio Phi 0,25/0,5/1 enxergado em 0%/5%/68%, recuperação em 0,5: 0,96; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    12h: b 1,49 (ep 1,36, z 1,09); Phi 0,332 (IC99 -0,450 a 1,113); votos de margem 1.468.998; degrau -0,81; placebo 1T 1,29 (ep 1,93); plantio Phi 0,25/0,5/1 enxergado em 0%/0%/73%, recuperação em 0,5: 0,96; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM PODER
+    14h: b 1,35 (ep 1,55, z 0,87); Phi 0,159 (IC99 -0,312 a 0,630); votos de margem 705.140; degrau -3,61; placebo 1T 1,01 (ep 1,75); plantio Phi 0,25/0,5/1 enxergado em 0%/15%/100%, recuperação em 0,5: 1,00; espelho -1 visto em 98%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    15h: b 3,96 (ep 1,79, z 2,21); Phi 0,285 (IC99 -0,047 a 0,617); votos de margem 1.261.733; degrau 5,14; placebo 1T 0,93 (ep 1,87); plantio Phi 0,25/0,5/1 enxergado em 70%/100%/100%, recuperação em 0,5: 0,97; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    16h: b 6,26 (ep 2,81, z 2,23); Phi 0,183 (IC99 -0,028 a 0,395); votos de margem 812.403; degrau 3,36; placebo 1T 1,81 (ep 1,86); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 1,00; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 0,7; 10h37 1,0; 11h37 0,8; 12h37 0,3; 13h37 -0,5; 14h37 0,2; 15h37 1,3
+  UNI_municipio (ao lado): n 5965, grupos 750, municípios 750. Parte: INCONCLUSIVO
+    10h: b 1,18 (ep 0,67, z 1,76); Phi 0,446 (IC99 -0,208 a 1,101); votos de margem 1.976.878; degrau 0,53; placebo 1T 3,95 (ep 1,73); plantio Phi 0,25/0,5/1 enxergado em 0%/6%/98%, recuperação em 0,5: 0,86; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    12h: b 1,61 (ep 0,97, z 1,66); Phi 0,358 (IC99 -0,197 a 0,913); votos de margem 1.585.320; degrau 0,76; placebo 1T 2,23 (ep 0,99); plantio Phi 0,25/0,5/1 enxergado em 0%/49%/100%, recuperação em 0,5: 0,89; espelho -1 visto em 34%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    14h: b 1,76 (ep 1,19, z 1,48); Phi 0,207 (IC99 -0,154 a 0,568); votos de margem 917.690; degrau -0,50; placebo 1T 1,76 (ep 0,91); plantio Phi 0,25/0,5/1 enxergado em 0%/100%/100%, recuperação em 0,5: 0,89; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    15h: b 2,55 (ep 1,57, z 1,62); Phi 0,183 (IC99 -0,108 a 0,475); votos de margem 811.368; degrau -0,35; placebo 1T 1,74 (ep 0,93); plantio Phi 0,25/0,5/1 enxergado em 34%/100%/100%, recuperação em 0,5: 0,89; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    16h: b 5,72 (ep 2,07, z 2,76); Phi 0,168 (IC99 0,011 a 0,324); votos de margem 743.121; degrau 5,55; placebo 1T 1,87 (ep 0,95); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,91; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 1,7; 10h37 -0,3; 11h37 0,1; 12h37 2,2; 13h37 -0,7; 14h37 1,5; 15h37 0,2
+  AAS_uf (ao lado): n 2973, grupos 27, municípios 1406. Parte: INCONCLUSIVO
+    10h: b 1,60 (ep 0,84, z 1,91); Phi 0,605 (IC99 -0,213 a 1,424); votos de margem 2.681.540; degrau 0,03; placebo 1T -0,19 (ep 2,35); plantio Phi 0,25/0,5/1 enxergado em 0%/2%/97%, recuperação em 0,5: 0,94; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    12h: b 0,83 (ep 0,83, z 1,01); Phi 0,185 (IC99 -0,288 a 0,658); votos de margem 819.572; degrau 0,28; placebo 1T 1,55 (ep 1,51); plantio Phi 0,25/0,5/1 enxergado em 0%/6%/100%, recuperação em 0,5: 0,91; espelho -1 visto em 97%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    14h: b 0,31 (ep 1,06, z 0,29); Phi 0,037 (IC99 -0,286 a 0,360); votos de margem 163.659; degrau -2,62; placebo 1T 1,30 (ep 1,36); plantio Phi 0,25/0,5/1 enxergado em 0%/36%/100%, recuperação em 0,5: 0,90; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    15h: b 1,48 (ep 1,34, z 1,11); Phi 0,106 (IC99 -0,141 a 0,354); votos de margem 471.548; degrau 2,35; placebo 1T 1,59 (ep 1,40); plantio Phi 0,25/0,5/1 enxergado em 0%/100%/100%, recuperação em 0,5: 0,89; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    16h: b 3,19 (ep 2,13, z 1,50); Phi 0,094 (IC99 -0,067 a 0,255); votos de margem 414.750; degrau 2,69; placebo 1T 2,03 (ep 1,50); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,89; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 1,0; 10h37 0,9; 11h37 0,3; 12h37 0,3; 13h37 -0,8; 14h37 1,4; 15h37 0,9
+  UNI_uf (ao lado): n 6820, grupos 27, municípios 1605. Parte: INCONCLUSIVO
+    10h: b 1,49 (ep 0,62, z 2,38); Phi 0,563 (IC99 -0,046 a 1,172); votos de margem 2.494.997; degrau 0,57; placebo 1T 1,58 (ep 1,89); plantio Phi 0,25/0,5/1 enxergado em 0%/93%/100%, recuperação em 0,5: 0,92; espelho -1 visto em 0%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    12h: b 1,50 (ep 0,73, z 2,06); Phi 0,334 (IC99 -0,083 a 0,751); votos de margem 1.478.659; degrau 1,98; placebo 1T 1,58 (ep 1,18); plantio Phi 0,25/0,5/1 enxergado em 0%/100%/100%, recuperação em 0,5: 0,88; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => INCONCLUSIVO
+    14h: b 1,36 (ep 0,92, z 1,47); Phi 0,160 (IC99 -0,120 a 0,440); votos de margem 710.189; degrau -1,57; placebo 1T 0,83 (ep 1,03); plantio Phi 0,25/0,5/1 enxergado em 2%/100%/100%, recuperação em 0,5: 0,88; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    15h: b 2,65 (ep 1,20, z 2,21); Phi 0,191 (IC99 -0,031 a 0,412); votos de margem 844.128; degrau 1,07; placebo 1T 0,96 (ep 1,08); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,87; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    16h: b 5,94 (ep 1,69, z 3,52); Phi 0,174 (IC99 0,047 a 0,301); votos de margem 771.013; degrau 5,61; placebo 1T 1,26 (ep 1,14); plantio Phi 0,25/0,5/1 enxergado em 100%/100%/100%, recuperação em 0,5: 0,87; espelho -1 visto em 100%; inocentes com critério inteiro: rampa 0%, composição 0% => SEM SINAL
+    janelas falsas (salto em h:37, z): 9h37 2,1; 10h37 0,1; 11h37 0,2; 12h37 1,2; 13h37 -0,9; 14h37 2,4; 15h37 -0,3
+
+PARTE B, T30 DA EQUIPE VERMELHA (y = virada da fatia de Lula; regressor f2 x fatia de Flávio no 1º turno; controles f1, variação do comparecimento, fatia de Lula no 1º turno; erro CV3)
+  ANT_local (LETRA): n 3757, grupos do efeito fixo 623, grupos do CV3 623. Parte: SEM PODER {'SEM PODER': 18}
+    brasilia 9h: inclinação 1,77 (ep CV3 2,30, z 0,77); placebo 0,40 (ep 9,37); espelho 0,08 (z 0,04); troca de 5% produz 4,71; EMD 6,44 = q 6,9% = 156,4% da margem; poder (valor e z) 5/10/15%: 10/90/100%; margem implicada 1.907.784 => SEM PODER
+    brasilia 10h: inclinação 2,65 (ep CV3 1,86, z 1,43); placebo 0,88 (ep 5,66); espelho -0,18 (z -0,13); troca de 5% produz 4,66; EMD 5,20 = q 5,7% = 104,7% da margem; poder (valor e z) 5/10/15%: 86/100/100%; margem implicada 2.363.177 => SEM PODER
+    brasilia 11h: inclinação 3,00 (ep CV3 1,63, z 1,84); placebo -0,25 (ep 4,22); espelho 0,81 (z 0,57); troca de 5% produz 4,60; EMD 4,57 = q 4,9% = 71,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.073.838 => SEM PODER
+    brasilia 12h: inclinação 3,29 (ep CV3 1,63, z 2,01); placebo 1,73 (ep 3,65); espelho 0,49 (z 0,32); troca de 5% produz 4,61; EMD 4,57 = q 5,0% = 53,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.712.918 => SEM PODER (intermediário)
+    brasilia 13h: inclinação 3,14 (ep CV3 1,90, z 1,66); placebo -0,26 (ep 3,51); espelho 1,33 (z 0,78); troca de 5% produz 4,66; EMD 5,31 = q 5,7% = 45,9% da margem; poder (valor e z) 5/10/15%: 98/100/100%; margem implicada 1.202.719 => SEM PODER
+    brasilia 14h: inclinação 3,02 (ep CV3 2,37, z 1,27); placebo -0,63 (ep 3,63); espelho 0,73 (z 0,37); troca de 5% produz 4,69; EMD 6,65 = q 7,2% = 40,6% da margem; poder (valor e z) 5/10/15%: 44/100/100%; margem implicada 818.252 => SEM PODER
+    brasilia 15h: inclinação 2,70 (ep CV3 2,91, z 0,93); placebo -2,09 (ep 3,99); espelho 0,16 (z 0,07); troca de 5% produz 4,70; EMD 8,14 = q 8,7% = 30,0% da margem; poder (valor e z) 5/10/15%: 0/100/100%; margem implicada 441.431 => SEM PODER
+    brasilia 16h: inclinação 10,05 (ep CV3 4,24, z 2,37); placebo -2,84 (ep 4,39); espelho 4,55 (z 1,23); troca de 5% produz 4,66; EMD 11,86 = q 12,7% = 17,8% da margem; poder (valor e z) 5/10/15%: 96/100/100%; margem implicada 669.815 => SEM PODER (intermediário)
+    brasilia 17h: inclinação 51,70 (ep CV3 56,94, z 0,91); placebo 0,45 (ep 5,34); espelho 22,77 (z 0,43); troca de 5% produz 4,83; EMD 159,42 = q 169,2% = 1,1% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 16.201 => SEM PODER
+    urna 9h: inclinação 1,21 (ep CV3 2,29, z 0,53); placebo 2,19 (ep 8,76); espelho -0,35 (z -0,18); troca de 5% produz 4,61; EMD 6,40 = q 6,9% = 154,4% da margem; poder (valor e z) 5/10/15%: 5/88/100%; margem implicada 1.292.338 => SEM PODER
+    urna 10h: inclinação 2,89 (ep CV3 1,80, z 1,61); placebo 0,23 (ep 5,31); espelho 0,05 (z 0,04); troca de 5% produz 4,63; EMD 5,03 = q 5,4% = 98,7% da margem; poder (valor e z) 5/10/15%: 94/100/100%; margem implicada 2.515.408 => SEM PODER
+    urna 11h: inclinação 2,83 (ep CV3 1,62, z 1,75); placebo -0,84 (ep 4,06); espelho 0,69 (z 0,49); troca de 5% produz 4,56; EMD 4,52 = q 4,9% = 69,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.918.943 => SEM PODER
+    urna 12h: inclinação 3,18 (ep CV3 1,70, z 1,87); placebo 1,55 (ep 3,55); espelho 0,38 (z 0,24); troca de 5% produz 4,58; EMD 4,77 = q 5,2% = 54,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.620.844 => SEM PODER
+    urna 13h: inclinação 3,42 (ep CV3 1,93, z 1,77); placebo -0,44 (ep 3,50); espelho 1,46 (z 0,85); troca de 5% produz 4,67; EMD 5,41 = q 5,8% = 45,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.282.941 => SEM PODER
+    urna 14h: inclinação 2,85 (ep CV3 2,35, z 1,21); placebo -1,31 (ep 3,64); espelho 0,75 (z 0,38); troca de 5% produz 4,66; EMD 6,57 = q 7,0% = 38,7% da margem; poder (valor e z) 5/10/15%: 38/100/100%; margem implicada 742.614 => SEM PODER
+    urna 15h: inclinação 2,30 (ep CV3 2,86, z 0,80); placebo -2,30 (ep 4,00); espelho -0,37 (z -0,17); troca de 5% produz 4,70; EMD 8,02 = q 8,5% = 27,9% da margem; poder (valor e z) 5/10/15%: 0/100/100%; margem implicada 354.567 => SEM PODER
+    urna 16h: inclinação 8,65 (ep CV3 4,26, z 2,03); placebo -2,48 (ep 4,43); espelho 3,51 (z 0,96); troca de 5% produz 4,67; EMD 11,92 = q 12,8% = 16,3% da margem; poder (valor e z) 5/10/15%: 24/100/100%; margem implicada 525.547 => SEM PODER (intermediário)
+    urna 17h: inclinação 50,97 (ep CV3 59,43, z 0,86); placebo 1,63 (ep 5,53); espelho 22,02 (z 0,42); troca de 5% produz 4,36; EMD 166,41 = q 180,3% = 1,1% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 14.481 => SEM PODER
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 74%; com SINAL inteiro 73%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 0%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 100%; 14h visto em 100%; 16h visto em 0%
+  AAS_local (LETRA): n 141, grupos do efeito fixo 70, grupos do CV3 70. Parte: SEM PODER {'SEM PODER': 18}
+    brasilia 9h: inclinação -17,45 (ep CV3 19,39, z -0,90); placebo 14,91 (ep 58,96); espelho -4,93 (z -0,23); troca de 5% produz 4,67; EMD 54,30 = q 52,8% = 1.194,3% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -17.004.673 => SEM PODER
+    brasilia 10h: inclinação -15,50 (ep CV3 14,10, z -1,10); placebo -8,85 (ep 38,43); espelho -9,41 (z -0,70); troca de 5% produz 5,69; EMD 39,48 = q 37,5% = 693,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -12.055.650 => SEM PODER
+    brasilia 11h: inclinação -14,99 (ep CV3 11,02, z -1,36); placebo -11,15 (ep 30,21); espelho -11,51 (z -1,10); troca de 5% produz 4,50; EMD 30,84 = q 32,0% = 461,6% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -9.937.221 => SEM PODER
+    brasilia 12h: inclinação -10,93 (ep CV3 11,66, z -0,94); placebo 2,74 (ep 28,16); espelho -7,55 (z -0,63); troca de 5% produz 4,65; EMD 32,65 = q 34,2% = 370,9% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -5.502.581 => SEM PODER
+    brasilia 13h: inclinação -5,62 (ep CV3 13,68, z -0,41); placebo -5,32 (ep 31,77); espelho -6,73 (z -0,42); troca de 5% produz 4,70; EMD 38,31 = q 39,7% = 319,8% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -2.077.577 => SEM PODER
+    brasilia 14h: inclinação -9,05 (ep CV3 14,57, z -0,62); placebo 0,39 (ep 28,23); espelho -16,53 (z -1,00); troca de 5% produz 4,47; EMD 40,79 = q 44,3% = 251,7% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -2.472.323 => SEM PODER
+    brasilia 15h: inclinação 8,82 (ep CV3 9,78, z 0,90); placebo 4,75 (ep 31,36); espelho 9,09 (z 0,61); troca de 5% produz 4,60; EMD 27,39 = q 30,9% = 106,0% da margem; poder (valor e z) 5/10/15%: 0/1/4%; margem implicada 1.512.689 => SEM PODER
+    brasilia 16h: inclinação -5,53 (ep CV3 22,83, z -0,24); placebo 1,05 (ep 40,50); espelho -15,97 (z -0,55); troca de 5% produz 4,83; EMD 63,94 = q 67,8% = 95,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -363.707 => SEM PODER
+    brasilia 17h: inclinação 685,01 (ep CV3 439,64, z 1,56); placebo 30,83 (ep 44,72); espelho 732,92 (z 2,26); troca de 5% produz 5,09; EMD 1.231,00 = q 1.325,3% = 8,8% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 217.757 => SEM PODER
+    urna 9h: inclinação -10,09 (ep CV3 21,21, z -0,48); placebo 65,22 (ep 45,71); espelho -7,29 (z -0,34); troca de 5% produz 3,87; EMD 59,39 = q 61,9% = 1.376,5% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -10.361.063 => SEM PODER
+    urna 10h: inclinação -15,66 (ep CV3 15,16, z -1,03); placebo 25,40 (ep 35,20); espelho -11,85 (z -0,94); troca de 5% produz 5,10; EMD 42,45 = q 40,7% = 738,4% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -12.070.734 => SEM PODER
+    urna 11h: inclinação -11,41 (ep CV3 12,14, z -0,94); placebo 9,20 (ep 31,19); espelho -11,87 (z -1,21); troca de 5% produz 5,08; EMD 33,98 = q 33,6% = 472,5% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -7.032.071 => SEM PODER
+    urna 12h: inclinação -8,02 (ep CV3 12,47, z -0,64); placebo 12,24 (ep 28,04); espelho -8,52 (z -0,73); troca de 5% produz 5,10; EMD 34,92 = q 35,9% = 380,6% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -3.874.002 => SEM PODER
+    urna 13h: inclinação -7,03 (ep CV3 13,87, z -0,51); placebo 0,03 (ep 30,93); espelho -10,35 (z -0,66); troca de 5% produz 4,85; EMD 38,82 = q 39,0% = 306,4% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -2.458.070 => SEM PODER
+    urna 14h: inclinação -10,29 (ep CV3 14,33, z -0,72); placebo 8,23 (ep 27,04); espelho -20,51 (z -1,29); troca de 5% produz 4,95; EMD 40,11 = q 41,7% = 229,8% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -2.612.160 => SEM PODER
+    urna 15h: inclinação 11,11 (ep CV3 11,06, z 1,00); placebo 14,07 (ep 30,25); espelho 5,20 (z 0,34); troca de 5% produz 4,36; EMD 30,98 = q 33,3% = 108,5% da margem; poder (valor e z) 5/10/15%: 0/0/2%; margem implicada 1.723.994 => SEM PODER
+    urna 16h: inclinação -5,42 (ep CV3 24,32, z -0,22); placebo 11,05 (ep 44,99); espelho -25,60 (z -0,86); troca de 5% produz 4,60; EMD 68,10 = q 72,9% = 93,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada -327.855 => SEM PODER
+    urna 17h: inclinação 912,92 (ep CV3 595,31, z 1,53); placebo 54,96 (ep 44,24); espelho 793,27 (z 2,27); troca de 5% produz 4,26; EMD 1.666,87 = q 1.863,7% = 11,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 267.614 => SEM PODER
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 2%; com SINAL inteiro 0%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 2%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 0%; 14h visto em 0%; 16h visto em 0%
+  UNI_local (LETRA): n 3898, grupos do efeito fixo 693, grupos do CV3 693. Parte: SEM PODER {'SEM PODER': 18}
+    brasilia 9h: inclinação 1,39 (ep CV3 2,29, z 0,61); placebo -0,68 (ep 9,25); espelho 0,10 (z 0,05); troca de 5% produz 4,62; EMD 6,42 = q 6,9% = 156,7% da margem; poder (valor e z) 5/10/15%: 5/86/100%; margem implicada 1.506.993 => SEM PODER
+    brasilia 10h: inclinação 2,36 (ep CV3 1,85, z 1,27); placebo -0,11 (ep 5,59); espelho -0,20 (z -0,14); troca de 5% produz 4,59; EMD 5,18 = q 5,6% = 103,9% da margem; poder (valor e z) 5/10/15%: 76/100/100%; margem implicada 2.095.286 => SEM PODER
+    brasilia 11h: inclinação 2,67 (ep CV3 1,62, z 1,65); placebo -1,15 (ep 4,15); espelho 0,66 (z 0,47); troca de 5% produz 4,62; EMD 4,53 = q 4,9% = 71,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.855.272 => SEM PODER
+    brasilia 12h: inclinação 2,93 (ep CV3 1,62, z 1,80); placebo 1,14 (ep 3,59); espelho 0,37 (z 0,25); troca de 5% produz 4,64; EMD 4,54 = q 4,9% = 53,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.519.867 => SEM PODER
+    brasilia 13h: inclinação 2,82 (ep CV3 1,88, z 1,50); placebo -0,79 (ep 3,45); espelho 1,22 (z 0,72); troca de 5% produz 4,62; EMD 5,27 = q 5,7% = 45,6% da margem; poder (valor e z) 5/10/15%: 98/100/100%; margem implicada 1.082.756 => SEM PODER
+    brasilia 14h: inclinação 2,60 (ep CV3 2,34, z 1,11); placebo -0,83 (ep 3,57); espelho 0,39 (z 0,20); troca de 5% produz 4,63; EMD 6,55 = q 7,1% = 40,3% da margem; poder (valor e z) 5/10/15%: 24/100/100%; margem implicada 707.597 => SEM PODER
+    brasilia 15h: inclinação 2,85 (ep CV3 2,84, z 1,01); placebo -2,18 (ep 3,92); espelho 0,28 (z 0,13); troca de 5% produz 4,76; EMD 7,95 = q 8,5% = 29,1% da margem; poder (valor e z) 5/10/15%: 1/100/100%; margem implicada 462.866 => SEM PODER
+    brasilia 16h: inclinação 9,60 (ep CV3 4,16, z 2,31); placebo -3,13 (ep 4,31); espelho 4,14 (z 1,13); troca de 5% produz 4,68; EMD 11,65 = q 12,5% = 17,5% da margem; poder (valor e z) 5/10/15%: 96/100/100%; margem implicada 639.792 => SEM PODER (intermediário)
+    brasilia 17h: inclinação 59,17 (ep CV3 54,06, z 1,09); placebo 0,12 (ep 5,22); espelho 33,40 (z 0,64); troca de 5% produz 4,19; EMD 151,37 = q 169,9% = 1,1% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 19.608 => SEM PODER
+    urna 9h: inclinação 1,09 (ep CV3 2,28, z 0,48); placebo 2,03 (ep 8,63); espelho -0,33 (z -0,17); troca de 5% produz 4,56; EMD 6,40 = q 6,9% = 153,3% da margem; poder (valor e z) 5/10/15%: 2/91/100%; margem implicada 1.154.830 => SEM PODER
+    urna 10h: inclinação 2,57 (ep CV3 1,79, z 1,43); placebo -0,13 (ep 5,22); espelho -0,06 (z -0,04); troca de 5% produz 4,65; EMD 5,02 = q 5,5% = 99,0% da margem; poder (valor e z) 5/10/15%: 89/100/100%; margem implicada 2.244.870 => SEM PODER
+    urna 11h: inclinação 2,48 (ep CV3 1,61, z 1,54); placebo -1,41 (ep 3,96); espelho 0,46 (z 0,33); troca de 5% produz 4,58; EMD 4,50 = q 4,9% = 68,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.683.153 => SEM PODER
+    urna 12h: inclinação 2,88 (ep CV3 1,69, z 1,70); placebo 1,10 (ep 3,48); espelho 0,22 (z 0,14); troca de 5% produz 4,70; EMD 4,74 = q 5,1% = 54,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.458.524 => SEM PODER
+    urna 13h: inclinação 3,15 (ep CV3 1,92, z 1,64); placebo -0,85 (ep 3,44); espelho 1,31 (z 0,77); troca de 5% produz 4,68; EMD 5,37 = q 5,8% = 45,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.176.086 => SEM PODER
+    urna 14h: inclinação 2,49 (ep CV3 2,31, z 1,08); placebo -1,28 (ep 3,58); espelho 0,38 (z 0,19); troca de 5% produz 4,70; EMD 6,48 = q 6,9% = 38,0% da margem; poder (valor e z) 5/10/15%: 23/100/100%; margem implicada 648.361 => SEM PODER
+    urna 15h: inclinação 2,56 (ep CV3 2,80, z 0,92); placebo -2,10 (ep 3,94); espelho -0,28 (z -0,13); troca de 5% produz 4,68; EMD 7,84 = q 8,4% = 27,4% da margem; poder (valor e z) 5/10/15%: 0/100/100%; margem implicada 397.163 => SEM PODER
+    urna 16h: inclinação 8,25 (ep CV3 4,18, z 1,97); placebo -2,53 (ep 4,37); espelho 2,97 (z 0,82); troca de 5% produz 4,69; EMD 11,71 = q 12,6% = 16,1% da margem; poder (valor e z) 5/10/15%: 18/100/100%; margem implicada 502.176 => SEM PODER
+    urna 17h: inclinação 58,56 (ep CV3 56,13, z 1,04); placebo 1,62 (ep 5,41); espelho 32,63 (z 0,62); troca de 5% produz 4,76; EMD 157,17 = q 165,8% = 1,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 16.199 => SEM PODER
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 54%; com SINAL inteiro 51%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 0%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 100%; 14h visto em 100%; 16h visto em 0%
+  ANT_municipio (ao lado): n 3873, grupos do efeito fixo 410, grupos do CV3 410. Parte: SINAL {'SEM PODER': 11, 'SINAL': 7}
+    brasilia 9h: inclinação -2,94 (ep CV3 2,69, z -1,10); placebo 11,14 (ep 11,26); espelho -1,76 (z -0,62); troca de 5% produz 4,80; EMD 7,52 = q 7,8% = 176,8% da margem; poder (valor e z) 5/10/15%: 0/6/82%; margem implicada -3.064.404 => SEM PODER
+    brasilia 10h: inclinação 0,42 (ep CV3 2,00, z 0,21); placebo 8,69 (ep 7,21); espelho 0,19 (z 0,08); troca de 5% produz 4,61; EMD 5,60 = q 6,0% = 111,6% da margem; poder (valor e z) 5/10/15%: 0/99/100%; margem implicada 369.542 => SEM PODER
+    brasilia 11h: inclinação 2,28 (ep CV3 1,60, z 1,43); placebo 6,85 (ep 5,60); espelho 2,58 (z 1,00); troca de 5% produz 4,61; EMD 4,48 = q 4,9% = 69,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.578.344 => SEM PODER
+    brasilia 12h: inclinação 6,09 (ep CV3 1,74, z 3,51); placebo 7,29 (ep 4,64); espelho 5,12 (z 1,94); troca de 5% produz 4,57; EMD 4,86 = q 5,3% = 57,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.213.797 => SINAL
+    brasilia 13h: inclinação 8,94 (ep CV3 2,74, z 3,26); placebo 7,08 (ep 4,60); espelho 7,18 (z 2,73); troca de 5% produz 4,55; EMD 7,68 = q 8,4% = 67,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.497.821 => SINAL
+    brasilia 14h: inclinação 11,93 (ep CV3 3,48, z 3,43); placebo 8,46 (ep 5,36); espelho 8,02 (z 2,71); troca de 5% produz 4,55; EMD 9,75 = q 10,7% = 60,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.288.116 => SINAL
+    brasilia 15h: inclinação 15,10 (ep CV3 4,85, z 3,11); placebo 9,59 (ep 6,17); espelho 9,61 (z 2,53); troca de 5% produz 4,61; EMD 13,59 = q 14,8% = 50,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.500.670 => SEM PODER (intermediário)
+    brasilia 16h: inclinação 25,48 (ep CV3 6,29, z 4,05); placebo 10,48 (ep 6,62); espelho 17,76 (z 3,34); troca de 5% produz 4,63; EMD 17,62 = q 19,0% = 26,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.701.703 => SINAL
+    brasilia 17h: inclinação 64,77 (ep CV3 65,77, z 0,98); placebo 12,56 (ep 8,30); espelho 35,65 (z 0,53); troca de 5% produz 4,93; EMD 184,15 = q 200,7% = 1,3% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 20.841 => SEM PODER
+    urna 9h: inclinação -3,37 (ep CV3 2,60, z -1,30); placebo 4,70 (ep 10,05); espelho -1,46 (z -0,51); troca de 5% produz 4,75; EMD 7,28 = q 7,5% = 166,8% da margem; poder (valor e z) 5/10/15%: 0/7/83%; margem implicada -3.423.248 => SEM PODER
+    urna 10h: inclinação 0,35 (ep CV3 1,96, z 0,18); placebo 4,33 (ep 6,67); espelho 0,62 (z 0,25); troca de 5% produz 4,61; EMD 5,48 = q 5,9% = 106,5% da margem; poder (valor e z) 5/10/15%: 4/100/100%; margem implicada 297.968 => SEM PODER
+    urna 11h: inclinação 1,77 (ep CV3 1,58, z 1,12); placebo 4,07 (ep 5,38); espelho 2,68 (z 1,03); troca de 5% produz 4,65; EMD 4,43 = q 4,8% = 67,6% da margem; poder (valor e z) 5/10/15%: 95/100/100%; margem implicada 1.198.020 => SEM PODER
+    urna 12h: inclinação 5,71 (ep CV3 1,80, z 3,18); placebo 5,94 (ep 4,50); espelho 5,22 (z 1,96); troca de 5% produz 4,52; EMD 5,03 = q 5,5% = 58,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.941.345 => SEM PODER (intermediário)
+    urna 13h: inclinação 9,27 (ep CV3 2,76, z 3,35); placebo 6,26 (ep 4,55); espelho 7,51 (z 2,85); troca de 5% produz 4,54; EMD 7,74 = q 8,5% = 66,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.543.415 => SINAL
+    urna 14h: inclinação 11,86 (ep CV3 3,53, z 3,36); placebo 7,54 (ep 5,39); espelho 8,31 (z 2,80); troca de 5% produz 4,57; EMD 9,89 = q 10,9% = 59,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.176.605 => SINAL
+    urna 15h: inclinação 14,52 (ep CV3 5,06, z 2,87); placebo 8,80 (ep 6,22); espelho 9,56 (z 2,48); troca de 5% produz 4,62; EMD 14,16 = q 15,4% = 50,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.281.786 => SEM PODER (intermediário)
+    urna 16h: inclinação 24,47 (ep CV3 6,72, z 3,64); placebo 10,29 (ep 6,72); espelho 17,52 (z 3,23); troca de 5% produz 4,60; EMD 18,81 = q 20,3% = 25,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.494.083 => SINAL
+    urna 17h: inclinação 72,87 (ep CV3 66,21, z 1,10); placebo 13,81 (ep 8,58); espelho 38,31 (z 0,56); troca de 5% produz 4,63; EMD 185,39 = q 197,6% = 1,2% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 20.362 => SEM PODER
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 100%; com SINAL inteiro 100%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 100%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 0%; 14h visto em 0%; 16h visto em 0%
+  AAS_municipio (ao lado): n 2025, grupos do efeito fixo 455, grupos do CV3 455. Parte: SINAL {'SEM PODER': 8, 'SINAL': 10}
+    brasilia 9h: inclinação 5,46 (ep CV3 3,55, z 1,54); placebo -4,51 (ep 17,98); espelho 5,03 (z 1,15); troca de 5% produz 4,60; EMD 9,93 = q 11,1% = 251,4% da margem; poder (valor e z) 5/10/15%: 12/78/99%; margem implicada 6.122.442 => SEM PODER
+    brasilia 10h: inclinação 5,13 (ep CV3 2,33, z 2,20); placebo 2,20 (ep 8,78); espelho 4,01 (z 1,48); troca de 5% produz 4,57; EMD 6,52 = q 7,2% = 133,5% da margem; poder (valor e z) 5/10/15%: 99/100/100%; margem implicada 4.651.123 => SEM PODER (intermediário)
+    brasilia 11h: inclinação 6,53 (ep CV3 2,47, z 2,65); placebo 1,07 (ep 6,11); espelho 6,31 (z 2,02); troca de 5% produz 4,50; EMD 6,90 = q 7,7% = 110,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.619.874 => SEM PODER (intermediário)
+    brasilia 12h: inclinação 10,08 (ep CV3 2,66, z 3,79); placebo -0,11 (ep 5,19); espelho 9,64 (z 2,77); troca de 5% produz 4,56; EMD 7,45 = q 8,2% = 89,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.360.873 => SINAL
+    brasilia 13h: inclinação 14,17 (ep CV3 2,89, z 4,91); placebo -1,86 (ep 4,98); espelho 13,77 (z 3,87); troca de 5% produz 4,52; EMD 8,08 = q 9,0% = 72,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.638.709 => SINAL
+    brasilia 14h: inclinação 16,89 (ep CV3 3,75, z 4,50); placebo 0,60 (ep 5,38); espelho 17,39 (z 4,11); troca de 5% produz 4,54; EMD 10,50 = q 11,5% = 65,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.664.668 => SINAL
+    brasilia 15h: inclinação 24,17 (ep CV3 4,20, z 5,75); placebo 5,25 (ep 6,37); espelho 23,68 (z 4,56); troca de 5% produz 4,58; EMD 11,77 = q 13,0% = 44,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.048.804 => SINAL
+    brasilia 16h: inclinação 34,44 (ep CV3 6,16, z 5,59); placebo 8,97 (ep 7,08); espelho 33,26 (z 4,27); troca de 5% produz 4,59; EMD 17,24 = q 18,8% = 26,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.324.794 => SINAL
+    brasilia 17h: inclinação 227,63 (ep CV3 95,40, z 2,39); placebo 13,02 (ep 9,75); espelho 106,58 (z 1,35); troca de 5% produz 4,73; EMD 267,13 = q 288,7% = 1,9% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 72.628 => SEM PODER (intermediário)
+    urna 9h: inclinação 5,40 (ep CV3 3,13, z 1,73); placebo 12,17 (ep 13,74); espelho 2,61 (z 0,57); troca de 5% produz 4,29; EMD 8,75 = q 9,9% = 221,1% da margem; poder (valor e z) 5/10/15%: 30/94/100%; margem implicada 6.046.869 => SEM PODER
+    urna 10h: inclinação 5,59 (ep CV3 2,28, z 2,45); placebo 7,42 (ep 7,99); espelho 2,91 (z 1,00); troca de 5% produz 4,53; EMD 6,39 = q 7,1% = 128,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.979.320 => SEM PODER (intermediário)
+    urna 11h: inclinação 7,53 (ep CV3 2,45, z 3,07); placebo 4,06 (ep 5,60); espelho 5,93 (z 1,84); troca de 5% produz 4,49; EMD 6,86 = q 7,6% = 107,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.211.253 => SEM PODER (intermediário)
+    urna 12h: inclinação 11,07 (ep CV3 2,60, z 4,26); placebo 2,82 (ep 4,85); espelho 9,57 (z 2,72); troca de 5% produz 4,47; EMD 7,27 = q 8,1% = 86,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.798.702 => SINAL
+    urna 13h: inclinação 15,21 (ep CV3 2,84, z 5,36); placebo 0,20 (ep 4,80); espelho 13,69 (z 3,82); troca de 5% produz 4,44; EMD 7,94 = q 8,9% = 70,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.940.741 => SINAL
+    urna 14h: inclinação 17,25 (ep CV3 3,76, z 4,59); placebo 2,83 (ep 5,19); espelho 16,31 (z 3,71); troca de 5% produz 4,61; EMD 10,52 = q 11,6% = 63,7% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.627.552 => SINAL
+    urna 15h: inclinação 26,34 (ep CV3 4,04, z 6,52); placebo 7,76 (ep 6,26); espelho 23,34 (z 4,43); troca de 5% produz 4,50; EMD 11,31 = q 12,5% = 40,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.221.260 => SINAL
+    urna 16h: inclinação 37,09 (ep CV3 6,32, z 5,87); placebo 12,23 (ep 7,20); espelho 32,54 (z 4,05); troca de 5% produz 4,50; EMD 17,69 = q 19,5% = 24,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.304.990 => SINAL
+    urna 17h: inclinação 215,56 (ep CV3 103,65, z 2,08); placebo 16,31 (ep 11,15); espelho 117,25 (z 1,46); troca de 5% produz 4,80; EMD 290,22 = q 312,3% = 1,8% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 60.813 => SEM PODER (intermediário)
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 100%; com SINAL inteiro 100%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 100%; com SINAL inteiro 100%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 0%; 14h visto em 0%; 16h visto em 0%
+  UNI_municipio (ao lado): n 5968, grupos do efeito fixo 750, grupos do CV3 750. Parte: SINAL {'SEM PODER': 15, 'SINAL': 3}
+    brasilia 9h: inclinação -1,26 (ep CV3 2,16, z -0,58); placebo 7,21 (ep 8,92); espelho -0,28 (z -0,09); troca de 5% produz 4,77; EMD 6,05 = q 6,3% = 143,3% da margem; poder (valor e z) 5/10/15%: 0/78/100%; margem implicada -1.323.131 => SEM PODER
+    brasilia 10h: inclinação 1,70 (ep CV3 1,59, z 1,07); placebo 7,76 (ep 5,01); espelho 1,27 (z 0,60); troca de 5% produz 4,63; EMD 4,44 = q 4,8% = 88,6% da margem; poder (valor e z) 5/10/15%: 98/100/100%; margem implicada 1.504.482 => SEM PODER
+    brasilia 11h: inclinação 3,84 (ep CV3 1,47, z 2,61); placebo 6,15 (ep 3,87); espelho 3,80 (z 1,69); troca de 5% produz 4,56; EMD 4,11 = q 4,5% = 64,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.683.874 => SEM PODER (intermediário)
+    brasilia 12h: inclinação 8,08 (ep CV3 1,68, z 4,80); placebo 5,90 (ep 3,14); espelho 6,74 (z 2,84); troca de 5% produz 4,56; EMD 4,71 = q 5,2% = 56,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.261.972 => SINAL
+    brasilia 13h: inclinação 11,79 (ep CV3 2,25, z 5,24); placebo 5,23 (ep 3,06); espelho 9,58 (z 3,89); troca de 5% produz 4,53; EMD 6,30 = q 7,0% = 56,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.660.541 => SINAL
+    brasilia 14h: inclinação 15,07 (ep CV3 2,85, z 5,29); placebo 7,20 (ep 3,48); espelho 11,44 (z 4,01); troca de 5% produz 4,54; EMD 7,97 = q 8,7% = 49,7% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.160.229 => SEM PODER (intermediário)
+    brasilia 15h: inclinação 19,63 (ep CV3 3,62, z 5,43); placebo 9,86 (ep 3,99); espelho 13,90 (z 3,88); troca de 5% produz 4,58; EMD 10,13 = q 11,1% = 38,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.264.666 => SEM PODER (intermediário)
+    brasilia 16h: inclinação 30,72 (ep CV3 4,77, z 6,45); placebo 11,98 (ep 4,44); espelho 22,46 (z 4,52); troca de 5% produz 4,59; EMD 13,35 = q 14,5% = 20,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.067.381 => SEM PODER (intermediário)
+    brasilia 17h: inclinação 119,79 (ep CV3 47,53, z 2,52); placebo 14,39 (ep 5,69); espelho 62,75 (z 1,31); troca de 5% produz 4,38; EMD 133,09 = q 146,8% = 1,0% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 39.003 => SEM PODER (intermediário)
+    urna 9h: inclinação -0,98 (ep CV3 2,01, z -0,49); placebo 8,65 (ep 7,97); espelho -0,69 (z -0,23); troca de 5% produz 4,65; EMD 5,63 = q 6,0% = 133,4% da margem; poder (valor e z) 5/10/15%: 0/90/100%; margem implicada -1.026.335 => SEM PODER
+    urna 10h: inclinação 1,81 (ep CV3 1,54, z 1,17); placebo 7,20 (ep 4,66); espelho 1,15 (z 0,54); troca de 5% produz 4,66; EMD 4,32 = q 4,7% = 84,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.567.954 => SEM PODER
+    urna 11h: inclinação 3,91 (ep CV3 1,46, z 2,67); placebo 5,71 (ep 3,62); espelho 3,73 (z 1,63); troca de 5% produz 4,59; EMD 4,09 = q 4,5% = 62,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.658.916 => SEM PODER (intermediário)
+    urna 12h: inclinação 8,27 (ep CV3 1,69, z 4,89); placebo 6,08 (ep 2,97); espelho 6,78 (z 2,83); troca de 5% produz 4,51; EMD 4,74 = q 5,2% = 55,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.291.434 => SEM PODER (intermediário)
+    urna 13h: inclinação 12,51 (ep CV3 2,22, z 5,64); placebo 5,49 (ep 2,97); espelho 9,79 (z 3,96); troca de 5% produz 4,54; EMD 6,21 = q 6,9% = 54,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.821.931 => SINAL
+    urna 14h: inclinação 15,40 (ep CV3 2,85, z 5,40); placebo 7,50 (ep 3,41); espelho 11,37 (z 3,95); troca de 5% produz 4,53; EMD 7,98 = q 8,8% = 48,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.154.449 => SEM PODER (intermediário)
+    urna 15h: inclinação 20,39 (ep CV3 3,62, z 5,63); placebo 10,26 (ep 3,93); espelho 13,81 (z 3,80); troca de 5% produz 4,54; EMD 10,15 = q 11,1% = 36,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.236.474 => SEM PODER (intermediário)
+    urna 16h: inclinação 31,50 (ep CV3 4,94, z 6,37); placebo 12,87 (ep 4,43); espelho 22,08 (z 4,33); troca de 5% produz 4,60; EMD 13,85 = q 15,0% = 19,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.929.018 => SEM PODER (intermediário)
+    urna 17h: inclinação 122,36 (ep CV3 50,62, z 2,42); placebo 15,85 (ep 6,04); espelho 63,47 (z 1,24); troca de 5% produz 4,40; EMD 141,74 = q 158,2% = 0,9% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 35.813 => SEM PODER (intermediário)
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 100%; com SINAL inteiro 98%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 100%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 0%; 14h visto em 0%; 16h visto em 0%
+  AAS_uf (ao lado): n 2976, grupos do efeito fixo 27, grupos do CV3 1406. Parte: SINAL {'SEM PODER': 7, 'SINAL': 11}
+    brasilia 9h: inclinação 6,88 (ep CV3 2,32, z 2,96); placebo -2,08 (ep 9,17); espelho 4,88 (z 2,24); troca de 5% produz 4,45; EMD 6,51 = q 7,4% = 166,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 7.787.618 => SEM PODER (intermediário)
+    brasilia 10h: inclinação 5,57 (ep CV3 1,56, z 3,58); placebo 1,44 (ep 4,98); espelho 3,28 (z 2,24); troca de 5% produz 4,55; EMD 4,35 = q 4,8% = 89,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.057.258 => SINAL
+    brasilia 11h: inclinação 6,43 (ep CV3 1,51, z 4,27); placebo 1,92 (ep 3,40); espelho 3,82 (z 2,87); troca de 5% produz 4,53; EMD 4,21 = q 4,6% = 66,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.521.255 => SINAL
+    brasilia 12h: inclinação 7,66 (ep CV3 1,60, z 4,77); placebo 0,58 (ep 2,87); espelho 4,29 (z 2,98); troca de 5% produz 4,60; EMD 4,49 = q 4,9% = 53,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.035.589 => SINAL
+    brasilia 13h: inclinação 9,00 (ep CV3 1,90, z 4,74); placebo -0,30 (ep 2,68); espelho 5,24 (z 2,83); troca de 5% produz 4,59; EMD 5,31 = q 5,8% = 46,7% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.507.852 => SINAL
+    brasilia 14h: inclinação 10,96 (ep CV3 2,51, z 4,37); placebo 0,88 (ep 2,77); espelho 6,67 (z 2,87); troca de 5% produz 4,55; EMD 7,02 = q 7,6% = 43,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.002.584 => SINAL
+    brasilia 15h: inclinação 15,90 (ep CV3 3,03, z 5,25); placebo 2,66 (ep 2,94); espelho 9,98 (z 3,34); troca de 5% produz 4,54; EMD 8,47 = q 9,2% = 31,7% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.636.614 => SINAL
+    brasilia 16h: inclinação 25,22 (ep CV3 4,53, z 5,57); placebo 5,04 (ep 3,24); espelho 17,21 (z 4,07); troca de 5% produz 4,63; EMD 12,67 = q 13,6% = 19,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.680.167 => SINAL
+    brasilia 17h: inclinação 244,71 (ep CV3 83,49, z 2,93); placebo 4,50 (ep 4,30); espelho 131,09 (z 1,81); troca de 5% produz 4,61; EMD 233,78 = q 252,9% = 1,7% da margem; poder (valor e z) 5/10/15%: 61/96/100%; margem implicada 78.171 => SEM PODER (intermediário)
+    urna 9h: inclinação 8,23 (ep CV3 2,00, z 4,12); placebo 15,17 (ep 6,25); espelho 2,11 (z 1,09); troca de 5% produz 4,37; EMD 5,59 = q 6,3% = 141,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 9.193.441 => SEM PODER (intermediário)
+    urna 10h: inclinação 6,56 (ep CV3 1,52, z 4,32); placebo 9,00 (ep 4,12); espelho 1,90 (z 1,38); troca de 5% produz 4,56; EMD 4,26 = q 4,7% = 85,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.829.326 => SEM PODER (intermediário)
+    urna 11h: inclinação 7,40 (ep CV3 1,54, z 4,80); placebo 6,29 (ep 3,00); espelho 2,76 (z 2,14); troca de 5% produz 4,55; EMD 4,32 = q 4,8% = 67,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 5.105.848 => SEM PODER (intermediário)
+    urna 12h: inclinação 8,43 (ep CV3 1,67, z 5,05); placebo 3,81 (ep 2,61); espelho 3,41 (z 2,44); troca de 5% produz 4,57; EMD 4,68 = q 5,1% = 54,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 4.343.169 => SINAL
+    urna 13h: inclinação 9,53 (ep CV3 1,96, z 4,87); placebo 2,13 (ep 2,59); espelho 4,19 (z 2,33); troca de 5% produz 4,61; EMD 5,48 = q 6,0% = 47,1% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.630.168 => SINAL
+    urna 14h: inclinação 11,75 (ep CV3 2,53, z 4,64); placebo 3,56 (ep 2,70); espelho 5,71 (z 2,46); troca de 5% produz 4,53; EMD 7,09 = q 7,7% = 42,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.129.222 => SINAL
+    urna 15h: inclinação 17,87 (ep CV3 3,08, z 5,80); placebo 5,65 (ep 2,94); espelho 8,90 (z 2,92); troca de 5% produz 4,58; EMD 8,62 = q 9,4% = 30,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.809.349 => SINAL
+    urna 16h: inclinação 29,58 (ep CV3 4,66, z 6,35); placebo 8,29 (ep 3,30); espelho 15,86 (z 3,64); troca de 5% produz 4,61; EMD 13,04 = q 14,1% = 18,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.804.894 => SEM PODER (intermediário)
+    urna 17h: inclinação 203,12 (ep CV3 87,20, z 2,33); placebo 7,04 (ep 4,58); espelho 123,27 (z 1,62); troca de 5% produz 4,85; EMD 244,16 = q 264,0% = 1,6% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 57.586 => SEM PODER (intermediário)
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 100%; com SINAL inteiro 100%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 100%; com SINAL inteiro 59%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 98%; 14h visto em 0%; 16h visto em 0%
+  UNI_uf (ao lado): n 6823, grupos do efeito fixo 27, grupos do CV3 1605. Parte: SEM PODER {'SEM PODER': 18}
+    brasilia 9h: inclinação 0,46 (ep CV3 2,01, z 0,23); placebo 8,01 (ep 6,31); espelho 1,79 (z 0,87); troca de 5% produz 4,78; EMD 5,64 = q 6,0% = 135,4% da margem; poder (valor e z) 5/10/15%: 9/100/100%; margem implicada 490.816 => SEM PODER
+    brasilia 10h: inclinação 2,41 (ep CV3 1,48, z 1,63); placebo 7,73 (ep 3,74); espelho 2,00 (z 1,49); troca de 5% produz 4,62; EMD 4,14 = q 4,5% = 82,8% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.135.256 => SEM PODER
+    brasilia 11h: inclinação 4,12 (ep CV3 1,40, z 2,95); placebo 6,78 (ep 2,76); espelho 2,97 (z 2,50); troca de 5% produz 4,60; EMD 3,91 = q 4,3% = 61,3% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.859.130 => SEM PODER (intermediário)
+    brasilia 12h: inclinação 6,69 (ep CV3 1,52, z 4,39); placebo 5,46 (ep 2,31); espelho 4,27 (z 3,68); troca de 5% produz 4,58; EMD 4,26 = q 4,7% = 50,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.516.035 => SEM PODER (intermediário)
+    brasilia 13h: inclinação 8,29 (ep CV3 1,92, z 4,32); placebo 4,65 (ep 2,22); espelho 5,69 (z 3,62); troca de 5% produz 4,59; EMD 5,37 = q 5,9% = 47,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.225.612 => SEM PODER (intermediário)
+    brasilia 14h: inclinação 10,98 (ep CV3 2,43, z 4,52); placebo 5,82 (ep 2,36); espelho 7,23 (z 3,55); troca de 5% produz 4,62; EMD 6,80 = q 7,4% = 42,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.002.504 => SEM PODER (intermediário)
+    brasilia 15h: inclinação 17,31 (ep CV3 2,83, z 6,12); placebo 7,77 (ep 2,69); espelho 10,59 (z 4,17); troca de 5% produz 4,61; EMD 7,92 = q 8,6% = 29,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.859.012 => SEM PODER (intermediário)
+    brasilia 16h: inclinação 29,61 (ep CV3 3,91, z 7,57); placebo 10,33 (ep 3,31); espelho 18,15 (z 5,39); troca de 5% produz 4,63; EMD 10,95 = q 11,8% = 16,5% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.981.628 => SEM PODER (intermediário)
+    brasilia 17h: inclinação 131,55 (ep CV3 64,80, z 2,03); placebo 11,04 (ep 5,17); espelho 73,00 (z 1,45); troca de 5% produz 4,89; EMD 181,44 = q 190,1% = 1,3% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 40.702 => SEM PODER (intermediário)
+    urna 9h: inclinação 1,92 (ep CV3 1,87, z 1,02); placebo 13,53 (ep 5,16); espelho 0,83 (z 0,44); troca de 5% produz 4,66; EMD 5,24 = q 5,6% = 124,9% da margem; poder (valor e z) 5/10/15%: 99/100/100%; margem implicada 2.023.097 => SEM PODER
+    urna 10h: inclinação 3,04 (ep CV3 1,47, z 2,07); placebo 9,62 (ep 3,31); espelho 1,51 (z 1,17); troca de 5% produz 4,61; EMD 4,12 = q 4,5% = 80,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.649.937 => SEM PODER (intermediário)
+    urna 11h: inclinação 4,45 (ep CV3 1,43, z 3,11); placebo 7,83 (ep 2,52); espelho 2,48 (z 2,13); troca de 5% produz 4,57; EMD 4,02 = q 4,4% = 61,4% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.018.246 => SEM PODER (intermediário)
+    urna 12h: inclinação 7,00 (ep CV3 1,60, z 4,37); placebo 6,52 (ep 2,19); espelho 3,80 (z 3,32); troca de 5% produz 4,59; EMD 4,49 = q 4,9% = 52,0% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.595.335 => SEM PODER (intermediário)
+    urna 13h: inclinação 8,63 (ep CV3 1,99, z 4,35); placebo 5,54 (ep 2,16); espelho 5,23 (z 3,39); troca de 5% produz 4,60; EMD 5,56 = q 6,1% = 47,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.275.518 => SEM PODER (intermediário)
+    urna 14h: inclinação 11,52 (ep CV3 2,51, z 4,59); placebo 6,87 (ep 2,33); espelho 6,85 (z 3,37); troca de 5% produz 4,62; EMD 7,02 = q 7,6% = 41,9% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 3.047.556 => SEM PODER (intermediário)
+    urna 15h: inclinação 18,24 (ep CV3 2,95, z 6,19); placebo 8,94 (ep 2,67); espelho 9,97 (z 3,88); troca de 5% produz 4,52; EMD 8,25 = q 9,1% = 29,6% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 2.894.473 => SEM PODER (intermediário)
+    urna 16h: inclinação 32,11 (ep CV3 4,15, z 7,73); placebo 11,65 (ep 3,36); espelho 17,17 (z 5,00); troca de 5% produz 4,57; EMD 11,63 = q 12,7% = 16,2% da margem; poder (valor e z) 5/10/15%: 100/100/100%; margem implicada 1.977.086 => SEM PODER (intermediário)
+    urna 17h: inclinação 118,05 (ep CV3 67,05, z 1,76); placebo 13,33 (ep 5,65); espelho 68,22 (z 1,30); troca de 5% produz 4,49; EMD 187,75 = q 206,3% = 1,2% da margem; poder (valor e z) 5/10/15%: 0/0/0%; margem implicada 34.014 => SEM PODER
+    inocente I1_rampa_suave_no_2t: cópias com algum corte em valor e z 100%; com SINAL inteiro 16%
+    inocente I2_composicao_perfil_do_1t: cópias com algum corte em valor e z 100%; com SINAL inteiro 0%
+    espelho plantado (10% dos votos de Lula depois do corte): 12h visto em 100%; 14h visto em 0%; 16h visto em 0%
+  Separação dos relógios (ao lado): 376 seções fora do relógio de Brasília {'AC': 48, 'AM': 72, 'MS': 76, 'MT': 98, 'RO': 72, 'RR': 10}
+    brasilia: 9h 0,3 (z 0,0); 10h -0,2 (z -0,0); 11h 1,6 (z 0,4); 12h 3,0 (z 0,6); 13h 3,3 (z 0,5); 14h 10,8 (z 1,1); 15h 12,8 (z 1,1); 16h 24,8 (z 1,7); 17h 57,3 (z 0,4)
+    urna: 9h -0,8 (z -0,2); 10h 0,3 (z 0,1); 11h 0,6 (z 0,1); 12h 2,8 (z 0,4); 13h 12,3 (z 1,2); 14h 13,7 (z 1,0); 15h 20,3 (z 1,1); 16h 116,4 (z 0,7); 17h 0,0 (z n/d)
+
+PARTE 2, PRORROGAÇÃO
+  Amostra P: 400 seções lidas de 6773 que encerraram às 18:30 de Brasília ou depois (universo refeito com a base: 6773).
+  Votos computados a partir das 17h de Brasília: nas prorrogadas T_P = 4.504 (ep 281); no resto do país T_resto = 30.987 (ep 2.386, 2948 seções da aleatória); T = 35.491 (ep 2.402).
+  2 x T = 70.982 = 1,60% da margem (limite superior de 99%: 82.157); limiar 443.019.
+  A partir das 18h: T = 1.913 (ep 172); a partir das 19h: 0 (ep 0).
+  Espelho (dia do 1º turno, mesmas seções): T = 3.543.861 (ep 141.273).
+  Calibração: 221.510 votos plantados depois das 17h nas prorrogadas; a conta devolve +221.688 e acusa em 100% das cópias.
+  Veredito: SEM SINAL: a prorrogação não alcança 10% da margem mesmo que todos os votos dela fossem irregulares.
+
+BRUTO DE 2026 (amostra aleatória, sem modelo): quintis da fração de votos do 2º turno das 12h em diante
+  quintil 1: n 596, D 31,5%, Lula no 1º turno (dois candidatos) 57,96, no 2º 60,11, virada 2,15
+  quintil 2: n 595, D 36,6%, Lula no 1º turno (dois candidatos) 49,62, no 2º 52,28, virada 2,66
+  quintil 3: n 595, D 39,6%, Lula no 1º turno (dois candidatos) 46,29, no 2º 49,04, virada 2,74
+  quintil 4: n 595, D 42,6%, Lula no 1º turno (dois candidatos) 46,33, no 2º 49,59, virada 3,26
+  quintil 5: n 595, D 47,9%, Lula no 1º turno (dois candidatos) 44,77, no 2º 48,51, virada 3,74
+
+PODER DE CADA AMOSTRA (Parte B: efeito mínimo detectável, 2,8 ep CV3, em % dos votos de Flávio depois do corte e em % da margem; relógio de Brasília)
+  ANT_local (n 3757, 623 grupos): 10h q 5,7% = 105% da margem; 12h q 5,0% = 54% da margem; 14h q 7,2% = 41% da margem; 15h q 8,7% = 30% da margem; 16h q 12,7% = 18% da margem
+  AAS_local (n 141, 70 grupos): 10h q 37,5% = 693% da margem; 12h q 34,2% = 371% da margem; 14h q 44,3% = 252% da margem; 15h q 30,9% = 106% da margem; 16h q 67,8% = 95% da margem
+  UNI_local (n 3898, 693 grupos): 10h q 5,6% = 104% da margem; 12h q 4,9% = 53% da margem; 14h q 7,1% = 40% da margem; 15h q 8,5% = 29% da margem; 16h q 12,5% = 18% da margem
+  ANT_municipio (n 3873, 410 grupos): 10h q 6,0% = 112% da margem; 12h q 5,3% = 58% da margem; 14h q 10,7% = 61% da margem; 15h q 14,8% = 51% da margem; 16h q 19,0% = 27% da margem
+  AAS_municipio (n 2025, 455 grupos): 10h q 7,2% = 134% da margem; 12h q 8,2% = 89% da margem; 14h q 11,5% = 65% da margem; 15h q 13,0% = 44% da margem; 16h q 18,8% = 26% da margem
+  UNI_municipio (n 5968, 750 grupos): 10h q 4,8% = 89% da margem; 12h q 5,2% = 56% da margem; 14h q 8,7% = 50% da margem; 15h q 11,1% = 38% da margem; 16h q 14,5% = 20% da margem
+  AAS_uf (n 2976, 27 grupos): 10h q 4,8% = 89% da margem; 12h q 4,9% = 53% da margem; 14h q 7,6% = 43% da margem; 15h q 9,2% = 32% da margem; 16h q 13,6% = 19% da margem
+  UNI_uf (n 6823, 27 grupos): 10h q 4,5% = 83% da margem; 12h q 4,7% = 51% da margem; 14h q 7,4% = 42% da margem; 15h q 8,6% = 30% da margem; 16h q 11,8% = 17% da margem
+PODER DE CADA AMOSTRA (Parte A: erro de Phi por janela; Phi = 1 é a margem inteira)
+  ANT_local (n 3757): 10h ep 0,350; 12h ep 0,205; 14h ep 0,152; 15h ep 0,102; 16h ep 0,055
+  AAS_local (n 141): 10h ep 2,861; 12h ep 1,403; 14h ep 0,971; 15h ep 0,809; 16h ep 0,497
+  UNI_local (n 3898): 10h ep 0,348; 12h ep 0,203; 14h ep 0,145; 15h ep 0,097; 16h ep 0,053
+  ANT_municipio (n 3873): 10h ep 0,291; 12h ep 0,275; 14h ep 0,186; 15h ep 0,155; 16h ep 0,084
+  AAS_municipio (n 2022): 10h ep 0,476; 12h ep 0,303; 14h ep 0,183; 15h ep 0,129; 16h ep 0,082
+  UNI_municipio (n 5965): 10h ep 0,254; 12h ep 0,216; 14h ep 0,140; 15h ep 0,113; 16h ep 0,061
+  AAS_uf (n 2973): 10h ep 0,318; 12h ep 0,184; 14h ep 0,125; 15h ep 0,096; 16h ep 0,062
+  UNI_uf (n 6820): 10h ep 0,236; 12h ep 0,162; 14h ep 0,109; 15h ep 0,086; 16h ep 0,049
+
+AO LADO, SEM CONTROLE DE PRÉDIO (efeito fixo de município ou de UF; não é a especificação da letra)
+  ANT_municipio: cortes que passam valor e z: 7 de 18; com o critério inteiro (dose e placebo): 7 ['brasilia_12h', 'brasilia_13h', 'brasilia_14h', 'brasilia_16h', 'urna_13h', 'urna_14h', 'urna_16h']
+  AAS_municipio: cortes que passam valor e z: 10 de 18; com o critério inteiro (dose e placebo): 10 ['brasilia_12h', 'brasilia_13h', 'brasilia_14h', 'brasilia_15h', 'brasilia_16h', 'urna_12h', 'urna_13h', 'urna_14h', 'urna_15h', 'urna_16h']
+  UNI_municipio: cortes que passam valor e z: 10 de 18; com o critério inteiro (dose e placebo): 3 ['brasilia_12h', 'brasilia_13h', 'urna_13h']
+  AAS_uf: cortes que passam valor e z: 15 de 18; com o critério inteiro (dose e placebo): 11 ['brasilia_10h', 'brasilia_11h', 'brasilia_12h', 'brasilia_13h', 'brasilia_14h', 'brasilia_15h', 'brasilia_16h', 'urna_12h', 'urna_13h', 'urna_14h', 'urna_15h']
+  UNI_uf: cortes que passam valor e z: 10 de 18; com o critério inteiro (dose e placebo): 0 []
+  Leitura registrada antes (A2): essas contas controlam menos a composição e só valem como apoio. O que elas mostram, sem suavizar: na amostra
+  aleatória, seção com mais voto à tarde virou mais para Lula, com inclinação que cresce com a hora e z de até 6 ou 7. Lida inteira como gatilho,
+  essa associação valeria a margem quase toda (AAS com efeito fixo de UF, 12h: inclinação 7,66, margem implicada 4.035.589).
+
+EXPLORATÓRIO (escolhido depois de ver a primeira rodada; não muda veredito)
+  1. Dentro do prédio contra entre prédios do mesmo município (um gatilho na urna prevê a mesma inclinação nos dois níveis):
+     ANT (3757 seções, 623 locais): 12h dentro 3,3 (ep 1,9), entre 16,8 (ep 6,1), z da diferença 2,0; 13h dentro 3,1 (ep 2,2), entre 28,3 (ep 7,7), z da diferença 3,2; 14h dentro 3,0 (ep 2,6), entre 38,7 (ep 7,1), z da diferença 4,9; 15h dentro 2,7 (ep 3,2), entre 50,2 (ep 9,0), z da diferença 5,0; 16h dentro 10,1 (ep 4,1), entre 77,8 (ep 15,3), z da diferença 4,3
+     UNI (3898 seções, 693 locais): 12h dentro 2,9 (ep 1,9), entre 17,4 (ep 6,1), z da diferença 2,2; 13h dentro 2,8 (ep 2,2), entre 29,9 (ep 7,4), z da diferença 3,5; 14h dentro 2,6 (ep 2,6), entre 41,4 (ep 7,0), z da diferença 5,3; 15h dentro 2,9 (ep 3,0), entre 51,2 (ep 8,3), z da diferença 5,4; 16h dentro 9,6 (ep 4,0), entre 81,9 (ep 15,4), z da diferença 4,6
+  2. Parte B com os controles que a letra não tem (eliminados, brancos, nulos e abstenção do 1º turno = E; mais o perfil de idade, sexo, escolaridade e biometria = E+P):
+     UNI_local: 10h letra 2,4, E 3,0, E+P 0,7 (ep 1,9); 12h letra 2,9, E 3,4, E+P 1,5 (ep 1,7); 14h letra 2,6, E 3,0, E+P 0,5 (ep 2,3); 15h letra 2,9, E 2,9, E+P 0,3 (ep 2,7); 16h letra 9,6, E 9,9, E+P 7,0 (ep 4,0)
+     AAS_municipio: 10h letra 5,0, E 6,8, E+P 4,7 (ep 2,3); 12h letra 9,9, E 7,9, E+P 1,5 (ep 2,3); 14h letra 16,7, E 11,0, E+P 0,2 (ep 3,1); 15h letra 24,0, E 17,3, E+P 5,1 (ep 3,3); 16h letra 34,0, E 24,3, E+P 9,6 (ep 5,1)
+     UNI_municipio: 10h letra 1,5, E 4,2, E+P 2,5 (ep 1,3); 12h letra 8,0, E 7,9, E+P 2,8 (ep 1,5); 14h letra 15,0, E 12,3, E+P 2,8 (ep 2,3); 15h letra 19,6, E 15,7, E+P 4,4 (ep 2,9); 16h letra 30,6, E 25,0, E+P 11,0 (ep 3,9)
+     AAS_uf: 10h letra 5,5, E 5,4, E+P 4,8 (ep 1,6); 12h letra 7,6, E 5,1, E+P 1,8 (ep 1,5); 14h letra 10,8, E 6,5, E+P -1,2 (ep 2,1); 15h letra 15,8, E 10,4, E+P 0,5 (ep 2,5); 16h letra 25,0, E 17,0, E+P 3,8 (ep 3,9)
+     UNI_uf: 10h letra 2,4, E 3,8, E+P 3,9 (ep 1,2); 12h letra 6,7, E 5,5, E+P 2,7 (ep 1,3); 14h letra 10,9, E 8,0, E+P 0,8 (ep 1,8); 15h letra 17,3, E 13,1, E+P 3,6 (ep 2,2); 16h letra 29,5, E 23,3, E+P 10,5 (ep 3,3)
+     O modelo E+P continua enxergando um gatilho: troca de 5% plantada produz de 4,2 a 5,5 pontos de inclinação nas 32 combinações testadas (50 cópias cada).
+  3. Simetria (a = efeito do voto tardio onde só há voto de Flávio; c = onde só há voto de Lula; troca de Flávio para Lula prevê c = 0):
+     ANT_local: 10h a 5,8 (z 2,2), c -4,1 (z -2,0); 12h a 6,7 (z 2,8), c -4,5 (z -2,0); 14h a 5,7 (z 1,6), c -3,4 (z -1,2); 16h a 15,4 (z 2,4), c -6,7 (z -1,2)
+     UNI_local: 10h a 5,3 (z 2,0), c -3,8 (z -1,9); 12h a 6,1 (z 2,6), c -4,2 (z -1,9); 14h a 5,4 (z 1,5), c -3,6 (z -1,2); 16h a 15,2 (z 2,4), c -7,0 (z -1,3)
+     AAS_uf: 10h a 5,8 (z 2,8), c -0,3 (z -0,2); 12h a 9,0 (z 3,9), c -1,8 (z -0,8); 14h a 11,5 (z 3,7), c -0,7 (z -0,3); 16h a 23,4 (z 4,2), c 2,2 (z 0,4)
+  4. Ordem do RDV: em 400 RDV do 2º turno, 400 têm os tipos em ordem crescente e 97280 de 97280 pares vizinhos de votos nominais têm número não decrescente
+     (2,00 blocos por lista para 2,00 candidatos): a lista publicada está agrupada por tipo e por candidato, não guarda ordem de votação.
+
+PLACEBO DE GOVERNADOR (ao lado; 6 UFs; desfecho = finalista do lado de Lula para governador)
+  ANT_local (184 seções): 10h b -2,9 (ep 5,6, z -0,5, n 175); 12h b 7,0 (ep 3,9, z 1,8, n 175); 14h b 7,6 (ep 7,3, z 1,0, n 175); 15h b 6,9 (ep 8,1, z 0,8, n 175); 16h b 37,0 (ep 12,6, z 2,9, n 175)
+  UNI_local (403 seções): 10h b -0,2 (ep 5,6, z -0,0, n 190); 12h b 9,5 (ep 4,1, z 2,3, n 190); 14h b 12,3 (ep 6,8, z 1,8, n 190); 15h b 12,6 (ep 7,2, z 1,7, n 190); 16h b 42,8 (ep 10,6, z 4,0, n 190)
+  UNI_municipio (403 seções): 10h b 0,8 (ep 4,5, z 0,2, n 331); 12h b 6,4 (ep 4,0, z 1,6, n 331); 14h b 11,9 (ep 5,6, z 2,1, n 331); 15h b 10,0 (ep 7,8, z 1,3, n 331); 16h b 16,9 (ep 12,2, z 1,4, n 331)
+CORTES NA AMOSTRA P (ao lado, efeito fixo de município, 398 seções): 15h inclinação 31,1 (ep CV3 20,8), EMD 58,3 contra 4,3 da troca de 5%; 16h inclinação 30,5 (ep CV3 26,3), EMD 73,7 contra 4,5 da troca de 5%; 17h inclinação 40,7 (ep CV3 86,3), EMD 241,7 contra 4,8 da troca de 5%: sem poder.
+
+DESVIOS E DECISÕES FORA DO REGISTRO (todas escritas no docstring antes de rodar, salvo a última)
+  1. Parte 2 com a lista P (400 de 6.773 seções que encerraram às 18:30 de Brasília ou depois, sorteio simples) em vez de 600 de 7.089, proporcional por UF; o resto do país entra pela amostra aleatória.
+  2. Amostra aleatória: o registro pede efeito fixo de local, e ela só tem 70 locais com 2 seções. Leituras com efeito fixo de município e de UF ficaram ao lado, sem decidir.
+  3. Fração nacional de cada janela pela amostra aleatória nova (o desenho previa pesos da amostra antiga, que não existem guardados).
+  4. Regras fixadas por mim: "dose crescente em 3 horas vizinhas", placebo de virada pela letra (f1 no lugar de f2, mantendo o controle f1), fatia de Flávio = R1/(L1+R1), "enxerga" e SEM PODER da Parte A (plantio de Phi = 1 visto em menos de 95%).
+  5. Placebo de governador com controles reduzidos (frações do 1º turno dos dois finalistas, por UF), não o X inteiro: poucas seções.
+  6. Depois de ver a primeira rodada: calibração estendida a todas as especificações ao lado; contas exploratórias 1 a 4. Os números observados não mudaram entre as rodadas; os das cópias mudam na segunda casa porque a sequência de sorteios mudou.
+  7. Não feito: baixar mais 4.000 logs com sobreamostra em AC, AM, MT, MS, RO e RR (a amostra aleatória nova fez esse papel, sem sobreamostra); desfecho contra 2022 com conferência do pareamento de seções (usei a chave igual).
+
+LEITURA
+  O que pesa A FAVOR da tese, sem suavizar:
+  a) O reteste da equipe vermelha (Parte B) não absolve nenhum dos 18 cortes. Dentro do mesmo prédio a inclinação é positiva em todos os cortes de 9h a 16h (de 1,4 a 2,9 até as 15h; 9,6 às 16h, z 2,3),
+     sem chegar ao z de 3,2. Lida inteira como gatilho, valeria de 462.866 a 2.095.286 votos de margem, conforme o corte. O teste não exclui uma troca de 5% dos votos de Flávio dados depois das 12h (53% da margem).
+  b) Sem o controle de prédio, na amostra aleatória, a associação é forte, cresce com a hora e passa o critério inteiro em 10 ou 11 dos 18 cortes.
+  c) Depois das 16h todas as contas dão positivo: na Parte A, b = 2,85 (ep 1,82), com degrau na mesma hora e placebo de 1º turno limpo; faltam o tamanho (Phi 0,083, limiar 0,5) e o z (1,6, limiar 3,9).
+  d) Janelas largas (gatilho desde a manhã ou desde o meio-dia): sem poder. Um gatilho assim se confunde com troca uniforme, que este teste não enxerga.
+  O que pesa CONTRA:
+  a) No desenho cego (Parte A), dentro do prédio, Phi é 0,009 às 14h, -0,009 às 15h e 0,083 às 16h; um gatilho de fim de tarde que explique metade da margem está excluído a 99% (tetos 0,38, 0,24 e 0,22 da margem), com o plantio enxergado.
+  b) A associação está ENTRE prédios, não dentro: às 14h a inclinação entre prédios do mesmo município é 41,4 contra 2,6 dentro do prédio (z da diferença 5,3). Um gatilho na urna daria a mesma nos dois níveis.
+  c) Com o perfil do eleitorado da seção como controle a associação da amostra aleatória some à tarde, e o mesmo modelo continua enxergando o gatilho plantado.
+  d) Dentro do prédio o padrão é simétrico: onde Lula é forte, mais voto tardio acompanha ganho de Flávio (c negativo). Troca de Flávio para Lula daria c = 0.
+  e) O voto de governador do lado de Lula sobe junto com o voto tardio nas 6 UFs (16h, z de 4 dentro do prédio): é quem vota tarde, não o cargo.
+  f) Prorrogação: 35.491 votos depois das 17h de Brasília no país (ep 2.402); mesmo todos irregulares valeriam 1,6% da margem.
+
+CONTAGEM DE TESTES: 5 janelas (Parte A) e 18 cortes (Parte B) em 3 amostras da letra, mais 1 limite (Parte 2): 70 cláusulas. Com z de 3,9 e de 3,2 o acaso daria menos de 0,1 sinal.

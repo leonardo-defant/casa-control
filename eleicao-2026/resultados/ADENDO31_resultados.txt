@@ -1,0 +1,68 @@
+ADENDO 31: A RÉGUA DE FORA PARA O GRÁFICO POR ESTADO (RESULTADOS)
+
+Registro: Adendo 31, commit 167e0ff (10/11/2026 11:56:37 UTC), antes de rodar. Um agente levantou os dados e rodou;
+outro conferiu com fontes e código próprios e confirmou, com acréscimos. Detalhes, fontes e correções em
+resultados/testes_adendo31_com_conferencia.json; tabelas por eleição em resultados/R31_tabelas/.
+
+RESUMO EM UMA LINHA
+Pela regra registrada, 2026 e 2022 ficam DENTRO DO PADRÃO de eleições com cédula de papel: há duas eleições oficiais
+em papel (Áustria 1986 e Chile 1999/2000) em que as regiões andaram ainda mais juntas do que os estados brasileiros.
+O argumento da "matemática impossível" cai. O Brasil fica, porém, na ponta mais uniforme, e esta régua não enxerga
+uma troca igual em todos os estados.
+
+A MEDIDA
+S = desvio-padrão, entre as unidades, do movimento do 1º para o 2º turno na disputa a dois, em pontos.
+o = fatia dos votos válidos do 1º turno fora dos dois finalistas (quanto voto havia para se espalhar).
+
+TABELA (unidades com 50 mil válidos ou mais, sem exterior)
+  eleição               voto        unidades   o %     S     R² exp.   mesmo sinal
+  Áustria 1986 (*)      papel           9      6,7    0,31   0,9993     9 de 9
+  Chile 1999/2000       papel          12      4,5    0,49   0,9961    11 de 12
+  Brasil 2022           urna el.       27      8,4    0,53   0,9975    27 de 27
+  Brasil 2026           urna el.       27      7,8    0,69   0,9989    27 de 27
+  Turquia 2023          papel          80      5,7    1,15   0,9781    60 de 80
+  Equador 2025 (**)     papel          23     11,9    1,36   0,9886    23 de 23
+  El Salvador 2014      papel          14     12,1    1,60   0,9661    14 de 14
+  Colômbia 1994 (*)     papel          23      8,7    2,06   0,90      18 de 23
+  Chile 2021            papel          15     46,4    2,14   0,9023    15 de 15
+  Brasil 2018           urna el.       27     24,7    3,38   0,9705    25 de 27
+  Argentina 2023        papel          24     33,2    3,50   0,9080    24 de 24
+  França 2022           papel         100     49,0    3,68   0,7406    93 de 100
+  Brasil 2014           urna el.       27     24,9    4,01   0,8919    26 de 27
+  Colômbia 2022         papel          27     30,0    7,09   0,8874    20 de 27
+  (*) Achadas pelo conferente depois de ver o resultado; vão ao lado e não entraram na leitura pela letra.
+  (**) Fora da leitura: o 2º turno por província só existe em porcentagem parcial, sem como conferir pela soma.
+
+A LEITURA PELA LETRA
+  Conjunto comparável (o de 15% ou menos): Chile 1999/2000 (0,49), Turquia 2023 (1,15) e El Salvador 2014 (1,60).
+  2026 tem S de 0,69, 1,41 vez o menor; 2022 tem 0,53, 1,10 vez. A regra pedia pelo menos 0,75 vez: DENTRO.
+  A cláusula do intervalo de 95% não testou nada (com 7 eleições o limite inferior sai negativo). Quem decide é a
+  regra de 0,75. Em 19 cenários de escolhas diferentes a leitura nunca vira "fora".
+
+O QUE ISSO DERRUBA
+  A frase "a probabilidade disso ser orgânico é zero". Em papel, com apuração manual e sem contestação, as regiões
+  da Áustria em 1986 e do Chile em 1999/2000 andaram mais juntas do que os estados brasileiros, e o R² da receita do
+  carrossel lá é 0,9993 e 0,9961.
+  "27 de 27 estados no mesmo sentido" também não distingue o Brasil: Argentina 24 de 24, Chile 2021 15 de 15,
+  El Salvador 14 de 14.
+  O espalhamento cresce com o voto a redistribuir: de 0,3 a 2,1 quando há até 12% fora dos finalistas; de 2,1 a 7,1
+  quando há 30% a 49%. A mesma urna brasileira deu 3,4 e 4,0 em 2018 e 2014, quando havia 25% a redistribuir.
+
+O QUE CONTINUA PESANDO A FAVOR DA SUSPEITA, SEM AMACIAR
+  - O Brasil está na ponta mais uniforme. Das oito eleições polarizadas em papel medidas, duas são mais uniformes
+    que o Brasil e as outras quatro (Turquia, Equador, El Salvador, Colômbia 1994) espalharam de 1,7 a 3 vezes mais.
+  - As duas mais uniformes têm só 9 e 12 regiões, em países menores e mais parecidos por dentro. A eleição de fora
+    mais parecida com o Brasil em desigualdade regional é a Turquia: fica acima do Brasil sem peso (1,15 contra 0,69)
+    e empata com peso por votos (0,82 contra 0,83).
+  - A régua não alcança a troca igual em todos os estados: ela não muda o S. O teste não a afasta.
+
+LIMITES DOS DADOS
+  Fonte oficial direta: França 2022, Chile 1999/2000, Áustria 1986, Turquia 2023 (refeita pelo conferente com o dado
+  final do YSK). Segunda mão conferida contra o total oficial: Argentina 2023, El Salvador 2014, Chile 2021,
+  Colômbia 1994. Colômbia 2022 é a contagem preliminar (a Registraduría bloqueou o acesso). Gana, Libéria e Serra
+  Leoa não puderam ser levantadas.
+
+PISTAS
+  - Régua de papel em nível fino: Áustria 1986 por município e Chile 1999/2000 por comuna, para comparar com o
+    alinhamento por município do Adendo 29.
+  - Em 2026 a dispersão é entre grandes regiões (Flávio caiu mais no Sudeste e no Centro-Oeste, menos no Nordeste).

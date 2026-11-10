@@ -1,0 +1,206 @@
+R31 (ADENDO 31): A RÉGUA DE FORA PARA O GRÁFICO POR ESTADO
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 31, commit 167e0ff (10/11/2026 11:56:37 UTC), antes de rodar.
+Decisões que o registro não fixa: docstring de scripts/analisar_R31_regua_de_fora.py, escrito antes de baixar as tabelas
+de fora e antes de qualquer conta (cópia datada de 10/11/2026 12:02:03 UTC, SHA-256 b3027741...b170fd).
+
+RESUMO EM UMA LINHA
+Pela letra do registro, 2026 fica DENTRO DO PADRÃO das eleições com cédula de papel, e 2022 também. Existe pelo menos
+uma eleição em papel, que ninguém contesta, em que as regiões andaram ainda mais juntas do que os estados brasileiros
+em 2026: Chile 1999/2000 (S de 0,49 contra 0,69 do Brasil em 2026 e 0,53 em 2022). Isso derruba o argumento da "matemática
+impossível". Não prova que não houve troca uniforme: a régua não enxerga esse tipo de troca. E o resultado depende
+dessa única eleição: nas outras três de 1º turno polarizado (Turquia, Equador, El Salvador) o S é de 1,7 a 2,3 vezes o de 2026.
+
+TABELA COMPARATIVA (versão principal: unidades de primeiro nível com 50 mil válidos ou mais no 2º turno, sem exterior)
+eleição           voto      unid    o %      S S peso resíd.  R² lin R² quad  R² exp  mesmo sinal       
+--------------------------------------------------------------------------------------------------------
+Chile 1999/2000   papel       12   4,53   0,49   0,31   0,37  0,9833  0,9958  0,9961  11 de 12 (B subiu)
+Turquia 2023      papel       80   5,69   1,15   0,82   0,91  0,8398  0,9563  0,9781  60 de 80 (B caiu) 
+Equador 2025      papel       23  11,86   1,36   1,10   1,38  0,9262  0,9860  0,9886  23 de 23 (B subiu)  [fora da leitura principal]
+El Salvador 2014  papel       14  12,11   1,60   1,59   0,97  0,9414  0,9654  0,9661  14 de 14 (B caiu) 
+Colômbia 2022     papel       27  29,96   7,09   7,77   5,45  0,8137  0,8690  0,8874  20 de 27 (B caiu) 
+Argentina 2023    papel       24  33,23   3,50   3,96   3,21  0,8550  0,9033  0,9080  24 de 24 (B caiu) 
+Chile 2021        papel       15  46,37   2,14   2,74   1,88  0,9066  0,9084  0,9023  15 de 15 (B caiu) 
+França 2022       papel      100  48,99   3,68   2,78   3,58  0,6874  0,7368  0,7406  93 de 100 (B subiu)
+Brasil 2026       urna el.    27   7,81   0,69   0,82   0,51  0,9401  0,9953  0,9989  27 de 27 (B caiu) 
+Brasil 2022       urna el.    27   8,36   0,53   0,51   0,53  0,9121  0,9903  0,9975  27 de 27 (B subiu)
+Brasil 2018       urna el.    27  24,68   3,38   3,35   3,00  0,9093  0,9743  0,9705  25 de 27 (B caiu) 
+Brasil 2014       urna el.    27  24,85   4,01   4,13   3,12  0,8531  0,8974  0,8919  26 de 27 (B subiu)
+Colunas: o = fatia dos válidos do 1º turno fora dos dois finalistas; S = desvio-padrão, entre as unidades, da variação da
+fatia a dois do finalista B (2º turno menos 1º), em pontos, sem peso e com peso por votos; resíd. = resíduo da reta da fatia
+a dois do 2º turno contra a do 1º; R² = receita do carrossel (x = fatia a dois de B no 1º turno, y = votos de A sobre votos
+de B no 2º); mesmo sinal = unidades que andaram no sentido do movimento nacional. B = mais votado no 1º turno (no Brasil,
+o adversário do PT). Equador 2025: 2º turno só em porcentagem parcial da imprensa, não conferível por soma.
+
+AS OUTRAS VERSÕES
+  Com o exterior como uma unidade a mais (quando passa o filtro de 50 mil):
+    Turquia 2023      papel       81   5,60   1,14   0,81   0,91  0,8397  0,9562  0,9782  60 de 81 (B caiu) 
+    Equador 2025      papel       24  11,83   1,37   1,11   1,39  0,9264  0,9845  0,9876  24 de 24 (B subiu)
+    Colômbia 2022     papel       28  30,31   8,47   8,17   6,94  0,7814  0,8222  0,8418  21 de 28 (B caiu) 
+    Chile 2021        papel       15  46,26   2,14   2,74   1,88  0,9066  0,9084  0,9023  15 de 15 (B caiu) 
+    França 2022       papel      101  49,00   3,72   2,89   3,57  0,6912  0,7480  0,7528  93 de 101 (B subiu)
+    Brasil 2026       urna el.    28   7,81   0,71   0,83   0,53  0,9350  0,9949  0,9987  28 de 28 (B caiu) 
+    Brasil 2022       urna el.    28   8,37   0,52   0,51   0,52  0,9090  0,9903  0,9975  28 de 28 (B subiu)
+    Brasil 2018       urna el.    28  24,69   3,76   3,36   3,21  0,9023  0,9750  0,9709  26 de 28 (B caiu) 
+    Brasil 2014       urna el.    28  24,86   3,94   4,13   3,16  0,8511  0,9012  0,8976  27 de 28 (B subiu)
+    Nas demais o exterior não existe como unidade separada (Argentina, Chile 1999) ou não passa o filtro (Chile 2021, El Salvador).
+  Com as unidades pequenas agregadas em regiões oficiais (só França e Turquia têm mais de 30 unidades):
+    França 22 reg.+ul papel       27  48,99   6,22   2,15   6,12  0,4168  0,4764  0,4590  22 de 27 (B subiu)
+    França 13 reg.+ul papel       18  48,99   7,27   2,13   7,31  0,4297  0,4788  0,4667  13 de 18 (B subiu)
+    Turquia 26 sub-re papel       26   5,69   1,03   0,80   0,83  0,9573  0,9902  0,9912  21 de 26 (B caiu) 
+    Na França a agregação AUMENTA o S sem peso (de 3,68 para 6,22) porque os territórios de ultramar, onde Macron despencou
+    (Martinica -15,73 pontos), passam a ser 5 de 27 pontos em vez de 5 de 100. Só com a metrópole (exploratório): 1,53 com 95
+    departamentos e 0,66 com 22 regiões.
+  Receita do carrossel com os papéis de A e B trocados (só os R² mudam): exponencial de Chile 1999/2000 0,9947; Turquia 2023 0,9928; Equador 2025 0,9800; El Salvador 2014 0,9603; Colômbia 2022 0,8632; Argentina 2023 0,8756; Chile 2021 0,9668; França 2022 0,9023; Brasil 2026 0,9980; Brasil 2022 0,9976; Brasil 2018 0,9012; Brasil 2014 0,9363.
+
+A LEITURA FIXADA, PASSO A PASSO
+  Eleições de fora que entraram (conferidas contra o total nacional oficial): França 2022, Chile 2021, Colômbia 2022, Argentina 2023, Turquia 2023, Chile 1999/2000, El Salvador 2014.
+  Conjunto comparável (o de 15% ou menos): Turquia 2023 (o 5,69; S 1,15); Chile 1999/2000 (o 4,53; S 0,49); El Salvador 2014 (o 12,11; S 1,60).
+  Menor S do conjunto comparável: Chile 1999/2000, 0,486. Metade: 0,243. 0,75 vez: 0,365.
+  Reta de S contra o nas 7 eleições de fora: S = 1,205 + 0,0620 x o; erro-padrão residual 2,08; R² 0,27.
+  2026: S = 0,688, o = 7,81. Razão para o menor S comparável: 1,41. Regra da metade (S menor que a metade): NÃO. Regra de 0,75: CUMPRE.
+        Reta no o de 2026: ajuste 1,69; intervalo de predição de 95% de -4,41 a 7,79; faixa de confiança de 95% de -1,24 a 4,62.
+        Leitura pela letra: DENTRO DO PADRÃO (pelo intervalo de predição) e DENTRO DO PADRÃO (pela faixa de confiança).
+  2022: S = 0,533, o = 8,36. Razão para o menor S comparável: 1,10. Regra da metade (S menor que a metade): NÃO. Regra de 0,75: CUMPRE.
+        Reta no o de 2022: ajuste 1,72; intervalo de predição de 95% de -4,35 a 7,80; faixa de confiança de 95% de -1,16 a 4,60.
+        Leitura pela letra: DENTRO DO PADRÃO (pelo intervalo de predição) e DENTRO DO PADRÃO (pela faixa de confiança).
+  Aviso fixado antes (D11): o limite inferior do intervalo saiu NEGATIVO nas duas formas. A cláusula do intervalo ficou sem
+  dentes: com 7 eleições e essa dispersão ela não consegue excluir valor nenhum de S. Quem decide a leitura é a regra de 0,75,
+  e ela fecha por causa do Chile 1999/2000.
+
+  A mesma leitura nos outros recortes (2026; 2022):
+    as mesmas, com França e Turquia agregadas em regiões: DENTRO DO PADRÃO; DENTRO DO PADRÃO. Menor S comparável: Chile 1999/2000 0,49; razões 1,41 e 1,10; só pelas razões: 0,75 ou mais; 0,75 ou mais.
+    as mesmas, primeiro nível, com o exterior como unidade: DENTRO DO PADRÃO; DENTRO DO PADRÃO. Menor S comparável: Chile 1999/2000 0,49; razões 1,45 e 1,08; só pelas razões: 0,75 ou mais; 0,75 ou mais.
+    só as nomeadas na tarefa que passaram na conferência (sem Equador): INCONCLUSIVO; INCONCLUSIVO. menos de duas eleições no conjunto comparável.
+    todas as de fora, incluindo o Equador não conferível: DENTRO DO PADRÃO; DENTRO DO PADRÃO. Menor S comparável: Chile 1999/2000 0,49; razões 1,41 e 1,10; só pelas razões: 0,75 ou mais; 0,75 ou mais.
+    todas as de fora com o Equador, França e Turquia agregadas: DENTRO DO PADRÃO; DENTRO DO PADRÃO. Menor S comparável: Chile 1999/2000 0,49; razões 1,41 e 1,10; só pelas razões: 0,75 ou mais; 0,75 ou mais.
+    só as seis nomeadas na tarefa, incluindo o Equador não conferível: DENTRO DO PADRÃO; DENTRO DO PADRÃO. Menor S comparável: Turquia 2023 1,15; razões 0,60 e 0,47; só pelas razões: entre a metade e 0,75; abaixo da metade.
+  Nos recortes sem o Chile 1999/2000 o "dentro do padrão" só fecha pela cláusula do intervalo, que está sem dentes; só pelas
+  razões, 2026 fica entre a metade e 0,75 do menor S (Turquia) e 2022 fica abaixo da metade.
+
+  Descritivo, sem leitura: 2018 (S 3,38, o 24,68) e 2014 (S 4,01, o 24,85) ficam perto da reta (ajuste 2,73 e 2,75), acima dela.
+
+EXPLORATÓRIO (feito depois de ver o resultado; não entra na leitura)
+  E1. S dividido por o (dispersão por ponto de voto a redistribuir): Chile 2021 0,046; Brasil 2022 0,064; França 2022 0,075; Brasil 2026 0,088; Argentina 2023 0,105; Chile 1999/2000 0,107; Equador 2025 0,114; El Salvador 2014 0,132; Brasil 2018 0,137; Brasil 2014 0,161; Turquia 2023 0,201; Colômbia 2022 0,237.
+  E2. França só com a metrópole (sem os territórios de ultramar): S 1,53 e resíduo 1,42 com 95 departamentos (mesmo sinal em 93 de 95);
+      S 0,66 e resíduo 0,62 com as 22 regiões antigas (mesmo sinal em 22 de 22). Com metade do 1º turno fora dos dois finalistas, as
+      22 regiões da França andaram tão juntas quanto as 27 UFs do Brasil em 2026 (0,69). Recorte escolhido depois de ver os dados.
+  E3. Tirando uma eleição do conjunto comparável de cada vez (menor S que sobra; razão de 2026; razão de 2022). Incluir o
+      Equador não muda nenhuma linha, porque o S dele nunca é o menor:
+      as três conferidas: Chile 1999/2000 0,49; 1,41; 1,10
+      sem Turquia 2023: Chile 1999/2000 0,49; 1,41; 1,10
+      sem Chile 1999/2000: Turquia 2023 1,15; 0,60; 0,47
+      sem El Salvador 2014: Chile 1999/2000 0,49; 1,41; 1,10
+  E4. Sem o filtro de 50 mil (unidades; S): França 2022 106; 4,42; Chile 2021 16; 2,07; Colômbia 2022 33; 6,94; Argentina 2023 24; 3,50; Turquia 2023 81; 1,15; Equador 2025 24; 1,36; Chile 1999/2000 13; 0,53; El Salvador 2014 14; 1,60; Brasil 2014 27; 4,01; Brasil 2018 27; 3,38; Brasil 2022 27; 0,53; Brasil 2026 27; 0,69.
+  E5. Eleições de 1º turno polarizado (o de 15% ou menos), da mais uniforme para a menos (S; resíduo; S sobre o; desvio-padrão
+      da fatia a dois do 1º turno entre as unidades):
+      Chile 1999/2000   0,49; 0,37; 0,107; 5,6
+      Brasil 2022       0,53; 0,53; 0,064; 15,2
+      Brasil 2026       0,69; 0,51; 0,088; 15,1
+      Turquia 2023      1,15; 0,91; 0,201; 15,7
+      Equador 2025      1,36; 1,38; 0,114; 11,7
+      El Salvador 2014  1,60; 0,97; 0,132; 6,0
+  E6. S proporcional a o nas 7 eleições de fora da leitura: média geométrica de S sobre o = 0,114; intervalo de predição de 95%
+      de 0,026 a 0,492. Brasil 2026: 0,088. Brasil 2022: 0,064. Os dois dentro.
+
+O QUE PESA A FAVOR DA TESE, SEM AMACIAR
+  - O "dentro do padrão" apoia-se numa eleição só. Sem o Chile 1999/2000, o menor S de eleição polarizada em papel é o da
+    Turquia. Contra as 80 províncias (S de 1,15), 2026 fica em 0,60 e 2022 em 0,47, abaixo da metade. Contra as 26 sub-regiões
+    (S de 1,03), 2026 fica em 0,67 e 2022 em 0,52.
+  - Das quatro eleições de papel com 1º turno polarizado medidas aqui (três conferidas e o Equador), só o Chile 1999/2000 é
+    tão uniforme quanto o Brasil. Turquia, Equador e El Salvador têm S de 1,15 a 1,60. Em S sobre o (exploratório), 2022 (0,064)
+    e 2026 (0,088) ficam abaixo das quatro (0,107 a 0,201), embora acima de Chile 2021 (0,046) e, no caso de 2026, da França (0,075).
+  - O R² exponencial de 2026 na receita do carrossel (0,9989 com 27 UFs) é o mais alto das 12 linhas da tabela, e o de 2022
+    (0,9975) é o segundo.
+  - O Chile 1999/2000 tem só 12 unidades e um 1º turno ainda mais fechado nos dois finalistas (95,5% contra 92%).
+  - O Brasil é muito mais desigual entre as unidades do que o Chile de 1999: a fatia a dois do 1º turno varia de 25% a 76%
+    entre as UFs (desvio de 15 pontos), contra 42% a 60% entre as regiões chilenas (desvio de 5,6). A eleição de fora mais
+    parecida com o Brasil nesse ponto e na polarização é a Turquia, e lá a dispersão é maior.
+  - A cláusula do intervalo de 95% não testou nada: o limite inferior é negativo. Com 7 eleições não há reta que preste.
+  - A régua não alcança a hipótese H2 (troca igual em todos os estados): uma troca uniforme não muda o S. O teste não a afasta.
+
+O QUE PESA CONTRA A TESE
+  - Existe eleição em papel, sem contestação, com apuração manual, em que o movimento entre os turnos foi MAIS uniforme do
+    que no Brasil de 2026: Chile 1999/2000, S de 0,49 e resíduo de 0,37 entre 12 regiões (2026: 0,69 e 0,51; 2022: 0,53 e 0,53),
+    com R² exponencial de 0,9961 na receita do carrossel (2026: 0,9989 com 27 UFs). Logo, esse grau de uniformidade não é
+    "impossível" nem exclusivo de urna eletrônica.
+  - O sinal igual em todas as unidades é comum quando o movimento nacional é grande perto do S: Argentina 24 de 24, Chile 2021
+    15 de 15, El Salvador 14 de 14, Equador 23 de 23, Chile 1999/2000 11 de 12. "27 de 27" não distingue o Brasil.
+  - O S cresce com o voto a redistribuir: as eleições com 30% a 49% fora dos dois finalistas têm S de 2,1 a 7,1; as com 4,5% a
+    12% têm S de 0,5 a 1,6. O Brasil de 2022 e 2026 (8% fora dos finalistas) cai na faixa das polarizadas; o de 2014 e 2018
+    (25%) cai na faixa das outras. O mesmo sistema de urna deu S de 3,4 e 4,0 quando havia 25% de votos a redistribuir.
+  - O R² alto também aparece em papel quando o 1º turno é polarizado: 0,9961 no Chile 1999/2000, 0,9912 na Turquia por
+    sub-região, 0,9886 no Equador. O R² sobe com a largura do eixo x, que no Brasil é o triplo da do Chile; na medida que não
+    depende disso (o resíduo da reta), o Chile 1999/2000 é mais justo que o Brasil (0,37 contra 0,51).
+  - Exploratório (E2): tirando os territórios de ultramar, as 22 regiões da França de 2022 têm S de 0,66, igual ao das UFs em
+    2026, mesmo com 49% do 1º turno fora dos dois finalistas. Unidades grandes andam mais juntas que unidades pequenas.
+  - Pela regra registrada, as eleições que faltaram (Gana, Libéria, Serra Leoa) não poderiam virar a leitura para "fora":
+    a regra usa o menor S, e mais eleições só podem baixar o menor.
+
+O QUE ISSO SIGNIFICA E O QUE NÃO SIGNIFICA
+  Significa: o argumento do carrossel ("estados andarem tão juntos é matematicamente impossível de ser orgânico") cai. Numa
+  eleição de papel com 1º turno quase todo nos dois finalistas, as regiões andaram tão juntas quanto os estados brasileiros.
+  R² de 0,99 para cima é o que aparece, em papel, quando quase todo o 1º turno já está nos dois finalistas.
+  Não significa: (1) que não houve fraude. O registro já avisava: estados andarem juntos é o que um movimento nacional
+  produz e também o que uma troca uniforme produziria; a régua só diz se esse grau de uniformidade aparece em papel, e
+  aparece. (2) Que o Brasil é típico: ele está na ponta uniforme da distribuição, e a comparação tem 3 eleições polarizadas
+  conferidas (4 com o Equador). (3) Que 2022 serve de eleição limpa: recebeu a mesma leitura e também fica na ponta.
+
+FONTES E CONFERÊNCIA CONTRA O TOTAL NACIONAL OFICIAL (acesso em 10/11/2026)
+  Chile 1999/2000 [resultados/R31_tabelas/chile_1999.csv]. Fonte oficial direta: sim.
+    Fonte: Servel, Sitio Historico Electoral (dados do TRICEL): https://historial.servel.cl/SitioHistorico/paginas/1999/presidencial1v/regiones/candidatos/total/101.htm a 113.htm e o mesmo caminho com presidencial2v; total do pais em .../pais/candidatos/total/1.htm
+    Conferência: contra a pagina do pais do mesmo sitio: v1_A soma 3352199 oficial 3352199 dif +0 (+0.000%); v1_B soma 3383339 oficial 3383339 dif +0 (+0.000%); v1_validos soma 7055128 oficial 7055128 dif +0 (+0.000%); v2_A soma 3495569 oficial 3495569 dif +0 (+0.000%); v2_B soma 3683158 oficial 3683158 dif +0 (+0.000%)
+  Turquia 2023 [resultados/R31_tabelas/turquia_2023.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO para as provincias: haberler.com (contagem das agencias com 100% das urnas): 1o turno nas paginas de candidato https://www.haberler.com/secim/2023/cumhurbaskani-adayi-recep-tayyip-erdogan-sonuclari/ (e as de Kilicdaroglu, Ogan e Ince); 2o turno nas 81 paginas https://www.haberler.com/secim/2023/28-mayis/<provincia>-secim-sonuclari/. OFICIAL para o exterior e para os totais: YSK, como reproduzido em tr.wikipedia.org/wiki/2023_Türkiye_cumhurbaşkanlığı_seçimi. O sitio do YSK (ysk.gov.tr, sonuc.ysk.gov.tr) e o Resmi Gazete nao responderam (tempo esgotado).
+    Conferência: soma das 81 provincias contra o total oficial do pais (yurt ici) do YSK: v1_A soma 23869862 oficial 23873749 dif -3887 (-0.016%); v1_B soma 26086019 oficial 26086102 dif -83 (-0.000%); v1_validos soma 52972392 oficial 52972934 dif -542 (-0.001%); v2_A soma 24724940 oficial 24728027 dif -3087 (-0.012%); v2_B soma 26689664 oficial 26690529 dif -865 (-0.003%) || com o exterior oficial, contra o total geral do YSK: v1_A soma 24591291 oficial 24595178 dif -3887 (-0.016%); v1_B soma 27133766 oficial 27133849 dif -83 (-0.000%); v1_validos soma 54795507 oficial 54796049 dif -542 (-0.001%); v2_A soma 25501637 oficial 25504724 dif -3087 (-0.012%); v2_B soma 27833724 oficial 27834589 dif -865 (-0.003%)
+  Equador 2025 [resultados/R31_tabelas/equador_2025.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO. 1o turno (votos de Noboa, Gonzalez, Iza e Andrea Gonzalez por provincia): de.wikipedia.org/wiki/Präsidentschaftswahl_in_Ecuador_2025, tabela "Ergebnis nach Provinzen" (as colunas do 2o turno estao vazias la). 2o turno (porcentagens): Bloomberg Linea, 14/04/2025 10:41, https://www.bloomberglinea.com/latinoamerica/ecuador/resultado-elecciones-2025-por-provincias-donde-le-gano-daniel-noboa-a-luisa-gonzalez/ (dados do CNE); comparado com Teleamazonas (corte das 23:00 de 13/04/2025), https://www.teleamazonas.com/resultados-provincias-balotaje-13-abril/. O sitio do CNE (cne.gob.ec) respondeu com pagina de verificacao de visitante humano (captcha): parei. resultados.cne.gob.ec e web.archive.org nao responderam. As paginas da Wikipedia em espanhol, ingles e frances nao tem tabela por provincia.
+    Conferência: 1o turno confere por soma (Noboa e Gonzalez); validos do 1o turno e todo o 2o turno fecham por construcao e NAO sao conferencia: v1_A soma 4510860 oficial 4510860 dif +0 (+0.000%); v1_B soma 4527606 oficial 4527606 dif +0 (+0.000%); v1_validos soma 10251191 oficial 10251189 dif +2 (+0.000%); v2_A soma 4722505 oficial 4683260 dif +39245 (+0.838%); v2_B soma 5831375 oficial 5870618 dif -39243 (-0.668%) | fatia de Noboa no 2o turno reconstruida com as porcentagens: 55.25% (oficial 55,63%)
+  El Salvador 2014 [resultados/R31_tabelas/elsalvador_2014.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO: en.wikipedia.org/wiki/2014_Salvadoran_presidential_election, tabelas por departamento dos dois turnos (fonte declarada: Psephos, arquivo eleitoral de Adam Carr, que reproduz o TSE). Nao tentei o sitio do TSE de El Salvador.
+    Conferência: v1_A soma 1047592 oficial 1047592 dif +0 (+0.000%); v1_B soma 1315768 oficial 1315768 dif +0 (+0.000%); v1_validos soma 2688936 oficial 2688936 dif +0 (+0.000%); v2_A soma 1489451 oficial 1489451 dif +0 (+0.000%); v2_B soma 1495815 oficial 1495815 dif +0 (+0.000%)
+  Colômbia 2022 [resultados/R31_tabelas/colombia_2022.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2022, tabelas por departamento do 1o e do 2o turno (fonte declarada: Registraduria). O sitio da Registraduria (www.registraduria.gov.co) devolveu erro 403 a este cliente; nao insisti.
+    Conferência: v1_A soma 5953209 oficial 5965531 dif -12322 (-0.207%); v1_B soma 8527768 oficial 8542020 dif -14252 (-0.167%); v1_validos soma 20779664 oficial 20808065 dif -28401 (-0.136%); v2_A soma 10580412 oficial 10604656 dif -24244 (-0.229%); v2_B soma 11281013 oficial 11292758 dif -11745 (-0.104%)
+  Argentina 2023 [resultados/R31_tabelas/argentina_2023.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elecciones_presidenciales_de_Argentina_de_2023, tabelas "Resultados por provincia" da geral e do balotaje (escrutinio definitivo). A pagina da DINE (argentina.gob.ar/dine/resultados-electorales/elecciones-2023) so oferece o zip dos resultados PROVISORIOS da geral por mesa (28 MB), sem o segundo turno; nao baixei.
+    Conferência: v1_A soma 8034990 oficial 8034990 dif +0 (+0.000%); v1_B soma 9853492 oficial 9853492 dif +0 (+0.000%); v1_validos soma 26791634 oficial 26791634 dif +0 (+0.000%); v2_A soma 14554560 oficial 14554560 dif +0 (+0.000%); v2_B soma 11598720 oficial 11598720 dif +0 (+0.000%)
+  Chile 2021 [resultados/R31_tabelas/chile_2021.csv]. Fonte oficial direta: nao.
+    Fonte: SEGUNDA MAO: es.wikipedia.org/wiki/Elección_presidencial_de_Chile_de_2021, tabelas "Resultados por region" do 1o turno (99,99% das mesas, Servel) e do 2o turno (contagem do Servel). O Servel so publica 2021 em paineis Power BI (servel.cl/biblioteca-de-documentos/resultados-electorales-historicos/), sem arquivo por regiao para baixar; historico.servel.cl devolveu erro 502.
+    Conferência: so o 2o turno confere de fato (o 1o fecha por construcao): v1_A soma 1815024 oficial 1815024 dif +0 (+0.000%); v1_B soma 1961779 oficial 1961779 dif +0 (+0.000%); v1_validos soma 7028345 oficial 7028345 dif +0 (+0.000%); v2_A soma 4620671 oficial 4621231 dif -560 (-0.012%); v2_B soma 3649647 oficial 3650662 dif -1015 (-0.028%)
+  França 2022 [resultados/R31_tabelas/franca_2022.csv]. Fonte oficial direta: sim.
+    Fonte: Ministere de l'Interieur, via data.gouv.fr: https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152356/resultats-par-niveau-dpt-t1-france-entiere.txt e https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-142127/resultats-par-niveau-dpt-t2-france-entiere.txt
+    Conferência: contra a proclamacao do Conseil constitutionnel: v1_A soma 8133828 oficial 8133828 dif +0 (+0.000%); v1_B soma 9783058 oficial 9783058 dif +0 (+0.000%); v1_validos soma 35132947 oficial 35132947 dif +0 (+0.000%); v2_A soma 13288686 oficial 13288686 dif +0 (+0.000%); v2_B soma 18768639 oficial 18768639 dif +0 (+0.000%)
+  Conferências a mais: (1) Chile 1999/2000, a eleição de que a leitura depende, foi comparado também com as tabelas por
+  região da Wikipedia em espanhol (es.wikipedia.org/wiki/Elección_presidencial_de_Chile_de_1999): os votos de Lagos e Lavín e os
+  válidos batem em 12 das 13 regiões nos dois turnos; na Araucanía a Wikipedia traz 10 votos a menos para Lagos no 2º turno
+  (erro de digitação de lá: no dado oficial a soma fecha com os válidos). (2) S, o, resíduo e sinal das 12 eleições foram refeitos com
+  código separado (/home/user/trabalho-eleicao/adendo31/scripts/conferir_independente.py) e batem na segunda casa.
+  Brasil 2014, 2018, 2022 e 2026: bases por seção de dados/ (bweb do TSE), somadas por UF; hashes conferidos com dados/SHA256SUMS.txt.
+  S de 2026 = 0,688, 2022 = 0,533, 2018 = 3,381, 2014 = 4,012 (o registro cita 0,69; 0,53; 3,38; 4,01). Com o exterior, a receita do carrossel
+  de 2026 dá 0,9350; 0,9949; 0,9987 (legenda do carrossel: 0,935; 0,995; 0,999).
+
+ELEIÇÕES PROCURADAS E NÃO OBTIDAS
+  - Gana 2008 (o de 2,9%) e Gana 2000 (7,3%): a Wikipedia e o arquivo Psephos só têm o total nacional da eleição presidencial; o portal de dados abertos de Gana (data.gov.gh), que lista os arquivos da Comissão Eleitoral por região, recusou a conexão; o GhanaWeb só tem o resultado por distrito eleitoral em 460 páginas, que não baixei para não pesar.
+  - Libéria 2023 (12,7%): sem tabela por condado na Wikipedia nem no Psephos; o sítio da comissão eleitoral (necliberia.org) respondeu com a tela de verificação da Cloudflare (bloqueio): parei.
+  - Serra Leoa 2018 (14,1%): a Wikipedia só tem o 2º turno por distrito; o 1º turno por distrito não foi achado.
+  - Moldávia 2016 (13,3%) e Macedônia do Norte 2019 (11,1%): só o total nacional nas fontes consultadas; as unidades de primeiro nível (raions e municípios) são quase todas menores que 50 mil válidos.
+  - Maldivas 2023 (14,9%) e Cabo Verde 2001 (7,7%): eleitorado pequeno demais; não há 8 unidades com 50 mil válidos (critério v da D12).
+  - Excluídas pela regra, sem busca de dados: Zimbábue 2008 e Libéria 2011 (2º turno boicotado); República Dominicana 1996 (84,9%) e Irã 2024 (84,8%), abaixo dos 85%.
+  Fontes oficiais que não abriram: Servel 2021 (só painéis Power BI; historico.servel.cl com erro 502), Registraduría da
+  Colômbia (erro 403), YSK e Resmî Gazete da Turquia (sem resposta), CNE do Equador (captcha), DINE da Argentina (só o zip
+  provisório da geral, sem o 2º turno). A Wikipedia limitou as requisições (erro 429) várias vezes; esperei e baixei devagar.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+  1. D1 a D12 do docstring: decisões que o registro não fixa, tomadas antes de baixar as tabelas de fora e antes de qualquer conta (unidades, voto válido, quem é B, receita exata dos R², fórmulas de S, resíduo e o, contagem do sinal, versão principal sem exterior, agregação de França e Turquia, intervalo de predição como principal e faixa de confiança ao lado, lista e critérios das eleições adicionais).
+  2. Equador 2025 ficou FORA da leitura principal: o CNE respondeu com captcha e não foi achada tabela de votos do 2º turno por província. A tabela usada (votos do 1º turno e porcentagens parciais do 2º) não pode ser conferida por soma contra o total nacional, como o registro exige. Vai relatado à parte e numa leitura de sensibilidade.
+  3. Colômbia 2022: a tabela por departamento é o preconteo da Registraduría, não o escrutínio (diferença de 0,10% a 0,23% por finalista). Turquia 2023: províncias pela contagem das agências (diferença de 0,02% ou menos contra o YSK). Chile 2021: tabela de segunda mão; o exterior do 1º turno saiu por diferença.
+  4. Só França 2022 e Chile 1999/2000 vieram direto de fonte oficial. As outras são tabelas de segunda mão conferidas contra o total nacional oficial.
+  5. Correções de erro de digitação das tabelas de segunda mão, todas decididas pela soma contra o total oficial ou pela porcentagem publicada, antes de qualquer medida: Chile 2021 (Biobío no 1º turno, Aisén no 2º), Colômbia 2022 (Vaupés no 2º), El Salvador 2014 (Chalatenango no 2º, Cuscatlán no 1º). Estão no cabeçalho de cada CSV.
+  6. A lista de adicionais do docstring tinha 10 candidatas; só Chile 1999/2000 e El Salvador 2014 foram obtidas e conferidas. A ausência das outras não pode virar a leitura de "dentro" para "fora": a regra usa o MENOR S do conjunto comparável, e acrescentar eleições só pode baixar esse menor.
+  7. A seção EXPLORATÓRIO (E1 a E6) foi feita depois de ver o resultado e não entra na leitura.
+
+ARQUIVOS
+  scripts/analisar_R31_regua_de_fora.py; resultados/R31_regua_de_fora.json e .txt; resultados/R31_tabelas/ (12 CSV, um por
+  eleição, com fonte, data de acesso e conferência no cabeçalho, e _comparativa.csv). Montadores das tabelas e páginas
+  baixadas: /home/user/trabalho-eleicao/adendo31/scripts/ e /home/user/trabalho-eleicao/adendo31/baixados/ (fora do repositório).

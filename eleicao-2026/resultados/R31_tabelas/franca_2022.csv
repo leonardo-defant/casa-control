@@ -1,0 +1,120 @@
+# eleicao: Franca 2022, presidencial, 1o turno 10/04/2022 e 2o turno 24/04/2022
+# tipo_de_voto: cedula de papel
+# A: Marine Le Pen
+# B: Emmanuel Macron (mais votado no 1o turno)
+# unidades: 96 departamentos da metropole, 10 de ultramar e Francais etablis hors de France (exterior)
+# grupo: 22 regioes administrativas da metropole vigentes ate 31/12/2015; ultramar cada um por si
+# grupo2: 13 regioes atuais da metropole; ultramar cada um por si
+# validos: suffrages exprimes (brancos e nulos fora)
+# fonte: Ministere de l'Interieur, via data.gouv.fr: https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-1er-tour/20220414-152356/resultats-par-niveau-dpt-t1-france-entiere.txt e https://static.data.gouv.fr/resources/election-presidentielle-des-10-et-24-avril-2022-resultats-definitifs-du-2nd-tour/20220428-142127/resultats-par-niveau-dpt-t2-france-entiere.txt
+# acesso: 10/11/2026
+# fonte_oficial_direta: sim
+# conferencia_total_nacional: contra a proclamacao do Conseil constitutionnel: v1_A soma 8133828 oficial 8133828 dif +0 (+0.000%); v1_B soma 9783058 oficial 9783058 dif +0 (+0.000%); v1_validos soma 35132947 oficial 35132947 dif +0 (+0.000%); v2_A soma 13288686 oficial 13288686 dif +0 (+0.000%); v2_B soma 18768639 oficial 18768639 dif +0 (+0.000%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+01 Ain;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;86755;92206;333024;136370;166635
+02 Aisne;territorio;Picardie;Hauts-de-France;104342;58721;265860;153069;102428
+03 Allier;territorio;Auvergne;Auvergne-Rhone-Alpes;50315;49706;185955;79762;87645
+04 Alpes-de-Haute-Provence;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;26010;20800;96683;44139;41659
+05 Hautes-Alpes;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;19696;20507;86235;34446;42213
+06 Alpes-Maritimes;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;148919;139707;558775;260629;261989
+07 Ardèche;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;49594;45353;196975;81705;90053
+08 Ardennes;territorio;Champagne-Ardenne;Grand Est;48242;31656;133936;72040;55093
+09 Ariège;territorio;Midi-Pyrenees;Occitanie;21958;18071;91704;37616;39298
+10 Aube;territorio;Champagne-Ardenne;Grand Est;49316;38321;149670;73625;68840
+11 Aude;territorio;Languedoc-Roussillon;Occitanie;64027;43104;212426;104038;85465
+12 Aveyron;territorio;Midi-Pyrenees;Occitanie;34357;47430;170902;59790;89955
+13 Bouches-du-Rhône;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;264753;229038;1008620;442759;481129
+14 Calvados;territorio;Basse-Normandie;Normandie;91774;120366;386231;143960;218579
+15 Cantal;territorio;Auvergne;Auvergne-Rhone-Alpes;21570;25038;88102;35261;45015
+16 Charente;territorio;Poitou-Charentes;Nouvelle-Aquitaine;50432;53126;192666;78087;95656
+17 Charente-Maritime;territorio;Poitou-Charentes;Nouvelle-Aquitaine;99790;113753;394067;156020;201159
+18 Cher;territorio;Centre;Centre-Val de Loire;44772;43497;160533;70160;77739
+19 Corrèze;territorio;Limousin;Nouvelle-Aquitaine;31658;33125;142600;54131;68272
+2A Corse-du-Sud;territorio;Corse;Corse;20139;12932;68861;36584;26144
+2B Haute-Corse;territorio;Corse;Corse;21998;13773;78511;41137;29951
+21 Côte-d'Or;territorio;Bourgogne;Bourgogne-Franche-Comte;69110;80734;282745;107866;144545
+22 Côtes-d'Armor;territorio;Bretagne;Bretagne;79850;113656;366393;123689;209721
+23 Creuse;territorio;Limousin;Nouvelle-Aquitaine;16772;15542;66848;28153;30554
+24 Dordogne;territorio;Aquitaine;Nouvelle-Aquitaine;63327;58532;246556;104687;111182
+25 Doubs;territorio;Franche-Comte;Bourgogne-Franche-Comte;66703;76338;277097;106348;141917
+26 Drôme;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;70574;72228;291424;114217;143697
+27 Eure;territorio;Haute-Normandie;Normandie;102952;83058;318861;155086;146751
+28 Eure-et-Loir;territorio;Centre;Centre-Val de Loire;61960;59869;220021;96185;109744
+29 Finistère;territorio;Bretagne;Bretagne;100890;174894;542919;160073;332396
+30 Gard;territorio;Languedoc-Roussillon;Occitanie;121480;88278;413979;193666;177669
+31 Haute-Garonne;territorio;Midi-Pyrenees;Occitanie;133254;196712;730979;226250;409622
+32 Gers;territorio;Midi-Pyrenees;Occitanie;26015;28970;116399;44188;55559
+33 Gironde;territorio;Aquitaine;Nouvelle-Aquitaine;191542;256179;892020;305112;484771
+34 Hérault;territorio;Languedoc-Roussillon;Occitanie;165734;142306;638728;267908;297066
+35 Ille-et-Vilaine;territorio;Bretagne;Bretagne;101797;205882;596832;159930;390330
+36 Indre;territorio;Centre;Centre-Val de Loire;34516;31498;120997;54429;57558
+37 Indre-et-Loire;territorio;Centre;Centre-Val de Loire;70553;101503;327490;112019;188421
+38 Isère;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;154799;180533;672296;241584;359596
+39 Jura;territorio;Franche-Comte;Bourgogne-Franche-Comte;38179;36139;145227;60884;68846
+40 Landes;territorio;Aquitaine;Nouvelle-Aquitaine;58646;69459;258050;98682;128363
+41 Loir-et-Cher;territorio;Centre;Centre-Val de Loire;50212;50480;180810;78434;91360
+42 Loire;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;97764;104003;385938;149174;194879
+43 Haute-Loire;territorio;Auvergne;Auvergne-Rhone-Alpes;38629;32417;139655;61980;62372
+44 Loire-Atlantique;territorio;Pays de la Loire;Pays de la Loire;135702;256609;802422;221934;505179
+45 Loiret;territorio;Centre;Centre-Val de Loire;85832;97004;335422;133331;180882
+46 Lot;territorio;Midi-Pyrenees;Occitanie;21422;27311;109390;38032;55130
+47 Lot-et-Garonne;territorio;Aquitaine;Nouvelle-Aquitaine;50290;42568;184102;82619;81013
+48 Lozère;territorio;Languedoc-Roussillon;Occitanie;10497;10739;46996;18647;22067
+49 Maine-et-Loire;territorio;Pays de la Loire;Pays de la Loire;89433;157063;441342;138261;274813
+50 Manche;territorio;Basse-Normandie;Normandie;69770;92642;284458;108294;159815
+51 Marne;territorio;Champagne-Ardenne;Grand Est;83756;78472;274106;125046;136025
+52 Haute-Marne;territorio;Champagne-Ardenne;Grand Est;34331;21886;93808;50586;38230
+53 Mayenne;territorio;Pays de la Loire;Pays de la Loire;37376;60755;166908;57006;102263
+54 Meurthe-et-Moselle;territorio;Lorraine;Grand Est;97243;95252;353800;150177;179237
+55 Meuse;territorio;Lorraine;Grand Est;34588;24539;98513;52499;41930
+56 Morbihan;territorio;Bretagne;Bretagne;102856;152740;467374;159717;269755
+57 Moselle;territorio;Lorraine;Grand Est;159254;136366;524319;244993;249556
+58 Nièvre;territorio;Bourgogne;Bourgogne-Franche-Comte;32838;28686;112441;50779;50556
+59 Nord;territorio;Nord-Pas-de-Calais;Hauts-de-France;373127;336138;1274781;565618;633569
+60 Oise;territorio;Picardie;Hauts-de-France;132873;100043;411714;203866;182791
+61 Orne;territorio;Basse-Normandie;Normandie;41804;46005;150950;64551;79275
+62 Pas-de-Calais;territorio;Nord-Pas-de-Calais;Hauts-de-France;305816;194610;790653;437820;323661
+63 Puy-de-Dôme;territorio;Auvergne;Auvergne-Rhone-Alpes;78182;100134;357587;124825;188468
+64 Pyrénées-Atlantiques;territorio;Aquitaine;Nouvelle-Aquitaine;69768;111610;401490;128742;219719
+65 Hautes-Pyrénées;territorio;Midi-Pyrenees;Occitanie;29938;33692;134888;52182;65085
+66 Pyrénées-Orientales;territorio;Languedoc-Roussillon;Occitanie;87930;55169;268568;136610;105893
+67 Bas-Rhin;territorio;Alsace;Grand Est;145883;177069;576719;221958;319370
+68 Haut-Rhin;territorio;Alsace;Grand Est;106937;107248;385109;170781;191814
+69 Rhône;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;150463;278243;909013;251470;550592
+70 Haute-Saône;territorio;Franche-Comte;Bourgogne-Franche-Comte;46618;30204;134739;70052;53098
+71 Saône-et-Loire;territorio;Bourgogne;Bourgogne-Franche-Comte;81970;82633;299300;126860;144990
+72 Sarthe;territorio;Pays de la Loire;Pays de la Loire;82234;83876;297062;124658;154909
+73 Savoie;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;56733;64689;246358;92337;125676
+74 Haute-Savoie;territorio;Rhone-Alpes;Auvergne-Rhone-Alpes;87744;130422;427139;147032;236764
+75 Paris;territorio;Ile-de-France;Ile-de-France;58429;372820;1055062;141405;808107
+76 Seine-Maritime;territorio;Haute-Normandie;Normandie;177806;179698;642965;268699;332146
+77 Seine-et-Marne;territorio;Ile-de-France;Ile-de-France;155738;165208;660929;248317;328698
+78 Yvelines;territorio;Ile-de-France;Ile-de-France;101398;246062;736506;189475;464913
+79 Deux-Sèvres;territorio;Poitou-Charentes;Nouvelle-Aquitaine;47903;68446;207804;71801;117804
+80 Somme;territorio;Picardie;Hauts-de-France;98024;83107;298918;146537;140763
+81 Tarn;territorio;Midi-Pyrenees;Occitanie;56543;53925;229842;94441;106768
+82 Tarn-et-Garonne;territorio;Midi-Pyrenees;Occitanie;42183;31737;145820;67770;62503
+83 Var;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;183287;142335;598730;310137;252720
+84 Vaucluse;territorio;Provence-Alpes-Cote d'Azur;Provence-Alpes-Cote d'Azur;89413;66885;303865;145707;134476
+85 Vendée;territorio;Pays de la Loire;Pays de la Loire;97280;149587;419709;150772;244494
+86 Vienne;territorio;Poitou-Charentes;Nouvelle-Aquitaine;54214;67831;231652;83024;125138
+87 Haute-Vienne;territorio;Limousin;Nouvelle-Aquitaine;45357;54951;202118;71263;103329
+88 Vosges;territorio;Lorraine;Grand Est;65646;51432;203694;100853;91542
+89 Yonne;territorio;Bourgogne;Bourgogne-Franche-Comte;55164;42617;176511;83170;78038
+90 Territoire de Belfort;territorio;Franche-Comte;Bourgogne-Franche-Comte;19061;16768;69654;30202;31987
+91 Essonne;territorio;Ile-de-France;Ile-de-France;105862;164503;594941;178908;338569
+92 Hauts-de-Seine;territorio;Ile-de-France;Ile-de-France;64812;287494;774742;134685;552124
+93 Seine-Saint-Denis;territorio;Ile-de-France;Ile-de-France;64543;110118;543151;116225;326057
+94 Val-de-Marne;territorio;Ile-de-France;Ile-de-France;69599;171409;589058;128873;376204
+95 Val-d'Oise;territorio;Ile-de-France;Ile-de-France;91081;138166;529585;153446;299829
+ZA Guadeloupe;territorio;ultramar: Guadeloupe;ultramar: Guadeloupe;24204;18137;135085;92106;40229
+ZB Martinique;territorio;ultramar: Martinique;ultramar: Martinique;16495;20043;122949;73000;46918
+ZC Guyane;territorio;ultramar: Guyane;ultramar: Guyane;6334;5101;35861;21437;13834
+ZD La Réunion;territorio;ultramar: La Réunion;ultramar: La Réunion;85770;62542;346766;216967;147297
+ZM Mayotte;territorio;ultramar: Mayotte;ultramar: Mayotte;14958;5936;35050;22694;15708
+ZN Nouvelle-Calédonie;territorio;ultramar: Nouvelle-Calédonie;ultramar: Nouvelle-Calédonie;13273;28561;70500;27960;43795
+ZP Polynésie française;territorio;ultramar: Polynésie française;ultramar: Polynésie française;11705;24106;60030;39913;42890
+ZS Saint-Pierre-et-Miquelon;territorio;ultramar: Saint-Pierre-et-Miquelon;ultramar: Saint-Pierre-et-Miquelon;459;534;2701;1278;1243
+ZW Wallis et Futuna;territorio;ultramar: Wallis et Futuna;ultramar: Wallis et Futuna;579;2115;5359;1849;3831
+ZX Saint-Martin/Saint-Barthélemy;territorio;ultramar: Saint-Martin/Saint-Barthélemy;ultramar: Saint-Martin/Saint-Barthélemy;1445;2070;8368;4787;3850
+ZZ Français établis hors de France;exterior;exterior;exterior;26380;224957;498951;73830;458874

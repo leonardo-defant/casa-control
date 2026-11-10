@@ -1,0 +1,95 @@
+# eleicao: Turquia 2023, presidencial, 1o turno 14/05/2023 e 2o turno 28/05/2023
+# tipo_de_voto: cedula de papel
+# A: Kemal Kilicdaroglu
+# B: Recep Tayyip Erdogan (mais votado no 1o turno)
+# unidades: 81 provincias; exterior = representacoes no exterior mais postos de fronteira
+# grupo: 26 sub-regioes estatisticas de nivel 2 (IBBS-2/NUTS-2) do TUIK
+# validos: votos validos dos 4 candidatos no 1o turno
+# fonte: SEGUNDA MAO para as provincias: haberler.com (contagem das agencias com 100% das urnas): 1o turno nas paginas de candidato https://www.haberler.com/secim/2023/cumhurbaskani-adayi-recep-tayyip-erdogan-sonuclari/ (e as de Kilicdaroglu, Ogan e Ince); 2o turno nas 81 paginas https://www.haberler.com/secim/2023/28-mayis/<provincia>-secim-sonuclari/. OFICIAL para o exterior e para os totais: YSK, como reproduzido em tr.wikipedia.org/wiki/2023_Türkiye_cumhurbaşkanlığı_seçimi. O sitio do YSK (ysk.gov.tr, sonuc.ysk.gov.tr) e o Resmi Gazete nao responderam (tempo esgotado).
+# acesso: 10/11/2026
+# fonte_oficial_direta: nao
+# aviso: a Turquia nao e referencia de campanha equilibrada; a contagem em papel nao foi contestada pela oposicao (aviso do registro)
+# conferencia_total_nacional: soma das 81 provincias contra o total oficial do pais (yurt ici) do YSK: v1_A soma 23869862 oficial 23873749 dif -3887 (-0.016%); v1_B soma 26086019 oficial 26086102 dif -83 (-0.000%); v1_validos soma 52972392 oficial 52972934 dif -542 (-0.001%); v2_A soma 24724940 oficial 24728027 dif -3087 (-0.012%); v2_B soma 26689664 oficial 26690529 dif -865 (-0.003%) || com o exterior oficial, contra o total geral do YSK: v1_A soma 24591291 oficial 24595178 dif -3887 (-0.016%); v1_B soma 27133766 oficial 27133849 dif -83 (-0.000%); v1_validos soma 54795507 oficial 54796049 dif -542 (-0.001%); v2_A soma 25501637 oficial 25504724 dif -3087 (-0.012%); v2_B soma 27833724 oficial 27834589 dif -865 (-0.003%)
+unidade;tipo;grupo;grupo2;v1_A;v1_B;v1_validos;v2_A;v2_B
+Adana;territorio;TR62 Adana;;706835;609977;1388926;730274;621003
+Adıyaman;territorio;TRC1 Gaziantep;;99771;211389;319326;97982;216491
+Afyonkarahisar;territorio;TR33 Manisa;;136502;301945;472794;148136;312452
+Ağrı;territorio;TRA2 Agri;;142021;68468;215851;129693;68790
+Aksaray;territorio;TR71 Kirikkale;;56425;180181;251891;60611;185625
+Amasya;territorio;TR83 Samsun;;88085;130264;231562;92811;134428
+Ankara;territorio;TR51 Ankara;;1823536;1772841;3854125;1909776;1817738
+Antalya;territorio;TR61 Antalya;;890163;667678;1675580;926675;689259
+Ardahan;territorio;TRA2 Agri;;30619;21355;54534;30657;22497
+Artvin;territorio;TR90 Trabzon;;53371;54620;114550;55833;57308
+Aydın;territorio;TR32 Aydin;;432884;294123;772394;449559;301709
+Balıkesir;territorio;TR22 Balikesir;;431015;399145;885619;450802;412724
+Bartın;territorio;TR81 Zonguldak;;48409;74428;132659;51971;77963
+Batman;territorio;TRC3 Mardin;;221356;101386;327619;213499;100177
+Bayburt;territorio;TRA1 Erzurum;;7560;38754;49145;8455;39731
+Bilecik;territorio;TR41 Bursa;;62120;75103;150553;68057;78219
+Bingöl;territorio;TRB1 Malatya;;47195;94412;145069;44885;95730
+Bitlis;territorio;TRB2 Van;;88779;80997;174392;82926;82224
+Bolu;territorio;TR42 Kocaeli;;65715;128949;211824;73030;133670
+Burdur;territorio;TR61 Antalya;;73601;93090;180016;77496;97956
+Bursa;territorio;TR41 Bursa;;859656;1089593;2116757;927775;1118511
+Çanakkale;territorio;TR22 Balikesir;;214450;155165;392877;222754;160736
+Çankırı;territorio;TR82 Kastamonu;;25065;88908;123251;28040;92593
+Çorum;territorio;TR83 Samsun;;117373;218807;354416;122664;225583
+Denizli;territorio;TR32 Aydin;;344507;312652;712397;367447;326035
+Diyarbakır;territorio;TRC2 Sanliurfa;;651793;239827;905822;610078;241916
+Düzce;territorio;TR42 Kocaeli;;66446;182974;266745;73278;187783
+Edirne;territorio;TR21 Tekirdag;;179873;91025;283446;185592;91786
+Elazığ;territorio;TRB1 Malatya;;101669;242098;360396;103607;244904
+Erzincan;territorio;TRA1 Erzurum;;54049;89811;151446;56412;92243
+Erzurum;territorio;TRA1 Erzurum;;105892;295655;431076;110188;306489
+Eskişehir;territorio;TR41 Bursa;;310548;257703;616322;330595;266063
+Gaziantep;territorio;TRC1 Gaziantep;;396593;684048;1144604;414367;697194
+Giresun;territorio;TR90 Trabzon;;99079;183750;300995;103960;190440
+Gümüşhane;territorio;TR90 Trabzon;;15598;58267;78297;16505;60401
+Hakkari;territorio;TRB2 Van;;109148;37188;150933;102784;39754
+Hatay;territorio;TR63 Hatay;;418596;418228;870802;428258;430651
+Iğdır;territorio;TRA2 Agri;;64369;26056;103013;63326;31501
+Isparta;territorio;TR61 Antalya;;109962;154331;287662;118138;160927
+İstanbul;territorio;TR10 Istanbul;;4928408;4738928;10150710;5120212;4767947
+İzmir;territorio;TR31 Izmir;;1938931;964341;3063677;1998359;978316
+Kahramanmaraş;territorio;TR63 Hatay;;140066;453535;630985;150013;469039
+Karabük;territorio;TR81 Zonguldak;;50901;94396;158927;56084;98521
+Karaman;territorio;TR52 Konya;;49647;100850;164576;54533;105317
+Kars;territorio;TRA2 Agri;;78105;56366;143115;76383;59057
+Kastamonu;territorio;TR82 Kastamonu;;67390;165570;252961;74804;172280
+Kayseri;territorio;TR72 Kayseri;;252613;582088;919120;285990;604784
+Kilis;territorio;TRC1 Gaziantep;;22803;55451;84593;24580;57337
+Kırıkkale;territorio;TR71 Kirikkale;;58536;105648;177083;61710;108346
+Kırklareli;territorio;TR21 Tekirdag;;170223;79824;261990;175251;80875
+Kırşehir;territorio;TR71 Kirikkale;;57984;80870;149446;61401;82464
+Kocaeli;territorio;TR42 Kocaeli;;528534;740509;1364497;569245;754914
+Konya;territorio;TR52 Konya;;341062;983272;1426297;373100;1008416
+Kütahya;territorio;TR33 Manisa;;101909;256210;386363;110993;266424
+Malatya;territorio;TRB1 Malatya;;115335;296188;426839;117804;302280
+Manisa;territorio;TR33 Manisa;;458206;468849;994441;481622;485424
+Mardin;territorio;TRC3 Mardin;;289109;141234;437340;274420;146215
+Mersin;territorio;TR62 Adana;;692815;455432;1212009;709410;467668
+Muğla;territorio;TR32 Aydin;;448925;225948;713677;461644;232111
+Muş;territorio;TRB2 Van;;108519;72102;184298;101792;72704
+Nevşehir;territorio;TR71 Kirikkale;;61350;125888;200206;65310;129867
+Niğde;territorio;TR71 Kirikkale;;77875;130421;222999;81941;133950
+Ordu;territorio;TR90 Trabzon;;163148;312502;502773;170786;320120
+Osmaniye;territorio;TR63 Hatay;;102096;206918;332085;108743;212942
+Rize;territorio;TR90 Trabzon;;51211;169230;232478;55145;173248
+Sakarya;territorio;TR42 Kocaeli;;196776;457170;706091;216128;469765
+Samsun;territorio;TR83 Samsun;;281961;555696;896038;302436;570063
+Şanlıurfa;territorio;TRC2 Sanliurfa;;352781;606591;978292;330565;610116
+Siirt;territorio;TRC3 Mardin;;91352;67465;162381;85992;69113
+Sinop;territorio;TR82 Kastamonu;;51751;85405;145952;55184;89454
+Şırnak;territorio;TRC3 Mardin;;202311;57299;267058;193639;60133
+Sivas;territorio;TR72 Kayseri;;97938;280285;403860;106082;288136
+Tekirdağ;territorio;TR21 Tekirdag;;424099;298503;764910;440815;302233
+Tokat;territorio;TR83 Samsun;;122560;246880;390696;129769;255247
+Trabzon;territorio;TR90 Trabzon;;151435;349214;534624;162055;358916
+Tunceli;territorio;TRB1 Malatya;;45457;9178;56640;47112;9778
+Uşak;territorio;TR33 Manisa;;112365;118509;248975;118815;123777
+Van;territorio;TRB2 Van;;333817;191106;536739;308421;193036
+Yalova;territorio;TR42 Kocaeli;;79547;83608;175138;83799;85212
+Yozgat;territorio;TR72 Kayseri;;54485;185629;255350;59098;190924
+Zonguldak;territorio;TR81 Zonguldak;;164898;205720;396477;174859;211991
+Exterior (yurt disi + gumruk), numeros oficiais do YSK;exterior;exterior;;721429;1047747;1823115;776697;1144060
