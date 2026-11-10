@@ -107,7 +107,7 @@ D17. O valor bruto de 2026 aparece sempre ao lado de qualquer comparação com o
 
 O QUE FOR FEITO DEPOIS DE VER O RESULTADO fica em funções com nome "exploratorio_" e sai marcado assim.
 """
-import sys, os, gzip, json, zipfile, csv, glob, time, hashlib
+import sys, os, gzip, json, zipfile, csv, glob, time, hashlib, re
 import numpy as np
 
 RAIZ = '/home/user/casa-control/eleicao-2026'
@@ -444,13 +444,19 @@ def deterministica(b, L2=None, R2=None):
     r = {'n': int(len(L2)), 'H_L': pos(HL), 'H_R': pos(HR), 'H_L_aptos_max': pos(HLm), 'H_R_aptos_max': pos(HRm),
          'S_L': pos(SL), 'S_R': pos(SR)}
     r['assimetria_S'] = r['S_L']['soma'] - r['S_R']['soma']
-    r['fontes_sobre_comparecimento_mediana'] = float(np.median(fontes / b['comp1']))
-    r['parcela_secoes_fontes_acima_6pct'] = float((fontes / b['comp1'] > 0.06).mean())
+    with np.errstate(divide='ignore', invalid='ignore'):
+        r['fontes_sobre_comparecimento_mediana'] = float(np.median(fontes / b['comp1']))
+        r['parcela_secoes_fontes_acima_6pct'] = float((fontes / b['comp1'] > 0.06).mean())
     return r, HL, HR, SL, SR
 
 
 def ic(x):
     return f'[{x[0]:+.4f}; {x[1]:+.4f}]'
+
+
+def pt(s):
+    """Troca a vírgula de milhar por ponto, sem tocar nas vírgulas do texto (só formatação)."""
+    return re.sub(r'(?<![\d,.])([1-9]\d{0,2})((?:,\d{3})+)(?!\d)', lambda m: m.group(1) + m.group(2).replace(',', '.'), s)
 
 
 # ---------------------------------------------------------------- principal
@@ -463,7 +469,7 @@ def main():
     T = []  # linhas do txt
 
     def P(*a):
-        s = ' '.join(str(x) for x in a)
+        s = pt(' '.join(str(x) for x in a))
         print(s, flush=True); T.append(s)
 
     # ---------- bases
@@ -510,7 +516,7 @@ def main():
     for ano in (2026, 2022, 2018, 2014):
         x = S['universo'][str(ano)]
         P(f"  {ano}: {x['universo_secoes']:,} seções em {x['universo_locais']:,} locais e {x['universo_municipios']:,} municípios; "
-          f"cobre {100*x['cobertura_L2']:.2f}% do voto de L e {100*x['cobertura_R2']:.2f}% do voto de R no 2º turno.".replace(',', '.'))
+          f"cobre {100*x['cobertura_L2']:.2f}% do voto de L e {100*x['cobertura_R2']:.2f}% do voto de R no 2º turno.")
     P('  Eliminados com termo próprio em 2026 (0,5% ou mais dos válidos): ' + ', '.join(
         f"{k} {v['nome']} ({100*v['parcela_validos']:.2f}%)" for k, v in S['primeiro_turno_2026']['eliminados_com_termo_proprio'].items()) + '; demais somados.')
 
@@ -590,11 +596,11 @@ def main():
     S['decomposicao_ganho_lula'] = {'canais': dec, 'ganho_nacional': int(ganho), 'soma_canais': float(sum(v['votos'] for v in dec.values())),
                                     'resto_efeitos_fixos': float(ganho - sum(v['votos'] for v in dec.values()))}
     P('')
-    P(f"3. DECOMPOSIÇÃO DO GANHO DE LULA ENTRE OS TURNOS (ganho nacional = {ganho:,} votos)".replace(',', '.'))
+    P(f"3. DECOMPOSIÇÃO DO GANHO DE LULA ENTRE OS TURNOS (ganho nacional = {ganho:,} votos)")
     rot = {'L1': 'perda de retenção própria', 'R1': 'vazamento (estoque de Flávio)', 'Edem': 'demais eliminados', 'B1': 'brancos', 'N1': 'nulos', 'A1': 'abstenção do 1º turno'}
     for x in aj26.nx:
-        P(f"  {rot.get(x, 'eliminado ' + x[1:]):32s} coef {dec[x]['coef']:+.4f} x estoque {dec[x]['estoque_nacional']:>11,} = {dec[x]['votos']:>+13,.0f}".replace(',', '.'))
-    P(f"  soma dos canais = {S['decomposicao_ganho_lula']['soma_canais']:,.0f}; resto (efeitos fixos de local) = {S['decomposicao_ganho_lula']['resto_efeitos_fixos']:,.0f}".replace(',', '.'))
+        P(f"  {rot.get(x, 'eliminado ' + x[1:]):32s} coef {dec[x]['coef']:+.4f} x estoque {dec[x]['estoque_nacional']:>11,} = {dec[x]['votos']:>+13,.0f}")
+    P(f"  soma dos canais = {S['decomposicao_ganho_lula']['soma_canais']:,.0f}; resto (efeitos fixos de local) = {S['decomposicao_ganho_lula']['resto_efeitos_fixos']:,.0f}")
 
     # ---------- (f) por UF e por tercil
     ufs = sorted(set(u26['uf'].tolist()))
@@ -673,7 +679,7 @@ def main():
                             'comp1': int(U[ano]['comp1'][i]), 'comp2': int(U[ano]['comp2'][i])} for i in o]
         S['deterministica'][str(ano)] = r
         P(f"  {ano}: H de L positivo em {r['H_L']['secoes']} seções (soma {r['H_L']['soma']}); H de R positivo em {r['H_R']['secoes']} (soma {r['H_R']['soma']}); "
-          f"S de L positivo em {r['S_L']['secoes']} seções, soma {r['S_L']['soma']:,}; S de R positivo em {r['S_R']['secoes']} seções, soma {r['S_R']['soma']:,}; assimetria L menos R = {r['assimetria_S']:+,}".replace(',', '.'))
+          f"S de L positivo em {r['S_L']['secoes']} seções, soma {r['S_L']['soma']:,}; S de R positivo em {r['S_R']['secoes']} seções, soma {r['S_R']['soma']:,}; assimetria L menos R = {r['assimetria_S']:+,}")
         P(f"        rede larga (todas as {rl['n']} seções com dois turnos): H de L em {rl['H_L']['secoes']}, H de R em {rl['H_R']['secoes']}; com o maior dos aptos: {rl['H_L_aptos_max']['secoes']} e {rl['H_R_aptos_max']['secoes']}.")
     P(f"  Em 2026, as fontes que não são voto de Flávio passam de 6% do comparecimento em {100*S['deterministica']['2026']['parcela_secoes_fontes_acima_6pct']:.1f}% das seções (mediana {100*S['deterministica']['2026']['fontes_sobre_comparecimento_mediana']:.1f}%).")
 
@@ -743,10 +749,11 @@ def main():
         dp_ = deterministica(U[ano], L2p_, R2p_)[0]
         S['plantio'][f'deterministica_{ano}_3.57_uniforme'] = {'votos': nv_, 'assimetria_S': dp_['assimetria_S'], 'subida_assimetria': dp_['assimetria_S'] - S['deterministica'][str(ano)]['assimetria_S'], 'H_L': dp_['H_L']}
     P(f"  Redutos, plantio de 3,57% uniforme em 2026: diferença dos interceptos {RED[2026]['dif_L_menos_R']:+.4f} -> {redp['dif_L_menos_R']:+.4f} (subida {redp['dif_L_menos_R'] - RED[2026]['dif_L_menos_R']:+.4f}).")
-    P(f"  Parte determinística, plantio de 3,57% em 2026 ({nv:,} votos): assimetria de S {d0['assimetria_S']:+,} -> {detp['assimetria_S']:+,} (uniforme) e {detc['assimetria_S']:+,} (concentrado em 30%); H de L positivo passa a {detp['H_L']['secoes']} e {detc['H_L']['secoes']} seções.".replace(',', '.'))
+    P(f"  Parte determinística, plantio de 3,57% em 2026 ({nv:,} votos): assimetria de S {d0['assimetria_S']:+,} -> {detp['assimetria_S']:+,} (uniforme) e {detc['assimetria_S']:+,} (concentrado em 30%); H de L positivo passa a {detp['H_L']['secoes']} e {detc['H_L']['secoes']} seções.")
 
     # ---------- placebo de governador
-    S['governador'] = governador(B[2026], NX_P, P)
+    C = {}
+    S['governador'] = governador(B[2026], NX_P, P, C)
 
     # ---------- tradução em votos
     def votos(a):
@@ -763,9 +770,9 @@ def main():
     P('')
     P('9. TRADUÇÃO EM VOTOS DE MARGEM')
     P(f"  As de 2026 = {r26['As']:+.4f}, IC95 {ic(r26['ic95_As'])}. Com kappa = {kappa:.3f} (recuperação medida no plantio), isso equivale a uma troca de "
-      f"{100*r26['As']/kappa:+.2f}% do voto de Flávio: {v_as:+,.0f} votos (IC95 de {v_lo:+,.0f} a {v_hi:+,.0f}), efeito de {2*v_as:+,.0f} na margem.".replace(',', '.'))
-    P(f"  Para virar o resultado seriam precisos {NECESSARIO:,} votos trocados (margem oficial {MARGEM:,}). O ponto estimado é {100*v_as/NECESSARIO:+.1f}% disso; o limite superior do intervalo, {100*v_hi/NECESSARIO:+.1f}%.".replace(',', '.'))
-    P(f"  Conta direta: V x estoque de R1 = {r26['V']*nac['R1']:+,.0f}; M x estoque de L1 = {r26['M']*nac['L1']:+,.0f}; líquido = {direto:+,.0f} votos.".replace(',', '.'))
+      f"{100*r26['As']/kappa:+.2f}% do voto de Flávio: {v_as:+,.0f} votos (IC95 de {v_lo:+,.0f} a {v_hi:+,.0f}), efeito de {2*v_as:+,.0f} na margem.")
+    P(f"  Para virar o resultado seriam precisos {NECESSARIO:,} votos trocados (margem oficial {MARGEM:,}). O ponto estimado é {100*v_as/NECESSARIO:+.1f}% disso; o limite superior do intervalo, {100*v_hi/NECESSARIO:+.1f}%.")
+    P(f"  Conta direta: V x estoque de R1 = {r26['V']*nac['R1']:+,.0f}; M x estoque de L1 = {r26['M']*nac['L1']:+,.0f}; líquido = {direto:+,.0f} votos.")
 
     # ---------- veredito pela letra
     S['veredito'] = veredito(S, RED)
@@ -780,10 +787,12 @@ def main():
     P(f"  REGRESSÃO: {S['veredito']['regressao']}")
     P(f"  DETERMINÍSTICA: {S['veredito']['deterministica']}")
     S['tempo_s'] = round(time.time() - t0)
-    return S, T
+    C.update(B=B, U=U, u26=u26, aj26=aj26, r26=r26, ajb=ajb, ajc=ajc, ajd=ajd, AJ=AJ, RD=RD, RED=RED, ref26=ref26, tem=tem, uc=uc,
+             parc=parc, NX_P=NX_P, NX_D=NX_D, ufs=ufs, kappa=kappa, P=P, T=T, t0=t0)
+    return S, T, C
 
 
-def governador(b, NX_P, P):
+def governador(b, NX_P, P, C=None):
     """Placebo contemporâneo: governador nas 6 UFs com 2º turno (L = vencedor do 2º turno na UF)."""
     g1 = carregar(f'{RAIZ}/dados/candidatos_gov_2026_1t_6ufs.json.gz')['secoes']
     with gzip.open(TRAB + '/gov2t_6ufs.json.gz', 'rt') as f:
@@ -837,7 +846,7 @@ def governador(b, NX_P, P):
                              'governador': {k: rg[k] for k in ('n', 'grupos_erro', 'V', 'ep_V', 'M', 'ep_M', 'As', 'ep_As', 'ic95_As', 'ret_L', 'ret_R', 'assim_retencao', 'ep_assim_retencao')},
                              'governador_d': {k: rgd[k] for k in ('V', 'M', 'As', 'ep_As', 'assim_retencao')},
                              'presidente_mesmas_secoes': {k: rp[k] for k in ('n', 'V', 'ep_V', 'M', 'ep_M', 'As', 'ep_As', 'ic95_As', 'assim_retencao', 'ep_assim_retencao')}}
-        P(f"  {uf} (L={Lg}, R={Rg}; 1º turno {t1.get(Lg,0):,} e {t1.get(Rg,0):,}; 2º turno {t2[Lg]:,} e {t2[Rg]:,}): governador As={rg['As']:+.4f} ({rg['ep_As']:.4f}) IC95 {ic(rg['ic95_As'])} V={rg['V']:+.4f} M={rg['M']:+.4f} dif. retenção {rg['assim_retencao']:+.4f} | presidente nas mesmas seções As={rp['As']:+.4f} ({rp['ep_As']:.4f}) n={n}".replace(',', '.'))
+        P(f"  {uf} (L={Lg}, R={Rg}; 1º turno {t1.get(Lg,0):,} e {t1.get(Rg,0):,}; 2º turno {t2[Lg]:,} e {t2[Rg]:,}): governador As={rg['As']:+.4f} ({rg['ep_As']:.4f}) IC95 {ic(rg['ic95_As'])} V={rg['V']:+.4f} M={rg['M']:+.4f} dif. retenção {rg['assim_retencao']:+.4f} | presidente nas mesmas seções As={rp['As']:+.4f} ({rp['ep_As']:.4f}) n={n}")
         conj.append(sg)
     # conjunta: eliminados somados
     cj = {k: np.concatenate([x[k] for x in conj]) for k in ('L1', 'R1', 'O1', 'B1', 'N1', 'A1', 'L2', 'R2', 'BN2', 'A2', 'apt1', 'loc', 'mun', 'zona', 'uf')}
@@ -847,6 +856,8 @@ def governador(b, NX_P, P):
     out['conjunta_governador_d'] = {k: rj[k] for k in ('n', 'grupos_erro', 'V', 'ep_V', 'M', 'ep_M', 'As', 'ep_As', 'ic95_As', 'ret_L', 'ret_R', 'assim_retencao', 'ep_assim_retencao')}
     out['conjunta_presidente_mesmas_ufs'] = {k: rpj[k] for k in ('n', 'grupos_erro', 'V', 'ep_V', 'M', 'ep_M', 'As', 'ep_As', 'ic95_As', 'ret_L', 'ret_R', 'assim_retencao', 'ep_assim_retencao')}
     out['maior_abs_As_governador'] = float(max(abs(v['governador']['As']) for v in out['por_uf'].values()))
+    if C is not None:
+        C['gov_conj'] = dict(zip(UFS_GOV, conj))
     P(f"  Conjunta das 6 UFs, governador (eliminados somados): As={rj['As']:+.4f} ({rj['ep_As']:.4f}) IC95 {ic(rj['ic95_As'])}; presidente nas mesmas UFs: As={rpj['As']:+.4f} ({rpj['ep_As']:.4f}) IC95 {ic(rpj['ic95_As'])}.")
     P(f"  Maior valor absoluto de As de governador entre as 6 UFs: {out['maior_abs_As_governador']:.4f}.")
     return out
@@ -896,9 +907,329 @@ def veredito(S, RED):
     partes.append(f"H: {nH} seções com H de Lula positivo no universo" + (' (casos individuais para auditoria: SINAL pontual)' if nH > 0 else ' (SEM SINAL)'))
     partes.append(f"S: assimetria de 2026 = {a26:+d}; maior assimetria placebo em valor absoluto = {mxa}; critério (>= 220.000 e >= 3 vezes) {'ATENDIDO: SINAL de excesso concentrado' if exc else 'não atendido: SEM SINAL de excesso concentrado'}")
     partes.append(f"plantio de 3,57% move a assimetria de S em {subdet:+d} votos: " + ('a parte determinística enxerga a troca espalhada' if subdet >= 220000 else 'SEM PODER para troca espalhada'))
+    subconc = S['plantio']['deterministica_2026_3.57']['concentrado30']['subida_assimetria']
+    partes.append(f"o mesmo total concentrado em 30% das seções move em {subconc:+d}: " + ('enxerga a troca concentrada' if subconc >= 220000 else 'SEM PODER também para a concentrada'))
     return {'clausulas_sinal': cs, 'clausulas_sem_sinal': css, 'clausulas_inconclusivo': ci, 'regressao': reg,
             'deterministica': '; '.join(partes), 'deterministica_H_secoes': nH, 'deterministica_excesso_concentrado': bool(exc),
             'deterministica_subida_com_plantio': int(subdet)}
+
+
+# ================================================================ EXPLORATÓRIO
+# Tudo daqui até o bloco principal foi escrito DEPOIS de ver o resultado da primeira rodada (10/11/2026, 00:57 UTC;
+# cópia em /home/user/trabalho-eleicao/adendo27/A2/rodada1_resultado.json). Nada disto entra no veredito pela letra.
+def gravar(S, T):
+    with open(RAIZ + '/resultados/R27_A2_assimetria_vazamento.json', 'w') as f:
+        json.dump(S, f, ensure_ascii=False, indent=1, default=lambda o: o.item() if hasattr(o, 'item') else str(o))
+    with open(RAIZ + '/resultados/R27_A2_assimetria_vazamento.txt', 'w') as f:
+        f.write('\n'.join(T) + '\n')
+
+
+def votos_de(a, kappa):
+    """Votos trocados equivalentes a um deslocamento a de As (D15): p = a / kappa; p / (1 - p) vezes o voto oficial de Flávio."""
+    p = a / kappa
+    return p / (1 - p) * R2_OFICIAL
+
+
+def exploratorio_criterio_sob_plantio(S, C):
+    """O critério de sinal inteiro aplicado a 2026 com a troca de 3,57% plantada por cima: a régua do registro daria SINAL?"""
+    P = C['P']; u26 = C['u26']; aj26 = C['aj26']
+    pl = {a: S[f'placebo_{a}_d']['As'] for a in (2014, 2018, 2022)}
+    mx = max(abs(v) for v in pl.values())
+    ajuf = {}
+    for uf in C['ufs']:
+        m = u26['uf'] == uf
+        ajuf[uf] = (m, regressao(sub(u26, m), C['NX_P'], dentro_de_uf=True, boot=False)[0])
+    out = {'limiar_da_clausula_do_placebo': 0.015 + mx}
+    P('  11.1 O critério de sinal inteiro, com a troca de 3,57% plantada por cima de 2026 (a régua do registro daria SINAL?)')
+    for modo, sem in (('uniforme', SEMENTE + 3000), ('concentrado30', SEMENTE + 3001)):
+        rng = np.random.default_rng(sem)
+        L2p, R2p, nv = plantar(u26, 0.0357, modo, rng)
+        Yp = y_plantado(u26, L2p, R2p)
+        e = {'votos_trocados_no_universo': nv}
+        bt = aj26.novo_y(Yp); e['As_principal'] = as_de(bt, aj26); e['assim_retencao'] = ret_de(bt, aj26)
+        e['As_b'] = as_de(C['ajb'].novo_y(Yp), C['ajb'])
+        e['As_c'] = as_de(C['ajc'].novo_y(Yp[C['tem']]), C['ajc'])
+        e['As_d'] = as_de(C['ajd'].novo_y(Yp), C['ajd'])
+        asuf = {uf: as_de(aj.novo_y(Yp[m]), aj) for uf, (m, aj) in ajuf.items()}
+        e['As_por_uf'] = asuf; e['ufs_com_As_ge_0010'] = int(sum(1 for v in asuf.values() if v >= 0.010))
+        e['redutos_dif'] = redutos(u26, C['ref26'], L2p, R2p, boot=False)['dif_L_menos_R']
+        cl = {'As >= 0,025': e['As_principal'] >= 0.025,
+              'As >= 0,015 + maior |As| placebo': e['As_principal'] >= 0.015 + mx,
+              'As >= 0,015 em (b), (c) e (d)': min(e['As_b'], e['As_c'], e['As_d']) >= 0.015,
+              'As >= 0,010 em 20 ou mais UFs': e['ufs_com_As_ge_0010'] >= 20,
+              'assimetria de retenção >= 0,020 geral': e['assim_retencao'] >= 0.020,
+              'assimetria de retenção >= 0,020 nos redutos': e['redutos_dif'] >= 0.020}
+        e['clausulas_sinal'] = {k: bool(v) for k, v in cl.items()}; e['sinal_pela_letra'] = bool(all(cl.values()))
+        out[modo] = e
+        P(f"    {modo}: As {e['As_principal']:+.4f}; (b) {e['As_b']:+.4f}; (c) {e['As_c']:+.4f}; (d) {e['As_d']:+.4f}; UFs com As de 0,010 ou mais: {e['ufs_com_As_ge_0010']} de 27; "
+          f"assimetria de retenção {e['assim_retencao']:+.4f}; redutos {e['redutos_dif']:+.4f}.")
+        P('      cláusulas de sinal: ' + '; '.join(f"{k}: {'SIM' if v else 'NÃO'}" for k, v in cl.items()) + f". SINAL pela letra: {'SIM' if e['sinal_pela_letra'] else 'NÃO'}.")
+    As = S['principal_2026']['As']; kappa = C['kappa']
+    falta = 0.015 + mx - As
+    out['fracao_minima_para_a_clausula_do_placebo'] = falta / kappa
+    out['votos_minimos_para_a_clausula_do_placebo'] = votos_de(falta, kappa)
+    out['parcela_do_necessario'] = out['votos_minimos_para_a_clausula_do_placebo'] / NECESSARIO
+    P(f"    A cláusula do placebo pede As de {0.015 + mx:.4f} ou mais. Partindo do As observado ({As:+.4f}), só uma troca plantada de {100*falta/kappa:.2f}% do voto de Flávio "
+      f"({out['votos_minimos_para_a_clausula_do_placebo']:,.0f} votos, {100*out['parcela_do_necessario']:.0f}% do necessário para virar) chegaria lá.")
+    P('    Leitura: o instrumento mede o plantio (recuperação de 95%), mas a régua de decisão, com os anos placebo que temos, não chega a SINAL nem com a troca inteira plantada')
+    P('    por cima do dado observado; e não chega a SEM SINAL com nenhum valor de 2026, porque 2018 e 2022 passam de 0,010. Com estes placebos, a letra só permite INCONCLUSIVO')
+    P(f"    ou, com As de {0.015 + mx:.4f} ou mais e as demais cláusulas, SINAL.")
+    return out
+
+
+def exploratorio_relativo_aos_anos(S, C):
+    """Diferença com sinal entre 2026 e cada ano placebo (especificação d), traduzida em votos. Depende só da comparação com outro ano."""
+    P = C['P']; rd = S['variante_d_eliminados_somados']; kd = S['plantio']['2026_0.0357_uniforme']['recuperacao_d']
+    red = S['redutos']; out = {'kappa_d': kd}
+    P('  11.2 2026 contra cada ano placebo, com sinal (especificação (d); esta leitura depende SÓ da comparação com outro ano, que o Léo não aceita como régua limpa)')
+    P(f"    valor bruto de 2026 (d): As {rd['As']:+.4f} ({rd['ep_As']:.4f}); assimetria de retenção {rd['assim_retencao']:+.4f}; redutos {red['2026']['dif_L_menos_R']:+.4f}.")
+    for ano in (2022, 2018, 2014):
+        pa = S[f'placebo_{ano}_d']
+        dAs = rd['As'] - pa['As']; ep = float(np.hypot(rd['ep_As'], pa['ep_As']))
+        dret = rd['assim_retencao'] - pa['assim_retencao']
+        v = votos_de(dAs, kd); vlo = votos_de(dAs - 1.96 * ep, kd); vhi = votos_de(dAs + 1.96 * ep, kd)
+        e = {'As_ano': pa['As'], 'dif_As': dAs, 'ep_dif': ep, 'dif_assim_retencao': dret, 'votos_equivalentes': v, 'ic95_votos': [vlo, vhi],
+             'parcela_do_necessario': v / NECESSARIO, 'efeito_na_margem': 2 * v}
+        if str(ano) in red:
+            e['dif_redutos'] = red['2026']['dif_L_menos_R'] - red[str(ano)]['dif_L_menos_R']
+        out[str(ano)] = e
+        P(f"    menos {ano}: As {pa['As']:+.4f}; diferença {dAs:+.4f} ({ep:.4f}); se fosse toda troca, {v:+,.0f} votos ({100*v/NECESSARIO:+.0f}% do necessário; margem {2*v:+,.0f}); "
+          f"assimetria de retenção {dret:+.4f}" + (f"; redutos {e['dif_redutos']:+.4f}" if 'dif_redutos' in e else '') + '.')
+    difs = [out[str(a)]['dif_As'] for a in (2022, 2018, 2014)]
+    anos = {a: S[f'placebo_{a}_d']['As'] for a in (2014, 2018, 2022)}; anos[2026] = rd['As']
+    saltos = {'2014_2018': anos[2018] - anos[2014], '2018_2022': anos[2022] - anos[2018], '2022_2026': anos[2026] - anos[2022]}
+    out['saltos_entre_eleicoes_seguidas'] = saltos
+    P(f"    Saltos de As entre eleições seguidas: 2014 para 2018 {saltos['2014_2018']:+.4f}; 2018 para 2022 {saltos['2018_2022']:+.4f}; 2022 para 2026 {saltos['2022_2026']:+.4f}.")
+    P(f"    Leitura: conforme o ano tomado como zero, o mesmo As de 2026 vale de {min(difs):+.4f} a {max(difs):+.4f}. O salto de 2022 para 2026 tem o tamanho dos saltos anteriores.")
+    return out
+
+
+def exploratorio_linhas_da_matriz(S, C):
+    """Para onde vai o eleitor de cada finalista do 1º turno, nos quatro anos (especificação d)."""
+    P = C['P']; out = {}
+    P('  11.3 Linhas dos finalistas na matriz, quatro anos, especificação (d): destino no 2º turno de cada voto do 1º (L = PT, R = adversário)')
+    for ano in (2026, 2022, 2018, 2014):
+        r = S['variante_d_eliminados_somados'] if ano == 2026 else S[f'placebo_{ano}_d']
+        out[str(ano)] = {x: {y: [r['matriz'][y][x], r['matriz_ep'][y][x]] for y in NY} for x in ('L1', 'R1')}
+        P(f"    {ano}: L1 -> " + ', '.join(f"{y} {r['matriz'][y]['L1']:+.4f} ({r['matriz_ep'][y]['L1']:.4f})" for y in NY)
+          + ' | R1 -> ' + ', '.join(f"{y} {r['matriz'][y]['R1']:+.4f} ({r['matriz_ep'][y]['R1']:.4f})" for y in NY))
+    a = out['2026']
+    P(f"    Em 2026, a diferença de retenção ({S['variante_d_eliminados_somados']['assim_retencao']:+.4f}) se reparte assim (linha R1 menos linha L1): "
+      f"abstenção {a['R1']['A2'][0] - a['L1']['A2'][0]:+.4f}; branco e nulo {a['R1']['BN2'][0] - a['L1']['BN2'][0]:+.4f}; adversário (V menos M) {a['R1']['L2'][0] - a['L1']['R2'][0]:+.4f}.")
+    P('    Linhas da abstenção do 1º turno (A1) e dos eliminados somados (O1), para L2 e R2, com o estoque nacional da abstenção (não é marca de troca proporcional; fica como pista para os testes de comparecimento):')
+    out['outras_linhas'] = {}
+    for ano in (2026, 2022, 2018, 2014):
+        r = S['variante_d_eliminados_somados'] if ano == 2026 else S[f'placebo_{ano}_d']
+        bi = S['universo'][str(ano)]['base_inteira']
+        e = {x: {y: [r['matriz'][y][x], r['matriz_ep'][y][x]] for y in ('L2', 'R2')} for x in ('A1', 'O1')}
+        e['estoque_A1'] = bi['A1']; e['comparecimento_1t'] = bi['comp1']; e['comparecimento_2t'] = bi['comp2']
+        e['A1_para_L_votos'] = r['matriz']['L2']['A1'] * bi['A1']; e['A1_para_R_votos'] = r['matriz']['R2']['A1'] * bi['A1']
+        out['outras_linhas'][str(ano)] = e
+        P(f"    {ano}: A1 -> L2 {e['A1']['L2'][0]:+.4f} ({e['A1']['L2'][1]:.4f}), R2 {e['A1']['R2'][0]:+.4f} ({e['A1']['R2'][1]:.4f}); em votos {e['A1_para_L_votos']:+,.0f} e {e['A1_para_R_votos']:+,.0f}; "
+          f"comparecimento {bi['comp1']:,} -> {bi['comp2']:,} ({bi['comp2'] - bi['comp1']:+,}) | O1 -> L2 {e['O1']['L2'][0]:+.4f}, R2 {e['O1']['R2'][0]:+.4f}")
+    return out
+
+
+def exploratorio_uf(S, C):
+    """Espalhamento: heterogeneidade de As entre UFs, persistência do desenho por UF entre anos, e tradução UF a UF."""
+    from scipy import stats
+    P = C['P']; ufs = C['ufs']; pu = S['por_uf']; kappa = C['kappa']; b = C['B'][2026]
+    a = np.array([pu[u]['As'] for u in ufs]); ep = np.array([pu[u]['ep_As'] for u in ufs])
+    w = 1 / ep ** 2; media = float((a * w).sum() / w.sum()); Q = float((((a - media) ** 2) * w).sum())
+    out = {'media_ponderada_As_uf': media, 'Q': Q, 'gl': len(ufs) - 1, 'p_qui2': float(stats.chi2.sf(Q, len(ufs) - 1)),
+           'ufs_espelho_As_le_menos_0010': int((a <= -0.010).sum()), 'ufs_As_ge_0010': int((a >= 0.010).sum())}
+    P('  11.4 As por UF: espalhamento, espelho e persistência')
+    P(f"    Heterogeneidade entre UFs em 2026 (principal): Q = {Q:.1f} com {len(ufs)-1} graus de liberdade (p = {out['p_qui2']:.1e}); média ponderada {media:+.4f}. Uma troca uniforme sozinha daria As plano; o comportamento por UF não é plano.")
+    P(f"    Espelho do espalhamento: UFs com As de -0,010 ou menos (a favor de Flávio): {out['ufs_espelho_As_le_menos_0010']}; com +0,010 ou mais (a favor de Lula): {out['ufs_As_ge_0010']}; as outras {27 - out['ufs_espelho_As_le_menos_0010'] - out['ufs_As_ge_0010']} ficam entre os dois.")
+    d26 = np.array([pu[u]['As_2026_d'] for u in ufs])
+    out['por_ano_d'] = {}
+    for ano in (2026, 2022, 2018, 2014):
+        v = np.array([pu[u][f'As_{ano}_d'] for u in ufs])
+        e = {'ufs_ge_0010': int((v >= 0.010).sum()), 'ufs_le_menos_0010': int((v <= -0.010).sum()), 'mediana': float(np.median(v)),
+             'correlacao_com_2026': float(np.corrcoef(d26, v)[0, 1]) if ano != 2026 else 1.0}
+        out['por_ano_d'][str(ano)] = e
+        P(f"    {ano} (d): UFs com As >= +0,010: {e['ufs_ge_0010']}; com As <= -0,010: {e['ufs_le_menos_0010']}; mediana {e['mediana']:+.4f}" + (f"; correlação do desenho por UF com 2026: {e['correlacao_com_2026']:+.2f}" if ano != 2026 else '') + '.')
+    # tradução UF a UF
+    R2uf = {u: int(b['R2'][b['uf'] == u].sum()) for u in ufs}
+    vt = {u: votos_de(pu[u]['As'], kappa) * R2uf[u] / R2_OFICIAL for u in ufs}
+    out['votos_por_uf_se_fosse_troca'] = vt
+    out['soma_liquida'] = float(sum(vt.values())); out['soma_so_positivas'] = float(sum(v for v in vt.values() if v > 0))
+    out['soma_so_negativas'] = float(sum(v for v in vt.values() if v < 0))
+    P(f"    Tradução UF a UF (se todo As da UF fosse troca; voto de Flávio da UF no 2º turno): soma líquida {out['soma_liquida']:+,.0f} votos; só as UFs positivas {out['soma_so_positivas']:+,.0f} "
+      f"({100*out['soma_so_positivas']/NECESSARIO:.0f}% do necessário); só as negativas {out['soma_so_negativas']:+,.0f}.")
+    maiores = sorted(ufs, key=lambda u: -vt[u])[:6]
+    P('    Maiores contribuições positivas: ' + '; '.join(f"{u} {vt[u]:+,.0f} (As {pu[u]['As']:+.4f}, ep {pu[u]['ep_As']:.4f})" for u in maiores) + '.')
+    return out
+
+
+def _ler_bweb2t(alvos):
+    """Nome de cada município e, para as seções em alvos, campos de estrutura do bweb do 2º turno (uma linha por seção)."""
+    nomes = {}; meta = {}
+    campos = ('NR_LOCAL_VOTACAO', 'DS_TIPO_URNA', 'QT_APTOS', 'QT_COMPARECIMENTO', 'DS_SECOES_AGREGADAS', 'DT_ABERTURA', 'DT_ENCERRAMENTO',
+              'QT_ELEI_BIOM_SEM_HABILITACAO', 'DT_BU_RECEBIDO', 'DT_EMISSAO_BU', 'NR_URNA_EFETIVADA', 'DT_CARGA_URNA_EFETIVADA', 'NR_JUNTA_APURADORA')
+    for z in sorted(glob.glob(ZIPS2T + '/bweb_2t_*.zip')):
+        with zipfile.ZipFile(z) as zf:
+            nome = [i.filename for i in zf.infolist() if i.filename.endswith('.csv')][0]
+            with zf.open(nome) as f:
+                cab = [c.strip('"') for c in f.readline().decode('latin-1').rstrip('\r\n').split(';')]
+                ix = {c: i for i, c in enumerate(cab)}
+                for raw in f:
+                    p_ = raw.split(b';', 16)
+                    km = p_[10].strip(b'"').decode() + '|' + str(int(p_[11]))
+                    if km not in nomes:
+                        nomes[km] = p_[12].strip(b'"').decode('latin-1')
+                    k = f"{km}|{int(p_[13])}|{int(p_[14])}"
+                    if k in alvos and k not in meta:
+                        row = next(csv.reader([raw.decode('latin-1')], delimiter=';', quotechar='"'))
+                        meta[k] = {c: row[ix[c]] for c in campos}
+    return nomes, meta
+
+
+def exploratorio_concentracao_e_casos(S, C):
+    """Onde ficam as seções com S positivo (por município), espelho, e os casos de H com nome do município e estrutura do bweb."""
+    P = C['P']; out = {}
+    d26 = S['deterministica']['2026']
+    alvos = set(c['chave'] for c in d26['casos_H_rede_larga']) | set(c['chave'] for c in d26['casos_H_L_universo'])
+    nomes, meta = _ler_bweb2t(alvos)
+    P('  11.5 Parte determinística: casos de H e concentração de S por município')
+    P('    Casos de H positivo em 2026 (rede larga; "universo" marca os que passam nos filtros do registro). H positivo quer dizer: L2 + R1 passa dos aptos, logo')
+    P('    pelo menos H eleitores que constam como voto do adversário no 1º turno constam como voto do outro lado no 2º. Troca na contagem e mudança real de voto dão o mesmo H.')
+    casos = []
+    for c in d26['casos_H_rede_larga']:
+        k = c['chave']; km = '|'.join(k.split('|')[:2]); mt = meta.get(k, {})
+        e = dict(c); e['municipio'] = nomes.get(km, '?'); e['bweb_2t'] = mt
+        e['aptos_iguais_nos_turnos'] = c['apt1'] == c['apt2']
+        casos.append(e)
+    casos.sort(key=lambda e: (not e['no_universo'], not e['aptos_iguais_nos_turnos'], e['chave']))
+    out['casos_H'] = casos
+    for e in casos:
+        mt = e['bweb_2t']
+        P(f"    {e['chave']} ({e['municipio']}){' UNIVERSO' if e['no_universo'] else ''}: lado {e['lado']}, H_L {e['H_L']:+d}, H_R {e['H_R']:+d}; 1º turno L {e['L1']} R {e['R1']} comp {e['comp1']} aptos {e['apt1']}; "
+          f"2º turno L {e['L2']} R {e['R2']} comp {e['comp2']} aptos {e['apt2']}; agregadas: {mt.get('DS_SECOES_AGREGADAS', '?')}; urna {mt.get('DS_TIPO_URNA', '?')}; sem habilitação biométrica: {mt.get('QT_ELEI_BIOM_SEM_HABILITACAO', '?')}")
+    est = [e for e in casos if e['aptos_iguais_nos_turnos']]
+    out['casos_H_com_aptos_iguais'] = {'L': sum(1 for e in est if e['H_L'] > 0), 'R': sum(1 for e in est if e['H_R'] > 0)}
+    P(f"    Com aptos iguais nos dois turnos (eleitorado da seção não mudou): {out['casos_H_com_aptos_iguais']['L']} seções do lado de Lula e {out['casos_H_com_aptos_iguais']['R']} do lado de Flávio. "
+      f"Nos casos com aptos diferentes entre os turnos o H não vale: a seção mudou de composição (agregação).")
+    # concentração por município, 2026 e espelho; 2022 como comparação
+    out['concentracao'] = {}
+    for ano in (2026, 2022):
+        u = C['U'][ano]
+        _, _, _, SL, SR = deterministica(u)
+        mun, g = np.unique(u['mun'], return_inverse=True); G = len(mun)
+        nsec = np.bincount(g, minlength=G)
+        tab = {}
+        for lado, Sx, own1 in (('L', SL, 'L1'), ('R', SR, 'R1')):
+            soma = np.bincount(g, weights=np.maximum(Sx, 0), minlength=G); npos = np.bincount(g, weights=(Sx > 0).astype(float), minlength=G)
+            o = np.argsort(-soma); tot = soma.sum()
+            ac = np.cumsum(soma[o])
+            grupos = (nsec >= 5) & (npos / np.maximum(nsec, 1) >= 0.5)
+            tab[lado] = {'soma': int(tot), 'municipios_com_algum': int((soma > 0).sum()),
+                         'municipios_para_metade_da_soma': int(np.searchsorted(ac, tot / 2) + 1) if tot > 0 else 0,
+                         'parcela_nos_56_maiores': float(ac[min(55, G - 1)] / tot) if tot > 0 else 0.0,
+                         'municipios_com_5_secoes_e_metade_positiva': int(grupos.sum()),
+                         'maiores': [{'municipio': mun[i], 'nome': nomes.get(mun[i], '?') if ano == 2026 else '', 'soma_S_positivo': int(soma[i]), 'secoes_positivas': int(npos[i]), 'secoes': int(nsec[i]),
+                                      'L1': int(u['L1'][g == i].sum()), 'R1': int(u['R1'][g == i].sum()), 'L2': int(u['L2'][g == i].sum()), 'R2': int(u['R2'][g == i].sum()),
+                                      'comp1': int(u['comp1'][g == i].sum()), 'comp2': int(u['comp2'][g == i].sum())} for i in o[:15]],
+                         'grupos': [{'municipio': mun[i], 'nome': nomes.get(mun[i], '?') if ano == 2026 else '', 'soma_S_positivo': int(soma[i]), 'secoes_positivas': int(npos[i]), 'secoes': int(nsec[i]),
+                                     'L1': int(u['L1'][g == i].sum()), 'R1': int(u['R1'][g == i].sum()), 'L2': int(u['L2'][g == i].sum()), 'R2': int(u['R2'][g == i].sum()),
+                                     'comp1': int(u['comp1'][g == i].sum()), 'comp2': int(u['comp2'][g == i].sum())} for i in np.where(grupos)[0][np.argsort(-soma[grupos])][:40]]}
+        out['concentracao'][str(ano)] = tab
+        for lado in ('L', 'R'):
+            t = tab[lado]
+            P(f"    {ano}, S positivo do lado {lado}: soma {t['soma']:,} em {t['municipios_com_algum']:,} municípios; metade da soma está em {t['municipios_para_metade_da_soma']:,} municípios; os 56 maiores (1%) têm {100*t['parcela_nos_56_maiores']:.1f}%; "
+              f"municípios com 5 ou mais seções e metade ou mais delas com S positivo: {t['municipios_com_5_secoes_e_metade_positiva']}.")
+    for lado, rot in (('L', 'Lula'), ('R', 'Flávio')):
+        P(f"    2026, municípios com 5 ou mais seções e metade ou mais delas com ganho de {rot} acima de todas as fontes visíveis (candidatos a auditoria local; até 40, por soma):")
+        for e in out['concentracao']['2026'][lado]['grupos']:
+            P(f"      {e['municipio']} {e['nome']}: {e['secoes_positivas']} de {e['secoes']} seções, excesso {e['soma_S_positivo']}; L {e['L1']:,} -> {e['L2']:,}; R {e['R1']:,} -> {e['R2']:,}; comparecimento {e['comp1']:,} -> {e['comp2']:,}")
+    return out
+
+
+def exploratorio_governador_deterministica(S, C):
+    """A parte determinística (H e S) na disputa de governador das 6 UFs (L = vencedor do 2º turno), ao lado da presidencial nas mesmas seções."""
+    P = C['P']; out = {}
+    P('  11.6 Placebo contemporâneo, parte determinística: governador nas 6 UFs (L = vencedor do 2º turno na UF) e presidente nas mesmas seções')
+    pos = lambda x: {'secoes': int((x > 0).sum()), 'soma': int(x[x > 0].sum())}
+    for uf, sg in C['gov_conj'].items():
+        c1 = sg['L1'] + sg['R1'] + sg['O1'] + sg['B1'] + sg['N1']; c2 = sg['L2'] + sg['R2'] + sg['BN2']
+        fontes = sg['O1'] + sg['B1'] + sg['N1'] + np.maximum(0, c2 - c1)
+        g = {'n': int(len(c1)), 'H_L': pos(sg['L2'] - (sg['apt2'] - sg['R1'])), 'H_R': pos(sg['R2'] - (sg['apt2'] - sg['L1'])),
+             'S_L': pos((sg['L2'] - sg['L1']) - fontes), 'S_R': pos((sg['R2'] - sg['R1']) - fontes)}
+        g['assimetria_S'] = g['S_L']['soma'] - g['S_R']['soma']
+        b = C['B'][2026]; m = b['univ'] & (b['uf'] == uf)
+        pr = deterministica(sub(b, m))[0]
+        out[uf] = {'governador': g, 'presidente': {k: pr[k] for k in ('n', 'H_L', 'H_R', 'S_L', 'S_R', 'assimetria_S')}}
+        P(f"    {uf}: governador: H de L em {g['H_L']['secoes']} seções, H de R em {g['H_R']['secoes']}; S de L positivo em {g['S_L']['secoes']} (soma {g['S_L']['soma']:,}), S de R em {g['S_R']['secoes']} (soma {g['S_R']['soma']:,}), n={g['n']} "
+          f"| presidente: H de L em {pr['H_L']['secoes']}, H de R em {pr['H_R']['secoes']}; S de L positivo em {pr['S_L']['secoes']} (soma {pr['S_L']['soma']:,}), S de R em {pr['S_R']['secoes']} (soma {pr['S_R']['soma']:,}), n={pr['n']}")
+    P('    Leitura: numa disputa em que um finalista perde voto em número absoluto entre os turnos, H e S positivos aparecem aos milhares sem que isso distinga troca de mudança real de voto.')
+    return out
+
+
+def exploratorio_casos_locais(S, C):
+    """Os municípios apontados em 11.5 (um de cada lado) e o de Santo Antônio de Lisboa (PI): totais por turno, 2022 e, no RN, governador."""
+    P = C['P']; out = {}
+    P('  11.7 Casos locais para auditoria (um a favor de cada lado; nada aqui separa troca na contagem de mudança real de voto no município)')
+    for km, nome in (('RN|18937', 'RAFAEL GODEIRO'), ('AL|27170', 'BELO MONTE'), ('PI|11878', 'SANTO ANTÔNIO DE LISBOA'), ('AM|2755', 'SÃO PAULO DE OLIVENÇA')):
+        e = {'nome': nome}
+        for ano in (2026, 2022):
+            b = C['B'][ano]; m = b['mun'] == km
+            e[str(ano)] = {c: int(b[c][m].sum()) for c in ('L1', 'R1', 'O1', 'B1', 'N1', 'comp1', 'L2', 'R2', 'comp2', 'apt2')}
+            e[str(ano)]['secoes'] = int(m.sum())
+        x = e['2026']; y = e['2022']
+        P(f"    {km} {nome}: 2026, 1º turno L {x['L1']:,} R {x['R1']:,} outros {x['O1']:,} brancos e nulos {x['B1'] + x['N1']:,} comp {x['comp1']:,}; 2º turno L {x['L2']:,} R {x['R2']:,} comp {x['comp2']:,} ({x['secoes']} seções). "
+          f"2022, 1º turno L {y['L1']:,} R {y['R1']:,}; 2º turno L {y['L2']:,} R {y['R2']:,}.")
+        if km.startswith('RN'):
+            sg = C['gov_conj']['RN']; m = sg['mun'] == km
+            g = {c: int(sg[c][m].sum()) for c in ('L1', 'R1', 'O1', 'L2', 'R2')}
+            e['governador_2026'] = g
+            P(f"      governador no mesmo município (13 e 44): 1º turno {g['L1']:,} e {g['R1']:,} (outros {g['O1']:,}); 2º turno {g['L2']:,} e {g['R2']:,}.")
+        out[km] = e
+    return out
+
+
+def resumo_final(S, C):
+    """Resumo escrito depois de ver o resultado: veredito pela letra, o que pesa para cada lado, desvios e conferências."""
+    P = C['P']; r = S['principal_2026']; tv = S['traducao_em_votos']; ex = S['exploratorio']; d26 = S['deterministica']['2026']
+    pl = {a: S[f'placebo_{a}_d']['As'] for a in (2014, 2018, 2022)}
+    cs = S['veredito']['clausulas_sinal']; nsim = sum(1 for v in cs.values() if v['vale'])
+    lm = ex['linhas_da_matriz']['2026']; ol = ex['linhas_da_matriz']['outras_linhas']
+    S['desvios'] = [
+        'Execução interrompida pelo reinício do container (10/11/2026, por volta de 01:06 UTC). A primeira rodada da parte registrada terminou às 00:57 UTC (cópia em /home/user/trabalho-eleicao/adendo27/A2/rodada1_resultado.json); esta rodada refez tudo com o mesmo docstring (mesmo SHA-256) e deu os mesmos números, sem nenhuma diferença.',
+        'Decisões D1 a D17 do docstring (o registro não as fixa), escritas antes de qualquer conta com votos.',
+        'Estimador próprio no lugar de lib.fe_ols, porque a função da biblioteca agrupa o erro pelo local e o registro pede erro por município; os coeficientes são iguais (diferença máxima de 3,6e-15).',
+        'Variante (c): o perfil é o do cadastro de 14/07/2026 por seção original; em seções com agregadas ele cobre só a seção principal (o total do perfil é igual aos aptos em 36% das seções do universo e difere por poucos eleitores na maioria); 32 seções sem perfil ficam fora. As covariáveis entram multiplicadas pelos aptos; com as parcelas diretas (sensibilidade c_parcela) o As muda de sinal e de tamanho, o que mostra que (c) depende da forma.',
+        'Redutos: o placebo de 2014 não existe (não há 2010 em disco); 2022 usa redutos de 2018 e 2018 usa redutos de 2014.',
+        'Placebo de governador: na parte registrada só a regressão; a parte determinística de governador foi acrescentada depois de ver o resultado (exploratório 11.6). O comparecimento de governador difere do de presidente em parte das seções (eleitor que só vota para presidente); A1 e A2 são os da seção.',
+        'Depois da primeira rodada mudou só a apresentação: ponto de milhar sem trocar as vírgulas do texto, aviso de divisão por zero silenciado e a frase do veredito determinístico passou a citar também o plantio concentrado (conta já feita na primeira rodada).',
+        'Seções 11 e 12: exploratório, escrito depois de ver o resultado.']
+    S['conferencias'] = {
+        'recalculo_independente_pandas': 'universo (472.894 seções, 72.299 locais, 5.570 municípios), V, M, As e erro-padrão da regressão principal refeitos com código separado em pandas: iguais até a 13ª casa; três réplicas do bootstrap refeitas por força bruta (reamostrando municípios e reestimando): iguais (conf_indep.py na pasta de trabalho).',
+        'extracoes': 'governador do 2º turno: 39.739 seções, nominais, brancos e nulos iguais aos da base em todas; perfil de RR refeito direto do zip: 1.622 seções iguais (conf_extr.py).',
+        'primeira_rodada': 'parte registrada idêntica à da primeira rodada (antes do reinício).'}
+    P('')
+    P('12. RESUMO (escrito depois de ver o resultado)')
+    P(f"  Veredito pela letra. Regressão: {S['veredito']['regressao']}. Motivos: 2018 e 2022 têm |As| acima de 0,015 ({pl[2018]:+.4f} e {pl[2022]:+.4f}), o que o registro chama de instrumento sem resolução, e a variante (c) tem sinal oposto ao da principal.")
+    P(f"    Das 6 cláusulas de sinal valem {nsim}: as duas de assimetria de retenção. As quatro de As não valem.")
+    P(f"    Determinística: H positivo em {d26['H_L']['secoes']} seções do universo (casos individuais para auditoria; 2022 também tem {S['deterministica']['2022']['H_L']['secoes']}); S: SEM SINAL de excesso concentrado ({d26['assimetria_S']:+,} votos contra 220.000 exigidos); a parte S é SEM PODER para troca espalhada e enxerga a concentrada em 30% das seções.")
+    P(f"  Valor bruto de 2026: As = {r['As']:+.4f} (erro-padrão {r['ep_As']:.4f}; IC95 {ic(r['ic95_As'])}; n = {r['n']:,} seções, {r['grupos_erro']:,} municípios). V = {r['V']:+.4f}, M = {r['M']:+.4f}.")
+    P(f"  Em votos: se todo o As fosse troca, {tv['votos_trocados_equivalentes']:,.0f} votos ({100*tv['parcela_do_necessario']:.0f}% dos {NECESSARIO:,} necessários), no máximo {tv['ic95_votos'][1]:,.0f} pelo limite superior ({100*tv['ic95_votos'][1]/NECESSARIO:.0f}%); a margem oficial de {MARGEM:,} cairia para {MARGEM - 2*tv['votos_trocados_equivalentes']:,.0f}.")
+    P(f"  Calibração: a troca de 3,57% plantada por cima de 2026 faz As subir {S['plantio']['2026_0.0357_uniforme']['subida_As_principal']:+.4f} (recuperação {C['kappa']:.3f}); o espelho plantado de Lula para Flávio faz As variar {S['plantio']['espelho_2026_de_L_para_R']['0.0357']['subida_As']:+.4f}. A estatística enxerga.")
+    P(f"    Mas a régua de decisão não: com a troca inteira plantada, As vai a {ex['criterio_sob_plantio']['uniforme']['As_principal']:+.4f} e a cláusula do placebo pede {ex['criterio_sob_plantio']['limiar_da_clausula_do_placebo']:.4f}. Com 2018 e 2022 como estão, a letra não chega a SINAL com a fraude do tamanho da hipótese nem a SEM SINAL com valor nenhum.")
+    P('  A favor da tese:')
+    P(f"    (1) As é positivo e está a {r['As']/r['ep_As']:.1f} erros-padrão de zero; o lado para onde pende é o de Lula.")
+    P(f"    (2) A retenção se inverteu: Lula reteve {r['ret_L']:.4f} e Flávio {r['ret_R']:.4f} (diferença {r['assim_retencao']:+.4f}); em 2022, 2018 e 2014 quem reteve menos foi o PT ({S['placebo_2022_d']['assim_retencao']:+.4f}, {S['placebo_2018_d']['assim_retencao']:+.4f}, {S['placebo_2014_d']['assim_retencao']:+.4f}). Nos redutos, {S['redutos']['2026']['dif_L_menos_R']:+.4f}.")
+    P(f"    (3) Contra 2022 como zero, As subiu {ex['relativo_aos_anos']['2022']['dif_As']:+.4f} ({100*ex['relativo_aos_anos']['2022']['parcela_do_necessario']:.0f}% do necessário); contra 2018, {ex['relativo_aos_anos']['2018']['dif_As']:+.4f} ({100*ex['relativo_aos_anos']['2018']['parcela_do_necessario']:.0f}%). O instrumento não exclui uma troca desse tamanho se o zero verdadeiro de 2026 fosse o de 2018 ou o de 2022.")
+    P(f"    (4) Fora da marca deste teste: a abstenção do 1º turno aparece como voto de Lula a {ol['2026']['A1']['L2'][0]:.4f} e de Flávio a {ol['2026']['A1']['R2'][0]:.4f}, com o comparecimento subindo {S['universo']['2026']['base_inteira']['comp2'] - S['universo']['2026']['base_inteira']['comp1']:,} entre os turnos; em 2022 foi {ol['2022']['A1']['L2'][0]:.4f} e {ol['2022']['A1']['R2'][0]:.4f}. É assunto dos testes de comparecimento, não deste.")
+    P('  Contra a tese:')
+    P(f"    (1) As bruto fica abaixo de 0,010 e a um terço do que a hipótese prevê (0,034); o limite superior do intervalo ({r['ic95_As'][1]:+.4f}) fica abaixo de 0,015.")
+    P(f"    (2) A queda de retenção de Flávio vai quase toda para a abstenção, não para Lula: da diferença de {S['variante_d_eliminados_somados']['assim_retencao']:+.4f}, {lm['R1']['A2'][0] - lm['L1']['A2'][0]:+.4f} é abstenção e só {lm['R1']['L2'][0] - lm['L1']['R2'][0]:+.4f} é voto que aparece no adversário. Troca na contagem não mexe na abstenção.")
+    P(f"    (3) Não é espalhado: {S['ufs_com_As_ge_0010']} de 27 UFs com As de 0,010 ou mais (o plantio daria {ex['criterio_sob_plantio']['uniforme']['ufs_com_As_ge_0010']}); {ex['uf']['ufs_espelho_As_le_menos_0010']} UFs pendem para o outro lado; o desenho por UF repete o de 2022 (correlação {ex['uf']['por_ano_d']['2022']['correlacao_com_2026']:+.2f}).")
+    P(f"    (4) O espelho M também é positivo ({r['M']:+.4f}): há passagem aparente nos dois sentidos, como em 2022 ({S['placebo_2022_d']['M']:+.4f}).")
+    P(f"    (5) Contra 2014 como zero a diferença é {ex['relativo_aos_anos']['2014']['dif_As']:+.4f}. E no placebo do mesmo dia (governador, 6 UFs, disputa que não é a da tese) |As| chega a {S['governador']['maior_abs_As_governador']:.4f}: onde um finalista murcha entre os turnos, As passa muito do tamanho da troca procurada.")
+    P(f"    (6) Com perfil da seção (c), As é {S['variante_c_perfil']['As']:+.4f} ({S['variante_c_perfil']['ep_As']:.4f}); mas a variante depende da forma (sensibilidade com parcelas diretas: {S['variante_c_parcela_direta']['As']:+.4f}).")
+    P('  Contagem: 1 estatística primária, 6 cláusulas de sinal, 5 variantes, 27 UFs, 3 tercis, 4 anos, 6 UFs de governador, 2 lados da parte determinística. O acaso amostral (erro-padrão de 0,0017) não leva As a 0,025;')
+    P(f"  o que pode enganar aqui é o zero do instrumento, que mudou {ex['relativo_aos_anos']['saltos_entre_eleicoes_seguidas']['2014_2018']:+.4f}, {ex['relativo_aos_anos']['saltos_entre_eleicoes_seguidas']['2018_2022']:+.4f} e {ex['relativo_aos_anos']['saltos_entre_eleicoes_seguidas']['2022_2026']:+.4f} entre eleições seguidas.")
+    return {'clausulas_de_sinal_que_valem': nsim}
 
 
 if __name__ == '__main__':
@@ -909,8 +1240,19 @@ if __name__ == '__main__':
     elif modo == 'gov2t':
         extrair_gov2t()
     else:
-        S, T = main()
-        with open(RAIZ + '/resultados/R27_A2_assimetria_vazamento.json', 'w') as f:
-            json.dump(S, f, ensure_ascii=False, indent=1, default=lambda o: o.item() if hasattr(o, 'item') else str(o))
-        with open(RAIZ + '/resultados/R27_A2_assimetria_vazamento.txt', 'w') as f:
-            f.write('\n'.join(T) + '\n')
+        S, T, C = main()
+        gravar(S, T)   # parte registrada já em disco antes do exploratório
+        P = C['P']
+        S['exploratorio'] = {'aviso': 'Feito depois de ver o resultado da primeira rodada (10/11/2026, 00:57 UTC). Não entra no veredito pela letra.'}
+        P('')
+        P('11. EXPLORATÓRIO (feito DEPOIS de ver o resultado da primeira rodada; não entra no veredito pela letra)')
+        for nome, fn in (('criterio_sob_plantio', exploratorio_criterio_sob_plantio), ('relativo_aos_anos', exploratorio_relativo_aos_anos),
+                         ('linhas_da_matriz', exploratorio_linhas_da_matriz), ('uf', exploratorio_uf),
+                         ('governador_deterministica', exploratorio_governador_deterministica),
+                         ('concentracao_e_casos', exploratorio_concentracao_e_casos), ('casos_locais', exploratorio_casos_locais)):
+            S['exploratorio'][nome] = fn(S, C)
+            S['tempo_s'] = round(time.time() - C['t0'])
+            gravar(S, T)
+        S['resumo'] = resumo_final(S, C)
+        S['tempo_s'] = round(time.time() - C['t0'])
+        gravar(S, T)

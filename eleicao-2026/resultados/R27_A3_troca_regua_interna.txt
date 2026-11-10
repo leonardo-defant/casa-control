@@ -1,0 +1,290 @@
+R27_A3: TROCA PROPORCIONAL COM RÉGUA INTERNA (Adendo 27, Onda A, item A3)
+Quatro retestes da equipe vermelha: T14 por capacidade de troca de eleitores, T16 por reduto, T7 estrito e L3 por capacidade.
+Critérios: registro/adendo27/equipe_vermelha_relatorio.json (commit 2748895, 10/11/2026 00:16:42 UTC), aplicados pela letra.
+Decisões que o registro não fixa: docstring de scripts/analisar_R27_A3.py, escrito antes das contas (SHA-256 97b8cb7790d763c0...).
+Aviso do registro: estes retestes foram escritos por quem já conhecia os resultados antigos; o critério é novo, a escolha do que retestar não.
+Só dados de 2026 decidem. Outros anos aparecem ao lado, com o valor de 2026 na mesma linha, e não são régua.
+
+VEREDITOS PELA LETRA
+  Parte 1 (T14 por capacidade): SINAL. Coeficiente de Flávio no decil de menor capacidade +0,0443 (ep 0,0027), 16,3 ep de zero; no decil de maior capacidade +0,0362; razão 1,224.
+    Ressalvas que mudam a leitura: sem o exterior a letra dá INCONCLUSIVO (razão 0,798); o espelho dá SEM SINAL; a decomposição exploratória (item 1.5) mostra que o coeficiente do D1 é eleitor de Flávio que não voltou, não voto que foi para Lula.
+  Parte 2 (T16 por reduto), forma s x F: EXCLUSÃO de troca uniforme de 2% ou mais, isto é, SEM SINAL para essa forma. Coeficiente no 1% de maior fatia de Flávio +0,0078 (ep 0,0042); nos 5%, +0,0149 (ep 0,0021); no quintil do PL, +0,0293 (ep 0,0012). Limite +0,0274. Pela aritmética literal da frase do registro: INCONCLUSIVO.
+    Forma k x L: SEM PODER (a cláusula não dispara nem com a forma plantada). Forma proporcional ao total: teto de 3,35% dos votos de Flávio com nível natural zero (1,82% com o espelho).
+  Parte 3 (T7 estrito): SINAL pela letra, só pela cláusula B e por 0,45 ponto ((a) de 17,90% onde Flávio tem menos de 35% contra 17,45% com 3% plantados onde ele tem 65% ou mais). Com o plantio pelo valor esperado a cláusula não dispara (18,05%).
+    Limite aritmético estrito: 20 votos em 10 seções no país inteiro (limites de 0,1 milhão, 0,6 milhão e 2,8 milhões). SEM PODER: com 3,6% plantados a soma vai a 48 votos.
+  Parte 4 (L3 por capacidade): INCONCLUSIVO pela letra; SEM PODER pela regra de recuperação fixada antes. P5 no decil de menor capacidade -0,0177 (ep 0,0059), 3,0 ep de zero; espelho (núcleo do PT) -0,0152 (ep 0,0043).
+  Resumo: Pela letra há dois sinais (Parte 1 e cláusula B do T7), mas nenhum dos dois marca troca de voto: pela decomposição exploratória, o da Parte 1 vem do eleitor de Flávio que não voltou (no decil de menor capacidade, a parcela dos votos de Flávio que aparece em Lula é 0,88%, igual ao espelho de 0,81%), o do T7 passa por 0,45 ponto e some com o plantio pelo valor esperado; nos redutos de Flávio, troca uniforme de 2% ou mais dos votos dele fica excluída; o limite aritmético estrito e a forma k x L ficam SEM PODER.
+  Contagem: 7 cláusulas de decisão aplicadas; 2 dispararam (P1.3 e cláusula B do T7). A P1.3 passa a 16 ep de zero, não é acaso de amostra; o que se discute nela
+  é o que o coeficiente mede. A cláusula B passa por cerca de 1,5 a 2 erros-padrão; entre 7 cláusulas, o acaso daria por volta de 0,2 a 0,3 disparo dessa margem.
+  Um SINAL só conta como indício depois de o conferente independente reproduzir (Adendo 27). Isso ainda não foi feito para esta peça.
+
+0. CONFERÊNCIAS (o código reproduz o que já estava publicado antes de relatar o novo)
+  Estimador próprio contra lib.fe_ols: maior diferença de coeficiente 2.2e-16; de erro-padrão 1.7e-18.
+  T14 nacional +0,0393 (ep 0,0007) (publicado +0,0393, ep 0,0007); 477.035 seções informativas em 72.538 locais (publicado 477.035 e 72.538).
+  Identidade do G3 (coeficiente de Flávio no ganho de Lula mais o próprio de Flávio no ganho de Flávio): -1.7e-16. Outros no 2º turno: 0.
+  Totais do 2º turno na base: Lula 64.256.232, Flávio 59.826.041, margem 4.430.191 (iguais ao oficial).
+  Deputado federal do 1º turno, lido do bweb por filtro de bytes: 26.151.133 linhas em 497.897 seções (os mesmos números do L3); soma diferente do comparecimento em 0 seções; 0 seções do país sem deputado; cortes do PL e do PT iguais aos do L3 publicado.
+  L3 refeito: quintil de maior fatia do PL -0,0293 (ep 0,0012), publicado -0,0293 (0,0012); quintil de menor fatia -0,0812 (ep 0,0021), publicado -0,0812 (0,0021).
+  T7 original refeito: (a) 8,99% e (b) 1,42% (publicado 8,99 e 1,42); por faixa 17,90, 8,15, 5,23, 3,72 (publicado 17,90, 8,15, 5,23 e 3,72).
+
+1. PARTE 1: T14 POR DECIL DE CAPACIDADE DE TROCA DE ELEITORES
+  Universo: 443.483 seções com aptos iguais nos dois turnos, de 499.205 com os dois turnos (55.722 têm aptos diferentes e saem); 992 são do exterior.
+  c = (aptos - comparecimento do 1º turno)/aptos. Regressão do T8 dentro de cada decil, efeito fixo de local, erro agrupado por local.
+  b = coeficiente dos votos de Flávio no 1º turno no ganho de Lula (o coeficiente do T14). Espelho = coeficiente dos votos de Lula no 1º turno no ganho de Flávio.
+  decil | c (mínimo a máximo, média) | seções | informativas | fatia de Flávio no 1T | b (ep) | espelho (ep) | recuperado com 2% | com 3,6%
+   D1  | 0,000 a 0,141, 0,118 |  44.383 |  27.563 | 42,2% | +0,0443 (ep 0,0027) | +0,0097 (ep 0,0020) | 2,19 | 3,37
+   D2  | 0,141 a 0,162, 0,152 |  44.336 |  26.639 | 45,8% | +0,0481 (ep 0,0035) | +0,0210 (ep 0,0033) | 2,11 | 3,44
+   D3  | 0,162 a 0,177, 0,170 |  44.326 |  25.453 | 47,1% | +0,0486 (ep 0,0042) | +0,0161 (ep 0,0044) | 2,03 | 3,25
+   D4  | 0,177 a 0,190, 0,184 |  44.809 |  25.355 | 47,7% | +0,0458 (ep 0,0042) | +0,0179 (ep 0,0043) | 1,97 | 3,55
+   D5  | 0,191 a 0,204, 0,197 |  43.920 |  24.455 | 47,8% | +0,0447 (ep 0,0047) | +0,0118 (ep 0,0049) | 1,95 | 3,71
+   D6  | 0,204 a 0,217, 0,210 |  44.379 |  25.212 | 47,9% | +0,0459 (ep 0,0045) | +0,0247 (ep 0,0047) | 1,94 | 3,77
+   D7  | 0,217 a 0,233, 0,225 |  44.310 |  26.164 | 47,9% | +0,0454 (ep 0,0046) | +0,0225 (ep 0,0048) | 1,88 | 3,32
+   D8  | 0,233 a 0,252, 0,242 |  44.358 |  27.965 | 47,8% | +0,0411 (ep 0,0044) | +0,0250 (ep 0,0046) | 1,89 | 3,40
+   D9  | 0,252 a 0,281, 0,265 |  44.329 |  30.116 | 47,6% | +0,0483 (ep 0,0045) | +0,0298 (ep 0,0045) | 2,10 | 3,57
+   D10 | 0,281 a 0,963, 0,322 |  44.333 |  33.246 | 46,5% | +0,0362 (ep 0,0061) | +0,0188 (ep 0,0044) | 1,97 | 3,34
+  1.1 Critério (P1.3)
+    b(D1) = +0,0443 (ep 0,0027): é de pelo menos 0,03 (sim), a 16,3 ep de zero (5,3 ep do limiar de 0,03), e é 122% do b(D10) = +0,0362. SINAL pela letra, nas duas leituras de "a mais de 4 ep".
+    b(D1) menos 0,8 x b(D10) = +0,0154 (ep 0,0056); menos 0,4 x b(D10) = +0,0298 (ep 0,0037).
+    O coeficiente quase não muda com a capacidade: fica entre +0,0362 e +0,0486 nos dez decis.
+    Atenção ao que "menor capacidade" quer dizer nos dados: no D1 a abstenção do 1º turno vai até 14,1% (média 11,8%), com 1.511.716 faltosos para 4.482.426 votos de Flávio. Não existe decil em que "quase não cabem eleitores novos".
+  1.2 Calibração registrada (plantio de 2% e 3,6% dos votos de Flávio no 2º turno, por cima de 2026)
+    Recuperação no D1: 2,19 pontos para 2 plantados e 3,37 para 3,6: dentro de 0,3 ponto. Em todos os decis: com 2% sim; com 3,6% não (um decil fica a mais de 0,3; pelo valor esperado, sem sorteio, todos ficam entre 3,43 e 3,47).
+    Ruído do sorteio no D1 (exploratório, 200 sorteios): 2% recupera 1,92 (dp 0,08); 3,6% recupera 3,45 (dp 0,11).
+    O critério aplicado aos dados com plantio: SINAL com 2% e SINAL com 3,6%. O instrumento enxerga a troca plantada.
+    Outras formas, 3,6% (deslocamento de b no D1, em pontos): forma k x L +0,14; proporcional ao total +1,68; concentrada onde Lula é forte +1,94. O coeficiente de Flávio é cego para a forma k x L.
+  1.3 Espelho
+    O mesmo critério para Lula perdendo para Flávio: espelho(D1) = +0,0097 (ep 0,0020), espelho(D10) = +0,0188: SEM SINAL (abaixo de 0,015). O plantio espelho de 3,6% é recuperado no D1 (3,67) e faria o espelho dar SINAL.
+    Diferença no D1 entre o coeficiente de Flávio e o de Lula: +0,0346 (ep 0,0034).
+  1.4 Ao lado (fixado antes; não entra no veredito)
+    Sem o exterior: b(D1) +0,0443, b(D10) +0,0556, razão 0,798: INCONCLUSIVO, faltando 0,2 ponto percentual para os 80%. As 990 seções do exterior que caem no D10 têm coeficiente -0,0339 (ep 0,0073) e puxam o D10 para baixo.
+    Empilhada com efeito fixo de local comum: b(D1) +0,0494 (ep 0,0010), b(D10) +0,0385 (ep 0,0018): SINAL. Espelho: D1 +0,0150 (ep 0,0009), D10 +0,0056 (ep 0,0014).
+    Interação contínua: coeficiente de Flávio extrapolado para capacidade zero +0,0541 (ep 0,0016); inclinação por unidade de c -0,0484 (ep 0,0088). Reta dos dez decis: intercepto +0,0489 (ep 0,0046).
+    Outros agregados em vez dos grupos: b(D1) +0,0445, b(D10) +0,0363: mesmo veredito.
+    Outros anos, mesma conta com outros agregados (NÃO É RÉGUA; o Léo suspeita também desses anos). Coeficiente no D1 e no D10:
+      2026: Flávio perdendo para Lula +0,0445 e +0,0363; Lula perdendo para Flávio +0,0097 e +0,0190.
+      2022: Bolsonaro perdendo para Lula +0,0115 e +0,0279 (a letra daria SEM SINAL); Lula perdendo para Bolsonaro +0,0313 e +0,0350 (a letra daria SINAL).
+      2018: Bolsonaro perdendo para Haddad +0,0131 e +0,0418 (a letra daria SEM SINAL); Haddad perdendo para Bolsonaro +0,0403 e +0,0526 (a letra daria INCONCLUSIVO).
+      2014: Aécio perdendo para Dilma +0,0486 e +0,0836 (a letra daria INCONCLUSIVO); Dilma perdendo para Aécio +0,0471 e +0,0591 (a letra daria INCONCLUSIVO).
+      Leitura: pela mesma letra, 2022 daria SINAL com os papéis trocados (eleitor de Lula "perdido" para Bolsonaro, +0,0313 no D1, 90% do D10; na leitura a 4 ep do limiar, INCONCLUSIVO).
+      Ou houve troca contra Lula em 2022, o que ninguém sustenta, ou o coeficiente do T8 passa de 0,03 no decil de menor capacidade por razão que não é troca de voto.
+  1.5 EXPLORATÓRIO (depois de ver o resultado): o que o coeficiente do T8 mede
+    A regressão do T8 tem a variação do comparecimento como controle (coeficiente 0,567). Um eleitor de Flávio que falta no 2º turno derruba o comparecimento em 1, a regressão
+    espera que Lula perca 0,57 voto com isso, Lula não perde nada, e a sobra aparece como "voto de Flávio que foi para Lula". O coeficiente do T14 mistura as duas coisas.
+    Matriz de transferência sem esses controles (L2, R2, branco+nulo e faltosos do 2º turno contra tudo do 1º turno; a especificação do desenho cego D4-1, aqui sem peso), por decil:
+    decil | Flávio 1T que aparece em Lula (ep) | Lula 1T que aparece em Flávio (ep) | Flávio 1T que não voltou (ep) | Lula 1T que não voltou (ep)
+     D1  | +0,0088 (ep 0,0029) | +0,0081 (ep 0,0023) | +0,0493 (ep 0,0028) | +0,0077 (ep 0,0025)
+     D2  | +0,0238 (ep 0,0051) | +0,0216 (ep 0,0045) | +0,0326 (ep 0,0044) | -0,0013 (ep 0,0044)
+     D3  | +0,0302 (ep 0,0069) | +0,0193 (ep 0,0064) | +0,0250 (ep 0,0065) | -0,0008 (ep 0,0066)
+     D4  | +0,0261 (ep 0,0077) | +0,0120 (ep 0,0074) | +0,0304 (ep 0,0075) | +0,0056 (ep 0,0075)
+     D5  | +0,0249 (ep 0,0086) | +0,0121 (ep 0,0087) | +0,0186 (ep 0,0087) | -0,0061 (ep 0,0087)
+     D6  | +0,0180 (ep 0,0088) | +0,0190 (ep 0,0086) | +0,0434 (ep 0,0086) | +0,0143 (ep 0,0087)
+     D7  | +0,0158 (ep 0,0084) | +0,0366 (ep 0,0081) | +0,0240 (ep 0,0084) | -0,0062 (ep 0,0088)
+     D8  | +0,0226 (ep 0,0074) | +0,0305 (ep 0,0070) | +0,0195 (ep 0,0075) | -0,0164 (ep 0,0078)
+     D9  | +0,0376 (ep 0,0063) | +0,0388 (ep 0,0057) | +0,0094 (ep 0,0064) | -0,0166 (ep 0,0065)
+     D10 | +0,0403 (ep 0,0053) | +0,0369 (ep 0,0038) | -0,0171 (ep 0,0082) | -0,0544 (ep 0,0070)
+     todos | +0,0219 (ep 0,0008) | +0,0153 (ep 0,0007) | +0,0265 (ep 0,0011) | -0,0083 (ep 0,0011)
+    Conferência da decomposição no universo: b do T8 +0,0397 contra transferência +0,0219 + faltosos +0,0151 + branco e nulo +0,0048 = +0,0417.
+    No D1, a parcela dos votos de Flávio que aparece em Lula é +0,0088 (ep 0,0029), igual ao espelho +0,0081 (ep 0,0023). O que é diferente é quem não voltou: +0,0493 (ep 0,0028) dos eleitores de Flávio contra +0,0077 (ep 0,0025) dos de Lula.
+    A letra da P1.3 aplicada à transferência: SEM SINAL (D1 abaixo de 0,015 e 22% do D10); espelho SEM SINAL. A transferência cresce com a capacidade nos dois sentidos, de 0,9% a 4,0% e de 0,8% a 3,7%: é o desenho que a troca de eleitores prevê.
+    O plantio de 3,6% também aparece na transferência do D1 (sobe 3,25 pontos; com plantio a letra daria INCONCLUSIVO, porque a razão com o D10 não chega a 80%).
+    Uma troca de voto dentro da urna não mexe no comparecimento: aparece na transferência, não em "quem não voltou". O sinal da Parte 1 é do canal do comparecimento.
+    Quem não voltou, nos outros anos (NÃO É RÉGUA; universo de aptos iguais; adversário e PT):
+      2026: Flávio +2,65%, Lula -0,83%; no D1, Flávio +4,93%, Lula +0,77%.
+      2022: adversário +1,03%, PT +1,97%; no D1, adversário +1,89%, PT +1,94%.
+      2018: adversário +2,67%, PT +3,50%; no D1, adversário +3,23%, PT +3,81%.
+      2014: adversário +2,14%, PT +4,22%; no D1, adversário +3,60%, PT +3,52%.
+      Em 2014, 2018 e 2022 quem menos voltou foi o eleitor do PT, por 0,8 a 2,1 pontos; em 2026 é o de Flávio, por 3,5 pontos (4,2 no D1). Essa inversão é real e fica sem explicação aqui.
+    O D1 aberto pela fatia de Flávio na seção (coeficiente de Flávio do T8):
+      Flávio com 0 a 35%: D1 +0,0969 (ep 0,0059) (8.916 seções informativas); universo +0,0995 (ep 0,0019); próprio de Lula no universo -0,0149 (ep 0,0009).
+      Flávio com 35 a 50%: D1 +0,0679 (ep 0,0052) (9.164 seções informativas); universo +0,0535 (ep 0,0016); próprio de Lula no universo -0,0236 (ep 0,0014).
+      Flávio com 50 a 65%: D1 +0,0291 (ep 0,0069) (3.599 seções informativas); universo +0,0266 (ep 0,0012); próprio de Lula no universo -0,0328 (ep 0,0016).
+      Flávio com 65 a 100%: D1 +0,0133 (ep 0,0054) (2.986 seções informativas); universo +0,0101 (ep 0,0017); próprio de Lula no universo -0,0389 (ep 0,0031).
+      O coeficiente do D1 não é uniforme: é alto onde Lula domina e baixo onde Flávio domina, igual ao resto do país. É o desenho do T35 (item A4), não o de uma fração fixa.
+
+2. PARTE 2: T16 POR ESTRATO DE REDUTO, TRÊS FORMAS DE TROCA
+  Universo: 497.897 seções com os dois turnos, fora do exterior. Cortes: fatia de Flávio acima de 79,1% (1%) e de 71,4% (5%); PL para deputado federal acima de 34,4% (quintil). Espelhos: Lula acima de 88,6% e de 78,7%; PT acima de 18,8%.
+  estrato | seções | informativas | Flávio e Lula no 1T | coeficiente de Flávio b (ep) | próprio de Lula (ep) | b com 2% | b com 3,6% (forma F)
+   reduto de Flávio 1%      |   4.977 |   3.407 | 82,4% e 12,8% | +0,0078 (ep 0,0042) | -0,0435 (ep 0,0146) | +0,0295 | +0,0418
+   reduto de Flávio 5%      |  24.888 |  20.885 | 76,0% e 17,8% | +0,0149 (ep 0,0021) | -0,0428 (ep 0,0050) | +0,0360 | +0,0495
+   quintil do PL            |  99.558 |  93.573 | 56,8% e 35,1% | +0,0293 (ep 0,0012) | -0,0189 (ep 0,0017) | +0,0488 | +0,0637
+   espelho, Lula 1%         |   4.979 |   1.886 | 6,3% e 92,1% | +0,2701 (ep 0,0236) | -0,0074 (ep 0,0026) | +0,2854 | +0,2943
+   espelho, Lula 5%         |  24.878 |  16.089 | 12,7% e 84,5% | +0,1564 (ep 0,0061) | -0,0125 (ep 0,0014) | +0,1734 | +0,1847
+   espelho, quintil do PT   |  99.573 |  88.883 | 38,9% e 53,7% | +0,0520 (ep 0,0015) | -0,0143 (ep 0,0012) | +0,0702 | +0,0859
+   país sem exterior        | 497.897 | 475.803 | 47,0% e 45,2% | +0,0402 (ep 0,0006) | -0,0141 (ep 0,0006) | +0,0597 | +0,0747
+  Nível natural pelo espelho (Lula perdendo para Flávio nos redutos de Lula): +0,0074 (ep 0,0026), +0,0125 (ep 0,0014) e +0,0143 (ep 0,0012). Menor: +0,0074.
+  2.1 Forma s x F (troca uniforme proporcional aos votos de Flávio)
+    reduto de Flávio 1%: b + 2 ep = +0,0161; limite principal +0,0274: exclui; limite literal +0,0126: não exclui; contra o próprio espelho +0,0274: exclui. Sinal (0,03 a mais de 4 ep): não.
+    reduto de Flávio 5%: b + 2 ep = +0,0191; limite principal +0,0274: exclui; limite literal +0,0126: não exclui; contra o próprio espelho +0,0325: exclui. Sinal (0,03 a mais de 4 ep): não.
+    quintil do PL: b + 2 ep = +0,0317; limite principal +0,0274: não exclui; limite literal +0,0126: não exclui; contra o próprio espelho +0,0343: exclui. Sinal (0,03 a mais de 4 ep): não.
+    Veredito: EXCLUSÃO (pelo menos um estrato exclui e nenhum dá sinal). Leituras ao lado: literal INCONCLUSIVO; maior espelho EXCLUSÃO; cada estrato com o próprio espelho EXCLUSÃO; espelho com 2% plantados EXCLUSÃO.
+    Poder: os três estratos têm 2 ep abaixo de 0,02 e recuperam o plantio (1%: 2,17 e 3,40; 5%: 2,10 e 3,46; PL: 1,95 e 3,44). Com 2% plantados o critério deixa de excluir (INCONCLUSIVO); com 3,6% dá SINAL. O teste enxerga a forma F.
+    Espelho do teste: os redutos de Lula, julgados com o menor coeficiente dos redutos de Flávio como nível natural (+0,0078), também ficam excluídos e sem sinal. Os dois lados perdem o mesmo nos próprios redutos.
+    Diferença reduto de Flávio menos espelho de Lula: 1% +0,0004 (ep 0,0049); 5% +0,0025 (ep 0,0025); partido +0,0150 (ep 0,0017). No quintil do partido a diferença existe, mas os dois estratos não são simétricos: o do PL tem Lula com 35% e o do PT tem Flávio com 39%.
+  2.2 Forma k x L (troca proporcional aos votos de Lula)
+    O coeficiente de Flávio nos redutos não se mexe com essa forma (inclinação 0,007, 0,014 e 0,027 por unidade de troca). Quem se mexe é o próprio de Lula (inclinação 0,92 no país).
+    Cláusula do registro (|próprio de Lula| < 0,01 e coeficiente de Flávio > 0,04, em todos os estratos): nos três redutos, não dispara; nos três espelhos (ao lado), não dispara; no país (ao lado), não dispara.
+    Com a forma L de 3,6% plantada a cláusula não dispara nos redutos (exige coeficiente de Flávio acima de 0,04 onde essa forma não o move): SEM PODER.
+    Nos espelhos, com 2% plantados ela dispararia e com 3,6% não (o próprio de Lula passa de zero e sai da faixa): a cláusula mede nível, e o nível natural do próprio de Lula não se conhece.
+    Valores brutos: próprio de Lula -0,0074, -0,0125 e -0,0143 nos redutos dele e -0,0141 no país. Uma troca k x L do tamanho que vira (k de 3,3%) pediria que, sem ela, Lula perdesse cerca de 4,5% dos próprios eleitores no país. Este teste não tem como dizer se perderia.
+  2.3 Forma proporcional ao total e teto de cada forma (P2.6)
+    Inclinação do coeficiente de Flávio por unidade de troca, no reduto de 1%: forma F 0,99; forma L 0,01; total 0,48.
+    Teto da forma s x F: com nível natural zero, 1,63% dos votos de Flávio (989.610 votos, 45% da margem; ponto 0,79%); com o espelho, 0,88% (533.438 votos, 24% da margem). Limita: reduto de 1%.
+    Teto da forma proporcional ao total: com nível natural zero, 3,35% dos votos de Flávio (2.072.145 votos, 94% da margem; ponto 1,62%); com o espelho, 1,82% (1.107.877 votos, 50% da margem). Limita: reduto de 1%.
+    Forma k x L: o coeficiente de reduto é cego; não há teto.
+    Forma concentrada onde Lula é forte, do tamanho que vira (ao lado): moveria o coeficiente do reduto de 1% em +0,04 ponto e o de 5% em +0,26. A exclusão desta parte não vale para ela.
+  2.4 EXPLORATÓRIO: matriz de transferência nos mesmos estratos (aptos iguais)
+    reduto de Flávio 1%     : Flávio 1T em Lula +0,0014 (ep 0,0047); Lula 1T em Flávio +0,0148 (ep 0,0242); Flávio 1T que não voltou +0,0110 (ep 0,0072); Lula 1T que não voltou +0,0285 (ep 0,0225).
+    reduto de Flávio 5%     : Flávio 1T em Lula +0,0102 (ep 0,0024); Lula 1T em Flávio +0,0159 (ep 0,0080); Flávio 1T que não voltou +0,0128 (ep 0,0032); Lula 1T que não voltou +0,0279 (ep 0,0073).
+    quintil do PL           : Flávio 1T em Lula +0,0176 (ep 0,0015); Lula 1T em Flávio +0,0179 (ep 0,0021); Flávio 1T que não voltou +0,0200 (ep 0,0016); Lula 1T que não voltou -0,0001 (ep 0,0022).
+    espelho, Lula 1%        : Flávio 1T em Lula -0,0010 (ep 0,0621); Lula 1T em Flávio +0,0073 (ep 0,0029); Flávio 1T que não voltou +0,2958 (ep 0,0578); Lula 1T que não voltou -0,0009 (ep 0,0079).
+    espelho, Lula 5%        : Flávio 1T em Lula -0,0002 (ep 0,0118); Lula 1T em Flávio +0,0134 (ep 0,0015); Flávio 1T que não voltou +0,1910 (ep 0,0118); Lula 1T que não voltou -0,0116 (ep 0,0032).
+    espelho, quintil do PT  : Flávio 1T em Lula +0,0298 (ep 0,0021); Lula 1T em Flávio +0,0191 (ep 0,0014); Flávio 1T que não voltou +0,0337 (ep 0,0022); Lula 1T que não voltou -0,0143 (ep 0,0018).
+    Nos redutos de Lula, pela matriz de transferência, o coeficiente alto de Flávio no T8 (+0,27 e +0,16) corresponde a eleitor que não voltou (30% e 19%, com ep de 6 e 1 ponto); a parcela que aparece em Lula é zero.
+    É regressão ecológica em seções muito homogêneas: o número diz que, dentro do mesmo local, a seção com mais votos de Flávio no 1º turno teve mais faltosos no 2º; não identifica eleitores.
+
+3. PARTE 3: T7 ESTRITO (LIMITE ARITMÉTICO)
+  Bolo máximo = outros + brancos + nulos + faltosos do 1º turno: 48.760.938 no país (bolo do Adendo 3: 15.011.833). Ganho de Lula 10.376.696; de Flávio 3.721.538.
+  O excesso estrito é positivo quando os votos de Lula no 2º turno passam de todos os eleitores da seção que não votaram em Flávio no 1º turno.
+  faixa da fatia de Flávio | seções | (a) bolo do Adendo 3 (ep) | (b) | excesso | (a) estrito | seções com excesso estrito | excesso estrito em votos
+   país       | 499.205 | 8,99% (0,06) | 1,42% | 147.307 | 0,0020% | 10 | 20
+   0 a 35%    | 121.858 | 17,90% (0,13) | 2,83% |  68.805 | 0,0057% | 7 | 17
+   35 a 50%   | 147.272 | 8,15% (0,09) | 1,16% |  41.737 | 0,0000% | 0 | 0
+   50 a 65%   | 166.161 | 5,23% (0,07) | 0,85% |  29.505 | 0,0000% | 0 | 0
+   65 a 100%  |  63.914 | 3,72% (0,09) | 0,81% |   7.260 | 0,0047% | 3 | 3
+  Espelho (ganho de Flávio; faixas pela fatia de Lula): (a) 0,13% no país; 0,10, 0,05, 0,08, 0,42 por faixa; excesso estrito 24 votos em 1 seção.
+  Só aptos iguais: excesso estrito 20 votos em 10 seções (as 10 seções têm aptos iguais). Sem o exterior: o mesmo.
+  3.1 Calibração dentro de 2026 (forma F por sorteio; quanto cada ponto de troca acrescenta)
+    troca | (a) país | (a) por faixa de Flávio (0 a 35, 35 a 50, 50 a 65, 65 a 100) | (b) país | excesso estrito no país
+     0,0% | 8,99 | 17,90, 8,15, 5,23, 3,72 | 1,42 | 20 votos
+     1,0% | 11,90 | 20,98, 11,00, 7,97, 6,85 | 1,88 | 29 votos
+     2,0% | 15,58 | 24,31, 14,62, 11,66, 11,34 | 2,48 | 27 votos
+     3,0% | 20,04 | 27,93, 18,70, 16,44, 17,45 | 3,26 | 35 votos
+     3,6% | 23,05 | 30,28, 21,56, 19,49, 21,95 | 3,81 | 48 votos
+    Cada ponto de troca acrescenta ao (a) do país 2,91 pontos no primeiro ponto e 3,90 em média até 3,6; na faixa de 65% ou mais, 5,06; na faixa abaixo de 35%, 3,44.
+    Ao excesso estrito, cada ponto acrescenta 8 votos no país inteiro. O limite aritmético não enxerga uma troca de 2,15 milhões de votos.
+    Outras formas, 3,6% (ao lado), (a) por faixa: k x L 56,9, 26,7, 14,3, 8,5; total 45,3, 24,1, 16,8, 13,7; concentrada 40,8, 26,4, 17,7, 11,7.
+  3.2 Cláusulas
+    A: excesso estrito somado acima de 600.000 votos? Não: 20 votos. Limite de indício do T14 (2,8 milhões): não. Abaixo de 100.000: sim.
+    B: (a) da faixa abaixo de 35% (17,90%) acima do (a) da faixa de 65% ou mais com 3% plantados (17,45%)? Sim, por 0,45 ponto.
+       Exploratório: em 200 sorteios do plantio, o lado direito fica em 17,53% (dp 0,09; de 17,31 a 17,77) e a cláusula dispara em todos. Com o plantio pelo valor esperado (como o Adendo 4 fez em 2022) o lado direito é 18,05% e a cláusula não dispara.
+       O (a) de 17,90% equivale ao que uma troca de 3,0% a 3,1% produz na faixa forte de Flávio (3,1% por sorteio: 18,24%; 2,9% pelo valor esperado: 17,35%). O limiar do registro era 3%.
+    SEM SINAL exigiria gradiente por faixa igual ao espelho: Lula +14,18 pontos, espelho de Flávio -0,33. Não é igual.
+    O que a cláusula B enxerga: com 3,6% uniformes plantados ela deixa de disparar (30,28% contra 48,90%); com a forma concentrada onde Lula é forte ela dispara (40,85% contra 17,45%). Ela não é detector de troca uniforme: mede se o excesso se concentra onde Flávio é fraco.
+    Espelho da cláusula B: (a) de Flávio onde Lula tem menos de 35% 0,10% contra 4,13% com 3% plantados onde Lula tem 65% ou mais: não dispara. Mas os dois lados não são comparáveis em nível: Lula ganhou 10,4 milhões de votos entre os turnos e Flávio 3,7 milhões, disputando o mesmo bolo.
+    Com o (a) do bolo máximo (ao lado): letra SEM SINAL, sem valor, porque esse (a) é de 0,0020% e não se mexe com plantio nenhum.
+    Conta que ajuda a ler o (a): pela identidade do 2º turno, excesso positivo sobre o bolo do Adendo 3 quer dizer que Flávio perdeu votos na seção além da queda do comparecimento e da alta do branco e nulo.
+    Não é troca provada: é saída líquida de votos de Flávio, que também vem de eleitor dele que faltou e foi substituído por eleitor novo de Lula.
+    Leitura com premissa (P3.8; o espelho de Flávio como nível natural, premissa fraca pelo motivo acima): troca uniforme equivalente de 2,3% no país; por faixa 5,2%, 2,2%, 1,3%, 0,7%.
+  3.3 Seções com excesso estrito (casos individuais; todas com aptos iguais)
+    AM|2755|22|70: excesso 5; Lula 154 para 180, Flávio 20 para 1; aptos 195; comparecimento 183 e 184.
+    AL|28754|49|135: excesso 3; Lula 25 para 31, Flávio 11 para 7; aptos 39; comparecimento 38 e 38.
+    SP|71072|325|685: excesso 3; Lula 42 para 48, Flávio 11 para 4; aptos 56; comparecimento 55 e 53.
+    BA|39659|41|400: excesso 2; Lula 36 para 38, Flávio 17 para 14; aptos 53; comparecimento 53 e 53.
+    MG|40282|63|194: excesso 2; Lula 78 para 94, Flávio 11 para 9; aptos 103; comparecimento 100 e 103.
+    PA|4472|4|580: excesso 1; Lula 35 para 47, Flávio 81 para 73; aptos 127; comparecimento 122 e 121.
+    PE|23876|21|149: excesso 1; Lula 39 para 44, Flávio 13 para 10; aptos 56; comparecimento 55 e 55.
+    MG|40690|16|347: excesso 1; Lula 4 para 5, Flávio 33 para 29; aptos 37; comparecimento 37 e 34.
+    MA|9555|78|296: excesso 1; Lula 59 para 65, Flávio 7 para 3; aptos 71; comparecimento 69 e 70.
+    PA|4073|21|296: excesso 1; Lula 21 para 24, Flávio 42 para 40; aptos 65; comparecimento 64 e 64.
+    São seções pequenas ou de comparecimento quase total em que alguns eleitores de Flávio do 1º turno votaram em Lula no 2º (ou foram trocados por outros). Vinte votos no país.
+    A parte determinística do A2, que usa os aptos do 2º turno, lista as mesmas 10 seções e mais algumas em que o número de aptos mudou entre os turnos (por exemplo BA|34134|170|262, de 119 para 68 aptos); nessas o limite deixa de ser estrito.
+  3.4 Por UF: (a) do bolo do Adendo 3, bruto e com 3,6% plantados; excesso estrito em votos; espelho de Flávio
+    RN: 24,6% e 44,0%; estrito 0 (0 seç.); espelho 0,02%; Flávio no 1T 35%
+    MA: 24,0% e 39,9%; estrito 1 (1 seç.); espelho 0,23%; Flávio no 1T 31%
+    AL: 23,4% e 44,8%; estrito 3 (1 seç.); espelho 0,17%; Flávio no 1T 40%
+    CE: 21,4% e 38,8%; estrito 0 (0 seç.); espelho 0,14%; Flávio no 1T 31%
+    SE: 20,4% e 37,5%; estrito 0 (0 seç.); espelho 0,00%; Flávio no 1T 31%
+    PB: 20,1% e 38,3%; estrito 0 (0 seç.); espelho 0,00%; Flávio no 1T 33%
+    PI: 19,4% e 31,6%; estrito 0 (0 seç.); espelho 0,66%; Flávio no 1T 24%
+    PE: 16,6% e 34,7%; estrito 1 (1 seç.); espelho 0,00%; Flávio no 1T 31%
+    BA: 14,0% e 28,2%; estrito 2 (1 seç.); espelho 0,37%; Flávio no 1T 29%
+    RJ: 12,7% e 36,1%; estrito 0 (0 seç.); espelho 0,01%; Flávio no 1T 53%
+    TO: 11,5% e 31,7%; estrito 0 (0 seç.); espelho 0,30%; Flávio no 1T 50%
+    AM: 10,4% e 27,7%; estrito 5 (1 seç.); espelho 0,38%; Flávio no 1T 45%
+    PA: 10,2% e 28,2%; estrito 2 (2 seç.); espelho 0,44%; Flávio no 1T 44%
+    MT: 8,1% e 33,7%; estrito 0 (0 seç.); espelho 0,35%; Flávio no 1T 65%
+    MS: 6,6% e 22,8%; estrito 0 (0 seç.); espelho 0,20%; Flávio no 1T 59%
+    ES: 5,9% e 23,1%; estrito 0 (0 seç.); espelho 0,09%; Flávio no 1T 55%
+    MG: 5,7% e 18,5%; estrito 3 (2 seç.); espelho 0,08%; Flávio no 1T 48%
+    RR: 4,6% e 25,9%; estrito 0 (0 seç.); espelho 0,00%; Flávio no 1T 71%
+    RO: 3,9% e 28,3%; estrito 0 (0 seç.); espelho 0,45%; Flávio no 1T 67%
+    AC: 3,3% e 17,6%; estrito 0 (0 seç.); espelho 0,18%; Flávio no 1T 65%
+    RS: 2,9% e 13,7%; estrito 0 (0 seç.); espelho 0,17%; Flávio no 1T 56%
+    SP: 2,6% e 12,2%; estrito 3 (1 seç.); espelho 0,02%; Flávio no 1T 52%
+    PR: 2,0% e 12,2%; estrito 0 (0 seç.); espelho 0,10%; Flávio no 1T 60%
+    DF: 1,9% e 11,2%; estrito 0 (0 seç.); espelho 0,00%; Flávio no 1T 51%
+    SC: 1,9% e 13,5%; estrito 0 (0 seç.); espelho 0,10%; Flávio no 1T 67%
+    AP: 0,8% e 4,4%; estrito 0 (0 seç.); espelho 0,10%; Flávio no 1T 46%
+    ZZ: 0,8% e 2,3%; estrito 0 (0 seç.); espelho 0,15%; Flávio no 1T 43%
+    GO: 0,5% e 2,7%; estrito 0 (0 seç.); espelho 0,02%; Flávio no 1T 54%
+
+4. PARTE 4: L3 (NÚCLEO DO PL) POR DECIL DE CAPACIDADE
+  Quintil de maior fatia do PL: 99.558 seções (87.456 com aptos iguais). Decis com os cortes nacionais da Parte 1.
+  decil | seções | informativas | P5, próprio de Flávio (ep) | com 3,6% | núcleo do PT, próprio de Lula (ep)
+   D1  |  6.850 |  3.615 | -0,0177 (ep 0,0059) | -0,0490 | -0,0152 (ep 0,0043)
+   D2  |  8.011 |  4.454 | -0,0291 (ep 0,0073) | -0,0600 | -0,0089 (ep 0,0074)
+   D3  |  8.592 |  4.714 | -0,0517 (ep 0,0093) | -0,0834 | -0,0171 (ep 0,0099)
+   D4  |  8.924 |  4.758 | -0,0188 (ep 0,0096) | -0,0554 | -0,0205 (ep 0,0096)
+   D5  |  8.793 |  4.405 | -0,0252 (ep 0,0088) | -0,0583 | +0,0023 (ep 0,0095)
+   D6  |  9.176 |  4.873 | -0,0464 (ep 0,0108) | -0,0836 | -0,0229 (ep 0,0089)
+   D7  |  9.057 |  4.845 | -0,0364 (ep 0,0108) | -0,0660 | -0,0335 (ep 0,0094)
+   D8  |  9.390 |  5.486 | -0,0443 (ep 0,0097) | -0,0780 | -0,0239 (ep 0,0102)
+   D9  |  9.767 |  6.280 | -0,0234 (ep 0,0102) | -0,0645 | -0,0177 (ep 0,0086)
+   D10 |  8.896 |  6.156 | -0,0423 (ep 0,0072) | -0,0806 | -0,0207 (ep 0,0060)
+  Critério: P5(D1) = -0,0177 (ep 0,0059), 3,0 ep de zero. Não chega a -0,025 nem fica acima de -0,010: INCONCLUSIVO pela letra.
+  Calibração: o sorteio fixado recupera 2,41 para 2 plantados e 3,13 para 3,6: fora de 0,3 ponto. Pela regra fixada antes (P4.3 e G6), SEM PODER.
+    Exploratório: em 200 sorteios a recuperação tem dp de 0,21 e 0,28 ponto e fica a 0,3 em 82% e 66% deles; pelo valor esperado recupera 1,96 e 3,54. A célula (3.615 seções informativas) é pequena demais para a tolerância do registro.
+    O critério com plantio: INDÍCIO com 2% e INDÍCIO com 3,6% (a 4 ep de zero; a 4 ep do limiar, INCONCLUSIVO).
+  Espelho: núcleo do PT no D1 -0,0152 (ep 0,0043): INCONCLUSIVO. Diferença entre os dois núcleos no D1: -0,0025 (ep 0,0073). Onde quase não cabe eleitor novo, os dois núcleos perdem o mesmo.
+  Ao lado: quintil de capacidade mais baixo (D1 e D2 juntos) -0,0252 (ep 0,0033); decis recalculados dentro do quintil do PL, D1 -0,0187 (ep 0,0049); reta dos dez decis: P5 em capacidade zero -0,0114 (ep 0,0116), inclinação -0,101 (ep 0,043) por unidade de c.
+    Com o quintil de capacidade em vez do decil, P5 passaria de -0,025 a mais de 4 ep. O registro pede decil; fica dito.
+
+5. TRADUÇÃO EM VOTOS DE MARGEM (cada linha com a sua premissa)
+  Referência: vira com 2.215.096 votos trocados, 3,57% dos votos verdadeiros de Flávio; margem oficial 4.430.191.
+  Parte 1, coeficiente do T8 no D1 inteiro atribuído a desvio e igual no país inteiro (premissa extrema): 4,43% = 2.774.733 votos trocados, 5.549.467 de margem (125% da margem; vira).
+  Parte 1, o mesmo descontando o espelho de Lula: 3,50% = 2.166.766 votos trocados, 4.333.532 de margem (98% da margem; não vira); intervalo de 95% de 2,83% a 4,16%, que contém os 3,57%.
+    Essa conta só vale se o coeficiente do T8 for troca de voto. Pela decomposição exploratória ele é quase todo eleitor que não voltou; a parcela que aparece em Lula dá:
+    transferência no D1, nível natural zero: 0,88% = 528.207 votos trocados, 1.056.414 de margem (24% da margem; não vira); descontando o espelho: 0,07% = 41.056 votos trocados, 82.111 de margem (2% da margem; não vira).
+    transferência no universo, nível natural zero: 2,19% = 1.340.948 votos trocados, 2.681.895 de margem (61% da margem; não vira); descontando o espelho: 0,68% = 407.306 votos trocados, 814.611 de margem (18% da margem; não vira).
+  Parte 2, teto da troca uniforme s x F pelos redutos (nível natural zero, 2 ep): 1,63% = 989.610 votos trocados, 1.979.220 de margem (45% da margem; não vira); com o espelho: 0,88% = 533.438 votos trocados, 1.066.877 de margem (24% da margem; não vira).
+  Parte 2, teto da forma proporcional ao total (nível natural zero, 2 ep): 3,35% = 2.072.145 votos trocados, 4.144.291 de margem (94% da margem; não vira); com o espelho: 1,82% = 1.107.877 votos trocados, 2.215.753 de margem (50% da margem; não vira).
+  Parte 3, excesso estrito: 20 votos, 40 de margem. Excesso sobre o bolo do Adendo 3: 147.307 votos, 294.614 de margem (6,7% da margem), se fosse tudo desvio.
+  Parte 4, P5 do D1 inteiro atribuído a desvio uniforme: 1,77% = 1.078.559 votos trocados, 2.157.119 de margem (49% da margem; não vira); descontando o núcleo do PT: 0,25% = 150.954 votos trocados, 301.909 de margem (7% da margem; não vira).
+  Canal do comparecimento (exploratório, fora do que esta peça testa): se o eleitor de Flávio do 1º turno tivesse voltado na mesma taxa do de Lula, seriam cerca de 1.952.650 votos a mais para Flávio (44% da margem, contando uma vez). Não vira, e não é troca de voto.
+
+6. O QUE PESA A FAVOR DA TESE
+  - Parte 1 dá SINAL pela letra: o coeficiente de Flávio no T8 é +0,0443 no decil de menor capacidade e não cresce com a capacidade. A troca de eleitores, do jeito que o reteste a mede, não explica o nível.
+  - O espelho não acompanha: Lula +0,0097 no mesmo decil. A diferença, +0,0346, se fosse toda troca de voto e valesse para o país, daria 3,50% (2,8% a 4,2%), em cima dos 3,57% que viram.
+  - Cláusula B do T7 dispara pela letra: onde Flávio é fraco, 17,9% das seções têm saída de votos dele além do bolo, o mesmo que uma troca de 3% produziria onde ele é forte.
+  - Quem não voltou (exploratório): o eleitor de Flávio do 1º turno faltou mais no 2º do que o de Lula, 2,65% contra -0,83% no país e 4,9% contra 0,8% no decil de menor capacidade. Em 2014, 2018 e 2022 foi o contrário (o do PT voltou menos). Não é troca de voto, mas é uma assimetria de 2026 sem explicação nesta peça.
+  - A forma k x L e qualquer forma regulada pela força local de Lula não são limitadas por nada aqui. O teto da forma proporcional ao total, com nível natural zero, chega a 3,35% (94% da margem).
+7. O QUE PESA CONTRA A TESE
+  - O sinal da Parte 1 não é de troca de voto. Separando (exploratório), a parcela dos votos de Flávio que aparece em Lula no decil de menor capacidade é 0,88% (ep 0,29), igual ao espelho de 0,81%, e cresce com a capacidade nos dois sentidos. Uma troca uniforme de 3,57% poria esse número perto de 4,3%.
+  - A mesma letra dá SINAL em 2022 com os papéis trocados (ao lado, não é régua), e a razão D1/D10 de 2026 cai abaixo de 80% sem 990 seções do exterior. O critério dispara também onde ninguém alega troca.
+  - Nos redutos de Flávio (1% e 5% de maior fatia), o coeficiente dele é +0,0078 e +0,0149, igual ao de Lula nos redutos de Lula (+0,0074 e +0,0125). Troca uniforme de 2% ou mais dos votos de Flávio está excluída; o teto é 1,63% (45% da margem) sem premissa de espelho.
+  - O limite aritmético estrito acha 20 votos em 10 seções. Não prova ausência (é cego), mas também não há uma única seção grande em que Lula tenha passado do teto físico.
+  - No núcleo do PL com pouca capacidade, Flávio perde 1,8% (ep 0,6) e o núcleo do PT perde 1,5% (ep 0,4): o mesmo.
+  - A cláusula B do T7 passa por 0,45 ponto, some com o plantio pelo valor esperado e não é produzida por troca uniforme.
+
+8. O QUE ISSO SIGNIFICA
+  Esta peça procura a marca de uma troca de votos proporcional (o programa tira uma fração dos votos de Flávio e põe em Lula). Onde o teste tem poder, a forma uniforme de 2% ou mais não está nos dados.
+  O que os dados mostram de assimétrico entre os dois candidatos é outra coisa (leitura exploratória, a conferir): o eleitor de Flávio do 1º turno voltou menos no 2º, sobretudo onde Lula domina. Troca dentro da urna não muda o comparecimento.
+  Ficam sem limite: troca proporcional aos votos de Lula, troca regulada pela força local de Lula, e qualquer coisa que passe pelo comparecimento.
+
+9. PISTAS PARA OS PRÓXIMOS TESTES
+  - Canal do comparecimento (Onda B, B2 e B3): por que o eleitor de Flávio não voltou, 30% e 19% nos redutos de Lula de 1% e 5%, contra 3% do eleitor de Lula nos redutos de Flávio. Cruzar com horário de fechamento, fila, biometria e perfil de idade da seção.
+  - Testes de troca entre turnos devem usar a matriz de transferência (sem a variação do comparecimento como controle), não o coeficiente do T8. Vale para T14, T16, T35 e L3.
+  - A forma k x L só se testa com testemunha fora da disputa presidencial (D4-3 e D4-4 da Onda D) ou com o voto de Lula contra o voto do PT em outros cargos na mesma urna (H2).
+  - As 10 seções com excesso estrito estão listadas no item 3.3, para conferência de boletim.
+
+10. DESVIOS, DECISÕES E O QUE É EXPLORATÓRIO
+  - Os quatro retestes vêm da equipe vermelha, que já conhecia os resultados antigos; o critério é novo, a escolha do que retestar é posterior ao dado (aviso do Adendo 27).
+  - Decisões que o registro não fixa: G1 a G11, P1.1 a P1.7, P2.1 a P2.6, P3.1 a P3.8 e P4.1 a P4.4 do docstring, escritas antes de qualquer conta com votos (cópia datada e SHA-256 em /home/user/trabalho-eleicao/adendo27/R27_A3/docstring_antes_de_rodar.txt).
+  - Parte 2: a frase de exclusão do registro ("abaixo de 0,02 menos o menor coeficiente natural plantado") foi lida como b + 2 ep < 0,02 + menor espelho; a aritmética literal (0,02 menos o espelho) sai ao lado e daria INCONCLUSIVO.
+  - Parte 3: "(a)" da segunda cláusula foi lido como a estatística do T7 com o bolo do Adendo 3; com o bolo máximo (estrito) a letra daria SEM SINAL, mas esse lado não enxerga nenhum plantio.
+  - Plantio principal por sorteio binomial (fixado antes). Na cláusula B do T7 isso decide o resultado: com o plantio pelo valor esperado a cláusula não dispara.
+  - Parte 1: universo com o exterior, como o T14 original (fixado antes). Sem as 990 seções do exterior que caem no decil de maior capacidade, a razão D1/D10 cai para 0,798 e a letra daria INCONCLUSIVO.
+  - Parte 1: a recuperação de 0,3 ponto falha em um decil (D3, com 3,6% por sorteio: 3,25); no D1, que decide, passa. Pela regra P1.4 isso não muda o veredito.
+  - Regra do SEM PODER (G6) e regras de combinação entre estratos (P2.2, P2.3) são desta peça, não do registro.
+  - Bloco exploratório (feito depois de ver os resultados): matriz de transferência por decil e por estrato; D1 por faixa; ruído do sorteio; a letra da P1.3 aplicada a 2014, 2018 e 2022; matriz de transferência nesses anos. Nada disso entra em veredito.
+  - Outros anos aparecem só ao lado e só na Parte 1; nenhum veredito depende deles.

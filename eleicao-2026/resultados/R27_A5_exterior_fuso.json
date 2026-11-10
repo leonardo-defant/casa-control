@@ -1,0 +1,6949 @@
+{
+ "teste": "R27 A5: exterior e relógio absoluto (fragilidade \"F19 (exterior sem biometria) e o contrapeso do L7 e do F6\")",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC); registro/adendo27/equipe_vermelha_relatorio.json",
+ "aviso_do_registro": "reteste escrito por quem já conhecia os resultados antigos; o critério é novo, a escolha do que retestar é posterior ao dado",
+ "criterio": {
+  "exterior_sinal": "DiD <= -1,0 a mais de 3 ep (por país) OU inclinação <= -1,0 a mais de 3 ep com |inclinação de 2022| < 0,4",
+  "exterior_sem_sinal": "|DiD| < 0,4 com ep <= 0,2 E |inclinação| < 0,4",
+  "brasil_sem_biometria": "sinal: d <= -1,0 a mais de 4 ep em pelo menos 100 seções; sem sinal: |d| < 0,4 e ep <= 0,2; menos de 100 seções: SEM PODER"
+ },
+ "semente": 20261110,
+ "replicas": 2000,
+ "regua": 1.785,
+ "limiar": 1.0,
+ "margem_oficial": 4430191,
+ "docstring_sha256_registrado_antes_de_rodar": "cce8de2cc71be02da95057645db59c62b71047ba169149ceae1b874e039b19f3",
+ "docstring_sha256_atual_com_o_bloco_exploratorio": "9e8cf929c740fcfa7cf8be9d346140f57bff7e774948ca00380d949d20c83a58",
+ "brasil_2026": {
+  "votos_finalistas_brasil_2t": 123710622.0,
+  "votos_finalistas_total_2t": 124082273.0,
+  "margem_total": 4430191.0,
+  "regua_recalculada": 1.7851828842626054
+ },
+ "niveis_por_ano": {
+  "2026": {
+   "contagens": {
+    "exterior_dois_turnos_validos": 1308,
+    "exterior_com_piso_30": 1292,
+    "brasil_dois_turnos_validos": 497897,
+    "brasil_com_piso_30": 497741
+   },
+   "cidades_com_secao": 128,
+   "paises_com_secao": 89,
+   "votos_finalistas_exterior_com_piso": 371380.0,
+   "virada_exterior": 1.5485869128658136,
+   "virada_pares": 2.197234428090541,
+   "virada_brasil_candidatas": 2.9571238448395456,
+   "D_nivel": -0.6486475152247274,
+   "ep_por_pais": 0.26921114711247074,
+   "ep_cr1_por_pais": 0.2530081295156086,
+   "ic95_por_pais": [
+    -1.3212985690792898,
+    -0.2697752302138808
+   ],
+   "ep_por_cidade": 0.15848926030534316,
+   "D_publicado_F19": -0.6486475152247274,
+   "diferenca_para_o_F19": 0.0,
+   "D_branco_nulo_espelho": {
+    "est": -0.14777741408336317,
+    "ep": 0.11811836108092678,
+    "z": -1.2510960424020445,
+    "ep_cr1": 0.11104813926253165,
+    "ic95": [
+     -0.31691441849096036,
+     0.14522434413090524
+    ],
+    "grupos": 89,
+    "n": 1292,
+    "peso": 371380.0
+   },
+   "equilibrio": {
+    "f1": {
+     "exterior": 52.30864826404194,
+     "pares": 52.08157933652084,
+     "dif_em_dp": 0.012597384416549794
+    },
+    "outros": {
+     "exterior": 8.916127207724138,
+     "pares": 8.78106238055986,
+     "dif_em_dp": 0.03779867313092214
+    },
+    "bn": {
+     "exterior": 3.0825325839023763,
+     "pares": 3.1811931986483444,
+     "dif_em_dp": -0.04455617487569968
+    },
+    "dc": {
+     "exterior": 4.4307170859928195,
+     "pares": 4.301402346234516,
+     "dif_em_dp": 0.04424862940584138
+    }
+   },
+   "totais": {
+    "L2": 64256232,
+    "R2": 59826041,
+    "L2_zz": 200154,
+    "R2_zz": 171497,
+    "comp2_zz": 381443,
+    "apt2_zz": 916158,
+    "secoes_zz": 1308
+   },
+   "padronizacao": {
+    "f1": {
+     "media": 49.210943854195406,
+     "dp": 18.025085209179707
+    },
+    "outros": {
+     "media": 7.665221543495219,
+     "dp": 3.573269005937278
+    },
+    "bn": {
+     "media": 4.7494087607778965,
+     "dp": 2.2142972331266306
+    },
+    "dc": {
+     "media": 1.7104373098438428,
+     "dp": 2.9224575200341065
+    }
+   }
+  },
+  "2022": {
+   "contagens": {
+    "exterior_dois_turnos_validos": 1014,
+    "exterior_com_piso_30": 996,
+    "brasil_dois_turnos_validos": 471010,
+    "brasil_com_piso_30": 470887
+   },
+   "cidades_com_secao": 121,
+   "paises_com_secao": 86,
+   "votos_finalistas_exterior_com_piso": 297608.0,
+   "virada_exterior": -1.2654856537748698,
+   "virada_pares": -1.3883261658110602,
+   "virada_brasil_candidatas": -1.631180645003192,
+   "D_nivel": 0.12284051203619031,
+   "ep_por_pais": 0.1618793601619478,
+   "ep_cr1_por_pais": 0.15005886844982702,
+   "ic95_por_pais": [
+    -0.2082513184817915,
+    0.42873255083998885
+   ],
+   "ep_por_cidade": 0.1254712038229232,
+   "D_publicado_F19": 0.12284051203619031,
+   "diferenca_para_o_F19": 0.0,
+   "D_branco_nulo_espelho": {
+    "est": -0.24129604053783238,
+    "ep": 0.13236643086039832,
+    "z": -1.8229398418419083,
+    "ep_cr1": 0.12589728273508474,
+    "ic95": [
+     -0.4595145161737774,
+     0.05165881667152306
+    ],
+    "grupos": 86,
+    "n": 996,
+    "peso": 297608.0
+   },
+   "equilibrio": {
+    "f1": {
+     "exterior": 52.563501836135565,
+     "pares": 53.228704904623356,
+     "dif_em_dp": -0.036488508064323084
+    },
+    "outros": {
+     "exterior": 11.205976315934487,
+     "pares": 11.071153153532919,
+     "dif_em_dp": 0.03496162068043687
+    },
+    "bn": {
+     "exterior": 3.108977297586299,
+     "pares": 3.0726823700648986,
+     "dif_em_dp": 0.017283072099075984
+    },
+    "dc": {
+     "exterior": 0.7443281419593765,
+     "pares": 0.6543811843617166,
+     "dif_em_dp": 0.036699975845686864
+    }
+   },
+   "totais": {
+    "L2": 60345999,
+    "R2": 58206354,
+    "L2_zz": 152905,
+    "R2_zz": 145264,
+    "comp2_zz": 310148,
+    "apt2_zz": 695005,
+    "secoes_zz": 1018
+   },
+   "padronizacao": {
+    "f1": {
+     "media": 53.30750460582866,
+     "dp": 18.23048142486809
+    },
+    "outros": {
+     "media": 8.196193437938184,
+     "dp": 3.8563190086039176
+    },
+    "bn": {
+     "media": 4.375685638669911,
+     "dp": 2.1000275479578
+    },
+    "dc": {
+     "media": 0.2638085830358186,
+     "dp": 2.450872392283355
+    }
+   }
+  },
+  "2018": {
+   "contagens": {
+    "exterior_dois_turnos_validos": 744,
+    "exterior_com_piso_30": 717,
+    "brasil_dois_turnos_validos": 453698,
+    "brasil_com_piso_30": 453388
+   },
+   "cidades_com_secao": 111,
+   "paises_com_secao": 75,
+   "votos_finalistas_exterior_com_piso": 184835.0,
+   "virada_exterior": 13.299227456206575,
+   "virada_pares": 12.402079912751326,
+   "virada_brasil_candidatas": 6.753978856574653,
+   "D_nivel": 0.8971475434552486,
+   "ep_por_pais": 0.7502007341283157,
+   "ep_cr1_por_pais": 0.7093848990815058,
+   "ic95_por_pais": [
+    -0.5832147844110475,
+    2.4210744811124116
+   ],
+   "ep_por_cidade": 0.48277589411397365,
+   "D_publicado_F19": 0.8971475434552486,
+   "diferenca_para_o_F19": 0.0,
+   "D_branco_nulo_espelho": {
+    "est": 0.011183421810329643,
+    "ep": 0.2571793370466537,
+    "z": 0.04348491577416622,
+    "ep_cr1": 0.2387953116355095,
+    "ic95": [
+     -0.494148975920901,
+     0.5597747531158356
+    ],
+    "grupos": 75,
+    "n": 717,
+    "peso": 184835.0
+   },
+   "equilibrio": {
+    "f1": {
+     "exterior": 15.636850667525403,
+     "pares": 16.413840020150833,
+     "dif_em_dp": -0.030810839169452726
+    },
+    "outros": {
+     "exterior": 30.77914683945756,
+     "pares": 30.747882561314512,
+     "dif_em_dp": 0.0031600527138594334
+    },
+    "bn": {
+     "exterior": 4.613992441544426,
+     "pares": 4.6666956770068735,
+     "dif_em_dp": -0.013189405027930371
+    },
+    "dc": {
+     "exterior": -0.2455525197158967,
+     "pares": -0.26454409253557964,
+     "dif_em_dp": 0.006912112157445017
+    }
+   },
+   "totais": {
+    "L2": 47040906,
+    "R2": 57797847,
+    "L2_zz": 53730,
+    "R2_zz": 131671,
+    "comp2_zz": 201166,
+    "apt2_zz": 499877,
+    "secoes_zz": 744
+   },
+   "padronizacao": {
+    "f1": {
+     "media": 39.643185435209816,
+     "dp": 25.218052268948664
+    },
+    "outros": {
+     "media": 24.22510606774671,
+     "dp": 9.893593865041783
+    },
+    "bn": {
+     "media": 8.689691228035759,
+     "dp": 3.995876641201147
+    },
+    "dc": {
+     "media": -1.1079868284681984,
+     "dp": 2.747578798938784
+    }
+   }
+  }
+ },
+ "parte_a": {
+  "principal": {
+   "DiD": -0.7787531121926585,
+   "ep_por_pais": 0.21473757494644755,
+   "z": -3.626533979378636,
+   "ic95": [
+    -1.2701724563961219,
+    -0.43304778274938843
+   ],
+   "ep_cr1_por_pais": 0.20294974368790403,
+   "cidades": 123,
+   "paises": 84,
+   "peso_votos_2026": 370898.0,
+   "cidades_pareadas_pela_mesma_cidade": 119,
+   "cidades_pareadas_pelo_pais": [
+    "ANCARA",
+    "ORLANDO",
+    "EDIMBURGO",
+    "MARSELHA"
+   ],
+   "cidades_fora_sem_referencia": [
+    "CARACAS",
+    "DAMASCO",
+    "HANÓI",
+    "LAGOS",
+    "NICOSIA"
+   ],
+   "peso_fora": 482.0,
+   "leitura": "INCONCLUSIVO",
+   "poder_de_medida_com_1,785": true,
+   "poder_pleno_com_1,785": true
+  },
+  "ao_lado": {
+   "so_cidades_nos_dois_anos": {
+    "est": -0.801312809115535,
+    "ep": 0.21120308580513122,
+    "z": -3.794039306105948,
+    "ep_cr1": 0.20012042806395608,
+    "ic95": [
+     -1.2787177430076946,
+     -0.45064713200798817
+    ],
+    "grupos": 84,
+    "n": 119,
+    "peso": 359059.0
+   },
+   "por_pais": {
+    "est": -0.7813463421383446,
+    "ep": 0.21024636948812814,
+    "z": -3.7163369053203295,
+    "ep_cr1": 0.1984811569876379,
+    "ic95": [
+     -1.2625164916687792,
+     -0.4419493620992644
+    ],
+    "grupos": 84,
+    "n": 84,
+    "peso": 370898.0
+   },
+   "diferenca_simples_dos_agregados": {
+    "est": -0.7714880272609178,
+    "ep": 0.2079758932131078,
+    "ic95": [
+     -1.2558257945679432,
+     -0.43293215857037254
+    ]
+   },
+   "media_sem_peso_das_cidades": {
+    "est": -2.0960890351334864,
+    "ep": 0.44235498904672765,
+    "z": -4.738477211821541,
+    "ep_cr1": 0.4452610820025134,
+    "ic95": [
+     -3.0433392287110412,
+     -1.3199230074479507
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 123.0
+   },
+   "mediana_das_cidades": -1.5055807938584074,
+   "10_pares": {
+    "est": -0.7683583102719879,
+    "ep": 0.20316608881836803,
+    "z": -3.78192204585336,
+    "ep_cr1": 0.19141848830925842,
+    "ic95": [
+     -1.230471453690077,
+     -0.43994001365808466
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 370898.0
+   },
+   "50_pares": {
+    "est": -0.8429527895959854,
+    "ep": 0.2285169829308582,
+    "z": -3.688797124767902,
+    "ep_cr1": 0.21799590597936683,
+    "ic95": [
+     -1.3675095381811317,
+     -0.4786462752621536
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 370898.0
+   },
+   "sem_variacao_do_comparecimento": {
+    "est": -0.6612003334612471,
+    "ep": 0.2500272857069556,
+    "z": -2.6445127042502343,
+    "ep_cr1": 0.23845879415182428,
+    "ic95": [
+     -1.2478779527415793,
+     -0.27605275889067205
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 370898.0
+   },
+   "espelho_branco_nulo": {
+    "est": 0.12745422634862327,
+    "ep": 0.060889728112734555,
+    "z": 2.093197494865597,
+    "ep_cr1": 0.05432644007693696,
+    "ic95": [
+     -0.0022463142162199076,
+     0.2508338667836342
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 370898.0
+   },
+   "tirando_um_pais": {
+    "minimo": -0.9533347422028764,
+    "sem_o_pais_min": "Estados Unidos",
+    "maximo": -0.6730525214853791,
+    "sem_o_pais_max": "Japão"
+   },
+   "DiD_por_grupo_de_dose": {
+    "f = 0 (Américas)": {
+     "est": -0.6383197334425165,
+     "ep": 0.5147393116930328,
+     "z": -1.2400835120655822,
+     "ep_cr1": 0.3369088198236899,
+     "ic95": [
+      -2.0221534661318423,
+      -0.2620486185594372
+     ],
+     "grupos": 22,
+     "n": 45,
+     "peso": 133733.0
+    },
+    "0 < f < 1": {
+     "est": -0.7199443518481853,
+     "ep": 0.23008469282768002,
+     "z": -3.1290406284758,
+     "ep_cr1": 0.19586345720406154,
+     "ic95": [
+      -1.236099212715852,
+      -0.30874455207185086
+     ],
+     "grupos": 49,
+     "n": 60,
+     "peso": 189615.0
+    },
+    "f = 1 (Ásia e Oceania)": {
+     "est": -1.4082294556860349,
+     "ep": 1.2121258538099233,
+     "z": -1.161784852009982,
+     "ep_cr1": 0.39065104085890384,
+     "ic95": [
+      -3.01202593949241,
+      2.312114095641213
+     ],
+     "grupos": 13,
+     "n": 18,
+     "peso": 47550.0
+    }
+   },
+   "placebo_2018_para_2022": {
+    "est": -1.4051691192278155,
+    "ep": 0.6511458385012252,
+    "z": -2.1579944708886774,
+    "ep_cr1": 0.6426374695198623,
+    "ic95": [
+     -2.774393940263399,
+     -0.21484825616362183
+    ],
+    "grupos": 74,
+    "n": 109,
+    "peso": 297076.0,
+    "leitura_pelo_mesmo_criterio": "INCONCLUSIVO",
+    "cidades_pareadas_pelo_pais": []
+   },
+   "tripla_(2026-2022)-(2022-2018)": {
+    "est": 0.626416007035157,
+    "ep": 0.7453673249308335,
+    "ic95": [
+     -0.849930686094384,
+     2.071126687573289
+    ]
+   },
+   "diferenca_simples_2022_menos_2018": {
+    "est": -0.7743070314190584,
+    "ep": 0.6500716800655293,
+    "ic95": [
+     -2.1530305370146143,
+     0.44039879281237343
+    ]
+   }
+  },
+  "espelho": {
+   "criterio_com_sinal_trocado_dispara": false,
+   "desfecho_branco_nulo": {
+    "est": 0.12745422634862327,
+    "ep": 0.060889728112734555,
+    "z": 2.093197494865597,
+    "ep_cr1": 0.05432644007693696,
+    "ic95": [
+     -0.0022463142162199076,
+     0.2508338667836342
+    ],
+    "grupos": 84,
+    "n": 123,
+    "peso": 370898.0
+   }
+  },
+  "leitura_pela_letra": "INCONCLUSIVO",
+  "veredito": "INCONCLUSIVO"
+ },
+ "parte_b": {
+  "principal": {
+   "inclinacao_2026": -1.4702884290302438,
+   "ep_por_pais": 0.909106067037314,
+   "z": -1.6172903056535164,
+   "ic95": [
+    -2.2695185039640116,
+    1.1370193397217256
+   ],
+   "ep_cr1_por_pais": 0.5786413804309191,
+   "p_permutacao_entre_paises": 0.066,
+   "constante_2026": -0.15613463086284368,
+   "cidades": 128,
+   "paises": 89,
+   "inclinacao_2022": -0.7395042338710229,
+   "ep_2022": 0.5940116699718532,
+   "inclinacao_2018": -2.4160264078762905,
+   "ep_2018": 3.084715009991693,
+   "leitura": "INCONCLUSIVO",
+   "leitura_com_ep_cr1": "INCONCLUSIVO",
+   "poder_de_medida_com_1,785": false,
+   "poder_pleno_com_1,785": false
+  },
+  "regressao_por_ano": {
+   "2026": {
+    "variavel": "f",
+    "constante": -0.15613463086284368,
+    "inclinacao": -1.4702884290302438,
+    "ep": 0.909106067037314,
+    "z": -1.6172903056535164,
+    "ep_cr1_pais": 0.5786413804309191,
+    "ic95": [
+     -2.2695185039640116,
+     1.1370193397217256
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.066,
+    "inclinacao_com_f_medio_do_pais": -1.4702884290302436,
+    "cidades": 128,
+    "paises": 89,
+    "media_ponderada_de_f": 0.3349770525547358,
+    "por_grupo_de_dose": {
+     "f = 0": {
+      "D": -0.5145519192842245,
+      "ep_por_pais": 0.6166674241464302,
+      "cidades": 46,
+      "paises": 23,
+      "votos": 133975.0,
+      "f1_medio": 41.4385361249759
+     },
+     "0 < f < 1": {
+      "D": -0.3464914262421331,
+      "ep_por_pais": 0.20507585019915373,
+      "cidades": 63,
+      "paises": 52,
+      "votos": 189823.0,
+      "f1_medio": 65.79657658105808
+     },
+     "f = 1": {
+      "D": -2.2316333658630336,
+      "ep_por_pais": 0.5367473779184194,
+      "cidades": 19,
+      "paises": 14,
+      "votos": 47582.0,
+      "f1_medio": 29.106686532933878
+     }
+    }
+   },
+   "2022": {
+    "variavel": "f",
+    "constante": 0.37148453396683506,
+    "inclinacao": -0.7395042338710229,
+    "ep": 0.5940116699718532,
+    "z": -1.2449321642217295,
+    "ep_cr1_pais": 0.3521205283768605,
+    "ic95": [
+     -1.5046584561905556,
+     0.8587827749397328
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.1485,
+    "inclinacao_com_f_medio_do_pais": -0.7395042338710234,
+    "cidades": 121,
+    "paises": 86,
+    "media_ponderada_de_f": 0.33623069421670265,
+    "por_grupo_de_dose": {
+     "f = 0": {
+      "D": 0.12552721972899533,
+      "ep_por_pais": 0.2627271749159638,
+      "cidades": 45,
+      "paises": 23,
+      "votos": 113389.0,
+      "f1_medio": 42.37870435047597
+     },
+     "0 < f < 1": {
+      "D": 0.40951778464427524,
+      "ep_por_pais": 0.20309899058787625,
+      "cidades": 58,
+      "paises": 50,
+      "votos": 142094.0,
+      "f1_medio": 68.45173894220592
+     },
+     "f = 1": {
+      "D": -0.8513971965110544,
+      "ep_por_pais": 0.8402484934910812,
+      "cidades": 18,
+      "paises": 13,
+      "votos": 42125.0,
+      "f1_medio": 26.384768037951417
+     }
+    }
+   },
+   "2018": {
+    "variavel": "f",
+    "constante": 1.7215432199260776,
+    "inclinacao": -2.4160264078762905,
+    "ep": 3.084715009991693,
+    "z": -0.7832251602013622,
+    "ep_cr1_pais": 1.837322682668022,
+    "ic95": [
+     -5.698474770434132,
+     4.328305460791552
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.3295,
+    "inclinacao_com_f_medio_do_pais": -2.4160264078762914,
+    "cidades": 111,
+    "paises": 75,
+    "media_ponderada_de_f": 0.3412196463512502,
+    "por_grupo_de_dose": {
+     "f = 0": {
+      "D": 0.5752289951181387,
+      "ep_por_pais": 0.5371533548032454,
+      "cidades": 46,
+      "paises": 23,
+      "votos": 82309.0,
+      "f1_medio": 11.386719959795428
+     },
+     "0 < f < 1": {
+      "D": 2.9840903684382436,
+      "ep_por_pais": 0.49381393493429915,
+      "cidades": 48,
+      "paises": 40,
+      "votos": 68192.0,
+      "f1_medio": 26.46717694458267
+     },
+     "f = 1": {
+      "D": -2.4760688404837383,
+      "ep_por_pais": 1.3584951109079986,
+      "cidades": 17,
+      "paises": 12,
+      "votos": 34334.0,
+      "f1_medio": 4.315198629821013
+     }
+    }
+   }
+  },
+  "ao_lado": {
+   "dose_sobre_a_DiD_2026_menos_2022": {
+    "variavel": "f",
+    "constante": -0.5222829964937101,
+    "inclinacao": -0.7656039805482768,
+    "ep": 0.7540034711297424,
+    "z": -1.0153852201783011,
+    "ep_cr1_pais": 0.5034608397832768,
+    "ic95": [
+     -1.464754707693319,
+     1.44172805432259
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.274,
+    "inclinacao_com_f_medio_do_pais": -0.7656039805482757,
+    "cidades": 123,
+    "paises": 84
+   },
+   "dose_sobre_a_DiD_2022_menos_2018_placebo": {
+    "variavel": "f",
+    "constante": -1.7932031256108303,
+    "inclinacao": 1.1550139570885138,
+    "ep": 2.756513657739019,
+    "z": 0.41901260087929093,
+    "ep_cr1_pais": 2.09423505461931,
+    "ic95": [
+     -4.889201208524837,
+     5.068000633770643
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.5905,
+    "inclinacao_com_f_medio_do_pais": 1.1550139570885165,
+    "cidades": 109,
+    "paises": 74
+   },
+   "com_controle_de_f1_2026": {
+    "inclinacao_f": -1.4590223402053764,
+    "ep_cr1_pais": 0.4314511313290005,
+    "coef_f1": 0.014363196768990482,
+    "ep_f1": 0.005211184519316803
+   },
+   "forma_proporcional_2026": {
+    "variavel": "f x fatia do adversário no 1º turno",
+    "constante": -0.26073208933633835,
+    "inclinacao": -2.4160157000659988,
+    "ep": 1.4362781071880846,
+    "z": -1.6821364107512744,
+    "ep_cr1_pais": 0.3097052318678904,
+    "ic95": [
+     -2.996344614677589,
+     2.2932126541565174
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.0985,
+    "inclinacao_com_f_medio_do_pais": -2.472003377753434,
+    "cidades": 128,
+    "paises": 89
+   },
+   "sem_peso_2026": {
+    "variavel": "f",
+    "constante": -1.169586672953363,
+    "inclinacao": -0.8852747388792028,
+    "ep": 0.9895767877101277,
+    "z": -0.8945993376903283,
+    "ep_cr1_pais": 0.9401242865979663,
+    "ic95": [
+     -2.8134055691152926,
+     1.0982248643455095
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.38,
+    "inclinacao_com_f_medio_do_pais": -0.8852747388792022,
+    "cidades": 128,
+    "paises": 89
+   },
+   "espelho_g_depois_das_17h_2026": {
+    "variavel": "g",
+    "constante": -0.8222375163586513,
+    "inclinacao": 3.229349086036743,
+    "ep": 3.62556433847484,
+    "z": 0.890716253954337,
+    "ep_cr1_pais": 1.4505133380368511,
+    "ic95": [
+     -9.167111624499535,
+     5.707400317444628
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.4135,
+    "inclinacao_com_f_medio_do_pais": 2.388139982385182,
+    "cidades": 128,
+    "paises": 89
+   },
+   "f_e_g_juntos_2026": {
+    "inclinacao_f": -1.2863278095545632,
+    "ep_cr1_f": 0.7962170658033022,
+    "inclinacao_g": 1.048373732887632,
+    "ep_cr1_g": 1.8218108987181105
+   },
+   "espelho_branco_nulo_2026": {
+    "variavel": "f",
+    "constante": -0.3910789975382361,
+    "inclinacao": 0.7263231364635553,
+    "ep": 0.42073974307147305,
+    "z": 1.7263002804566796,
+    "ep_cr1_pais": 0.30499398777225745,
+    "ic95": [
+     -0.3109016280650149,
+     1.3399546957015056
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.0305,
+    "inclinacao_com_f_medio_do_pais": 0.7263231364635554,
+    "cidades": 128,
+    "paises": 89
+   },
+   "sem_o_Japao_2026": {
+    "variavel": "f",
+    "constante": -0.34673286846950574,
+    "inclinacao": -0.41534931457771773,
+    "ep": 0.7980964014298628,
+    "z": -0.5204249935641626,
+    "ep_cr1_pais": 0.5844759792761388,
+    "ic95": [
+     -1.338326276697892,
+     1.7852800591432512
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.4465,
+    "inclinacao_com_f_medio_do_pais": -0.4153493145777184,
+    "cidades": 125,
+    "paises": 88
+   },
+   "10_pares_2026": {
+    "variavel": "f",
+    "constante": -0.19537809154260935,
+    "inclinacao": -1.3505289486651475,
+    "ep": 0.9380327212293832,
+    "z": -1.4397460963783308,
+    "ep_cr1_pais": 0.6108179846796405,
+    "ic95": [
+     -2.2016677148513657,
+     1.2536922107699868
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.088,
+    "inclinacao_com_f_medio_do_pais": -1.3505289486651464,
+    "cidades": 128,
+    "paises": 89
+   },
+   "50_pares_2026": {
+    "variavel": "f",
+    "constante": -0.1846849830397579,
+    "inclinacao": -1.526228408355734,
+    "ep": 0.8563062837559724,
+    "z": -1.7823393770524683,
+    "ep_cr1_pais": 0.5275714335213884,
+    "ic95": [
+     -2.2456072434421404,
+     1.001809527188145
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.0505,
+    "inclinacao_com_f_medio_do_pais": -1.5262284083557351,
+    "cidades": 128,
+    "paises": 89
+   },
+   "com_controle_de_f1_2022": {
+    "inclinacao_f": -0.7115788563673533,
+    "ep_cr1_pais": 0.2747906714300456,
+    "coef_f1": 0.004854565668235066,
+    "ep_f1": 0.004462280865465625
+   },
+   "forma_proporcional_2022": {
+    "variavel": "f x fatia do adversário no 1º turno",
+    "constante": 0.30070814808531016,
+    "inclinacao": -1.072413725061626,
+    "ep": 1.1746388001212367,
+    "z": -0.9129731837148067,
+    "ep_cr1_pais": 0.21280264107475239,
+    "ic95": [
+     -2.4910976100824342,
+     2.5969738121733887
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.255,
+    "inclinacao_com_f_medio_do_pais": -1.0780910034613103,
+    "cidades": 121,
+    "paises": 86
+   },
+   "sem_peso_2022": {
+    "variavel": "f",
+    "constante": 0.6235199510668293,
+    "inclinacao": 0.00954160110769436,
+    "ep": 0.7997553878701499,
+    "z": 0.011930649361556482,
+    "ep_cr1_pais": 0.77002938829355,
+    "ic95": [
+     -1.5044644857639256,
+     1.6432230901802531
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.9885,
+    "inclinacao_com_f_medio_do_pais": 0.009541601107693084,
+    "cidades": 121,
+    "paises": 86
+   },
+   "espelho_g_depois_das_17h_2022": {
+    "variavel": "g",
+    "constante": 0.08132346530726825,
+    "inclinacao": 0.7440218330274075,
+    "ep": 1.731490033152188,
+    "z": 0.4297003267601323,
+    "ep_cr1_pais": 1.279298150699228,
+    "ic95": [
+     -3.406080670049646,
+     3.6978078857201555
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.609,
+    "inclinacao_com_f_medio_do_pais": 0.9607111294551711,
+    "cidades": 121,
+    "paises": 86
+   },
+   "f_e_g_juntos_2022": {
+    "inclinacao_f": -0.8611778563935427,
+    "ep_cr1_f": 0.4097928157477906,
+    "inclinacao_g": -0.7171506029270909,
+    "ep_cr1_g": 1.5530074699716379
+   },
+   "espelho_branco_nulo_2022": {
+    "variavel": "f",
+    "constante": -0.42904865571841627,
+    "inclinacao": 0.5584041505133267,
+    "ep": 0.5286220694274505,
+    "z": 1.0563390800503905,
+    "ep_cr1_pais": 0.37730721254547345,
+    "ic95": [
+     -0.7016522612161005,
+     1.2902830557407046
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.195,
+    "inclinacao_com_f_medio_do_pais": 0.5584041505133269,
+    "cidades": 121,
+    "paises": 86
+   },
+   "sem_o_Japao_2022": {
+    "variavel": "f",
+    "constante": 0.28624664860630766,
+    "inclinacao": -0.23701342051919058,
+    "ep": 0.7047814056829901,
+    "z": -0.33629352109467964,
+    "ep_cr1_pais": 0.6002701106025703,
+    "ic95": [
+     -1.4503137900345557,
+     1.2994277536808096
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.584,
+    "inclinacao_com_f_medio_do_pais": -0.2370134205191913,
+    "cidades": 118,
+    "paises": 85
+   },
+   "10_pares_2022": {
+    "variavel": "f",
+    "constante": 0.36906943543148746,
+    "inclinacao": -0.770058514394398,
+    "ep": 0.6519335194462675,
+    "z": -1.1811917801809948,
+    "ep_cr1_pais": 0.3967435922735674,
+    "ic95": [
+     -1.58327845467462,
+     1.0021460838058946
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.1515,
+    "inclinacao_com_f_medio_do_pais": -0.7700585143943983,
+    "cidades": 121,
+    "paises": 86
+   },
+   "50_pares_2022": {
+    "variavel": "f",
+    "constante": 0.3324423019951393,
+    "inclinacao": -0.5767207208151977,
+    "ep": 0.56677250356839,
+    "z": -1.0175523992151592,
+    "ep_cr1_pais": 0.3284002011301887,
+    "ic95": [
+     -1.3531742338987145,
+     0.9357419131315295
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.2165,
+    "inclinacao_com_f_medio_do_pais": -0.576720720815198,
+    "cidades": 121,
+    "paises": 86
+   },
+   "com_controle_de_f1_2018": {
+    "inclinacao_f": -2.242037526640295,
+    "ep_cr1_pais": 1.0473524929266778,
+    "coef_f1": 0.07871530638619391,
+    "ep_f1": 0.024652047598593047
+   },
+   "forma_proporcional_2018": {
+    "variavel": "f x fatia do adversário no 1º turno",
+    "constante": 1.7982172587712866,
+    "inclinacao": -3.0976035985389996,
+    "ep": 3.62723442227242,
+    "z": -0.8539849477383342,
+    "ep_cr1_pais": 1.65810855199529,
+    "ic95": [
+     -5.958618370356972,
+     5.908546053764377
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.2385,
+    "inclinacao_com_f_medio_do_pais": -3.090099395091483,
+    "cidades": 111,
+    "paises": 75
+   },
+   "sem_peso_2018": {
+    "variavel": "f",
+    "constante": 0.07594507591026375,
+    "inclinacao": 0.7425058902973652,
+    "ep": 1.5960630300529108,
+    "z": 0.46521088222483953,
+    "ep_cr1_pais": 1.5170213509987345,
+    "ic95": [
+     -1.9163673001497996,
+     4.214126281760604
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.5835,
+    "inclinacao_com_f_medio_do_pais": 0.7425058902973645,
+    "cidades": 111,
+    "paises": 75
+   },
+   "espelho_g_depois_das_17h_2018": {
+    "variavel": "g",
+    "constante": 0.9289452631092651,
+    "inclinacao": -0.5191428449053535,
+    "ep": 5.616022291547183,
+    "z": -0.09243959834111208,
+    "ep_cr1_pais": 4.3104674911762695,
+    "ic95": [
+     -16.640263123294538,
+     6.229357748121715
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.732,
+    "inclinacao_com_f_medio_do_pais": -2.096671839875069,
+    "cidades": 111,
+    "paises": 75
+   },
+   "f_e_g_juntos_2018": {
+    "inclinacao_f": -3.589002120157905,
+    "ep_cr1_f": 2.0408877130446377,
+    "inclinacao_g": -7.690695425202338,
+    "ep_cr1_g": 4.821017593778215
+   },
+   "espelho_branco_nulo_2018": {
+    "variavel": "f",
+    "constante": 0.30842478925904715,
+    "inclinacao": -0.8711144584645,
+    "ep": 0.9577896831462077,
+    "z": -0.9095049506098337,
+    "ep_cr1_pais": 0.5027029975001183,
+    "ic95": [
+     -1.7638488373843753,
+     1.950284240925584
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.271,
+    "inclinacao_com_f_medio_do_pais": -0.8711144584644996,
+    "cidades": 111,
+    "paises": 75
+   },
+   "sem_o_Japao_2018": {
+    "variavel": "f",
+    "constante": 1.0397759600068788,
+    "inclinacao": 2.7018813953947287,
+    "ep": 1.2206960366189596,
+    "z": 2.213394091848044,
+    "ep_cr1_pais": 1.0761653255640298,
+    "ic95": [
+     0.32497044584757134,
+     5.052497642079826
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.041,
+    "inclinacao_com_f_medio_do_pais": 2.7018813953947287,
+    "cidades": 108,
+    "paises": 74
+   },
+   "10_pares_2018": {
+    "variavel": "f",
+    "constante": 1.737966087701969,
+    "inclinacao": -2.3312107293415107,
+    "ep": 3.121607685962591,
+    "z": -0.7467981129802509,
+    "ep_cr1_pais": 1.8604801668624098,
+    "ic95": [
+     -5.628733547735121,
+     4.554469385951665
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.3465,
+    "inclinacao_com_f_medio_do_pais": -2.3312107293415107,
+    "cidades": 111,
+    "paises": 75
+   },
+   "50_pares_2018": {
+    "variavel": "f",
+    "constante": 1.7644534154904807,
+    "inclinacao": -2.4205321310514734,
+    "ep": 3.172905914175599,
+    "z": -0.7628754827671557,
+    "ep_cr1_pais": 1.9016229267592162,
+    "ic95": [
+     -5.861325334394316,
+     4.587600382892886
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.3325,
+    "inclinacao_com_f_medio_do_pais": -2.4205321310514725,
+    "cidades": 111,
+    "paises": 75
+   },
+   "tirando_um_pais_2026": {
+    "minimo": -1.609195008999861,
+    "sem_o_pais_min": "Canadá",
+    "maximo": -0.41534931457771773,
+    "sem_o_pais_max": "Japão"
+   }
+  },
+  "espelho": {
+   "criterio_com_sinal_trocado_dispara": false,
+   "dose_g_2026": {
+    "variavel": "g",
+    "constante": -0.8222375163586513,
+    "inclinacao": 3.229349086036743,
+    "ep": 3.62556433847484,
+    "z": 0.890716253954337,
+    "ep_cr1_pais": 1.4505133380368511,
+    "ic95": [
+     -9.167111624499535,
+     5.707400317444628
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.4135,
+    "inclinacao_com_f_medio_do_pais": 2.388139982385182,
+    "cidades": 128,
+    "paises": 89
+   },
+   "desfecho_branco_nulo_2026": {
+    "variavel": "f",
+    "constante": -0.3910789975382361,
+    "inclinacao": 0.7263231364635553,
+    "ep": 0.42073974307147305,
+    "z": 1.7263002804566796,
+    "ep_cr1_pais": 0.30499398777225745,
+    "ic95": [
+     -0.3109016280650149,
+     1.3399546957015056
+    ],
+    "replicas_validas": 2000,
+    "p_permutacao_entre_paises": 0.0305,
+    "inclinacao_com_f_medio_do_pais": 0.7263231364635554,
+    "cidades": 128,
+    "paises": 89
+   }
+  },
+  "leitura_pela_letra": "INCONCLUSIVO",
+  "veredito": "SEM PODER"
+ },
+ "veredito_exterior_conjunto": "INCONCLUSIVO",
+ "calibracao_ab": {
+  "a": {
+   "uniforme_1,785": {
+    "delta": 1.785,
+    "estatistica_com_plantio": -2.5614595575727406,
+    "deslocamento": -1.782706445380082,
+    "recuperacao": 0.9987150954510264,
+    "deslocamento_em_ep": 8.44000661006149,
+    "poder_de_medida": true,
+    "criterio_de_sinal_dispara_com_plantio": true,
+    "poder_pleno": true,
+    "ep_com_plantio": 0.21122097739294238,
+    "votos_plantados_no_brasil": 2207019.0,
+    "deslocamento_esperado": -1.785
+   },
+   "uniforme_1,0": {
+    "delta": 1.0,
+    "estatistica_com_plantio": -1.7701993125999027,
+    "deslocamento": -0.9914462004072442,
+    "recuperacao": 0.9914462004072442,
+    "deslocamento_em_ep": 4.655570707641135,
+    "poder_de_medida": true,
+    "criterio_de_sinal_dispara_com_plantio": true,
+    "poder_pleno": true,
+    "ep_com_plantio": 0.2129591112814579,
+    "votos_plantados_no_brasil": 1236993.0,
+    "deslocamento_esperado": -1.0
+   },
+   "proporcional_3,57%_de_R": {
+    "delta": 1.6347648648817767,
+    "estatistica_com_plantio": -2.4138646711403284,
+    "deslocamento": -1.63511155894767,
+    "recuperacao": 1.0002120757996094,
+    "deslocamento_em_ep": 6.21584265087951,
+    "poder_de_medida": true,
+    "criterio_de_sinal_dispara_com_plantio": true,
+    "poder_pleno": true,
+    "ep_com_plantio": 0.2630554939669057,
+    "votos_plantados_no_brasil": 2130841.0,
+    "deslocamento_esperado": -1.6347648648817767
+   },
+   "menor_efeito_que_o_criterio_enxerga_em_base_sem_desvio": 1.0
+  },
+  "b": {
+   "uniforme_1,785": {
+    "delta": 1.785,
+    "estatistica_com_plantio": -3.1877622269541526,
+    "deslocamento": -1.7174737979239088,
+    "recuperacao": 0.962170194915355,
+    "deslocamento_em_ep": 1.8763361064429998,
+    "poder_de_medida": false,
+    "criterio_de_sinal_dispara_com_plantio": false,
+    "poder_pleno": false,
+    "ep_com_plantio": 0.9153337677756206,
+    "inclinacao_do_efeito_plantado": -1.7174737979239079,
+    "condicoes_de_2026_disparam_com_plantio": true
+   },
+   "uniforme_1,0": {
+    "delta": 1.0,
+    "estatistica_com_plantio": -2.438686495770512,
+    "deslocamento": -0.9683980667402681,
+    "recuperacao": 0.9683980667402681,
+    "deslocamento_em_ep": 1.0865796693664804,
+    "poder_de_medida": false,
+    "criterio_de_sinal_dispara_com_plantio": false,
+    "poder_pleno": false,
+    "ep_com_plantio": 0.8912352163784575,
+    "inclinacao_do_efeito_plantado": -0.9683980667402666,
+    "condicoes_de_2026_disparam_com_plantio": false
+   },
+   "proporcional_3,57%_de_R": {
+    "delta": 2.1689083985762663,
+    "estatistica_com_plantio": -3.639196827606508,
+    "deslocamento": -2.168908398576264,
+    "recuperacao": 0.999999999999999,
+    "deslocamento_em_ep": 1.6013300024759705,
+    "poder_de_medida": false,
+    "criterio_de_sinal_dispara_com_plantio": false,
+    "poder_pleno": false,
+    "ep_com_plantio": 1.3544418672120713,
+    "inclinacao_do_efeito_plantado": -2.1689083985762663,
+    "condicoes_de_2026_disparam_com_plantio": false
+   },
+   "menor_efeito_que_o_criterio_enxerga_em_base_sem_desvio": 2.727318201111942
+  }
+ },
+ "cidades_2026": [
+  {
+   "codigo": 29955,
+   "cidade": "LISBOA",
+   "pais": "Portugal",
+   "zona_iana": "Europe/Lisbon",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 103,
+   "votos_finalistas": 32314.0,
+   "f1": 58.603989737025124,
+   "virada": 1.4938006943668294,
+   "D_2026": -0.4574904758978461,
+   "D_2022": 0.06973327055422955,
+   "votos_2022": 19957.0,
+   "D_2018": 4.802413385029219,
+   "DiD": -0.5272237464520756
+  },
+  {
+   "codigo": 30341,
+   "cidade": "PORTO",
+   "pais": "Portugal",
+   "zona_iana": "Europe/Lisbon",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 62,
+   "votos_finalistas": 22345.0,
+   "f1": 57.970713009437134,
+   "virada": 2.154594665657973,
+   "D_2026": 0.0646004266123845,
+   "D_2022": 0.5959755603306278,
+   "votos_2022": 14584.0,
+   "D_2018": 5.645447749730811,
+   "DiD": -0.5313751337182433
+  },
+  {
+   "codigo": 29416,
+   "cidade": "BOSTON",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 69,
+   "votos_finalistas": 19007.0,
+   "f1": 25.8201567143527,
+   "virada": 2.6009512984846714,
+   "D_2026": -0.6526628633056524,
+   "D_2022": 0.13732135693340117,
+   "votos_2022": 14220.0,
+   "D_2018": 1.5645241367522733,
+   "DiD": -0.7899842202390536
+  },
+  {
+   "codigo": 29971,
+   "cidade": "LONDRES",
+   "pais": "Reino Unido",
+   "zona_iana": "Europe/London",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 48,
+   "votos_finalistas": 16483.0,
+   "f1": 60.93751116897881,
+   "virada": 1.611782042208466,
+   "D_2026": -0.2099701049678729,
+   "D_2022": 1.1112050091234456,
+   "votos_2022": 15068.0,
+   "D_2018": 4.0889836028032605,
+   "DiD": -1.3211751140913184
+  },
+  {
+   "codigo": 30198,
+   "cidade": "NAGÓIA",
+   "pais": "Japão",
+   "zona_iana": "Asia/Tokyo",
+   "utc_2026": 9.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 58,
+   "votos_finalistas": 16161.0,
+   "f1": 15.02616833256656,
+   "virada": 2.7759478731137794,
+   "D_2026": -1.760269376973226,
+   "D_2022": -0.38519888119273676,
+   "votos_2022": 14821.0,
+   "D_2018": -2.9405391840187223,
+   "DiD": -1.3750704957804893
+  },
+  {
+   "codigo": 30112,
+   "cidade": "MIAMI",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 51,
+   "votos_finalistas": 13705.0,
+   "f1": 20.23551433361717,
+   "virada": 3.120924922128906,
+   "D_2026": -0.1432308198198379,
+   "D_2022": 0.5680427335942417,
+   "votos_2022": 16245.0,
+   "D_2018": -0.8700174370970284,
+   "DiD": -0.7112735534140796
+  },
+  {
+   "codigo": 30627,
+   "cidade": "TÓQUIO",
+   "pais": "Japão",
+   "zona_iana": "Asia/Tokyo",
+   "utc_2026": 9.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 43,
+   "votos_finalistas": 12765.0,
+   "f1": 21.71024234128275,
+   "virada": 1.7523506865276641,
+   "D_2026": -3.352426682479938,
+   "D_2022": -1.2911542151315907,
+   "votos_2022": 12474.0,
+   "D_2018": -3.198388388629581,
+   "DiD": -2.0612724673483473
+  },
+  {
+   "codigo": 30228,
+   "cidade": "NOVA YORK",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 53,
+   "votos_finalistas": 12037.0,
+   "f1": 49.42223612800251,
+   "virada": 2.9745404774639583,
+   "D_2026": 0.278671933934978,
+   "D_2022": 0.21972671806861627,
+   "votos_2022": 11399.0,
+   "D_2018": 1.6441609400852604,
+   "DiD": 0.058945215866361755
+  },
+  {
+   "codigo": 30287,
+   "cidade": "PARIS",
+   "pais": "França",
+   "zona_iana": "Europe/Paris",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 34,
+   "votos_finalistas": 11674.0,
+   "f1": 82.97535084046868,
+   "virada": 0.5178819846127094,
+   "D_2026": 0.2646553553992063,
+   "D_2022": 0.3197859702470839,
+   "votos_2022": 9507.0,
+   "D_2018": 3.4488459836079004,
+   "DiD": -0.05513061484787757
+  },
+  {
+   "codigo": 30635,
+   "cidade": "TORONTO",
+   "pais": "Canadá",
+   "zona_iana": "America/Toronto",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 28,
+   "votos_finalistas": 9934.0,
+   "f1": 58.27116749372146,
+   "virada": 1.7147394923868724,
+   "D_2026": -0.7020532381956054,
+   "D_2022": 0.13737080108647218,
+   "votos_2022": 9299.0,
+   "D_2018": -0.08975490925557365,
+   "DiD": -0.8394240392820775
+  },
+  {
+   "codigo": 99490,
+   "cidade": "ORLANDO",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 34,
+   "votos_finalistas": 9927.0,
+   "f1": 16.088563639994213,
+   "virada": 2.9000532634005722,
+   "D_2026": 0.0010272801127545585,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": -0.16796848396758637
+  },
+  {
+   "codigo": 29661,
+   "cidade": "DUBLIN",
+   "pais": "Irlanda",
+   "zona_iana": "Europe/Dublin",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 28,
+   "votos_finalistas": 8970.0,
+   "f1": 79.61218007488034,
+   "virada": 0.588488821440736,
+   "D_2026": 0.33894091319077463,
+   "D_2022": -1.066517953541503,
+   "votos_2022": 7362.0,
+   "D_2018": 5.331619158126162,
+   "DiD": 1.4054588667322776
+  },
+  {
+   "codigo": 29386,
+   "cidade": "BERLIM",
+   "pais": "Alemanha",
+   "zona_iana": "Europe/Berlin",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 20,
+   "votos_finalistas": 8577.0,
+   "f1": 87.4035621132702,
+   "virada": -0.5200364049805748,
+   "D_2026": -0.5699449852415928,
+   "D_2022": 1.1224049108980143,
+   "votos_2022": 7217.0,
+   "D_2018": 3.959608680133396,
+   "DiD": -1.692349896139607
+  },
+  {
+   "codigo": 30120,
+   "cidade": "MILÃO",
+   "pais": "Itália",
+   "zona_iana": "Europe/Rome",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 37,
+   "votos_finalistas": 8268.0,
+   "f1": 55.24245880576165,
+   "virada": 1.8813921860138767,
+   "D_2026": -0.44935038710839625,
+   "D_2022": -1.0509368193288118,
+   "votos_2022": 6415.0,
+   "D_2018": 1.3057553223620566,
+   "DiD": 0.6015864322204155
+  },
+  {
+   "codigo": 30066,
+   "cidade": "MADRI",
+   "pais": "Espanha",
+   "zona_iana": "Europe/Madrid",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 30,
+   "votos_finalistas": 7345.0,
+   "f1": 60.344585775547515,
+   "virada": 0.5403699766648834,
+   "D_2026": -1.4923938821138933,
+   "D_2022": -0.22585020840649153,
+   "votos_2022": 5462.0,
+   "D_2018": 3.100652629678434,
+   "DiD": -1.2665436737074018
+  },
+  {
+   "codigo": 30457,
+   "cidade": "AMSTERDÃ",
+   "pais": "Países Baixos",
+   "zona_iana": "Europe/Amsterdam",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 17,
+   "votos_finalistas": 6961.0,
+   "f1": 81.08169717790537,
+   "virada": -0.9495322590718633,
+   "D_2026": -1.072289994201015,
+   "D_2022": 0.259851962838321,
+   "votos_2022": 5753.0,
+   "D_2018": -0.2721093240945356,
+   "DiD": -1.3321419570393358
+  },
+  {
+   "codigo": 30864,
+   "cidade": "ZURIQUE",
+   "pais": "Suíça",
+   "zona_iana": "Europe/Zurich",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 19,
+   "votos_finalistas": 6883.0,
+   "f1": 55.71470627808442,
+   "virada": 3.096858446599583,
+   "D_2026": 1.1409321233428218,
+   "D_2022": 1.2686700034763534,
+   "votos_2022": 5951.0,
+   "D_2018": 1.9951998678900182,
+   "DiD": -0.1277378801335316
+  },
+  {
+   "codigo": 29742,
+   "cidade": "HAMAMATSU",
+   "pais": "Japão",
+   "zona_iana": "Asia/Tokyo",
+   "utc_2026": 9.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 18,
+   "votos_finalistas": 6710.0,
+   "f1": 15.833318987786402,
+   "virada": 2.4379179719751445,
+   "D_2026": -2.4396659244449626,
+   "D_2022": -0.2557046696325378,
+   "votos_2022": 5757.0,
+   "D_2018": -1.7929415156593607,
+   "DiD": -2.1839612548124245
+  },
+  {
+   "codigo": 30562,
+   "cidade": "SYDNEY",
+   "pais": "Austrália",
+   "zona_iana": "Australia/Sydney",
+   "utc_2026": 11.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 19,
+   "votos_finalistas": 6629.0,
+   "f1": 63.32748230308613,
+   "virada": -0.5578337889814319,
+   "D_2026": -1.5892267140785834,
+   "D_2022": -1.5661720963066688,
+   "votos_2022": 4920.0,
+   "D_2018": 0.5503156407829919,
+   "DiD": -0.023054617771914643
+  },
+  {
+   "codigo": 30155,
+   "cidade": "MONTREAL",
+   "pais": "Canadá",
+   "zona_iana": "America/Toronto",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 15,
+   "votos_finalistas": 6604.0,
+   "f1": 72.35870188353829,
+   "virada": -0.4780235067969111,
+   "D_2026": -1.650795430381446,
+   "D_2022": 0.35026005947615707,
+   "votos_2022": 5612.0,
+   "D_2018": 3.106386369790979,
+   "DiD": -2.001055489857603
+  },
+  {
+   "codigo": 39063,
+   "cidade": "VANCOUVER",
+   "pais": "Canadá",
+   "zona_iana": "America/Vancouver",
+   "utc_2026": -7.0,
+   "f": 0.0,
+   "g": 0.4444444444444444,
+   "secoes": 16,
+   "votos_finalistas": 6303.0,
+   "f1": 63.04027193219951,
+   "virada": 2.1509068715447492,
+   "D_2026": 0.4636145008601783,
+   "D_2022": 1.5949733351150375,
+   "votos_2022": 5422.0,
+   "D_2018": 2.247377549954797,
+   "DiD": -1.131358834254859
+  },
+  {
+   "codigo": 29351,
+   "cidade": "BARCELONA",
+   "pais": "Espanha",
+   "zona_iana": "Europe/Madrid",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 22,
+   "votos_finalistas": 6237.0,
+   "f1": 78.50616849443206,
+   "virada": -1.2093911976547564,
+   "D_2026": -2.189819470716676,
+   "D_2022": 0.7488613658846297,
+   "votos_2022": 4299.0,
+   "D_2018": 5.781600415004692,
+   "DiD": -2.9386808366013053
+  },
+  {
+   "codigo": 30180,
+   "cidade": "MUNIQUE",
+   "pais": "Alemanha",
+   "zona_iana": "Europe/Berlin",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 21,
+   "votos_finalistas": 6181.0,
+   "f1": 72.29155415525929,
+   "virada": 0.9166645795732636,
+   "D_2026": 0.32542389939571087,
+   "D_2022": 1.3840624955893457,
+   "votos_2022": 5093.0,
+   "D_2018": 1.1615701341493292,
+   "DiD": -1.0586385961936349
+  },
+  {
+   "codigo": 29696,
+   "cidade": "FRANKFURT",
+   "pais": "Alemanha",
+   "zona_iana": "Europe/Berlin",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 21,
+   "votos_finalistas": 6165.0,
+   "f1": 73.47962872087126,
+   "virada": 0.6809552207345801,
+   "D_2026": -0.025825804393446946,
+   "D_2022": 0.6809472914640226,
+   "votos_2022": 5100.0,
+   "D_2018": 2.3529410190291444,
+   "DiD": -0.7067730958574695
+  },
+  {
+   "codigo": 29467,
+   "cidade": "BUENOS AIRES",
+   "pais": "Argentina",
+   "zona_iana": "America/Argentina/Buenos_Aires",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 15,
+   "votos_finalistas": 5962.0,
+   "f1": 70.71947867903151,
+   "virada": -0.5416859920137274,
+   "D_2026": -1.6013115114986076,
+   "D_2022": -1.319563515430489,
+   "votos_2022": 6613.0,
+   "D_2018": -0.2931804737433154,
+   "DiD": -0.2817479960681186
+  },
+  {
+   "codigo": 29700,
+   "cidade": "GENEBRA",
+   "pais": "Suíça",
+   "zona_iana": "Europe/Zurich",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 15,
+   "votos_finalistas": 5625.0,
+   "f1": 50.73108141106951,
+   "virada": 3.331140811152718,
+   "D_2026": 0.7747840947190343,
+   "D_2022": 1.361895450232775,
+   "votos_2022": 4599.0,
+   "D_2018": 3.146630827373271,
+   "DiD": -0.5871113555137406
+  },
+  {
+   "codigo": 39080,
+   "cidade": "ATLANTA",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 22,
+   "votos_finalistas": 5600.0,
+   "f1": 27.142423759420886,
+   "virada": 2.7325762405791125,
+   "D_2026": -0.7925426946402787,
+   "D_2022": 0.5324025375649026,
+   "votos_2022": 4553.0,
+   "D_2018": -0.9611050143904898,
+   "DiD": -1.3249452322051813
+  },
+  {
+   "codigo": 29980,
+   "cidade": "LOS ANGELES",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/Los_Angeles",
+   "utc_2026": -7.0,
+   "f": 0.0,
+   "g": 0.4444444444444444,
+   "secoes": 25,
+   "votos_finalistas": 5341.0,
+   "f1": 51.980640162663114,
+   "virada": 3.0465083114054283,
+   "D_2026": 0.9280987150800882,
+   "D_2022": -1.084156086000022,
+   "votos_2022": 3969.0,
+   "D_2018": 2.235640314222656,
+   "DiD": 2.0122548010801102
+  },
+  {
+   "codigo": 30783,
+   "cidade": "WASHINGTON",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 31,
+   "votos_finalistas": 5325.0,
+   "f1": 56.44833273422749,
+   "virada": 1.110352711781902,
+   "D_2026": -0.7493308711512295,
+   "D_2022": -0.0929372142188061,
+   "votos_2022": 5046.0,
+   "D_2018": 3.7080744253177937,
+   "DiD": -0.6563936569324235
+  },
+  {
+   "codigo": 29432,
+   "cidade": "BRUXELAS",
+   "pais": "Bélgica",
+   "zona_iana": "Europe/Brussels",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 14,
+   "votos_finalistas": 5218.0,
+   "f1": 56.13934736280932,
+   "virada": 2.5804686586548344,
+   "D_2026": 0.9010608216359733,
+   "D_2022": 0.5647570336274403,
+   "votos_2022": 3559.0,
+   "D_2018": 4.432180489530044,
+   "DiD": 0.336303788008533
+  },
+  {
+   "codigo": 30449,
+   "cidade": "ROMA",
+   "pais": "Itália",
+   "zona_iana": "Europe/Rome",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 22,
+   "votos_finalistas": 4936.0,
+   "f1": 63.427273051285475,
+   "virada": 1.3620300281310525,
+   "D_2026": -0.5995976493946494,
+   "D_2022": -0.07619004182005074,
+   "votos_2022": 4097.0,
+   "D_2018": 1.2828367738108533,
+   "DiD": -0.5234076075745987
+  },
+  {
+   "codigo": 29807,
+   "cidade": "HOUSTON",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/Chicago",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 23,
+   "votos_finalistas": 4726.0,
+   "f1": 32.91339258685083,
+   "virada": 3.9888503247022826,
+   "D_2026": 0.2574169398941731,
+   "D_2022": -0.07720838600717916,
+   "votos_2022": 4206.0,
+   "D_2018": -0.395872061376602,
+   "DiD": 0.33462532590135224
+  },
+  {
+   "codigo": 30503,
+   "cidade": "SÃO FRANCISCO",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/Los_Angeles",
+   "utc_2026": -7.0,
+   "f": 0.0,
+   "g": 0.4444444444444444,
+   "secoes": 20,
+   "votos_finalistas": 4512.0,
+   "f1": 62.01588422904927,
+   "virada": 3.1658533596032146,
+   "D_2026": 1.323578287802149,
+   "D_2022": 1.2280882338335544,
+   "votos_2022": 4015.0,
+   "D_2018": 1.3164878212723266,
+   "DiD": 0.09549005396859456
+  },
+  {
+   "codigo": 29360,
+   "cidade": "BEIRUTE",
+   "pais": "Líbano",
+   "zona_iana": "Asia/Beirut",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 13,
+   "votos_finalistas": 4012.0,
+   "f1": 69.60894019576561,
+   "virada": -1.4135264370417813,
+   "D_2026": -3.1084980742694945,
+   "D_2022": -1.5477219233089776,
+   "votos_2022": 2690.0,
+   "D_2018": 2.9427232966456667,
+   "DiD": -1.560776150960517
+  },
+  {
+   "codigo": 29513,
+   "cidade": "CHICAGO",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/Chicago",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 18,
+   "votos_finalistas": 3225.0,
+   "f1": 60.82766837305049,
+   "virada": 3.017292867259589,
+   "D_2026": 1.2741039320382568,
+   "D_2022": -2.5376079416726527,
+   "votos_2022": 2837.0,
+   "D_2018": -0.11252866361359087,
+   "DiD": 3.8117118737109097
+  },
+  {
+   "codigo": 30961,
+   "cidade": "FARO",
+   "pais": "Portugal",
+   "zona_iana": "Europe/Lisbon",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 11,
+   "votos_finalistas": 3093.0,
+   "f1": 45.63050103127096,
+   "virada": 1.7021856806592115,
+   "D_2026": -1.565293655537006,
+   "D_2022": -0.5190763364568618,
+   "votos_2022": 1796.0,
+   "D_2018": 3.452565080508228,
+   "DiD": -1.0462173190801443
+  },
+  {
+   "codigo": 29556,
+   "cidade": "CIUDAD DEL ESTE",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 7,
+   "votos_finalistas": 2960.0,
+   "f1": 8.302323001208793,
+   "virada": 0.17740672852093584,
+   "D_2026": -2.7324727786056373,
+   "D_2022": -0.18174892330362682,
+   "votos_2022": 2957.0,
+   "D_2018": -0.676109888148841,
+   "DiD": -2.5507238553020106
+  },
+  {
+   "codigo": 29491,
+   "cidade": "CAMBERRA",
+   "pais": "Austrália",
+   "zona_iana": "Australia/Sydney",
+   "utc_2026": 11.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 10,
+   "votos_finalistas": 2853.0,
+   "f1": 64.6803384138596,
+   "virada": 0.37399036286665327,
+   "D_2026": -1.420314357719713,
+   "D_2022": -0.3009233201303357,
+   "votos_2022": 1973.0,
+   "D_2018": 1.2568973647147186,
+   "DiD": -1.1193910375893774
+  },
+  {
+   "codigo": 29688,
+   "cidade": "ESTOCOLMO",
+   "pais": "Suécia",
+   "zona_iana": "Europe/Stockholm",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 7,
+   "votos_finalistas": 2718.0,
+   "f1": 77.9123282103968,
+   "virada": 0.34374242977981184,
+   "D_2026": 0.24301963127540382,
+   "D_2022": -0.37126890280361813,
+   "votos_2022": 2327.0,
+   "D_2018": -0.360922459820028,
+   "DiD": 0.614288534079022
+  },
+  {
+   "codigo": 30902,
+   "cidade": "HARTFORD",
+   "pais": "Estados Unidos",
+   "zona_iana": "America/New_York",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 12,
+   "votos_finalistas": 2336.0,
+   "f1": 31.54628407954875,
+   "virada": 2.999948797163579,
+   "D_2026": -0.43501474413117275,
+   "D_2022": 1.8784645360866945,
+   "votos_2022": 1458.0,
+   "D_2018": -2.08881837716926,
+   "DiD": -2.313479280217867
+  },
+  {
+   "codigo": 30481,
+   "cidade": "SANTIAGO",
+   "pais": "Chile",
+   "zona_iana": "America/Santiago",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 2046.0,
+   "f1": 53.42821969097313,
+   "virada": 0.3352211692419241,
+   "D_2026": -2.0582331314870874,
+   "D_2022": -0.55265233762868,
+   "votos_2022": 1827.0,
+   "D_2018": 1.139693168124043,
+   "DiD": -1.5055807938584074
+  },
+  {
+   "codigo": 29599,
+   "cidade": "COPENHAGUE",
+   "pais": "Dinamarca",
+   "zona_iana": "Europe/Copenhagen",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 4,
+   "votos_finalistas": 1626.0,
+   "f1": 85.61746573930657,
+   "virada": -0.5621151858010468,
+   "D_2026": -0.34043724191096864,
+   "D_2022": 1.0821899268376531,
+   "votos_2022": 1245.0,
+   "D_2018": 1.8335099592234376,
+   "DiD": -1.4226271687486218
+  },
+  {
+   "codigo": 30767,
+   "cidade": "VIENA",
+   "pais": "Áustria",
+   "zona_iana": "Europe/Vienna",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 1571.0,
+   "f1": 75.83832033946813,
+   "virada": -0.8542337704038453,
+   "D_2026": -0.8421068054011254,
+   "D_2022": 1.1733006771792749,
+   "votos_2022": 1339.0,
+   "D_2018": -2.636726934532792,
+   "DiD": -2.0154074825804003
+  },
+  {
+   "codigo": 30473,
+   "cidade": "SANTA CRUZ DE LA SIERRA",
+   "pais": "Bolívia",
+   "zona_iana": "America/La_Paz",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 5,
+   "votos_finalistas": 1466.0,
+   "f1": 14.271859017737839,
+   "virada": 1.417090504772394,
+   "D_2026": -1.2772564235610044,
+   "D_2022": -0.7618095720224733,
+   "votos_2022": 1008.0,
+   "D_2018": -1.5332837644311803,
+   "DiD": -0.5154468515385311
+  },
+  {
+   "codigo": 30252,
+   "cidade": "OTTAWA",
+   "pais": "Canadá",
+   "zona_iana": "America/Toronto",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 4,
+   "votos_finalistas": 1436.0,
+   "f1": 66.86137448299394,
+   "virada": 0.060631088036701225,
+   "D_2026": -1.7249499987123285,
+   "D_2022": 2.033663746270337,
+   "votos_2022": 1061.0,
+   "D_2018": 4.168927982510291,
+   "DiD": -3.7586137449826653
+  },
+  {
+   "codigo": 29262,
+   "cidade": "ABU DHABI",
+   "pais": "Emirados Árabes Unidos",
+   "zona_iana": "Asia/Dubai",
+   "utc_2026": 4.0,
+   "f": 0.7777777777777778,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 1415.0,
+   "f1": 43.63374308295994,
+   "virada": 1.8079530301142674,
+   "D_2026": -1.140536824330069,
+   "D_2022": -2.151450676289598,
+   "votos_2022": 997.0,
+   "D_2018": -0.5542179783361797,
+   "DiD": 1.010913851959529
+  },
+  {
+   "codigo": 30104,
+   "cidade": "MEXICO",
+   "pais": "México",
+   "zona_iana": "America/Mexico_City",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 6,
+   "votos_finalistas": 1357.0,
+   "f1": 49.818739150335965,
+   "virada": 1.6919461849624864,
+   "D_2026": -0.38415106373438307,
+   "D_2022": -1.6055939059930204,
+   "votos_2022": 1329.0,
+   "D_2018": -1.378189471541091,
+   "DiD": 1.2214428422586374
+  },
+  {
+   "codigo": 30147,
+   "cidade": "MONTEVIDÉU",
+   "pais": "Uruguai",
+   "zona_iana": "America/Montevideo",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 4,
+   "votos_finalistas": 1298.0,
+   "f1": 59.66816210782008,
+   "virada": -0.654294619376329,
+   "D_2026": -3.565668512266145,
+   "D_2022": -0.35496060974363397,
+   "votos_2022": 1285.0,
+   "D_2018": -1.3329630441619524,
+   "DiD": -3.210707902522511
+  },
+  {
+   "codigo": 29327,
+   "cidade": "ASSUNÇÃO",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 4,
+   "votos_finalistas": 1187.0,
+   "f1": 25.250903721382468,
+   "virada": 2.1290457310185453,
+   "D_2026": -3.0036031605757545,
+   "D_2022": 0.915250730823185,
+   "votos_2022": 1237.0,
+   "D_2018": 0.48714173930051685,
+   "DiD": -3.9188538913989395
+  },
+  {
+   "codigo": 29475,
+   "cidade": "CAIENA",
+   "pais": "Guiana Francesa",
+   "zona_iana": "America/Cayenne",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 1162.0,
+   "f1": 48.38760120714105,
+   "virada": 3.1614521491412177,
+   "D_2026": 5.500939508816348e-05,
+   "D_2022": 0.8649234425203788,
+   "votos_2022": 1320.0,
+   "D_2018": -0.0882725921358329,
+   "DiD": -0.8648684331252906
+  },
+  {
+   "codigo": 30244,
+   "cidade": "OSLO",
+   "pais": "Noruega",
+   "zona_iana": "Europe/Oslo",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 3,
+   "votos_finalistas": 1068.0,
+   "f1": 74.9404408312842,
+   "virada": 1.8385853859442565,
+   "D_2026": 0.8851707573126135,
+   "D_2022": 1.3781895016746775,
+   "votos_2022": 825.0,
+   "D_2018": -2.7622298355930335,
+   "DiD": -0.49301874436206394
+  },
+  {
+   "codigo": 30414,
+   "cidade": "RAMALLAH",
+   "pais": "Palestina",
+   "zona_iana": "Asia/Hebron",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 3,
+   "votos_finalistas": 1046.0,
+   "f1": 95.9219743970556,
+   "virada": -0.31967994198868643,
+   "D_2026": -0.5751531527270952,
+   "D_2022": 0.9402628438451459,
+   "votos_2022": 645.0,
+   "D_2018": -0.2565791218194747,
+   "DiD": -1.5154159965722411
+  },
+  {
+   "codigo": 99511,
+   "cidade": "MARSELHA",
+   "pais": "França",
+   "zona_iana": "Europe/Paris",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 4,
+   "votos_finalistas": 1041.0,
+   "f1": 87.29540912449731,
+   "virada": 1.945705188663116,
+   "D_2026": 1.6396633876711262,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": 1.3198774174240424
+  },
+  {
+   "codigo": 30619,
+   "cidade": "TEL AVIV",
+   "pais": "Israel",
+   "zona_iana": "Asia/Jerusalem",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 865.0,
+   "f1": 14.934730924811365,
+   "virada": 4.2560205202753405,
+   "D_2026": -0.4925237001068325,
+   "D_2022": 1.6737817643568655,
+   "votos_2022": 758.0,
+   "D_2018": 2.2432445112959236,
+   "DiD": -2.166305464463698
+  },
+  {
+   "codigo": 99503,
+   "cidade": "EDIMBURGO",
+   "pais": "Reino Unido",
+   "zona_iana": "Europe/London",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 6,
+   "votos_finalistas": 834.0,
+   "f1": 77.85630642649762,
+   "virada": 1.0405760675071702,
+   "D_2026": 0.25606512682386373,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": -0.8551398822995818
+  },
+  {
+   "codigo": 29289,
+   "cidade": "AMÃ",
+   "pais": "Jordânia",
+   "zona_iana": "Asia/Amman",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 801.0,
+   "f1": 91.96155549799656,
+   "virada": -1.4496953232150436,
+   "D_2026": -1.5861239484660457,
+   "D_2022": 2.5355763049339077,
+   "votos_2022": 532.0,
+   "D_2018": -3.639869849737796,
+   "DiD": -4.121700253399953
+  },
+  {
+   "codigo": 29785,
+   "cidade": "HELSINQUE",
+   "pais": "Finlândia",
+   "zona_iana": "Europe/Helsinki",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 735.0,
+   "f1": 75.40942302847066,
+   "virada": -0.5794910556815341,
+   "D_2026": -0.8851639903701501,
+   "D_2022": 0.8396648233024964,
+   "votos_2022": 607.0,
+   "D_2018": 3.0546780816769434,
+   "DiD": -1.7248288136726466
+  },
+  {
+   "codigo": 29947,
+   "cidade": "LIMA",
+   "pais": "Peru",
+   "zona_iana": "America/Lima",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 3,
+   "votos_finalistas": 721.0,
+   "f1": 39.545887800429156,
+   "virada": 1.6468999943003846,
+   "D_2026": -1.544913849080177,
+   "D_2022": 1.3963624249269653,
+   "votos_2022": 744.0,
+   "D_2018": -1.1354669914853401,
+   "DiD": -2.9412762740071425
+  },
+  {
+   "codigo": 30260,
+   "cidade": "PANAMA",
+   "pais": "Panamá",
+   "zona_iana": "America/Panama",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 2,
+   "votos_finalistas": 696.0,
+   "f1": 41.25577792516163,
+   "virada": -2.8937089596443886,
+   "D_2026": -5.728923329088138,
+   "D_2022": 0.7366459835543531,
+   "votos_2022": 644.0,
+   "D_2018": -2.354798384461807,
+   "DiD": -6.465569312642491
+  },
+  {
+   "codigo": 30465,
+   "cidade": "SALTO DEL GUAIRÁ",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 601.0,
+   "f1": 3.705130006843098,
+   "virada": 0.4546037701951717,
+   "D_2026": -1.9016036036010164,
+   "D_2022": 0.15036637652700852,
+   "votos_2022": 578.0,
+   "D_2018": -2.9406111841737794,
+   "DiD": -2.051969980128025
+  },
+  {
+   "codigo": 29335,
+   "cidade": "ATENAS",
+   "pais": "Grécia",
+   "zona_iana": "Europe/Athens",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 566.0,
+   "f1": 45.99570357861568,
+   "virada": -0.9427000450467753,
+   "D_2026": -3.4028549622240427,
+   "D_2022": 0.8905951337185005,
+   "votos_2022": 435.0,
+   "D_2018": 1.802288339245642,
+   "DiD": -4.293450095942543
+  },
+  {
+   "codigo": 29408,
+   "cidade": "BOGOTÁ",
+   "pais": "Colômbia",
+   "zona_iana": "America/Bogota",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 2,
+   "votos_finalistas": 564.0,
+   "f1": 49.39326321545166,
+   "virada": 0.42943182000932956,
+   "D_2026": -2.5249042575497302,
+   "D_2022": -1.254761672779585,
+   "votos_2022": 673.0,
+   "D_2018": 0.8442878457128543,
+   "DiD": -1.2701425847701453
+  },
+  {
+   "codigo": 30279,
+   "cidade": "PARAMARIBO",
+   "pais": "Suriname",
+   "zona_iana": "America/Paramaribo",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 3,
+   "votos_finalistas": 558.0,
+   "f1": 24.84681347177986,
+   "virada": 5.977559288076768,
+   "D_2026": 2.2072698452928057,
+   "D_2022": -0.7365330357430766,
+   "votos_2022": 485.0,
+   "D_2018": 1.5760323522680812,
+   "DiD": 2.9438028810358823
+  },
+  {
+   "codigo": 30805,
+   "cidade": "WELLINGTON",
+   "pais": "Nova Zelândia",
+   "zona_iana": "Pacific/Auckland",
+   "utc_2026": 13.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 5,
+   "votos_finalistas": 519.0,
+   "f1": 78.18421028786685,
+   "virada": 2.3552887487420207,
+   "D_2026": 1.9729049671370669,
+   "D_2022": -8.859699467511508,
+   "votos_2022": 553.0,
+   "D_2018": 3.8784519574718694,
+   "DiD": 10.832604434648575
+  },
+  {
+   "codigo": 29459,
+   "cidade": "BUDAPESTE",
+   "pais": "Hungria",
+   "zona_iana": "Europe/Budapest",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 472.0,
+   "f1": 77.9795839753467,
+   "virada": -2.767719568567036,
+   "D_2026": -3.0276680329840158,
+   "D_2022": -0.21354377602339708,
+   "votos_2022": 564.0,
+   "D_2018": 5.425514973628879,
+   "DiD": -2.8141242569606186
+  },
+  {
+   "codigo": 30350,
+   "cidade": "PRAGA",
+   "pais": "República Tcheca",
+   "zona_iana": "Europe/Prague",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 390.0,
+   "f1": 79.94269340974212,
+   "virada": -1.9939754610241776,
+   "D_2026": -1.4032601770718958,
+   "D_2022": 0.6578165933212246,
+   "votos_2022": 359.0,
+   "D_2018": -3.5941085884292896,
+   "DiD": -2.0610767703931203
+  },
+  {
+   "codigo": 29602,
+   "cidade": "CÓRDOBA",
+   "pais": "Argentina",
+   "zona_iana": "America/Argentina/Cordoba",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 385.0,
+   "f1": 53.29618996775037,
+   "virada": 0.9895243179639176,
+   "D_2026": -1.4300198333270597,
+   "D_2022": -0.47862037056260676,
+   "votos_2022": 341.0,
+   "D_2018": -4.5053479541317465,
+   "DiD": -0.951399462764453
+  },
+  {
+   "codigo": 29319,
+   "cidade": "ARTIGAS",
+   "pais": "Uruguai",
+   "zona_iana": "America/Montevideo",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 374.0,
+   "f1": 31.419939577039276,
+   "virada": -1.2060358337237673,
+   "D_2026": -5.8938530601986,
+   "D_2022": -1.5848537219114252,
+   "votos_2022": 417.0,
+   "D_2018": -4.816571578790169,
+   "DiD": -4.308999338287174
+  },
+  {
+   "codigo": 30511,
+   "cidade": "SÃO JOSÉ",
+   "pais": "Costa Rica",
+   "zona_iana": "America/Costa_Rica",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 1,
+   "votos_finalistas": 366.0,
+   "f1": 52.10843373493976,
+   "virada": -2.9281058660873,
+   "D_2026": -3.837663891194097,
+   "D_2022": 1.4830865734706582,
+   "votos_2022": 366.0,
+   "D_2018": -5.532827297447872,
+   "DiD": -5.320750464664755
+  },
+  {
+   "codigo": 30740,
+   "cidade": "VARSÓVIA",
+   "pais": "Polônia",
+   "zona_iana": "Europe/Warsaw",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 357.0,
+   "f1": 73.79032258064517,
+   "virada": 1.2797054305593178,
+   "D_2026": 0.23150591662123854,
+   "D_2022": -1.043774047548566,
+   "votos_2022": 280.0,
+   "D_2018": -2.4783329946641715,
+   "DiD": 1.2752799641698045
+  },
+  {
+   "codigo": 29653,
+   "cidade": "DOHA",
+   "pais": "Catar",
+   "zona_iana": "Asia/Qatar",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 354.0,
+   "f1": 45.9375,
+   "virada": -1.0222457627118615,
+   "D_2026": -3.240672554572017,
+   "D_2022": 1.370374872000961,
+   "votos_2022": 372.0,
+   "D_2018": 2.656746907843355,
+   "DiD": -4.611047426572978
+  },
+  {
+   "codigo": 30392,
+   "cidade": "QUITO",
+   "pais": "Equador",
+   "zona_iana": "America/Guayaquil",
+   "utc_2026": -5.0,
+   "f": 0.0,
+   "g": 0.2222222222222222,
+   "secoes": 2,
+   "votos_finalistas": 343.0,
+   "f1": 43.37073175134715,
+   "virada": 2.6934081903438107,
+   "D_2026": -0.9269243799040067,
+   "D_2022": -1.0861336014936565,
+   "votos_2022": 370.0,
+   "D_2018": 1.9261879947407128,
+   "DiD": 0.15920922158964979
+  },
+  {
+   "codigo": 29548,
+   "cidade": "SINGAPURA",
+   "pais": "Singapura",
+   "zona_iana": "Asia/Singapore",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 2,
+   "votos_finalistas": 334.0,
+   "f1": 67.13231441167007,
+   "virada": -3.3598593218497053,
+   "D_2026": -4.330770239750893,
+   "D_2022": -1.384826417614186,
+   "votos_2022": 361.0,
+   "D_2018": -0.9058231359099054,
+   "DiD": -2.945943822136707
+  },
+  {
+   "codigo": 30309,
+   "cidade": "PEDRO JUAN CABALLERO",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 326.0,
+   "f1": 21.223021582733814,
+   "virada": 3.3168557178796836,
+   "D_2026": -1.1767285109698902,
+   "D_2022": -0.8280612731572314,
+   "votos_2022": 358.0,
+   "D_2018": 13.68837843127094,
+   "DiD": -0.34866723781265874
+  },
+  {
+   "codigo": 29998,
+   "cidade": "LUANDA",
+   "pais": "Angola",
+   "zona_iana": "Africa/Luanda",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 285.0,
+   "f1": 59.274193548387096,
+   "virada": -0.6777023203169179,
+   "D_2026": -2.2014645267494597,
+   "D_2022": -0.026667024389191107,
+   "votos_2022": 223.0,
+   "D_2018": 6.578566249760765,
+   "DiD": -2.174797502360269
+  },
+  {
+   "codigo": 30376,
+   "cidade": "PRETÓRIA",
+   "pais": "África do Sul",
+   "zona_iana": "Africa/Johannesburg",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 274.0,
+   "f1": 26.495726495726494,
+   "virada": 2.3363902925946753,
+   "D_2026": -0.888022151993205,
+   "D_2022": 0.6566084224890877,
+   "votos_2022": 290.0,
+   "D_2018": 5.098973044641003,
+   "DiD": -1.5446305744822926
+  },
+  {
+   "codigo": 29793,
+   "cidade": "HONG KONG",
+   "pais": "Hong Kong",
+   "zona_iana": "Asia/Hong_Kong",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 260.0,
+   "f1": 48.529411764705884,
+   "virada": 0.3167420814479627,
+   "D_2026": -2.997927269929644,
+   "D_2022": 5.608752804555632,
+   "votos_2022": 175.0,
+   "D_2018": -0.18743422757521877,
+   "DiD": -8.606680074485276
+  },
+  {
+   "codigo": 30848,
+   "cidade": "XANGAI",
+   "pais": "China",
+   "zona_iana": "Asia/Shanghai",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 248.0,
+   "f1": 73.88535031847134,
+   "virada": -0.49825354427778734,
+   "D_2026": -2.4128211196740112,
+   "D_2022": 3.7355474205891617,
+   "votos_2022": 187.0,
+   "D_2018": 0.25287161370993516,
+   "DiD": -6.1483685402631725
+  },
+  {
+   "codigo": 29505,
+   "cidade": "CARACAS",
+   "pais": "Venezuela",
+   "zona_iana": "America/Caracas",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 3,
+   "votos_finalistas": 242.0,
+   "f1": 50.67719449810421,
+   "virada": -6.875541605542224,
+   "D_2026": -8.95101027191624,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": -6.022095181413385,
+   "DiD": null
+  },
+  {
+   "codigo": 29904,
+   "cidade": "LA PAZ",
+   "pais": "Bolívia",
+   "zona_iana": "America/La_Paz",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 1,
+   "votos_finalistas": 232.0,
+   "f1": 48.03921568627452,
+   "virada": 2.391818796484109,
+   "D_2026": -2.0750055430814083,
+   "D_2022": 2.035579375863035,
+   "votos_2022": 200.0,
+   "D_2018": -2.8363753848192843,
+   "DiD": -4.1105849189444434
+  },
+  {
+   "codigo": 30538,
+   "cidade": "SEUL",
+   "pais": "Coreia do Sul",
+   "zona_iana": "Asia/Seoul",
+   "utc_2026": 9.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 230.0,
+   "f1": 63.07692307692308,
+   "virada": 1.270903010033436,
+   "D_2026": 0.14658121264829993,
+   "D_2022": -4.0239447958259245,
+   "votos_2022": 196.0,
+   "D_2018": -2.7672394539470595,
+   "DiD": 4.170526008474225
+  },
+  {
+   "codigo": 30090,
+   "cidade": "MAPUTO",
+   "pais": "Moçambique",
+   "zona_iana": "Africa/Maputo",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 225.0,
+   "f1": 44.05940594059406,
+   "virada": 3.9405940594059388,
+   "D_2026": 0.7070747352028124,
+   "D_2022": 4.433650133565903,
+   "votos_2022": 306.0,
+   "D_2018": 4.356471796059137,
+   "DiD": -3.726575398363091
+  },
+  {
+   "codigo": 30570,
+   "cidade": "TAIPÉ",
+   "pais": "Taiwan",
+   "zona_iana": "Asia/Taipei",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 224.0,
+   "f1": 41.84782608695652,
+   "virada": 0.11645962732919202,
+   "D_2026": -3.2808834702460206,
+   "D_2022": 0.15932969231541816,
+   "votos_2022": 233.0,
+   "D_2018": -9.413868182710505,
+   "DiD": -3.440213162561439
+  },
+  {
+   "codigo": 30490,
+   "cidade": "SÃO DOMINGOS",
+   "pais": "República Dominicana",
+   "zona_iana": "America/Santo_Domingo",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 1,
+   "votos_finalistas": 208.0,
+   "f1": 38.01169590643275,
+   "virada": 5.2575348627980185,
+   "D_2026": 1.268662907191608,
+   "D_2022": 1.090190304752402,
+   "votos_2022": 218.0,
+   "D_2018": -2.7193617049588985,
+   "DiD": 0.17847260243920604
+  },
+  {
+   "codigo": 99317,
+   "cidade": "TALIN",
+   "pais": "Estônia",
+   "zona_iana": "Europe/Tallinn",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 193.0,
+   "f1": 88.19875776397515,
+   "virada": -5.297203359830078,
+   "D_2026": -4.578839137652463,
+   "D_2022": -0.634836510300337,
+   "votos_2022": 179.0,
+   "D_2018": 4.200350672163197,
+   "DiD": -3.944002627352126
+  },
+  {
+   "codigo": 29572,
+   "cidade": "COCHABAMBA",
+   "pais": "Bolívia",
+   "zona_iana": "America/La_Paz",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 1,
+   "votos_finalistas": 186.0,
+   "f1": 32.38636363636363,
+   "virada": 0.9469696969697026,
+   "D_2026": -1.2371337907871025,
+   "D_2022": 0.5258414430794425,
+   "votos_2022": 270.0,
+   "D_2018": -5.200425208481681,
+   "DiD": -1.762975233866545
+  },
+  {
+   "codigo": 29530,
+   "cidade": "CIDADE DO CABO",
+   "pais": "África do Sul",
+   "zona_iana": "Africa/Johannesburg",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 168.0,
+   "f1": 60.810810810810814,
+   "virada": 2.8796653796653757,
+   "D_2026": 0.29889772260466696,
+   "D_2022": 2.4071082897987464,
+   "votos_2022": 162.0,
+   "D_2018": 2.2883679182035266,
+   "DiD": -2.1082105671940794
+  },
+  {
+   "codigo": 30317,
+   "cidade": "PEQUIM",
+   "pais": "China",
+   "zona_iana": "Asia/Shanghai",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 148.0,
+   "f1": 82.53968253968254,
+   "virada": 2.595452595452585,
+   "D_2026": 1.9171719428055571,
+   "D_2022": -0.7519573107843915,
+   "votos_2022": 70.0,
+   "D_2018": -10.182750124006711,
+   "DiD": 2.669129253589949
+  },
+  {
+   "codigo": 29670,
+   "cidade": "ENCARNACIÓN",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 140.0,
+   "f1": 10.294117647058824,
+   "virada": 3.277310924369747,
+   "D_2026": 0.056874238152538226,
+   "D_2022": -0.4214446482657309,
+   "votos_2022": 137.0,
+   "D_2018": -1.6690323647382432,
+   "DiD": 0.47831888641826914
+  },
+  {
+   "codigo": 39306,
+   "cidade": "ISTAMBUL",
+   "pais": "Turquia",
+   "zona_iana": "Europe/Istanbul",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 127.0,
+   "f1": 75.0,
+   "virada": 2.1653543307086665,
+   "D_2026": 1.48711854309641,
+   "D_2022": 4.285100349577184,
+   "votos_2022": 120.0,
+   "D_2018": -2.3553194324106563,
+   "DiD": -2.7979818064807738
+  },
+  {
+   "codigo": 39004,
+   "cidade": "MENDOZA",
+   "pais": "Argentina",
+   "zona_iana": "America/Argentina/Mendoza",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 120.0,
+   "f1": 47.11538461538461,
+   "virada": 4.551282051282052,
+   "D_2026": 0.8159635911986659,
+   "D_2022": 0.11417001600480003,
+   "votos_2022": 144.0,
+   "D_2018": -2.465252294949579,
+   "DiD": 0.7017935751938659
+  },
+  {
+   "codigo": 98000,
+   "cidade": "GUATEMALA",
+   "pais": "Guatemala",
+   "zona_iana": "America/Guatemala",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 1,
+   "votos_finalistas": 119.0,
+   "f1": 33.0,
+   "virada": 3.1344537815126046,
+   "D_2026": 0.15381589910111648,
+   "D_2022": -2.929253093978452,
+   "votos_2022": 143.0,
+   "D_2018": -6.421212754721971,
+   "DiD": 3.0830689930795683
+  },
+  {
+   "codigo": 29637,
+   "cidade": "DAMASCO",
+   "pais": "Síria",
+   "zona_iana": "Asia/Damascus",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 117.0,
+   "f1": 93.26923076923077,
+   "virada": -2.6709401709401703,
+   "D_2026": -2.7982135111415802,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": null
+  },
+  {
+   "codigo": 29343,
+   "cidade": "BANGKOK",
+   "pais": "Tailândia",
+   "zona_iana": "Asia/Bangkok",
+   "utc_2026": 7.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 116.0,
+   "f1": 43.956043956043956,
+   "virada": 4.31981811292156,
+   "D_2026": 1.348558854835356,
+   "D_2022": -3.0996085238767144,
+   "votos_2022": 97.0,
+   "D_2018": 1.3331695340044085,
+   "DiD": 4.44816737871207
+  },
+  {
+   "codigo": 30651,
+   "cidade": "CANTÃO",
+   "pais": "China",
+   "zona_iana": "Asia/Shanghai",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 113.0,
+   "f1": 57.83132530120482,
+   "virada": 1.4607100970252702,
+   "D_2026": -2.1653475350377076,
+   "D_2022": -0.36450518754838207,
+   "votos_2022": 88.0,
+   "D_2018": -5.052598295689216,
+   "DiD": -1.8008423474893256
+  },
+  {
+   "codigo": 39160,
+   "cidade": "LIUBLIANA",
+   "pais": "Eslovênia",
+   "zona_iana": "Europe/Ljubljana",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 95.0,
+   "f1": 70.93023255813954,
+   "virada": -0.4039167686658516,
+   "D_2026": -2.324121954078298,
+   "D_2022": -2.2136044194696534,
+   "votos_2022": 73.0,
+   "D_2018": null,
+   "DiD": -0.11051753460864466
+  },
+  {
+   "codigo": 30163,
+   "cidade": "MOSCOU",
+   "pais": "Rússia",
+   "zona_iana": "Europe/Moscow",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 93.0,
+   "f1": 66.21621621621621,
+   "virada": -1.7000871839581464,
+   "D_2026": -3.4397684520150458,
+   "D_2022": 6.394786098600889,
+   "votos_2022": 69.0,
+   "D_2018": 17.035563649424006,
+   "DiD": -9.834554550615934
+  },
+  {
+   "codigo": 29890,
+   "cidade": "KUALA LUMPUR",
+   "pais": "Malásia",
+   "zona_iana": "Asia/Kuala_Lumpur",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 85.0,
+   "f1": 61.9718309859155,
+   "virada": -13.736536868268438,
+   "D_2026": -13.406693037563148,
+   "D_2022": 3.83005194713712,
+   "votos_2022": 58.0,
+   "D_2018": 8.2035651775705,
+   "DiD": -17.236744984700266
+  },
+  {
+   "codigo": 29610,
+   "cidade": "DACAR",
+   "pais": "Senegal",
+   "zona_iana": "Africa/Dakar",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 81.0,
+   "f1": 68.0,
+   "virada": 4.839506172839506,
+   "D_2026": 3.737795858993085,
+   "D_2022": 7.011363148584433,
+   "votos_2022": 67.0,
+   "D_2018": -2.378052018578022,
+   "DiD": -3.273567289591348
+  },
+  {
+   "codigo": 30422,
+   "cidade": "RIADE",
+   "pais": "Arábia Saudita",
+   "zona_iana": "Asia/Riyadh",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 80.0,
+   "f1": 70.27027027027027,
+   "virada": -9.020270270270274,
+   "D_2026": -9.577911953184463,
+   "D_2022": 9.980355264992843,
+   "votos_2022": 56.0,
+   "D_2018": -5.741409390891544,
+   "DiD": -19.558267218177306
+  },
+  {
+   "codigo": 29882,
+   "cidade": "KUAITE",
+   "pais": "Kuwait",
+   "zona_iana": "Asia/Kuwait",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 79.0,
+   "f1": 81.81818181818181,
+   "virada": -3.3371691599539584,
+   "D_2026": -4.282756544546666,
+   "D_2022": -1.008309083139197,
+   "votos_2022": 39.0,
+   "D_2018": 3.909943678627535,
+   "DiD": -3.2744474614074695
+  },
+  {
+   "codigo": 30368,
+   "cidade": "PRAIA",
+   "pais": "Cabo Verde",
+   "zona_iana": "Atlantic/Cape_Verde",
+   "utc_2026": -1.0,
+   "f": 0.2222222222222222,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 77.0,
+   "f1": 66.10169491525424,
+   "virada": -3.7640325775919057,
+   "D_2026": -5.947842076465333,
+   "D_2022": 3.344817065382816,
+   "votos_2022": 62.0,
+   "D_2018": -5.914334221188604,
+   "DiD": -9.29265914184815
+  },
+  {
+   "codigo": 29483,
+   "cidade": "CAIRO",
+   "pais": "Egito",
+   "zona_iana": "Africa/Cairo",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 76.0,
+   "f1": 79.3103448275862,
+   "virada": -0.3629764065335763,
+   "D_2026": -1.0644867061603314,
+   "D_2022": 3.0714210156538115,
+   "votos_2022": 69.0,
+   "D_2018": -0.5227454408382783,
+   "DiD": -4.135907721814143
+  },
+  {
+   "codigo": 30520,
+   "cidade": "SÃO SALVADOR",
+   "pais": "El Salvador",
+   "zona_iana": "America/El_Salvador",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 1,
+   "votos_finalistas": 75.0,
+   "f1": 32.394366197183096,
+   "virada": 2.272300469483568,
+   "D_2026": -3.1617485173189666,
+   "D_2022": 3.0516920153623377,
+   "votos_2022": 71.0,
+   "D_2018": -3.3058749114571384,
+   "DiD": -6.213440532681304
+  },
+  {
+   "codigo": 30074,
+   "cidade": "MANÁGUA",
+   "pais": "Nicarágua",
+   "zona_iana": "America/Managua",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 1,
+   "votos_finalistas": 69.0,
+   "f1": 48.529411764705884,
+   "virada": -5.051150895140665,
+   "D_2026": -7.987473401971082,
+   "D_2022": -1.816561990178374,
+   "votos_2022": 72.0,
+   "D_2018": -1.1060002183810216,
+   "DiD": -6.170911411792708
+  },
+  {
+   "codigo": 30082,
+   "cidade": "MANILA",
+   "pais": "Filipinas",
+   "zona_iana": "Asia/Manila",
+   "utc_2026": 8.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 66.0,
+   "f1": 44.067796610169495,
+   "virada": -3.1587057010785884,
+   "D_2026": -5.520546027937105,
+   "D_2022": 3.46045668847218,
+   "votos_2022": 56.0,
+   "D_2018": -11.708857610313261,
+   "DiD": -8.981002716409284
+  },
+  {
+   "codigo": 29440,
+   "cidade": "BUCARESTE",
+   "pais": "Romênia",
+   "zona_iana": "Europe/Bucharest",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 65.0,
+   "f1": 58.490566037735846,
+   "virada": 3.0478955007256943,
+   "D_2026": 2.67974391918647,
+   "D_2022": -3.1594784244735488,
+   "votos_2022": 57.0,
+   "D_2018": null,
+   "DiD": 5.839222343660019
+  },
+  {
+   "codigo": 30600,
+   "cidade": "TEGUCIGALPA",
+   "pais": "Honduras",
+   "zona_iana": "America/Tegucigalpa",
+   "utc_2026": -6.0,
+   "f": 0.0,
+   "g": 0.3333333333333333,
+   "secoes": 1,
+   "votos_finalistas": 64.0,
+   "f1": 33.333333333333336,
+   "virada": -2.0833333333333357,
+   "D_2026": -4.413294385617162,
+   "D_2022": -2.2940463102342434,
+   "votos_2022": 76.0,
+   "D_2018": 8.135053250485338,
+   "DiD": -2.1192480753829184
+  },
+  {
+   "codigo": 39209,
+   "cidade": "BRATISLAVA",
+   "pais": "Eslováquia",
+   "zona_iana": "Europe/Bratislava",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 61.0,
+   "f1": 72.91666666666667,
+   "virada": 4.132513661202182,
+   "D_2026": 4.042854249504148,
+   "D_2022": 5.271232711693125,
+   "votos_2022": 62.0,
+   "D_2018": 2.6410530005033763,
+   "DiD": -1.228378462188977
+  },
+  {
+   "codigo": 39020,
+   "cidade": "ZAGREB",
+   "pais": "Croácia",
+   "zona_iana": "Europe/Zagreb",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 57.0,
+   "f1": 63.04347826086956,
+   "virada": -8.657513348588864,
+   "D_2026": -11.430895552550943,
+   "D_2022": 1.967629377842896,
+   "votos_2022": 41.0,
+   "D_2018": null,
+   "DiD": -13.398524930393839
+  },
+  {
+   "codigo": 29718,
+   "cidade": "GEORGETOWN",
+   "pais": "Guiana",
+   "zona_iana": "America/Guyana",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 1,
+   "votos_finalistas": 55.0,
+   "f1": 14.0,
+   "virada": 0.545454545454545,
+   "D_2026": -1.8129561303441504,
+   "D_2022": 0.5597278695749401,
+   "votos_2022": 66.0,
+   "D_2018": -0.6469786330270524,
+   "DiD": -2.3726839999190905
+  },
+  {
+   "codigo": 39322,
+   "cidade": "NICOSIA",
+   "pais": "Chipre",
+   "zona_iana": "Asia/Nicosia",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 54.0,
+   "f1": 54.54545454545455,
+   "virada": -0.8417508417508444,
+   "D_2026": -1.9097737951389542,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": null
+  },
+  {
+   "codigo": 29254,
+   "cidade": "ABIDJÃ",
+   "pais": "Costa do Marfim",
+   "zona_iana": "Africa/Abidjan",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 53.0,
+   "f1": 64.86486486486487,
+   "virada": -6.3742988271290235,
+   "D_2026": -5.62773592961927,
+   "D_2022": 11.37969572390458,
+   "votos_2022": 41.0,
+   "D_2018": null,
+   "DiD": -17.007431653523852
+  },
+  {
+   "codigo": 30546,
+   "cidade": "SÓFIA",
+   "pais": "Bulgária",
+   "zona_iana": "Europe/Sofia",
+   "utc_2026": 2.0,
+   "f": 0.5555555555555556,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 53.0,
+   "f1": 80.95238095238093,
+   "virada": -5.480682839173396,
+   "D_2026": -7.003443301585999,
+   "D_2022": 2.8416036167279093,
+   "votos_2022": 31.0,
+   "D_2018": null,
+   "DiD": -9.845046918313908
+  },
+  {
+   "codigo": 29645,
+   "cidade": "DÍLI",
+   "pais": "Timor-Leste",
+   "zona_iana": "Asia/Dili",
+   "utc_2026": 9.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 51.0,
+   "f1": 37.2093023255814,
+   "virada": -1.9151846785225717,
+   "D_2026": -5.467896311635421,
+   "D_2022": 4.351532940961021,
+   "votos_2022": 59.0,
+   "D_2018": 7.199334050531576,
+   "DiD": -9.819429252596443
+  },
+  {
+   "codigo": 29378,
+   "cidade": "BELGRADO",
+   "pais": "Sérvia",
+   "zona_iana": "Europe/Belgrade",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 48.0,
+   "f1": 69.76744186046511,
+   "virada": 3.149224806201559,
+   "D_2026": 3.897113758908535,
+   "D_2022": -1.918167362730843,
+   "votos_2022": 48.0,
+   "D_2018": null,
+   "DiD": 5.815281121639378
+  },
+  {
+   "codigo": 30210,
+   "cidade": "NOVA DELHI",
+   "pais": "Índia",
+   "zona_iana": "Asia/Kolkata",
+   "utc_2026": 5.5,
+   "f": 0.9444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 48.0,
+   "f1": 48.0,
+   "virada": 4.083333333333336,
+   "D_2026": 2.77393368830411,
+   "D_2022": -5.934660675356974,
+   "votos_2022": 37.0,
+   "D_2018": 10.92013890682786,
+   "DiD": 8.708594363661085
+  },
+  {
+   "codigo": 30201,
+   "cidade": "NAIRÓBI",
+   "pais": "Quênia",
+   "zona_iana": "Africa/Nairobi",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 45.0,
+   "f1": 60.465116279069775,
+   "virada": 3.9793281653746746,
+   "D_2026": 2.3732763160800343,
+   "D_2022": 8.266355899668936,
+   "votos_2022": 60.0,
+   "D_2018": -4.346776112332585,
+   "DiD": -5.893079583588902
+  },
+  {
+   "codigo": 29777,
+   "cidade": "HAVANA",
+   "pais": "Cuba",
+   "zona_iana": "America/Havana",
+   "utc_2026": -4.0,
+   "f": 0.0,
+   "g": 0.1111111111111111,
+   "secoes": 1,
+   "votos_finalistas": 44.0,
+   "f1": 97.29729729729729,
+   "virada": 0.4299754299754426,
+   "D_2026": 0.9682032945272186,
+   "D_2022": 5.8391437685633,
+   "votos_2022": 32.0,
+   "D_2018": null,
+   "DiD": -4.8709404740360815
+  },
+  {
+   "codigo": 29394,
+   "cidade": "BISSAU",
+   "pais": "Guiné-Bissau",
+   "zona_iana": "Africa/Bissau",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 41.0,
+   "f1": 50.0,
+   "virada": -3.6585365853658516,
+   "D_2026": -5.642455677512707,
+   "D_2022": -6.049876970610129,
+   "votos_2022": 45.0,
+   "D_2018": null,
+   "DiD": 0.40742129309742214
+  },
+  {
+   "codigo": 99473,
+   "cidade": "BAREIN",
+   "pais": "Bahrein",
+   "zona_iana": "Asia/Bahrain",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 39.0,
+   "f1": 38.63636363636363,
+   "virada": -10.431235431235429,
+   "D_2026": -13.40233183206892,
+   "D_2022": -0.7643127763970345,
+   "votos_2022": 36.0,
+   "D_2018": null,
+   "DiD": -12.638019055671887
+  },
+  {
+   "codigo": 29840,
+   "cidade": "JACARTA",
+   "pais": "Indonésia",
+   "zona_iana": "Asia/Jakarta",
+   "utc_2026": 7.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 38.0,
+   "f1": 29.62962962962963,
+   "virada": 9.844054580896685,
+   "D_2026": 7.47379079917273,
+   "D_2022": -2.0277348555530526,
+   "votos_2022": 47.0,
+   "D_2018": null,
+   "DiD": 9.501525654725782
+  },
+  {
+   "codigo": 29297,
+   "cidade": "ANCARA",
+   "pais": "Turquia",
+   "zona_iana": "Europe/Istanbul",
+   "utc_2026": 3.0,
+   "f": 0.6666666666666666,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 37.0,
+   "f1": 77.41935483870968,
+   "virada": 0.9590235396686921,
+   "D_2026": 1.2370336692471953,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": -3.0480666803299887
+  },
+  {
+   "codigo": 29912,
+   "cidade": "LAGOS",
+   "pais": "Nigéria",
+   "zona_iana": "Africa/Lagos",
+   "utc_2026": 1.0,
+   "f": 0.4444444444444444,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 37.0,
+   "f1": 81.25,
+   "virada": 5.236486486486484,
+   "D_2026": 4.651863067958848,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": null
+  },
+  {
+   "codigo": 30406,
+   "cidade": "RABAT",
+   "pais": "Marrocos",
+   "zona_iana": "Africa/Casablanca",
+   "utc_2026": 0.0,
+   "f": 0.3333333333333333,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 37.0,
+   "f1": 83.33333333333333,
+   "virada": 0.45045045045046095,
+   "D_2026": -0.9295014700549229,
+   "D_2022": 3.9362324573381464,
+   "votos_2022": 46.0,
+   "D_2018": null,
+   "DiD": -4.8657339273930695
+  },
+  {
+   "codigo": 29750,
+   "cidade": "HANÓI",
+   "pais": "Vietnã",
+   "zona_iana": "Asia/Ho_Chi_Minh",
+   "utc_2026": 7.0,
+   "f": 1.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 32.0,
+   "f1": 48.148148148148145,
+   "virada": -1.2731481481481453,
+   "D_2026": -5.686299231342308,
+   "D_2022": null,
+   "votos_2022": null,
+   "D_2018": null,
+   "DiD": null
+  },
+  {
+   "codigo": 39102,
+   "cidade": "MASCATE",
+   "pais": "Omã",
+   "zona_iana": "Asia/Muscat",
+   "utc_2026": 4.0,
+   "f": 0.7777777777777778,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 32.0,
+   "f1": 37.5,
+   "virada": -6.25,
+   "D_2026": -9.842970986753837,
+   "D_2022": -0.27248266571084157,
+   "votos_2022": 46.0,
+   "D_2018": -0.2885276555618539,
+   "DiD": -9.570488321042996
+  },
+  {
+   "codigo": 29580,
+   "cidade": "CONCEPCIÓN",
+   "pais": "Paraguai",
+   "zona_iana": "America/Asuncion",
+   "utc_2026": -3.0,
+   "f": 0.0,
+   "g": 0.0,
+   "secoes": 1,
+   "votos_finalistas": 31.0,
+   "f1": 5.882352941176471,
+   "virada": 3.795066413662239,
+   "D_2026": 1.1573082845335216,
+   "D_2022": 2.80730198986298,
+   "votos_2022": 35.0,
+   "D_2018": -5.288226510651614,
+   "DiD": -1.6499937053294582
+  }
+ ],
+ "fusos": {
+  "fonte": "banco de fusos IANA, version 2026e (tzdata do sistema), lido com zoneinfo; zona atribuída pela sede da cidade (nome no bweb e endereço no cadastro de locais do TSE)",
+  "brasilia": {
+   "2026": -3.0,
+   "2022": -3.0,
+   "2018": -3.0
+  },
+  "tabela": [
+   {
+    "codigo": 29254,
+    "cidade": "ABIDJÃ",
+    "pais": "Costa do Marfim",
+    "zona_iana": "Africa/Abidjan",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29262,
+    "cidade": "ABU DHABI",
+    "pais": "Emirados Árabes Unidos",
+    "zona_iana": "Asia/Dubai",
+    "utc_2026": 4.0,
+    "utc_2022": 4.0,
+    "utc_2018": 4.0,
+    "f_2026": 0.7777777777777778,
+    "f_2022": 0.7777777777777778,
+    "f_2018": 0.7777777777777778
+   },
+   {
+    "codigo": 99198,
+    "cidade": "ABUJA",
+    "pais": "Nigéria",
+    "zona_iana": "Africa/Lagos",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29270,
+    "cidade": "ACCRA",
+    "pais": "Gana",
+    "zona_iana": "Africa/Accra",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 99325,
+    "cidade": "ADIS ABEBA",
+    "pais": "Etiópia",
+    "zona_iana": "Africa/Addis_Ababa",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 30457,
+    "cidade": "AMSTERDÃ",
+    "pais": "Países Baixos",
+    "zona_iana": "Europe/Amsterdam",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29289,
+    "cidade": "AMÃ",
+    "pais": "Jordânia",
+    "zona_iana": "Asia/Amman",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29297,
+    "cidade": "ANCARA",
+    "pais": "Turquia",
+    "zona_iana": "Europe/Istanbul",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29300,
+    "cidade": "ARGEL",
+    "pais": "Argélia",
+    "zona_iana": "Africa/Algiers",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29319,
+    "cidade": "ARTIGAS",
+    "pais": "Uruguai",
+    "zona_iana": "America/Montevideo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29327,
+    "cidade": "ASSUNÇÃO",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 39241,
+    "cidade": "ASTANA",
+    "pais": "Cazaquistão",
+    "zona_iana": "Asia/Almaty",
+    "utc_2026": 5.0,
+    "utc_2022": 6.0,
+    "utc_2018": 6.0,
+    "f_2026": 0.8888888888888888,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29335,
+    "cidade": "ATENAS",
+    "pais": "Grécia",
+    "zona_iana": "Europe/Athens",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 39080,
+    "cidade": "ATLANTA",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99171,
+    "cidade": "BAGDÁ",
+    "pais": "Iraque",
+    "zona_iana": "Asia/Baghdad",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 39128,
+    "cidade": "BAKU",
+    "pais": "Azerbaijão",
+    "zona_iana": "Asia/Baku",
+    "utc_2026": 4.0,
+    "utc_2022": 4.0,
+    "utc_2018": 4.0,
+    "f_2026": 0.7777777777777778,
+    "f_2022": 0.7777777777777778,
+    "f_2018": 0.7777777777777778
+   },
+   {
+    "codigo": 99350,
+    "cidade": "BAMAKO",
+    "pais": "Mali",
+    "zona_iana": "Africa/Bamako",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29343,
+    "cidade": "BANGKOK",
+    "pais": "Tailândia",
+    "zona_iana": "Asia/Bangkok",
+    "utc_2026": 7.0,
+    "utc_2022": 7.0,
+    "utc_2018": 7.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29351,
+    "cidade": "BARCELONA",
+    "pais": "Espanha",
+    "zona_iana": "Europe/Madrid",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 99473,
+    "cidade": "BAREIN",
+    "pais": "Bahrein",
+    "zona_iana": "Asia/Bahrain",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29360,
+    "cidade": "BEIRUTE",
+    "pais": "Líbano",
+    "zona_iana": "Asia/Beirut",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29378,
+    "cidade": "BELGRADO",
+    "pais": "Sérvia",
+    "zona_iana": "Europe/Belgrade",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 38881,
+    "cidade": "BELMOPAN",
+    "pais": "Belize",
+    "zona_iana": "America/Belize",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29386,
+    "cidade": "BERLIM",
+    "pais": "Alemanha",
+    "zona_iana": "Europe/Berlin",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29394,
+    "cidade": "BISSAU",
+    "pais": "Guiné-Bissau",
+    "zona_iana": "Africa/Bissau",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29408,
+    "cidade": "BOGOTÁ",
+    "pais": "Colômbia",
+    "zona_iana": "America/Bogota",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29416,
+    "cidade": "BOSTON",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 39209,
+    "cidade": "BRATISLAVA",
+    "pais": "Eslováquia",
+    "zona_iana": "Europe/Bratislava",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 39187,
+    "cidade": "BRAZZAVILLE",
+    "pais": "Congo",
+    "zona_iana": "Africa/Brazzaville",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29424,
+    "cidade": "BRIDGETOWN",
+    "pais": "Barbados",
+    "zona_iana": "America/Barbados",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29432,
+    "cidade": "BRUXELAS",
+    "pais": "Bélgica",
+    "zona_iana": "Europe/Brussels",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29440,
+    "cidade": "BUCARESTE",
+    "pais": "Romênia",
+    "zona_iana": "Europe/Bucharest",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29459,
+    "cidade": "BUDAPESTE",
+    "pais": "Hungria",
+    "zona_iana": "Europe/Budapest",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29467,
+    "cidade": "BUENOS AIRES",
+    "pais": "Argentina",
+    "zona_iana": "America/Argentina/Buenos_Aires",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29475,
+    "cidade": "CAIENA",
+    "pais": "Guiana Francesa",
+    "zona_iana": "America/Cayenne",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29483,
+    "cidade": "CAIRO",
+    "pais": "Egito",
+    "zona_iana": "Africa/Cairo",
+    "utc_2026": 3.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29491,
+    "cidade": "CAMBERRA",
+    "pais": "Austrália",
+    "zona_iana": "Australia/Sydney",
+    "utc_2026": 11.0,
+    "utc_2022": 11.0,
+    "utc_2018": 11.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30651,
+    "cidade": "CANTÃO",
+    "pais": "China",
+    "zona_iana": "Asia/Shanghai",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29505,
+    "cidade": "CARACAS",
+    "pais": "Venezuela",
+    "zona_iana": "America/Caracas",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99384,
+    "cidade": "CASTRIES",
+    "pais": "Santa Lúcia",
+    "zona_iana": "America/St_Lucia",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29513,
+    "cidade": "CHICAGO",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/Chicago",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29521,
+    "cidade": "CHUY",
+    "pais": "Uruguai",
+    "zona_iana": "America/Montevideo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29530,
+    "cidade": "CIDADE DO CABO",
+    "pais": "África do Sul",
+    "zona_iana": "Africa/Johannesburg",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29556,
+    "cidade": "CIUDAD DEL ESTE",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29564,
+    "cidade": "CIUDAD GUAYANA",
+    "pais": "Venezuela",
+    "zona_iana": "America/Caracas",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99210,
+    "cidade": "COBIJA",
+    "pais": "Bolívia",
+    "zona_iana": "America/La_Paz",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29572,
+    "cidade": "COCHABAMBA",
+    "pais": "Bolívia",
+    "zona_iana": "America/La_Paz",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30929,
+    "cidade": "COLOMBO",
+    "pais": "Sri Lanka",
+    "zona_iana": "Asia/Colombo",
+    "utc_2026": 5.5,
+    "utc_2022": 5.5,
+    "utc_2018": 5.5,
+    "f_2026": 0.9444444444444444,
+    "f_2022": 0.9444444444444444,
+    "f_2018": 0.9444444444444444
+   },
+   {
+    "codigo": 38903,
+    "cidade": "CONACRI",
+    "pais": "Guiné",
+    "zona_iana": "Africa/Conakry",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29580,
+    "cidade": "CONCEPCIÓN",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29599,
+    "cidade": "COPENHAGUE",
+    "pais": "Dinamarca",
+    "zona_iana": "Europe/Copenhagen",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 38920,
+    "cidade": "COTONOU",
+    "pais": "Benin",
+    "zona_iana": "Africa/Porto-Novo",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29602,
+    "cidade": "CÓRDOBA",
+    "pais": "Argentina",
+    "zona_iana": "America/Argentina/Cordoba",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29610,
+    "cidade": "DACAR",
+    "pais": "Senegal",
+    "zona_iana": "Africa/Dakar",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29629,
+    "cidade": "DACCA",
+    "pais": "Bangladesh",
+    "zona_iana": "Asia/Dhaka",
+    "utc_2026": 6.0,
+    "utc_2022": 6.0,
+    "utc_2018": 6.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29637,
+    "cidade": "DAMASCO",
+    "pais": "Síria",
+    "zona_iana": "Asia/Damascus",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 38962,
+    "cidade": "DAR ES SALAAM",
+    "pais": "Tanzânia",
+    "zona_iana": "Africa/Dar_es_Salaam",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29653,
+    "cidade": "DOHA",
+    "pais": "Catar",
+    "zona_iana": "Asia/Qatar",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29661,
+    "cidade": "DUBLIN",
+    "pais": "Irlanda",
+    "zona_iana": "Europe/Dublin",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29645,
+    "cidade": "DÍLI",
+    "pais": "Timor-Leste",
+    "zona_iana": "Asia/Dili",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 99503,
+    "cidade": "EDIMBURGO",
+    "pais": "Reino Unido",
+    "zona_iana": "Europe/London",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29670,
+    "cidade": "ENCARNACIÓN",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29688,
+    "cidade": "ESTOCOLMO",
+    "pais": "Suécia",
+    "zona_iana": "Europe/Stockholm",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30961,
+    "cidade": "FARO",
+    "pais": "Portugal",
+    "zona_iana": "Europe/Lisbon",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29696,
+    "cidade": "FRANKFURT",
+    "pais": "Alemanha",
+    "zona_iana": "Europe/Berlin",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30669,
+    "cidade": "GABORONE",
+    "pais": "Botsuana",
+    "zona_iana": "Africa/Gaborone",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29700,
+    "cidade": "GENEBRA",
+    "pais": "Suíça",
+    "zona_iana": "Europe/Zurich",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29718,
+    "cidade": "GEORGETOWN",
+    "pais": "Guiana",
+    "zona_iana": "America/Guyana",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 98000,
+    "cidade": "GUATEMALA",
+    "pais": "Guatemala",
+    "zona_iana": "America/Guatemala",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29742,
+    "cidade": "HAMAMATSU",
+    "pais": "Japão",
+    "zona_iana": "Asia/Tokyo",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29750,
+    "cidade": "HANÓI",
+    "pais": "Vietnã",
+    "zona_iana": "Asia/Ho_Chi_Minh",
+    "utc_2026": 7.0,
+    "utc_2022": 7.0,
+    "utc_2018": 7.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29769,
+    "cidade": "HARARE",
+    "pais": "Zimbábue",
+    "zona_iana": "Africa/Harare",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30902,
+    "cidade": "HARTFORD",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29777,
+    "cidade": "HAVANA",
+    "pais": "Cuba",
+    "zona_iana": "America/Havana",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29785,
+    "cidade": "HELSINQUE",
+    "pais": "Finlândia",
+    "zona_iana": "Europe/Helsinki",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29793,
+    "cidade": "HONG KONG",
+    "pais": "Hong Kong",
+    "zona_iana": "Asia/Hong_Kong",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29807,
+    "cidade": "HOUSTON",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/Chicago",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29815,
+    "cidade": "IAUNDÊ",
+    "pais": "Camarões",
+    "zona_iana": "Africa/Douala",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 38989,
+    "cidade": "IEREVAN",
+    "pais": "Armênia",
+    "zona_iana": "Asia/Yerevan",
+    "utc_2026": 4.0,
+    "utc_2022": 4.0,
+    "utc_2018": 4.0,
+    "f_2026": 0.7777777777777778,
+    "f_2022": 0.7777777777777778,
+    "f_2018": 0.7777777777777778
+   },
+   {
+    "codigo": 29823,
+    "cidade": "IQUITOS",
+    "pais": "Peru",
+    "zona_iana": "America/Lima",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29831,
+    "cidade": "ISLAMABADE",
+    "pais": "Paquistão",
+    "zona_iana": "Asia/Karachi",
+    "utc_2026": 5.0,
+    "utc_2022": 5.0,
+    "utc_2018": 5.0,
+    "f_2026": 0.8888888888888888,
+    "f_2022": 0.8888888888888888,
+    "f_2018": 0.8888888888888888
+   },
+   {
+    "codigo": 39306,
+    "cidade": "ISTAMBUL",
+    "pais": "Turquia",
+    "zona_iana": "Europe/Istanbul",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29840,
+    "cidade": "JACARTA",
+    "pais": "Indonésia",
+    "zona_iana": "Asia/Jakarta",
+    "utc_2026": 7.0,
+    "utc_2022": 7.0,
+    "utc_2018": 7.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29173,
+    "cidade": "KATMANDU",
+    "pais": "Nepal",
+    "zona_iana": "Asia/Kathmandu",
+    "utc_2026": 5.75,
+    "utc_2022": 5.75,
+    "utc_2018": 5.75,
+    "f_2026": 0.9722222222222222,
+    "f_2022": 0.9722222222222222,
+    "f_2018": 0.9722222222222222
+   },
+   {
+    "codigo": 29858,
+    "cidade": "KIEV",
+    "pais": "Ucrânia",
+    "zona_iana": "Europe/Kyiv",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 99430,
+    "cidade": "KINGSTON-JAMAICA",
+    "pais": "Jamaica",
+    "zona_iana": "America/Jamaica",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29874,
+    "cidade": "KINSHASA",
+    "pais": "República Democrática do Congo",
+    "zona_iana": "Africa/Kinshasa",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29882,
+    "cidade": "KUAITE",
+    "pais": "Kuwait",
+    "zona_iana": "Asia/Kuwait",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 29890,
+    "cidade": "KUALA LUMPUR",
+    "pais": "Malásia",
+    "zona_iana": "Asia/Kuala_Lumpur",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29904,
+    "cidade": "LA PAZ",
+    "pais": "Bolívia",
+    "zona_iana": "America/La_Paz",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29912,
+    "cidade": "LAGOS",
+    "pais": "Nigéria",
+    "zona_iana": "Africa/Lagos",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29939,
+    "cidade": "LIBREVILLE",
+    "pais": "Gabão",
+    "zona_iana": "Africa/Libreville",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 99341,
+    "cidade": "LILONGUE",
+    "pais": "Malawi",
+    "zona_iana": "Africa/Blantyre",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 29947,
+    "cidade": "LIMA",
+    "pais": "Peru",
+    "zona_iana": "America/Lima",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29955,
+    "cidade": "LISBOA",
+    "pais": "Portugal",
+    "zona_iana": "Europe/Lisbon",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 39160,
+    "cidade": "LIUBLIANA",
+    "pais": "Eslovênia",
+    "zona_iana": "Europe/Ljubljana",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 29963,
+    "cidade": "LOMÉ",
+    "pais": "Togo",
+    "zona_iana": "Africa/Lome",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29971,
+    "cidade": "LONDRES",
+    "pais": "Reino Unido",
+    "zona_iana": "Europe/London",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 29980,
+    "cidade": "LOS ANGELES",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/Los_Angeles",
+    "utc_2026": -7.0,
+    "utc_2022": -7.0,
+    "utc_2018": -7.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 29998,
+    "cidade": "LUANDA",
+    "pais": "Angola",
+    "zona_iana": "Africa/Luanda",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 99287,
+    "cidade": "LUSACA",
+    "pais": "Zâmbia",
+    "zona_iana": "Africa/Lusaka",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30066,
+    "cidade": "MADRI",
+    "pais": "Espanha",
+    "zona_iana": "Europe/Madrid",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 39263,
+    "cidade": "MALABO",
+    "pais": "Guiné Equatorial",
+    "zona_iana": "Africa/Malabo",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30082,
+    "cidade": "MANILA",
+    "pais": "Filipinas",
+    "zona_iana": "Asia/Manila",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30074,
+    "cidade": "MANÁGUA",
+    "pais": "Nicarágua",
+    "zona_iana": "America/Managua",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30090,
+    "cidade": "MAPUTO",
+    "pais": "Moçambique",
+    "zona_iana": "Africa/Maputo",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 99511,
+    "cidade": "MARSELHA",
+    "pais": "França",
+    "zona_iana": "Europe/Paris",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 39102,
+    "cidade": "MASCATE",
+    "pais": "Omã",
+    "zona_iana": "Asia/Muscat",
+    "utc_2026": 4.0,
+    "utc_2022": 4.0,
+    "utc_2018": 4.0,
+    "f_2026": 0.7777777777777778,
+    "f_2022": 0.7777777777777778,
+    "f_2018": 0.7777777777777778
+   },
+   {
+    "codigo": 39004,
+    "cidade": "MENDOZA",
+    "pais": "Argentina",
+    "zona_iana": "America/Argentina/Mendoza",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30104,
+    "cidade": "MEXICO",
+    "pais": "México",
+    "zona_iana": "America/Mexico_City",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30112,
+    "cidade": "MIAMI",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30120,
+    "cidade": "MILÃO",
+    "pais": "Itália",
+    "zona_iana": "Europe/Rome",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30147,
+    "cidade": "MONTEVIDÉU",
+    "pais": "Uruguai",
+    "zona_iana": "America/Montevideo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30155,
+    "cidade": "MONTREAL",
+    "pais": "Canadá",
+    "zona_iana": "America/Toronto",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30163,
+    "cidade": "MOSCOU",
+    "pais": "Rússia",
+    "zona_iana": "Europe/Moscow",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 30171,
+    "cidade": "MUMBAI",
+    "pais": "Índia",
+    "zona_iana": "Asia/Kolkata",
+    "utc_2026": 5.5,
+    "utc_2022": 5.5,
+    "utc_2018": 5.5,
+    "f_2026": 0.9444444444444444,
+    "f_2022": 0.9444444444444444,
+    "f_2018": 0.9444444444444444
+   },
+   {
+    "codigo": 30180,
+    "cidade": "MUNIQUE",
+    "pais": "Alemanha",
+    "zona_iana": "Europe/Berlin",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30198,
+    "cidade": "NAGÓIA",
+    "pais": "Japão",
+    "zona_iana": "Asia/Tokyo",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30201,
+    "cidade": "NAIRÓBI",
+    "pais": "Quênia",
+    "zona_iana": "Africa/Nairobi",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 99180,
+    "cidade": "NASSAU",
+    "pais": "Bahamas",
+    "zona_iana": "America/Nassau",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 39322,
+    "cidade": "NICOSIA",
+    "pais": "Chipre",
+    "zona_iana": "Asia/Nicosia",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30210,
+    "cidade": "NOVA DELHI",
+    "pais": "Índia",
+    "zona_iana": "Asia/Kolkata",
+    "utc_2026": 5.5,
+    "utc_2022": 5.5,
+    "utc_2018": 5.5,
+    "f_2026": 0.9444444444444444,
+    "f_2022": 0.9444444444444444,
+    "f_2018": 0.9444444444444444
+   },
+   {
+    "codigo": 30228,
+    "cidade": "NOVA YORK",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99490,
+    "cidade": "ORLANDO",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30244,
+    "cidade": "OSLO",
+    "pais": "Noruega",
+    "zona_iana": "Europe/Oslo",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30252,
+    "cidade": "OTTAWA",
+    "pais": "Canadá",
+    "zona_iana": "America/Toronto",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30260,
+    "cidade": "PANAMA",
+    "pais": "Panamá",
+    "zona_iana": "America/Panama",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30279,
+    "cidade": "PARAMARIBO",
+    "pais": "Suriname",
+    "zona_iana": "America/Paramaribo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30287,
+    "cidade": "PARIS",
+    "pais": "França",
+    "zona_iana": "Europe/Paris",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30295,
+    "cidade": "PASO LOS LIBRES",
+    "pais": "Argentina",
+    "zona_iana": "America/Argentina/Cordoba",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30309,
+    "cidade": "PEDRO JUAN CABALLERO",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30317,
+    "cidade": "PEQUIM",
+    "pais": "China",
+    "zona_iana": "Asia/Shanghai",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30325,
+    "cidade": "PORT OF SPAIN",
+    "pais": "Trinidad e Tobago",
+    "zona_iana": "America/Port_of_Spain",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30341,
+    "cidade": "PORTO",
+    "pais": "Portugal",
+    "zona_iana": "Europe/Lisbon",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 30333,
+    "cidade": "PORTO PRÍNCIPE",
+    "pais": "Haiti",
+    "zona_iana": "America/Port-au-Prince",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30350,
+    "cidade": "PRAGA",
+    "pais": "República Tcheca",
+    "zona_iana": "Europe/Prague",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30368,
+    "cidade": "PRAIA",
+    "pais": "Cabo Verde",
+    "zona_iana": "Atlantic/Cape_Verde",
+    "utc_2026": -1.0,
+    "utc_2022": -1.0,
+    "utc_2018": -1.0,
+    "f_2026": 0.2222222222222222,
+    "f_2022": 0.2222222222222222,
+    "f_2018": 0.2222222222222222
+   },
+   {
+    "codigo": 30376,
+    "cidade": "PRETÓRIA",
+    "pais": "África do Sul",
+    "zona_iana": "Africa/Johannesburg",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 99155,
+    "cidade": "PUERTO IGUAZÚ",
+    "pais": "Argentina",
+    "zona_iana": "America/Argentina/Cordoba",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99236,
+    "cidade": "PUERTO QUIJARRO",
+    "pais": "Bolívia",
+    "zona_iana": "America/La_Paz",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99295,
+    "cidade": "PYONGYANG",
+    "pais": "Coreia do Norte",
+    "zona_iana": "Asia/Pyongyang",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30392,
+    "cidade": "QUITO",
+    "pais": "Equador",
+    "zona_iana": "America/Guayaquil",
+    "utc_2026": -5.0,
+    "utc_2022": -5.0,
+    "utc_2018": -5.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30406,
+    "cidade": "RABAT",
+    "pais": "Marrocos",
+    "zona_iana": "Africa/Casablanca",
+    "utc_2026": 0.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30414,
+    "cidade": "RAMALLAH",
+    "pais": "Palestina",
+    "zona_iana": "Asia/Hebron",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30422,
+    "cidade": "RIADE",
+    "pais": "Arábia Saudita",
+    "zona_iana": "Asia/Riyadh",
+    "utc_2026": 3.0,
+    "utc_2022": 3.0,
+    "utc_2018": 3.0,
+    "f_2026": 0.6666666666666666,
+    "f_2022": 0.6666666666666666,
+    "f_2018": 0.6666666666666666
+   },
+   {
+    "codigo": 30430,
+    "cidade": "RIO BRANCO",
+    "pais": "Uruguai",
+    "zona_iana": "America/Montevideo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99244,
+    "cidade": "RIVERA",
+    "pais": "Uruguai",
+    "zona_iana": "America/Montevideo",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30449,
+    "cidade": "ROMA",
+    "pais": "Itália",
+    "zona_iana": "Europe/Rome",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 99147,
+    "cidade": "SAINT JOHNS",
+    "pais": "Antígua e Barbuda",
+    "zona_iana": "America/Antigua",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30465,
+    "cidade": "SALTO DEL GUAIRÁ",
+    "pais": "Paraguai",
+    "zona_iana": "America/Asuncion",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30473,
+    "cidade": "SANTA CRUZ DE LA SIERRA",
+    "pais": "Bolívia",
+    "zona_iana": "America/La_Paz",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 99279,
+    "cidade": "SANTA ELENA DE UAIRÉN",
+    "pais": "Venezuela",
+    "zona_iana": "America/Caracas",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30481,
+    "cidade": "SANTIAGO",
+    "pais": "Chile",
+    "zona_iana": "America/Santiago",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30988,
+    "cidade": "SARAJEVO",
+    "pais": "Bósnia e Herzegovina",
+    "zona_iana": "Europe/Sarajevo",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30538,
+    "cidade": "SEUL",
+    "pais": "Coreia do Sul",
+    "zona_iana": "Asia/Seoul",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 29548,
+    "cidade": "SINGAPURA",
+    "pais": "Singapura",
+    "zona_iana": "Asia/Singapore",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 99333,
+    "cidade": "ST GEORGES DE LOYAPOCK",
+    "pais": "Guiana Francesa",
+    "zona_iana": "America/Cayenne",
+    "utc_2026": -3.0,
+    "utc_2022": -3.0,
+    "utc_2018": -3.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30562,
+    "cidade": "SYDNEY",
+    "pais": "Austrália",
+    "zona_iana": "Australia/Sydney",
+    "utc_2026": 11.0,
+    "utc_2022": 11.0,
+    "utc_2018": 11.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30490,
+    "cidade": "SÃO DOMINGOS",
+    "pais": "República Dominicana",
+    "zona_iana": "America/Santo_Domingo",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30503,
+    "cidade": "SÃO FRANCISCO",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/Los_Angeles",
+    "utc_2026": -7.0,
+    "utc_2022": -7.0,
+    "utc_2018": -7.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30511,
+    "cidade": "SÃO JOSÉ",
+    "pais": "Costa Rica",
+    "zona_iana": "America/Costa_Rica",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30520,
+    "cidade": "SÃO SALVADOR",
+    "pais": "El Salvador",
+    "zona_iana": "America/El_Salvador",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 39225,
+    "cidade": "SÃO TOMÉ",
+    "pais": "São Tomé e Príncipe",
+    "zona_iana": "Africa/Sao_Tome",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30546,
+    "cidade": "SÓFIA",
+    "pais": "Bulgária",
+    "zona_iana": "Europe/Sofia",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30570,
+    "cidade": "TAIPÉ",
+    "pais": "Taiwan",
+    "zona_iana": "Asia/Taipei",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 99317,
+    "cidade": "TALIN",
+    "pais": "Estônia",
+    "zona_iana": "Europe/Tallinn",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 99104,
+    "cidade": "TBILISI",
+    "pais": "Geórgia",
+    "zona_iana": "Asia/Tbilisi",
+    "utc_2026": 4.0,
+    "utc_2022": 4.0,
+    "utc_2018": 4.0,
+    "f_2026": 0.7777777777777778,
+    "f_2022": 0.7777777777777778,
+    "f_2018": 0.7777777777777778
+   },
+   {
+    "codigo": 30597,
+    "cidade": "TEERÃ",
+    "pais": "Irã",
+    "zona_iana": "Asia/Tehran",
+    "utc_2026": 3.5,
+    "utc_2022": 3.5,
+    "utc_2018": 3.5,
+    "f_2026": 0.7222222222222222,
+    "f_2022": 0.7222222222222222,
+    "f_2018": 0.7222222222222222
+   },
+   {
+    "codigo": 30600,
+    "cidade": "TEGUCIGALPA",
+    "pais": "Honduras",
+    "zona_iana": "America/Tegucigalpa",
+    "utc_2026": -6.0,
+    "utc_2022": -6.0,
+    "utc_2018": -6.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30619,
+    "cidade": "TEL AVIV",
+    "pais": "Israel",
+    "zona_iana": "Asia/Jerusalem",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 99139,
+    "cidade": "TIRANA",
+    "pais": "Albânia",
+    "zona_iana": "Europe/Tirane",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30635,
+    "cidade": "TORONTO",
+    "pais": "Canadá",
+    "zona_iana": "America/Toronto",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30686,
+    "cidade": "TRÍPOLI",
+    "pais": "Líbia (vota em Túnis)",
+    "zona_iana": "Africa/Tunis",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30708,
+    "cidade": "TUNIS",
+    "pais": "Tunísia",
+    "zona_iana": "Africa/Tunis",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30627,
+    "cidade": "TÓQUIO",
+    "pais": "Japão",
+    "zona_iana": "Asia/Tokyo",
+    "utc_2026": 9.0,
+    "utc_2022": 9.0,
+    "utc_2018": 9.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 39284,
+    "cidade": "UAGADUGU",
+    "pais": "Burkina Faso",
+    "zona_iana": "Africa/Ouagadougou",
+    "utc_2026": 0.0,
+    "utc_2022": 0.0,
+    "utc_2018": 0.0,
+    "f_2026": 0.3333333333333333,
+    "f_2022": 0.3333333333333333,
+    "f_2018": 0.3333333333333333
+   },
+   {
+    "codigo": 39063,
+    "cidade": "VANCOUVER",
+    "pais": "Canadá",
+    "zona_iana": "America/Vancouver",
+    "utc_2026": -7.0,
+    "utc_2022": -7.0,
+    "utc_2018": -7.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30740,
+    "cidade": "VARSÓVIA",
+    "pais": "Polônia",
+    "zona_iana": "Europe/Warsaw",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30767,
+    "cidade": "VIENA",
+    "pais": "Áustria",
+    "zona_iana": "Europe/Vienna",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30783,
+    "cidade": "WASHINGTON",
+    "pais": "Estados Unidos",
+    "zona_iana": "America/New_York",
+    "utc_2026": -4.0,
+    "utc_2022": -4.0,
+    "utc_2018": -4.0,
+    "f_2026": 0.0,
+    "f_2022": 0.0,
+    "f_2018": 0.0
+   },
+   {
+    "codigo": 30805,
+    "cidade": "WELLINGTON",
+    "pais": "Nova Zelândia",
+    "zona_iana": "Pacific/Auckland",
+    "utc_2026": 13.0,
+    "utc_2022": 13.0,
+    "utc_2018": 13.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 30821,
+    "cidade": "WINDHOEK",
+    "pais": "Namíbia",
+    "zona_iana": "Africa/Windhoek",
+    "utc_2026": 2.0,
+    "utc_2022": 2.0,
+    "utc_2018": 2.0,
+    "f_2026": 0.5555555555555556,
+    "f_2022": 0.5555555555555556,
+    "f_2018": 0.5555555555555556
+   },
+   {
+    "codigo": 30848,
+    "cidade": "XANGAI",
+    "pais": "China",
+    "zona_iana": "Asia/Shanghai",
+    "utc_2026": 8.0,
+    "utc_2022": 8.0,
+    "utc_2018": 8.0,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 99376,
+    "cidade": "YANGON",
+    "pais": "Mianmar",
+    "zona_iana": "Asia/Yangon",
+    "utc_2026": 6.5,
+    "utc_2022": 6.5,
+    "utc_2018": 6.5,
+    "f_2026": 1.0,
+    "f_2022": 1.0,
+    "f_2018": 1.0
+   },
+   {
+    "codigo": 39020,
+    "cidade": "ZAGREB",
+    "pais": "Croácia",
+    "zona_iana": "Europe/Zagreb",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   },
+   {
+    "codigo": 30864,
+    "cidade": "ZURIQUE",
+    "pais": "Suíça",
+    "zona_iana": "Europe/Zurich",
+    "utc_2026": 1.0,
+    "utc_2022": 1.0,
+    "utc_2018": 1.0,
+    "f_2026": 0.4444444444444444,
+    "f_2022": 0.4444444444444444,
+    "f_2018": 0.4444444444444444
+   }
+  ]
+ },
+ "parte_c": {
+  "boletins_lidos_por_pasta": {
+   "amostra2t/arq": {
+    "arquivos": 3897,
+    "secoes_novas": 3897
+   },
+   "amostra2t/arq_G": {
+    "arquivos": 2400,
+    "secoes_novas": 2400
+   },
+   "amostra2t/arq_t17": {
+    "arquivos": 264,
+    "secoes_novas": 264
+   },
+   "amostra2t/arq_t17b": {
+    "arquivos": 1335,
+    "secoes_novas": 1325
+   },
+   "adendo21/F14_arq": {
+    "arquivos": 65,
+    "secoes_novas": 65
+   },
+   "adendo24/C3_arq": {
+    "arquivos": 148,
+    "secoes_novas": 148
+   },
+   "adendo27/R27_A5/dl_bu": {
+    "arquivos": 1040,
+    "secoes_novas": 1028
+   }
+  },
+  "boletins": {
+   "secoes_com_boletim": 9127,
+   "coerentes_com_o_bweb": 9127,
+   "excluidos_por_discordancia": 0,
+   "do_exterior": {},
+   "boletins_do_exterior_baixados": 12,
+   "boletins_do_exterior_com_o_campo_de_habilitacoes": 0
+  },
+  "estrutura": {
+   "secoes_do_brasil_no_bweb_2t_com_comparecimento": 497897,
+   "secoes_sem_nenhum_eleitor_com_biometria_no_perfil": 0,
+   "secoes_com_NH_maior_ou_igual_aos_eleitores_com_biometria": 2,
+   "secoes_com_Bmin_ate_5_pelo_perfil": 708,
+   "secoes_de_preso_provisorio_no_bweb_2t": 243,
+   "secoes_de_voto_em_transito_no_bweb_2t": 152,
+   "cobertura_da_lista_de_download": {
+    "P na lista": 243,
+    "P com boletim": 243,
+    "C na lista": 633,
+    "C com boletim": 633,
+    "T na lista": 152,
+    "T com boletim": 152,
+    "X na lista": 12
+   },
+   "B_igual_a_zero_por_estrato_da_lista": {},
+   "presos_com_boletim": 243,
+   "presos_com_B_zero": 0,
+   "presos_soma_S_B_M": [
+    762,
+    9510,
+    586
+   ],
+   "transito_com_boletim": 152,
+   "transito_com_B_zero": 0,
+   "transito_soma_S_B_M": [
+    1143,
+    41459,
+    2114
+   ],
+   "Z_total": 1,
+   "Z_lista": [
+    "MS|91693|27|108"
+   ],
+   "Z_detalhe": {
+    "MS|91693|27|108": {
+     "S": 18,
+     "B": 0,
+     "M": 168,
+     "tipo_do_local": "Convencional",
+     "origem_do_boletim": "adendo21/F14_arq"
+    }
+   },
+   "Q_total": 707
+  },
+  "Z": {
+   "secoes_no_universo": 1,
+   "votos_finalistas_2t": 186.0,
+   "informam_local": 1,
+   "informam_zona": 1,
+   "bruto": {
+    "virada_grupo": 1.9434982969344858,
+    "virada_brasil": 2.9570840091208606,
+    "f1_grupo": 33.54037267080745,
+    "f1_brasil": 48.821904143503545,
+    "fatia_lula_2t_grupo": 35.483870967741936
+   },
+   "local": {
+    "d": -1.0866590685876698,
+    "ep": null,
+    "z": null,
+    "n_regressao": 7,
+    "grupos": 1
+   },
+   "zona": {
+    "d": -0.8597684562423905,
+    "ep": null,
+    "z": null,
+    "n_regressao": 112,
+    "grupos": 1
+   },
+   "zona_com_covariaveis": null,
+   "local_com_covariaveis": null,
+   "pareado_como_o_exterior": {
+    "D": -0.5001520848313166,
+    "ep_por_municipio": null,
+    "municipios": 1,
+    "secoes": 1,
+    "distancia_mediana_ao_20o_par": 0.16874849034529923,
+    "virada_grupo": 1.9434982969344858,
+    "virada_pares": 2.4436503817658024
+   },
+   "aviso": "menos de 10 seções: os números são só descrição, sem erro-padrão válido",
+   "estimador_do_veredito": null,
+   "leitura": "SEM PODER"
+  },
+  "P_presos": {
+   "secoes_no_universo": 243,
+   "votos_finalistas_2t": 10556.0,
+   "informam_local": 0,
+   "informam_zona": 243,
+   "bruto": {
+    "virada_grupo": 0.06564158129516548,
+    "virada_brasil": 2.957329227577944,
+    "f1_grupo": 75.59748839217964,
+    "f1_brasil": 48.81959625926861,
+    "fatia_lula_2t_grupo": 75.6631299734748
+   },
+   "local": null,
+   "zona": {
+    "d": -2.8868379374179196,
+    "ep": 0.4112226034826715,
+    "z": -7.0201343821305,
+    "n_regressao": 55086,
+    "grupos": 207
+   },
+   "zona_com_covariaveis": {
+    "d": -0.567400019025721,
+    "ep": 0.3870631269268804,
+    "z": -1.4659108025366308,
+    "n_regressao": 497897,
+    "grupos": 2640
+   },
+   "local_com_covariaveis": null,
+   "pareado_como_o_exterior": {
+    "D": -1.509959651160542,
+    "ep_por_municipio": 0.393474706811748,
+    "municipios": 190,
+    "secoes": 243,
+    "distancia_mediana_ao_20o_par": 0.5336289934269737,
+    "virada_grupo": 0.06564158129516548,
+    "virada_pares": 1.5756012324557074
+   },
+   "permutacao_na_zona": {
+    "d_observado": -2.8868379374179187,
+    "p_bilateral": 0.0,
+    "dp_da_permutacao": 0.1329598780301214
+   },
+   "estimador_da_leitura": "zona",
+   "leitura_pelo_mesmo_criterio": "SINAL"
+  },
+  "Q_espelho": {
+   "secoes_no_universo": 707,
+   "votos_finalistas_2t": 143113.0,
+   "informam_local": 646,
+   "informam_zona": 707,
+   "bruto": {
+    "virada_grupo": 2.4881801822678598,
+    "virada_brasil": 2.9576255568705196,
+    "f1_grupo": 45.22516521612363,
+    "f1_brasil": 48.826046799913826,
+    "fatia_lula_2t_grupo": 47.71334539839148
+   },
+   "local": {
+    "d": -0.205026139972801,
+    "ep": 0.10971427190801146,
+    "z": -1.8687280734515794,
+    "n_regressao": 2636,
+    "grupos": 358
+   },
+   "zona": {
+    "d": -0.23968080672403563,
+    "ep": 0.11278383309469277,
+    "z": -2.125134428821911,
+    "n_regressao": 32532,
+    "grupos": 155
+   },
+   "zona_com_covariaveis": {
+    "d": -0.20418525022279307,
+    "ep": 0.12512931246329306,
+    "z": -1.6317939114601243,
+    "n_regressao": 497897,
+    "grupos": 2640
+   },
+   "local_com_covariaveis": {
+    "d": -0.21399983921918245,
+    "ep": 0.10606550387306225,
+    "z": -2.017619597369702,
+    "n_regressao": 475803,
+    "grupos": 72445
+   },
+   "pareado_como_o_exterior": {
+    "D": -0.6423388635521053,
+    "ep_por_municipio": 0.12194730148412371,
+    "municipios": 164,
+    "secoes": 707,
+    "distancia_mediana_ao_20o_par": 0.17215817907485026,
+    "virada_grupo": 2.4881801822678598,
+    "virada_pares": 3.130519045819965
+   },
+   "permutacao_na_zona": {
+    "d_observado": -0.2396808067240357,
+    "p_bilateral": 0.004,
+    "dp_da_permutacao": 0.08296167691906631
+   },
+   "estimador_da_leitura": "local",
+   "leitura_pelo_mesmo_criterio": "SEM SINAL"
+  },
+  "Z_nao_presos": {
+   "secoes_no_universo": 1,
+   "votos_finalistas_2t": 186.0,
+   "informam_local": 1,
+   "informam_zona": 1,
+   "bruto": {
+    "virada_grupo": 1.9434982969344858,
+    "virada_brasil": 2.9570840091208606,
+    "f1_grupo": 33.54037267080745,
+    "f1_brasil": 48.821904143503545,
+    "fatia_lula_2t_grupo": 35.483870967741936
+   },
+   "local": {
+    "d": -1.0866590685876698,
+    "ep": null,
+    "z": null,
+    "n_regressao": 7,
+    "grupos": 1
+   },
+   "zona": {
+    "d": -0.8597684562423905,
+    "ep": null,
+    "z": null,
+    "n_regressao": 112,
+    "grupos": 1
+   },
+   "zona_com_covariaveis": null,
+   "local_com_covariaveis": null,
+   "pareado_como_o_exterior": {
+    "D": -0.5001520848313166,
+    "ep_por_municipio": null,
+    "municipios": 1,
+    "secoes": 1,
+    "distancia_mediana_ao_20o_par": 0.16874849034529923,
+    "virada_grupo": 1.9434982969344858,
+    "virada_pares": 2.4436503817658024
+   },
+   "aviso": "menos de 10 seções: os números são só descrição, sem erro-padrão válido"
+  },
+  "calibracao": {
+   "Z": {
+    "uniforme_1,785": {
+     "local": {
+      "delta": 1.785,
+      "estatistica_com_plantio": -2.269091501020099,
+      "deslocamento": -1.1824324324324293,
+      "recuperacao": 0.6624271330153666,
+      "deslocamento_em_ep": null,
+      "poder_de_medida": false,
+      "criterio_de_sinal_dispara_com_plantio": false,
+      "poder_pleno": false,
+      "ep_com_plantio": null,
+      "secoes_que_informam": 1
+     },
+     "zona": {
+      "delta": 1.785,
+      "estatistica_com_plantio": -2.5160588356621014,
+      "deslocamento": -1.656290379419711,
+      "recuperacao": 0.9278937699830314,
+      "deslocamento_em_ep": null,
+      "poder_de_medida": false,
+      "criterio_de_sinal_dispara_com_plantio": false,
+      "poder_pleno": false,
+      "ep_com_plantio": null,
+      "secoes_que_informam": 1
+     }
+    },
+    "uniforme_1,0": {
+     "local": {
+      "delta": 1.0,
+      "estatistica_com_plantio": -2.0157131226417238,
+      "deslocamento": -0.929054054054054,
+      "recuperacao": 0.929054054054054,
+      "deslocamento_em_ep": null,
+      "poder_de_medida": false,
+      "criterio_de_sinal_dispara_com_plantio": false,
+      "poder_pleno": false,
+      "ep_com_plantio": null,
+      "secoes_que_informam": 1
+     },
+     "zona": {
+      "delta": 1.0,
+      "estatistica_com_plantio": -1.9992022633609148,
+      "deslocamento": -1.1394338071185244,
+      "recuperacao": 1.1394338071185244,
+      "deslocamento_em_ep": null,
+      "poder_de_medida": false,
+      "criterio_de_sinal_dispara_com_plantio": false,
+      "poder_pleno": false,
+      "ep_com_plantio": null,
+      "secoes_que_informam": 1
+     }
+    }
+   },
+   "P_presos": {
+    "uniforme_1,785": {
+     "zona": {
+      "delta": 1.785,
+      "estatistica_com_plantio": -4.6565748920371615,
+      "deslocamento": -1.7697369546192419,
+      "recuperacao": 0.9914492742964941,
+      "deslocamento_em_ep": 4.298055729024374,
+      "poder_de_medida": true,
+      "criterio_de_sinal_dispara_com_plantio": true,
+      "poder_pleno": true,
+      "ep_com_plantio": 0.4117529101980627,
+      "secoes_que_informam": 243
+     }
+    },
+    "uniforme_1,0": {
+     "zona": {
+      "delta": 1.0,
+      "estatistica_com_plantio": -3.890451721582964,
+      "deslocamento": -1.0036137841650445,
+      "recuperacao": 1.0036137841650445,
+      "deslocamento_em_ep": 2.438544591138436,
+      "poder_de_medida": false,
+      "criterio_de_sinal_dispara_com_plantio": true,
+      "poder_pleno": false,
+      "ep_com_plantio": 0.41156261313085396,
+      "secoes_que_informam": 243
+     }
+    }
+   }
+  },
+  "veredito": "SEM PODER",
+  "votos_do_brasil_para_traducao": 123710622.0,
+  "X8_exploratorio_dose_sem_biometria": {
+   "aviso": "exploratório, decidido depois de ver o resultado do grupo Q",
+   "fator_c_S_sobre_S_hat_na_amostra": 0.549747612891792,
+   "nb_medio_Q_exato": 0.6392562956995438,
+   "B_sobre_comparecimento_Q_exato": 0.3607437043004562,
+   "nb_medio_presos_exato": 0.12355334486808969,
+   "nb_medio_brasil_aprox": 0.12465324784404155,
+   "nb_medio_vizinhas_de_local_de_Q_aprox": 0.30782041766390045,
+   "dose_dentro_do_local_nos_locais_de_Q": {
+    "inclinacao_por_unidade": -0.8677267470391716,
+    "ep": 0.2709517568870757,
+    "n": 2636,
+    "locais": 358
+   },
+   "dose_nos_locais_de_Q_com_covariaveis": {
+    "inclinacao_por_unidade": -1.1638638173581242,
+    "ep": 0.2696447411222891
+   },
+   "placebo_nivel_f1_nos_locais_de_Q": {
+    "inclinacao_por_unidade": -2.4668123787099736,
+    "ep": 0.6599384872442253
+   },
+   "dose_dentro_do_local_so_com_boletim_nb_exato": {
+    "inclinacao_por_unidade": -0.5115427567519445,
+    "ep": 0.5818342536878575,
+    "n": 8426,
+    "locais": 1330
+   },
+   "dose_dentro_do_local_no_pais": {
+    "inclinacao_por_unidade": -0.1804574720739742,
+    "ep": 0.07478580834231408,
+    "n": 475803,
+    "locais": 72445
+   },
+   "placebo_nivel_f1_dentro_do_local_no_pais": {
+    "inclinacao_por_unidade": 1.7495938058315983,
+    "ep": 0.18600917447897747
+   },
+   "dose_dentro_do_local_no_pais_com_covariaveis": {
+    "inclinacao_por_unidade": -0.017948128142514123,
+    "ep": 0.07262964570615416
+   },
+   "d_previsto_para_Q_se_a_troca_poupasse_o_voto_sem_biometria": -0.5916130422936233,
+   "d_observado_Q_local": -0.205026139972801,
+   "ep_observado_Q_local": 0.10971427190801146
+  }
+ },
+ "traducao_parte_c": "sem tradução: Z tem 1 seção(ões), abaixo das 100 que o critério exige; um número de votos tirado daí não teria erro-padrão",
+ "traducao_em_votos": {
+  "DiD_parte_a": {
+   "pontos": -0.7787531121926585,
+   "votos_trocados_se_valesse_para_o_brasil": 963400.3189378957,
+   "efeito_na_margem": 1926800.6378757914,
+   "fracao_da_margem_oficial": 0.4349249587378493,
+   "fracao_da_regua_1,785": 0.4362762533292205
+  },
+  "DiD_ic95_inferior": {
+   "pontos": -1.2701724563961219,
+   "votos_trocados_se_valesse_para_o_brasil": 1571338.2462803212,
+   "efeito_na_margem": 3142676.4925606423,
+   "fracao_da_margem_oficial": 0.7093772012449672,
+   "fracao_da_regua_1,785": 0.7115812080650543
+  },
+  "DiD_ic95_superior": {
+   "pontos": -0.43304778274938843,
+   "votos_trocados_se_valesse_para_o_brasil": 535726.1055964772,
+   "efeito_na_margem": 1071452.2111929543,
+   "fracao_da_margem_oficial": 0.24185237412855434,
+   "fracao_da_regua_1,785": 0.24260379985960137
+  },
+  "D_nivel_2026": {
+   "pontos": -0.6486475152247274,
+   "votos_trocados_se_valesse_para_o_brasil": 802445.875672055,
+   "efeito_na_margem": 1604891.75134411,
+   "fracao_da_margem_oficial": 0.3622624287178837,
+   "fracao_da_regua_1,785": 0.3633879637113319
+  },
+  "inclinacao_parte_b": {
+   "pontos": -1.4702884290302438,
+   "votos_trocados_se_valesse_para_o_brasil": 1818902.9607473433,
+   "efeito_na_margem": 3637805.9214946865,
+   "fracao_da_margem_oficial": 0.821139748036752,
+   "fracao_da_regua_1,785": 0.8236909966555989
+  },
+  "exterior_inteiro": {
+   "secoes_2t": 1308,
+   "aptos_2t": 916158,
+   "comparecimento_2t": 381443,
+   "lula_2t": 200154,
+   "flavio_2t": 171497,
+   "votos_finalistas_2t": 371651,
+   "margem_de_lula_no_exterior": 28657,
+   "votos_finalistas_como_fracao_do_total": 0.002995198194024057,
+   "votos_finalistas_como_fracao_da_margem": 0.08389051397558255,
+   "margem_nacional_sem_o_exterior": 4401534,
+   "margem_nacional_se_todo_voto_do_exterior_fosse_de_flavio": 4029883
+  }
+ },
+ "exploratorio": {
+  "aviso": "exploratório: escolhido depois de ver os resultados das partes (a), (b) e (c); não muda nenhum veredito",
+  "E1_codigos_2014_x_2026": {
+   "codigos_comuns": 157,
+   "nomes_com_as_4_primeiras_letras_diferentes": [
+    [
+     29289,
+     "AMÃ-JORD",
+     "AMÃ"
+    ],
+    [
+     29521,
+     "CHUÍ-URUG",
+     "CHUY"
+    ],
+    [
+     29548,
+     "CINGAPURA-CING",
+     "SINGAPURA"
+    ],
+    [
+     30457,
+     "ROTERDÃ-HOLA",
+     "AMSTERDÃ"
+    ],
+    [
+     30473,
+     "STA C LA SIERRA-BOLI",
+     "SANTA CRUZ DE LA SIERRA"
+    ]
+   ]
+  },
+  "E2_2014": {
+   "brasilia_utc": -2.0,
+   "contagens": {
+    "exterior_dois_turnos_validos": 916,
+    "exterior_com_piso_30": 893,
+    "brasil_dois_turnos_validos": 427932,
+    "brasil_com_piso_30": 427703
+   },
+   "D_nivel": -5.150570519734887,
+   "ep_por_pais": 0.6091446651993094,
+   "cidades": 111,
+   "votos": 134739.0,
+   "virada_exterior": -4.040225447536929,
+   "dose": {
+    "inclinacao": -1.59466462062733,
+    "ep": 3.928492963535536,
+    "ep_cr1_pais": 1.5722753089868509,
+    "constante": -4.6903753990301045,
+    "p_permutacao_entre_paises": 0.459,
+    "cidades": 111,
+    "paises": 71
+   },
+   "por_grupo_de_dose": {
+    "f = 0": {
+     "D": -5.399073802056222,
+     "ep_por_pais": 1.122104204272985,
+     "cidades": 45,
+     "votos": 61937.0
+    },
+    "0 < f < 1": {
+     "D": -3.7686053102035575,
+     "ep_por_pais": 0.7874249876156473,
+     "cidades": 45,
+     "votos": 48882.0
+    },
+    "f = 1": {
+     "D": -7.331242575553195,
+     "ep_por_pais": 2.688690437511293,
+     "cidades": 21,
+     "votos": 23920.0
+    }
+   },
+   "DiD_2014_para_2018": {
+    "est": 5.875560345861017,
+    "ep": 0.55814278510571,
+    "ic95": [
+     4.821552635122034,
+     7.0637235186522
+    ],
+    "n": 103,
+    "grupos": 67
+   }
+  },
+  "E3_D_por_pais_e_ano": {
+   "Estados Unidos": {
+    "2014": {
+     "D": -5.047829460978913,
+     "votos": 38716.0,
+     "f1": 15.743370241080386
+    },
+    "2018": {
+     "D": 0.8210786979435974,
+     "votos": 52554.0,
+     "f1": 7.5923472843955375
+    },
+    "2022": {
+     "D": 0.16899576408034092,
+     "votos": 67948.0,
+     "f1": 35.080736711278824
+    },
+    "2026": {
+     "D": -0.048911161061962874,
+     "votos": 85741.0,
+     "f1": 34.50084938629194
+    }
+   },
+   "Portugal": {
+    "2014": {
+     "D": -7.092717056624666,
+     "votos": 9818.0,
+     "f1": 42.98893934538092
+    },
+    "2018": {
+     "D": 5.041183744851654,
+     "votos": 12564.0,
+     "f1": 18.62281115301757
+    },
+    "2022": {
+     "D": 0.25184009004695246,
+     "votos": 36337.0,
+     "f1": 65.90739362069455
+    },
+    "2026": {
+     "D": -0.3148168718327543,
+     "votos": 57752.0,
+     "f1": 57.664150960102226
+    }
+   },
+   "Japão": {
+    "2014": {
+     "D": -7.883182791993571,
+     "votos": 21593.0,
+     "f1": 15.29239205713326
+    },
+    "2018": {
+     "D": -2.8599859958230596,
+     "votos": 29806.0,
+     "f1": 3.141308720287831
+    },
+    "2022": {
+     "D": -0.7045559143405402,
+     "votos": 33052.0,
+     "f1": 15.801497961112915
+    },
+    "2026": {
+     "D": -2.4585138162573354,
+     "votos": 35636.0,
+     "f1": 17.57241891113282
+    }
+   },
+   "Canadá": {
+    "2014": {
+     "D": -1.7386527965480647,
+     "votos": 6929.0,
+     "f1": 20.167994817320725
+    },
+    "2018": {
+     "D": 1.5198581682580103,
+     "votos": 11577.0,
+     "f1": 14.997620824736918
+    },
+    "2022": {
+     "D": 0.656666971621476,
+     "votos": 21394.0,
+     "f1": 63.11785163494392
+    },
+    "2026": {
+     "D": -0.718001231194275,
+     "votos": 24277.0,
+     "f1": 63.84966894046829
+    }
+   },
+   "Alemanha": {
+    "2014": {
+     "D": -3.0473301055758757,
+     "votos": 5642.0,
+     "f1": 36.65682663075415
+    },
+    "2018": {
+     "D": 2.4274038090182732,
+     "votos": 8197.0,
+     "f1": 33.459139834725434
+    },
+    "2022": {
+     "D": 1.0696299665970144,
+     "votos": 17410.0,
+     "f1": 78.40349880077174
+    },
+    "2026": {
+     "D": -0.14511251256214946,
+     "votos": 20923.0,
+     "f1": 78.83651290653096
+    }
+   },
+   "Reino Unido": {
+    "2014": {
+     "D": -3.190394965754746,
+     "votos": 5850.0,
+     "f1": 26.429443376469475
+    },
+    "2018": {
+     "D": 4.0889836028032605,
+     "votos": 8495.0,
+     "f1": 17.678005097454708
+    },
+    "2022": {
+     "D": 1.1112050091234456,
+     "votos": 15068.0,
+     "f1": 61.17750568793423
+    },
+    "2026": {
+     "D": -0.1875254908133249,
+     "votos": 17317.0,
+     "f1": 61.75233332320706
+    }
+   },
+   "Espanha": {
+    "2014": {
+     "D": -2.3925223750594524,
+     "votos": 3015.0,
+     "f1": 36.8330954821392
+    },
+    "2018": {
+     "D": 3.9883668394306766,
+     "votos": 5270.0,
+     "f1": 24.528111168694593
+    },
+    "2022": {
+     "D": 0.20343829255422252,
+     "votos": 9761.0,
+     "f1": 66.85595008859173
+    },
+    "2026": {
+     "D": -1.8126591888518961,
+     "votos": 13582.0,
+     "f1": 68.68457925350974
+    }
+   },
+   "Itália": {
+    "2014": {
+     "D": -4.576781086178061,
+     "votos": 6370.0,
+     "f1": 39.04833734408228
+    },
+    "2018": {
+     "D": 1.2963302662049303,
+     "votos": 7419.0,
+     "f1": 25.676220063790826
+    },
+    "2022": {
+     "D": -0.6710340846015103,
+     "votos": 10512.0,
+     "f1": 58.151947684735276
+    },
+    "2026": {
+     "D": -0.5055167372026818,
+     "votos": 13204.0,
+     "f1": 58.302156103240115
+    }
+   },
+   "França": {
+    "2014": {
+     "D": -0.4163216580639712,
+     "votos": 3054.0,
+     "f1": 44.94633285634655
+    },
+    "2018": {
+     "D": 3.4488459836079004,
+     "votos": 4252.0,
+     "f1": 50.35447194940562
+    },
+    "2022": {
+     "D": 0.3197859702470839,
+     "votos": 9507.0,
+     "f1": 84.86491905865421
+    },
+    "2026": {
+     "D": 0.3772297448286258,
+     "votos": 12715.0,
+     "f1": 83.32904180969194
+    }
+   },
+   "Suíça": {
+    "2014": {
+     "D": -4.591220212517408,
+     "votos": 6000.0,
+     "f1": 33.16478146698822
+    },
+    "2018": {
+     "D": 2.431954694592529,
+     "votos": 7706.0,
+     "f1": 20.59302943686379
+    },
+    "2022": {
+     "D": 1.3093092290339632,
+     "votos": 10550.0,
+     "f1": 52.793968434949015
+    },
+    "2026": {
+     "D": 0.9762708936491213,
+     "votos": 12508.0,
+     "f1": 53.47350945389519
+    }
+   },
+   "Austrália": {
+    "2014": {
+     "D": -1.58825810753909,
+     "votos": 1508.0,
+     "f1": 15.234328066081908
+    },
+    "2018": {
+     "D": 0.7512185038310304,
+     "votos": 2891.0,
+     "f1": 13.317251542777809
+    },
+    "2022": {
+     "D": -1.2040168902431396,
+     "votos": 6893.0,
+     "f1": 66.07880836087396
+    },
+    "2026": {
+     "D": -1.538403369563517,
+     "votos": 9482.0,
+     "f1": 63.73453761673691
+    }
+   },
+   "Irlanda": {
+    "2014": {
+     "D": -3.250853929717543,
+     "votos": 245.0,
+     "f1": 23.870967741935484
+    },
+    "2018": {
+     "D": 5.331619158126162,
+     "votos": 947.0,
+     "f1": 18.928403425166337
+    },
+    "2022": {
+     "D": -1.066517953541503,
+     "votos": 7362.0,
+     "f1": 85.06375433474707
+    },
+    "2026": {
+     "D": 0.33894091319077463,
+     "votos": 8970.0,
+     "f1": 79.61218007488034
+    }
+   }
+  },
+  "E4_sem_peso_e_por_tamanho": {
+   "2014": {
+    "media_sem_peso": -4.993172185429582,
+    "mediana": -4.880320611113767,
+    "menos de 500 votos": {
+     "D": -5.5741832286955955,
+     "cidades": 60,
+     "votos": 9283.0,
+     "f1": 39.366712742922125
+    },
+    "500 a 4.999": {
+     "D": -5.008046619582414,
+     "cidades": 45,
+     "votos": 83815.0,
+     "f1": 28.73421266163101
+    },
+    "5.000 ou mais": {
+     "D": -5.34300691448999,
+     "cidades": 6,
+     "votos": 41641.0,
+     "f1": 20.741017457518538
+    }
+   },
+   "2018": {
+    "media_sem_peso": 0.35131888207159884,
+    "mediana": -0.0882725921358329,
+    "menos de 500 votos": {
+     "D": -0.554485280090041,
+     "cidades": 57,
+     "votos": 9028.0,
+     "f1": 19.755998800957943
+    },
+    "500 a 4.999": {
+     "D": 1.7828675587375387,
+     "cidades": 45,
+     "votos": 91134.0,
+     "f1": 22.49987531671417
+    },
+    "5.000 ou mais": {
+     "D": 0.0986182986928173,
+     "cidades": 9,
+     "votos": 84673.0,
+     "f1": 7.810949167309299
+    }
+   },
+   "2022": {
+    "media_sem_peso": 0.6272305737198219,
+    "mediana": 0.3197859702470839,
+    "menos de 500 votos": {
+     "D": 0.6151105688350124,
+     "cidades": 61,
+     "votos": 9205.0,
+     "f1": 47.646084286665115
+    },
+    "500 a 4.999": {
+     "D": -0.05275174802029265,
+     "cidades": 37,
+     "votos": 74026.0,
+     "f1": 54.099970931017154
+    },
+    "5.000 ou mais": {
+     "D": 0.16233657164196913,
+     "cidades": 23,
+     "votos": 214377.0,
+     "f1": 52.24409335166741
+    }
+   },
+   "2026": {
+    "media_sem_peso": -1.5196236899320748,
+    "mediana": -0.9969940881076271,
+    "menos de 500 votos": {
+     "D": -2.247868531224987,
+     "cidades": 64,
+     "votos": 9574.0,
+     "f1": 55.046825220948996
+    },
+    "500 a 4.999": {
+     "D": -0.8201152096404232,
+     "cidades": 34,
+     "votos": 60550.0,
+     "f1": 54.222170580864876
+    },
+    "5.000 ou mais": {
+     "D": -0.5633602150413057,
+     "cidades": 30,
+     "votos": 301256.0,
+     "f1": 51.837025848325545
+    }
+   }
+  },
+  "E5_DiD_por_tamanho": {
+   "2022_para_2026": {
+    "sem_peso": {
+     "est": -2.0960890351334864,
+     "ep": 0.44235498904672765,
+     "n": 123
+    },
+    "menos de 500 votos": {
+     "est": -2.795033046548842,
+     "ep": 0.5120781647787208,
+     "n": 59,
+     "votos": 9092.0
+    },
+    "500 a 4.999": {
+     "est": -0.7486918610556422,
+     "ep": 0.4182205759541577,
+     "n": 34,
+     "votos": 60550.0
+    },
+    "5.000 ou mais": {
+     "est": -0.7239432215786289,
+     "ep": 0.21737326063321677,
+     "n": 30,
+     "votos": 301256.0
+    }
+   },
+   "2018_para_2022_placebo": {
+    "sem_peso": {
+     "est": 0.09034166484482295,
+     "ep": 0.5030615808887058,
+     "n": 109
+    },
+    "menos de 500 votos": {
+     "est": 0.7811099249875133,
+     "ep": 0.9428897893531645,
+     "n": 49,
+     "votos": 8673.0
+    },
+    "500 a 4.999": {
+     "est": -1.1680571825272406,
+     "ep": 0.46774796540324143,
+     "n": 37,
+     "votos": 74026.0
+    },
+    "5.000 ou mais": {
+     "est": -1.5754954433049144,
+     "ep": 0.865513930096899,
+     "n": 23,
+     "votos": 214377.0
+    }
+   }
+  },
+  "E7_dose_pela_forca_do_adversario": {
+   "2018": {
+    "constante": 7.881394594366767,
+    "inclinacao": -8.27878890981968,
+    "ep": 4.497348120410661,
+    "ep_cr1_pais": 3.8145673072586606,
+    "p_permutacao_entre_paises": 0.0995
+   },
+   "2022": {
+    "constante": 0.394460784796325,
+    "inclinacao": -0.5725976479584372,
+    "ep": 0.7909735391576174,
+    "ep_cr1_pais": 0.7052733074448229,
+    "p_permutacao_entre_paises": 0.354
+   },
+   "2026": {
+    "constante": 0.04828553479730921,
+    "inclinacao": -1.4613405253862146,
+    "ep": 1.1859034608579755,
+    "ep_cr1_pais": 1.1623535449931772,
+    "p_permutacao_entre_paises": 0.2975
+   },
+   "DiD_2022_para_2026": {
+    "constante": -0.4027609574425278,
+    "inclinacao": -0.7881433468132438,
+    "ep": 0.9064361391675742,
+    "ep_cr1_pais": 0.7906852871268135
+   },
+   "cidades_com_DiD_negativa": {
+    "negativas": 95,
+    "total": 123,
+    "peso_negativo": 0.8330376545573176
+   },
+   "cidades_com_DiD_negativa_placebo_2018_2022": {
+    "negativas": 56,
+    "total": 109,
+    "peso_negativo": 0.6712289111203867
+   }
+  },
+  "E9_grupo_Q_em_outros_anos": {
+   "2022": {
+    "secoes_de_Q_presentes": 676,
+    "d_local": 0.022819778056958114,
+    "ep": 0.10707245822069492,
+    "n": 2340,
+    "locais": 328,
+    "d_local_com_covariaveis": 0.005573458911360525,
+    "ep_com_covariaveis": 0.10242595083979056
+   },
+   "2018": {
+    "secoes_de_Q_presentes": 667,
+    "d_local": -0.4695426847475026,
+    "ep": 0.1466241804433282,
+    "n": 2212,
+    "locais": 319,
+    "d_local_com_covariaveis": -0.27848356484051406,
+    "ep_com_covariaveis": 0.13709031266523083
+   }
+  },
+  "E6_pareamento_fino_2026": {
+   "variaveis": [
+    "f1",
+    "Cury",
+    "Renan",
+    "Caiado",
+    "resto dos outros",
+    "bn",
+    "dc"
+   ],
+   "D_2026_pareamento_registrado": -0.6486475152247274,
+   "D_2026_pareamento_fino": -0.6337289226353737,
+   "ep_por_pais": 0.2516102957201206,
+   "ic95": [
+    -1.2660973266993123,
+    -0.25944692099991085
+   ],
+   "media_sem_peso_das_cidades": -1.647039908718376,
+   "dose": {
+    "inclinacao": -1.5092772910682801,
+    "ep": 0.6796696434652373,
+    "ep_cr1_pais": 0.3805515961517072,
+    "constante": -0.12815566418552504
+   },
+   "distancia_mediana_ao_20o_par": 1.0416253419134518,
+   "equilibrio": {
+    "f1": {
+     "exterior": 52.30864826404194,
+     "pares_do_pareamento_registrado": 52.08157933652084,
+     "pares_do_pareamento_fino": 50.51833271842844,
+     "media_brasil": 49.210943854195406
+    },
+    "Cury": {
+     "exterior": 2.9238850250824613,
+     "pares_do_pareamento_registrado": 3.0879446211572814,
+     "pares_do_pareamento_fino": 2.886236370700442,
+     "media_brasil": 2.8371198390934493
+    },
+    "Renan": {
+     "exterior": 2.5755315379412322,
+     "pares_do_pareamento_registrado": 2.578032811320861,
+     "pares_do_pareamento_fino": 2.546740292760501,
+     "media_brasil": 2.1849106895685475
+    },
+    "Caiado": {
+     "exterior": 1.4175571225172818,
+     "pares_do_pareamento_registrado": 2.5032982613012145,
+     "pares_do_pareamento_fino": 1.6782884127785234,
+     "media_brasil": 2.1637605982008563
+    },
+    "resto dos outros": {
+     "exterior": 1.999153522183163,
+     "pares_do_pareamento_registrado": 0.6117866867805027,
+     "pares_do_pareamento_fino": 1.8958091275242368,
+     "media_brasil": 0.47943041663069286
+    },
+    "bn": {
+     "exterior": 3.0825325839023763,
+     "pares_do_pareamento_registrado": 3.1811931986483444,
+     "pares_do_pareamento_fino": 3.29746649329701,
+     "media_brasil": 4.7494087607778965
+    },
+    "dc": {
+     "exterior": 4.4307170859928195,
+     "pares_do_pareamento_registrado": 4.301402346234516,
+     "pares_do_pareamento_fino": 3.930479838622199,
+     "media_brasil": 1.7104373098438428
+    }
+   },
+   "por_grupo_de_dose": {
+    "f = 0": {
+     "D": -0.3861641765401791,
+     "ep": 0.6170756387048896,
+     "cidades": 46
+    },
+    "0 < f < 1": {
+     "D": -0.4541964500772128,
+     "ep": 0.19218449147326988,
+     "cidades": 63
+    },
+    "f = 1": {
+     "D": -2.047012924915889,
+     "ep": 0.46585684827055446,
+     "cidades": 19
+    }
+   },
+   "por_tamanho": {
+    "menos de 500 votos": {
+     "D": -2.387335457202527,
+     "ep": 0.427740338330524,
+     "cidades": 64
+    },
+    "500 a 4.999": {
+     "D": -0.7348559211124626,
+     "ep": 0.4565920098174008,
+     "cidades": 34
+    },
+    "5.000 ou mais": {
+     "D": -0.5576731138888802,
+     "ep": 0.2573594732192323,
+     "cidades": 30
+    }
+   },
+   "por_pais": {
+    "Japão": -2.0863093320697956,
+    "Estados Unidos": 0.06343953812702235,
+    "Portugal": -0.4919608021225812,
+    "Reino Unido": 0.18427715036178957
+   }
+  },
+  "texto": [
+   "E1. Códigos de município do exterior: 157 códigos comuns ao bweb de 2014 e à tabela de 2026; nomes diferentes nas 4 primeiras letras: 29289 AMÃ-JORD / AMÃ; 29521 CHUÍ-URUG / CHUY; 29548 CINGAPURA-CING / SINGAPURA; 30457 ROTERDÃ-HOLA / AMSTERDÃ; 30473 STA C LA SIERRA-BOLI / SANTA CRUZ DE LA SIERRA.",
+   "E2. 2014 (Dilma x Aécio; Brasília em UTC-2): D = -5,15 (ep por país 0,61; 111 cidades, 134.739 votos); inclinação da dose -1,59 (ep 3,93); por grupo: f = 0: -5,40 (ep 1,12), 45 cidades; 0 < f < 1: -3,77 (ep 0,79), 45 cidades; f = 1: -7,33 (ep 2,69), 21 cidades; DiD 2014 para 2018: 5,88 (ep 0,56).",
+   "E3. D por país e ano (votos de 2026 em ordem; D de 2014, 2018, 2022, 2026): Estados Unidos: -5,05 / 0,82 / 0,17 / -0,05; Portugal: -7,09 / 5,04 / 0,25 / -0,31; Japão: -7,88 / -2,86 / -0,70 / -2,46; Canadá: -1,74 / 1,52 / 0,66 / -0,72; Alemanha: -3,05 / 2,43 / 1,07 / -0,15; Reino Unido: -3,19 / 4,09 / 1,11 / -0,19; Espanha: -2,39 / 3,99 / 0,20 / -1,81; Itália: -4,58 / 1,30 / -0,67 / -0,51; França: -0,42 / 3,45 / 0,32 / 0,38; Suíça: -4,59 / 2,43 / 1,31 / 0,98; Austrália: -1,59 / 0,75 / -1,20 / -1,54; Irlanda: -3,25 / 5,33 / -1,07 / 0,34",
+   "E4. D sem peso e por tamanho da cidade: 2014: média sem peso -4,99, mediana -4,88, menos de 500 votos -5,57 (60 cidades), 500 a 4.999 -5,01 (45 cidades), 5.000 ou mais -5,34 (6 cidades); 2018: média sem peso 0,35, mediana -0,09, menos de 500 votos -0,55 (57 cidades), 500 a 4.999 1,78 (45 cidades), 5.000 ou mais 0,10 (9 cidades); 2022: média sem peso 0,63, mediana 0,32, menos de 500 votos 0,62 (61 cidades), 500 a 4.999 -0,05 (37 cidades), 5.000 ou mais 0,16 (23 cidades); 2026: média sem peso -1,52, mediana -1,00, menos de 500 votos -2,25 (64 cidades), 500 a 4.999 -0,82 (34 cidades), 5.000 ou mais -0,56 (30 cidades)",
+   "E5. DiD por tamanho da cidade (ep por país): 2022 para 2026: sem peso -2,10 (ep 0,44), menos de 500 votos -2,80 (ep 0,51; 59 cidades, 9.092 votos), 500 a 4.999 -0,75 (ep 0,42; 34 cidades, 60.550 votos), 5.000 ou mais -0,72 (ep 0,22; 30 cidades, 301.256 votos); 2018 para 2022 placebo: sem peso 0,09 (ep 0,50), menos de 500 votos 0,78 (ep 0,94; 49 cidades, 8.673 votos), 500 a 4.999 -1,17 (ep 0,47; 37 cidades, 74.026 votos), 5.000 ou mais -1,58 (ep 0,87; 23 cidades, 214.377 votos)",
+   "E6. 2026 com pareamento mais fino (f1, Cury, Renan, Caiado, resto dos outros, bn, dc; 20 pares): D = -0,63 (ep por país 0,25; IC 95% -1,27 a -0,26) contra -0,65 do pareamento registrado; média sem peso -1,65; inclinação da dose -1,51 (ep 0,68); por grupo: f = 0 -0,39 (ep 0,62); 0 < f < 1 -0,45 (ep 0,19); f = 1 -2,05 (ep 0,47); por tamanho: menos de 500 votos -2,39 (ep 0,43); 500 a 4.999 -0,73 (ep 0,46); 5.000 ou mais -0,56 (ep 0,26); por país: Japão -2,09; Estados Unidos 0,06; Portugal -0,49; Reino Unido 0,18. Composição (exterior / pares registrados / pares finos / média do Brasil): f1 52,3 / 52,1 / 50,5 / 49,2; Cury 2,9 / 3,1 / 2,9 / 2,8; Renan 2,6 / 2,6 / 2,5 / 2,2; Caiado 1,4 / 2,5 / 1,7 / 2,2; resto dos outros 2,0 / 0,6 / 1,9 / 0,5; bn 3,1 / 3,2 / 3,3 / 4,7; dc 4,4 / 4,3 / 3,9 / 1,7.",
+   "E7. D da cidade contra a fatia do adversário no 1º turno (fração; uma troca de 3,57% dos votos do adversário só no Brasil prevê inclinação de -3,57 e constante zero): 2018: inclinação -8,28 (ep 4,50), constante 7,88; 2022: inclinação -0,57 (ep 0,79), constante 0,39; 2026: inclinação -1,46 (ep 1,19), constante 0,05; sobre a DiD de 2022 para 2026: -0,79 (ep 0,91), constante -0,40. Cidades com DiD negativa: 95 de 123 (83% dos votos); no placebo de 2018 para 2022: 56 de 109 (67% dos votos).",
+   "E9. As seções do grupo Q (pouca biometria em 2026) contra as vizinhas de local em outros anos, virada do candidato do PT: 2022: 676 seções presentes, d 0,02 (ep 0,11), com covariáveis 0,01 (ep 0,10); 2018: 667 seções presentes, d -0,47 (ep 0,15), com covariáveis -0,28 (ep 0,14). Em 2026: -0,21 (ep 0,11)."
+  ]
+ },
+ "leitura": [
+  "A FAVOR DA TESE:",
+  "  A diferença em diferenças é negativa, como a tese prevê: -0,78 ponto, a 3,6 ep de zero (ep por país 0,21), em 123 cidades de 84 países. Não depende de um país (tirando um de cada vez fica entre -0,95 e -0,67) nem do número de pares (-0,77 com 10, -0,84 com 50). O valor bruto de 2026, sem comparar com outro ano, é -0,65 (ep por país 0,27). A DiD é negativa em 95 de 123 cidades (83% dos votos). Com pareamento mais fino pela composição dos eliminados (exploratório), o D de 2026 quase não muda: -0,63 (ep 0,25).",
+  "  Sem peso, cada cidade valendo o mesmo, a diferença em diferenças é -2,10 (ep 0,44) e a mediana das cidades é -1,51: passaria do limiar numérico de -1,0. O estimador registrado é o ponderado; o desvio maior está nos postos pequenos (cidades com menos de 500 votos: -2,80, ep 0,51, 9.092 votos; com 5.000 ou mais: -0,72, ep 0,22); no placebo de 2018 para 2022 os postos pequenos dão 0,78 (ep 0,94). Recorte feito depois do resultado, sem explicação testada.",
+  "  A dose por fuso tem o sinal previsto: inclinação de -1,47 ponto por unidade de fração; o grupo que vota inteiro antes de o Brasil abrir (f = 1) tem D de -2,23 (ep 0,54) contra -0,51 nas Américas.",
+  "  A condição 'nenhuma habilitação biométrica' não pôde ser testada dentro do Brasil: em 9.127 boletins lidos há 1 seção(ões) com B = 0, nenhuma seção tem zero eleitor com biometria no perfil, e as 243 seções de presos e internação habilitam por biometria (87,6% do comparecimento). Isto não é evidência a favor; só tira o contrapeso: o que os relatórios antigos chamavam de contrapeso (as 97 seções) não mede a condição, e este teste mostra que ela quase não ocorre no Brasil.",
+  "  O boletim do exterior não traz o campo de habilitações (0 de 12 lidos): a urna de lá roda sem o módulo de biometria, condição que não aparece em nenhum boletim do Brasil. A H1 fica sem teste direto no país; também não é evidência a favor.",
+  "  Pelo tipo e nome do local, como a tarefa pediu, as 243 seções de presos e internação viraram -2,89 ponto contra as vizinhas de zona (ep 0,41): pelo número do critério seria sinal. Mas não é a condição da H1 (ver o lado contra).",
+  "  Exploratório (versão de dose da H1): nos 358 locais que têm seção de pouca biometria, a virada cai com a fração de habilitação sem biometria, -0,87 por unidade (ep 0,27); com covariáveis -1,16 (ep 0,27). A previsão da dose seria -1,785. Recorte feito depois do resultado.",
+  "CONTRA A TESE:",
+  "  Pela letra nenhum critério de sinal foi atingido. A diferença em diferenças fica acima de -1,0 e o intervalo de 95% (-1,27 a -0,43) não chega a -1,785, o tamanho que viraria o resultado: mesmo o extremo inferior, se valesse para o Brasil inteiro, seriam 1.571.338 votos trocados e 3.142.676 de margem, contra 4.430.191.",
+  "  A mesma conta dá -1,41 (ep 0,65) de 2018 para 2022 e 5,88 (ep 0,56) de 2014 para 2018 (exploratório). O D de nível do mesmo pareamento foi -5,15 em 2014, 0,90 em 2018, 0,12 em 2022 e -0,65 em 2026: o desvio do exterior contra os pares muda de 1 a 6 pontos de uma eleição para outra; a mudança de 2022 para 2026 é do tamanho da de 2018 para 2022 (-0,77 pela diferença simples dos agregados) e muito menor que a de 2014 para 2018. A diferença tripla é 0,63 (ep 0,75). Ressalva do Adendo 18: o Léo suspeita desses anos, então isto não é régua limpa; mas, pela lógica da própria H1, um D perto de zero em 2022 diria que 2022 foi limpa.",
+  "  A dose por fuso não passa de 3 ep (1,6 ep) e não está ausente nos placebos: -0,74 em 2022 e -2,42 em 2018, -1,59 em 2014. O Japão, que é 75% dos votos do grupo f = 1, fica abaixo dos Estados Unidos nas quatro eleições (D do Japão em 2014, 2018, 2022, 2026: -7,88 / -2,86 / -0,70 / -2,46; dos EUA: -5,05 / 0,82 / 0,17 / -0,05). Sem o Japão a inclinação de 2026 é -0,42 (ep 0,80); a dose sobre a diferença em diferenças é -0,77 (ep 0,75).",
+  "  Um gatilho por relógio absoluto prevê diferença em diferenças perto de zero nas Américas; ela é -0,64 (ep 0,51) em f = 0 (Américas); -0,72 (ep 0,23) em 0 < f < 1; -1,41 (ep 1,21) em f = 1 (Ásia e Oceania). O desvio não cresce da América para a Europa. Já a H1 (exterior inteiro limpo) prevê o maior desvio onde o adversário é forte; nos Estados Unidos, com Lula a 35% no 1º turno, D é -0,05.",
+  "  A calibração mostra que a parte (b) não tem poder: plantando 1,785 ponto com o desenho do relógio, a inclinação anda -1,72, só 1,9 ep; o critério só enxergaria 2,73 ponto ou mais. A parte (a) tem poder (o mesmo plantio anda 8,4 ep e dispara o critério).",
+  "  As seções de presos NÃO são seções sem biometria: os 243 boletins mostram 9.510 habilitações por biometria em 10.858 (87,6%) e nenhuma seção com B = 0. Pela H1 elas deveriam virar como as vizinhas; a diferença bruta de -2,89 vem da composição (Lula a 75,6% no 1º turno, sem espaço para subir) e cai para -0,57 (ep 0,39) com as covariáveis do pareamento. Um d muito negativo num grupo com biometria mostra que d negativo, sozinho, não identifica a condição.",
+  "  O mesmo pareamento, aplicado a seções do Brasil que TÊM biometria, também dá D negativo: -1,51 (ep 0,39) nas 243 seções de presos e -0,64 (ep 0,12) nas 707 seções de pouca biometria com B > 0, o mesmo tamanho do D do exterior (-0,65). Um D desse tamanho aparece, portanto, em populações incomuns sem a condição da H1. Contra as vizinhas de local, o grupo de pouca biometria dá -0,21 (ep 0,11); as mesmas seções deram 0,02 (ep 0,11) em 2022 e -0,47 (ep 0,15) em 2018 (exploratório).",
+  "  A versão de dose da H1 (a troca pouparia o voto habilitado sem biometria) prevê -1,785 por unidade; no país inteiro, dentro do local, a dose é -0,18 (ep 0,07) e -0,02 (ep 0,07) com covariáveis; só com boletins (fração exata dos dois lados) -0,51 (ep 0,58). Nos locais de pouca biometria o placebo de nível não é zero (-2,47, ep 0,66): as seções comparadas já eram diferentes no 1º turno. O grupo de pouca biometria tem 64% de habilitação sem biometria e ficou -0,21 abaixo das vizinhas, contra -0,59 previstos pela dose. (Exploratório.)",
+  "  O exterior inteiro são 371.651 votos nos finalistas (0,30% do total, 8,4% da margem). Se todos fossem de Flávio a margem de Lula ainda seria 4.029.883. O exterior não decide nada; só serve para saber se as seções do Brasil carregam um desvio que o exterior não tem.",
+  "Testes com critério nesta rodada: 3 (a, b, c). Com limiares de 3 e 4 ep, o acaso daria menos de 0,01 sinal. Nenhum disparou.",
+  "Nos blocos exploratórios (X1 a X9, dezenas de recortes olhados depois do resultado) há números a mais de 3 ep (postos pequenos, dose nos locais de pouca biometria). Com tantos recortes, parte disso é esperada por acaso; nenhum conta como sinal sem registro prévio e conferência independente."
+ ],
+ "leitura_a_favor": [
+  "A diferença em diferenças é negativa, como a tese prevê: -0,78 ponto, a 3,6 ep de zero (ep por país 0,21), em 123 cidades de 84 países. Não depende de um país (tirando um de cada vez fica entre -0,95 e -0,67) nem do número de pares (-0,77 com 10, -0,84 com 50). O valor bruto de 2026, sem comparar com outro ano, é -0,65 (ep por país 0,27). A DiD é negativa em 95 de 123 cidades (83% dos votos). Com pareamento mais fino pela composição dos eliminados (exploratório), o D de 2026 quase não muda: -0,63 (ep 0,25).",
+  "Sem peso, cada cidade valendo o mesmo, a diferença em diferenças é -2,10 (ep 0,44) e a mediana das cidades é -1,51: passaria do limiar numérico de -1,0. O estimador registrado é o ponderado; o desvio maior está nos postos pequenos (cidades com menos de 500 votos: -2,80, ep 0,51, 9.092 votos; com 5.000 ou mais: -0,72, ep 0,22); no placebo de 2018 para 2022 os postos pequenos dão 0,78 (ep 0,94). Recorte feito depois do resultado, sem explicação testada.",
+  "A dose por fuso tem o sinal previsto: inclinação de -1,47 ponto por unidade de fração; o grupo que vota inteiro antes de o Brasil abrir (f = 1) tem D de -2,23 (ep 0,54) contra -0,51 nas Américas.",
+  "A condição 'nenhuma habilitação biométrica' não pôde ser testada dentro do Brasil: em 9.127 boletins lidos há 1 seção(ões) com B = 0, nenhuma seção tem zero eleitor com biometria no perfil, e as 243 seções de presos e internação habilitam por biometria (87,6% do comparecimento). Isto não é evidência a favor; só tira o contrapeso: o que os relatórios antigos chamavam de contrapeso (as 97 seções) não mede a condição, e este teste mostra que ela quase não ocorre no Brasil.",
+  "O boletim do exterior não traz o campo de habilitações (0 de 12 lidos): a urna de lá roda sem o módulo de biometria, condição que não aparece em nenhum boletim do Brasil. A H1 fica sem teste direto no país; também não é evidência a favor.",
+  "Pelo tipo e nome do local, como a tarefa pediu, as 243 seções de presos e internação viraram -2,89 ponto contra as vizinhas de zona (ep 0,41): pelo número do critério seria sinal. Mas não é a condição da H1 (ver o lado contra).",
+  "Exploratório (versão de dose da H1): nos 358 locais que têm seção de pouca biometria, a virada cai com a fração de habilitação sem biometria, -0,87 por unidade (ep 0,27); com covariáveis -1,16 (ep 0,27). A previsão da dose seria -1,785. Recorte feito depois do resultado."
+ ],
+ "leitura_contra": [
+  "Pela letra nenhum critério de sinal foi atingido. A diferença em diferenças fica acima de -1,0 e o intervalo de 95% (-1,27 a -0,43) não chega a -1,785, o tamanho que viraria o resultado: mesmo o extremo inferior, se valesse para o Brasil inteiro, seriam 1.571.338 votos trocados e 3.142.676 de margem, contra 4.430.191.",
+  "A mesma conta dá -1,41 (ep 0,65) de 2018 para 2022 e 5,88 (ep 0,56) de 2014 para 2018 (exploratório). O D de nível do mesmo pareamento foi -5,15 em 2014, 0,90 em 2018, 0,12 em 2022 e -0,65 em 2026: o desvio do exterior contra os pares muda de 1 a 6 pontos de uma eleição para outra; a mudança de 2022 para 2026 é do tamanho da de 2018 para 2022 (-0,77 pela diferença simples dos agregados) e muito menor que a de 2014 para 2018. A diferença tripla é 0,63 (ep 0,75). Ressalva do Adendo 18: o Léo suspeita desses anos, então isto não é régua limpa; mas, pela lógica da própria H1, um D perto de zero em 2022 diria que 2022 foi limpa.",
+  "A dose por fuso não passa de 3 ep (1,6 ep) e não está ausente nos placebos: -0,74 em 2022 e -2,42 em 2018, -1,59 em 2014. O Japão, que é 75% dos votos do grupo f = 1, fica abaixo dos Estados Unidos nas quatro eleições (D do Japão em 2014, 2018, 2022, 2026: -7,88 / -2,86 / -0,70 / -2,46; dos EUA: -5,05 / 0,82 / 0,17 / -0,05). Sem o Japão a inclinação de 2026 é -0,42 (ep 0,80); a dose sobre a diferença em diferenças é -0,77 (ep 0,75).",
+  "Um gatilho por relógio absoluto prevê diferença em diferenças perto de zero nas Américas; ela é -0,64 (ep 0,51) em f = 0 (Américas); -0,72 (ep 0,23) em 0 < f < 1; -1,41 (ep 1,21) em f = 1 (Ásia e Oceania). O desvio não cresce da América para a Europa. Já a H1 (exterior inteiro limpo) prevê o maior desvio onde o adversário é forte; nos Estados Unidos, com Lula a 35% no 1º turno, D é -0,05.",
+  "A calibração mostra que a parte (b) não tem poder: plantando 1,785 ponto com o desenho do relógio, a inclinação anda -1,72, só 1,9 ep; o critério só enxergaria 2,73 ponto ou mais. A parte (a) tem poder (o mesmo plantio anda 8,4 ep e dispara o critério).",
+  "As seções de presos NÃO são seções sem biometria: os 243 boletins mostram 9.510 habilitações por biometria em 10.858 (87,6%) e nenhuma seção com B = 0. Pela H1 elas deveriam virar como as vizinhas; a diferença bruta de -2,89 vem da composição (Lula a 75,6% no 1º turno, sem espaço para subir) e cai para -0,57 (ep 0,39) com as covariáveis do pareamento. Um d muito negativo num grupo com biometria mostra que d negativo, sozinho, não identifica a condição.",
+  "O mesmo pareamento, aplicado a seções do Brasil que TÊM biometria, também dá D negativo: -1,51 (ep 0,39) nas 243 seções de presos e -0,64 (ep 0,12) nas 707 seções de pouca biometria com B > 0, o mesmo tamanho do D do exterior (-0,65). Um D desse tamanho aparece, portanto, em populações incomuns sem a condição da H1. Contra as vizinhas de local, o grupo de pouca biometria dá -0,21 (ep 0,11); as mesmas seções deram 0,02 (ep 0,11) em 2022 e -0,47 (ep 0,15) em 2018 (exploratório).",
+  "A versão de dose da H1 (a troca pouparia o voto habilitado sem biometria) prevê -1,785 por unidade; no país inteiro, dentro do local, a dose é -0,18 (ep 0,07) e -0,02 (ep 0,07) com covariáveis; só com boletins (fração exata dos dois lados) -0,51 (ep 0,58). Nos locais de pouca biometria o placebo de nível não é zero (-2,47, ep 0,66): as seções comparadas já eram diferentes no 1º turno. O grupo de pouca biometria tem 64% de habilitação sem biometria e ficou -0,21 abaixo das vizinhas, contra -0,59 previstos pela dose. (Exploratório.)",
+  "O exterior inteiro são 371.651 votos nos finalistas (0,30% do total, 8,4% da margem). Se todos fossem de Flávio a margem de Lula ainda seria 4.029.883. O exterior não decide nada; só serve para saber se as seções do Brasil carregam um desvio que o exterior não tem."
+ ]
+}

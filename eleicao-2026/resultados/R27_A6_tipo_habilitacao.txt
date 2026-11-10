@@ -1,0 +1,212 @@
+R27_A6: TIPO DE HABILITAÇÃO (teste D1.5 do desenho D1; Adendo 27, Onda A, item A6)
+Gerado por scripts/analisar_R27_A6.py. Critérios: registro/adendo27/desenho_D1_proposta.json (D1.5 e definições comuns), commit 2748895.
+Docstring com as decisões D1 a D21 gravado antes de qualquer conta com votos (10/11/2026 02:18 UTC), sha256 1e36c5cec27cc62395b7227de643c9025c01ab47986854d582baae76c43c4ea5.
+O desenho D1 é cego (escrito sem ver resultado). Testa só a versão PARCIAL da hipótese: o programa trataria diferente quem não passou na biometria.
+
+VEREDITO PELA LETRA
+  teste pela letra (combinado): INCONCLUSIVO
+  dose do dia (y): INCONCLUSIVO
+  experimento natural, grupo A (m2 de 0,5 ou mais): SEM SINAL (enxerga a margem inteira plantada; meia margem, não)
+  experimento natural, grupo B (leitor caiu no 2º turno): SEM PODER
+  espelho do experimento natural, grupo C (placebo): limpo
+  amostra de logs: SEM PODER
+  brancos e nulos (y_BN): SEM SINAL
+  desfecho contra 2022 (y_alt): INCONCLUSIVO
+  placebo de período anterior: limpo
+  placebo de turno trocado: limpo
+  placebo de cargo (governador): limpo pela regra, mas sem precisão (erro de 0,78 p.p.)
+
+RESUMO EM UMA FRASE
+  Nenhum SINAL: a habilitação do dia não mostra a marca da tese (b = +0,156 p.p. por unidade de m2, erro 0,139, z = +1,12, sentido contrário ao previsto) e, no sentido da tese, o intervalo de 99% só admite até 9,9% da margem (438.744 votos de margem; 487.906 com a escala calibrada); pela letra, porém, o teste fica INCONCLUSIVO, porque o limite de cima do intervalo (+0,5148) passa em 0,0048 o limite de 0,51 do critério SEM SINAL, do lado contrário ao da tese.
+
+1. O QUE FOI TESTADO
+  Hipótese: para escapar do teste de integridade, o programa só alteraria o voto de quem foi habilitado por biometria.
+  Marca: quanto maior a fração liberada sem biometria na seção no 2º turno (m2), menor o ganho de Lula além do previsto pelo 1º turno;
+  -2,04 p.p. por unidade de m2 zeraria a margem (Phi = 1); -0,51 vale um quarto da margem (Phi = 0,25).
+  Modelo: y = 100 x L2/(L2+R2) = efeito fixo de local + X do 1º turno + b x m2 + k x m1 + r x nb + modelo da urna; peso L2+R2; erro por município.
+  m2 e m1 = QT_ELEI_BIOM_SEM_HABILITACAO / comparecimento (2º e 1º turno); nb = 1 menos eleitores com biometria / eleitores (cadastro).
+
+2. UNIVERSO E CONFERÊNCIAS
+  Seções pareadas fora do exterior: 497.897. Com L2+R2 abaixo de 30: 156. U pela letra: 497.741. Sem perfil: 273. U com perfil: 497.468.
+  Informam o efeito fixo: 475.667 seções em 72.402 locais e 5.570 municípios. Votos em U: Lula 64.022.980, Flávio 59.633.683 (y agregado 51,775%).
+  m2 médio ponderado 0,0676, m1 0,0669, nb 0,1034; correlação m1 e m2 0,818; desvio de m2 dentro do local 0,0267; de m2 menos m1 0,0208.
+  Base confere com o oficial: Lula 64.256.232, Flávio 59.826.041. Comparecimento e local da estrutura iguais aos da base em 497.897 de 497.897 seções.
+  Função própria contra lib.fe_ols (erro por local): b 0,156390 e 0,156390; maior diferença de coeficiente 9.1e-12, de erro 2.9e-14.
+  Perfil: total do cadastro dentro de 2% dos aptos em 482.940 seções; 14.926 seções com agregadas somadas. Demais candidatos no X: 70, 14, 55.
+  Conferência por outro caminho de código (pandas e lstsq): b 0,156390; erro por município 0,139143 (o da classe Reg é 0,139148).
+  Log contra bweb: liberados pelo mesário iguais ao campo do bweb em 3858 de 3875 seções no 2º turno (3828 no 1º).
+
+3. DOSE PRINCIPAL (2026, só dados de 2026)
+  b (m2, habilitação do dia)  = +0,156 (erro 0,139; z +1,12; IC99 -0,202 a +0,515)
+  k (m1, mesmo campo no 1º turno) = -0,225 (erro 0,134; z -1,68; IC99 -0,570 a +0,120)
+  r (nb, sem biometria no cadastro) = -0,900 (erro 0,069; z -12,95; IC99 -1,079 a -0,721)
+  Phi pela letra (-b/2,04) = -0,077 (IC99 -0,252 a +0,099). Pela fórmula geral da frente: -0,081. Calibrado: -0,085 (IC99 -0,281 a +0,110).
+  Sinal positivo de Phi = a favor de Lula (sentido da tese); negativo = a favor de Flávio. R2 dentro do local 0,770; resíduo 1,60 p.p.
+  Critério SINAL: b de -0,51 ou abaixo (ou +0,51 ou acima) com |z| de 3,3. Observado: não. Critério SEM SINAL: IC99 entre -0,51 e +0,51. Observado: -0,2020 a +0,5148; passa em 0,0048 no lado positivo.
+  A distância entre INCONCLUSIVO e SEM SINAL aqui é de 0,0048 p.p.: com o erro agrupado por local (sensibilidade fixada antes) o intervalo cabe (-0,196 a +0,509); com o erro por município, que é o da letra, não cabe.
+
+4. REGIÕES
+  Norte         n   40.351  b = -0,128 (erro 0,501; z -0,25; IC99 -1,419 a +1,163)   k = +0,228 (0,536)
+  Nordeste      n  131.516  b = +0,059 (erro 0,219; z +0,27; IC99 -0,506 a +0,624)   k = -0,265 (0,199)
+  Sudeste       n  199.670  b = +0,304 (erro 0,207; z +1,47; IC99 -0,229 a +0,838)   k = -0,167 (0,237)
+  Sul           n   66.770  b = +0,251 (erro 0,336; z +0,75; IC99 -0,615 a +1,118)   k = -0,430 (0,328)
+  Centro-Oeste  n   37.360  b = +0,355 (erro 0,861; z +0,41; IC99 -1,862 a +2,572)   k = +0,003 (0,534)
+  Mesmo sentido do nacional em 4 de 5; b negativo em 1 de 5.
+
+5. EXPERIMENTO NATURAL (indicadora no lugar da dose; vizinhas = outras seções do mesmo local)
+  Grupo A: m2 de 0,5 ou mais. Em U: 97; com vizinha: 92 em 88 locais; vizinhas: 686; votos das tratadas: 21.826.
+    m2 médio 0,801 contra 0,107; m1 0,616 contra 0,112.
+    Bruto: y do 2º turno 60,86 contra 60,96; 1º turno 58,39 contra 58,48; ganho entre turnos +2,478 contra +2,477 (diferença +0,001).
+    d = -0,196 (erro 0,181; z -1,08; IC99 -0,661 a +0,270); com m1 de controle -0,142 (0,183). Esperado para Phi = 1 pela letra: -1,417; plantado de fato: -1,052 (t -5,4).
+    y_BN: d = -0,016 (erro 0,128; z -0,12; IC99 -0,345 a +0,314).
+  Grupo B: m2 de 0,2 ou mais e m1 abaixo de 0,1 (leitor caiu no 2º turno). Em U: 42; com vizinha: 32 em 31 locais; vizinhas: 198; votos das tratadas: 7.044.
+    m2 médio 0,332 contra 0,093; m1 0,080 contra 0,094.
+    Bruto: y do 2º turno 61,70 contra 60,12; 1º turno 59,13 contra 57,58; ganho entre turnos +2,566 contra +2,540 (diferença +0,026).
+    d = +0,117 (erro 0,292; z +0,40; IC99 -0,635 a +0,868); com m1 de controle +0,115 (0,292). Esperado para Phi = 1 pela letra: -0,487; plantado de fato: -0,367 (t -1,2).
+    y_BN: d = +0,415 (erro 0,221; z +1,88; IC99 -0,155 a +0,986).
+  Grupo C: espelho: m1 de 0,2 ou mais e m2 abaixo de 0,1 (placebo). Em U: 98; com vizinha: 87 em 85 locais; vizinhas: 600; votos das tratadas: 20.377.
+    m2 médio 0,075 contra 0,100; m1 0,420 contra 0,101.
+    Bruto: y do 2º turno 51,16 contra 50,93; 1º turno 48,28 contra 48,32; ganho entre turnos +2,876 contra +2,608 (diferença +0,268).
+    d = +0,265 (erro 0,211; z +1,25; IC99 -0,279 a +0,808); com m1 de controle +0,312 (0,214). Esperado para Phi = 1 pela letra: +0,052; plantado de fato: +0,048 (t +0,2).
+    y_BN: d = -0,020 (erro 0,119; z -0,17; IC99 -0,327 a +0,287).
+  Limite do critério para o grupo A: |d| de até 0,6. Observado 0,196. Phi calibrado do grupo A: +0,186 (IC99 -0,257 a +0,629).
+
+6. AMOSTRA DE LOGS (tipo de habilitação exato por eleitor; amostra estratificada, contraste dentro do local)
+  3.758 seções em 623 locais e 409 municípios. Frações no 2º turno: biométrica 87,56%, mesário (M) 7,35%, sem biometria (S) 5,09%.
+  Conta da letra: fM2 = +3,38 (erro 1,56; z +2,17; IC99 -0,63 a +7,40); fS2 = +20,45 (erro 5,63; z +3,63; IC99 +5,95 a +34,95);
+    controles fM1 = -3,33 (erro 1,51; z -2,21; IC99 -7,21 a +0,55); fS1 = -20,56 (erro 5,53; z -3,72; IC99 -34,81 a -6,30).
+  Conta restrita (u2 = M + S do dia): b = +4,35 (erro 1,38; z +3,16; IC99 +0,81 a +7,89); k (u1) = -4,45 (erro 1,33; z -3,34; IC99 -7,88 a -1,02); erro por local 1,41.
+  A marca pedia coeficiente NEGATIVO (até -2,04 para a margem inteira). O observado é positivo; lido como troca valeria 2,1 margens a favor de Flávio (u2) ou 10,0 (fS2), tamanho que, para o campo M, a conta nacional exclui (IC99 de b até +0,515); para S não existe conta nacional. O controle do 1º turno tem o mesmo tamanho e sinal oposto: é o desenho de quem compareceu a mais, não do nível.
+  Poder: a margem inteira plantada desloca u2 em -1,92 com erro 1,49 (t -1,3); vista em 0% das cópias. SEM PODER.
+  y_BN na amostra: u2 = -0,45 (erro 0,81; z -0,55; IC99 -2,54 a +1,65).
+
+7. BRANCOS E NULOS (y_BN = 100 x (B2+N2)/comparecimento)
+  b = +0,038 (erro 0,079; z +0,48; IC99 -0,165 a +0,241); k = -0,195 (erro 0,076; z -2,57; IC99 -0,391 a +0,000); r (nb) = -0,058 (erro 0,043; z -1,34; IC99 -0,169 a +0,054).
+  Phi_BN = +0,010 (IC99 -0,044 a +0,065); votos convertidos 45.328 (IC99 -196.872 a 287.529).
+  Plantio Phi_BN 0,25: 1.107.398 votos; delta de b +0,886; recupera 95%; visto em 100% das cópias.
+  Plantio Phi_BN 0,50: 2.215.257 votos; delta de b +1,781; recupera 96%; visto em 100% das cópias.
+  Plantio Phi_BN 1,00: não plantado (taxa maior que 1; taxa 1,15).
+
+8. DESFECHO CONTRA 2022 (y_alt; usa 2022 como referência, que o Léo não aceita como régua limpa)
+  437.918 seções. b = +0,199 (erro 0,192; z +1,03; IC99 -0,296 a +0,693); k = -0,201 (erro 0,175; z -1,15; IC99 -0,651 a +0,249); r (nb) = -1,253 (erro 0,145; z -8,64; IC99 -1,627 a -0,879).
+  Bruto: y de 2026 51,602% e de 2022 50,854% nas mesmas seções. Só mesmo código de local: b = +0,155 (0,200).
+  Pareamento com 2022: 460.075 seções, 442.919 com o mesmo código de local, 322.005 com aptos dentro de 10%. Veredito depende de 2022: INCONCLUSIVO por intervalo largo.
+
+9. PLACEBOS E ESPELHOS
+  Período anterior (virada de 2022 com m2 e m1 de 2026): b = +0,072 (erro 0,166; z +0,44; IC99 -0,355 a +0,500); Phi -0,036; r (nb) = -0,445 (0,099).
+  Turno trocado (1º turno de 2026 contra 2022, dose m1): b = -0,045 (erro 0,200; z -0,23; IC99 -0,561 a +0,471); Phi +0,022; r (nb) = -0,831 (0,182).
+  Cargo (governador do 2º turno, 6 UFs): b = -0,44 (erro 0,78; z -0,56; IC99 -2,46 a +1,58); qui-quadrado dos 6 z = 5,79 (p = 0,447); Phi +0,214.
+    AC: n 2.143; candidato do lado de Lula 11 (correlação 0,32); b = +2,49 (4,34; z +0,58)
+    AM: n 7.690; candidato do lado de Lula 55 (correlação 0,95); b = -0,09 (1,83; z -0,05)
+    DF: n 6.954; candidato do lado de Lula 13 (correlação 0,94); b = -4,02 (1,80; z -2,24)
+    ES: n 9.552; candidato do lado de Lula 15 (correlação 0,79); b = +0,83 (1,47; z +0,56)
+    RN: n 7.934; candidato do lado de Lula 13 (correlação 0,70); b = -0,18 (1,63; z -0,11)
+    TO: n 4.203; candidato do lado de Lula 44 (correlação 0,14); b = +0,93 (2,86; z +0,33)
+  Espelho do experimento natural (grupo C): d = +0,265 (erro 0,211; z +1,25; IC99 -0,279 a +0,808).
+  Espelho do critério: sinal contrário teria o mesmo destaque; não houve nos dois sentidos. Espelho do plantio: na seção 10.
+
+10. CALIBRAÇÃO POR EFEITO PLANTADO NOS DADOS DE 2026 (200 cópias por tamanho)
+  sentido    Phi   votos movidos   delta de b (esperado)   recupera   delta de k   visto a z 3,3   cópia cumpre SINAL   cópia não passa em SEM SINAL   grupo A: delta (t; visto)
+  R_para_L   0,25       553.818   -0,458 (-0,51)         90%     +0,007         39%               0%                   100%               -0,26 (-1,4; 0%)
+  R_para_L   0,50     1.107.545   -0,915 (-1,02)         90%     +0,012        100%              99%                   100%               -0,52 (-2,8; 2%)
+  R_para_L   1,00     2.215.057   -1,834 (-2,04)         90%     +0,025        100%             100%                   100%               -1,05 (-5,4; 100%)
+  L_para_R   0,25       553.721   +0,496 (+0,51)         97%     +0,010         81%             100%                   100%               +0,40 (+2,2; 0%)
+  L_para_R   0,50     1.107.624   +1,002 (+1,02)         98%     +0,011        100%             100%                   100%               +0,80 (+4,3; 100%)
+  L_para_R   1,00     2.214.880   +1,989 (+2,04)         97%     +0,034        100%             100%                   100%               +1,59 (+7,8; 100%)
+  Menor Phi visto com 95% de chance a z de 3,3: 0,375. Meia largura do IC99 em Phi: 0,176. Regra geral da frente (95% para Phi 0,25): não cumprida, como o registro previa.
+  Regra da D15: recuperação de Phi = 1 entre 0,80 e 1,25 (0,899), visto em 95% ou mais (100%), cópia com um quarto da margem não passa por SEM SINAL (100%): o teste TEM PODER para meia margem ou mais.
+
+11. VALOR BRUTO DE 2026 POR FAIXA DE m2 (sem modelo)
+  faixa de m2      seções        votos    y 2º turno   y 1º turno   ganho    brancos e nulos 2º (1º)
+  0,00 a 0,03     52.831   13.357.530      51,45       48,40    +3,05    3,29 (4,71)
+  0,03 a 0,06    187.196   48.021.853      51,01       47,99    +3,02    3,32 (4,86)
+  0,06 a 0,10    172.131   42.590.393      51,65       48,91    +2,73    3,21 (4,73)
+  0,10 a 0,20     81.168   18.848.006      53,94       51,66    +2,29    3,08 (4,68)
+  0,20 a 0,50      4.045      816.555      58,13       56,67    +1,46    2,99 (4,72)
+  0,50 a 1,00         97       22.326      61,20       58,79    +2,41    3,14 (4,84)
+  O ganho cai com m2 no bruto. As seções com mais liberação manual ficam em lugares onde Lula já era mais forte no 1º turno; a seção 15 mostra o que sobra ao comparar vizinhos.
+
+12. SENSIBILIDADES (fixadas antes; não decidem)
+  sem_peso                     b = +0,153 (erro 0,145; z +1,06; IC99 -0,220 a +0,526); k = -0,163 (0,139)
+  erro_por_local               b = +0,156 (erro 0,137; z +1,14; IC99 -0,196 a +0,509); k = -0,225 (0,135)
+  sem_bloco_de_perfil          b = -0,036 (erro 0,145; z -0,25; IC99 -0,409 a +0,338); k = -0,135 (0,135)
+  sem_variacao_da_abstencao    b = +0,197 (erro 0,140; z +1,41; IC99 -0,162 a +0,557); k = -0,210 (0,134)
+  mesma_urna_nos_dois_turnos   b = +0,171 (erro 0,147; z +1,17; IC99 -0,206 a +0,549); k = -0,208 (0,143)
+  sem_junta_no_1t              b = +0,157 (erro 0,139; z +1,13; IC99 -0,201 a +0,515); k = -0,226 (0,134)
+  so_m2_sem_m1                 b = +0,006 (erro 0,113; z +0,05; IC99 -0,284 a +0,296)
+
+13. TRADUÇÃO EM VOTOS
+  Dose do dia: Phi -0,077 = -169.813 votos trocados = -339.627 votos de margem (negativo = a favor de Flávio).
+  IC99: de -1.117.997 a 438.744 votos de margem, contra 4.430.191 da margem oficial. No sentido da tese o teto é 438.744 (487.906 calibrado).
+  Brancos e nulos: 45.328 votos convertidos (IC99 -196.872 a 287.529).
+
+14. O QUE PESA A FAVOR DA TESE
+  (1) Pela letra o teste não fecha como SEM SINAL: o intervalo de 99% de b vai de -0,2020 a +0,5148 e o critério pedia que coubesse entre -0,51 e +0,51. O excesso é de 0,0048 e fica do lado contrário ao da tese (a favor de Flávio), mas o registro não distingue os lados.
+  (2) O coeficiente de nb (fração de eleitores sem biometria no cadastro) é -0,900 (erro 0,069; z -12,95; IC99 -1,079 a -0,721): seções com mais eleitores sem biometria deram menos ganho a Lula do que o 1º turno previa, que é o sentido da marca. Lido como exposição ao programa valeria Phi de 0,49 (2.174.121 votos de margem). O registro, antes de ver o dado, tratou nb como traço do eleitor que não decide; o mesmo coeficiente aparece na virada de 2022 (-0,445 (erro 0,099; z -4,49; IC99 -0,701 a -0,190)) e no 1º turno de 2026 contra 2022 (-0,831 (erro 0,182; z -4,58; IC99 -1,299 a -0,364)), e como o Léo suspeita também de 2022 esse placebo não limpa a dúvida.
+  (3) No bruto de 2026 o ganho de Lula entre os turnos cai conforme sobe a liberação manual: +3,05 p.p. nas seções com m2 abaixo de 3% e +1,46 p.p. nas de 20% a 50%. Dentro do mesmo local e sem controles a inclinação é -1,248 (erro 0,114; z -10,95; IC99 -1,542 a -0,955) (exploratório). Com só parte dos controles do registro (votos do 1º turno, abstenção e nb) b sai -0,434 (erro 0,144; z -3,02; IC99 -0,804 a -0,063) (exploratório); acrescentando aptos, posição e modelo da urna vai a -0,036 (sensibilidade fixada antes) e, com o perfil, a +0,156: o resultado depende de quais controles entram.
+  (4) O coeficiente de m1 é negativo (-0,225 (erro 0,134; z -1,68; IC99 -0,570 a +0,120)) e o experimento natural do grupo A também (-0,196 (erro 0,181; z -1,08; IC99 -0,661 a +0,270)); os dois no sentido da tese, nenhum com significância.
+  (5) Poder limitado: o menor efeito que o teste enxerga com 95% de chance a z de 3,3 é Phi de 0,375 (1.661.697 votos de margem). Um quarto da margem plantado só passou de z 3,3 em 39% das cópias. A amostra de logs e o grupo B do experimento natural não enxergam nem a margem inteira, e o placebo de governador tem erro de 0,78 p.p.
+  (6) Este desenho só testa a versão parcial da hipótese (o programa trata diferente quem não passou na biometria). Uma troca igual para todo eleitor, com ou sem biometria, não deixa marca aqui: o teste nada diz sobre ela.
+
+    O QUE PESA CONTRA A TESE
+  (1) A dose do dia tem o sinal contrário ao da tese: b = +0,156 (erro 0,139; z +1,12; IC99 -0,202 a +0,515). A marca pedia b de -0,51 ou abaixo para um quarto da margem e -2,04 para a margem inteira; o observado está a 4,8 erros-padrão de -0,51 e a 15,8 de -2,04. No sentido da tese o intervalo de 99% admite no máximo Phi de 0,099 pela letra (438.744 votos de margem) ou 0,110 com a escala calibrada (487.906), contra 4.430.191 de margem.
+  (2) Experimento natural, grupo A: nas 92 seções com metade ou mais dos eleitores liberados sem biometria (média de 80,1% contra 10,7% nas 686 vizinhas de prédio) o ganho bruto de Lula entre os turnos foi +2,478 p.p. contra +2,477 nas vizinhas (diferença +0,001); com o modelo, d = -0,196 (erro 0,181; z -1,08; IC99 -0,661 a +0,270). A margem inteira plantada desloca esse d em -1,05: o observado está a 4,7 erros-padrão disso.
+  (3) Dose e resposta (exploratório): dentro do local, a inclinação negativa do ganho bruto só existe abaixo de m2 = 0,2 (-1,486 (erro 0,127; z -11,71; IC99 -1,813 a -1,159)) e some acima (+0,359 (erro 0,259; z +1,39; IC99 -0,308 a +1,026); 4.025 seções), justamente onde a exposição mais varia. Basta pôr a fração de Lula do 1º turno como controle para a inclinação dentro do local cair a +0,043 (erro 0,155; z +0,28; IC99 -0,357 a +0,442).
+  (4) nb por idade (exploratório): o coeficiente de nb não é igual para todo eleitor sem biometria, como seria numa regra de programa. Para os de 20 a 24 anos (24,6% dos sem biometria) é -0,019 (erro 0,162; z -0,12; IC99 -0,436 a +0,398); para os de 45 a 59 é -2,355 (erro 0,235; z -10,02; IC99 -2,961 a -1,750). O mesmo desenho por idade aparece na virada de 2022 (+0,62 e -1,88). No bruto, o ganho de Lula é maior, não menor, no quinto de seções com mais eleitores sem biometria (+3,38 contra +2,48 p.p.).
+  (5) A calibração mostra que o modelo não esconde um efeito de exposição: plantado nos dados de 2026, ele recupera 90% do tamanho (de R para L) e 97% no espelho (de L para R), com o coeficiente de m1 parado (delta de +0,025). Meia margem plantada é vista em 100% das cópias; a margem inteira, em 100%.
+  (6) Amostra de logs: a fração exata de eleitores sem biometria no dia (S) tem coeficiente positivo (+20,45 (erro 5,63; z +3,63; IC99 +5,95 a +34,95)), o contrário da marca, com o controle do 1º turno do mesmo tamanho e sinal oposto (-20,56): o que conta é quem compareceu a mais no 2º turno, não o nível. A parte não tem poder e não decide.
+  (7) Brancos e nulos: b = +0,038 (erro 0,079; z +0,48; IC99 -0,165 a +0,241), Phi_BN = +0,010 (IC99 -0,044 a +0,065), isto é, 45.328 votos convertidos (IC99 -196.872 a 287.529); um quarto da margem plantado em brancos e nulos é visto em 100% das cópias.
+  (8) Placebos e espelhos limpos: período anterior +0,072 (erro 0,166; z +0,44; IC99 -0,355 a +0,500); turno trocado -0,045 (erro 0,200; z -0,23; IC99 -0,561 a +0,471); governador -0,44 (erro 0,78; z -0,56; IC99 -2,46 a +1,58); grupo C +0,265 (erro 0,211; z +1,25; IC99 -0,279 a +0,808). Nenhuma região tem b com |z| de 2 ou mais; 4 das 5 têm b positivo.
+
+15. EXPLORATÓRIO (feito depois de ver o resultado; não muda veredito)
+  Escada do ganho bruto (y menos a fração de Lula no 1º turno) em m2:
+    sem_efeito_fixo            só m2: -6,476 (erro 0,496; z -13,05; IC99 -7,754 a -5,198); com m1: m2 -4,598 (0,494), m1 -2,298 (0,304)
+    efeito_fixo_de_UF          só m2: -5,677 (erro 0,374; z -15,20; IC99 -6,639 a -4,714); com m1: m2 -3,480 (0,264), m1 -2,703 (0,263)
+    efeito_fixo_de_municipio   só m2: -3,694 (erro 0,261; z -14,15; IC99 -4,367 a -3,022); com m1: m2 -2,318 (0,193), m1 -1,837 (0,207)
+    efeito_fixo_de_local       só m2: -1,248 (erro 0,114; z -10,95; IC99 -1,542 a -0,955); com m1: m2 -0,947 (0,145), m1 -0,427 (0,151)
+  Dentro do local, desfecho y, acrescentando os blocos de controle do registro (m2 e m1 sempre presentes):
+    so_a_fracao_de_Lula_no_1t_como_controle    m2 +0,043 (erro 0,155; z +0,28; IC99 -0,357 a +0,442); m1 +0,122 (0,136)
+    ate_votos_do_1t                            m2 +0,203 (erro 0,151; z +1,35; IC99 -0,185 a +0,591); m1 +0,187 (0,138)
+    ate_abstencao                              m2 -0,406 (erro 0,144; z -2,82; IC99 -0,778 a -0,035); m1 -0,192 (0,136)
+    ate_nb                                     m2 -0,434 (erro 0,144; z -3,02; IC99 -0,804 a -0,063); m1 -0,220 (0,137)
+    ate_perfil_aptos_posicao_modelo            m2 +0,156 (erro 0,139; z +1,12; IC99 -0,202 a +0,515); m1 -0,225 (0,134)
+  Dose e resposta no ganho bruto dentro do local: até 0,2: -1,486 (erro 0,127; z -11,71; IC99 -1,813 a -1,159); acima de 0,2: +0,359 (erro 0,259; z +1,39; IC99 -0,308 a +1,026).
+  Grupos sem controles: A +0,001 (erro 0,170; z +0,01; IC99 -0,436 a +0,439); B +0,097 (erro 0,268; z +0,36; IC99 -0,594 a +0,787); C +0,343 (erro 0,239; z +1,43; IC99 -0,273 a +0,959).
+  nb aberto por idade (modelo completo de 2026 | virada de 2022):
+    nb_16a19   -0,154 (1,562; z -0,1)  |  +3,332 (2,509; z +1,3)
+    nb_20a24   -0,019 (0,162; z -0,1)  |  +0,625 (0,259; z +2,4)
+    nb_25a44   -0,874 (0,153; z -5,7)  |  -0,329 (0,166; z -2,0)
+    nb_45a59   -2,355 (0,235; z -10,0)  |  -1,878 (0,344; z -5,5)
+    nb_60mais  -1,167 (0,208; z -5,6)  |  -0,464 (0,237; z -2,0)
+    Eleitores sem biometria no cadastro de U: 16.747.235; de 20 a 24 anos: 4.119.076 (30,9% dos eleitores dessa idade).
+  Valor bruto de 2026 por quinto de nb: 0,007: ganho +2,48; 0,031: ganho +2,51; 0,056: ganho +2,62; 0,121: ganho +3,09; 0,299: ganho +3,38.
+  Logs em nível e variação: variação de S +20,45 (erro 5,63; z +3,63; IC99 +5,95 a +34,95); nível de S -0,11 (erro 1,04; z -0,11; IC99 -2,78 a +2,56); variação de M +3,38 (erro 1,56; z +2,17; IC99 -0,63 a +7,40); nível de M +0,05 (erro 1,68; z +0,03; IC99 -4,27 a +4,37).
+    Um desvio-padrão da variação de S (0,0060) vale +0,12 p.p. Comparecimento do 1º para o 2º turno na amostra: biométrica +1,9%, mesário +3,5%, sem biometria +4,4%.
+    Modelo nacional rodado só na amostra: b = +3,07 (erro 1,59; z +1,94; IC99 -1,02 a +7,16). O campo M é o mesmo do bweb; a conta nacional (+0,156, erro 0,139) é 130 vezes mais precisa.
+    Correlação dentro do local entre a fração S e a fração de eleitores de 18 a 24 anos: +0,35.
+
+16. CONTAGEM DE TESTES
+  16 estatísticas com limiar de z 3,3 (dose principal, 5 regiões, 3 grupos do experimento natural, 2 contas da amostra de logs, y_BN, y_alt e 3 placebos de regressão; as sensibilidades não decidem). Sinais esperados pelo acaso: 0,015.
+  Passaram de 3,3 em módulo: nenhuma das que decidem. Na conta da letra dos logs, fS2 tem z +3,63, no sentido contrário ao da tese, numa parte sem poder. O coeficiente de nb (z -12,95) é controle, não estatística de teste.
+
+17. DESVIOS E DECISÕES
+  (1) D1 a D21 do docstring (decisões que o registro não fixa, escritas antes de qualquer conta com votos; sha256 do docstring no JSON): definição de 0,5% no país, faixas de idade e escolaridade, perfil somado nas seções agregadas, modelo da urna pela série, erro por município em função própria conferida contra lib.fe_ols, regras de SEM PODER e de veredito por parte, calibrações dos logs e de y_BN.
+  (2) As 27 seções com junta apuradora do 2º turno estão todas no exterior; tirar o exterior já as tira. Ficaram em U 2 seções com junta só no 1º turno (a sensibilidade sem elas não muda nada). 273 seções de U não têm perfil no F15 e saem; U com perfil tem 497.468 seções, das quais 475.667 em 72.402 locais com 2 ou mais seções informam o efeito fixo.
+  (3) Colunas colineares dentro dos locais: além de coluna sem variação (D5), a função retira coluna que é combinação linear das anteriores (indicadoras de modelo da urna em regiões e na amostra de logs, onde UE2013 e UE2015 só se misturam entre si). Isso foi acrescentado depois que a primeira rodada devolveu coeficientes absurdos em duas regiões por matriz singular; o resultado nacional não mudou em nenhuma casa.
+  (4) Erro de programação corrigido depois da segunda rodada: o poder do experimento natural na calibração era contado com o sinal trocado (dava 0% sempre). A regra da D15 não mudou; só a conta.
+  (5) Phi_BN = 1 não pôde ser plantado (pediria converter mais brancos e nulos do que existem, taxa de 1,15); para a regra de poder de y_BN vale o maior tamanho plantado (0,5), que é mais exigente.
+  (6) A calibração recupera 90% e não 100% do b esperado: a escala real é de 1,834 p.p. por unidade de Phi e não 2,04 (o registro usou 0,876 de fração biométrica, que inclui os eleitores sem biometria, e a troca plantada é proporcional ao voto de Flávio na seção). O veredito usa a letra (2,04); o Phi calibrado sai ao lado.
+  (7) Contagens do experimento natural em U: A 97 (92 com vizinha), B 42 (32), C 98 (87); o registro citava 97, 43 e 98.
+  (8) Placebo de governador com erro agrupado por local (o DF é um município só). O exterior não tem nenhuma habilitação registrada no campo (m2 = 0 em todas as seções): não há o que relatar à parte.
+  (9) Feito depois de ver o resultado e marcado como EXPLORATÓRIO: leituras derivadas (escala calibrada, limites de um lado só), valor bruto por faixa de nb, escada do ganho bruto e dos blocos de controle, dose e resposta por trecho de m2, nb aberto por idade, conta dos logs em nível e variação e o modelo nacional só na amostra.
+
+18. PISTAS
+  (1) Pedir ao TSE o comparecimento por eleitor com e sem biometria (o cadastro de comparecimento e abstenção por seção, com faixa etária) dos dois turnos: é o dado que separa de vez composição do comparecimento de exposição ao programa no coeficiente de nb, que hoje é o número mais forte deste teste no sentido da tese.
+  (2) Pedir ao TSE e aos TREs a lista e as atas do Teste de Integridade com biometria do 2º turno (eleitores reais emprestam a digital para habilitar a urna auditada): se houve urnas auditadas com habilitação biométrica real e sem divergência, a premissa da hipótese (o programa reconhece o teste pela falta do dedo) cai por medida direta, de fora do programa.
+  (3) As 97 seções do grupo A (lista no JSON, campo experimento_natural.A.secoes) são o melhor lugar para uma perícia olhar: ali a urna quase não viu digital. Hoje elas não mostram nada, mas são poucas (21.826 votos); pedir os logs dessas seções confirmaria que a liberação foi mesmo manual e por quê.
+  (4) A dose S (eleitor sem biometria no dia) só existe no log. Para a amostra de logs enxergar a margem inteira seriam precisas cerca de 55.179 seções com log (hoje 3.758). Se a amostra aleatória nova da Onda D trouxer logs, vale repetir a parte (ii).
+  (5) O resultado da dose depende dos controles (de -0,43 a +0,20 conforme o bloco, exploratório). O conferente independente deve refazer com código próprio o modelo completo do registro e a escada de blocos.
+
+19. LIMITES
+  O teste usa só arquivos da própria urna (boletim e log): vale contra a versão parcial da hipótese, não contra programa adulterado que troque voto de todo eleitor.
+  SINAL ou SEM SINAL deste teste só contam depois de o conferente independente reproduzir com código próprio.

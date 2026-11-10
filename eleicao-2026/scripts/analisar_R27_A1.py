@@ -152,6 +152,37 @@ ACRESCENTADO DEPOIS DE VER OS RESULTADOS (EXPLORATÓRIO; nada aqui muda veredito
   DESVIO: na conferência do T34 sem filtro, 2 das 9 divisas diferem do publicado na quarta casa (SC-RS e MG-RJ em 2026):
   locais com coordenadas idênticas empatam na busca do vizinho mais próximo e a ordem de leitura decide o par.
 
+RETOMADA (10/11/2026, depois do reinício do container por volta de 01:06 UTC)
+  A execução anterior deste mesmo teste rodou as partes registradas (a, b, d, c, t; resultados parciais e logs em
+  /home/user/trabalho-eleicao/adendo27/R27_A1, gravados entre 00:59 e 01:02 UTC) e foi interrompida antes de escrever
+  as funções exploratorio() e escrever(). O docstring registrado antes de rodar está guardado sem mudança em
+  docstring_antes_de_rodar.py, na mesma pasta. A retomada não mudou nenhuma função das partes registradas: conferiu o
+  código, escreveu as duas funções que faltavam e rodou tudo de novo de uma vez (as sementes são fixas, os números das
+  partes registradas saem iguais aos dos logs da primeira execução).
+  Acrescentado na retomada, já conhecendo os resultados das partes registradas (EXPLORATÓRIO):
+  X8. Para onde foi o branco e nulo que falta no lado de um cargo só: salto residual (mesmo modelo, mesmos pares) do
+      ganho de Lula e do ganho do adversário em pontos do comparecimento. Os dois somam, por identidade contábil, o
+      salto residual do branco e nulo com o sinal trocado. Conversão para Lula prevê tudo em Lula e zero no adversário.
+      Em 2026 com M0 e M2, com o plantio de 35% ao lado, e nas divisas equivalentes (E) dos outros anos.
+  X9. Ordem de grandeza do que uma conversão que virasse o resultado só nas 21 UFs (4,43 milhões) deixaria na divisa,
+      por extrapolação linear do plantio de 35% (não dá para plantar: é mais que todo o branco e nulo observado ali).
+  X10. Régua das divisas onde nada deveria saltar: a dispersão do salto nas divisas entre UFs do mesmo grupo em 2026,
+      aplicada à média ponderada das divisas mistas; e quanto cada divisa mista contribui para o salto de Lula.
+  X11. Dose entre divisas: regressão pela origem do salto de Lula sobre o salto do branco e nulo entre as divisas de UF
+      de cada ano (todas, mesmo grupo, mistas). Conversão de branco e nulo em voto do PT prevê inclinação negativa.
+  X3 (acréscimo): a taxa de conversão que o resultado das 6 UFs deixaria passar se a subida natural fosse a do
+      percentil 90 ou a máxima do placebo, e o que essas taxas valeriam em votos se valessem nas 27 UFs.
+  X1 (acréscimo): os locais com mais de 200 pares são retirados até não sobrar nenhum (há locais com a mesma
+      coordenada que herdam os pares do que saiu); X4 (acréscimo): 13 e 22 separados nos nulos da tela de governador.
+  DESVIO (aplicação da regra G4 ao item (b), que a primeira execução não tinha calculado): o plantio de 35% desloca a
+  DiD em 99,9% do esperado, mas isso são 3,9 ep do bootstrap (o limite da G4 é 4), e a DiD plantada cai a 0,28 ponto
+  da média dos anos de referência, isto é, dentro da faixa que o registro chama de "sem sinal". Pela letra da G4 e
+  pela regra do pedido ("se não enxergar, o veredito é SEM PODER"), o item (b) sai como SEM PODER; o veredito pela
+  letra do critério (INCONCLUSIVO) fica ao lado.
+  DESVIO (item (c)): a terceira condição do SINAL (salto de Lula abaixo de 0,25 nas divisas equivalentes dos outros
+  anos) falha por causa de 2018 (+1,14) e de 2014 (+0,26), qualquer que seja o dado de 2026. O critério, como escrito,
+  não tinha como dar SINAL. Isso é relatado junto com o veredito pela letra.
+
 Uso: python3 -I scripts/analisar_R27_A1.py [--partes a,b,d,c,t] [--trab pasta]
 Saídas: resultados/R27_A1_branco_nulo.json e resultados/R27_A1_branco_nulo.txt
 """
@@ -1037,6 +1068,717 @@ def parte_t(S, geo, LOC, cand26, c_out, reps=2000):
     return out
 
 
+# ---------------------------------------------------------------- exploratório (depois de ver os resultados)
+PASTA_RDV = '/home/user/trabalho-eleicao/amostra2t/arq'
+
+
+def amostra_b2(k, loc, M):
+    """A amostra e as matrizes da especificação (b2) do D4-6, como em parte_d (variante d, eliminados somados)."""
+    uf = ufs_de(k)
+    m = ((M[:, 0] >= 0) & (M[:, 7] >= 0) & (M[:, IX['ap1']] == 1) & (M[:, IX['ap2']] == 1) & (np.abs(M[:, IX['A2']] - M[:, IX['A1']]) <= 2)
+         & (M[:, IX['C1']] >= 30) & (uf != 'ZZ') & (M[:, IX['A1']] > 0))
+    Mm = M[m].astype(float); c = lambda x: Mm[:, IX[x]]
+    mun = np.array(['|'.join(x.split('|')[:2]) for x in k[m]]); w = 1 / c('A1')
+    Xd = np.column_stack([c('L1'), c('R1'), c('O1'), c('B1'), c('N1'), c('A1') - c('C1')])
+    return m, uf[m], loc[m], mun, w, Xd, c
+
+
+def boot_razao(num, den, w, grupos, reps, rng):
+    """Razão de duas médias ponderadas (num/den) com intervalo de 95% por bootstrap dos grupos."""
+    _, g = np.unique(grupos, return_inverse=True); G = g.max() + 1
+    sn = np.bincount(g, weights=w * num, minlength=G); sd = np.bincount(g, weights=w * den, minlength=G)
+    C = rng.multinomial(G, np.ones(G) / G, size=reps).astype(float)
+    b = (C @ sn) / (C @ sd)
+    return [float(sn.sum() / sd.sum()), float(np.percentile(b, 2.5)), float(np.percentile(b, 97.5))]
+
+
+def exploratorio(S, GOV, geo, LOC, res, cand26, reps=2000):
+    """Tudo aqui foi acrescentado depois de ver os resultados das partes registradas. Não muda veredito."""
+    from scipy.stats import mannwhitneyu
+    rng = np.random.default_rng(SEMENTE + 4)
+    x = {'aviso': 'EXPLORATÓRIO: contas escolhidas depois de ver os resultados das partes registradas; não mudam veredito pela letra'}
+    f = geo.filtro()
+    T, V, val = LOC[2026]; v34 = validos(T, t34=True)
+    sem_de = lambda ano: [u for u in UFS27 if u not in GOV[ano]]
+
+    # X1: SP-MG e MG-RJ sem filtro, por modelo, e sem os locais que viram par de centenas de locais
+    def jt(ma, mb, modelo):
+        d = divisa(T, V, geo, ma, mb, cap=None, modelo=modelo, completo=False)
+        if d.get('pares', 0) < 50:
+            return {'pares': d.get('pares', 0)}, d
+        J, e, G = estat(d['dif'], d['w'], geo.mun[d['pa']], reps, rng)
+        return {'pares': d['pares'], 'J': float(J[0]) / 100, 'ep': float(e[0]) / 100, 'municipios_lado_a': G, 'mult_maxima': d['mult_antes']}, d
+    x1 = {}
+    for dv in ('SP-MG', 'MG-RJ'):
+        a, b = dv.split('-'); ma = v34 & (geo.uf == a); mb = v34 & (geo.uf == b); r = {}
+        d0 = None
+        for m_ in ('M0', 'M1', 'M2'):
+            r['sem_filtro_' + m_], d = jt(ma, mb, m_)
+            if m_ == 'M0': d0 = d
+        ca = np.bincount(d0['pa'], minlength=geo.n); cb_ = np.bincount(d0['pb'], minlength=geo.n)
+        hubs = np.where((ca > 200) | (cb_ > 200))[0]
+        r['locais_com_mais_de_200_pares'] = [{'local': str(geo.lid[h]), 'lat': float(geo.lat[h]), 'lon': float(geo.lon[h]), 'pares': int(max(ca[h], cb_[h])),
+                                             'km_do_centroide_do_municipio': float(geo.dist_centro[h]), 'dentro_da_caixa_da_uf': bool(geo.na_caixa[h]),
+                                             'passa_no_filtro': bool(f[h]), 'nominais_2t': float(T[h, LX['L2']] + T[h, LX['R2']])} for h in hubs]
+        eh = np.isin(d0['pa'], hubs) | np.isin(d0['pb'], hubs); w = d0['w']; dj = d0['dif'][:, 0] / 100
+        r['pares_desses_locais'] = {'pares': int(eh.sum()), 'peso_no_J': float(w[eh].sum() / w.sum()),
+                                    'J_so_deles': float((w[eh] * dj[eh]).sum() / w[eh].sum()) if eh.any() else None,
+                                    'J_dos_demais_sem_reajustar_o_modelo': float((w[~eh] * dj[~eh]).sum() / w[~eh].sum()) if (~eh).any() else None}
+        fora = np.ones(geo.n, bool); fora[hubs] = False; tirados = list(hubs)
+        for _ in range(30):  # locais com a mesma coordenada herdam os pares do que saiu: tira até não sobrar nenhum com mais de 200
+            d1 = divisa(T, V, geo, ma & fora, mb & fora, cap=None, completo=False)
+            c1 = np.bincount(d1['pa'], minlength=geo.n) + np.bincount(d1['pb'], minlength=geo.n)
+            h1 = np.where(c1 > 200)[0]
+            if len(h1) == 0: break
+            fora[h1] = False; tirados += list(h1)
+        r['locais_tirados_ao_todo'] = [{'local': str(geo.lid[h]), 'lat': float(geo.lat[h]), 'lon': float(geo.lon[h]), 'km_do_centroide_do_municipio': float(geo.dist_centro[h]),
+                                       'dentro_da_caixa_da_uf': bool(geo.na_caixa[h]), 'passa_no_filtro': bool(f[h])} for h in tirados]
+        for m_ in ('M0', 'M1'):
+            r['sem_filtro_sem_esses_locais_' + m_], _ = jt(ma & fora, mb & fora, m_)
+        x1[dv] = r
+        diga(f'(X1) {dv}:', json.dumps(limpar(r), ensure_ascii=False))
+    x['X1_sp_mg_e_mg_rj_sem_filtro'] = x1
+
+    # X2: permutação da DiD do item (b) em cada ano (200 mil sorteios)
+    x2 = {}
+    for ano in ANOS:
+        k, loc, M, _ = S[ano]; U = somas_uf(k, M); rb = res['b']['anos'][str(ano)]
+        du = np.array([rb['var_por_uf'][u] for u in UFS27]); nc = len(GOV[ano])
+        V4 = np.array([[U[u]['bn1'], U[u]['c1'], U[u]['bn2'], U[u]['c2']] for u in UFS27])
+        idx = np.argsort(rng.random((200000, 27)), axis=1)[:, :nc]
+        sg = du[idx].sum(1); ms = (du.sum() - sg) / (27 - nc) - sg / nc
+        Vc = V4[idx].sum(1); Vs = V4.sum(0)[None, :] - Vc
+        ag = 100 * ((Vs[:, 2] / Vs[:, 3] - Vs[:, 0] / Vs[:, 1]) - (Vc[:, 2] / Vc[:, 3] - Vc[:, 0] / Vc[:, 1]))
+        x2[str(ano)] = {'ufs_com_gov_2t': nc, 'did_media_simples': rb['did_media_simples'], 'dp_permutacao_media_simples': float(ms.std()),
+                        'p_tao_negativa_media_simples': float((ms <= rb['did_media_simples'] + 1e-12).mean()),
+                        'did_agregada': rb['did_agregada'], 'dp_permutacao_agregada': float(ag.std()),
+                        'p_tao_negativa_agregada': float((ag <= rb['did_agregada'] + 1e-12).mean())}
+        diga(f'(X2) {ano}:', json.dumps(x2[str(ano)]))
+    x['X2_permutacao_da_did_por_ano'] = x2
+
+    # X3: D4-6(b1), teste de postos e conversão equivalente
+    b1 = res['d']['b1']
+    plac = np.array([v['DiD'] for a in ('2018', '2022') for v in b1['por_uf'][a].values()]); seis = np.array([b1['seis_DiD'][u] for u in G6])
+    bn6 = sum(b1['por_uf']['2026'][u]['bn_pres_2t'] for u in G6)
+    dmed = float(np.median(seis) - np.median(plac))
+    x['X3_d46_b1_postos'] = {'mediana_6': float(np.median(seis)), 'mediana_placebo': float(np.median(plac)), 'dif_medianas': dmed,
+                             'p_mann_whitney_menor': float(mannwhitneyu(seis, plac, alternative='less').pvalue),
+                             'p_mann_whitney_bilateral': float(mannwhitneyu(seis, plac, alternative='two-sided').pvalue),
+                             'conversao_equivalente_fracao_do_bn_antes': float(1 - math.exp(dmed)) if dmed < 0 else 0.0,
+                             'bn_presidente_2t_nas_6_ufs': bn6,
+                             'conversao_equivalente_votos': float(bn6 * (math.exp(-dmed) - 1)) if dmed < 0 else 0.0,
+                             'seis_abaixo_da_mediana_placebo': int((seis < np.median(plac)).sum()),
+                             'conversao_compativel_com_o_p90_do_placebo': float(max(0.0, 1 - math.exp(np.median(seis) - np.percentile(plac, 90)))),
+                             'conversao_compativel_com_o_maximo_do_placebo': float(max(0.0, 1 - math.exp(np.median(seis) - plac.max()))),
+                             'bn_presidente_2t_no_pais': res['a']['calibracao_2026_nacional']['bn_2t_nas_secoes'],
+                             'nota': 'se a diferença de medianas inteira fosse conversão: votos = B+N observado vezes (exp(-dif) - 1)'}
+    x3_ = x['X3_d46_b1_postos']
+    x3_['votos_no_pais_se_a_taxa_valesse_nas_27'] = {n_: float(x3_['bn_presidente_2t_no_pais'] * f_ / (1 - f_)) for n_, f_ in
+                                                     (('mediana', x3_['conversao_equivalente_fracao_do_bn_antes']), ('p90', x3_['conversao_compativel_com_o_p90_do_placebo']),
+                                                      ('maximo', x3_['conversao_compativel_com_o_maximo_do_placebo']))}
+    diga('(X3)', json.dumps(x3_))
+
+    # X4: o que foi digitado nos nulos de presidente do 2º turno (RDV da amostra)
+    try:
+        from decodificar import ler_rdv
+        ELIM = set(cand26['nomes']) - {'13', '22'}
+        por_uf = {}
+        for uf in sorted(_os.listdir(PASTA_RDV)):
+            a = collections.Counter(); nsec = 0; gv = collections.Counter(); nulp = collections.Counter(); nulg = collections.Counter()
+            for m_ in sorted(_os.listdir(_os.path.join(PASTA_RDV, uf))):
+                for z_ in sorted(_os.listdir(_os.path.join(PASTA_RDV, uf, m_))):
+                    for s_ in sorted(_os.listdir(_os.path.join(PASTA_RDV, uf, m_, z_))):
+                        p_ = _os.path.join(PASTA_RDV, uf, m_, z_, s_)
+                        rd = sorted(q for q in _os.listdir(p_) if q.endswith('-rdv.dat'))
+                        if not rd: continue
+                        try: c = ler_rdv(_os.path.join(p_, rd[-1]))
+                        except Exception: a['rdv_ilegivel'] += 1; continue
+                        nsec += 1
+                        for (ide, cod, tipo, dig), q in c.items():
+                            if cod == 1:
+                                a['pres_total'] += q
+                                a[{2: 'pres_nominal', 3: 'pres_branco', 4: 'pres_nulo_digitado', 6: 'pres_nulo_sem_digito'}.get(tipo, 'pres_outro')] += q
+                                if tipo == 4: nulp[dig] += q
+                                if tipo == 2 and dig in ('13', '22'): a['pres_' + dig] += q
+                            elif cod == 3:
+                                a['gov_total'] += q
+                                a[{2: 'gov_nominal', 3: 'gov_branco', 4: 'gov_nulo_digitado', 6: 'gov_nulo_sem_digito'}.get(tipo, 'gov_outro')] += q
+                                if tipo == 2: gv[dig] += q
+                                if tipo == 4: nulg[dig] += q
+            if nsec == 0: continue
+            fin = [n_ for n_, _ in gv.most_common(2)]
+            r = {'secoes_com_rdv': nsec, **{k_: int(v) for k_, v in a.items()}, 'finalistas_gov': fin,
+                 'nulo_pres_com_numero_de_eliminado': int(sum(q for d_, q in nulp.items() if d_ in ELIM)),
+                 'nulo_pres_mais_digitados': nulp.most_common(8)}
+            if fin:
+                r['nulo_pres_com_numero_de_finalista_gov'] = int(sum(q for d_, q in nulp.items() if d_ in fin and d_ not in ('13', '22')))
+                r['nulo_gov_com_13_ou_22'] = int(sum(q for d_, q in nulg.items() if d_ in ('13', '22') and d_ not in fin))
+                r['nulo_gov_com_13'] = int(nulg.get('13', 0)) if '13' not in fin else None
+                r['nulo_gov_com_22'] = int(nulg.get('22', 0)) if '22' not in fin else None
+                if r['nulo_gov_com_13'] is not None and r['nulo_gov_com_22'] is not None and r['nulo_gov_com_13_ou_22'] > 0:
+                    r['fatia_13_entre_os_que_digitaram_presidente_na_tela_de_gov'] = r['nulo_gov_com_13'] / r['nulo_gov_com_13_ou_22']
+                    r['fatia_13_nos_nominais_de_presidente_das_mesmas_secoes'] = a['pres_13'] / max(a['pres_13'] + a['pres_22'], 1)
+                r['nulo_gov_mais_digitados'] = nulg.most_common(8)
+                r['pct_do_comparecimento_nulo_pres_com_numero_de_gov'] = 100 * r['nulo_pres_com_numero_de_finalista_gov'] / max(a['pres_total'], 1)
+                r['pct_do_bn_pres_que_e_numero_de_gov'] = 100 * r['nulo_pres_com_numero_de_finalista_gov'] / max(a['pres_branco'] + a['pres_nulo_digitado'] + a['pres_nulo_sem_digito'], 1)
+            r['bn_pres_pct'] = 100 * (a['pres_branco'] + a['pres_nulo_digitado'] + a['pres_nulo_sem_digito']) / max(a['pres_total'], 1)
+            r['_nulp'] = dict(nulp)
+            por_uf[uf.upper()] = r
+        x4 = {'por_uf': por_uf, 'secoes': int(sum(v['secoes_com_rdv'] for v in por_uf.values()))}
+        # régua: os mesmos números dos finalistas do AC digitados como nulo de presidente nas UFs sem 2º turno de governador
+        for u6 in [u for u in por_uf if por_uf[u].get('finalistas_gov')]:
+            fin = [n_ for n_ in por_uf[u6]['finalistas_gov'] if n_ not in ('13', '22')]
+            fora = [u for u in por_uf if not por_uf[u].get('finalistas_gov')]
+            tot = sum(por_uf[u]['pres_total'] for u in fora); q = sum(por_uf[u]['_nulp'].get(n_, 0) for u in fora for n_ in fin)
+            x4[f'regua_{u6}'] = {'numeros': fin, 'pct_do_comparecimento_nas_ufs_sem_gov_2t': 100 * q / max(tot, 1), 'votos': int(q), 'comparecimento': int(tot),
+                                 'pct_do_comparecimento_na_propria_uf': por_uf[u6].get('pct_do_comparecimento_nulo_pres_com_numero_de_gov')}
+        for v in por_uf.values(): v.pop('_nulp', None)
+        x['X4_nulos_digitados_rdv'] = x4
+        diga('(X4)', json.dumps({u: {k_: v for k_, v in r.items() if k_ in ('secoes_com_rdv', 'pres_total', 'bn_pres_pct', 'finalistas_gov', 'nulo_pres_com_numero_de_finalista_gov',
+                                                                           'pct_do_comparecimento_nulo_pres_com_numero_de_gov', 'pct_do_bn_pres_que_e_numero_de_gov', 'nulo_gov_com_13_ou_22')}
+                                 for u, r in por_uf.items()}, ensure_ascii=False), json.dumps({k_: v for k_, v in x4.items() if k_.startswith('regua')}))
+    except Exception as e:
+        x['X4_nulos_digitados_rdv'] = {'erro': repr(e)}; diga('(X4) erro', repr(e))
+
+    # X5 e X9: votos pela calibração do plantio nas divisas
+    c = res['c']; p35 = c['plantio_21_ufs']['35']; jl, el = c['criterio']['salto_lula_2026'][:2]; jb, eb = c['criterio']['salto_bn_2026'][:2]
+    el_div = c['anos']['2026']['equivalente']['ep_por_divisa']['lula_res']; eb_div = c['anos']['2026']['equivalente']['ep_por_divisa']['dbn']
+    vpl = p35['votos_plantados'] / p35['desloc_lula']; vpb = p35['votos_plantados'] / p35['desloc_dbn']
+    lula_tudo = p35['desloc_lula'] * jb / p35['desloc_dbn']
+    x['X5_votos_pela_calibracao_do_plantio'] = {
+        'votos_por_ponto_de_salto_de_lula': vpl, 'votos_por_ponto_de_salto_de_bn': vpb,
+        'salto_lula_em_votos': jl * vpl, 'salto_lula_ic95_em_votos': [(jl - 1.96 * el) * vpl, (jl + 1.96 * el) * vpl],
+        'salto_lula_ic95_em_votos_ep_por_divisa': [(jl - 1.96 * el_div) * vpl, (jl + 1.96 * el_div) * vpl],
+        'salto_bn_em_votos': jb * vpb, 'salto_bn_ic95_em_votos': [(jb + 1.96 * eb) * vpb, (jb - 1.96 * eb) * vpb],
+        'salto_de_lula_se_o_salto_inteiro_do_bn_fosse_conversao': lula_tudo,
+        'observado_sobre_isso': jl / lula_tudo, 'z_observado_contra_isso': (jl - lula_tudo) / el, 'z_observado_contra_isso_ep_por_divisa': (jl - lula_tudo) / el_div,
+        'z_observado_contra_zero': jl / el, 'z_observado_contra_zero_ep_por_divisa': jl / el_div,
+        'pct_da_margem_salto_lula': 100 * jl * vpl / MARGEM, 'pct_da_margem_salto_bn': 100 * jb * vpb / MARGEM,
+        'nota': 'votos = salto observado vezes (votos plantados / deslocamento medido com o plantio de 35% nas 21 UFs); vale se a conversão for proporcional ao B+N de cada seção'}
+    fator = MARGEM / p35['votos_plantados']
+    x['X9_conversao_que_viraria_so_nas_21'] = {
+        'votos': MARGEM, 'bn_observado_2t_nas_21': c['traducao_votos']['comp_2t_21_ufs'] * res['b']['anos']['2026']['contabilidade_pct_aptos']['sem_gov_2t']['bn2_pct_comp'] / 100,
+        'salto_bn_esperado': p35['desloc_dbn'] * fator, 'salto_lula_esperado': p35['desloc_lula'] * fator,
+        'salto_bn_observado': jb, 'salto_lula_observado': jl, 'observado_sobre_esperado_bn': jb / (p35['desloc_dbn'] * fator), 'observado_sobre_esperado_lula': jl / (p35['desloc_lula'] * fator),
+        'z_lula_observado_contra_esperado': (jl - p35['desloc_lula'] * fator) / el, 'z_lula_observado_contra_esperado_ep_por_divisa': (jl - p35['desloc_lula'] * fator) / el_div,
+        'nota': 'extrapolação linear do plantio de 35%; supõe que as 6 UFs ficaram limpas e que o salto de base seria zero'}
+    diga('(X5)', json.dumps(x['X5_votos_pela_calibracao_do_plantio'])); diga('(X9)', json.dumps(x['X9_conversao_que_viraria_so_nas_21']))
+
+    # X6: (b2) em votos, com a diferença L2 - R2 como resposta (erro-padrão próprio)
+    x6 = {}
+    for ano in ANOS:
+        k, loc, M, _ = S[ano]
+        m, ufm, locm, mun, w, Xd, cc = amostra_b2(k, loc, M)
+        Y = np.column_stack([cc('L2') - cc('R2'), cc('L2'), cc('R2')]); nx = ['L1', 'R1', 'O1', 'B1', 'N1', 'A1']
+        def conta(g):
+            r = fe_ols_multi(Y[g], Xd[g], locm[g], mun[g], w[g], nx, ['L2_menos_R2', 'L2', 'R2'])
+            e = r['eq']['L2_menos_R2']; sb, sn = float(cc('B1')[g].sum()), float(cc('N1')[g].sum())
+            return {'n': r['n'], 'coef_B1': [e['coef']['B1'], e['ep']['B1']], 'coef_N1': [e['coef']['N1'], e['ep']['N1']], 'brancos_1t': sb, 'nulos_1t': sn,
+                    'votos_de_margem_associados': e['coef']['B1'] * sb + e['coef']['N1'] * sn,
+                    'ep_votos': math.hypot(e['ep']['B1'] * sb, e['ep']['N1'] * sn),
+                    'coef_L2': [r['eq']['L2']['coef']['B1'], r['eq']['L2']['coef']['N1']], 'coef_R2': [r['eq']['R2']['coef']['B1'], r['eq']['R2']['coef']['N1']],
+                    'coef_outros_L2_menos_R2': [e['coef']['O1'], e['ep']['O1']], 'coef_abstencao_1t_L2_menos_R2': [e['coef']['A1'], e['ep']['A1']]}
+        r = {'todas': conta(np.ones(len(ufm), bool)), 'com_gov_2t': conta(np.isin(ufm, GOV[ano])), 'sem_gov_2t': conta(~np.isin(ufm, GOV[ano]))}
+        x6[str(ano)] = r
+        diga(f"(X6) {ano}: L2-R2 ~ B1 {r['todas']['coef_B1'][0]:+.4f} ({r['todas']['coef_B1'][1]:.4f}) N1 {r['todas']['coef_N1'][0]:+.4f} ({r['todas']['coef_N1'][1]:.4f}) "
+             f"votos {r['todas']['votos_de_margem_associados']:,.0f} | sem gov {r['sem_gov_2t']['coef_B1'][0]:+.4f} {r['sem_gov_2t']['coef_N1'][0]:+.4f} | com gov {r['com_gov_2t']['coef_B1'][0]:+.4f} {r['com_gov_2t']['coef_N1'][0]:+.4f}")
+    x['X6_b2_em_votos'] = x6
+
+    # X7: salto de 2026 menos o salto de cada outro ano nas mesmas seis divisas
+    e26 = c['anos']['2026']['equivalente']; x7 = {}
+    for ano in ('2014', '2018', '2022'):
+        g = c['anos'][ano]['mesmas_divisas_de_2026']
+        x7[ano] = {n_: [e26['J'][n_] - g['J'][n_], math.hypot(e26['ep'][n_], g['ep'][n_]), math.hypot(e26['ep_por_divisa'][n_], g['ep_por_divisa'][n_])] for n_ in ('lula_res', 'dbn', 'dcomp')}
+    x['X7_2026_menos_outros_anos_nas_mesmas_divisas'] = x7
+    diga('(X7)', json.dumps(x7))
+
+    # X8: para onde foi o branco e nulo que falta no lado de um cargo só (ganho residual de cada candidato)
+    iL, iR, iB = TODOS.index('dbn_res'), TODOS.index('dcomp_res'), TODOS.index('dbn')
+    def partilha(T_, V_, val_, lado_a, lado_b, modelo='M0'):
+        Vx = V_.copy(); Vx[:, 0] = V_[:, DESF.index('dL_comp')]; Vx[:, 1] = V_[:, DESF.index('dR_comp')]
+        d, _ = composto(T_, Vx, geo, val_ & f, lado_a, lado_b, modelo=modelo)
+        if d is None: return {'pares': 0}
+        dif = np.column_stack([d['dif'][:, iL], d['dif'][:, iR], d['dif'][:, iL] - d['dif'][:, iR], d['dif'][:, iL] + d['dif'][:, iR]])
+        J, e, G = estat(dif, d['w'], geo.grupo[d['pa']], reps, rng)
+        par_uf = np.char.add(np.char.add(geo.uf[d['pa']], '-'), geo.uf[d['pb']])
+        _, ed, _ = estat(dif, d['w'], par_uf, reps, rng)
+        fr = boot_razao(dif[:, 0], dif[:, 3], d['w'], geo.grupo[d['pa']], reps, rng)
+        nomes = ['ganho_residual_PT', 'ganho_residual_adversario', 'PT_menos_adversario', 'soma_igual_a_menos_bn_residual']
+        return {'pares': int(d['pares']), **{n_: [float(J[i]), float(e[i]), float(ed[i])] for i, n_ in enumerate(nomes)}, 'fracao_para_o_PT_ic95': fr}
+    x8 = {'2026_M0': partilha(T, V, val, G6, sem_de(2026)), '2026_M2': partilha(T, V, val, G6, sem_de(2026), 'M2')}
+    k, loc, M, _ = S[2026]; g21 = ~np.isin(ufs_de(k), G6 + ['ZZ'])
+    M2, tot = plantio_secoes(M, g21, 0.35, np.random.default_rng(SEMENTE))
+    T2, _ = agregar(k, M2, geo, cand26); V2 = desfechos(T2)
+    x8['2026_M0_com_plantio_35'] = partilha(T2, V2, validos(T2), G6, sem_de(2026)); x8['2026_M0_com_plantio_35']['votos_plantados'] = tot
+    for ano in (2014, 2018, 2022):
+        T_, V_, val_ = LOC[ano]
+        x8[f'{ano}_E'] = partilha(T_, V_, val_, GOV[ano], sem_de(ano))
+        x8[f'{ano}_G'] = partilha(T_, V_, val_, G6, sem_de(2026))
+    x8['nota'] = ('listas = [salto, ep por municípios do lado a, ep com a divisa como unidade], em pontos do comparecimento; lado de um cargo só menos lado de dois cargos. '
+                  'Conversão de branco e nulo em voto do PT prevê ganho residual do adversário igual a zero.')
+    x['X8_partilha_do_bn_que_falta'] = x8
+    for n_, v in x8.items():
+        if isinstance(v, dict) and v.get('pares'):
+            diga(f"(X8) {n_}: pares {v['pares']} PT {v['ganho_residual_PT'][0]:+.3f} ({v['ganho_residual_PT'][1]:.3f}) adversário {v['ganho_residual_adversario'][0]:+.3f} ({v['ganho_residual_adversario'][1]:.3f}) "
+                 f"fração PT {v['fracao_para_o_PT_ic95'][0]:.2f} [{v['fracao_para_o_PT_ic95'][1]:.2f}; {v['fracao_para_o_PT_ic95'][2]:.2f}]")
+    # X10: régua das divisas onde nada deveria saltar (mesmo grupo), aplicada à média das divisas mistas de 2026
+    d26, _ = composto(T, V, geo, val & f, G6, sem_de(2026))
+    par_uf = np.char.add(np.char.add(geo.uf[d26['pa']], '-'), geo.uf[d26['pb']])
+    wd = np.array([d26['w'][par_uf == pu].sum() for pu in sorted(set(par_uf.tolist()))])
+    conc = float(np.sqrt((wd ** 2).sum()) / wd.sum())
+    x10 = {'divisas_mistas': int(len(wd)), 'raiz_da_soma_dos_pesos_ao_quadrado': conc, 'divisas_efetivas': float(1 / conc ** 2)}
+    for ano in ANOS:
+        ng = res['c']['divisas_do_mesmo_grupo'].get(str(ano))
+        if not ng: continue
+        x10[str(ano)] = {'n_divisas_do_mesmo_grupo': ng['n_divisas'], 'dp_por_divisa_lula': ng['lula_res_dp'], 'dp_por_divisa_bn': ng['dbn_dp']}
+    ng = res['c']['divisas_do_mesmo_grupo']['2026']
+    x10['dp_da_media_lula'] = ng['lula_res_dp'] * conc; x10['dp_da_media_bn'] = ng['dbn_dp'] * conc
+    x10['salto_lula_em_dp'] = jl / x10['dp_da_media_lula']; x10['salto_bn_em_dp'] = jb / x10['dp_da_media_bn']
+    mistas = {dv: v for dv, v in res['c']['todas_as_divisas']['2026'].items() if 'J' in v and ((dv.split('-')[0] in G6) != (dv.split('-')[1] in G6))}
+    x10['divisas_mistas_com_50_pares'] = {dv: {'pares': v['pares'], 'bn_lado_de_um_cargo_menos_dois': (v['J']['dbn'] if dv.split('-')[0] in G6 else -v['J']['dbn']),
+                                              'lula_lado_de_um_cargo_menos_dois': (v['J']['lula_res'] if dv.split('-')[0] in G6 else -v['J']['lula_res'])} for dv, v in mistas.items()}
+    x10['mistas_com_bn_menor_no_lado_de_um_cargo'] = int(sum(1 for v in x10['divisas_mistas_com_50_pares'].values() if v['bn_lado_de_um_cargo_menos_dois'] < 0))
+    x10['mistas_com_lula_maior_no_lado_de_um_cargo'] = int(sum(1 for v in x10['divisas_mistas_com_50_pares'].values() if v['lula_lado_de_um_cargo_menos_dois'] > 0))
+    x10['nota'] = ('dp por divisa = raiz da média dos quadrados do salto nas divisas entre UFs do mesmo grupo em 2026 (inclui ruído de amostra e efeito de estado); '
+                   'dp da média = dp por divisa vezes a concentração dos pesos das divisas mistas')
+    nomes_pu = sorted(set(par_uf.tolist())); il = TODOS.index('lula_res')
+    x10['contribuicao_por_divisa_lula'] = {pu: {'peso': float(d26['w'][par_uf == pu].sum() / d26['w'].sum()),
+                                                'J': float((d26['w'][par_uf == pu] * d26['dif'][par_uf == pu, il]).sum() / d26['w'][par_uf == pu].sum()),
+                                                'contribuicao': float((d26['w'][par_uf == pu] * d26['dif'][par_uf == pu, il]).sum() / d26['w'].sum())} for pu in nomes_pu}
+    x['X10_regua_das_divisas_do_mesmo_grupo'] = x10
+    # X11: dose entre divisas: onde o branco e nulo salta mais para baixo, a fatia do PT salta mais para cima?
+    x11 = {}
+    for ano in ANOS:
+        td_ = {dv: v for dv, v in res['c']['todas_as_divisas'][str(ano)].items() if 'J' in v}
+        com = set(GOV[ano]); r11 = {}
+        for nome, sel in (('todas', lambda a_, b_: True), ('mesmo_grupo', lambda a_, b_: (a_ in com) == (b_ in com)), ('mistas', lambda a_, b_: (a_ in com) != (b_ in com))):
+            dvs = [dv for dv in td_ if sel(*dv.split('-'))]
+            if len(dvs) < 4: continue
+            xb = np.array([td_[dv]['J']['dbn'] for dv in dvs]); yl = np.array([td_[dv]['J']['lula_res'] for dv in dvs]); wp = np.array([td_[dv]['pares'] for dv in dvs], float)
+            # pela origem: o sinal de cada divisa é arbitrário (ordem alfabética das UFs)
+            inc = float((wp * xb * yl).sum() / (wp * xb * xb).sum()); e_ = yl - inc * xb
+            ep = float(np.sqrt(((wp * xb * e_) ** 2).sum()) / (wp * xb * xb).sum() * math.sqrt(len(dvs) / (len(dvs) - 1)))
+            r11[nome] = {'n': len(dvs), 'inclinacao': inc, 'ep': ep, 'correlacao_pela_origem': float((wp * xb * yl).sum() / math.sqrt((wp * xb * xb).sum() * (wp * yl * yl).sum()))}
+        x11[str(ano)] = r11
+    x11['nota'] = ('regressão pela origem, ponderada pelos pares, do salto do resíduo da fatia do PT sobre o salto do branco e nulo entre divisas de UF (50 pares ou mais); '
+                   'ep robusto com a divisa como unidade. Conversão de branco e nulo em voto do PT prevê inclinação negativa.')
+    x['X11_dose_entre_divisas'] = x11
+    diga('(X11)', json.dumps(x11, ensure_ascii=False))
+    diga('(X10)', json.dumps(x10, ensure_ascii=False))
+    k, loc, M, _ = S[2026]; U = somas_uf(k, M)
+    x['nominais_2t_por_uf_2026'] = {u: U[u]['nom2'] for u in UFS27}
+    return x
+
+
+def br(v, c=3, sinal=True):
+    """Número com vírgula decimal."""
+    if v is None or (isinstance(v, float) and (math.isnan(v) or math.isinf(v))):
+        return 'n/d'
+    return (f'{v:+.{c}f}' if sinal else f'{v:.{c}f}').replace('.', ',')
+
+
+def mil(v):
+    return f'{int(round(v)):,}'.replace(',', '.')
+
+
+def mi(v, c=2):
+    m = v / 1e6
+    return f'{m:.{c}f}'.replace('.', ',') + (' milhão' if abs(m) < 2 else ' milhões')
+
+
+def vereditos(res):
+    """Aplica os critérios do registro e as regras do docstring aos números já calculados."""
+    a, b, c, d, t = res['a'], res['b'], res['c'], res['d'], res['t']
+    v = {}
+    c26 = a['anos']['2026']['base']['coef']['branco_nulo_1t']; e26 = a['anos']['2026']['base']['ep']['branco_nulo_1t']
+    sec7 = 'SINAL' if (c26 > 0.04 and (c26 - 0.04) / e26 > 3) else ('SEM SINAL' if -0.07 <= c26 <= 0.04 else 'INCONCLUSIVO')
+    cal = a['calibracao_2026_nacional']['por_milhoes']['1.82']
+    va = a['criterio']['veredito']
+    v['a'] = {'criterio_do_adendo_27_item_a': va,
+              'veredito_pela_letra': 'SINAL' if va.startswith('2026 DESTOA') else ('SEM SINAL' if va.startswith('REGIME') else 'INCONCLUSIVO'),
+              'leitura': 'pela letra do item (a), 2026 destoa de 2014 e vira indício a cruzar com (c); o item (c) saiu INCONCLUSIVO',
+              'criterio_da_secao_7_e_adendo_1': sec7,
+              'separacao_6_e_21_pesa_a_favor': a['separacao']['pesa_a_favor'],
+              'poder_de_medida': bool(cal['desloc'] / cal['ep'] > 4), 'desloc_de_1_82_milhao_em_ep': cal['desloc'] / cal['ep'],
+              'plantio_35_nas_21_desloca_a_diferenca_em_ep': a['plantio_21_ufs']['35']['desloc_em_ep']}
+    p35 = b['plantio_21_ufs']['35']; epb = b['anos']['2026']['ep_boot_agregada']
+    pm = bool(p35['desloc'] / p35['esperado'] >= 0.8 and abs(p35['desloc']) > 4 * epb)
+    letra_b = 'SEM SINAL' if b['criterio']['dentro_de_0_3'] else 'INCONCLUSIVO'
+    v['b'] = {'veredito_pela_letra': letra_b, 'poder_de_medida_G4': pm, 'desloc_do_plantio_35_em_ep': abs(p35['desloc']) / epb,
+              'desloc_sobre_esperado': p35['desloc'] / p35['esperado'], 'plantio_35_cai_na_faixa_sem_sinal': bool(not p35['sai_da_zona_sem_sinal']),
+              'veredito': 'SEM PODER' if (not pm or not p35['sai_da_zona_sem_sinal']) else letra_b}
+    cr = c['criterio']; pc = c['plantio_21_ufs']['35']; pc2 = c['plantio_21_ufs']['53.8']
+    r26 = c['anos']['2026']['equivalente']
+    letra_c = 'SINAL' if cr['sinal'] else ('SEM SINAL' if (cr['sem_sinal_pelo_salto_de_lula'] or b['criterio']['dentro_de_0_3']) else 'INCONCLUSIVO')
+    v['c'] = {'veredito_pela_letra': letra_c, 'poder': 'LIMITADO',
+              'condicoes': {'bn_1_ponto_abaixo_a_4_ep': cr['cond_bn'], 'lula_0_5_acima_a_3_ep': cr['cond_lula'], 'outros_anos_abaixo_de_0_25': cr['cond_outros_anos_pela_letra'],
+                            'sem_sinal_pelo_salto_de_lula': cr['sem_sinal_pelo_salto_de_lula'], 'sem_sinal_pela_did': b['criterio']['dentro_de_0_3']},
+              'sinal_inalcancavel_pela_terceira_condicao': bool(not cr['cond_outros_anos_pela_letra']),
+              'plantio_35': {'condicoes_de_2026_disparam_por_cima_do_observado': pc['sinal_dispara'], 'poder_de_medida_G4': pc['poder_de_medida'],
+                             'bn_desloc_sobre_esperado': pc['desloc_dbn'] / pc['esperado_dbn'], 'bn_desloc_em_ep': abs(pc['desloc_dbn']) / r26['ep']['dbn'],
+                             'lula_desloc_sobre_esperado': pc['desloc_lula'] / pc['esperado_lula_bruto'], 'lula_desloc_em_ep': pc['desloc_lula'] / r26['ep']['lula_res'],
+                             'dispararia_partindo_de_salto_zero': bool(pc['desloc_lula'] >= 0.5 and pc['desloc_lula'] > 3 * r26['ep']['lula_res'])},
+              'plantio_53_8': {'lula_desloc_sobre_esperado': pc2['desloc_lula'] / pc2['esperado_lula_bruto'], 'lula_desloc_em_ep': pc2['desloc_lula'] / r26['ep']['lula_res'],
+                               'dispararia_partindo_de_salto_zero': bool(pc2['desloc_lula'] >= 0.5 and pc2['desloc_lula'] > 3 * r26['ep']['lula_res'])}}
+    b1 = d['b1']
+    v['d46_b1'] = {'veredito_pela_letra': b1['veredito'], 'poder_pleno': b1['poder_pleno'], 'poder_de_medida': b1['poder_de_medida']}
+    v['d46_b2'] = {'veredito_pela_letra': 'SEM CRITÉRIO NO DESENHO (descritivo)'}
+    v['t34'] = {'veredito_sem_filtro': t['sem_filtro']['criterio']['veredito'], 'veredito_com_filtro': t['com_filtro']['criterio']['veredito'],
+                'divisas_que_passam_com_bonferroni': t['todas_as_divisas']['passam'], 'divisas_que_passam_sem_bonferroni': t['todas_as_divisas']['passam_sem_bonferroni']}
+    return v
+
+
+def escrever(res, GOV, dt):
+    import textwrap
+    a, b, c, d, t, x = res['a'], res['b'], res['c'], res['d'], res['t'], res['exploratorio']
+    v = vereditos(res)
+    A = a['anos']; B = b['anos']; C = c['anos']; r26 = C['2026']['equivalente']; cr = c['criterio']
+    x5, x8, x9, x10 = x['X5_votos_pela_calibracao_do_plantio'], x['X8_partilha_do_bn_que_falta'], x['X9_conversao_que_viraria_so_nas_21'], x['X10_regua_das_divisas_do_mesmo_grupo']
+    c26 = A['2026']['base']['coef']['branco_nulo_1t']; e26 = A['2026']['base']['ep']['branco_nulo_1t']
+    tv = a['traducao_votos']; calp = a['calibracao_2026_nacional']
+    tvb = b['traducao_votos']; tvc = c['traducao_votos']
+    jl, el = cr['salto_lula_2026'][:2]; jb, eb = cr['salto_bn_2026'][:2]
+    nneg = sum(1 for r_ in r26['por_divisa'].values() if r_['J']['dbn'] < 0); ndiv = len(r26['por_divisa'])
+    x11 = x['X11_dose_entre_divisas']
+    resumo = {
+        'a_coef_2026': [c26, e26, A['2026']['base']['n'], A['2026']['base']['grupos']],
+        'a_coef_por_ano': {an: [A[an]['base']['coef']['branco_nulo_1t'], A[an]['base']['ep']['branco_nulo_1t'], A[an]['base']['n']] for an in A},
+        'a_2026_g21': A['2026']['sem_gov_2t']['coef']['branco_nulo_1t'], 'a_2026_g6': A['2026']['com_gov_2t']['coef']['branco_nulo_1t'],
+        'a_2026_g21_menos_g6': A['2026']['dif_um_cargo_menos_dois'],
+        'a_votos_adendo1_milhoes': {k_: tv[k_]['adendo1_milhoes'] for k_ in tv}, 'a_votos_regua_interna_milhoes': {k_: tv[k_]['regua_interna_2026_milhoes'] for k_ in tv},
+        'b_did_por_ano': {an: [B[an]['did_agregada'], B[an]['ep_boot_agregada']] for an in B}, 'b_did_2026_em_votos': tvb['did_2026_em_votos'],
+        'c_salto_bn_2026': cr['salto_bn_2026'], 'c_salto_lula_2026': cr['salto_lula_2026'], 'c_salto_lula_outros_anos': cr['salto_lula_equivalentes'],
+        'c_salto_bn_em_votos': [tvc['salto_bn_em_votos'], x5['salto_bn_em_votos']], 'c_salto_lula_em_votos': [tvc['salto_lula_em_votos'], x5['salto_lula_em_votos']],
+        'd46_b1_mediana_6': d['b1']['seis_mediana'], 'd46_b1_placebo_p10_p90': [d['b1']['placebo_p10'], d['b1']['placebo_p90']],
+        't34_J_2026_sem_e_com_filtro': [t['sem_filtro']['criterio']['J_2026'], t['com_filtro']['criterio']['J_2026']],
+        't34_sp_mg_sem_e_com_filtro': [t['sem_filtro']['2026']['SP-MG'].get('J'), t['com_filtro']['2026']['SP-MG'].get('J')], 'margem': MARGEM}
+    desvios = [
+        'G4 e item (c): com o plantio de 35% as condições numéricas de 2026 disparam por cima do dado observado, mas o deslocamento de Lula fica em 76% do esperado e 2,7 ep; o poder do item (c) fica como LIMITADO (decisão da primeira execução, depois de ver o resultado).',
+        'G4 e item (b): a primeira execução não tinha aplicado a regra de poder ao item (b). Aplicada na retomada: 3,9 ep (limite 4) e a DiD plantada cai dentro da faixa "sem sinal" do registro. Veredito SEM PODER; pela letra do critério seria INCONCLUSIVO.',
+        'Item (c): a terceira condição do SINAL falha por 2018 e 2014 qualquer que seja o dado de 2026; o critério, como escrito, não tinha como dar SINAL.',
+        'Conferência do T34 sem filtro: 2 das 9 divisas diferem do publicado na quarta casa (SC-RS e MG-RJ em 2026), por empate entre locais de coordenadas idênticas na busca do vizinho mais próximo.',
+        'Retomada depois do reinício do container: as funções das partes registradas não mudaram e os números delas saíram idênticos aos dos parciais da primeira execução (conferido campo a campo); exploratorio() e escrever() foram escritas na retomada.',
+        'O registro pede a variação do comparecimento como terceiro desfecho do item (c); ela foi medida (salto de %s, ep %s) e não entra no critério.' % (br(r26['J']['dcomp']), br(r26['ep']['dcomp'], sinal=False)),
+        'Exploratório (X1 a X11): tudo escolhido depois de ver os resultados das partes registradas; não muda veredito.']
+    testes = {'com_criterio_registrado': 5, 'lista': ['(a) regressão', '(b) diferença em diferenças', '(c) divisas', 'D4-6(b1)', 'T34 corrigido'],
+              'comparacoes_dentro_do_T34_com_bonferroni': t['todas_as_divisas']['n_divisas_com_50_pares'],
+              'sinais_que_o_acaso_daria': 'menos de 0,05 nos quatro critérios com limiar em erros-padrão (2,5 a 4 ep); o critério do item (a) compara dois coeficientes sem limiar de erro e não tem taxa de acaso calculável',
+              'sinais_pela_letra': [k_ for k_, vv in v.items() if vv.get('veredito_pela_letra') == 'SINAL'],
+              'conferente_independente': 'ainda não refeito por outro agente'}
+    saida = {'teste': 'R27 A1 (Adendo 27, Onda A): branco e nulo',
+             'registro': {'arquivo': 'PRE-REGISTRO-2026-10-26.md, Adendo 27', 'commit': '2748895 (10/11/2026 00:16:42 UTC)',
+                          'criterios': ['registro/adendo27/equipe_vermelha_relatorio.json, fragilidade "Canal do branco e nulo (forma A)", retestes a, b, c, d',
+                                        'registro/adendo27/desenho_D4_proposta.json, D4-6, parte (b)', 'T34: Adendo 15, com a correção de coordenadas pedida no Adendo 27'],
+                          'decisoes_antes_de_rodar': 'docstring de scripts/analisar_R27_A1.py (cópia do momento em /home/user/trabalho-eleicao/adendo27/R27_A1/docstring_antes_de_rodar.py)'},
+             'avisos': ['Os retestes da equipe vermelha foram escritos por quem já conhecia os resultados antigos; o D4-6 é desenho cego.',
+                        '2014, 2018 e 2022 não são régua limpa: todo número de outro ano vem com o valor bruto de 2026 ao lado.',
+                        'Um SINAL só conta como indício depois de conferente independente, calibração e espelho. Este teste ainda não foi refeito por conferente.',
+                        'Todos os dados são totais por seção (bweb): um voto em branco convertido dentro da urna e um eleitor que de fato votou em Lula dão o mesmo boletim. O que se testa aqui é o contraste entre lugares.'],
+             'ufs_com_2t_de_governador': {str(k_): v_ for k_, v_ in GOV.items()},
+             'fonte_das_ufs': '2018, 2022 e 2026: bloco 2g das bases em dados/. 2014: zips do bweb do 2º turno de 2014 do TSE (UFs em que aparece o cargo GOVERNADOR), em /home/user/trabalho-eleicao/adendo23/F21_2014',
+             'vereditos': v, 'resumo_numeros': resumo, 'contagem_de_testes': testes, 'desvios': desvios,
+             'a_regressao': a, 'b_diferenca_em_diferencas': b, 'd46_b': d, 'c_divisas': c, 't34_corrigido': t, 'exploratorio': x,
+             'tempo_s': round(dt), 'semente': SEMENTE}
+    json.dump(limpar(saida), open(_os.path.join(RESULT, 'R27_A1_branco_nulo.json'), 'w'), ensure_ascii=False, indent=1)
+
+    # ------------------------------------------------------------ texto
+    L = []
+    def par(s, ind=0, prim=None):
+        pre = ' ' * ind if prim is None else prim
+        L.extend(textwrap.wrap(s, width=118, initial_indent=pre, subsequent_indent=' ' * max(ind, len(pre))) or [''])
+    def tit(s):
+        L.append(''); L.append(s)
+    ce = lambda r_: f"{br(r_['coef']['branco_nulo_1t'], 4)} ({br(r_['ep']['branco_nulo_1t'], 4, False)})"
+    je = lambda r_, n_, cc=3: f"{br(r_['J'][n_], cc)} ({br(r_['ep'][n_], cc, False)})"
+    L.append('R27 A1 (ADENDO 27, ONDA A): BRANCO E NULO (RESULTADOS)')
+    L.append('')
+    par('Registro: PRE-REGISTRO-2026-10-26.md, Adendo 27, commit 2748895 (10/11/2026 00:16:42 UTC), antes de rodar. Critérios: fragilidade "Canal do branco e nulo '
+        '(forma A)" de registro/adendo27/equipe_vermelha_relatorio.json (retestes a, b, c e a calibração d) e parte (b) do D4-6 de desenho_D4_proposta.json. Decisões que o '
+        'registro não fixa: docstring de scripts/analisar_R27_A1.py, escrito antes de qualquer conta com votos. Números completos em resultados/R27_A1_branco_nulo.json.')
+    par('Hipótese: brancos e nulos da tela de presidente registrados como voto em Lula, talvez só onde há um cargo na cédula do 2º turno (21 UFs), poupando as 6 UFs em que '
+        'a mesma urna dá referência (AC, AM, DF, ES, RN, TO).')
+    par('Avisos. (1) Os retestes da equipe vermelha foram escritos por quem já conhecia os resultados antigos: o critério é novo, a escolha do que retestar é posterior ao dado. '
+        'O D4-6 é desenho cego. (2) 2014, 2018 e 2022 não são régua limpa (o Léo suspeita deles também): todo número de outro ano vem com o valor bruto de 2026 ao lado. '
+        '(3) Um SINAL só conta como indício depois de conferente independente, calibração e espelho; este teste ainda NÃO foi refeito por conferente. (4) Os dados são totais por '
+        'seção: branco convertido dentro da urna e eleitor que votou em Lula dão o mesmo boletim; o que se mede é o contraste entre lugares. (5) O container reiniciou no meio da '
+        'primeira execução; a retomada rodou tudo de novo e as partes registradas saíram idênticas aos parciais gravados antes.')
+    tit('VEREDITOS PELA LETRA')
+    par(f"SINAL pela letra do item (a) do Adendo 27 (2014 deu {br(A['2014']['base']['coef']['branco_nulo_1t'], 4)}, abaixo de -0,04: \"2026 destoa e vira indício a cruzar com (c)\"), "
+        f"e o cruzamento com (c) saiu INCONCLUSIVO. Pelo critério original da seção 7 e do Adendo 1 o mesmo número é {v['a']['criterio_da_secao_7_e_adendo_1']} "
+        f"({br(c26, 4)}, abaixo de +0,04). A separação de 2026 em 6 e 21 UFs não pesa a favor da variante \"só onde há um cargo\".", 5, '(a)  ')
+    par(f"SEM PODER. Pela letra do critério seria {v['b']['veredito_pela_letra']} (a DiD de 2026 fica a {br(b['criterio']['distancia_agregada'], 2)} ponto da média dos outros anos, "
+        f"fora da faixa de 0,3), mas a calibração mostra que a comparação com os outros anos não enxerga a conversão de 35%: com ela plantada a DiD cai a "
+        f"{br(abs(b['plantio_21_ufs']['35']['distancia_da_media_de_referencia']), 2, False)} ponto da média de referência, dentro da faixa que o registro chama de sem sinal.", 5, '(b)  ')
+    par(f"{v['c']['veredito_pela_letra']}, com poder LIMITADO. O branco e nulo salta {br(jb, 2)} ponto na divisa ({br(abs(jb / eb), 1, False)} ep; condição cumprida). A fatia de Lula "
+        f"salta {br(jl, 3)} (ep {br(el, 3, False)}; {br(jl / el, 2, False)} ep), abaixo dos 0,5 ponto e dos 3 ep exigidos, e acima do 0,25 que daria SEM SINAL. A terceira condição "
+        f"falha: nas divisas equivalentes o salto foi {br(cr['salto_lula_equivalentes']['2014'][0], 2)} em 2014, {br(cr['salto_lula_equivalentes']['2018'][0], 2)} em 2018 e "
+        f"{br(cr['salto_lula_equivalentes']['2022'][0], 2)} em 2022. Com 2018 em +1,14, o critério, como escrito, não tinha como dar SINAL.", 5, '(c)  ')
+    par(f"D4-6(b1): {v['d46_b1']['veredito_pela_letra']}, com poder pleno. Nas 6 UFs a razão entre o branco e nulo de presidente e o de governador subiu entre os turnos "
+        f"(mediana {br(d['b1']['seis_mediana'], 3)}), dentro da faixa das 26 UFs placebo de 2018 e 2022 (percentil 10 {br(d['b1']['placebo_p10'], 3)}, percentil 90 "
+        f"{br(d['b1']['placebo_p90'], 3)}). D4-6(b2): descritivo, sem critério no desenho.", 5, '     ')
+    par(f"T34 corrigido: {v['t34']['veredito_com_filtro']} (não muda). O salto SP-MG de -0,034 some com o filtro de coordenadas.", 5, '     ')
+    par(f"Contagem: {testes['com_criterio_registrado']} testes com critério registrado; {len(testes['sinais_pela_letra'])} sinal pela letra ({', '.join(testes['sinais_pela_letra'])}), em critério que compara "
+        f"dois coeficientes sem limiar de erro. O acaso daria menos de 0,05 sinal nos outros quatro. Nenhum SINAL que passe por calibração, espelho e conferente.", 5, '     ')
+
+    tit('(a) REGRESSÃO DO BRANCO E NULO POR SEÇÃO (scripts/analisar_bn_secao.py, sem mudança)')
+    par('Coeficiente do branco e nulo do 1º turno na virada da fatia do 13 entre os turnos, dentro do mesmo local de votação. Erro-padrão entre parênteses.')
+    L.append('  ano    todas as seções        n seções   locais   B+N 1ºt   B+N 2ºt   UFs sem gov 2ºt       UFs com gov 2ºt       sem menos com')
+    for an in ('2014', '2018', '2022', '2026'):
+        r_ = A[an]; dd = r_['dif_um_cargo_menos_dois']
+        L.append(f"  {an}   {ce(r_['base']):<22} {mil(r_['base']['n']):>8}  {mil(r_['base']['grupos']):>7}   {br(r_['bn_1t_pct'], 2, False):>6}%   {br(r_['bn_2t_pct'], 2, False):>6}%   "
+                 f"{ce(r_['sem_gov_2t']):<21} {ce(r_['com_gov_2t']):<21} {br(dd[0], 4)} ({br(dd[1], 4, False)})")
+    par(f"Valor de resultados/bn_secao_2026.json que nunca tinha sido relatado: {br(c26, 4)} (ep {br(e26, 4, False)}), {mil(A['2026']['base']['n'])} seções em "
+        f"{mil(A['2026']['base']['grupos'])} locais. Este script reproduz o número até a última casa.")
+    par(f"Em 2026 separado: 21 UFs {ce(A['2026']['sem_gov_2t'])}, n {mil(A['2026']['sem_gov_2t']['n'])}; 6 UFs {ce(A['2026']['com_gov_2t'])}, n {mil(A['2026']['com_gov_2t']['n'])}; "
+        f"diferença {br(A['2026']['dif_um_cargo_menos_dois'][0], 4)} (ep {br(A['2026']['dif_um_cargo_menos_dois'][1], 4, False)}). O coeficiente é MAIOR nas 6 UFs que a tese diz poupadas."
+        + (f" Exterior: {ce(A['2026']['exterior'])}." if 'coef' in A['2026'].get('exterior', {}) else ''))
+    par(f"Em votos, pela calibração do Adendo 1 (+0,061 para 1,82 milhão; +0,142 para 4,43 milhões): contra zero, {br(tv['zero']['adendo1_milhoes'], 2, False)} milhão; contra 2018 "
+        f"(deslocamento {br(tv['2018']['desloc_2026'], 3)}), {br(tv['2018']['adendo1_milhoes'], 2, False)} milhões; contra 2022 ({br(tv['2022']['desloc_2026'], 3)}), "
+        f"{br(tv['2022']['adendo1_milhoes'], 2, False)} milhões; contra 2014 ({br(tv['2014']['desloc_2026'], 3)}), {br(tv['2014']['adendo1_milhoes'], 1, False)} milhões, o que é impossível: "
+        f"todo o branco e nulo do 2º turno soma {br(calp['bn_2t_nas_secoes'] / 1e6, 2, False)} milhões. A distância entre anos não mede conversão.")
+    par(f"Calibração dentro de 2026 (conversão somada por cima do dado): 1,00 milhão desloca {br(calp['por_milhoes']['1.00']['desloc'], 4)}; 1,82 milhão, {br(calp['por_milhoes']['1.82']['desloc'], 4)} "
+        f"({br(v['a']['desloc_de_1_82_milhao_em_ep'], 0, False)} ep); 4,43 milhões, {br(calp['por_milhoes']['4.43']['desloc'], 4)}. Bate com o Adendo 1. Plantio de 35% só nas 21 UFs "
+        f"({mil(a['plantio_21_ufs']['35']['votos_plantados'])} votos): a diferença 21 menos 6 anda {br(a['plantio_21_ufs']['35']['desloc_da_dif'], 4)} "
+        f"({br(a['plantio_21_ufs']['35']['desloc_em_ep'], 1, False)} ep). O teste enxerga o plantio. O que ele não tem é ponto zero: a diferença análoga foi "
+        f"{br(A['2014']['dif_um_cargo_menos_dois'][0], 3)} em 2014, {br(A['2018']['dif_um_cargo_menos_dois'][0], 3)} em 2018 e {br(A['2022']['dif_um_cargo_menos_dois'][0], 3)} em 2022.")
+    es = lambda an, lado: f"{br(A[an]['espelho'][lado]['todas'][0], 3)}"
+    par(f"Espelho (a mesma regressão com o ganho de cada candidato em pontos do comparecimento): em 2026, cada ponto de branco e nulo do 1º turno vale {es('2026', 'L')} para Lula e "
+        f"{es('2026', 'R')} para Flávio. Em 2022, {es('2022', 'L')} e {es('2022', 'R')}; em 2018, {es('2018', 'L')} e {es('2018', 'R')}; em 2014, {es('2014', 'L')} e {es('2014', 'R')}. "
+        f"O adversário recebe em 2026 o mesmo que nos outros anos; o que sobe é a parte do PT.")
+
+    tit('(b) DIFERENÇA EM DIFERENÇAS POR UF')
+    par('Variação do branco e nulo de presidente entre os turnos, em pontos do comparecimento: UFs sem 2º turno de governador menos UFs com. Negativo = caiu mais onde só havia presidente.')
+    L.append('  ano    UFs com gov   sem gov    com gov    DiD agregada (ep)    média simples (ep)   p da permutação   em % dos aptos, sem menos com: PT, adversário, B+N, abstenção')
+    for an in ('2014', '2018', '2022', '2026'):
+        r_ = B[an]; k_ = r_['contabilidade_pct_aptos']['dif_sem_menos_com']; pp = x['X2_permutacao_da_did_por_ano'][an]['p_tao_negativa_media_simples']
+        if an == '2026': pp = b['permutacao_2026']['p_media_simples_tao_negativa']
+        L.append(f"  {an}   {len(r_['ufs_com_gov_2t']):>6}       {br(r_['var_sem'], 2):>7}    {br(r_['var_com'], 2):>7}    {br(r_['did_agregada'], 3)} ({br(r_['ep_boot_agregada'], 3, False)})      "
+                 f"{br(r_['did_media_simples'], 3)} ({br(r_['ep_welch'], 3, False)})      {(('%.6f' % pp).replace('.', ',') if pp > 0 else '<0,000005'):>9}       {br(k_['dL'], 2)}  {br(k_['dR'], 2)}  {br(k_['dBN'], 2)}  {br(k_['dAbst'], 2)}")
+    par('p da permutação: fração dos sorteios de UFs com diferença de média simples tão negativa quanto a observada (2026: todas as 296.010 escolhas; outros anos: 200 mil sorteios, exploratório X2).')
+    par('UFs com 2º turno de governador. ' + ' '.join(f"{an}: {', '.join(GOV[int(an)] if int(an) in GOV else GOV[an])}." for an in ('2014', '2018', '2022', '2026')))
+    par('Fonte: 2018, 2022 e 2026 pelo bloco de governador do 2º turno das bases em dados/; a base de 2014 não tem governador, e a lista saiu dos zips do bweb do 2º turno de 2014 do TSE '
+        '(UFs em que aparece o cargo GOVERNADOR), os mesmos do F21.')
+    par(f"Valor bruto de 2026: {br(B['2026']['did_agregada'], 3)} ponto (ep {br(B['2026']['ep_boot_agregada'], 3, False)}): {br(B['2026']['var_sem'], 2)} nas 21 UFs e {br(B['2026']['var_com'], 2)} nas 6. "
+        f"Aplicado ao comparecimento das 21 UFs ({mil(tvb['comp_2t_21_ufs'])}) são {mil(abs(tvb['did_2026_em_votos']))} votos, {br(100 * tvb['pct_da_margem'], 0, False)}% da margem, se a diferença inteira fosse conversão. "
+        f"Régua interna (todas as {mil(b['permutacao_2026']['n_escolhas'])} escolhas de 6 UFs entre 27): só {('%.4f' % (100 * b['permutacao_2026']['p_agregada_tao_negativa'])).replace('.', ',')}% "
+        f"dão diferença tão negativa. As 6 UFs são mesmo diferentes das 21.")
+    par(f"Outros anos: {br(B['2014']['did_agregada'], 2)} (2014), {br(B['2018']['did_agregada'], 2)} (2018), {br(B['2022']['did_agregada'], 2)} (2022), média {br(b['criterio']['media_referencia_agregada'], 2)}. "
+        f"A diferença existe nos quatro anos e é significativa em todos pela permutação. 2026 fica {br(b['criterio']['distancia_agregada'], 2)} ponto ACIMA da média (queda menor que a média, maior que a de 2022).")
+    p35 = b['plantio_21_ufs']['35']; p53 = b['plantio_21_ufs']['53.8']
+    par(f"Calibração: plantio de 35% do branco e nulo das 21 UFs em Lula ({mil(p35['votos_plantados'])} votos) desloca a DiD em {br(p35['desloc'], 3)} (esperado {br(p35['esperado'], 3)}; "
+        f"{br(v['b']['desloc_do_plantio_35_em_ep'], 1, False)} ep, abaixo dos 4 da regra G4) e leva a DiD a {br(p35['did_agregada'], 2)}, a {br(abs(p35['distancia_da_media_de_referencia']), 2, False)} "
+        f"ponto da média de referência: o critério chamaria isso de sem sinal. Com 53,8% ({mil(p53['votos_plantados'])} votos) a DiD vai a {br(p53['did_agregada'], 2)} e sai da faixa. "
+        f"Os anos de referência variam de {br(B['2022']['did_agregada'], 2)} a {br(B['2018']['did_agregada'], 2)}; o efeito plantado cabe dentro dessa variação.")
+    kb = B['2026']['contabilidade_pct_aptos']
+    par(f"Espelho (em % dos aptos, 2026): nas 21 UFs Lula ganhou {br(kb['sem_gov_2t']['dL'], 2)} e Flávio {br(kb['sem_gov_2t']['dR'], 2)}; nas 6, {br(kb['com_gov_2t']['dL'], 2)} e {br(kb['com_gov_2t']['dR'], 2)}. "
+        f"Diferença: Lula {br(kb['dif_sem_menos_com']['dL'], 2)}, Flávio {br(kb['dif_sem_menos_com']['dR'], 2)}, branco e nulo {br(kb['dif_sem_menos_com']['dBN'], 2)}, abstenção {br(kb['dif_sem_menos_com']['dAbst'], 2)}. "
+        f"O adversário também ganhou mais onde só havia presidente, quase tanto quanto Lula. Conversão de branco em Lula não dá voto a Flávio.")
+
+    tit('D4-6(b): PRESIDENTE CONTRA GOVERNADOR NA MESMA URNA (6 UFs)')
+    b1 = d['b1']
+    par('(b1) DiD = ln(B+N de presidente / B+N de governador) no 2º turno menos o mesmo no 1º. ' + ' '.join(f"{u} {br(b1['seis_DiD'][u], 3)}." for u in G6)
+        + f" Mediana {br(b1['seis_mediana'], 3)}. Placebo (todas as UFs com 2º turno de governador em 2018 e 2022, n = {b1['placebo_n']}): mínimo {br(b1['placebo_min'], 3)}, percentil 10 "
+        f"{br(b1['placebo_p10'], 3)}, mediana {br(b1['placebo_mediana'], 3)}, percentil 90 {br(b1['placebo_p90'], 3)}, máximo {br(b1['placebo_max'], 3)}. As 6 de 2026 ficam todas entre os percentis 10 e 90 "
+        f"({b1['seis_dentro_p10_p90']} de 6): {b1['veredito']}. O sinal exigia mediana de -0,35 ou menos. O veredito usa 2018 e 2022 como placebo. Valor bruto de 2026, sem outro ano: a razão SUBIU "
+        f"nas 6 UFs (de {br(min(b1['seis_DiD'].values()), 2)} a {br(max(b1['seis_DiD'].values()), 2)}); a conversão que vira o resultado a derrubaria em 0,73, e para escondê-la a subida natural teria de ser de "
+        f"{br(b1['seis_mediana'] + 0.73, 2)} ou mais, acima do máximo já visto ({br(b1['placebo_max'], 2)}).")
+    pd_ = b1['poder']
+    par(f"Poder: mover 26% do branco e nulo de presidente para Lula nas 6 UFs ({mil(pd_['0.26']['votos_plantados'])} votos) derruba a mediana em {br(pd_['0.26']['queda_da_mediana'], 3)} "
+        f"(esperado {br(pd_['0.26']['esperado'], 3)}) e tira o resultado da faixa sem sinal; mover 52% ({mil(pd_['0.52']['votos_plantados'])} votos) derruba em {br(pd_['0.52']['queda_da_mediana'], 3)} "
+        f"(esperado {br(pd_['0.52']['esperado'], 3)}) e dispara o SINAL. Poder pleno. Este teste só fala das 6 UFs.")
+    x3 = x['X3_d46_b1_postos']
+    par(f"Exploratório (X3): a mediana das 6 fica {br(abs(x3['dif_medianas']), 3, False)} abaixo da mediana placebo (5 das 6 abaixo; postos, p unilateral {br(x3['p_mann_whitney_menor'], 3, False)}). "
+        f"Se essa diferença inteira fosse conversão, seriam {br(100 * x3['conversao_equivalente_fracao_do_bn_antes'], 0, False)}% do branco e nulo, cerca de {mil(x3['conversao_equivalente_votos'])} votos nas 6 UFs. "
+        f"O que a faixa placebo deixa passar é mais: se a subida natural fosse a do percentil 90, o observado esconderia {br(100 * x3['conversao_compativel_com_o_p90_do_placebo'], 0, False)}%; se fosse a máxima já vista, "
+        f"{br(100 * x3['conversao_compativel_com_o_maximo_do_placebo'], 0, False)}%. Com a mesma taxa nas 27 UFs isso seria {mi(x3['votos_no_pais_se_a_taxa_valesse_nas_27']['mediana'])}, "
+        f"{mi(x3['votos_no_pais_se_a_taxa_valesse_nas_27']['p90'])} e {mi(x3['votos_no_pais_se_a_taxa_valesse_nas_27']['maximo'])}. Os 52% que virariam o resultado ficam fora de qualquer leitura.")
+    L.append('  (b2) coeficientes de brancos (B1) e nulos (N1) do 1º turno nas equações de L2 e de R2 (efeito fixo de local, peso 1/aptos, erro por município; eliminados somados)')
+    L.append('  ano      n          L2~B1             L2~N1             R2~B1             R2~N1             (L2-R2)~B1        (L2-R2)~N1        votos de margem associados')
+    for an in ('2014', '2018', '2022', '2026'):
+        e_ = d['b2'][an]['variante_d']['eq']; x6 = x['X6_b2_em_votos'][an]['todas']
+        f2 = lambda eq, vx: f"{br(e_[eq]['coef'][vx], 4)} ({br(e_[eq]['ep'][vx], 4, False)})"
+        L.append(f"  {an}   {mil(d['b2'][an]['variante_d']['n']):>8}   {f2('L2', 'B1')}  {f2('L2', 'N1')}  {f2('R2', 'B1')}  {f2('R2', 'N1')}  "
+                 f"{br(x6['coef_B1'][0], 4)} ({br(x6['coef_B1'][1], 4, False)})  {br(x6['coef_N1'][0], 4)} ({br(x6['coef_N1'][1], 4, False)})  {mil(x6['votos_de_margem_associados'])}")
+    x6 = x['X6_b2_em_votos']['2026']
+    par(f"Em 2026 a assimetria a favor do PT é a maior dos quatro anos: {br(x6['todas']['coef_B1'][0], 3)} por branco e {br(x6['todas']['coef_N1'][0], 3)} por nulo do 1º turno, o que, vezes o estoque "
+        f"({mil(x6['todas']['brancos_1t'])} brancos e {mil(x6['todas']['nulos_1t'])} nulos), dá {mil(x6['todas']['votos_de_margem_associados'])} votos de margem associados (exploratório, X6). "
+        f"A assimetria é a mesma nas 6 UFs ({br(x6['com_gov_2t']['coef_B1'][0], 3)} e {br(x6['com_gov_2t']['coef_N1'][0], 3)}) e nas 21 ({br(x6['sem_gov_2t']['coef_B1'][0], 3)} e {br(x6['sem_gov_2t']['coef_N1'][0], 3)}): "
+        f"não distingue o lado que a tese diz poupado. É associação entre seções do mesmo local; não separa conversão de eleitor que mudou de voto.")
+
+    tit('(c) DIVISAS ENTRE AS 6 UFs E AS VIZINHAS (pares de locais a até 20 km)')
+    fl = c['filtro']
+    par(f"Filtro de coordenadas: {mil(fl['locais_com_coordenada'])} locais com coordenada; {fl['fora_da_caixa']} fora da caixa da UF ({', '.join(f'{u} {n_}' for u, n_ in sorted(fl['fora_da_caixa_por_uf'].items()))}); "
+        f"{fl['longe_do_centroide']} a mais de 150 km do centroide do município (400 km nos estados de municípios gigantes); ficam {mil(fl['ficam'])}. Multiplicidade máxima de 20 pares por local.")
+    par(f"2026: {mil(r26['pares'])} pares, {r26['locais_a']} locais do lado das 6 UFs e {r26['locais_b']} do lado das 21, {r26['grupos_lado_a']} municípios do lado a, {r26['divisas']} divisas, "
+        f"{mil(r26['nominais_dos_pares'])} votos nominais. Orientação: lado de um cargo só menos lado de dois cargos, em pontos percentuais. Erro-padrão por bootstrap de municípios do lado a; "
+        f"entre colchetes, com a divisa como unidade.")
+    def linha(nome, r_):
+        return (f"  {nome:<26} pares {mil(r_['pares']):>5}   B+N {br(r_['J']['dbn'], 3)} ({br(r_['ep']['dbn'], 3, False)}) [{br(r_['ep_por_divisa']['dbn'], 3, False)}]   "
+                f"PT resíduo {br(r_['J']['lula_res'], 3)} ({br(r_['ep']['lula_res'], 3, False)}) [{br(r_['ep_por_divisa']['lula_res'], 3, False)}]   "
+                f"comparecimento {br(r_['J']['dcomp'], 3)} ({br(r_['ep']['dcomp'], 3, False)})")
+    L.append(linha('2026 (critério)', r26))
+    for an in ('2014', '2018', '2022'):
+        L.append(linha(f'{an} equivalentes (E)', C[an]['equivalente'])); L.append(linha(f'{an} mesmas seis (G)', C[an]['mesmas_divisas_de_2026']))
+    par('(E) = em cada ano, UFs com 2º turno de governador naquele ano contra as sem; (G) = as mesmas seis divisas de 2026 com os votos de cada ano. Seções de outros anos ligadas ao cadastro de '
+        f"2026 pela chave da seção: {mil(C['2014']['ligacao']['ligadas_ao_cadastro_2026'])} de {mil(C['2014']['ligacao']['secoes_com_dois_turnos'])} em 2014, "
+        f"{mil(C['2018']['ligacao']['ligadas_ao_cadastro_2026'])} de {mil(C['2018']['ligacao']['secoes_com_dois_turnos'])} em 2018, {mil(C['2022']['ligacao']['ligadas_ao_cadastro_2026'])} de "
+        f"{mil(C['2022']['ligacao']['secoes_com_dois_turnos'])} em 2022.")
+    L.append('  2026 por divisa (lado das 6 primeiro):')
+    for pu, r_ in r26['por_divisa'].items():
+        if r_['pares'] >= 15:
+            L.append(f"    {pu}: pares {r_['pares']:>4}   B+N {br(r_['J']['dbn'], 2)} ({br(r_['ep']['dbn'], 2, False)})   Lula {br(r_['J']['lula_res'], 2)} ({br(r_['ep']['lula_res'], 2, False)})   comparecimento {br(r_['J']['dcomp'], 2)}")
+    sn = C['2026']['sensibilidade']
+    rot = {'limite_100_300': 'limite de 100 e 300 km', 'tira_local_com_mais_de_20': 'tirando o local com mais de 20 pares', 'sem_filtro': 'sem filtro nenhum', 'sem_corte_de_multiplicidade': 'sem corte de multiplicidade'}
+    par('Sensibilidade do filtro (Lula; B+N): ' + '; '.join(f"{rot.get(nome, nome)} {br(s_['lula_res'][0], 3)} ({br(s_['lula_res'][1], 3, False)}); {br(s_['dbn'][0], 3)}" for nome, s_ in sn.items() if 'dbn' in s_)
+        + f". Com os eliminados separados (M2: Zema, Cury, Caiado, Renan Santos): Lula {br(sn['modelo_M2_eliminados_separados']['lula_res'][0], 3)} ({br(sn['modelo_M2_eliminados_separados']['lula_res'][1], 3, False)}).")
+    par(f"Contabilidade do salto de 2026 em % dos aptos: Lula {je(r26, 'dL_apt', 2)}, Flávio {je(r26, 'dR_apt', 2)}, branco e nulo {je(r26, 'dbn_apt', 2)}, abstenção {je(r26, 'dabst_apt', 2)}; "
+        f"o lado de um cargo só tinha {br(r26['J']['O1_apt'], 2)} ponto a mais de voto em eliminados no 1º turno (Caiado em GO).")
+    pc = c['plantio_21_ufs']['35']; pc2 = c['plantio_21_ufs']['53.8']
+    par(f"Calibração: plantio de 35% do branco e nulo das 21 UFs em Lula ({mil(pc['votos_plantados'])} votos). O salto do branco e nulo vai a {br(pc['dbn'][0], 3)} (deslocamento {br(pc['desloc_dbn'], 3)}, "
+        f"esperado {br(pc['esperado_dbn'], 3)}; {br(v['c']['plantio_35']['bn_desloc_em_ep'], 1, False)} ep) e o de Lula a {br(pc['lula_res'][0], 3)} (deslocamento {br(pc['desloc_lula'], 3)}, esperado bruto "
+        f"{br(pc['esperado_lula_bruto'], 3)}: {br(100 * v['c']['plantio_35']['lula_desloc_sobre_esperado'], 0, False)}% e {br(v['c']['plantio_35']['lula_desloc_em_ep'], 1, False)} ep). O teste mede o branco e nulo por inteiro e a fatia "
+        f"de Lula com atenuação. Por cima do dado observado as condições de 2026 disparam; partindo de salto zero, 35% não chegaria a 0,5 ponto nem a 3 ep, e 53,8% ({mil(pc2['votos_plantados'])} votos) "
+        f"daria {br(pc2['desloc_lula'], 3)} ({br(v['c']['plantio_53_8']['lula_desloc_em_ep'], 1, False)} ep), ainda abaixo de 0,5. Pela letra da regra G4 do docstring isso é falta de poder de medida "
+        f"na metade de Lula para 35%; a primeira execução registrou o caso como poder LIMITADO.")
+    ng = c['divisas_do_mesmo_grupo']['2026']
+    par(f"Onde nada deveria saltar: {ng['n_divisas']} divisas entre UFs do mesmo grupo em 2026 (50 pares ou mais). |salto de Lula|: mediana {br(ng['lula_res_abs_mediana'], 2, False)}, percentil 90 "
+        f"{br(ng['lula_res_abs_p90'], 2, False)}, máximo {br(ng['lula_res_abs_max'], 2, False)}. |salto do B+N|: mediana {br(ng['dbn_abs_mediana'], 2, False)}, percentil 90 {br(ng['dbn_abs_p90'], 2, False)}, "
+        f"máximo {br(ng['dbn_abs_max'], 2, False)}. Exploratório (X10): com a dispersão dessas divisas como régua, o salto médio de Lula nas divisas mistas ({br(jl, 3)}) fica a "
+        f"{br(abs(x10['salto_lula_em_dp']), 1, False)} desvio; o do branco e nulo ({br(jb, 2)}), a {br(abs(x10['salto_bn_em_dp']), 1, False)} desvios. Das 7 divisas mistas com 50 pares ou mais, "
+        f"{x10['mistas_com_bn_menor_no_lado_de_um_cargo']} têm branco e nulo menor e {x10['mistas_com_lula_maior_no_lado_de_um_cargo']} têm Lula maior no lado de um cargo só.")
+    par(f"Em votos. Branco e nulo: {br(jb, 2)} ponto vezes o comparecimento das 21 UFs = {mil(abs(tvc['salto_bn_em_votos']))} (intervalo de 95%: {mil(abs(tvc['salto_bn_ic95_em_votos'][1]))} a "
+        f"{mil(abs(tvc['salto_bn_ic95_em_votos'][0]))}); pela calibração do plantio, {mil(x5['salto_bn_em_votos'])} ({mil(x5['salto_bn_ic95_em_votos'][0])} a {mil(x5['salto_bn_ic95_em_votos'][1])}). "
+        f"Fatia de Lula: {br(jl, 3)} = {mil(tvc['salto_lula_em_votos'])} votos pela fórmula ({mil(tvc['limite_inf_95_em_votos'])} a {mil(tvc['limite_sup_95_em_votos'])}); pela calibração do plantio, "
+        f"{mil(x5['salto_lula_em_votos'])} ({mil(x5['salto_lula_ic95_em_votos'][0])} a {mil(x5['salto_lula_ic95_em_votos'][1])}), {br(x5['pct_da_margem_salto_lula'], 0, False)}% da margem. "
+        f"A margem é {mil(MARGEM)}.")
+    par(f"Exploratório (X5, X9). Se o salto inteiro do branco e nulo fosse conversão em Lula, o salto de Lula seria {br(x5['salto_de_lula_se_o_salto_inteiro_do_bn_fosse_conversao'], 3)}; o observado é "
+        f"{br(100 * x5['observado_sobre_isso'], 0, False)}% disso (a {br(abs(x5['z_observado_contra_isso']), 1, False)} ep; a {br(x5['z_observado_contra_zero'], 1, False)} ep de zero). Uma conversão que virasse o resultado só nas 21 UFs "
+        f"(4,43 milhões; o branco e nulo observado ali é {mil(x9['bn_observado_2t_nas_21'])}) deixaria na divisa, por extrapolação linear, branco e nulo {br(x9['salto_bn_esperado'], 2)} e Lula "
+        f"{br(x9['salto_lula_esperado'], 2)}: o observado é {br(100 * x9['observado_sobre_esperado_bn'], 0, False)}% e {br(100 * x9['observado_sobre_esperado_lula'], 0, False)}% disso "
+        f"(Lula a {br(abs(x9['z_lula_observado_contra_esperado']), 1, False)} ep; {br(abs(x9['z_lula_observado_contra_esperado_ep_por_divisa']), 1, False)} ep com a divisa como unidade).")
+    f8 = lambda k_: (f"PT {br(x8[k_]['ganho_residual_PT'][0], 2)} ({br(x8[k_]['ganho_residual_PT'][1], 2, False)}), adversário {br(x8[k_]['ganho_residual_adversario'][0], 2)} "
+                     f"({br(x8[k_]['ganho_residual_adversario'][1], 2, False)}), fração do PT {br(100 * x8[k_]['fracao_para_o_PT_ic95'][0], 0, False)}% "
+                     f"[{br(100 * x8[k_]['fracao_para_o_PT_ic95'][1], 0, False)}; {br(100 * x8[k_]['fracao_para_o_PT_ic95'][2], 0, False)}]")
+    par(f"Exploratório (X8), para onde foi o branco e nulo que falta no lado de um cargo só (ganho residual de cada candidato em pontos do comparecimento, mesmos pares, mesmo modelo; os dois somam o "
+        f"salto residual do branco e nulo com o sinal trocado). 2026: {f8('2026_M0')}. Com o plantio de 35%: {f8('2026_M0_com_plantio_35')}. Divisas equivalentes: 2014, {f8('2014_E')}; 2018, {f8('2018_E')}; "
+        f"2022, {f8('2022_E')}. Conversão pura prevê zero para o adversário; em 2026 ele recebe {br(x8['2026_M0']['ganho_residual_adversario'][0], 2)} "
+        f"({br(x8['2026_M0']['ganho_residual_adversario'][0] / x8['2026_M0']['ganho_residual_adversario'][1], 1, False)} ep).")
+    x7 = x['X7_2026_menos_outros_anos_nas_mesmas_divisas']
+    par('Exploratório (X7), 2026 menos cada outro ano nas mesmas seis divisas (Lula; B+N): ' + '; '.join(
+        f"{an}: {br(x7[an]['lula_res'][0], 2)} ({br(x7[an]['lula_res'][1], 2, False)}); {br(x7[an]['dbn'][0], 2)} ({br(x7[an]['dbn'][1], 2, False)})" for an in ('2014', '2018', '2022')) + '.')
+    x4 = x['X4_nulos_digitados_rdv']
+    if 'por_uf' in x4 and 'AC' in x4['por_uf']:
+        ac = x4['por_uf']['AC']; rg = x4.get('regua_AC', {})
+        s4 = (f"Exploratório (X4), o que foi digitado nos nulos (RDV da amostra, {x4['secoes']} seções em {len(x4['por_uf'])} UFs; das 6 UFs só o AC, {ac['secoes_com_rdv']} seções e "
+              f"{mil(ac['pres_total'])} votos). No AC, {ac['nulo_pres_com_numero_de_finalista_gov']} nulos de presidente foram digitados com o número de um dos dois finalistas de governador "
+              f"({' e '.join(ac['finalistas_gov'])}): {br(ac['pct_do_comparecimento_nulo_pres_com_numero_de_gov'], 2, False)}% do comparecimento e {br(ac['pct_do_bn_pres_que_e_numero_de_gov'], 0, False)}% do branco e nulo "
+              f"de presidente dali. Nas UFs sem 2º turno de governador os mesmos números aparecem em {br(rg.get('pct_do_comparecimento_nas_ufs_sem_gov_2t'), 2, False)}% do comparecimento "
+              f"({mil(rg.get('votos', 0))} de {mil(rg.get('comparecimento', 0))}). Na tela de governador do AC, {ac['nulo_gov_com_13_ou_22']} nulos foram digitados 13 ou 22")
+        if ac.get('nulo_gov_com_13') is not None and ac.get('fatia_13_entre_os_que_digitaram_presidente_na_tela_de_gov') is not None:
+            s4 += (f" ({ac['nulo_gov_com_13']} com 13 e {ac['nulo_gov_com_22']} com 22: {br(100 * ac['fatia_13_entre_os_que_digitaram_presidente_na_tela_de_gov'], 0, False)}% de 13, contra "
+                   f"{br(100 * ac['fatia_13_nos_nominais_de_presidente_das_mesmas_secoes'], 0, False)}% de Lula nos votos nominais das mesmas seções)")
+        s4 += ('. Troca de tela (o número de um cargo digitado no outro) explicaria por que o nulo de presidente sobe onde há dois cargos, sem conversão. São 12 seções de uma UF: é pista, não medida. '
+               'O teste D4-3 (onda D) mede isso no AC e no TO inteiros.')
+        par(s4)
+
+    tit('T34 CORRIGIDO (salto na divisa PR contra SP e MS; filtro de coordenadas)')
+    for rot, nome in (('sem_filtro', 'Sem filtro (reproduz o publicado)'), ('com_filtro', 'Com filtro')):
+        k_ = t[rot]['criterio']
+        par(f"{nome}: J de 2026 {br(k_['J_2026'][0], 4)} (ep {br(k_['J_2026'][1], 4, False)}); J de 2022 {br(k_['J_2022'][0], 4)} (ep {br(k_['J_2022'][1], 4, False)}); diferença {br(k_['dif'][0], 4)} "
+            f"(ep {br(k_['dif'][1], 4, False)}); mediana do |J| das {k_['n_placebo']} divisas placebo {br(k_['mediana_abs_J_placebo_2026'], 4, False)}. {k_['veredito']}.")
+    L.append('  divisa        sem filtro 2026: pares, J (ep)           com filtro 2026: pares, J (ep)           com filtro 2022: pares, J (ep)')
+    for dv in [T34_PRINCIPAL] + T34_DESCRITIVAS + T34_PLACEBO:
+        cel = lambda r_: (f"{mil(r_['pares']):>5}  {br(r_['J'], 4)} ({br(r_['ep'], 4, False)})" if 'J' in r_ else f"{mil(r_.get('pares', 0)):>5}  menos de 50 pares").ljust(38)
+        L.append(f"  {dv:<10}  {cel(t['sem_filtro']['2026'][dv])}  {cel(t['com_filtro']['2026'][dv])}  {cel(t['com_filtro']['2022'][dv])}")
+    td = t['todas_as_divisas']
+    par(f"Todas as divisas de UF do país com 50 pares ou mais, com o filtro: {td['n_divisas_com_50_pares']}; limiar de Bonferroni {br(td['z_bonferroni'], 2, False)} ep; passam o critério: "
+        f"{len(td['passam'])}; sem Bonferroni: {len(td['passam_sem_bonferroni'])}; mediana do |J| {br(td['mediana_abs_J_2026'], 4, False)}.")
+    x1 = x['X1_sp_mg_e_mg_rj_sem_filtro']['SP-MG']; cm = t['composicao_dos_eliminados']['SP-MG']
+    hubs = x1['locais_com_mais_de_200_pares']
+    par(f"SP-MG. Sem filtro: {br(t['sem_filtro']['2026']['SP-MG']['J'], 4)} (ep {br(t['sem_filtro']['2026']['SP-MG']['ep'], 4, False)}), {mil(t['sem_filtro']['2026']['SP-MG']['pares'])} pares. "
+        f"Com filtro: {br(t['com_filtro']['2026']['SP-MG']['J'], 4)} (ep {br(t['com_filtro']['2026']['SP-MG']['ep'], 4, False)}), {mil(t['com_filtro']['2026']['SP-MG']['pares'])} pares. "
+        f"O cadastro põe {len(hubs)} locais de MG dentro da Grande São Paulo (latitude perto de -23,6, longitude perto de -46,6), a {br(min(h['km_do_centroide_do_municipio'] for h in hubs), 0, False)} a "
+        f"{br(max(h['km_do_centroide_do_municipio'] for h in hubs), 0, False)} km dos seus municípios; cada um vira par de {', '.join(mil(h['pares']) for h in sorted(hubs, key=lambda h: h['pares']))} "
+        f"locais paulistas. Esses pares são {mil(x1['pares_desses_locais']['pares'])} dos {mil(x1['sem_filtro_M0']['pares'])} e {br(100 * x1['pares_desses_locais']['peso_no_J'], 0, False)}% do peso; "
+        f"só neles J = {br(x1['pares_desses_locais']['J_so_deles'], 4)}. Tirando só esses locais (exploratório, X1): {br(x1['sem_filtro_sem_esses_locais_M0']['J'], 4)} "
+        f"(ep {br(x1['sem_filtro_sem_esses_locais_M0']['ep'], 4, False)}).")
+    par(f"Explicação pela composição dos eliminados (Zema e Cury separados, M1; mais Caiado e Renan Santos, M2). Sem filtro: M0 {br(x1['sem_filtro_M0']['J'], 4)}, M1 {br(x1['sem_filtro_M1']['J'], 4)}, "
+        f"M2 {br(x1['sem_filtro_M2']['J'], 4)}: separar os eliminados tira {br(100 * (1 - abs(x1['sem_filtro_M1']['J']) / abs(x1['sem_filtro_M0']['J'])), 0, False)}% do salto, não a metade exigida. "
+        f"Com filtro: M0 {br(cm['M0']['J'], 4)} (ep {br(cm['M0']['ep'], 4, False)}), M1 {br(cm['M1']['J'], 4)}, M2 {br(cm['M2']['J'], 4)}: não sobra salto para explicar. Nos pares filtrados, Zema teve "
+        f"{br(cm['fatias_1t_nos_pares_pct_comp']['a']['Z1'], 2, False)}% do lado de SP e {br(cm['fatias_1t_nos_pares_pct_comp']['b']['Z1'], 2, False)}% do lado de MG; Cury, "
+        f"{br(cm['fatias_1t_nos_pares_pct_comp']['a']['CU1'], 2, False)}% e {br(cm['fatias_1t_nos_pares_pct_comp']['b']['CU1'], 2, False)}%. O salto de -0,034 era erro de coordenada, não composição dos eliminados.")
+    x1r = x['X1_sp_mg_e_mg_rj_sem_filtro']['MG-RJ']
+    par(f"MG-RJ: sem filtro {br(t['sem_filtro']['2026']['MG-RJ']['J'], 4)} (ep {br(t['sem_filtro']['2026']['MG-RJ']['ep'], 4, False)}); com filtro {br(t['com_filtro']['2026']['MG-RJ']['J'], 4)} "
+        f"(ep {br(t['com_filtro']['2026']['MG-RJ']['ep'], 4, False)}). {len(x1r['locais_tirados_ao_todo'])} locais de MG com a mesma coordenada do centro do Rio de Janeiro respondiam por "
+        f"{br(100 * x1r['pares_desses_locais']['peso_no_J'], 0, False)}% do peso.")
+    nm = x.get('nominais_2t_por_uf_2026', {})
+    if nm:
+        nsul = nm['PR'] + nm['SC'] + nm['RS']; j_ = t['com_filtro']['criterio']['J_2026']
+        par(f"Em votos: um J de {br(j_[0], 4)} na fatia de Lula, aplicado aos {mil(nsul)} votos nominais de PR, SC e RS, seria {mil(abs(2 * j_[0] * nsul))} votos de margem; o limite de 95% "
+            f"({br(j_[0] + 1.96 * j_[1], 4)}) seria {mil(2 * (j_[0] + 1.96 * j_[1]) * nsul)}. Nada perto da margem.")
+
+    tit('O QUE PESA A FAVOR DA TESE')
+    par(f"1. O coeficiente de 2026 ({br(c26, 4)}) é o único positivo dos quatro anos e fica longe de 2014 ({br(A['2014']['base']['coef']['branco_nulo_1t'], 3)}), o outro ano em que o branco e nulo caiu entre os "
+        f"turnos. A queda do branco e nulo, sozinha, não explica o sinal positivo. Pela letra do registro, isso é indício a cruzar com as divisas.", 3, '')
+    par(f"2. Na divisa, o branco e nulo é {br(abs(jb), 2, False)} ponto mais baixo no lado de um cargo só ({br(abs(jb / eb), 1, False)} ep; {nneg} das {ndiv} divisas com o mesmo sinal), e a maior parte do que falta aparece como voto de "
+        f"Lula ({br(100 * x8['2026_M0']['fracao_para_o_PT_ic95'][0], 0, False)}%, exploratório). Lido inteiro a favor da tese, o salto de Lula vale de {mil(tvc['salto_lula_em_votos'])} a {mil(x5['salto_lula_em_votos'])} votos.", 3, '')
+    par(f"3. Dentro do mesmo local, seção com mais branco e nulo no 1º turno deu mais ganho a Lula que a Flávio em 2026 ({br(x6['todas']['coef_B1'][0], 2)} e {br(x6['todas']['coef_N1'][0], 2)} por voto), "
+        f"a maior assimetria dos quatro anos.", 3, '')
+    tit('O QUE PESA CONTRA')
+    par(f"1. O contraste que a tese pede (6 UFs poupadas contra 21) não aparece na regressão: o coeficiente é maior nas 6 ({br(A['2026']['com_gov_2t']['coef']['branco_nulo_1t'], 3)}) que nas 21 "
+        f"({br(A['2026']['sem_gov_2t']['coef']['branco_nulo_1t'], 3)}), e a assimetria do item 3 acima é igual nos dois grupos.", 3, '')
+    par(f"2. A queda maior do branco e nulo onde só há presidente existe em 2014, 2018, 2022 e 2026, significativa em todos. Não é marca de 2026.", 3, '')
+    par(f"3. O salto de Lula na divisa ({br(jl, 3)}, {br(jl / el, 1, False)} ep; {br(x5['z_observado_contra_zero_ep_por_divisa'], 1, False)} ep com a divisa como unidade) não passa do limiar e é do tamanho do que as divisas "
+        f"fazem quando nada deveria saltar (mediana {br(ng['lula_res_abs_mediana'], 2, False)}). O mesmo padrão aparece mais forte em 2018 ({br(cr['salto_lula_equivalentes']['2018'][0], 2)}), ano que o PT perdeu.", 3, '')
+    par(f"4. O adversário também ganha no lado de um cargo só: {br(x8['2026_M0']['ganho_residual_adversario'][0], 2)} ponto residual na divisa e {br(kb['dif_sem_menos_com']['dR'], 2)} "
+        f"ponto dos aptos entre os grupos de UFs. Conversão de branco em Lula não produz isso.", 3, '')
+    par(f"5. Nas 6 UFs, onde a mesma urna dá a referência do governador, o branco e nulo de presidente se comporta como nas 26 UFs placebo. Isso exclui ali a conversão de 52% que viraria o resultado; "
+        f"não exclui taxas de até {br(100 * x3['conversao_compativel_com_o_p90_do_placebo'], 0, False)}%.", 3, '')
+    par(f"6. Entre as {x11['2026']['mesmo_grupo']['n']} divisas de UFs do mesmo grupo, onde o branco e nulo cai mais a fatia de Lula não sobe mais: inclinação {br(x11['2026']['mesmo_grupo']['inclinacao'], 2)} "
+        f"(ep {br(x11['2026']['mesmo_grupo']['ep'], 2, False)}); conversão daria cerca de {br(x5['salto_de_lula_se_o_salto_inteiro_do_bn_fosse_conversao'] / jb, 2)} (exploratório, X11). Nas {x11['2026']['mistas']['n']} "
+        f"divisas mistas a inclinação é {br(x11['2026']['mistas']['inclinacao'], 2)} (ep {br(x11['2026']['mistas']['ep'], 2, False)}).", 3, '')
+    par(f"7. Há mecanismo inocente com evidência direta, ainda pequena: nas 12 seções do AC com RDV, {br(ac['pct_do_comparecimento_nulo_pres_com_numero_de_gov'], 1, False)}% dos eleitores anularam o voto de presidente "
+        f"digitando o número de candidato a governador." if ('por_uf' in x4 and 'AC' in x4['por_uf']) else '7. (RDV do AC não lido.)', 3, '')
+    tit('O QUE ISSO SIGNIFICA')
+    zbn = abs(x9['salto_bn_esperado'] - jb) / x10['dp_da_media_bn']; zlu = abs(x9['salto_lula_esperado'] - jl) / x10['dp_da_media_lula']
+    vp = x3['votos_no_pais_se_a_taxa_valesse_nas_27']
+    par(f"O canal do branco e nulo tem teto nas duas formas. Só nas 21 UFs: todo o desnível de branco e nulo entre os dois lados da divisa vale de {mi(abs(tvc['salto_bn_em_votos']))} a "
+        f"{mi(x5['salto_bn_em_votos'])} de votos (limite de 95%: {mi(x5['salto_bn_ic95_em_votos'][1])}), cerca de metade da margem de {mil(MARGEM)}. A conversão que virasse o resultado por esse caminho "
+        f"pediria {br(1 / x9['observado_sobre_esperado_bn'], 1, False)} vezes esse desnível (fica a {br(zbn, 1, False)} desvios do observado pela régua das divisas do mesmo grupo) e "
+        f"{br(1 / x9['observado_sobre_esperado_lula'], 1, False)} vezes o salto de Lula ({br(zlu, 1, False)} desvios pela mesma régua; {br(abs(x9['z_lula_observado_contra_esperado']), 1, False)} ep pelo bootstrap de municípios).")
+    par(f"Em todo o país: nas 6 UFs, único lugar com régua na mesma urna, a conversão de 52% que viraria o resultado exigiria uma subida natural da razão maior que qualquer uma já vista. O que os números "
+        f"dali deixam passar vai de {br(100 * x3['conversao_equivalente_fracao_do_bn_antes'], 0, False)}% (contra a mediana do placebo; {mi(vp['mediana'])} no país) a "
+        f"{br(100 * x3['conversao_compativel_com_o_p90_do_placebo'], 0, False)}% (percentil 90; {mi(vp['p90'])}) ou {br(100 * x3['conversao_compativel_com_o_maximo_do_placebo'], 0, False)}% (máximo; {mi(vp['maximo'])}).")
+    par(f"O que fica em aberto, portanto, é uma conversão parcial de até cerca de 2 milhões de votos, o tamanho que a equipe vermelha apontou: os dados por seção não a distinguem de eleitor que, sem a tela "
+        f"de governador, deixou de anular e votou. Sozinha não vira o resultado; somada a outro canal, importaria. Nenhum resultado daqui passa pelos três filtros do Adendo 27 (conferente, calibração, espelho).")
+    tit('PISTAS')
+    par('1. D4-3 e D4-4 (onda D): os RDV mostram o que foi digitado em cada nulo. Se o nulo de presidente das 6 UFs for, em boa parte, número de governador, o desnível de branco e nulo está explicado sem '
+        'conversão; se não for, o item (c) volta a pesar. É o teste que decide este canal.', 3, '')
+    ct = x10['contribuicao_por_divisa_lula']; tb_ = t['todas_as_divisas']['tabela']
+    es_ = sum(v_['contribuicao'] for dv_, v_ in ct.items() if dv_.startswith('ES-'))
+    par(f"2. Divisas do ES: respondem por {br(es_, 3)} do salto de Lula de {br(jl, 3)} (ES-MG {br(ct['ES-MG']['contribuicao'], 3)}, ES-RJ {br(ct['ES-RJ']['contribuicao'], 3)}; DF-GO {br(ct['DF-GO']['contribuicao'], 3)}). "
+        f"ES-RJ já saltava em 2022 ({br(100 * tb_['ES-RJ']['J_2022'], 2)}, contra {br(100 * tb_['ES-RJ']['J_2026'], 2)} em 2026); ES-MG não ({br(100 * tb_['ES-MG']['J_2022'], 2)} contra "
+        f"{br(100 * tb_['ES-MG']['J_2026'], 2)}). Vale olhar município a município.", 3, '')
+    vu = B['2026']['var_por_uf']; ordem = sorted(vu, key=lambda u_: vu[u_])
+    par(f"3. As maiores quedas de branco e nulo entre os turnos foram em {ordem[0]} ({br(vu[ordem[0]], 2)}), {ordem[1]} ({br(vu[ordem[1]], 2)}) e {ordem[2]} ({br(vu[ordem[2]], 2)}), todas do grupo das 21, e há "
+        f"divisas entre UFs do mesmo grupo com salto de branco e nulo de até {br(ng['dbn_abs_max'], 2, False)} ponto. O contraste 6 contra 21 não explica isso. Entre as {x11['2026']['todas']['n']} divisas de 2026, o salto de Lula "
+        f"anda {br(x11['2026']['todas']['inclinacao'], 2)} por ponto de salto do branco e nulo (ep {br(x11['2026']['todas']['ep'], 2, False)}; exploratório, X11); em 2018 era "
+        f"{br(x11['2018']['todas']['inclinacao'], 2)} (ep {br(x11['2018']['todas']['ep'], 2, False)}), em 2022 {br(x11['2022']['todas']['inclinacao'], 2)} e em 2014 {br(x11['2014']['todas']['inclinacao'], 2)}.", 3, '')
+    par(f"4. O cadastro de locais reprova {fl['fora_da_caixa'] + fl['longe_do_centroide']} coordenadas no filtro, {fl['fora_da_caixa_por_uf'].get('MG', 0) + fl['longe_por_uf'].get('MG', 0)} delas em MG; "
+        f"todo teste geográfico precisa do filtro (T23b incluído).", 3, '')
+    tit('DESVIOS E DECISÕES FORA DO REGISTRO')
+    for i, s_ in enumerate(desvios, 1):
+        par(f'{i}. {s_}', 3, '')
+    tit('ARQUIVOS')
+    for s_ in ('scripts/analisar_R27_A1.py', 'resultados/R27_A1_branco_nulo.json', 'resultados/R27_A1_branco_nulo.txt',
+               '/home/user/trabalho-eleicao/adendo27/R27_A1/ (parciais por parte, logs, docstring registrado antes de rodar, parciais da primeira execução)'):
+        L.append('  ' + s_)
+    txt = '\n'.join(L) + '\n'
+    assert chr(8212) not in txt and chr(8211) not in txt, 'travessão no texto'
+    open(_os.path.join(RESULT, 'R27_A1_branco_nulo.txt'), 'w', encoding='utf-8').write(txt)
+    diga('gravados: resultados/R27_A1_branco_nulo.json e .txt')
+
+
 # ---------------------------------------------------------------- principal
 def limpar(o):
     if isinstance(o, dict): return {str(k): limpar(v) for k, v in o.items()}
@@ -1073,7 +1815,8 @@ def main():
         if 't' in partes: guarda('t', parte_t(S, geo, LOC, cand26, res['c'])); diga('tempo', round(time.time() - t0))
     open(_os.path.join(TRAB, 'log_' + '_'.join(partes) + '.txt'), 'w').write('\n'.join(LOG) + '\n')
     if set(partes) >= {'a', 'b', 'd', 'c', 't'}:
-        res['exploratorio'] = limpar(exploratorio(S, GOV, geo, LOC, res))
+        res['exploratorio'] = limpar(exploratorio(S, GOV, geo, LOC, res, cand26))
+        open(_os.path.join(TRAB, 'log_x.txt'), 'w').write('\n'.join(LOG) + '\n')
         json.dump(res['exploratorio'], open(_os.path.join(TRAB, 'parte_x.json'), 'w'), ensure_ascii=False)
         escrever(res, GOV, time.time() - t0)
 

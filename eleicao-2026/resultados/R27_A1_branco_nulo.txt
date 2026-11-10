@@ -1,0 +1,301 @@
+R27 A1 (ADENDO 27, ONDA A): BRANCO E NULO (RESULTADOS)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 27, commit 2748895 (10/11/2026 00:16:42 UTC), antes de rodar. Critérios:
+fragilidade "Canal do branco e nulo (forma A)" de registro/adendo27/equipe_vermelha_relatorio.json (retestes a, b, c e
+a calibração d) e parte (b) do D4-6 de desenho_D4_proposta.json. Decisões que o registro não fixa: docstring de
+scripts/analisar_R27_A1.py, escrito antes de qualquer conta com votos. Números completos em
+resultados/R27_A1_branco_nulo.json.
+Hipótese: brancos e nulos da tela de presidente registrados como voto em Lula, talvez só onde há um cargo na cédula do
+2º turno (21 UFs), poupando as 6 UFs em que a mesma urna dá referência (AC, AM, DF, ES, RN, TO).
+Avisos. (1) Os retestes da equipe vermelha foram escritos por quem já conhecia os resultados antigos: o critério é
+novo, a escolha do que retestar é posterior ao dado. O D4-6 é desenho cego. (2) 2014, 2018 e 2022 não são régua limpa
+(o Léo suspeita deles também): todo número de outro ano vem com o valor bruto de 2026 ao lado. (3) Um SINAL só conta
+como indício depois de conferente independente, calibração e espelho; este teste ainda NÃO foi refeito por conferente.
+(4) Os dados são totais por seção: branco convertido dentro da urna e eleitor que votou em Lula dão o mesmo boletim; o
+que se mede é o contraste entre lugares. (5) O container reiniciou no meio da primeira execução; a retomada rodou tudo
+de novo e as partes registradas saíram idênticas aos parciais gravados antes.
+
+VEREDITOS PELA LETRA
+(a)  SINAL pela letra do item (a) do Adendo 27 (2014 deu -0,2932, abaixo de -0,04: "2026 destoa e vira indício a
+     cruzar com (c)"), e o cruzamento com (c) saiu INCONCLUSIVO. Pelo critério original da seção 7 e do Adendo 1 o
+     mesmo número é SEM SINAL (+0,0251, abaixo de +0,04). A separação de 2026 em 6 e 21 UFs não pesa a favor da
+     variante "só onde há um cargo".
+(b)  SEM PODER. Pela letra do critério seria INCONCLUSIVO (a DiD de 2026 fica a +0,83 ponto da média dos outros anos,
+     fora da faixa de 0,3), mas a calibração mostra que a comparação com os outros anos não enxerga a conversão de
+     35%: com ela plantada a DiD cai a 0,28 ponto da média de referência, dentro da faixa que o registro chama de sem
+     sinal.
+(c)  INCONCLUSIVO, com poder LIMITADO. O branco e nulo salta -1,63 ponto na divisa (11,8 ep; condição cumprida). A
+     fatia de Lula salta +0,337 (ep 0,117; 2,87 ep), abaixo dos 0,5 ponto e dos 3 ep exigidos, e acima do 0,25 que
+     daria SEM SINAL. A terceira condição falha: nas divisas equivalentes o salto foi +0,26 em 2014, +1,14 em 2018 e
+     -0,11 em 2022. Com 2018 em +1,14, o critério, como escrito, não tinha como dar SINAL.
+     D4-6(b1): SEM SINAL, com poder pleno. Nas 6 UFs a razão entre o branco e nulo de presidente e o de governador
+     subiu entre os turnos (mediana +0,284), dentro da faixa das 26 UFs placebo de 2018 e 2022 (percentil 10 +0,213,
+     percentil 90 +0,667). D4-6(b2): descritivo, sem critério no desenho.
+     T34 corrigido: SEM SINAL (não muda). O salto SP-MG de -0,034 some com o filtro de coordenadas.
+     Contagem: 5 testes com critério registrado; 1 sinal pela letra (a), em critério que compara dois coeficientes sem
+     limiar de erro. O acaso daria menos de 0,05 sinal nos outros quatro. Nenhum SINAL que passe por calibração,
+     espelho e conferente.
+
+(a) REGRESSÃO DO BRANCO E NULO POR SEÇÃO (scripts/analisar_bn_secao.py, sem mudança)
+Coeficiente do branco e nulo do 1º turno na virada da fatia do 13 entre os turnos, dentro do mesmo local de votação.
+Erro-padrão entre parênteses.
+  ano    todas as seções        n seções   locais   B+N 1ºt   B+N 2ºt   UFs sem gov 2ºt       UFs com gov 2ºt       sem menos com
+  2014   -0,2932 (0,0032)        398.995   64.554     9,64%     6,34%   -0,2565 (0,0039)      -0,3818 (0,0054)      +0,1254 (0,0067)
+  2018   -0,0601 (0,0025)        427.541   66.849     8,79%     9,57%   -0,1263 (0,0038)      -0,0214 (0,0032)      -0,1050 (0,0049)
+  2022   -0,0707 (0,0023)        448.165   68.662     4,41%     4,59%   -0,0444 (0,0033)      -0,0911 (0,0028)      +0,0467 (0,0044)
+  2026   +0,0251 (0,0021)        477.035   72.538     4,77%     3,24%   +0,0239 (0,0022)      +0,0431 (0,0084)      -0,0192 (0,0087)
+Valor de resultados/bn_secao_2026.json que nunca tinha sido relatado: +0,0251 (ep 0,0021), 477.035 seções em 72.538
+locais. Este script reproduz o número até a última casa.
+Em 2026 separado: 21 UFs +0,0239 (0,0022), n 437.320; 6 UFs +0,0431 (0,0084), n 38.483; diferença -0,0192 (ep 0,0087).
+O coeficiente é MAIOR nas 6 UFs que a tese diz poupadas. Exterior: -0,1089 (0,0592).
+Em votos, pela calibração do Adendo 1 (+0,061 para 1,82 milhão; +0,142 para 4,43 milhões): contra zero, 0,75 milhão;
+contra 2018 (deslocamento +0,085), 2,60 milhões; contra 2022 (+0,096), 2,94 milhões; contra 2014 (+0,318), 10,1
+milhões, o que é impossível: todo o branco e nulo do 2º turno soma 4,15 milhões. A distância entre anos não mede
+conversão.
+Calibração dentro de 2026 (conversão somada por cima do dado): 1,00 milhão desloca +0,0334; 1,82 milhão, +0,0599 (28
+ep); 4,43 milhões, +0,1387. Bate com o Adendo 1. Plantio de 35% só nas 21 UFs (1.310.812 votos): a diferença 21 menos
+6 anda +0,0472 (5,5 ep). O teste enxerga o plantio. O que ele não tem é ponto zero: a diferença análoga foi +0,125 em
+2014, -0,105 em 2018 e +0,047 em 2022.
+Espelho (a mesma regressão com o ganho de cada candidato em pontos do comparecimento): em 2026, cada ponto de branco e
+nulo do 1º turno vale +0,413 para Lula e +0,277 para Flávio. Em 2022, +0,289 e +0,279; em 2018, +0,267 e +0,293; em
+2014, +0,288 e +0,397. O adversário recebe em 2026 o mesmo que nos outros anos; o que sobe é a parte do PT.
+
+(b) DIFERENÇA EM DIFERENÇAS POR UF
+Variação do branco e nulo de presidente entre os turnos, em pontos do comparecimento: UFs sem 2º turno de governador
+menos UFs com. Negativo = caiu mais onde só havia presidente.
+  ano    UFs com gov   sem gov    com gov    DiD agregada (ep)    média simples (ep)   p da permutação   em % dos aptos, sem menos com: PT, adversário, B+N, abstenção
+  2014       14         -4,22      -1,60    -2,616 (0,487)      -3,225 (0,572)      <0,000005       +1,26  +1,43  -2,00  -0,69
+  2018       14         -1,92      +2,40    -4,317 (0,597)      -3,747 (0,486)      <0,000005       +2,72  -1,89  -3,44  +0,39
+  2022       12         -0,38      +0,67    -1,048 (0,242)      -1,249 (0,238)       0,000010       +0,08  -0,11  -0,85  +0,23
+  2026        6         -1,67      +0,15    -1,828 (0,284)      -1,840 (0,329)       0,000024       +1,69  +1,41  -1,41  -1,42
+p da permutação: fração dos sorteios de UFs com diferença de média simples tão negativa quanto a observada (2026:
+todas as 296.010 escolhas; outros anos: 200 mil sorteios, exploratório X2).
+UFs com 2º turno de governador. 2014: AC, AM, AP, CE, DF, GO, MS, PA, PB, RJ, RN, RO, RR, RS. 2018: AM, AP, DF, MG,
+MS, PA, RJ, RN, RO, RR, RS, SC, SE, SP. 2022: AL, AM, BA, ES, MS, PB, PE, RO, RS, SC, SE, SP. 2026: AC, AM, DF, ES,
+RN, TO.
+Fonte: 2018, 2022 e 2026 pelo bloco de governador do 2º turno das bases em dados/; a base de 2014 não tem governador,
+e a lista saiu dos zips do bweb do 2º turno de 2014 do TSE (UFs em que aparece o cargo GOVERNADOR), os mesmos do F21.
+Valor bruto de 2026: -1,828 ponto (ep 0,284): -1,67 nas 21 UFs e +0,15 nas 6. Aplicado ao comparecimento das 21 UFs
+(117.743.838) são 2.152.670 votos, 49% da margem, se a diferença inteira fosse conversão. Régua interna (todas as
+296.010 escolhas de 6 UFs entre 27): só 0,0098% dão diferença tão negativa. As 6 UFs são mesmo diferentes das 21.
+Outros anos: -2,62 (2014), -4,32 (2018), -1,05 (2022), média -2,66. A diferença existe nos quatro anos e é
+significativa em todos pela permutação. 2026 fica +0,83 ponto ACIMA da média (queda menor que a média, maior que a de
+2022).
+Calibração: plantio de 35% do branco e nulo das 21 UFs em Lula (1.310.812 votos) desloca a DiD em -1,113 (esperado
+-1,115; 3,9 ep, abaixo dos 4 da regra G4) e leva a DiD a -2,94, a 0,28 ponto da média de referência: o critério
+chamaria isso de sem sinal. Com 53,8% (2.019.271 votos) a DiD vai a -3,54 e sai da faixa. Os anos de referência variam
+de -1,05 a -4,32; o efeito plantado cabe dentro dessa variação.
+Espelho (em % dos aptos, 2026): nas 21 UFs Lula ganhou +6,68 e Flávio +2,45; nas 6, +4,99 e +1,04. Diferença: Lula
++1,69, Flávio +1,41, branco e nulo -1,41, abstenção -1,42. O adversário também ganhou mais onde só havia presidente,
+quase tanto quanto Lula. Conversão de branco em Lula não dá voto a Flávio.
+
+D4-6(b): PRESIDENTE CONTRA GOVERNADOR NA MESMA URNA (6 UFs)
+(b1) DiD = ln(B+N de presidente / B+N de governador) no 2º turno menos o mesmo no 1º. AC +0,258. AM +0,436. DF +0,281.
+ES +0,288. RN +0,241. TO +0,562. Mediana +0,284. Placebo (todas as UFs com 2º turno de governador em 2018 e 2022, n =
+26): mínimo +0,075, percentil 10 +0,213, mediana +0,436, percentil 90 +0,667, máximo +0,794. As 6 de 2026 ficam todas
+entre os percentis 10 e 90 (6 de 6): SEM SINAL. O sinal exigia mediana de -0,35 ou menos. O veredito usa 2018 e 2022
+como placebo. Valor bruto de 2026, sem outro ano: a razão SUBIU nas 6 UFs (de +0,24 a +0,56); a conversão que vira o
+resultado a derrubaria em 0,73, e para escondê-la a subida natural teria de ser de +1,01 ou mais, acima do máximo já
+visto (+0,79).
+Poder: mover 26% do branco e nulo de presidente para Lula nas 6 UFs (102.739 votos) derruba a mediana em -0,301
+(esperado -0,301) e tira o resultado da faixa sem sinal; mover 52% (205.037 votos) derruba em -0,731 (esperado -0,734)
+e dispara o SINAL. Poder pleno. Este teste só fala das 6 UFs.
+Exploratório (X3): a mediana das 6 fica 0,152 abaixo da mediana placebo (5 das 6 abaixo; postos, p unilateral 0,079).
+Se essa diferença inteira fosse conversão, seriam 14% do branco e nulo, cerca de 64.807 votos nas 6 UFs. O que a faixa
+placebo deixa passar é mais: se a subida natural fosse a do percentil 90, o observado esconderia 32%; se fosse a
+máxima já vista, 40%. Com a mesma taxa nas 27 UFs isso seria 0,68 milhão, 1,93 milhão e 2,76 milhões. Os 52% que
+virariam o resultado ficam fora de qualquer leitura.
+  (b2) coeficientes de brancos (B1) e nulos (N1) do 1º turno nas equações de L2 e de R2 (efeito fixo de local, peso 1/aptos, erro por município; eliminados somados)
+  ano      n          L2~B1             L2~N1             R2~B1             R2~N1             (L2-R2)~B1        (L2-R2)~N1        votos de margem associados
+  2014    397.897   +0,3700 (0,0085)  +0,4024 (0,0182)  +0,2601 (0,0131)  +0,2324 (0,0163)  +0,1099 (0,0195)  +0,1701 (0,0312)  1.619.944
+  2018    425.964   +0,2419 (0,0080)  +0,3081 (0,0098)  +0,2510 (0,0106)  +0,2329 (0,0087)  -0,0091 (0,0171)  +0,0752 (0,0126)  512.873
+  2022    443.931   +0,2403 (0,0048)  +0,3489 (0,0153)  +0,2785 (0,0046)  +0,1983 (0,0061)  -0,0382 (0,0078)  +0,1505 (0,0199)  447.137
+  2026    472.894   +0,4562 (0,0044)  +0,5092 (0,0112)  +0,1763 (0,0050)  +0,2188 (0,0040)  +0,2798 (0,0080)  +0,2903 (0,0114)  1.698.649
+Em 2026 a assimetria a favor do PT é a maior dos quatro anos: +0,280 por branco e +0,290 por nulo do 1º turno, o que,
+vezes o estoque (2.284.601 brancos e 3.648.576 nulos), dá 1.698.649 votos de margem associados (exploratório, X6). A
+assimetria é a mesma nas 6 UFs (+0,284 e +0,222) e nas 21 (+0,280 e +0,296): não distingue o lado que a tese diz
+poupado. É associação entre seções do mesmo local; não separa conversão de eleitor que mudou de voto.
+
+(c) DIVISAS ENTRE AS 6 UFs E AS VIZINHAS (pares de locais a até 20 km)
+Filtro de coordenadas: 94.264 locais com coordenada; 37 fora da caixa da UF (MG 26, PA 2, RS 9); 86 a mais de 150 km
+do centroide do município (400 km nos estados de municípios gigantes); ficam 94.141. Multiplicidade máxima de 20 pares
+por local.
+2026: 1.587 pares, 786 locais do lado das 6 UFs e 927 do lado das 21, 134 municípios do lado a, 15 divisas, 3.828.880
+votos nominais. Orientação: lado de um cargo só menos lado de dois cargos, em pontos percentuais. Erro-padrão por
+bootstrap de municípios do lado a; entre colchetes, com a divisa como unidade.
+  2026 (critério)            pares 1.587   B+N -1,631 (0,138) [0,232]   PT resíduo +0,337 (0,117) [0,167]   comparecimento +0,163 (0,229)
+  2014 equivalentes (E)      pares 1.528   B+N -2,177 (0,249) [0,362]   PT resíduo +0,264 (0,603) [1,079]   comparecimento -0,302 (0,203)
+  2014 mesmas seis (G)       pares   984   B+N -0,744 (0,627) [1,641]   PT resíduo +0,814 (0,411) [0,666]   comparecimento +0,480 (0,271)
+  2018 equivalentes (E)      pares 2.682   B+N -3,497 (0,211) [0,426]   PT resíduo +1,143 (0,159) [0,190]   comparecimento -0,336 (0,188)
+  2018 mesmas seis (G)       pares 1.463   B+N -1,249 (0,621) [1,934]   PT resíduo +0,835 (0,282) [0,593]   comparecimento -0,067 (0,254)
+  2022 equivalentes (E)      pares 2.518   B+N -1,135 (0,115) [0,216]   PT resíduo -0,106 (0,104) [0,111]   comparecimento +0,240 (0,144)
+  2022 mesmas seis (G)       pares 1.529   B+N +0,085 (0,143) [0,508]   PT resíduo -0,066 (0,137) [0,150]   comparecimento +0,250 (0,169)
+(E) = em cada ano, UFs com 2º turno de governador naquele ano contra as sem; (G) = as mesmas seis divisas de 2026 com
+os votos de cada ano. Seções de outros anos ligadas ao cadastro de 2026 pela chave da seção: 344.367 de 428.852 em
+2014, 438.491 de 454.448 em 2018, 462.823 de 472.028 em 2022.
+  2026 por divisa (lado das 6 primeiro):
+    AM-PA: pares   44   B+N -1,50 (0,66)   Lula -0,39 (0,37)   comparecimento +1,35
+    AM-RO: pares   24   B+N -1,48 (n/d)   Lula +0,51 (n/d)   comparecimento +0,57
+    DF-GO: pares  366   B+N -1,24 (0,17)   Lula +0,30 (0,20)   comparecimento +0,04
+    ES-BA: pares   17   B+N -2,23 (0,79)   Lula +0,17 (0,42)   comparecimento -0,72
+    ES-MG: pares  278   B+N -2,10 (0,25)   Lula +1,12 (0,43)   comparecimento +0,97
+    ES-RJ: pares  101   B+N -1,29 (0,38)   Lula +1,28 (0,38)   comparecimento -1,13
+    RN-CE: pares  134   B+N -0,96 (0,39)   Lula -0,64 (0,32)   comparecimento -0,01
+    RN-PB: pares  345   B+N -2,23 (0,24)   Lula +0,04 (0,16)   comparecimento -0,37
+    TO-MA: pares  179   B+N -1,50 (0,26)   Lula +0,26 (0,25)   comparecimento +1,52
+    TO-PA: pares   83   B+N -2,78 (0,12)   Lula +0,74 (0,75)   comparecimento +0,54
+Sensibilidade do filtro (Lula; B+N): limite de 100 e 300 km +0,332 (0,112); -1,618; tirando o local com mais de 20
+pares +0,349 (0,115); -1,685; sem filtro nenhum +0,339 (0,107); -1,492; sem corte de multiplicidade +0,340 (0,110);
+-1,492. Com os eliminados separados (M2: Zema, Cury, Caiado, Renan Santos): Lula +0,286 (0,114).
+Contabilidade do salto de 2026 em % dos aptos: Lula +1,59 (0,20), Flávio +0,86 (0,18), branco e nulo -1,31 (0,11),
+abstenção -0,16 (0,23); o lado de um cargo só tinha +0,98 ponto a mais de voto em eliminados no 1º turno (Caiado em
+GO).
+Calibração: plantio de 35% do branco e nulo das 21 UFs em Lula (1.310.812 votos). O salto do branco e nulo vai a
+-2,587 (deslocamento -0,956, esperado -0,939; 6,9 ep) e o de Lula a +0,652 (deslocamento +0,315, esperado bruto
++0,417: 76% e 2,7 ep). O teste mede o branco e nulo por inteiro e a fatia de Lula com atenuação. Por cima do dado
+observado as condições de 2026 disparam; partindo de salto zero, 35% não chegaria a 0,5 ponto nem a 3 ep, e 53,8%
+(2.020.341 votos) daria +0,475 (4,0 ep), ainda abaixo de 0,5. Pela letra da regra G4 do docstring isso é falta de
+poder de medida na metade de Lula para 35%; a primeira execução registrou o caso como poder LIMITADO.
+Onde nada deveria saltar: 25 divisas entre UFs do mesmo grupo em 2026 (50 pares ou mais). |salto de Lula|: mediana
+0,46, percentil 90 1,18, máximo 1,32. |salto do B+N|: mediana 0,59, percentil 90 1,39, máximo 1,93. Exploratório
+(X10): com a dispersão dessas divisas como régua, o salto médio de Lula nas divisas mistas (+0,337) fica a 1,0 desvio;
+o do branco e nulo (-1,63), a 4,1 desvios. Das 7 divisas mistas com 50 pares ou mais, 7 têm branco e nulo menor e 6
+têm Lula maior no lado de um cargo só.
+Em votos. Branco e nulo: -1,63 ponto vezes o comparecimento das 21 UFs = 1.920.627 (intervalo de 95%: 1.602.168 a
+2.239.086); pela calibração do plantio, 2.236.768 (1.865.890 a 2.607.646). Fatia de Lula: +0,337 = 803.746 votos pela
+fórmula (253.895 a 1.358.914); pela calibração do plantio, 1.402.623 (445.207 a 2.360.039), 32% da margem. A margem é
+4.430.191.
+Exploratório (X5, X9). Se o salto inteiro do branco e nulo fosse conversão em Lula, o salto de Lula seria +0,538; o
+observado é 63% disso (a 1,7 ep; a 2,9 ep de zero). Uma conversão que virasse o resultado só nas 21 UFs (4,43 milhões;
+o branco e nulo observado ali é 3.749.590) deixaria na divisa, por extrapolação linear, branco e nulo -3,23 e Lula
++1,07: o observado é 50% e 32% disso (Lula a 6,2 ep; 4,4 ep com a divisa como unidade).
+Exploratório (X8), para onde foi o branco e nulo que falta no lado de um cargo só (ganho residual de cada candidato em
+pontos do comparecimento, mesmos pares, mesmo modelo; os dois somam o salto residual do branco e nulo com o sinal
+trocado). 2026: PT +1,02 (0,13), adversário +0,26 (0,11), fração do PT 80% [64; 97]. Com o plantio de 35%: PT +1,76
+(0,15), adversário +0,26 (0,11), fração do PT 87% [77; 97]. Divisas equivalentes: 2014, PT +1,56 (0,51), adversário
++0,36 (0,60), fração do PT 81% [26; 145]; 2018, PT +2,42 (0,17), adversário +0,08 (0,17), fração do PT 97% [85; 110];
+2022, PT +0,51 (0,12), adversário +0,58 (0,10), fração do PT 47% [29; 65]. Conversão pura prevê zero para o
+adversário; em 2026 ele recebe +0,26 (2,4 ep).
+Exploratório (X7), 2026 menos cada outro ano nas mesmas seis divisas (Lula; B+N): 2014: -0,48 (0,43); -0,89 (0,64);
+2018: -0,50 (0,31); -0,38 (0,64); 2022: +0,40 (0,18); -1,72 (0,20).
+Exploratório (X4), o que foi digitado nos nulos (RDV da amostra, 835 seções em 10 UFs; das 6 UFs só o AC, 12 seções e
+2.549 votos). No AC, 39 nulos de presidente foram digitados com o número de um dos dois finalistas de governador (11 e
+10): 1,53% do comparecimento e 36% do branco e nulo de presidente dali. Nas UFs sem 2º turno de governador os mesmos
+números aparecem em 0,27% do comparecimento (550 de 206.459). Na tela de governador do AC, 94 nulos foram digitados 13
+ou 22 (45 com 13 e 49 com 22: 48% de 13, contra 34% de Lula nos votos nominais das mesmas seções). Troca de tela (o
+número de um cargo digitado no outro) explicaria por que o nulo de presidente sobe onde há dois cargos, sem conversão.
+São 12 seções de uma UF: é pista, não medida. O teste D4-3 (onda D) mede isso no AC e no TO inteiros.
+
+T34 CORRIGIDO (salto na divisa PR contra SP e MS; filtro de coordenadas)
+Sem filtro (reproduz o publicado): J de 2026 +0,0030 (ep 0,0042); J de 2022 +0,0055 (ep 0,0024); diferença -0,0025 (ep
+0,0048); mediana do |J| das 8 divisas placebo 0,0063. SEM SINAL.
+Com filtro: J de 2026 +0,0017 (ep 0,0041); J de 2022 +0,0049 (ep 0,0022); diferença -0,0032 (ep 0,0047); mediana do
+|J| das 8 divisas placebo 0,0049. SEM SINAL.
+  divisa        sem filtro 2026: pares, J (ep)           com filtro 2026: pares, J (ep)           com filtro 2022: pares, J (ep)
+  PR-SP+MS      192  +0,0030 (0,0042)                   173  +0,0017 (0,0041)                   166  +0,0049 (0,0022)               
+  PR-SP         175  +0,0058 (0,0034)                   156  +0,0046 (0,0033)                   150  +0,0056 (0,0024)               
+  PR-MS          17  menos de 50 pares                   17  menos de 50 pares                   16  menos de 50 pares              
+  PR-SC         445  -0,0022 (0,0021)                   428  -0,0023 (0,0020)                   414  +0,0016 (0,0019)               
+  SC-RS         468  +0,0045 (0,0023)                   444  +0,0042 (0,0025)                   438  -0,0009 (0,0033)               
+  SP-MS          62  +0,0081 (0,0036)                    51  +0,0086 (0,0039)                    50  -0,0154 (0,0064)               
+  SP-MG       3.404  -0,0342 (0,0060)                   432  -0,0003 (0,0019)                   429  -0,0021 (0,0025)               
+  SP-RJ         173  +0,0000 (0,0089)                    94  +0,0094 (0,0057)                    87  -0,0095 (0,0048)               
+  MS-MT           0  menos de 50 pares                    0  menos de 50 pares                    0  menos de 50 pares              
+  MS-GO           3  menos de 50 pares                    3  menos de 50 pares                    3  menos de 50 pares              
+  MS-MG           0  menos de 50 pares                    0  menos de 50 pares                    0  menos de 50 pares              
+  MG-GO         157  +0,0042 (0,0053)                    51  +0,0004 (0,0031)                    51  +0,0030 (0,0063)               
+  GO-MT          53  +0,0110 (0,0082)                    53  +0,0110 (0,0079)                    49  menos de 50 pares              
+  MG-RJ       1.704  +0,0444 (0,0206)                   374  +0,0056 (0,0041)                   370  +0,0067 (0,0052)               
+Todas as divisas de UF do país com 50 pares ou mais, com o filtro: 32; limiar de Bonferroni 3,55 ep; passam o
+critério: 0; sem Bonferroni: 0; mediana do |J| 0,0051.
+SP-MG. Sem filtro: -0,0342 (ep 0,0060), 3.404 pares. Com filtro: -0,0003 (ep 0,0019), 432 pares. O cadastro põe 3
+locais de MG dentro da Grande São Paulo (latitude perto de -23,6, longitude perto de -46,6), a 660 a 737 km dos seus
+municípios; cada um vira par de 211, 678, 1.800 locais paulistas. Esses pares são 2.689 dos 3.404 e 81% do peso; só
+neles J = -0,0400. Tirando só esses locais (exploratório, X1): -0,0087 (ep 0,0034).
+Explicação pela composição dos eliminados (Zema e Cury separados, M1; mais Caiado e Renan Santos, M2). Sem filtro: M0
+-0,0342, M1 -0,0280, M2 -0,0298: separar os eliminados tira 18% do salto, não a metade exigida. Com filtro: M0 -0,0003
+(ep 0,0018), M1 +0,0003, M2 -0,0005: não sobra salto para explicar. Nos pares filtrados, Zema teve 0,35% do lado de SP
+e 0,81% do lado de MG; Cury, 2,92% e 2,77%. O salto de -0,034 era erro de coordenada, não composição dos eliminados.
+MG-RJ: sem filtro +0,0444 (ep 0,0206); com filtro +0,0056 (ep 0,0041). 2 locais de MG com a mesma coordenada do centro
+do Rio de Janeiro respondiam por 82% do peso.
+Em votos: um J de +0,0017 na fatia de Lula, aplicado aos 18.195.263 votos nominais de PR, SC e RS, seria 61.393 votos
+de margem; o limite de 95% (+0,0097) seria 353.631. Nada perto da margem.
+
+O QUE PESA A FAVOR DA TESE
+1. O coeficiente de 2026 (+0,0251) é o único positivo dos quatro anos e fica longe de 2014 (-0,293), o outro ano em
+   que o branco e nulo caiu entre os turnos. A queda do branco e nulo, sozinha, não explica o sinal positivo. Pela
+   letra do registro, isso é indício a cruzar com as divisas.
+2. Na divisa, o branco e nulo é 1,63 ponto mais baixo no lado de um cargo só (11,8 ep; 15 das 15 divisas com o mesmo
+   sinal), e a maior parte do que falta aparece como voto de Lula (80%, exploratório). Lido inteiro a favor da tese, o
+   salto de Lula vale de 803.746 a 1.402.623 votos.
+3. Dentro do mesmo local, seção com mais branco e nulo no 1º turno deu mais ganho a Lula que a Flávio em 2026 (+0,28 e
+   +0,29 por voto), a maior assimetria dos quatro anos.
+
+O QUE PESA CONTRA
+1. O contraste que a tese pede (6 UFs poupadas contra 21) não aparece na regressão: o coeficiente é maior nas 6
+   (+0,043) que nas 21 (+0,024), e a assimetria do item 3 acima é igual nos dois grupos.
+2. A queda maior do branco e nulo onde só há presidente existe em 2014, 2018, 2022 e 2026, significativa em todos. Não
+   é marca de 2026.
+3. O salto de Lula na divisa (+0,337, 2,9 ep; 2,0 ep com a divisa como unidade) não passa do limiar e é do tamanho do
+   que as divisas fazem quando nada deveria saltar (mediana 0,46). O mesmo padrão aparece mais forte em 2018 (+1,14),
+   ano que o PT perdeu.
+4. O adversário também ganha no lado de um cargo só: +0,26 ponto residual na divisa e +1,41 ponto dos aptos entre os
+   grupos de UFs. Conversão de branco em Lula não produz isso.
+5. Nas 6 UFs, onde a mesma urna dá a referência do governador, o branco e nulo de presidente se comporta como nas 26
+   UFs placebo. Isso exclui ali a conversão de 52% que viraria o resultado; não exclui taxas de até 32%.
+6. Entre as 25 divisas de UFs do mesmo grupo, onde o branco e nulo cai mais a fatia de Lula não sobe mais: inclinação
+   -0,01 (ep 0,13); conversão daria cerca de -0,33 (exploratório, X11). Nas 7 divisas mistas a inclinação é -0,22 (ep
+   0,11).
+7. Há mecanismo inocente com evidência direta, ainda pequena: nas 12 seções do AC com RDV, 1,5% dos eleitores anularam
+   o voto de presidente digitando o número de candidato a governador.
+
+O QUE ISSO SIGNIFICA
+O canal do branco e nulo tem teto nas duas formas. Só nas 21 UFs: todo o desnível de branco e nulo entre os dois lados
+da divisa vale de 1,92 milhão a 2,24 milhões de votos (limite de 95%: 2,61 milhões), cerca de metade da margem de
+4.430.191. A conversão que virasse o resultado por esse caminho pediria 2,0 vezes esse desnível (fica a 4,0 desvios do
+observado pela régua das divisas do mesmo grupo) e 3,2 vezes o salto de Lula (2,1 desvios pela mesma régua; 6,2 ep
+pelo bootstrap de municípios).
+Em todo o país: nas 6 UFs, único lugar com régua na mesma urna, a conversão de 52% que viraria o resultado exigiria
+uma subida natural da razão maior que qualquer uma já vista. O que os números dali deixam passar vai de 14% (contra a
+mediana do placebo; 0,68 milhão no país) a 32% (percentil 90; 1,93 milhão) ou 40% (máximo; 2,76 milhões).
+O que fica em aberto, portanto, é uma conversão parcial de até cerca de 2 milhões de votos, o tamanho que a equipe
+vermelha apontou: os dados por seção não a distinguem de eleitor que, sem a tela de governador, deixou de anular e
+votou. Sozinha não vira o resultado; somada a outro canal, importaria. Nenhum resultado daqui passa pelos três filtros
+do Adendo 27 (conferente, calibração, espelho).
+
+PISTAS
+1. D4-3 e D4-4 (onda D): os RDV mostram o que foi digitado em cada nulo. Se o nulo de presidente das 6 UFs for, em boa
+   parte, número de governador, o desnível de branco e nulo está explicado sem conversão; se não for, o item (c) volta
+   a pesar. É o teste que decide este canal.
+2. Divisas do ES: respondem por +0,189 do salto de Lula de +0,337 (ES-MG +0,128, ES-RJ +0,060; DF-GO +0,126). ES-RJ já
+   saltava em 2022 (+1,34, contra +1,51 em 2026); ES-MG não (+0,22 contra +0,98). Vale olhar município a município.
+3. As maiores quedas de branco e nulo entre os turnos foram em AL (-3,35), PB (-3,27) e PE (-2,36), todas do grupo das
+   21, e há divisas entre UFs do mesmo grupo com salto de branco e nulo de até 1,93 ponto. O contraste 6 contra 21 não
+   explica isso. Entre as 32 divisas de 2026, o salto de Lula anda -0,13 por ponto de salto do branco e nulo (ep 0,09;
+   exploratório, X11); em 2018 era -0,24 (ep 0,05), em 2022 -0,06 e em 2014 +0,02.
+4. O cadastro de locais reprova 123 coordenadas no filtro, 94 delas em MG; todo teste geográfico precisa do filtro
+   (T23b incluído).
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+1. G4 e item (c): com o plantio de 35% as condições numéricas de 2026 disparam por cima do dado observado, mas o
+   deslocamento de Lula fica em 76% do esperado e 2,7 ep; o poder do item (c) fica como LIMITADO (decisão da primeira
+   execução, depois de ver o resultado).
+2. G4 e item (b): a primeira execução não tinha aplicado a regra de poder ao item (b). Aplicada na retomada: 3,9 ep
+   (limite 4) e a DiD plantada cai dentro da faixa "sem sinal" do registro. Veredito SEM PODER; pela letra do critério
+   seria INCONCLUSIVO.
+3. Item (c): a terceira condição do SINAL falha por 2018 e 2014 qualquer que seja o dado de 2026; o critério, como
+   escrito, não tinha como dar SINAL.
+4. Conferência do T34 sem filtro: 2 das 9 divisas diferem do publicado na quarta casa (SC-RS e MG-RJ em 2026), por
+   empate entre locais de coordenadas idênticas na busca do vizinho mais próximo.
+5. Retomada depois do reinício do container: as funções das partes registradas não mudaram e os números delas saíram
+   idênticos aos dos parciais da primeira execução (conferido campo a campo); exploratorio() e escrever() foram
+   escritas na retomada.
+6. O registro pede a variação do comparecimento como terceiro desfecho do item (c); ela foi medida (salto de +0,163,
+   ep 0,229) e não entra no critério.
+7. Exploratório (X1 a X11): tudo escolhido depois de ver os resultados das partes registradas; não muda veredito.
+
+ARQUIVOS
+  scripts/analisar_R27_A1.py
+  resultados/R27_A1_branco_nulo.json
+  resultados/R27_A1_branco_nulo.txt
+  /home/user/trabalho-eleicao/adendo27/R27_A1/ (parciais por parte, logs, docstring registrado antes de rodar, parciais da primeira execução)
