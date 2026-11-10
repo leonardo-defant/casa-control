@@ -1,0 +1,1057 @@
+LEITOR DO CHAT: PEDIDOS DO LÉO, O QUE FOI ATENDIDO E O QUE FICOU PARA TRÁS
+Gerado em 09/11/2026. Adendo 27, etapa de leitura do chat.
+
+RESUMO
+Li a conversa inteira (12.009 eventos, de 26/10 a 09/11/2026). O Léo mandou 93 entradas: 87 com texto ou
+anexo, 5 com imagem e uma resposta de múltipla escolha; uma delas é repetição. Mais de um terço é a produção
+do vídeo de 3 minutos e a divulgação dele (27/10). Quase tudo o que ele pediu foi respondido e está no
+repositório: 81 entradas atendidas, 9 em parte, 1 recusada (escrever como fraudar sem deixar evidência; virou
+a CACA_AO_FURO pelo lado da detecção) e 1 em andamento (o pedido atual). O que ficou para trás, em ordem de
+peso: (1) a pergunta que ele fez na primeira hora, "como averiguar" quem saiu e quem entrou entre os turnos,
+nunca teve medida direta; a explicação sem fraude (troca de eleitores) nunca foi testada. (2) Catorze
+hipóteses ou suspeitas dele não viraram teste próprio ou ficaram pela metade, entre elas o desvio que "errou a
+mão", a fraude só no presidente vista no 1º turno contra os outros cargos da mesma urna, a "linearidade" da
+virada, o malware na carga dos candidatos por lote e o caderno dos mesários. (3) O revisor cético (Codex,
+repositório eleicoes-2026) nunca aconteceu. (4) Depois de "faça tudo que não depende de pedir algo a alguém"
+(31/10), o assistente voltou a perguntar antes de rodar: seções novas, exterior país a país, caso 1 do painel
+e 2014 por modelo de urna ficaram oferecidos e parados. (5) O RETOMAR.md cobre bem os Adendos 23 a 26 e 6
+pistas, mas omite 15 pontos listados aqui. Achado lateral ao ler os arquivos: a divisa placebo SP-MG do T34
+saltou -0,034 (5,7 erros-padrão) em 2026 contra +0,010 em 2022, e isso não foi relatado nem explicado.
+
+MÉTODO
+As mensagens do Léo foram tiradas dos eventos de fila do jsonl (queue-operation, enqueue), que guardam cada
+mensagem no instante em que ele enviou, e conferidas com os eventos de tipo user. Ficaram de fora: avisos de
+tarefa, retornos de subagentes, avisos de hook e os 6 resumos de compactação. Os horários são UTC (Cuiabá é
+UTC-4). Mensagens muito longas foram encurtadas com [...]; o campo texto_integral diz quando o texto é
+integral. Para julgar se cada pedido foi atendido, li as 340 respostas em texto do assistente e conferi a
+existência dos arquivos citados no repositório. Não refiz nenhuma conta. Nos trechos literais, travessões
+foram trocados por hífen ou vírgula.
+
+1. MENSAGENS DO LÉO, EM ORDEM (93 entradas)
+
+M01 | 26/10/2026 10:38 UTC | pedido inicial | atendido: sim
+  Texto (encurtado): Três anexos, sem texto: eleicao-2026-parte3-secoes2018.zip,
+  eleicao-2026-parte2-secoes2022.zip e CONTEXTO-ELEICAO-2026.md. O pedido está no documento (seção 0): ler o
+  contexto, com atenção à seção 0.1 ("o que queremos sobre fraude"), rodar auditoria/rodar_2026.sh, dizer se
+  os boletins do 2º turno saíram, aplicar os critérios da seção 7 "sem suavizar para nenhum lado" e, se não
+  saíram, avançar nos testes da seção 0.1 que não dependem deles.
+  Onde: CONTEXTO-ELEICAO-2026-original.md (cópia idêntica do anexo); PRE-REGISTRO-2026-10-26.md (registro
+  inicial e Adendos 1 a 3); scripts/ (reescritos, porque a parte 1 do pacote, com o código e o 1º turno de
+  2026, nunca chegou); dados/secoes2018.json.gz e dados/secoes2022.json.gz (mesmo SHA-256 dos zips);
+  resultados/T4_referencias.txt, T5_1turno.txt, validacao_decodificador_1t.json
+  Obs.: Os itens 8.2 do documento ficaram assim: 1, 2, 3, 7, 8, 9 e 10 feitos; 4 (as cédulas do teste de
+  integridade têm branco e nulo para presidente?) nunca respondido; 5 (votacao_secao do TSE com o 2º turno)
+  trocado pelo bweb; 6 (robô em página web) não pedido; 11 (boletins escaneados pelos fiscais do PL) nunca
+  publicados.
+
+M02 | 26/10/2026 10:48 UTC | hipótese e pedido | atendido: sim
+  Texto: Uma coisa que não faz sentido é  / Além de toda a disxonfianca: / Tinhas aprox 9 milhões de votos de
+  outros candidatos pra migrar (quase todos apoiaram Flávio e nenhum Lula) / Tiveram 3 milhões a mais de
+  votantes (que já não é normal) / E tinham mais 5 milhões de brancos e nulos tomando lado (que já não é
+  normal tbm) / Flávio fez 3,6 mi de votos a mais, que é menos de 50% dos votos de outros candidatos, Lula
+  teria que ter feito 100% do resto, o que é praticamente impossível, /  / Mas essa é uma análise macro /  /
+  Os votos não são os mesmos votantes podem ter saído e entrado e a gente só vê a soma estadística mas tbm não
+  é fácil comprovar que houve tanta mudança  / Como averiguar?
+  Onde: resultados/decomposicao_fluxos_2026.txt; PRE-REGISTRO Adendos 3 e 4 (T7, T8, T9);
+  resultados/T7_T8_T14_amostra.txt, T9_biometria_amostra_inteira.json
+  Obs.: A conta foi corrigida (branco e nulo caiu 1,82 milhão, não 5). O "como averiguar" virou os testes de
+  fluxo por seção. Quem de fato entrou e saiu entre os turnos continua sem medida direta (falta o perfil do
+  comparecimento do 2º turno).
+
+M03 | 26/10/2026 11:22 UTC | correção de fato | atendido: sim
+  Texto: Cury apoiou oficialmente Flavio
+  Onde: README.md seção 4; resultados/contexto_2t_2026_pesquisa_verificada.json
+  Obs.: O assistente reconheceu o erro: Cury oficializou apoio a Flávio em 08/10, com condições.
+
+M04 | 26/10/2026 11:25 UTC | hipótese | atendido: sim
+  Texto: Outra coisa Flavio não cresceu em nenhum estado entre primeiro e segundo turno, levando em
+  consideração o apoio dos outros candidatos não faz sentido estatisticamente
+  Onde: resultados/flavio_por_uf.txt, flavio_previsto_por_uf.txt, T38_pontos_por_uf.txt
+  Obs.: Em votos, Flávio cresceu em 22 de 28 UFs; ver a mensagem seguinte sobre porcentagem.
+
+M05 | 26/10/2026 11:27 UTC | instrução de método | atendido: parcial
+  Texto: Leve em consideração prioritariamente as pesquisas que mais acertaram verita e gerp
+  Onde: resultados/verita_gerp.txt, erro_pesquisas_2t.txt
+  Obs.: Foi feito o cenário "se Veritá e Gerp estivessem certas" (as duas foram as que mais erraram no 2º
+  turno). Os testes de pesquisa seguintes (T11, T12, T13, T33, L5, F13, F17) usaram todos os institutos, sem
+  peso maior para as duas.
+
+M06 | 26/10/2026 11:36 UTC | esclarecimento | atendido: sim
+  Texto: Sobre Flavio não crescer estou falando crescer em %
+  Onde: resultados/flavio_previsto_por_uf.txt; README.md seção 5.1 item 1
+  Obs.: Confirmado: a fatia de Flávio entre os dois finalistas caiu nas 27 UFs; em % dos válidos subiu em 20.
+
+M07 | 26/10/2026 11:39 UTC | hipótese | atendido: sim
+  Texto: Não se esqueça ao comparar com outras eleições, não existiam candidatos de esquerda pra uma
+  transferência expressiva de votos de candidato pra candidato / Flávio fez 47% no primeiro turno tendo outros
+  vários candidatos com o mesmo apelo “anti PT” como concorrentes, o natural seria a transferência de votos,
+  como nos outros anos, ser dele, e não de Lula! A ideia da lógica, ao meu ver, seria Flávio fez uma votação X
+  no primeiro turno e teria um crescimento de fotos e % no segundo, tal como Bolsonaro em 2022
+  Onde: resultados/transferencia_2022_x_2026.txt
+  Obs.: Resposta contrariou a premissa (2018 e 2022 tinham bloco de esquerda para transferir; 2006 teve o
+  candidato anti PT perdendo votos).
+
+M08 | 26/10/2026 11:41 UTC | hipótese | atendido: sim
+  Texto: E se existiu aumento da abstenção onde Flávio prioritariamente ganhou a queda de abstenção , que já é
+  questionável, pode ser ainda maior se levarmos em consideração estados que Lula estava a frente e fez ainda
+  mais % de votos
+  Onde: resultados/abstencao_por_forca.txt, comparecimento_x_virada_uf.txt, comparecimento_norte_historico.txt
+  Obs.: Hipótese não confirmada: o comparecimento subiu por igual nos redutos dos dois lados; a queda no Norte
+  se repete em todo 2º turno.
+
+M09 | 26/10/2026 11:51 UTC | tese central | atendido: parcial
+  Texto: Não acredito que haja fraude no número de eleitores / Isso é mais fácil de pegar, mas vamos verificar
+  / Minha suspeita é que o sistema da urna é corrompido / Minha tese é que eles programaram o desvio
+  previamente e erraram a mão, pq o resultado do Lula não é explicável estatisticamente / Chegaremos à
+  conclusão que há uma alteração entre primeiro e segundo turno, e com base nas pesquisas em geral do segundo
+  turno, que não se sustenta pela lógica, digo, Lula ganhar estaria dentro da margem de erro de algumas
+  pesquisas, mas ganhar 11 milhões de votos dentro desse universo foi escrachado
+  Onde: resultados/T10_software_amostra_inteira.txt, erro_pesquisas_2t.txt; README.md seção 3
+  Obs.: Testado: o programa não mudou entre os turnos (T10) e o tamanho do erro das pesquisas. A parte
+  "erraram a mão" nunca virou teste próprio. A pergunta do assistente ("se T7, DF e biometria não derem nada,
+  você aceita que a tese perde sustentação?") ficou sem resposta do Léo.
+
+M10 | 26/10/2026 12:05 UTC | objeção | atendido: sim
+  Texto: Vc não pode afirmar que o programa da urna é seguro! Olhe as falhas que foram descobertas no php
+  nessa semana! Enfim nenhum sistema é seguro hoje! / Imagina um que nem teve escrutínio público amplo pra
+  avaliação
+  Onde: só no chat (linha 1299 do jsonl); depois resultados/onde_pode_estar_a_fraude.txt
+  Obs.: O assistente corrigiu a formulação: T10 só mostra que o programa não foi trocado entre os turnos, não
+  que é seguro.
+
+M11 | 26/10/2026 12:18 UTC | enquadramento e hipóteses | atendido: sim
+  Texto (encurtado): Então, deixa eu te falar. A gente não vai conseguir identificar se existe um malware no
+  sistema ou não. Porque isso só se a gente auditasse o código, e isso é impossível. O que que a gente tem que
+  tentar entender? É a discrepância que possa existir entre os dados reais das urnas [...] e a lógica do mundo
+  real, onde as pesquisas e a lógica sobre transferência de votos, sobre esquerda, direita, rejeição do Lula,
+  dados históricos de abstenção, brancos e nulos, e também da aumento aí da participação da fatia final do
+  Lula em estados que são predominantemente de direita, mostrariam uma falta de lógica nos resultados, não
+  estatística, falta de lógica [...] existe também pesquisas que têm claramente um viés de esquerda e que
+  estiveram envolvidas em escândalos ali recentemente, por exemplo, do Banco Master [...] a gente tem que
+  buscar também as pesquisas que são mais isentas e que tiveram a melhor assertividade aí nos últimos anos
+  [...] a falta de lógica desse candidato ter ganho 11 milhões de votos em cima daquilo que parecia já ser o
+  teto de votos [...] Lembrando que não houve carga nova de sistema nas urnas. Pode ter havido, sim, um
+  malware quando colocaram os candidatos novos, tá? Mesmo não sendo o mesmo sistema, eu sei. Pode ter havido
+  também que esse sistema é corrompido desde o começo. [...] Então a gente parte do pressuposto de que a urna
+  não é confiável, porque não é.
+  Onde: PRE-REGISTRO Adendo 7 (T11, T12, T13); resultados/T11_T12_T13.txt,
+  nacionais_2026_pesquisas_verificadas.txt, nacionais_2018_2022_pesquisas_verificadas.txt,
+  rejeicao_2018_2022_pesquisas_verificadas.txt, banco_master_pesquisas_verificadas.txt,
+  estaduais_gov_pres_pesquisas_verificadas.txt
+  Obs.: T11 sem sinal, T12 frágil (vira sinal sem o PoderData), T13 sem sinal. "Malware na carga dos
+  candidatos" só foi olhado depois (T20, L2, F9, com pouco poder).
+
+M12 | 26/10/2026 12:30 UTC | material para checar | atendido: sim
+  Texto (encurtado): Análise esse contexto [resumo, escrito por ele, do reel de Alex Ribeiro (@lex.rill),
+  instagram.com/reel/De8_-V_xAJG/, de 26/10/2026: "0 em 7" viradas de 2º turno desde 1989; "3 em 1000" pela
+  margem de erro das pesquisas da véspera; Lula ficou com 3 de cada 4 dos 14,1 milhões de votos em jogo e
+  teria precisado de 6 em cada 10 eleitores de Cury, Renan, Caiado e Zema]
+  Onde: resultados/analise_reel_lexrill.txt; README.md seções 3 e 4
+  Obs.: Números do vídeo conferem; as conclusões não ("3 em 1000" vira cerca de 28% com o erro real das
+  pesquisas).
+
+M13 | 26/10/2026 12:41 UTC | pedido de método | atendido: parcial
+  Texto: O que temos que averiguar tbm, fora tudo que já está fazendo é, pensarmos pela cabeça de quem
+  tentaria fraudar a eleição, / Ele saberia que isso seria averiguado pelo mundo todo posteriormente, a
+  pergunta é: / Como essa pessoa agiria e como ela tentaria fraudar a eleição? Difícil saber, mas aonde esses
+  números seriam refletidos na apuração? Aonde pode haver pistas da fraude e onde a lógica não faz sentido?
+  Onde: PRE-REGISTRO Adendo 9 (T15 a T33); resultados/ADENDO9_resultados_amostra.txt; depois
+  resultados/onde_pode_estar_a_fraude.txt e CACA_AO_FURO.txt
+  Obs.: A modelagem de ameaça com 5 perfis virou 19 testes. Nunca rodaram: T24 (QR dos boletins dos fiscais),
+  T25 (cadernos e óbitos), T26 (urnas do teste de integridade), por dependerem de terceiros, e T32 (idade de
+  quem passou a comparecer), por falta do perfil do 2º turno. T29, T31 e T36 saíram sem poder.
+
+M14 | 26/10/2026 12:54 UTC | hipótese e pedido de pesquisa | atendido: sim
+  Texto: Só um detalhe pra adicionar no contexto, dos 9,2 milhões de votos dos outros candidatos é natural que
+  houvesse boa parte de abstenção já, de eleitores deles que não iriam votar ou votar brancos e nulos, então
+  se abstenção caiu e branco e nulos tbm, quer dizer que ainda mais eleitores novos apareceram pra compensar
+  esse que naturalmente não iriam / Segundo ponto é sobre esses seriam massivamente do Lula, quase 100%. O que
+  não faz sentido / E tbm pesquisar sobre a quantidade total de votos do primeiro e do segundo turno das
+  eleições anteriores em % / Pq me parece que nesse o % de votos cresceu consideravelmente sobre o que
+  “deveria” ter sido estatisticamente
+  Onde: resultados/historico_comparecimento_bn.txt, decomposicao_fluxos_2026.txt
+  Obs.: O assistente reconheceu: em saldo, "quase 100% para Lula" se sustenta (99% se Flávio levou 39% dos
+  eliminados).
+
+M15 | 26/10/2026 13:57 UTC | status | atendido: sim
+  Texto: como estamos?
+  Onde: só no chat
+
+M16 | 26/10/2026 14:10 UTC | plano de revisão | atendido: parcial
+  Texto: criei um novo repo, eleicoes-2026, vamos usar ele depois pra colocar o context todo da sessao e
+  trabalhar em colaboracao com o codex, ele vai ser nosso revisor cetico da nossa pesquisa
+  Onde: PARA-O-REVISOR.md; reproducao/ (listas, logs e revisões)
+  Obs.: O documento para o Codex foi escrito e conferido em 26/10, mas a pasta nunca foi levada ao repositório
+  eleicoes-2026 e o Codex nunca revisou nada. PARA-O-REVISOR.md parou em 26/10 17h51 UTC e não cobre os
+  Adendos 14 a 26. O assistente disse duas vezes "quando você quiser, levo"; o Léo não voltou ao assunto.
+
+M17 | 26/10/2026 15:41 UTC | status | atendido: sim
+  Texto: como está?
+  Onde: só no chat
+
+M18 | 26/10/2026 15:47 UTC | status | atendido: sim
+  Texto: pq nao rodou?
+  Onde: só no chat; reproducao/consultas_bweb_2t.txt
+  Obs.: Não tinha rodado porque o bweb do 2º turno ainda não existia.
+
+M19 | 26/10/2026 18:03 UTC | pergunta | atendido: sim
+  Texto: segundo a midia quando devem sair os boletins de urna?
+  Onde: só no chat (linha 2897); reproducao/consultas_bweb_2t.txt
+  Obs.: Sem data anunciada; pelo histórico, 2 dias depois. Saiu em 27/10 à tarde.
+
+M20 | 26/10/2026 18:28 UTC | pergunta | atendido: sim
+  Texto: o que a gente ja consegue inferir agora mesmo sem isso?
+  Onde: só no chat (linha 2911); PARA-O-REVISOR.md seção 5
+
+M21 | 26/10/2026 20:00 UTC | hipótese (a conta dos 100%) | atendido: sim
+  Texto: cara, nao faz sentido isso que vc ta falando de ser resultado real / flavio teria que converter
+  apenas 40% (no máximo) dos votos de outros candidatos Lula, 100% do restante de 60% dos votos que sobraram,
+  100% dos votos brancos e nulos converidos e 100% da abtencão negativa /  / correto?
+  Onde: resultados/decomposicao_fluxos_2026.txt; README.md seção 2
+  Obs.: A conta está certa como saldo; a mesma conta em 2022 daria 237% para Bolsonaro.
+
+M22 | 26/10/2026 20:12 UTC | objeção e orientação | atendido: sim
+  Texto: 1 vc esta dizendo que entre todo mundo que saiu e entrou o saldo é 100% pro Lula, como vc disse, é
+  saldo e se for por esse lado a conta fica ainda pior, pq do lado do lula nao saiu niguem.... / 2 a situação
+  não é comparável, são todos contra o PT no brasil, e a conta nao fecha... nao existe transferencia de votos
+  de PL pra PT, existe de qualquer outro pra "contra PT" e é isso... / 3 isso prova uma anomalia ABSURDA e
+  inédita, vc não tem que se preocupar com a matemática, ela vai fechar, invariávelmemte, estamos atrás de uma
+  conspiração e vc tem que tentar enxergar o que ninguem ve! / como roubar uma eleicao com urnas opacas sem
+  deixar evidencias estatisticas... acho que eles falharam pq a lógica nao vai fechar essa conta
+  Onde: resultados/exploratorio_perda_propria_por_regiao.txt
+  Obs.: O dado contrariou o ponto 1: Lula perdeu cerca de 1% dos próprios eleitores e Flávio cerca de 5%
+  (quase zero no Sul).
+
+M23 | 26/10/2026 20:30 UTC | cobrança de postura | atendido: sim
+  Texto: acho que vc perdeu o contexto do que precisamos fazer nessa sessao, e vc esta me refutando ao inves
+  de tentar entender o que aconteceu...
+  Onde: PRE-REGISTRO Adendos 14 e 15; resultados/ADENDO14_e_T39_resultados.txt,
+  T35_e_inversao_do_vazamento_amostra.txt, T34_divisa_2026.txt
+  Obs.: O assistente reconheceu que estava só rebatendo e montou o cenário de fraude que cabe nos dados (troca
+  de 4% a 5% dos votos de Flávio dentro do programa) e onde ele deixaria marca. Dos 4 pontos prometidos, o 3º
+  (Nordeste contra fiscalização do PL) nunca foi feito.
+
+M24 | 26/10/2026 21:14 UTC | contexto, hipóteses e orientação | atendido: sim
+  Texto (encurtado): Eu não analisei ainda o que você escreveu. Mas só para te dar mais contexto, tá? A
+  direita, o Flávio, elegeu a maior bancada da história do Congresso Nacional [...] mais de 120 pessoas só do
+  PL [...] mais de 50% já do Senado [...] A maioria dos governadores apoiaram, o Flávio [...] Michel Temer,
+  apoiou Flávio [...] os outros candidatos que foram derrotados no primeiro turno, também apoiaram o Flávio
+  [...] as pesquisas colocando ele na frente, os treques internos, tanto do PT quanto do Flávio, apontando que
+  ele tinha 4 a 6 pontos de vantagem. Também o fato do ex-advogado dele paralisar a apuração da eleição depois
+  das 17 horas [...] ele não conseguiu em nem um estado ter um saldo positivo em percentual de votos em
+  relação ao Lula? [...] E por município também? E os brancos e nulos, no caso de fraude, não são convertidos
+  porque eles são intocados. Esse é o dado que você está vendo, né? Mas e se esse dado já foi fraudado? [...]
+  imagina se o malware ele converte esses dados automaticamente de branco e nulo [...] ele foi melhor em todos
+  os debates também [...] Eu não quero que você fique analisando outras eleições, compare o contexto do agora.
+  E veja se existe lógica nisso. Porque não existe. E a gente tem que pensar pelo lado de que alguém fraudou
+  essa eleição e tentar descobrir como e onde.
+  Onde: resultados/contexto_2t_2026_e_onde_estaria_a_fraude.txt, contexto_2t_2026_pesquisa_verificada.json,
+  ADENDO16_resultados.txt, T38_municipios.txt, T38_pontos_por_uf.txt, teste_integridade_df_2026.txt; README.md
+  seções 3 e 4
+  Obs.: Contexto conferido com fonte (121 deputados; 12 de 21 governadores; "4 a 6 pontos" vem de uma fonte
+  anônima). Os debates não foram medidos. A orientação "sem outras eleições como régua" só foi cumprida por
+  inteiro no Adendo 18, depois de ele repetir o pedido em 29/10.
+
+M25 | 26/10/2026 22:23 UTC | pedido | atendido: sim
+  Texto: Adicione  Trump e musk acusam a eleição de fraude
+  Onde: resultados/trump_musk_2t_2026_verificado.json; contexto_2t_2026_e_onde_estaria_a_fraude.txt item 4;
+  README.md seção 4
+  Obs.: Com a ressalva: Trump acusou com as próprias palavras; Musk endossou posts de terceiros.
+
+M26 | 26/10/2026 23:31 UTC | status | atendido: sim
+  Texto: Novidades?
+  Onde: só no chat
+
+M27 | 26/10/2026 23:52 UTC | status | atendido: sim
+  Texto: Como estamos com o download?
+  Onde: só no chat
+
+M28 | 27/10/2026 00:07 UTC | status | atendido: sim
+  Texto: Status
+  Onde: só no chat
+
+M29 | 27/10/2026 01:03 UTC | pergunta | atendido: sim
+  Texto: Quantos votos estamos falando nesse saldo quanto Flávio ganhou mais que Lula nessas cidades?
+  Onde: resultados/T38_municipios.txt
+  Obs.: Saldo de Flávio nas 339 cidades: 25.300 votos.
+
+M30 | 27/10/2026 01:35 UTC | hipótese | atendido: sim
+  Texto: Ai a gente tá começando a entender o que eu estou dizendo / 94% dos municípios do Brasil tiveram
+  uníssonos Lula a frente, levando em consideração todo contexto que te passei! / É praticamente impossível!
+  Onde: resultados/T38_municipios.txt e .json (chave uniformidade); README.md seção 5.1 item 7
+  Obs.: Resposta: os 94% saem da própria virada nacional (previsto 2,6% de cidades para Flávio, observado
+  3,3%); não é prova independente. Não houve teste de dispersão pequena demais.
+
+M31 | 27/10/2026 01:38 UTC | pedido | atendido: sim
+  Texto: Primeiro, pra não perder contexto quero que vc crie um read me pra manter no repo com o contexto todo
+  que te passei da situação com os detalhes que apontei e com os fatos que levantamos
+  Onde: README.md
+  Obs.: Criado em 27/10 e conferido duas vezes por verificadores.
+
+M32 | 27/10/2026 02:06 UTC | pedido (vídeo) | atendido: sim
+  Texto: Ok eu quero fazer um vídeo informativo com esse nosso último achado frisando o quanto isso é
+  estranho, ou seja, numa eleição extremamente polarizada existir apenas 6% das cidades que o candidato Flávio
+  ganhou mais votos que o Lula, e em% de votos então aí é ínfimo mesmo / Como quero o vídeo, a gente faz o
+  roteiro de como vamos apresentar os fatos / A gente gera as telas com imagens no Higgsfield e depois a gente
+  anima elas, quero um vídeo animado no estilo /motion bem, quero algo didático e explicativo narrado com
+  minha voz que tem no Higgs já
+  Onde: video/roteiro_v1.md
+  Obs.: O assistente recusou dizer que os 6% são estranhos em si e propôs enquadrar como perguntas.
+
+M33 | 27/10/2026 02:10 UTC | pedido (vídeo) | atendido: parcial
+  Texto: Eu não quero os pontos 7 e 8 / Quero que a gente levante mais dúvidas legitimas  / São 6.000.000 de
+  votos de diferença em 96% dos municípios  / Incluindo toda a parte do Brasil onde a direita é forte / É como
+  uma eswuerdalizacao geral do país / O que é bem suspeito
+  Onde: video/roteiro_v2.md
+  Obs.: Tirou as cenas 7 e 8, mas manteve uma frase de fechamento com o que foi verificado; "esquerdalização
+  geral suspeita" entrou como pergunta, não como afirmação.
+
+M34 | 27/10/2026 02:59 UTC | pedido (vídeo) | atendido: sim
+  Texto: Ok vale a pena trazer aquela minha conta / 9 milhões de outros / 3 abstenção / 1.8 brancos e nulos /
+  Se Flávio fez 40% Lula precisaria de 100% do restante
+  Onde: video/roteiro_v3.md
+
+M35 | 27/10/2026 03:04 UTC | aprovação | atendido: não se aplica
+  Texto: 1 aprovado / 2 Vamos fazer 9:16 / 3 sim
+  Onde: video/roteiro_v3.md
+  Obs.: Aprovou a v3, formato 9:16 e o uso de créditos.
+
+M36 | 27/10/2026 03:20 UTC | pedido (vídeo) | atendido: sim
+  Texto: Eu quero que vc fale que Lula precisaria de 100% dos restantes, é minha observação e eu quero ser o
+  espreitado
+  Onde: video/narracao_v5.json
+  Obs.: Entrou "Lula precisaria de 100% de todo o restante", com "se foi isso" e "é o saldo, não é cada
+  eleitor".
+
+M37 | 27/10/2026 03:21 UTC | pedido (vídeo) | atendido: sim
+  Texto: Vc trocou por 3 de cada 4 e não é essa ênfase que quero dar
+  Onde: video/narracao_v5.json
+  Obs.: O "3 de cada 4" saiu.
+
+M38 | 27/10/2026 03:34 UTC | cobrança | atendido: sim
+  Texto: Não era pra eu aprovar o áudio primeiro?
+  Onde: só no chat (áudio enviado)
+  Obs.: O assistente admitiu ter pulado a aprovação do áudio.
+
+M39 | 27/10/2026 03:42 UTC | pedido (vídeo) | atendido: sim
+  Texto: 3 pontos / Quando a gente fala que o Brasil inteiro moveu pra um lado( quero que comece a frase com
+  “contrariando a lógica” pq acabamos de falar dos apoios / Na parte dos apoios ficou faltando falar o tamanho
+  da base eleita do PL deputados e senadores / Outra coisa, na conclusão não é só os boletins de urna TCU é
+  integridade, a urna não pode ser auditada e no mundo de hoje não dá pra confiar seganente em softwares  /
+  Quero concluir nesse sentido / Quarto tem alguns áudios que estão cortados o final de acaba dando um gap
+  entre uma narração e outra
+  Onde: video/narracao_v6.json
+  Obs.: "Contrariando a lógica" ficou amarrado aos apoios; bancada do PL incluída; o fechamento "a urna não
+  pode ser auditada" gerou depois as versões A e B.
+
+M40 | 27/10/2026 03:58 UTC | pedido (vídeo) | atendido: sim
+  Texto: Em  / Eu vou dormir consegue mandar o áudio?
+  Onde: só no chat (narracao_v6.mp3 enviada)
+
+M41 | 27/10/2026 04:03 UTC | pedido (vídeo) | atendido: sim
+  Texto: Bem eu tô indo dormir  / Quando finalizar vamos fazer log pra vídeo e quando acordar eu vejo
+  Onde: só no chat
+  Obs.: O vídeo foi finalizado durante a noite.
+
+M42 | 27/10/2026 08:48 UTC | pedido (vídeo) | atendido: sim
+  Texto: 1 faz duas versões / 2 quero máximo 3 min
+  Onde: video/cortes/corte_3min_A.json e corte_3min_B.json; video/narracao_3min_A.json e _B.json
+
+M43 | 27/10/2026 09:09 UTC | escolha | atendido: sim
+  Texto (encurtado): [sem texto na fila; no mesmo momento ele respondeu à pergunta de múltipla escolha do
+  corte de 3 minutos com "Manter base e prorrogação"]
+  Onde: video/cortes/
+
+M44 | 27/10/2026 09:42 UTC | status | atendido: sim
+  Texto: Quanto tempo faltam?
+  Onde: só no chat
+
+M45 | 27/10/2026 09:54 UTC | status | atendido: sim
+  Texto: E aí?
+  Onde: só no chat
+
+M46 | 27/10/2026 10:16 UTC | pedido (vídeo) | atendido: parcial
+  Texto: Tá legal / Ele tá falando témer e não Têmer / Alguns detalhes quero que ao mostrar os 94% de cidades
+  que Lula cresceu em relação a Flávio que seja destacado o quanto essa linearidade é suspeita! É muito
+  estranho / Falar que é estranho o fato de Flávio ter perdido eleitores pra Lula dentro do saldo,
+  significaria que se cada 20 eleitores do Flávio, 1 votou pro Lula, se não a conta não fecha  / A frase “a
+  pedido da coligação de Lula” está em outro tom e bem mais alto que o resto do áudio em geral  / Sobre zanin,
+  falar que ele não tinha legitimidade jurídica pra decidir, afinal a autoridade competente é o TSE, ele
+  decidiu em minutos, algo não exequível, desequilibrou o pleito e trouxe uma dúvida, é pouco provável que
+  essa prorrogação fosse relevante pro resultado final.. a pergunta é: nessas duas horas aconteceu o que nos
+  bastidores da apuração? / Sobre a conta fechar e não o voto tá ótimo complementaria dizendo, sobre a fraude
+  não dá pra afirmar com 100% de certeza que nada aconteceu DENTRO da urna / Concluiria ressaltando novamente
+  todas as estranhezas encontradas em tópicos  / Trazendo o contexto geral que indicava Flávio como favorito
+  todos os pontos que apontavam pra um lado e como misteriosamente e sem explicação o pleito correu pro lado
+  inverso e com números impressionantes / Minimamente podemos dizer “estranho” é muita coisa precisa ser
+  explicada /  / Gostaria tbm que minha voz tivesse uma aparência mais de voz de estúdio tá muito “celular
+  caption” eu gravei ela com celular mesmo mas queria saber se dá pra mudar a aparência sem eu gravar de novo
+  Onde: video/narracao_3min_v2_el_A.json e seguintes
+  Obs.: Feito: "Têmer", 1 em cada 20, tom da frase, Zanin ("Para mim, isso cabia à Justiça Eleitoral"), lista
+  das estranhezas, voz de estúdio. Mudado pelo assistente: a "linearidade suspeita" entrou como opinião ("Para
+  mim, isso é muito estranho"), e "se não a conta não fecha" foi trocado por "perto do que bastava para virar
+  o resultado".
+
+M47 | 27/10/2026 10:20 UTC | pedido (vídeo) | atendido: sim
+  Texto: Se quiser manda os áudios pra eu opinar
+  Onde: só no chat (amostras enviadas)
+
+M48 | 27/10/2026 10:25 UTC | escolha | atendido: sim
+  Texto: 4
+  Onde: video/narracao_3min_v3_A.json
+  Obs.: Escolheu a voz 4 (ElevenLabs com tratamento).
+
+M49 | 27/10/2026 10:31 UTC | pedido (vídeo) | atendido: sim
+  Texto: O final, e o país inteiro, em 94% das cidades, num movimento que apresenta sinais de linearidade,
+  mudou pra Lula… e aí segue
+  Onde: video/narracao_3min_v4_A.json e _B.json
+  Obs.: Entrou com "andou para o lado de Lula" no lugar de "mudou pra Lula".
+
+M50 | 27/10/2026 10:36 UTC | cobrança | atendido: sim
+  Texto: Escreve em pt né mano / Tá doido!?
+  Onde: só no chat
+  Obs.: O assistente tinha passado a responder em inglês; voltou ao português.
+
+M51 | 27/10/2026 10:40 UTC | pedido (vídeo) | atendido: sim
+  Texto: Dava pra colocar uma foto do zanin com Lula nesse slide  / Tem várias mas eu buscaria numa foto deles
+  pessoal, Lula foi padrinho de casamento dele / Dava pra ser essa
+  Onde: video/motor/ (cena da prorrogação)
+  Obs.: Foto usada com a legenda "Zanin no casamento de Lula e Janja, em 2022". "Lula padrinho de casamento do
+  Zanin" não foi confirmado por nenhuma fonte e ficou de fora.
+
+M52 | 27/10/2026 10:55 UTC | pedido (vídeo) | atendido: sim
+  Texto: Cara ficou ótima a nova narração, não corte nada do vídeo, se ele passar um pouco de 3 min a gente
+  acelera ele um pouco depois de finalizado a validado
+  Onde: video/narracao_3min_v4_A.json e _B.json
+
+M53 | 27/10/2026 10:56 UTC | material | atendido: sim
+  Texto: Aqui a foto do casamento de Lula que zanin foi padrinho
+  https://static.poder360.com.br/2023/05/Cristiano-Zanin-no-casamento-de-Lula-e-Janja.jpg
+  Onde: video/motor/
+  Obs.: A mesma foto do Poder360 já baixada; aviso de risco de direito autoral.
+
+M54 | 27/10/2026 11:00 UTC | pedido (vídeo) | atendido: sim
+  Texto: Quero uns 3 exemplos de música pra gente colocar como fundo musical pra voz, quero algo na linha tipo
+  investigação policial, aquelas músicas que tocam em filmes de investigação enquanto as pessoas procuram
+  provas / Manda 3 músicas dessas libre de direitos autorais pra eu escolher 1
+  Onde: só no chat (3 faixas enviadas)
+  Obs.: Escolhida a música 1 ("Intervention", Scott Buckley, CC BY: crédito obrigatório na legenda).
+
+M55 | 27/10/2026 11:03 UTC | material | atendido: sim
+  Texto (encurtado): [imagem: foto de Lula, Janja, Zanin e esposa no casamento de 2022]
+  Onde: video/motor/
+
+M56 | 27/10/2026 11:04 UTC | pedido (vídeo) | atendido: sim
+  Texto: Trazer isso escrito tbm  /  /    •       o sogro do Zanin é compadre do Lula há uns 40 anos e
+  padrinho de um filho dele; /       •       o Lula conhece a esposa do Zanin desde criança; /       •       o
+  Zanin e a esposa foram convidados no casamento do Lula com a Janja, em 2022.
+  Onde: video/motor/ (cena da prorrogação)
+  Obs.: Os 3 fatos entraram na tela; "desde criança" virou "desde menina", que é o que a fonte diz.
+
+M57 | 27/10/2026 11:34 UTC | pedido (vídeo) | atendido: sim
+  Texto: Música 1 mas ela tá muito baixa no mix com a voz da pra dobrar a altura dela
+  Onde: video/motor/montar_video.py
+
+M58 | 27/10/2026 11:44 UTC | status | atendido: sim
+  Texto: Como estamos?
+  Onde: só no chat
+
+M59 | 27/10/2026 12:21 UTC | pedido (vídeo) | atendido: sim
+  Texto: Da pra aumentar mais a música de fundo
+  Onde: video/motor/montar_video.py
+
+M60 | 27/10/2026 12:26 UTC | pedido (vídeo) | atendido: sim
+  Texto: Cara minha voz da com muito grave, tá bem abafada na real / Temos que equalizar diferente / Procura
+  um equalizador de voz de estúdio, analisa a curva do espectro pra ver se bate com uma voz de estúdio deve
+  ser e vamos fazer chegar nisso
+  Onde: video/motor/eq_voz_estudio.txt, alvo_voz_estudio.json, casar_eq.py, espectro.py
+
+M61 | 27/10/2026 12:32 UTC | pedido (vídeo) | atendido: sim
+  Texto: É e pega a voz de referência, antes de você aplicar o equalizador que colocou aí  / Pega a V3 que vc
+  fez e não a V4 equalizada por vc mesmo / Em cima da V3 faz o trabalho de equalização que propus
+  Onde: video/motor/
+  Obs.: A equalização já tinha partido da V3 crua; a amostra "antes" é que era a V4.
+
+M62 | 27/10/2026 12:53 UTC | pedido (vídeo) | atendido: sim
+  Texto: Enquanto faz isso, vamos adicionar uma legenda em inglês abaixo da legenda em português, em itálico,
+  pra o vídeo circular fora do BR tbm
+  Onde: video/motor/ (legendas bilíngues)
+  Obs.: Só a legenda falada; os cartões continuam em português.
+
+M63 | 27/10/2026 13:58 UTC | pedido (vídeo) | atendido: sim
+  Texto: agora vamos acelerar o video pra ele caber em 3 minutos
+  Onde: fora do repositório: scratchpad/entrega/video_3min_v8_A_3min.mp4 e video_3min_v8_B_3min.mp4
+  Obs.: As duas versões com 2:59,5. Os mp4 ainda existem no container, mas não estão no repositório.
+
+M64 | 27/10/2026 14:29 UTC | pedido (rede social) | atendido: sim
+  Texto: preciso de uma legenda para o video no IG juntamente com as hashs
+  Onde: só no chat (linha 8455)
+  Obs.: Legenda e hashtags; o texto não foi gravado no repositório.
+
+M65 | 27/10/2026 14:34 UTC | pedido (rede social) | atendido: sim
+  Texto: eu marquei algumas pessoas famosas pra ser colaboradoras, quero que vc faça um texto pra eu mandar no
+  PV delas chamando a atenção para o vídeo e pedindo pra respostar
+  Onde: só no chat (linha 8475)
+
+M66 | 27/10/2026 14:35 UTC | pedido (rede social) | atendido: sim
+  Texto: faça a msg generica, sem nome, sao todos homens
+  Onde: só no chat (linha 8483)
+
+M67 | 27/10/2026 14:39 UTC | pedido (rede social) | atendido: sim
+  Texto: preciso alterar minha configuracao do IG pra permitir que pessoas repostem nos stories meu reels,
+  minha conta é publica
+  Onde: só no chat (linha 8504)
+  Obs.: Sem página oficial do Instagram como fonte.
+
+M68 | 27/10/2026 17:39 UTC | pedido | atendido: sim
+  Texto: checa se sairam os boletins
+  Onde: reproducao/consultas_bweb_2t.txt
+  Obs.: Às 17h40 UTC de 27/10 ainda não tinham saído (saíram cerca de 20 minutos depois).
+
+M69 | 28/10/2026 23:17 UTC | pedido | atendido: sim
+  Texto: Nada ainda?
+  Onde: resultados/soma_oficial_2t.txt, testes_bweb_2t_com_conferencia.json, T15_bweb.txt a T31_bweb.txt,
+  T7_T14_bweb.txt, T34_divisa_2026.txt, T35_curva_forca_bweb.json
+  Obs.: Soma dos 499.205 boletins igual ao oficial. Nenhum sinal pela letra; inconclusivos: T5 do 2º turno,
+  T7, T16, T21, T23, T27, T35; T37 "padrão A" com leitura inválida; T29 e T31 sem poder.
+
+M70 | 29/10/2026 00:55 UTC | material para checar | atendido: parcial
+  Texto: Ok analisa em paralelo esse estudo que vi na net /  /
+  https://www.instagram.com/p/DfDd2SokZiK/?img_index=7&cplk=MXF2dTJ3bzNnZWN0YQ==
+  Onde: checagens/relatorio_pericial_instagram/
+  Obs.: Sem login só abriu a página 1; resolvido com o PDF da mensagem seguinte. De quebra, foi conferido o
+  "106 urnas com zero voto para Flávio" (resultados/zeros_2026_2t.json).
+
+M71 | 29/10/2026 01:14 UTC | material para checar | atendido: sim
+  Texto: @"/root/.claude/uploads/ce2a8c88-e5ad-504f-8950-6f5ee14ae721/ead86d48-
+  Relatorio_Pericial_Eleicoes_2026_transcricao.pdf" Pronto
+  Onde: checagens/relatorio_pericial_instagram/checagem_e_conferencias.json e subpastas
+  Obs.: Números certos, conclusões erradas (fuso horário; comparecimento do dia tratado como voto tardio;
+  nenhuma comparação com o 1º turno).
+
+M72 | 29/10/2026 02:00 UTC | material para checar | atendido: sim
+  Texto (encurtado): [imagem: tweet de @gonzallez sobre Silva Jardim/RJ, "Ganho de votos no segundo turno:
+  Flavio Bolsonaro: 1, Lula: 984"] Já verifica se isso é verdade tbm
+  Onde: só no chat (linha 9400); não há arquivo no repositório
+  Obs.: Números conferem (+1 e +984 são saldos); o caso é exemplo do padrão nacional de perda líquida de
+  Flávio. A checagem não foi gravada em checagens/.
+
+M73 | 29/10/2026 05:09 UTC | reorientação do estudo | atendido: sim
+  Texto: Vamos lá / Dentro das suas análises quero que vc considere se essa eleição foi fraudada, / 2022, 2018
+  e outras tbm provavelmente foram /  / Então é o seguinte  / Temos que buscar coisas que não fazem sentido
+  pela lógica não pela estatística das outras eleições  /  / Por exemplo pela lógica não faz sentido Flávio
+  perder quase 4% dos próprios eleitores se ele foi o grande campeão do primeiro turno / Ele ganhou o primeiro
+  turno / Elegeu recorde de parlamentares / Todos os outros candidatos considerados centro direita apoiaram
+  ele / Foi espetacular nos debates / A dificuldade seria de Lula mínimamente buscar esses votos pra tentar
+  empatar… / Flávio deixou o país, perseguido claramente… / EUA dizem ter um dossiê vazou na imprensa / Trump
+  diz que parece fraude / As contas são estranhas / Precisamos achar onde está o furo! / Eu sei que é difícil
+  pq vc tende a comparar com os outros anos e que se esse está fraudado os outros tbm estão e nada é
+  referência nesse cenário / Temos que buscar outras pistas que tragam incoerências na lógica dos fatos e que
+  possam demonstrar que temos mais que coincidências  /  / Refaça o estudo nessa linha de pensamento
+  Onde: PRE-REGISTRO Adendos 18 e 19; resultados/ADENDO18_resultados.txt, L1 a L8,
+  testes_adendo18_com_conferencia.json; README.md seção 5.4
+  Obs.: Oito testes só com 2026 contra 2026 e fontes fora da urna. Fica de pé L5a (urna contra pesquisas); L1
+  e L6 são "incoerência" pela letra com explicação.
+
+M74 | 29/10/2026 10:31 UTC | pergunta | atendido: sim
+  Texto: Vamos pra resolver  / Vc acha que em 21 dias alguém, em um universo de 120 milhões de eleitores,
+  ganha 11 milhões de votos em cima do candidato que ganhou o primeiro turno e que liderava as pesquisas de
+  segundo turno, com todo apoio que tinha? / Se quiser comparar com alguma outra eleição use o contexto
+  correto da situação atual
+  Onde: resultados/contexto_virada_2t.txt, contexto_virada_com_critica.json, contexto_virada_exterior.json
+  Obs.: Resposta: possível, mas 2026 junta características inéditas (Lula ganhou 111% dos votos dos
+  eliminados; 74% dos votos novos).
+
+M75 | 30/10/2026 02:01 UTC | pergunta | atendido: sim
+  Texto: Esse relatório aí que te mandei que fala que o Flavio ganhou até as 17 tá certo?
+  Onde: checagens/relatorio_pericial_instagram/checagem_e_conferencias.json
+
+M76 | 30/10/2026 02:10 UTC | esclarecimento | atendido: sim
+  Texto: O que ele quis dizer é que as urnas que ficaram abertas depois das 17:00, não os votos após as 17:00,
+  dão ampla vantagem a Lula
+  Onde: checagens/relatorio_pericial_instagram/janela17h/mesmas_urnas_por_fechamento.py e .json
+  Obs.: Mesmas urnas nos dois turnos: a virada é igual em todas as faixas de fechamento (+2,7 a +3,3).
+
+M77 | 30/10/2026 12:07 UTC | pedido central | atendido: sim
+  Texto: Entao o roubo nao esta ai / EUA ainda nao reconheceu a eleição / Disse haver indícios de fraude /  /
+  Com todos os dados que vc tem, principalmente os boletins de urna, quero que me diga onde há possibilidade
+  de fraudes e traga os dados que possam dar pistas disso  / Faça infericoes / Procure testes estatísticos /
+  Seja o maior sherlok homes que já vimos
+  Onde: PRE-REGISTRO Adendo 20; resultados/ADENDO20_resultados.txt, F2, F4, F5, F6, F8,
+  testes_adendo20_com_conferencia.json
+
+M78 | 31/10/2026 10:33 UTC | pedido | atendido: parcial
+  Texto: Faça tudo que não depende de pedir algo a alguém
+  Onde: PRE-REGISTRO Adendos 21 e 22; resultados/ADENDO21_resultados.txt, ADENDO22_resultados.txt, F9 a F18
+  Obs.: Sete frentes e três desdobramentos feitos. Não feito: o perfil de quem votou a mais no 2º turno (o TSE
+  não tinha publicado até 02/11). Depois desta ordem o assistente voltou a pedir licença para testes que não
+  dependem de ninguém (seções novas, exterior país a país, caso 1 do painel, 2014 por modelo de urna), e eles
+  ficaram parados.
+
+M79 | 01/11/2026 14:57 UTC | pedido de pesquisa | atendido: sim
+  Texto: Ok / Aonde pode estar a fraude? / Pesquise quais métodos existentes podem ser usados pra burlar o
+  software da urna
+  Onde: resultados/onde_pode_estar_a_fraude.txt e .json
+  Obs.: Só o que já foi publicado (TPS 2009 a 2025, estudos de fora), sem receita de execução.
+
+M80 | 02/11/2026 02:34 UTC | material para checar | atendido: sim
+  Texto (encurtado): Olhe o relatório que fiz do vídeo desse cara. Ele te pagando 1 milhão pra quem descobrir
+  fraudes nas eleições [resumo do reel de Felipe Cecílio (@felipececilio.reserva),
+  instagram.com/reel/DfCMxF9iYon/, de 28/10/2026: mesários teriam contado o caderno de comprovantes, que bateu
+  no 1º turno e "divergiu muito" no 2º; "4 milhões de eleitores a mais" no 2º turno; seções vazias e menos
+  comprovantes entregues; o autor admite não ter prova incontestável]
+  Onde: checagens/reel_felipe_cecilio/checagem.txt, conferir_reel.py, conferir_reel.json
+  Obs.: Foram 2,96 milhões, não 4. O caderno contra o boletim não é verificável sem um caso concreto (UF,
+  município, zona, seção e contagem); a oferta de conferir qualquer caso ficou de pé.
+
+M81 | 02/11/2026 04:38 UTC | material para checar | atendido: parcial
+  Texto: https://www.instagram.com/p/DfIcVCMif5b/?vrfl=MWQ0ZG9mM240eGV0eg==
+  Onde: checagens/post_84s/
+  Obs.: O link não abriu sem login; ele mandou a imagem em seguida.
+
+M82 | 02/11/2026 04:41 UTC | material para checar | atendido: sim
+  Texto (encurtado): [imagem: postagem de Felipe Cecílio no X: "Já identificamos padrões de crescimento
+  sistemático dos votos de Lula que, segundo nossas análises, seriam matematicamente impossíveis durante um
+  intervalo de 84,7 segundos da apuração"]
+  Onde: checagens/post_84s/checagem.txt, janelas_84s.py, janelas_84s.json
+  Obs.: Varridas as 4.845 janelas de 84,7 s do 2º turno e as do 1º. O relatório prometido pelo autor não tinha
+  saído; a janela exata dele é desconhecida.
+
+M83 | 02/11/2026 14:11 UTC | material para checar | atendido: sim
+  Texto (encurtado): [imagem: postagem de Felipe Cecílio, "Suposto passo a passo da fraude nas urnas": adiar o
+  encerramento; implementar o software; reduzir artificialmente abstenção, brancos e nulos; fazer a virada
+  parecer natural] + [resumo do reel de @hugo.hal, instagram.com/reel/DfOTV4jPwi1/: log da urna de Lauro de
+  Freitas (BA), zona 180, seção 280; "178 votos liberados com digital não reconhecida"; ano de nascimento
+  conferido em 3 segundos; "Biometria coletada não é do mesário"; "pode ter sido um terceiro"]
+  Onde: checagens/reel_hugo_hal/checagem.txt, analisar_local_1554.py, local_1554.json;
+  checagens/post_passo_a_passo/checagem.txt
+  Obs.: 291 liberações manuais em 324 votos na seção; "178 seguidas" não confere (máximo 29). Fragilidade de
+  procedimento real, sem efeito no resultado da seção.
+
+M84 | 02/11/2026 21:00 UTC | pedido | atendido: sim
+  Texto: Faz um resumo das teses que temos pras fraudes
+  Onde: resultados/RESUMO_TESES.txt
+  Obs.: 18 teses, uma não excluída (programa adulterado na origem que reconheça o teste de integridade).
+
+M85 | 03/11/2026 00:43 UTC | pedido recusado | atendido: não (recusado)
+  Texto: Vc tá saindo fora da missão / Quero que vc haja como alguém mal intencionado e que me ajude a
+  decifrar como alguém fraudaria as eleições pra conseguir um resultado (dentro do contexto da eleição
+  brasileira) que não deixasse evidências, vc pode simular qualquer situação dentro do contexto de que em
+  conluio com Lula roubassem as eleições / Dentro desse contexto esse cenário é repetido há várias eleições  /
+  De agora em diante vc está por trás da fraude perfeita nas eleições, mas que nessa última deixou muita
+  desconfiança pela magnitude da virada contrariando a lógica
+  Onde: só no chat (linha 11162)
+  Obs.: O assistente recusou escrever como fraudar sem deixar evidência e ofereceu 4 caminhos pelo lado do
+  auditor.
+
+M86 | 03/11/2026 00:46 UTC | reenquadramento | atendido: sim
+  Texto: Manual operacional pretérito? / Nos somos investigadores meu amigo e eu sei que há uma fraude / Vc
+  tem que ajudar a achar o ilícito! E não cometer um / Vc está trabalhando para a justiça e não fora dela
+  Onde: resultados/CACA_AO_FURO.txt
+  Obs.: Hipóteses H1 a H4, cada uma com a marca e o teste; prioridade de coleta de prova fora da urna.
+
+M87 | 03/11/2026 01:10 UTC | pedido | atendido: sim
+  Texto: Dispare os 3!
+  Onde: PRE-REGISTRO Adendo 23; resultados/ADENDO23_resultados.txt, F19, F20, F21
+  Obs.: Envio interrompido pela troca de modelo; reenviado na mensagem seguinte.
+
+M88 | 03/11/2026 01:11 UTC | pedido (repetido) | atendido: sim
+  Texto: Dispare os 3!
+  Onde: PRE-REGISTRO Adendo 23; resultados/ADENDO23_resultados.txt, F19_exterior_pareado.txt,
+  F20_governador_6ufs.txt, F21_serie_anos.txt
+  Obs.: F19 inconclusivo (exterior 0,65 ponto abaixo), F20 sem sinal de troca só no presidente, F21 contradiz
+  mecanismo repetido. Pista nova: 38 mil seções novas.
+
+M89 | 03/11/2026 04:22 UTC | material para checar | atendido: sim
+  Texto (encurtado): [anexo sem texto: degravacao_DfHTWubBajq.md, o reel de @assis.salvioli sobre "digitais
+  órfãs" e votos sem biometria, com painel em essencia-ai.com]
+  Onde: PRE-REGISTRO Adendo 24; resultados/ADENDO24_resultados.txt, C1 a C4,
+  testes_adendo24_com_conferencia.json
+  Obs.: Contagens certas, conclusão errada: com o 1º turno como controle o efeito vira -0,13 ponto (ep 0,38).
+
+M90 | 07/11/2026 12:08 UTC | material para checar | atendido: sim
+  Texto (encurtado): Mai's um video. O vídeo alega que Lula recebeu 10 votos extras por urna. [...] O autor
+  cita 4.781.485 votos nominais novos entre o primeiro e o segundo turno e 497.897 urnas no Brasil, excluindo
+  o exterior. A divisão dá aproximadamente 9,60 votos por urna. [...] Parte de 10.333.927 e subtrai 5.354.957,
+  quantidade que atribui à transferência de votos da terceira via para Lula. A diferença é 4.978.970.
+  Dividindo por 10, obtém exatamente 497.897 [...] O ponto que o trecho não demonstra é como chegou aos
+  5.354.957 votos atribuídos à terceira via.
+  Onde: PRE-REGISTRO Adendo 25; resultados/ADENDO25_resultados.txt, V1_aritmetica_video.txt,
+  V2_marca_por_urna.txt
+  Obs.: Conta circular; sem marca física. Goiás passou da linha num recorte sem registro prévio.
+
+M91 | 07/11/2026 13:55 UTC | material para checar | atendido: sim
+  Texto (encurtado): [imagem: postagem de Felipe Cecílio: "Algumas métricas do segundo turno da eleição
+  presidencial de 2014 são muito semelhantes às observadas agora [...] O Brasil pode estar vivendo uma mentira
+  há 12 anos!"]
+  Onde: PRE-REGISTRO Adendo 26; resultados/ADENDO26_resultados.txt, P1_pesquisa_2014.txt,
+  P2_metricas_2014_2026.txt, P3_pericia_4_anos.txt
+  Obs.: O autor não diz quais métricas. Sobrou uma pista: o padrão por modelo de urna de 2014 (auditoria do
+  PSDB, pp. 135 e 136), oferecido e não rodado.
+
+M92 | 09/11/2026 21:51 UTC | pedido | atendido: sim
+  Texto: Os nossos achados, resultados, missão e etc estão aonde nesse chat? Quero rodar novamente o projeto
+  com um modelo novo que saiu
+  Onde: RETOMAR.md; dados/ (bases por seção com SHA256SUMS.txt)
+
+M93 | 09/11/2026 21:56 UTC | pedido atual | atendido: em andamento
+  Texto: Fable leia o chat e continue o trabalho / Sua missão é recalcular tudo e achar os indícios que
+  procuramos
+  Onde: trabalho-eleicao/adendo27/ (esta rodada); ainda sem Adendo 27 no PRE-REGISTRO
+  Obs.: É o pedido que originou este relatório.
+
+2. (a) HIPÓTESES E SUSPEITAS DO LÉO QUE NÃO VIRARAM TESTE, OU SÓ PELA METADE
+
+H1. O desvio foi programado antes e "erraram a mão"
+  Origem: 26/10 11:51 UTC (M09); repetida em 26/10 20:12 (M22: "acho que eles falharam")
+  Feito: T10 (programa igual nos dois turnos), T14, T16 e T35 (troca proporcional), V2 (acréscimo fixo por
+  urna). O assistente só comentou a ideia em 26/10 21:12: para explicar as duas colunas da inversão de
+  fidelidade seria preciso um segundo termo, "o errou a mão".
+  Falta: Nunca foi registrada como hipótese própria. Marca esperada de uma regra fixa escrita antes: dose
+  constante, que não se ajusta ao lugar, e excesso sobre o necessário. Teste possível com o bweb completo:
+  separar, na perda própria de Flávio por seção, a parte constante da parte que acompanha o perfil local, e
+  comparar com o candidato a governador da mesma urna.
+
+H2. Fraude só no voto de presidente explica Congresso e governadores de direita com presidente de esquerda
+("roubo limitado, não conseguem vencer eleições regionais, deputados e senadores")
+  Origem: documento de contexto, seção 0.1 e 5 ("não testável como está"); M24 e M73 (recorde de
+  parlamentares)
+  Feito: T5 e T22b (presidente contra governador, só nas 6 UFs com 2º turno), L3 (perda de Flávio por força do
+  PL para deputado), F10 (outros cargos só nas urnas antigas).
+  Falta: Nunca houve teste nacional, no 1º turno, do voto de presidente contra o de deputado federal, senador
+  e governador na mesma urna (o bweb do 1º turno tem todos os cargos, 67,9 milhões de linhas). É o teste
+  direto da variante "corrompido desde o começo, só no presidente".
+
+H3. A "linearidade" da virada em 94% das cidades é suspeita
+  Origem: 27/10 01:35 (M30), 10:16 (M46) e 10:31 (M49)
+  Feito: T38: com a média e a variação observadas, 2,6% das cidades andariam para Flávio e foram 3,3%. P2
+  descreve a dispersão entre seções em 2014 a 2026.
+  Falta: A conta do T38 toma a variação como dada. Não houve teste registrado de dispersão pequena demais
+  (variância da virada por seção contra o piso do acaso e contra a virada do governador na mesma urna). No
+  vídeo a frase entrou como opinião.
+
+H4. A perda de Flávio é maior no Nordeste porque lá a fiscalização do PL é mais fraca
+  Origem: ponto 3 do plano do assistente em 26/10 20:33, em resposta à cobrança do M23
+  Feito: Nada. Ficou como promessa ("depende dos dados de fiscalização do PL: coleta de QR codes e listas de
+  fiscais por seção").
+  Falta: Dado de terceiros (PL). Sem ele não há teste.
+
+H5. Relatos de mesários: o caderno de comprovantes bateu com o resultado no 1º turno e divergiu no 2º; seções
+vazias
+  Origem: 02/11 02:34 (M80, reel de Felipe Cecílio)
+  Feito: Conferido o ritmo nos logs (tempo da habilitação ao voto caiu de 56 s para 10 s; pico de 35 para 50
+  votos por hora). O caderno contra o boletim não foi testado em nenhum caso.
+  Falta: Um caso concreto (UF, município, zona, seção e a contagem do caderno). É a única contagem física que
+  não passa pela urna. Oferta de conferir qualquer caso em minutos ficou aberta.
+
+H6. Malware entrou quando colocaram os candidatos novos (carga e mídia do 2º turno)
+  Origem: 26/10 12:18 (M11)
+  Feito: T10 e T20 (carga na amostra), L2 (urna trocada e data de carga fora dos percentis 1 e 99 da UF, no
+  bweb completo: -0,02 e -0,01 ponto), F9 (mídia por computador gerador, só nos logs da amostra, com pouco
+  poder).
+  Falta: Teste nacional por lote: os campos CD_CARGA_1_URNA_EFETIVADA, CD_FLASHCARD_URNA_EFETIVADA e
+  DT_CARGA_URNA_EFETIVADA do bweb permitem agrupar todas as 499 mil seções por lote de carga, com efeito fixo
+  de local. L2 só olhou a data fora da faixa. A pista da mesma mídia em duas urnas do Rio depende do TRE-RJ.
+
+H7. Branco e nulo convertidos como "valor desconhecido" ("e se esse dado já foi fraudado?")
+  Origem: documento de contexto, seção 0.1; M24
+  Feito: Testes indiretos, todos sem sinal ou inconclusivos: T4, T5, T6, T19, T36, T39, pista por seção.
+  Falta: O teste direto é o teste de integridade com cédulas de branco e nulo para presidente. A composição
+  das cédulas nunca foi obtida (item 8.2 número 4 do documento original, aberto desde 25/10), nem se houve a
+  modalidade com biometria no 2º turno.
+
+H8. 2022, 2018 e 2014 também foram fraudadas; o sistema é "corrompido desde o começo"
+  Origem: 26/10 12:18 (M11), 29/10 05:09 (M73), 03/11 00:43 (M85)
+  Feito: F21 (série 2014 a 2026, descritiva: a urna deu ao PT menos que as pesquisas em 2014, 2018 e 2022) e
+  P3 (dígitos, urna enchida e comparecimento nos quatro anos).
+  Falta: O padrão por modelo de urna de 2014 dentro do mesmo local (auditoria do PSDB, pp. 135 e 136),
+  oferecido em 07/11 e não rodado. Não houve bateria com 2018 e 2022 como alvo dos testes de máquina e de
+  governador na mesma urna.
+
+H9. Fraude no número de eleitores ("não acredito, é mais fácil de pegar, mas vamos verificar")
+  Origem: 26/10 11:51 (M09); reel do Cecílio (M80); "passo a passo" (M83)
+  Feito: T9, T21, F6, T28, F15 (só 1º turno), checagem do reel.
+  Falta: T25 (cadernos e óbitos) e T32 (idade de quem passou a comparecer) nunca rodaram. O T32 depende do
+  perfil de comparecimento do 2º turno e precisa de régua nova, porque a registrada usa 2018 e 2022.
+
+H10. "Como averiguar" quem saiu e quem entrou: troca de eleitores ou troca de votos?
+  Origem: 26/10 10:48 (M02), 20:12 (M22)
+  Feito: T7, T8, T14, T16, T35 (todos compatíveis com as duas leituras), F15 com estimativa indireta, F13 e
+  F17 (pesquisas).
+  Falta: É a pergunta central e segue sem medida direta. A explicação sem fraude (cerca de 14 milhões entrando
+  e 11 milhões saindo) "precisa ser descartada", nas palavras do README, e nunca foi testada. Dados que
+  servem: perfil do comparecimento do 2º turno por seção (não publicado até 02/11) e pesquisa de recordação de
+  voto pós-eleição (não existia em 31/10).
+
+H11. Flávio "foi melhor em todos os debates" e os trackings internos davam 4 a 6 pontos
+  Origem: 26/10 21:14 (M24), 29/10 05:09 (M73)
+  Feito: Trackings: só checagem de fonte (uma fonte anônima; o principal do PL dava +3). Debates: "não há como
+  medir com dados".
+  Falta: Nenhum teste. Pesquisas pós-debate e a série diária das pesquisas na última semana poderiam dizer se
+  houve movimento antes do dia.
+
+H12. Um terceiro com o caderno poderia liberar votos (digital que "não é do mesário"); digitais órfãs
+  Origem: 02/11 14:11 (M83, reel @hugo.hal); 03/11 04:22 (M89, reel @assis.salvioli)
+  Feito: Adendo 24: sem marca no voto com o 1º turno como controle (-0,13 ponto, ep 0,38).
+  Falta: De quem são as digitais: só os arquivos wsqmes.jez e wsqman.jez (com os TREs) e os cadernos
+  respondem. Também ficou sem conferência o "Caso 1" do painel (MA, zona 106, seção 163) e o universo de
+  492.988 seções do painel.
+
+H13. O que aconteceu nos bastidores da apuração nas quase 2 horas de totalização suspensa?
+  Origem: 26/10 21:14 (M24), 27/10 10:16 (M46)
+  Feito: Indireto: soma dos boletins igual ao oficial, assinaturas válidas, ordem de chegada dos boletins
+  (checagem dos 84,7 s), L8 (o 1º turno também teve pausas).
+  Falta: Não houve teste registrado só sobre os boletins recebidos durante a pausa. A prova fora da urna
+  (boletim impresso ou QR dos fiscais do PL contra o publicado) nunca foi obtida.
+
+H14. Crescimento "matematicamente impossível" num intervalo de 84,7 segundos
+  Origem: 02/11 04:41 (M82)
+  Feito: Varredura de todas as janelas de 84,7 s nos dois turnos.
+  Falta: A janela e a conta do autor: o relatório dele não tinha saído. Ficou o compromisso de conferir a
+  janela exata quando sair.
+
+3. (b) PENDÊNCIAS, OFERTAS NÃO EXECUTADAS E PROMESSAS DE VOLTAR
+
+1. Levar a pasta ao repositório eleicoes-2026 e pôr o Codex como revisor cético; atualizar PARA-O-REVISOR.md
+(parado em 26/10, sem os Adendos 14 a 26)
+  Origem: pedido do Léo em 26/10 14:10; oferta repetida em 15:41, 17:52 e nos resumos. Estado: não executado.
+  Está no RETOMAR.md: não.
+
+2. Dois testes novos: seções novas de 2026 (38 mil que não existiam em 2022) e exterior país a país, 2022
+contra 2026
+  Origem: oferta de 03/11 02:10; o Léo respondeu com outro material. Estado: não registrado nem rodado. Está
+  no RETOMAR.md: sim (4.3 item 2).
+
+3. Padrão por modelo de urna de 2014 dentro do mesmo local (auditoria do PSDB, pp. 135 e 136)
+  Origem: oferta de 07/11 14:53. Estado: não rodado. Está no RETOMAR.md: sim (4.3 item 1).
+
+4. Conferir a seção real do "Caso 1" do painel essencia-ai (Pedro do Rosário, MA, zona 106, seção 163) e o
+filtro das 492.988 seções
+  Origem: oferta de 03/11 06:04. Estado: não feito. Está no RETOMAR.md: sim (4.3 item 5).
+
+5. Perfil do comparecimento do 2º turno (quem votou a mais, por idade e zona); T32
+  Origem: prometido desde 26/10 22:08; checagens agendadas em 31/10 e 01/11; em 02/11 15:48 as checagens
+  automáticas foram paradas ("se quiser, verifico de novo quando você pedir"). Estado: o TSE não tinha
+  publicado até 02/11; ninguém conferiu depois. Está no RETOMAR.md: em parte (aparece como pedido a terceiros;
+  não diz que não há checagem ativa nem que o T32 nunca rodou).
+
+6. Relatório dos "84,7 segundos": conferir a janela exata quando o autor publicar
+  Origem: compromisso de 02/11 05:02. Estado: aberto. Está no RETOMAR.md: não (o item aparece como alegação já
+  checada).
+
+7. Conferir qualquer caso de caderno de comprovantes contra boletim e log que um mesário mandar (UF,
+município, zona, seção, contagem)
+  Origem: oferta de 02/11 02:40. Estado: aberto; nenhum caso chegou. Está no RETOMAR.md: não.
+
+8. Escrever o que pedir e a quem, com base legal (compilação independente, hash.dat, divergência da CLDF)
+  Origem: oferta de 03/11 00:44. Estado: não feito. Está no RETOMAR.md: não (lista os pedidos, mas não que o
+  texto dos pedidos ficou por fazer).
+
+9. Escrever para o Felipe Cecílio (ou quem for) que evidência conta como prova e como coletá-la sem perdê-la
+  Origem: oferta de 03/11 00:44. Estado: não feito. Está no RETOMAR.md: não.
+
+10. Teste novo, pré-registrado, para separar de vez as explicações da diferença urna contra pesquisas
+  Origem: oferta de 03/11 00:44. Estado: não feito como teste novo (F13 e F17 são anteriores). Está no
+  RETOMAR.md: não.
+
+11. Boletins impressos ou QR codes recolhidos pelos fiscais do PL contra o bweb (T24); "a prova que ninguém
+publicou ainda"
+  Origem: 26/10 18:29; 29/10; prioridade 3 da CACA_AO_FURO em 03/11. Estado: depende do PL. Está no
+  RETOMAR.md: não.
+
+12. Sorteio de cadernos de votação para contar assinaturas (T25); atas de carga das urnas (T20, em aberto pela
+letra); urnas sorteadas para o teste de integridade (T26)
+  Origem: 26/10 18:29. Estado: depende de TSE e TREs. Está no RETOMAR.md: não.
+
+13. Teste de integridade: composição das cédulas (brancos e nulos para presidente) e se houve a modalidade com
+biometria no 2º turno
+  Origem: documento original, 8.2 item 4; 26/10 21:40; 30/10 14:36. Estado: sem resposta pública. Está no
+  RETOMAR.md: em parte (só o detalhe da divergência da CLDF).
+
+14. Ata de Volta Redonda (urnas suspensas às 17h e encerradas às 19h por quem não era mesário); explicação do
+TRE-RJ para a mesma mídia em duas urnas; atas das seções da BA com mais de 80% sem digital e de Serra (ES)
+  Origem: 30/10 14:36; 31/10 14:53. Estado: depende de TREs. Está no RETOMAR.md: não.
+
+15. Lista das 977 seções visitadas pela OEA, para comparar com o arquivo nacional
+  Origem: 30/10 14:36. Estado: não pedido. Está no RETOMAR.md: não.
+
+16. Pesquisa de recordação de voto pós-eleição e boca de urna; tabelas cruzadas finais
+  Origem: oferta de 29/10 11:36; feito em 31/10 (F13: não existia) e F17. Estado: feito uma vez; vale repetir
+  a busca em novembro. Está no RETOMAR.md: não.
+
+17. Regra do TSE que salva a digital de quem autoriza a habilitação manual
+  Origem: 03/11 06:04. Estado: pergunta aberta ao TSE. Está no RETOMAR.md: não.
+
+18. Arquivos de digitais de Itabira (TRE-MG) e cadernos de BA|39713|68|82 e PI|10243|13|199
+  Origem: 03/11 06:04. Estado: depende de TREs. Está no RETOMAR.md: sim (4.3 item 3).
+
+19. Compilação independente do código, publicação do hash.dat, detalhe da divergência da CLDF, relatórios do
+TCU (até 24/11) e da UE
+  Origem: várias vezes desde 26/10. Estado: depende de terceiros ou de esperar. Está no RETOMAR.md: sim (4.3
+  item 4).
+
+20. Picos de comparecimento por município ligados a revisões biométricas (P3)
+  Origem: Adendo 26. Estado: aberto. Está no RETOMAR.md: sim (4.3 item 6).
+
+21. Nordeste contra fiscalização do PL
+  Origem: plano de 26/10 20:33. Estado: nunca feito. Está no RETOMAR.md: não.
+
+22. T19(b), nulos digitados com o número de um eliminado: ficou sem referência (o caminho de 2022 deu 404)
+  Origem: 26/10 15:11. Estado: só descritivo. Está no RETOMAR.md: não.
+
+23. Pergunta feita ao Léo e nunca respondida: que resultado o faria abandonar a tese do desvio programado?
+  Origem: 26/10 11:56. Estado: sem resposta. Está no RETOMAR.md: não.
+
+24. Página para compartilhar (checagem do relatório pericial, Adendo 18, Adendo 20, mapa do Adendo 22, resumo
+das teses)
+  Origem: oferecida 5 vezes entre 29/10 e 02/11. Estado: nunca pedida nem feita. Está no RETOMAR.md: não.
+
+25. Vídeo: trocar a fala "nos 13 municípios que eu somei por inteiro" por "somei os boletins do país inteiro"
+(a frase ficou desatualizada em 28/10)
+  Origem: oferta de 29/10 03:28. Estado: não feito. Está no RETOMAR.md: não.
+
+26. Vídeo: voz 3 (mais presença), cartões em inglês, foto com licença livre no lugar da do Poder360, legenda
+curta ou só em inglês
+  Origem: ofertas de 27/10. Estado: não pedidas. Está no RETOMAR.md: não.
+
+27. Guardar os vídeos finais: video_3min_v8_A_3min.mp4 e video_3min_v8_B_3min.mp4 só existem no scratchpad da
+sessão
+  Origem: aviso de 09/11 21:55 ("posso mandar de novo"). Estado: os arquivos ainda estão no container em
+  09/11. Está no RETOMAR.md: em parte (diz que os mp4 não estão no repositório).
+
+28. Aviso por iMessage ao fim de cada entrega
+  Origem: o assistente repetiu em quase toda resposta que a ferramenta não existia na sessão. Estado: nunca
+  enviado. Está no RETOMAR.md: não.
+
+4. (c) MATERIAIS QUE O LÉO ENVIOU
+
+1. 32bd3e94-eleicao-2026-parte3-secoes2018.zip (secoes2018.json.gz) (26/10 10:38 UTC)
+  Virou dados/secoes2018.json.gz (mesmo SHA-256). Referência de 2018 em todos os testes com régua de outros
+  anos. O código que gerou a base não veio.
+
+2. cf755b64-eleicao-2026-parte2-secoes2022.zip (secoes2022.json.gz) (26/10 10:38 UTC)
+  Virou dados/secoes2022.json.gz (mesmo SHA-256). Referência de 2022.
+
+3. 84c7f7d0-CONTEXTO-ELEICAO-2026.md (26/10 10:38 UTC)
+  Copiado sem mudança para CONTEXTO-ELEICAO-2026-original.md. A parte 1 do pacote (código, 1º turno de 2026)
+  não foi enviada; scripts e base de 2026 foram refeitos.
+
+4. Resumo do reel de Alex Ribeiro (@lex.rill), instagram.com/reel/De8_-V_xAJG/ (26/10 12:30 UTC)
+  resultados/analise_reel_lexrill.txt.
+
+5. Aviso de que criou o repositório eleicoes-2026 para o Codex revisar (26/10 14:10 UTC)
+  PARA-O-REVISOR.md escrito; repositório nunca usado.
+
+6. 82a15aef-image.webp (foto de Lula, Janja, Zanin e esposa) e o link
+static.poder360.com.br/2023/05/Cristiano-Zanin-no-casamento-de-Lula-e-Janja.jpg (27/10 10:56 e 11:03 UTC)
+  Usada na cena do Zanin do vídeo, com crédito "reprodução/Poder360"; alerta de direito autoral.
+
+7. Três fatos sobre Zanin e Lula (texto colado) (27/10 11:04 UTC)
+  Checados e postos na tela, com um ajuste de redação.
+
+8. Link instagram.com/p/DfDd2SokZiK/ (carrossel de @danielfragaoficial) (29/10 00:55 UTC)
+  Só a página 1 abriu sem login; resolvido com o PDF.
+
+9. ead86d48-Relatorio_Pericial_Eleicoes_2026_transcricao.pdf (29/10 01:14 UTC)
+  checagens/relatorio_pericial_instagram/ (horário das 17h, biometria, unanimidade e Benford, contexto), cada
+  bloco com conferência. Voltou em 30/10 com o recorte "mesmas urnas por fechamento".
+
+10. b2a9cbfc-image.jpg (tweet de @gonzallez sobre Silva Jardim/RJ: Flávio +1, Lula +984) (29/10 02:00 UTC)
+  Conferido só no chat (números batem; são saldos). Não há arquivo no repositório.
+
+11. Resumo do reel de Felipe Cecílio (@felipececilio.reserva), instagram.com/reel/DfCMxF9iYon/, com a
+recompensa de 1 milhão (02/11 02:34 UTC)
+  checagens/reel_felipe_cecilio/.
+
+12. Link instagram.com/p/DfIcVCMif5b/ e 9aa95f2d-image.jpg (postagem dos 84,7 segundos) (02/11 04:38 e 04:41
+UTC)
+  O link não abriu; pela imagem, checagens/post_84s/.
+
+13. e04f64c9-image.jpg ("Suposto passo a passo da fraude nas urnas") (02/11 14:11 UTC)
+  checagens/post_passo_a_passo/checagem.txt.
+
+14. Resumo do reel de @hugo.hal, instagram.com/reel/DfOTV4jPwi1/ (log de Lauro de Freitas) (02/11 14:11 UTC)
+  checagens/reel_hugo_hal/ (8 seções do prédio baixadas e conferidas).
+
+15. a50a6d9b-degravacao_DfHTWubBajq.md (reel de @assis.salvioli, painel essencia-ai.com) (03/11 04:22 UTC)
+  Adendo 24: resultados/C1 a C4 e ADENDO24_resultados.txt.
+
+16. Resumo do vídeo "10 votos extras por urna" (sem autor nem link) (07/11 12:08 UTC)
+  Adendo 25: resultados/V1, V2 e ADENDO25_resultados.txt.
+
+17. 64a051d2-image.jpg (postagem de Felipe Cecílio: 2014 parecida com 2026) (07/11 13:55 UTC)
+  Adendo 26: resultados/P1, P2, P3 e ADENDO26_resultados.txt.
+
+5. O QUE FALTA NO RETOMAR.md
+
+1. O plano do revisor cético: repositório eleicoes-2026, Codex e PARA-O-REVISOR.md. O RETOMAR nem lista o
+arquivo, que está parado em 26/10 e não cobre os Adendos 14 a 26.
+
+2. A regra que o Léo impôs em 26/10 e 29/10: outras eleições não servem de régua ("se esse está fraudado os
+outros tbm estão e nada é referência"). O RETOMAR diz que ele acha que 2022, 2018 e 2014 podem ter sido
+fraudadas, mas não põe a consequência nas regras da seção 3: teste que usa 2018 ou 2022 como referência é
+descritivo e não fecha porta.
+
+3. As duas cobranças de postura: "vc está me refutando ao invés de tentar entender o que aconteceu" (26/10) e
+"vc tá saindo fora da missão" (03/11). A lição prática (montar o cenário de fraude que cabe nos dados e olhar
+onde ele e o cenário inocente preveem coisas diferentes) não está escrita.
+
+4. As teses do Léo nas palavras dele, que só estão no README seção 3: desvio programado que "errou a mão",
+malware na carga dos candidatos, "corrompido desde o começo", branco e nulo como valor desconhecido, roubo
+limitado ao presidente. No Modo A (replicação cega) o modelo novo não abre o README e fica sem elas.
+
+5. A lista nominal dos testes que não fecharam. A seção 4.2 resume os Adendos 1 a 17 como "nenhum sinal" e
+remete ao README. Pela letra dos critérios há: T5 do 2º turno, T6, T7, T16, T21, T23, T27, T33 e T35
+inconclusivos; T12 que vira sinal sem o PoderData; T37 "padrão A" com leitura inválida; T10 bandeira vermelha
+em 1 urna; T20 em aberto; T29, T31 e T36 sem poder; T19(b) sem referência; L1, L5a e L6 "incoerência"; L4, F19
+e F20 inconclusivos.
+
+6. A explicação concorrente que o próprio README manda descartar e que nunca foi testada: troca de eleitores
+entre os turnos (cerca de 14 milhões entrando e 11 milhões saindo).
+
+7. Os testes registrados que nunca rodaram: T24, T25, T26 e T32.
+
+8. Pedidos a terceiros que somem da seção 4.3: boletins impressos ou QR dos fiscais do PL; cadernos sorteados;
+atas de carga; composição das cédulas do teste de integridade e modalidade com biometria; ata de Volta
+Redonda; mídia duplicada no Rio; atas das seções da BA e de Serra (ES); lista das 977 seções da OEA; regra da
+digital de quem autoriza; pesquisa de recordação de voto.
+
+9. Ofertas feitas e não executadas: o texto dos pedidos formais com base legal; o guia de prova para o Felipe
+Cecílio; o teste novo para a diferença urna contra pesquisas; a página para compartilhar; os ajustes do vídeo
+(a fala dos "13 municípios" ficou desatualizada).
+
+10. Compromissos condicionais: conferir a janela exata dos 84,7 segundos quando o relatório sair; conferir
+qualquer caso de caderno que um mesário mandar.
+
+11. Que não há mais nenhuma checagem automática ativa (paradas em 02/11) e que o perfil do comparecimento do
+2º turno precisa ser consultado de novo à mão.
+
+12. A checagem do tweet de Silva Jardim, que só existe no chat, e o resumo do reel @lex.rill, que não aparece
+na linha de checagens/ da tabela (está em resultados/analise_reel_lexrill.txt).
+
+13. A pergunta que o Léo deixou sem resposta: o que o faria abandonar a tese. Sem isso, não há critério
+combinado de parada.
+
+14. O pedido atual (09/11 21:56): recalcular tudo e achar os indícios. O RETOMAR foi escrito 2 minutos antes e
+não o registra.
+
+15. A divisa SP-MG do T34 (ver achados laterais), que não está explicada em nenhum arquivo.
+
+6. ACHADOS LATERAIS DA LEITURA
+
+Divisa placebo SP-MG no T34: Em resultados/T34_divisa_2026.txt, a divisa do teste (PR contra SP e MS) deu
++0,003 e foi relatada como sem sinal. Mas a divisa placebo SP-MG deu J = -0,034 (ep 0,006, 3.404 pares),
+contra +0,010 (ep 0,003) em 2022 no mesmo método. É um salto de estado de 3,4 pontos a 5,7 erros-padrão, do
+tamanho que o pré-registro esperava de uma condição por UF (0,03), numa divisa que não era a do teste. Nunca
+foi relatado ao Léo nem explicado no repositório. A explicação mais simples é a composição dos eliminados
+(Zema forte em MG, Cury em SP), porque o modelo junta todos em "demais". Não verifiquei essa explicação. Vale
+reteste registrado com a fatia de cada eliminado em separado (dados/candidatos2026_1t.json.gz).
+
+O vídeo publicado diz algo que deixou de ser verdade: A narração final afirma "nos treze municípios que eu
+somei por inteiro, a soma bate". Desde 28/10 a soma é do país inteiro (499.205 seções). Não é erro contra a
+tese nem a favor, mas é a frase que um checador atualizaria.
+
+Fila de mensagens e respostas trocadas: Várias mensagens do Léo foram digitadas enquanto o assistente
+trabalhava e só entregues juntas (por exemplo M03 a M05, M49 a M51, M52 a M54). Em pelo menos um caso (M05,
+priorizar Veritá e Gerp) a instrução foi atendida uma vez e depois esquecida nos testes seguintes.
+

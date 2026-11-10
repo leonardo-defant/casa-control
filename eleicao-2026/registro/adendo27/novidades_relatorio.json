@@ -1,0 +1,1425 @@
+{
+ "titulo": "Novidades de 01 a 09/11/2026 sobre a eleição presidencial de 2026 e a contestação do resultado",
+ "gerado_em": "09/11/2026",
+ "papel": "pesquisador de novidades (Adendo 27)",
+ "resumo": "Desde 01/11 não saiu nenhuma auditoria externa nem prova nova de fraude, e o próprio Flávio disse à Folha em 06/11 que não tem provas, que não as terá e que não vai contestar a contagem na Justiça. O que mudou de fato foram os dados: em 03/11 o TSE publicou o histórico da totalização dos dois turnos, que soma exatamente o resultado oficial e mostra a pausa de 17:07 a 19:03, e trocou três pacotes de arquivos de urna, um deles para incluir o log que faltava em Guarulhos, que fecha sem sinal. Continuam sem publicação o perfil do comparecimento do 2º turno, os relatórios do teste de integridade e o relatório do TCU, com prazos entre 24 e 27/11. Não achei reconhecimento formal dos EUA nem documento americano com indício de fraude. As alegações novas das redes trazem números testáveis, e os que já conferi não batem.",
+ "fatos_novos": [
+  {
+   "data": "03/11/2026",
+   "tipo": "dado do TSE",
+   "confianca": "alta (conferido no portal e no arquivo)",
+   "fato": "O TSE publicou no conjunto \"Resultados - 2026\" o histórico da totalização para presidente dos dois turnos: Historico_Totalizacao_Presidente_BR_2T_2026.zip (10.330.383 bytes) e ..._1T_2026.zip (17.781.368 bytes). Cada linha é um passo da totalização por município e zona, com hora ao segundo (DT_TOTALIZACAO), seções somadas no passo e votos por candidato no passo e acumulados. 2º turno: 358.072 linhas, 89.518 identificadores de totalização, 499.205 seções, de 17:05:21 a 23:21:51 de 25/10; a soma dá exatamente o oficial (Lula 64.256.232, Flávio 59.826.041, brancos 1.430.496, nulos 2.723.305). O arquivo oficial mostra a pausa: 1.868 seções até 17:07 e nada entre 17:07 e 19:03 (116 minutos). Liderança no acumulado: Lula até 19:44, Flávio de 19:44 a 20:24, Lula de 20:24 em diante. 1º turno: 1.037.265 linhas, 499.206 seções, de 17:08:57 de 04/10 a 02:58:39 de 05/10, soma igual ao oficial.",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_2T_2026.zip ; https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_1T_2026.zip ; https://dadosabertos.tse.jus.br/api/3/action/package_search?sort=metadata_modified+desc&rows=40 (consulta de 09/11/2026)",
+   "relevancia": "Alta. É o primeiro dado oficial da ordem e da hora em que cada zona entrou na soma. Permite testar com dado do TSE, e não com captura de tela, a pausa, o post dos 84,7 segundos, a frase \"Flávio vencia com 30% apurado\" e a nova suspeita de Flávio, que agora aponta para \"o que aconteceu dentro do TSE\"."
+  },
+  {
+   "data": "03/11/2026",
+   "tipo": "dado do TSE",
+   "confianca": "alta (cabeçalhos do servidor, arquivo baixado e registro anterior do repositório)",
+   "fato": "O TSE trocou, sem aviso que eu tenha achado, três pacotes de \"arquivos transmitidos para totalização\": 2º turno de SP (25.758.256.844 bytes, modificado em 03/11 às 19:48 GMT; em 29/10 o repositório registrou 25.758.064.523 bytes, de 26/10) e 1º turno de MA e de MG (modificados em 03/11 às 19:59 e 21:08 GMT). No de SP a diferença é de 192.321 bytes. No mesmo dia, às 13:36:48, o índice da seção 298 da zona 395 de Guarulhos foi regenerado e passou a listar o log, que antes faltava (pendência do F8). O log tem 192.093 bytes: a troca do pacote corresponde a esse arquivo mais os cabeçalhos. Pelas métricas já registradas do T3, o log fecha: 268 votos computados, igual ao comparecimento do boletim; 268 habilitações; zero voto sem habilitação; zero voto depois do encerramento; primeiro voto às 08:01:14 e último às 16:56:27.",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_SP.zip ; https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/sp/64777/0395/0298/p003221-sp-m64777-z0395-s0298-aux.json ; eleicao-2026/checagens/relatorio_pericial_instagram/cetico_cap6/a1/head_cdn.txt",
+   "relevancia": "Média. Fecha a pendência de Guarulhos sem sinal. Mostra também uma fragilidade de transparência: esses pacotes não têm resumo (sha512) publicado nem registro de alterações, ao contrário do bweb. Falta saber o que mudou em MA e MG no 1º turno."
+  },
+  {
+   "data": "09/11/2026",
+   "tipo": "dado do TSE",
+   "confianca": "alta",
+   "fato": "O perfil do comparecimento e da abstenção do 2º turno continua sem publicação. O arquivo perfil_comparecimento_abstencao_2026.zip (229.213.668 bytes) é de 21/10/2026, antes do 2º turno; os de deficiência e de transferência temporária também. O conjunto não foi tocado desde 21/10.",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/perfil_comparecimento_abstencao/perfil_comparecimento_abstencao_2026.zip ; https://dadosabertos.tse.jus.br/api/3/action/package_search?sort=metadata_modified+desc&rows=40 (consulta de 09/11/2026)",
+   "relevancia": "Alta para a tese do comparecimento: sem esse arquivo não dá para saber quem (idade, sexo, escolaridade) foram os 2,9 milhões a mais."
+  },
+  {
+   "data": "04/11/2026",
+   "tipo": "auditoria",
+   "confianca": "média (página do TSE deu 403; lido pelo resumo do buscador)",
+   "fato": "Venceu em 04/11 o prazo para os TREs mandarem ao TSE os relatórios de auditoria das urnas do 2º turno (contagem independente e ocorrências). A publicação no site da Justiça Eleitoral está prevista para até 30 dias depois do 2º turno (24/11); o calendário eleitoral, segundo o buscador, dá 27/11 para o relatório conclusivo da empresa de auditoria. Nada foi publicado até 09/11.",
+   "fonte": "https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/tres-devem-encaminhar-ao-tse-relatorios-de-auditoria-das-urnas-eletronicas-ate-4-de-novembro (403 ao leitor; lido pelo resumo do buscador)",
+   "relevancia": "Alta. É onde deve aparecer o detalhe da divergência do teste de integridade na CLDF e a lista nacional das urnas testadas."
+  },
+  {
+   "data": "09/11/2026",
+   "tipo": "auditoria",
+   "confianca": "alta para o que foi lido; a ausência é de busca",
+   "fato": "TCU: nenhum relatório ou nota sobre o 2º turno achado. O acompanhamento é o processo TC 020.282/2026-5, relator ministro Odair Cunha; o relatório consolidado vai ao TSE em até 30 dias corridos depois do 2º turno (24/11). OEA e Centro Carter: só as declarações preliminares de 27/10. União Europeia: nenhum documento achado. Forças Armadas, PF, OAB e SBC: nada sobre o resultado achado.",
+   "fonte": "https://portal.tcu.gov.br/imprensa/noticias/eleicoes-2026-tcu-acompanha-testes-de-integridade-das-urnas-eletronicas",
+   "relevancia": "Média. Nenhuma auditoria externa nova desde 01/11; os prazos caem todos entre 24 e 27/11."
+  },
+  {
+   "data": "04 e 05/11/2026",
+   "tipo": "PL e Flávio",
+   "confianca": "média (imprensa brasileira resumindo o New York Times)",
+   "fato": "Flávio Bolsonaro, de Miami, ao New York Times (entrevista em 04/11, publicada em 05/11): a vitória de Lula seria \"matematicamente impossível\"; \"Tenho minhas suspeitas. Ninguém pode afirmar com 100% de certeza que estou certo, nem com 100% de certeza que estou errado\"; alegou falha de segurança na sala de contagem do TSE; disse procurar caminhos judiciais mas saber que \"não vai levar a nada\".",
+   "fonte": "https://mais.opovo.com.br/jornal/politica/2026/11/06/flavio-bolsonaro-diz-ao-nyt-que-fugiu-sem-ajuda-externa-e-que-levara-detalhes-para-o-tumulo.html ; https://www.brasildefato.com.br/2026/11/05/the-new-york-times-minimiza-entrevista-de-flavio-bolsonaro-e-desmente-teses-de-fraude-na-eleicao-e-perseguicao/",
+   "relevancia": "Média. Não traz número nem seção. Repete a tese da impossibilidade, já conferida (a conta dos 14,1 milhões fecha)."
+  },
+  {
+   "data": "06/11/2026",
+   "tipo": "PL e Flávio",
+   "confianca": "média (A Tarde, Jurinews e Band reproduzindo a Folha)",
+   "fato": "Flávio à Folha de S.Paulo: \"Não tenho provas e nem terei, porque é proibido investigar esse assunto\"; \"É por isso que eu não vou questionar isso na Justiça brasileira, porque não tenho provas\"; \"A questão não é sobre os eleitores que foram às urnas nessas duas horas, foram um pouco mais de 34 mil. O problema é o que aconteceu dentro do TSE\"; \"quem fiscaliza esses técnicos?\"; \"O que explica, em 21 dias, o Lula vencer ou aumentar a votação em todos os estados\"; \"É impossível não ser manipulação de resultado\". A estratégia jurídica passa a ser abuso de poder (uso da máquina), não as urnas. Sobre o pedido de prorrogação da própria campanha: \"A nossa intenção é que não desse para ninguém\".",
+   "fonte": "https://atarde.com.br/politica/flavio-admite-que-nao-tem-provas-de-fraude-eleitoral-nem-terei-1408636 ; https://jurinews.com.br/destaque-nacional/flavio-bolsonaro-admite-falta-de-comprovacao-sobre-fraude-nas-eleicoes-de-2026 ; https://www.band.com.br/politica/flavio-admite-nao-ter-provas-de-fraude-eleitoral-e-se-recusa-a-falar-de-fuga (403 ao leitor; título e data pelo buscador)",
+   "relevancia": "Alta. O próprio candidato diz que não tem prova e que não vai contestar a contagem. A suspeita dele mudou de lugar: saiu da prorrogação e foi para a totalização dentro do TSE, que é justamente a parte que o dado público confere (soma dos boletins igual ao oficial) e que agora tem o histórico publicado."
+  },
+  {
+   "data": "09/11/2026",
+   "tipo": "PL e Flávio",
+   "confianca": "alta para os dados processuais do TSE (gerados em 09/11)",
+   "fato": "Nos dados processuais abertos do TSE não há ação de Flávio nem do PL nacional autuada depois de 25/10 sobre apuração, anulação ou auditoria. As duas petições cíveis de Flávio (0603393-64.2026.6.00.0000 e 0603394-49.2026.6.00.0000, relator Nunes Marques) são de 25/10, dia da votação: uma é o pedido de prorrogação cujo PDF a Aos Fatos publicou e a outra deve ser o segundo pedido (MG e RS) que o Chequeado publicou; nenhuma tem decisão registrada. As petições da coligação de Lula do mesmo dia têm decisão em 29/10 (0603391-94) e despacho em 04/11 (0603390-12); não li o teor. Não achei auditoria do PL, comparação de boletins impressos nem contagem paralela publicada. Das 29 AIJEs pendentes entre as chapas (15 contra Lula, 14 contra Flávio, levantamento do Times Brasil de 29/10), os temas citados são abuso de poder e uso indevido de meios; nenhuma sobre apuração.",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes, partes, recursos; gerados em 09/11/2026) ; https://timesbrasil.com.br/brasil/tse-ainda-ira-julgar-29-acoes-eleitorais-de-lula-e-flavio-bolsonaro/ ; pedido de prorrogação: https://static.aosfatos.org/media/cke_uploads/2026/10/26/petciv-0603393-6420266000000.pdf",
+   "relevancia": "Alta. A prova que não depende do TSE (boletim impresso contra o publicado) continua sem ninguém que a tenha apresentado."
+  },
+  {
+   "data": "05/11/2026",
+   "tipo": "TSE",
+   "confianca": "alta (várias fontes)",
+   "fato": "O corregedor-geral eleitoral, ministro Villas Bôas Cueva, admitiu a AIJE do Novo contra Lula e Alckmin (0603194-42.2026.6.00.0000) por abuso de poder político: 35 medidas editadas em ano eleitoral; pede a cassação da chapa; defesa em cinco dias. Não é julgamento de mérito e não trata de urnas.",
+   "fonte": "https://www.congressoemfoco.com.br/noticia/131369/tse-admite-acao-do-novo-que-pede-cassacao-da-chapa-lula-alckmin ; https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/corregedor-geral-admite-acao-do-novo-contra-lula-e-alckmin-por-suposto-abuso-do-poder-politico-nas-eleicoes (403; buscador)",
+   "relevancia": "Baixa para a contagem. É a via que Flávio diz que vai usar (abuso de poder), no lugar de contestar os votos."
+  },
+  {
+   "data": "27/10 a 08/11/2026",
+   "tipo": "TSE",
+   "confianca": "alta para a existência; o conteúdo das peças não foi lido",
+   "fato": "Dois processos novos nos dados do TSE: (a) AIJE 0603399-71.2026.6.00.0000, autuada em 27/10, tendo Donald J. Trump e Steve Bannon como representados, relator Villas Bôas Cueva, sem decisão registrada e sem autor nos dados; (b) representação 0603061-48.2026.6.09.0000, da federação do PT contra Felipe Soares Cecílio (o autor do reel checado no Adendo 26), por desinformação sobre a integridade do processo eleitoral: aberta no TRE-GO em 28/10, com decisões em 29/10 e 05/11, chegou ao TSE em 08/11 (relator Dias Toffoli).",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes, partes, recursos; gerados em 09/11/2026)",
+   "relevancia": "Baixa para a contagem. É o único caso que achei de autor de alegação estatística respondendo a processo. Serve de contexto para a frase \"é proibido investigar\": analisar dado público não é proibido, os dados estão abertos; publicar conclusão de fraude tem gerado representação por desinformação."
+  },
+  {
+   "data": "31/10 e 01/11/2026",
+   "tipo": "EUA",
+   "confianca": "alta (Associated Press)",
+   "fato": "Marco Rubio, em Atlanta, na reunião de chanceleres do G20: \"We didn't facilitate anything\"; \"He had previously held a visa, and the president made a decision to allow him to enter the country\". Disse ter se reunido com o chanceler Mauro Vieira em 30 e 31/10. Não declarou reconhecimento nem falou em fraude.",
+   "fonte": "https://www.nbcmiami.com/news/local/rubio-says-the-u-s-government-did-not-facilitate-bolsonaros-flight-to-miami/3881348/",
+   "relevancia": "Média. Primeira fala do secretário de Estado depois do 2º turno; nenhuma menção a indício de fraude."
+  },
+  {
+   "data": "29/10/2026",
+   "tipo": "EUA",
+   "confianca": "alta (documento do Congresso dos EUA)",
+   "fato": "O Serviço de Pesquisa do Congresso dos EUA (CRS), relatório R46236 atualizado em 29/10: \"As of October 28, 2026, the Trump Administration had not recognized the results of Brazil's 2026 presidential election\". O texto registra que a ordem de prorrogação \"was implemented unevenly, as some polls had already closed\", cerca de 34 mil votos na prorrogação contra margem de 4,4 milhões, e que a OEA reconheceu o resultado. Não cita indício de fraude.",
+   "fonte": "https://www.everycrsreport.com/reports/R46236.html",
+   "relevancia": "Média. É o documento oficial dos EUA mais recente sobre o tema e não estava no repositório."
+  },
+  {
+   "data": "30/10 a 09/11/2026",
+   "tipo": "EUA e outros países",
+   "confianca": "média",
+   "fato": "Até 30/10 o painel do TSE de manifestações internacionais contava 107 países e 11 organismos reconhecendo o resultado; Estados Unidos e Argentina sem manifestação oficial (o governo Milei disse que não fará). Em 30/10 a bancada progressista da Câmara dos EUA pediu o reconhecimento. Até 09/11 não achei nota de reconhecimento nem de rejeição da Casa Branca ou do Departamento de Estado, nem fala nova de Trump sobre a eleição brasileira depois de 29/10.",
+   "fonte": "https://www.correio24horas.com.br/eleicoes/mais-de-100-paises-reconheceram-reeleicao-de-lula-argentina-e-eua-nao-fizeram-anuncio-oficial-1026 ; https://www.commondreams.org/news/cpc-trump-brazil-election ; https://www.latintimes.com/lula-mocks-flavio-bolsonaro-after-democrat-midterm-sweep-600960",
+   "relevancia": "Média. O silêncio formal dos EUA continua, sem documento que aponte fraude."
+  },
+  {
+   "data": "04/11/2026",
+   "tipo": "alegação nas redes",
+   "confianca": "alta para o teor (Aos Fatos)",
+   "fato": "Nova \"prova estatística\": um código nas urnas seria ativado às 17h01 e transferiria um voto a cada dez segundos; \"Mais tempo sem encerrar as urnas, mais votos roubados\". Traz a \"Tabela completa dos 10 grupos\" de seções por horário de encerramento, com a diferença entre os candidatos crescendo, e um gráfico de linhas; fala em cerca de 497 mil seções. Ao menos 200 mil visualizações no X.",
+   "fonte": "https://www.aosfatos.org/noticias/urnas-roubar-votos-apos-17h01/ ; https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-urnas-roubam-votos-quanto-mais-tempo-permanecem-abertas (403; citado pela Aos Fatos)",
+   "relevancia": "Alta para teste: é uma previsão numérica clara (ganho de Lula proporcional ao tempo de urna aberta depois das 17h01)."
+  },
+  {
+   "data": "04/11/2026",
+   "tipo": "alegação nas redes",
+   "confianca": "alta para o teor (Aos Fatos, com números do TSE)",
+   "fato": "\"Só na Bahia eles incluíram 2 milhões de votos depois das 17h. Aqui em São Paulo entrou seis pessoas\" (ao menos 150 mil curtidas no Instagram). Números do TSE: Bahia 4.190 votos depois das 17h (0,04% de 9.422.047), São Paulo 8.860, Brasil 34.393, sendo 32.399 das 17h às 18h, 1.981 das 18h às 19h e 13 depois das 19h.",
+   "fonte": "https://www.aosfatos.org/noticias/bahia-votos-prorrogacao-do-segundo-turno/ ; https://www.aosfatos.org/noticias/votos-registrados-apos-as-17h-nao-mudam-resultado-das-eleicoes/",
+   "relevancia": "Média. Dá pela primeira vez a divisão oficial por estado (BA e SP) e por faixa de hora, que pode ser conferida nos logs."
+  },
+  {
+   "data": "05/11/2026",
+   "tipo": "alegação nas redes",
+   "confianca": "alta para o teor (Aos Fatos); conferência rápida minha no bweb",
+   "fato": "\"Cidades que até os mortos votaram em Lula\": lista de dez cidades com mais votos para Lula do que habitantes (ao menos 8 mil curtidas). Duas cidades não existem (Barragem e Nova Liberdade); duas estão no estado errado. Nenhum número confere com o boletim do 2º turno: Xique-Xique (BA) teria 64.805 votos, o bweb dá 20.001 com 35.385 aptos; Nossa Senhora da Glória (SE) 4.615, o bweb dá 19.848.",
+   "fonte": "https://www.aosfatos.org/noticias/lista-cidades-mais-votos-que-habitantes/",
+   "relevancia": "Baixa. Lista inventada; não há o que testar além do que a conferência rápida já mostra."
+  },
+  {
+   "data": "data não lida (página do TSE deu 403)",
+   "tipo": "alegação nas redes",
+   "confianca": "média (resumo do buscador)",
+   "fato": "Checagens novas do Fato ou Boato do TSE: \"124 mil urnas só com votos para Lula\" e resultados idênticos em seções de Brasília (o TSE diz que são 106 seções com Flávio zerado, igual ao que o F8 contou); \"8 milhões votaram sem biometria depois das 17h\" (o TSE diz que entre 17h e 19h foram 4.888 pessoas habilitadas pelo ano de nascimento); \"urnas de 2013 e 2015 travaram a contagem\".",
+   "fonte": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-124-mil-urnas-tenham-registrado-votos-apenas-para-lula-no-2o-turno-das-eleicoes-2026 (403; buscador) ; https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/nao-e-verdade-que-8-milhoes-de-pessoas-votaram-sem-biometria-apos-as-17h-no-2o-turno (403; buscador)",
+   "relevancia": "Média. O número 4.888 é novo e conferível nos logs da amostra; \"resultados idênticos em Brasília\" dá um teste simples."
+  },
+  {
+   "data": "28/10/2026 (não estava no repositório)",
+   "tipo": "denúncia concreta",
+   "confianca": "alta para o teor; conferência rápida minha",
+   "fato": "Teixeira de Freitas (BA), zona 183: um homem que se diz fiscal afirma que os boletins impressos diferem do site do TSE e que em três seções Flávio teve 164 votos a mais, contra 93 na cidade. O vídeo não identifica as seções nem mostra os boletins. O bweb dá Flávio 41.454 e Lula 41.361 (diferença 93), igual ao oficial.",
+   "fonte": "https://www.aosfatos.org/noticias/soma-votos-tres-secoes-ba-nao-comprova-fraude/",
+   "relevancia": "Média. É a única alegação pública de boletim impresso diferente do site. Sem as fotos dos boletins não há o que comparar."
+  },
+  {
+   "data": "04 e 05/10/2026 (1º turno; não estava no repositório)",
+   "tipo": "denúncia concreta",
+   "confianca": "média (uma reportagem)",
+   "fato": "Salvador (BA): mesária presa sob suspeita de votar no lugar de um policial militar em trânsito, depois de dizer que havia um voto em aberto do eleitor anterior. Local: Escola Estadual de 1º Grau José Calazans Brandão da Silva, bairro Santa Cruz. Pelo cadastro de locais do TSE é a zona 13, local 1422, seções 303 e 315 a 322.",
+   "fonte": "https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026",
+   "relevancia": "Média. É um caso real do mecanismo \"mesário vota por outro\", com prédio identificado; o log do 1º turno dessas nove seções mostra como isso aparece."
+  },
+  {
+   "data": "25/10 a 09/11/2026",
+   "tipo": "denúncia concreta",
+   "confianca": "alta para a existência dos processos",
+   "fato": "Processos autuados na Justiça Eleitoral desde 25/10 por crimes do dia da votação (dados abertos de 09/11): 8 por votação múltipla ou em lugar de outrem (Porto Seguro BA, Quixadá CE, região de Fortaleza CE, MT, São João PR e três em SP), 8 por destruição ou ocultação de urna ou documentos, 5 por voto em seção onde o eleitor não está inscrito (três em Diamantina MG), 19 por violação do sigilo da urna, 2 por intervenção indevida junto à mesa. Entre o 1º turno e 24/10 foram 8, 2, 0, 9 e 1.",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes, partes, recursos; gerados em 09/11/2026) ; lista em proc_denuncias_dia.json",
+   "relevancia": "Baixa em escala (dezenas de casos individuais), mas são os únicos casos com zona identificada e autoridade investigando."
+  },
+  {
+   "data": "29/10/2026 (conferido em 09/11)",
+   "tipo": "fato dos dados",
+   "confianca": "alta (bweb)",
+   "fato": "A abstenção subiu muito no Amapá do 1º para o 2º turno, na contramão do país: Itaubal de 17,19% para 41,01%, Cutias de 17,60% para 40,36%, Pracuúba de 17,63% para 37,59%, Ferreira Gomes de 20,37% para 39,40%. O comparecimento caiu em nove UFs (AC, AM, AP, MA, PA, PI, RO, RR, TO). Lula ganhou votos nas 27 UFs e no exterior; Flávio perdeu votos em seis (AC, AM, AP, MA, RR, TO).",
+   "fonte": "https://mais.opovo.com.br/reportagens-especiais/resultado-presidente-eleicoes-2026/2026/10/29/o-impacto-da-queda-na-abstencao-na-eleicao-de-lula-veja-os-dados.html ; conferencia_ap.json e conferencia_ufs.json (bweb)",
+   "relevancia": "Média. Confirma a premissa da frase de Flávio (Lula subiu em todos os estados) e aponta onde olhar: nos estados em que menos gente votou, Lula subiu e Flávio caiu. Pode ser abstenção de um lado só; merece teste com critério escrito antes."
+  },
+  {
+   "data": "novembro de 2026",
+   "tipo": "observadores",
+   "confianca": "baixa (só títulos, páginas com 403)",
+   "fato": "Notícia do TSE: \"Observadores nacionais confirmam normalidade no 2º turno\" (Transparência Eleitoral Brasil em 16 UFs e oito cidades do exterior). O TRE-RJ homologou o resultado do 2º turno. O cadastro eleitoral reabriu em 03/11.",
+   "fonte": "https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/observadores-nacionais-confirmam-normalidade-no-2o-turno-das-eleicoes-2026 (403; buscador)",
+   "relevancia": "Baixa. A reabertura do cadastro importa para quem for medir eleitorado: usar os arquivos de antes de 03/11."
+  },
+  {
+   "data": "29/10/2026",
+   "tipo": "alegação nas redes",
+   "confianca": "alta para o teor (Aos Fatos)",
+   "fato": "O relatório apócrifo já checado no repositório foi publicado pelo perfil @Youvebeenpwned_ no X em 28/10; depois das contestações o perfil apagou a versão original e publicou outra sem parte das alegações. Somou cerca de 1,2 milhão de interações.",
+   "fonte": "https://aosfatos.org/noticias/relatorio-fraude-eleitoral-distorce-dados-omite-fatos/ ; https://www.aosfatos.org/noticias/apos-derrota-bolsonarismo-desinformacao-lula-fraude/",
+   "relevancia": "Baixa. O autor recuou de parte do texto; a versão que circula é a antiga."
+  }
+ ],
+ "dados_tse": {
+  "novos": [
+   {
+    "nome": "Histórico da totalização, presidente, 2º turno",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_2T_2026.zip",
+    "bytes": 10330383,
+    "modificado": "03/11/2026 17:33:26 GMT",
+    "conteudo": "28 CSV (27 UFs e exterior) e LEIAME.pdf; 39 colunas; gerado em 29/10/2026; 358.072 linhas",
+    "sha256": "0594dbb8fdb7974f0ad520d5bd4552ae40479601984b0073d7ce5a6a1d43b4cd"
+   },
+   {
+    "nome": "Histórico da totalização, presidente, 1º turno",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_1T_2026.zip",
+    "bytes": 17781368,
+    "modificado": "03/11/2026 17:34:18 GMT",
+    "conteudo": "28 CSV e LEIAME.pdf; 1.037.265 linhas",
+    "sha256": "9b8edf4997f2cb556b45a1d307075f08f5b0d4c122acce29cc4f86e1e322d105"
+   },
+   {
+    "nome": "Arquivos transmitidos para totalização, 2º turno, SP (pacote trocado)",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_SP.zip",
+    "bytes": 25758256844,
+    "modificado": "03/11/2026 19:48:26 GMT",
+    "conteudo": "192.321 bytes a mais que o de 26/10; corresponde ao log de Guarulhos 395/298"
+   },
+   {
+    "nome": "Arquivos transmitidos para totalização, 1º turno, MA (pacote trocado)",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_MA.zip",
+    "bytes": 3266353465,
+    "modificado": "03/11/2026 19:59:01 GMT",
+    "conteudo": "Não sei o que mudou"
+   },
+   {
+    "nome": "Arquivos transmitidos para totalização, 1º turno, MG (pacote trocado)",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_MG.zip",
+    "bytes": 9638559468,
+    "modificado": "03/11/2026 21:08:00 GMT",
+    "conteudo": "Não sei o que mudou"
+   },
+   {
+    "nome": "Processos da Justiça Eleitoral 2026 (processo, assuntos, decisões, partes, recursos)",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/processual/",
+    "bytes": 17708819,
+    "modificado": "09/11/2026",
+    "conteudo": "114.612 processos; atualização diária; dá classe, assunto, partes, relator e datas das decisões"
+   }
+  ],
+  "sem_mudanca": [
+   "bweb do 1º turno (bweb_1t_UF_051020261403.zip) e do 2º (bweb_2t_UF_261020260742.zip), com sha512: os mesmos nomes desde 06/10 e 27/10",
+   "Correspondência efetivada do 2º turno (CEFT_2t_UF_261020261201.zip): 28 arquivos, 49.263.856 bytes, de 26/10. Correspondência esperada (CESP_2t_UF_251020261345.zip): 37.455.604 bytes, de 25/10",
+   "Logs do Gedai do 2º turno (log_gedai_2t_UF_251020261327.zip): 28 arquivos, 173.183.895 bytes, de 25/10",
+   "Demais pacotes de arquivos transmitidos: 1º turno de 22/10 e 2º turno de 26/10, sem troca (lista em ckan/head_arqurnatot.txt). Esses pacotes não têm sha512 publicado",
+   "Votação por seção (votacao_secao_2026_BR.zip, 241.891.087 bytes) e detalhe por seção (234.357.769 bytes): de 26/10",
+   "Eleitorado por local de votação (167.493.511 bytes): de 25/10. Perfil do eleitorado por seção: de 17/07"
+  ],
+  "atualizados_por_rotina": [
+   "Em 09/11: votação nominal por município e zona (395.670.866 bytes), votação em partido (23.705.704), detalhe por município e zona (4.179.133), relatórios de totalização por UF (BR 486.541; SP 1.807.311), transferência temporária (23.089.842 e 3.983.516), denúncias do Pardal (2.040.589; 78.226 registros, quase tudo propaganda), pesquisas eleitorais"
+  ],
+  "ainda_nao_publicados": [
+   "Perfil do comparecimento e da abstenção do 2º turno (o arquivo é de 21/10; só 1º turno)",
+   "Relatórios dos TREs sobre o teste de integridade e de autenticidade do 2º turno e o relatório consolidado (publicação prevista para até 24/11; empresa de auditoria até 27/11)",
+   "Relatório do TCU (TC 020.282/2026-5; até 24/11)",
+   "Resumo dos programas instalados em cada urna (hash.dat), relatórios das entidades que inspecionaram o código, compilação independente",
+   "Relatórios finais da OEA, do Centro Carter e da missão de peritos da União Europeia",
+   "Registro do que mudou nos pacotes do 1º turno de MA e de MG trocados em 03/11"
+  ],
+  "existem_mas_nao_li_403": [
+   "https://www.tse.jus.br/eleicoes/urna-eletronica/seguranca-da-urna/hash/resumos-digitais-hashes-das-eleicoes-2026-1o-e-2o-turnos",
+   "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/boletim-de-urna-2o-turno/ (relatórios de ocorrências de 10h, 12h, 15h30, 18h e 20h, e os dois relatórios parciais \"ocorreje\")",
+   "https://www.tre-df.jus.br/eleicoes/auditoria-da-votacao-eletronica-2026 (segundo o buscador, lista os testes de integridade do 2º turno com um relatório para cada um; é onde deve estar a CLDF)",
+   "https://www.tre-sc.jus.br/eleicoes/eleicoes-2026/resultado-do-sorteio-da-auditoria-no-2o-turno-das-eleicoes e páginas equivalentes de MG, CE, PR e SP com as seções sorteadas",
+   "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens (checagens do TSE)"
+  ]
+ },
+ "alegacoes_novas_nas_redes": [
+  {
+   "id": "R1",
+   "data": "04/11/2026",
+   "afirma": "Código ativado às 17h01 transfere um voto a cada dez segundos; quanto mais tempo a urna fica aberta, maior a diferença. \"Tabela completa dos 10 grupos\" por horário de encerramento e gráfico de linhas. Cita cerca de 497 mil seções.",
+   "numeros": "1 voto a cada 10 s; 10 grupos; 497 mil seções; ao menos 200 mil visualizações no X.",
+   "fonte": "https://www.aosfatos.org/noticias/urnas-roubar-votos-apos-17h01/",
+   "como_testar": "Dez grupos por hora de encerramento (bweb) e virada dentro do local de votação; nos logs da amostra, votos computados depois das 17h01 por urna contra o ganho de Lula. Marca prevista pela alegação: 6 votos por minuto de urna aberta; uma urna aberta até as 19h teria mais de 700 votos transferidos, acima do comparecimento médio. O L8 e o F8 já mediram +0,007 ponto (ep 0,049) entre seções mantidas abertas e vizinhas."
+  },
+  {
+   "id": "R2",
+   "data": "04/11/2026",
+   "afirma": "\"Só na Bahia eles incluíram 2 milhões de votos depois das 17h. Aqui em São Paulo entrou seis pessoas.\"",
+   "numeros": "TSE: BA 4.190; SP 8.860; Brasil 34.393 (32.399 das 17h às 18h; 1.981 das 18h às 19h; 13 depois das 19h). 150 mil curtidas no Instagram.",
+   "fonte": "https://www.aosfatos.org/noticias/bahia-votos-prorrogacao-do-segundo-turno/ ; https://www.aosfatos.org/noticias/votos-registrados-apos-as-17h-nao-mudam-resultado-das-eleicoes/",
+   "como_testar": "Hora de cada voto nos logs da amostra por UF, extrapolada; comparar com 4.190 (BA) e 8.860 (SP). O comparecimento da BA no bweb (9.422.047) é igual ao citado pelo TSE."
+  },
+  {
+   "id": "R3",
+   "data": "05/11/2026",
+   "afirma": "\"Cidades que até os mortos votaram em Lula\": dez cidades com mais votos para Lula que habitantes.",
+   "numeros": "Lista do post (habitantes; votos para Lula): Nossa Senhora da Glória SE 3.053; 4.615. Porto da Pedra PE 6.122; 8.090. Poço das Antas PE 4.342; 5.873. Xique-Xique BA 43.548; 64.805. Barragem BA 25.687; 31.338. Nova Liberdade BA 11.026; 16.192. Nova Soures BA 9.622; 12.351. Guanambi BA 19.764; 22.538. Joaçaba BA 6.142; 6.984. Antas BA 11.434; 18.001.",
+   "fonte": "https://www.aosfatos.org/noticias/lista-cidades-mais-votos-que-habitantes/",
+   "como_testar": "Já conferido de forma descritiva (abaixo). Nenhum número bate com o bweb."
+  },
+  {
+   "id": "R4",
+   "data": "sem data lida",
+   "afirma": "\"124 mil urnas registraram votos apenas para Lula\" e seções de Brasília com resultados idênticos.",
+   "numeros": "TSE: 106 seções com votos só para Lula.",
+   "fonte": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-124-mil-urnas-tenham-registrado-votos-apenas-para-lula-no-2o-turno-das-eleicoes-2026 (403; buscador)",
+   "como_testar": "Contar seções com Flávio zerado (o F8 achou 106) e pares de seções do DF com o mesmo vetor de votos, contra o esperado por acaso."
+  },
+  {
+   "id": "R5",
+   "data": "sem data lida",
+   "afirma": "\"8 milhões de pessoas votaram sem biometria depois das 17h.\"",
+   "numeros": "TSE: 4.888 habilitados pelo ano de nascimento entre 17h e 19h. O repositório conta 8.632.488 liberações sem biometria no dia inteiro.",
+   "fonte": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/nao-e-verdade-que-8-milhoes-de-pessoas-votaram-sem-biometria-apos-as-17h-no-2o-turno (403; buscador)",
+   "como_testar": "Nos logs da amostra, contar habilitações sem biometria com hora depois das 17h e extrapolar; comparar com 4.888."
+  },
+  {
+   "id": "R6",
+   "data": "06/11/2026",
+   "afirma": "Flávio: \"O que explica, em 21 dias, o Lula vencer ou aumentar a votação em todos os estados\"; \"O problema é o que aconteceu dentro do TSE\"; \"É impossível não ser manipulação de resultado\".",
+   "numeros": "Premissa conferida no bweb: Lula ganhou votos nas 27 UFs e no exterior e subiu em percentual dos válidos em todas; Flávio ganhou votos em 22 e perdeu em 6.",
+   "fonte": "https://atarde.com.br/politica/flavio-admite-que-nao-tem-provas-de-fraude-eleitoral-nem-terei-1408636",
+   "como_testar": "(a) Histórico da totalização contra a hora de recebimento de cada boletim (DT_BU_RECEBIDO do bweb): tudo o que o TSE recebeu entrou na soma, na mesma ordem? (b) A soma dos boletins assinados pela urna já é igual ao oficial, o que fecha \"dentro do TSE\" para a totalização; resta a origem do programa."
+  },
+  {
+   "id": "R7",
+   "data": "28/10/2026",
+   "afirma": "\"Cadê os 165.699 votos do Nine?\": o total nacional de Lula menos a soma das páginas dos estados e do exterior, em vídeo gravado por volta das 17h57 de 25/10. Marca @DUDAVANA_VM.",
+   "numeros": "165.699 votos; a tela mostra Lula 193.574 (57,66%) e Flávio 142.169 (42,34%).",
+   "fonte": "https://www.aosfatos.org/noticias/lula-165-mil-votos-origem-nao-identificada/",
+   "como_testar": "Com o histórico da totalização: quanto o Brasil e cada UF tinham às 17h07 (pausa). O histórico dá Lula 271.370 e Flávio 217.312 no fim do minuto 17:07; a tela de 193.574 é de um instante anterior. A diferença entre painéis no meio da pausa é atraso de publicação, não voto. Detalhe a conferir: a imprensa registrou a divulgação parada em 0,25% das seções (cerca de 1.248), e o histórico mostra a totalização interna indo até 1.868 seções às 17:07; ou seja, cerca de 620 seções foram somadas e só apareceram depois das 19h."
+  },
+  {
+   "id": "R8",
+   "data": "26/10/2026 (comentários no Chequeado)",
+   "afirma": "Flávio tinha tendência de vitória com 30% apurado.",
+   "numeros": "Histórico oficial: às 20:00 (23% das seções) Flávio tinha 50,48% do acumulado; às 20:15 (38%) 50,28%; Lula passou às 20:24.",
+   "fonte": "https://chequeado.com/ultimas-noticias/elecciones-en-brasil-2026-los-datos-y-documentos-que-desmienten-la-teoria-de-fraude-electoral-en-el-balotaje/ ; hist2t_resumo.json",
+   "como_testar": "Confere como fato da ordem de chegada. Teste: a ordem de entrada das zonas (primeiro Sul e Centro-Oeste) prevê a curva sem nenhum ajuste? Dentro da zona, a virada independe da hora de entrada?"
+  },
+  {
+   "id": "R9",
+   "data": "06/10/2026 (1º turno)",
+   "afirma": "\"Estranhamente às 19:16 as urnas modelos UE2013 e UE2015 geram erro e a contagem ficou travada!\"",
+   "numeros": "945 mil visualizações no X. TSE: falha num módulo de divulgação por volta de 19h14, com 64,81% divulgados, restabelecido às 20h04; totalização suspensa por pouco tempo.",
+   "fonte": "https://www.aosfatos.org/noticias/urnas-apuracao-votos-primeiro-turno/",
+   "como_testar": "O histórico do 1º turno mostra passos de totalização até 19:32, de novo às 19:44 e 19:45, e um intervalo de 18 minutos até 20:03. Conferir se esse intervalo é o que o TSE descreve e se a virada das zonas que entraram depois difere."
+  },
+  {
+   "id": "R10",
+   "data": "04/11/2026 (NYT)",
+   "afirma": "Flávio: falha de segurança na sala de contagem de votos do TSE; fiscais do PL retirados da sala-cofre.",
+   "numeros": "Sem número.",
+   "fonte": "https://www.brasildefato.com.br/2026/11/05/the-new-york-times-minimiza-entrevista-de-flavio-bolsonaro-e-desmente-teses-de-fraude-na-eleicao-e-perseguicao/",
+   "como_testar": "Não conferível com dado público; o TSE diz ter filmagem e registro de presença (já no F8)."
+  }
+ ],
+ "denuncias_concretas": [
+  {
+   "onde": "Teixeira de Freitas (BA), zona 183",
+   "o_que": "Fiscal diz que boletins impressos de três seções diferem do site; sem identificar as seções.",
+   "conferido": "bweb do 2º turno: Flávio 41.454, Lula 41.361, diferença 93, 303 linhas de seção (342 seções no cadastro, com agregadas).",
+   "falta": "As fotos dos boletins.",
+   "fonte": "https://www.aosfatos.org/noticias/soma-votos-tres-secoes-ba-nao-comprova-fraude/"
+  },
+  {
+   "onde": "Salvador (BA), zona 13, local 1422 (Escola Estadual de 1º Grau José Calazans Brandão da Silva), seções 303 e 315 a 322, 1º turno",
+   "o_que": "Mesária presa sob suspeita de votar no lugar de policial militar em trânsito.",
+   "conferido": "Local e seções identificados no cadastro de locais do TSE. Nenhuma das nove foi lida no log.",
+   "falta": "Baixar os nove logs do 1º turno e achar o evento.",
+   "fonte": "https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026"
+  },
+  {
+   "onde": "Guarulhos (SP), zona 395, seção 298, 2º turno",
+   "o_que": "Seção sem log publicado (pendência do F8).",
+   "conferido": "Log publicado em 03/11; 268 votos computados, igual ao boletim; zero voto sem habilitação ou fora de hora.",
+   "falta": "Nada.",
+   "fonte": "https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/sp/64777/0395/0298/p003221-sp-m64777-z0395-s0298-aux.json"
+  },
+  {
+   "onde": "Santa Maria de Jetibá (ES), zona 9, seções 85 e 112, 2º turno",
+   "o_que": "Log trocado entre as duas seções (pendência do F8).",
+   "conferido": "Os índices das duas seções continuam com data de 25/10; o pacote do ES não foi trocado.",
+   "falta": "Pedido ao TSE do arquivo correto.",
+   "fonte": "https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/es/57932/0009/0112/p003221-es-m57932-z0009-s0112-aux.json"
+  },
+  {
+   "onde": "Amapá: Itaubal, Cutias, Pracuúba, Ferreira Gomes",
+   "o_que": "Abstenção mais que dobrou do 1º para o 2º turno.",
+   "conferido": "bweb: Itaubal 7.354 votantes no 1º turno e 5.239 no 2º; Flávio de 3.107 para 2.231, Lula de 3.646 para 2.957.",
+   "falta": "Causa local (transporte, mobilização); comparar com 2022.",
+   "fonte": "https://mais.opovo.com.br/reportagens-especiais/resultado-presidente-eleicoes-2026/2026/10/29/o-impacto-da-queda-na-abstencao-na-eleicao-de-lula-veja-os-dados.html"
+  },
+  {
+   "onde": "Processos por votação em lugar de outrem desde 25/10",
+   "o_que": "0600004-19.2026.6.05.0716 (Porto Seguro BA, flagrante, 25/10); 0600105-25.2026.6.06.0006 (Quixadá CE, 25/10); 0600083-67.2026.6.06.0005 (região de Fortaleza CE, flagrante, 26/10); 0600017-27.2026.6.11.0562 (MT, flagrante, 25/10); 0600062-62.2026.6.16.0151 (São João PR, 27/10); 0600005-29.2026.6.26.0939 (Campinas SP, 27/10); 0600015-06.2026.6.26.0929 (São Paulo SP, 29/10); 0600013-11.2026.6.26.0420 (São Paulo SP, 04/11).",
+   "conferido": "Só a existência, a data, a classe e a origem. As peças não são públicas nos dados abertos.",
+   "falta": "Seção de cada caso (consulta pública do PJe).",
+   "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes, partes, recursos; gerados em 09/11/2026)"
+  }
+ ],
+ "conferencias_rapidas": {
+  "aviso": "Contas descritivas, feitas depois de ler as alegações, sem critério registrado. Servem para dizer se o número citado existe nos dados; não são teste de fraude.",
+  "historico_2t": {
+   "soma_igual_ao_oficial": true,
+   "secoes": 499205,
+   "primeiro": "2026-10-25 17:05:21",
+   "ultimo": "2026-10-25 23:21:51",
+   "pausa": "17:07 a 19:03 (116 min)",
+   "ate_a_pausa": "1.868 seções; Lula 271.370; Flávio 217.312",
+   "lideranca": "Lula até 19:44; Flávio de 19:44 a 20:24; Lula depois"
+  },
+  "historico_1t": {
+   "soma_igual_ao_oficial": true,
+   "secoes": 499206,
+   "primeiro": "2026-10-04 17:08:57",
+   "ultimo": "2026-10-05 02:58:39",
+   "maiores_intervalos_min": [
+    [
+     16.0,
+     "04 23:55",
+     "05 00:11"
+    ],
+    [
+     18.0,
+     "04 19:45",
+     "04 20:03"
+    ],
+    [
+     18.0,
+     "05 00:11",
+     "05 00:29"
+    ],
+    [
+     62.0,
+     "05 01:56",
+     "05 02:58"
+    ],
+    [
+     71.0,
+     "05 00:45",
+     "05 01:56"
+    ]
+   ]
+  },
+  "lista_dez_cidades": {
+   "AL|PORTO DE PEDRAS|28479|T2": {
+    "apt": 8462,
+    "comp": 6539,
+    "L": 3303,
+    "R": 3097,
+    "B": 42,
+    "N": 97,
+    "secoes": 23
+   },
+   "BA|ANTAS|33316|T2": {
+    "apt": 10594,
+    "comp": 8762,
+    "L": 5952,
+    "R": 2571,
+    "B": 63,
+    "N": 176,
+    "secoes": 33
+   },
+   "BA|GUANAMBI|35335|T2": {
+    "apt": 67492,
+    "comp": 58032,
+    "L": 35676,
+    "R": 20269,
+    "B": 579,
+    "N": 1508,
+    "secoes": 192
+   },
+   "BA|NOVA SOURE|37591|T2": {
+    "apt": 21204,
+    "comp": 17288,
+    "L": 14293,
+    "R": 2480,
+    "B": 100,
+    "N": 415,
+    "secoes": 70
+   },
+   "BA|SALVADOR|38490|T2": {
+    "apt": 1955471,
+    "comp": 1647069,
+    "L": 1154072,
+    "R": 421752,
+    "B": 18926,
+    "N": 52319,
+    "secoes": 5124
+   },
+   "BA|TEIXEIRA DE FREITAS|39934|T2": {
+    "apt": 105057,
+    "comp": 85475,
+    "L": 41361,
+    "R": 41454,
+    "B": 852,
+    "N": 1808,
+    "secoes": 303
+   },
+   "BA|XIQUE-XIQUE|39713|T2": {
+    "apt": 35385,
+    "comp": 28095,
+    "L": 20001,
+    "R": 7282,
+    "B": 212,
+    "N": 600,
+    "secoes": 124
+   },
+   "RS|POCO DAS ANTAS|86126|T2": {
+    "apt": 2014,
+    "comp": 1762,
+    "L": 412,
+    "R": 1292,
+    "B": 20,
+    "N": 38,
+    "secoes": 7
+   },
+   "SC|JOACABA|81779|T2": {
+    "apt": 22373,
+    "comp": 18479,
+    "L": 4909,
+    "R": 13162,
+    "B": 183,
+    "N": 225,
+    "secoes": 79
+   },
+   "SE|NOSSA SENHORA DA GLORIA|31895|T2": {
+    "apt": 30469,
+    "comp": 26603,
+    "L": 19848,
+    "R": 6137,
+    "B": 194,
+    "N": 424,
+    "secoes": 108
+   }
+  },
+  "escola_salvador_1t": {
+   "BA|38490|13|303": {
+    "1": {
+     "apt": 350,
+     "comp": 242,
+     "L": 144,
+     "R": 62,
+     "B": 6,
+     "N": 16,
+     "urna": 2429276,
+     "ab": "08:08:26",
+     "enc": "17:06:34"
+    },
+    "2": {
+     "apt": 350,
+     "comp": 262,
+     "L": 193,
+     "R": 59,
+     "B": 1,
+     "N": 9,
+     "urna": 2429276,
+     "ab": "08:00:01",
+     "enc": "17:04:40"
+    }
+   },
+   "BA|38490|13|315": {
+    "1": {
+     "apt": 352,
+     "comp": 280,
+     "L": 182,
+     "R": 57,
+     "B": 7,
+     "N": 18,
+     "urna": 2342000,
+     "ab": "08:00:01",
+     "enc": "18:02:28"
+    },
+    "2": {
+     "apt": 350,
+     "comp": 304,
+     "L": 233,
+     "R": 62,
+     "B": 3,
+     "N": 6,
+     "urna": 2342000,
+     "ab": "08:00:01",
+     "enc": "17:05:41"
+    }
+   },
+   "BA|38490|13|316": {
+    "1": {
+     "apt": 349,
+     "comp": 292,
+     "L": 202,
+     "R": 48,
+     "B": 11,
+     "N": 21,
+     "urna": 2424024,
+     "ab": "08:00:01",
+     "enc": "17:10:24"
+    },
+    "2": {
+     "apt": 349,
+     "comp": 305,
+     "L": 238,
+     "R": 49,
+     "B": 2,
+     "N": 16,
+     "urna": 2424024,
+     "ab": "08:00:01",
+     "enc": "17:02:05"
+    }
+   },
+   "BA|38490|13|317": {
+    "1": {
+     "apt": 400,
+     "comp": 329,
+     "L": 230,
+     "R": 67,
+     "B": 5,
+     "N": 13,
+     "urna": 2425478,
+     "ab": "08:00:01",
+     "enc": "18:33:09"
+    },
+    "2": {
+     "apt": 400,
+     "comp": 353,
+     "L": 270,
+     "R": 74,
+     "B": 1,
+     "N": 8,
+     "urna": 2425478,
+     "ab": "08:00:01",
+     "enc": "17:07:23"
+    }
+   },
+   "BA|38490|13|318": {
+    "1": {
+     "apt": 348,
+     "comp": 281,
+     "L": 194,
+     "R": 53,
+     "B": 5,
+     "N": 15,
+     "urna": 2391513,
+     "ab": "08:00:01",
+     "enc": "17:10:20"
+    },
+    "2": {
+     "apt": 348,
+     "comp": 308,
+     "L": 240,
+     "R": 55,
+     "B": 4,
+     "N": 9,
+     "urna": 2391513,
+     "ab": "08:00:01",
+     "enc": "17:00:47"
+    }
+   },
+   "BA|38490|13|319": {
+    "1": {
+     "apt": 350,
+     "comp": 291,
+     "L": 192,
+     "R": 54,
+     "B": 9,
+     "N": 19,
+     "urna": 2424160,
+     "ab": "08:00:34",
+     "enc": "17:06:54"
+    },
+    "2": {
+     "apt": 350,
+     "comp": 303,
+     "L": 233,
+     "R": 55,
+     "B": 3,
+     "N": 12,
+     "urna": 2424160,
+     "ab": "08:04:18",
+     "enc": "17:06:29"
+    }
+   },
+   "BA|38490|13|320": {
+    "1": {
+     "apt": 349,
+     "comp": 297,
+     "L": 193,
+     "R": 64,
+     "B": 8,
+     "N": 16,
+     "urna": 2391886,
+     "ab": "08:02:50",
+     "enc": "17:31:24"
+    },
+    "2": {
+     "apt": 349,
+     "comp": 315,
+     "L": 234,
+     "R": 64,
+     "B": 4,
+     "N": 13,
+     "urna": 2391886,
+     "ab": "08:02:00",
+     "enc": "17:03:52"
+    }
+   },
+   "BA|38490|13|321": {
+    "1": {
+     "apt": 350,
+     "comp": 301,
+     "L": 193,
+     "R": 55,
+     "B": 10,
+     "N": 22,
+     "urna": 2401865,
+     "ab": "08:00:01",
+     "enc": "17:36:36"
+    },
+    "2": {
+     "apt": 350,
+     "comp": 316,
+     "L": 233,
+     "R": 61,
+     "B": 7,
+     "N": 15,
+     "urna": 2401865,
+     "ab": "08:00:01",
+     "enc": "17:06:24"
+    }
+   },
+   "BA|38490|13|322": {
+    "1": {
+     "apt": 347,
+     "comp": 294,
+     "L": 201,
+     "R": 46,
+     "B": 7,
+     "N": 19,
+     "urna": 2253001,
+     "ab": "08:00:01",
+     "enc": "17:20:43"
+    },
+    "2": {
+     "apt": 347,
+     "comp": 305,
+     "L": 247,
+     "R": 49,
+     "B": 2,
+     "N": 7,
+     "urna": 2253001,
+     "ab": "08:00:01",
+     "enc": "17:04:17"
+    }
+   }
+  },
+  "amapa": {
+   "PRACUÚBA": {
+    "cod": "6009",
+    "secoes": 16,
+    "aptos2": 4022,
+    "comp1": 3313,
+    "comp2": 2510,
+    "abst1": 17.63,
+    "abst2": 37.59,
+    "L1": 1612,
+    "R1": 1469,
+    "L2": 1480,
+    "R2": 1000
+   },
+   "AMAPÁ": {
+    "cod": "6017",
+    "secoes": 27,
+    "aptos2": 7527,
+    "comp1": 6262,
+    "comp2": 4971,
+    "abst1": 16.76,
+    "abst2": 33.96,
+    "L1": 3379,
+    "R1": 2277,
+    "L2": 3105,
+    "R2": 1794
+   },
+   "PORTO GRANDE": {
+    "cod": "6025",
+    "secoes": 45,
+    "aptos2": 15535,
+    "comp1": 12338,
+    "comp2": 10766,
+    "abst1": 20.57,
+    "abst2": 30.7,
+    "L1": 5770,
+    "R1": 5300,
+    "L2": 5822,
+    "R2": 4739
+   },
+   "CALÇOENE": {
+    "cod": "6033",
+    "secoes": 30,
+    "aptos2": 8903,
+    "comp1": 7009,
+    "comp2": 5773,
+    "abst1": 21.31,
+    "abst2": 35.16,
+    "L1": 3476,
+    "R1": 2832,
+    "L2": 3296,
+    "R2": 2391
+   },
+   "ITAUBAL": {
+    "cod": "6041",
+    "secoes": 31,
+    "aptos2": 8881,
+    "comp1": 7354,
+    "comp2": 5239,
+    "abst1": 17.19,
+    "abst2": 41.01,
+    "L1": 3646,
+    "R1": 3107,
+    "L2": 2957,
+    "R2": 2231
+   },
+   "MACAPÁ": {
+    "cod": "6050",
+    "secoes": 1027,
+    "aptos2": 321520,
+    "comp1": 270534,
+    "comp2": 251314,
+    "abst1": 15.88,
+    "abst2": 21.84,
+    "L1": 114179,
+    "R1": 124378,
+    "L2": 125479,
+    "R2": 120593
+   },
+   "CUTIAS": {
+    "cod": "6068",
+    "secoes": 23,
+    "aptos2": 6301,
+    "comp1": 5191,
+    "comp2": 3758,
+    "abst1": 17.6,
+    "abst2": 40.36,
+    "L1": 2645,
+    "R1": 2125,
+    "L2": 2236,
+    "R2": 1483
+   },
+   "MAZAGÃO": {
+    "cod": "6076",
+    "secoes": 90,
+    "aptos2": 22214,
+    "comp1": 18989,
+    "comp2": 15596,
+    "abst1": 14.51,
+    "abst2": 29.79,
+    "L1": 11092,
+    "R1": 6402,
+    "L2": 9957,
+    "R2": 5419
+   },
+   "PEDRA BRANCA DO AMAPARI": {
+    "cod": "6084",
+    "secoes": 31,
+    "aptos2": 9908,
+    "comp1": 7119,
+    "comp2": 6098,
+    "abst1": 28.16,
+    "abst2": 38.45,
+    "L1": 3492,
+    "R1": 3026,
+    "L2": 3484,
+    "R2": 2522
+   },
+   "OIAPOQUE": {
+    "cod": "6092",
+    "secoes": 91,
+    "aptos2": 24207,
+    "comp1": 17516,
+    "comp2": 15482,
+    "abst1": 27.68,
+    "abst2": 36.04,
+    "L1": 9792,
+    "R1": 6109,
+    "L2": 9709,
+    "R2": 5517
+   },
+   "SERRA DO NAVIO": {
+    "cod": "6106",
+    "secoes": 12,
+    "aptos2": 4112,
+    "comp1": 3040,
+    "comp2": 2499,
+    "abst1": 26.05,
+    "abst2": 39.23,
+    "L1": 1054,
+    "R1": 1693,
+    "L2": 986,
+    "R2": 1468
+   },
+   "FERREIRA GOMES": {
+    "cod": "6114",
+    "secoes": 26,
+    "aptos2": 7862,
+    "comp1": 6260,
+    "comp2": 4764,
+    "abst1": 20.37,
+    "abst2": 39.4,
+    "L1": 2788,
+    "R1": 2889,
+    "L2": 2443,
+    "R2": 2242
+   },
+   "VITÓRIA DO JARI": {
+    "cod": "6122",
+    "secoes": 41,
+    "aptos2": 10406,
+    "comp1": 8071,
+    "comp2": 6924,
+    "abst1": 22.43,
+    "abst2": 33.46,
+    "L1": 4824,
+    "R1": 2668,
+    "L2": 4618,
+    "R2": 2212
+   },
+   "LARANJAL DO JARI": {
+    "cod": "6130",
+    "secoes": 106,
+    "aptos2": 28170,
+    "comp1": 21115,
+    "comp2": 18940,
+    "abst1": 25.04,
+    "abst2": 32.77,
+    "L1": 10748,
+    "R1": 8386,
+    "L2": 11030,
+    "R2": 7556
+   },
+   "SANTANA": {
+    "cod": "6157",
+    "secoes": 274,
+    "aptos2": 85905,
+    "comp1": 73177,
+    "comp2": 67857,
+    "abst1": 14.81,
+    "abst2": 21.01,
+    "L1": 29279,
+    "R1": 35791,
+    "L2": 32065,
+    "R2": 34441
+   },
+   "TARTARUGALZINHO": {
+    "cod": "6173",
+    "secoes": 44,
+    "aptos2": 11437,
+    "comp1": 9274,
+    "comp2": 7484,
+    "abst1": 18.91,
+    "abst2": 34.56,
+    "L1": 4727,
+    "R1": 3826,
+    "L2": 4301,
+    "R2": 3066
+   }
+  },
+  "ufs": {
+   "AC": {
+    "L1": 134770,
+    "L2": 144513,
+    "R1": 302807,
+    "R2": 287715,
+    "pctL1": 28.73,
+    "pctL2": 33.43,
+    "dL": 9743,
+    "dR": -15092,
+    "comp1": 488330,
+    "comp2": 453654
+   },
+   "AL": {
+    "L1": 995459,
+    "L2": 1152621,
+    "R1": 735718,
+    "R2": 744140,
+    "pctL1": 54.73,
+    "pctL2": 60.77,
+    "dL": 157162,
+    "dR": 8422,
+    "comp1": 1938428,
+    "comp2": 1951632
+   },
+   "AM": {
+    "L1": 1046996,
+    "L2": 1145783,
+    "R1": 976764,
+    "R2": 975245,
+    "pctL1": 48.23,
+    "pctL2": 54.02,
+    "dL": 98787,
+    "dR": -1519,
+    "comp1": 2234549,
+    "comp2": 2192059
+   },
+   "AP": {
+    "L1": 212503,
+    "L2": 222968,
+    "R1": 212278,
+    "R2": 198674,
+    "pctL1": 45.71,
+    "pctL2": 52.88,
+    "dL": 10465,
+    "dR": -13604,
+    "comp1": 476562,
+    "comp2": 429975
+   },
+   "BA": {
+    "L1": 5664771,
+    "L2": 6485258,
+    "R1": 2442585,
+    "R2": 2608761,
+    "pctL1": 66.17,
+    "pctL2": 71.31,
+    "dL": 820487,
+    "dR": 166176,
+    "comp1": 9053601,
+    "comp2": 9422047
+   },
+   "CE": {
+    "L1": 3555263,
+    "L2": 4036124,
+    "R1": 1756850,
+    "R2": 1819478,
+    "pctL1": 63.28,
+    "pctL2": 68.93,
+    "dL": 480861,
+    "dR": 62628,
+    "comp1": 5910471,
+    "comp2": 6024843
+   },
+   "DF": {
+    "L1": 675627,
+    "L2": 825224,
+    "R1": 909616,
+    "R2": 979542,
+    "pctL1": 38.11,
+    "pctL2": 45.72,
+    "dL": 149597,
+    "dR": 69926,
+    "comp1": 1831396,
+    "comp2": 1868280
+   },
+   "ES": {
+    "L1": 850028,
+    "L2": 1001965,
+    "R1": 1233194,
+    "R2": 1294504,
+    "pctL1": 37.76,
+    "pctL2": 43.63,
+    "dL": 151937,
+    "dR": 61310,
+    "comp1": 2352282,
+    "comp2": 2409214
+   },
+   "GO": {
+    "L1": 1188880,
+    "L2": 1585555,
+    "R1": 2051888,
+    "R2": 2345334,
+    "pctL1": 31.06,
+    "pctL2": 40.34,
+    "dL": 396675,
+    "dR": 293446,
+    "comp1": 3971587,
+    "comp2": 4047280
+   },
+   "MA": {
+    "L1": 2566301,
+    "L2": 2808231,
+    "R1": 1239040,
+    "R2": 1229971,
+    "pctL1": 63.99,
+    "pctL2": 69.54,
+    "dL": 241930,
+    "dR": -9069,
+    "comp1": 4160343,
+    "comp2": 4127771
+   },
+   "MG": {
+    "L1": 5188936,
+    "L2": 6351099,
+    "R1": 5777548,
+    "R2": 6241786,
+    "pctL1": 43.32,
+    "pctL2": 50.43,
+    "dL": 1162163,
+    "dR": 464238,
+    "comp1": 12637274,
+    "comp2": 13044203
+   },
+   "MS": {
+    "L1": 516855,
+    "L2": 628973,
+    "R1": 873351,
+    "R2": 927892,
+    "pctL1": 34.68,
+    "pctL2": 40.4,
+    "dL": 112118,
+    "dR": 54541,
+    "comp1": 1541220,
+    "comp2": 1594460
+   },
+   "MT": {
+    "L1": 581681,
+    "L2": 694167,
+    "R1": 1298581,
+    "R2": 1351099,
+    "pctL1": 29.18,
+    "pctL2": 33.94,
+    "dL": 112486,
+    "dR": 52518,
+    "comp1": 2052133,
+    "comp2": 2085334
+   },
+   "PA": {
+    "L1": 2427237,
+    "L2": 2690449,
+    "R1": 2163957,
+    "R2": 2199940,
+    "pctL1": 49.91,
+    "pctL2": 55.02,
+    "dL": 263212,
+    "dR": 35983,
+    "comp1": 5066504,
+    "comp2": 4989573
+   },
+   "PB": {
+    "L1": 1541127,
+    "L2": 1794059,
+    "R1": 831377,
+    "R2": 865210,
+    "pctL1": 61.31,
+    "pctL2": 67.46,
+    "dL": 252932,
+    "dR": 33833,
+    "comp1": 2683988,
+    "comp2": 2743560
+   },
+   "PE": {
+    "L1": 3553971,
+    "L2": 4117513,
+    "R1": 1738043,
+    "R2": 1832554,
+    "pctL1": 63.45,
+    "pctL2": 69.2,
+    "dL": 563542,
+    "dR": 94511,
+    "comp1": 5911062,
+    "comp2": 6126467
+   },
+   "PI": {
+    "L1": 1523710,
+    "L2": 1653989,
+    "R1": 517028,
+    "R2": 525859,
+    "pctL1": 70.99,
+    "pctL2": 75.88,
+    "dL": 130279,
+    "dR": 8831,
+    "comp1": 2240883,
+    "comp2": 2239830
+   },
+   "PR": {
+    "L1": 2054597,
+    "L2": 2566504,
+    "R1": 3945345,
+    "R2": 4291444,
+    "pctL1": 31.2,
+    "pctL2": 37.42,
+    "dL": 511907,
+    "dR": 346099,
+    "comp1": 6841457,
+    "comp2": 7059339
+   },
+   "RJ": {
+    "L1": 3693021,
+    "L2": 4565393,
+    "R1": 4966844,
+    "R2": 5169033,
+    "pctL1": 39.41,
+    "pctL2": 46.9,
+    "dL": 872372,
+    "dR": 202189,
+    "comp1": 9859802,
+    "comp2": 10077449
+   },
+   "RN": {
+    "L1": 1237963,
+    "L2": 1413596,
+    "R1": 720493,
+    "R2": 737409,
+    "pctL1": 59.75,
+    "pctL2": 65.72,
+    "dL": 175633,
+    "dR": 16916,
+    "comp1": 2171013,
+    "comp2": 2232823
+   },
+   "RO": {
+    "L1": 250667,
+    "L2": 294446,
+    "R1": 652988,
+    "R2": 674382,
+    "pctL1": 25.89,
+    "pctL2": 30.39,
+    "dL": 43779,
+    "dR": 21394,
+    "comp1": 991080,
+    "comp2": 988489
+   },
+   "RR": {
+    "L1": 74420,
+    "L2": 83505,
+    "R1": 231322,
+    "R2": 219675,
+    "pctL1": 22.86,
+    "pctL2": 27.54,
+    "dL": 9085,
+    "dR": -11647,
+    "comp1": 332772,
+    "comp2": 308597
+   },
+   "RS": {
+    "L1": 2294759,
+    "L2": 2824552,
+    "R1": 3573783,
+    "R2": 3874378,
+    "pctL1": 35.73,
+    "pctL2": 42.16,
+    "dL": 529793,
+    "dR": 300595,
+    "comp1": 6702903,
+    "comp2": 6889638
+   },
+   "SC": {
+    "L1": 1127168,
+    "L2": 1418314,
+    "R1": 3000020,
+    "R2": 3220071,
+    "pctL1": 25.04,
+    "pctL2": 30.58,
+    "dL": 291146,
+    "dR": 220051,
+    "comp1": 4648159,
+    "comp2": 4762303
+   },
+   "SE": {
+    "L1": 856019,
+    "L2": 989041,
+    "R1": 417839,
+    "R2": 433354,
+    "pctL1": 62.75,
+    "pctL2": 69.53,
+    "dL": 133022,
+    "dR": 15515,
+    "comp1": 1439082,
+    "comp2": 1466659
+   },
+   "SP": {
+    "L1": 9505413,
+    "L2": 12119274,
+    "R1": 12922023,
+    "R2": 14139178,
+    "pctL1": 38.2,
+    "pctL2": 46.15,
+    "dL": 2613861,
+    "dR": 1217155,
+    "comp1": 26431992,
+    "comp2": 27364389
+   },
+   "TO": {
+    "L1": 404009,
+    "L2": 442962,
+    "R1": 469321,
+    "R2": 467916,
+    "pctL1": 43.42,
+    "pctL2": 48.63,
+    "dL": 38953,
+    "dR": -1405,
+    "comp1": 965196,
+    "comp2": 954763
+   },
+   "ZZ": {
+    "L1": 157387,
+    "L2": 200154,
+    "R1": 143900,
+    "R2": 171497,
+    "pctL1": 47.55,
+    "pctL2": 53.86,
+    "dL": 42767,
+    "dR": 27597,
+    "comp1": 341766,
+    "comp2": 381443
+   }
+  },
+  "log_guarulhos": {
+   "logs_no_pacote": 1,
+   "computados": 268,
+   "habilitados": 268,
+   "A2_antes": 0,
+   "A2_depois": 0,
+   "A3_sem_habilitacao": 0,
+   "A4_menos_2s": 0,
+   "A5_rajadas": 0,
+   "erros": 1,
+   "urnas_no_log": 1,
+   "contingencia": false,
+   "maior_sequencia_rapida": 1,
+   "dur_mediana": 12,
+   "dur_min": 5,
+   "primeiro_voto": 28874,
+   "ultimo_voto": 60987,
+   "encerramento": 61521,
+   "pronta": 28801
+  },
+  "lula_subiu_em_todas_as_ufs": "28 de 28 (27 UFs e exterior) em votos e em percentual dos válidos",
+  "flavio_perdeu_votos_em": [
+   "AC",
+   "AM",
+   "AP",
+   "MA",
+   "RR",
+   "TO"
+  ],
+  "comparecimento_caiu_em": [
+   "AC",
+   "AM",
+   "AP",
+   "MA",
+   "PA",
+   "PI",
+   "RO",
+   "RR",
+   "TO"
+  ],
+  "processos_por_assunto_e_periodo": {
+   "Coação Visando a Obtenção de Voto ou a sua Abstenção | 04out_a_24out": 29,
+   "Coação Visando a Obtenção de Voto ou a sua Abstenção | 25out_a_09nov": 18,
+   "Coação Visando a Obtenção de Voto ou a sua Abstenção | ate_03out": 18,
+   "Concentração de Eleitores para Embaraçar ou Fraudar o Exercício do Voto | 04out_a_24out": 15,
+   "Concentração de Eleitores para Embaraçar ou Fraudar o Exercício do Voto | 25out_a_09nov": 9,
+   "Concentração de Eleitores para Embaraçar ou Fraudar o Exercício do Voto | ate_03out": 2,
+   "Corrupção Eleitoral | 04out_a_24out": 104,
+   "Corrupção Eleitoral | 25out_a_09nov": 33,
+   "Corrupção Eleitoral | ate_03out": 33,
+   "Desinformação sobre a Integridade do Processo Eleitoral | 04out_a_24out": 39,
+   "Desinformação sobre a Integridade do Processo Eleitoral | 25out_a_09nov": 8,
+   "Desinformação sobre a Integridade do Processo Eleitoral | ate_03out": 213,
+   "Destruição, Supressão ou Ocultação de Urna Contendo Votos ou Documentos Eleitorais | 04out_a_24out": 2,
+   "Destruição, Supressão ou Ocultação de Urna Contendo Votos ou Documentos Eleitorais | 25out_a_09nov": 8,
+   "Destruição, Supressão ou Ocultação de Urna Contendo Votos ou Documentos Eleitorais | ate_03out": 3,
+   "Falsidade Ideológica | 04out_a_24out": 13,
+   "Falsidade Ideológica | 25out_a_09nov": 3,
+   "Falsidade Ideológica | ate_03out": 46,
+   "Impedimento ou Embaraço ao Exercício do Sufrágio | 04out_a_24out": 20,
+   "Impedimento ou Embaraço ao Exercício do Sufrágio | 25out_a_09nov": 18,
+   "Impedimento ou Embaraço ao Exercício do Sufrágio | ate_03out": 8,
+   "Intervenção Indevida de Autoridade Junto à Mesa Receptora | 04out_a_24out": 1,
+   "Intervenção Indevida de Autoridade Junto à Mesa Receptora | 25out_a_09nov": 2,
+   "Violação do Sigilo da Urna ou dos Invólucros | 04out_a_24out": 9,
+   "Violação do Sigilo da Urna ou dos Invólucros | 25out_a_09nov": 19,
+   "Violação do Sigilo da Urna ou dos Invólucros | ate_03out": 1,
+   "Votação Múltipla ou Realizada em Lugar de Outrem | 04out_a_24out": 8,
+   "Votação Múltipla ou Realizada em Lugar de Outrem | 25out_a_09nov": 8,
+   "Votação de Eleitor na Seção Eleitoral na qual Não Está Inscrito ou Autorizado a Votar | 25out_a_09nov": 5,
+   "Votação de Eleitor na Seção Eleitoral na qual Não Está Inscrito ou Autorizado a Votar | ate_03out": 1
+  }
+ },
+ "pistas_para_teste": [
+  "Histórico da totalização contra o bweb: para cada zona, a hora em que o TSE recebeu os boletins (DT_BU_RECEBIDO) contra a hora em que entraram na soma (DT_TOTALIZACAO). Boletim recebido e não somado, somado antes de recebido, ou passo de totalização com votos que não batem com os boletins daquele intervalo seria marca de mexida dentro do TSE, que é onde Flávio agora põe a suspeita. Refazer com esse dado o teste dos 84,7 segundos.",
+  "Pacotes trocados em 03/11 no 1º turno de MA e MG: achar as seções cujo índice (aux.json) tem data de geração de 03/11 e ver o que entrou. Pedir ao TSE o resumo (sha512) e o registro de alterações desses pacotes.",
+  "Alegação das 17h01 (R1): dez grupos por horário de encerramento, com critério escrito antes, e votos depois das 17h01 por urna nos logs.",
+  "Número 4.888 do TSE (habilitados pelo ano de nascimento entre 17h e 19h) e divisão dos 34.393 votos por hora e por UF: conferir nos logs da amostra.",
+  "Salvador, zona 13, seções 303 e 315 a 322 no 1º turno: baixar os nove logs e achar o voto dado no lugar do policial. Serve de gabarito para o que procurar em escala.",
+  "Norte e Maranhão: nas seis UFs em que Flávio perdeu votos, medir por seção se a queda do comparecimento explica a perda dele e o ganho de Lula (abstenção de um lado só contra troca de voto), com critério antes.",
+  "Teixeira de Freitas: pedir ao autor do vídeo as fotos dos boletins impressos e comparar com o bweb. Seria o primeiro confronto de papel contra site.",
+  "Seções de Brasília com resultado idêntico (R4): contar e comparar com o acaso.",
+  "TRE-DF: alguém com navegador comum deve abrir a página de auditoria de 2026 e ler o relatório da CLDF do 2º turno (aqui deu 403).",
+  "Agenda: 24/11 (TCU e relatórios dos TREs) e 27/11 (empresa de auditoria). Voltar ao portal de dados abertos para ver se o perfil do comparecimento do 2º turno saiu."
+ ],
+ "o_que_pesa_a_favor_da_tese": [
+  "Não achei reconhecimento formal do resultado pelos EUA, quinze dias depois; o último registro oficial que li é de 28/10 (relatório do Congresso).",
+  "O TSE trocou pacotes publicados sem aviso e sem resumo conferível; dois deles (MA e MG, 1º turno) eu não sei por quê.",
+  "O perfil do comparecimento do 2º turno e os relatórios do teste de integridade ainda não saíram; a divergência da CLDF segue sem detalhe.",
+  "A premissa de Flávio confere: Lula subiu em todas as UFs, inclusive nas seis em que o comparecimento caiu e Flávio perdeu votos."
+ ],
+ "o_que_pesa_contra": [
+  "O próprio Flávio diz que não tem prova, que não terá e que não vai contestar a contagem na Justiça; o PL não acompanha.",
+  "O histórico oficial da totalização soma exatamente o resultado e mostra a pausa e a ordem de chegada sem nada fora do lugar numa primeira leitura.",
+  "Toda alegação nova com número (2 milhões na Bahia, 8 milhões sem biometria, 124 mil urnas, dez cidades, 165 mil votos) erra o número por ordens de grandeza.",
+  "Ninguém apresentou um boletim impresso diferente do publicado; o único que diz ter (Teixeira de Freitas) não mostrou.",
+  "A pendência de Guarulhos fechou sem sinal quando o log apareceu."
+ ],
+ "o_que_nao_achei": [
+  "Auditoria, relatório ou contagem paralela do PL; qualquer ação do PL ou de Flávio no TSE depois de 25/10 sobre a contagem.",
+  "Relatório do TCU, da União Europeia, final da OEA ou do Centro Carter; qualquer relatório das Forças Armadas, da PF, da OAB ou da SBC sobre o resultado.",
+  "Nota formal dos EUA de reconhecimento ou de rejeição; documento do governo dos EUA com indício de fraude; fala de Trump sobre o Brasil depois de 29/10.",
+  "Pesquisa pós-eleitoral de recordação de voto ou boca de urna.",
+  "Novidade sobre o painel essencia-ai.com ou sobre as \"digitais órfãs\".",
+  "Quem ajuizou a AIJE contra Trump e Bannon e o teor da decisão do TRE-GO no caso Felipe Cecílio."
+ ],
+ "desvios_e_limites": [
+  "Páginas do TSE, dos TREs e do Fato ou Boato deram 403 ao leitor e ao curl com agente padrão; não contornei. O que vem delas está marcado como \"buscador\" e tem confiança média ou baixa.",
+  "reuters.com, scmp.com e band.com.br não abriram; usei republicações.",
+  "Fiz dois pedidos de cabeçalho a endereços que o TSE não lista (um arquivo de perfil do 2º turno com nome suposto); voltaram 404 e parei. Fora isso, só endereços listados no portal ou no padrão já usado pelo repositório.",
+  "Baixei para pastas novas: os dois históricos (28 MB), os cinco arquivos processuais (18 MB), o arquivo de denúncias (2 MB), três índices de seção e um log (192 KB). Scripts em pasta separada, sempre com python3 -I.",
+  "As conferências rápidas e a leitura do log de Guarulhos são descritivas. A do log usa as métricas do T3 já registradas, sem mudança.",
+  "Processos: listei número, data, classe e origem; não reproduzi nomes de pessoas físicas acusadas.",
+  "Itens de 26 a 31/10 que não estavam no repositório entraram marcados com a data."
+ ],
+ "arquivos_de_trabalho": [
+  "hist2t_resumo.json",
+  "hist1t_resumo.json",
+  "conferencias_rapidas.json",
+  "conferencia_ap.json",
+  "conferencia_ufs.json",
+  "proc_denuncias_dia.json",
+  "log_guarulhos_395_298_T3.json",
+  "ckan/ (respostas do portal e cabeçalhos)",
+  "scripts/",
+  "dl_hist2t/ e dl_hist1t/ (zips do histórico da totalização)",
+  "dl_proc/ (dados processuais de 09/11)",
+  "dl_aux_guarulhos/ (índice e log da seção 395/298)",
+  "dl_aux_es/ (índices das seções 85 e 112)",
+  "dl_denuncia/"
+ ]
+}

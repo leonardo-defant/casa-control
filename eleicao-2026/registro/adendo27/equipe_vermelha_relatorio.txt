@@ -1,0 +1,464 @@
+ADENDO 27, EQUIPE VERMELHA: ONDE UM SINAL DE FRAUDE PODE TER PASSADO DESPERCEBIDO
+Data: 09/11/2026
+
+Escopo: Revisão de PRE-REGISTRO-2026-10-26.md (26 adendos), README.md, RETOMAR.md, resultados/ e scripts/. Nenhum
+teste novo sobre votos foi rodado; só releitura de saídas, aritmética sobre números já gravados e uma conferência de
+geometria do cadastro de locais (sem votos).
+
+RESUMO
+A frase "nenhum teste mostrou marca de fraude" é verdadeira pela letra, mas a maior parte dos testes é cega, por
+desenho, para a hipótese principal (desvio espalhado e proporcional feito pelo programa). Os testes que em princípio a
+enxergam não têm régua calibrada e ficaram, quase todos, inconclusivos pendendo para a tese. Achei um erro de dado
+(T34), resultados registrados que rodaram e nunca foram relatados (seção 7), um veredito que vira SINAL com outra
+ponderação igualmente defensável (T35), um contrapeso que não testa o que diz (seções com pouca biometria) e uma
+descontinuidade nunca testada (branco e nulo nas UFs de um cargo só contra as de dois cargos). Nada disso é prova nem
+evidência. São indícios de onde procurar, cada um com explicação inocente plausível e com reteste de critério numérico
+proposto.
+
+FRAGILIDADES (teste, problema, gravidade, reteste, critério)
+
+1. Canal do branco e nulo (forma A): testes da seção 7 do documento original (analisar_bn_secao.py e analisar_gov.py), T6, T37, T5 do 2º turno, T39 e o contraste 6 UFs contra 21 UFs  [gravidade: alta]
+   Problema: Quatro medidas que não derivam uma da outra apontam na mesma direção e na mesma ordem de grandeza (cerca
+   de 2 milhões de votos) e nenhuma foi tratada como indício. (1) rodar_2026.sh linhas 30 a 33 rodou os testes da
+   seção 7 no bweb inteiro, mas os resultados não aparecem em README, RESUMO_TESES nem no JSON de conferência (README
+   linha 171 diz que rodaram e aponta para testes_bweb_2t_com_conferencia.json, que não os contém).
+   resultados/bn_secao_2026.json dá +0,0251 (ep 0,0021) contra -0,060 em 2018 e -0,071 em 2022: fica dentro do "sem
+   sinal" registrado (até +0,04, CONTEXTO linha 390), mas o deslocamento de +0,085 a +0,096 equivale, pela calibração
+   do próprio Adendo 1 (PRE-REGISTRO linhas 82 a 90: +0,061 para 1,82 milhão e +0,142 para 4,43 milhões), a uma
+   conversão de 2,6 a 2,9 milhões. resultados/gov_2026.json dá +0,0293 (ep 0,0049) com efeito fixo de local, contra
+   -0,005 (2022) e +0,003 (2018). (2) T6 (PARA-O-REVISOR linha 91): o branco e nulo declarado menos o registrado subiu
+   1,60 ponto em 2026 em relação a 2018 e 2022 (limiar de sinal 2,0), cerca de 2,0 milhões de votos. (3) T37 deu
+   "padrão da forma A" pela letra (dL +0,231, dF -0,032; T7_T14_bweb.txt) e foi reclassificado para inconclusivo pelo
+   Adendo 17, escrito depois de ver a amostra: Flávio recebeu dos eliminados o que as pesquisas diziam e Lula recebeu
+   a parte dele mais todo o "nenhum" declarado (0,199 x 9,06 milhões, cerca de 1,8 milhão). (4) O branco e nulo de
+   presidente subiu em 5 das 6 UFs com 2º turno de governador e caiu 1,69 ponto nas outras 21 (CONTEXTO linha 351;
+   ADENDO16_resultados.txt linha 54), cerca de 2,2 milhões de votos de diferença. A explicação inocente ("onde só há
+   presidente, quem votaria em branco nem vai") foi aceita sem teste. O próprio documento original diz que uma fraude
+   que evitasse esses 6 estados escaparia (CONTEXTO linha 352).
+   Reteste proposto: (a) Rodar analisar_bn_secao.py sem mudança em 2014 (único ano da base em que o branco e nulo
+   também caiu entre turnos, -34%) e em 2026 separando as 6 UFs das 21. (b) Diferença em diferenças da variação do
+   branco e nulo de presidente entre UFs com e sem 2º turno de governador em 2014, 2018, 2022 e 2026 (as quatro bases
+   estão em dados/). (c) Pares de locais a até 20 km nas divisas entre as 6 UFs e as vizinhas (DF com GO, ES com MG,
+   RJ e BA, RN com PB e CE, TO com GO, MT, PA, MA, PI e BA, AM e AC com as vizinhas), pelo método do T34 com filtro de
+   coordenada, para três desfechos: variação do branco e nulo, resíduo da fatia de Lula no 2º turno e variação do
+   comparecimento. (d) Calibração plantando no lado de um cargo só uma conversão de 35% do branco e nulo.
+   Critério proposto: SINAL: no lado de um cargo só, branco e nulo pelo menos 1,0 ponto abaixo (a mais de 4 ep) E
+   fatia de Lula pelo menos 0,5 ponto acima (a mais de 3 ep), com o mesmo salto de Lula abaixo de 0,25 nas divisas
+   equivalentes de 2014, 2018 e 2022. SEM SINAL: salto de Lula abaixo de 0,25 em valor absoluto com ep até 0,12, ou
+   diferença em diferenças do branco e nulo de 2026 a até 0,3 ponto da média dos anos de referência. Para o item (a):
+   se 2014 der coeficiente de +0,00 ou mais, a subida de 2026 é regime de queda de branco e nulo; se 2014 ficar abaixo
+   de -0,04, 2026 destoa em mais de 0,06 e vira indício a cruzar com (c).
+
+2. T14 (troca proporcional por seção)  [gravidade: alta]
+   Problema: O veredito SEM SINAL (0,0393, ep 0,0007) vem de um limiar que não separa nada: 0,051 foi fixado como a
+   maior referência sem troca (0,041) mais 0,01, depois de já se ter visto 0,056 na amostra parcial (PRE-REGISTRO
+   linhas 224 a 230). O próprio resultado admite que 2026 equivale a 3,3% de troca sobre a base de 2018 e que o limiar
+   aceita até 4,5% (T7_T14_bweb.txt linhas 93 a 95); 3,6% é o que vira a eleição. O coeficiente natural de 2026 é
+   desconhecido (0,006 a 0,041 nas referências) e o Adendo 18 proíbe usar outro ano como régua. O rótulo correto é SEM
+   PODER contra troca de até 4,5%.
+   Reteste proposto: Dar ao T14 uma régua interna a 2026 em vez de outro ano: rodar a regressão do T8 por decil de
+   capacidade de troca de eleitores, c = (aptos - comparecimento do 1º turno)/aptos, só em seções com aptos iguais nos
+   dois turnos. Onde quase não cabem eleitores novos, a perda líquida de Flávio só pode ser mudança real de voto ou
+   desvio. Calibrar plantando 2% e 3,6% de troca e exigindo recuperação a 0,3 ponto em cada decil. Somar também o
+   limite aritmético: votos de Lula que excedem eliminados mais todo o branco e nulo do 1º turno mais todos os
+   faltosos do 1º turno da seção.
+   Critério proposto: SINAL (a troca de eleitores não explica): coeficiente de Flávio no decil de menor capacidade de
+   pelo menos 0,03 a mais de 4 ep e de pelo menos 80% do coeficiente do decil de maior capacidade. SEM SINAL:
+   coeficiente do decil de menor capacidade abaixo de 0,015 ou abaixo de 40% do decil superior. Limite aritmético:
+   indício se a soma passar de 2,8 milhões (5% dos votos de Flávio, o maior vazamento declarado nas pesquisas).
+
+3. T16 (piso da troca uniforme por UF)  [gravidade: alta]
+   Problema: INCONCLUSIVO pela letra, e os limiares são assimétricos: o de sem sinal vem da menor referência (2018 com
+   2%, +0,0109) e o de sinal vem da maior (2022 com 3%, +0,0501), de modo que SINAL exigiria base natural alta e troca
+   de 3% ao mesmo tempo. O Q10 de 2026 (+0,0170, GO) equivale a +2,60% de troca medida contra 2018 (T16_bweb.txt linha
+   58). O teste só limita a troca proporcional aos votos de Flávio e igual em todo o país; o gradiente observado (SC
+   +0,006 até PI +0,096) é exatamente o que uma troca regulada pela força local de Lula produziria, e isso não tem
+   teste.
+   Reteste proposto: Refazer com estratos de reduto em vez de UF: seções no 1% e nos 5% de maior fatia de Flávio no 1º
+   turno e no quintil de maior fatia do PL para deputado federal (L3), com calibração plantada de troca proporcional a
+   F, proporcional a L e proporcional ao total. Relatar o piso de cada forma em separado.
+   Critério proposto: EXCLUSÃO de troca s x F de 2% ou mais: coeficiente no estrato de reduto mais 2 ep abaixo de 0,02
+   menos o menor coeficiente natural plantado (usar o do estrato espelho de Lula em 2026, não outro ano). SINAL:
+   coeficiente de reduto de 0,03 ou mais a mais de 4 ep. Para a forma k x L: coeficiente próprio de Lula por estrato;
+   indício se ficar a menos de 0,01 de zero em todos os estratos enquanto o de Flávio passa de 0,04.
+
+4. T35 (curva de perda própria por força local do adversário)  [gravidade: alta]
+   Problema: O veredito depende da ponderação. A estatística registrada pondera as faixas pelo inverso da variância
+   (scripts/analisar_curva_forca.py linha 70), o que dá 46% do peso à faixa de menos de 35%, onde d é zero, e 6% à
+   faixa de 65% ou mais, onde d é -0,082. Com o bweb: A registrado -0,0200 (INCONCLUSIVO). Com pesos iguais nas quatro
+   faixas, pela aritmética do próprio T35_curva_forca_bweb.json: A(2026) = -0,0381 (ep 0,0011) e A(2026) - A(2018) =
+   -0,0519 (ep 0,0023), o que cumpre as duas pernas do critério de SINAL (PRE-REGISTRO linha 454). Com peso pelo
+   número de seções: -0,0304. Em 3 das 4 faixas Flávio perde de 2,3 a 8,2 pontos a mais dos próprios eleitores que
+   Lula. A explicação aceita ("vantagem de quem governa", F21 item 8) é posterior ao resultado e nunca foi testada.
+   Reteste proposto: Registrar antes as três ponderações (inverso da variância, pesos iguais, votos do candidato) e
+   eleger uma como principal. Estender a série a 2002, 2006 e 2010 com votacao_secao do TSE para separar "quem
+   governa" de "PT": 2002 (PSDB no governo) e 2022 (Bolsonaro no governo) são os anos que separam. Cruzar com o teste
+   de capacidade de troca de eleitores do T14.
+   Critério proposto: INDÍCIO além da incumbência: |A de pesos iguais| de 2026 acima do maior |A| dos anos com governo
+   candidato em 0,015 ou mais, a mais de 3 vezes o ruído entre conjuntos de seções (0,01, F21 item 7). SEM SINAL: 2026
+   a até 0,010 do espelho de 2022 e de 2014. Pelos números já publicados (2014 -0,034 e 2022 +0,034 com pesos iguais),
+   o resultado provável é "repete 2014 e espelha 2022"; se der isso, a pista vira pergunta sobre a série inteira, não
+   sobre 2026.
+
+5. T7 (ganho além do bolo)  [gravidade: média]
+   Problema: INCONCLUSIVO: (a) 8,99% das seções contra limite de sem sinal 7,27 e de sinal 10,27 (na amostra deu
+   10,57, acima do limite de sinal). O excesso se concentra onde Flávio é fraco: 17,9% das seções na faixa abaixo de
+   35% e de 19% a 25% das seções em RN, MA, AL, CE, SE, PB e PI (T7_T14_bweb.txt, tabela por faixa e por UF), contra
+   5,6% em 2022 na mesma faixa. A leitura "o eleitor se aproxima da maioria do lugar" foi aceita sem teste. O bolo
+   inclui a queda do branco e nulo, então o T7 é cego para a forma A.
+   Reteste proposto: T7 estrito com limite aritmético: bolo máximo = eliminados + todo o branco e nulo do 1º turno +
+   todos os faltosos do 1º turno. Por UF e por faixa, com calibração plantada de 1%, 2% e 3,6% dentro de 2026 (não em
+   2022) para saber quanto cada ponto de troca acrescenta ao (a).
+   Critério proposto: SINAL: excesso estrito somado acima de 0,6 milhão de votos (saldo máximo de troca de lado que as
+   pesquisas declaravam) ou (a) da faixa abaixo de 35% acima do (a) plantado com 3% sobre a faixa de 65% ou mais. SEM
+   SINAL: excesso estrito abaixo de 0,1 milhão e gradiente por faixa igual ao espelho de Flávio.
+
+6. F19 (exterior sem biometria) e o contrapeso do L7 e do F6  [gravidade: alta]
+   Problema: F19 deu D = -0,65 ponto com z -4,0 por cidade e -2,4 por país, na direção da hipótese, e foi lido como
+   "36% do que viraria". Essa leitura supõe viés zero do pareamento, mas o mesmo método dá +0,12 em 2022 e +0,90 (ep
+   0,49) em 2018: a incerteza do viés (0,5 a 0,9 ponto) não entra no ep de 0,16; com viés como o de 2018, o desvio
+   seria de -1,55. O contrapeso citado em CACA_AO_FURO e RESUMO_TESES ("as 97 seções com metade ou mais sem digital
+   viraram igual", 0,00 com ep 0,19) não testa o gatilho: scripts/analisar_L7.py linhas 251 e 273 usam r =
+   QT_ELEI_BIOM_SEM_HABILITACAO/comparecimento, que não conta eleitor sem biometria cadastrada (o próprio C1 mostra
+   que sem biometria é S + M), e uma seção com r de 0,5 ainda teve dezenas de habilitações por digital. Com r de 1 há
+   0 seções (L7_dados.txt linha 36) e as 31 com r de 0,9 ou mais ficaram sem estimativa. Ou seja: o único teste real
+   da condição deu desvio significativo e o contrapeso é vazio. A exclusão do Japão (-0,46, que leria sem sinal) é
+   posterior ao resultado.
+   Reteste proposto: (a) Diferença em diferenças por cidade do exterior, 2022 para 2026, com o mesmo pareamento nos
+   dois anos, pareamento dentro do país e bootstrap por país. (b) Dose por fuso: D da cidade contra a fração da janela
+   local de votação (8h às 17h locais) que cai antes das 8h de Brasília; um gatilho por relógio absoluto pouparia
+   Japão, Austrália e Líbano (os mais negativos) e não os EUA (zero), que é o desenho que os dados já sugerem; placebo
+   com 2022 e 2018. (c) No Brasil, achar as seções com zero habilitação biométrica de verdade: perfil do eleitorado
+   por seção (adendo21/F15_dl_perfil_secao) com zero eleitor com biometria, e os campos S, B e M do boletim; comparar
+   a virada com as vizinhas do local e da zona.
+   Critério proposto: SINAL: diferença em diferenças de -1,0 ou menos a mais de 3 ep (por país) ou inclinação da dose
+   de -1,0 ponto ou menos por unidade de fração a mais de 3 ep, ausente em 2022 (|inclinação| abaixo de 0,4). SEM
+   SINAL: |diferença em diferenças| abaixo de 0,4 com ep até 0,2 e inclinação abaixo de 0,4 em valor absoluto. Seções
+   brasileiras sem biometria: sinal com -1,0 ou menos a mais de 4 ep em pelo menos 100 seções; sem sinal com |d|
+   abaixo de 0,4 e ep até 0,2; com menos de 100 seções, declarar SEM PODER e não usar como contrapeso.
+
+7. T30 (gatilho por horário e por contagem)  [gravidade: alta]
+   Problema: Às 16h a inclinação passa valor e z do sinal no desenho registrado (+11,3, z 4,2; às 14h +5,0, z 3,6) e
+   só o placebo de nível barra. Na robustez R2 fica +4,1 (ep 2,1), z 1,95 contra 1,96: a leitura "composição" passa
+   por 0,01. O limite de ep 0,6 do sem sinal é inalcançável (scripts/analisar_gatilhos.py linha 105). O placebo
+   registrado é regressão de nível, não de virada, e por isso falha por composição sem dizer nada sobre o gatilho. O
+   fuso vem da UF (linha 19), o que pode errar os municípios do oeste do AM, que seguem o fuso do AC. A amostra tem
+   log de 0,78% das seções e o estrato M exclui municípios com mais de 1.500 seções. Às 12h e 14h o efeito potencial é
+   grande (inclinação de 5 equivale a cerca de 10% dos votos de Flávio dados depois do corte).
+   Reteste proposto: Refazer com cortes de hora em hora (9h a 17h), nos dois relógios (Brasília e relógio da urna),
+   regressor f2 x fatia de Flávio no 1º turno (uma troca tira de onde há voto de Flávio), controles f1, variação do
+   comparecimento e fatia de Lula no 1º turno, efeito fixo de local, erro CV3. Placebo certo: a mesma regressão de
+   virada com f1 do 1º turno no lugar de f2. Calibrar plantando troca de 5%, 10% e 15% dos votos de Flávio depois do
+   corte para obter o efeito mínimo detectável. Se o disco permitir, baixar só os logs de mais 4.000 seções sorteadas
+   (cerca de 400 MB), com sobreamostra em AC, AM, MT, MS, RO e RR para separar os relógios.
+   Critério proposto: SINAL: inclinação de 4 pontos ou mais com z CV3 acima de 3,2 (Bonferroni para 18 cortes) em R2,
+   com dose crescente em pelo menos 3 horas vizinhas e placebo de virada abaixo de 2 ep. SEM SINAL: |inclinação|
+   abaixo de 1,5 e efeito mínimo detectável (2,8 ep) abaixo da inclinação que uma troca de 5% produz na calibração.
+   Fora disso, SEM PODER, dito assim.
+
+8. T22b e F20 (governador na mesma urna)  [gravidade: alta]
+   Problema: É o único controle interno contra troca só no presidente e não tem régua: o D natural varia de -0,010 a
+   +0,298 entre UFs e não há ano de referência. O SEM SINAL do T22b (D +0,0130, ep 0,0047, em AM, DF e ES) supõe D
+   natural igual a zero. A "EXCLUSÃO" do Adendo 23 é mecânica e já foi retirada (ADENDO23_resultados.txt linha 15),
+   mas RESUMO_TESES item 6 e README seção 5.2 ainda usam o T22b como argumento ("o governador aliado perdeu na mesma
+   proporção"). No AM, a única UF com aliado do PL puro, D é -0,010 e C é -0,0225 (ep 0,0142), no sentido da hipótese.
+   O teste é cego se o desvio mexer também no governador ou poupar as 6 UFs.
+   Reteste proposto: Calibrar o D natural com o voto por candidato a governador do 2º turno de 2018 e 2022 (bweb
+   público, cargo 3; baixar uma UF por vez, filtrar por bytes e apagar o zip), com o alinhamento fixado antes por
+   agente que não vê o D. São 26 pares UF e ano. Repetir o contraste C = D menos espelho.
+   Critério proposto: SINAL: D de 2026 (empilhado em AM, DF e ES e também só AM) abaixo do percentil 5 dos 26 D
+   naturais e de -0,03 ou menos. EXCLUSÃO de troca de 3,6% só no presidente: D de 2026 mais 0,0345 acima do percentil
+   95 dos naturais. Entre os dois: inconclusivo. Se a dispersão natural (desvio-padrão) passar de 0,03, declarar o
+   desenho SEM PODER e parar de citá-lo como contrapeso.
+
+9. T34 (salto na divisa) e T23(b) (degrau na fronteira de zona)  [gravidade: média]
+   Problema: Erro de dado encontrado nesta revisão: scripts/analisar_divisa.py linhas 26 a 44 só descartam coordenada
+   igual a -1. O cadastro de locais de MG tem coordenadas fora do estado (latitude de -31,87 a +48,27 e longitude de
+   -56,19 a +17,48). Um local de Dom Cavati (MG) vira par de 1.803 locais de SP (1.749 da capital) e um de Piedade do
+   Rio Grande (MG) vira par de 1.244 locais do RJ (925 da capital). Os saltos placebo SP-MG (-0,034, z -5,7) e MG-RJ
+   (+0,044) são artefatos (T34_divisa_2026.txt linhas 7 e 14) e contaminam a mediana placebo de 0,0063, que entra no
+   critério. A divisa do teste (PR com SP e MS) parece sã (multiplicidade máxima 34) e o veredito não muda, mas o
+   teste só olhou uma divisa e uma condição (poupar o Sul). O T23(b) usa as mesmas coordenadas e ficou a 0,016 do
+   limiar (degrau 0,316 contra 0,3; de 0,20 a 0,43 conforme a especificação).
+   Reteste proposto: Filtro de coordenada (caixa da UF, distância máxima ao centroide do município, multiplicidade
+   máxima de 20 por local) e refazer T34 em todas as divisas com pelo menos 50 pares, mais T23(b). Usar o T34
+   corrigido para as divisas das 6 UFs com governador (ver o primeiro item).
+   Critério proposto: T34: mesmo critério registrado (sinal com J de 0,015 ou mais a mais de 2,5 ep e diferença para
+   2022 de 0,015 ou mais), agora com Bonferroni pelo número de divisas. T23(b): sem sinal com degrau abaixo de 0,3 em
+   todas as especificações declaradas; se continuar cruzando o limiar conforme a especificação, declarar INCONCLUSIVO
+   POR ESPECIFICAÇÃO.
+
+10. L5(a), F13 e F17 (urna contra pesquisas)  [gravidade: alta]
+   Problema: É a única incoerência confirmada (11 de 11 institutos, virada de -6,10) e vem sendo amortecida por três
+   leituras benevolentes. (1) "Os painéis online calibrados mediram perto da urna" (RETOMAR 4.1) vale só para a
+   divisão dos eleitores dos eliminados: a AtlasIntel também errou o total em 2,6 pontos na mesma direção
+   (ADENDO16_resultados.txt, tabela). (2) "Os mesmos institutos erraram 3,4 pontos para o outro lado no 1º turno"
+   mistura mecanismos: no 1º turno acertaram Lula (mediana +0,2) e erraram a divisão entre Flávio e os demais. (3)
+   "Colômbia e Peru tiveram o mesmo erro" é analogia, não teste. Nenhuma das três separa transferência, comparecimento
+   e contagem.
+   Reteste proposto: Erro das pesquisas estaduais de presidente no 2º turno, UF por UF (últimos 7 dias, institutos com
+   histórico no 1º turno), contra o coeficiente do T16 da UF e contra a fatia de Lula no 1º turno. Um desvio regulado
+   pela força local de Lula prevê erro maior onde o coeficiente é maior (PI, MA, AP) e quase zero em SC e PR; uma
+   virada nacional de última hora prevê erro igual em toda parte. Somar o erro por recorte de região das pesquisas
+   nacionais (Nordeste contra Sul).
+   Critério proposto: ERRO ESTRUTURADO (indício a cruzar): inclinação de 20 pontos ou mais por unidade de coeficiente
+   (1,6 ponto entre PI e SC) a mais de 3 ep com pelo menos 15 UFs. ERRO UNIFORME: |inclinação| abaixo de 8 com ep até
+   4. Não dá veredito de fraude sozinho: diz qual forma procurar.
+
+11. Comparecimento: T3, T9, T21, T28, F6, F15, T25 e T32  [gravidade: média]
+   Problema: A maior alta da série (+2,92 milhões) foi dada como limpa com testes que dependem do log escrito pelo
+   próprio programa (T3, T9, T21c) em 0,78% das seções, ou que usam efeito fixo de local (T9, T21b, F6). A contraprova
+   física (T25, caderno) e a de idade (T32) nunca rodaram. O F15 ficou incompleto, e a estimativa indireta dele diz
+   que o comparecimento a mais veio sobretudo de eleitores mais velhos, que é a direção de sinal escrita no T32 (PRE-
+   REGISTRO linha 347). No T21 as liberações sem biometria cresceram acima da proporção do comparecimento e o veredito
+   ficou INCONCLUSIVO.
+   Reteste proposto: T32 por seção com o perfil do eleitorado já baixado (adendo21/F15_dl_perfil_secao): variação do
+   comparecimento em pontos dos aptos contra as fatias por idade (16 e 17, 18 a 24, 60 a 69, 70 ou mais), efeito fixo
+   de município; ganho de Lula por eleitor a mais por terço da fatia de 70 anos ou mais. Checar de novo se o TSE
+   publicou o perfil do comparecimento do 2º turno. Pedido externo: cadernos de 400 seções sorteadas (T25).
+   Critério proposto: SINAL: no decil de maior fatia de 70 anos ou mais, alta do comparecimento de pelo menos 2 vezes
+   a das demais seções do município E ganho de Lula por eleitor a mais de 0,9 ou mais, contra até 0,6 no resto, a mais
+   de 4 ep. SEM SINAL: ganho de Lula por eleitor a mais a até 0,1 entre os terços e alta do comparecimento
+   proporcional ao número de faltosos do 1º turno.
+
+12. F5 (caudas)  [gravidade: média]
+   Problema: O z usa variância binomial como se o 2º turno fosse sorteio novo; o desvio-padrão observado de z é 0,58
+   (F5_caudas.txt linha 27), então |z| acima de 4 equivale a cerca de 7 desvios reais. O teste só enxerga seção
+   deslocada em 12 pontos ou mais; uma manipulação de 3 a 5 pontos em milhares de seções passa. A versão recalibrada
+   (160 contra 313, razão 0,51) existe só como exploratória.
+   Reteste proposto: Adotar como principal o z dividido pelo desvio robusto por faixa de tamanho, com previsão
+   deixando a seção de fora, e calibrar plantando +5 pontos em 1.000 seções de 10 zonas.
+   Critério proposto: Mesmo critério do registro (razão de 1,3 ou mais, 200 ou mais acima de +4, 30% em até 10 zonas)
+   sobre o z recalibrado, exigindo que o caso plantado seja detectado. SEM SINAL: razão de 0,8 a 1,25, ou abaixo de
+   0,8 (desvio para Flávio), dito com esse nome em vez de inconclusivo.
+
+13. F9 (computador da mídia), L2 (carga e urna trocada) e T20 (pendências de carga)  [gravidade: média]
+   Problema: F9 não tem poder por construção: o resíduo é contra o próprio local e quase todo local usa um computador
+   só, por isso o p de permutação é 1,0000 (V observado 0,169 contra mínimo permutado 0,435). O L2 tem o mesmo limite
+   para carga, que é comum à zona. No T20, 323 das 426 urnas com pendência só fecham com duas regras criadas depois de
+   ver os dados, e a janela de 10 a 15/10 saiu das 835 primeiras urnas, não de calendário oficial
+   (ADENDO9_resultados_amostra.txt linhas 157 a 163). Zonas inteiras do AM e do MA geraram a mídia de 16 a 24/10, e AM
+   e MA estão entre os maiores coeficientes do T16 (+0,082 e +0,085); essa coincidência nunca foi testada com desenho
+   que enxergue efeito de zona.
+   Reteste proposto: Resíduo de um modelo por UF com a composição completa do 1º turno (como no T23), sem efeito fixo
+   de local. Variância entre grupos de carga no bweb inteiro (DT_CARGA_URNA_EFETIVADA, CD_CARGA_1_URNA_EFETIVADA e
+   CD_FLASHCARD_URNA_EFETIVADA) contra permutação dos grupos entre zonas da mesma UF; na amostra de logs, o mesmo por
+   computador e por data de geração da mídia. Pedir as atas de carga.
+   Critério proposto: SINAL: componente de variância do grupo de carga de pelo menos 2 vezes o de agrupamentos
+   aleatórios de zonas do mesmo tamanho (p abaixo de 0,001) e ao menos um grupo com 500 seções ou mais e resíduo de
+   +1,0 ponto ou mais a mais de 4 ep (agrupado por zona). SEM SINAL: p acima de 0,05 e nenhum grupo acima de +0,5.
+
+14. T5 do 2º turno e T39 (branco e nulo de presidente contra o de governador)  [gravidade: média]
+   Problema: INCONCLUSIVO a 0,013 do limite: beta 0,328 contra 0,341 (0,85 vez a menor referência). T39: R(2)/R(1) de
+   1,376, abaixo de 2018 (1,429) e de 2022 (1,513), o que equivale a 4% a 9% do branco e nulo convertido; ES e RN
+   ficam cerca de 32% abaixo do próprio valor anterior. A defesa é o 1º turno das mesmas seções (beta 0,294), que só
+   vale se o desvio for novo no 2º turno; contra a versão recorrente da tese o teste é cego (limite admitido, PRE-
+   REGISTRO linha 65). Só cobre 6 UFs, 8% das seções.
+   Reteste proposto: Juntar ao desenho de divisa do primeiro item. Dentro das 6 UFs, repetir beta e R por faixa de
+   força de Lula e por tipo de município, com conversão plantada de 10%, 20% e 35% só no presidente para medir o
+   efeito mínimo detectável.
+   Critério proposto: SINAL: queda de beta do 1º para o 2º turno de 15% ou mais nas mesmas seções a mais de 4 ep. SEM
+   SINAL: beta do 2º turno igual ou maior que o do 1º e efeito mínimo detectável abaixo de 10% de conversão.
+
+15. V2 (k votos por urna) e contagem do T30  [gravidade: baixa]
+   Problema: O limiar de 2,5 foi talhado para a afirmação do vídeo (10 por urna). O coeficiente é +0,951 voto por urna
+   com z 14, e os placebos de 2022 e 2018 dão sinal contrário (-1,00 e -0,84) na mesma conta (V2_marca_por_urna.txt
+   linhas 48 a 52); a diferença para 2022 (+1,96) valeria até 1,9 milhão de margem na leitura extrema. A explicação
+   ("acompanha quem ganhou terreno") falha em 2018. Não é SEM SINAL para um acréscimo de 1 a 2 votos por urna.
+   Reteste proposto: Regra determinística por contador, que é a hipótese vizinha nunca testada: histograma das
+   contagens de Flávio, Lula, brancos e nulos no 2º turno, resíduos módulo k para k de 2 a 200 contra um ajuste suave,
+   comparado com o 1º turno e com 200 sorteios binomiais; plantar "um a cada 28 votos de Flávio" para confirmar
+   detecção. Gatilho por contagem com N de 50 a 300 de 25 em 25, com controle de log do tamanho.
+   Critério proposto: SINAL: algum k com excesso de 3% ou mais numa classe de resíduo e p abaixo de 1e-6 depois de
+   Bonferroni (796 testes), ausente no 1º turno. SEM SINAL: estatística máxima abaixo do percentil 99 das simulações
+   em todos os k e o caso plantado detectado com z acima de 20.
+
+16. F4, F10 e F16 (urnas antigas)  [gravidade: baixa]
+   Problema: Três testes ficaram entre z 1,8 e 3 na direção "Lula maior na urna antiga dentro do mesmo local" (placebo
+   do F4 +0,85 e +0,72; F10 D +0,441, z 2,1; F16 +0,389, z 1,82), nos dois turnos. A pista foi fechada com duas
+   correções feitas depois do resultado: tirar duas zonas (F10, 0,13) e trocar o prédio de 4 locais (F16, 0,12;
+   ADENDO22_resultados.txt linha 9). Esse esforço de explicação só foi gasto quando o resultado pendia para a tese. A
+   virada não difere por modelo, mas um viés igual nos dois turnos não aparece na virada. Só 119 locais, 113 em SP.
+   Reteste proposto: Sair do efeito fixo de local: fatia de Lula para presidente menos a prevista pelos outros cargos
+   da mesma urna e pelo perfil da seção, antiga contra nova, com efeito fixo de zona e de município, no país inteiro e
+   no 1º turno (todas as UFs têm os cinco cargos). Aplicar a correção de prédio aos controles também.
+   Critério proposto: SINAL: diferença de +0,5 ponto ou mais a mais de 4 ep (agrupado por zona) em pelo menos 10 UFs.
+   SEM SINAL: |diferença| abaixo de 0,2 com ep até 0,1. Teto de votos relatado ao lado (hoje 4% a 7% da margem).
+
+17. L6 (governadores) e L4 (aliados em casa)  [gravidade: baixa]
+   Problema: L6 deu INCOERÊNCIA pela letra (+1,48 ponto, permutação p 0,0004) e L4 mostra a urna de 11 a 22 pontos
+   acima das pesquisas nos eleitores de Caiado, Zema e Cury. As duas foram dissolvidas por explicação posterior (nível
+   e composição explicam +0,93; o resto, +0,59, tem p 0,11), sem critério registrado para a explicação.
+   Reteste proposto: Registrar a regressão com composição antes: virada por município contra o apoio do governador,
+   com as fatias de cada eliminado, de Lula e de Flávio no 1º turno e efeito de região.
+   Critério proposto: INCOERÊNCIA mantida: coeficiente do apoio a Flávio de zero ou mais a favor de Lula com intervalo
+   de 95% acima de -0,3. COERENTE: -1,0 ou menos. Entre os dois: inconclusivo.
+
+18. T1, T15, T18, F12, F18, F14, C3, T3, T10, T19(a), T36 e F2  [gravidade: média]
+   Problema: São sólidos para o que testam (alteração depois da urna, forma ingênua, boletim escrito por gente) e não
+   dizem nada sobre programa adulterado na origem: boletim, RDV, log e assinatura saem do mesmo programa. O
+   RESUMO_TESES fecha ou dá sem sinal na maior parte das 13 teses da parte A com base neles. T10 tem 1 bandeira
+   vermelha pela letra (pb/21873/0033/0098) explicada depois; T36 tem 3 seções no 2º turno (sem poder); T19(b) ficou
+   sem referência; T31 tem 0 seções; T29 falhou na validação (recuperou 0,81 de 1,92 ponto plantado).
+   Reteste proposto: Não há reteste com dado público que mude isso. Reescrever a síntese separando "fechado para
+   alteração depois da urna" de "cego para o programa". Coleta externa: boletins impressos do PL contra o bweb (não
+   fecha o programa, que imprime o boletim), compilação independente, hash.dat, detalhe da divergência da CLDF.
+   Critério proposto: Critério de redação: nenhum teste que use só arquivos da urna pode ser citado como contrapeso à
+   hipótese de programa.
+
+19. T17, modelos, L2, F6, C1, C2, L8 e demais testes com efeito fixo de local sobre a virada  [gravidade: média]
+   Problema: Comparam seções do mesmo prédio. Um desvio igual em todas as urnas do prédio (programa único, mídia da
+   zona) some na média do local. Valem só para fraude concentrada num atributo que varie dentro do prédio (modelo,
+   urna trocada, carga, fechamento tardio, eleitor sem digital). T17 e F4 valem para SP; um modelo só ficou sem poder.
+   Reteste proposto: Para cada atributo, repetir com efeito fixo de município ou de zona e resíduo de composição
+   (modelo por UF como no T23), e relatar os dois desenhos lado a lado.
+   Critério proposto: Mesmo limiar de cada teste original, agora com erro agrupado por zona; declarar SEM PODER quando
+   o efeito mínimo detectável passar de 0,5 ponto.
+
+20. L1 (horários impossíveis) e L3 (núcleo do PL)  [gravidade: baixa]
+   Problema: L1: 18 seções sem explicação; a INCOERÊNCIA pela letra virou "compatível com o acaso" com conferência nos
+   arquivos da própria urna. L3: P5 = -0,0293 (ep 0,0012) a 0,6 ep do limiar de -0,03; COERENTE só pela segunda
+   condição. Mesmo no núcleo do PL, Flávio perdeu 2,9% líquidos dos próprios eleitores, e o L3 admite que um desvio
+   regulado pela força de Lula também daria COERENTE.
+   Reteste proposto: L3 dentro de faixas de capacidade de troca de eleitores (ver T14) e só no quintil de maior fatia
+   do PL: se a perda de 2,9% persistir onde não cabem eleitores novos, é mudança de voto do eleitor mais fiel ou
+   desvio.
+   Critério proposto: INDÍCIO: P5 de -0,025 ou menos a mais de 4 ep no decil de menor capacidade. SEM SINAL: P5 acima
+   de -0,010 nesse decil.
+
+21. T33(a), T6, T11 e T12 (pesquisas em votos totais e por cargo)  [gravidade: média]
+   Problema: T33(a): em 8 de 9 institutos Flávio ficou abaixo do previsto além do histórico (média 1,6 ponto), mas o
+   critério pedia 5 institutos com 3 pontos e deu INCONCLUSIVO. T6: +1,60 contra limiar de 2,0. T11 e T33(b) dependem
+   de um instituto só (AtlasIntel) em 6 UFs. Os números vêm da imprensa e não têm script (PARA-O-REVISOR linha 259).
+   Reteste proposto: Refazer T6 e T33(a) com os relatórios completos achados no F17, mesma categoria e mesmo
+   tratamento de "não sabe" nos três anos, com script e conferência.
+   Critério proposto: T6: sinal com 2,0 ou mais em pelo menos 4 institutos com os três anos; sem sinal até 1,0.
+   T33(a): relatar a média e o intervalo, com sinal se a média passar de 2,0 a mais de 3 ep entre institutos.
+
+CONCLUSÕES DE "SEM SINAL" QUE VALEM SÓ PARA FRAUDE CONCENTRADA
+Valem só para fraude concentrada (num atributo que varia dentro do prédio, numa zona, ou em poucas seções): T17,
+modelos, F4, L2, F6, C1, C2, T9, T21(b), L7-D3, L8 e F8 (prorrogação), T30 nas versões R1 e R2, V2, F5, F9, F2, T23,
+T28, T4, T34. Valem só para alteração depois da urna ou forma ingênua: T1, T15, T18, F12, F18, F14, C3, F11, T2, T3,
+T10, T19(a), T36. Enxergam em princípio um desvio espalhado e proporcional, mas sem régua calibrada: T14, T16, T35, L3
+e T7 (base natural desconhecida), T22b e F20 (D natural desconhecido), T5 do 2º turno e T39 (6 UFs), F19 (viés do
+pareamento desconhecido), T29 (falhou na validação) e as pesquisas (L5, T6, T11, T12, T33, F13, F17). Desses, nenhum
+deu exclusão calibrada, e a maioria ficou inconclusiva pendendo para a tese: L5(a) incoerência, T6 +1,60, T33(a) 8 de
+9, T35 (sinal com pesos iguais), T16 (+2,6% contra 2018), T7 (8,99 e 17,9 onde Flávio é fraco), F19 (z -4,0), T5 do 2º
+turno (0,328 contra 0,341), bn_secao (+0,025 contra -0,07). Ressalva no outro sentido: esses resultados não são
+independentes. Todos veem o mesmo fato (Lula cerca de 2,7 pontos acima do que se media antes), e uma virada real de
+opinião na última semana produziria todos juntos. Por isso os retestes propostos são os que separam virada real de
+desvio, não os que medem a virada de novo.
+
+LIMIARES E CRITÉRIOS MUDADOS OU FIXADOS DEPOIS DO DADO
+  - T14: limiar de sem sinal (0,051) fixado depois de ver 0,056 na amostra parcial (PRE-REGISTRO linha 230).
+  - T37: veredito trocado de "padrão da forma A" para inconclusivo pelo Adendo 17, escrito depois de ver a amostra
+  (PRE-REGISTRO linha 499). O argumento da identidade está certo; a substância (Lula recebe o "nenhum" inteiro) ficou
+  sem teste.
+  - T20: janela de 10 a 15/10 tirada das 835 primeiras urnas e duas regras de fechamento criadas depois de ver os
+  dados (admitido).
+  - T30: robustez R1, R2 e R3 fixada depois de ver a rodada das 835 seções (Adendo 12); fuso trocado da regra
+  registrada para a UF.
+  - P3: limiar de 0,5 ponto do último dígito fixado quando o F2 já mostrava 0,31 em 2026 (admitido em
+  ADENDO26_resultados.txt linha 64).
+  - F20: "EXCLUSÃO" acrescentada no Adendo 23 e retirada depois; ainda aparece em F20_governador_6ufs.txt sem a
+  ressalva.
+  - T15: "aptos iguais seção a seção" não se cumpre em 55.722 seções; reconciliado pelo cadastro de cada turno, com a
+  causa fora dos arquivos.
+  - T10: bandeira vermelha pela letra em 1 urna, aceita por leitura posterior do log.
+  - C1: veredito depende da leitura D6 escolhida pelo executor; o conferente achou três leituras alternativas.
+  - F19: exclusão do Japão e leitura "36% da régua" feitas depois do resultado.
+  - F10 e F16: exclusão de duas zonas e correção de prédio feitas depois do resultado.
+  - L6: decomposição por composição feita depois do resultado.
+
+EXPLICAÇÕES INOCENTES ACEITAS SEM TESTE
+  - Troca de eleitores entre os turnos como causa da perda de 4% a 5% dos eleitores de Flávio (README 5.3): nunca
+  testada; é a explicação que sustenta T14, T7, T35, L3 e T22b.
+  - Vantagem de quem governa (F21 item 8): posterior ao resultado, quatro pontos.
+  - "Onde só há presidente, quem votaria em branco nem vai votar" (CONTEXTO linha 351): nunca testada.
+  - "O eleitor se aproxima da maioria do lugar" para o gradiente por UF do T16 e do T7.
+  - Painéis online, Colômbia e Peru, e erro do 1º turno para o outro lado, como amortecedores do L5(a).
+  - "Liberação manual é troca de digital por liberação, com gente no leitor" (F6): leitura de log escrito pelo
+  programa.
+  - Diferenças por país no exterior (F19) já existentes em 2022: descritivo de 2022 usado como régua apesar do Adendo
+  18.
+
+HIPÓTESES NUNCA TESTADAS
+1. Condição "só um cargo na cédula": conversão de branco e nulo nas 21 UFs sem 2º turno de governador e nenhuma nas 6
+UFs em que a mesma urna dá referência. O branco e nulo de presidente subiu em 5 das 6 e caiu 1,69 ponto nas outras;
+nunca houve teste por divisa nem placebo de 2014, 2018 e 2022. 2. Soma de duas formas abaixo dos próprios limiares:
+cerca de 2 milhões de branco e nulo convertido mais troca de 1,8% dos votos de Flávio (dentro da zona cega do T14)
+vira a eleição; o T27 não soma nenhuma das duas. 3. Regra determinística por contador (um a cada k votos):
+periodicidade no histograma das contagens, módulo k de 2 a 200. O F2 só olhou módulo 10. 4. Gatilho por relógio
+absoluto ou por data: o exterior vota em horas diferentes do Brasil e o desvio do F19 é maior justamente onde a
+votação termina antes de o Brasil abrir (Japão, Austrália, Líbano) e zero nos EUA. Nunca se cruzou D com o fuso.
+Dentro do Brasil, o T30 converteu tudo para Brasília e não testou o relógio da própria urna em AC, AM, MT, MS, RO e
+RR. 5. Seções brasileiras com zero habilitação biométrica de fato (S + M igual ao comparecimento) e seções de presos e
+unidades de internação: a condição do teste de integridade só foi testada no exterior e num grupo mal definido. 6.
+Erro das pesquisas estaduais de presidente por UF contra o coeficiente do T16 e a força de Lula. 7. Capacidade de
+troca de eleitores: se a perda de Flávio persiste onde quase não há faltosos para entrar, a explicação inocente
+principal cai. 8. Efeito de zona, computador, carga ou flashcard com desenho entre zonas (CD_CARGA_1_URNA_EFETIVADA,
+CD_FLASHCARD_URNA_EFETIVADA, data de geração da mídia), em vez de dentro do local. 9. Idade de quem passou a
+comparecer, por seção, com o perfil do eleitorado (T32 nunca rodou; o F15 sugere eleitores mais velhos). 10. Seções
+novas de 2026 (37.986, assimetria de -0,058 contra -0,011) e seções que ganharam aptos entre os turnos (55.722 seções,
+74.692 eleitores em módulo). 11. 2014 por modelo de urna dentro do local e a série 2002, 2006 e 2010 da curva do T35,
+que separa "quem governa" de "PT". 12. Contagem nacional na amostra de logs de "O eleitor identificado já votou" no 2º
+turno contra o 1º (voto dado por outro), só contada nos casos do C3. 13. Viés de nível igual nos dois turnos (desvio
+presente desde o 1º turno): quase todos os testes usam a virada e são cegos a isso; só T5 do 1º turno e F10 olham
+nível.
+
+ONDE UM SINAL PODERIA ESTAR ESCONDIDO
+Em ordem de valor. (1) No branco e nulo. Quatro medidas que não passam uma pela outra dão cerca de 2 milhões de votos:
+coeficiente do bn_secao (+0,025 contra -0,06 e -0,07, equivalente a 2,6 a 2,9 milhões pela calibração do Adendo 1,
+nunca relatado), T6 (+1,60 ponto, cerca de 2,0 milhões), o "nenhum" dos eleitores dos eliminados que a urna entrega
+inteiro a Lula (cerca de 1,8 milhão, T37) e a diferença entre as 21 UFs de um cargo só e as 6 com governador (1,8
+ponto, cerca de 2,2 milhões). Sozinho não vira a eleição (precisaria de 4,43 milhões); somado a uma troca de 1,8% dos
+votos de Flávio, vira. Contra, com o mesmo rigor: o branco e nulo caiu de 22% a 42% entre turnos em 2002 a 2014, o
+Datafolha declarava 3% e deu 3,24%, e o beta do T5 subiu do 1º para o 2º turno nas 6 UFs. O teste de divisa com
+placebo decide. (2) Numa troca regulada pela força local de Lula. A marca existe (T35 dá SINAL com pesos iguais; T16
+vai de +0,006 em SC a +0,096 no PI; T7 de 19% a 25% no Nordeste) e é igual à do comportamento. Separam: capacidade de
+troca de eleitores, pesquisas estaduais por UF e a série de 2002 a 2010. (3) Na condição que deixaria o programa
+honesto. O exterior ficou 0,65 ponto abaixo (z -4,0), o contrapeso das "97 seções" não testa a condição e o desenho
+por fuso nunca foi feito. (4) No horário: 16h com z 1,95 contra 1,96 e 14h com z 3,6 no desenho registrado, em 0,78%
+das seções. (5) Em zona, mídia e carga: F9 sem poder, T20 fechado por regra posterior, AM e MA com mídia gerada tarde
+e coeficientes altos. (6) No comparecimento: +2,92 milhões validados só por log do próprio programa; idade e caderno
+nunca testados. O que NÃO achei: nenhum erro de soma, de assinatura ou de base; os scripts centrais (lib.fe_ols, T8,
+T14, T16, T22b, T35) fazem o que o registro diz, e a aritmética dos números oficiais fecha. Nada aqui é prova nem
+evidência: são lugares onde o desenho dos testes não alcança ou onde o limiar escolhido calou um desvio na direção da
+tese.
+
+ERROS ENCONTRADOS
+1. T34, dado: coordenadas erradas no cadastro de MG não filtradas (scripts/analisar_divisa.py linhas 26 a 44). Um
+local de Dom Cavati pareia com 1.803 locais de SP (1.749 da capital) e um de Piedade do Rio Grande com 1.244 do RJ. Os
+J placebo de SP-MG (-0,034) e MG-RJ (+0,044) são artefatos; a mediana placebo cai de 0,0063 para cerca de 0,0043 sem
+eles; o veredito do T34 não muda. Conferido sem usar votos em
+adendo27/equipe_vermelha/scripts/conferir_geometria_T34.py. T23(b) usa o mesmo cadastro e precisa da mesma
+conferência. 2. Omissão de relato: os testes da seção 7 (bn_secao_2026.json +0,0251, ep 0,0021; gov_2026.json local
++0,0293, ep 0,0049, e município -0,0099, ep 0,0311; modelos_2026.json) rodaram e não estão em nenhum texto nem no JSON
+de conferência; README linha 171 diz o contrário. Pela letra dão sem sinal; pelo tamanho, andaram na direção da tese.
+Não tiveram conferente. 3. T35: o veredito troca de INCONCLUSIVO para SINAL com pesos iguais (A -0,0381, ep 0,0011;
+diferença para 2018 de -0,0519, ep 0,0023), conta feita sobre T35_curva_forca_bweb.json. Não é erro de código; é
+dependência de especificação não relatada. 4. L7-D3 e a frase "seções com pouca biometria viraram igual": o grupo (r
+de 0,5 ou mais) não é ausência de biometria; com r igual a 1 há zero seções. O contrapeso não existe. 5. F19: o ep de
+0,16 ignora a incerteza do viés do pareamento (+0,12 em 2022, +0,90 em 2018) e a dependência entre cidades do mesmo
+país (ep 0,27). A leitura "menos da metade do que viraria" não se sustenta com esse erro. 6. F9: p de permutação
+1,0000 é sintoma de estatística degenerada (resíduo contra o próprio local), não de ausência de efeito. 7. F5: z
+binomial com desvio real de 0,58; limiar de 4 fora de alcance. 8. T30: limite de ep 0,6 inalcançável, placebo de nível
+em regressão de virada, fuso por UF. 9. T14 e T16: limiares que deixam passar 3,3% a 4,5% de troca sobre a base de
+2018; "sem sinal" e "equivale a 3,3% de troca" convivem no mesmo arquivo. 10. Textos desatualizados: README 5.2 e 5.3
+ainda trazem os números da amostra (T14 0,0507, T7 10,6%) e RESUMO_TESES item 6 usa o T22b como contrapeso depois da
+correção do Adendo 23; F20_governador_6ufs.txt mantém "EXCLUSÃO" sem ressalva. 11. Conferidos e sem erro: totais
+oficiais e identidade contábil da seção 2 do README (14.098.232 = 9.316.747 + 2.960.239 + 1.821.246), margem
+4.430.191, 3,57% de troca para virar, régua de 1,785 ponto, X de 51,6% para a forma A; lib.fe_ols (CR1),
+analisar_fluxo_regressao.py, analisar_T16.py (troca simulada pelo valor esperado), analisar_pres_gov.py (índices de D)
+e analisar_curva_forca.py reproduzem o que o registro descreve.
+
+ORDEM SUGERIDA DOS RETESTES
+  1. Branco e nulo: bn_secao em 2014 e por grupo de UF, diferença em diferenças com e sem governador, divisas das 6 UFs (dados já em disco).
+  2. Capacidade de troca de eleitores no T14, T7 e L3 (dados já em disco).
+  3. Periodicidade por contador nas contagens (dados já em disco).
+  4. Exterior: diferença em diferenças com 2022, pareamento por país e dose por fuso; seções brasileiras sem biometria pelo perfil.
+  5. T35 com três ponderações e T34 e T23(b) com filtro de coordenada.
+  6. T30 de hora em hora nos dois relógios, com calibração plantada.
+  7. Pesquisas estaduais por UF contra o T16; T6 e T33(a) com os relatórios completos.
+  8. D natural do T22b com 2018 e 2022 (exige baixar o bweb de governador, uma UF por vez).
+  9. T32 por seção com o perfil do eleitorado; desenho entre zonas para carga e mídia.

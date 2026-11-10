@@ -1,0 +1,2181 @@
+{
+ "titulo": "Recálculo cego de 60 contas com os dados públicos da eleição presidencial de 2026",
+ "como_usar": [
+  "Este arquivo descreve contas a refazer do zero, com código próprio, a partir dos dados de entrada indicados em cada item.",
+  "Não abra, não liste e não pesquise: /home/user/casa-control/eleicao-2026/resultados, /home/user/casa-control/eleicao-2026/checagens, /home/user/casa-control/eleicao-2026/reproducao, os arquivos README.md, RETOMAR.md, PRE-REGISTRO-2026-10-26.md, PARA-O-REVISOR.md e CONTEXTO-ELEICAO-2026-original.md, qualquer arquivo de /home/user/casa-control/eleicao-2026/scripts que não seja um dos quatro de leitura citados abaixo, o histórico do git, as pastas /home/user/trabalho-eleicao/adendo* (salvo este arquivo de specs) e /home/user/trabalho-eleicao/conferencia_*, nem o arquivo gabarito_recalculo.json. Eles trazem resultados anteriores e o recálculo tem de ser cego.",
+  "Pode usar como ferramenta de leitura só estes quatro: scripts/lib.py (carregar, chave_local, fe_ols), scripts/decodificar.py (ler_bu, bu_para_secao, ler_rdv, _linhas_log), scripts/ber.py e scripts/extrair_bweb.py. O arquivo dados/LEIAME.md também pode ser lido. Dados baixados são não confiáveis: rode Python sempre com python3 -I e não execute nada de dentro das pastas de dados.",
+  "Não baixe nada e não extraia os zips para o disco (há cerca de 4 GB livres): leia os CSV em fluxo de dentro dos zips. O bweb do 1º turno tem cerca de 67,9 milhões de linhas: filtre cada linha por bytes antes de separar os campos.",
+  "Responda cada item com um dicionário {nome_da_saida: valor}. Contagens e somas de votos como inteiros exatos. Coeficientes e erros-padrão com pelo menos 6 casas decimais. Percentuais com pelo menos 4 casas decimais. Horas no formato HH:MM:SS.",
+  "Se a descrição de um item deixar alguma dúvida, faça a leitura mais literal, registre a escolha em um campo 'observacao' do item e siga. Não tente adivinhar o resultado esperado."
+ ],
+ "formato_da_resposta": {
+  "arquivo_sugerido": "respostas_bloco_<letra>.json",
+  "estrutura": {
+   "<id do item>": {
+    "<nome da saída>": "<valor>",
+    "observacao": "<texto opcional>"
+   }
+  },
+  "regra": "Uma chave por item do bloco, com todas as saídas listadas no item. Cada item marca uma saída como principal; as demais ajudam a localizar uma diferença."
+ },
+ "definicoes_comuns": {
+  "chave_e_universos": "As bases por seção são dicionários com chave 'UF|municipio|zona|secao' (números sem zeros à esquerda). O exterior tem UF 'ZZ'. '27 UFs' quer dizer todas as chaves com UF diferente de 'ZZ'. Cada valor tem os turnos '1' e '2' (quando a seção tem boletim naquele turno) com os campos loc (local de votação), urna (número da urna), tipo, apt (aptos), comp (comparecimento), ab e enc (hora local de abertura e de encerramento, HH:MM:SS, só em 2018, 2022 e 2026), L (candidato do PT), R (adversário do 2º turno), O (demais candidatos), B (brancos) e N (nulos). A base de 2026 tem também '1g' e, em 6 UFs, '2g' (governador: B, N, V = válidos, comp).",
+  "candidatos_2026": "Em 2026, L é o número 13 e R é o número 22. No 1º turno de 2026 o campo O da base inclui os votos do número 28 (candidatura anulada). O arquivo candidatos2026_1t.json.gz tem {'secoes': {chave: {numero: votos}}} com os votos de cada número a presidente no 1º turno, inclusive o 28. Números usados adiante: 70, 14, 55 e 30 (quatro candidatos eliminados, chamados aqui de grupo70, grupo14, grupo55 e grupo30).",
+  "local": "Local de votação de uma seção = 'UF|municipio|zona|loc', com o loc do 2º turno daquela eleição, salvo quando o item disser outra coisa.",
+  "virada": "virada da seção, em pontos = 100 x [L2/(L2+R2) - L1/(L1+R1)], com os índices 1 e 2 indicando o turno. Só é definida quando L1+R1 > 0 e L2+R2 > 0.",
+  "mqo_ef": "MQO com efeito fixo de grupo, usado em todos os itens de regressão: (1) descartar as observações de grupos com uma única observação; (2) subtrair de y e de cada coluna de X a média do grupo, ponderada pelos pesos quando houver peso; (3) b = (X'WX)^-1 X'Wy nas variáveis centradas (W = pesos, ou identidade sem peso); (4) erro-padrão agrupado CR1: V = c (X'WX)^-1 [soma sobre os grupos g de s_g s_g'] (X'WX)^-1, com s_g = soma, nas observações i do grupo, de w_i x_i e_i (x centrado, e = resíduo), e c = [G/(G-1)] x [(N-1)/(N-k)], em que N = observações usadas depois do passo 1, k = número de colunas de X e G = número de grupos restantes. Informar n = N e grupos = G. A função fe_ols de scripts/lib.py implementa exatamente isto (o grupo do efeito fixo é também o do erro agrupado).",
+  "mqo_empilhado": "Regressão empilhada em dois blocos (dois candidatos ou dois cargos nas mesmas seções): cada seção entra com duas linhas; as colunas de X de um bloco valem zero nas linhas do outro (10 colunas no total quando cada bloco tem 5); efeito fixo por par (local, bloco), sem peso; descartar as linhas de pares (local, bloco) com uma única linha; erro-padrão CR1 agrupado por local (as duas linhas de uma seção ficam no mesmo grupo), com a mesma correção c do item mqo_ef, G = número de locais restantes, N = linhas usadas, k = colunas. A diferença entre dois coeficientes b_i e b_j tem erro-padrão raiz(V_ii + V_jj - 2 V_ij).",
+  "regressao_de_ganho": "Regressão de ganho de um candidato c contra o adversário a, em votos, por seção: y = c2 - c1 (votos de c no 2º turno menos no 1º). X, nesta ordem: outros_1T = O1; queda_bn = (B1+N1) - (B2+N2), sem truncar em zero; var_comp = comp2 - comp1; adversario_1T = a1; proprio_1T = c1. Efeito fixo de local, sem peso, erro agrupado por local (mqo_ef). Na versão 'eliminados separados' (só 2026), a coluna outros_1T é trocada por cinco colunas: grupo70, grupo14, grupo55, grupo30 (votos de cada um no 1º turno, do arquivo de candidatos) e demais = O1 menos a soma dos quatro.",
+  "bweb": "Os zips do bweb (um por UF e um do exterior, ZZ, por turno) trazem cada um um CSV separado por ponto e vírgula, codificação latin1, com cabeçalho, campos entre aspas. Cada linha é uma combinação seção x cargo x votável. Colunas usadas: SG_UF, CD_MUNICIPIO, NR_ZONA, NR_SECAO, NR_LOCAL_VOTACAO, CD_CARGO_PERGUNTA (1 = Presidente, 3 = Governador, 6 = Deputado Federal), NR_PARTIDO, DT_BU_RECEBIDO, QT_APTOS, QT_COMPARECIMENTO, CD_TIPO_VOTAVEL (1 = nominal, 2 = branco, 3 = nulo, 4 = legenda), NR_VOTAVEL, QT_VOTOS, NR_URNA_EFETIVADA, CD_CARGA_1_URNA_EFETIVADA, DT_CARGA_URNA_EFETIVADA, DT_ABERTURA, DT_ENCERRAMENTO, QT_ELEI_BIOM_SEM_HABILITACAO, DT_EMISSAO_BU, NR_JUNTA_APURADORA. Os campos da seção se repetem em todas as linhas dela: tome uma vez por seção, da primeira linha de Presidente. O arquivo pode trazer linha com CD_CARGO_PERGUNTA = -1 para seção sem nenhum voto: ela conta como seção com boletim só onde o item disser, e fica fora das demais contas. Datas no formato AAAA-MM-DD HH:MM:SS. Campo sem valor pode vir como #NULO#, vazio ou -1. Nomes podem conter ponto e vírgula dentro das aspas: use um leitor de CSV, ou conte as colunas depois do nome a partir do fim da linha. A chave da seção é SG_UF|CD_MUNICIPIO|NR_ZONA|NR_SECAO, igual à das bases.",
+  "fuso": "DT_ABERTURA, DT_ENCERRAMENTO e DT_EMISSAO_BU estão no relógio da urna (hora local); DT_BU_RECEBIDO está em hora de Brasília. Deslocamento do município (UF|municipio, inclusive cada cidade do exterior) = hora cheia (0 a 23) mais frequente de DT_ABERTURA entre as seções do município com abertura preenchida naquele turno, menos 8; município sem nenhuma abertura preenchida fica com deslocamento zero. Hora de Brasília = hora local menos o deslocamento (deslocamento -2 quer dizer somar 2 horas).",
+  "modelo_de_urna": "Modelo pelo número da urna u: sem modelo se u < 1650839 ou u > 2473540; UE2013 se u < 1716597; UE2015 se u < 1924068,5; UE2020 se u < 2249285; UE2022 nos demais casos.",
+  "logs": "Cada pasta /home/user/trabalho-eleicao/amostra2t/arq/{uf}/{municipio}/{zona}/{secao}/ tem os arquivos da seção no 2º turno: *-bu.dat (boletim), *-rdv.dat (registro digital do voto, só em parte das seções), *-log.jez (log) e outros. O log é um zip com logd.dat (e, às vezes, outros .jez dentro, com mais logd.dat: use todos). Cada linha do log tem campos separados por tabulação: data e hora 'DD/MM/AAAA HH:MM:SS', nível, número da urna, aplicativo, mensagem, código. O dia do 1º turno é 04/10/2026 e o do 2º é 25/10/2026. Quando houver mais de um arquivo de um tipo na pasta, use o último em ordem alfabética."
+ },
+ "blocos": [
+  {
+   "bloco": "A",
+   "titulo": "Totais e contagens de 2026 na base por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10"
+   ]
+  },
+  {
+   "bloco": "B",
+   "titulo": "Regressões e contagens por seção de 2026 na base por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14"
+   ]
+  },
+  {
+   "bloco": "C",
+   "titulo": "Horários e recebimento no bweb do 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip"
+   ],
+   "itens": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+   ]
+  },
+  {
+   "bloco": "D",
+   "titulo": "Biometria e carga no bweb dos dois turnos (linhas de Presidente)",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "itens": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08"
+   ]
+  },
+  {
+   "bloco": "E",
+   "titulo": "Exterior e governador na mesma urna",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos_gov_2026_1t_6ufs.json.gz",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "itens": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06"
+   ]
+  },
+  {
+   "bloco": "F",
+   "titulo": "Série 2014, 2018, 2022 e 2026 nas bases por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09"
+   ]
+  },
+  {
+   "bloco": "G",
+   "titulo": "Deputado federal no bweb inteiro do 1º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "G01",
+    "G02"
+   ]
+  },
+  {
+   "bloco": "H",
+   "titulo": "Amostra de arquivos de urna do 2º turno (boletim, RDV e log)",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "itens": [
+    "H01",
+    "H02",
+    "H03",
+    "H04"
+   ]
+  }
+ ],
+ "itens": [
+  {
+   "id": "A01",
+   "bloco": "A",
+   "titulo": "Totais do 2º turno de 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Somar L, R, comp, B e N do turno '2' em todas as seções da base que têm o turno '2' (27 UFs e exterior).",
+   "saidas": [
+    {
+     "nome": "lula",
+     "descricao": "soma de L"
+    },
+    {
+     "nome": "flavio",
+     "descricao": "soma de R"
+    },
+    {
+     "nome": "margem",
+     "descricao": "lula menos flavio",
+     "principal": true
+    },
+    {
+     "nome": "fatia_lula_pct",
+     "descricao": "100 x lula / (lula + flavio)"
+    },
+    {
+     "nome": "comparecimento",
+     "descricao": "soma de comp"
+    },
+    {
+     "nome": "brancos",
+     "descricao": "soma de B"
+    },
+    {
+     "nome": "nulos",
+     "descricao": "soma de N"
+    }
+   ]
+  },
+  {
+   "id": "A02",
+   "bloco": "A",
+   "titulo": "Totais do 1º turno de 2026 e votos dos eliminados",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Somar L, R e comp do turno '1' em todas as seções que têm o turno '1' (27 UFs e exterior). No arquivo de candidatos, somar em todas as seções os votos de cada número.",
+   "saidas": [
+    {
+     "nome": "lula_1t",
+     "descricao": "soma de L no 1º turno"
+    },
+    {
+     "nome": "flavio_1t",
+     "descricao": "soma de R no 1º turno"
+    },
+    {
+     "nome": "margem_flavio_1t",
+     "descricao": "flavio_1t menos lula_1t",
+     "principal": true
+    },
+    {
+     "nome": "comparecimento_1t",
+     "descricao": "soma de comp no 1º turno"
+    },
+    {
+     "nome": "eliminados_1t",
+     "descricao": "soma dos votos de todos os números, exceto 13, 22 e 28"
+    },
+    {
+     "nome": "votos_28",
+     "descricao": "soma dos votos do número 28"
+    }
+   ]
+  },
+  {
+   "id": "A03",
+   "bloco": "A",
+   "titulo": "Variação dos totais entre os turnos de 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Para L, R e comp: soma no turno '2' de todas as seções com turno '2' menos soma no turno '1' de todas as seções com turno '1' (sem exigir que a seção exista nos dois turnos).",
+   "saidas": [
+    {
+     "nome": "ganho_lula",
+     "descricao": "variação de L",
+     "principal": true
+    },
+    {
+     "nome": "ganho_flavio",
+     "descricao": "variação de R"
+    },
+    {
+     "nome": "var_comparecimento",
+     "descricao": "variação de comp"
+    }
+   ]
+  },
+  {
+   "id": "A04",
+   "bloco": "A",
+   "titulo": "Número de seções de 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Contar chaves da base de 2026.",
+   "saidas": [
+    {
+     "nome": "secoes_1t",
+     "descricao": "seções com turno '1'"
+    },
+    {
+     "nome": "secoes_2t",
+     "descricao": "seções com turno '2'",
+     "principal": true
+    },
+    {
+     "nome": "secoes_2t_27ufs",
+     "descricao": "seções das 27 UFs com turno '2'"
+    },
+    {
+     "nome": "secoes_dois_turnos",
+     "descricao": "seções com os turnos '1' e '2'"
+    }
+   ]
+  },
+  {
+   "id": "A05",
+   "bloco": "A",
+   "titulo": "Totais das 27 UFs em 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Só nas 27 UFs (sem o exterior), cada turno com todas as suas seções: ganho de L = soma de L no turno '2' menos soma de L no turno '1'; margem de L em cada turno = soma de L menos soma de R.",
+   "saidas": [
+    {
+     "nome": "ganho_lula_27ufs",
+     "descricao": "ganho de L nas 27 UFs",
+     "principal": true
+    },
+    {
+     "nome": "residuo_k10",
+     "descricao": "ganho_lula_27ufs menos 10 vezes o número de seções das 27 UFs com turno '2'"
+    },
+    {
+     "nome": "margem_lula_2t_27ufs",
+     "descricao": "L menos R no 2º turno, 27 UFs"
+    },
+    {
+     "nome": "margem_lula_1t_27ufs",
+     "descricao": "L menos R no 1º turno, 27 UFs (com sinal)"
+    }
+   ]
+  },
+  {
+   "id": "A06",
+   "bloco": "A",
+   "titulo": "Seções com poucos votos de L no 2º turno",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Nas seções das 27 UFs com turno '2': contar as que têm L do 2º turno abaixo de 10.",
+   "saidas": [
+    {
+     "nome": "secoes_L2_menor_10",
+     "descricao": "seções com L2 < 10",
+     "principal": true
+    },
+    {
+     "nome": "secoes_L2_zero",
+     "descricao": "seções com L2 = 0"
+    },
+    {
+     "nome": "votos_lula_nelas",
+     "descricao": "soma de L2 nas seções com L2 < 10"
+    }
+   ]
+  },
+  {
+   "id": "A07",
+   "bloco": "A",
+   "titulo": "Quem lidera em cada seção no 2º turno",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em todas as seções com turno '2' (27 UFs e exterior), comparar L e R do 2º turno.",
+   "saidas": [
+    {
+     "nome": "secoes_lula_a_frente",
+     "descricao": "seções com L2 > R2",
+     "principal": true
+    },
+    {
+     "nome": "secoes_flavio_a_frente",
+     "descricao": "seções com L2 < R2"
+    },
+    {
+     "nome": "secoes_empate",
+     "descricao": "seções com L2 = R2"
+    }
+   ]
+  },
+  {
+   "id": "A08",
+   "bloco": "A",
+   "titulo": "Ganho de votos por UF",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Para cada uma das 27 UFs, somar L e R em cada turno (todas as seções da UF em cada turno). Ganho de cada candidato = soma no 2º turno menos soma no 1º.",
+   "saidas": [
+    {
+     "nome": "ufs_ganho_L_maior",
+     "descricao": "número de UFs (de 27) em que o ganho de L é maior que o ganho de R",
+     "principal": true
+    },
+    {
+     "nome": "ufs_ganho_R_negativo",
+     "descricao": "número de UFs em que o ganho de R é negativo"
+    }
+   ]
+  },
+  {
+   "id": "A09",
+   "bloco": "A",
+   "titulo": "Ganho de votos por município",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Município = 'UF|municipio', só nas 27 UFs. Somar por município L, R e O de cada turno (todas as seções do município em cada turno). Ganho em votos: gL = L2 - L1, gR = R2 - R1. Ganho em pontos: pL = 100 x [L2/(L2+R2) - L1/V1] e pR = 100 x [R2/(L2+R2) - R1/V1], com V1 = L1 + R1 + O1 menos os votos do número 28 no município. Entram os municípios com V1 > 0 e L2+R2 > 0.",
+   "saidas": [
+    {
+     "nome": "municipios",
+     "descricao": "municípios considerados"
+    },
+    {
+     "nome": "municipios_gL_maior",
+     "descricao": "municípios com gL > gR",
+     "principal": true
+    },
+    {
+     "nome": "municipios_gR_maior",
+     "descricao": "municípios com gR > gL"
+    },
+    {
+     "nome": "municipios_empate",
+     "descricao": "municípios com gL = gR"
+    },
+    {
+     "nome": "municipios_pR_maior",
+     "descricao": "municípios com pR > pL"
+    },
+    {
+     "nome": "municipios_R1_maior_e_L2_maior",
+     "descricao": "municípios com R1 > L1 e L2 > R2"
+    },
+    {
+     "nome": "municipios_L1_maior_e_R2_maior",
+     "descricao": "municípios com L1 > R1 e R2 > L2"
+    }
+   ]
+  },
+  {
+   "id": "A10",
+   "bloco": "A",
+   "titulo": "Aptos entre os turnos, seção a seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Nas seções com os dois turnos (27 UFs e exterior), comparar apt do turno '1' com apt do turno '2'. Em cada turno, comparar comp com apt.",
+   "saidas": [
+    {
+     "nome": "secoes_aptos_diferentes",
+     "descricao": "seções com apt diferente entre os turnos",
+     "principal": true
+    },
+    {
+     "nome": "soma_modulo",
+     "descricao": "soma de |apt2 - apt1|"
+    },
+    {
+     "nome": "secoes_comp_maior_que_aptos",
+     "descricao": "seções, somando os dois turnos, com comp > apt"
+    }
+   ]
+  },
+  {
+   "id": "B01",
+   "bloco": "B",
+   "titulo": "Regressão de ganho de L em 2026, outros agregados",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Regressão de ganho (definição regressao_de_ganho) com c = L e a = R, em todas as seções de 2026 com os dois turnos (27 UFs e exterior), versão com a coluna outros_1T agregada.",
+   "saidas": [
+    {
+     "nome": "coef_adversario_1T",
+     "descricao": "coeficiente de adversario_1T",
+     "principal": true
+    },
+    {
+     "nome": "ep_adversario_1T",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_outros_1T",
+     "descricao": "coeficiente de outros_1T"
+    },
+    {
+     "nome": "coef_queda_bn",
+     "descricao": "coeficiente de queda_bn"
+    },
+    {
+     "nome": "coef_var_comp",
+     "descricao": "coeficiente de var_comp"
+    },
+    {
+     "nome": "coef_proprio_1T",
+     "descricao": "coeficiente de proprio_1T"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B02",
+   "bloco": "B",
+   "titulo": "Regressão de ganho de L em 2026, eliminados separados",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Regressão de ganho com c = L e a = R, em todas as seções de 2026 com os dois turnos (27 UFs e exterior), versão 'eliminados separados' (colunas grupo70, grupo14, grupo55, grupo30, demais, queda_bn, var_comp, adversario_1T, proprio_1T).",
+   "saidas": [
+    {
+     "nome": "coef_adversario_1T",
+     "descricao": "coeficiente de adversario_1T",
+     "principal": true
+    },
+    {
+     "nome": "ep_adversario_1T",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_grupo70",
+     "descricao": "coeficiente de grupo70"
+    },
+    {
+     "nome": "ep_grupo70",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_grupo14",
+     "descricao": "coeficiente de grupo14"
+    },
+    {
+     "nome": "coef_grupo55",
+     "descricao": "coeficiente de grupo55"
+    },
+    {
+     "nome": "coef_grupo30",
+     "descricao": "coeficiente de grupo30"
+    },
+    {
+     "nome": "ep_grupo30",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B03",
+   "bloco": "B",
+   "titulo": "Ganho de L comparado com o total disponível na seção, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em todas as seções de 2026 com os dois turnos (27 UFs e exterior): ganho = L2 - L1; disponivel = O1 + max(0, (B1+N1) - (B2+N2)) + max(0, comp2 - comp1); excesso = ganho - disponivel.",
+   "saidas": [
+    {
+     "nome": "pct_secoes_excesso_positivo",
+     "descricao": "100 x (seções com excesso > 0) / (seções consideradas)",
+     "principal": true
+    },
+    {
+     "nome": "pct_ganho_em_excesso",
+     "descricao": "100 x (soma dos excessos positivos) / (soma do ganho de todas as seções consideradas)"
+    },
+    {
+     "nome": "excesso_total",
+     "descricao": "soma dos excessos positivos, em votos"
+    },
+    {
+     "nome": "ganho_total",
+     "descricao": "soma do ganho nas seções consideradas"
+    },
+    {
+     "nome": "secoes_disponivel_ate_2",
+     "descricao": "seções com disponivel menor ou igual a 2"
+    }
+   ]
+  },
+  {
+   "id": "B04",
+   "bloco": "B",
+   "titulo": "Virada contra a composição do 1º turno, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior) e com comp1 > 0, comp2 > 0, L1+R1 > 0, L2+R2 > 0. y = virada (pontos). X, nesta ordem: 100 x (B1+N1)/comp1; 100 x O1/comp1; 100 x L1/comp1. Efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "coef_bn_1t",
+     "descricao": "coeficiente de 100 x (B1+N1)/comp1",
+     "principal": true
+    },
+    {
+     "nome": "ep_bn_1t",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B05",
+   "bloco": "B",
+   "titulo": "Virada contra o inverso do tamanho da seção, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com os dois turnos e L+R > 0 nos dois. y = virada em fração (a virada em pontos dividida por 100). x = 1/(L2+R2). Efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "b",
+     "descricao": "coeficiente de x",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B06",
+   "bloco": "B",
+   "titulo": "Variação do comparecimento contra o inverso dos aptos, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com os dois turnos. y = comp2/apt2 - comp1/apt1 (fração). x = 1/apt2. Efeito fixo de local, peso apt2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "b",
+     "descricao": "coeficiente de x",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B07",
+   "bloco": "B",
+   "titulo": "Seções com urna diferente entre os turnos, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior). Indicador g = 1 se o campo urna do turno '1' é diferente do campo urna do turno '2'. Regressão: y = virada (pontos); x = g; efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "secoes_urna_diferente",
+     "descricao": "seções com g = 1 entre as que têm os dois turnos"
+    },
+    {
+     "nome": "coef",
+     "descricao": "coeficiente de g",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    },
+    {
+     "nome": "secoes_g1_na_regressao",
+     "descricao": "seções com g = 1 entre as observações usadas"
+    }
+   ]
+  },
+  {
+   "id": "B08",
+   "bloco": "B",
+   "titulo": "Perda dos próprios votos por faixa de força local do adversário, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior). Para cada candidato c (L e R), a força local do adversário é: soma, no local de votação, dos votos do adversário de c no 1º turno, dividida pela soma dos válidos do 1º turno no local, com válidos = L1 + R1 + O1 menos os votos do número 28. Faixas dessa fração: [0; 0,35), [0,35; 0,50), [0,50; 0,65) e [0,65; 1]. Em cada faixa: tomar, para L, as seções dos locais cuja fração (adversário de L) cai na faixa e, para R, as seções dos locais cuja fração (adversário de R) cai na faixa; rodar a regressão de ganho (outros agregados) dos dois candidatos empilhada (definição mqo_empilhado: bloco de L e bloco de R, efeito fixo por local e candidato, erro agrupado por local). d = coeficiente de proprio_1T de R menos o de L. A faixa só entra se cada candidato tiver pelo menos 30 locais com 2 ou mais seções. A = média dos d das faixas ponderada pelo inverso da variância; ep_A = 1/raiz(soma dos pesos).",
+   "saidas": [
+    {
+     "nome": "A",
+     "descricao": "média ponderada dos d",
+     "principal": true
+    },
+    {
+     "nome": "ep_A",
+     "descricao": "erro-padrão de A"
+    },
+    {
+     "nome": "d_faixa1",
+     "descricao": "d na faixa [0; 0,35)"
+    },
+    {
+     "nome": "ep_d_faixa1",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "d_faixa2",
+     "descricao": "d na faixa [0,35; 0,50)"
+    },
+    {
+     "nome": "ep_d_faixa2",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "d_faixa3",
+     "descricao": "d na faixa [0,50; 0,65)"
+    },
+    {
+     "nome": "ep_d_faixa3",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "d_faixa4",
+     "descricao": "d na faixa [0,65; 1]"
+    },
+    {
+     "nome": "ep_d_faixa4",
+     "descricao": "erro-padrão"
+    }
+   ]
+  },
+  {
+   "id": "B09",
+   "bloco": "B",
+   "titulo": "Regressão de ganho de L por UF, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "A regressão do item B02 (eliminados separados, c = L), rodada separadamente só com as seções de SC e só com as seções do PI.",
+   "saidas": [
+    {
+     "nome": "coef_adversario_1T_SC",
+     "descricao": "coeficiente de adversario_1T em SC",
+     "principal": true
+    },
+    {
+     "nome": "ep_SC",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_SC",
+     "descricao": "observações usadas em SC"
+    },
+    {
+     "nome": "coef_adversario_1T_PI",
+     "descricao": "coeficiente de adversario_1T no PI"
+    },
+    {
+     "nome": "ep_PI",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_PI",
+     "descricao": "observações usadas no PI"
+    }
+   ]
+  },
+  {
+   "id": "B10",
+   "bloco": "B",
+   "titulo": "Seções distantes do previsto pelo próprio 1º turno, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Com a regressão do item B02 (c = L, eliminados separados, todas as seções com os dois turnos): efeito do local = média, nas seções do local, de (y - X b); previsto do ganho = X b + efeito do local; L2_previsto = L1 + previsto do ganho. n = L2 + R2; p = L2_previsto / n; z = (L2/n - p) / raiz(p (1-p) / n). Ficam fora: seções sozinhas no local; seções com n = 0, L2_previsto menor ou igual a 0 ou L2_previsto maior ou igual a n.",
+   "saidas": [
+    {
+     "nome": "secoes_com_z",
+     "descricao": "seções com z calculado"
+    },
+    {
+     "nome": "secoes_z_acima_de_4",
+     "descricao": "seções com z > 4",
+     "principal": true
+    },
+    {
+     "nome": "secoes_z_abaixo_de_menos_4",
+     "descricao": "seções com z < -4"
+    },
+    {
+     "nome": "secoes_sozinhas_no_local",
+     "descricao": "seções fora por estarem sozinhas no local"
+    },
+    {
+     "nome": "secoes_p_fora",
+     "descricao": "seções fora pela segunda regra"
+    }
+   ]
+  },
+  {
+   "id": "B11",
+   "bloco": "B",
+   "titulo": "Seções com branco mais nulo igual a zero no 2º turno, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 (27 UFs e exterior) com turno '2' e comp2 maior ou igual a 50. Por seção: bn = B2 + N2, n = comp2. Taxa de referência p de cada seção, sem a própria: se o local tem 2 ou mais dessas seções, p = (soma de bn das outras seções do local) / (soma de n das outras); se o local tem só uma mas o município (UF|municipio) tem 2 ou mais, a mesma conta com as outras seções do município; se nem isso, a seção sai. n_out = soma de n das outras usadas. Superdispersão por momentos: q = p (1-p); rho = max( soma[(bn - n p)^2 - n q - n^2 q / n_out] / soma[n (n-1) q] ; 0,000001 ). Probabilidade de zero por seção, beta-binomial: 1 se p menor ou igual a 0; se 0 < p < 1, com a = p (1/rho - 1) e b = (1-p)(1/rho - 1), P0 = exp[lnBeta(a, b+n) - lnBeta(a, b)]; 0 se p maior ou igual a 1.",
+   "saidas": [
+    {
+     "nome": "secoes",
+     "descricao": "seções com p definido"
+    },
+    {
+     "nome": "zeros_observados",
+     "descricao": "seções com bn = 0",
+     "principal": true
+    },
+    {
+     "nome": "zeros_esperados",
+     "descricao": "soma de P0"
+    },
+    {
+     "nome": "rho",
+     "descricao": "superdispersão estimada"
+    }
+   ]
+  },
+  {
+   "id": "B12",
+   "bloco": "B",
+   "titulo": "Virada por modelo de urna dentro do local, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior). Modelo pela urna do 2º turno (definição modelo_de_urna). Contar as seções por modelo. Regressão: só seções com modelo e com L+R > 0 nos dois turnos; y = virada (pontos); X = indicadores de UE2013, UE2015 e UE2022 (referência UE2020); efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "secoes_UE2013",
+     "descricao": "seções com urna UE2013 no 2º turno"
+    },
+    {
+     "nome": "secoes_UE2015",
+     "descricao": "idem UE2015"
+    },
+    {
+     "nome": "secoes_UE2020",
+     "descricao": "idem UE2020"
+    },
+    {
+     "nome": "secoes_UE2022",
+     "descricao": "idem UE2022"
+    },
+    {
+     "nome": "secoes_sem_modelo",
+     "descricao": "seções sem modelo"
+    },
+    {
+     "nome": "coef_UE2015",
+     "descricao": "coeficiente do indicador UE2015",
+     "principal": true
+    },
+    {
+     "nome": "ep_UE2015",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_UE2013",
+     "descricao": "coeficiente do indicador UE2013"
+    },
+    {
+     "nome": "ep_UE2013",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_UE2022",
+     "descricao": "coeficiente do indicador UE2022"
+    },
+    {
+     "nome": "ep_UE2022",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "B13",
+   "bloco": "B",
+   "titulo": "Último dígito das contagens do 2º turno, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com turno '2'. Para L2 e, em separado, para R2: tomar as contagens maiores ou iguais a 50, contar o último dígito (0 a 9) e calcular o qui-quadrado contra a distribuição uniforme: soma de (observado - m/10)^2 / (m/10), com m = número de contagens.",
+   "saidas": [
+    {
+     "nome": "qui2_L2",
+     "descricao": "qui-quadrado de L2",
+     "principal": true
+    },
+    {
+     "nome": "contagens_L2",
+     "descricao": "número de contagens de L2 usadas"
+    },
+    {
+     "nome": "qui2_R2",
+     "descricao": "qui-quadrado de R2"
+    },
+    {
+     "nome": "contagens_R2",
+     "descricao": "número de contagens de R2 usadas"
+    }
+   ]
+  },
+  {
+   "id": "B14",
+   "bloco": "B",
+   "titulo": "Seções com comparecimento muito alto e voto concentrado, 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Universo do 2º turno: seções de 2026 (27 UFs e exterior) com turno '2', apt2 maior ou igual a 100, comp2 > 0, excluídas as seções em que os campos ab e enc do 2º turno estão ambos vazios. Evento 1: 100 x comp2 maior ou igual a 95 x apt2 e 100 x L2 maior ou igual a 80 x (L2+R2). Evento 2: o mesmo com R2 no lugar de L2. Evento 3 (seções com os dois turnos, apt maior ou igual a 100 nos dois turnos, excluídas só as seções com ab e enc do 2º turno ambos vazios): 100 x (comp2/apt2 - comp1/apt1) maior ou igual a 15.",
+   "saidas": [
+    {
+     "nome": "secoes_universo_2t",
+     "descricao": "seções do universo do 2º turno"
+    },
+    {
+     "nome": "secoes_evento1",
+     "descricao": "seções com o evento 1",
+     "principal": true
+    },
+    {
+     "nome": "secoes_evento2",
+     "descricao": "seções com o evento 2"
+    },
+    {
+     "nome": "secoes_evento3",
+     "descricao": "seções com o evento 3"
+    }
+   ]
+  },
+  {
+   "id": "C01",
+   "bloco": "C",
+   "titulo": "Tamanho do bweb do 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Ler os CSV de todos os zips do 2º turno. Contar as linhas de dados (sem o cabeçalho). Contar as seções distintas (chave), inclusive as que só têm linha com CD_CARGO_PERGUNTA = -1. Somar QT_APTOS uma vez por seção, inclusive nessas.",
+   "saidas": [
+    {
+     "nome": "linhas",
+     "descricao": "linhas de dados"
+    },
+    {
+     "nome": "secoes",
+     "descricao": "seções distintas",
+     "principal": true
+    },
+    {
+     "nome": "aptos",
+     "descricao": "soma de QT_APTOS, uma vez por seção"
+    },
+    {
+     "nome": "secoes_so_com_cargo_menos_1",
+     "descricao": "seções que só têm linha de cargo -1"
+    }
+   ]
+  },
+  {
+   "id": "C02",
+   "bloco": "C",
+   "titulo": "Seções pelo horário de encerramento no 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com linha de Presidente no bweb do 2º turno. Converter DT_ENCERRAMENTO para hora de Brasília (definição fuso, com o deslocamento calculado no próprio 2º turno). Grupo T = seções com encerramento, em hora de Brasília, depois de 17:15:59 do dia 25/10/2026. Votos de L e R do 2º turno pela base ou pelo próprio bweb (são iguais).",
+   "saidas": [
+    {
+     "nome": "secoes_T",
+     "descricao": "seções do grupo T",
+     "principal": true
+    },
+    {
+     "nome": "comparecimento_T",
+     "descricao": "soma de QT_COMPARECIMENTO no grupo T"
+    },
+    {
+     "nome": "margem_27ufs_sem_T",
+     "descricao": "L2 menos R2 somados nas seções das 27 UFs que não estão em T"
+    },
+    {
+     "nome": "fatia_L_em_T_pct",
+     "descricao": "100 x L2/(L2+R2) somados no grupo T"
+    }
+   ]
+  },
+  {
+   "id": "C03",
+   "bloco": "C",
+   "titulo": "Virada das seções do grupo T contra as demais do mesmo local",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Grupo T como no item C02. Seções das 27 UFs com os dois turnos, com hora de encerramento preenchida nos dois turnos e com L+R > 0 nos dois. y = virada (pontos); x = 1 se a seção está em T, 0 se não; efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef). A hora de encerramento do 1º turno só serve para o filtro (campo enc do turno '1' da base ou DT_ENCERRAMENTO do bweb do 1º turno).",
+   "saidas": [
+    {
+     "nome": "coef",
+     "descricao": "coeficiente de x",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "C04",
+   "bloco": "C",
+   "titulo": "Distribuição da hora de recebimento dos boletins no 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Todas as seções do bweb do 2º turno (27 UFs e exterior, inclusive as de cargo -1). Usar DT_BU_RECEBIDO (hora de Brasília, dia 25/10/2026).",
+   "saidas": [
+    {
+     "nome": "recebidos_ate_17h07m59",
+     "descricao": "seções com recebimento até 17:07:59"
+    },
+    {
+     "nome": "recebidos_de_17h08m00_a_18h59m59",
+     "descricao": "seções com recebimento de 17:08:00 a 18:59:59",
+     "principal": true
+    },
+    {
+     "nome": "primeiro_recebimento_depois_de_18h59m59",
+     "descricao": "hora (HH:MM:SS) do primeiro recebimento depois de 18:59:59"
+    }
+   ]
+  },
+  {
+   "id": "C05",
+   "bloco": "C",
+   "titulo": "Os primeiros boletins recebidos no 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Ordenar todas as seções do bweb do 2º turno por DT_BU_RECEBIDO crescente (empate pela chave da seção, em ordem de texto) e tomar as 1.225 primeiras. Somar nelas os votos nominais de Presidente dos números 13 e 22.",
+   "saidas": [
+    {
+     "nome": "fatia_13_pct",
+     "descricao": "100 x votos do 13 / (votos do 13 + votos do 22) nessas seções",
+     "principal": true
+    },
+    {
+     "nome": "hora_do_ultimo_delas",
+     "descricao": "hora de recebimento (HH:MM:SS) da última das 1.225"
+    }
+   ]
+  },
+  {
+   "id": "C06",
+   "bloco": "C",
+   "titulo": "Instante em que o resultado fica matematicamente definido",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Percorrer as seções do bweb do 2º turno na ordem de DT_BU_RECEBIDO, acumulando a margem (votos do 13 menos votos do 22 a Presidente) das já recebidas. O resultado está definido no primeiro instante em que essa margem acumulada é maior que a soma de QT_APTOS de todas as seções ainda não recebidas.",
+   "saidas": [
+    {
+     "nome": "hora_definicao",
+     "descricao": "hora de recebimento (HH:MM:SS, com segundos) em que a condição passa a valer",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "C07",
+   "bloco": "C",
+   "titulo": "Coerência dos horários do boletim no 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "No bweb do 2º turno. Seção de junta = NR_JUNTA_APURADORA diferente de -1. Nas seções com linha de Presidente que não são de junta: (a) DT_EMISSAO_BU anterior a DT_ENCERRAMENTO (os dois no relógio da urna); (b) QT_COMPARECIMENTO > 0 e encerramento, em hora de Brasília, antes de 17:00:00; (c) DT_BU_RECEBIDO anterior a DT_EMISSAO_BU convertida para hora de Brasília (definição fuso).",
+   "saidas": [
+    {
+     "nome": "secoes_de_junta",
+     "descricao": "seções de junta"
+    },
+    {
+     "nome": "secoes_de_junta_nas_27ufs",
+     "descricao": "seções de junta fora do exterior"
+    },
+    {
+     "nome": "secoes_regra_a",
+     "descricao": "seções na situação (a)"
+    },
+    {
+     "nome": "secoes_regra_b",
+     "descricao": "seções na situação (b)"
+    },
+    {
+     "nome": "secoes_regra_c",
+     "descricao": "seções na situação (c)",
+     "principal": true
+    },
+    {
+     "nome": "secoes_regra_c_exterior",
+     "descricao": "seções na situação (c) no exterior (ZZ)"
+    }
+   ]
+  },
+  {
+   "id": "D01",
+   "bloco": "D",
+   "titulo": "Total do campo de eleitores com biometria não habilitados por ela",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Chamar NH = QT_ELEI_BIOM_SEM_HABILITACAO (um valor por seção, da linha de Presidente). Somar por turno, separando as 27 UFs do exterior.",
+   "saidas": [
+    {
+     "nome": "nh_1t_27ufs",
+     "descricao": "soma de NH no 1º turno, 27 UFs"
+    },
+    {
+     "nome": "nh_2t_27ufs",
+     "descricao": "soma de NH no 2º turno, 27 UFs",
+     "principal": true
+    },
+    {
+     "nome": "nh_2t_exterior",
+     "descricao": "soma de NH no 2º turno, exterior"
+    }
+   ]
+  },
+  {
+   "id": "D02",
+   "bloco": "D",
+   "titulo": "NH do 2º turno contra a proporção do 1º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Nas 27 UFs, com C = soma de QT_COMPARECIMENTO de cada turno (todas as seções do turno): diferenca = NH do 2º turno menos (NH do 1º turno / C do 1º turno) x C do 2º turno.",
+   "saidas": [
+    {
+     "nome": "diferenca",
+     "descricao": "valor da diferença, em eleitores (pode ter casas decimais)",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "D03",
+   "bloco": "D",
+   "titulo": "Ganho de L contra as variações com e sem NH",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior) e comp1 > 0. y = (L2 - L1)/comp1; x_a = (NH2 - NH1)/comp1; x_b = [(comp2 - NH2) - (comp1 - NH1)]/comp1. Efeito fixo de local, sem peso, erro agrupado por local (mqo_ef), com as duas variáveis juntas. Erro-padrão da diferença entre os coeficientes pela matriz V.",
+   "saidas": [
+    {
+     "nome": "coef_x_a",
+     "descricao": "coeficiente de x_a",
+     "principal": true
+    },
+    {
+     "nome": "ep_x_a",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_x_b",
+     "descricao": "coeficiente de x_b"
+    },
+    {
+     "nome": "ep_x_b",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "dif_a_menos_b",
+     "descricao": "coef_x_a menos coef_x_b"
+    },
+    {
+     "nome": "ep_dif",
+     "descricao": "erro-padrão da diferença"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "D04",
+   "bloco": "D",
+   "titulo": "Variação de NH contra a variação do comparecimento dentro do local",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos (27 UFs e exterior). y = NH2 - NH1 (em eleitores); x = comp2 - comp1; efeito fixo de local, sem peso, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "coef",
+     "descricao": "coeficiente de x",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "D05",
+   "bloco": "D",
+   "titulo": "Seções por faixa de NH no 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com os dois turnos e comp2 > 0. Faixa pela razão NH2/comp2, comparada em inteiros: A se 100 x NH2 é menor ou igual a 5 x comp2; B se maior que isso e 100 x NH2 menor ou igual a 10 x comp2; C nos demais casos. Margem de L = soma de L menos soma de R, em cada turno, nas seções da faixa.",
+   "saidas": [
+    {
+     "nome": "secoes_A",
+     "descricao": "seções na faixa A"
+    },
+    {
+     "nome": "secoes_B",
+     "descricao": "seções na faixa B"
+    },
+    {
+     "nome": "secoes_C",
+     "descricao": "seções na faixa C",
+     "principal": true
+    },
+    {
+     "nome": "margem_L_1t_C",
+     "descricao": "margem de L no 1º turno na faixa C (com sinal)"
+    },
+    {
+     "nome": "margem_L_2t_C",
+     "descricao": "margem de L no 2º turno na faixa C"
+    },
+    {
+     "nome": "margem_L_2t_A",
+     "descricao": "margem de L no 2º turno na faixa A"
+    },
+    {
+     "nome": "margem_L_2t_B",
+     "descricao": "margem de L no 2º turno na faixa B"
+    }
+   ]
+  },
+  {
+   "id": "D06",
+   "bloco": "D",
+   "titulo": "Virada por faixa de NH dentro do local",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Faixas do item D05, nas mesmas seções, com L+R > 0 nos dois turnos. Regressão 1: y = virada (pontos); X = indicadores das faixas B e C (referência A); efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef). Regressão 2: igual, trocando y por 100 x L1/(L1+R1).",
+   "saidas": [
+    {
+     "nome": "coef_C",
+     "descricao": "coeficiente do indicador C na regressão 1",
+     "principal": true
+    },
+    {
+     "nome": "ep_C",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "coef_B",
+     "descricao": "coeficiente do indicador B na regressão 1"
+    },
+    {
+     "nome": "ep_B",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    },
+    {
+     "nome": "coef_C_regressao2",
+     "descricao": "coeficiente do indicador C na regressão 2"
+    },
+    {
+     "nome": "ep_C_regressao2",
+     "descricao": "erro-padrão"
+    }
+   ]
+  },
+  {
+   "id": "D07",
+   "bloco": "D",
+   "titulo": "Seções com maior aumento de NH entre os turnos",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções das 27 UFs com os dois turnos. x = 100 x (NH2 - NH1)/apt2. Seja m = arredondamento de 1% do número de seções desse universo. corte = o m-ésimo maior valor de x. Topo = seções com x maior ou igual ao corte (empates incluídos). Grupo G = seções do topo com NH2 - NH1 maior ou igual a 10. Regressão nas seções do universo com L+R > 0 nos dois turnos: y = virada (pontos); x = 1 se a seção está em G; efeito fixo de local, peso L2+R2, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "corte",
+     "descricao": "valor do corte, em pontos dos aptos"
+    },
+    {
+     "nome": "secoes_topo",
+     "descricao": "seções do topo"
+    },
+    {
+     "nome": "secoes_G",
+     "descricao": "seções do grupo G",
+     "principal": true
+    },
+    {
+     "nome": "coef",
+     "descricao": "coeficiente do indicador de G"
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "D08",
+   "bloco": "D",
+   "titulo": "Carga das urnas entre os turnos",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "Seções com linha de Presidente nos dois turnos. (a) seções com o mesmo NR_URNA_EFETIVADA nos dois turnos; (b) entre essas, as que têm CD_CARGA_1_URNA_EFETIVADA diferente entre os turnos. No 2º turno, todas as seções com linha de Presidente: (c) seções com DT_CARGA_URNA_EFETIVADA no dia 24/10/2026; (d) no dia 25/10/2026.",
+   "saidas": [
+    {
+     "nome": "secoes_mesma_urna",
+     "descricao": "resultado de (a)"
+    },
+    {
+     "nome": "secoes_mesma_urna_carga_diferente",
+     "descricao": "resultado de (b)",
+     "principal": true
+    },
+    {
+     "nome": "secoes_carga_em_24_10",
+     "descricao": "resultado de (c)"
+    },
+    {
+     "nome": "secoes_carga_em_25_10",
+     "descricao": "resultado de (d)"
+    }
+   ]
+  },
+  {
+   "id": "E01",
+   "bloco": "E",
+   "titulo": "Exterior contra seções das 27 UFs de composição parecida",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 com os dois turnos, L+R > 0 nos dois e L2+R2 maior ou igual a 30. Grupo X = as do exterior (ZZ); candidatas = as das 27 UFs. Quatro variáveis por seção: f1 = 100 x L1/(L1+R1); outros = 100 x O1/(L1+R1+O1); bn = 100 x (B1+N1)/comp1; dc = 100 x (comp2/apt2 - comp1/apt1). Padronizar as quatro pela média e pelo desvio-padrão, sem peso, das candidatas. Para cada seção de X, tomar as 20 candidatas mais próximas em distância euclidiana nas quatro variáveis padronizadas (com reposição; empate pela chave). Contrafactual da seção = média da virada (pontos) das suas 20, ponderada pelo L2+R2 delas. D = média, nas seções de X, de (virada da seção menos o contrafactual), ponderada pelo L2+R2 da seção de X. Erro-padrão: bootstrap das cidades do exterior (código de município do ZZ), 2.000 réplicas, mantendo fixos os pares; desvio-padrão das réplicas.",
+   "saidas": [
+    {
+     "nome": "D",
+     "descricao": "estatística D, em pontos",
+     "principal": true
+    },
+    {
+     "nome": "ep_bootstrap",
+     "descricao": "erro-padrão por bootstrap"
+    },
+    {
+     "nome": "virada_X",
+     "descricao": "virada média ponderada das seções de X"
+    },
+    {
+     "nome": "virada_contrafactual",
+     "descricao": "média ponderada dos contrafactuais"
+    },
+    {
+     "nome": "secoes_X",
+     "descricao": "seções de X"
+    },
+    {
+     "nome": "candidatas",
+     "descricao": "seções candidatas das 27 UFs"
+    }
+   ]
+  },
+  {
+   "id": "E02",
+   "bloco": "E",
+   "titulo": "Branco e nulo de presidente contra o de governador, 2º turno",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 que têm os campos '2' e '2g' (as UFs com 2º turno de governador), com comp > 0 nos dois cargos. y = 100 x (B+N)/comp de presidente no 2º turno; x = 100 x (B+N)/comp de governador no 2º turno; efeito fixo de local, peso comp de presidente no 2º turno, erro agrupado por local (mqo_ef).",
+   "saidas": [
+    {
+     "nome": "beta",
+     "descricao": "coeficiente de x",
+     "principal": true
+    },
+    {
+     "nome": "ep",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "grupos",
+     "descricao": "locais"
+    }
+   ]
+  },
+  {
+   "id": "E03",
+   "bloco": "E",
+   "titulo": "Razão entre branco e nulo de presidente e de governador nos dois turnos",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Seções de 2026 que têm '1', '2', '1g' e '2g', com comp > 0 nos quatro. Em cada turno t: R(t) = [soma de (B+N) de presidente / soma de comp de presidente] / [soma de (B+N) de governador / soma de comp de governador].",
+   "saidas": [
+    {
+     "nome": "R1",
+     "descricao": "R do 1º turno"
+    },
+    {
+     "nome": "R2",
+     "descricao": "R do 2º turno"
+    },
+    {
+     "nome": "R2_sobre_R1",
+     "descricao": "R2 dividido por R1",
+     "principal": true
+    },
+    {
+     "nome": "secoes",
+     "descricao": "seções consideradas"
+    }
+   ]
+  },
+  {
+   "id": "E04",
+   "bloco": "E",
+   "titulo": "Perda dos próprios votos: R a presidente contra um candidato a governador, 3 UFs",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos_gov_2026_1t_6ufs.json.gz",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "UFs AM, DF e ES, seções com '1', '2', '1g' e '2g'. Candidato a governador de referência (número): AM 22, DF 11, ES 10. O outro finalista a governador: AM 55, DF 13, ES 15. Votos a governador por candidato: 1º turno no arquivo candidatos_gov_2026_1t_6ufs.json.gz; 2º turno nas linhas de Governador (CD_CARGO_PERGUNTA = 3, nominais) do bweb do 2º turno. Regressão empilhada (definição mqo_empilhado) com dois blocos por seção. Bloco presidente: regressão de ganho de R (y = R2 - R1; X = O1, queda_bn, var_comp, L1, R1). Bloco governador: y = votos do candidato de referência no 2º turno menos no 1º; X = votos no 1º turno dos demais candidatos a governador que não são finalistas, (B+N de governador no 1º turno) menos (B+N de governador no 2º), comp de governador no 2º turno menos no 1º, votos do outro finalista no 1º turno, votos do candidato de referência no 1º turno. D = coeficiente dos próprios votos do 1º turno no bloco presidente menos o mesmo coeficiente no bloco governador.",
+   "saidas": [
+    {
+     "nome": "D",
+     "descricao": "diferença entre os dois coeficientes",
+     "principal": true
+    },
+    {
+     "nome": "ep_D",
+     "descricao": "erro-padrão de D"
+    },
+    {
+     "nome": "coef_proprio_presidente",
+     "descricao": "coeficiente de R1 no bloco presidente"
+    },
+    {
+     "nome": "coef_proprio_governador",
+     "descricao": "coeficiente dos próprios votos no bloco governador"
+    },
+    {
+     "nome": "secoes",
+     "descricao": "seções consideradas"
+    },
+    {
+     "nome": "linhas",
+     "descricao": "linhas usadas"
+    },
+    {
+     "nome": "locais",
+     "descricao": "locais (grupos do erro)"
+    }
+   ]
+  },
+  {
+   "id": "E05",
+   "bloco": "E",
+   "titulo": "Perda dos próprios votos: R a presidente contra um candidato a governador, 5 UFs",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos_gov_2026_1t_6ufs.json.gz",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "descricao": "A mesma conta do item E04, com as UFs AC, AM, DF, ES e TO. Candidato de referência: AC 11, AM 22, DF 11, ES 10, TO 44. O outro finalista: AC 10, AM 55, DF 13, ES 15, TO 45.",
+   "saidas": [
+    {
+     "nome": "D",
+     "descricao": "diferença entre os dois coeficientes",
+     "principal": true
+    },
+    {
+     "nome": "ep_D",
+     "descricao": "erro-padrão de D"
+    },
+    {
+     "nome": "secoes",
+     "descricao": "seções consideradas"
+    },
+    {
+     "nome": "linhas",
+     "descricao": "linhas usadas"
+    },
+    {
+     "nome": "locais",
+     "descricao": "locais (grupos do erro)"
+    }
+   ]
+  },
+  {
+   "id": "E06",
+   "bloco": "E",
+   "titulo": "Virada por UF em dois grupos de UFs",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Virada da UF, em pontos = 100 x [L2/(L2+R2) - L1/(L1+R1)] com as somas da UF em cada turno (todas as seções da UF em cada turno). Grupo 1: GO, MG, MS, MT, PA, PR, RJ, RO, RR, RS, SC, SP. Grupo 2: BA, CE, PB, PI, SE, AL, AP, MA, PE. Média de cada grupo ponderada pelo L2+R2 da UF.",
+   "saidas": [
+    {
+     "nome": "media_grupo1",
+     "descricao": "média ponderada do grupo 1"
+    },
+    {
+     "nome": "media_grupo2",
+     "descricao": "média ponderada do grupo 2"
+    },
+    {
+     "nome": "diferenca",
+     "descricao": "media_grupo1 menos media_grupo2",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "F01",
+   "bloco": "F",
+   "titulo": "Seções por eleição, 2014 a 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em cada base, contar as seções com os turnos '1' e '2' (27 UFs e exterior). Contar as seções de 2026 com os dois turnos cuja chave não existe na base de 2022. Em 2018 e em 2022, entre as seções com os dois turnos, contar as que têm apt diferente entre os turnos.",
+   "saidas": [
+    {
+     "nome": "dois_turnos_2014",
+     "descricao": "seções com os dois turnos em 2014"
+    },
+    {
+     "nome": "dois_turnos_2018",
+     "descricao": "idem 2018"
+    },
+    {
+     "nome": "dois_turnos_2022",
+     "descricao": "idem 2022"
+    },
+    {
+     "nome": "dois_turnos_2026",
+     "descricao": "idem 2026"
+    },
+    {
+     "nome": "secoes_2026_sem_chave_em_2022",
+     "descricao": "seções de 2026 sem a chave em 2022",
+     "principal": true
+    },
+    {
+     "nome": "aptos_diferentes_2022",
+     "descricao": "seções com apt diferente entre turnos em 2022"
+    },
+    {
+     "nome": "aptos_diferentes_2018",
+     "descricao": "idem 2018"
+    }
+   ]
+  },
+  {
+   "id": "F02",
+   "bloco": "F",
+   "titulo": "Ganho comparado com o total disponível na seção, 2018 e 2022",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz"
+   ],
+   "descricao": "A conta do item B03 em outras eleições, sempre em todas as seções com os dois turnos: em 2022 com o candidato R (ganho = R2 - R1); em 2018 com o candidato L (ganho = L2 - L1).",
+   "saidas": [
+    {
+     "nome": "pct_secoes_excesso_2022_R",
+     "descricao": "percentual de seções com excesso positivo, 2022, candidato R",
+     "principal": true
+    },
+    {
+     "nome": "pct_ganho_em_excesso_2022_R",
+     "descricao": "percentual do ganho em excesso, 2022, candidato R"
+    },
+    {
+     "nome": "pct_secoes_excesso_2018_L",
+     "descricao": "percentual de seções com excesso positivo, 2018, candidato L"
+    },
+    {
+     "nome": "pct_ganho_em_excesso_2018_L",
+     "descricao": "percentual do ganho em excesso, 2018, candidato L"
+    }
+   ]
+  },
+  {
+   "id": "F03",
+   "bloco": "F",
+   "titulo": "Regressão de ganho em 2018 e 2022, outros agregados",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz"
+   ],
+   "descricao": "Regressão de ganho (outros agregados), em todas as seções com os dois turnos: em 2022 com c = R e a = L; em 2018 com c = L e a = R.",
+   "saidas": [
+    {
+     "nome": "coef_adversario_1T_2022_R",
+     "descricao": "coeficiente de adversario_1T, 2022, c = R",
+     "principal": true
+    },
+    {
+     "nome": "ep_2022_R",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_2022",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "coef_adversario_1T_2018_L",
+     "descricao": "coeficiente de adversario_1T, 2018, c = L"
+    },
+    {
+     "nome": "ep_2018_L",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_2018",
+     "descricao": "observações usadas"
+    }
+   ]
+  },
+  {
+   "id": "F04",
+   "bloco": "F",
+   "titulo": "Estatística A do item B08 nas seções comuns às quatro eleições",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Conjunto = chaves que têm os dois turnos nas quatro bases (2014, 2018, 2022 e 2026). Em cada ano, calcular a estatística A do item B08 só nessas seções, com os votos e o local daquele ano. Válidos do 1º turno do local = L1 + R1 + O1 (em 2026, menos os votos do número 28).",
+   "saidas": [
+    {
+     "nome": "secoes_comuns",
+     "descricao": "seções do conjunto"
+    },
+    {
+     "nome": "A_2014",
+     "descricao": "A em 2014"
+    },
+    {
+     "nome": "ep_A_2014",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "A_2018",
+     "descricao": "A em 2018"
+    },
+    {
+     "nome": "ep_A_2018",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "A_2022",
+     "descricao": "A em 2022"
+    },
+    {
+     "nome": "ep_A_2022",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "A_2026",
+     "descricao": "A em 2026",
+     "principal": true
+    },
+    {
+     "nome": "ep_A_2026",
+     "descricao": "erro-padrão"
+    }
+   ]
+  },
+  {
+   "id": "F05",
+   "bloco": "F",
+   "titulo": "Estatística A do item B08 em 2018 e 2022 nas seções de 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Conjunto = chaves de 2026 com os dois turnos. Em 2018 e em 2022, calcular a estatística A do item B08 nas seções desse conjunto que têm os dois turnos naquele ano, com os votos e o local daquele ano (válidos = L1 + R1 + O1).",
+   "saidas": [
+    {
+     "nome": "A_2022",
+     "descricao": "A em 2022",
+     "principal": true
+    },
+    {
+     "nome": "ep_A_2022",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "secoes_2022",
+     "descricao": "seções usadas em 2022"
+    },
+    {
+     "nome": "A_2018",
+     "descricao": "A em 2018"
+    },
+    {
+     "nome": "ep_A_2018",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "secoes_2018",
+     "descricao": "seções usadas em 2018"
+    }
+   ]
+  },
+  {
+   "id": "F06",
+   "bloco": "F",
+   "titulo": "Variação agregada da fatia do PT entre os turnos, 2014 a 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em cada ano, nas seções das 27 UFs com os dois turnos: 100 x [soma de L2 / soma de (L2+R2) - soma de L1 / soma de (L1+R1)].",
+   "saidas": [
+    {
+     "nome": "var_2014",
+     "descricao": "valor de 2014"
+    },
+    {
+     "nome": "var_2018",
+     "descricao": "valor de 2018"
+    },
+    {
+     "nome": "var_2022",
+     "descricao": "valor de 2022"
+    },
+    {
+     "nome": "var_2026",
+     "descricao": "valor de 2026",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "F07",
+   "bloco": "F",
+   "titulo": "Variação do comparecimento entre os turnos, 2014 a 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em cada ano, nas seções das 27 UFs com os dois turnos: 100 x [soma de comp2 / soma de apt2 - soma de comp1 / soma de apt1].",
+   "saidas": [
+    {
+     "nome": "var_2014",
+     "descricao": "valor de 2014"
+    },
+    {
+     "nome": "var_2018",
+     "descricao": "valor de 2018"
+    },
+    {
+     "nome": "var_2022",
+     "descricao": "valor de 2022"
+    },
+    {
+     "nome": "var_2026",
+     "descricao": "valor de 2026",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "F08",
+   "bloco": "F",
+   "titulo": "Seções com comparecimento e fatia do PT muito altos no 2º turno, 2014 a 2026",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Em cada ano, nas seções das 27 UFs com turno '2', tipo igual a 'Apurada' (sem diferenciar maiúsculas de minúsculas), apt2 > 0 e L2+R2 > 0: contar as que têm 100 x comp2 maior ou igual a 95 x apt2 e 100 x L2 maior ou igual a 90 x (L2+R2).",
+   "saidas": [
+    {
+     "nome": "secoes_2014",
+     "descricao": "contagem de 2014"
+    },
+    {
+     "nome": "secoes_2018",
+     "descricao": "contagem de 2018"
+    },
+    {
+     "nome": "secoes_2022",
+     "descricao": "contagem de 2022"
+    },
+    {
+     "nome": "secoes_2026",
+     "descricao": "contagem de 2026",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "F09",
+   "bloco": "F",
+   "titulo": "A regressão do item B05 em 2018 e 2022",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz"
+   ],
+   "descricao": "A regressão do item B05 (virada em fração contra 1/(L2+R2), efeito fixo de local, peso L2+R2), nas seções das 27 UFs com os dois turnos e L+R > 0 nos dois, com os dados de 2022 e, em separado, de 2018.",
+   "saidas": [
+    {
+     "nome": "b_2022",
+     "descricao": "coeficiente em 2022",
+     "principal": true
+    },
+    {
+     "nome": "ep_2022",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_2022",
+     "descricao": "observações usadas"
+    },
+    {
+     "nome": "b_2018",
+     "descricao": "coeficiente em 2018"
+    },
+    {
+     "nome": "ep_2018",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_2018",
+     "descricao": "observações usadas"
+    }
+   ]
+  },
+  {
+   "id": "G01",
+   "bloco": "G",
+   "titulo": "Votos para deputado federal no 1º turno, dois partidos",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip"
+   ],
+   "descricao": "No bweb do 1º turno, linhas de Deputado Federal (CD_CARGO_PERGUNTA = 6), seções das 27 UFs. Voto do partido P = QT_VOTOS das linhas nominais (CD_TIPO_VOTAVEL = 1) com NR_PARTIDO = P mais QT_VOTOS das linhas de legenda (CD_TIPO_VOTAVEL = 4) com NR_VOTAVEL = P. Válidos = todos os nominais mais todas as legendas.",
+   "saidas": [
+    {
+     "nome": "votos_partido_22",
+     "descricao": "votos do partido 22",
+     "principal": true
+    },
+    {
+     "nome": "validos",
+     "descricao": "válidos de deputado federal"
+    },
+    {
+     "nome": "pct_partido_22",
+     "descricao": "100 x votos_partido_22 / validos"
+    },
+    {
+     "nome": "votos_partido_13",
+     "descricao": "votos do partido 13"
+    }
+   ]
+  },
+  {
+   "id": "G02",
+   "bloco": "G",
+   "titulo": "Regressão de ganho de R por quintil da força do partido 22 na seção",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "descricao": "Para cada seção das 27 UFs com os dois turnos: fatia22 = votos do partido 22 para deputado federal na seção (item G01) dividido pelos válidos de deputado federal da seção. Cortes = percentis 20, 40, 60 e 80 de fatia22 entre essas seções, sem peso (interpolação linear). Quintil 1 = seções com fatia22 menor ou igual ao primeiro corte; quintil 5 = seções com fatia22 maior que o quarto corte (valor igual a um corte fica no quintil de baixo). Em cada quintil, em separado, rodar a regressão de ganho com eliminados separados para o candidato R (c = R, a = L; y = R2 - R1), com efeito fixo de local e erro agrupado por local (mqo_ef), só com as seções do quintil.",
+   "saidas": [
+    {
+     "nome": "corte_p20",
+     "descricao": "primeiro corte (fração)"
+    },
+    {
+     "nome": "corte_p80",
+     "descricao": "quarto corte (fração)"
+    },
+    {
+     "nome": "coef_proprio_1T_q1",
+     "descricao": "coeficiente de proprio_1T no quintil 1"
+    },
+    {
+     "nome": "ep_q1",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_q1",
+     "descricao": "observações usadas no quintil 1"
+    },
+    {
+     "nome": "coef_proprio_1T_q5",
+     "descricao": "coeficiente de proprio_1T no quintil 5",
+     "principal": true
+    },
+    {
+     "nome": "ep_q5",
+     "descricao": "erro-padrão"
+    },
+    {
+     "nome": "n_q5",
+     "descricao": "observações usadas no quintil 5"
+    }
+   ]
+  },
+  {
+   "id": "H01",
+   "bloco": "H",
+   "titulo": "Votos no log contra o boletim, amostra do 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq"
+   ],
+   "descricao": "Para cada pasta de seção com boletim e log (definição logs): comparecimento de Presidente no boletim (ler_bu e bu_para_secao de scripts/decodificar.py, campo comp). No log, no dia 25/10/2026, somando todos os logd.dat do pacote: contar as linhas com mensagem exatamente 'O voto do eleitor foi computado'. Voto sem habilitação = um voto computado em 25/10/2026 sem nenhuma linha 'Eleitor foi habilitado' desde o voto computado anterior (ou desde o começo do logd.dat). Coletar também o texto depois de 'Versão da aplicação: ' em qualquer data.",
+   "saidas": [
+    {
+     "nome": "secoes_com_boletim_e_log",
+     "descricao": "seções lidas"
+    },
+    {
+     "nome": "secoes_votos_log_diferente_do_boletim",
+     "descricao": "seções em que a contagem do log difere do comparecimento do boletim",
+     "principal": true
+    },
+    {
+     "nome": "secoes_com_voto_sem_habilitacao",
+     "descricao": "seções com pelo menos um voto sem habilitação"
+    },
+    {
+     "nome": "versoes_distintas",
+     "descricao": "número de textos de versão distintos em toda a amostra"
+    },
+    {
+     "nome": "pct_votos_a_partir_das_17h",
+     "descricao": "100 x (votos computados em 25/10/2026 com hora do log maior ou igual a 17:00:00) / (todos os votos computados em 25/10/2026), somando a amostra"
+    },
+    {
+     "nome": "secoes_com_voto_a_partir_das_17h",
+     "descricao": "seções com pelo menos um voto computado com hora do log maior ou igual a 17:00:00 em 25/10/2026"
+    }
+   ]
+  },
+  {
+   "id": "H02",
+   "bloco": "H",
+   "titulo": "Habilitações com e sem a marca de biometria no log, dois turnos",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "descricao": "Para cada seção da amostra com log: contar, em 04/10/2026 e em 25/10/2026 (todos os logd.dat do pacote), as linhas 'Eleitor foi habilitado' (hab), 'Tipo de habilitação do eleitor [biométrica]' (bio) e 'O voto do eleitor foi computado' (votos). Entram só as seções que estão na base de 2026 com os dois turnos, têm hab do dia 04/10 maior que zero e têm votos do log iguais ao comp da base em cada um dos dois dias.",
+   "saidas": [
+    {
+     "nome": "secoes",
+     "descricao": "seções que entram"
+    },
+    {
+     "nome": "hab_1t",
+     "descricao": "soma de hab em 04/10"
+    },
+    {
+     "nome": "bio_1t",
+     "descricao": "soma de bio em 04/10"
+    },
+    {
+     "nome": "hab_2t",
+     "descricao": "soma de hab em 25/10"
+    },
+    {
+     "nome": "bio_2t",
+     "descricao": "soma de bio em 25/10",
+     "principal": true
+    }
+   ]
+  },
+  {
+   "id": "H03",
+   "bloco": "H",
+   "titulo": "Registro digital do voto contra o boletim, amostra do 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq"
+   ],
+   "descricao": "Para cada pasta de seção com arquivo -rdv.dat: ler o RDV (ler_rdv de scripts/decodificar.py: contagem por eleição, cargo, tipo e dígitos; no RDV, tipo 2 = nominal, 3 = branco, 4 = nulo com os dígitos digitados, 6 = nulo sem dígitos) e o boletim da mesma seção. Para o cargo 1 (Presidente), comparar os votos do 13, do 22, brancos e nulos do RDV com os do boletim.",
+   "saidas": [
+    {
+     "nome": "secoes_com_rdv",
+     "descricao": "seções com RDV"
+    },
+    {
+     "nome": "secoes_com_diferenca",
+     "descricao": "seções com alguma diferença entre RDV e boletim nesses quatro números",
+     "principal": true
+    },
+    {
+     "nome": "nulos_com_digitos",
+     "descricao": "total de votos nulos de Presidente do tipo 4 com dígitos, na amostra"
+    },
+    {
+     "nome": "nulos_digitados_13_ou_22",
+     "descricao": "quantos desses têm dígitos iguais a 13 ou a 22"
+    }
+   ]
+  },
+  {
+   "id": "H04",
+   "bloco": "H",
+   "titulo": "Modelo de urna declarado nos logs da amostra",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq"
+   ],
+   "descricao": "Em todos os logd.dat de todos os logs da amostra, em qualquer data: para cada linha com mensagem começando por 'Identificação do Modelo de Urna: ', guardar o número da urna (terceiro campo da linha) e o modelo. Contar urnas distintas por modelo.",
+   "saidas": [
+    {
+     "nome": "urnas_distintas",
+     "descricao": "urnas distintas com linha de modelo"
+    },
+    {
+     "nome": "urnas_UE2013",
+     "descricao": "urnas UE2013"
+    },
+    {
+     "nome": "urnas_UE2015",
+     "descricao": "urnas UE2015"
+    },
+    {
+     "nome": "urnas_UE2020",
+     "descricao": "urnas UE2020"
+    },
+    {
+     "nome": "urnas_UE2022",
+     "descricao": "urnas UE2022",
+     "principal": true
+    },
+    {
+     "nome": "urnas_com_mais_de_um_modelo",
+     "descricao": "urnas com dois ou mais modelos diferentes"
+    }
+   ]
+  }
+ ]
+}

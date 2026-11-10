@@ -1,0 +1,2 @@
+0fb1fbc5bca67fe0badd5bcd7978fadd8f396fb522931bc5079535344a544daf  recalculo/gabarito_recalculo.json
+e1c741a3f3672b9a8a951a23133213b941ba3ca928f8632beb6798aa884d8ec8  desenho_D3/grupos_2t.json.gz

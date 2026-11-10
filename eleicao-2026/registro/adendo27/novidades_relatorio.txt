@@ -1,0 +1,509 @@
+NOVIDADES DE 01 A 09/11/2026: ELEIÇÃO PRESIDENCIAL DE 2026 E A CONTESTAÇÃO DO RESULTADO
+Pesquisador de novidades do Adendo 27. Pesquisa feita em 09/11/2026. Números completos em relatorio.json.
+
+RESUMO
+Desde 01/11 não saiu nenhuma auditoria externa nem prova nova de fraude, e o próprio Flávio disse à Folha em 06/11 que
+  não tem provas, que não as terá e que não vai contestar a contagem na Justiça. O que mudou de fato foram os dados:
+  em 03/11 o TSE publicou o histórico da totalização dos dois turnos, que soma exatamente o resultado oficial e mostra
+  a pausa de 17:07 a 19:03, e trocou três pacotes de arquivos de urna, um deles para incluir o log que faltava em
+  Guarulhos, que fecha sem sinal. Continuam sem publicação o perfil do comparecimento do 2º turno, os relatórios do
+  teste de integridade e o relatório do TCU, com prazos entre 24 e 27/11. Não achei reconhecimento formal dos EUA nem
+  documento americano com indício de fraude. As alegações novas das redes trazem números testáveis, e os que já
+  conferi não batem.
+
+O QUE PESA A FAVOR DA TESE DE FRAUDE
+- Não achei reconhecimento formal do resultado pelos EUA, quinze dias depois; o último registro oficial que li é de
+  28/10 (relatório do Congresso).
+- O TSE trocou pacotes publicados sem aviso e sem resumo conferível; dois deles (MA e MG, 1º turno) eu não sei por
+  quê.
+- O perfil do comparecimento do 2º turno e os relatórios do teste de integridade ainda não saíram; a divergência da
+  CLDF segue sem detalhe.
+- A premissa de Flávio confere: Lula subiu em todas as UFs, inclusive nas seis em que o comparecimento caiu e Flávio
+  perdeu votos.
+
+O QUE PESA CONTRA
+- O próprio Flávio diz que não tem prova, que não terá e que não vai contestar a contagem na Justiça; o PL não
+  acompanha.
+- O histórico oficial da totalização soma exatamente o resultado e mostra a pausa e a ordem de chegada sem nada fora
+  do lugar numa primeira leitura.
+- Toda alegação nova com número (2 milhões na Bahia, 8 milhões sem biometria, 124 mil urnas, dez cidades, 165 mil
+  votos) erra o número por ordens de grandeza.
+- Ninguém apresentou um boletim impresso diferente do publicado; o único que diz ter (Teixeira de Freitas) não
+  mostrou.
+- A pendência de Guarulhos fechou sem sinal quando o log apareceu.
+
+1. FATOS NOVOS, COM DATA E FONTE
+1. [03/11/2026] DADO DO TSE. O TSE publicou no conjunto "Resultados - 2026" o histórico da totalização para presidente
+  dos dois turnos: Historico_Totalizacao_Presidente_BR_2T_2026.zip (10.330.383 bytes) e ..._1T_2026.zip (17.781.368
+  bytes). Cada linha é um passo da totalização por município e zona, com hora ao segundo (DT_TOTALIZACAO), seções
+  somadas no passo e votos por candidato no passo e acumulados. 2º turno: 358.072 linhas, 89.518 identificadores de
+  totalização, 499.205 seções, de 17:05:21 a 23:21:51 de 25/10; a soma dá exatamente o oficial (Lula 64.256.232,
+  Flávio 59.826.041, brancos 1.430.496, nulos 2.723.305). O arquivo oficial mostra a pausa: 1.868 seções até 17:07 e
+  nada entre 17:07 e 19:03 (116 minutos). Liderança no acumulado: Lula até 19:44, Flávio de 19:44 a 20:24, Lula de
+  20:24 em diante. 1º turno: 1.037.265 linhas, 499.206 seções, de 17:08:57 de 04/10 a 02:58:39 de 05/10, soma igual ao
+  oficial.
+   Por que importa: Alta. É o primeiro dado oficial da ordem e da hora em que cada zona entrou na soma. Permite testar
+   com dado do TSE, e não com captura de tela, a pausa, o post dos 84,7 segundos, a frase "Flávio vencia com 30%
+   apurado" e a nova suspeita de Flávio, que agora aponta para "o que aconteceu dentro do TSE".
+   Confiança: alta (conferido no portal e no arquivo)
+   Fonte:
+   https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_2T_2026.zip
+   ;
+   https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_1T_2026.zip
+   ; https://dadosabertos.tse.jus.br/api/3/action/package_search?sort=metadata_modified+desc&rows=40 (consulta de
+   09/11/2026)
+2. [03/11/2026] DADO DO TSE. O TSE trocou, sem aviso que eu tenha achado, três pacotes de "arquivos transmitidos para
+  totalização": 2º turno de SP (25.758.256.844 bytes, modificado em 03/11 às 19:48 GMT; em 29/10 o repositório
+  registrou 25.758.064.523 bytes, de 26/10) e 1º turno de MA e de MG (modificados em 03/11 às 19:59 e 21:08 GMT). No
+  de SP a diferença é de 192.321 bytes. No mesmo dia, às 13:36:48, o índice da seção 298 da zona 395 de Guarulhos foi
+  regenerado e passou a listar o log, que antes faltava (pendência do F8). O log tem 192.093 bytes: a troca do pacote
+  corresponde a esse arquivo mais os cabeçalhos. Pelas métricas já registradas do T3, o log fecha: 268 votos
+  computados, igual ao comparecimento do boletim; 268 habilitações; zero voto sem habilitação; zero voto depois do
+  encerramento; primeiro voto às 08:01:14 e último às 16:56:27.
+   Por que importa: Média. Fecha a pendência de Guarulhos sem sinal. Mostra também uma fragilidade de transparência:
+   esses pacotes não têm resumo (sha512) publicado nem registro de alterações, ao contrário do bweb. Falta saber o que
+   mudou em MA e MG no 1º turno.
+   Confiança: alta (cabeçalhos do servidor, arquivo baixado e registro anterior do repositório)
+   Fonte:
+   https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_SP.zip ;
+   https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/sp/64777/0395/0298/p003221-sp-m64777-z0395-s0298-aux.json
+   ; eleicao-2026/checagens/relatorio_pericial_instagram/cetico_cap6/a1/head_cdn.txt
+3. [09/11/2026] DADO DO TSE. O perfil do comparecimento e da abstenção do 2º turno continua sem publicação. O arquivo
+  perfil_comparecimento_abstencao_2026.zip (229.213.668 bytes) é de 21/10/2026, antes do 2º turno; os de deficiência e
+  de transferência temporária também. O conjunto não foi tocado desde 21/10.
+   Por que importa: Alta para a tese do comparecimento: sem esse arquivo não dá para saber quem (idade, sexo,
+   escolaridade) foram os 2,9 milhões a mais.
+   Confiança: alta
+   Fonte:
+   https://cdn.tse.jus.br/estatistica/sead/odsele/perfil_comparecimento_abstencao/perfil_comparecimento_abstencao_2026.zip
+   ; https://dadosabertos.tse.jus.br/api/3/action/package_search?sort=metadata_modified+desc&rows=40 (consulta de
+   09/11/2026)
+4. [04/11/2026] AUDITORIA. Venceu em 04/11 o prazo para os TREs mandarem ao TSE os relatórios de auditoria das urnas
+  do 2º turno (contagem independente e ocorrências). A publicação no site da Justiça Eleitoral está prevista para até
+  30 dias depois do 2º turno (24/11); o calendário eleitoral, segundo o buscador, dá 27/11 para o relatório conclusivo
+  da empresa de auditoria. Nada foi publicado até 09/11.
+   Por que importa: Alta. É onde deve aparecer o detalhe da divergência do teste de integridade na CLDF e a lista
+   nacional das urnas testadas.
+   Confiança: média (página do TSE deu 403; lido pelo resumo do buscador)
+   Fonte:
+   https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/tres-devem-encaminhar-ao-tse-relatorios-de-auditoria-das-urnas-eletronicas-ate-4-de-novembro
+   (403 ao leitor; lido pelo resumo do buscador)
+5. [09/11/2026] AUDITORIA. TCU: nenhum relatório ou nota sobre o 2º turno achado. O acompanhamento é o processo TC
+  020.282/2026-5, relator ministro Odair Cunha; o relatório consolidado vai ao TSE em até 30 dias corridos depois do
+  2º turno (24/11). OEA e Centro Carter: só as declarações preliminares de 27/10. União Europeia: nenhum documento
+  achado. Forças Armadas, PF, OAB e SBC: nada sobre o resultado achado.
+   Por que importa: Média. Nenhuma auditoria externa nova desde 01/11; os prazos caem todos entre 24 e 27/11.
+   Confiança: alta para o que foi lido; a ausência é de busca
+   Fonte:
+   https://portal.tcu.gov.br/imprensa/noticias/eleicoes-2026-tcu-acompanha-testes-de-integridade-das-urnas-eletronicas
+6. [04 e 05/11/2026] PL E FLÁVIO. Flávio Bolsonaro, de Miami, ao New York Times (entrevista em 04/11, publicada em
+  05/11): a vitória de Lula seria "matematicamente impossível"; "Tenho minhas suspeitas. Ninguém pode afirmar com 100%
+  de certeza que estou certo, nem com 100% de certeza que estou errado"; alegou falha de segurança na sala de contagem
+  do TSE; disse procurar caminhos judiciais mas saber que "não vai levar a nada".
+   Por que importa: Média. Não traz número nem seção. Repete a tese da impossibilidade, já conferida (a conta dos 14,1
+   milhões fecha).
+   Confiança: média (imprensa brasileira resumindo o New York Times)
+   Fonte:
+   https://mais.opovo.com.br/jornal/politica/2026/11/06/flavio-bolsonaro-diz-ao-nyt-que-fugiu-sem-ajuda-externa-e-que-levara-detalhes-para-o-tumulo.html
+   ;
+   https://www.brasildefato.com.br/2026/11/05/the-new-york-times-minimiza-entrevista-de-flavio-bolsonaro-e-desmente-teses-de-fraude-na-eleicao-e-perseguicao/
+7. [06/11/2026] PL E FLÁVIO. Flávio à Folha de S.Paulo: "Não tenho provas e nem terei, porque é proibido investigar
+  esse assunto"; "É por isso que eu não vou questionar isso na Justiça brasileira, porque não tenho provas"; "A
+  questão não é sobre os eleitores que foram às urnas nessas duas horas, foram um pouco mais de 34 mil. O problema é o
+  que aconteceu dentro do TSE"; "quem fiscaliza esses técnicos?"; "O que explica, em 21 dias, o Lula vencer ou
+  aumentar a votação em todos os estados"; "É impossível não ser manipulação de resultado". A estratégia jurídica
+  passa a ser abuso de poder (uso da máquina), não as urnas. Sobre o pedido de prorrogação da própria campanha: "A
+  nossa intenção é que não desse para ninguém".
+   Por que importa: Alta. O próprio candidato diz que não tem prova e que não vai contestar a contagem. A suspeita
+   dele mudou de lugar: saiu da prorrogação e foi para a totalização dentro do TSE, que é justamente a parte que o
+   dado público confere (soma dos boletins igual ao oficial) e que agora tem o histórico publicado.
+   Confiança: média (A Tarde, Jurinews e Band reproduzindo a Folha)
+   Fonte: https://atarde.com.br/politica/flavio-admite-que-nao-tem-provas-de-fraude-eleitoral-nem-terei-1408636 ;
+   https://jurinews.com.br/destaque-nacional/flavio-bolsonaro-admite-falta-de-comprovacao-sobre-fraude-nas-eleicoes-de-2026
+   ; https://www.band.com.br/politica/flavio-admite-nao-ter-provas-de-fraude-eleitoral-e-se-recusa-a-falar-de-fuga
+   (403 ao leitor; título e data pelo buscador)
+8. [09/11/2026] PL E FLÁVIO. Nos dados processuais abertos do TSE não há ação de Flávio nem do PL nacional autuada
+  depois de 25/10 sobre apuração, anulação ou auditoria. As duas petições cíveis de Flávio (0603393-64.2026.6.00.0000
+  e 0603394-49.2026.6.00.0000, relator Nunes Marques) são de 25/10, dia da votação: uma é o pedido de prorrogação cujo
+  PDF a Aos Fatos publicou e a outra deve ser o segundo pedido (MG e RS) que o Chequeado publicou; nenhuma tem decisão
+  registrada. As petições da coligação de Lula do mesmo dia têm decisão em 29/10 (0603391-94) e despacho em 04/11
+  (0603390-12); não li o teor. Não achei auditoria do PL, comparação de boletins impressos nem contagem paralela
+  publicada. Das 29 AIJEs pendentes entre as chapas (15 contra Lula, 14 contra Flávio, levantamento do Times Brasil de
+  29/10), os temas citados são abuso de poder e uso indevido de meios; nenhuma sobre apuração.
+   Por que importa: Alta. A prova que não depende do TSE (boletim impresso contra o publicado) continua sem ninguém
+   que a tenha apresentado.
+   Confiança: alta para os dados processuais do TSE (gerados em 09/11)
+   Fonte: https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes,
+   partes, recursos; gerados em 09/11/2026) ;
+   https://timesbrasil.com.br/brasil/tse-ainda-ira-julgar-29-acoes-eleitorais-de-lula-e-flavio-bolsonaro/ ; pedido de
+   prorrogação: https://static.aosfatos.org/media/cke_uploads/2026/10/26/petciv-0603393-6420266000000.pdf
+9. [05/11/2026] TSE. O corregedor-geral eleitoral, ministro Villas Bôas Cueva, admitiu a AIJE do Novo contra Lula e
+  Alckmin (0603194-42.2026.6.00.0000) por abuso de poder político: 35 medidas editadas em ano eleitoral; pede a
+  cassação da chapa; defesa em cinco dias. Não é julgamento de mérito e não trata de urnas.
+   Por que importa: Baixa para a contagem. É a via que Flávio diz que vai usar (abuso de poder), no lugar de contestar
+   os votos.
+   Confiança: alta (várias fontes)
+   Fonte:
+   https://www.congressoemfoco.com.br/noticia/131369/tse-admite-acao-do-novo-que-pede-cassacao-da-chapa-lula-alckmin ;
+   https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/corregedor-geral-admite-acao-do-novo-contra-lula-e-alckmin-por-suposto-abuso-do-poder-politico-nas-eleicoes
+   (403; buscador)
+10. [27/10 a 08/11/2026] TSE. Dois processos novos nos dados do TSE: (a) AIJE 0603399-71.2026.6.00.0000, autuada em
+  27/10, tendo Donald J. Trump e Steve Bannon como representados, relator Villas Bôas Cueva, sem decisão registrada e
+  sem autor nos dados; (b) representação 0603061-48.2026.6.09.0000, da federação do PT contra Felipe Soares Cecílio (o
+  autor do reel checado no Adendo 26), por desinformação sobre a integridade do processo eleitoral: aberta no TRE-GO
+  em 28/10, com decisões em 29/10 e 05/11, chegou ao TSE em 08/11 (relator Dias Toffoli).
+   Por que importa: Baixa para a contagem. É o único caso que achei de autor de alegação estatística respondendo a
+   processo. Serve de contexto para a frase "é proibido investigar": analisar dado público não é proibido, os dados
+   estão abertos; publicar conclusão de fraude tem gerado representação por desinformação.
+   Confiança: alta para a existência; o conteúdo das peças não foi lido
+   Fonte: https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes,
+   partes, recursos; gerados em 09/11/2026)
+11. [31/10 e 01/11/2026] EUA. Marco Rubio, em Atlanta, na reunião de chanceleres do G20: "We didn't facilitate
+  anything"; "He had previously held a visa, and the president made a decision to allow him to enter the country".
+  Disse ter se reunido com o chanceler Mauro Vieira em 30 e 31/10. Não declarou reconhecimento nem falou em fraude.
+   Por que importa: Média. Primeira fala do secretário de Estado depois do 2º turno; nenhuma menção a indício de
+   fraude.
+   Confiança: alta (Associated Press)
+   Fonte:
+   https://www.nbcmiami.com/news/local/rubio-says-the-u-s-government-did-not-facilitate-bolsonaros-flight-to-miami/3881348/
+12. [29/10/2026] EUA. O Serviço de Pesquisa do Congresso dos EUA (CRS), relatório R46236 atualizado em 29/10: "As of
+  October 28, 2026, the Trump Administration had not recognized the results of Brazil's 2026 presidential election". O
+  texto registra que a ordem de prorrogação "was implemented unevenly, as some polls had already closed", cerca de 34
+  mil votos na prorrogação contra margem de 4,4 milhões, e que a OEA reconheceu o resultado. Não cita indício de
+  fraude.
+   Por que importa: Média. É o documento oficial dos EUA mais recente sobre o tema e não estava no repositório.
+   Confiança: alta (documento do Congresso dos EUA)
+   Fonte: https://www.everycrsreport.com/reports/R46236.html
+13. [30/10 a 09/11/2026] EUA E OUTROS PAÍSES. Até 30/10 o painel do TSE de manifestações internacionais contava 107
+  países e 11 organismos reconhecendo o resultado; Estados Unidos e Argentina sem manifestação oficial (o governo
+  Milei disse que não fará). Em 30/10 a bancada progressista da Câmara dos EUA pediu o reconhecimento. Até 09/11 não
+  achei nota de reconhecimento nem de rejeição da Casa Branca ou do Departamento de Estado, nem fala nova de Trump
+  sobre a eleição brasileira depois de 29/10.
+   Por que importa: Média. O silêncio formal dos EUA continua, sem documento que aponte fraude.
+   Confiança: média
+   Fonte:
+   https://www.correio24horas.com.br/eleicoes/mais-de-100-paises-reconheceram-reeleicao-de-lula-argentina-e-eua-nao-fizeram-anuncio-oficial-1026
+   ; https://www.commondreams.org/news/cpc-trump-brazil-election ;
+   https://www.latintimes.com/lula-mocks-flavio-bolsonaro-after-democrat-midterm-sweep-600960
+14. [04/11/2026] ALEGAÇÃO NAS REDES. Nova "prova estatística": um código nas urnas seria ativado às 17h01 e
+  transferiria um voto a cada dez segundos; "Mais tempo sem encerrar as urnas, mais votos roubados". Traz a "Tabela
+  completa dos 10 grupos" de seções por horário de encerramento, com a diferença entre os candidatos crescendo, e um
+  gráfico de linhas; fala em cerca de 497 mil seções. Ao menos 200 mil visualizações no X.
+   Por que importa: Alta para teste: é uma previsão numérica clara (ganho de Lula proporcional ao tempo de urna aberta
+   depois das 17h01).
+   Confiança: alta para o teor (Aos Fatos)
+   Fonte: https://www.aosfatos.org/noticias/urnas-roubar-votos-apos-17h01/ ;
+   https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-urnas-roubam-votos-quanto-mais-tempo-permanecem-abertas
+   (403; citado pela Aos Fatos)
+15. [04/11/2026] ALEGAÇÃO NAS REDES. "Só na Bahia eles incluíram 2 milhões de votos depois das 17h. Aqui em São Paulo
+  entrou seis pessoas" (ao menos 150 mil curtidas no Instagram). Números do TSE: Bahia 4.190 votos depois das 17h
+  (0,04% de 9.422.047), São Paulo 8.860, Brasil 34.393, sendo 32.399 das 17h às 18h, 1.981 das 18h às 19h e 13 depois
+  das 19h.
+   Por que importa: Média. Dá pela primeira vez a divisão oficial por estado (BA e SP) e por faixa de hora, que pode
+   ser conferida nos logs.
+   Confiança: alta para o teor (Aos Fatos, com números do TSE)
+   Fonte: https://www.aosfatos.org/noticias/bahia-votos-prorrogacao-do-segundo-turno/ ;
+   https://www.aosfatos.org/noticias/votos-registrados-apos-as-17h-nao-mudam-resultado-das-eleicoes/
+16. [05/11/2026] ALEGAÇÃO NAS REDES. "Cidades que até os mortos votaram em Lula": lista de dez cidades com mais votos
+  para Lula do que habitantes (ao menos 8 mil curtidas). Duas cidades não existem (Barragem e Nova Liberdade); duas
+  estão no estado errado. Nenhum número confere com o boletim do 2º turno: Xique-Xique (BA) teria 64.805 votos, o bweb
+  dá 20.001 com 35.385 aptos; Nossa Senhora da Glória (SE) 4.615, o bweb dá 19.848.
+   Por que importa: Baixa. Lista inventada; não há o que testar além do que a conferência rápida já mostra.
+   Confiança: alta para o teor (Aos Fatos); conferência rápida minha no bweb
+   Fonte: https://www.aosfatos.org/noticias/lista-cidades-mais-votos-que-habitantes/
+17. [data não lida (página do TSE deu 403)] ALEGAÇÃO NAS REDES. Checagens novas do Fato ou Boato do TSE: "124 mil
+  urnas só com votos para Lula" e resultados idênticos em seções de Brasília (o TSE diz que são 106 seções com Flávio
+  zerado, igual ao que o F8 contou); "8 milhões votaram sem biometria depois das 17h" (o TSE diz que entre 17h e 19h
+  foram 4.888 pessoas habilitadas pelo ano de nascimento); "urnas de 2013 e 2015 travaram a contagem".
+   Por que importa: Média. O número 4.888 é novo e conferível nos logs da amostra; "resultados idênticos em Brasília"
+   dá um teste simples.
+   Confiança: média (resumo do buscador)
+   Fonte:
+   https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-124-mil-urnas-tenham-registrado-votos-apenas-para-lula-no-2o-turno-das-eleicoes-2026
+   (403; buscador) ;
+   https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/nao-e-verdade-que-8-milhoes-de-pessoas-votaram-sem-biometria-apos-as-17h-no-2o-turno
+   (403; buscador)
+18. [28/10/2026 (não estava no repositório)] DENÚNCIA CONCRETA. Teixeira de Freitas (BA), zona 183: um homem que se
+  diz fiscal afirma que os boletins impressos diferem do site do TSE e que em três seções Flávio teve 164 votos a
+  mais, contra 93 na cidade. O vídeo não identifica as seções nem mostra os boletins. O bweb dá Flávio 41.454 e Lula
+  41.361 (diferença 93), igual ao oficial.
+   Por que importa: Média. É a única alegação pública de boletim impresso diferente do site. Sem as fotos dos boletins
+   não há o que comparar.
+   Confiança: alta para o teor; conferência rápida minha
+   Fonte: https://www.aosfatos.org/noticias/soma-votos-tres-secoes-ba-nao-comprova-fraude/
+19. [04 e 05/10/2026 (1º turno; não estava no repositório)] DENÚNCIA CONCRETA. Salvador (BA): mesária presa sob
+  suspeita de votar no lugar de um policial militar em trânsito, depois de dizer que havia um voto em aberto do
+  eleitor anterior. Local: Escola Estadual de 1º Grau José Calazans Brandão da Silva, bairro Santa Cruz. Pelo cadastro
+  de locais do TSE é a zona 13, local 1422, seções 303 e 315 a 322.
+   Por que importa: Média. É um caso real do mecanismo "mesário vota por outro", com prédio identificado; o log do 1º
+   turno dessas nove seções mostra como isso aparece.
+   Confiança: média (uma reportagem)
+   Fonte:
+   https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026
+20. [25/10 a 09/11/2026] DENÚNCIA CONCRETA. Processos autuados na Justiça Eleitoral desde 25/10 por crimes do dia da
+  votação (dados abertos de 09/11): 8 por votação múltipla ou em lugar de outrem (Porto Seguro BA, Quixadá CE, região
+  de Fortaleza CE, MT, São João PR e três em SP), 8 por destruição ou ocultação de urna ou documentos, 5 por voto em
+  seção onde o eleitor não está inscrito (três em Diamantina MG), 19 por violação do sigilo da urna, 2 por intervenção
+  indevida junto à mesa. Entre o 1º turno e 24/10 foram 8, 2, 0, 9 e 1.
+   Por que importa: Baixa em escala (dezenas de casos individuais), mas são os únicos casos com zona identificada e
+   autoridade investigando.
+   Confiança: alta para a existência dos processos
+   Fonte: https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes,
+   partes, recursos; gerados em 09/11/2026) ; lista em proc_denuncias_dia.json
+21. [29/10/2026 (conferido em 09/11)] FATO DOS DADOS. A abstenção subiu muito no Amapá do 1º para o 2º turno, na
+  contramão do país: Itaubal de 17,19% para 41,01%, Cutias de 17,60% para 40,36%, Pracuúba de 17,63% para 37,59%,
+  Ferreira Gomes de 20,37% para 39,40%. O comparecimento caiu em nove UFs (AC, AM, AP, MA, PA, PI, RO, RR, TO). Lula
+  ganhou votos nas 27 UFs e no exterior; Flávio perdeu votos em seis (AC, AM, AP, MA, RR, TO).
+   Por que importa: Média. Confirma a premissa da frase de Flávio (Lula subiu em todos os estados) e aponta onde
+   olhar: nos estados em que menos gente votou, Lula subiu e Flávio caiu. Pode ser abstenção de um lado só; merece
+   teste com critério escrito antes.
+   Confiança: alta (bweb)
+   Fonte:
+   https://mais.opovo.com.br/reportagens-especiais/resultado-presidente-eleicoes-2026/2026/10/29/o-impacto-da-queda-na-abstencao-na-eleicao-de-lula-veja-os-dados.html
+   ; conferencia_ap.json e conferencia_ufs.json (bweb)
+22. [novembro de 2026] OBSERVADORES. Notícia do TSE: "Observadores nacionais confirmam normalidade no 2º turno"
+  (Transparência Eleitoral Brasil em 16 UFs e oito cidades do exterior). O TRE-RJ homologou o resultado do 2º turno. O
+  cadastro eleitoral reabriu em 03/11.
+   Por que importa: Baixa. A reabertura do cadastro importa para quem for medir eleitorado: usar os arquivos de antes
+   de 03/11.
+   Confiança: baixa (só títulos, páginas com 403)
+   Fonte:
+   https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/observadores-nacionais-confirmam-normalidade-no-2o-turno-das-eleicoes-2026
+   (403; buscador)
+23. [29/10/2026] ALEGAÇÃO NAS REDES. O relatório apócrifo já checado no repositório foi publicado pelo perfil
+  @Youvebeenpwned_ no X em 28/10; depois das contestações o perfil apagou a versão original e publicou outra sem parte
+  das alegações. Somou cerca de 1,2 milhão de interações.
+   Por que importa: Baixa. O autor recuou de parte do texto; a versão que circula é a antiga.
+   Confiança: alta para o teor (Aos Fatos)
+   Fonte: https://aosfatos.org/noticias/relatorio-fraude-eleitoral-distorce-dados-omite-fatos/ ;
+   https://www.aosfatos.org/noticias/apos-derrota-bolsonarismo-desinformacao-lula-fraude/
+
+2. DADOS DO TSE: O QUE EXISTE, ENDEREÇO E TAMANHO
+Novos ou trocados desde 01/11:
+- Histórico da totalização, presidente, 2º turno: 10.330.383 bytes, modificado em 03/11/2026 17:33:26 GMT. 28 CSV (27
+  UFs e exterior) e LEIAME.pdf; 39 colunas; gerado em 29/10/2026; 358.072 linhas.
+  https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_2T_2026.zip
+- Histórico da totalização, presidente, 1º turno: 17.781.368 bytes, modificado em 03/11/2026 17:34:18 GMT. 28 CSV e
+  LEIAME.pdf; 1.037.265 linhas.
+  https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/historicototalizacao/Historico_Totalizacao_Presidente_BR_1T_2026.zip
+- Arquivos transmitidos para totalização, 2º turno, SP (pacote trocado): 25.758.256.844 bytes, modificado em
+  03/11/2026 19:48:26 GMT. 192.321 bytes a mais que o de 26/10; corresponde ao log de Guarulhos 395/298.
+  https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_SP.zip
+- Arquivos transmitidos para totalização, 1º turno, MA (pacote trocado): 3.266.353.465 bytes, modificado em 03/11/2026
+  19:59:01 GMT. Não sei o que mudou.
+  https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_MA.zip
+- Arquivos transmitidos para totalização, 1º turno, MG (pacote trocado): 9.638.559.468 bytes, modificado em 03/11/2026
+  21:08:00 GMT. Não sei o que mudou.
+  https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_MG.zip
+- Processos da Justiça Eleitoral 2026 (processo, assuntos, decisões, partes, recursos): 17.708.819 bytes, modificado
+  em 09/11/2026. 114.612 processos; atualização diária; dá classe, assunto, partes, relator e datas das decisões.
+  https://cdn.tse.jus.br/estatistica/sead/odsele/processual/
+Sem mudança:
+- bweb do 1º turno (bweb_1t_UF_051020261403.zip) e do 2º (bweb_2t_UF_261020260742.zip), com sha512: os mesmos nomes
+  desde 06/10 e 27/10
+- Correspondência efetivada do 2º turno (CEFT_2t_UF_261020261201.zip): 28 arquivos, 49.263.856 bytes, de 26/10.
+  Correspondência esperada (CESP_2t_UF_251020261345.zip): 37.455.604 bytes, de 25/10
+- Logs do Gedai do 2º turno (log_gedai_2t_UF_251020261327.zip): 28 arquivos, 173.183.895 bytes, de 25/10
+- Demais pacotes de arquivos transmitidos: 1º turno de 22/10 e 2º turno de 26/10, sem troca (lista em
+  ckan/head_arqurnatot.txt). Esses pacotes não têm sha512 publicado
+- Votação por seção (votacao_secao_2026_BR.zip, 241.891.087 bytes) e detalhe por seção (234.357.769 bytes): de 26/10
+- Eleitorado por local de votação (167.493.511 bytes): de 25/10. Perfil do eleitorado por seção: de 17/07
+Atualizados por rotina:
+- Em 09/11: votação nominal por município e zona (395.670.866 bytes), votação em partido (23.705.704), detalhe por
+  município e zona (4.179.133), relatórios de totalização por UF (BR 486.541; SP 1.807.311), transferência temporária
+  (23.089.842 e 3.983.516), denúncias do Pardal (2.040.589; 78.226 registros, quase tudo propaganda), pesquisas
+  eleitorais
+Ainda não publicados:
+- Perfil do comparecimento e da abstenção do 2º turno (o arquivo é de 21/10; só 1º turno)
+- Relatórios dos TREs sobre o teste de integridade e de autenticidade do 2º turno e o relatório consolidado
+  (publicação prevista para até 24/11; empresa de auditoria até 27/11)
+- Relatório do TCU (TC 020.282/2026-5; até 24/11)
+- Resumo dos programas instalados em cada urna (hash.dat), relatórios das entidades que inspecionaram o código,
+  compilação independente
+- Relatórios finais da OEA, do Centro Carter e da missão de peritos da União Europeia
+- Registro do que mudou nos pacotes do 1º turno de MA e de MG trocados em 03/11
+Existem, mas não consegui ler (403, não contornado):
+- https://www.tse.jus.br/eleicoes/urna-eletronica/seguranca-da-urna/hash/resumos-digitais-hashes-das-eleicoes-2026-1o-e-2o-turnos
+- https://www.tse.jus.br/eleicoes/eleicoes-2026-content/boletim-de-urna-2o-turno/ (relatórios de ocorrências de 10h,
+  12h, 15h30, 18h e 20h, e os dois relatórios parciais "ocorreje")
+- https://www.tre-df.jus.br/eleicoes/auditoria-da-votacao-eletronica-2026 (segundo o buscador, lista os testes de
+  integridade do 2º turno com um relatório para cada um; é onde deve estar a CLDF)
+- https://www.tre-sc.jus.br/eleicoes/eleicoes-2026/resultado-do-sorteio-da-auditoria-no-2o-turno-das-eleicoes e
+  páginas equivalentes de MG, CE, PR e SP com as seções sorteadas
+- https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens (checagens do TSE)
+
+3. ALEGAÇÕES NOVAS NAS REDES, PARA TESTE
+R1 [04/11/2026] Código ativado às 17h01 transfere um voto a cada dez segundos; quanto mais tempo a urna fica aberta,
+  maior a diferença. "Tabela completa dos 10 grupos" por horário de encerramento e gráfico de linhas. Cita cerca de
+  497 mil seções.
+   Números: 1 voto a cada 10 s; 10 grupos; 497 mil seções; ao menos 200 mil visualizações no X.
+   Como testar: Dez grupos por hora de encerramento (bweb) e virada dentro do local de votação; nos logs da amostra,
+   votos computados depois das 17h01 por urna contra o ganho de Lula. Marca prevista pela alegação: 6 votos por minuto
+   de urna aberta; uma urna aberta até as 19h teria mais de 700 votos transferidos, acima do comparecimento médio. O
+   L8 e o F8 já mediram +0,007 ponto (ep 0,049) entre seções mantidas abertas e vizinhas.
+   Fonte: https://www.aosfatos.org/noticias/urnas-roubar-votos-apos-17h01/
+R2 [04/11/2026] "Só na Bahia eles incluíram 2 milhões de votos depois das 17h. Aqui em São Paulo entrou seis pessoas."
+   Números: TSE: BA 4.190; SP 8.860; Brasil 34.393 (32.399 das 17h às 18h; 1.981 das 18h às 19h; 13 depois das 19h).
+   150 mil curtidas no Instagram.
+   Como testar: Hora de cada voto nos logs da amostra por UF, extrapolada; comparar com 4.190 (BA) e 8.860 (SP). O
+   comparecimento da BA no bweb (9.422.047) é igual ao citado pelo TSE.
+   Fonte: https://www.aosfatos.org/noticias/bahia-votos-prorrogacao-do-segundo-turno/ ;
+   https://www.aosfatos.org/noticias/votos-registrados-apos-as-17h-nao-mudam-resultado-das-eleicoes/
+R3 [05/11/2026] "Cidades que até os mortos votaram em Lula": dez cidades com mais votos para Lula que habitantes.
+   Números: Lista do post (habitantes; votos para Lula): Nossa Senhora da Glória SE 3.053; 4.615. Porto da Pedra PE
+   6.122; 8.090. Poço das Antas PE 4.342; 5.873. Xique-Xique BA 43.548; 64.805. Barragem BA 25.687; 31.338. Nova
+   Liberdade BA 11.026; 16.192. Nova Soures BA 9.622; 12.351. Guanambi BA 19.764; 22.538. Joaçaba BA 6.142; 6.984.
+   Antas BA 11.434; 18.001.
+   Como testar: Já conferido de forma descritiva (abaixo). Nenhum número bate com o bweb.
+   Fonte: https://www.aosfatos.org/noticias/lista-cidades-mais-votos-que-habitantes/
+R4 [sem data lida] "124 mil urnas registraram votos apenas para Lula" e seções de Brasília com resultados idênticos.
+   Números: TSE: 106 seções com votos só para Lula.
+   Como testar: Contar seções com Flávio zerado (o F8 achou 106) e pares de seções do DF com o mesmo vetor de votos,
+   contra o esperado por acaso.
+   Fonte:
+   https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-124-mil-urnas-tenham-registrado-votos-apenas-para-lula-no-2o-turno-das-eleicoes-2026
+   (403; buscador)
+R5 [sem data lida] "8 milhões de pessoas votaram sem biometria depois das 17h."
+   Números: TSE: 4.888 habilitados pelo ano de nascimento entre 17h e 19h. O repositório conta 8.632.488 liberações
+   sem biometria no dia inteiro.
+   Como testar: Nos logs da amostra, contar habilitações sem biometria com hora depois das 17h e extrapolar; comparar
+   com 4.888.
+   Fonte:
+   https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/nao-e-verdade-que-8-milhoes-de-pessoas-votaram-sem-biometria-apos-as-17h-no-2o-turno
+   (403; buscador)
+R6 [06/11/2026] Flávio: "O que explica, em 21 dias, o Lula vencer ou aumentar a votação em todos os estados"; "O
+  problema é o que aconteceu dentro do TSE"; "É impossível não ser manipulação de resultado".
+   Números: Premissa conferida no bweb: Lula ganhou votos nas 27 UFs e no exterior e subiu em percentual dos válidos
+   em todas; Flávio ganhou votos em 22 e perdeu em 6.
+   Como testar: (a) Histórico da totalização contra a hora de recebimento de cada boletim (DT_BU_RECEBIDO do bweb):
+   tudo o que o TSE recebeu entrou na soma, na mesma ordem? (b) A soma dos boletins assinados pela urna já é igual ao
+   oficial, o que fecha "dentro do TSE" para a totalização; resta a origem do programa.
+   Fonte: https://atarde.com.br/politica/flavio-admite-que-nao-tem-provas-de-fraude-eleitoral-nem-terei-1408636
+R7 [28/10/2026] "Cadê os 165.699 votos do Nine?": o total nacional de Lula menos a soma das páginas dos estados e do
+  exterior, em vídeo gravado por volta das 17h57 de 25/10. Marca @DUDAVANA_VM.
+   Números: 165.699 votos; a tela mostra Lula 193.574 (57,66%) e Flávio 142.169 (42,34%).
+   Como testar: Com o histórico da totalização: quanto o Brasil e cada UF tinham às 17h07 (pausa). O histórico dá Lula
+   271.370 e Flávio 217.312 no fim do minuto 17:07; a tela de 193.574 é de um instante anterior. A diferença entre
+   painéis no meio da pausa é atraso de publicação, não voto. Detalhe a conferir: a imprensa registrou a divulgação
+   parada em 0,25% das seções (cerca de 1.248), e o histórico mostra a totalização interna indo até 1.868 seções às
+   17:07; ou seja, cerca de 620 seções foram somadas e só apareceram depois das 19h.
+   Fonte: https://www.aosfatos.org/noticias/lula-165-mil-votos-origem-nao-identificada/
+R8 [26/10/2026 (comentários no Chequeado)] Flávio tinha tendência de vitória com 30% apurado.
+   Números: Histórico oficial: às 20:00 (23% das seções) Flávio tinha 50,48% do acumulado; às 20:15 (38%) 50,28%; Lula
+   passou às 20:24.
+   Como testar: Confere como fato da ordem de chegada. Teste: a ordem de entrada das zonas (primeiro Sul e
+   Centro-Oeste) prevê a curva sem nenhum ajuste? Dentro da zona, a virada independe da hora de entrada?
+   Fonte:
+   https://chequeado.com/ultimas-noticias/elecciones-en-brasil-2026-los-datos-y-documentos-que-desmienten-la-teoria-de-fraude-electoral-en-el-balotaje/
+   ; hist2t_resumo.json
+R9 [06/10/2026 (1º turno)] "Estranhamente às 19:16 as urnas modelos UE2013 e UE2015 geram erro e a contagem ficou
+  travada!"
+   Números: 945 mil visualizações no X. TSE: falha num módulo de divulgação por volta de 19h14, com 64,81% divulgados,
+   restabelecido às 20h04; totalização suspensa por pouco tempo.
+   Como testar: O histórico do 1º turno mostra passos de totalização até 19:32, de novo às 19:44 e 19:45, e um
+   intervalo de 18 minutos até 20:03. Conferir se esse intervalo é o que o TSE descreve e se a virada das zonas que
+   entraram depois difere.
+   Fonte: https://www.aosfatos.org/noticias/urnas-apuracao-votos-primeiro-turno/
+R10 [04/11/2026 (NYT)] Flávio: falha de segurança na sala de contagem de votos do TSE; fiscais do PL retirados da
+  sala-cofre.
+   Números: Sem número.
+   Como testar: Não conferível com dado público; o TSE diz ter filmagem e registro de presença (já no F8).
+   Fonte:
+   https://www.brasildefato.com.br/2026/11/05/the-new-york-times-minimiza-entrevista-de-flavio-bolsonaro-e-desmente-teses-de-fraude-na-eleicao-e-perseguicao/
+
+4. DENÚNCIAS COM SEÇÃO, URNA OU MUNICÍPIO
+- Teixeira de Freitas (BA), zona 183. Fiscal diz que boletins impressos de três seções diferem do site; sem
+  identificar as seções.
+   Conferido: bweb do 2º turno: Flávio 41.454, Lula 41.361, diferença 93, 303 linhas de seção (342 seções no cadastro,
+   com agregadas).
+   Falta: As fotos dos boletins. Fonte:
+   https://www.aosfatos.org/noticias/soma-votos-tres-secoes-ba-nao-comprova-fraude/
+- Salvador (BA), zona 13, local 1422 (Escola Estadual de 1º Grau José Calazans Brandão da Silva), seções 303 e 315 a
+  322, 1º turno. Mesária presa sob suspeita de votar no lugar de policial militar em trânsito.
+   Conferido: Local e seções identificados no cadastro de locais do TSE. Nenhuma das nove foi lida no log.
+   Falta: Baixar os nove logs do 1º turno e achar o evento. Fonte:
+   https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026
+- Guarulhos (SP), zona 395, seção 298, 2º turno. Seção sem log publicado (pendência do F8).
+   Conferido: Log publicado em 03/11; 268 votos computados, igual ao boletim; zero voto sem habilitação ou fora de
+   hora.
+   Falta: Nada. Fonte:
+   https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/sp/64777/0395/0298/p003221-sp-m64777-z0395-s0298-aux.json
+- Santa Maria de Jetibá (ES), zona 9, seções 85 e 112, 2º turno. Log trocado entre as duas seções (pendência do F8).
+   Conferido: Os índices das duas seções continuam com data de 25/10; o pacote do ES não foi trocado.
+   Falta: Pedido ao TSE do arquivo correto. Fonte:
+   https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221/dados/es/57932/0009/0112/p003221-es-m57932-z0009-s0112-aux.json
+- Amapá: Itaubal, Cutias, Pracuúba, Ferreira Gomes. Abstenção mais que dobrou do 1º para o 2º turno.
+   Conferido: bweb: Itaubal 7.354 votantes no 1º turno e 5.239 no 2º; Flávio de 3.107 para 2.231, Lula de 3.646 para
+   2.957.
+   Falta: Causa local (transporte, mobilização); comparar com 2022. Fonte:
+   https://mais.opovo.com.br/reportagens-especiais/resultado-presidente-eleicoes-2026/2026/10/29/o-impacto-da-queda-na-abstencao-na-eleicao-de-lula-veja-os-dados.html
+- Processos por votação em lugar de outrem desde 25/10. 0600004-19.2026.6.05.0716 (Porto Seguro BA, flagrante, 25/10);
+  0600105-25.2026.6.06.0006 (Quixadá CE, 25/10); 0600083-67.2026.6.06.0005 (região de Fortaleza CE, flagrante, 26/10);
+  0600017-27.2026.6.11.0562 (MT, flagrante, 25/10); 0600062-62.2026.6.16.0151 (São João PR, 27/10);
+  0600005-29.2026.6.26.0939 (Campinas SP, 27/10); 0600015-06.2026.6.26.0929 (São Paulo SP, 29/10);
+  0600013-11.2026.6.26.0420 (São Paulo SP, 04/11).
+   Conferido: Só a existência, a data, a classe e a origem. As peças não são públicas nos dados abertos.
+   Falta: Seção de cada caso (consulta pública do PJe). Fonte:
+   https://cdn.tse.jus.br/estatistica/sead/odsele/processual/processo_eleitoral_2026.zip (e assuntos, decisoes,
+   partes, recursos; gerados em 09/11/2026)
+
+5. CONFERÊNCIAS RÁPIDAS (descritivas, sem critério registrado)
+- Lista das dez cidades (R3), votos de Lula no 2º turno pelo bweb contra o post: Xique-Xique 20.001 (post 64.805);
+  Guanambi 35.676 (22.538); Antas 5.952 (18.001); Nova Soure 14.293 (12.351); Nossa Senhora da Glória 19.848 (4.615);
+  Porto de Pedras, que é de Alagoas, 3.303 (8.090); Joaçaba, que é de Santa Catarina, 4.909 (6.984); Poço das Antas,
+  que é do Rio Grande do Sul, 412 (5.873). Nenhum bate.
+- Lula ganhou votos nas 27 UFs e no exterior e subiu em percentual dos válidos em todas. Flávio perdeu votos em AC,
+  AM, AP, MA, RR e TO. O comparecimento caiu em AC, AM, AP, MA, PA, PI, RO, RR e TO. Exemplo do Amapá: comparecimento
+  de 476.562 para 429.975; Lula de 212.503 para 222.968; Flávio de 212.278 para 198.674.
+- Histórico do 1º turno: passos de totalização até 19:32, de novo às 19:44 e 19:45, depois só às 20:03 de 04/10;
+  maiores intervalos na madrugada (71 e 62 minutos, com a apuração quase no fim).
+- Log de Guarulhos 395/298: a diferença de 95 segundos entre o encerramento do boletim e o do log é o padrão (mediana
+  de 114 segundos em 40 seções de SP da amostra).
+
+6. PISTAS PARA TESTE, DA MAIS PARA A MENOS ÚTIL
+1. Histórico da totalização contra o bweb: para cada zona, a hora em que o TSE recebeu os boletins (DT_BU_RECEBIDO)
+  contra a hora em que entraram na soma (DT_TOTALIZACAO). Boletim recebido e não somado, somado antes de recebido, ou
+  passo de totalização com votos que não batem com os boletins daquele intervalo seria marca de mexida dentro do TSE,
+  que é onde Flávio agora põe a suspeita. Refazer com esse dado o teste dos 84,7 segundos.
+2. Pacotes trocados em 03/11 no 1º turno de MA e MG: achar as seções cujo índice (aux.json) tem data de geração de
+  03/11 e ver o que entrou. Pedir ao TSE o resumo (sha512) e o registro de alterações desses pacotes.
+3. Alegação das 17h01 (R1): dez grupos por horário de encerramento, com critério escrito antes, e votos depois das
+  17h01 por urna nos logs.
+4. Número 4.888 do TSE (habilitados pelo ano de nascimento entre 17h e 19h) e divisão dos 34.393 votos por hora e por
+  UF: conferir nos logs da amostra.
+5. Salvador, zona 13, seções 303 e 315 a 322 no 1º turno: baixar os nove logs e achar o voto dado no lugar do
+  policial. Serve de gabarito para o que procurar em escala.
+6. Norte e Maranhão: nas seis UFs em que Flávio perdeu votos, medir por seção se a queda do comparecimento explica a
+  perda dele e o ganho de Lula (abstenção de um lado só contra troca de voto), com critério antes.
+7. Teixeira de Freitas: pedir ao autor do vídeo as fotos dos boletins impressos e comparar com o bweb. Seria o
+  primeiro confronto de papel contra site.
+8. Seções de Brasília com resultado idêntico (R4): contar e comparar com o acaso.
+9. TRE-DF: alguém com navegador comum deve abrir a página de auditoria de 2026 e ler o relatório da CLDF do 2º turno
+  (aqui deu 403).
+10. Agenda: 24/11 (TCU e relatórios dos TREs) e 27/11 (empresa de auditoria). Voltar ao portal de dados abertos para
+  ver se o perfil do comparecimento do 2º turno saiu.
+
+7. O QUE PROCUREI E NÃO ACHEI
+- Auditoria, relatório ou contagem paralela do PL; qualquer ação do PL ou de Flávio no TSE depois de 25/10 sobre a
+  contagem.
+- Relatório do TCU, da União Europeia, final da OEA ou do Centro Carter; qualquer relatório das Forças Armadas, da PF,
+  da OAB ou da SBC sobre o resultado.
+- Nota formal dos EUA de reconhecimento ou de rejeição; documento do governo dos EUA com indício de fraude; fala de
+  Trump sobre o Brasil depois de 29/10.
+- Pesquisa pós-eleitoral de recordação de voto ou boca de urna.
+- Novidade sobre o painel essencia-ai.com ou sobre as "digitais órfãs".
+- Quem ajuizou a AIJE contra Trump e Bannon e o teor da decisão do TRE-GO no caso Felipe Cecílio.
+
+8. DESVIOS E LIMITES
+- Páginas do TSE, dos TREs e do Fato ou Boato deram 403 ao leitor e ao curl com agente padrão; não contornei. O que
+  vem delas está marcado como "buscador" e tem confiança média ou baixa.
+- reuters.com, scmp.com e band.com.br não abriram; usei republicações.
+- Fiz dois pedidos de cabeçalho a endereços que o TSE não lista (um arquivo de perfil do 2º turno com nome suposto);
+  voltaram 404 e parei. Fora isso, só endereços listados no portal ou no padrão já usado pelo repositório.
+- Baixei para pastas novas: os dois históricos (28 MB), os cinco arquivos processuais (18 MB), o arquivo de denúncias
+  (2 MB), três índices de seção e um log (192 KB). Scripts em pasta separada, sempre com python3 -I.
+- As conferências rápidas e a leitura do log de Guarulhos são descritivas. A do log usa as métricas do T3 já
+  registradas, sem mudança.
+- Processos: listei número, data, classe e origem; não reproduzi nomes de pessoas físicas acusadas.
+- Itens de 26 a 31/10 que não estavam no repositório entraram marcados com a data.
+

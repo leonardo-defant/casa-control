@@ -1,0 +1,16 @@
+{
+ "semente": "adendo27-D3-AAS-nacional-2T-2026|registrada em 2026-11-09 antes de qualquer conta com votos",
+ "universo": 499205,
+ "sha256_universo": "35fe8a6024661b314fbe682f6c996ab34272ebd220e91b0f4ef11e3655e34fb8",
+ "n_principal": 3000,
+ "sha256_principal": "e91693355ea48ce695eb0715a8a6d83b45c3d7c2abc95e4ab10259e017a6c3c5",
+ "n_extensao": 3000,
+ "sha256_extensao": "5520d554812f936cacc6bee680b8ff0f6856319cd1bbb7ec35e49c6937558ad7",
+ "primeiras_5": [
+  "PA|5355|83|374",
+  "PA|4278|30|418",
+  "RS|89052|132|68",
+  "CE|13480|78|321",
+  "PR|74934|143|406"
+ ]
+}

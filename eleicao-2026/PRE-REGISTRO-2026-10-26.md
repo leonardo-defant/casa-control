@@ -694,3 +694,52 @@ Afirmação (captura enviada pelo Léo): "Algumas métricas do segundo turno da 
 - Canto de enchimento de urna (Klimek e outros, 2012): fração de seções com comparecimento de 95% ou mais dos aptos e fatia do PT de 90% ou mais entre os finalistas.
 - Comparecimento e virada: dentro do município, correlação entre a variação da taxa de comparecimento e a virada do PT do 1º para o 2º turno, por seção.
 - Sinal, por ano: último dígito com p abaixo de 0,001 e alguma frequência a mais de 0,5 ponto de 10%; ou canto acima de 3 vezes a média dos outros três anos no mesmo turno; ou correlação de 0,10 ou mais a mais de 4 erros-padrão. Sem sinal: nenhum dos três. A semelhança de 2014 com 2026 nesses padrões só pesa se 2026 tiver sinal.
+
+## Adendo 27 (10/11/2026, antes de rodar): recálculo com modelo novo, desenho cego e equipe vermelha
+
+Pedido do Léo (09/11): "leia o chat e continue o trabalho. Sua missão é recalcular tudo e achar os indícios que procuramos". A sessão passou a outro modelo. Antes de qualquer conta nova com votos, uma primeira etapa produziu, sem rodar teste:
+- quatro desenhos cegos (D1 urna e programa, D2 eleitor e mesa, D3 totalização e arquivos, D4 comportamento contra contagem), escritos por agentes proibidos de abrir resultados, checagens, README, RETOMAR e este registro;
+- o relatório da equipe vermelha, que leu tudo o que foi feito e aponta 21 fragilidades, 13 hipóteses nunca testadas e erros;
+- a releitura do chat inteiro (93 mensagens do Léo, 14 hipóteses dele sem teste próprio);
+- as novidades desde 01/11 (histórico oficial da totalização publicado em 03/11, pacotes trocados, alegações novas);
+- as especificações neutras de 60 números decisivos para recálculo cego.
+
+Tudo isso está em `registro/adendo27/`, neste mesmo commit. **Os critérios valem como escritos nesses arquivos**: `desenho_D1_proposta.json` a `desenho_D4_proposta.json` (campos estatistica, criterio_sinal, criterio_sem_sinal, poder, placebo) e `equipe_vermelha_relatorio.json` (campos reteste_proposto e criterio_proposto de cada fragilidade). Onde este adendo disser diferente, vale o adendo.
+
+### Avisos sobre o próprio registro
+- Os desenhos D1 a D4 são cegos de fato. Os retestes da equipe vermelha foram escritos por quem já conhecia os resultados antigos: o critério é novo, mas a escolha do que retestar é posterior ao dado. Isso será dito em cada resultado.
+- O Léo pediu (Adendo 18) que outras eleições não sirvam de régua, e ele suspeita também de 2014, 2018 e 2022. Vários critérios usam esses anos como placebo. Regra: todo resultado traz ao lado o valor bruto de 2026 e a calibração interna (efeito plantado nos dados de 2026). Se um veredito depender só da comparação com outro ano, isso é dito no veredito.
+- São cerca de 45 testes. Com tantos, algum passa do limiar por acaso. Um SINAL só conta como indício depois de: (i) o conferente independente reproduzir com código próprio; (ii) a calibração por efeito plantado mostrar que o teste enxerga o que diz enxergar; (iii) o teste espelho (a mesma conta a favor do outro candidato, ou onde não deveria dar nada) não mostrar o mesmo. Cada relatório conta quantos testes rodaram e quantos sinais o acaso daria.
+- Testes que usam só arquivos da própria urna (boletim, RDV, log, assinatura) não valem como contrapeso à hipótese de programa adulterado na origem, porque todos saem do mesmo programa. As sínteses serão reescritas separando "fechado para alteração depois da urna" de "cego para o programa".
+- Erros já apontados e ainda sem correção, que serão corrigidos junto: coordenadas fora da UF no cadastro de locais (T34 e T23b); resultados dos testes da seção 7 no bweb inteiro nunca relatados (`bn_secao_2026.json`, `gov_2026.json`, `modelos_2026.json`); o T35 muda de inconclusivo para sinal com pesos iguais; o contrapeso das "97 seções sem digital" (L7) não mede ausência de biometria; o erro-padrão do F19 ignora o viés do pareamento.
+
+### Recálculo cego
+- `registro/adendo27/specs_recalculo.json`: 60 itens (307 saídas) descritos sem valor esperado. Agentes que não viram os resultados recalculam só com a descrição. O gabarito fica fora do repositório até a comparação; o SHA-256 dele está em `registro/adendo27/sha256_guardados_fora.txt`.
+- Leitura: diferença além da tolerância aponta erro nosso e é investigada; coincidência só confirma a conta, não soma evidência a favor nem contra fraude.
+
+### Onda A (dados em disco; os lugares onde a equipe vermelha diz que um sinal pode ter passado)
+- **A1, branco e nulo:** fragilidade "Canal do branco e nulo (forma A)" (retestes a, b, c, com a correção de coordenadas) e D4-6(b).
+- **A2, assimetria do vazamento:** D4-1.
+- **A3, troca proporcional com régua interna:** fragilidades T14 (decis de capacidade de troca de eleitores), T16 (estratos de reduto), T7 (limite aritmético estrito) e L3 (núcleo do PL por capacidade).
+- **A4, curva por força:** fragilidade T35. Ponderação principal fixada aqui: pesos iguais nas quatro faixas; inverso da variância e peso por votos ao lado. Os valores de 2026 nas três ponderações já são conhecidos (saem do JSON publicado), então o que é novo e decide é a série: 2002, 2006 e 2010 pela votação por seção do TSE, com 2014, 2018 e 2022, para separar "quem governa" de "PT". Se os arquivos de 2002 a 2010 não couberem ou não ligarem, o teste fica como não rodado e isso é relatado.
+- **A5, exterior:** fragilidade F19 (diferença em diferenças por cidade de 2022 para 2026 e dose por fuso) e o item (c), seções do Brasil sem nenhuma habilitação biométrica.
+- **A6, tipo de habilitação:** D1.5.
+
+### Onda B (dados em disco)
+- **B1, carga, lote, flashcard e zona:** D1.1, com a fragilidade "F9, L2 e T20" (desenho entre zonas) e D3-4.
+- **B2, liberações e mudanças na seção:** D2-1, D2-6 e D4-6(a).
+- **B3, reservatório e eleitor marginal:** D2-3, D2-4 e a fragilidade "Comparecimento" (T32 por idade, com o perfil do eleitorado).
+- **B4, regra determinística:** D1.2, D4-2, D1.3 e a fragilidade "V2 e contagem do T30".
+- **B5, janelas da totalização:** D3-2 (com o histórico oficial publicado em 03/11), D3-5, D3-6, e as alegações novas R1 (dez grupos por horário de encerramento), R7 e R8 de `novidades_relatorio.json`.
+- **B6, vizinho de sala e caudas:** D4-5 e a fragilidade F5.
+
+### Onda C (logs das 3.897 seções em disco)
+- **C1:** D2-2 e D2-5. **C2:** D1.4 com a fragilidade T30. **C3:** D1.6.
+
+### Onda D (downloads; as listas e sementes já estão fixadas)
+- **D-a, amostra aleatória simples nova:** as 3.000 seções de `registro/adendo27/amostra_aas_principal.txt` (semente e SHA-256 em `sorteio_aas.json`), mais as listas C1 e P, baixadas a 1 requisição por segundo. Testes D3-1 e D3-3.
+- **D-b, testemunhas:** D4-3 (número do presidenciável digitado na tela de governador, AC e TO, pelos pacotes de arquivos transmitidos do TSE) e D4-4 (nulos de digitação no RDV de presidente, começando pelos RDV da amostra nova e seguindo a regra de parada do desenho). São os únicos desenhos que, em princípio, enxergam uma troca sorteada, uniforme e coerente dentro da urna.
+- **D-c:** fragilidade "T22b e F20" (D natural calibrado com o 2º turno de governador de 2018 e 2022), "L5(a)" (erro das pesquisas estaduais por UF), "F4, F10 e F16" (urnas antigas no país, pelos outros cargos), "L6 e L4", "T33(a), T6".
+- **H2 do Léo no país inteiro** (fraude só no voto de presidente; presidente contra deputado, senador e governador na mesma urna, 1º turno): nenhum desenho cego trouxe critério. Um agente escreve a especificação e ela entra em adendo próprio antes de rodar.
+
+Cada teste é rodado por um agente e refeito por outro com código próprio. Decisões que os desenhos não fixam vão no docstring antes de calcular. O que for feito depois de ver o resultado é marcado como exploratório.
