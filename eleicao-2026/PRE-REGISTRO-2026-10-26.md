@@ -787,3 +787,20 @@ Observação escrita antes do dado: se quase todo eleitor da direita do 1º turn
 - **J3, simulação sem fraude.** Votos reais do 1º turno de 2026 por UF; no 2º turno, cada bloco (Lula, Flávio, cada eliminado, branco e nulo, faltosos) se divide com taxas nacionais mais um ruído sorteado por UF, com desvio de 2, 5 e 10 pontos nas taxas; 1.000 sorteios por nível; distribuição do R² dos três ajustes.
 - **J4, onde está a variação.** O mesmo gráfico por município e por seção em 2026; e, por UF, o desvio em pontos de fatia entre o 2º turno e o previsto pelo 1º.
 - **Leitura fixada antes.** "Propriedade do gráfico" se o R² do melhor ajuste for 0,98 ou mais na mediana da simulação com ruído de 5 pontos e em pelo menos dois dos outros anos. "Anomalia de 2026" se o desvio-padrão dos resíduos de 2026 (em pontos de fatia do 2º turno) for menor que a metade do menor dos outros anos e ficar abaixo do percentil 1 da simulação com ruído de 2 pontos. Como o Léo suspeita dos outros anos, a simulação é a régua principal e os outros anos vão ao lado.
+
+## Adendo 30 (10/11/2026, depois da Onda B e antes de rodar o que segue): saída contra entrada e a ordem da última onda
+
+A Onda B (`resultados/ADENDO27_ondaB_resultados.txt`) mostrou que os votantes a mais entraram 80% pela biometria e que voto lançado pela mesa vale no máximo 15% da margem. A assimetria de "quem não voltou" ficou sem decidir porque o teste N2 não separa saída de eleitor de Flávio de entrada de faltoso do lado de Lula.
+
+### N4. Saída contra entrada (confirmação de um exploratório)
+- O conferente do N2 já calculou, depois de ver os resultados, a assimetria do modelo 0 por faixa de abstenção do 1º turno: -0,0223 (ep 0,0060) na faixa de menos de 10% e cerca de -0,012 de 10% a 20%. Por isso este teste é confirmação por outro agente, não teste cego.
+- Conta: modelo 0 do N2 (variação do comparecimento sobre aptos contra as fatias de Flávio, Lula, eliminados e branco mais nulo do 1º turno, efeito fixo de município, peso aptos, erro por município), separado por faixa de abstenção do 1º turno na seção: menos de 10%, 10 a 15, 15 a 20, 20 a 25, 25 ou mais. Assimetria = coeficiente de Flávio menos o de Lula.
+- Calibração nas duas direções, plantadas com o mesmo total: retirada de eleitores de Flávio e entrada de faltosos do lado de Lula. O teste só vale se, na faixa de menos de 10%, a entrada plantada mover a assimetria menos de um terço do que a retirada plantada move.
+- Leitura: "há saída" se a assimetria na faixa de menos de 10% for de -0,015 ou menos, a mais de 3 erros-padrão, com a calibração cumprida. "Não há saída medida" se a assimetria mais 2 erros-padrão ficar acima de -0,005. Entre os dois, inconclusivo.
+- O que o teste NÃO decide, dito antes: saída é eleitor de Flávio que ficou em casa ou eleitor registrado como ausente; boletim não separa. O produto útil é a lista das seções com abstenção do 1º turno abaixo de 10%, voto relevante de Flávio e maior queda, para conferência de cadernos.
+- Ao lado: os mesmos números em 2014, 2018 e 2022, e por região.
+
+### Última onda (critérios do Adendo 27, salvo N4)
+D3-1 e D3-3 (amostra aleatória nova de ponta a ponta), C2 (gatilho por horário, agora com os logs das duas amostras), B4 (regra determinística), B6 (vizinho de sala e caudas), D4-3 (testemunhas na tela de governador, AC e TO), D4-4 (nulos de digitação, primeira etapa com os RDV da amostra nova: só o número de testemunhas e o erro-padrão, sem abrir o resultado, para decidir a extensão), a fragilidade "T22b e F20" (D natural com 2018 e 2022), C3 (coerência interna e reação na tela), a fragilidade "L5(a)" (pesquisas estaduais) e N4.
+
+Sobre a hipótese H2 do Léo (fraude só no voto de presidente) na forma uniforme e presente nos dois turnos: nenhum contraste interno da urna a enxerga, porque ela desloca todas as urnas por igual. Os únicos desenhos registrados que a alcançam são as testemunhas (D4-3 e D4-4). Não haverá teste separado.
