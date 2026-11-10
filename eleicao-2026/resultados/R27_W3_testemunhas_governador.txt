@@ -1,0 +1,446 @@
+R27 W3: TESTEMUNHAS NA TELA DE GOVERNADOR, AC E TO (Adendo 27, teste D4-3)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b, e Adendo 30
+  (commit a7218fb). Critério: registro/adendo27/desenho_D4_proposta.json, teste D4-3, à letra. Decisões que o registro
+  não fixa: docstring de scripts/analisar_R27_W3.py, no commit 6677983 (10:48:36 UTC) antes de qualquer conta com
+  votos (SHA-256 ea9e217c7307eb81...), e o bloco de decisões da retomada, gravado às 10:57 UTC (SHA-256
+  51ecad439f814698...; está no commit 9a8dd54, de 11:07:41 UTC), também antes da etapa 1 (11:27 UTC).
+A ideia: parte dos eleitores digita na tela de governador o número do seu presidenciável. Em AC e TO, 13 e 22 não são
+  candidatos a governador em nenhum turno, e isso vira nulo de governador com os dígitos gravados no RDV. É uma
+  amostra da intenção presidencial que não passa pela contagem de presidente. W = parcela de 13 entre as testemunhas
+  (13 + 22); P = parcela oficial de Lula entre Lula + Flávio nas mesmas seções. Theta = [logit P do 2º turno menos
+  logit P do 1º] menos [logit W do 2º menos logit W do 1º]. Troca de votos de Flávio para Lula só na contagem de
+  presidente do 2º turno dá Theta positivo: +0,0812 para a troca de 3,57% que vira o resultado, nessas seções (R/L =
+  1,286).
+
+VEREDITO PELA LETRA
+  Parte 1, alteração a favor de Lula (o critério registrado): INCONCLUSIVO. Theta = -0,1517 (erro-padrão 0,0121; n =
+  6.654 seções em 1.595 locais; 81.406 testemunhas no 1º turno e 57.959 no 2º). O sinal é o CONTRÁRIO do previsto pela
+  tese: a troca que vira o resultado daria +0,0812.
+    só com 2026 (erro sistemático mínimo de 0,015, sem usar outro ano; erro total 0,0193): INCONCLUSIVO. Motivo: Theta
+    abaixo de -0,020, no sentido contrário ao da tese: o registro não tem cláusula para isso.
+    com o placebo AL 2022 (Theta do placebo +0,2230, ep 0,0136; erro sistemático 0,2230; erro total 0,2233):
+    INCONCLUSIVO. Motivo: erro total acima de 0,025; Theta abaixo de -0,020, no sentido contrário ao da tese: o
+    registro não tem cláusula para isso.
+  Parte 2, espelho (a mesma regra a favor de Flávio): SINAL pela letra só com 2026 (menos Theta = +0,1517, 7,87 erros
+  totais, mesmo sinal em AC, TO e nos três tercis); sem sinal com o placebo (0,68 erro total). Não conta como indício
+  de fraude a favor de Flávio: ver a seção 13.
+  Parte 3, poder e calibração: a etapa 1 passa (erro-padrão 0,0121, limite 0,025). A troca de 3,57% plantada aumenta
+  Theta em +0,0813 (100,1% da fórmula; 4,22 erros totais): pela regra escrita antes (D11), o teste enxerga o plantado.
+  Mas o critério de SINAL aplicado ao dado com o plantio NÃO dispara (Theta fica em -0,0703): se "enxergar" for lido
+  assim, o veredito da parte 1 é SEM PODER. As duas leituras dão a mesma conclusão prática.
+  Parte 4, validade do termômetro no 1º turno: APROVADO (correlação de postos 0,922 em 161 municípios; limiar 0,9).
+  Em uma frase: INCONCLUSIVO pela letra, e o teste não decide. Theta saiu -0,1517 (ep 0,0121), no sentido CONTRÁRIO ao
+  da tese: as testemunhas andaram para Lula mais do que a contagem oficial, não menos. Pela mesma régua, o espelho (a
+  favor de Flávio) daria SINAL com o erro sistemático mínimo, mas o placebo (AL 2022: +0,2230) e os recortes de 2026
+  (AC -0,33, TO -0,09; de -0,06 a -0,30 conforme a disputa de governador) mostram que o termômetro muda entre os
+  turnos por causa da eleição de governador, em tamanho de 2 a 4 vezes o efeito procurado (+0,081). Não acusa e não
+  absolve.
+
+1. FONTE E CONFERÊNCIA DOS RDV CONTRA O BWEB
+  rdv_bu_2022_1t_AL: pacote de 1.085.149.042 bytes (Thu, 06 Oct 2022 20:01:58 GMT), 33.131 membros; guardados 13.252
+  (RDV e boletim), CRC de cada um conferido; 1 pedido(s) de fluxo, 0 queda(s).
+  rdv_bu_2022_2t_AL: pacote de 1.428.848.316 bytes (Wed, 02 Nov 2022 21:41:16 GMT), 33.131 membros; guardados 13.252
+  (RDV e boletim), CRC de cada um conferido; 2 pedido(s) de fluxo, 1 queda(s).
+  rdv_bu_2026_1t_AC: pacote de 393.536.972 bytes (Thu, 22 Oct 2026 19:42:45 GMT), 11.351 membros; guardados 4.540 (RDV
+  e boletim), CRC de cada um conferido; 1 pedido(s) de fluxo, 0 queda(s).
+  rdv_bu_2026_1t_TO: pacote de 765.142.259 bytes (Thu, 22 Oct 2026 20:52:59 GMT), 21.921 membros; guardados 8.768 (RDV
+  e boletim), CRC de cada um conferido; 1 pedido(s) de fluxo, 0 queda(s).
+  rdv_bu_2026_2t_AC: pacote de 512.147.002 bytes (Mon, 26 Oct 2026 19:56:12 GMT), 11.351 membros; guardados 4.540 (RDV
+  e boletim), CRC de cada um conferido; 1 pedido(s) de fluxo, 0 queda(s).
+  rdv_bu_2026_2t_TO: pacote de 1.020.216.357 bytes (Mon, 26 Oct 2026 18:08:00 GMT), 21.922 membros; guardados 8.768
+  (RDV e boletim), CRC de cada um conferido; 2 pedido(s) de fluxo, 1 queda(s).
+  AC, 1º turno: 2.270 seções na base, 2.270 RDV no pacote, 0 erros de leitura. Presidente (13, 22, demais, brancos,
+  nulos) igual à base em 2.270; governador (brancos, nulos, nominais) igual em 2.270; boletim do pacote igual à base
+  em 2.270 de 2.270. Direto contra o zip do bweb, candidato a candidato: presidente igual em 2.270, governador igual
+  em 2.270. Candidatos a governador: 10, 11, 21, 36, 40, 45. Votos nominais de governador em 13 ou 22: 0. Nulos de
+  governador com dígitos: 39.000 (todos com 2 dígitos); sem dígitos: 398.
+  AC, 2º turno: 2.270 seções na base, 2.270 RDV no pacote, 0 erros de leitura. Presidente (13, 22, demais, brancos,
+  nulos) igual à base em 2.270; governador (brancos, nulos, nominais) igual em 2.270; boletim do pacote igual à base
+  em 2.270 de 2.270. Direto contra o zip do bweb, candidato a candidato: presidente igual em 2.270, governador igual
+  em 2.270. Candidatos a governador: 10, 11. Votos nominais de governador em 13 ou 22: 0. Nulos de governador com
+  dígitos: 29.612 (todos com 2 dígitos); sem dígitos: 0.
+  AC: universo (D2) = 2.270 de 2.270 seções.
+  TO, 1º turno: 4.384 seções na base, 4.384 RDV no pacote, 0 erros de leitura. Presidente (13, 22, demais, brancos,
+  nulos) igual à base em 4.384; governador (brancos, nulos, nominais) igual em 4.384; boletim do pacote igual à base
+  em 4.384 de 4.384. Direto contra o zip do bweb, candidato a candidato: presidente igual em 4.384, governador igual
+  em 4.384. Candidatos a governador: 27, 30, 35, 44, 45, 50, 55. Votos nominais de governador em 13 ou 22: 0. Nulos de
+  governador com dígitos: 86.618 (todos com 2 dígitos); sem dígitos: 451.
+  TO, 2º turno: 4.384 seções na base, 4.384 RDV no pacote, 0 erros de leitura. Presidente (13, 22, demais, brancos,
+  nulos) igual à base em 4.384; governador (brancos, nulos, nominais) igual em 4.384; boletim do pacote igual à base
+  em 4.384 de 4.384. Direto contra o zip do bweb, candidato a candidato: presidente igual em 4.384, governador igual
+  em 4.384. Candidatos a governador: 44, 45. Votos nominais de governador em 13 ou 22: 0. Nulos de governador com
+  dígitos: 61.903 (todos com 2 dígitos); sem dígitos: 0.
+  TO: universo (D2) = 4.384 de 4.384 seções.
+  Limite: RDV, boletim e bweb saem do mesmo programa da urna. A igualdade fecha alteração depois da urna nessas seções
+  e não pesa contra a hipótese de programa adulterado na origem. O que o teste tem de próprio é comparar dois cargos
+  dentro do mesmo RDV.
+
+2. ETAPA 1 (sem abrir Theta): NÚMERO DE TESTEMUNHAS E ERRO-PADRÃO
+  AC+TO: 6.654 seções, 1.595 locais; testemunhas (13 + 22) 81.406 no 1º turno (5,60 por 100 votantes) e 57.959 no 2º
+  (4,12 por 100); erro-padrão de Theta 0,0121 (bootstrap de locais, 2.000 réplicas).
+  AC: 2.270 seções, 668 locais; testemunhas (13 + 22) 29.085 no 1º turno (5,96 por 100 votantes) e 21.536 no 2º (4,75
+  por 100); erro-padrão de Theta 0,0203 (bootstrap de locais, 2.000 réplicas).
+  TO: 4.384 seções, 927 locais; testemunhas (13 + 22) 52.321 no 1º turno (5,42 por 100 votantes) e 36.423 no 2º (3,81
+  por 100); erro-padrão de Theta 0,0146 (bootstrap de locais, 2.000 réplicas).
+  Decisão da etapa 1, gravada às 11:27 UTC: segue para a validade do termômetro. Erro total com o sistemático mínimo:
+  0,0193.
+
+3. VALIDADE DO TERMÔMETRO NO 1º TURNO (antes de abrir)
+  Regra (D7): correlação de postos, entre municípios, de W do 1º turno contra P oficial do 1º turno; limiar 0,9.
+  Mínimo de testemunhas por município escolhido pela simulação do termômetro perfeito: 1. Correlação que decide: 0,922
+  em 161 municípios: APROVADO.
+    mínimo 1: 161 municípios; observado 0,922; termômetro perfeito: mediana 0,954, percentil 5 0,942, passa de 0,9 em
+    100,0% dos sorteios.
+    mínimo 50: 161 municípios; observado 0,922; termômetro perfeito: mediana 0,955, percentil 5 0,942, passa de 0,9 em
+    100,0% dos sorteios.
+    mínimo 100: 152 municípios; observado 0,924; termômetro perfeito: mediana 0,959, percentil 5 0,948, passa de 0,9
+    em 100,0% dos sorteios.
+    mínimo 200: 95 municípios; observado 0,941; termômetro perfeito: mediana 0,978, percentil 5 0,968, passa de 0,9 em
+    100,0% dos sorteios.
+    mínimo 400: 48 municípios; observado 0,974; termômetro perfeito: mediana 0,987, percentil 5 0,979, passa de 0,9 em
+    100,0% dos sorteios.
+    mínimo 800: 18 municípios; observado 0,924; termômetro perfeito: mediana 0,973, percentil 5 0,938, passa de 0,9 em
+    99,9% dos sorteios.
+  Leitura sem mínimo (todos os 161 municípios com testemunha): 0,922; teto de ruído (termômetro perfeito) mediana
+  0,954, percentil 5 0,942. Por essa leitura o termômetro passaria de 0,9.
+  AC: sem mínimo 0,953 em 22 municípios (teto de ruído 0,965); nível no 1º turno: W = 0,3320, P = 0,3080; testemunhas
+  de eliminados 2.395.
+  TO: sem mínimo 0,893 em 139 municípios (teto de ruído 0,939); nível no 1º turno: W = 0,5701, P = 0,4626; testemunhas
+  de eliminados 1.827.
+  Células município x número (13, 22 e eliminados): 1.515 células, correlação de postos 0,847. Com os eliminados no
+  denominador: parcela do 13 0,919, do 22 0,916, dos eliminados 0,490.
+  Composição no AC (testemunhas contra oficial, 1º turno): 13 30,7% contra 28,7%; 22 61,7% contra 64,6%; 14 0,9%
+  contra 1,7%; 16 0,1% contra 0,0%; 27 0,4% contra 0,0%; 28 0,0% contra 0,0%; 29 0,0% contra 0,0%; 30 0,2% contra
+  0,1%; 35 0,1% contra 0,0%; 55 4,1% contra 1,8%; 70 1,7% contra 2,9%; 80 0,1% contra 0,1%. Postos entre números:
+  0,937.
+  Composição no TO (testemunhas contra oficial, 1º turno): 13 55,1% contra 44,4%; 22 41,5% contra 51,6%; 14 1,6%
+  contra 1,4%; 16 0,1% contra 0,0%; 21 0,3% contra 0,0%; 28 0,0% contra 0,0%; 29 0,0% contra 0,0%; 70 1,3% contra
+  2,5%; 80 0,1% contra 0,0%. Postos entre números: 0,933.
+
+4. THETA (aberto depois da etapa 1 e da validade)
+  AC + TO: Theta -0,1517 (ep 0,0121; -12,54 ep); P 0,4110 para 0,4374 (logit +0,1081); W 0,4850 para 0,5498 (logit
+  +0,2598); testemunhas 13/22: 39.484/41.922 no 1º turno, 31.866/26.093 no 2º; 6.654 seções.
+    intervalo de 95% por percentis do bootstrap: -0,1751 a -0,1276.
+  AC: Theta -0,3328 (ep 0,0203; -16,40 ep); P 0,3080 para 0,3343 (logit +0,1209); W 0,3320 para 0,4390 (logit
+  +0,4538); testemunhas 13/22: 9.657/19.428 no 1º turno, 9.454/12.082 no 2º; 2.270 seções.
+  TO: Theta -0,0925 (ep 0,0146; -6,35 ep); P 0,4626 para 0,4863 (logit +0,0950); W 0,5701 para 0,6153 (logit +0,1876);
+  testemunhas 13/22: 29.827/22.494 no 1º turno, 22.412/14.011 no 2º; 4.384 seções.
+  tercil de escolaridade baixa: Theta -0,1094 (ep 0,0206; -5,32 ep); P 0,4841 para 0,5093 (logit +0,1009); W 0,5209
+  para 0,5730 (logit +0,2103); testemunhas 13/22: 17.375/15.978 no 1º turno, 11.814/8.804 no 2º; 2.214 seções.
+  tercil de escolaridade media: Theta -0,1273 (ep 0,0189; -6,74 ep); P 0,4182 para 0,4459 (logit +0,1129); W 0,4888
+  para 0,5487 (logit +0,2403); testemunhas 13/22: 13.571/14.195 no 1º turno, 10.805/8.888 no 2º; 2.215 seções.
+  tercil de escolaridade alta: Theta -0,2772 (ep 0,0248; -11,16 ep); P 0,3427 para 0,3741 (logit +0,1365); W 0,4207
+  para 0,5235 (logit +0,4138); testemunhas 13/22: 8.530/11.745 no 1º turno, 9.226/8.399 no 2º; 2.215 seções.
+  Sensibilidade (tercis pela parcela com superior completo): baixa -0,1333 (ep 0,0193); media -0,0980 (ep 0,0192);
+  alta -0,2560 (ep 0,0244).
+  Sensibilidade com as seções reprovadas na conferência: nenhuma seção reprovada com RDV nos dois turnos; conta
+  idêntica à principal
+
+5. CRITÉRIOS, UM A UM
+  Com sistemático 0,015: erro total 0,0193. SINAL pede Theta >= 0,045 (não), Theta >= 2,5 erros totais (-7,87: não) e
+  mesmo sinal em AC, TO e nos três tercis (não). SEM SINAL pede |Theta| <= 0,020 (não) e erro total <= 0,025 (sim).
+  Veredito: INCONCLUSIVO. Espelho: -Theta >= 0,045 (sim), >= 2,5 erros (+7,87: sim), mesmo sinal (sim): SINAL no
+  espelho.
+  Com sistemático do placebo: erro total 0,2233. SINAL pede Theta >= 0,045 (não), Theta >= 2,5 erros totais (-0,68:
+  não) e mesmo sinal em AC, TO e nos três tercis (não). SEM SINAL pede |Theta| <= 0,020 (não) e erro total <= 0,025
+  (não). Veredito: INCONCLUSIVO. Espelho: -Theta >= 0,045 (sim), >= 2,5 erros (+0,68: não), mesmo sinal (sim): sem
+  sinal no espelho.
+
+6. CALIBRAÇÃO POR EFEITO PLANTADO NOS DADOS DE 2026
+  troca de votos de Flávio para Lula, só na contagem oficial do 2º turno, p = 1,80% (13.612 votos): fórmula +0,0411;
+  Theta mudou +0,0411 (100,1% da fórmula; 2,13 erros totais); 200 plantios: média +0,0410, desvio 0,0003. Critério de
+  SINAL no dado com o plantio, do jeito que sai: não dá sinal (Theta -0,1106, -5,75 erros).
+  troca de votos de Flávio para Lula, só na contagem oficial do 2º turno, p = 3,57% (27.002 votos): fórmula +0,0812;
+  Theta mudou +0,0813 (100,1% da fórmula; 4,22 erros totais); 200 plantios: média +0,0812, desvio 0,0005. Enxerga pelo
+  D11 (que decide com 3,57%): sim. Critério de SINAL no dado com o plantio, do jeito que sai: não dá sinal (Theta
+  -0,0703, -3,66 erros).
+  espelho: de Lula para Flávio, p = 1,80% (10.589 votos): fórmula -0,0321; Theta mudou -0,0321 (100,1% da fórmula;
+  1,67 erros totais); 200 plantios: média -0,0321, desvio 0,0003. Critério de SINAL do espelho no dado com o plantio,
+  do jeito que sai: SINAL (menos Theta +0,1838, +9,55 erros).
+  espelho: de Lula para Flávio, p = 3,57% (21.001 votos): fórmula -0,0637; Theta mudou -0,0638 (100,1% da fórmula;
+  3,31 erros totais); 200 plantios: média -0,0637, desvio 0,0004. Enxerga pelo D11 (que decide com 3,57%): sim.
+  Critério de SINAL do espelho no dado com o plantio, do jeito que sai: SINAL (menos Theta +0,2155, +11,20 erros).
+  Aviso: o espelho já dá SINAL pela letra sem plantio nenhum (seção 5); o plantio do espelho só confirma que a conta
+  responde nos dois sentidos.
+  Poder: com erro total de 0,0193, o SINAL pede Theta de 0,0482 ou mais; a menor troca uniforme que alcança isso é p =
+  2,11% dos votos de Flávio (58,3% da margem, se fosse igual no país). A troca que vira o resultado (3,57%) daria
+  +0,0812; a de 1,8%, +0,0411.
+  Explicação inocente plantada (i), conversão diferente dos eliminados, delta = 0,1: 292 testemunhas do 2º turno
+  passam de 13 para 22; Theta sobe +0,0203 (valor direto +0,0203; fórmula do intervalo +0,0197): passa. O teste NÃO
+  separa isso de troca na contagem: é o erro sistemático.
+  Explicação inocente plantada (i), conversão diferente dos eliminados, delta = 0,25: 727 testemunhas do 2º turno
+  passam de 13 para 22; Theta sobe +0,0506 (valor direto +0,0506; fórmula do intervalo +0,0494): passa. O teste NÃO
+  separa isso de troca na contagem: é o erro sistemático.
+  Explicação inocente plantada (ii), queda geral da propensão ao erro (metade das testemunhas do 2º turno retirada ao
+  acaso): Theta muda -0,0004 em média (desvio entre sorteios 0,0080): passa; cancela, como previsto.
+  Duas metades aleatórias das seções (200 divisões): 4,0% com diferença acima de 2 erros (limite 10%); desvio das
+  diferenças 0,0233 contra erro previsto 0,0225: passa.
+
+7. PLACEBOS
+  (1) AL 2022, dois turnos, mesma conta: Theta +0,2230 (ep 0,0136; +16,41 ep); 6.626 seções, 1.005 locais; testemunhas
+  13/22: 66.806/22.843 no 1º turno e 46.880/22.110 no 2º. P 0,6105 para 0,5868; W 0,7452 para 0,6795. Taxa de erro de
+  tela por mil eleitores do lado: 13 de 68,58 para 47,99; 22 de 36,75 para 32,14.
+      conferência AL 2022, 1º turno: 6.626 RDV, 0 erros de leitura, presidente igual à base em 6.626 de 6.626;
+      governador igual em 6.626; nominais de governador em 13 ou 22: 0; candidatos a governador no RDV: 14, 15, 28,
+      35, 44, 50, 55.
+      conferência AL 2022, 2º turno: 6.626 RDV, 0 erros de leitura, presidente igual à base em 6.626 de 6.626;
+      governador igual em 6.626; nominais de governador em 13 ou 22: 0; candidatos a governador no RDV: 15, 44.
+      validade em AL 2022 (mesma regra): mínimo 1, correlação 0,968 em 102 municípios; sem mínimo 0,968.
+      Aviso: o Léo suspeita também de 2022. Se 2022 tivesse a mesma alteração, o placebo seria positivo e inflaria o
+      erro; por isso o veredito sai também só com 2026.
+  (2) W contra P por município no 1º turno de 2026, em nível: é a validade da seção 3.
+  (3) par de eliminados 70 e 14 no 1º turno, AC+TO: 1.236 e 1.119 testemunhas; parcela do 70 entre as duas 52,5%
+  contra 63,2% oficial; diferença de logits -0,4401 (ep 0,0417).
+  (3) par de eliminados 70 e 14 no 1º turno, AC: 537 e 275 testemunhas; parcela do 70 entre as duas 66,1% contra 62,9%
+  oficial; diferença de logits +0,1418 (ep 0,0728).
+  (3) par de eliminados 70 e 14 no 1º turno, TO: 699 e 844 testemunhas; parcela do 70 entre as duas 45,3% contra 63,3%
+  oficial; diferença de logits -0,7354 (ep 0,0518).
+      por município com 30 ou mais testemunhas do par: 12 municípios, correlação de postos 0,552. Sem limiar no
+      registro: descritivo.
+
+8. LEITURAS SECUNDÁRIAS
+  Intervalo dos eliminados: no 1º turno, 4.222 testemunhas digitaram número de eliminado (4,9% das testemunhas). Se
+  entre os que erram a tela a parcela dos eliminados que foi para Lula fosse 40% em vez de 50%, Theta subiria +0,0197;
+  25%, +0,0494; 60%, -0,0197; 75%, -0,0493; extremos +0,0989 (nenhum para Lula) e -0,0986 (todos). É limite, não
+  estimativa.
+  Lado oficial pesado pelas testemunhas (D19, não decide): AC+TO -0,1554 (ep 0,0121); AC -0,3295 (ep 0,0208); TO
+  -0,0888 (ep 0,0145).
+  Taxas de erro de tela, AC+TO (D20, não decide), por mil eleitores do lado: 13 de 73,28 para 54,24 (vezes 0,740); 22
+  de 54,29 para 34,53 (vezes 0,636). Theta = ln do multiplicador do 22 menos ln do multiplicador do 13.
+  Taxas de erro de tela, AC (D20, não decide), por mil eleitores do lado: 13 de 71,66 para 65,42 (vezes 0,913); 22 de
+  64,16 para 41,99 (vezes 0,655). Theta = ln do multiplicador do 22 menos ln do multiplicador do 13.
+  Taxas de erro de tela, TO (D20, não decide), por mil eleitores do lado: 13 de 73,83 para 50,60 (vezes 0,685); 22 de
+  47,93 para 29,94 (vezes 0,625). Theta = ln do multiplicador do 22 menos ln do multiplicador do 13.
+  Theta por tercil da parcela dos votos de governador do 1º turno dada a candidatos eliminados na seção (D20): maior
+  -0,3008 (ep 0,0228; parcela de 14,3% a 85,9%); media -0,1349 (ep 0,0182; parcela de 7,4% a 14,3%); menor -0,0623 (ep
+  0,0198; parcela de 0,0% a 7,3%).
+  Theta por tercil da força de Lula no 1º turno da seção (R11, não decide): lula fraco -0,3001 (ep 0,0221; R/L 2,36; a
+  troca de 3,57% daria +0,1173); meio -0,2223 (ep 0,0195; R/L 1,38; a troca de 3,57% daria +0,0844); lula forte
+  -0,1121 (ep 0,0208; R/L 0,63; a troca de 3,57% daria +0,0588). Diferença entre fraco e forte: -0,1880 (ep 0,0300); a
+  troca proporcional de 3,57% preveria +0,0586.
+  Governador no AC: 1º turno, comparecimento 488.330, nominais por candidato (11: 218.760, 10: 141.859, 45: 44.946,
+  40: 32.963, 21: 715, 36: 404), brancos 8.926, nulos 39.398, dígitos mais digitados nos nulos (22: 19.428, 13: 9.657,
+  00: 2.947, 55: 1.303, 77: 762, 12: 580, 70: 537, 44: 507); 2º turno, comparecimento 453.654, nominais (11: 272.635,
+  10: 139.108), brancos 11.979, nulos 29.612, dígitos (22: 12.082, 13: 9.454, 00: 4.307, 12: 529, 01: 309, 40: 242,
+  77: 231, 15: 176).
+  Governador no TO: 1º turno, comparecimento 965.196, nominais por candidato (44: 386.260, 45: 372.848, 55: 69.967,
+  30: 13.173, 50: 5.109, 27: 1.272, 35: 1.027), brancos 27.085, nulos 87.069, dígitos mais digitados nos nulos (13:
+  29.827, 22: 22.494, 00: 16.829, 15: 3.039, 10: 2.292, 20: 1.451, 12: 1.006, 11: 915); 2º turno, comparecimento
+  954.763, nominais (45: 562.083, 44: 309.076), brancos 20.323, nulos 61.903, dígitos (13: 22.412, 00: 14.491, 22:
+  14.011, 25: 1.294, 55: 812, 54: 704, 14: 643, 12: 628).
+
+9. TRADUÇÃO EM VOTOS DE MARGEM
+  Theta medido em AC e TO equivale a 7,92% dos votos verdadeiros contados para o outro lado, no sentido de Lula para
+  Flávio (50.509 votos em AC e TO). Se a mesma fração valesse no país (suposição, não medida): 5.524.540 votos, efeito
+  de -11.049.080 na margem (-249,4% de 4.430.191).
+  Intervalo de Theta mais ou menos 1,96 erro total (sistemático 0,015; erro total 0,0193): Theta de -0,1894 a -0,1139;
+  efeito na margem, se uniforme no país, de -13.818.589 a -8.284.794 (-311,9% a -187,0% da margem).
+  Intervalo de Theta mais ou menos 1,96 erro total (sistemático do placebo; erro total 0,2233): Theta de -0,5893 a
+  +0,2860; efeito na margem, se uniforme no país, de -42.955.014 a 14.605.425 (-969,6% a 329,7% da margem).
+  Referência: a troca que vira o resultado (3,57% dos votos de Flávio, 100% da margem) daria Theta de +0,0812 nessas
+  seções.
+
+10. SÓ DESCRITIVO: ES, DF, AM E RN (seções da amostra aleatória nova; sem veredito)
+  ES (45 seções): 1t: L 4.019, R 5.466, 13 é candidato a governador (ou não houve disputa): não serve, nulos de
+  governador com 22: 199 (36,41 por mil votos do lado) | 2t: L 4.811, R 5.754, nulos de governador com 13: 242 (50,30
+  por mil votos do lado), nulos de governador com 22: 143 (24,85 por mil votos do lado), W 0,6286 contra P 0,4554.
+  DF (35 seções): 1t: L 3.286, R 4.525, 13 é candidato a governador (ou não houve disputa): não serve, nulos de
+  governador com 22: 151 (33,37 por mil votos do lado) | 2t: L 4.039, R 4.894, 13 é candidato a governador (ou não
+  houve disputa): não serve, nulos de governador com 22: 127 (25,95 por mil votos do lado).
+  AM (44 seções): 1t: L 5.829, R 5.492, nulos de governador com 13: 278 (47,69 por mil votos do lado), 22 é candidato
+  a governador (ou não houve disputa): não serve | 2t: L 6.209, R 5.519, nulos de governador com 13: 203 (32,69 por
+  mil votos do lado), 22 é candidato a governador (ou não houve disputa): não serve.
+  RN (51 seções): 1t: L 7.560, R 4.114, 13 é candidato a governador (ou não houve disputa): não serve, 22 é candidato
+  a governador (ou não houve disputa): não serve | 2t: L 8.569, R 4.201, 13 é candidato a governador (ou não houve
+  disputa): não serve, nulos de governador com 22: 151 (35,94 por mil votos do lado).
+  Multiplicador da taxa por eleitor do lado, do 1º para o 2º turno, onde o número é inválido nos dois turnos: ES, 22:
+  vezes 0,68 (ln -0,38, erro de contagem 0,11); DF, 22: vezes 0,78 (ln -0,25, erro de contagem 0,12); AM, 13: vezes
+  0,69 (ln -0,38, erro de contagem 0,09). Em AC e TO: 13 vezes 0,74, 22 vezes 0,64. A taxa cai entre os turnos em toda
+  parte; o quanto cai muda de UF para UF.
+
+11. O QUE PESA A FAVOR DA TESE (leitura escrita depois de ver o resultado)
+  1. O teste não absolve. O zero do termômetro está fora do lugar (-0,15 em AC e TO, -0,33 no AC). Com a troca de
+  3,57% plantada na contagem, Theta sobe o valor exato da fórmula (+0,0813), mas fica em -0,0703 e o critério de SINAL
+  não dispara. Não dá para excluir que o comportamento de quem anula o governador, sozinho, desse -0,23 e a contagem
+  somasse +0,08.
+  2. Quando se tenta tirar o efeito da disputa de governador (exploratório, conta de modelo), o TO passa para o lado
+  positivo: a reta até a parcela zero de governador eliminado dá +0,0351 (ep 0,0278) e a regressão por seção dá
+  +0,0796. A troca que vira o resultado daria +0,073 no TO. Esses dois números são compatíveis com zero e com a troca;
+  não separam.
+  3. Dentro do AC, Theta é menos negativo onde Lula é fraco: diferença de +0,1415 (ep 0,0485) entre os tercis, o
+  sentido que uma troca proporcional prevê (+0,0529 para 3,57%), embora 2,7 vezes maior do que essa troca daria.
+  4. O sinal negativo admite uma leitura a favor da tese: cédulas inteiras fabricadas ou trocadas para Lula, com o 13
+  repetido na tela de governador, deixariam 13 a mais entre os nulos de governador. O excesso é de 4.484 votos (0,33%
+  dos válidos de AC e TO). Lido inteiro como fraude e estendido ao país, valeria 9,4% da margem se fabricadas e 18,7%
+  se trocadas. É teto, e os itens 4 e 5 do que pesa contra o reduzem.
+  5. O placebo lido ao pé da letra aponta no sentido da tese do Léo para 2022: em AL 2022 a contagem andou para Lula
+  mais do que as testemunhas, Theta +0,2230 (16,4 ep). Mas o tamanho (11,7% dos votos de Bolsonaro) é mais de 6 vezes
+  a fração que viraria 2022 (1,8%), e o sinal troca de 2022 para 2026 com o mesmo vencedor.
+  6. RDV, boletim e bweb saem do mesmo programa. Um programa que reescrevesse os nulos de governador junto com o voto
+  de presidente escaparia deste teste por construção.
+
+12. O QUE PESA CONTRA A TESE (leitura escrita depois de ver o resultado)
+  1. Theta é negativo em todos os recortes registrados antes: AC (-0,333), TO (-0,093), os três tercis de escolaridade
+  (-0,109, -0,127, -0,277), os três de governador eliminado e os três de força de Lula; e em 19 de 20 décimos
+  (exploratório). Em nenhum a contagem oficial andou para Lula mais do que as testemunhas. A marca prevista pela tese
+  era positiva: +0,0812.
+  2. No TO, na metade das seções com menos voto de governador eliminado (2.192 seções), onde o termômetro é menos
+  contaminado, Theta = -0,0296 (ep 0,0198); a troca que vira daria +0,0678, que fica a 4,9 ep (exploratório, só erro
+  de amostra).
+  3. A inclinação por força de Lula (R11, fixada antes de abrir) tem o sinal contrário ao da troca proporcional:
+  -0,1880 (ep 0,0300) contra +0,0586 previsto; dentro do TO, -0,0680 (ep 0,0397) contra +0,0443.
+  4. O 13 a mais do 2º turno não acompanha os votos de Flávio da seção (AC -0,0011, ep 0,0018; TO -0,0008, ep 0,0018
+  por voto de Flávio). Cédula inteira trocada de Flávio para Lula com o 13 repetido fica limitada a 0,25% (AC) e 0,28%
+  (TO) dos votos de Flávio, no teto de 95%: menos de um décimo dos 3,57% (exploratório, conta de modelo).
+  5. Também não acompanha comparecimento novo: no AC o comparecimento caiu 34.676 e só 145 seções subiram, somando 452
+  eleitores; no TO caiu 10.433, com 6.473 eleitores a mais em 1.452 seções. Por eleitor a mais aparecem 0,21 (ep 0,13)
+  e 0,04 (ep 0,03) nulos com 13; cédula fabricada com 13 nos dois cargos daria perto de 1.
+  6. O termômetro acompanha a eleição de governador, não quem ganhou a presidência: Theta foi +0,22 em AL 2022 e -0,15
+  em AC e TO 2026, com Lula vencendo as duas; e dentro de cada UF muda com a parcela dos votos de governador dada a
+  eliminados (TO: de +0,02 a -0,29; inclinação -1,31, ep 0,23). Uma alteração só na contagem de presidente não tem por
+  que depender da disputa de governador.
+  7. Os RDV conferem com o bweb em 6.654 seções, nos dois turnos e nos dois cargos, candidato a candidato. Isso fecha
+  alteração depois da urna nessas seções; não pesa contra programa adulterado na origem.
+
+13. O QUE ISSO SIGNIFICA (leitura escrita depois de ver o resultado)
+  O desenho supunha que quem digita o número do presidenciável na tela de governador é uma amostra estável da intenção
+  presidencial entre os turnos. Não é. No 1º turno são 81.406 testemunhas (5,6 por 100 votantes), MAIS do que no 2º
+  (57.959; 4,1 por 100): é sobretudo voto de legenda de quem não tem candidato a governador do seu partido, não erro
+  de tela. A taxa por eleitor cai entre os turnos em fatores diferentes de cada lado (13: vezes 0,74; 22: vezes 0,64),
+  e os fatores mudam com a UF e com a disputa de governador.
+  O erro sistemático real do instrumento é da ordem de 0,1 a 0,3 (AL 2022 +0,22; AC -0,33; TO -0,09), contra 0,015
+  suposto no registro e +0,081 procurado. O teste tinha erro de amostra de sobra (ep 0,0121) e termômetro aprovado no
+  1º turno (0,922), mas a validade em nível num turno não garante estabilidade entre os turnos.
+  O SINAL do espelho pela letra (só com 2026) não conta como indício de fraude a favor de Flávio. Das três condições
+  do Adendo 27, falha a calibração: a explicação inocente plantada desloca Theta do mesmo jeito que a troca, e o
+  deslocamento medido acompanha a disputa de governador. Com o placebo o erro total vai a 0,223 e o espelho cai para
+  0,68 erro. Só com 2026, usando como erro sistemático metade da diferença entre AC e TO (0,120; exploratório), cai
+  para 1,26 erro.
+  Consequência para a investigação: este era um dos dois únicos desenhos registrados que, em princípio, enxergariam
+  uma troca sorteada e coerente dentro da urna. Em AC e TO ele não enxerga nada do tamanho necessário, nem para acusar
+  nem para absolver. A porta continua aberta e sobra o D4-4 (nulos de digitação no próprio voto de presidente), que
+  não passa pela eleição de governador.
+
+14. PISTAS (leitura escrita depois de ver o resultado)
+  1. D4-4 no universo, não em amostra: os pacotes de arquivos transmitidos do TSE podem ser lidos em fluxo guardando
+  só RDV e boletim (uma UF inteira ocupa de 4 a 64 MB). Com todas as UFs o erro do D4-4 cai para perto de 0,007 e ele
+  não depende da eleição de governador.
+  2. Medir a instabilidade do termômetro de governador com mais casos: a mesma conta em todas as UFs e anos em que 13
+  e o número do adversário não eram candidatos a governador nos dois turnos (2018 e 2022 estão no mesmo endereço). Se
+  a dispersão ficar em 0,2 ou mais, o desenho D4-3 deve ser abandonado de vez.
+  3. AC: a taxa do 13 quase não caiu no 2º turno (vezes 0,91, contra 0,69 no TO e 0,70 em AL 2022) e passa de 1 onde
+  mais votos de governador foram para eliminados. É o número mais fora da curva do teste. Conferir na imprensa local
+  quem PT e PL apoiaram no 2º turno de governador do AC e do TO (não conferido aqui).
+  4. Pacote do TSE do TO, 2º turno: há um membro a mais, de 47 bytes, chamado
+  5Nim5OYPO-buOO056ziCIDfG3kH3gPCuilBllCcL8yE=.id, cujo conteúdo é o próprio nome. Não tem voto e parece marca de
+  ferramenta de armazenamento; vale perguntar ao TSE o que é. Os outros três pacotes de 2026 não têm.
+  5. Para o conferente: refazer com código próprio a partir dos quatro pacotes; os números a bater são as somas 13/22
+  por UF e turno (seção 4) e Theta. Conferir em especial se a leitura do nulo com dígitos (tipo 4 do RDV, cargo 3) é a
+  mesma.
+
+15. EXPLORATÓRIO (feito depois de ver o resultado; não decide nada)
+  Pergunta: o que move o termômetro entre os turnos, a disputa de governador ou a contagem de presidente?
+  E3, quanto basta: Theta seria zero com 4.484 nulos de governador com 13 a menos no 2º turno (0,76% dos votos de
+  Lula; AC 2.676, TO 1.981) ou com 4.273 com 22 a mais (0,57% dos votos de Flávio). Votos dados no 1º turno a
+  candidatos a governador eliminados: AC 79.028 (45: 44.946, 40: 32.963, 21: 715); TO 90.548 (55: 69.967, 30: 13.173,
+  50: 5.109).
+  E1, AC, nulos com 13 no 2º turno, por seção (2.270 seções, erro por local): por voto de Lula no 2º turno +0,0458 (ep
+  0,0055); por voto de Flávio no 2º turno -0,0011 (ep 0,0018); por testemunha do mesmo número no 1º turno +0,2996 (ep
+  0,0440); por voto do governador eliminado 40 no 1º turno +0,0099 (ep 0,0142); por voto do governador eliminado 45 no
+  1º turno -0,0032 (ep 0,0051). Total que a regressão liga a cada eliminado: 40: 327, 45: -144.
+  E1, AC, nulos com 22 no 2º turno, por seção (2.270 seções, erro por local): por voto de Lula no 2º turno +0,0085 (ep
+  0,0024); por voto de Flávio no 2º turno +0,0224 (ep 0,0017); por testemunha do mesmo número no 1º turno +0,2468 (ep
+  0,0158); por voto do governador eliminado 40 no 1º turno -0,0410 (ep 0,0083); por voto do governador eliminado 45 no
+  1º turno +0,0201 (ep 0,0057). Total que a regressão liga a cada eliminado: 40: -1.351, 45: 901.
+  E1, TO, nulos com 13 no 2º turno, por seção (4.384 seções, erro por local): por voto de Lula no 2º turno +0,0305 (ep
+  0,0020); por voto de Flávio no 2º turno -0,0008 (ep 0,0018); por testemunha do mesmo número no 1º turno +0,1952 (ep
+  0,0196); por voto do governador eliminado 30 no 1º turno -0,0074 (ep 0,0213); por voto do governador eliminado 50 no
+  1º turno +0,0139 (ep 0,0302); por voto do governador eliminado 55 no 1º turno +0,0481 (ep 0,0089). Total que a
+  regressão liga a cada eliminado: 30: -97, 50: 71, 55: 3.366.
+  E1, TO, nulos com 22 no 2º turno, por seção (4.384 seções, erro por local): por voto de Lula no 2º turno +0,0031 (ep
+  0,0007); por voto de Flávio no 2º turno +0,0189 (ep 0,0009); por testemunha do mesmo número no 1º turno +0,1743 (ep
+  0,0132); por voto do governador eliminado 30 no 1º turno -0,0080 (ep 0,0140); por voto do governador eliminado 50 no
+  1º turno -0,1352 (ep 0,0220); por voto do governador eliminado 55 no 1º turno +0,0092 (ep 0,0029). Total que a
+  regressão liga a cada eliminado: 30: -105, 50: -691, 55: 643.
+  Theta sem a parte que a regressão liga aos eleitores de governador eliminado (conta de modelo, ecológica): AC + TO
+  -0,0117; AC -0,2768; TO +0,0796.
+  E2, AC, Theta por décimo da parcela dos votos de governador do 1º turno dada a eliminados (parcela média: Theta;
+  multiplicador da taxa do 13 e do 22): 2,8%: -0,279 (0,83 e 0,63); 5,4%: -0,241 (0,81 e 0,64); 7,9%: -0,224 (0,80 e
+  0,64); 10,7%: -0,269 (0,89 e 0,68); 14,1%: -0,474 (0,97 e 0,60); 19,0%: -0,324 (0,88 e 0,64); 23,6%: -0,224 (0,86 e
+  0,68); 26,5%: -0,462 (1,10 e 0,70); 29,4%: -0,407 (1,08 e 0,72); 35,2%: -0,478 (1,09 e 0,67). Reta até a parcela
+  zero: Theta -0,2206 (ep 0,0386); inclinação -0,65 (ep 0,21).
+  E2, TO, Theta por décimo da parcela dos votos de governador do 1º turno dada a eliminados (parcela média: Theta;
+  multiplicador da taxa do 13 e do 22): 2,0%: -0,036 (0,56 e 0,54); 4,0%: +0,017 (0,56 e 0,57); 5,4%: -0,030 (0,60 e
+  0,59); 6,8%: -0,061 (0,63 e 0,59); 8,3%: -0,045 (0,64 e 0,61); 9,9%: -0,077 (0,71 e 0,66); 11,8%: -0,132 (0,75 e
+  0,66); 13,8%: -0,185 (0,78 e 0,65); 16,3%: -0,161 (0,82 e 0,70); 25,5%: -0,293 (0,92 e 0,68). Reta até a parcela
+  zero: Theta +0,0351 (ep 0,0278); inclinação -1,31 (ep 0,23).
+  E2b, só a metade das seções com menor parcela de governador eliminado: AC Theta -0,3008 (ep 0,0267; 1.135 seções;
+  parcela até 16,2%; a troca de 3,57% daria +0,1048); TO Theta -0,0296 (ep 0,0198; 2.192 seções; parcela até 9,0%; a
+  troca de 3,57% daria +0,0678).
+  E4, AC, Theta por tercil de força de Lula dentro da UF: lula fraco -0,2526 (ep 0,0338); meio -0,3598 (ep 0,0323);
+  lula forte -0,3941 (ep 0,0344). Fraco menos forte: +0,1415 (ep 0,0485); a troca proporcional de 3,57% preveria
+  +0,0529.
+  E4, TO, Theta por tercil de força de Lula dentro da UF: lula fraco -0,1953 (ep 0,0296); meio -0,0959 (ep 0,0235);
+  lula forte -0,1273 (ep 0,0268). Fraco menos forte: -0,0680 (ep 0,0397); a troca proporcional de 3,57% preveria
+  +0,0443.
+  E5, leitura a favor da tese que o sinal negativo admite (cédula inteira fabricada ou trocada para Lula, com o 13
+  repetido em governador): o excesso de 13 é de 4.484 votos, 0,33% dos válidos de AC e TO. Se TODO o excesso fosse
+  isso e valesse igual no país: 414.274 cédulas, 9,4% da margem se fabricadas e 18,7% se trocadas. É teto, não
+  estimativa.
+  E6, AC: o comparecimento variou -34.676 entre os turnos; 145 seções subiram, somando 452 eleitores. Nulos com 13 por
+  eleitor a mais na seção: +0,209 (ep 0,126); com 22: +0,040 (ep 0,052). Cédula fabricada com 13 nos dois cargos daria
+  perto de 1 no 13.
+  E6, TO: o comparecimento variou -10.433 entre os turnos; 1.452 seções subiram, somando 6.473 eleitores. Nulos com 13
+  por eleitor a mais na seção: +0,037 (ep 0,032); com 22: +0,003 (ep 0,015). Cédula fabricada com 13 nos dois cargos
+  daria perto de 1 no 13.
+  E7, placebo AL 2022, as mesmas contas: nulos com 22 no 2º turno por voto do governador eliminado 14 +0,0120 (ep
+  0,0034); nulos com 13, +0,0124 (ep 0,0049). Theta por décimo da parcela de governador eliminado: 5,2%: +0,297;
+  10,1%: +0,208; 14,4%: +0,207; 19,3%: +0,174; 23,4%: +0,131; 27,7%: +0,135; 32,8%: +0,095; 36,9%: +0,073; 40,4%:
+  +0,061; 47,7%: +0,227. Reta até zero: +0,2223 (ep 0,0329); inclinação -0,27 (ep 0,11). Em AL 2022 o Theta positivo
+  NÃO some onde há pouco voto de governador eliminado: ali o que muda entre os turnos é a taxa do 13, que cai mais
+  (vezes 0,70) que a do 22 (vezes 0,87). Lido ao pé da letra seriam 11,7% dos votos de Bolsonaro contados para Lula em
+  AL, 7.947.935 votos se fosse igual no país.
+  E8, de que lado era o eleitor de cada candidato a governador (correlação, por seção, entre a parcela do candidato e
+  a parcela de Lula no 1º turno): AC 2026: 11 +0,08 (218.760 votos), 10 -0,08 (141.859 votos), 45 -0,31 (44.946
+  votos), 40 +0,40 (32.963 votos); TO 2026: 44 +0,31 (386.260 votos), 45 -0,19 (372.848 votos), 55 -0,01 (69.967
+  votos), 30 -0,60 (13.173 votos), 50 -0,28 (5.109 votos); AL 2022: 15 +0,65 (708.984 votos), 44 -0,15 (407.220
+  votos), 14 -0,79 (223.585 votos), 55 -0,20 (157.746 votos), 50 -0,47 (17.749 votos). Em AL 2022 o eliminado 14 era o
+  candidato do eleitorado de Bolsonaro e o finalista 15 o do eleitorado de Lula; no AC 2026 os dois finalistas (11 e
+  10) são neutros e os eliminados se dividem (40 do lado de Lula, 45 do lado de Flávio); no TO o 55 é neutro.
+  Leitura do exploratório: a explicação "o lado que ficou sem candidato a governador continua anulando com o seu
+  número" combina com o sinal por UF (AL 2022 positivo, AC e TO 2026 negativos) e com a inclinação dentro do TO, mas
+  não com a inclinação dentro de AL 2022. O que os dados sustentam sem depender dela: a diferença entre turnos do
+  termômetro muda com a eleição de governador em tamanho maior que o efeito procurado. O porquê fica em aberto.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+  Fonte: pacotes de arquivos transmitidos do TSE por UF e turno, lidos em fluxo (nada do zip em disco; só RDV e
+  boletim guardados, com CRC conferido), em vez do download seção a seção do desenho.
+  Execução retomada depois de interrupção: o docstring é o do commit 6677983, sem mudança. As decisões que faltavam
+  (R1 a R10, 10:57 UTC) e a regra do veredito em código estão no commit 9a8dd54 (11:07:41 UTC, feito pela sessão
+  principal), anterior à etapa 1 (11:27 UTC); o SHA-256 do bloco nesse commit é o mesmo de registro_decisoes.json. A
+  leitura R11 (11:09 UTC) só tem horário local, não tem commit anterior ao resultado. Este agente não fez commit.
+  Dois fluxos ao mesmo tempo no cdn do TSE (TO 2026 e AL 2022), contra a regra de um pacote por vez; nada além de RDV
+  e boletim foi a disco (148 MB nos seis pacotes guardados).
+  Validade (D7): a regra do mínimo de testemunhas por município escolheu 1, isto é, todos os 161 municípios; igual à
+  leitura sem mínimo. Passa do limiar de 0,9 (0,922), mas fica abaixo do percentil 5 de um termômetro perfeito
+  (0,942); o TO sozinho dá 0,893.
+  Veredito (D9): Theta abaixo de -0,020 não tem cláusula no registro; ficou INCONCLUSIVO pela letra e foi lido no
+  espelho.
+  Calibração (D11): "enxerga o plantado" foi definido antes como o aumento de Theta igual ao da fórmula e de pelo
+  menos 2,5 erros totais; cumpre (4,22 erros). Se "enxergar" for lido como o critério de SINAL disparar no dado com o
+  plantio, NÃO cumpre (Theta fica em -0,0703) e o veredito seria SEM PODER. As duas leituras levam à mesma conclusão
+  prática: o teste não decide.
+  Tercis de escolaridade: 10 seções sem perfil ficaram fora dessa leitura.
+  Descritivo de ES, DF, AM e RN: só as seções da amostra aleatória nova (175 seções). Correção ao desenho: no ES o 22
+  também não tem voto nominal de governador no 1º turno.
+  Placebo AL 2022: sem tercis (não há perfil de 2022 em disco); boletim de 2022 não decodificado; o leitor de RDV foi
+  adaptado ao formato de 2022 (o nó das eleições tem outro rótulo), antes da etapa 1.
+  Exploratório (seção 15): tudo o que está lá foi feito depois de ver Theta e não decide nada.
+  Cláusulas contadas para o acaso: 9 (principal, espelho, AC, TO, tercil baixa, tercil media, tercil alta, placebo 3,
+  duas metades); a 5% cada, o acaso daria 0,45 sinal.
+
+AVISO QUE VALE PARA O TESTE INTEIRO
+  RDV e boletim saem do mesmo programa da urna. O teste enxerga uma alteração que mexa só na contagem de presidente;
+  um programa que também reescrevesse os nulos de governador de forma coerente escaparia. Vale só para AC e TO (1,3%
+  das seções do país).

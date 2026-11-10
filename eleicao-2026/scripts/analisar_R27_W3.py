@@ -234,6 +234,17 @@ R10. Sensibilidade do D2: Theta repetido com todas as seções que têm RDV nos 
     conferência, usando os votos oficiais da base.
 """
 
+DECISOES_RETOMADA_2 = """ACRESCENTADO ÀS 11:10 UTC DE 10/11/2026, ainda ANTES da etapa 1 e de qualquer contagem de testemunha separada por
+lado (até aqui só rodaram a conferência do AC contra o bweb, que não separa 13 de 22, e ensaios do código com
+testemunhas sintéticas). Não decide nada.
+R11. Leitura secundária por força: Theta por tercil da parcela oficial de Lula no 1º turno da seção (L1/(L1+R1);
+    tercis com o mesmo número de seções, AC e TO juntos). Sob troca proporcional uniforme de fração p dos votos de
+    Flávio, Theta de cada grupo vale ln[(1 + p R/L)/(1 - p)] com R/L do 2º turno do grupo, logo cresce onde Flávio é
+    forte; sob mudança uniforme de comportamento de quem erra a tela, Theta é igual nos grupos. Relato Theta por
+    tercil, a diferença entre o tercil em que Lula é mais fraco e o em que é mais forte (erro pelo mesmo bootstrap)
+    e a diferença que a fórmula prevê para p = 3,57%.
+"""
+
 
 def P(*a):
     print(*a, flush=True)
@@ -446,7 +457,8 @@ def ler_rdv_bytes(b):
         if (n[0], n[1]) == (0, 16) and len(f) == 3 and (f[0][0], f[0][1]) == (0, 16) and all((c[0], c[1]) == (0, 2) for c in f[1:]):
             mz = _f(f[0])
             ident = (_int(mz[0][2]), _int(mz[1][2]), _int(f[1][2]), _int(f[2][2]))
-    els = [n for n in rdv if (n[0], n[1]) == (2, 1)][0][2]
+    # 2026: as eleições vêm no nó [2:1]; 2022: no nó [2:0]. O resto da estrutura é igual.
+    els = ([n for n in rdv if (n[0], n[1]) == (2, 1)] or [n for n in rdv if (n[0], n[1]) == (2, 0)])[0][2]
     out = collections.Counter()
     for el in els:
         f = _f(el)
@@ -1323,6 +1335,23 @@ def abrir():
                                'comparecimento': sum(tab[k]['comp' + t] for k in mu)}
     out['governador_descritivo'] = gov
 
+    # R11: Theta por força de Lula no 1º turno
+    p1s = {k: X[i, 0] / (X[i, 0] + X[i, 1]) for i, k in enumerate(ks) if X[i, 0] + X[i, 1] > 0}
+    mf = _mascaras_tercil(ks, _tercis(p1s), {2: 'lula_forte', 1: 'meio', 0: 'lula_fraco'})
+    pf, reps = {}, {}
+    for nome, m in mf.items():
+        r, rp = _conta(X, loc, nloc, C, m)
+        vs = [p1s[k] for k, mm in zip(ks, m) if mm]
+        r['faixa_de_P1'] = [min(vs), max(vs)]
+        r['R_sobre_L_2t'] = r['somas']['R2'] / r['somas']['L2']
+        r['formula_p_0357'] = math.log((1 + 0.0357 * r['R_sobre_L_2t']) / (1 - 0.0357))
+        pf[nome] = r; reps[nome] = rp
+    dr = reps['lula_fraco'] - reps['lula_forte']
+    okd = np.isfinite(dr)
+    pf['diferenca_fraco_menos_forte'] = {'observada': pf['lula_fraco']['theta'] - pf['lula_forte']['theta'], 'ep': float(dr[okd].std(ddof=1)),
+                                         'prevista_pela_formula_p_0357': pf['lula_fraco']['formula_p_0357'] - pf['lula_forte']['formula_p_0357']}
+    out['por_tercil_de_forca_de_lula_1t'] = pf
+
     # D17: tradução em votos
     out['traducao_em_votos'] = {'ponto': _traduz(princ['theta'], princ['P2'], R2u, L2u)}
     for sis_nome, sis in (('sis_0015', 0.015),):
@@ -1363,6 +1392,7 @@ def abrir():
     P('  taxas:', json.dumps(out['taxas_de_erro_de_tela']))
     P('  tercil gov eliminado:', json.dumps({k_: (v_['theta'], v_['ep']) for k_, v_ in out['por_tercil_da_parcela_de_governador_eliminado'].items() if isinstance(v_, dict)}))
     P('  tradução:', json.dumps(out['traducao_em_votos']['ponto']))
+    P('  por força:', json.dumps({k_: ((v_['theta'], v_['ep'], v_['formula_p_0357']) if 'theta' in v_ else v_) for k_, v_ in pf.items()}))
 
 
 def placebo():
@@ -1405,6 +1435,242 @@ def placebo():
     P('  P1, P2, W1, W2:', r['P1'], r['P2'], r['W1'], r['W2'], r['somas'])
     P('  taxas:', json.dumps(out['taxas_de_erro_de_tela']))
     P('  validade 1t:', json.dumps({k_: v_ for k_, v_ in out['validade_1t_por_municipio'].items() if k_ != 'grade'}))
+
+
+# ---------------------------------------------------------------- exploratório (DEPOIS de ver Theta; não decide nada)
+def _mqo_cluster(y, Xr, grupos):
+    """MQO sem intercepto com erro agrupado por local (CR1)."""
+    b, *_ = np.linalg.lstsq(Xr, y, rcond=None)
+    e = y - Xr @ b
+    inv = np.linalg.inv(Xr.T @ Xr)
+    G = int(grupos.max()) + 1
+    Sg = np.zeros((G, Xr.shape[1]))
+    np.add.at(Sg, grupos, Xr * e[:, None])
+    n, k = Xr.shape
+    V = inv @ (Sg.T @ Sg) @ inv * (G / (G - 1)) * ((n - 1) / (n - k))
+    return b, np.sqrt(np.diag(V))
+
+
+def exploratorio():
+    """Escrito DEPOIS de abrir Theta (-0,15, no sentido contrário ao da tese, com AC -0,33 e TO -0,09).
+    Pergunta: o que move o termômetro entre os turnos, a disputa de governador ou a contagem de presidente?
+    E1. Por seção e por UF: nulos de governador com 13 (e com 22) no 2º turno contra votos oficiais de Lula e de Flávio
+        no 2º turno, as testemunhas do mesmo número no 1º turno e os votos de cada candidato a governador eliminado no
+        1º turno. Se o que sobra de 13 no 2º turno acompanha os votos de um governador eliminado, é a disputa de governador.
+    E2. Theta por décimos da parcela dos votos de governador do 1º turno dada a eliminados (dentro de cada UF) e a reta
+        até parcela zero (o que o termômetro diria sem eleitor órfão de governador).
+    E3. Quanto de 13 a mais (ou de 22 a menos) no 2º turno basta para levar Theta a zero, ao lado dos votos dos eliminados.
+    E4. Theta por tercil de força de Lula dentro de cada UF (o R11 misturava AC e TO).
+    E5. Leitura a favor da tese que o sinal negativo admite: cédulas inteiras fabricadas ou trocadas para Lula com o 13
+        repetido em governador. Teto em votos se TODO o excesso de 13 fosse isso, e o que a regressão E1 diz: o excesso
+        acompanha Lula e Flávio no 2º turno ou os eliminados de governador?
+    """
+    d = _carrega('2026')
+    X, loc, nloc, ks, tab = d['X'], d['loc'], d['nloc'], d['k'], d['tab']
+    C = _contagens_boot(d['uf_loc'])
+    fin = {'AC': ('10', '11'), 'TO': ('44', '45')}
+    out = {'aviso': 'exploratório, feito depois de ver o resultado; não decide nada'}
+    S = X.sum(0)
+    # E3
+    dP = math.log(S[2] / S[3]) - math.log(S[0] / S[1])
+    a2_zero = S[7] * (S[4] / S[5]) * math.exp(dP)
+    b2_zero = S[6] / ((S[4] / S[5]) * math.exp(dP))
+    out['E3_quanto_basta'] = {'g13_2t_observado': int(S[6]), 'g13_2t_que_daria_theta_zero': a2_zero, 'excesso_de_13': S[6] - a2_zero, 'excesso_de_13_por_cento_dos_votos_de_lula_2t': 100 * (S[6] - a2_zero) / S[2],
+                              'g22_2t_observado': int(S[7]), 'g22_2t_que_daria_theta_zero': b2_zero, 'falta_de_22': b2_zero - S[7], 'falta_de_22_por_cento_dos_votos_de_flavio_2t': 100 * (b2_zero - S[7]) / S[3],
+                              'por_uf': {}}
+    for u in UFS:
+        Su = X[d['uf'] == u].sum(0)
+        dPu = math.log(Su[2] / Su[3]) - math.log(Su[0] / Su[1])
+        az = Su[7] * (Su[4] / Su[5]) * math.exp(dPu)
+        elim = collections.Counter()
+        for k in ks:
+            if tab[k]['uf'] == u:
+                for c_, q in tab[k]['gn1'].items():
+                    if c_ not in fin[u]:
+                        elim[c_] += q
+        out['E3_quanto_basta']['por_uf'][u] = {'excesso_de_13': Su[6] - az, 'excesso_por_cento_dos_votos_de_lula_2t': 100 * (Su[6] - az) / Su[2],
+                                               'votos_de_governador_eliminado_1t': dict(elim), 'excesso_sobre_votos_dos_eliminados': (Su[6] - az) / sum(elim.values())}
+    # E1
+    out['E1_regressao_por_secao'] = {}
+    for u in UFS:
+        m = d['uf'] == u
+        kk = [k for k, mm in zip(ks, m) if mm]
+        cands = sorted({c_ for k in kk for c_ in tab[k]['gn1'] if c_ not in fin[u]}, key=int)
+        tot = {c_: sum(tab[k]['gn1'].get(c_, 0) for k in kk) for c_ in cands}
+        cands = [c_ for c_ in cands if tot[c_] >= 3000]
+        E = np.array([[tab[k]['gn1'].get(c_, 0) for c_ in cands] for k in kk], float)
+        Xu = X[m]
+        _, g = np.unique(loc[m], return_inverse=True)
+        res = {}
+        for alvo, col2, col1 in (('g13_2t', 6, 4), ('g22_2t', 7, 5)):
+            Xr = np.column_stack([Xu[:, 2], Xu[:, 3], Xu[:, col1], E])
+            b, se = _mqo_cluster(Xu[:, col2], Xr, g)
+            nomes = ['por voto de Lula no 2º turno', 'por voto de Flávio no 2º turno', 'por testemunha do mesmo número no 1º turno'] + [f'por voto do governador eliminado {c_} no 1º turno' for c_ in cands]
+            res[alvo] = {nm: {'coef': float(bb), 'ep': float(ss)} for nm, bb, ss in zip(nomes, b, se)}
+            res[alvo]['_explicado_pelos_eliminados'] = {c_: float(bb * tot[c_]) for c_, bb in zip(cands, b[3:])}
+        res['votos_dos_eliminados_1t'] = {c_: tot[c_] for c_ in cands}
+        res['n_secoes'] = int(m.sum())
+        out['E1_regressao_por_secao'][u] = res
+    # Theta depois de tirar das testemunhas do 2º turno o que a regressão atribui aos eleitores de governador eliminado
+    Xc = X.copy()
+    for u in UFS:
+        m = np.flatnonzero(d['uf'] == u)
+        res = out['E1_regressao_por_secao'][u]
+        cands = list(res['votos_dos_eliminados_1t'])
+        E = np.array([[tab[ks[i]]['gn1'].get(c_, 0) for c_ in cands] for i in m], float)
+        for alvo, col2 in (('g13_2t', 6), ('g22_2t', 7)):
+            bet = np.array([res[alvo][f'por voto do governador eliminado {c_} no 1º turno']['coef'] for c_ in cands])
+            Xc[m, col2] = X[m, col2] - E @ bet
+    out['theta_sem_a_parte_atribuida_aos_eliminados_de_governador'] = {'AC+TO': float(_theta(Xc.sum(0))), **{u: float(_theta(Xc[d['uf'] == u].sum(0))) for u in UFS},
+                                                                      'nota': 'conta de modelo, ecológica; serve para ver a ordem de grandeza, não para decidir'}
+    # E2
+    pe = {}
+    for k in ks:
+        g_ = tab[k]['gn1']; t_ = sum(g_.values())
+        if t_ > 0:
+            pe[k] = 1 - sum(g_.get(f, 0) for f in fin[tab[k]['uf']]) / t_
+    out['E2_decimos'] = {}
+    for u in UFS:
+        ku = sorted((k for k in pe if tab[k]['uf'] == u), key=lambda k: (pe[k], k))
+        n = len(ku)
+        grupo = {k: min(9, i * 10 // n) for i, k in enumerate(ku)}
+        linhas, reps, xs = [], [], []
+        for gq in range(10):
+            mm = np.array([grupo.get(k) == gq for k in ks])
+            r, rp = _conta(X, loc, nloc, C, mm)
+            xm = float(np.mean([pe[k] for k in ku if grupo[k] == gq]))
+            tx = _taxas(X[mm].sum(0))
+            linhas.append({'decimo': gq + 1, 'parcela_media': xm, 'theta': r['theta'], 'ep': r['ep'], 'multiplicador_r13': tx['multiplicador_r13'], 'multiplicador_r22': tx['multiplicador_r22']})
+            reps.append(rp); xs.append(xm)
+        xs = np.array(xs); th = np.array([l['theta'] for l in linhas]); w = 1 / np.array([l['ep'] for l in linhas]) ** 2
+        def reta(y):
+            A_ = np.column_stack([np.ones(10), xs]) * np.sqrt(w)[:, None]
+            return np.linalg.lstsq(A_, y * np.sqrt(w), rcond=None)[0]
+        b0 = reta(th)
+        R = np.array(reps)
+        okr = np.isfinite(R).all(0)
+        bb = np.array([reta(R[:, j]) for j in np.flatnonzero(okr)])
+        out['E2_decimos'][u] = {'linhas': linhas, 'reta': {'theta_na_parcela_zero': float(b0[0]), 'ep': float(bb[:, 0].std(ddof=1)), 'inclinacao': float(b0[1]), 'ep_inclinacao': float(bb[:, 1].std(ddof=1))}}
+    # E2b: Theta só nas seções da metade de baixo da parcela de governador eliminado, por UF
+    out['E2b_metade_de_baixo'] = {}
+    for u in UFS:
+        ku = sorted((k for k in pe if tab[k]['uf'] == u), key=lambda k: (pe[k], k))
+        baixo = set(ku[:len(ku) // 2])
+        mm = np.array([k in baixo for k in ks])
+        r, _ = _conta(X, loc, nloc, C, mm)
+        out['E2b_metade_de_baixo'][u] = {'theta': r['theta'], 'ep': r['ep'], 'n_secoes': r['n_secoes'], 'parcela_maxima': max(pe[k] for k in baixo),
+                                         'formula_p_0357': math.log((1 + 0.0357 * r['somas']['R2'] / r['somas']['L2']) / (1 - 0.0357)), 'taxas': _taxas(X[mm].sum(0))}
+    # E4
+    out['E4_forca_dentro_da_uf'] = {}
+    for u in UFS:
+        p1s = {k: X[i, 0] / (X[i, 0] + X[i, 1]) for i, k in enumerate(ks) if tab[k]['uf'] == u and X[i, 0] + X[i, 1] > 0}
+        mf = _mascaras_tercil(ks, _tercis(p1s), {2: 'lula_forte', 1: 'meio', 0: 'lula_fraco'})
+        q = {}
+        rr = {}
+        for nome, mm in mf.items():
+            r, rp = _conta(X, loc, nloc, C, mm)
+            q[nome] = {'theta': r['theta'], 'ep': r['ep'], 'R_sobre_L_2t': r['somas']['R2'] / r['somas']['L2'], 'formula_p_0357': math.log((1 + 0.0357 * r['somas']['R2'] / r['somas']['L2']) / (1 - 0.0357))}
+            rr[nome] = rp
+        dr = rr['lula_fraco'] - rr['lula_forte']
+        q['diferenca_fraco_menos_forte'] = {'observada': q['lula_fraco']['theta'] - q['lula_forte']['theta'], 'ep': float(dr[np.isfinite(dr)].std(ddof=1)), 'prevista_p_0357': q['lula_fraco']['formula_p_0357'] - q['lula_forte']['formula_p_0357']}
+        out['E4_forca_dentro_da_uf'][u] = q
+    # E5
+    exc = out['E3_quanto_basta']['excesso_de_13']
+    val2 = float(S[2] + S[3])
+    out['E5_leitura_a_favor_cedula_inteira'] = {
+        'hipotese': 'cédulas inteiras fabricadas ou trocadas para Lula com o 13 repetido em governador deixariam 13 a mais entre os nulos de governador',
+        'excesso_de_13_em_AC_e_TO': exc, 'por_cento_dos_validos_de_AC_e_TO': 100 * exc / val2,
+        'se_todo_o_excesso_fosse_isso_e_igual_no_pais_cedulas': exc / val2 * (L2_OFICIAL + R2_OFICIAL),
+        'efeito_na_margem_se_fabricadas': exc / val2 * (L2_OFICIAL + R2_OFICIAL), 'efeito_na_margem_se_trocadas': 2 * exc / val2 * (L2_OFICIAL + R2_OFICIAL),
+        'fracao_da_margem_se_fabricadas': exc / val2 * (L2_OFICIAL + R2_OFICIAL) / MARGEM, 'fracao_da_margem_se_trocadas': 2 * exc / val2 * (L2_OFICIAL + R2_OFICIAL) / MARGEM,
+        'nota': 'teto: atribui à fraude todo o excesso, inclusive a parte que a regressão E1 liga aos eleitores de governador eliminado'}
+    # E6: o 13 a mais acompanha o aumento de comparecimento da seção? (cédula fabricada com 13 nos dois cargos daria perto de 1)
+    out['E6_comparecimento'] = {}
+    for u in UFS:
+        m = d['uf'] == u
+        kk = [k for k, mm in zip(ks, m) if mm]
+        Xu = X[m]
+        dc = np.array([tab[k]['comp2'] - tab[k]['comp1'] for k in kk], float)
+        _, g = np.unique(loc[m], return_inverse=True)
+        cands = list(out['E1_regressao_por_secao'][u]['votos_dos_eliminados_1t'])
+        E = np.array([[tab[k]['gn1'].get(c_, 0) for c_ in cands] for k in kk], float)
+        r6 = {'variacao_do_comparecimento_total': float(dc.sum()), 'secoes_com_aumento': int((dc > 0).sum()), 'aumento_somado_nas_que_subiram': float(dc[dc > 0].sum())}
+        for alvo, col2, col1 in (('g13_2t', 6, 4), ('g22_2t', 7, 5)):
+            Xr = np.column_stack([Xu[:, 2], Xu[:, 3], Xu[:, col1], E, np.maximum(dc, 0), np.minimum(dc, 0)])
+            b_, se_ = _mqo_cluster(Xu[:, col2], Xr, g)
+            r6[alvo] = {'por_eleitor_a_mais_na_secao': {'coef': float(b_[-2]), 'ep': float(se_[-2])}, 'por_eleitor_a_menos_na_secao': {'coef': float(b_[-1]), 'ep': float(se_[-1])}}
+        out['E6_comparecimento'][u] = r6
+    # E7: a mesma regressão (E1) e os mesmos décimos (E2) no placebo AL 2022, onde quem ficou sem candidato a governador no
+    # 2º turno foi o lado de Bolsonaro (o 14 foi eliminado) e Theta saiu positivo
+    if os.path.exists(f'{TRAB}/tabela_2022.json.gz'):
+        d2 = _carrega('2022')
+        X2, loc2, ks2, tab2 = d2['X'], d2['loc'], d2['k'], d2['tab']
+        C2 = _contagens_boot(d2['uf_loc'])
+        fin2 = ('15', '44')
+        cands = sorted({c_ for k in ks2 for c_ in tab2[k]['gn1'] if c_ not in fin2}, key=int)
+        tot = {c_: sum(tab2[k]['gn1'].get(c_, 0) for k in ks2) for c_ in cands}
+        cands = [c_ for c_ in cands if tot[c_] >= 3000]
+        E = np.array([[tab2[k]['gn1'].get(c_, 0) for c_ in cands] for k in ks2], float)
+        _, g = np.unique(loc2, return_inverse=True)
+        res = {'votos_dos_eliminados_1t': {c_: tot[c_] for c_ in cands}, 'n_secoes': len(ks2)}
+        for alvo, col2, col1 in (('g13_2t', 6, 4), ('g22_2t', 7, 5)):
+            Xr = np.column_stack([X2[:, 2], X2[:, 3], X2[:, col1], E])
+            b_, se_ = _mqo_cluster(X2[:, col2], Xr, g)
+            nomes = ['por voto de Lula no 2º turno', 'por voto de Bolsonaro no 2º turno', 'por testemunha do mesmo número no 1º turno'] + [f'por voto do governador eliminado {c_} no 1º turno' for c_ in cands]
+            res[alvo] = {nm: {'coef': float(bb), 'ep': float(ss)} for nm, bb, ss in zip(nomes, b_, se_)}
+            res[alvo]['_explicado_pelos_eliminados'] = {c_: float(bb * tot[c_]) for c_, bb in zip(cands, b_[3:])}
+        pe2 = {}
+        for k in ks2:
+            g_ = tab2[k]['gn1']; t_ = sum(g_.values())
+            if t_ > 0:
+                pe2[k] = 1 - sum(g_.get(f, 0) for f in fin2) / t_
+        ku = sorted(pe2, key=lambda k: (pe2[k], k))
+        n2 = len(ku)
+        grupo = {k: min(9, i * 10 // n2) for i, k in enumerate(ku)}
+        linhas, reps, xs = [], [], []
+        for gq in range(10):
+            mm = np.array([grupo.get(k) == gq for k in ks2])
+            r, rp = _conta(X2, loc2, d2['nloc'], C2, mm)
+            tx = _taxas(X2[mm].sum(0))
+            xm = float(np.mean([pe2[k] for k in ku if grupo[k] == gq]))
+            linhas.append({'decimo': gq + 1, 'parcela_media': xm, 'theta': r['theta'], 'ep': r['ep'], 'multiplicador_r13': tx['multiplicador_r13'], 'multiplicador_r22': tx['multiplicador_r22']})
+            reps.append(rp); xs.append(xm)
+        xs = np.array(xs); th = np.array([l['theta'] for l in linhas]); w = 1 / np.array([l['ep'] for l in linhas]) ** 2
+        def reta2(y):
+            A_ = np.column_stack([np.ones(10), xs]) * np.sqrt(w)[:, None]
+            return np.linalg.lstsq(A_, y * np.sqrt(w), rcond=None)[0]
+        b0 = reta2(th)
+        R = np.array(reps)
+        bb = np.array([reta2(R[:, j]) for j in np.flatnonzero(np.isfinite(R).all(0))])
+        S2 = X2.sum(0)
+        dP2 = math.log(S2[2] / S2[3]) - math.log(S2[0] / S2[1])
+        out['E7_placebo_AL_2022'] = {'regressao': res, 'decimos': linhas,
+                                     'reta': {'theta_na_parcela_zero': float(b0[0]), 'ep': float(bb[:, 0].std(ddof=1)), 'inclinacao': float(b0[1]), 'ep_inclinacao': float(bb[:, 1].std(ddof=1))},
+                                     'excesso_de_22_no_2t_para_theta_zero': float(S2[7] - S2[6] / ((S2[4] / S2[5]) * math.exp(dP2))),
+                                     'traducao_literal': _traduz(float(_theta(S2)), float(S2[2] / (S2[2] + S2[3])), float(S2[3]), float(S2[2]))}
+    # E8: de que lado era o eleitor de cada candidato a governador? Correlação, por seção, entre a parcela do candidato nos
+    # votos nominais de governador do 1º turno e a parcela de Lula (L/(L+R)) no 1º turno. Só descreve; não usa partido.
+    out['E8_lado_dos_candidatos_a_governador'] = {}
+    for ano, ufs_ in (('2026', UFS), ('2022', ['AL'])):
+        if not os.path.exists(f'{TRAB}/tabela_{ano}.json.gz'):
+            continue
+        dd = d if ano == '2026' else _carrega(ano)
+        for u in ufs_:
+            idx = [i for i, k in enumerate(dd['k']) if dd['tab'][k]['uf'] == u and dd['X'][i, 0] + dd['X'][i, 1] > 0 and sum(dd['tab'][k]['gn1'].values()) > 0]
+            p1 = np.array([dd['X'][i, 0] / (dd['X'][i, 0] + dd['X'][i, 1]) for i in idx])
+            tot = collections.Counter()
+            for i in idx:
+                for c_, q in dd['tab'][dd['k'][i]]['gn1'].items():
+                    tot[c_] += q
+            r8 = {}
+            for c_, q in sorted(tot.items(), key=lambda kv: -kv[1]):
+                if q < 3000:
+                    continue
+                sh = np.array([dd['tab'][dd['k'][i]]['gn1'].get(c_, 0) / sum(dd['tab'][dd['k'][i]]['gn1'].values()) for i in idx])
+                r8[c_] = {'votos_1t': int(q), 'parcela': float(q / sum(tot.values())), 'correlacao_com_a_parcela_de_lula_1t': float(np.corrcoef(sh, p1)[0, 1])}
+            out['E8_lado_dos_candidatos_a_governador'][f'{u} {ano}'] = r8
+    grava('exploratorio_calculos.json', out)
+    P(json.dumps(out.get('E8_lado_dos_candidatos_a_governador'), ensure_ascii=False))
 
 
 # ---------------------------------------------------------------- veredito e relatório
@@ -1465,13 +1731,90 @@ def _quebra(txt, larg=118, rec='  '):
     return '\n'.join(out)
 
 
+def leitura():
+    """Textos de leitura, escritos DEPOIS de ver o resultado. Os números saem dos arquivos de trabalho."""
+    et1, val, ab, pla, ex = le('etapa1.json'), le('validade.json'), le('aberto.json'), le('placebo_AL_2022.json'), le('exploratorio_calculos.json')
+    pr = ab['principal']
+    th, ep = pr['theta'], pr['ep']
+    cal = ab['calibracao_plantio']['R_para_L']['p_0.0357']
+    tx = ab['taxas_de_erro_de_tela']
+    tg = ab['por_tercil_da_parcela_de_governador_eliminado']
+    pf = ab['por_tercil_de_forca_de_lula_1t']
+    e1, e2, e2b, e3, e4, e5, e6, e7, e8 = (ex[k] for k in ('E1_regressao_por_secao', 'E2_decimos', 'E2b_metade_de_baixo', 'E3_quanto_basta', 'E4_forca_dentro_da_uf', 'E5_leitura_a_favor_cedula_inteira', 'E6_comparecimento', 'E7_placebo_AL_2022', 'E8_lado_dos_candidatos_a_governador'))
+    tp = pla['principal']['theta']
+    cF = {u: e1[u]['g13_2t']['por voto de Flávio no 2º turno'] for u in UFS}
+    teto = {u: cF[u]['coef'] + 1.96 * cF[u]['ep'] for u in UFS}
+    neg_dec = sum(1 for u in UFS for l in e2[u]['linhas'] if l['theta'] < 0)
+    sis_int = abs(ab['por_uf']['AC']['theta'] - ab['por_uf']['TO']['theta']) / 2
+    L = {}
+    L['erro_sistematico_interno_2026_exploratorio'] = {'definicao': 'metade da diferença de Theta entre AC e TO (só 2026, escolhido depois de ver)', 'valor': sis_int,
+                                                       'erro_total': math.hypot(ep, sis_int), 'menos_theta_sobre_erro_total': -th / math.hypot(ep, sis_int)}
+    L['uma_frase'] = (f'INCONCLUSIVO pela letra, e o teste não decide. Theta saiu {fv(th)} (ep {fv(ep, 4, False)}), no sentido CONTRÁRIO ao da tese: as testemunhas andaram para Lula mais do que a contagem oficial, não menos. '
+                      f'Pela mesma régua, o espelho (a favor de Flávio) daria SINAL com o erro sistemático mínimo, mas o placebo (AL 2022: {fv(tp)}) e os recortes de 2026 (AC {fv(ab["por_uf"]["AC"]["theta"], 2)}, TO {fv(ab["por_uf"]["TO"]["theta"], 2)}; de {fv(tg["menor"]["theta"], 2)} a {fv(tg["maior"]["theta"], 2)} conforme a disputa de governador) '
+                      f'mostram que o termômetro muda entre os turnos por causa da eleição de governador, em tamanho de 2 a 4 vezes o efeito procurado ({fv(ab["poder"]["formula_p_0357"], 3)}). Não acusa e não absolve.')
+    L['a_favor'] = [
+        f'1. O teste não absolve. O zero do termômetro está fora do lugar ({fv(th, 2)} em AC e TO, {fv(ab["por_uf"]["AC"]["theta"], 2)} no AC). Com a troca de 3,57% plantada na contagem, Theta sobe o valor exato da fórmula ({fv(cal["aumento_de_theta"])}), mas fica em {fv(cal["bateria_com_plantio"]["theta"])} e o critério de SINAL não dispara. '
+        f'Não dá para excluir que o comportamento de quem anula o governador, sozinho, desse {fv(th - ab["poder"]["formula_p_0357"], 2)} e a contagem somasse {fv(ab["poder"]["formula_p_0357"], 2)}.',
+        f'2. Quando se tenta tirar o efeito da disputa de governador (exploratório, conta de modelo), o TO passa para o lado positivo: a reta até a parcela zero de governador eliminado dá {fv(e2["TO"]["reta"]["theta_na_parcela_zero"])} (ep {fv(e2["TO"]["reta"]["ep"], 4, False)}) e a regressão por seção dá {fv(ex["theta_sem_a_parte_atribuida_aos_eliminados_de_governador"]["TO"])}. '
+        f'A troca que vira o resultado daria {fv(math.log((1 + 0.0357 * ab["por_uf"]["TO"]["somas"]["R2"] / ab["por_uf"]["TO"]["somas"]["L2"]) / (1 - 0.0357)), 3)} no TO. Esses dois números são compatíveis com zero e com a troca; não separam.',
+        f'3. Dentro do AC, Theta é menos negativo onde Lula é fraco: diferença de {fv(e4["AC"]["diferenca_fraco_menos_forte"]["observada"])} (ep {fv(e4["AC"]["diferenca_fraco_menos_forte"]["ep"], 4, False)}) entre os tercis, o sentido que uma troca proporcional prevê ({fv(e4["AC"]["diferenca_fraco_menos_forte"]["prevista_p_0357"])} para 3,57%), embora 2,7 vezes maior do que essa troca daria.',
+        f'4. O sinal negativo admite uma leitura a favor da tese: cédulas inteiras fabricadas ou trocadas para Lula, com o 13 repetido na tela de governador, deixariam 13 a mais entre os nulos de governador. O excesso é de {fi(e5["excesso_de_13_em_AC_e_TO"])} votos ({fv(e5["por_cento_dos_validos_de_AC_e_TO"], 2, False)}% dos válidos de AC e TO). '
+        f'Lido inteiro como fraude e estendido ao país, valeria {fpc(e5["fracao_da_margem_se_fabricadas"])} da margem se fabricadas e {fpc(e5["fracao_da_margem_se_trocadas"])} se trocadas. É teto, e os itens 4 e 5 do que pesa contra o reduzem.',
+        f'5. O placebo lido ao pé da letra aponta no sentido da tese do Léo para 2022: em AL 2022 a contagem andou para Lula mais do que as testemunhas, Theta {fv(tp)} ({fv(tp / pla["principal"]["ep"], 1, False)} ep). Mas o tamanho ({fpc(e7["traducao_literal"]["fracao_p"])} dos votos de Bolsonaro) é mais de 6 vezes a fração que viraria 2022 (1,8%), e o sinal troca de 2022 para 2026 com o mesmo vencedor.',
+        '6. RDV, boletim e bweb saem do mesmo programa. Um programa que reescrevesse os nulos de governador junto com o voto de presidente escaparia deste teste por construção.']
+    L['contra'] = [
+        f'1. Theta é negativo em todos os recortes registrados antes: AC ({fv(ab["por_uf"]["AC"]["theta"], 3)}), TO ({fv(ab["por_uf"]["TO"]["theta"], 3)}), os três tercis de escolaridade ({fv(ab["por_tercil_escolaridade"]["baixa"]["theta"], 3)}, {fv(ab["por_tercil_escolaridade"]["media"]["theta"], 3)}, {fv(ab["por_tercil_escolaridade"]["alta"]["theta"], 3)}), '
+        f'os três de governador eliminado e os três de força de Lula; e em {neg_dec} de 20 décimos (exploratório). Em nenhum a contagem oficial andou para Lula mais do que as testemunhas. A marca prevista pela tese era positiva: {fv(ab["poder"]["formula_p_0357"])}.',
+        f'2. No TO, na metade das seções com menos voto de governador eliminado ({fi(e2b["TO"]["n_secoes"])} seções), onde o termômetro é menos contaminado, Theta = {fv(e2b["TO"]["theta"])} (ep {fv(e2b["TO"]["ep"], 4, False)}); a troca que vira daria {fv(e2b["TO"]["formula_p_0357"])}, que fica a {fv((e2b["TO"]["formula_p_0357"] - e2b["TO"]["theta"]) / e2b["TO"]["ep"], 1, False)} ep (exploratório, só erro de amostra).',
+        f'3. A inclinação por força de Lula (R11, fixada antes de abrir) tem o sinal contrário ao da troca proporcional: {fv(pf["diferenca_fraco_menos_forte"]["observada"])} (ep {fv(pf["diferenca_fraco_menos_forte"]["ep"], 4, False)}) contra {fv(pf["diferenca_fraco_menos_forte"]["prevista_pela_formula_p_0357"])} previsto; dentro do TO, {fv(e4["TO"]["diferenca_fraco_menos_forte"]["observada"])} (ep {fv(e4["TO"]["diferenca_fraco_menos_forte"]["ep"], 4, False)}) contra {fv(e4["TO"]["diferenca_fraco_menos_forte"]["prevista_p_0357"])}.',
+        f'4. O 13 a mais do 2º turno não acompanha os votos de Flávio da seção (AC {fv(cF["AC"]["coef"])}, ep {fv(cF["AC"]["ep"], 4, False)}; TO {fv(cF["TO"]["coef"])}, ep {fv(cF["TO"]["ep"], 4, False)} por voto de Flávio). Cédula inteira trocada de Flávio para Lula com o 13 repetido fica limitada a {fpc(teto["AC"], 2)} (AC) e {fpc(teto["TO"], 2)} (TO) dos votos de Flávio, no teto de 95%: menos de um décimo dos 3,57% (exploratório, conta de modelo).',
+        f'5. Também não acompanha comparecimento novo: no AC o comparecimento caiu {fi(-e6["AC"]["variacao_do_comparecimento_total"])} e só {fi(e6["AC"]["secoes_com_aumento"])} seções subiram, somando {fi(e6["AC"]["aumento_somado_nas_que_subiram"])} eleitores; no TO caiu {fi(-e6["TO"]["variacao_do_comparecimento_total"])}, com {fi(e6["TO"]["aumento_somado_nas_que_subiram"])} eleitores a mais em {fi(e6["TO"]["secoes_com_aumento"])} seções. '
+        f'Por eleitor a mais aparecem {fv(e6["AC"]["g13_2t"]["por_eleitor_a_mais_na_secao"]["coef"], 2, False)} (ep {fv(e6["AC"]["g13_2t"]["por_eleitor_a_mais_na_secao"]["ep"], 2, False)}) e {fv(e6["TO"]["g13_2t"]["por_eleitor_a_mais_na_secao"]["coef"], 2, False)} (ep {fv(e6["TO"]["g13_2t"]["por_eleitor_a_mais_na_secao"]["ep"], 2, False)}) nulos com 13; cédula fabricada com 13 nos dois cargos daria perto de 1.',
+        f'6. O termômetro acompanha a eleição de governador, não quem ganhou a presidência: Theta foi {fv(tp, 2)} em AL 2022 e {fv(th, 2)} em AC e TO 2026, com Lula vencendo as duas; e dentro de cada UF muda com a parcela dos votos de governador dada a eliminados (TO: de {fv(e2["TO"]["linhas"][1]["theta"], 2)} a {fv(e2["TO"]["linhas"][9]["theta"], 2)}; inclinação {fv(e2["TO"]["reta"]["inclinacao"], 2)}, ep {fv(e2["TO"]["reta"]["ep_inclinacao"], 2, False)}). '
+        'Uma alteração só na contagem de presidente não tem por que depender da disputa de governador.',
+        f'7. Os RDV conferem com o bweb em {fi(pr["n_secoes"])} seções, nos dois turnos e nos dois cargos, candidato a candidato. Isso fecha alteração depois da urna nessas seções; não pesa contra programa adulterado na origem.']
+    L['significa'] = [
+        f'O desenho supunha que quem digita o número do presidenciável na tela de governador é uma amostra estável da intenção presidencial entre os turnos. Não é. No 1º turno são {fi(pr["somas"]["a1"] + pr["somas"]["b1"])} testemunhas ({fv(et1["recortes"]["AC+TO"]["testemunhas_por_100_votantes_1t"], 1, False)} por 100 votantes), MAIS do que no 2º ({fi(pr["somas"]["a2"] + pr["somas"]["b2"])}; {fv(et1["recortes"]["AC+TO"]["testemunhas_por_100_votantes_2t"], 1, False)} por 100): '
+        f'é sobretudo voto de legenda de quem não tem candidato a governador do seu partido, não erro de tela. A taxa por eleitor cai entre os turnos em fatores diferentes de cada lado (13: vezes {fv(tx["AC+TO"]["multiplicador_r13"], 2, False)}; 22: vezes {fv(tx["AC+TO"]["multiplicador_r22"], 2, False)}), e os fatores mudam com a UF e com a disputa de governador.',
+        f'O erro sistemático real do instrumento é da ordem de 0,1 a 0,3 (AL 2022 {fv(tp, 2)}; AC {fv(ab["por_uf"]["AC"]["theta"], 2)}; TO {fv(ab["por_uf"]["TO"]["theta"], 2)}), contra 0,015 suposto no registro e {fv(ab["poder"]["formula_p_0357"], 3)} procurado. O teste tinha erro de amostra de sobra (ep {fv(ep, 4, False)}) e termômetro aprovado no 1º turno ({fv(val["principal_AC_TO"]["correlacao_que_decide"], 3, False)}), mas a validade em nível num turno não garante estabilidade entre os turnos.',
+        f'O SINAL do espelho pela letra (só com 2026) não conta como indício de fraude a favor de Flávio. Das três condições do Adendo 27, falha a calibração: a explicação inocente plantada desloca Theta do mesmo jeito que a troca, e o deslocamento medido acompanha a disputa de governador. Com o placebo o erro total vai a {fv(math.hypot(ep, abs(tp)), 3, False)} e o espelho cai para {fv(-th / math.hypot(ep, abs(tp)), 2, False)} erro. '
+        f'Só com 2026, usando como erro sistemático metade da diferença entre AC e TO ({fv(sis_int, 3, False)}; exploratório), cai para {fv(-th / math.hypot(ep, sis_int), 2, False)} erro.',
+        'Consequência para a investigação: este era um dos dois únicos desenhos registrados que, em princípio, enxergariam uma troca sorteada e coerente dentro da urna. Em AC e TO ele não enxerga nada do tamanho necessário, nem para acusar nem para absolver. A porta continua aberta e sobra o D4-4 (nulos de digitação no próprio voto de presidente), que não passa pela eleição de governador.']
+    L['pistas'] = [
+        '1. D4-4 no universo, não em amostra: os pacotes de arquivos transmitidos do TSE podem ser lidos em fluxo guardando só RDV e boletim (uma UF inteira ocupa de 4 a 64 MB). Com todas as UFs o erro do D4-4 cai para perto de 0,007 e ele não depende da eleição de governador.',
+        '2. Medir a instabilidade do termômetro de governador com mais casos: a mesma conta em todas as UFs e anos em que 13 e o número do adversário não eram candidatos a governador nos dois turnos (2018 e 2022 estão no mesmo endereço). Se a dispersão ficar em 0,2 ou mais, o desenho D4-3 deve ser abandonado de vez.',
+        f'3. AC: a taxa do 13 quase não caiu no 2º turno (vezes {fv(tx["AC"]["multiplicador_r13"], 2, False)}, contra {fv(tx["TO"]["multiplicador_r13"], 2, False)} no TO e {fv(pla["taxas_de_erro_de_tela"]["multiplicador_r13"], 2, False)} em AL 2022) e passa de 1 onde mais votos de governador foram para eliminados. É o número mais fora da curva do teste. Conferir na imprensa local quem PT e PL apoiaram no 2º turno de governador do AC e do TO (não conferido aqui).',
+        '4. Pacote do TSE do TO, 2º turno: há um membro a mais, de 47 bytes, chamado 5Nim5OYPO-buOO056ziCIDfG3kH3gPCuilBllCcL8yE=.id, cujo conteúdo é o próprio nome. Não tem voto e parece marca de ferramenta de armazenamento; vale perguntar ao TSE o que é. Os outros três pacotes de 2026 não têm.',
+        '5. Para o conferente: refazer com código próprio a partir dos quatro pacotes; os números a bater são as somas 13/22 por UF e turno (seção 4) e Theta. Conferir em especial se a leitura do nulo com dígitos (tipo 4 do RDV, cargo 3) é a mesma.']
+    L['desvios'] = [
+        'Fonte: pacotes de arquivos transmitidos do TSE por UF e turno, lidos em fluxo (nada do zip em disco; só RDV e boletim guardados, com CRC conferido), em vez do download seção a seção do desenho.',
+        'Execução retomada depois de interrupção: o docstring é o do commit 6677983, sem mudança. As decisões que faltavam (R1 a R10, 10:57 UTC) e a regra do veredito em código estão no commit 9a8dd54 (11:07:41 UTC, feito pela sessão principal), anterior à etapa 1 (11:27 UTC); o SHA-256 do bloco nesse commit é o mesmo de registro_decisoes.json. A leitura R11 (11:09 UTC) só tem horário local, não tem commit anterior ao resultado. Este agente não fez commit.',
+        f'Dois fluxos ao mesmo tempo no cdn do TSE (TO 2026 e AL 2022), contra a regra de um pacote por vez; nada além de RDV e boletim foi a disco ({fv(sum(os.path.getsize(TRAB + "/pacotes/" + a_) for a_ in os.listdir(TRAB + "/pacotes") if a_.endswith(".zip")) / 1e6, 0, False)} MB nos seis pacotes guardados).',
+        f'Validade (D7): a regra do mínimo de testemunhas por município escolheu 1, isto é, todos os {val["principal_AC_TO"]["municipios_na_decisao"]} municípios; igual à leitura sem mínimo. Passa do limiar de 0,9 ({fv(val["principal_AC_TO"]["correlacao_que_decide"], 3, False)}), mas fica abaixo do percentil 5 de um termômetro perfeito ({fv(val["principal_AC_TO"]["grade"][0]["termometro_perfeito_p5"], 3, False)}); o TO sozinho dá {fv(val["por_uf"]["TO"]["leitura_sem_minimo"]["observado"], 3, False)}.',
+        'Veredito (D9): Theta abaixo de -0,020 não tem cláusula no registro; ficou INCONCLUSIVO pela letra e foi lido no espelho.',
+        f'Calibração (D11): "enxerga o plantado" foi definido antes como o aumento de Theta igual ao da fórmula e de pelo menos 2,5 erros totais; cumpre ({fv(cal["aumento_em_erros_totais_com_sis_0015"], 2, False)} erros). Se "enxergar" for lido como o critério de SINAL disparar no dado com o plantio, NÃO cumpre (Theta fica em {fv(cal["bateria_com_plantio"]["theta"])}) e o veredito seria SEM PODER. As duas leituras levam à mesma conclusão prática: o teste não decide.',
+        f'Tercis de escolaridade: {ab["por_tercil_escolaridade"]["secoes_sem_perfil"]} seções sem perfil ficaram fora dessa leitura.',
+        'Descritivo de ES, DF, AM e RN: só as seções da amostra aleatória nova (175 seções). Correção ao desenho: no ES o 22 também não tem voto nominal de governador no 1º turno.',
+        'Placebo AL 2022: sem tercis (não há perfil de 2022 em disco); boletim de 2022 não decodificado; o leitor de RDV foi adaptado ao formato de 2022 (o nó das eleições tem outro rótulo), antes da etapa 1.',
+        'Exploratório (seção 15): tudo o que está lá foi feito depois de ver Theta e não decide nada.']
+    L['exploratorio_leitura'] = [
+        'E7, placebo AL 2022, as mesmas contas: nulos com 22 no 2º turno por voto do governador eliminado 14 ' + f'{fv(e7["regressao"]["g22_2t"]["por voto do governador eliminado 14 no 1º turno"]["coef"])} (ep {fv(e7["regressao"]["g22_2t"]["por voto do governador eliminado 14 no 1º turno"]["ep"], 4, False)}); nulos com 13, {fv(e7["regressao"]["g13_2t"]["por voto do governador eliminado 14 no 1º turno"]["coef"])} (ep {fv(e7["regressao"]["g13_2t"]["por voto do governador eliminado 14 no 1º turno"]["ep"], 4, False)}). '
+        + 'Theta por décimo da parcela de governador eliminado: ' + '; '.join(f'{fpc(l["parcela_media"])}: {fv(l["theta"], 3)}' for l in e7['decimos']) + f'. Reta até zero: {fv(e7["reta"]["theta_na_parcela_zero"])} (ep {fv(e7["reta"]["ep"], 4, False)}); inclinação {fv(e7["reta"]["inclinacao"], 2)} (ep {fv(e7["reta"]["ep_inclinacao"], 2, False)}). '
+        + f'Em AL 2022 o Theta positivo NÃO some onde há pouco voto de governador eliminado: ali o que muda entre os turnos é a taxa do 13, que cai mais (vezes {fv(pla["taxas_de_erro_de_tela"]["multiplicador_r13"], 2, False)}) que a do 22 (vezes {fv(pla["taxas_de_erro_de_tela"]["multiplicador_r22"], 2, False)}). Lido ao pé da letra seriam {fpc(e7["traducao_literal"]["fracao_p"])} dos votos de Bolsonaro contados para Lula em AL, {fi(e7["traducao_literal"]["votos_trocados_no_pais_se_uniforme"])} votos se fosse igual no país.',
+        'E8, de que lado era o eleitor de cada candidato a governador (correlação, por seção, entre a parcela do candidato e a parcela de Lula no 1º turno): ' + '; '.join(f'{rot}: ' + ', '.join(f'{c_} {fv(q_["correlacao_com_a_parcela_de_lula_1t"], 2)} ({fi(q_["votos_1t"])} votos)' for c_, q_ in dd.items()) for rot, dd in e8.items())
+        + '. Em AL 2022 o eliminado 14 era o candidato do eleitorado de Bolsonaro e o finalista 15 o do eleitorado de Lula; no AC 2026 os dois finalistas (11 e 10) são neutros e os eliminados se dividem (40 do lado de Lula, 45 do lado de Flávio); no TO o 55 é neutro.',
+        'Leitura do exploratório: a explicação "o lado que ficou sem candidato a governador continua anulando com o seu número" combina com o sinal por UF (AL 2022 positivo, AC e TO 2026 negativos) e com a inclinação dentro do TO, mas não com a inclinação dentro de AL 2022. O que os dados sustentam sem depender dela: a diferença entre turnos do termômetro muda com a eleição de governador em tamanho maior que o efeito procurado. O porquê fica em aberto.']
+    grava('leitura.json', L)
+    P('leitura gravada')
+
+
 def relatorio():
     import ast, hashlib
     et1, val, ab, conf = le('etapa1.json'), le('validade.json'), le('aberto.json'), le('conferencia_2026.json')
     pla = le('placebo_AL_2022.json') if os.path.exists(f'{TRAB}/placebo_AL_2022.json') else None
     conf22 = le('conferencia_2022.json') if os.path.exists(f'{TRAB}/conferencia_2022.json') else None
     lei = le('leitura.json') if os.path.exists(f'{TRAB}/leitura.json') else {}
-    expl = le('exploratorio.json') if os.path.exists(f'{TRAB}/exploratorio.json') else None
+    expl = le('exploratorio_calculos.json') if os.path.exists(f'{TRAB}/exploratorio_calculos.json') else None
     src = open(RAIZ + '/scripts/analisar_R27_W3.py').read()
     doc = ast.get_docstring(ast.parse(src), clean=False)
     reg = le('registro_decisoes.json')
@@ -1493,13 +1836,18 @@ def relatorio():
     J = {'teste': 'R27_W3: testemunhas na tela de governador (D4-3), AC e TO',
          'registro': {'adendo': 'Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b; Adendo 30 (commit a7218fb)', 'criterio': 'registro/adendo27/desenho_D4_proposta.json, teste D4-3',
                       'docstring_sha256': hashlib.sha256(doc.encode()).hexdigest(), 'docstring_no_commit': '6677983 (10/11/2026 10:48:36 UTC), antes de qualquer conta com votos',
+                      'decisoes_da_retomada_no_commit': '9a8dd54 (10/11/2026 11:07:41 UTC): bloco R1 a R10 e regra do veredito, antes da etapa 1 (11:27 UTC); R11 só com horário local (11:09 UTC)',
                       'decisoes_da_retomada': reg},
          'fonte': {'pacotes': man, 'endereco': URL},
          'conferencia_rdv_x_bweb_2026': conf, 'conferencia_rdv_x_base_2022': conf22,
          'etapa1': et1, 'validade_do_termometro': val, 'aberto': ab, 'placebo_AL_2022': pla,
          'veredito': {'so_com_2026_erro_sistematico_minimo_0015': v015, 'com_placebo_AL_2022': vpl, 'erro_sistematico_com_placebo': sis_pl},
+         'veredito_por_parte': {'parte1_a_favor_de_lula': {'so_2026': v015['veredito'], 'com_placebo': vpl['veredito'] if vpl else None, 'leitura_alternativa_da_calibracao': 'SEM PODER (o critério de SINAL não dispara no dado com a troca de 3,57% plantada)'},
+                                'parte2_espelho_a_favor_de_flavio': {'so_2026': 'SINAL' if v015['criterio_de_sinal_no_espelho']['sinal'] else 'sem sinal', 'com_placebo': ('SINAL' if vpl['criterio_de_sinal_no_espelho']['sinal'] else 'sem sinal') if vpl else None,
+                                                                    'conta_como_indicio': False},
+                                'parte3_poder_etapa1': et1['veredito_da_etapa1'], 'parte3_enxerga_o_plantado_D11': ab['enxerga_o_plantado'], 'parte4_validade_aprovada': val['aprovado']},
          'traducao_em_votos_de_margem': trad, 'contagem_de_clausulas': clausulas,
-         'decisoes_retomada_texto': DECISOES_RETOMADA, 'leitura_escrita_depois_de_ver_o_resultado': lei, 'exploratorio_depois_de_ver_o_resultado': expl}
+         'decisoes_retomada_texto': DECISOES_RETOMADA, 'decisoes_retomada_2_texto': DECISOES_RETOMADA_2, 'leitura_escrita_depois_de_ver_o_resultado': lei, 'exploratorio_depois_de_ver_o_resultado': expl}
     with open(RAIZ + '/resultados/R27_W3_testemunhas_governador.json', 'w') as f:
         json.dump(J, f, ensure_ascii=False, indent=1)
 
@@ -1510,25 +1858,28 @@ def relatorio():
     A('')
     A('Registro: PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b, e Adendo 30 (commit a7218fb). Critério: registro/adendo27/desenho_D4_proposta.json, teste D4-3, à letra. '
       f'Decisões que o registro não fixa: docstring de scripts/analisar_R27_W3.py, no commit 6677983 (10:48:36 UTC) antes de qualquer conta com votos (SHA-256 {reg["docstring_sha256"][:16]}...), e o bloco de decisões da retomada, '
-      f'gravado às {reg["gravado_em_utc"][11:16]} UTC (SHA-256 {reg["decisoes_retomada_sha256"][:16]}...), também antes.')
+      f'gravado às {reg["gravado_em_utc"][11:16]} UTC (SHA-256 {reg["decisoes_retomada_sha256"][:16]}...; está no commit 9a8dd54, de 11:07:41 UTC), também antes da etapa 1 (11:27 UTC).')
     A('A ideia: parte dos eleitores digita na tela de governador o número do seu presidenciável. Em AC e TO, 13 e 22 não são candidatos a governador em nenhum turno, e isso vira nulo de governador com os dígitos gravados no RDV. '
       'É uma amostra da intenção presidencial que não passa pela contagem de presidente. W = parcela de 13 entre as testemunhas (13 + 22); P = parcela oficial de Lula entre Lula + Flávio nas mesmas seções. '
       'Theta = [logit P do 2º turno menos logit P do 1º] menos [logit W do 2º menos logit W do 1º]. Troca de votos de Flávio para Lula só na contagem de presidente do 2º turno dá Theta positivo: '
       f'{fv(ab["poder"]["formula_p_0357"])} para a troca de 3,57% que vira o resultado, nessas seções (R/L = {fv(ab["poder"]["R_sobre_L_2t_universo"], 3, False)}).')
     A('')
     A('VEREDITO PELA LETRA')
-    def linha_v(v, rot):
-        A(f'  {rot}: {v["veredito"]}. Theta = {fv(v["theta"])} (erro-padrão {fv(v["erro_padrao"], 4, False)}; erro sistemático {fv(v["erro_sistematico"], 4, False)}; erro total {fv(v["erro_total"], 4, False)}; '
-          f'n = {fi(pr["n_secoes"])} seções em {fi(pr["n_locais"])} locais; {fi(pr["somas"]["a1"] + pr["somas"]["b1"])} testemunhas no 1º turno e {fi(pr["somas"]["a2"] + pr["somas"]["b2"])} no 2º). Motivo: ' + '; '.join(v['motivos']) + '.')
-    linha_v(v015, 'Só com 2026 (erro sistemático mínimo de 0,015, sem usar outro ano)')
+    nums = (f'Theta = {fv(pr["theta"])} (erro-padrão {fv(pr["ep"], 4, False)}; n = {fi(pr["n_secoes"])} seções em {fi(pr["n_locais"])} locais; {fi(pr["somas"]["a1"] + pr["somas"]["b1"])} testemunhas no 1º turno e {fi(pr["somas"]["a2"] + pr["somas"]["b2"])} no 2º)')
+    A(f'  Parte 1, alteração a favor de Lula (o critério registrado): INCONCLUSIVO. {nums}. O sinal é o CONTRÁRIO do previsto pela tese: a troca que vira o resultado daria {fv(ab["poder"]["formula_p_0357"])}.')
+    A(f'    só com 2026 (erro sistemático mínimo de 0,015, sem usar outro ano; erro total {fv(v015["erro_total"], 4, False)}): {v015["veredito"]}. Motivo: ' + '; '.join(v015['motivos']) + '.')
     if vpl:
-        linha_v(vpl, f'Com o placebo AL 2022 (Theta do placebo {fv(pla["principal"]["theta"])}, erro-padrão {fv(pla["principal"]["ep"], 4, False)})')
+        A(f'    com o placebo AL 2022 (Theta do placebo {fv(pla["principal"]["theta"])}, ep {fv(pla["principal"]["ep"], 4, False)}; erro sistemático {fv(sis_pl, 4, False)}; erro total {fv(vpl["erro_total"], 4, False)}): {vpl["veredito"]}. Motivo: ' + '; '.join(vpl['motivos']) + '.')
     else:
-        A('  Placebo AL 2022: não rodado; vale o erro sistemático mínimo de 0,015.')
-    A(f'  Etapa 1 (poder): {et1["veredito_da_etapa1"]} (erro-padrão {fv(et1["recortes"]["AC+TO"]["erro_padrao_de_theta"], 4, False)}, limite 0,025). Validade do termômetro no 1º turno: '
-      f'{"APROVADO" if val["aprovado"] else "REPROVADO"} (correlação de postos {fv(val["principal_AC_TO"]["correlacao_que_decide"], 3, False)} em {val["principal_AC_TO"]["municipios_na_decisao"]} municípios; limiar 0,9). '
-      f'Calibração: {"enxerga" if ab["enxerga_o_plantado"] else "NÃO enxerga"} a troca plantada de 3,57%. Espelho (a mesma regra a favor de Flávio): '
-      f'{"SINAL" if v015["criterio_de_sinal_no_espelho"]["sinal"] else "sem sinal"} com 0,015' + (f' e {"SINAL" if vpl["criterio_de_sinal_no_espelho"]["sinal"] else "sem sinal"} com o placebo.' if vpl else '.'))
+        A('    placebo AL 2022: não rodado; vale o erro sistemático mínimo de 0,015.')
+    ce15 = v015['criterio_de_sinal_no_espelho']
+    A(f'  Parte 2, espelho (a mesma regra a favor de Flávio): {"SINAL" if ce15["sinal"] else "sem sinal"} pela letra só com 2026 (menos Theta = {fv(ce15["theta"])}, {fv(ce15["theta_sobre_erro_total"], 2, False)} erros totais, mesmo sinal em AC, TO e nos três tercis)'
+      + (f'; {"SINAL" if vpl["criterio_de_sinal_no_espelho"]["sinal"] else "sem sinal"} com o placebo ({fv(vpl["criterio_de_sinal_no_espelho"]["theta_sobre_erro_total"], 2, False)} erro total).' if vpl else '.')
+      + ' Não conta como indício de fraude a favor de Flávio: ver a seção 13.')
+    calp = ab['calibracao_plantio']['R_para_L']['p_0.0357']
+    A(f'  Parte 3, poder e calibração: a etapa 1 passa (erro-padrão {fv(et1["recortes"]["AC+TO"]["erro_padrao_de_theta"], 4, False)}, limite 0,025). A troca de 3,57% plantada aumenta Theta em {fv(calp["aumento_de_theta"])} ({fpc(calp["razao_aumento_formula"])} da fórmula; {fv(calp["aumento_em_erros_totais_com_sis_0015"], 2, False)} erros totais): pela regra escrita antes (D11), o teste '
+      f'{"enxerga" if ab["enxerga_o_plantado"] else "NÃO enxerga"} o plantado. Mas o critério de SINAL aplicado ao dado com o plantio {"dispara" if calp["criterio_de_sinal_no_dado_com_plantio_sis_0015"]["sinal"] else "NÃO dispara"} (Theta fica em {fv(calp["bateria_com_plantio"]["theta"])}): se "enxergar" for lido assim, o veredito da parte 1 é SEM PODER. As duas leituras dão a mesma conclusão prática.')
+    A(f'  Parte 4, validade do termômetro no 1º turno: {"APROVADO" if val["aprovado"] else "REPROVADO"} (correlação de postos {fv(val["principal_AC_TO"]["correlacao_que_decide"], 3, False)} em {val["principal_AC_TO"]["municipios_na_decisao"]} municípios; limiar 0,9).')
     if lei.get('uma_frase'):
         A('  Em uma frase: ' + lei['uma_frase'])
     A('')
@@ -1543,7 +1894,7 @@ def relatorio():
               f'{fi(c.get("pres_igual_base", 0))}; governador (brancos, nulos, nominais) igual em {fi(c.get("gov_igual_base", 0))}; boletim do pacote igual à base em {fi(c.get("boletim_igual_base", 0))} de {fi(c.get("com_boletim", 0))}. '
               f'Direto contra o zip do bweb, candidato a candidato: presidente igual em {fi(c.get("bweb_igual_pres", 0))}, governador igual em {fi(c.get("bweb_igual_gov", 0))}. '
               f'Candidatos a governador: {", ".join(q["candidatos_governador_bweb"])}. Votos nominais de governador em 13 ou 22: {q["votos_nominais_de_governador_em_13_ou_22_no_rdv"]}. '
-              f'Nulos de governador com dígitos: {fi(c.get("nulos_gov_com_digitos", 0))} (tamanho dos dígitos: {q["tamanho_dos_digitos_dos_nulos_de_governador"]}); sem dígitos: {fi(c.get("nulos_gov_sem_digitos", 0))}.')
+              f'Nulos de governador com dígitos: {fi(c.get("nulos_gov_com_digitos", 0))} (todos com {", ".join(q["tamanho_dos_digitos_dos_nulos_de_governador"])} dígitos); sem dígitos: {fi(c.get("nulos_gov_sem_digitos", 0))}.')
         u = conf['ufs'][uf]['universo']
         A(f'  {uf}: universo (D2) = {fi(u["no_universo_D2"])} de {fi(u["secoes_nos_dois_turnos_da_base"])} seções.' + (f' Fora: {json.dumps(u["fora"], ensure_ascii=False)}.' if u['fora'] else ''))
     A('  Limite: RDV, boletim e bweb saem do mesmo programa da urna. A igualdade fecha alteração depois da urna nessas seções e não pesa contra a hipótese de programa adulterado na origem. O que o teste tem de próprio é comparar dois cargos dentro do mesmo RDV.')
@@ -1602,7 +1953,8 @@ def relatorio():
         for pk, q in ab['calibracao_plantio'][lado].items():
             cs = q['criterio_de_sinal_no_dado_com_plantio_sis_0015']
             A(f'  {rot}, p = {fpc(q["p"], 2)} ({fi(q["votos_movidos"])} votos): fórmula {fv(q["formula"])}; Theta mudou {fv(q["aumento_de_theta"])} ({fpc(q["razao_aumento_formula"])} da fórmula; {fv(q["aumento_em_erros_totais_com_sis_0015"], 2, False)} erros totais); '
-              f'200 plantios: média {fv(q["duzentos_plantios_media"])}, desvio {fv(q["duzentos_plantios_desvio"], 4, False)}. Enxerga pelo D11: {"sim" if q["enxerga"] else "não"}. Critério de SINAL no dado com o plantio, do jeito que sai: {"SINAL" if cs["sinal"] else "não dá sinal"} (Theta {fv(cs["theta"])}, {fv(cs["theta_sobre_erro_total"], 2)} erros).')
+              f'200 plantios: média {fv(q["duzentos_plantios_media"])}, desvio {fv(q["duzentos_plantios_desvio"], 4, False)}. ' + (f'Enxerga pelo D11 (que decide com 3,57%): {"sim" if q["enxerga"] else "não"}. ' if abs(q["p"] - 0.0357) < 1e-9 else '') + f'Critério de SINAL{" do espelho" if lado == "L_para_R" else ""} no dado com o plantio, do jeito que sai: {"SINAL" if cs["sinal"] else "não dá sinal"} ({"menos " if lado == "L_para_R" else ""}Theta {fv(cs["theta"])}, {fv(cs["theta_sobre_erro_total"], 2)} erros).')
+    A('  Aviso: o espelho já dá SINAL pela letra sem plantio nenhum (seção 5); o plantio do espelho só confirma que a conta responde nos dois sentidos.')
     po = ab['poder']
     A(f'  Poder: com erro total de {fv(po["erro_total_sis_0015"], 4, False)}, o SINAL pede Theta de {fv(po["theta_minimo_para_sinal"], 4, False)} ou mais; a menor troca uniforme que alcança isso é p = {fpc(po["menor_p_que_alcanca"], 2)} dos votos de Flávio '
       f'({fpc(po["menor_p_em_fracao_da_margem_se_uniforme_no_pais"])} da margem, se fosse igual no país). A troca que vira o resultado (3,57%) daria {fv(po["formula_p_0357"])}; a de 1,8%, {fv(po["formula_p_018"])}.')
@@ -1645,9 +1997,14 @@ def relatorio():
         A(f'  Taxas de erro de tela, {nome} (D20, não decide), por mil eleitores do lado: 13 de {fv(1000 * tx["r13_1t"], 2, False)} para {fv(1000 * tx["r13_2t"], 2, False)} (vezes {fv(tx["multiplicador_r13"], 3, False)}); 22 de {fv(1000 * tx["r22_1t"], 2, False)} para {fv(1000 * tx["r22_2t"], 2, False)} (vezes {fv(tx["multiplicador_r22"], 3, False)}). Theta = ln do multiplicador do 22 menos ln do multiplicador do 13.')
     q = ab['por_tercil_da_parcela_de_governador_eliminado']
     A('  Theta por tercil da parcela dos votos de governador do 1º turno dada a candidatos eliminados na seção (D20): ' + '; '.join(f'{nome} {fv(z["theta"])} (ep {fv(z["ep"], 4, False)}; parcela de {fpc(z["faixa_da_parcela"][0])} a {fpc(z["faixa_da_parcela"][1])})' for nome, z in q.items() if isinstance(z, dict)) + '.')
+    q = ab['por_tercil_de_forca_de_lula_1t']
+    A('  Theta por tercil da força de Lula no 1º turno da seção (R11, não decide): ' + '; '.join(f'{nome.replace("_", " ")} {fv(q[nome]["theta"])} (ep {fv(q[nome]["ep"], 4, False)}; R/L {fv(q[nome]["R_sobre_L_2t"], 2, False)}; a troca de 3,57% daria {fv(q[nome]["formula_p_0357"])})' for nome in ('lula_fraco', 'meio', 'lula_forte'))
+      + f'. Diferença entre fraco e forte: {fv(q["diferenca_fraco_menos_forte"]["observada"])} (ep {fv(q["diferenca_fraco_menos_forte"]["ep"], 4, False)}); a troca proporcional de 3,57% preveria {fv(q["diferenca_fraco_menos_forte"]["prevista_pela_formula_p_0357"])}.')
     for u in UFS:
         g = ab['governador_descritivo'][u]
-        A(f'  Governador no {u}: 1º turno nominais {json.dumps(g["1t"]["nominais_por_candidato"])}, nulos {fi(g["1t"]["nulos"])} (dígitos mais frequentes {json.dumps(g["1t"]["nulos_com_digitos_mais_frequentes"])}); 2º turno nominais {json.dumps(g["2t"]["nominais_por_candidato"])}, nulos {fi(g["2t"]["nulos"])} (dígitos {json.dumps(g["2t"]["nulos_com_digitos_mais_frequentes"])}).')
+        dz = lambda dd, n_=8: ', '.join(f'{c_}: {fi(q_)}' for c_, q_ in list(dd.items())[:n_])
+        A(f'  Governador no {u}: 1º turno, comparecimento {fi(g["1t"]["comparecimento"])}, nominais por candidato ({dz(g["1t"]["nominais_por_candidato"])}), brancos {fi(g["1t"]["brancos"])}, nulos {fi(g["1t"]["nulos"])}, dígitos mais digitados nos nulos ({dz(g["1t"]["nulos_com_digitos_mais_frequentes"])}); '
+          f'2º turno, comparecimento {fi(g["2t"]["comparecimento"])}, nominais ({dz(g["2t"]["nominais_por_candidato"])}), brancos {fi(g["2t"]["brancos"])}, nulos {fi(g["2t"]["nulos"])}, dígitos ({dz(g["2t"]["nulos_com_digitos_mais_frequentes"])}).')
     A('')
     A('9. TRADUÇÃO EM VOTOS DE MARGEM')
     tp = trad['ponto']
@@ -1677,6 +2034,14 @@ def relatorio():
                     p_.append(f'W {fv(z["W"], 4, False)} contra P {fv(z["P"], 4, False)}')
                 partes.append(', '.join(p_))
             A(f'  {uf} ({q["secoes"]} seções): ' + ' | '.join(partes) + '.')
+        mult = []
+        for uf, q in de.items():
+            for nm, lado in (('13', 'L'), ('22', 'R')):
+                a1_, a2_ = q['1t'].get('g' + nm), q['2t'].get('g' + nm)
+                if a1_ and a2_:
+                    m_ = (a2_ / q['2t'][lado]) / (a1_ / q['1t'][lado])
+                    mult.append(f'{uf}, {nm}: vezes {fv(m_, 2, False)} (ln {fv(math.log(m_), 2)}, erro de contagem {fv(math.sqrt(1 / a1_ + 1 / a2_), 2, False)})')
+        A('  Multiplicador da taxa por eleitor do lado, do 1º para o 2º turno, onde o número é inválido nos dois turnos: ' + '; '.join(mult) + f'. Em AC e TO: 13 vezes {fv(ab["taxas_de_erro_de_tela"]["AC+TO"]["multiplicador_r13"], 2, False)}, 22 vezes {fv(ab["taxas_de_erro_de_tela"]["AC+TO"]["multiplicador_r22"], 2, False)}. A taxa cai entre os turnos em toda parte; o quanto cai muda de UF para UF.')
     A('')
     if lei:
         for tit, kk in (('11. O QUE PESA A FAVOR DA TESE', 'a_favor'), ('12. O QUE PESA CONTRA A TESE', 'contra'), ('13. O QUE ISSO SIGNIFICA', 'significa'), ('14. PISTAS', 'pistas')):
@@ -1687,7 +2052,35 @@ def relatorio():
                 A('')
     if expl:
         A('15. EXPLORATÓRIO (feito depois de ver o resultado; não decide nada)')
-        for x in expl.get('linhas', []):
+        A('  Pergunta: o que move o termômetro entre os turnos, a disputa de governador ou a contagem de presidente?')
+        e3 = expl['E3_quanto_basta']
+        A(f'  E3, quanto basta: Theta seria zero com {fi(e3["excesso_de_13"])} nulos de governador com 13 a menos no 2º turno ({fv(e3["excesso_de_13_por_cento_dos_votos_de_lula_2t"], 2, False)}% dos votos de Lula; AC {fi(e3["por_uf"]["AC"]["excesso_de_13"])}, TO {fi(e3["por_uf"]["TO"]["excesso_de_13"])}) '
+          f'ou com {fi(e3["falta_de_22"])} com 22 a mais ({fv(e3["falta_de_22_por_cento_dos_votos_de_flavio_2t"], 2, False)}% dos votos de Flávio). Votos dados no 1º turno a candidatos a governador eliminados: '
+          + '; '.join(f'{u} {fi(sum(e3["por_uf"][u]["votos_de_governador_eliminado_1t"].values()))} (' + ', '.join(f'{c_}: {fi(q_)}' for c_, q_ in sorted(e3["por_uf"][u]["votos_de_governador_eliminado_1t"].items(), key=lambda kv: -kv[1])[:3]) + ')' for u in UFS) + '.')
+        for u in UFS:
+            r1 = expl['E1_regressao_por_secao'][u]
+            for alvo, rot in (('g13_2t', 'nulos com 13 no 2º turno'), ('g22_2t', 'nulos com 22 no 2º turno')):
+                A(f'  E1, {u}, {rot}, por seção ({fi(r1["n_secoes"])} seções, erro por local): ' + '; '.join(f'{nm} {fv(q_["coef"])} (ep {fv(q_["ep"], 4, False)})' for nm, q_ in r1[alvo].items() if not nm.startswith('_'))
+                  + '. Total que a regressão liga a cada eliminado: ' + ', '.join(f'{c_}: {fi(q_)}' for c_, q_ in r1[alvo]['_explicado_pelos_eliminados'].items()) + '.')
+        ts = expl['theta_sem_a_parte_atribuida_aos_eliminados_de_governador']
+        A(f'  Theta sem a parte que a regressão liga aos eleitores de governador eliminado (conta de modelo, ecológica): AC + TO {fv(ts["AC+TO"])}; AC {fv(ts["AC"])}; TO {fv(ts["TO"])}.')
+        for u in UFS:
+            e2 = expl['E2_decimos'][u]
+            A(f'  E2, {u}, Theta por décimo da parcela dos votos de governador do 1º turno dada a eliminados (parcela média: Theta; multiplicador da taxa do 13 e do 22): ' + '; '.join(f'{fpc(l["parcela_media"])}: {fv(l["theta"], 3)} ({fv(l["multiplicador_r13"], 2, False)} e {fv(l["multiplicador_r22"], 2, False)})' for l in e2['linhas'])
+              + f'. Reta até a parcela zero: Theta {fv(e2["reta"]["theta_na_parcela_zero"])} (ep {fv(e2["reta"]["ep"], 4, False)}); inclinação {fv(e2["reta"]["inclinacao"], 2)} (ep {fv(e2["reta"]["ep_inclinacao"], 2, False)}).')
+        A('  E2b, só a metade das seções com menor parcela de governador eliminado: ' + '; '.join(f'{u} Theta {fv(q_["theta"])} (ep {fv(q_["ep"], 4, False)}; {fi(q_["n_secoes"])} seções; parcela até {fpc(q_["parcela_maxima"])}; a troca de 3,57% daria {fv(q_["formula_p_0357"])})' for u, q_ in expl['E2b_metade_de_baixo'].items()) + '.')
+        for u in UFS:
+            e4 = expl['E4_forca_dentro_da_uf'][u]
+            A(f'  E4, {u}, Theta por tercil de força de Lula dentro da UF: ' + '; '.join(f'{nome.replace("_", " ")} {fv(e4[nome]["theta"])} (ep {fv(e4[nome]["ep"], 4, False)})' for nome in ('lula_fraco', 'meio', 'lula_forte'))
+              + f'. Fraco menos forte: {fv(e4["diferenca_fraco_menos_forte"]["observada"])} (ep {fv(e4["diferenca_fraco_menos_forte"]["ep"], 4, False)}); a troca proporcional de 3,57% preveria {fv(e4["diferenca_fraco_menos_forte"]["prevista_p_0357"])}.')
+        e5 = expl['E5_leitura_a_favor_cedula_inteira']
+        A(f'  E5, leitura a favor da tese que o sinal negativo admite (cédula inteira fabricada ou trocada para Lula, com o 13 repetido em governador): o excesso de 13 é de {fi(e5["excesso_de_13_em_AC_e_TO"])} votos, {fv(e5["por_cento_dos_validos_de_AC_e_TO"], 2, False)}% dos válidos de AC e TO. '
+          f'Se TODO o excesso fosse isso e valesse igual no país: {fi(e5["se_todo_o_excesso_fosse_isso_e_igual_no_pais_cedulas"])} cédulas, {fpc(e5["fracao_da_margem_se_fabricadas"])} da margem se fabricadas e {fpc(e5["fracao_da_margem_se_trocadas"])} se trocadas. É teto, não estimativa.')
+        for u in UFS:
+            e6 = expl['E6_comparecimento'][u]
+            A(f'  E6, {u}: o comparecimento variou {fi(e6["variacao_do_comparecimento_total"])} entre os turnos; {fi(e6["secoes_com_aumento"])} seções subiram, somando {fi(e6["aumento_somado_nas_que_subiram"])} eleitores. Nulos com 13 por eleitor a mais na seção: {fv(e6["g13_2t"]["por_eleitor_a_mais_na_secao"]["coef"], 3)} (ep {fv(e6["g13_2t"]["por_eleitor_a_mais_na_secao"]["ep"], 3, False)}); '
+              f'com 22: {fv(e6["g22_2t"]["por_eleitor_a_mais_na_secao"]["coef"], 3)} (ep {fv(e6["g22_2t"]["por_eleitor_a_mais_na_secao"]["ep"], 3, False)}). Cédula fabricada com 13 nos dois cargos daria perto de 1 no 13.')
+        for x in lei.get('exploratorio_leitura', []):
             A('  ' + x)
         A('')
     A('DESVIOS E DECISÕES FORA DO REGISTRO')
@@ -1698,7 +2091,7 @@ def relatorio():
     A('AVISO QUE VALE PARA O TESTE INTEIRO')
     A('  RDV e boletim saem do mesmo programa da urna. O teste enxerga uma alteração que mexa só na contagem de presidente; um programa que também reescrevesse os nulos de governador de forma coerente escaparia. Vale só para AC e TO (1,3% das seções do país).')
     txt = _quebra('\n'.join(T))
-    for ch in ('—', '–'):
+    for ch in (chr(0x2014), chr(0x2013)):  # nenhum travessão no texto
         assert ch not in txt
     with open(RAIZ + '/resultados/R27_W3_testemunhas_governador.txt', 'w') as f:
         f.write(txt + '\n')
@@ -1708,6 +2101,9 @@ def relatorio():
         P('veredito com placebo:', vpl['veredito'], vpl['motivos'], 'sis', sis_pl)
 
 
+# Ordem completa usada: baixar (2026 1t e 2t de AC e TO; 2022 1t e 2t de AL), extrair 2026, conferir 2026, etapa1, validade,
+# abrir, extrair 2022, conferir 2022, placebo, exploratorio, leitura, relatorio. Os modos exploratorio e leitura foram
+# escritos depois de ver Theta e não decidem nada.
 if __name__ == '__main__':
     modo = sys.argv[1] if len(sys.argv) > 1 else ''
     if modo == 'baixar':
@@ -1726,5 +2122,9 @@ if __name__ == '__main__':
         placebo()
     elif modo == 'relatorio':
         relatorio()
+    elif modo == 'exploratorio':
+        exploratorio()
+    elif modo == 'leitura':
+        leitura()
     else:
         P(__doc__)

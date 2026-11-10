@@ -5,207 +5,380 @@ de rodar. Critério: registro/adendo27/desenho_D4_proposta.json, teste D4-4, apl
 fixa: docstring de scripts/analisar_R27_W4.py, escrito antes de qualquer conta com votos (cópia com hora e SHA-256 em
 /home/user/trabalho-eleicao/adendo27/R27_W4/docstring_antes_de_rodar.txt).
 Amostra: 3000 seções (3000 da amostra aleatória principal, 0 da extensão), 1421 municípios, RDV dos dois turnos.
-Rodado em 2026-11-10 10:53:39 UTC.
+Rodado em 2026-11-10 11:13:42 UTC.
+
+VEREDITO PELA LETRA, PARTE POR PARTE
+  Etapa 1, pureza dos códigos no 1º turno: INCONCLUSIVO. O código 31 passa (1,000 da contagem atribuída ao voto de Lula;
+     179 nulos). Os dois códigos do lado do 22 são reprovados: o 32 tem 0,177 atribuído ao voto de Flávio (IC95 0,000 a
+     0,617; 39 nulos) e o 52 tem 0,189 (IC95 0,000 a 0,768; 24 nulos); o limite é 0,80. Não sobra código para o lado do
+     22, e a letra manda inconclusivo quando um código é reprovado sem substituto.
+  Etapa 2, testemunhas e erro, sem abrir Theta: SEM PODER. 235,6 testemunhas no 1º turno (179 do lado do 13 e 56,6 do lado
+     do 22) e 569 no 2º, em 3.000 seções. Erro-padrão de Theta 0,2068 por reamostragem de municípios; erro total 0,2074. O
+     limite é 0,022 de erro-padrão e 0,027 de erro total: o erro é 9,4 vezes o limite.
+  Etapa 3, regra de parada: o desenho não chega ao erro pedido. Seriam precisas 265.207 seções (270 mil em blocos de 10
+     mil), 53% do país, acima do teto de 60 mil do desenho. No teto o erro-padrão ficaria em 0,046 e a letra terminaria em
+     INCONCLUSIVO. Baixar o que falta seção a seção custa 1.048.828 requisições: 291 horas, 12,1 dias, a 1 por segundo, e
+     4,7 GB.
+  Etapa 4, Theta aberto: SEM PODER (e inconclusivo pela pureza). Theta = -0,5745, erro-padrão 0,2068, erro total 0,2074. A
+     aritmética de SINAL não é cumprida (pedia +0,045 e 2,5 erros totais, ou seja, +0,518 com este erro). A de SEM SINAL
+     também não. A do espelho é cumprida (-2,77 erros totais), e isso mede a falha do instrumento, não a contagem: ver
+     LEITURA.
+  Calibração: o teste NÃO enxerga o plantado. A troca de 3,57% plantada na contagem oficial desloca Theta +0,0689 (um
+     terço de um erro-padrão) e o acréscimo de 4.430.191 votos para Lula desloca +0,0676. Com testemunhas refeitas por
+     sorteio, a troca que vira o resultado daria SINAL em 1,6% dos conjuntos, contra 0,7% sem alteração nenhuma.
+  Em uma frase: com 3.000 seções os nulos de digitação não dizem nada sobre a contagem, nem a favor nem contra a tese, e o
+  instrumento como foi desenhado não serve nem com o país inteiro, porque os códigos do lado do 22 não acompanham o voto
+  de Flávio e o erro do lado do 13 mais que dobrou sozinho do 1º para o 2º turno.
 
 ETAPA 1. PUREZA DOS CÓDIGOS NO 1º TURNO (fixado antes; regressão de Poisson sobre L1, R1 e demais votos)
-  Leitor conferido: seções em que o RDV discorda do oficial (bweb): 1º turno {'L': 0, 'R': 0, 'O': 0, 'B': 0, 'N': 0, 'comparecimento': 0, 'tipos_fora_de_2_3_4_6': 0}; 2º turno {'L': 0, 'R': 0, 'O': 0, 'B': 0, 'N': 0, 'comparecimento': 0, 'tipos_fora_de_2_3_4_6': 0}.
+  Leitor conferido: seções em que o RDV discorda do oficial (bweb) em Lula, Flávio, outros, brancos, nulos ou comparecimento: 0 no 1º turno e 0 no 2º (de 3000 em cada).
   Na amostra, 1º turno: 753.135 votantes; Lula 324.131, Flávio 337.084, outros 56.287, brancos 13.651, nulos 21.982 (com dígitos 21.751, sem dígitos 231).
-  Código 31 (lado previsto L1 (13)): 179 nulos em 170 seções (2.38 por 10 mil votantes).
-     Partes atribuídas: Lula 1.000, Flávio 0.000, demais 0.000. Lado previsto: 1.000 (ep 0.002; IC95 1.000 a 1.000). Limite 0,80: APROVADO.
-     Ao lado: demais = só nominais em outros candidatos 1.000; cinco regressores 1.000.
-  Código 32 (lado previsto R1 (22)): 39 nulos em 39 seções (0.52 por 10 mil votantes).
-     Partes atribuídas: Lula 0.747, Flávio 0.177, demais 0.076. Lado previsto: 0.177 (ep 0.184; IC95 0.000 a 0.617). Limite 0,80: REPROVADO.
-     Ao lado: demais = só nominais em outros candidatos 0.229; cinco regressores 0.000.
-  Código 52 (lado previsto R1 (22)): 24 nulos em 24 seções (0.32 por 10 mil votantes).
-     Partes atribuídas: Lula 0.811, Flávio 0.189, demais 0.000. Lado previsto: 0.189 (ep 0.233; IC95 0.000 a 0.768). Limite 0,80: REPROVADO.
-     Ao lado: demais = só nominais em outros candidatos 0.189; cinco regressores 0.144.
-  Correção do 52 no 1º turno (Poisson sobre R1 e votos do 55): parte de Flávio f52 = 0.734 (ep 0.246; IC95 0.047 a 1.000); parte do 55 = 0.266.
-     Taxa de erro por 10 mil eleitores: de Flávio 0.52; do 55 4.02 (15.894 votos do 55 na amostra).
+  Código 31 (lado previsto L1 (13)): 179 nulos em 170 seções (2,38 por 10 mil votantes).
+     Partes atribuídas: Lula 1,000, Flávio 0,000, demais 0,000. Lado previsto: 1,000 (ep 0,002; IC95 1,000 a 1,000). Limite 0,80: APROVADO.
+     Ao lado: demais = só nominais em outros candidatos 1,000; cinco regressores 1,000.
+  Código 32 (lado previsto R1 (22)): 39 nulos em 39 seções (0,52 por 10 mil votantes).
+     Partes atribuídas: Lula 0,747, Flávio 0,177, demais 0,076. Lado previsto: 0,177 (ep 0,184; IC95 0,000 a 0,617). Limite 0,80: REPROVADO.
+     Ao lado: demais = só nominais em outros candidatos 0,229; cinco regressores 0,000.
+  Código 52 (lado previsto R1 (22)): 24 nulos em 24 seções (0,32 por 10 mil votantes).
+     Partes atribuídas: Lula 0,811, Flávio 0,189, demais 0,000. Lado previsto: 0,189 (ep 0,233; IC95 0,000 a 0,768). Limite 0,80: REPROVADO.
+     Ao lado: demais = só nominais em outros candidatos 0,189; cinco regressores 0,144.
+  Correção do 52 no 1º turno (Poisson sobre R1 e votos do 55): parte de Flávio f52 = 0,734 (ep 0,246; IC95 0,047 a 1,000); parte do 55 = 0,266.
+     Taxa de erro por 10 mil eleitores: de Flávio 0,52; do 55 4,02 (15.894 votos do 55 na amostra).
   Situação: REPROVADO SEM SUBSTITUTO (inconclusivo pela letra; Theta com os três códigos só como descritivo).
 
 ETAPA 2. TESTEMUNHAS POR TURNO E ERRO-PADRÃO, SEM ABRIR THETA (fixado antes)
-  1º turno: N13 = 179 (código 31); N22 = 56.6 (32: 39; 52: 24 x f52). Total 235.6 (3.13 por 10 mil votantes; cerca de 39.207 no país).
-  2º turno: total 569 (7.39 por 10 mil votantes; cerca de 94.683 no país).
+  1º turno: N13 = 179 (código 31); N22 = 56,6 (32: 39; 52: 24 x f52). Total 235,6 (3,13 por 10 mil votantes; cerca de 39.207 no país).
+  2º turno: total 569 (7,39 por 10 mil votantes; cerca de 94.683 no país).
   Nulos com dígitos na amostra: 21.751 no 1º turno e 16.407 no 2º; votantes 753.135 e 770.364.
-  Erro-padrão de Theta: 0.2068 (bootstrap de municípios, 2.000 réplicas, a letra); 0.2174 (bootstrap de seções); 0.1952 (fórmula). Réplicas descartadas: 0.
-  Erro total com o piso sistemático de 0,015: 0.2074. Limite do critério de sem sinal: 0,027. O teste NÃO tem poder com esta amostra.
+  Erro-padrão de Theta: 0,2068 (bootstrap de municípios, 2.000 réplicas, a letra); 0,2174 (bootstrap de seções); 0,1952 (fórmula). Réplicas descartadas: 0.
+  Erro total com o piso sistemático de 0,015: 0,2074. Limite do critério de sem sinal: 0,027. O teste NÃO tem poder com esta amostra.
 
 ETAPA 3. REGRA DE PARADA DO DESENHO (blocos de 10 mil até o erro-padrão chegar a 0,022 ou até 60 mil seções)
-  Seções necessárias para o erro-padrão chegar a 0,022: 265.207 (erro cai com a raiz do número de seções). Em blocos de 10 mil: 270.000 , ACIMA do teto de 60 mil. Alvo: 60.000.
-  Erro-padrão projetado: 6.000 seções 0.1463; 10.000 seções 0.1133; 20.000 seções 0.0801; 30.000 seções 0.0654; 35.000 seções 0.0606; 40.000 seções 0.0566; 50.000 seções 0.0507; 55.000 seções 0.0483; 60.000 seções 0.0463; universo (499.205) 0.0160.
-  No alvo: erro-padrão 0.0463, erro total 0.0486 (com o piso de 0,015).
-  Download até o alvo, descontadas as 3.000 da principal: 57.000 seções, 228.000 requisições (aux e RDV, dois turnos), 63.3 horas = 2.6 dias a 1 por segundo; 1020 MB de RDV. Com boletim junto: 95.0 horas.
-  Download até o alvo, descontadas a principal e a extensão em curso (6.000): 54.000 seções, 216.000 requisições (aux e RDV, dois turnos), 60.0 horas = 2.5 dias a 1 por segundo; 967 MB de RDV. Com boletim junto: 90.0 horas.
-  Download até o teto de 60 mil, descontadas as 6.000: 54.000 seções, 216.000 requisições (aux e RDV, dois turnos), 60.0 horas = 2.5 dias a 1 por segundo; 967 MB de RDV. Com boletim junto: 90.0 horas.
-  Tamanho médio do RDV: 15147 bytes no 1º turno e 2754 no 2º. Placebo de 2022 (15 mil seções, dois turnos): mais 16.7 horas.
+  Seções necessárias para o erro-padrão chegar a 0,022: 265.207 (erro cai com a raiz do número de seções). Em blocos de 10 mil: 270.000, ACIMA do teto de 60 mil. Alvo: 60.000.
+  Erro-padrão projetado: 6.000 seções 0,1463; 10.000 seções 0,1133; 20.000 seções 0,0801; 30.000 seções 0,0654; 35.000 seções 0,0606; 40.000 seções 0,0566; 50.000 seções 0,0507; 55.000 seções 0,0483; 60.000 seções 0,0463; universo (499.205) 0,0160.
+  No alvo: erro-padrão 0,0463, erro total 0,0486 (com o piso de 0,015).
+  Download até o alvo, descontadas as 3.000 da principal: 57.000 seções, 228.000 requisições (aux e RDV, dois turnos), 63,3 horas = 2,6 dias a 1 por segundo; 1020 MB de RDV. Com boletim junto: 95,0 horas.
+  Download até o alvo, descontadas a principal e a extensão em curso (6.000): 54.000 seções, 216.000 requisições (aux e RDV, dois turnos), 60,0 horas = 2,5 dias a 1 por segundo; 967 MB de RDV. Com boletim junto: 90,0 horas.
+  Download até o teto de 60 mil, descontadas as 6.000: 54.000 seções, 216.000 requisições (aux e RDV, dois turnos), 60,0 horas = 2,5 dias a 1 por segundo; 967 MB de RDV. Com boletim junto: 90,0 horas.
+  Tamanho médio do RDV: 15147 bytes no 1º turno e 2754 no 2º. Placebo de 2022 (15 mil seções, dois turnos): mais 16,7 horas.
+  Sem o teto (acréscimo feito depois das etapas 1 a 3 e antes de abrir Theta, só aritmética): as 265.207 seções são 53,1% do universo. Faltam 262.207 seções, 1.048.828 requisições, 291,3 horas = 12,1 dias a 1 por segundo, 4,7 GB de RDV (mais do que o disco livre).
+  O universo inteiro, seção a seção: 1.984.820 requisições, 23,0 dias, 8,9 GB; erro-padrão projetado 0,0160, erro total 0,0220.
+  Rota mais barata para o universo: os 56 pacotes por UF e turno do TSE (cdn.tse.jus.br, arquivos transmitidos para totalização), lidos em fluxo como no teste W3, sem guardar o zip: cerca de 199 GB de leitura, 168 pedidos, de 2,6 a 13,9 horas nas velocidades medidas pelo W3 no AC.
 
 ETAPA 4. THETA ABERTO (depois das etapas 1 a 3)
   Valor bruto de 2026, nas seções da amostra:
-    Oficial: 1º turno Lula 324.131, Flávio 337.084, P1 = 0.4902; 2º turno Lula 386.715, Flávio 358.771, P2 = 0.5187. Variação do logit oficial: +0.1142.
-    Testemunhas: 1º turno N13 = 179, N22 = 56.6 (32: 39; 52: 24 bruto), W1 = 0.7597; 2º turno N13 = 491, N22 = 78 (32: 54; 52: 24), W2 = 0.8629. Variação do logit das testemunhas: +0.6887.
-    Taxa de erro por 10 mil eleitores do lado: 13: 5.52 no 1º turno e 12.70 no 2º (ln da razão +0.8325); 22: 1.68 e 2.17 (ln da razão +0.2580).
-  THETA = -0.5745; erro-padrão 0.2068; erro sistemático 0.015 (piso; placebo de 2022 não rodado); erro total 0.2074.
-    Theta sobre o erro-padrão: -2.78; sobre o erro total: -2.77. IC95 percentil do bootstrap: -0.9615 a -0.1573.
-    Referência: a troca que vira o resultado daria +0,071; o limiar de sinal com este erro é 0.518.
+    Oficial: 1º turno Lula 324.131, Flávio 337.084, P1 = 0,4902; 2º turno Lula 386.715, Flávio 358.771, P2 = 0,5187. Variação do logit oficial: +0,1142.
+    Testemunhas: 1º turno N13 = 179, N22 = 56,6 (32: 39; 52: 24 bruto), W1 = 0,7597; 2º turno N13 = 491, N22 = 78 (32: 54; 52: 24), W2 = 0,8629. Variação do logit das testemunhas: +0,6887.
+    Taxa de erro por 10 mil eleitores do lado: 13: 5,52 no 1º turno e 12,70 no 2º (ln da razão +0,8325); 22: 1,68 e 2,17 (ln da razão +0,2580).
+  THETA = -0,5745; erro-padrão 0,2068; erro sistemático 0,015 (piso; placebo de 2022 não rodado); erro total 0,2074.
+    Theta sobre o erro-padrão: -2,78; sobre o erro total: -2,77. IC95 percentil do bootstrap: -0,9615 a -0,1573.
+    Referência: a troca que vira o resultado daria +0,071; o limiar de sinal com este erro é 0,518.
   Condições, uma a uma: Theta >= 0,045: não; Theta >= 2,5 x erro total: não; mesmo sinal em 4 de 5 regiões: sim (5 de 5); nos três tercis: sim (3 de 3); |Theta| <= 0,020: não; erro total <= 0,027: não; erro-padrão <= 0,022: não.
     Aritmética de SINAL cumprida: não. Aritmética de SEM SINAL cumprida: não. Espelho (sinal a favor de Flávio): sim.
   VEREDITO PELA LETRA: SEM PODER.
   Por região e por tercil de escolaridade (f52 nacional; erro por bootstrap de municípios dentro do subgrupo):
-    N           n =   272; testemunhas 1º turno 12 e 4.7, 2º turno 44 e 4; Theta = -1.3827 (ep 0.770)
-    NE          n =   849; testemunhas 1º turno 111 e 22.6, 2º turno 296 e 34; Theta = -0.4767 (ep 0.271)
-    SE          n =  1224; testemunhas 1º turno 38 e 15.7, 2º turno 101 e 27; Theta = -0.2796 (ep 0.365)
-    S           n =   416; testemunhas 1º turno 7 e 8.7, 2º turno 19 e 9; Theta = -0.8270 (ep 0.642)
-    CO          n =   229; testemunhas 1º turno 11 e 4.9, 2º turno 31 e 4; Theta = -1.0932 (ep 0.833)
-    tercil_1    n =   997; testemunhas 1º turno 90 e 25.3, 2º turno 272 e 35; Theta = -0.6724 (ep 0.298)
-    tercil_2    n =   978; testemunhas 1º turno 65 e 18.7, 2º turno 161 e 26; Theta = -0.4537 (ep 0.324)
-    tercil_3    n =  1012; testemunhas 1º turno 24 e 12.6, 2º turno 58 e 17; Theta = -0.4592 (ep 0.482)
-    exterior    n =    10; testemunhas 1º turno 0 e 0.0, 2º turno 0 e 0; Theta = n/d
-    sem_perfil  n =    13; testemunhas 1º turno 0 e 0.0, 2º turno 0 e 0; Theta = n/d
+    N           n =   272; testemunhas 1º turno 12 e 4,7, 2º turno 44 e 4; Theta = -1,3827 (ep 0,770)
+    NE          n =   849; testemunhas 1º turno 111 e 22,6, 2º turno 296 e 34; Theta = -0,4767 (ep 0,271)
+    SE          n =  1224; testemunhas 1º turno 38 e 15,7, 2º turno 101 e 27; Theta = -0,2796 (ep 0,365)
+    S           n =   416; testemunhas 1º turno 7 e 8,7, 2º turno 19 e 9; Theta = -0,8270 (ep 0,642)
+    CO          n =   229; testemunhas 1º turno 11 e 4,9, 2º turno 31 e 4; Theta = -1,0932 (ep 0,833)
+    tercil_1    n =   997; testemunhas 1º turno 90 e 25,3, 2º turno 272 e 35; Theta = -0,6724 (ep 0,298)
+    tercil_2    n =   978; testemunhas 1º turno 65 e 18,7, 2º turno 161 e 26; Theta = -0,4537 (ep 0,324)
+    tercil_3    n =  1012; testemunhas 1º turno 24 e 12,6, 2º turno 58 e 17; Theta = -0,4592 (ep 0,482)
+    exterior    n =    10; testemunhas 1º turno 0 e 0,0, 2º turno 0 e 0; Theta = n/d
+    sem_perfil  n =    13; testemunhas 1º turno 0 e 0,0, 2º turno 0 e 0; Theta = n/d
 
 LEITURAS SECUNDÁRIAS FIXADAS ANTES DE ABRIR (não decidem)
-  (a) só o 32 do lado do 22: Theta = -0.5694 (ep 0.2269); (b) só o 52 corrigido: -0.5857 (ep 30.4418); (c) sem a correção do 52: -0.6813 (ep 0.1878).
-  (e) só seções com a mesma urna e os mesmos aptos nos dois turnos (n = 2651): Theta = -0.5698 (ep 0.2161).
-  (f) validade em nível, 1º turno: inclinação de logit W sobre logit P entre cinco grupos de seções = 0.666 (ep 0.200); esperado 1.
-      grupo 1: P 0.259, W 0.613 (13 e 8); grupo 2: P 0.374, W 0.591 (14 e 10); grupo 3: P 0.471, W 0.678 (23 e 11); grupo 4: P 0.589, W 0.759 (36 e 11); grupo 5: P 0.764, W 0.850 (93 e 16)
-  (f) validade em nível, 2º turno: inclinação de logit W sobre logit P entre cinco grupos de seções = 0.592 (ep 0.170); esperado 1.
-      grupo 1: P 0.295, W 0.719 (23 e 9); grupo 2: P 0.412, W 0.797 (51 e 13); grupo 3: P 0.505, W 0.840 (68 e 13); grupo 4: P 0.616, W 0.850 (102 e 18); grupo 5: P 0.779, W 0.908 (247 e 25)
-  (g) duas metades aleatórias: -0.6202 (ep 0.289) e -0.5244 (ep 0.244); diferença -0.0958 (ep 0.379; z = -0.25).
-  (h) códigos de controle: 00: 11297 no 1º turno (51.94% dos nulos com dígitos, ep 1.87) e 8945 no 2º (54.52%, ep 1.26); 99: 495 no 1º turno (2.28% dos nulos com dígitos, ep 0.23) e 462 no 2º (2.82%, ep 0.27).
+  (a) só o 32 do lado do 22: Theta = -0,5694 (ep 0,2269); (b) só o 52 corrigido: -0,5857 (ep 30,4418); (c) sem a correção do 52: -0,6813 (ep 0,1878).
+      O erro da leitura (b) não tem sentido: com 24 nulos e f52 incerto, há réplicas do bootstrap em que a parte de Flávio no 52 vai a zero.
+  (e) só seções com a mesma urna e os mesmos aptos nos dois turnos (n = 2651): Theta = -0,5698 (ep 0,2161).
+  (f) validade em nível, 1º turno: inclinação de logit W sobre logit P entre cinco grupos de seções = 0,666 (ep 0,200); esperado 1.
+      grupo 1: P 0,259, W 0,613 (13 e 8); grupo 2: P 0,374, W 0,591 (14 e 10); grupo 3: P 0,471, W 0,678 (23 e 11); grupo 4: P 0,589, W 0,759 (36 e 11); grupo 5: P 0,764, W 0,850 (93 e 16)
+  (f) validade em nível, 2º turno: inclinação de logit W sobre logit P entre cinco grupos de seções = 0,592 (ep 0,170); esperado 1.
+      grupo 1: P 0,295, W 0,719 (23 e 9); grupo 2: P 0,412, W 0,797 (51 e 13); grupo 3: P 0,505, W 0,840 (68 e 13); grupo 4: P 0,616, W 0,850 (102 e 18); grupo 5: P 0,779, W 0,908 (247 e 25)
+  (g) duas metades aleatórias: -0,6202 (ep 0,289) e -0,5244 (ep 0,244); diferença -0,0958 (ep 0,379; z = -0,25).
+  (h) códigos de controle: 00: 11297 no 1º turno (51,94% dos nulos com dígitos, ep 1,87) e 8945 no 2º (54,52%, ep 1,26); 99: 495 no 1º turno (2,28% dos nulos com dígitos, ep 0,23) e 462 no 2º (2,82%, ep 0,27).
 
 CALIBRAÇÃO POR EFEITO PLANTADO NOS DADOS DE 2026
   A. Plantio na contagem oficial das seções da amostra, com as testemunhas reais (200 cópias):
-    troca de 3,57% dos votos de Flávio para Lula: Theta desloca +0.0689 (fórmula +0.0689); isso é +0.33 erros-padrão e +0.33 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
-    troca de 1,8% (meia dose): Theta desloca +0.0348 (fórmula +0.0347); isso é +0.17 erros-padrão e +0.17 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
-    acréscimo de 4.430.191 votos para Lula (pelos faltosos): Theta desloca +0.0676 (fórmula +0.0675); isso é +0.33 erros-padrão e +0.33 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
-    espelho: troca de 3,57% dos votos de Lula para Flávio: Theta desloca -0.0741 (fórmula -0.0741); isso é -0.36 erros-padrão e -0.36 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
-    espelho: acréscimo da margem para Flávio: Theta desloca -0.0726 (fórmula -0.0726); isso é -0.35 erros-padrão e -0.35 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
-    acréscimo esperado na amostra: 27016 votos (9 por seção); no país 4.430.191. Fórmula nacional da troca: 0.0691; do acréscimo sobre o oficial: 0.0667; do acréscimo visto pela testemunha (ln de L oficial sobre L verdadeiro): 0.0714.
+    troca de 3,57% dos votos de Flávio para Lula: Theta desloca +0,0689 (fórmula +0,0689); isso é +0,33 erros-padrão e +0,33 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
+    troca de 1,8% (meia dose): Theta desloca +0,0348 (fórmula +0,0347); isso é +0,17 erros-padrão e +0,17 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
+    acréscimo de 4.430.191 votos para Lula (pelos faltosos): Theta desloca +0,0676 (fórmula +0,0675); isso é +0,33 erros-padrão e +0,33 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
+    espelho: troca de 3,57% dos votos de Lula para Flávio: Theta desloca -0,0741 (fórmula -0,0741); isso é -0,36 erros-padrão e -0,36 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
+    espelho: acréscimo da margem para Flávio: Theta desloca -0,0726 (fórmula -0,0726); isso é -0,35 erros-padrão e -0,35 erros totais. Veredito no dado plantado: SEM PODER em 200 de 200. Enxerga a 2,5 erros: não.
+    acréscimo esperado na amostra: 27016 votos (9 por seção); no país 4.430.191. Fórmula nacional da troca: 0,0691; do acréscimo sobre o oficial: 0,0667; do acréscimo visto pela testemunha (ln de L oficial sobre L verdadeiro): 0,0714.
   B. Testemunhas refeitas por sorteio (1.000 conjuntos por cenário; taxas de erro por eleitor iguais nos dois turnos):
-    Taxas usadas, por 10 mil eleitores: 31 por eleitor de Lula 9.43; 32 por eleitor de Flávio 1.34; 52 por eleitor de Flávio 0.60; 52 por eleitor do 55 4.02.
-    B0 sem alteração: Theta médio +0.0010 (desvio entre conjuntos 0.2104; esperado sem ruído +0.0000). Aritmética de SINAL em 0.7% dos conjuntos; espelhada em 0.7%; |Theta| <= 0,020 em 7.2%.
-    B1 troca que vira o resultado (3,57%): Theta médio +0.0706 (desvio entre conjuntos 0.2097; esperado sem ruído +0.0713). Aritmética de SINAL em 1.6% dos conjuntos; espelhada em 0.4%; |Theta| <= 0,020 em 7.2%.
-    B2 acréscimo da margem para Lula: Theta médio +0.0808 (desvio entre conjuntos 0.2113; esperado sem ruído +0.0722). Aritmética de SINAL em 2.3% dos conjuntos; espelhada em 0.2%; |Theta| <= 0,020 em 6.7%.
-    B3 inocente: 20% das testemunhas não seguem o lado: Theta médio +0.0304 (desvio entre conjuntos 0.2055; esperado sem ruído +0.0325). Aritmética de SINAL em 1.1% dos conjuntos; espelhada em 0.1%; |Theta| <= 0,020 em 8.1%.
-    B3 inocente: impureza estimada na pureza: Theta médio +0.0048 (desvio entre conjuntos 0.2053; esperado sem ruído -0.0102). Aritmética de SINAL em 1.0% dos conjuntos; espelhada em 0.4%; |Theta| <= 0,020 em 7.0%.
-    B4 inocente: eliminados que erram tecla 10 pontos a mais para Lula: Theta médio -0.0247 (desvio entre conjuntos 0.2137; esperado sem ruído -0.0303). Aritmética de SINAL em 0.5% dos conjuntos; espelhada em 1.0%; |Theta| <= 0,020 em 6.6%.
-    B4 inocente: eliminados que erram tecla 10 pontos a mais para Flávio: Theta médio +0.0452 (desvio entre conjuntos 0.2079; esperado sem ruído +0.0302). Aritmética de SINAL em 1.3% dos conjuntos; espelhada em 0.4%; |Theta| <= 0,020 em 6.5%.
-    Impureza estimada usada em B3: 31 = 0.000, 32 = 0.823, 52 = 0.856.
+    Taxas usadas, por 10 mil eleitores: 31 por eleitor de Lula 9,43; 32 por eleitor de Flávio 1,34; 52 por eleitor de Flávio 0,60; 52 por eleitor do 55 4,02.
+    B0 sem alteração: Theta médio +0,0010 (desvio entre conjuntos 0,2104; esperado sem ruído +0,0000). Aritmética de SINAL em 0,7% dos conjuntos; espelhada em 0,7%; |Theta| <= 0,020 em 7,2%.
+    B1 troca que vira o resultado (3,57%): Theta médio +0,0706 (desvio entre conjuntos 0,2097; esperado sem ruído +0,0713). Aritmética de SINAL em 1,6% dos conjuntos; espelhada em 0,4%; |Theta| <= 0,020 em 7,2%.
+    B2 acréscimo da margem para Lula: Theta médio +0,0808 (desvio entre conjuntos 0,2113; esperado sem ruído +0,0722). Aritmética de SINAL em 2,3% dos conjuntos; espelhada em 0,2%; |Theta| <= 0,020 em 6,7%.
+    B3 inocente: 20% das testemunhas não seguem o lado: Theta médio +0,0304 (desvio entre conjuntos 0,2055; esperado sem ruído +0,0325). Aritmética de SINAL em 1,1% dos conjuntos; espelhada em 0,1%; |Theta| <= 0,020 em 8,1%.
+    B3 inocente: impureza estimada na pureza: Theta médio +0,0048 (desvio entre conjuntos 0,2053; esperado sem ruído -0,0102). Aritmética de SINAL em 1,0% dos conjuntos; espelhada em 0,4%; |Theta| <= 0,020 em 7,0%.
+    B4 inocente: eliminados que erram tecla 10 pontos a mais para Lula: Theta médio -0,0247 (desvio entre conjuntos 0,2137; esperado sem ruído -0,0303). Aritmética de SINAL em 0,5% dos conjuntos; espelhada em 1,0%; |Theta| <= 0,020 em 6,6%.
+    B4 inocente: eliminados que erram tecla 10 pontos a mais para Flávio: Theta médio +0,0452 (desvio entre conjuntos 0,2079; esperado sem ruído +0,0302). Aritmética de SINAL em 1,3% dos conjuntos; espelhada em 0,4%; |Theta| <= 0,020 em 6,5%.
+    Impureza estimada usada em B3: 31 = 0,000, 32 = 0,823, 52 = 0,856.
     Poder projetado (aproximação normal, sem contar as condições de região e tercil; erro sistemático 0,015):
-        3.000 seções: erro-padrão 0.2068, erro total 0.2074, limiar de sinal 0.518; chance de SINAL com a troca que vira: 1.5%; sem alteração: SINAL em 0.62%, SEM SINAL em 0.0%; com a troca, SEM SINAL (absolvição errada) em 0.0%.
-        6.000 seções: erro-padrão 0.1463, erro total 0.1470, limiar de sinal 0.368; chance de SINAL com a troca que vira: 2.1%; sem alteração: SINAL em 0.61%, SEM SINAL em 0.0%; com a troca, SEM SINAL (absolvição errada) em 0.0%.
-       35.000 seções: erro-padrão 0.0606, erro total 0.0624, limiar de sinal 0.156; chance de SINAL com a troca que vira: 7.9%; sem alteração: SINAL em 0.52%, SEM SINAL em 0.0%; com a troca, SEM SINAL (absolvição errada) em 0.0%.
-       50.000 seções: erro-padrão 0.0507, erro total 0.0528, limiar de sinal 0.132; chance de SINAL com a troca que vira: 11.2%; sem alteração: SINAL em 0.48%, SEM SINAL em 0.0%; com a troca, SEM SINAL (absolvição errada) em 0.0%.
-       60.000 seções: erro-padrão 0.0463, erro total 0.0486, limiar de sinal 0.122; chance de SINAL com a troca que vira: 13.5%; sem alteração: SINAL em 0.46%, SEM SINAL em 0.0%; com a troca, SEM SINAL (absolvição errada) em 0.0%.
+        3.000 seções: erro-padrão 0,2068, erro total 0,2074, limiar de sinal 0,518; chance de SINAL com a troca que vira: 1,5%; sem alteração: SINAL em 0,62%, SEM SINAL em 0,0%; com a troca, SEM SINAL (absolvição errada) em 0,0%.
+        6.000 seções: erro-padrão 0,1463, erro total 0,1470, limiar de sinal 0,368; chance de SINAL com a troca que vira: 2,1%; sem alteração: SINAL em 0,61%, SEM SINAL em 0,0%; com a troca, SEM SINAL (absolvição errada) em 0,0%.
+       35.000 seções: erro-padrão 0,0606, erro total 0,0624, limiar de sinal 0,156; chance de SINAL com a troca que vira: 7,9%; sem alteração: SINAL em 0,52%, SEM SINAL em 0,0%; com a troca, SEM SINAL (absolvição errada) em 0,0%.
+       50.000 seções: erro-padrão 0,0507, erro total 0,0528, limiar de sinal 0,132; chance de SINAL com a troca que vira: 11,2%; sem alteração: SINAL em 0,48%, SEM SINAL em 0,0%; com a troca, SEM SINAL (absolvição errada) em 0,0%.
+       60.000 seções: erro-padrão 0,0463, erro total 0,0486, limiar de sinal 0,122; chance de SINAL com a troca que vira: 13,5%; sem alteração: SINAL em 0,46%, SEM SINAL em 0,0%; com a troca, SEM SINAL (absolvição errada) em 0,0%.
   O teste enxerga o plantado (regra do docstring: SINAL em 80% ou mais dos conjuntos de B1 e deslocamento de 2,5 erros totais ou mais)? não.
 
 TRADUÇÃO EM VOTOS DE MARGEM (totais nacionais do 2º turno; margem oficial 4.430.191)
-  Theta medido: Theta -0.5745 = troca de -17.153.215 votos, efeito na margem -34.306.429 (-774% da margem); ou acréscimo de -49.877.405 votos (-1126% da margem).
-  Theta menos 1,96 erro total: Theta -0.9810 = troca de -27.718.394 votos, efeito na margem -55.436.787 (-1251% da margem); ou acréscimo de -107.119.692 votos (-2418% da margem).
-  Theta mais 1,96 erro total: Theta -0.1680 = troca de -5.177.169 votos, efeito na margem -10.354.339 (-234% da margem); ou acréscimo de -11.754.953 votos (-265% da margem).
-  Theta menos 1,96 erro-padrão: Theta -0.9799 = troca de -27.693.050 votos, efeito na margem -55.386.101 (-1250% da margem); ou acréscimo de -106.937.343 votos (-2414% da margem).
-  Theta mais 1,96 erro-padrão: Theta -0.1691 = troca de -5.209.723 votos, efeito na margem -10.419.445 (-235% da margem); ou acréscimo de -11.835.918 votos (-267% da margem).
-  referência: a troca que vira: Theta +0.0691 = troca de 2.141.060 votos, efeito na margem 4.282.119 (+97% da margem); ou acréscimo de 4.287.235 votos (+97% da margem).
-  menor Theta que daria SINAL com este erro: Theta +0.5185 = troca de 15.856.223 votos, efeito na margem 31.712.446 (+716% da margem); ou acréscimo de 25.996.529 votos (+587% da margem).
+  Theta medido: Theta -0,5745 = troca de -17.153.215 votos, efeito na margem -34.306.429 (-774% da margem); ou acréscimo de -49.877.405 votos (-1126% da margem).
+  Theta menos 1,96 erro total: Theta -0,9810 = troca de -27.718.394 votos, efeito na margem -55.436.787 (-1251% da margem); ou acréscimo de -107.119.692 votos (-2418% da margem).
+  Theta mais 1,96 erro total: Theta -0,1680 = troca de -5.177.169 votos, efeito na margem -10.354.339 (-234% da margem); ou acréscimo de -11.754.953 votos (-265% da margem).
+  Theta menos 1,96 erro-padrão: Theta -0,9799 = troca de -27.693.050 votos, efeito na margem -55.386.101 (-1250% da margem); ou acréscimo de -106.937.343 votos (-2414% da margem).
+  Theta mais 1,96 erro-padrão: Theta -0,1691 = troca de -5.209.723 votos, efeito na margem -10.419.445 (-235% da margem); ou acréscimo de -11.835.918 votos (-267% da margem).
+  referência: a troca que vira: Theta +0,0691 = troca de 2.141.060 votos, efeito na margem 4.282.119 (+97% da margem); ou acréscimo de 4.287.235 votos (+97% da margem).
+  menor Theta que daria SINAL com este erro: Theta +0,5185 = troca de 15.856.223 votos, efeito na margem 31.712.446 (+716% da margem); ou acréscimo de 25.996.529 votos (+587% da margem).
 
 DESCRITIVO: O QUE OS ELEITORES DIGITAM NOS VOTOS NULOS DE PRESIDENTE (aberto só na etapa 4)
-  1º turno: 753.135 votantes na amostra; 21.751 nulos com dígitos (2.89%), 231 nulos sem dígitos, 13.651 brancos; 87 números distintos.
+  1º turno: 753.135 votantes na amostra; 21.751 nulos com dígitos (2,89%), 231 nulos sem dígitos, 13.651 brancos; 87 números distintos.
     número  contagem  % dos nulos  por 10 mil votantes  rótulo
-      00     11297      51.94         150.00         código de controle
-      10      1390       6.39          18.46         número de partido
-      15      1379       6.34          18.31         número de partido
-      11      1087       5.00          14.43         excluído de antemão: número de partido
-      12       940       4.32          12.48         excluído de antemão: vizinho dos dois
-      44       697       3.20           9.25         número de partido
-      45       584       2.68           7.75         número de partido
-      40       544       2.50           7.22         número de partido
-      99       495       2.28           6.57         código de controle
-      20       329       1.51           4.37         número de partido
-      78       187       0.86           2.48         
-      31       179       0.82           2.38         testemunha do 13 (dígitos invertidos)
-      50       167       0.77           2.22         número de partido
-      01       163       0.75           2.16         
-      18       152       0.70           2.02         número de partido
-      73       145       0.67           1.93         
-      33       137       0.63           1.82         excluído de antemão: número de partido
-      23       132       0.61           1.75         excluído de antemão: vizinho dos dois
-      77       114       0.52           1.51         número de partido
-      25       109       0.50           1.45         excluído de antemão: número de partido
-      88        95       0.44           1.26         
-      66        80       0.37           1.06         
-      56        58       0.27           0.77         
-      43        57       0.26           0.76         excluído de antemão: número de partido
-      09        56       0.26           0.74         
-      08        50       0.23           0.66         
-      89        49       0.23           0.65         
-      17        45       0.21           0.60         número de partido
-      36        44       0.20           0.58         número de partido
-      32        39       0.18           0.52         testemunha do 22 (tecla vizinha no 1º dígito)
-      02        39       0.18           0.52         
-      41        32       0.15           0.42         
-      03        32       0.15           0.42         
-      54        32       0.15           0.42         
-      19        31       0.14           0.41         número de partido
-      96        31       0.14           0.41         
-      42        31       0.14           0.41         
-      69        29       0.13           0.39         
-      65        29       0.13           0.39         número de partido
-      07        28       0.13           0.37         
-  2º turno: 770.364 votantes na amostra; 16.407 nulos com dígitos (2.13%), 1 nulos sem dígitos, 8.470 brancos; 97 números distintos.
+      00     11297      51,94         150,00         código de controle
+      10      1390       6,39          18,46         número de partido
+      15      1379       6,34          18,31         número de partido
+      11      1087       5,00          14,43         excluído de antemão: número de partido
+      12       940       4,32          12,48         excluído de antemão: vizinho dos dois
+      44       697       3,20           9,25         número de partido
+      45       584       2,68           7,75         número de partido
+      40       544       2,50           7,22         número de partido
+      99       495       2,28           6,57         código de controle
+      20       329       1,51           4,37         número de partido
+      78       187       0,86           2,48         
+      31       179       0,82           2,38         testemunha do 13 (dígitos invertidos)
+      50       167       0,77           2,22         número de partido
+      01       163       0,75           2,16         
+      18       152       0,70           2,02         número de partido
+      73       145       0,67           1,93         
+      33       137       0,63           1,82         excluído de antemão: número de partido
+      23       132       0,61           1,75         excluído de antemão: vizinho dos dois
+      77       114       0,52           1,51         número de partido
+      25       109       0,50           1,45         excluído de antemão: número de partido
+      88        95       0,44           1,26         
+      66        80       0,37           1,06         
+      56        58       0,27           0,77         
+      43        57       0,26           0,76         excluído de antemão: número de partido
+      09        56       0,26           0,74         
+      08        50       0,23           0,66         
+      89        49       0,23           0,65         
+      17        45       0,21           0,60         número de partido
+      36        44       0,20           0,58         número de partido
+      32        39       0,18           0,52         testemunha do 22 (tecla vizinha no 1º dígito)
+      02        39       0,18           0,52         
+      41        32       0,15           0,42         
+      03        32       0,15           0,42         
+      54        32       0,15           0,42         
+      19        31       0,14           0,41         número de partido
+      96        31       0,14           0,41         
+      42        31       0,14           0,41         
+      69        29       0,13           0,39         
+      65        29       0,13           0,39         número de partido
+      07        28       0,13           0,37         
+  2º turno: 770.364 votantes na amostra; 16.407 nulos com dígitos (2,13%), 1 nulos sem dígitos, 8.470 brancos; 97 números distintos.
     número  contagem  % dos nulos  por 10 mil votantes  rótulo
-      00      8945      54.52         116.11         código de controle
-      11      1005       6.13          13.05         excluído de antemão: número de partido
-      14       831       5.06          10.79         número de candidato do 1º turno (eliminado)
-      12       579       3.53           7.52         excluído de antemão: vizinho dos dois
-      31       491       2.99           6.37         testemunha do 13 (dígitos invertidos)
-      99       462       2.82           6.00         código de controle
-      15       451       2.75           5.85         número de partido
-      55       369       2.25           4.79         número de candidato do 1º turno (eliminado)
-      10       232       1.41           3.01         número de partido
-      33       212       1.29           2.75         excluído de antemão: número de partido
-      44       211       1.29           2.74         número de partido
-      23       173       1.05           2.25         excluído de antemão: vizinho dos dois
-      45       171       1.04           2.22         número de partido
-      73       140       0.85           1.82         
-      70       123       0.75           1.60         número de candidato do 1º turno (eliminado)
-      01       113       0.69           1.47         
-      77        98       0.60           1.27         número de partido
-      25        95       0.58           1.23         excluído de antemão: número de partido
-      88        88       0.54           1.14         
-      67        86       0.52           1.12         
-      66        86       0.52           1.12         
-      56        68       0.41           0.88         
-      35        65       0.40           0.84         número de candidato do 1º turno (eliminado)
-      20        64       0.39           0.83         número de partido
-      78        58       0.35           0.75         
-      21        55       0.34           0.71         excluído de antemão: candidato do 1º turno
-      32        54       0.33           0.70         testemunha do 22 (tecla vizinha no 1º dígito)
-      30        51       0.31           0.66         número de candidato do 1º turno (eliminado)
-      17        47       0.29           0.61         número de partido
-      18        43       0.26           0.56         número de partido
-      69        42       0.26           0.55         
-      50        40       0.24           0.52         número de partido
-      07        34       0.21           0.44         
-      19        33       0.20           0.43         número de partido
-      08        31       0.19           0.40         
-      16        31       0.19           0.40         excluído de antemão: candidato do 1º turno
-      71        30       0.18           0.39         
-      03        29       0.18           0.38         
-      80        28       0.17           0.36         número de candidato do 1º turno (eliminado)
-      51        27       0.16           0.35         número de partido
+      00      8945      54,52         116,11         código de controle
+      11      1005       6,13          13,05         excluído de antemão: número de partido
+      14       831       5,06          10,79         número de candidato do 1º turno (eliminado)
+      12       579       3,53           7,52         excluído de antemão: vizinho dos dois
+      31       491       2,99           6,37         testemunha do 13 (dígitos invertidos)
+      99       462       2,82           6,00         código de controle
+      15       451       2,75           5,85         número de partido
+      55       369       2,25           4,79         número de candidato do 1º turno (eliminado)
+      10       232       1,41           3,01         número de partido
+      33       212       1,29           2,75         excluído de antemão: número de partido
+      44       211       1,29           2,74         número de partido
+      23       173       1,05           2,25         excluído de antemão: vizinho dos dois
+      45       171       1,04           2,22         número de partido
+      73       140       0,85           1,82         
+      70       123       0,75           1,60         número de candidato do 1º turno (eliminado)
+      01       113       0,69           1,47         
+      77        98       0,60           1,27         número de partido
+      25        95       0,58           1,23         excluído de antemão: número de partido
+      88        88       0,54           1,14         
+      67        86       0,52           1,12         
+      66        86       0,52           1,12         
+      56        68       0,41           0,88         
+      35        65       0,40           0,84         número de candidato do 1º turno (eliminado)
+      20        64       0,39           0,83         número de partido
+      78        58       0,35           0,75         
+      21        55       0,34           0,71         excluído de antemão: candidato do 1º turno
+      32        54       0,33           0,70         testemunha do 22 (tecla vizinha no 1º dígito)
+      30        51       0,31           0,66         número de candidato do 1º turno (eliminado)
+      17        47       0,29           0,61         número de partido
+      18        43       0,26           0,56         número de partido
+      69        42       0,26           0,55         
+      50        40       0,24           0,52         número de partido
+      07        34       0,21           0,44         
+      19        33       0,20           0,43         número de partido
+      08        31       0,19           0,40         
+      16        31       0,19           0,40         excluído de antemão: candidato do 1º turno
+      71        30       0,18           0,39         
+      03        29       0,18           0,38         
+      80        28       0,17           0,36         número de candidato do 1º turno (eliminado)
+      51        27       0,16           0,35         número de partido
 
 DESCRITIVO: NÚMEROS DE CANDIDATOS ELIMINADOS DIGITADOS COMO NULO NO 2º TURNO
     número  nulos no 2º turno  % dos nulos (ep)   por 10 mil votantes  votos próprios no 1º turno  por 100 votos próprios (ep)  parte dos próprios eleitores (Poisson)
-      14         831           5.06 (0.23)         10.79                15923                5.22 (0.19)                 0.848
-      16          31           0.19 (0.03)          0.40                  258               12.02 (2.45)                 0.000
-      21          55           0.34 (0.05)          0.71                  123               44.72 (8.49)                 0.000
-      27           7           0.04 (0.02)          0.09                  236                2.97 (1.13)                 n/d
-      28          18           0.11 (0.02)          0.23                   29               62.07 (18.34)                 n/d
-      29           6           0.04 (0.01)          0.08                   89                6.74 (2.57)                 n/d
-      30          51           0.31 (0.04)          0.66                 1954                2.61 (0.38)                 0.319
-      35          65           0.40 (0.05)          0.84                  115               56.52 (10.56)                 0.009
-      55         369           2.25 (0.36)          4.79                15894                2.32 (0.39)                 0.057
-      70         123           0.75 (0.07)          1.60                20927                0.59 (0.06)                 0.554
-      80          28           0.17 (0.03)          0.36                  739                3.79 (0.80)                 0.000
-    Os 11 juntos: 1584 nulos (9.65% dos nulos com dígitos, ep 0.43); 20.56 por 10 mil votantes; 2.81 por 100 votos de eliminados no 1º turno (ep 0.12); cerca de 263.580 no país.
+      14         831           5,06 (0,23)         10,79                15923                5,22 (0,19)                 0,848
+      16          31           0,19 (0,03)          0,40                  258               12,02 (2,45)                 0,000
+      21          55           0,34 (0,05)          0,71                  123               44,72 (8,49)                 0,000
+      27           7           0,04 (0,02)          0,09                  236                2,97 (1,13)                 n/d
+      28          18           0,11 (0,02)          0,23                   29               62,07 (18,34)                 n/d
+      29           6           0,04 (0,01)          0,08                   89                6,74 (2,57)                 n/d
+      30          51           0,31 (0,04)          0,66                 1954                2,61 (0,38)                 0,319
+      35          65           0,40 (0,05)          0,84                  115               56,52 (10,56)                 0,009
+      55         369           2,25 (0,36)          4,79                15894                2,32 (0,39)                 0,057
+      70         123           0,75 (0,07)          1,60                20927                0,59 (0,06)                 0,554
+      80          28           0,17 (0,03)          0,36                  739                3,79 (0,80)                 0,000
+    Os 11 juntos: 1584 nulos (9,65% dos nulos com dígitos, ep 0,43); 20,56 por 10 mil votantes; 2,81 por 100 votos de eliminados no 1º turno (ep 0,12); cerca de 263.580 no país.
     Número de finalista gravado como nulo: 13 em 0 (1º turno) e 0 (2º); 22 em 0 e 0.
 
+EXPLORATÓRIO (escolhido e calculado DEPOIS de ver Theta; não estava no registro nem no docstring; não decide veredito)
+  X1. Pureza dos códigos no 2º turno (a letra só pede no 1º). Parte atribuída ao lado previsto: 31: 1,000 (IC95 1,000 a 1,000; partes Lula 1,00, Flávio 0,00, demais 0,00; 491 nulos); 32: 0,000 (IC95 0,000 a 0,000; partes Lula 1,00, Flávio 0,00, demais 0,00; 54 nulos); 52: 0,110 (IC95 0,000 a 0,719; partes Lula 0,17, Flávio 0,11, demais 0,72; 24 nulos).
+  X2. O que cada código fez do 1º para o 2º turno (por 10 mil votantes; ln da razão das taxas, erro por bootstrap de municípios):
+      31                                      179 ->    491;    2,38 ->    6,37; ln da razão +0,986 (ep 0,080)
+      32                                       39 ->     54;    0,52 ->    0,70; ln da razão +0,303 (ep 0,227)
+      52                                       24 ->     24;    0,32 ->    0,31; ln da razão -0,023 (ep 0,319)
+      33                                      137 ->    212;    1,82 ->    2,75; ln da razão +0,414 (ep 0,107)
+      23                                      132 ->    173;    1,75 ->    2,25; ln da razão +0,248 (ep 0,111)
+      12                                      940 ->    579;   12,48 ->    7,52; ln da razão -0,507 (ep 0,058)
+      11                                     1087 ->   1005;   14,43 ->   13,05; ln da razão -0,101 (ep 0,056)
+      25                                      109 ->     95;    1,45 ->    1,23; ln da razão -0,160 (ep 0,138)
+      43                                       57 ->     13;    0,76 ->    0,17; ln da razão -1,501 (ep 0,373)
+      00                                    11297 ->   8945;  150,00 ->  116,11; ln da razão -0,256 (ep 0,015)
+      99                                      495 ->    462;    6,57 ->    6,00; ln da razão -0,092 (ep 0,047)
+      números sem partido e sem candidato    1709 ->   1282;   22,69 ->   16,64; ln da razão -0,310 (ep 0,047)
+      números de partido                     5546 ->   1488;   73,64 ->   19,32; ln da razão -1,338 (ep 0,049)
+      todos os nulos com dígitos            21751 ->  16407;  288,81 ->  212,98; ln da razão -0,305 (ep 0,015)
+      Por voto oficial do lado: 31 por voto de Lula, ln da razão +0,833 (ep 0,080); 32 mais 52 brutos por voto de Flávio, +0,151 (ep 0,176).
+  X3. Primeira tela. Nas 6 UFs com 2º turno de governador (presidente é a segunda tela; 220 seções): 31 por 10 mil votos de Lula 5,75 -> 10,87 (14 -> 30 nulos; ln da razão +0,637, ep 0,333). Nas outras 21 (2770 seções): 5,52 -> 12,88 (ln da razão +0,847, ep 0,081). Diferença +0,210 (ep 0,342).
+      Nulos com dígitos de presidente por 10 mil votantes: nas 6 UFs 224 -> 282; nas outras 21, 294 -> 208.
+  X4. Varredura de pureza no 1º turno dos 37 códigos com 30 nulos ou mais: com 80% ou mais atribuídos a Flávio: nenhum; com 80% ou mais atribuídos a Lula: 03, 11, 12, 15, 17, 18, 19, 31, 33, 36, 40, 41, 42, 43, 44, 45, 73, 77, 78, 96.
+  X4b. Números de eliminados digitados no 2º turno, a quem acompanham (partes: Lula, Flávio, votos próprios do 1º turno, demais): 14: 831 nulos, 0,07, 0,04, 0,85, 0,04; 16: 31 nulos, 0,35, 0,65, 0,00, 0,00; 21: 55 nulos, 0,81, 0,05, 0,00, 0,14; 30: 51 nulos, 0,00, 0,23, 0,30, 0,47; 35: 65 nulos, 0,40, 0,57, 0,01, 0,02; 55: 369 nulos, 0,54, 0,40, 0,06, 0,00; 70: 123 nulos, 0,00, 0,00, 0,43, 0,57; 80: 28 nulos, 0,26, 0,08, 0,00, 0,66.
+  X5. Testemunha de um lado só (o 31), regressão linear por seção. (a) coeficiente do voto de Flávio sobre o de Lula: -0,002 (ep 0,107) no 1º turno e -0,184 (ep 0,030) no 2º; diferença -0,183 (ep 0,108); a troca de 3,57% daria -0,037.
+      (b) 31 do 2º turno sobre L1 e sobre o ganho de Lula (L2 menos L1): taxa do ganho sobre a taxa de L1 = -1,53 (ep 0,15). (c) placebo temporal, 31 do 1º turno sobre L1 e o ganho futuro: -1,00 (ep 0,38). Diferença -0,54 (ep 0,37). (d) com taxa livre por região e tercil: -0,75 (ep 0,40) contra placebo +0,15 (ep 0,79).
+  X6. Dose e resposta do 31 dentro da seção (509 seções com algum 31; chance de o 31 cair no 2º turno = k x (L2/L1)^beta): beta = -1,00 (ep 0,89; IC95 -2,78 a +0,75); esperado 1 se o erro acompanha o voto oficial de Lula na seção. Com k livre por tercil e região: -1,28 (ep 1,08).
+      Por tercil do crescimento oficial de Lula (todas as seções): ln L2/L1 +0,088: 31 de 97 para 274 (ln +1,04; por 10 mil votos de Lula 7,4 -> 19,3); ln L2/L1 +0,187: 31 de 43 para 128 (ln +1,09; por 10 mil votos de Lula 3,9 -> 9,7); ln L2/L1 +0,289: 31 de 39 para 89 (ln +0,83; por 10 mil votos de Lula 4,7 -> 8,0).
+      Plantio na contagem oficial: o acréscimo da margem desloca beta +0,070 (+0,08 erros na amostra; +1,0 no universo); a troca de 3,57%, +0,077 (+0,09; +1,1); o espelho, +0,038. Não enxerga alteração espalhada: ela entra em k.
+      Mesma conta com outros códigos: 00: -0,18 (ep 0,13); 99: -0,88 (ep 0,59); todos os nulos com dígitos menos 31, 32, 33, 23 e 12: +0,32 (ep 0,13); 32 e 33 juntos: +0,23 (ep 1,01).
+  X7. Tela de presidente nas 6 UFs com 2º turno de governador (220 seções): nulos de presidente com o número de um finalista de governador da UF: 270 no 1º turno e 684 no 2º (44% dos 1564 nulos com dígitos; 123 por 10 mil votantes).
+      AC: 10 26, 11 41; AM: 22 0, 55 144; DF: 11 49, 13 0; ES: 10 70, 15 124; RN: 13 0, 44 124; TO: 44 35, 45 71.
+
+LEITURA
+  1. Por que Theta saiu negativo e grande. Theta é a diferença entre duas mudanças de taxa de erro: a do lado do 22 (32 e
+     52 por voto oficial de Flávio: de 1,68 para 2,17 por 10 mil, ln +0,258) menos a do lado do 13 (31 por voto oficial de
+     Lula: de 5,52 para 12,70 por 10 mil, ln +0,833, erro 0,080). O desenho supunha que as duas taxas mudam juntas entre
+     os turnos e se cancelam. Não mudam: o 31 multiplicou por 2,3 por voto de Lula enquanto o total de nulos com dígitos
+     CAIU (de 289 para 213 por 10 mil votantes). Essa deriva de um lado só (0,83) é 12 vezes o efeito que o teste procura
+     (0,071).
+  2. Lido ao pé da letra, Theta de -0,57 seria uma troca de 17,2 milhões de votos de LULA PARA FLÁVIO (774% da margem, no
+     sentido contrário ao da tese). Ninguém sustenta isso. É a deriva do 31. Por isso o espelho cumprido não é indício de
+     nada na contagem: é a prova de que o zero deste instrumento não é zero. O piso de erro sistemático do registro
+     (0,015) está errado por mais de uma ordem de grandeza para este instrumento.
+  3. Por que o lado do 22 não tem testemunha. 22 é a mesma tecla duas vezes; 13 são duas teclas em ordem. Quem quer 13
+     pode inverter (31), repetir (11, 33) ou escorregar (12, 23); quem quer 22 quase não tem como errar. Na varredura
+     exploratória dos 37 números com 30 nulos ou mais no 1º turno, 20 acompanham o voto de Lula e NENHUM acompanha o de
+     Flávio. O 32, que o desenho pôs do lado do 22, acompanha o voto de Lula nos dois turnos (0,75 no 1º; 1,00 no 2º): no
+     teclado ele pode ser o 31 com a segunda tecla escorregada (hipótese, não testada). Sem regressão nenhuma se vê o
+     mesmo: no quinto das seções em que Lula é mais forte há 16 nulos do "lado do 22" no 1º turno e 25 no 2º; no quinto em
+     que Flávio é mais forte, 8 e 9. Ressalva: a conta é por seção; ela diz onde o código aparece, não quem digitou.
+  4. Tamanho. O desenho previa 14,2 testemunhas por 10 mil votos (medido num piloto não aleatório de 10 UFs). A amostra
+     aleatória dá 3,1 por 10 mil no 1º turno e 7,4 no 2º, e o lado do 22 tem 57 testemunhas no 1º turno. Mesmo sem os
+     problemas 1 e 3, o país inteiro daria erro-padrão de 0,016.
+
+O QUE PESA A FAVOR DA TESE (sem suavizar)
+  a. Este teste não absolve nada. A troca que vira o resultado e o acréscimo do tamanho da margem ficam a um terço de um
+     erro-padrão; o menor efeito que a aritmética de sinal alcançaria aqui é uma troca de 15,9 milhões de votos (716% da
+     margem). A hipótese de alteração coerente dos votos válidos dentro da urna sai deste teste exatamente como entrou.
+  b. Exploratório X6, feito depois de ver Theta: dentro da mesma seção, o erro 31 NÃO cresceu mais onde o voto oficial de
+     Lula cresceu mais. A elasticidade é -1,00 (erro 0,89; IC95 de -2,78 a +0,75), 2,2 erros abaixo de 1, que é o valor
+     esperado se cada voto a mais de Lula viesse com o mesmo erro de digitação dos votos antigos. No terço das seções em
+     que Lula menos cresceu o 31 foi de 97 para 274; no terço em que mais cresceu, de 39 para 89. A direção é a de "votos
+     a mais sem eleitor errando a tecla".
+  O que tira peso disso: é exploratório e posterior ao resultado; o erro é grande (fica a 1,1 erro de zero e a 2,2 de um);
+     com a taxa livre por região e escolaridade dá -1,28 (erro 1,08); e, principalmente, a alteração do tamanho da margem,
+     plantada, move essa elasticidade só +0,07 (ela entra quase toda na constante). O desvio medido é mais de 20 vezes
+     maior do que a fraude do tamanho necessário produziria, então ele mede outra coisa, provavelmente a deriva do 31 ser
+     maior nos redutos de Lula. Nem com o país inteiro essa conta enxergaria uma alteração espalhada (1 erro).
+  c. Exploratório X5: por seção, o 31 do 2º turno cai com o ganho de Lula (razão -1,53, erro 0,15). Mas a mesma conta com
+     o 31 do PRIMEIRO turno e o ganho futuro já dá -1,00 (erro 0,38): é a composição das seções (onde Lula ganhou mais
+     votos, erra-se menos a tecla), e um valor negativo nenhuma diluição produz. Não conta como indício.
+
+O QUE PESA CONTRA A TESE (sem suavizar)
+  a. O sinal de Theta é o contrário do que a tese prevê (-0,57 contra +0,07), em todas as 5 regiões e nos 3 tercis de
+     escolaridade. Se o instrumento valesse, seria evidência forte contra. Como não vale, pesa pouco: só diz que estas
+     testemunhas não trazem nenhum indício no sentido da tese.
+  b. O leitor foi conferido: nas 3.000 seções da amostra aleatória, nos dois turnos, o RDV publicado bate com o resultado
+     oficial por seção (bweb) em Lula, Flávio, outros, brancos, nulos e comparecimento, com zero seção discordante. Os
+     arquivos publicados são coerentes entre si nessas seções (a assinatura é conferida em outro teste). Não diz nada
+     sobre o programa, porque RDV e boletim saem dele.
+  c. Os nulos do RDV têm cara de teclado de gente: o 31 segue só o voto de Lula nos dois turnos; os números de partido
+     caem para um quarto no 2º turno (de 74 para 19 por 10 mil votantes); nas 6 UFs com governador no 2º turno, 44% dos
+     nulos de presidente com dígitos são o número de um finalista de governador da UF (684 em 1.564); 1.584 votos nulos da
+     amostra no 2º turno trazem o número de um candidato eliminado. Isso é o esperado sem fraude. Não exclui um programa
+     que mexa só nos votos válidos e deixe os nulos como estão.
+
+O QUE ISSO SIGNIFICA
+  O W4 não decide e não vai decidir com mais download. Pela regra do desenho a extensão não se justifica: 60 mil seções
+  custam 63 horas e terminam em inconclusivo; o erro pedido exige 265 mil. E o problema não é só tamanho: o instrumento
+  falhou na pureza e tem deriva própria de um lado só. A recomendação é NÃO estender o D4-4 como está. Dos dois testes de
+  testemunha, sobra o D4-3 (W3, o número do presidenciável digitado na tela de governador em AC e TO), que usa o mesmo
+  tipo de erro para os dois lados e por isso não sofre da assimetria encontrada aqui.
+
+PISTAS
+  1. W3 é o teste que pode falar. O X7 mostra que o erro de tela é grande nas 6 UFs com dois cargos (123 por 10 mil
+     votantes digitam o número do governador na tela de presidente), então o W3 deve ter contagem. Vale aplicar nele o
+     diagnóstico que derrubou o W4: taxa de erro por voto oficial de cada lado, turno a turno.
+  2. Se ainda se quiser uma testemunha nacional de digitação, ela precisa de um erro do MESMO tipo nos dois lados e de
+     pureza provada nos dois turnos antes de abrir. Nesta amostra nenhum código acompanha o voto de Flávio. O par
+     simétrico possível (43 e 52, primeira tecla escorregada para baixo) tem 13 e 24 nulos no 2º turno em 3.000 seções:
+     com o país inteiro o erro-padrão não desce de 0,03. Pela digitação de presidente não há caminho.
+  3. Entender a deriva do 31: em 2022 os finalistas também eram 13 e 22. Se o 31 por voto do PT também mais que dobra do
+     1º para o 2º turno de 2022, é comportamento de cédula (no 2º turno o eleitor leva um número só, de cabeça, e
+     inverte). Serve para explicar a deriva, não como régua, porque o Léo suspeita de 2022. Nas 6 UFs em que o presidente
+     é a segunda tela do 2º turno o 31 também subiu (ln +0,64, erro 0,33, contra +0,85 nas outras), então "primeira tela"
+     sozinha não explica.
+  4. Achado de método que serve a outros testes: os 56 pacotes por UF e turno do TSE podem ser lidos em fluxo, sem guardar
+     o zip (como o W3 fez no AC). O país inteiro são cerca de 199 GB de leitura e de 3 a 14 horas, com 168 pedidos, contra
+     23 dias seção a seção. Qualquer teste futuro com RDV pode usar o universo.
+  5. Para auditoria, pequeno e real: 1.584 nulos de presidente no 2º turno com número de candidato eliminado (cerca de 264
+     mil no país, 2,8 por 100 votos de eliminados). O 14 (Renan Santos) tem 831, ou 5,2 por 100 votos dele no 1º turno, e
+     85% da contagem acompanha o voto dele no 1º turno, seção a seção. Dos 369 nulos com 55, 144 estão nas 44 seções do
+     AM, onde 55 é o número de um finalista de governador. Nada disso é suspeito; é o tamanho do eleitor que insistiu num
+     candidato que já não estava na urna.
+  6. O que decide continua fora da urna: cadernos de votação e o cadastro de comparecimento do TSE (quem votou em cada
+     turno, por seção), como a Onda B já tinha concluído.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+  1. O Adendo 30 mandava parar a primeira etapa sem abrir o resultado. O pedido desta onda mandou abrir Theta depois das
+     etapas cegas, e assim foi feito (abertura em 10/11/2026 10:53:38 UTC, depois de gravadas as etapas 1 a 3).
+     Consequência: o Theta destas 3.000 seções (0,6% do país) é conhecido; qualquer extensão deixa de ser cega para elas.
+     A regra de parada só depende do erro-padrão, que foi fixado antes.
+  2. A extensão não entrou: às 10:49 UTC havia 434 RDV do 2º turno e nenhum do 1º, logo zero seção com os dois turnos.
+     Tudo aqui usa as 3.000 seções da amostra principal (1.421 municípios).
+  3. Com os dois códigos do lado do 22 reprovados, a letra dá inconclusivo e não manda calcular Theta. Pelo docstring
+     (decisão D4, escrita antes) Theta foi calculado com os três códigos, só como descritivo.
+  4. O placebo de 2022 não foi rodado (não há RDV de 2022 em disco). O erro sistemático usado é o piso de 0,015 e o erro
+     total é um limite inferior. A deriva medida (0,83 de um lado) mostra que o piso não vale para este instrumento.
+  5. Decisões que o registro não fixa, escritas no docstring antes de qualquer conta com votos (SHA-256
+     18fda169a8f8ddbd9a54537a386b9083ce54227bfc16fc268ed990878829ab7d, 10:23:22 UTC): regressão de Poisson com ligação
+     identidade, sem intercepto e coeficientes não negativos; "demais votos" = todo o resto do comparecimento; pureza
+     decidida pela estimativa pontual; 2.000 réplicas por município; regiões e tercis (superior completo, mesmo arquivo do
+     A2); SEM PODER quando o erro total passa de 0,027 (o D4-3, a que o D4-4 remete nas etapas cegas, usa erro-padrão
+     acima de 0,025; com 0,2068 dá no mesmo); regra de "enxerga o plantado" (SINAL em 80% dos conjuntos e deslocamento de
+     2,5 erros totais).
+  6. Execução em duas partes: o script, o docstring e a leitura dos RDV são de uma execução anterior interrompida (10:23 e
+     10:24 UTC), reaproveitados sem mudança (o arquivo era idêntico à cópia guardada antes de rodar). Pureza, etapas
+     cegas, abertura e exploratório são desta execução.
+  7. Acrescentado depois das etapas 1 a 3 e antes de abrir Theta, só aritmética: o custo sem o teto, o custo do universo e
+     a rota pelos pacotes do TSE. Acrescentado depois de ver Theta: o bloco EXPLORATÓRIO (X1 a X7), as funções
+     exploratorio do script e a formatação do relatório. Nada disso entra no veredito.
+  8. A referência "troca que vira" na tradução em votos usa os 3,57% plantados sobre a contagem oficial (Theta +0,0691,
+     2,14 milhões de votos, 97% da margem). A troca exata que empata o resultado dá +0,0714 (2,21 milhões).
+  9. A leitura secundária (b), só o 52 corrigido, saiu com erro sem sentido (30,4): com 24 nulos e f52 incerto (IC95 de
+     0,047 a 1,000) há réplicas em que a parte de Flávio vai a zero.
+  10. Cláusulas de decisão neste teste: sinal, sem sinal e espelho. O espelho disparou; sem alteração e com taxas de erro
+     estáveis ele dispararia em 0,7% dos sorteios. A causa identificada é a deriva do 31, não o acaso nem a contagem.

@@ -151,6 +151,13 @@ D13. Descritivos, abertos só na etapa 4 (a tabela mostra os códigos-testemunha
     1º turno e sobre o resto do comparecimento do 2º turno (parte atribuída aos próprios eleitores).
 D14. Tudo o que for feito depois de ver Theta e não estiver nesta lista é marcado EXPLORATÓRIO.
 """
+# O docstring acima é o que foi gravado ANTES de rodar (10/11/2026 10:23:22 UTC, SHA-256 18fda169...9ab7d) e não foi
+# mexido. Acréscimos posteriores, todos marcados no próprio código e no relatório:
+#   - depois das etapas 1 a 3 e antes de abrir Theta: em etapa_cego, a aritmética de custo sem o teto, do universo e da
+#     rota pelos pacotes do TSE (nenhuma conta nova com votos);
+#   - depois de ver Theta: as funções exploratorio_* e exploratorio (modo "exploratorio", bloco X1 a X7), o texto de
+#     leitura (texto_final.json, montado por montar_texto_final.py na pasta de trabalho) e a formatação do relatório.
+# Ordem completa: ler, pureza, cego, abrir, exploratorio, relatorio.
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import collections, glob, gzip, hashlib, json, math, os, sys, time
@@ -1110,6 +1117,17 @@ def exploratorio(ext=False):
         p2 = poisson_em(y2, Xm2)[1] if y2.sum() >= 30 else [float('nan')] * 3
         x4.append({'digitos': c, 'contagem_1t': float(y.sum()), 'parte_L1': float(partes[0]), 'parte_R1': float(partes[1]), 'parte_demais': float(partes[2]),
                    'contagem_2t': float(y2.sum()), 'parte_L2': float(p2[0]), 'parte_R2': float(p2[1]), 'rotulo': rotulo(c)})
+    # números que eram candidato no 1º turno (voto válido lá) e viram nulo no 2º: a quem acompanham no 2º turno
+    x4b = {}
+    for c in ELIMINADOS:
+        y2 = cont(D, c, '2')
+        if y2.sum() < 25:
+            continue
+        Xm2 = np.column_stack([Ls['2'], Rs['2'], D['V' + c], np.maximum(C['2'] - Ls['2'] - Rs['2'] - y2, 0)])
+        _, p2, _ = poisson_em(y2, Xm2)
+        x4b[c] = {'contagem_2t': float(y2.sum()), 'votos_proprios_1t': float(D['V' + c].sum()),
+                  'parte': dict(zip(['L2', 'R2', 'votos_proprios_do_1t', 'demais'], [float(v) for v in p2]))}
+    X['X4b_numeros_de_eliminados_no_2o_turno_a_quem_acompanham'] = x4b
     X['X4_varredura_de_pureza'] = {'codigos_com_30_ou_mais_no_1t': len(x4), 'tabela': x4,
                                    'com_080_ou_mais_em_R1': [e['digitos'] for e in x4 if e['parte_R1'] >= 0.80],
                                    'com_080_ou_mais_em_L1': [e['digitos'] for e in x4 if e['parte_L1'] >= 0.80]}
@@ -1351,7 +1369,19 @@ def fm(x, d=4):
 
 
 def mil(x):
-    return f'{x:,.0f}'.replace(',', '.')
+    return f'{x:,.0f}'.replace(',', '\x00')      # marcador do ponto de milhar; vira ponto em formato_br
+
+
+LITERAIS_COM_MILHAR = ['4.430.191', '3.000 da principal', '(6.000)', 'as 6.000', '2.000 réplicas', '1.000 conjuntos']
+
+
+def formato_br(txt):
+    """Só apresentação: vírgula decimal e ponto de milhar no texto gerado (o JSON guarda os números crus)."""
+    import re
+    for lit in LITERAIS_COM_MILHAR:
+        txt = txt.replace(lit, lit.replace('.', '\x00'))
+    txt = re.sub(r'(?<=\d)\.(?=\d)', ',', txt)
+    return txt.replace('\x00', '.')
 
 
 def relatorio(R, ext=False):
@@ -1368,9 +1398,11 @@ def relatorio(R, ext=False):
     P(f"Amostra: {n} seções ({R['n_principal']} da amostra aleatória principal, {R['n_extensao']} da extensão), {R['municipios']} municípios, RDV dos dois turnos.")
     P(f"Rodado em {R['quando']}.")
     P('')
+    P('@@INICIAL@@')
     P('ETAPA 1. PUREZA DOS CÓDIGOS NO 1º TURNO (fixado antes; regressão de Poisson sobre L1, R1 e demais votos)')
     cf = pz['conferencia_do_leitor_rdv_contra_oficial']
-    P(f"  Leitor conferido: seções em que o RDV discorda do oficial (bweb): 1º turno {cf['1']}; 2º turno {cf['2']}.")
+    P(f"  Leitor conferido: seções em que o RDV discorda do oficial (bweb) em Lula, Flávio, outros, brancos, nulos ou comparecimento: "
+      f"{sum(cf['1'].values())} no 1º turno e {sum(cf['2'].values())} no 2º (de {n} em cada).")
     v1 = pz['votos_1t']
     P(f"  Na amostra, 1º turno: {mil(v1['comp'])} votantes; Lula {mil(v1['L'])}, Flávio {mil(v1['R'])}, outros {mil(v1['O'])}, brancos {mil(v1['B'])}, nulos {mil(v1['N'])} "
       f"(com dígitos {mil(pz['nulos_com_digitos_1t'])}, sem dígitos {mil(pz['nulos_sem_digitos_1t'])}).")
@@ -1401,7 +1433,7 @@ def relatorio(R, ext=False):
     P('')
     P('ETAPA 3. REGRA DE PARADA DO DESENHO (blocos de 10 mil até o erro-padrão chegar a 0,022 ou até 60 mil seções)')
     P(f"  Seções necessárias para o erro-padrão chegar a 0,022: {mil(rp['secoes_necessarias_exato'])} (erro cai com a raiz do número de seções). Em blocos de 10 mil: {mil(rp['secoes_necessarias_em_blocos_de_10_mil'])}"
-      f"{' , ACIMA do teto de 60 mil' if rp['passa_do_teto_de_60_mil'] else ''}. Alvo: {mil(rp['alvo'])}.")
+      f"{', ACIMA do teto de 60 mil' if rp['passa_do_teto_de_60_mil'] else ''}. Alvo: {mil(rp['alvo'])}.")
     pj = rp['ep_projetado']
     P('  Erro-padrão projetado: ' + '; '.join(f"{mil(int(k))} seções {v:.4f}" for k, v in pj.items() if int(k) != N_UNIVERSO) + f"; universo ({mil(N_UNIVERSO)}) {pj[str(N_UNIVERSO)]:.4f}.")
     P(f"  No alvo: erro-padrão {rp['ep_projetado_no_alvo']:.4f}, erro total {rp['erro_total_projetado_no_alvo']:.4f} (com o piso de 0,015).")
@@ -1412,6 +1444,16 @@ def relatorio(R, ext=False):
         P(f"  Download {nome}: {mil(c['secoes_a_baixar'])} seções, {mil(c['requisicoes_so_rdv'])} requisições (aux e RDV, dois turnos), {c['horas_so_rdv']:.1f} horas = {c['dias_so_rdv']:.1f} dias a 1 por segundo; "
           f"{c['disco_MB_rdv']:.0f} MB de RDV. Com boletim junto: {c['horas_com_boletim']:.1f} horas.")
     P(f"  Tamanho médio do RDV: {rp['bytes_medios_rdv']['1t']:.0f} bytes no 1º turno e {rp['bytes_medios_rdv']['2t']:.0f} no 2º. Placebo de 2022 (15 mil seções, dois turnos): mais {rp['custo_do_placebo_2022_15_mil_secoes']['horas']:.1f} horas.")
+    if 'custo_ate_o_necessario_sem_teto_descontando_a_principal' in rp:
+        c = rp['custo_ate_o_necessario_sem_teto_descontando_a_principal']
+        P(f"  Sem o teto (acréscimo feito depois das etapas 1 a 3 e antes de abrir Theta, só aritmética): as {mil(rp['secoes_necessarias_exato'])} seções são {100*rp['fracao_do_universo_necessaria']:.1f}% do universo. "
+          f"Faltam {mil(c['secoes_a_baixar'])} seções, {mil(c['requisicoes_so_rdv'])} requisições, {c['horas_so_rdv']:.1f} horas = {c['dias_so_rdv']:.1f} dias a 1 por segundo, {c['disco_MB_rdv']/1000:.1f} GB de RDV (mais do que o disco livre).")
+        c = rp['custo_do_universo_secao_a_secao_descontando_a_principal']
+        P(f"  O universo inteiro, seção a seção: {mil(c['requisicoes_so_rdv'])} requisições, {c['dias_so_rdv']:.1f} dias, {c['disco_MB_rdv']/1000:.1f} GB; erro-padrão projetado {pj[str(N_UNIVERSO)]:.4f}, erro total {rp['erro_total_projetado_no_universo']:.4f}.")
+    if 'rota_pelos_pacotes_completos_do_TSE' in rp:
+        x = rp['rota_pelos_pacotes_completos_do_TSE']
+        P(f"  Rota mais barata para o universo: os 56 pacotes por UF e turno do TSE (cdn.tse.jus.br, arquivos transmitidos para totalização), lidos em fluxo como no teste W3, sem guardar o zip: "
+          f"cerca de {x['GB_a_ler_em_fluxo_estimados']:.0f} GB de leitura, {x['pedidos']} pedidos, de {x['horas_na_velocidade_maior']:.1f} a {x['horas_na_velocidade_menor']:.1f} horas nas velocidades medidas pelo W3 no AC.")
     P('')
     P('ETAPA 4. THETA ABERTO (depois das etapas 1 a 3)')
     b = R['bruto_2026']; o, w = b['oficial'], b['testemunhas']
@@ -1440,6 +1482,8 @@ def relatorio(R, ext=False):
     s = R['leituras_secundarias']
     P(f"  (a) só o 32 do lado do 22: Theta = {fm(s['a_so_32']['theta'])} (ep {s['a_so_32']['ep']:.4f}); (b) só o 52 corrigido: {fm(s['b_so_52_corrigido']['theta'])} (ep {s['b_so_52_corrigido']['ep']:.4f}); "
       f"(c) sem a correção do 52: {fm(s['c_sem_correcao_do_52']['theta'])} (ep {s['c_sem_correcao_do_52']['ep']:.4f}).")
+    if s['b_so_52_corrigido']['ep'] > 2:
+        P('      O erro da leitura (b) não tem sentido: com 24 nulos e f52 incerto, há réplicas do bootstrap em que a parte de Flávio no 52 vai a zero.')
     if 'diferenca_so52_menos_so32' in s:
         P(f"      Diferença (b) menos (a): {fm(s['diferenca_so52_menos_so32']['valor'])} (ep {s['diferenca_so52_menos_so32']['ep']:.4f}).")
     P(f"  (e) só seções com a mesma urna e os mesmos aptos nos dois turnos (n = {s['e_mesma_urna_e_mesmos_aptos']['n']}): Theta = {fm(s['e_mesma_urna_e_mesmos_aptos']['theta'])} (ep {s['e_mesma_urna_e_mesmos_aptos']['ep']:.4f}).")
@@ -1514,9 +1558,62 @@ def relatorio(R, ext=False):
       f"{x['por_100_votos_de_eliminados_no_1t']:.2f} por 100 votos de eliminados no 1º turno (ep {x['ep_por_100_votos']:.2f}); cerca de {mil(x['estimativa_no_pais'])} no país.")
     P(f"    Número de finalista gravado como nulo: 13 em {el['finalista_13_digitado_como_nulo']['1t']:.0f} (1º turno) e {el['finalista_13_digitado_como_nulo']['2t']:.0f} (2º); 22 em {el['finalista_22_digitado_como_nulo']['1t']:.0f} e {el['finalista_22_digitado_como_nulo']['2t']:.0f}.")
     P('')
-    for bloco in R.get('texto_final', []):
-        P(bloco)
-    return '\n'.join(L) + '\n'
+    X = R.get('exploratorio_depois_de_ver_theta')
+    if X:
+        P('EXPLORATÓRIO (escolhido e calculado DEPOIS de ver Theta; não estava no registro nem no docstring; não decide veredito)')
+        x1 = X['X1_pureza_no_2o_turno']
+        P('  X1. Pureza dos códigos no 2º turno (a letra só pede no 1º). Parte atribuída ao lado previsto: ' +
+          '; '.join(f"{c}: {x1[c]['parte_lado_previsto']:.3f} (IC95 {x1[c]['ic95_boot'][0]:.3f} a {x1[c]['ic95_boot'][1]:.3f}; partes Lula {x1[c]['parte']['L2']:.2f}, Flávio {x1[c]['parte']['R2']:.2f}, demais {x1[c]['parte']['demais']:.2f}; {x1[c]['contagem_2t']:.0f} nulos)" for c in ('31', '32', '52')) + '.')
+        x2 = X['X2_o_que_cada_codigo_fez_entre_os_turnos']
+        P('  X2. O que cada código fez do 1º para o 2º turno (por 10 mil votantes; ln da razão das taxas, erro por bootstrap de municípios):')
+        for k, nome in (('31', '31'), ('32', '32'), ('52', '52'), ('33', '33'), ('23', '23'), ('12', '12'), ('11', '11'), ('25', '25'), ('43', '43'), ('00', '00'), ('99', '99'),
+                        ('genericos_sem_partido_sem_candidato', 'números sem partido e sem candidato'), ('numeros_de_partido_fora_os_especiais', 'números de partido'),
+                        ('todos_os_nulos_com_digitos', 'todos os nulos com dígitos')):
+            e = x2[k]
+            P(f"      {nome:<36} {e['contagem_1t']:>6.0f} -> {e['contagem_2t']:>6.0f}; {e['por_10_mil_votantes_1t']:>7.2f} -> {e['por_10_mil_votantes_2t']:>7.2f}; ln da razão {fm(e.get('ln_razao_das_taxas'), 3)} (ep {e.get('ep', float('nan')):.3f})")
+        pe = x2['por_eleitor_oficial_do_lado']
+        P(f"      Por voto oficial do lado: 31 por voto de Lula, ln da razão {fm(pe['31_por_voto_de_Lula']['ln_razao'], 3)} (ep {pe['31_por_voto_de_Lula']['ep']:.3f}); 32 mais 52 brutos por voto de Flávio, {fm(pe['32_e_52_brutos_por_voto_de_Flavio']['ln_razao'], 3)} (ep {pe['32_e_52_brutos_por_voto_de_Flavio']['ep']:.3f}).")
+        x3 = X['X3_primeira_tela']
+        a6, a21 = x3['6_UFs_com_governador_no_2t'], x3['21_UFs_sem_governador_no_2t']
+        P(f"  X3. Primeira tela. Nas 6 UFs com 2º turno de governador (presidente é a segunda tela; {a6['n']} seções): 31 por 10 mil votos de Lula {a6['31']['por_10_mil_votos_do_lado_1t']:.2f} -> {a6['31']['por_10_mil_votos_do_lado_2t']:.2f} "
+          f"({a6['31']['1t']:.0f} -> {a6['31']['2t']:.0f} nulos; ln da razão {fm(a6['31']['ln_razao'], 3)}, ep {a6['31']['ep']:.3f}). Nas outras 21 ({a21['n']} seções): {a21['31']['por_10_mil_votos_do_lado_1t']:.2f} -> {a21['31']['por_10_mil_votos_do_lado_2t']:.2f} "
+          f"(ln da razão {fm(a21['31']['ln_razao'], 3)}, ep {a21['31']['ep']:.3f}). Diferença {fm(x3['diferenca_21_menos_6_no_ln_da_razao_do_31']['valor'], 3)} (ep {x3['diferenca_21_menos_6_no_ln_da_razao_do_31']['ep']:.3f}).")
+        P(f"      Nulos com dígitos de presidente por 10 mil votantes: nas 6 UFs {a6['nulos_com_digitos_por_10_mil_votantes_1t']:.0f} -> {a6['nulos_com_digitos_por_10_mil_votantes_2t']:.0f}; nas outras 21, {a21['nulos_com_digitos_por_10_mil_votantes_1t']:.0f} -> {a21['nulos_com_digitos_por_10_mil_votantes_2t']:.0f}.")
+        x4 = X['X4_varredura_de_pureza']
+        P(f"  X4. Varredura de pureza no 1º turno dos {x4['codigos_com_30_ou_mais_no_1t']} códigos com 30 nulos ou mais: com 80% ou mais atribuídos a Flávio: {', '.join(x4['com_080_ou_mais_em_R1']) or 'nenhum'}; "
+          f"com 80% ou mais atribuídos a Lula: {', '.join(x4['com_080_ou_mais_em_L1'])}.")
+        x4b = X.get('X4b_numeros_de_eliminados_no_2o_turno_a_quem_acompanham', {})
+        if x4b:
+            P('  X4b. Números de eliminados digitados no 2º turno, a quem acompanham (partes: Lula, Flávio, votos próprios do 1º turno, demais): ' +
+              '; '.join(f"{c}: {e['contagem_2t']:.0f} nulos, {e['parte']['L2']:.2f}, {e['parte']['R2']:.2f}, {e['parte']['votos_proprios_do_1t']:.2f}, {e['parte']['demais']:.2f}" for c, e in x4b.items()) + '.')
+        x5 = X['X5_testemunha_de_um_lado_so_codigo_31']
+        d = x5['a_diferenca_2t_menos_1t']; b_ = x5['b_votos_a_mais']; c_ = x5['c_placebo_temporal_31_do_1t_sobre_L1_e_ganho_futuro']; d_ = x5['d_por_estrato_regiao_x_tercil']
+        P(f"  X5. Testemunha de um lado só (o 31), regressão linear por seção. (a) coeficiente do voto de Flávio sobre o de Lula: {fm(x5['a_contaminacao_1t']['R_sobre_L'], 3)} (ep {x5['a_contaminacao_1t']['ep']:.3f}) no 1º turno e "
+          f"{fm(x5['a_contaminacao_2t']['R_sobre_L'], 3)} (ep {x5['a_contaminacao_2t']['ep']:.3f}) no 2º; diferença {fm(d['valor'], 3)} (ep {d['ep']:.3f}); a troca de 3,57% daria {fm(d['esperado_com_a_troca_de_3e57'], 3)}.")
+        P(f"      (b) 31 do 2º turno sobre L1 e sobre o ganho de Lula (L2 menos L1): taxa do ganho sobre a taxa de L1 = {fm(b_['novos_sobre_antigos'], 2)} (ep {b_['ep']:.2f}). (c) placebo temporal, 31 do 1º turno sobre L1 e o ganho futuro: {fm(c_['razao'], 2)} (ep {c_['ep']:.2f}). "
+          f"Diferença {fm(c_['diferenca_2t_menos_1t'], 2)} (ep {c_['ep_da_diferenca']:.2f}). (d) com taxa livre por região e tercil: {fm(d_['rho_2t'], 2)} (ep {d_['ep_2t']:.2f}) contra placebo {fm(d_['rho_placebo_1t'], 2)} (ep {d_['ep_1t']:.2f}).")
+        x6 = X['X6_dose_e_resposta_do_31_dentro_da_secao']
+        P(f"  X6. Dose e resposta do 31 dentro da seção ({x6['secoes_com_algum_31']} seções com algum 31; chance de o 31 cair no 2º turno = k x (L2/L1)^beta): beta = {fm(x6['beta'], 2)} (ep {x6['ep']:.2f}; IC95 {fm(x6['ic95'][0], 2)} a {fm(x6['ic95'][1], 2)}); "
+          f"esperado 1 se o erro acompanha o voto oficial de Lula na seção. Com k livre por tercil e região: {fm(x6['beta_com_k_por_tercil_e_regiao']['beta'], 2)} (ep {x6['beta_com_k_por_tercil_e_regiao']['ep']:.2f}).")
+        P('      Por tercil do crescimento oficial de Lula (todas as seções): ' + '; '.join(
+            f"ln L2/L1 {fm(t['ln_L2_sobre_L1'], 3)}: 31 de {t['n31_1t']:.0f} para {t['n31_2t']:.0f} (ln {fm(t['ln_n31_2t_sobre_1t'], 2)}; por 10 mil votos de Lula {t['por_10_mil_votos_de_Lula_1t']:.1f} -> {t['por_10_mil_votos_de_Lula_2t']:.1f})"
+            for t in x6['todas_as_secoes_por_tercil_do_crescimento']) + '.')
+        cp = x6['calibracao_por_plantio']
+        P(f"      Plantio na contagem oficial: o acréscimo da margem desloca beta {fm(cp['acrescimo_da_margem_para_Lula']['deslocamento'], 3)} ({cp['acrescimo_da_margem_para_Lula']['deslocamento_sobre_ep']:+.2f} erros na amostra; {cp['acrescimo_da_margem_para_Lula']['deslocamento_sobre_ep_projetado_no_universo']:+.1f} no universo); "
+          f"a troca de 3,57%, {fm(cp['troca_de_3e57']['deslocamento'], 3)} ({cp['troca_de_3e57']['deslocamento_sobre_ep']:+.2f}; {cp['troca_de_3e57']['deslocamento_sobre_ep_projetado_no_universo']:+.1f}); o espelho, {fm(cp['espelho_troca_de_3e57_de_Lula_para_Flavio']['deslocamento'], 3)}. Não enxerga alteração espalhada: ela entra em k.")
+        pl = x6['placebo_outros_codigos_sobre_o_crescimento_de_Lula']
+        P(f"      Mesma conta com outros códigos: 00: {fm(pl['00']['beta'], 2)} (ep {pl['00']['ep']:.2f}); 99: {fm(pl['99']['beta'], 2)} (ep {pl['99']['ep']:.2f}); todos os nulos com dígitos menos 31, 32, 33, 23 e 12: "
+          f"{fm(pl['todos_os_nulos_com_digitos_menos_31_32_33_23_12']['beta'], 2)} (ep {pl['todos_os_nulos_com_digitos_menos_31_32_33_23_12']['ep']:.2f}); 32 e 33 juntos: {fm(x6['codigos_32_e_33_juntos']['beta'], 2)} (ep {x6['codigos_32_e_33_juntos']['ep']:.2f}).")
+        x7 = X['X7_tela_de_presidente_nas_6_UFs_com_governador_no_2t']; t6 = x7['as_6_juntas']
+        P(f"  X7. Tela de presidente nas 6 UFs com 2º turno de governador ({t6['secoes']} seções): nulos de presidente com o número de um finalista de governador da UF: {t6['com_numero_de_finalista_de_governador_1t']} no 1º turno e "
+          f"{t6['com_numero_de_finalista_de_governador_2t']} no 2º ({100*t6['com_numero_de_finalista_de_governador_2t']/t6['nulos_com_digitos_2t']:.0f}% dos {t6['nulos_com_digitos_2t']} nulos com dígitos; {1e4*t6['com_numero_de_finalista_de_governador_2t']/t6['votantes_2t']:.0f} por 10 mil votantes).")
+        P('      ' + '; '.join(f"{uf}: " + ', '.join(f"{k} {v}" for k, v in x7[uf]['nulos_com_numero_de_finalista_de_governador_2t'].items()) for uf in ('AC', 'AM', 'DF', 'ES', 'RN', 'TO')) + '.')
+        P('')
+    txt = formato_br('\n'.join(L))
+    ini = '\n'.join(R.get('texto_inicial', []))
+    txt = txt.replace('@@INICIAL@@\n', ini + ('\n\n' if ini else ''))
+    fim = '\n'.join(R.get('texto_final', []))
+    return txt + '\n' + fim + ('\n' if fim else '')
 
 
 def finalizar(ext=False):
@@ -1525,10 +1622,13 @@ def finalizar(ext=False):
     extra = os.path.join(TRAB, 'texto_final' + suf + '.json')
     if os.path.exists(extra):
         R.update(json.load(open(extra)))
+    ex = os.path.join(TRAB, 'etapa5_exploratorio' + suf + '.json')
+    if os.path.exists(ex):
+        R['exploratorio_depois_de_ver_theta'] = json.load(open(ex))
     R['arquivos'] = {'script': 'scripts/analisar_R27_W4.py', 'trabalho': TRAB,
                      'docstring_antes_de_rodar': TRAB + '/docstring_antes_de_rodar.txt'}
     txt = relatorio(R, ext)
-    assert '—' not in txt and '–' not in txt
+    assert '\u2014' not in txt and '\u2013' not in txt
     sj = SAIDA_JSON if not ext else SAIDA_JSON.replace('.json', '_com_extensao.json')
     st = SAIDA_TXT if not ext else SAIDA_TXT.replace('.txt', '_com_extensao.txt')
     with open(sj, 'w') as f:

@@ -1,0 +1,4241 @@
+{
+ "teste": "R27_W3: testemunhas na tela de governador (D4-3), AC e TO",
+ "registro": {
+  "adendo": "Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b; Adendo 30 (commit a7218fb)",
+  "criterio": "registro/adendo27/desenho_D4_proposta.json, teste D4-3",
+  "docstring_sha256": "ea9e217c7307eb8118a5aa4ae6840c1b523497d27cab20c6cffebede0c432389",
+  "docstring_no_commit": "6677983 (10/11/2026 10:48:36 UTC), antes de qualquer conta com votos",
+  "decisoes_da_retomada_no_commit": "9a8dd54 (10/11/2026 11:07:41 UTC): bloco R1 a R10 e regra do veredito, antes da etapa 1 (11:27 UTC); R11 só com horário local (11:09 UTC)",
+  "decisoes_da_retomada": {
+   "docstring_sha256": "ea9e217c7307eb8118a5aa4ae6840c1b523497d27cab20c6cffebede0c432389",
+   "decisoes_retomada_sha256": "51ecad439f814698cb85bf61e54e5a1a900be979042855298b09482261caeb09",
+   "gravado_em_utc": "2026-11-10 10:57:02",
+   "nota": "gravado antes de qualquer conta com votos; o docstring é o do commit 6677983",
+   "decisoes_retomada_2_sha256": "aa0bc11077f618c0e8a54a02737e953a87f73e8f86e819e1b55b5d7ad0eaae93",
+   "decisoes_retomada_2_gravado_em_utc": "2026-11-10 11:09:36"
+  }
+ },
+ "fonte": {
+  "pacotes": {
+   "rdv_bu_2022_1t_AL": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL.zip",
+    "cabecalhos": {
+     "Last-Modified": "Thu, 06 Oct 2022 20:01:58 GMT",
+     "ETag": "\"40ae0f72-5ea632a74ceec\"",
+     "Content-Length": "1085149042"
+    },
+    "tamanho_pacote": 1085149042,
+    "membros_no_pacote": 33131,
+    "tipos_no_pacote": {
+     "bu": 6626,
+     "imgbu": 6626,
+     "logjez": 6626,
+     "rdv": 6626,
+     "vscmr": 6626,
+     "pdf": 1
+    },
+    "guardados": 13252,
+    "bytes_lidos": 1081635033,
+    "pedidos_de_fluxo": 1,
+    "quedas": 0,
+    "segundos": 1260.9,
+    "lido_em_utc": "2026-11-10 11:16:12",
+    "tamanho_guardado": 63539722
+   },
+   "rdv_bu_2022_2t_AL": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2022_2t_AL.zip",
+    "cabecalhos": {
+     "Last-Modified": "Wed, 02 Nov 2022 21:41:16 GMT",
+     "ETag": "\"552a7ebc-5ec83b34fcb88\"",
+     "Content-Length": "1428848316"
+    },
+    "tamanho_pacote": 1428848316,
+    "membros_no_pacote": 33131,
+    "tipos_no_pacote": {
+     "bu": 6626,
+     "imgbu": 6626,
+     "vscmr": 6626,
+     "logjez": 6626,
+     "rdv": 6626,
+     "pdf": 1
+    },
+    "guardados": 13252,
+    "bytes_lidos": 1425151185,
+    "pedidos_de_fluxo": 2,
+    "quedas": 1,
+    "segundos": 1737.3,
+    "lido_em_utc": "2026-11-10 11:45:12",
+    "tamanho_guardado": 9528316
+   },
+   "rdv_bu_2026_1t_AC": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_AC.zip",
+    "cabecalhos": {
+     "Last-Modified": "Thu, 22 Oct 2026 19:42:45 GMT",
+     "ETag": "\"1774e5cc-65e7311507740\"",
+     "Content-Length": "393536972"
+    },
+    "tamanho_pacote": 393536972,
+    "membros_no_pacote": 11351,
+    "tipos_no_pacote": {
+     "leiame.pdf": 1,
+     "bu.dat": 2270,
+     "rdv.dat": 2270,
+     "vota.vsc": 2270,
+     "log.jez": 2270,
+     "imgbu.dat": 2270
+    },
+    "guardados": 4540,
+    "bytes_lidos": 372003755,
+    "pedidos_de_fluxo": 1,
+    "quedas": 0,
+    "segundos": 17.5,
+    "lido_em_utc": "2026-11-10 10:20:30",
+    "tamanho_guardado": 23260223
+   },
+   "rdv_bu_2026_1t_TO": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_1t_TO.zip",
+    "cabecalhos": {
+     "Last-Modified": "Thu, 22 Oct 2026 20:52:59 GMT",
+     "ETag": "\"2d9b24f3-65e740c7d00c0\"",
+     "Content-Length": "765142259"
+    },
+    "tamanho_pacote": 765142259,
+    "membros_no_pacote": 21921,
+    "tipos_no_pacote": {
+     "leiame.pdf": 1,
+     "log.jez": 4384,
+     "rdv.dat": 4384,
+     "vota.vsc": 4384,
+     "bu.dat": 4384,
+     "imgbu.dat": 4384
+    },
+    "guardados": 8768,
+    "bytes_lidos": 725738075,
+    "pedidos_de_fluxo": 1,
+    "quedas": 0,
+    "segundos": 861.6,
+    "lido_em_utc": "2026-11-10 11:06:17",
+    "tamanho_guardado": 39486236
+   },
+   "rdv_bu_2026_2t_AC": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_AC.zip",
+    "cabecalhos": {
+     "Last-Modified": "Mon, 26 Oct 2026 19:56:12 GMT",
+     "ETag": "\"1e86be3a-65ec3b8c7cf00\"",
+     "Content-Length": "512147002"
+    },
+    "tamanho_pacote": 512147002,
+    "membros_no_pacote": 11351,
+    "tipos_no_pacote": {
+     "leiame.pdf": 1,
+     "vota.vsc": 2270,
+     "bu.dat": 2270,
+     "rdv.dat": 2270,
+     "imgbu.dat": 2270,
+     "log.jez": 2270
+    },
+    "guardados": 4540,
+    "bytes_lidos": 510849316,
+    "pedidos_de_fluxo": 1,
+    "quedas": 0,
+    "segundos": 128.4,
+    "lido_em_utc": "2026-11-10 10:51:53",
+    "tamanho_guardado": 4103027
+   },
+   "rdv_bu_2026_2t_TO": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/arqurnatot/bu_imgbu_logjez_rdv_vscmr_2026_2t_TO.zip",
+    "cabecalhos": {
+     "Last-Modified": "Mon, 26 Oct 2026 18:08:00 GMT",
+     "ETag": "\"3ccf4425-65ec235d3c000\"",
+     "Content-Length": "1020216357"
+    },
+    "tamanho_pacote": 1020216357,
+    "membros_no_pacote": 21922,
+    "tipos_no_pacote": {
+     "pdf": 1,
+     "vota.vsc": 4384,
+     "bu.dat": 4384,
+     "rdv.dat": 4384,
+     "imgbu.dat": 4384,
+     "log.jez": 4384,
+     "id": 1
+    },
+    "guardados": 8768,
+    "bytes_lidos": 1017872270,
+    "pedidos_de_fluxo": 2,
+    "quedas": 1,
+    "segundos": 1216.5,
+    "lido_em_utc": "2026-11-10 11:26:35",
+    "tamanho_guardado": 7979672
+   }
+  },
+  "endereco": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes{ano}/arqurnatot/bu_imgbu_logjez_rdv_vscmr_{ano}_{turno}_{uf}.zip"
+ },
+ "conferencia_rdv_x_bweb_2026": {
+  "ano": "2026",
+  "ufs": {
+   "AC": {
+    "1": {
+     "secoes_na_base": 2270,
+     "rdv_no_pacote": 2270,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 2270,
+      "pres_igual_base": 2270,
+      "total_pres_igual_comparecimento": 2270,
+      "gov_igual_base": 2270,
+      "com_boletim": 2270,
+      "boletim_igual_base": 2270,
+      "boletim_gov_igual_rdv": 2270,
+      "bweb_igual_pres": 2270,
+      "bweb_igual_gov": 2270,
+      "nulos_gov_com_digitos": 39000,
+      "nulos_gov_sem_digitos": 398,
+      "brancos_gov": 8926,
+      "nominais_gov": 439647
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": "bweb_1t_AC_051020261403.zip",
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [
+      "10",
+      "11",
+      "21",
+      "36",
+      "40",
+      "45"
+     ],
+     "candidatos_governador_rdv": [
+      "10",
+      "11",
+      "21",
+      "36",
+      "40",
+      "45"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 39000
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(6257, 6259)": 2270
+     }
+    },
+    "2": {
+     "secoes_na_base": 2270,
+     "rdv_no_pacote": 2270,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 2270,
+      "pres_igual_base": 2270,
+      "total_pres_igual_comparecimento": 2270,
+      "gov_igual_base": 2270,
+      "com_boletim": 2270,
+      "boletim_igual_base": 2270,
+      "boletim_gov_igual_rdv": 2270,
+      "bweb_igual_pres": 2270,
+      "bweb_igual_gov": 2270,
+      "nulos_gov_com_digitos": 29612,
+      "nulos_gov_sem_digitos": 0,
+      "brancos_gov": 11979,
+      "nominais_gov": 411743
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": "bweb_2t_AC_261020260742.zip",
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [
+      "10",
+      "11"
+     ],
+     "candidatos_governador_rdv": [
+      "10",
+      "11"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 29612
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(6258, 6260)": 2270
+     }
+    },
+    "universo": {
+     "secoes_nos_dois_turnos_da_base": 2270,
+     "no_universo_D2": 2270,
+     "fora": {}
+    }
+   },
+   "TO": {
+    "1": {
+     "secoes_na_base": 4384,
+     "rdv_no_pacote": 4384,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 4384,
+      "pres_igual_base": 4384,
+      "total_pres_igual_comparecimento": 4384,
+      "gov_igual_base": 4384,
+      "com_boletim": 4384,
+      "boletim_igual_base": 4384,
+      "boletim_gov_igual_rdv": 4384,
+      "bweb_igual_pres": 4384,
+      "bweb_igual_gov": 4384,
+      "nulos_gov_com_digitos": 86618,
+      "nulos_gov_sem_digitos": 451,
+      "brancos_gov": 27085,
+      "nominais_gov": 849656
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": "bweb_1t_TO_051020261403.zip",
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [
+      "27",
+      "30",
+      "35",
+      "44",
+      "45",
+      "50",
+      "55"
+     ],
+     "candidatos_governador_rdv": [
+      "27",
+      "30",
+      "35",
+      "44",
+      "45",
+      "50",
+      "55"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 86618
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(6257, 6259)": 4384
+     }
+    },
+    "2": {
+     "secoes_na_base": 4384,
+     "rdv_no_pacote": 4384,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 4384,
+      "pres_igual_base": 4384,
+      "total_pres_igual_comparecimento": 4384,
+      "gov_igual_base": 4384,
+      "com_boletim": 4384,
+      "boletim_igual_base": 4384,
+      "boletim_gov_igual_rdv": 4384,
+      "bweb_igual_pres": 4384,
+      "bweb_igual_gov": 4384,
+      "nulos_gov_com_digitos": 61903,
+      "nulos_gov_sem_digitos": 0,
+      "brancos_gov": 20323,
+      "nominais_gov": 871159
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": "bweb_2t_TO_261020260742.zip",
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [
+      "44",
+      "45"
+     ],
+     "candidatos_governador_rdv": [
+      "44",
+      "45"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 61903
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(6258, 6260)": 4350,
+      "(6258, 6260, 6286)": 34
+     }
+    },
+    "universo": {
+     "secoes_nos_dois_turnos_da_base": 4384,
+     "no_universo_D2": 4384,
+     "fora": {}
+    }
+   }
+  }
+ },
+ "conferencia_rdv_x_base_2022": {
+  "ano": "2022",
+  "ufs": {
+   "AL": {
+    "1": {
+     "secoes_na_base": 6626,
+     "rdv_no_pacote": 6626,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 6626,
+      "pres_igual_base": 6626,
+      "total_pres_igual_comparecimento": 6626,
+      "gov_igual_base": 6626,
+      "nulos_gov_com_digitos": 192734,
+      "nulos_gov_sem_digitos": 1157,
+      "brancos_gov": 88769,
+      "nominais_gov": 1520131
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": null,
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [],
+     "candidatos_governador_rdv": [
+      "14",
+      "15",
+      "28",
+      "35",
+      "44",
+      "50",
+      "55"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 192734
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(544, 546)": 6626
+     }
+    },
+    "2": {
+     "secoes_na_base": 6626,
+     "rdv_no_pacote": 6626,
+     "rdv_fora_da_base": 0,
+     "erros_de_leitura": 0,
+     "erros_exemplos": [],
+     "contagens": {
+      "com_rdv": 6626,
+      "pres_igual_base": 6626,
+      "total_pres_igual_comparecimento": 6626,
+      "gov_igual_base": 6626,
+      "nulos_gov_com_digitos": 140477,
+      "nulos_gov_sem_digitos": 0,
+      "brancos_gov": 47668,
+      "nominais_gov": 1594262
+     },
+     "diferencas_presidente_rdv_x_base": [],
+     "n_diferencas_presidente": 0,
+     "n_diferencas_governador_rdv_x_base": 0,
+     "diferencas_governador_exemplos": [],
+     "n_boletim_diferente_da_base": 0,
+     "bweb_arquivo": null,
+     "n_diferencas_bweb_presidente": 0,
+     "n_diferencas_bweb_governador": 0,
+     "diferencas_bweb_exemplos": [],
+     "candidatos_governador_bweb": [],
+     "candidatos_governador_rdv": [
+      "15",
+      "44"
+     ],
+     "votos_nominais_de_governador_em_13_ou_22_no_rdv": 0,
+     "tamanho_dos_digitos_dos_nulos_de_governador": {
+      "2": 140477
+     },
+     "tipos_de_voto_nao_previstos": {},
+     "eleicoes_no_rdv": {
+      "(545, 547)": 6626
+     }
+    },
+    "universo": {
+     "secoes_nos_dois_turnos_da_base": 6626,
+     "no_universo_D2": 6626,
+     "fora": {}
+    }
+   }
+  }
+ },
+ "etapa1": {
+  "aviso": "etapa 1: só número de testemunhas (13 + 22 somados) por turno e erro-padrão; Theta não foi impresso nem gravado",
+  "bootstrap": {
+   "unidade": "local de votação",
+   "replicas": 2000,
+   "semente": 20261110,
+   "estratos": "UF"
+  },
+  "recortes": {
+   "AC+TO": {
+    "n_secoes": 6654,
+    "n_locais": 1595,
+    "testemunhas_1t": 81406,
+    "testemunhas_2t": 57959,
+    "secoes_com_testemunha_1t": 6644,
+    "secoes_com_testemunha_2t": 6637,
+    "comparecimento_1t": 1453526,
+    "comparecimento_2t": 1408417,
+    "testemunhas_por_100_votantes_1t": 5.600587811982724,
+    "testemunhas_por_100_votantes_2t": 4.115187476436311,
+    "erro_padrao_de_theta": 0.01209589106085337,
+    "replicas_fora": 0
+   },
+   "AC": {
+    "n_secoes": 2270,
+    "n_locais": 668,
+    "testemunhas_1t": 29085,
+    "testemunhas_2t": 21536,
+    "secoes_com_testemunha_1t": 2266,
+    "secoes_com_testemunha_2t": 2268,
+    "comparecimento_1t": 488330,
+    "comparecimento_2t": 453654,
+    "testemunhas_por_100_votantes_1t": 5.956013351626973,
+    "testemunhas_por_100_votantes_2t": 4.747230268001605,
+    "erro_padrao_de_theta": 0.020293338463298564,
+    "replicas_fora": 0
+   },
+   "TO": {
+    "n_secoes": 4384,
+    "n_locais": 927,
+    "testemunhas_1t": 52321,
+    "testemunhas_2t": 36423,
+    "secoes_com_testemunha_1t": 4378,
+    "secoes_com_testemunha_2t": 4369,
+    "comparecimento_1t": 965196,
+    "comparecimento_2t": 954763,
+    "testemunhas_por_100_votantes_1t": 5.42076428000116,
+    "testemunhas_por_100_votantes_2t": 3.8148734293222506,
+    "erro_padrao_de_theta": 0.014574275242173916,
+    "replicas_fora": 0
+   }
+  },
+  "limite_do_registro": 0.025,
+  "veredito_da_etapa1": "segue para a validade do termômetro",
+  "erro_total_com_sistematico_minimo_0015": 0.019269420867167555,
+  "gravado_em_utc": "2026-11-10 11:27:06"
+ },
+ "validade_do_termometro": {
+  "confere_base_x_candidatos": {
+   "L1_igual_candidatos": true,
+   "R1_igual_candidatos": true
+  },
+  "limiar_do_registro": 0.9,
+  "principal_AC_TO": {
+   "rotulo": "AC e TO juntos",
+   "municipios": 161,
+   "municipios_com_testemunha": 161,
+   "grade": [
+    {
+     "n_min": 1,
+     "municipios": 161,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9544996413859527,
+     "termometro_perfeito_p5": 0.9421051000850155,
+     "observado": 0.9224887619833149
+    },
+    {
+     "n_min": 50,
+     "municipios": 161,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9546209377474965,
+     "termometro_perfeito_p5": 0.9419723975918375,
+     "observado": 0.9224887619833149
+    },
+    {
+     "n_min": 100,
+     "municipios": 152,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9592960921814394,
+     "termometro_perfeito_p5": 0.9476496968259356,
+     "observado": 0.9244961125109278
+    },
+    {
+     "n_min": 200,
+     "municipios": 95,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9775195968645016,
+     "termometro_perfeito_p5": 0.9683069708846584,
+     "observado": 0.9411534154535275
+    },
+    {
+     "n_min": 400,
+     "municipios": 48,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9865392965696917,
+     "termometro_perfeito_p5": 0.9791828657622542,
+     "observado": 0.9736213634389926
+    },
+    {
+     "n_min": 800,
+     "municipios": 18,
+     "termometro_perfeito_fracao_acima_de_09": 0.999,
+     "termometro_perfeito_mediana": 0.9731682146542827,
+     "termometro_perfeito_p5": 0.9380804953560371,
+     "observado": 0.9236326109391124
+    }
+   ],
+   "n_min_escolhido": 1,
+   "regra": "municípios com pelo menos 1 testemunhas; limiar 0,9",
+   "correlacao_que_decide": 0.9224887619833149,
+   "municipios_na_decisao": 161,
+   "aprovado": true,
+   "leitura_sem_minimo": {
+    "observado": 0.9224887619833149,
+    "municipios": 161,
+    "teto_de_ruido_mediana": 0.9544996413859527,
+    "teto_de_ruido_p5": 0.9421051000850155,
+    "aprovaria_pelo_limiar_09": true
+   }
+  },
+  "por_uf": {
+   "AC": {
+    "rotulo": "AC",
+    "municipios": 22,
+    "municipios_com_testemunha": 22,
+    "grade": [
+     {
+      "n_min": 1,
+      "municipios": 22,
+      "termometro_perfeito_fracao_acima_de_09": 0.996,
+      "termometro_perfeito_mediana": 0.9649915302089215,
+      "termometro_perfeito_p5": 0.9299830604178431,
+      "observado": 0.9525691699604744
+     },
+     {
+      "n_min": 50,
+      "municipios": 22,
+      "termometro_perfeito_fracao_acima_de_09": 0.9935,
+      "termometro_perfeito_mediana": 0.9649915302089215,
+      "termometro_perfeito_p5": 0.9287972896668548,
+      "observado": 0.9525691699604744
+     },
+     {
+      "n_min": 100,
+      "municipios": 22,
+      "termometro_perfeito_fracao_acima_de_09": 0.9955,
+      "termometro_perfeito_mediana": 0.96386222473179,
+      "termometro_perfeito_p5": 0.9287972896668548,
+      "observado": 0.9525691699604744
+     },
+     {
+      "n_min": 200,
+      "municipios": 22,
+      "termometro_perfeito_fracao_acima_de_09": 0.9955,
+      "termometro_perfeito_mediana": 0.9649915302089215,
+      "termometro_perfeito_p5": 0.9277244494635799,
+      "observado": 0.9525691699604744
+     },
+     {
+      "n_min": 400,
+      "municipios": 20,
+      "termometro_perfeito_fracao_acima_de_09": 0.9685,
+      "termometro_perfeito_mediana": 0.9548872180451128,
+      "termometro_perfeito_p5": 0.9082706766917293,
+      "observado": 0.9413533834586465
+     },
+     {
+      "n_min": 800,
+      "municipios": 10,
+      "termometro_perfeito_fracao_acima_de_09": 0.6075,
+      "termometro_perfeito_mediana": 0.9151515151515152,
+      "termometro_perfeito_p5": 0.7575757575757576,
+      "observado": 0.8787878787878788
+     }
+    ],
+    "n_min_escolhido": 1,
+    "regra": "municípios com pelo menos 1 testemunhas; limiar 0,9",
+    "correlacao_que_decide": 0.9525691699604744,
+    "municipios_na_decisao": 22,
+    "aprovado": true,
+    "leitura_sem_minimo": {
+     "observado": 0.9525691699604744,
+     "municipios": 22,
+     "teto_de_ruido_mediana": 0.9649915302089215,
+     "teto_de_ruido_p5": 0.9299830604178431,
+     "aprovaria_pelo_limiar_09": true
+    }
+   },
+   "TO": {
+    "rotulo": "TO",
+    "municipios": 139,
+    "municipios_com_testemunha": 139,
+    "grade": [
+     {
+      "n_min": 1,
+      "municipios": 139,
+      "termometro_perfeito_fracao_acima_de_09": 1.0,
+      "termometro_perfeito_mediana": 0.9387644073892285,
+      "termometro_perfeito_p5": 0.9210484820552616,
+      "observado": 0.8934946607181662
+     },
+     {
+      "n_min": 50,
+      "municipios": 139,
+      "termometro_perfeito_fracao_acima_de_09": 1.0,
+      "termometro_perfeito_mediana": 0.9383346329628837,
+      "termometro_perfeito_p5": 0.921718128602708,
+      "observado": 0.8934946607181662
+     },
+     {
+      "n_min": 100,
+      "municipios": 130,
+      "termometro_perfeito_fracao_acima_de_09": 1.0,
+      "termometro_perfeito_mediana": 0.9442276585957864,
+      "termometro_perfeito_p5": 0.9274494086359801,
+      "observado": 0.8950370551511908
+     },
+     {
+      "n_min": 200,
+      "municipios": 73,
+      "termometro_perfeito_fracao_acima_de_09": 1.0,
+      "termometro_perfeito_mediana": 0.964044813791278,
+      "termometro_perfeito_p5": 0.9479112714446877,
+      "observado": 0.906084166358139
+     },
+     {
+      "n_min": 400,
+      "municipios": 28,
+      "termometro_perfeito_fracao_acima_de_09": 1.0,
+      "termometro_perfeito_mediana": 0.9770114942528736,
+      "termometro_perfeito_p5": 0.9584017515051998,
+      "observado": 0.9737274220032841
+     },
+     {
+      "n_min": 800,
+      "municipios": 8
+     }
+    ],
+    "n_min_escolhido": 1,
+    "regra": "municípios com pelo menos 1 testemunhas; limiar 0,9",
+    "correlacao_que_decide": 0.8934946607181662,
+    "municipios_na_decisao": 139,
+    "aprovado": false,
+    "leitura_sem_minimo": {
+     "observado": 0.8934946607181662,
+     "municipios": 139,
+     "teto_de_ruido_mediana": 0.9387644073892285,
+     "teto_de_ruido_p5": 0.9210484820552616,
+     "aprovaria_pelo_limiar_09": false
+    }
+   }
+  },
+  "composicao_por_uf": {
+   "AC": {
+    "13": {
+     "testemunhas": 9657,
+     "parcela_entre_testemunhas": 0.3067662007623888,
+     "votos_oficiais": 134770,
+     "parcela_oficial": 0.28738732783309057
+    },
+    "22": {
+     "testemunhas": 19428,
+     "parcela_entre_testemunhas": 0.6171537484116899,
+     "votos_oficiais": 302807,
+     "parcela_oficial": 0.6457141394906483
+    },
+    "14": {
+     "testemunhas": 275,
+     "parcela_entre_testemunhas": 0.008735705209656925,
+     "votos_oficiais": 7980,
+     "parcela_oficial": 0.017016775811442182
+    },
+    "16": {
+     "testemunhas": 35,
+     "parcela_entre_testemunhas": 0.0011118170266836086,
+     "votos_oficiais": 71,
+     "parcela_oficial": 0.0001514023913048114
+    },
+    "27": {
+     "testemunhas": 111,
+     "parcela_entre_testemunhas": 0.003526048284625159,
+     "votos_oficiais": 215,
+     "parcela_oficial": 0.00045847203000752747
+    },
+    "28": {
+     "testemunhas": 11,
+     "parcela_entre_testemunhas": 0.00034942820838627703,
+     "votos_oficiais": 23,
+     "parcela_oficial": 4.9045845070572705e-05
+    },
+    "29": {
+     "testemunhas": 10,
+     "parcela_entre_testemunhas": 0.0003176620076238882,
+     "votos_oficiais": 40,
+     "parcela_oficial": 8.529712186186558e-05
+    },
+    "30": {
+     "testemunhas": 76,
+     "parcela_entre_testemunhas": 0.0024142312579415503,
+     "votos_oficiais": 573,
+     "parcela_oficial": 0.0012218812706712243
+    },
+    "35": {
+     "testemunhas": 18,
+     "parcela_entre_testemunhas": 0.0005717916137229987,
+     "votos_oficiais": 39,
+     "parcela_oficial": 8.316469381531894e-05
+    },
+    "55": {
+     "testemunhas": 1303,
+     "parcela_entre_testemunhas": 0.04139135959339263,
+     "votos_oficiais": 8594,
+     "parcela_oficial": 0.01832608663202182
+    },
+    "70": {
+     "testemunhas": 537,
+     "parcela_entre_testemunhas": 0.017058449809402795,
+     "votos_oficiais": 13523,
+     "parcela_oficial": 0.028836824473450203
+    },
+    "80": {
+     "testemunhas": 19,
+     "parcela_entre_testemunhas": 0.0006035578144853876,
+     "votos_oficiais": 314,
+     "parcela_oficial": 0.0006695824066156447
+    },
+    "_postos_entre_numeros": 0.9370629370629372
+   },
+   "TO": {
+    "13": {
+     "testemunhas": 29827,
+     "parcela_entre_testemunhas": 0.5508421363669942,
+     "votos_oficiais": 404009,
+     "parcela_oficial": 0.4442329620112309
+    },
+    "22": {
+     "testemunhas": 22494,
+     "parcela_entre_testemunhas": 0.4154170052448844,
+     "votos_oficiais": 469321,
+     "parcela_oficial": 0.516047558257546
+    },
+    "14": {
+     "testemunhas": 844,
+     "parcela_entre_testemunhas": 0.01558690995050602,
+     "votos_oficiais": 12983,
+     "parcela_oficial": 0.014275614022934665
+    },
+    "16": {
+     "testemunhas": 38,
+     "parcela_entre_testemunhas": 0.0007017803058284701,
+     "votos_oficiais": 101,
+     "parcela_oficial": 0.00011105576648820774
+    },
+    "21": {
+     "testemunhas": 138,
+     "parcela_entre_testemunhas": 0.0025485705843244443,
+     "votos_oficiais": 117,
+     "parcela_oficial": 0.00012864875919921096
+    },
+    "28": {
+     "testemunhas": 26,
+     "parcela_entre_testemunhas": 0.0004801654724089532,
+     "votos_oficiais": 28,
+     "parcela_oficial": 3.0787737244255616e-05
+    },
+    "29": {
+     "testemunhas": 21,
+     "parcela_entre_testemunhas": 0.0003878259584841545,
+     "votos_oficiais": 65,
+     "parcela_oficial": 7.147153288845054e-05
+    },
+    "70": {
+     "testemunhas": 699,
+     "parcela_entre_testemunhas": 0.012909064046686859,
+     "votos_oficiais": 22434,
+     "parcela_oficial": 0.024667574904915373
+    },
+    "80": {
+     "testemunhas": 61,
+     "parcela_entre_testemunhas": 0.001126542069882544,
+     "votos_oficiais": 395,
+     "parcela_oficial": 0.00043432700755289167
+    },
+    "_postos_entre_numeros": 0.9333333333333332
+   }
+  },
+  "celulas_municipio_x_numero": {
+   "n_celulas": 1515,
+   "spearman": 0.8468327844410878,
+   "pearson": 0.982248267414735,
+   "por_numero": {
+    "13": {
+     "n": 161,
+     "spearman": 0.9186523070618622
+    },
+    "14": {
+     "n": 161,
+     "spearman": 0.20075432268030596
+    },
+    "16": {
+     "n": 161,
+     "spearman": 0.17745537244380552
+    },
+    "21": {
+     "n": 139,
+     "spearman": 0.040313363973383684
+    },
+    "22": {
+     "n": 161,
+     "spearman": 0.9157981306055744
+    },
+    "27": {
+     "n": 22,
+     "spearman": 0.5982619017567645
+    },
+    "28": {
+     "n": 161,
+     "spearman": 0.21735602591078984
+    },
+    "29": {
+     "n": 161,
+     "spearman": 0.20690067030405232
+    },
+    "30": {
+     "n": 22,
+     "spearman": 0.6371135902609567
+    },
+    "35": {
+     "n": 22,
+     "spearman": 0.20754438065228742
+    },
+    "55": {
+     "n": 22,
+     "spearman": -0.012987012987012988
+    },
+    "70": {
+     "n": 161,
+     "spearman": 0.42347609961689847
+    },
+    "80": {
+     "n": 161,
+     "spearman": 0.180597573351019
+    }
+   }
+  },
+  "parcelas_com_eliminados_no_denominador": {
+   "municipios": 161,
+   "parcela_13": 0.9186523070618622,
+   "parcela_22": 0.9157981306055744,
+   "parcela_eliminados": 0.49007998415164566
+  },
+  "nivel_1t": {
+   "AC": {
+    "W1": 0.3320268179473956,
+    "P1": 0.30799150778034495,
+    "testemunhas_13_22": 29085,
+    "testemunhas_eliminados": 2395
+   },
+   "TO": {
+    "W1": 0.5700770245217026,
+    "P1": 0.46260749086828573,
+    "testemunhas_13_22": 52321,
+    "testemunhas_eliminados": 1827
+   }
+  },
+  "por_municipio": [
+   {
+    "mun": "AC|1007",
+    "testemunhas_13_22": 635,
+    "W1": 0.30866141732283464,
+    "P1": 0.3020820189274448
+   },
+   {
+    "mun": "AC|1015",
+    "testemunhas_13_22": 463,
+    "W1": 0.32181425485961124,
+    "P1": 0.2906527940929686
+   },
+   {
+    "mun": "AC|1023",
+    "testemunhas_13_22": 922,
+    "W1": 0.27765726681127983,
+    "P1": 0.2511337868480726
+   },
+   {
+    "mun": "AC|1031",
+    "testemunhas_13_22": 246,
+    "W1": 0.6056910569105691,
+    "P1": 0.5238455715367146
+   },
+   {
+    "mun": "AC|1040",
+    "testemunhas_13_22": 580,
+    "W1": 0.41551724137931034,
+    "P1": 0.3852759331348752
+   },
+   {
+    "mun": "AC|1058",
+    "testemunhas_13_22": 1101,
+    "W1": 0.3206176203451408,
+    "P1": 0.2702058061878152
+   },
+   {
+    "mun": "AC|1066",
+    "testemunhas_13_22": 434,
+    "W1": 0.5944700460829493,
+    "P1": 0.5357381429525718
+   },
+   {
+    "mun": "AC|1074",
+    "testemunhas_13_22": 2663,
+    "W1": 0.2820127675553887,
+    "P1": 0.2654874855106684
+   },
+   {
+    "mun": "AC|1082",
+    "testemunhas_13_22": 579,
+    "W1": 0.26770293609671847,
+    "P1": 0.24766011147334105
+   },
+   {
+    "mun": "AC|1090",
+    "testemunhas_13_22": 702,
+    "W1": 0.32905982905982906,
+    "P1": 0.30997328584149597
+   },
+   {
+    "mun": "AC|1104",
+    "testemunhas_13_22": 375,
+    "W1": 0.6453333333333333,
+    "P1": 0.525967662910338
+   },
+   {
+    "mun": "AC|1112",
+    "testemunhas_13_22": 864,
+    "W1": 0.2800925925925926,
+    "P1": 0.24626796476587853
+   },
+   {
+    "mun": "AC|1120",
+    "testemunhas_13_22": 447,
+    "W1": 0.23937360178970918,
+    "P1": 0.20247046186895812
+   },
+   {
+    "mun": "AC|1139",
+    "testemunhas_13_22": 1441,
+    "W1": 0.46564885496183206,
+    "P1": 0.450496849248667
+   },
+   {
+    "mun": "AC|1392",
+    "testemunhas_13_22": 10304,
+    "W1": 0.30386257763975155,
+    "P1": 0.29961554392038997
+   },
+   {
+    "mun": "AC|1457",
+    "testemunhas_13_22": 1900,
+    "W1": 0.27157894736842103,
+    "P1": 0.2580371873188567
+   },
+   {
+    "mun": "AC|1473",
+    "testemunhas_13_22": 1812,
+    "W1": 0.4326710816777042,
+    "P1": 0.39441901236972826
+   },
+   {
+    "mun": "AC|1490",
+    "testemunhas_13_22": 891,
+    "W1": 0.3759820426487093,
+    "P1": 0.3572869122173867
+   },
+   {
+    "mun": "AC|1511",
+    "testemunhas_13_22": 722,
+    "W1": 0.2770083102493075,
+    "P1": 0.27316911521042747
+   },
+   {
+    "mun": "AC|1538",
+    "testemunhas_13_22": 931,
+    "W1": 0.27604726100966703,
+    "P1": 0.2591045651058841
+   },
+   {
+    "mun": "AC|1554",
+    "testemunhas_13_22": 552,
+    "W1": 0.41304347826086957,
+    "P1": 0.387143315165117
+   },
+   {
+    "mun": "AC|1570",
+    "testemunhas_13_22": 521,
+    "W1": 0.3934740882917466,
+    "P1": 0.3809793911892607
+   },
+   {
+    "mun": "TO|73008",
+    "testemunhas_13_22": 136,
+    "W1": 0.47058823529411764,
+    "P1": 0.46599894570374273
+   },
+   {
+    "mun": "TO|73016",
+    "testemunhas_13_22": 122,
+    "W1": 0.6147540983606558,
+    "P1": 0.5433941404090658
+   },
+   {
+    "mun": "TO|73024",
+    "testemunhas_13_22": 184,
+    "W1": 0.5978260869565217,
+    "P1": 0.5571687840290381
+   },
+   {
+    "mun": "TO|73032",
+    "testemunhas_13_22": 211,
+    "W1": 0.5545023696682464,
+    "P1": 0.5466137716066874
+   },
+   {
+    "mun": "TO|73040",
+    "testemunhas_13_22": 245,
+    "W1": 0.6122448979591837,
+    "P1": 0.5794774944916588
+   },
+   {
+    "mun": "TO|73059",
+    "testemunhas_13_22": 228,
+    "W1": 0.7850877192982456,
+    "P1": 0.703954802259887
+   },
+   {
+    "mun": "TO|73067",
+    "testemunhas_13_22": 107,
+    "W1": 0.6915887850467289,
+    "P1": 0.6364234056541749
+   },
+   {
+    "mun": "TO|73075",
+    "testemunhas_13_22": 147,
+    "W1": 0.54421768707483,
+    "P1": 0.5278044103547459
+   },
+   {
+    "mun": "TO|73083",
+    "testemunhas_13_22": 295,
+    "W1": 0.6101694915254238,
+    "P1": 0.5797725176759914
+   },
+   {
+    "mun": "TO|73091",
+    "testemunhas_13_22": 377,
+    "W1": 0.6074270557029178,
+    "P1": 0.5270112708900117
+   },
+   {
+    "mun": "TO|73105",
+    "testemunhas_13_22": 101,
+    "W1": 0.7128712871287128,
+    "P1": 0.6325648414985591
+   },
+   {
+    "mun": "TO|73113",
+    "testemunhas_13_22": 163,
+    "W1": 0.656441717791411,
+    "P1": 0.5765081901717939
+   },
+   {
+    "mun": "TO|73121",
+    "testemunhas_13_22": 193,
+    "W1": 0.5544041450777202,
+    "P1": 0.4838148277062304
+   },
+   {
+    "mun": "TO|73130",
+    "testemunhas_13_22": 112,
+    "W1": 0.5714285714285714,
+    "P1": 0.46070878274268107
+   },
+   {
+    "mun": "TO|73148",
+    "testemunhas_13_22": 104,
+    "W1": 0.5769230769230769,
+    "P1": 0.5890804597701149
+   },
+   {
+    "mun": "TO|73156",
+    "testemunhas_13_22": 186,
+    "W1": 0.510752688172043,
+    "P1": 0.39683168316831685
+   },
+   {
+    "mun": "TO|73164",
+    "testemunhas_13_22": 105,
+    "W1": 0.7904761904761904,
+    "P1": 0.7266616878267363
+   },
+   {
+    "mun": "TO|73172",
+    "testemunhas_13_22": 112,
+    "W1": 0.7321428571428571,
+    "P1": 0.6274271844660194
+   },
+   {
+    "mun": "TO|73180",
+    "testemunhas_13_22": 523,
+    "W1": 0.6328871892925431,
+    "P1": 0.576332899869961
+   },
+   {
+    "mun": "TO|73199",
+    "testemunhas_13_22": 165,
+    "W1": 0.6363636363636364,
+    "P1": 0.4962138084632517
+   },
+   {
+    "mun": "TO|73202",
+    "testemunhas_13_22": 180,
+    "W1": 0.6222222222222222,
+    "P1": 0.5654223968565816
+   },
+   {
+    "mun": "TO|73210",
+    "testemunhas_13_22": 106,
+    "W1": 0.7264150943396226,
+    "P1": 0.5888812628689087
+   },
+   {
+    "mun": "TO|73229",
+    "testemunhas_13_22": 158,
+    "W1": 0.6772151898734177,
+    "P1": 0.6767333049766057
+   },
+   {
+    "mun": "TO|73237",
+    "testemunhas_13_22": 88,
+    "W1": 0.6818181818181818,
+    "P1": 0.6027190332326284
+   },
+   {
+    "mun": "TO|73245",
+    "testemunhas_13_22": 101,
+    "W1": 0.5346534653465347,
+    "P1": 0.4966974900924703
+   },
+   {
+    "mun": "TO|73253",
+    "testemunhas_13_22": 131,
+    "W1": 0.5419847328244275,
+    "P1": 0.5259778166958552
+   },
+   {
+    "mun": "TO|73261",
+    "testemunhas_13_22": 194,
+    "W1": 0.5927835051546392,
+    "P1": 0.5003753753753754
+   },
+   {
+    "mun": "TO|73270",
+    "testemunhas_13_22": 131,
+    "W1": 0.6793893129770993,
+    "P1": 0.6657645466847091
+   },
+   {
+    "mun": "TO|73288",
+    "testemunhas_13_22": 267,
+    "W1": 0.6367041198501873,
+    "P1": 0.6304456685027542
+   },
+   {
+    "mun": "TO|73296",
+    "testemunhas_13_22": 363,
+    "W1": 0.743801652892562,
+    "P1": 0.6837837837837838
+   },
+   {
+    "mun": "TO|73300",
+    "testemunhas_13_22": 181,
+    "W1": 0.5414364640883977,
+    "P1": 0.4221033868092692
+   },
+   {
+    "mun": "TO|73318",
+    "testemunhas_13_22": 215,
+    "W1": 0.5116279069767442,
+    "P1": 0.48601913171449596
+   },
+   {
+    "mun": "TO|73326",
+    "testemunhas_13_22": 124,
+    "W1": 0.6774193548387096,
+    "P1": 0.5522966242390703
+   },
+   {
+    "mun": "TO|73334",
+    "testemunhas_13_22": 238,
+    "W1": 0.6092436974789915,
+    "P1": 0.5591206179441474
+   },
+   {
+    "mun": "TO|73342",
+    "testemunhas_13_22": 156,
+    "W1": 0.6730769230769231,
+    "P1": 0.5718194254445964
+   },
+   {
+    "mun": "TO|73350",
+    "testemunhas_13_22": 336,
+    "W1": 0.5178571428571429,
+    "P1": 0.5149928605425987
+   },
+   {
+    "mun": "TO|73369",
+    "testemunhas_13_22": 133,
+    "W1": 0.5864661654135338,
+    "P1": 0.4817615658362989
+   },
+   {
+    "mun": "TO|73377",
+    "testemunhas_13_22": 88,
+    "W1": 0.42045454545454547,
+    "P1": 0.4561140285071268
+   },
+   {
+    "mun": "TO|73385",
+    "testemunhas_13_22": 477,
+    "W1": 0.5534591194968553,
+    "P1": 0.4132488032086945
+   },
+   {
+    "mun": "TO|73393",
+    "testemunhas_13_22": 120,
+    "W1": 0.7,
+    "P1": 0.6634118322802987
+   },
+   {
+    "mun": "TO|73407",
+    "testemunhas_13_22": 123,
+    "W1": 0.5203252032520326,
+    "P1": 0.45322642229858723
+   },
+   {
+    "mun": "TO|73415",
+    "testemunhas_13_22": 127,
+    "W1": 0.6220472440944882,
+    "P1": 0.5761856710393541
+   },
+   {
+    "mun": "TO|73423",
+    "testemunhas_13_22": 221,
+    "W1": 0.6877828054298643,
+    "P1": 0.6043745203376822
+   },
+   {
+    "mun": "TO|73431",
+    "testemunhas_13_22": 84,
+    "W1": 0.7023809523809523,
+    "P1": 0.6291344123856439
+   },
+   {
+    "mun": "TO|73440",
+    "testemunhas_13_22": 6794,
+    "W1": 0.46894318516337946,
+    "P1": 0.3647840368681669
+   },
+   {
+    "mun": "TO|73458",
+    "testemunhas_13_22": 72,
+    "W1": 0.7361111111111112,
+    "P1": 0.5543556515478761
+   },
+   {
+    "mun": "TO|73466",
+    "testemunhas_13_22": 86,
+    "W1": 0.5465116279069767,
+    "P1": 0.4903025601241272
+   },
+   {
+    "mun": "TO|73474",
+    "testemunhas_13_22": 121,
+    "W1": 0.5041322314049587,
+    "P1": 0.4191256830601093
+   },
+   {
+    "mun": "TO|73482",
+    "testemunhas_13_22": 166,
+    "W1": 0.6867469879518072,
+    "P1": 0.6925826630920465
+   },
+   {
+    "mun": "TO|73504",
+    "testemunhas_13_22": 149,
+    "W1": 0.5704697986577181,
+    "P1": 0.4308300395256917
+   },
+   {
+    "mun": "TO|73512",
+    "testemunhas_13_22": 198,
+    "W1": 0.6414141414141414,
+    "P1": 0.5761888233252342
+   },
+   {
+    "mun": "TO|73520",
+    "testemunhas_13_22": 134,
+    "W1": 0.5895522388059702,
+    "P1": 0.5603840323395655
+   },
+   {
+    "mun": "TO|73539",
+    "testemunhas_13_22": 98,
+    "W1": 0.6836734693877551,
+    "P1": 0.6030383091149274
+   },
+   {
+    "mun": "TO|73547",
+    "testemunhas_13_22": 90,
+    "W1": 0.5444444444444444,
+    "P1": 0.4172615184944841
+   },
+   {
+    "mun": "TO|73555",
+    "testemunhas_13_22": 97,
+    "W1": 0.5876288659793815,
+    "P1": 0.5
+   },
+   {
+    "mun": "TO|73563",
+    "testemunhas_13_22": 132,
+    "W1": 0.5151515151515151,
+    "P1": 0.3692793266701736
+   },
+   {
+    "mun": "TO|73571",
+    "testemunhas_13_22": 96,
+    "W1": 0.5,
+    "P1": 0.4171813587871982
+   },
+   {
+    "mun": "TO|73580",
+    "testemunhas_13_22": 153,
+    "W1": 0.5163398692810458,
+    "P1": 0.4092140921409214
+   },
+   {
+    "mun": "TO|73598",
+    "testemunhas_13_22": 100,
+    "W1": 0.7,
+    "P1": 0.6467828418230563
+   },
+   {
+    "mun": "TO|73601",
+    "testemunhas_13_22": 100,
+    "W1": 0.71,
+    "P1": 0.5615866388308977
+   },
+   {
+    "mun": "TO|73610",
+    "testemunhas_13_22": 252,
+    "W1": 0.6349206349206349,
+    "P1": 0.5819265143992055
+   },
+   {
+    "mun": "TO|92002",
+    "testemunhas_13_22": 176,
+    "W1": 0.5397727272727273,
+    "P1": 0.41893362350380847
+   },
+   {
+    "mun": "TO|92045",
+    "testemunhas_13_22": 406,
+    "W1": 0.6157635467980296,
+    "P1": 0.5488308115543329
+   },
+   {
+    "mun": "TO|92070",
+    "testemunhas_13_22": 280,
+    "W1": 0.6571428571428571,
+    "P1": 0.6060455896927651
+   },
+   {
+    "mun": "TO|92088",
+    "testemunhas_13_22": 190,
+    "W1": 0.5631578947368421,
+    "P1": 0.4919678714859438
+   },
+   {
+    "mun": "TO|92134",
+    "testemunhas_13_22": 345,
+    "W1": 0.5072463768115942,
+    "P1": 0.37133262636974196
+   },
+   {
+    "mun": "TO|92142",
+    "testemunhas_13_22": 186,
+    "W1": 0.6451612903225806,
+    "P1": 0.4638032559750606
+   },
+   {
+    "mun": "TO|92185",
+    "testemunhas_13_22": 274,
+    "W1": 0.6386861313868614,
+    "P1": 0.49209719273413544
+   },
+   {
+    "mun": "TO|92193",
+    "testemunhas_13_22": 388,
+    "W1": 0.6469072164948454,
+    "P1": 0.5723842195540308
+   },
+   {
+    "mun": "TO|92240",
+    "testemunhas_13_22": 216,
+    "W1": 0.49537037037037035,
+    "P1": 0.44470519213845705
+   },
+   {
+    "mun": "TO|92304",
+    "testemunhas_13_22": 195,
+    "W1": 0.5641025641025641,
+    "P1": 0.45291800930898674
+   },
+   {
+    "mun": "TO|92371",
+    "testemunhas_13_22": 242,
+    "W1": 0.6198347107438017,
+    "P1": 0.5585633878316805
+   },
+   {
+    "mun": "TO|92398",
+    "testemunhas_13_22": 278,
+    "W1": 0.36330935251798563,
+    "P1": 0.24716505669886601
+   },
+   {
+    "mun": "TO|92401",
+    "testemunhas_13_22": 141,
+    "W1": 0.49645390070921985,
+    "P1": 0.4071396294622684
+   },
+   {
+    "mun": "TO|92410",
+    "testemunhas_13_22": 4946,
+    "W1": 0.4987868985038415,
+    "P1": 0.3807309688581315
+   },
+   {
+    "mun": "TO|92436",
+    "testemunhas_13_22": 1138,
+    "W1": 0.5922671353251318,
+    "P1": 0.5488778525177594
+   },
+   {
+    "mun": "TO|92452",
+    "testemunhas_13_22": 226,
+    "W1": 0.6592920353982301,
+    "P1": 0.4969660194174757
+   },
+   {
+    "mun": "TO|92479",
+    "testemunhas_13_22": 512,
+    "W1": 0.720703125,
+    "P1": 0.7041950519899606
+   },
+   {
+    "mun": "TO|92487",
+    "testemunhas_13_22": 185,
+    "W1": 0.6756756756756757,
+    "P1": 0.5249853027630805
+   },
+   {
+    "mun": "TO|92509",
+    "testemunhas_13_22": 141,
+    "W1": 0.7304964539007093,
+    "P1": 0.6178861788617886
+   },
+   {
+    "mun": "TO|92525",
+    "testemunhas_13_22": 348,
+    "W1": 0.7068965517241379,
+    "P1": 0.6522046687102099
+   },
+   {
+    "mun": "TO|92533",
+    "testemunhas_13_22": 163,
+    "W1": 0.6257668711656442,
+    "P1": 0.5654082528533801
+   },
+   {
+    "mun": "TO|92541",
+    "testemunhas_13_22": 265,
+    "W1": 0.7018867924528301,
+    "P1": 0.6660905634289664
+   },
+   {
+    "mun": "TO|92576",
+    "testemunhas_13_22": 492,
+    "W1": 0.6239837398373984,
+    "P1": 0.5716132739548916
+   },
+   {
+    "mun": "TO|92584",
+    "testemunhas_13_22": 181,
+    "W1": 0.6519337016574586,
+    "P1": 0.6054785894206549
+   },
+   {
+    "mun": "TO|92592",
+    "testemunhas_13_22": 439,
+    "W1": 0.6492027334851936,
+    "P1": 0.6304012345679012
+   },
+   {
+    "mun": "TO|92606",
+    "testemunhas_13_22": 126,
+    "W1": 0.5714285714285714,
+    "P1": 0.4473347547974414
+   },
+   {
+    "mun": "TO|92681",
+    "testemunhas_13_22": 183,
+    "W1": 0.6666666666666666,
+    "P1": 0.6224383466481417
+   },
+   {
+    "mun": "TO|92738",
+    "testemunhas_13_22": 231,
+    "W1": 0.6233766233766234,
+    "P1": 0.5078764965343415
+   },
+   {
+    "mun": "TO|93114",
+    "testemunhas_13_22": 1117,
+    "W1": 0.5102954341987467,
+    "P1": 0.37098344693281404
+   },
+   {
+    "mun": "TO|93130",
+    "testemunhas_13_22": 240,
+    "W1": 0.6916666666666667,
+    "P1": 0.6768721555647497
+   },
+   {
+    "mun": "TO|93211",
+    "testemunhas_13_22": 270,
+    "W1": 0.562962962962963,
+    "P1": 0.5505120398560753
+   },
+   {
+    "mun": "TO|93238",
+    "testemunhas_13_22": 212,
+    "W1": 0.5188679245283019,
+    "P1": 0.44075943282864694
+   },
+   {
+    "mun": "TO|93416",
+    "testemunhas_13_22": 620,
+    "W1": 0.6774193548387096,
+    "P1": 0.5770181661829518
+   },
+   {
+    "mun": "TO|93459",
+    "testemunhas_13_22": 297,
+    "W1": 0.5959595959595959,
+    "P1": 0.5370470524607897
+   },
+   {
+    "mun": "TO|93475",
+    "testemunhas_13_22": 130,
+    "W1": 0.5846153846153846,
+    "P1": 0.508461827754795
+   },
+   {
+    "mun": "TO|93556",
+    "testemunhas_13_22": 362,
+    "W1": 0.5939226519337016,
+    "P1": 0.5741222366710013
+   },
+   {
+    "mun": "TO|93653",
+    "testemunhas_13_22": 679,
+    "W1": 0.5125184094256259,
+    "P1": 0.3884641440046453
+   },
+   {
+    "mun": "TO|93858",
+    "testemunhas_13_22": 2169,
+    "W1": 0.45274319963116644,
+    "P1": 0.3481419454125741
+   },
+   {
+    "mun": "TO|94056",
+    "testemunhas_13_22": 277,
+    "W1": 0.6787003610108303,
+    "P1": 0.5940640336527226
+   },
+   {
+    "mun": "TO|94099",
+    "testemunhas_13_22": 222,
+    "W1": 0.6261261261261262,
+    "P1": 0.6286990508096035
+   },
+   {
+    "mun": "TO|94170",
+    "testemunhas_13_22": 112,
+    "W1": 0.5267857142857143,
+    "P1": 0.4920558497833414
+   },
+   {
+    "mun": "TO|94617",
+    "testemunhas_13_22": 579,
+    "W1": 0.6321243523316062,
+    "P1": 0.5579564006530299
+   },
+   {
+    "mun": "TO|94633",
+    "testemunhas_13_22": 474,
+    "W1": 0.5379746835443038,
+    "P1": 0.42179521633969363
+   },
+   {
+    "mun": "TO|94692",
+    "testemunhas_13_22": 260,
+    "W1": 0.6269230769230769,
+    "P1": 0.5363537710255019
+   },
+   {
+    "mun": "TO|94811",
+    "testemunhas_13_22": 332,
+    "W1": 0.6295180722891566,
+    "P1": 0.5355701847526014
+   },
+   {
+    "mun": "TO|94838",
+    "testemunhas_13_22": 170,
+    "W1": 0.7588235294117647,
+    "P1": 0.689544579858884
+   },
+   {
+    "mun": "TO|94994",
+    "testemunhas_13_22": 200,
+    "W1": 0.555,
+    "P1": 0.4853462157809984
+   },
+   {
+    "mun": "TO|95192",
+    "testemunhas_13_22": 1392,
+    "W1": 0.40373563218390807,
+    "P1": 0.27660697455230915
+   },
+   {
+    "mun": "TO|95214",
+    "testemunhas_13_22": 532,
+    "W1": 0.7631578947368421,
+    "P1": 0.7270185249912618
+   },
+   {
+    "mun": "TO|95257",
+    "testemunhas_13_22": 471,
+    "W1": 0.5392781316348195,
+    "P1": 0.4268216472940882
+   },
+   {
+    "mun": "TO|95273",
+    "testemunhas_13_22": 367,
+    "W1": 0.6485013623978202,
+    "P1": 0.6111536987351476
+   },
+   {
+    "mun": "TO|95290",
+    "testemunhas_13_22": 317,
+    "W1": 0.45741324921135645,
+    "P1": 0.36270368135184067
+   },
+   {
+    "mun": "TO|95338",
+    "testemunhas_13_22": 496,
+    "W1": 0.7137096774193549,
+    "P1": 0.6771641791044776
+   },
+   {
+    "mun": "TO|95370",
+    "testemunhas_13_22": 180,
+    "W1": 0.5555555555555556,
+    "P1": 0.5327749453750911
+   },
+   {
+    "mun": "TO|95478",
+    "testemunhas_13_22": 282,
+    "W1": 0.5638297872340425,
+    "P1": 0.4201197053406998
+   },
+   {
+    "mun": "TO|95516",
+    "testemunhas_13_22": 206,
+    "W1": 0.6699029126213593,
+    "P1": 0.6134197483797179
+   },
+   {
+    "mun": "TO|95532",
+    "testemunhas_13_22": 286,
+    "W1": 0.5454545454545454,
+    "P1": 0.4547016940829855
+   },
+   {
+    "mun": "TO|95591",
+    "testemunhas_13_22": 1872,
+    "W1": 0.5779914529914529,
+    "P1": 0.4654899818897864
+   },
+   {
+    "mun": "TO|95699",
+    "testemunhas_13_22": 171,
+    "W1": 0.7134502923976608,
+    "P1": 0.6601215521271622
+   },
+   {
+    "mun": "TO|96032",
+    "testemunhas_13_22": 187,
+    "W1": 0.7486631016042781,
+    "P1": 0.6782884310618067
+   },
+   {
+    "mun": "TO|96130",
+    "testemunhas_13_22": 415,
+    "W1": 0.7397590361445783,
+    "P1": 0.6460592328855802
+   },
+   {
+    "mun": "TO|96156",
+    "testemunhas_13_22": 668,
+    "W1": 0.6482035928143712,
+    "P1": 0.5743303288053827
+   },
+   {
+    "mun": "TO|96199",
+    "testemunhas_13_22": 279,
+    "W1": 0.7885304659498208,
+    "P1": 0.722072072072072
+   },
+   {
+    "mun": "TO|96210",
+    "testemunhas_13_22": 811,
+    "W1": 0.7163995067817509,
+    "P1": 0.6465594645335074
+   },
+   {
+    "mun": "TO|96270",
+    "testemunhas_13_22": 796,
+    "W1": 0.5364321608040201,
+    "P1": 0.40603722197004083
+   },
+   {
+    "mun": "TO|96296",
+    "testemunhas_13_22": 157,
+    "W1": 0.5796178343949044,
+    "P1": 0.4962228517469311
+   },
+   {
+    "mun": "TO|96431",
+    "testemunhas_13_22": 427,
+    "W1": 0.5644028103044496,
+    "P1": 0.45725585640401584
+   },
+   {
+    "mun": "TO|96490",
+    "testemunhas_13_22": 298,
+    "W1": 0.5100671140939598,
+    "P1": 0.3819274426886268
+   },
+   {
+    "mun": "TO|96598",
+    "testemunhas_13_22": 263,
+    "W1": 0.6121673003802282,
+    "P1": 0.5009560229445507
+   },
+   {
+    "mun": "TO|96636",
+    "testemunhas_13_22": 472,
+    "W1": 0.6122881355932204,
+    "P1": 0.503242542153048
+   },
+   {
+    "mun": "TO|96652",
+    "testemunhas_13_22": 402,
+    "W1": 0.6393034825870647,
+    "P1": 0.5379677182685253
+   },
+   {
+    "mun": "TO|96679",
+    "testemunhas_13_22": 206,
+    "W1": 0.5339805825242718,
+    "P1": 0.4012345679012346
+   },
+   {
+    "mun": "TO|96792",
+    "testemunhas_13_22": 212,
+    "W1": 0.5424528301886793,
+    "P1": 0.5133890008638065
+   },
+   {
+    "mun": "TO|96830",
+    "testemunhas_13_22": 161,
+    "W1": 0.5217391304347826,
+    "P1": 0.40529695024077045
+   },
+   {
+    "mun": "TO|96857",
+    "testemunhas_13_22": 680,
+    "W1": 0.675,
+    "P1": 0.5584271922767498
+   },
+   {
+    "mun": "TO|96954",
+    "testemunhas_13_22": 183,
+    "W1": 0.5901639344262295,
+    "P1": 0.4391739270732494
+   },
+   {
+    "mun": "TO|96970",
+    "testemunhas_13_22": 248,
+    "W1": 0.5403225806451613,
+    "P1": 0.4573369565217391
+   },
+   {
+    "mun": "TO|96997",
+    "testemunhas_13_22": 273,
+    "W1": 0.5860805860805861,
+    "P1": 0.4604200323101777
+   }
+  ],
+  "aprovado": true,
+  "gravado_em_utc": "2026-11-10 11:27:13"
+ },
+ "aberto": {
+  "aberto_em_utc": "2026-11-10 11:27:20",
+  "principal": {
+   "n_secoes": 6654,
+   "n_locais": 1595,
+   "theta": -0.15166235253649202,
+   "ep": 0.01209589106085337,
+   "ic95_percentis": [
+    -0.17513974423102258,
+    -0.1276479439231329
+   ],
+   "replicas_fora": 0,
+   "somas": {
+    "L1": 538779,
+    "R1": 772128,
+    "L2": 587475,
+    "R2": 755631,
+    "a1": 39484,
+    "b1": 41922,
+    "a2": 31866,
+    "b2": 26093
+   },
+   "P1": 0.410997118788747,
+   "P2": 0.4374003243228755,
+   "W1": 0.4850256737832592,
+   "W2": 0.5498024465570489,
+   "dlogit_P": 0.1081254012514673,
+   "dlogit_W": 0.2597877537879593
+  },
+  "por_uf": {
+   "AC": {
+    "n_secoes": 2270,
+    "n_locais": 668,
+    "theta": -0.33282839500683503,
+    "ep": 0.020293338463298564,
+    "ic95_percentis": [
+     -0.3724990850395869,
+     -0.29393548759235044
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 134770,
+     "R1": 302807,
+     "L2": 144513,
+     "R2": 287715,
+     "a1": 9657,
+     "b1": 19428,
+     "a2": 9454,
+     "b2": 12082
+    },
+    "P1": 0.30799150778034495,
+    "P2": 0.33434437380271526,
+    "W1": 0.3320268179473956,
+    "W2": 0.4389858841010401,
+    "dlogit_P": 0.12092507914637762,
+    "dlogit_W": 0.45375347415321265
+   },
+   "TO": {
+    "n_secoes": 4384,
+    "n_locais": 927,
+    "theta": -0.09254336841144173,
+    "ep": 0.014574275242173916,
+    "ic95_percentis": [
+     -0.12112127228153965,
+     -0.06391314661235062
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 404009,
+     "R1": 469321,
+     "L2": 442962,
+     "R2": 467916,
+     "a1": 29827,
+     "b1": 22494,
+     "a2": 22412,
+     "b2": 14011
+    },
+    "P1": 0.46260749086828573,
+    "P2": 0.4863022270820022,
+    "W1": 0.5700770245217026,
+    "W2": 0.6153254811520193,
+    "dlogit_P": 0.09504500931124371,
+    "dlogit_W": 0.18758837772268544
+   }
+  },
+  "por_tercil_escolaridade": {
+   "secoes_com_perfil": 6644,
+   "secoes_sem_perfil": 10,
+   "medida": "parcela com até fundamental incompleto",
+   "baixa": {
+    "n_secoes": 2214,
+    "n_locais": 954,
+    "theta": -0.10940516304711564,
+    "ep": 0.020579410513078183,
+    "ic95_percentis": [
+     -0.1501917778024501,
+     -0.06863218503332225
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 194488,
+     "R1": 207282,
+     "L2": 200860,
+     "R2": 193536,
+     "a1": 17375,
+     "b1": 15978,
+     "a2": 11814,
+     "b2": 8804
+    },
+    "P1": 0.4840779550489086,
+    "P2": 0.5092850840272214,
+    "W1": 0.5209426438401343,
+    "W2": 0.572994470850713,
+    "dlogit_P": 0.10085432678270687,
+    "dlogit_W": 0.2102594898298225,
+    "faixa_da_medida": [
+     0.4108527131782946,
+     0.9956896551724138
+    ]
+   },
+   "media": {
+    "n_secoes": 2215,
+    "n_locais": 834,
+    "theta": -0.12734198693621906,
+    "ep": 0.018886666952797504,
+    "ic95_percentis": [
+     -0.1638203495556924,
+     -0.09085243312950057
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 180105,
+     "R1": 250553,
+     "L2": 195770,
+     "R2": 243265,
+     "a1": 13571,
+     "b1": 14195,
+     "a2": 10805,
+     "b2": 8888
+    },
+    "P1": 0.4182088803644655,
+    "P2": 0.44590977940255333,
+    "W1": 0.48876323561189944,
+    "W2": 0.5486721169958869,
+    "dlogit_P": 0.11291957751100218,
+    "dlogit_W": 0.24026156444722124,
+    "faixa_da_medida": [
+     0.26639344262295084,
+     0.41081081081081083
+    ]
+   },
+   "alta": {
+    "n_secoes": 2215,
+    "n_locais": 594,
+    "theta": -0.27721650286109645,
+    "ep": 0.024829336845471343,
+    "ic95_percentis": [
+     -0.3282222074271776,
+     -0.22803732581098607
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 163362,
+     "R1": 313264,
+     "L2": 189942,
+     "R2": 317749,
+     "a1": 8530,
+     "b1": 11745,
+     "a2": 9226,
+     "b2": 8399
+    },
+    "P1": 0.3427467238463701,
+    "P2": 0.3741291454841626,
+    "W1": 0.4207151664611591,
+    "W2": 0.5234609929078015,
+    "dlogit_P": 0.13653468773833055,
+    "dlogit_W": 0.413751190599427,
+    "faixa_da_medida": [
+     0.0038910505836575876,
+     0.2661596958174905
+    ]
+   }
+  },
+  "por_tercil_superior_sensibilidade": {
+   "baixa": {
+    "n_secoes": 2214,
+    "n_locais": 978,
+    "theta": -0.1333255762818913,
+    "ep": 0.01928348249647491,
+    "ic95_percentis": [
+     -0.17018620233004886,
+     -0.09552580555926858
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 186035,
+     "R1": 229521,
+     "L2": 196098,
+     "R2": 214295,
+     "a1": 15436,
+     "b1": 15612,
+     "a2": 11997,
+     "b2": 9406
+    },
+    "P1": 0.447677328687349,
+    "P2": 0.4778297875451092,
+    "W1": 0.49716567894872454,
+    "W2": 0.5605288978180629,
+    "dlogit_P": 0.12132066437103976,
+    "dlogit_W": 0.25464624065293107
+   },
+   "media": {
+    "n_secoes": 2215,
+    "n_locais": 783,
+    "theta": -0.09800191898063104,
+    "ep": 0.019195013270986074,
+    "ic95_percentis": [
+     -0.13552403850575653,
+     -0.061547481929581115
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 190461,
+     "R1": 245981,
+     "L2": 206549,
+     "R2": 240809,
+     "a1": 14894,
+     "b1": 14214,
+     "a2": 10689,
+     "b2": 8349
+    },
+    "P1": 0.4363947557751087,
+    "P2": 0.46170851979846117,
+    "W1": 0.5116806376253951,
+    "W2": 0.5614560352978254,
+    "dlogit_P": 0.10234043221556377,
+    "dlogit_W": 0.2003423511961948
+   },
+   "alta": {
+    "n_secoes": 2215,
+    "n_locais": 626,
+    "theta": -0.25604120436192496,
+    "ep": 0.02436520870661361,
+    "ic95_percentis": [
+     -0.3051917939982169,
+     -0.20943621876861399
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 161459,
+     "R1": 295597,
+     "L2": 183925,
+     "R2": 299446,
+     "a1": 9146,
+     "b1": 12092,
+     "a2": 9159,
+     "b2": 8336
+    },
+    "P1": 0.3532586816495134,
+    "P2": 0.3805048296236224,
+    "W1": 0.4306431867407477,
+    "W2": 0.5235210060017148,
+    "dlogit_P": 0.11733976472926255,
+    "dlogit_W": 0.3733809690911875
+   }
+  },
+  "bateria": {
+   "theta": -0.15166235253649202,
+   "ep": 0.01209589106085337,
+   "por_uf": {
+    "AC": -0.33282839500683503,
+    "TO": -0.09254336841144173
+   },
+   "por_tercil": {
+    "baixa": -0.10940516304711564,
+    "media": -0.12734198693621906,
+    "alta": -0.27721650286109645
+   }
+  },
+  "intervalo_dos_eliminados": {
+   "g13_1t": 39484.0,
+   "g22_1t": 41922.0,
+   "testemunhas_de_eliminados_1t": 4222.0,
+   "parcela_de_eliminados_entre_testemunhas_1t": 0.04930630167702153,
+   "por_numero": {
+    "AC": {
+     "14": 275,
+     "16": 35,
+     "27": 111,
+     "28": 11,
+     "29": 10,
+     "30": 76,
+     "35": 18,
+     "55": 1303,
+     "70": 537,
+     "80": 19
+    },
+    "TO": {
+     "14": 844,
+     "16": 38,
+     "21": 138,
+     "28": 26,
+     "29": 21,
+     "70": 699,
+     "80": 61
+    }
+   },
+   "deslocamento_de_theta": {
+    "cw_0,40": 0.01974471126494467,
+    "cw_0,25": 0.04939103255693491,
+    "cw_0,60": -0.01973361723102278,
+    "cw_0,75": -0.04932165933784052,
+    "cw_0": 0.09891203003388627,
+    "cw_1": -0.09863402872254803
+   },
+   "nota": "limite do que uma conversão dos eliminados diferente de 50% entre os que erram a tela deslocaria; não é estimativa"
+  },
+  "calibracao_plantio": {
+   "R_para_L": {
+    "p_0.018": {
+     "p": 0.018,
+     "votos_movidos": 13612,
+     "formula": 0.04105225675179719,
+     "aumento_de_theta": 0.0410843033483409,
+     "razao_aumento_formula": 1.0007806293509627,
+     "aumento_em_erros_totais_com_sis_0015": 2.13209850112013,
+     "duzentos_plantios_media": 0.04104335814957762,
+     "duzentos_plantios_desvio": 0.00034233332275429557,
+     "bateria_com_plantio": {
+      "theta": -0.11057804918815112,
+      "ep": 0.01206067988632188,
+      "por_uf": {
+       "AC": -0.2798623992962459,
+       "TO": -0.05532205166038129
+      },
+      "por_tercil": {
+       "baixa": -0.07398170744595806,
+       "media": -0.08761560384713205,
+       "alta": -0.22887372644883136
+      }
+     },
+     "criterio_de_sinal_no_dado_com_plantio_sis_0015": {
+      "theta": -0.11057804918815112,
+      "erro_total": 0.019247337460550983,
+      "theta_sobre_erro_total": -5.745108871021253,
+      "tamanho_ok": false,
+      "razao_ok": false,
+      "mesmo_sinal_ufs_e_tercis": false,
+      "n_recortes": 5,
+      "sinal": false
+     },
+     "enxerga": false
+    },
+    "p_0.0357": {
+     "p": 0.0357,
+     "votos_movidos": 27002,
+     "formula": 0.08124836719881426,
+     "aumento_de_theta": 0.08132628322141669,
+     "razao_aumento_formula": 1.0009589857038206,
+     "aumento_em_erros_totais_com_sis_0015": 4.220484039558526,
+     "duzentos_plantios_media": 0.08124272753749771,
+     "duzentos_plantios_desvio": 0.00048181172099024717,
+     "bateria_com_plantio": {
+      "theta": -0.07033606931507533,
+      "ep": 0.012027733001559581,
+      "por_uf": {
+       "AC": -0.2284501201897864,
+       "TO": -0.018780462296964007
+      },
+      "por_tercil": {
+       "baixa": -0.03924502750066544,
+       "media": -0.04833052886365616,
+       "alta": -0.18199845431276873
+      }
+     },
+     "criterio_de_sinal_no_dado_com_plantio_sis_0015": {
+      "theta": -0.07033606931507533,
+      "erro_total": 0.019226709576961043,
+      "theta_sobre_erro_total": -3.658247867818087,
+      "tamanho_ok": false,
+      "razao_ok": false,
+      "mesmo_sinal_ufs_e_tercis": false,
+      "n_recortes": 5,
+      "sinal": false
+     },
+     "enxerga": true
+    }
+   },
+   "L_para_R": {
+    "p_0.018": {
+     "p": 0.018,
+     "votos_movidos": 10589,
+     "formula": -0.03206128462334934,
+     "aumento_de_theta": -0.032105191577307624,
+     "razao_aumento_formula": 1.0013694695790918,
+     "aumento_em_erros_totais_com_sis_0015": 1.6661212497574567,
+     "duzentos_plantios_media": -0.03207172847336788,
+     "duzentos_plantios_desvio": 0.00030394220339921324,
+     "bateria_com_plantio": {
+      "theta": -0.18376754411379964,
+      "ep": 0.0120680367221211,
+      "por_uf": {
+       "AC": -0.3596860675335516,
+       "TO": -0.12779606507645055
+      },
+      "por_tercil": {
+       "baixa": -0.14607309106386723,
+       "media": -0.15952813548739297,
+       "alta": -0.3064901145162816
+      }
+     },
+     "criterio_de_sinal_no_dado_com_plantio_sis_0015": {
+      "theta": 0.18376754411379964,
+      "erro_total": 0.019251948221581716,
+      "theta_sobre_erro_total": 9.545399873234311,
+      "tamanho_ok": true,
+      "razao_ok": true,
+      "mesmo_sinal_ufs_e_tercis": true,
+      "n_recortes": 5,
+      "sinal": true
+     },
+     "enxerga": false
+    },
+    "p_0.0357": {
+     "p": 0.0357,
+     "votos_movidos": 21001,
+     "formula": -0.06373005213141023,
+     "aumento_de_theta": -0.06381596827646036,
+     "razao_aumento_formula": 1.0013481260751673,
+     "aumento_em_erros_totais_com_sis_0015": 3.311774065052157,
+     "duzentos_plantios_media": -0.06373872922610678,
+     "duzentos_plantios_desvio": 0.00043242844427525493,
+     "bateria_com_plantio": {
+      "theta": -0.21547832081295237,
+      "ep": 0.012045647448799017,
+      "por_uf": {
+       "AC": -0.3862112503298383,
+       "TO": -0.162566932632012
+      },
+      "por_tercil": {
+       "baixa": -0.1822943022573892,
+       "media": -0.1915087913275062,
+       "alta": -0.3352155212149127
+      }
+     },
+     "criterio_de_sinal_no_dado_com_plantio_sis_0015": {
+      "theta": 0.21547832081295237,
+      "erro_total": 0.019237921469346896,
+      "theta_sobre_erro_total": 11.200706955597505,
+      "tamanho_ok": true,
+      "razao_ok": true,
+      "mesmo_sinal_ufs_e_tercis": true,
+      "n_recortes": 5,
+      "sinal": true
+     },
+     "enxerga": true
+    }
+   }
+  },
+  "enxerga_o_plantado": true,
+  "poder": {
+   "erro_total_sis_0015": 0.019269420867167555,
+   "theta_minimo_para_sinal": 0.04817355216791889,
+   "menor_p_que_alcanca": 0.02113076396380659,
+   "menor_p_em_fracao_da_margem_se_uniforme_no_pais": 0.5830265451893585,
+   "formula_p_0357": 0.08124836719881426,
+   "formula_p_018": 0.04105225675179719,
+   "R_sobre_L_2t_universo": 1.2862351589429337
+  },
+  "explicacao_inocente_plantada": {
+   "k_razao_testemunhas_2t_sobre_1t": 0.7119745473306636,
+   "conversao_dos_eliminados": {
+    "delta_0.1": {
+     "testemunhas_movidas_media": 292.195,
+     "aumento_medio_de_theta": 0.020347714068326594,
+     "desvio": 0.0010983702055213011,
+     "valor_direto": 0.020347767815477535,
+     "razao": 0.9999973585726243,
+     "formula_do_intervalo_D13": 0.01974471126494467,
+     "passa": true
+    },
+    "delta_0.25": {
+     "testemunhas_movidas_media": 727.25,
+     "aumento_medio_de_theta": 0.0505765938229953,
+     "desvio": 0.0017430952404397118,
+     "valor_direto": 0.05057670645445736,
+     "razao": 0.9999977730566113,
+     "formula_do_intervalo_D13": 0.04939103255693491,
+     "passa": true
+    }
+   },
+   "queda_geral_da_propensao": {
+    "mudanca_media_de_theta": -0.00037731360915647174,
+    "desvio_entre_sorteios": 0.00799896474511728,
+    "limite_meio_erro_padrao": 0.006047945530426685,
+    "passa": true
+   }
+  },
+  "duas_metades": {
+   "divisoes": 200,
+   "erro_medio_da_diferenca": 0.022482057786749256,
+   "desvio_das_diferencas": 0.02325350881753683,
+   "fracao_com_z_acima_de_2": 0.04,
+   "maior_z": 2.934450417655496,
+   "passa": true
+  },
+  "placebo3_par_de_eliminados": {
+   "par": [
+    "70",
+    "14"
+   ],
+   "AC+TO": {
+    "testemunhas_70": 1236,
+    "testemunhas_14": 1119,
+    "votos_70": 35957,
+    "votos_14": 20963,
+    "parcela_70_testemunhas": 0.5248407643312102,
+    "parcela_70_oficial": 0.6317111735769501,
+    "diferenca_de_logits": -0.4401198714068975,
+    "ep": 0.041744057328213735,
+    "replicas_fora": 0
+   },
+   "AC": {
+    "testemunhas_70": 537,
+    "testemunhas_14": 275,
+    "votos_70": 13523,
+    "votos_14": 7980,
+    "parcela_70_testemunhas": 0.6613300492610837,
+    "parcela_70_oficial": 0.6288889922336418,
+    "diferenca_de_logits": 0.14177346881278796,
+    "ep": 0.0728273035913635,
+    "replicas_fora": 0
+   },
+   "TO": {
+    "testemunhas_70": 699,
+    "testemunhas_14": 844,
+    "votos_70": 22434,
+    "votos_14": 12983,
+    "parcela_70_testemunhas": 0.45301360985093975,
+    "parcela_70_oficial": 0.6334246265917497,
+    "diferenca_de_logits": -0.7354386082070623,
+    "ep": 0.0517799169798974,
+    "replicas_fora": 0
+   },
+   "por_municipio": {
+    "municipios_com_30_ou_mais": 12,
+    "spearman": 0.5524475524475525
+   }
+  },
+  "oficial_pesado_pelas_testemunhas": {
+   "AC+TO": {
+    "n_secoes": 6654,
+    "n_locais": 1595,
+    "theta": -0.1554073180644874,
+    "ep": 0.012086591602035048,
+    "ic95_percentis": [
+     -0.17848959900468955,
+     -0.13162332044926356
+    ],
+    "replicas_fora": 0,
+    "P1": 0.4259142954986843,
+    "P2": 0.45161188677690756,
+    "W1": 0.4850256737832592,
+    "W2": 0.5498024465570489,
+    "dlogit_P": 0.10438043572347191,
+    "dlogit_W": 0.2597877537879593
+   },
+   "AC": {
+    "n_secoes": 2270,
+    "n_locais": 668,
+    "theta": -0.32947894290808466,
+    "ep": 0.02078247100013745,
+    "ic95_percentis": [
+     -0.36998998103007336,
+     -0.288885033391807
+    ],
+    "replicas_fora": 0,
+    "P1": 0.31602544629869317,
+    "P2": 0.34348018607746095,
+    "W1": 0.3320268179473956,
+    "W2": 0.4389858841010401,
+    "dlogit_P": 0.124274531245128,
+    "dlogit_W": 0.45375347415321265
+   },
+   "TO": {
+    "n_secoes": 4384,
+    "n_locais": 927,
+    "theta": -0.08878679437369141,
+    "ep": 0.014517175082560353,
+    "ic95_percentis": [
+     -0.11701829039815356,
+     -0.06038828991191048
+    ],
+    "replicas_fora": 0,
+    "P1": 0.4885966563946634,
+    "P2": 0.5132919420043778,
+    "W1": 0.5700770245217026,
+    "W2": 0.6153254811520193,
+    "dlogit_P": 0.09880158334899403,
+    "dlogit_W": 0.18758837772268544
+   }
+  },
+  "taxas_de_erro_de_tela": {
+   "AC+TO": {
+    "r13_1t": 0.07328422228780261,
+    "r22_1t": 0.054294106676613205,
+    "r13_2t": 0.05424230818332695,
+    "r22_2t": 0.034531404878836366,
+    "dln_r13": -0.3008841395332058,
+    "dln_r22": -0.4525464920696975,
+    "theta_igual_a_menos_a_diferenca": -0.15166235253649168,
+    "multiplicador_r13": 0.7401635234703856,
+    "multiplicador_r22": 0.6360065022252318
+   },
+   "AC": {
+    "r13_1t": 0.0716554129257253,
+    "r22_1t": 0.06415967926765233,
+    "r13_2t": 0.06541972002518805,
+    "r22_2t": 0.041992944406791445,
+    "dln_r13": -0.09104495573643527,
+    "dln_r22": -0.4238733507432703,
+    "theta_igual_a_menos_a_diferenca": -0.33282839500683503,
+    "multiplicador_r13": 0.9129766664382928,
+    "multiplicador_r22": 0.6545067694558008
+   },
+   "TO": {
+    "r13_1t": 0.0738275632473534,
+    "r22_1t": 0.04792881631122409,
+    "r13_2t": 0.05059576216470036,
+    "r22_2t": 0.02994340864599629,
+    "dln_r13": -0.3778643265141983,
+    "dln_r22": -0.47040769492564,
+    "theta_igual_a_menos_a_diferenca": -0.09254336841144167,
+    "multiplicador_r13": 0.6853234745833784,
+    "multiplicador_r22": 0.6247475099647739
+   }
+  },
+  "por_tercil_da_parcela_de_governador_eliminado": {
+   "secoes": 6654,
+   "maior": {
+    "n_secoes": 2218,
+    "n_locais": 684,
+    "theta": -0.3007965492788115,
+    "ep": 0.022800911995184487,
+    "ic95_percentis": [
+     -0.345127097251553,
+     -0.25735946347672534
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 161573,
+     "R1": 293993,
+     "L2": 184444,
+     "R2": 295347,
+     "a1": 10344,
+     "b1": 14940,
+     "a2": 10789,
+     "b2": 10151
+    },
+    "P1": 0.35466430769636015,
+    "P2": 0.3844257186983499,
+    "W1": 0.4091124822021832,
+    "W2": 0.5152340019102197,
+    "dlogit_P": 0.12779386272321236,
+    "dlogit_W": 0.42859041200202386,
+    "faixa_da_parcela": [
+     0.1428571428571429,
+     0.8586956521739131
+    ],
+    "taxas": {
+     "r13_1t": 0.06402059750082006,
+     "r22_1t": 0.05081753647195682,
+     "r13_2t": 0.05849471926438377,
+     "r22_2t": 0.03436974135508402,
+     "dln_r13": -0.09026838635347699,
+     "dln_r22": -0.3910649356322885,
+     "theta_igual_a_menos_a_diferenca": -0.3007965492788115,
+     "multiplicador_r13": 0.9136859315259357,
+     "multiplicador_r22": 0.6763362362921831
+    }
+   },
+   "media": {
+    "n_secoes": 2218,
+    "n_locais": 759,
+    "theta": -0.13491801430504305,
+    "ep": 0.018202766893928222,
+    "ic95_percentis": [
+     -0.1712688490782345,
+     -0.09842837203725506
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 185508,
+     "R1": 258682,
+     "L2": 202458,
+     "R2": 253254,
+     "a1": 13896,
+     "b1": 13671,
+     "a2": 11151,
+     "b2": 8599
+    },
+    "P1": 0.41763209437402915,
+    "P2": 0.4442674320623552,
+    "W1": 0.5040809663728371,
+    "W2": 0.5646075949367089,
+    "dlogit_P": 0.10864102026047354,
+    "dlogit_W": 0.24355903456551659,
+    "faixa_da_parcela": [
+     0.07352941176470584,
+     0.1428571428571429
+    ],
+    "taxas": {
+     "r13_1t": 0.07490782068697846,
+     "r22_1t": 0.05284867134164727,
+     "r13_2t": 0.055078090270574635,
+     "r22_2t": 0.03395405403271024,
+     "dln_r13": -0.30750629878067737,
+     "dln_r22": -0.4424243130857206,
+     "theta_igual_a_menos_a_diferenca": -0.13491801430504324,
+     "multiplicador_r13": 0.7352782361768682,
+     "multiplicador_r22": 0.6424769662270171
+    }
+   },
+   "menor": {
+    "n_secoes": 2218,
+    "n_locais": 745,
+    "theta": -0.06228344724028509,
+    "ep": 0.01984266766645429,
+    "ic95_percentis": [
+     -0.10113854295740063,
+     -0.024162757377061
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 191698,
+     "R1": 219453,
+     "L2": 200573,
+     "R2": 207030,
+     "a1": 15244,
+     "b1": 13311,
+     "a2": 9926,
+     "b2": 7343
+    },
+    "P1": 0.46624719385335317,
+    "P2": 0.4920793026547891,
+    "W1": 0.5338469620031518,
+    "W2": 0.574787190920146,
+    "dlogit_P": 0.10353142950875893,
+    "dlogit_W": 0.16581487674904402,
+    "faixa_da_parcela": [
+     0.0,
+     0.07344632768361581
+    ],
+    "taxas": {
+     "r13_1t": 0.07952091310290144,
+     "r22_1t": 0.06065535672786428,
+     "r13_2t": 0.049488216260413914,
+     "r22_2t": 0.035468289619861856,
+     "dln_r13": -0.4742854590749554,
+     "dln_r22": -0.5365689063152406,
+     "theta_igual_a_menos_a_diferenca": -0.06228344724028517,
+     "multiplicador_r13": 0.6223295775838905,
+     "multiplicador_r22": 0.5847511503228565
+    }
+   }
+  },
+  "governador_descritivo": {
+   "AC": {
+    "1t": {
+     "nominais_por_candidato": {
+      "11": 218760,
+      "10": 141859,
+      "45": 44946,
+      "40": 32963,
+      "21": 715,
+      "36": 404
+     },
+     "brancos": 8926,
+     "nulos": 39398,
+     "nulos_sem_digitos": 398,
+     "nulos_com_digitos_mais_frequentes": {
+      "22": 19428,
+      "13": 9657,
+      "00": 2947,
+      "55": 1303,
+      "77": 762,
+      "12": 580,
+      "70": 537,
+      "44": 507,
+      "15": 426,
+      "14": 275,
+      "78": 213,
+      "50": 167,
+      "01": 115,
+      "27": 111,
+      "99": 108
+     },
+     "comparecimento": 488330
+    },
+    "2t": {
+     "nominais_por_candidato": {
+      "11": 272635,
+      "10": 139108
+     },
+     "brancos": 11979,
+     "nulos": 29612,
+     "nulos_sem_digitos": 0,
+     "nulos_com_digitos_mais_frequentes": {
+      "22": 12082,
+      "13": 9454,
+      "00": 4307,
+      "12": 529,
+      "01": 309,
+      "40": 242,
+      "77": 231,
+      "15": 176,
+      "45": 151,
+      "14": 147,
+      "31": 126,
+      "19": 117,
+      "99": 115,
+      "55": 114,
+      "70": 110
+     },
+     "comparecimento": 453654
+    }
+   },
+   "TO": {
+    "1t": {
+     "nominais_por_candidato": {
+      "44": 386260,
+      "45": 372848,
+      "55": 69967,
+      "30": 13173,
+      "50": 5109,
+      "27": 1272,
+      "35": 1027
+     },
+     "brancos": 27085,
+     "nulos": 87069,
+     "nulos_sem_digitos": 451,
+     "nulos_com_digitos_mais_frequentes": {
+      "13": 29827,
+      "22": 22494,
+      "00": 16829,
+      "15": 3039,
+      "10": 2292,
+      "20": 1451,
+      "12": 1006,
+      "11": 915,
+      "14": 844,
+      "70": 699,
+      "40": 461,
+      "25": 455,
+      "78": 431,
+      "43": 419,
+      "99": 363
+     },
+     "comparecimento": 965196
+    },
+    "2t": {
+     "nominais_por_candidato": {
+      "45": 562083,
+      "44": 309076
+     },
+     "brancos": 20323,
+     "nulos": 61903,
+     "nulos_sem_digitos": 0,
+     "nulos_com_digitos_mais_frequentes": {
+      "13": 22412,
+      "00": 14491,
+      "22": 14011,
+      "25": 1294,
+      "55": 812,
+      "54": 704,
+      "14": 643,
+      "12": 628,
+      "11": 554,
+      "15": 492,
+      "42": 489,
+      "40": 408,
+      "99": 311,
+      "24": 281,
+      "31": 278
+     },
+     "comparecimento": 954763
+    }
+   }
+  },
+  "por_tercil_de_forca_de_lula_1t": {
+   "lula_forte": {
+    "n_secoes": 2218,
+    "n_locais": 720,
+    "theta": -0.1120507924415523,
+    "ep": 0.020846951029461797,
+    "ic95_percentis": [
+     -0.15349223637636725,
+     -0.07175859733444932
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 240819,
+     "R1": 165308,
+     "L2": 253121,
+     "R2": 160638,
+     "a1": 19582,
+     "b1": 10414,
+     "a2": 13161,
+     "b2": 5785
+    },
+    "P1": 0.5929647622541717,
+    "P2": 0.611759502512332,
+    "W1": 0.65282037605014,
+    "W2": 0.6946585031141138,
+    "dlogit_P": 0.07847903557382213,
+    "dlogit_W": 0.19052982801537444,
+    "faixa_de_P1": [
+     0.47307692307692306,
+     1.0
+    ],
+    "R_sobre_L_2t": 0.6346292879689951,
+    "formula_p_0357": 0.058756253697353183
+   },
+   "meio": {
+    "n_secoes": 2218,
+    "n_locais": 714,
+    "theta": -0.2222676371074705,
+    "ep": 0.019476128362370018,
+    "ic95_percentis": [
+     -0.2600137703948352,
+     -0.18220578109052776
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 178755,
+     "R1": 276859,
+     "L2": 198081,
+     "R2": 272996,
+     "a1": 12459,
+     "b1": 14007,
+     "a2": 10941,
+     "b2": 8764
+    },
+    "P1": 0.39233869020706125,
+    "P2": 0.4204853983531355,
+    "W1": 0.47075493085468145,
+    "W2": 0.5552397868561278,
+    "dlogit_P": 0.11671109299414578,
+    "dlogit_W": 0.3389787301016163,
+    "faixa_de_P1": [
+     0.3257918552036199,
+     0.47282608695652173
+    ],
+    "R_sobre_L_2t": 1.3782038660951832,
+    "formula_p_0357": 0.08438258842864557
+   },
+   "lula_fraco": {
+    "n_secoes": 2218,
+    "n_locais": 710,
+    "theta": -0.30006810910774384,
+    "ep": 0.02213248476997571,
+    "ic95_percentis": [
+     -0.3438838176489757,
+     -0.2570813524052595
+    ],
+    "replicas_fora": 0,
+    "somas": {
+     "L1": 119205,
+     "R1": 329961,
+     "L2": 136273,
+     "R2": 321997,
+     "a1": 7443,
+     "b1": 17501,
+     "a2": 7764,
+     "b2": 11544
+    },
+    "P1": 0.2653918595797545,
+    "P2": 0.2973639993890065,
+    "W1": 0.29838838999358563,
+    "W2": 0.4021131137352393,
+    "dlogit_P": 0.15824776350369696,
+    "dlogit_W": 0.4583158726114408,
+    "faixa_de_P1": [
+     0.058333333333333334,
+     0.32575757575757575
+    ],
+    "R_sobre_L_2t": 2.362881862144372,
+    "formula_p_0357": 0.11733806126563089
+   },
+   "diferenca_fraco_menos_forte": {
+    "observada": -0.18801731666619154,
+    "ep": 0.030018399105639873,
+    "prevista_pela_formula_p_0357": 0.0585818075682777
+   }
+  },
+  "traducao_em_votos": {
+   "ponto": {
+    "theta": -0.15166235253649202,
+    "P2_oficial": 0.4374003243228755,
+    "P2_verdadeiro_implicito": 0.47500656884873227,
+    "sentido": "de Lula para Flávio",
+    "fracao_p": -0.0791699462535909,
+    "votos_trocados_no_pais_se_uniforme": -5524539.966089379,
+    "efeito_na_margem_no_pais": -11049079.932178758,
+    "fracao_da_margem": -2.4940414379828675,
+    "votos_trocados_em_AC_e_TO": -50509.17266014537
+   },
+   "sis_0015": {
+    "erro_total": 0.019269420867167555,
+    "theta_menos_196_erros": {
+     "theta": -0.18943041743614042,
+     "P2_oficial": 0.4374003243228755,
+     "P2_verdadeiro_implicito": 0.484432769876368,
+     "sentido": "de Lula para Flávio",
+     "fracao_p": -0.09708766309408765,
+     "votos_trocados_no_pais_se_uniforme": -6909294.678029871,
+     "efeito_na_margem_no_pais": -13818589.356059741,
+     "fracao_da_margem": -3.1191859123138803,
+     "votos_trocados_em_AC_e_TO": -63169.55981756911
+    },
+    "theta_mais_196_erros": {
+     "theta": -0.11389428763684362,
+     "P2_oficial": 0.4374003243228755,
+     "P2_verdadeiro_implicito": 0.4655981447189263,
+     "sentido": "de Lula para Flávio",
+     "fracao_p": -0.06056257035361112,
+     "votos_trocados_no_pais_se_uniforme": -4142396.7667785557,
+     "efeito_na_margem_no_pais": -8284793.533557111,
+     "fracao_da_margem": -1.8700759252946682,
+     "votos_trocados_em_AC_e_TO": -37872.66176085819
+    }
+   },
+   "referencia_troca_que_vira": {
+    "p": 0.0357,
+    "theta_previsto_no_universo": 0.08124836719881426,
+    "margem": 4430191
+   }
+  },
+  "sensibilidade_com_reprovadas_D2": {
+   "nota": "nenhuma seção reprovada com RDV nos dois turnos; conta idêntica à principal"
+  },
+  "descritivo_ES_DF_AM_RN_amostra": {
+   "ES": {
+    "secoes": 45,
+    "rdv_diferente_da_base": 0,
+    "1t": {
+     "L": 4019,
+     "R": 5466,
+     "comparecimento": 10817,
+     "nominal_gov_13": 1548,
+     "nominal_gov_22": 0,
+     "nulos_gov_com_digitos": 599,
+     "g13": null,
+     "g22": 199,
+     "g22_por_mil_votos_de_R": 36.40687888766923
+    },
+    "2t": {
+     "L": 4811,
+     "R": 5754,
+     "comparecimento": 11097,
+     "nominal_gov_13": 0,
+     "nominal_gov_22": 0,
+     "nulos_gov_com_digitos": 628,
+     "g13": 242,
+     "g13_por_mil_votos_de_L": 50.3013926418624,
+     "g22": 143,
+     "g22_por_mil_votos_de_R": 24.852276677094196,
+     "W": 0.6285714285714286,
+     "P": 0.4553715097018457,
+     "logit_W_menos_logit_P": 0.7050833983088186
+    }
+   },
+   "DF": {
+    "secoes": 35,
+    "rdv_diferente_da_base": 0,
+    "1t": {
+     "L": 3286,
+     "R": 4525,
+     "comparecimento": 9049,
+     "nominal_gov_13": 2737,
+     "nominal_gov_22": 0,
+     "nulos_gov_com_digitos": 421,
+     "g13": null,
+     "g22": 151,
+     "g22_por_mil_votos_de_R": 33.370165745856355
+    },
+    "2t": {
+     "L": 4039,
+     "R": 4894,
+     "comparecimento": 9243,
+     "nominal_gov_13": 3589,
+     "nominal_gov_22": 0,
+     "nulos_gov_com_digitos": 376,
+     "g13": null,
+     "g22": 127,
+     "g22_por_mil_votos_de_R": 25.95014303228443
+    }
+   },
+   "AM": {
+    "secoes": 44,
+    "rdv_diferente_da_base": 0,
+    "1t": {
+     "L": 5829,
+     "R": 5492,
+     "comparecimento": 12400,
+     "nominal_gov_13": 0,
+     "nominal_gov_22": 2759,
+     "nulos_gov_com_digitos": 569,
+     "g13": 278,
+     "g13_por_mil_votos_de_L": 47.69257162463544,
+     "g22": null
+    },
+    "2t": {
+     "L": 6209,
+     "R": 5519,
+     "comparecimento": 12123,
+     "nominal_gov_13": 0,
+     "nominal_gov_22": 4405,
+     "nulos_gov_com_digitos": 392,
+     "g13": 203,
+     "g13_por_mil_votos_de_L": 32.694475760992106,
+     "g22": null
+    }
+   },
+   "RN": {
+    "secoes": 51,
+    "rdv_diferente_da_base": 0,
+    "1t": {
+     "L": 7560,
+     "R": 4114,
+     "comparecimento": 12914,
+     "nominal_gov_13": 4280,
+     "nominal_gov_22": 2766,
+     "nulos_gov_com_digitos": 544,
+     "g13": null,
+     "g22": null
+    },
+    "2t": {
+     "L": 8569,
+     "R": 4201,
+     "comparecimento": 13250,
+     "nominal_gov_13": 6362,
+     "nominal_gov_22": 0,
+     "nulos_gov_com_digitos": 429,
+     "g13": null,
+     "g22": 151,
+     "g22_por_mil_votos_de_R": 35.94382289930969
+    }
+   }
+  }
+ },
+ "placebo_AL_2022": {
+  "uf": "AL",
+  "ano": 2022,
+  "principal": {
+   "n_secoes": 6626,
+   "n_locais": 1005,
+   "theta": 0.22295191827228444,
+   "ep": 0.013587916323876275,
+   "ic95_percentis": [
+    0.1968559578622853,
+    0.24880135896478786
+   ],
+   "replicas_fora": 0,
+   "somas": {
+    "L1": 974156,
+    "R1": 621515,
+    "L2": 976831,
+    "R2": 687827,
+    "a1": 66806,
+    "b1": 22843,
+    "a2": 46880,
+    "b2": 22110
+   },
+   "P1": 0.6104992821201864,
+   "P2": 0.5868058183723023,
+   "W1": 0.7451951499737867,
+   "W2": 0.6795187708363531,
+   "dlogit_P": -0.0986351035228552,
+   "dlogit_W": -0.32158702179513965
+  },
+  "taxas_de_erro_de_tela": {
+   "r13_1t": 0.06857833858232151,
+   "r22_1t": 0.036753738847815416,
+   "r13_2t": 0.04799192490819804,
+   "r22_2t": 0.03214471080664179,
+   "dln_r13": -0.3569439550855085,
+   "dln_r22": -0.1339920368132239,
+   "theta_igual_a_menos_a_diferenca": 0.2229519182722846,
+   "multiplicador_r13": 0.6998117175234346,
+   "multiplicador_r22": 0.874597029155101
+  },
+  "testemunhas_1t": 89649,
+  "testemunhas_2t": 68990,
+  "validade_1t_por_municipio": {
+   "rotulo": "AL 2022, 1º turno",
+   "municipios": 102,
+   "municipios_com_testemunha": 102,
+   "grade": [
+    {
+     "n_min": 1,
+     "municipios": 102,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.981719074248944,
+     "termometro_perfeito_p5": 0.9747664023098279,
+     "observado": 0.967950240332127
+    },
+    {
+     "n_min": 50,
+     "municipios": 102,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9817643100689281,
+     "termometro_perfeito_p5": 0.9750060785633103,
+     "observado": 0.967950240332127
+    },
+    {
+     "n_min": 100,
+     "municipios": 102,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9819622167813583,
+     "termometro_perfeito_p5": 0.9751116090875062,
+     "observado": 0.967950240332127
+    },
+    {
+     "n_min": 200,
+     "municipios": 96,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.985026086932697,
+     "termometro_perfeito_p5": 0.9791630493760174,
+     "observado": 0.9701063826235334
+    },
+    {
+     "n_min": 400,
+     "municipios": 65,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9903409090909091,
+     "termometro_perfeito_p5": 0.9859260194060748,
+     "observado": 0.9729895104895104
+    },
+    {
+     "n_min": 800,
+     "municipios": 29,
+     "termometro_perfeito_fracao_acima_de_09": 1.0,
+     "termometro_perfeito_mediana": 0.9862068965517241,
+     "termometro_perfeito_p5": 0.9748768472906404,
+     "observado": 0.9788177339901475
+    }
+   ],
+   "n_min_escolhido": 1,
+   "regra": "municípios com pelo menos 1 testemunhas; limiar 0,9",
+   "correlacao_que_decide": 0.967950240332127,
+   "municipios_na_decisao": 102,
+   "aprovado": true,
+   "leitura_sem_minimo": {
+    "observado": 0.967950240332127,
+    "municipios": 102,
+    "teto_de_ruido_mediana": 0.981719074248944,
+    "teto_de_ruido_p5": 0.9747664023098279,
+    "aprovaria_pelo_limiar_09": true
+   }
+  },
+  "nivel_2t_por_municipio_spearman": 0.9251538738073063,
+  "duas_metades_desvio_das_diferencas": 0.02240892295826571,
+  "governador_descritivo": {
+   "1t": {
+    "nominais_por_candidato": {
+     "15": 708984,
+     "44": 407220,
+     "14": 223585,
+     "55": 157746,
+     "50": 17749,
+     "35": 2737,
+     "28": 2110
+    },
+    "nulos_com_digitos_mais_frequentes": {
+     "13": 66806,
+     "00": 55705,
+     "22": 22843,
+     "11": 11577,
+     "12": 6179,
+     "45": 4149,
+     "40": 2473,
+     "10": 1838,
+     "78": 1571,
+     "75": 1351,
+     "99": 1170,
+     "77": 919,
+     "43": 899,
+     "51": 886,
+     "01": 642
+    },
+    "comparecimento": 1805971
+   },
+   "2t": {
+    "nominais_por_candidato": {
+     "15": 834278,
+     "44": 759984
+    },
+    "nulos_com_digitos_mais_frequentes": {
+     "13": 46880,
+     "00": 39401,
+     "22": 22110,
+     "12": 4923,
+     "11": 4047,
+     "45": 2918,
+     "51": 2643,
+     "14": 2234,
+     "40": 1113,
+     "55": 1048,
+     "99": 1042,
+     "31": 920,
+     "75": 886,
+     "77": 494,
+     "10": 472
+    },
+    "comparecimento": 1784988
+   }
+  },
+  "gravado_em_utc": "2026-11-10 11:45:35"
+ },
+ "veredito": {
+  "so_com_2026_erro_sistematico_minimo_0015": {
+   "theta": -0.15166235253649202,
+   "erro_padrao": 0.01209589106085337,
+   "erro_sistematico": 0.015,
+   "erro_total": 0.019269420867167555,
+   "criterio_de_sinal": {
+    "theta": -0.15166235253649202,
+    "erro_total": 0.019269420867167555,
+    "theta_sobre_erro_total": -7.87062328348974,
+    "tamanho_ok": false,
+    "razao_ok": false,
+    "mesmo_sinal_ufs_e_tercis": false,
+    "n_recortes": 5,
+    "sinal": false
+   },
+   "criterio_de_sinal_no_espelho": {
+    "theta": 0.15166235253649202,
+    "erro_total": 0.019269420867167555,
+    "theta_sobre_erro_total": 7.87062328348974,
+    "tamanho_ok": true,
+    "razao_ok": true,
+    "mesmo_sinal_ufs_e_tercis": true,
+    "n_recortes": 5,
+    "sinal": true
+   },
+   "veredito": "INCONCLUSIVO",
+   "motivos": [
+    "Theta abaixo de -0,020, no sentido contrário ao da tese: o registro não tem cláusula para isso"
+   ]
+  },
+  "com_placebo_AL_2022": {
+   "theta": -0.15166235253649202,
+   "erro_padrao": 0.01209589106085337,
+   "erro_sistematico": 0.22295191827228444,
+   "erro_total": 0.22327979855295335,
+   "criterio_de_sinal": {
+    "theta": -0.15166235253649202,
+    "erro_total": 0.22327979855295335,
+    "theta_sobre_erro_total": -0.6792479817672514,
+    "tamanho_ok": false,
+    "razao_ok": false,
+    "mesmo_sinal_ufs_e_tercis": false,
+    "n_recortes": 5,
+    "sinal": false
+   },
+   "criterio_de_sinal_no_espelho": {
+    "theta": 0.15166235253649202,
+    "erro_total": 0.22327979855295335,
+    "theta_sobre_erro_total": 0.6792479817672514,
+    "tamanho_ok": true,
+    "razao_ok": false,
+    "mesmo_sinal_ufs_e_tercis": true,
+    "n_recortes": 5,
+    "sinal": false
+   },
+   "veredito": "INCONCLUSIVO",
+   "motivos": [
+    "erro total acima de 0,025",
+    "Theta abaixo de -0,020, no sentido contrário ao da tese: o registro não tem cláusula para isso"
+   ]
+  },
+  "erro_sistematico_com_placebo": 0.22295191827228444
+ },
+ "veredito_por_parte": {
+  "parte1_a_favor_de_lula": {
+   "so_2026": "INCONCLUSIVO",
+   "com_placebo": "INCONCLUSIVO",
+   "leitura_alternativa_da_calibracao": "SEM PODER (o critério de SINAL não dispara no dado com a troca de 3,57% plantada)"
+  },
+  "parte2_espelho_a_favor_de_flavio": {
+   "so_2026": "SINAL",
+   "com_placebo": "sem sinal",
+   "conta_como_indicio": false
+  },
+  "parte3_poder_etapa1": "segue para a validade do termômetro",
+  "parte3_enxerga_o_plantado_D11": true,
+  "parte4_validade_aprovada": true
+ },
+ "traducao_em_votos_de_margem": {
+  "ponto": {
+   "theta": -0.15166235253649202,
+   "P2_oficial": 0.4374003243228755,
+   "P2_verdadeiro_implicito": 0.47500656884873227,
+   "sentido": "de Lula para Flávio",
+   "fracao_p": -0.0791699462535909,
+   "votos_trocados_no_pais_se_uniforme": -5524539.966089379,
+   "efeito_na_margem_no_pais": -11049079.932178758,
+   "fracao_da_margem": -2.4940414379828675,
+   "votos_trocados_em_AC_e_TO": -50509.17266014537
+  },
+  "sis_0015": {
+   "erro_total": 0.019269420867167555,
+   "theta_menos_196_erros": {
+    "theta": -0.18943041743614042,
+    "P2_oficial": 0.4374003243228755,
+    "P2_verdadeiro_implicito": 0.484432769876368,
+    "sentido": "de Lula para Flávio",
+    "fracao_p": -0.09708766309408765,
+    "votos_trocados_no_pais_se_uniforme": -6909294.678029871,
+    "efeito_na_margem_no_pais": -13818589.356059741,
+    "fracao_da_margem": -3.1191859123138803,
+    "votos_trocados_em_AC_e_TO": -63169.55981756911
+   },
+   "theta_mais_196_erros": {
+    "theta": -0.11389428763684362,
+    "P2_oficial": 0.4374003243228755,
+    "P2_verdadeiro_implicito": 0.4655981447189263,
+    "sentido": "de Lula para Flávio",
+    "fracao_p": -0.06056257035361112,
+    "votos_trocados_no_pais_se_uniforme": -4142396.7667785557,
+    "efeito_na_margem_no_pais": -8284793.533557111,
+    "fracao_da_margem": -1.8700759252946682,
+    "votos_trocados_em_AC_e_TO": -37872.66176085819
+   }
+  },
+  "referencia_troca_que_vira": {
+   "p": 0.0357,
+   "theta_previsto_no_universo": 0.08124836719881426,
+   "margem": 4430191
+  },
+  "sis_placebo": {
+   "erro_total": 0.22327979855295335,
+   "theta_menos_196_erros": {
+    "theta": -0.5892907577002806,
+    "P2_oficial": 0.4374003243228755,
+    "P2_verdadeiro_implicito": 0.5836004393468087,
+    "sentido": "de Lula para Flávio",
+    "fracao_p": -0.25051405922100883,
+    "votos_trocados_no_pais_se_uniforme": -21477506.958751082,
+    "efeito_na_margem_no_pais": -42955013.917502165,
+    "fracao_da_margem": -9.695973360404137,
+    "votos_trocados_em_AC_e_TO": -196362.25168933484
+   },
+   "theta_mais_196_erros": {
+    "theta": 0.2859660526272965,
+    "P2_oficial": 0.4374003243228755,
+    "P2_verdadeiro_implicito": 0.368726152785705,
+    "sentido": "de Flávio para Lula",
+    "fracao_p": 0.10878665707476726,
+    "votos_trocados_no_pais_se_uniforme": 7302712.709670427,
+    "efeito_na_margem_no_pais": 14605425.419340855,
+    "fracao_da_margem": 3.2967936189073686,
+    "votos_trocados_em_AC_e_TO": 92236.69183660297
+   }
+  }
+ },
+ "contagem_de_clausulas": {
+  "lista": [
+   "principal",
+   "espelho",
+   "AC",
+   "TO",
+   "tercil baixa",
+   "tercil media",
+   "tercil alta",
+   "placebo 3",
+   "duas metades"
+  ],
+  "n": 9,
+  "sinais_que_o_acaso_daria_a_5_por_cento": 0.45
+ },
+ "decisoes_retomada_texto": "DECISÕES ACRESCENTADAS NA RETOMADA (10/11/2026, por volta de 11h UTC, ANTES de qualquer conta com votos).\nO docstring acima é o do commit 6677983 (10/11/2026 10:48:36 UTC), sem mudança de uma letra. A execução anterior foi\ninterrompida na leitura do segundo pacote; nenhum RDV tinha sido aberto para contar voto. O que segue só completa o\nque o docstring deixou sem dizer; nada muda limiar. Sai no resultado como desvio.\nR1. Conferência: além da base secoes2026 (D2 e D4), o RDV é conferido direto contra os zips do bweb de AC e TO,\n    candidato a candidato, brancos e nulos, para presidente e para governador, nos dois turnos. A regra do universo\n    continua a do D2 (os cinco números de presidente contra a base). A lista de candidatos a governador por UF e turno\n    sai do bweb, e a ausência do 13 e do 22 é conferida ali e nos votos nominais do RDV.\nR2. Correlação de postos: Spearman com postos médios nos empates. Município sem nenhuma testemunha 13 ou 22 no 1º\n    turno fica fora das correlações de W (W não existe). Simulações do D7 com a semente 20261110.\nR3. Células do D7 (ao lado, sem decidir): por UF, números 13, 22 e os eliminados do D7; célula = município x número;\n    parcela do número entre as testemunhas desses números no município contra a parcela oficial do mesmo candidato\n    entre os mesmos números; Spearman sobre todas as células de municípios com pelo menos 1 testemunha, e, como a\n    diferença entre números domina essa conta, também a correlação por número, entre municípios.\nR4. D11: o critério \"enxerga o plantado\" usa o plantio com a semente 20261110. Ao lado, 200 plantios com sementes\n    20261111 a 20261310 (média e desvio do aumento). O critério de SINAL no dado com plantio usa o mesmo bootstrap\n    de locais. O plantio espelhado (fração p dos votos de L para R) é feito do mesmo jeito para calibrar o espelho.\n    Poder dito ao lado: a menor fração p cuja fórmula alcança o maior entre 0,045 e 2,5 erros totais.\nR5. D12: (i) 200 plantios; passa se o aumento médio de Theta ficar a até 10% do valor direto\n    -[ln((A2 - m)/(B2 + m)) - ln(A2/B2)], com A2 e B2 = somas de g13 e g22 do 2º turno e m = média de testemunhas\n    movidas; o valor da fórmula do intervalo (D13) vai ao lado. (ii) 200 sorteios; passa se o valor absoluto da\n    mudança média de Theta for de no máximo metade do erro-padrão de Theta; o desvio entre sorteios vai ao lado.\nR6. D18: seções de ES, DF, AM e RN da amostra aleatória nova com RDV nos dois turnos em disco. Por UF e turno:\n    nulos de governador com dígitos 13 e 22 só quando o número não tem voto nominal de governador naquela UF e\n    turno; taxa por mil votos oficiais do mesmo lado nas mesmas seções (g13/L, g22/R); no ES, 2º turno, W_2 ao lado\n    de P_2. Sem erro além do binomial, sem veredito.\nR7. D20: finalistas de governador AC 10 e 11, TO 44 e 45 (observação do desenho D4, conferida no bweb do 2º turno).\n    Parcela = 1 menos os votos nominais dos dois finalistas sobre os votos nominais de governador do 1º turno da\n    seção (RDV). Seção sem voto nominal de governador fica fora dessa leitura.\nR8. Placebo AL 2022 (D21): os pacotes de 2022 têm outro padrão de nome (o00406-MMMMMZZZZSSSS.rdv); a chave sai do\n    nome e da identificação do próprio RDV. O boletim de 2022 não é decodificado (o leitor do repositório é o de\n    2026); a conferência de 2022 é RDV de presidente contra dados/secoes2022.json.gz. Sem tercis (não há perfil de\n    2022 em disco). Ao lado, a validade por município em AL (mesma regra do D7) e as taxas r13 e r22 por turno.\n    Para andar no tempo, o pacote de AL 2022 é lido em fluxo ao mesmo tempo que o de TO 2026 (dois fluxos no cdn,\n    nada em disco além de RDV e boletim): desvio da regra de um pacote por vez, dito no relatório.\nR9. Etapa 1 também grava o número de seções, de locais e de seções com pelo menos uma testemunha, e o erro-padrão\n    por UF. Réplicas de bootstrap com soma zero em algum termo (logit indefinido) são contadas e ficam fora do\n    desvio-padrão.\nR10. Sensibilidade do D2: Theta repetido com todas as seções que têm RDV nos dois turnos, mesmo as reprovadas na\n    conferência, usando os votos oficiais da base.\n",
+ "decisoes_retomada_2_texto": "ACRESCENTADO ÀS 11:10 UTC DE 10/11/2026, ainda ANTES da etapa 1 e de qualquer contagem de testemunha separada por\nlado (até aqui só rodaram a conferência do AC contra o bweb, que não separa 13 de 22, e ensaios do código com\ntestemunhas sintéticas). Não decide nada.\nR11. Leitura secundária por força: Theta por tercil da parcela oficial de Lula no 1º turno da seção (L1/(L1+R1);\n    tercis com o mesmo número de seções, AC e TO juntos). Sob troca proporcional uniforme de fração p dos votos de\n    Flávio, Theta de cada grupo vale ln[(1 + p R/L)/(1 - p)] com R/L do 2º turno do grupo, logo cresce onde Flávio é\n    forte; sob mudança uniforme de comportamento de quem erra a tela, Theta é igual nos grupos. Relato Theta por\n    tercil, a diferença entre o tercil em que Lula é mais fraco e o em que é mais forte (erro pelo mesmo bootstrap)\n    e a diferença que a fórmula prevê para p = 3,57%.\n",
+ "leitura_escrita_depois_de_ver_o_resultado": {
+  "erro_sistematico_interno_2026_exploratorio": {
+   "definicao": "metade da diferença de Theta entre AC e TO (só 2026, escolhido depois de ver)",
+   "valor": 0.12014251329769665,
+   "erro_total": 0.1207498823272439,
+   "menos_theta_sobre_erro_total": 1.2560041435524743
+  },
+  "uma_frase": "INCONCLUSIVO pela letra, e o teste não decide. Theta saiu -0,1517 (ep 0,0121), no sentido CONTRÁRIO ao da tese: as testemunhas andaram para Lula mais do que a contagem oficial, não menos. Pela mesma régua, o espelho (a favor de Flávio) daria SINAL com o erro sistemático mínimo, mas o placebo (AL 2022: +0,2230) e os recortes de 2026 (AC -0,33, TO -0,09; de -0,06 a -0,30 conforme a disputa de governador) mostram que o termômetro muda entre os turnos por causa da eleição de governador, em tamanho de 2 a 4 vezes o efeito procurado (+0,081). Não acusa e não absolve.",
+  "a_favor": [
+   "1. O teste não absolve. O zero do termômetro está fora do lugar (-0,15 em AC e TO, -0,33 no AC). Com a troca de 3,57% plantada na contagem, Theta sobe o valor exato da fórmula (+0,0813), mas fica em -0,0703 e o critério de SINAL não dispara. Não dá para excluir que o comportamento de quem anula o governador, sozinho, desse -0,23 e a contagem somasse +0,08.",
+   "2. Quando se tenta tirar o efeito da disputa de governador (exploratório, conta de modelo), o TO passa para o lado positivo: a reta até a parcela zero de governador eliminado dá +0,0351 (ep 0,0278) e a regressão por seção dá +0,0796. A troca que vira o resultado daria +0,073 no TO. Esses dois números são compatíveis com zero e com a troca; não separam.",
+   "3. Dentro do AC, Theta é menos negativo onde Lula é fraco: diferença de +0,1415 (ep 0,0485) entre os tercis, o sentido que uma troca proporcional prevê (+0,0529 para 3,57%), embora 2,7 vezes maior do que essa troca daria.",
+   "4. O sinal negativo admite uma leitura a favor da tese: cédulas inteiras fabricadas ou trocadas para Lula, com o 13 repetido na tela de governador, deixariam 13 a mais entre os nulos de governador. O excesso é de 4.484 votos (0,33% dos válidos de AC e TO). Lido inteiro como fraude e estendido ao país, valeria 9,4% da margem se fabricadas e 18,7% se trocadas. É teto, e os itens 4 e 5 do que pesa contra o reduzem.",
+   "5. O placebo lido ao pé da letra aponta no sentido da tese do Léo para 2022: em AL 2022 a contagem andou para Lula mais do que as testemunhas, Theta +0,2230 (16,4 ep). Mas o tamanho (11,7% dos votos de Bolsonaro) é mais de 6 vezes a fração que viraria 2022 (1,8%), e o sinal troca de 2022 para 2026 com o mesmo vencedor.",
+   "6. RDV, boletim e bweb saem do mesmo programa. Um programa que reescrevesse os nulos de governador junto com o voto de presidente escaparia deste teste por construção."
+  ],
+  "contra": [
+   "1. Theta é negativo em todos os recortes registrados antes: AC (-0,333), TO (-0,093), os três tercis de escolaridade (-0,109, -0,127, -0,277), os três de governador eliminado e os três de força de Lula; e em 19 de 20 décimos (exploratório). Em nenhum a contagem oficial andou para Lula mais do que as testemunhas. A marca prevista pela tese era positiva: +0,0812.",
+   "2. No TO, na metade das seções com menos voto de governador eliminado (2.192 seções), onde o termômetro é menos contaminado, Theta = -0,0296 (ep 0,0198); a troca que vira daria +0,0678, que fica a 4,9 ep (exploratório, só erro de amostra).",
+   "3. A inclinação por força de Lula (R11, fixada antes de abrir) tem o sinal contrário ao da troca proporcional: -0,1880 (ep 0,0300) contra +0,0586 previsto; dentro do TO, -0,0680 (ep 0,0397) contra +0,0443.",
+   "4. O 13 a mais do 2º turno não acompanha os votos de Flávio da seção (AC -0,0011, ep 0,0018; TO -0,0008, ep 0,0018 por voto de Flávio). Cédula inteira trocada de Flávio para Lula com o 13 repetido fica limitada a 0,25% (AC) e 0,28% (TO) dos votos de Flávio, no teto de 95%: menos de um décimo dos 3,57% (exploratório, conta de modelo).",
+   "5. Também não acompanha comparecimento novo: no AC o comparecimento caiu 34.676 e só 145 seções subiram, somando 452 eleitores; no TO caiu 10.433, com 6.473 eleitores a mais em 1.452 seções. Por eleitor a mais aparecem 0,21 (ep 0,13) e 0,04 (ep 0,03) nulos com 13; cédula fabricada com 13 nos dois cargos daria perto de 1.",
+   "6. O termômetro acompanha a eleição de governador, não quem ganhou a presidência: Theta foi +0,22 em AL 2022 e -0,15 em AC e TO 2026, com Lula vencendo as duas; e dentro de cada UF muda com a parcela dos votos de governador dada a eliminados (TO: de +0,02 a -0,29; inclinação -1,31, ep 0,23). Uma alteração só na contagem de presidente não tem por que depender da disputa de governador.",
+   "7. Os RDV conferem com o bweb em 6.654 seções, nos dois turnos e nos dois cargos, candidato a candidato. Isso fecha alteração depois da urna nessas seções; não pesa contra programa adulterado na origem."
+  ],
+  "significa": [
+   "O desenho supunha que quem digita o número do presidenciável na tela de governador é uma amostra estável da intenção presidencial entre os turnos. Não é. No 1º turno são 81.406 testemunhas (5,6 por 100 votantes), MAIS do que no 2º (57.959; 4,1 por 100): é sobretudo voto de legenda de quem não tem candidato a governador do seu partido, não erro de tela. A taxa por eleitor cai entre os turnos em fatores diferentes de cada lado (13: vezes 0,74; 22: vezes 0,64), e os fatores mudam com a UF e com a disputa de governador.",
+   "O erro sistemático real do instrumento é da ordem de 0,1 a 0,3 (AL 2022 +0,22; AC -0,33; TO -0,09), contra 0,015 suposto no registro e +0,081 procurado. O teste tinha erro de amostra de sobra (ep 0,0121) e termômetro aprovado no 1º turno (0,922), mas a validade em nível num turno não garante estabilidade entre os turnos.",
+   "O SINAL do espelho pela letra (só com 2026) não conta como indício de fraude a favor de Flávio. Das três condições do Adendo 27, falha a calibração: a explicação inocente plantada desloca Theta do mesmo jeito que a troca, e o deslocamento medido acompanha a disputa de governador. Com o placebo o erro total vai a 0,223 e o espelho cai para 0,68 erro. Só com 2026, usando como erro sistemático metade da diferença entre AC e TO (0,120; exploratório), cai para 1,26 erro.",
+   "Consequência para a investigação: este era um dos dois únicos desenhos registrados que, em princípio, enxergariam uma troca sorteada e coerente dentro da urna. Em AC e TO ele não enxerga nada do tamanho necessário, nem para acusar nem para absolver. A porta continua aberta e sobra o D4-4 (nulos de digitação no próprio voto de presidente), que não passa pela eleição de governador."
+  ],
+  "pistas": [
+   "1. D4-4 no universo, não em amostra: os pacotes de arquivos transmitidos do TSE podem ser lidos em fluxo guardando só RDV e boletim (uma UF inteira ocupa de 4 a 64 MB). Com todas as UFs o erro do D4-4 cai para perto de 0,007 e ele não depende da eleição de governador.",
+   "2. Medir a instabilidade do termômetro de governador com mais casos: a mesma conta em todas as UFs e anos em que 13 e o número do adversário não eram candidatos a governador nos dois turnos (2018 e 2022 estão no mesmo endereço). Se a dispersão ficar em 0,2 ou mais, o desenho D4-3 deve ser abandonado de vez.",
+   "3. AC: a taxa do 13 quase não caiu no 2º turno (vezes 0,91, contra 0,69 no TO e 0,70 em AL 2022) e passa de 1 onde mais votos de governador foram para eliminados. É o número mais fora da curva do teste. Conferir na imprensa local quem PT e PL apoiaram no 2º turno de governador do AC e do TO (não conferido aqui).",
+   "4. Pacote do TSE do TO, 2º turno: há um membro a mais, de 47 bytes, chamado 5Nim5OYPO-buOO056ziCIDfG3kH3gPCuilBllCcL8yE=.id, cujo conteúdo é o próprio nome. Não tem voto e parece marca de ferramenta de armazenamento; vale perguntar ao TSE o que é. Os outros três pacotes de 2026 não têm.",
+   "5. Para o conferente: refazer com código próprio a partir dos quatro pacotes; os números a bater são as somas 13/22 por UF e turno (seção 4) e Theta. Conferir em especial se a leitura do nulo com dígitos (tipo 4 do RDV, cargo 3) é a mesma."
+  ],
+  "desvios": [
+   "Fonte: pacotes de arquivos transmitidos do TSE por UF e turno, lidos em fluxo (nada do zip em disco; só RDV e boletim guardados, com CRC conferido), em vez do download seção a seção do desenho.",
+   "Execução retomada depois de interrupção: o docstring é o do commit 6677983, sem mudança. As decisões que faltavam (R1 a R10, 10:57 UTC) e a regra do veredito em código estão no commit 9a8dd54 (11:07:41 UTC, feito pela sessão principal), anterior à etapa 1 (11:27 UTC); o SHA-256 do bloco nesse commit é o mesmo de registro_decisoes.json. A leitura R11 (11:09 UTC) só tem horário local, não tem commit anterior ao resultado. Este agente não fez commit.",
+   "Dois fluxos ao mesmo tempo no cdn do TSE (TO 2026 e AL 2022), contra a regra de um pacote por vez; nada além de RDV e boletim foi a disco (148 MB nos seis pacotes guardados).",
+   "Validade (D7): a regra do mínimo de testemunhas por município escolheu 1, isto é, todos os 161 municípios; igual à leitura sem mínimo. Passa do limiar de 0,9 (0,922), mas fica abaixo do percentil 5 de um termômetro perfeito (0,942); o TO sozinho dá 0,893.",
+   "Veredito (D9): Theta abaixo de -0,020 não tem cláusula no registro; ficou INCONCLUSIVO pela letra e foi lido no espelho.",
+   "Calibração (D11): \"enxerga o plantado\" foi definido antes como o aumento de Theta igual ao da fórmula e de pelo menos 2,5 erros totais; cumpre (4,22 erros). Se \"enxergar\" for lido como o critério de SINAL disparar no dado com o plantio, NÃO cumpre (Theta fica em -0,0703) e o veredito seria SEM PODER. As duas leituras levam à mesma conclusão prática: o teste não decide.",
+   "Tercis de escolaridade: 10 seções sem perfil ficaram fora dessa leitura.",
+   "Descritivo de ES, DF, AM e RN: só as seções da amostra aleatória nova (175 seções). Correção ao desenho: no ES o 22 também não tem voto nominal de governador no 1º turno.",
+   "Placebo AL 2022: sem tercis (não há perfil de 2022 em disco); boletim de 2022 não decodificado; o leitor de RDV foi adaptado ao formato de 2022 (o nó das eleições tem outro rótulo), antes da etapa 1.",
+   "Exploratório (seção 15): tudo o que está lá foi feito depois de ver Theta e não decide nada."
+  ],
+  "exploratorio_leitura": [
+   "E7, placebo AL 2022, as mesmas contas: nulos com 22 no 2º turno por voto do governador eliminado 14 +0,0120 (ep 0,0034); nulos com 13, +0,0124 (ep 0,0049). Theta por décimo da parcela de governador eliminado: 5,2%: +0,297; 10,1%: +0,208; 14,4%: +0,207; 19,3%: +0,174; 23,4%: +0,131; 27,7%: +0,135; 32,8%: +0,095; 36,9%: +0,073; 40,4%: +0,061; 47,7%: +0,227. Reta até zero: +0,2223 (ep 0,0329); inclinação -0,27 (ep 0,11). Em AL 2022 o Theta positivo NÃO some onde há pouco voto de governador eliminado: ali o que muda entre os turnos é a taxa do 13, que cai mais (vezes 0,70) que a do 22 (vezes 0,87). Lido ao pé da letra seriam 11,7% dos votos de Bolsonaro contados para Lula em AL, 7.947.935 votos se fosse igual no país.",
+   "E8, de que lado era o eleitor de cada candidato a governador (correlação, por seção, entre a parcela do candidato e a parcela de Lula no 1º turno): AC 2026: 11 +0,08 (218.760 votos), 10 -0,08 (141.859 votos), 45 -0,31 (44.946 votos), 40 +0,40 (32.963 votos); TO 2026: 44 +0,31 (386.260 votos), 45 -0,19 (372.848 votos), 55 -0,01 (69.967 votos), 30 -0,60 (13.173 votos), 50 -0,28 (5.109 votos); AL 2022: 15 +0,65 (708.984 votos), 44 -0,15 (407.220 votos), 14 -0,79 (223.585 votos), 55 -0,20 (157.746 votos), 50 -0,47 (17.749 votos). Em AL 2022 o eliminado 14 era o candidato do eleitorado de Bolsonaro e o finalista 15 o do eleitorado de Lula; no AC 2026 os dois finalistas (11 e 10) são neutros e os eliminados se dividem (40 do lado de Lula, 45 do lado de Flávio); no TO o 55 é neutro.",
+   "Leitura do exploratório: a explicação \"o lado que ficou sem candidato a governador continua anulando com o seu número\" combina com o sinal por UF (AL 2022 positivo, AC e TO 2026 negativos) e com a inclinação dentro do TO, mas não com a inclinação dentro de AL 2022. O que os dados sustentam sem depender dela: a diferença entre turnos do termômetro muda com a eleição de governador em tamanho maior que o efeito procurado. O porquê fica em aberto."
+  ]
+ },
+ "exploratorio_depois_de_ver_o_resultado": {
+  "aviso": "exploratório, feito depois de ver o resultado; não decide nada",
+  "E3_quanto_basta": {
+   "g13_2t_observado": 31866,
+   "g13_2t_que_daria_theta_zero": 27381.764376720363,
+   "excesso_de_13": 4484.235623279637,
+   "excesso_de_13_por_cento_dos_votos_de_lula_2t": 0.7633066297765245,
+   "g22_2t_observado": 26093,
+   "g22_2t_que_daria_theta_zero": 30366.17825500367,
+   "falta_de_22": 4273.17825500367,
+   "falta_de_22_por_cento_dos_votos_de_flavio_2t": 0.565511242260266,
+   "por_uf": {
+    "AC": {
+     "excesso_de_13": 2676.491629961759,
+     "excesso_por_cento_dos_votos_de_lula_2t": 1.8520767197150143,
+     "votos_de_governador_eliminado_1t": {
+      "40": 32963,
+      "45": 44946,
+      "21": 715,
+      "36": 404
+     },
+     "excesso_sobre_votos_dos_eliminados": 0.03386763716608998
+    },
+    "TO": {
+     "excesso_de_13": 1981.003962920564,
+     "excesso_por_cento_dos_votos_de_lula_2t": 0.4472175859149462,
+     "votos_de_governador_eliminado_1t": {
+      "30": 13173,
+      "55": 69967,
+      "50": 5109,
+      "35": 1027,
+      "27": 1272
+     },
+     "excesso_sobre_votos_dos_eliminados": 0.021877942780851745
+    }
+   }
+  },
+  "E1_regressao_por_secao": {
+   "AC": {
+    "g13_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": 0.04576381071283525,
+      "ep": 0.005541581120567109
+     },
+     "por voto de Flávio no 2º turno": {
+      "coef": -0.001062427187753616,
+      "ep": 0.0018310570013225465
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.2996498999470767,
+      "ep": 0.043963101644072765
+     },
+     "por voto do governador eliminado 40 no 1º turno": {
+      "coef": 0.00990971891771596,
+      "ep": 0.014164641049015372
+     },
+     "por voto do governador eliminado 45 no 1º turno": {
+      "coef": -0.003207928758096025,
+      "ep": 0.005060708315689891
+     },
+     "_explicado_pelos_eliminados": {
+      "40": 326.6540646846712,
+      "45": -144.18356596138392
+     }
+    },
+    "g22_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": 0.008486150147670476,
+      "ep": 0.0024148746381456383
+     },
+     "por voto de Flávio no 2º turno": {
+      "coef": 0.022404890756481038,
+      "ep": 0.0017360323281630024
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.24679421699435183,
+      "ep": 0.015802937471164208
+     },
+     "por voto do governador eliminado 40 no 1º turno": {
+      "coef": -0.04099128521907577,
+      "ep": 0.00828176624472912
+     },
+     "por voto do governador eliminado 45 no 1º turno": {
+      "coef": 0.02005021131883773,
+      "ep": 0.005695560112865082
+     },
+     "_explicado_pelos_eliminados": {
+      "40": -1351.1957346763945,
+      "45": 901.1767979364805
+     }
+    },
+    "votos_dos_eliminados_1t": {
+     "40": 32963,
+     "45": 44946
+    },
+    "n_secoes": 2270
+   },
+   "TO": {
+    "g13_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": 0.030513308472852444,
+      "ep": 0.0019657342820455564
+     },
+     "por voto de Flávio no 2º turno": {
+      "coef": -0.0007901949696433266,
+      "ep": 0.0018374256408055004
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.19515648460647142,
+      "ep": 0.01964062435454771
+     },
+     "por voto do governador eliminado 30 no 1º turno": {
+      "coef": -0.0073785356893497946,
+      "ep": 0.021321073117871337
+     },
+     "por voto do governador eliminado 50 no 1º turno": {
+      "coef": 0.01386276614206165,
+      "ep": 0.030241244719987317
+     },
+     "por voto do governador eliminado 55 no 1º turno": {
+      "coef": 0.0481053536081776,
+      "ep": 0.008888312135374547
+     },
+     "_explicado_pelos_eliminados": {
+      "30": -97.19745063580484,
+      "50": 70.82487221979297,
+      "55": 3365.787275903362
+     }
+    },
+    "g22_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": 0.003101908109342501,
+      "ep": 0.0007134851811696431
+     },
+     "por voto de Flávio no 2º turno": {
+      "coef": 0.01891204629589889,
+      "ep": 0.0009412834239942282
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.17429631241995905,
+      "ep": 0.013160167496331279
+     },
+     "por voto do governador eliminado 30 no 1º turno": {
+      "coef": -0.007982089950580855,
+      "ep": 0.0140088783781875
+     },
+     "por voto do governador eliminado 50 no 1º turno": {
+      "coef": -0.13515962064977025,
+      "ep": 0.021960271993271035
+     },
+     "por voto do governador eliminado 55 no 1º turno": {
+      "coef": 0.009189460672123643,
+      "ep": 0.0029154316257880993
+     },
+     "_explicado_pelos_eliminados": {
+      "30": -105.1480709190016,
+      "50": -690.5305018996762,
+      "55": 642.958994846475
+     }
+    },
+    "votos_dos_eliminados_1t": {
+     "30": 13173,
+     "50": 5109,
+     "55": 69967
+    },
+    "n_secoes": 4384
+   }
+  },
+  "theta_sem_a_parte_atribuida_aos_eliminados_de_governador": {
+   "AC+TO": -0.0117052924425812,
+   "AC": -0.2767686809042964,
+   "TO": 0.07964218222144737,
+   "nota": "conta de modelo, ecológica; serve para ver a ordem de grandeza, não para decidir"
+  },
+  "E2_decimos": {
+   "AC": {
+    "linhas": [
+     {
+      "decimo": 1,
+      "parcela_media": 0.02849929824667951,
+      "theta": -0.2793613698226046,
+      "ep": 0.07152784363273595,
+      "multiplicador_r13": 0.834481793428013,
+      "multiplicador_r22": 0.6310906768973447
+     },
+     {
+      "decimo": 2,
+      "parcela_media": 0.05410417348771819,
+      "theta": -0.24078491781488454,
+      "ep": 0.053576527241976576,
+      "multiplicador_r13": 0.8101841405936623,
+      "multiplicador_r22": 0.636813375201869
+     },
+     {
+      "decimo": 3,
+      "parcela_media": 0.07926359591882236,
+      "theta": -0.2243400763765882,
+      "ep": 0.05160728508160883,
+      "multiplicador_r13": 0.8008266589373392,
+      "multiplicador_r22": 0.6398952182410963
+     },
+     {
+      "decimo": 4,
+      "parcela_media": 0.10726250799508825,
+      "theta": -0.2693521286139235,
+      "ep": 0.05305438246961906,
+      "multiplicador_r13": 0.8931442639367976,
+      "multiplicador_r22": 0.682249883599715
+     },
+     {
+      "decimo": 5,
+      "parcela_media": 0.1405725611994771,
+      "theta": -0.47414463138914775,
+      "ep": 0.06000618273249201,
+      "multiplicador_r13": 0.9684081083477956,
+      "multiplicador_r22": 0.6027538874552213
+     },
+     {
+      "decimo": 6,
+      "parcela_media": 0.19038078526049315,
+      "theta": -0.3238477475534956,
+      "ep": 0.057870181663425065,
+      "multiplicador_r13": 0.8825822973780748,
+      "multiplicador_r22": 0.6384250548761368
+     },
+     {
+      "decimo": 7,
+      "parcela_media": 0.23577944214268698,
+      "theta": -0.22400377375420927,
+      "ep": 0.06197735286780306,
+      "multiplicador_r13": 0.856378069041905,
+      "multiplicador_r22": 0.6845133681371293
+     },
+     {
+      "decimo": 8,
+      "parcela_media": 0.2652688253822701,
+      "theta": -0.4624213326936705,
+      "ep": 0.0631948296977964,
+      "multiplicador_r13": 1.1046843122787935,
+      "multiplicador_r22": 0.695682619729004
+     },
+     {
+      "decimo": 9,
+      "parcela_media": 0.2938633573454557,
+      "theta": -0.4072431611561632,
+      "ep": 0.06760417770614645,
+      "multiplicador_r13": 1.080278529919166,
+      "multiplicador_r22": 0.7189062960068169
+     },
+     {
+      "decimo": 10,
+      "parcela_media": 0.35230280852817103,
+      "theta": -0.4776589019587768,
+      "ep": 0.08029355720427349,
+      "multiplicador_r13": 1.08704232127739,
+      "multiplicador_r22": 0.6742203042583591
+     }
+    ],
+    "reta": {
+     "theta_na_parcela_zero": -0.22061431945497184,
+     "ep": 0.03857532415017135,
+     "inclinacao": -0.6451600282994767,
+     "ep_inclinacao": 0.21309545330850344
+    }
+   },
+   "TO": {
+    "linhas": [
+     {
+      "decimo": 1,
+      "parcela_media": 0.020050686315727057,
+      "theta": -0.03619483192229103,
+      "ep": 0.05128701041665622,
+      "multiplicador_r13": 0.5621352075714741,
+      "multiplicador_r22": 0.5421526326787593
+     },
+     {
+      "decimo": 2,
+      "parcela_media": 0.03984828856129837,
+      "theta": 0.01667348669699388,
+      "ep": 0.048407349524655745,
+      "multiplicador_r13": 0.5580899158967914,
+      "multiplicador_r22": 0.5674732295800317
+     },
+     {
+      "decimo": 3,
+      "parcela_media": 0.0543199536556508,
+      "theta": -0.030371059662401043,
+      "ep": 0.04190877793853374,
+      "multiplicador_r13": 0.6035972003314274,
+      "multiplicador_r22": 0.585540896201586
+     },
+     {
+      "decimo": 4,
+      "parcela_media": 0.06825536630126486,
+      "theta": -0.06094962532738418,
+      "ep": 0.04251469394759774,
+      "multiplicador_r13": 0.6306532137459864,
+      "multiplicador_r22": 0.5933630894501759
+     },
+     {
+      "decimo": 5,
+      "parcela_media": 0.08286832396562073,
+      "theta": -0.045139606062671644,
+      "ep": 0.04151932844755327,
+      "multiplicador_r13": 0.6373870299353328,
+      "multiplicador_r22": 0.6092553338955053
+     },
+     {
+      "decimo": 6,
+      "parcela_media": 0.09870107722537723,
+      "theta": -0.07747453007289622,
+      "ep": 0.044879472203280195,
+      "multiplicador_r13": 0.7099125613183994,
+      "multiplicador_r22": 0.6569890024515838
+     },
+     {
+      "decimo": 7,
+      "parcela_media": 0.11755122682191242,
+      "theta": -0.1319778866099791,
+      "ep": 0.039997144830684506,
+      "multiplicador_r13": 0.7502435002993538,
+      "multiplicador_r22": 0.6574836746363433
+     },
+     {
+      "decimo": 8,
+      "parcela_media": 0.13778768796246577,
+      "theta": -0.18498174944310747,
+      "ep": 0.04188962945925909,
+      "multiplicador_r13": 0.7780908259356173,
+      "multiplicador_r22": 0.6466864209407476
+     },
+     {
+      "decimo": 9,
+      "parcela_media": 0.1634178152640289,
+      "theta": -0.1612662936865892,
+      "ep": 0.04785139682303263,
+      "multiplicador_r13": 0.8228752391909264,
+      "multiplicador_r22": 0.7003206508328433
+     },
+     {
+      "decimo": 10,
+      "parcela_media": 0.2548693916671778,
+      "theta": -0.2929908476900333,
+      "ep": 0.0503230471958937,
+      "multiplicador_r13": 0.9172383776127025,
+      "multiplicador_r22": 0.6842864007688612
+     }
+    ],
+    "reta": {
+     "theta_na_parcela_zero": 0.03513501254427877,
+     "ep": 0.027753490272703605,
+     "inclinacao": -1.3086368492819376,
+     "ep_inclinacao": 0.23483786245173477
+    }
+   }
+  },
+  "E2b_metade_de_baixo": {
+   "AC": {
+    "theta": -0.30077497118411145,
+    "ep": 0.026725510046335173,
+    "n_secoes": 1135,
+    "parcela_maxima": 0.1619718309859155,
+    "formula_p_0357": 0.10478421686310764,
+    "taxas": {
+     "r13_1t": 0.08042312051378919,
+     "r22_1t": 0.07107609371760315,
+     "r13_2t": 0.06919738370316034,
+     "r22_2t": 0.04526967694227481,
+     "dln_r13": -0.15033864927337556,
+     "dln_r22": -0.451113620457487,
+     "theta_igual_a_menos_a_diferenca": -0.30077497118411145,
+     "multiplicador_r13": 0.8604165476431107,
+     "multiplicador_r22": 0.6369184710985747
+    }
+   },
+   "TO": {
+    "theta": -0.02956360458150563,
+    "ep": 0.019779663527979142,
+    "n_secoes": 2192,
+    "parcela_maxima": 0.09039548022598876,
+    "formula_p_0357": 0.06778711117659882,
+    "taxas": {
+     "r13_1t": 0.07881301235923667,
+     "r22_1t": 0.05438714395841158,
+     "r13_2t": 0.04714081309326605,
+     "r22_2t": 0.031583196669610195,
+     "dln_r13": -0.5139389688560183,
+     "dln_r22": -0.543502573437524,
+     "theta_igual_a_menos_a_diferenca": -0.029563604581505643,
+     "multiplicador_r13": 0.5981348978058859,
+     "multiplicador_r22": 0.580710704238506
+    }
+   }
+  },
+  "E4_forca_dentro_da_uf": {
+   "AC": {
+    "lula_forte": {
+     "theta": -0.39410819352217674,
+     "ep": 0.03438990002121428,
+     "R_sobre_L_2t": 1.3383583736524913,
+     "formula_p_0357": 0.08302589123977293
+    },
+    "meio": {
+     "theta": -0.3598238100783143,
+     "ep": 0.03231883388180032,
+     "R_sobre_L_2t": 2.0791460082970756,
+     "formula_p_0357": 0.10795277790218698
+    },
+    "lula_fraco": {
+     "theta": -0.2525983826655117,
+     "ep": 0.033845895428264106,
+     "R_sobre_L_2t": 2.932556019119719,
+     "formula_p_0357": 0.13591961875166897
+    },
+    "diferenca_fraco_menos_forte": {
+     "observada": 0.14150981085666503,
+     "ep": 0.04847482586712314,
+     "prevista_p_0357": 0.05289372751189604
+    }
+   },
+   "TO": {
+    "lula_forte": {
+     "theta": -0.12726336592166487,
+     "ep": 0.026805791410004092,
+     "R_sobre_L_2t": 0.5393388826636786,
+     "formula_p_0357": 0.055424207220163314
+    },
+    "meio": {
+     "theta": -0.09590764955370948,
+     "ep": 0.023544196764131452,
+     "R_sobre_L_2t": 1.046373730688754,
+     "formula_p_0357": 0.07302755644659502
+    },
+    "lula_fraco": {
+     "theta": -0.19525539187835778,
+     "ep": 0.02959483341653722,
+     "R_sobre_L_2t": 1.832318900529306,
+     "formula_p_0357": 0.09971608344949566
+    },
+    "diferenca_fraco_menos_forte": {
+     "observada": -0.0679920259566929,
+     "ep": 0.03966588807979024,
+     "prevista_p_0357": 0.044291876229332346
+    }
+   }
+  },
+  "E5_leitura_a_favor_cedula_inteira": {
+   "hipotese": "cédulas inteiras fabricadas ou trocadas para Lula com o 13 repetido em governador deixariam 13 a mais entre os nulos de governador",
+   "excesso_de_13_em_AC_e_TO": 4484.235623279637,
+   "por_cento_dos_validos_de_AC_e_TO": 0.3338705674220529,
+   "se_todo_o_excesso_fosse_isso_e_igual_no_pais_cedulas": 414274.1889352807,
+   "efeito_na_margem_se_fabricadas": 414274.1889352807,
+   "efeito_na_margem_se_trocadas": 828548.3778705614,
+   "fracao_da_margem_se_fabricadas": 0.09351158650615306,
+   "fracao_da_margem_se_trocadas": 0.18702317301230612,
+   "nota": "teto: atribui à fraude todo o excesso, inclusive a parte que a regressão E1 liga aos eleitores de governador eliminado"
+  },
+  "E6_comparecimento": {
+   "AC": {
+    "variacao_do_comparecimento_total": -34676.0,
+    "secoes_com_aumento": 145,
+    "aumento_somado_nas_que_subiram": 452.0,
+    "g13_2t": {
+     "por_eleitor_a_mais_na_secao": {
+      "coef": 0.20901086059414356,
+      "ep": 0.12593661205162196
+     },
+     "por_eleitor_a_menos_na_secao": {
+      "coef": 0.011564704352980045,
+      "ep": 0.00393212537663278
+     }
+    },
+    "g22_2t": {
+     "por_eleitor_a_mais_na_secao": {
+      "coef": 0.04019799564334036,
+      "ep": 0.05233079354804643
+     },
+     "por_eleitor_a_menos_na_secao": {
+      "coef": 0.00022218267781772227,
+      "ep": 0.003985399833376466
+     }
+    }
+   },
+   "TO": {
+    "variacao_do_comparecimento_total": -10433.0,
+    "secoes_com_aumento": 1452,
+    "aumento_somado_nas_que_subiram": 6473.0,
+    "g13_2t": {
+     "por_eleitor_a_mais_na_secao": {
+      "coef": 0.03650559569367959,
+      "ep": 0.03208907007986319
+     },
+     "por_eleitor_a_menos_na_secao": {
+      "coef": 0.01822727192930784,
+      "ep": 0.009686136576245705
+     }
+    },
+    "g22_2t": {
+     "por_eleitor_a_mais_na_secao": {
+      "coef": 0.003088785551788256,
+      "ep": 0.01495900222356153
+     },
+     "por_eleitor_a_menos_na_secao": {
+      "coef": 0.02429487246689953,
+      "ep": 0.006396053137490451
+     }
+    }
+   }
+  },
+  "E7_placebo_AL_2022": {
+   "regressao": {
+    "votos_dos_eliminados_1t": {
+     "14": 223585,
+     "50": 17749,
+     "55": 157746
+    },
+    "n_secoes": 6626,
+    "g13_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": 0.014998284115546363,
+      "ep": 0.0011632543656935198
+     },
+     "por voto de Bolsonaro no 2º turno": {
+      "coef": 0.019692843148610292,
+      "ep": 0.002143623936753086
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.2648563294545691,
+      "ep": 0.014468730780906212
+     },
+     "por voto do governador eliminado 14 no 1º turno": {
+      "coef": 0.012379610474220764,
+      "ep": 0.004937152321168148
+     },
+     "por voto do governador eliminado 50 no 1º turno": {
+      "coef": -0.18311564045227813,
+      "ep": 0.029366221393775573
+     },
+     "por voto do governador eliminado 55 no 1º turno": {
+      "coef": 0.0068859381718649835,
+      "ep": 0.0032922583585739554
+     },
+     "_explicado_pelos_eliminados": {
+      "14": 2767.8952078786497,
+      "50": -3250.1195023874843,
+      "55": 1086.2292028590136
+     }
+    },
+    "g22_2t": {
+     "por voto de Lula no 2º turno": {
+      "coef": -0.0019028742520060028,
+      "ep": 0.0003423222264442732
+     },
+     "por voto de Bolsonaro no 2º turno": {
+      "coef": 0.022933852599130933,
+      "ep": 0.0015154185207978243
+     },
+     "por testemunha do mesmo número no 1º turno": {
+      "coef": 0.2809085272936787,
+      "ep": 0.02003581855499811
+     },
+     "por voto do governador eliminado 14 no 1º turno": {
+      "coef": 0.012027285311863905,
+      "ep": 0.003351732497595095
+     },
+     "por voto do governador eliminado 50 no 1º turno": {
+      "coef": -0.09018266633612106,
+      "ep": 0.01724173900370608
+     },
+     "por voto do governador eliminado 55 no 1º turno": {
+      "coef": 0.0037656948480401,
+      "ep": 0.001543659688274448
+     },
+     "_explicado_pelos_eliminados": {
+      "14": 2689.120586453091,
+      "50": -1600.6521447998127,
+      "55": 594.0232994989336
+     }
+    }
+   },
+   "decimos": [
+    {
+     "decimo": 1,
+     "parcela_media": 0.05178777744262846,
+     "theta": 0.2965509488679319,
+     "ep": 0.0580641302660518,
+     "multiplicador_r13": 0.5107040473781548,
+     "multiplicador_r22": 0.687004750913888
+    },
+    {
+     "decimo": 2,
+     "parcela_media": 0.10124563741901027,
+     "theta": 0.20806290893689994,
+     "ep": 0.04359098841383896,
+     "multiplicador_r13": 0.5863298337396332,
+     "multiplicador_r22": 0.7219424282017698
+    },
+    {
+     "decimo": 3,
+     "parcela_media": 0.14372789611848208,
+     "theta": 0.20715761434510083,
+     "ep": 0.043208317518444145,
+     "multiplicador_r13": 0.5830807972726174,
+     "multiplicador_r22": 0.7172922652268551
+    },
+    {
+     "decimo": 4,
+     "parcela_media": 0.19344427557015292,
+     "theta": 0.17352845909787806,
+     "ep": 0.03864401070584469,
+     "multiplicador_r13": 0.6570298242423458,
+     "multiplicador_r22": 0.7815333873900956
+    },
+    {
+     "decimo": 5,
+     "parcela_media": 0.23353228204959817,
+     "theta": 0.13091427022621133,
+     "ep": 0.03682106932618547,
+     "multiplicador_r13": 0.7197097335870938,
+     "multiplicador_r22": 0.8203755745586944
+    },
+    {
+     "decimo": 6,
+     "parcela_media": 0.2771168363537497,
+     "theta": 0.13523325450473747,
+     "ep": 0.03938059765507553,
+     "multiplicador_r13": 0.7410394650710374,
+     "multiplicador_r22": 0.8483447835957327
+    },
+    {
+     "decimo": 7,
+     "parcela_media": 0.3280655218315958,
+     "theta": 0.09509355167174507,
+     "ep": 0.03507766438172492,
+     "multiplicador_r13": 0.8460844433815748,
+     "multiplicador_r22": 0.9304912952935441
+    },
+    {
+     "decimo": 8,
+     "parcela_media": 0.368943971882691,
+     "theta": 0.07325722323604436,
+     "ep": 0.033372150323318896,
+     "multiplicador_r13": 0.9005079739055325,
+     "multiplicador_r22": 0.9689531314733641
+    },
+    {
+     "decimo": 9,
+     "parcela_media": 0.4042785687801413,
+     "theta": 0.06143829849831828,
+     "ep": 0.036254897035824005,
+     "multiplicador_r13": 0.9204308872386685,
+     "multiplicador_r22": 0.9787538829891702
+    },
+    {
+     "decimo": 10,
+     "parcela_media": 0.477381003847201,
+     "theta": 0.22733895771944929,
+     "ep": 0.03797757103600597,
+     "multiplicador_r13": 0.7850073004342062,
+     "multiplicador_r22": 0.9853845542371236
+    }
+   ],
+   "reta": {
+    "theta_na_parcela_zero": 0.2222720805131367,
+    "ep": 0.03290941405786474,
+    "inclinacao": -0.2715072453058072,
+    "ep_inclinacao": 0.1062913807854087
+   },
+   "excesso_de_22_no_2t_para_theta_zero": 4418.6100699534945,
+   "traducao_literal": {
+    "theta": 0.22295191827228444,
+    "P2_oficial": 0.5868058183723023,
+    "P2_verdadeiro_implicito": 0.5319126567589688,
+    "sentido": "de Flávio para Lula",
+    "fracao_p": 0.11727119394695415,
+    "votos_trocados_no_pais_se_uniforme": 7947935.0952186175,
+    "efeito_na_margem_no_pais": 15895870.190437235,
+    "fracao_da_margem": 3.588077848209532,
+    "votos_trocados_em_AC_e_TO": 91378.34062492846
+   }
+  },
+  "E8_lado_dos_candidatos_a_governador": {
+   "AC 2026": {
+    "11": {
+     "votos_1t": 218760,
+     "parcela": 0.49758101385884584,
+     "correlacao_com_a_parcela_de_lula_1t": 0.0790722193986391
+    },
+    "10": {
+     "votos_1t": 141859,
+     "parcela": 0.32266568406016644,
+     "correlacao_com_a_parcela_de_lula_1t": -0.0827625713244384
+    },
+    "45": {
+     "votos_1t": 44946,
+     "parcela": 0.10223201795986325,
+     "correlacao_com_a_parcela_de_lula_1t": -0.3091933005209352
+    },
+    "40": {
+     "votos_1t": 32963,
+     "parcela": 0.07497606033931768,
+     "correlacao_com_a_parcela_de_lula_1t": 0.40175500220607663
+    }
+   },
+   "TO 2026": {
+    "44": {
+     "votos_1t": 386260,
+     "parcela": 0.4546075117459301,
+     "correlacao_com_a_parcela_de_lula_1t": 0.31142306203513187
+    },
+    "45": {
+     "votos_1t": 372848,
+     "parcela": 0.43882229984840926,
+     "correlacao_com_a_parcela_de_lula_1t": -0.18615625460106178
+    },
+    "55": {
+     "votos_1t": 69967,
+     "parcela": 0.08234744414209987,
+     "correlacao_com_a_parcela_de_lula_1t": -0.010791777441471808
+    },
+    "30": {
+     "votos_1t": 13173,
+     "parcela": 0.015503921587089364,
+     "correlacao_com_a_parcela_de_lula_1t": -0.5981704741342247
+    },
+    "50": {
+     "votos_1t": 5109,
+     "parcela": 0.0060130217405632395,
+     "correlacao_com_a_parcela_de_lula_1t": -0.27574810115192194
+    }
+   },
+   "AL 2022": {
+    "15": {
+     "votos_1t": 708984,
+     "parcela": 0.46639664607852876,
+     "correlacao_com_a_parcela_de_lula_1t": 0.6477795641735715
+    },
+    "44": {
+     "votos_1t": 407220,
+     "parcela": 0.2678848072962133,
+     "correlacao_com_a_parcela_de_lula_1t": -0.15081650234874264
+    },
+    "14": {
+     "votos_1t": 223585,
+     "parcela": 0.14708271852886362,
+     "correlacao_com_a_parcela_de_lula_1t": -0.7850428931339525
+    },
+    "55": {
+     "votos_1t": 157746,
+     "parcela": 0.10377131970863038,
+     "correlacao_com_a_parcela_de_lula_1t": -0.20245538963531629
+    },
+    "50": {
+     "votos_1t": 17749,
+     "parcela": 0.011675967400178011,
+     "correlacao_com_a_parcela_de_lula_1t": -0.46949158363248167
+    }
+   }
+  }
+ }
+}

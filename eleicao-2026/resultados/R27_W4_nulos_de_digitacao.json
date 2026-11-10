@@ -1,5 +1,5 @@
 {
- "quando": "2026-11-10 10:53:39 UTC",
+ "quando": "2026-11-10 11:13:42 UTC",
  "n_secoes": 3000,
  "n_principal": 3000,
  "n_extensao": 0,
@@ -1820,7 +1820,7 @@
   }
  },
  "etapa1_pureza": {
-  "quando": "2026-11-10 10:51:04 UTC",
+  "quando": "2026-11-10 11:13:32 UTC",
   "n_secoes": 3000,
   "n_principal": 3000,
   "n_extensao": 0,
@@ -2057,7 +2057,7 @@
   "sem_substituto": true
  },
  "etapas_2_3_cego": {
-  "quando": "2026-11-10 10:53:25 UTC",
+  "quando": "2026-11-10 11:13:41 UTC",
   "n_secoes": 3000,
   "n_principal": 3000,
   "n_extensao": 0,
@@ -2211,6 +2211,1379 @@
    }
   },
   "sem_poder_nesta_etapa": true
+ },
+ "teste": "R27_W4: nulos de digitação no RDV de presidente, primeira etapa (D4-4 do desenho D4)",
+ "registro": "Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Adendo 28 (938be19) e Adendo 30 (a7218fb, 10/11/2026 10:08:24 UTC); critério em registro/adendo27/desenho_D4_proposta.json, teste D4-4",
+ "natureza": "desenho cego (D4), primeira etapa; Theta aberto depois das etapas cegas por ordem da onda; bloco exploratório marcado",
+ "veredito_por_parte": {
+  "etapa_1_pureza": "INCONCLUSIVO (31 aprovado; 32 e 52 reprovados; sem substituto para o lado do 22)",
+  "etapa_2_testemunhas_e_erro": "SEM PODER (erro-padrão 0,2068; erro total 0,2074; limites 0,022 e 0,027)",
+  "etapa_3_regra_de_parada": "o desenho terminaria INCONCLUSIVO: 265.207 seções necessárias, teto de 60 mil, erro-padrão de 0,046 no teto",
+  "etapa_4_theta": "SEM PODER (Theta -0,5745; e INCONCLUSIVO pela pureza); aritmética de sinal não cumprida, de sem sinal não cumprida, espelho cumprido por deriva do instrumento",
+  "calibracao": "o teste não enxerga o plantado (troca de 3,57%: +0,0689, 0,33 erro; acréscimo da margem: +0,0676)",
+  "resumo": "com 3.000 seções os nulos de digitação não dizem nada sobre a contagem, nem a favor nem contra, e o instrumento como desenhado não serve nem com o país inteiro"
+ },
+ "texto_inicial": [
+  "VEREDITO PELA LETRA, PARTE POR PARTE",
+  "  Etapa 1, pureza dos códigos no 1º turno: INCONCLUSIVO. O código 31 passa (1,000 da contagem atribuída ao voto de Lula;\n     179 nulos). Os dois códigos do lado do 22 são reprovados: o 32 tem 0,177 atribuído ao voto de Flávio (IC95 0,000 a\n     0,617; 39 nulos) e o 52 tem 0,189 (IC95 0,000 a 0,768; 24 nulos); o limite é 0,80. Não sobra código para o lado do\n     22, e a letra manda inconclusivo quando um código é reprovado sem substituto.",
+  "  Etapa 2, testemunhas e erro, sem abrir Theta: SEM PODER. 235,6 testemunhas no 1º turno (179 do lado do 13 e 56,6 do lado\n     do 22) e 569 no 2º, em 3.000 seções. Erro-padrão de Theta 0,2068 por reamostragem de municípios; erro total 0,2074. O\n     limite é 0,022 de erro-padrão e 0,027 de erro total: o erro é 9,4 vezes o limite.",
+  "  Etapa 3, regra de parada: o desenho não chega ao erro pedido. Seriam precisas 265.207 seções (270 mil em blocos de 10\n     mil), 53% do país, acima do teto de 60 mil do desenho. No teto o erro-padrão ficaria em 0,046 e a letra terminaria em\n     INCONCLUSIVO. Baixar o que falta seção a seção custa 1.048.828 requisições: 291 horas, 12,1 dias, a 1 por segundo, e\n     4,7 GB.",
+  "  Etapa 4, Theta aberto: SEM PODER (e inconclusivo pela pureza). Theta = -0,5745, erro-padrão 0,2068, erro total 0,2074. A\n     aritmética de SINAL não é cumprida (pedia +0,045 e 2,5 erros totais, ou seja, +0,518 com este erro). A de SEM SINAL\n     também não. A do espelho é cumprida (-2,77 erros totais), e isso mede a falha do instrumento, não a contagem: ver\n     LEITURA.",
+  "  Calibração: o teste NÃO enxerga o plantado. A troca de 3,57% plantada na contagem oficial desloca Theta +0,0689 (um\n     terço de um erro-padrão) e o acréscimo de 4.430.191 votos para Lula desloca +0,0676. Com testemunhas refeitas por\n     sorteio, a troca que vira o resultado daria SINAL em 1,6% dos conjuntos, contra 0,7% sem alteração nenhuma.",
+  "  Em uma frase: com 3.000 seções os nulos de digitação não dizem nada sobre a contagem, nem a favor nem contra a tese, e o\n  instrumento como foi desenhado não serve nem com o país inteiro, porque os códigos do lado do 22 não acompanham o voto\n  de Flávio e o erro do lado do 13 mais que dobrou sozinho do 1º para o 2º turno."
+ ],
+ "texto_final": [
+  "LEITURA",
+  "  1. Por que Theta saiu negativo e grande. Theta é a diferença entre duas mudanças de taxa de erro: a do lado do 22 (32 e\n     52 por voto oficial de Flávio: de 1,68 para 2,17 por 10 mil, ln +0,258) menos a do lado do 13 (31 por voto oficial de\n     Lula: de 5,52 para 12,70 por 10 mil, ln +0,833, erro 0,080). O desenho supunha que as duas taxas mudam juntas entre\n     os turnos e se cancelam. Não mudam: o 31 multiplicou por 2,3 por voto de Lula enquanto o total de nulos com dígitos\n     CAIU (de 289 para 213 por 10 mil votantes). Essa deriva de um lado só (0,83) é 12 vezes o efeito que o teste procura\n     (0,071).",
+  "  2. Lido ao pé da letra, Theta de -0,57 seria uma troca de 17,2 milhões de votos de LULA PARA FLÁVIO (774% da margem, no\n     sentido contrário ao da tese). Ninguém sustenta isso. É a deriva do 31. Por isso o espelho cumprido não é indício de\n     nada na contagem: é a prova de que o zero deste instrumento não é zero. O piso de erro sistemático do registro\n     (0,015) está errado por mais de uma ordem de grandeza para este instrumento.",
+  "  3. Por que o lado do 22 não tem testemunha. 22 é a mesma tecla duas vezes; 13 são duas teclas em ordem. Quem quer 13\n     pode inverter (31), repetir (11, 33) ou escorregar (12, 23); quem quer 22 quase não tem como errar. Na varredura\n     exploratória dos 37 números com 30 nulos ou mais no 1º turno, 20 acompanham o voto de Lula e NENHUM acompanha o de\n     Flávio. O 32, que o desenho pôs do lado do 22, acompanha o voto de Lula nos dois turnos (0,75 no 1º; 1,00 no 2º): no\n     teclado ele pode ser o 31 com a segunda tecla escorregada (hipótese, não testada). Sem regressão nenhuma se vê o\n     mesmo: no quinto das seções em que Lula é mais forte há 16 nulos do \"lado do 22\" no 1º turno e 25 no 2º; no quinto em\n     que Flávio é mais forte, 8 e 9. Ressalva: a conta é por seção; ela diz onde o código aparece, não quem digitou.",
+  "  4. Tamanho. O desenho previa 14,2 testemunhas por 10 mil votos (medido num piloto não aleatório de 10 UFs). A amostra\n     aleatória dá 3,1 por 10 mil no 1º turno e 7,4 no 2º, e o lado do 22 tem 57 testemunhas no 1º turno. Mesmo sem os\n     problemas 1 e 3, o país inteiro daria erro-padrão de 0,016.",
+  "",
+  "O QUE PESA A FAVOR DA TESE (sem suavizar)",
+  "  a. Este teste não absolve nada. A troca que vira o resultado e o acréscimo do tamanho da margem ficam a um terço de um\n     erro-padrão; o menor efeito que a aritmética de sinal alcançaria aqui é uma troca de 15,9 milhões de votos (716% da\n     margem). A hipótese de alteração coerente dos votos válidos dentro da urna sai deste teste exatamente como entrou.",
+  "  b. Exploratório X6, feito depois de ver Theta: dentro da mesma seção, o erro 31 NÃO cresceu mais onde o voto oficial de\n     Lula cresceu mais. A elasticidade é -1,00 (erro 0,89; IC95 de -2,78 a +0,75), 2,2 erros abaixo de 1, que é o valor\n     esperado se cada voto a mais de Lula viesse com o mesmo erro de digitação dos votos antigos. No terço das seções em\n     que Lula menos cresceu o 31 foi de 97 para 274; no terço em que mais cresceu, de 39 para 89. A direção é a de \"votos\n     a mais sem eleitor errando a tecla\".",
+  "  O que tira peso disso: é exploratório e posterior ao resultado; o erro é grande (fica a 1,1 erro de zero e a 2,2 de um);\n     com a taxa livre por região e escolaridade dá -1,28 (erro 1,08); e, principalmente, a alteração do tamanho da margem,\n     plantada, move essa elasticidade só +0,07 (ela entra quase toda na constante). O desvio medido é mais de 20 vezes\n     maior do que a fraude do tamanho necessário produziria, então ele mede outra coisa, provavelmente a deriva do 31 ser\n     maior nos redutos de Lula. Nem com o país inteiro essa conta enxergaria uma alteração espalhada (1 erro).",
+  "  c. Exploratório X5: por seção, o 31 do 2º turno cai com o ganho de Lula (razão -1,53, erro 0,15). Mas a mesma conta com\n     o 31 do PRIMEIRO turno e o ganho futuro já dá -1,00 (erro 0,38): é a composição das seções (onde Lula ganhou mais\n     votos, erra-se menos a tecla), e um valor negativo nenhuma diluição produz. Não conta como indício.",
+  "",
+  "O QUE PESA CONTRA A TESE (sem suavizar)",
+  "  a. O sinal de Theta é o contrário do que a tese prevê (-0,57 contra +0,07), em todas as 5 regiões e nos 3 tercis de\n     escolaridade. Se o instrumento valesse, seria evidência forte contra. Como não vale, pesa pouco: só diz que estas\n     testemunhas não trazem nenhum indício no sentido da tese.",
+  "  b. O leitor foi conferido: nas 3.000 seções da amostra aleatória, nos dois turnos, o RDV publicado bate com o resultado\n     oficial por seção (bweb) em Lula, Flávio, outros, brancos, nulos e comparecimento, com zero seção discordante. Os\n     arquivos publicados são coerentes entre si nessas seções (a assinatura é conferida em outro teste). Não diz nada\n     sobre o programa, porque RDV e boletim saem dele.",
+  "  c. Os nulos do RDV têm cara de teclado de gente: o 31 segue só o voto de Lula nos dois turnos; os números de partido\n     caem para um quarto no 2º turno (de 74 para 19 por 10 mil votantes); nas 6 UFs com governador no 2º turno, 44% dos\n     nulos de presidente com dígitos são o número de um finalista de governador da UF (684 em 1.564); 1.584 votos nulos da\n     amostra no 2º turno trazem o número de um candidato eliminado. Isso é o esperado sem fraude. Não exclui um programa\n     que mexa só nos votos válidos e deixe os nulos como estão.",
+  "",
+  "O QUE ISSO SIGNIFICA",
+  "  O W4 não decide e não vai decidir com mais download. Pela regra do desenho a extensão não se justifica: 60 mil seções\n  custam 63 horas e terminam em inconclusivo; o erro pedido exige 265 mil. E o problema não é só tamanho: o instrumento\n  falhou na pureza e tem deriva própria de um lado só. A recomendação é NÃO estender o D4-4 como está. Dos dois testes de\n  testemunha, sobra o D4-3 (W3, o número do presidenciável digitado na tela de governador em AC e TO), que usa o mesmo\n  tipo de erro para os dois lados e por isso não sofre da assimetria encontrada aqui.",
+  "",
+  "PISTAS",
+  "  1. W3 é o teste que pode falar. O X7 mostra que o erro de tela é grande nas 6 UFs com dois cargos (123 por 10 mil\n     votantes digitam o número do governador na tela de presidente), então o W3 deve ter contagem. Vale aplicar nele o\n     diagnóstico que derrubou o W4: taxa de erro por voto oficial de cada lado, turno a turno.",
+  "  2. Se ainda se quiser uma testemunha nacional de digitação, ela precisa de um erro do MESMO tipo nos dois lados e de\n     pureza provada nos dois turnos antes de abrir. Nesta amostra nenhum código acompanha o voto de Flávio. O par\n     simétrico possível (43 e 52, primeira tecla escorregada para baixo) tem 13 e 24 nulos no 2º turno em 3.000 seções:\n     com o país inteiro o erro-padrão não desce de 0,03. Pela digitação de presidente não há caminho.",
+  "  3. Entender a deriva do 31: em 2022 os finalistas também eram 13 e 22. Se o 31 por voto do PT também mais que dobra do\n     1º para o 2º turno de 2022, é comportamento de cédula (no 2º turno o eleitor leva um número só, de cabeça, e\n     inverte). Serve para explicar a deriva, não como régua, porque o Léo suspeita de 2022. Nas 6 UFs em que o presidente\n     é a segunda tela do 2º turno o 31 também subiu (ln +0,64, erro 0,33, contra +0,85 nas outras), então \"primeira tela\"\n     sozinha não explica.",
+  "  4. Achado de método que serve a outros testes: os 56 pacotes por UF e turno do TSE podem ser lidos em fluxo, sem guardar\n     o zip (como o W3 fez no AC). O país inteiro são cerca de 199 GB de leitura e de 3 a 14 horas, com 168 pedidos, contra\n     23 dias seção a seção. Qualquer teste futuro com RDV pode usar o universo.",
+  "  5. Para auditoria, pequeno e real: 1.584 nulos de presidente no 2º turno com número de candidato eliminado (cerca de 264\n     mil no país, 2,8 por 100 votos de eliminados). O 14 (Renan Santos) tem 831, ou 5,2 por 100 votos dele no 1º turno, e\n     85% da contagem acompanha o voto dele no 1º turno, seção a seção. Dos 369 nulos com 55, 144 estão nas 44 seções do\n     AM, onde 55 é o número de um finalista de governador. Nada disso é suspeito; é o tamanho do eleitor que insistiu num\n     candidato que já não estava na urna.",
+  "  6. O que decide continua fora da urna: cadernos de votação e o cadastro de comparecimento do TSE (quem votou em cada\n     turno, por seção), como a Onda B já tinha concluído.",
+  "",
+  "DESVIOS E DECISÕES FORA DO REGISTRO",
+  "  1. O Adendo 30 mandava parar a primeira etapa sem abrir o resultado. O pedido desta onda mandou abrir Theta depois das\n     etapas cegas, e assim foi feito (abertura em 10/11/2026 10:53:38 UTC, depois de gravadas as etapas 1 a 3).\n     Consequência: o Theta destas 3.000 seções (0,6% do país) é conhecido; qualquer extensão deixa de ser cega para elas.\n     A regra de parada só depende do erro-padrão, que foi fixado antes.",
+  "  2. A extensão não entrou: às 10:49 UTC havia 434 RDV do 2º turno e nenhum do 1º, logo zero seção com os dois turnos.\n     Tudo aqui usa as 3.000 seções da amostra principal (1.421 municípios).",
+  "  3. Com os dois códigos do lado do 22 reprovados, a letra dá inconclusivo e não manda calcular Theta. Pelo docstring\n     (decisão D4, escrita antes) Theta foi calculado com os três códigos, só como descritivo.",
+  "  4. O placebo de 2022 não foi rodado (não há RDV de 2022 em disco). O erro sistemático usado é o piso de 0,015 e o erro\n     total é um limite inferior. A deriva medida (0,83 de um lado) mostra que o piso não vale para este instrumento.",
+  "  5. Decisões que o registro não fixa, escritas no docstring antes de qualquer conta com votos (SHA-256\n     18fda169a8f8ddbd9a54537a386b9083ce54227bfc16fc268ed990878829ab7d, 10:23:22 UTC): regressão de Poisson com ligação\n     identidade, sem intercepto e coeficientes não negativos; \"demais votos\" = todo o resto do comparecimento; pureza\n     decidida pela estimativa pontual; 2.000 réplicas por município; regiões e tercis (superior completo, mesmo arquivo do\n     A2); SEM PODER quando o erro total passa de 0,027 (o D4-3, a que o D4-4 remete nas etapas cegas, usa erro-padrão\n     acima de 0,025; com 0,2068 dá no mesmo); regra de \"enxerga o plantado\" (SINAL em 80% dos conjuntos e deslocamento de\n     2,5 erros totais).",
+  "  6. Execução em duas partes: o script, o docstring e a leitura dos RDV são de uma execução anterior interrompida (10:23 e\n     10:24 UTC), reaproveitados sem mudança (o arquivo era idêntico à cópia guardada antes de rodar). Pureza, etapas\n     cegas, abertura e exploratório são desta execução.",
+  "  7. Acrescentado depois das etapas 1 a 3 e antes de abrir Theta, só aritmética: o custo sem o teto, o custo do universo e\n     a rota pelos pacotes do TSE. Acrescentado depois de ver Theta: o bloco EXPLORATÓRIO (X1 a X7), as funções\n     exploratorio do script e a formatação do relatório. Nada disso entra no veredito.",
+  "  8. A referência \"troca que vira\" na tradução em votos usa os 3,57% plantados sobre a contagem oficial (Theta +0,0691,\n     2,14 milhões de votos, 97% da margem). A troca exata que empata o resultado dá +0,0714 (2,21 milhões).",
+  "  9. A leitura secundária (b), só o 52 corrigido, saiu com erro sem sentido (30,4): com 24 nulos e f52 incerto (IC95 de\n     0,047 a 1,000) há réplicas em que a parte de Flávio vai a zero.",
+  "  10. Cláusulas de decisão neste teste: sinal, sem sinal e espelho. O espelho disparou; sem alteração e com taxas de erro\n     estáveis ele dispararia em 0,7% dos sorteios. A causa identificada é a deriva do 31, não o acaso nem a contagem."
+ ],
+ "exploratorio_depois_de_ver_theta": {
+  "aviso": "EXPLORATÓRIO: tudo neste bloco foi escolhido e calculado depois de ver Theta; não decide veredito",
+  "quando": "2026-11-10 11:18:33 UTC",
+  "n_secoes": 3000,
+  "X1_pureza_no_2o_turno": {
+   "31": {
+    "contagem_2t": 491.0,
+    "parte": {
+     "L2": 0.9999999999997206,
+     "R2": 3.831161602055701e-20,
+     "demais": 2.795520159785615e-13
+    },
+    "parte_lado_previsto": 0.9999999999997206,
+    "ic95_boot": [
+     0.999999999999967,
+     1.000000000000002
+    ],
+    "taxa_por_10_mil": {
+     "L2": 12.69668877596842,
+     "R2": 5.243178368957773e-19,
+     "demais": 5.6284102122226464e-11
+    }
+   },
+   "32": {
+    "contagem_2t": 54.0,
+    "parte": {
+     "L2": 0.9999999999992563,
+     "R2": 6.071065176682055e-27,
+     "demais": 7.439985795251214e-13
+    },
+    "parte_lado_previsto": 6.071065176682055e-27,
+    "ic95_boot": [
+     3.0143e-320,
+     1.2419876450511563e-34
+    ],
+    "taxa_por_10_mil": {
+     "L2": 1.3963771769897688,
+     "R2": 9.137793175614277e-27,
+     "demais": 1.6184306837881306e-11
+    }
+   },
+   "52": {
+    "contagem_2t": 24.0,
+    "parte": {
+     "L2": 0.17102573398496154,
+     "R2": 0.10975883234193168,
+     "demais": 0.7192154336731068
+    },
+    "parte_lado_previsto": 0.10975883234193168,
+    "ic95_boot": [
+     1.4326e-319,
+     0.7189074468667392
+    ],
+    "taxa_por_10_mil": {
+     "L2": 0.10614063627320058,
+     "R2": 0.0734232135876746,
+     "demais": 6.9450271216522745
+    }
+   }
+  },
+  "X2_o_que_cada_codigo_fez_entre_os_turnos": {
+   "31": {
+    "contagem_1t": 179.0,
+    "contagem_2t": 491.0,
+    "por_10_mil_votantes_1t": 2.376731927210925,
+    "por_10_mil_votantes_2t": 6.373610397162899,
+    "ln_razao_das_taxas": 0.9864396861328115,
+    "ep": 0.07998144814041228,
+    "razao": 2.681669869534794
+   },
+   "32": {
+    "contagem_1t": 39.0,
+    "contagem_2t": 54.0,
+    "por_10_mil_votantes_1t": 0.5178354478280787,
+    "por_10_mil_votantes_2t": 0.7009673349221927,
+    "ln_razao_das_taxas": 0.30280376461367375,
+    "ep": 0.22699919661046167,
+    "razao": 1.353648804581091
+   },
+   "52": {
+    "contagem_1t": 24.0,
+    "contagem_2t": 24.0,
+    "por_10_mil_votantes_1t": 0.31866796789420226,
+    "por_10_mil_votantes_2t": 0.3115410377431967,
+    "ln_razao_das_taxas": -0.02261863582095429,
+    "ep": 0.319121315700574,
+    "razao": 0.9776352477530101
+   },
+   "32_e_52": {
+    "contagem_1t": 63.0,
+    "contagem_2t": 78.0,
+    "por_10_mil_votantes_1t": 0.8365034157222809,
+    "por_10_mil_votantes_2t": 1.0125083726653894,
+    "ln_razao_das_taxas": 0.19095546447710487,
+    "ep": 0.1766389278243252,
+    "razao": 1.2104055448370603
+   },
+   "00": {
+    "contagem_1t": 11297.0,
+    "contagem_2t": 8945.0,
+    "por_10_mil_votantes_1t": 149.9996680542001,
+    "por_10_mil_votantes_2t": 116.11394094220394,
+    "ln_razao_das_taxas": -0.2560611226050634,
+    "ep": 0.01470310046434556,
+    "razao": 0.7740946526644841
+   },
+   "99": {
+    "contagem_1t": 495.0,
+    "contagem_2t": 462.0,
+    "por_10_mil_votantes_1t": 6.572526837817922,
+    "por_10_mil_votantes_2t": 5.997164976556537,
+    "ln_razao_das_taxas": -0.09161150730790568,
+    "ep": 0.047294273639820965,
+    "razao": 0.9124595645694762
+   },
+   "12": {
+    "contagem_1t": 940.0,
+    "contagem_2t": 579.0,
+    "por_10_mil_votantes_1t": 12.481162075856254,
+    "por_10_mil_votantes_2t": 7.515927535554621,
+    "ln_razao_das_taxas": -0.5071960335120085,
+    "ep": 0.057865833530259585,
+    "razao": 0.60218171111595
+   },
+   "23": {
+    "contagem_1t": 132.0,
+    "contagem_2t": 173.0,
+    "por_10_mil_votantes_1t": 1.7526738234181123,
+    "por_10_mil_votantes_2t": 2.2456916470655433,
+    "ln_razao_das_taxas": 0.24787103609045386,
+    "ep": 0.11057686327886543,
+    "razao": 1.2812946807672028
+   },
+   "21": {
+    "contagem_1t": 0.0,
+    "contagem_2t": 55.0,
+    "por_10_mil_votantes_1t": 0.0,
+    "por_10_mil_votantes_2t": 0.7139482114948259
+   },
+   "11": {
+    "contagem_1t": 1087.0,
+    "contagem_2t": 1005.0,
+    "por_10_mil_votantes_1t": 14.433003379208243,
+    "por_10_mil_votantes_2t": 13.045780955496364,
+    "ln_razao_das_taxas": -0.10105270244898742,
+    "ep": 0.05602172658521017,
+    "razao": 0.9038853946566471
+   },
+   "33": {
+    "contagem_1t": 137.0,
+    "contagem_2t": 212.0,
+    "por_10_mil_votantes_1t": 1.819062983396071,
+    "por_10_mil_votantes_2t": 2.7519458333982376,
+    "ln_razao_das_taxas": 0.41398671302293333,
+    "ep": 0.1072284195501192,
+    "razao": 1.5128370257199866
+   },
+   "43": {
+    "contagem_1t": 57.0,
+    "contagem_2t": 13.0,
+    "por_10_mil_votantes_1t": 0.7568364237487304,
+    "por_10_mil_votantes_2t": 0.16875139544423157,
+    "ln_razao_das_taxas": -1.5007205461939677,
+    "ep": 0.3730820360834008,
+    "razao": 0.2229694424699848
+   },
+   "25": {
+    "contagem_1t": 109.0,
+    "contagem_2t": 95.0,
+    "por_10_mil_votantes_1t": 1.4472836875195016,
+    "por_10_mil_votantes_2t": 1.2331832744001536,
+    "ln_razao_das_taxas": -0.16008962644955693,
+    "ep": 0.13834914204797624,
+    "razao": 0.8520674177663852
+   },
+   "16": {
+    "contagem_1t": 0.0,
+    "contagem_2t": 31.0,
+    "por_10_mil_votantes_1t": 0.0,
+    "por_10_mil_votantes_2t": 0.4024071737516291
+   },
+   "genericos_sem_partido_sem_candidato": {
+    "contagem_1t": 1709.0,
+    "contagem_2t": 1282.0,
+    "por_10_mil_votantes_1t": 22.691814880466318,
+    "por_10_mil_votantes_2t": 16.64148376611576,
+    "ln_razao_das_taxas": -0.3101056814559297,
+    "ep": 0.047376554222723445,
+    "razao": 0.7333694485777409
+   },
+   "numeros_de_partido_fora_os_especiais": {
+    "contagem_1t": 5546.0,
+    "contagem_2t": 1488.0,
+    "por_10_mil_votantes_1t": 73.6388562475519,
+    "por_10_mil_votantes_2t": 19.315544340078198,
+    "ln_razao_das_taxas": -1.3382626466036402,
+    "ep": 0.04910773173178661,
+    "razao": 0.2623009824479768
+   },
+   "todos_os_nulos_com_digitos": {
+    "contagem_1t": 21751.0,
+    "contagem_2t": 16407.0,
+    "por_10_mil_votantes_1t": 288.8061237361164,
+    "por_10_mil_votantes_2t": 212.97724192719286,
+    "ln_razao_das_taxas": -0.30457029627748583,
+    "ep": 0.014743116205981737,
+    "razao": 0.7374401871124839
+   },
+   "todos_menos_00": {
+    "contagem_1t": 10454.0,
+    "contagem_2t": 7462.0,
+    "por_10_mil_votantes_1t": 138.80645568191625,
+    "por_10_mil_votantes_2t": 96.86330098498891,
+    "ln_razao_das_taxas": -0.35977984131271823,
+    "ep": 0.02877171322342864,
+    "razao": 0.6978299424844999
+   },
+   "n_codigos_genericos": 61,
+   "por_eleitor_oficial_do_lado": {
+    "31_por_voto_de_Lula": {
+     "ln_razao": 0.8325180893975928,
+     "ep": 0.07987739262788422
+    },
+    "32_e_52_brutos_por_voto_de_Flavio": {
+     "ln_razao": 0.15122195580500639,
+     "ep": 0.17621909401395283
+    }
+   }
+  },
+  "X3_primeira_tela": {
+   "6_UFs_com_governador_no_2t": {
+    "n": 220,
+    "31": {
+     "1t": 14.0,
+     "2t": 30.0,
+     "por_10_mil_votos_do_lado_1t": 5.749958928864793,
+     "por_10_mil_votos_do_lado_2t": 10.869959056487554,
+     "ln_razao": 0.6368102224959189,
+     "ep": 0.33262894342060867
+    },
+    "32": {
+     "1t": 4.0,
+     "2t": 1.0,
+     "por_10_mil_votos_do_lado_1t": 1.6021789633902106,
+     "por_10_mil_votos_do_lado_2t": 0.3890293717175647,
+     "ln_razao": -1.4154649873984995,
+     "ep": 0.7321099449855981
+    },
+    "52": {
+     "1t": 2.0,
+     "2t": 2.0,
+     "por_10_mil_votos_do_lado_1t": 0.8010894816951053,
+     "por_10_mil_votos_do_lado_2t": 0.7780587434351294,
+     "ln_razao": -0.029170626278608763,
+     "ep": 0.7278512167978284
+    },
+    "nulos_com_digitos_por_10_mil_votantes_1t": 224.27942535190854,
+    "nulos_com_digitos_por_10_mil_votantes_2t": 282.0864295505375
+   },
+   "21_UFs_sem_governador_no_2t": {
+    "n": 2770,
+    "31": {
+     "1t": 165.0,
+     "2t": 461.0,
+     "por_10_mil_votos_do_lado_1t": 5.521903550751314,
+     "por_10_mil_votos_do_lado_2t": 12.879685299836838,
+     "ln_razao": 0.8469286401413932,
+     "ep": 0.08117287867930005
+    },
+    "32": {
+     "1t": 35.0,
+     "2t": 53.0,
+     "por_10_mil_votos_do_lado_1t": 1.1251016609715092,
+     "por_10_mil_votos_do_lado_2t": 1.5970926886302068,
+     "ln_razao": 0.35031150988438386,
+     "ep": 0.22712569919428738
+    },
+    "52": {
+     "1t": 22.0,
+     "2t": 22.0,
+     "por_10_mil_votos_do_lado_1t": 0.7072067583249486,
+     "por_10_mil_votos_do_lado_2t": 0.6629441349031047,
+     "ln_razao": -0.06463234217832431,
+     "ep": 0.3213491555098549
+    },
+    "nulos_com_digitos_por_10_mil_votantes_1t": 294.43600332916947,
+    "nulos_com_digitos_por_10_mil_votantes_2t": 207.82979487913673
+   },
+   "diferenca_21_menos_6_no_ln_da_razao_do_31": {
+    "valor": 0.21011841764547434,
+    "ep": 0.3423902017204856
+   }
+  },
+  "X4b_numeros_de_eliminados_no_2o_turno_a_quem_acompanham": {
+   "14": {
+    "contagem_2t": 831.0,
+    "votos_proprios_1t": 15923.0,
+    "parte": {
+     "L2": 0.0677505870835902,
+     "R2": 0.044344506358299084,
+     "votos_proprios_do_1t": 0.8484330140798269,
+     "demais": 0.039471892478284226
+    }
+   },
+   "16": {
+    "contagem_2t": 31.0,
+    "votos_proprios_1t": 258.0,
+    "parte": {
+     "L2": 0.3478927696458704,
+     "R2": 0.6521072303536587,
+     "votos_proprios_do_1t": 2.588120614308427e-50,
+     "demais": 4.709480336884775e-13
+    }
+   },
+   "21": {
+    "contagem_2t": 55.0,
+    "votos_proprios_1t": 123.0,
+    "parte": {
+     "L2": 0.8051918029643513,
+     "R2": 0.05196839786137293,
+     "votos_proprios_do_1t": 0.0,
+     "demais": 0.14283979917427572
+    }
+   },
+   "30": {
+    "contagem_2t": 51.0,
+    "votos_proprios_1t": 1954.0,
+    "parte": {
+     "L2": 3.6263385454113893e-22,
+     "R2": 0.23128644322806946,
+     "votos_proprios_do_1t": 0.3018416961828904,
+     "demais": 0.4668718605890401
+    }
+   },
+   "35": {
+    "contagem_2t": 65.0,
+    "votos_proprios_1t": 115.0,
+    "parte": {
+     "L2": 0.3966990783247172,
+     "R2": 0.5730337190864103,
+     "votos_proprios_do_1t": 0.008542089660264485,
+     "demais": 0.021725112928608046
+    }
+   },
+   "55": {
+    "contagem_2t": 369.0,
+    "votos_proprios_1t": 15894.0,
+    "parte": {
+     "L2": 0.5418669353501939,
+     "R2": 0.39644680409569855,
+     "votos_proprios_do_1t": 0.06168626055410748,
+     "demais": 4.8823713101582135e-20
+    }
+   },
+   "70": {
+    "contagem_2t": 123.0,
+    "votos_proprios_1t": 20927.0,
+    "parte": {
+     "L2": 0.004222677499093045,
+     "R2": 1.2791827960861857e-144,
+     "votos_proprios_do_1t": 0.4285189000138668,
+     "demais": 0.5672584224870404
+    }
+   },
+   "80": {
+    "contagem_2t": 28.0,
+    "votos_proprios_1t": 739.0,
+    "parte": {
+     "L2": 0.2616874738900849,
+     "R2": 0.0750413890297471,
+     "votos_proprios_do_1t": 0.0019510237620629105,
+     "demais": 0.661320113318105
+    }
+   }
+  },
+  "X4_varredura_de_pureza": {
+   "codigos_com_30_ou_mais_no_1t": 37,
+   "tabela": [
+    {
+     "digitos": "00",
+     "contagem_1t": 11297.0,
+     "parte_L1": 0.13583055913395892,
+     "parte_R1": 0.010724611001876773,
+     "parte_demais": 0.8534448298641651,
+     "contagem_2t": 8945.0,
+     "parte_L2": 0.34129367445624353,
+     "parte_R2": 0.45126017430339255,
+     "rotulo": "código de controle"
+    },
+    {
+     "digitos": "01",
+     "contagem_1t": 163.0,
+     "parte_L1": 0.46932144624680777,
+     "parte_R1": 0.0930351165915123,
+     "parte_demais": 0.43764343716167986,
+     "contagem_2t": 113.0,
+     "parte_L2": 0.19092285816896756,
+     "parte_R2": 0.13908157996123788,
+     "rotulo": ""
+    },
+    {
+     "digitos": "02",
+     "contagem_1t": 39.0,
+     "parte_L1": 0.36787576036100883,
+     "parte_R1": 0.07681588934625247,
+     "parte_demais": 0.5553083502927387,
+     "contagem_2t": 22.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "03",
+     "contagem_1t": 32.0,
+     "parte_L1": 0.8218839426384191,
+     "parte_R1": 5.3822617017511116e-48,
+     "parte_demais": 0.17811605736158084,
+     "contagem_2t": 29.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "08",
+     "contagem_1t": 50.0,
+     "parte_L1": 0.6912459100142913,
+     "parte_R1": 9.57386522817489e-15,
+     "parte_demais": 0.30875408998569936,
+     "contagem_2t": 31.0,
+     "parte_L2": 0.4194740993284711,
+     "parte_R2": 0.05513935815925887,
+     "rotulo": ""
+    },
+    {
+     "digitos": "09",
+     "contagem_1t": 56.0,
+     "parte_L1": 0.7615122092323452,
+     "parte_R1": 0.23848779076348642,
+     "parte_demais": 4.168351068598173e-12,
+     "contagem_2t": 23.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "10",
+     "contagem_1t": 1390.0,
+     "parte_L1": 0.3948141202869032,
+     "parte_R1": 0.285270698964063,
+     "parte_demais": 0.31991518074903286,
+     "contagem_2t": 232.0,
+     "parte_L2": 1.0314735381235965e-11,
+     "parte_R2": 0.3307817284817356,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "11",
+     "contagem_1t": 1087.0,
+     "parte_L1": 0.9999999999610768,
+     "parte_R1": 3.892328675484231e-11,
+     "parte_demais": 8.687251594456535e-30,
+     "contagem_2t": 1005.0,
+     "parte_L2": 0.9577449042583033,
+     "parte_R2": 0.042255095739412475,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "12",
+     "contagem_1t": 940.0,
+     "parte_L1": 0.800344771342402,
+     "parte_R1": 0.19965522865274,
+     "parte_demais": 4.858339877180608e-12,
+     "contagem_2t": 579.0,
+     "parte_L2": 0.8978186467802021,
+     "parte_R2": 0.08501291546620526,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "15",
+     "contagem_1t": 1379.0,
+     "parte_L1": 0.9999999999923577,
+     "parte_R1": 3.6578458588175407e-13,
+     "parte_demais": 7.27607508372718e-12,
+     "contagem_2t": 451.0,
+     "parte_L2": 0.2772240769520284,
+     "parte_R2": 0.36718244975240083,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "17",
+     "contagem_1t": 45.0,
+     "parte_L1": 0.9999999999919529,
+     "parte_R1": 3.0875086047746443e-40,
+     "parte_demais": 8.04705259014142e-12,
+     "contagem_2t": 47.0,
+     "parte_L2": 0.6206439678601531,
+     "parte_R2": 0.11632270626770805,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "18",
+     "contagem_1t": 152.0,
+     "parte_L1": 0.9111368256350033,
+     "parte_R1": 2.3079938035684746e-53,
+     "parte_demais": 0.08886317436499673,
+     "contagem_2t": 43.0,
+     "parte_L2": 0.9807380738347301,
+     "parte_R2": 0.01926192616027276,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "19",
+     "contagem_1t": 31.0,
+     "parte_L1": 0.8869902215094917,
+     "parte_R1": 8.987579747769383e-12,
+     "parte_demais": 0.11300977848152079,
+     "contagem_2t": 33.0,
+     "parte_L2": 0.7772818029569318,
+     "parte_R2": 0.2227181970389069,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "20",
+     "contagem_1t": 329.0,
+     "parte_L1": 0.6747912393383549,
+     "parte_R1": 0.3252087606616294,
+     "parte_demais": 1.5520683903862102e-14,
+     "contagem_2t": 64.0,
+     "parte_L2": 0.18948631847290817,
+     "parte_R2": 0.36233617517561584,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "23",
+     "contagem_1t": 132.0,
+     "parte_L1": 0.5075954020735514,
+     "parte_R1": 0.2626854860520558,
+     "parte_demais": 0.22971911187439273,
+     "contagem_2t": 173.0,
+     "parte_L2": 0.410518990802246,
+     "parte_R2": 0.16396792412619907,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "25",
+     "contagem_1t": 109.0,
+     "parte_L1": 0.5647524224938759,
+     "parte_R1": 0.09726229157546856,
+     "parte_demais": 0.3379852859306554,
+     "contagem_2t": 95.0,
+     "parte_L2": 0.08149964970843698,
+     "parte_R2": 0.42306694560149727,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "31",
+     "contagem_1t": 179.0,
+     "parte_L1": 0.9999999999961948,
+     "parte_R1": 3.552446173237536e-12,
+     "parte_demais": 2.5238005021755664e-13,
+     "contagem_2t": 491.0,
+     "parte_L2": 0.9999999999997206,
+     "parte_R2": 3.831161602055701e-20,
+     "rotulo": "testemunha do 13 (dígitos invertidos)"
+    },
+    {
+     "digitos": "32",
+     "contagem_1t": 39.0,
+     "parte_L1": 0.7472031163610218,
+     "parte_R1": 0.17720784756355673,
+     "parte_demais": 0.07558903607542142,
+     "contagem_2t": 54.0,
+     "parte_L2": 0.9999999999992563,
+     "parte_R2": 6.071065176682055e-27,
+     "rotulo": "testemunha do 22 (tecla vizinha no 1º dígito)"
+    },
+    {
+     "digitos": "33",
+     "contagem_1t": 137.0,
+     "parte_L1": 0.9979119291379354,
+     "parte_R1": 0.002088070862064691,
+     "parte_demais": 7.91121577278423e-84,
+     "contagem_2t": 212.0,
+     "parte_L2": 0.7657097972084047,
+     "parte_R2": 0.22476167403016944,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "36",
+     "contagem_1t": 44.0,
+     "parte_L1": 0.9351179795182888,
+     "parte_R1": 0.06488202048079673,
+     "parte_demais": 9.14595086056378e-13,
+     "contagem_2t": 25.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "40",
+     "contagem_1t": 544.0,
+     "parte_L1": 0.9999999999971678,
+     "parte_R1": 4.98998790165981e-19,
+     "parte_demais": 2.8319709503763323e-12,
+     "contagem_2t": 19.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "41",
+     "contagem_1t": 32.0,
+     "parte_L1": 0.9999999999959075,
+     "parte_R1": 9.737190725726497e-15,
+     "parte_demais": 4.082612771021041e-12,
+     "contagem_2t": 21.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "42",
+     "contagem_1t": 31.0,
+     "parte_L1": 0.999999999981341,
+     "parte_R1": 1.1107205111307421e-91,
+     "parte_demais": 1.8658794759648875e-11,
+     "contagem_2t": 10.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "43",
+     "contagem_1t": 57.0,
+     "parte_L1": 0.9999999999987605,
+     "parte_R1": 2.91837487102883e-24,
+     "parte_demais": 1.2397459273627908e-12,
+     "contagem_2t": 13.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "44",
+     "contagem_1t": 697.0,
+     "parte_L1": 0.9999999999966102,
+     "parte_R1": 3.3016594934337276e-12,
+     "parte_demais": 8.845446311782415e-14,
+     "contagem_2t": 211.0,
+     "parte_L2": 0.9951239630377546,
+     "parte_R2": 0.004876036961478939,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "45",
+     "contagem_1t": 584.0,
+     "parte_L1": 0.9999999999371094,
+     "parte_R1": 6.247483717669747e-11,
+     "parte_demais": 4.159259780982267e-13,
+     "contagem_2t": 171.0,
+     "parte_L2": 0.5010277989179188,
+     "parte_R2": 0.2953151752128891,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "50",
+     "contagem_1t": 167.0,
+     "parte_L1": 1.3624694949276252e-125,
+     "parte_R1": 5.574226113167282e-10,
+     "parte_demais": 0.9999999994425774,
+     "contagem_2t": 40.0,
+     "parte_L2": 0.45236490691336473,
+     "parte_R2": 0.20655759219950576,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "54",
+     "contagem_1t": 32.0,
+     "parte_L1": 0.7523204705579285,
+     "parte_R1": 0.22210032127438284,
+     "parte_demais": 0.025579208167688668,
+     "contagem_2t": 8.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "56",
+     "contagem_1t": 58.0,
+     "parte_L1": 0.29047163400869597,
+     "parte_R1": 0.15126361257553406,
+     "parte_demais": 0.5582647534157699,
+     "contagem_2t": 68.0,
+     "parte_L2": 2.0061372375268167e-14,
+     "parte_R2": 0.39046360925697793,
+     "rotulo": ""
+    },
+    {
+     "digitos": "66",
+     "contagem_1t": 80.0,
+     "parte_L1": 0.21623441933716397,
+     "parte_R1": 0.15729890440079472,
+     "parte_demais": 0.6264666762620412,
+     "contagem_2t": 86.0,
+     "parte_L2": 1.2933228241007764e-28,
+     "parte_R2": 0.40025302862465784,
+     "rotulo": ""
+    },
+    {
+     "digitos": "73",
+     "contagem_1t": 145.0,
+     "parte_L1": 0.9999999999994698,
+     "parte_R1": 3.3429514124864894e-14,
+     "parte_demais": 4.966323360042035e-13,
+     "contagem_2t": 140.0,
+     "parte_L2": 0.9999999999997927,
+     "parte_R2": 3.242193495424948e-28,
+     "rotulo": ""
+    },
+    {
+     "digitos": "77",
+     "contagem_1t": 114.0,
+     "parte_L1": 0.836145449544581,
+     "parte_R1": 1.5760721742679256e-12,
+     "parte_demais": 0.16385455045384315,
+     "contagem_2t": 98.0,
+     "parte_L2": 0.8789412215418105,
+     "parte_R2": 1.3395002273753314e-29,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "78",
+     "contagem_1t": 187.0,
+     "parte_L1": 0.9999999999948449,
+     "parte_R1": 5.0340847104570915e-12,
+     "parte_demais": 1.2154334983526044e-13,
+     "contagem_2t": 58.0,
+     "parte_L2": 0.9999999999937713,
+     "parte_R2": 5.575291817511946e-12,
+     "rotulo": ""
+    },
+    {
+     "digitos": "88",
+     "contagem_1t": 95.0,
+     "parte_L1": 0.015594190233345176,
+     "parte_R1": 0.2280142533779067,
+     "parte_demais": 0.7563915563887481,
+     "contagem_2t": 88.0,
+     "parte_L2": 1.0280495763322566e-12,
+     "parte_R2": 0.6302083297015848,
+     "rotulo": ""
+    },
+    {
+     "digitos": "89",
+     "contagem_1t": 49.0,
+     "parte_L1": 0.4181649765127533,
+     "parte_R1": 0.42273726825926494,
+     "parte_demais": 0.15909775522798175,
+     "contagem_2t": 14.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "96",
+     "contagem_1t": 31.0,
+     "parte_L1": 0.8634453202628031,
+     "parte_R1": 0.13655467969569426,
+     "parte_demais": 4.1502717254621925e-11,
+     "contagem_2t": 24.0,
+     "parte_L2": NaN,
+     "parte_R2": NaN,
+     "rotulo": ""
+    },
+    {
+     "digitos": "99",
+     "contagem_1t": 495.0,
+     "parte_L1": 3.021876926024854e-48,
+     "parte_R1": 0.23323380809112243,
+     "parte_demais": 0.7667661919088776,
+     "contagem_2t": 462.0,
+     "parte_L2": 2.612690809857702e-16,
+     "parte_R2": 0.5690534772467334,
+     "rotulo": "código de controle"
+    }
+   ],
+   "com_080_ou_mais_em_R1": [],
+   "com_080_ou_mais_em_L1": [
+    "03",
+    "11",
+    "12",
+    "15",
+    "17",
+    "18",
+    "19",
+    "31",
+    "33",
+    "36",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "73",
+    "77",
+    "78",
+    "96"
+   ]
+  },
+  "X5_testemunha_de_um_lado_so_codigo_31": {
+   "a_contaminacao_1t": {
+    "taxa_por_10_mil": {
+     "L": 8.275221219075073,
+     "R": -0.013124310435701243,
+     "demais": -9.747248073339698
+    },
+    "R_sobre_L": -0.0015859769894064726,
+    "ep": 0.10666678208864618,
+    "R_sobre_L_minimos_quadrados": -0.08828416968941047,
+    "ep_minimos_quadrados": 0.08825552200236254
+   },
+   "a_contaminacao_2t": {
+    "taxa_por_10_mil": {
+     "L": 18.733498563193972,
+     "R": -3.452562207140925,
+     "demais": -46.70862878115594
+    },
+    "R_sobre_L": -0.18429884815665096,
+    "ep": 0.030459255532665007,
+    "R_sobre_L_minimos_quadrados": -0.35665928067259206,
+    "ep_minimos_quadrados": 0.05569608632512361
+   },
+   "a_diferenca_2t_menos_1t": {
+    "valor": -0.1827128711672445,
+    "ep": 0.10793621822676464,
+    "valor_minimos_quadrados": -0.26837511098318156,
+    "ep_minimos_quadrados": 0.09353280366681456,
+    "esperado_com_a_troca_de_3e57": -0.03702167375298144,
+    "esperado_sem_alteracao": 0.0,
+    "ep_projetado_no_universo": 0.008367358208967514
+   },
+   "b_votos_a_mais": {
+    "taxa_por_10_mil": {
+     "L1": 21.516052935882044,
+     "L2_menos_L1": -33.02517055696321
+    },
+    "novos_sobre_antigos": -1.5349084079398019,
+    "ep": 0.14912699128959295,
+    "novos_sobre_antigos_minimos_quadrados": -1.7943377849836837,
+    "ep_minimos_quadrados": 0.2280554406259072,
+    "soma_L1": 324131.0,
+    "soma_L2_menos_L1": 62584.0,
+    "secoes_com_L2_menor_que_L1": 61,
+    "leitura": "razão 1: o voto a mais de Lula erra a tecla tanto quanto o antigo; razão 0: o voto a mais não traz erro de digitação",
+    "ep_projetado_no_universo": 0.011560521345338273
+   },
+   "b_votos_a_mais_com_R2_no_modelo": {
+    "taxa_por_10_mil": {
+     "L1": 22.04561017934826,
+     "L2_menos_L1": -17.462125284239832,
+     "R2": -3.2660929596827133
+    },
+    "novos_sobre_antigos": -0.7920908127368544,
+    "ep": 0.24254692458484256
+   },
+   "calibracao_por_plantio": {
+    "acrescimo_da_margem_para_Lula": {
+     "novos_sobre_antigos_plantado": -1.0582277221329548,
+     "deslocamento": 0.4766806858068471,
+     "deslocamento_sobre_ep": 3.1964749082959134,
+     "contaminacao_2t_plantada": -0.22486356302138213,
+     "deslocamento_da_contaminacao": -0.04056471486473118,
+     "deslocamento_da_contaminacao_sobre_ep_da_diferenca": -0.3758211611556394
+    },
+    "troca_de_3e57": {
+     "novos_sobre_antigos_plantado": -1.3742577222179753,
+     "deslocamento": 0.1606506857218266,
+     "deslocamento_sobre_ep": 1.0772743708739858,
+     "contaminacao_2t_plantada": -0.22408491161258656,
+     "deslocamento_da_contaminacao": -0.039786063455935605,
+     "deslocamento_da_contaminacao_sobre_ep_da_diferenca": -0.36860716550535927
+    }
+   },
+   "c_placebo_temporal_31_do_1t_sobre_L1_e_ganho_futuro": {
+    "taxa_por_10_mil": {
+     "L1": 6.839104929448192,
+     "L2_menos_L1": -6.815737028516288
+    },
+    "razao": -0.9965831930972012,
+    "ep": 0.37685642992366153,
+    "razao_minimos_quadrados": -1.5077524159773315,
+    "ep_minimos_quadrados": 0.4391664993959416,
+    "diferenca_2t_menos_1t": -0.5383252148426007,
+    "ep_da_diferenca": 0.36512538950189316,
+    "diferenca_minimos_quadrados": -0.28658536900635223,
+    "ep_da_diferenca_minimos_quadrados": 0.4011933935258394,
+    "leitura": "diferença 1: tirada a composição, o voto a mais de Lula erra a tecla como o antigo; maior que 1: erra mais; 0,57: o esperado se o acréscimo da margem fosse de votos sem eleitor; 0,79: o esperado com a troca de 3,57%; vale só se a composição pesar igual nos dois turnos",
+    "ep_da_diferenca_projetado_no_universo": 0.028305002485195036
+   },
+   "d_por_estrato_regiao_x_tercil": {
+    "estratos": 18,
+    "rho_2t": -0.75,
+    "ep_2t": 0.4036264629679776,
+    "rho_placebo_1t": 0.15,
+    "ep_1t": 0.7864012235634622,
+    "diferenca": -0.9,
+    "ep_da_diferenca": 0.8120598537239424,
+    "grade": [
+     -3.0,
+     6.0,
+     0.05
+    ],
+    "replicas": 200
+   }
+  },
+  "X6_dose_e_resposta_do_31_dentro_da_secao": {
+   "secoes_com_algum_31": 509,
+   "testemunhas": {
+    "1t": 179.0,
+    "2t": 491.0
+   },
+   "fora_por_L_zero": 0.0,
+   "beta": -1.0025547521615166,
+   "ep": 0.8908151595647745,
+   "ln_k": 1.1590407269043543,
+   "ic95": [
+    -2.7832550203794093,
+    0.7465578929371208
+   ],
+   "z_contra_1": -2.248002552111826,
+   "z_contra_0": -1.1254352167191841,
+   "beta_com_k_por_tercil_e_regiao": {
+    "beta": -1.2814303201258497,
+    "ep": 1.082793413773055
+   },
+   "por_tercil_do_crescimento_oficial_de_Lula": [
+    {
+     "faixa": 1,
+     "secoes": 170,
+     "L1": 25573.0,
+     "L2": 27103.0,
+     "ln_L2_sobre_L1": 0.058107315454471176,
+     "n31_1t": 67.0,
+     "n31_2t": 175.0,
+     "ln_n31_2t_sobre_1t": 0.9600933545325481
+    },
+    {
+     "faixa": 2,
+     "secoes": 169,
+     "L1": 24313.0,
+     "L2": 28118.0,
+     "ln_L2_sobre_L1": 0.14539875393781948,
+     "n31_1t": 52.0,
+     "n31_2t": 171.0,
+     "ln_n31_2t_sobre_1t": 1.1904198379212325
+    },
+    {
+     "faixa": 3,
+     "secoes": 170,
+     "L1": 18124.0,
+     "L2": 23242.0,
+     "ln_L2_sobre_L1": 0.24872395999579014,
+     "n31_1t": 60.0,
+     "n31_2t": 145.0,
+     "ln_n31_2t_sobre_1t": 0.8823891801984737
+    }
+   ],
+   "todas_as_secoes_por_tercil_do_crescimento": [
+    {
+     "faixa": 1,
+     "secoes": 1000,
+     "L1": 130355.0,
+     "L2": 142278.0,
+     "ln_L2_sobre_L1": 0.08752139228197,
+     "n31_1t": 97.0,
+     "n31_2t": 274.0,
+     "ln_n31_2t_sobre_1t": 1.0384171278846874,
+     "por_10_mil_votos_de_Lula_1t": 7.441218211806222,
+     "por_10_mil_votos_de_Lula_2t": 19.258072224799335
+    },
+    {
+     "faixa": 2,
+     "secoes": 998,
+     "L1": 109943.0,
+     "L2": 132491.0,
+     "ln_L2_sobre_L1": 0.18655266891936118,
+     "n31_1t": 43.0,
+     "n31_2t": 128.0,
+     "ln_n31_2t_sobre_1t": 1.0908301482260547,
+     "por_10_mil_votos_de_Lula_1t": 3.911117579109175,
+     "por_10_mil_votos_de_Lula_2t": 9.661033579639371
+    },
+    {
+     "faixa": 3,
+     "secoes": 1002,
+     "L1": 83833.0,
+     "L2": 111946.0,
+     "ln_L2_sobre_L1": 0.2891898874490728,
+     "n31_1t": 39.0,
+     "n31_2t": 89.0,
+     "ln_n31_2t_sobre_1t": 0.8250747236024933,
+     "por_10_mil_votos_de_Lula_1t": 4.65210597258836,
+     "por_10_mil_votos_de_Lula_2t": 7.950261733335715
+    }
+   ],
+   "calibracao_por_plantio": {
+    "acrescimo_da_margem_para_Lula": {
+     "beta_plantado": -0.9321580858756056,
+     "deslocamento": 0.07039666628591101,
+     "deslocamento_sobre_ep": 0.07902499809310015,
+     "deslocamento_sobre_ep_projetado_no_universo": 1.0193969502112459
+    },
+    "troca_de_3e57": {
+     "beta_plantado": -0.9256163665736789,
+     "deslocamento": 0.07693838558783772,
+     "deslocamento_sobre_ep": 0.08636851849875063,
+     "deslocamento_sobre_ep_projetado_no_universo": 1.114125991476326
+    },
+    "espelho_troca_de_3e57_de_Lula_para_Flavio": {
+     "beta_plantado": -0.9643382803069583,
+     "deslocamento": 0.03821647185455823,
+     "deslocamento_sobre_ep": 0.04290056297787933,
+     "deslocamento_sobre_ep_projetado_no_universo": 0.5534034054701745
+    }
+   },
+   "ep_projetado_no_universo": 0.0690571678395967,
+   "placebo_outros_codigos_sobre_o_crescimento_de_Lula": {
+    "00": {
+     "beta": -0.18442970945846865,
+     "ep": 0.12943497541338636,
+     "contagem_1t": 11297.0,
+     "contagem_2t": 8945.0
+    },
+    "99": {
+     "beta": -0.8801864313687604,
+     "ep": 0.5893728802526143,
+     "contagem_1t": 495.0,
+     "contagem_2t": 462.0
+    },
+    "todos_os_nulos_com_digitos_menos_31_32_33_23_12": {
+     "beta": 0.3249315953996998,
+     "ep": 0.12974609660442873,
+     "contagem_1t": 20324.0,
+     "contagem_2t": 14898.0
+    }
+   },
+   "codigos_32_e_33_juntos": {
+    "beta": 0.2282641239966606,
+    "ep": 1.0131830552863206,
+    "contagem_1t": 176.0,
+    "contagem_2t": 266.0
+   }
+  },
+  "X7_tela_de_presidente_nas_6_UFs_com_governador_no_2t": {
+   "AC": {
+    "secoes": 20,
+    "finalistas_de_governador": [
+     "10",
+     "11"
+    ],
+    "votantes_1t": 4361.0,
+    "votantes_2t": 4136.0,
+    "nulos_com_digitos_1t": 113,
+    "nulos_com_digitos_2t": 125,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "10": 11,
+     "11": 23
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "10": 26,
+     "11": 41
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "11",
+      41
+     ],
+     [
+      "00",
+      37
+     ],
+     [
+      "10",
+      26
+     ],
+     [
+      "70",
+      3
+     ],
+     [
+      "14",
+      3
+     ]
+    ]
+   },
+   "AM": {
+    "secoes": 44,
+    "finalistas_de_governador": [
+     "22",
+     "55"
+    ],
+    "votantes_1t": 12400.0,
+    "votantes_2t": 12123.0,
+    "nulos_com_digitos_1t": 201,
+    "nulos_com_digitos_2t": 295,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "22": 0,
+     "55": 0
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "22": 0,
+     "55": 144
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "55",
+      144
+     ],
+     [
+      "00",
+      77
+     ],
+     [
+      "15",
+      9
+     ],
+     [
+      "12",
+      7
+     ],
+     [
+      "33",
+      6
+     ]
+    ]
+   },
+   "DF": {
+    "secoes": 35,
+    "finalistas_de_governador": [
+     "11",
+     "13"
+    ],
+    "votantes_1t": 9049.0,
+    "votantes_2t": 9243.0,
+    "nulos_com_digitos_1t": 164,
+    "nulos_com_digitos_2t": 217,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "11": 31,
+     "13": 0
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "11": 49,
+     "13": 0
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "00",
+      104
+     ],
+     [
+      "11",
+      49
+     ],
+     [
+      "14",
+      10
+     ],
+     [
+      "12",
+      6
+     ],
+     [
+      "99",
+      6
+     ]
+    ]
+   },
+   "ES": {
+    "secoes": 45,
+    "finalistas_de_governador": [
+     "10",
+     "15"
+    ],
+    "votantes_1t": 10817.0,
+    "votantes_2t": 11097.0,
+    "nulos_com_digitos_1t": 277,
+    "nulos_com_digitos_2t": 372,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "10": 34,
+     "15": 44
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "10": 70,
+     "15": 124
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "15",
+      124
+     ],
+     [
+      "00",
+      116
+     ],
+     [
+      "10",
+      70
+     ],
+     [
+      "14",
+      14
+     ],
+     [
+      "70",
+      5
+     ]
+    ]
+   },
+   "RN": {
+    "secoes": 51,
+    "finalistas_de_governador": [
+     "13",
+     "44"
+    ],
+    "votantes_1t": 12914.0,
+    "votantes_2t": 13250.0,
+    "nulos_com_digitos_1t": 324,
+    "nulos_com_digitos_2t": 352,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "13": 0,
+     "44": 69
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "13": 0,
+     "44": 124
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "44",
+      124
+     ],
+     [
+      "00",
+      119
+     ],
+     [
+      "12",
+      17
+     ],
+     [
+      "31",
+      14
+     ],
+     [
+      "14",
+      14
+     ]
+    ]
+   },
+   "TO": {
+    "secoes": 25,
+    "finalistas_de_governador": [
+     "44",
+     "45"
+    ],
+    "votantes_1t": 5658.0,
+    "votantes_2t": 5595.0,
+    "nulos_com_digitos_1t": 159,
+    "nulos_com_digitos_2t": 203,
+    "nulos_com_numero_de_finalista_de_governador_1t": {
+     "44": 31,
+     "45": 27
+    },
+    "nulos_com_numero_de_finalista_de_governador_2t": {
+     "44": 35,
+     "45": 71
+    },
+    "cinco_mais_digitados_2t": [
+     [
+      "45",
+      71
+     ],
+     [
+      "00",
+      49
+     ],
+     [
+      "44",
+      35
+     ],
+     [
+      "77",
+      5
+     ],
+     [
+      "11",
+      5
+     ]
+    ]
+   },
+   "as_6_juntas": {
+    "secoes": 220,
+    "nulos_com_digitos_1t": 1238,
+    "nulos_com_digitos_2t": 1564,
+    "com_numero_de_finalista_de_governador_1t": 270,
+    "com_numero_de_finalista_de_governador_2t": 684,
+    "votantes_1t": 55199.0,
+    "votantes_2t": 55444.0
+   }
+  }
  },
  "arquivos": {
   "script": "scripts/analisar_R27_W4.py",
