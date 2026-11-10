@@ -21,17 +21,21 @@ votou no 2º turno parecido com o que tinha votado três semanas antes, não med
     bloco mais Cury: linear 0,9460; quadrático 0,9933; exponencial 0,9971 (mínimos quadrados não lineares) ou 0,9934 (pelo log)
     tudo menos a esquerda: linear 0,9461; quadrático 0,9933; exponencial 0,9971 (mínimos quadrados não lineares) ou 0,9934 (pelo log)
     tudo menos Lula: linear 0,9463; quadrático 0,9932; exponencial 0,9970 (mínimos quadrados não lineares) ou 0,9932 (pelo log)
-  A definição (c) é a (b). O exterior como 28º ponto não muda nada (bloco: 0,9336; 0,9924; 0,9968).
-  Resultado: o gráfico é feito com dados reais e os R² são dessa ordem. O 0,999 da legenda não sai dos dados em nenhuma definição.
-  EXPLORATÓRIO E1: nas 24 definições da família, o maior R² exponencial com dados reais é 0,9975. A curva pura do item 6 dá 0,9419; 0,9951; 0,9991.
+  A definição (c) é a (b). Pela regra D4 ela teve soma dos quadrados 15,33; a segunda colocada, N3 bloco mais Cury (22+55+30+14+70) sobre comparecimento, 17,52; Flávio sozinho, 72,64. Nenhuma cai exata nos três pontos.
+  O exterior como 28º ponto não muda nada (bloco: 0,9336; 0,9924; 0,9968).
+  Resultado: o gráfico é compatível com os dados oficiais. Os pontos legíveis caem perto e os R² são dessa ordem (0,93 a 0,95;
+  0,99; 0,997). Na terceira casa não batem com a legenda.
+  EXPLORATÓRIO E1 (depois de ver o resultado): nas 24 definições da família, o maior R² exponencial com dados reais é 0,9975 (pelo log, 0,9946; com uma constante somada, três parâmetros, 0,9976). A que chega mais perto da legenda é N7 Flávio, Caiado e Zema (22+55+30) sobre válidos: 0,9346; 0,9930; 0,9968. A curva pura do item 6 (sem voto do 2º turno) chega mais perto que qualquer dado real: 0,9351; 0,9945; 0,9985 com N7 Flávio, Caiado e Zema (22+55+30) sobre comparecimento. Não dá para saber que números o autor usou; ele não publicou.
 
 2. A MESMA CONTA NOS OUTROS ANOS (J2; y = PT sobre adversário no 2º turno; resíduo = pontos de fatia em torno da reta)
     2026 (Lula x Flávio). Adversário sozinho: linear 0,9257; quadrático 0,9955; exponencial 0,9975; resíduo 1,207. Adversário mais outros: 0,9463; 0,9932; 0,9970; resíduo 1,166.
     2022 (Lula x Bolsonaro). Adversário sozinho: linear 0,9013; quadrático 0,9901; exponencial 0,9960; resíduo 1,008. Adversário mais outros: 0,9214; 0,9879; 0,9950; resíduo 0,963.
     2018 (Haddad x Bolsonaro). Adversário sozinho: linear 0,9122; quadrático 0,9801; exponencial 0,9824; resíduo 2,392. Adversário mais outros: 0,8377; 0,8607; 0,8513; resíduo 6,248.
     2014 (Dilma x Aécio). Adversário sozinho: linear 0,7397; quadrático 0,7891; exponencial 0,7690; resíduo 6,178. Adversário mais outros: 0,8381; 0,9088; 0,9128; resíduo 4,875.
-  2022 tem o mesmo desenho de 2026 e resíduo menor. 2018 (ano em que a direita venceu) passa de 0,98. 2014 não: Marina teve
-  21% no 1º turno e uma reta só com Aécio não dá conta.
+  Fatia dos dois finalistas nos votos nominais do 1º turno: 2026 92,2%; 2022 91,6%; 2018 75,3%; 2014 75,2%.
+  2022 tem o mesmo desenho de 2026 e resíduo menor. 2018, ano em que a direita venceu, passa de 0,98 com Bolsonaro sozinho e cai
+  quando se somam os outros (o voto de Ciro foi mais para Haddad). 2014 não passa: Marina teve 21% no 1º turno. Quanto mais voto
+  fora dos dois finalistas no 1º turno, mais os pontos se espalham; com 92% já decididos sobra pouco para espalhar.
 
 3. SIMULAÇÃO SEM FRAUDE (J3; 1º turno real por UF; 1.000 sorteios por nível; x = definição (c))
   Mediana do melhor R² | mediana do resíduo em pontos (percentil 1), por nível de ruído nas taxas (2, 5 e 10 pontos):
@@ -45,9 +49,9 @@ votou no 2º turno parecido com o que tinha votado três semanas antes, não med
     D, tudo ao acaso, ruído comum: 2 pts 0,4802 | 3,10 (1,94); 5 pts 0,1921 | 7,10 (4,20); 10 pts 0,1035 | 13,27 (8,43)
     Sorteios fora por razão infinita: D, comum, 10: 1.
   Dados reais de 2026 na mesma régua: melhor R² 0,9969; resíduo 1,219. Versão A sem ruído nenhum: 0,9963 e 1,048; com 1 ponto: 0,9945 e 1,163.
-  Onde o real cai: o resíduo real é maior que o de 73,7% dos sorteios com 1 ponto e que o de 12,9% dos sorteios com 2 pontos. O R² real é alcançado por 1,5% dos sorteios com 1 ponto, 0,2% com 2 e 0,0% com 5.
+  Onde o real cai: o resíduo real é maior que o de 73,7% dos sorteios com 1 ponto e que o de 12,9% dos sorteios com 2 pontos. O R² real é alcançado por 1,5% dos sorteios com 1 ponto, 0,2% com 2 e 0,0% com 5. Ou seja: os dados reais se parecem com a simulação de 1 a 2 pontos de ruído no resíduo e com a de 0 a 1 ponto no R². São bem mais alinhados que a simulação de 5 pontos que o registro pôs como régua.
   O R² depende das taxas? Depende de duas coisas e só delas: os finalistas guardarem os seus eleitores e as taxas variarem pouco
-  de UF para UF. Quem recebe os votos dos eliminados, dos brancos, dos nulos e dos faltosos quase não importa (A, B e C dão o mesmo).
+  de UF para UF. Quem recebe os votos dos eliminados, dos brancos, dos nulos e dos faltosos pesa pouco (A, B e C dão quase o mesmo).
   Com tudo ao acaso (D) o R² desaba; nos 66 sorteios de D em que os dois finalistas guardam pelo menos metade dos seus, volta a 0,9660 (ruído de 2 pontos).
 
 4. O GRÁFICO ENXERGA UMA FRAUDE? (D11: desfazendo uma troca hipotética de 2.215.096 votos de Flávio para Lula)
@@ -72,7 +76,7 @@ votou no 2º turno parecido com o que tinha votado três semanas antes, não med
 6. POR QUE A CURVA É LISA, E O QUE O R² MEDE
   (i) O eixo y é Lula dividido por Flávio. Se p é a fatia de Flávio nos válidos do 2º turno, y = (1 - p) / p. Isso é uma
   identidade, não um resultado: p = 25% dá 3,00; 30% dá 2,33; 50% dá 1,00; 70% dá 0,43; 75% dá 0,33.
-  (ii) Em toda UF, p ficou perto da fatia da direita no 1º turno: p = x -3,14 (inclinação 1,0003), com desvio de 1,22 ponto. É o esperado: Lula e Flávio já tinham 92,2% dos votos nominais no 1º turno, três semanas antes.
+  (ii) Em toda UF, p ficou perto da fatia da direita no 1º turno: p = x - 3,14 (inclinação 1,0003), com desvio de 1,22 ponto. É o esperado: Lula e Flávio já tinham 92,2% dos votos nominais no 1º turno, três semanas antes.
   (iii) O log de (1 - p) / p entre 25% e 75% é quase uma reta em p: vale +1,10 em 25%, 0 em 50% e -1,10 em 75%; a reta
   2 - 4p daria +1,00, 0 e -1,00. Reta no log é exponencial. Por isso o exponencial ganha do quadrático, que ganha do linear.
   (iv) Prova sem nenhum voto do 2º turno: com o x real de cada UF e y = (100 - x) / x, os ajustes dão linear 0,9419; quadrático 0,9951; exponencial 0,9991. A legenda do gráfico diz 0,935; 0,995; 0,999.
@@ -81,25 +85,38 @@ votou no 2º turno parecido com o que tinha votado três semanas antes, não med
   que estica o eixo) e quando cada ponto fica perto da curva (cada estado parecido com ele mesmo três semanas antes). Não há
   hipótese de fraude sendo testada nem conta de chances por trás de "a probabilidade de ser orgânico é zero".
 
-7. O QUE PESA A FAVOR E CONTRA A TESE DE FRAUDE, NESTE GRÁFICO
+7. EXPLORATÓRIO E2 (depois de ver o resultado): 2026 é mais alinhado que os outros anos quando os "outros" entram na conta?
+  Fatia do adversário no 2º turno contra duas variáveis do 1º (fatia do adversário e fatia dos outros candidatos), 27 UFs.
+  Desvio-padrão dos resíduos em pontos: 2026 0,530 (maior 1,42); 2022 0,487 (maior 0,96); 2018 1,959 (maior 4,74); 2014 2,509 (maior 8,59).
+  Fatia nacional dos outros no 1º turno: 2026 7,81%; 2022 8,36%; 2018 24,68%; 2014 24,85%. Resíduo dividido por essa fatia: 2026 0,068; 2022 0,058; 2018 0,079; 2014 0,101.
+  Simulação A na mesma medida (mediana; percentil 1): sem ruído 0,297; 1 ponto 0,582 (0,398); 2 pontos 0,988 (0,675); 5 pontos 2,149 (1,480); comum de 2 pontos 2,188 (1,534).
+  Maiores desvios de 2026 nesta conta: RJ -1,42, AL -0,87, SP -0,73 e PI +0,92, BA +0,69, RO +0,59.
+  Os dois resultados 'sem a troca' do item 4 nesta medida: uniforme 0,530; só no Nordeste 1,567 (dividido pela fatia dos outros: 0,201).
+  Leitura: 2026 (0,530) e 2022 (0,487) são igualmente justos, 2022 um pouco mais; 2018 e 2014 são frouxos, na proporção do
+  voto que estava fora dos finalistas. Nesta medida mais fina 2026 fica abaixo do percentil 1 da simulação de 2 pontos (0,675) e perto
+  da mediana da de 1 ponto (0,582): as taxas variaram cerca de 1 ponto de UF para UF.
+  Uma troca do tamanho da margem inteira concentrada no Nordeste exigiria que a eleição verdadeira tivesse resíduo 1,567,
+  3,2 vezes o de 2022, e 0,201 por unidade de voto em jogo, 2,0 vezes o pior dos quatro anos (0,101). A troca uniforme não deixa
+  marca nenhuma nesta medida (0,530 com ela ou sem ela).
+
+8. O QUE PESA A FAVOR E CONTRA A TESE DE FRAUDE, NESTE GRÁFICO
   A favor ou neutro:
-  (a) Pela letra, 'propriedade do gráfico' não fechou: com ruído de 5 pontos nas taxas a mediana é 0,9649 e nenhum dos 1.000 sorteios chega ao R² real. O alinhamento real equivale a taxas que variam cerca de 1 a 2 pontos de UF para UF
-  (ruído independente) ou menos de 2 pontos se o estado inteiro balança junto (aí o real fica abaixo do percentil 1 da simulação
-  de 2 pontos). Os estados se comportaram de modo muito uniforme em relação ao padrão nacional. Isso é o que um movimento
-  nacional de opinião produz e também o que uma troca uniforme produziria; o gráfico não separa um do outro.
+  (a) Pela letra, 'propriedade do gráfico' não fechou: com ruído de 5 pontos nas taxas a mediana é 0,9649 e nenhum dos 1.000
+  sorteios chega ao R² real. O alinhamento real pede taxas que variem só cerca de 1 ponto de UF para UF (item 7), e fica abaixo do
+  percentil 1 da simulação de 2 pontos quando o estado inteiro balança junto (1,679 contra 1,207). Os estados se comportaram
+  de modo muito uniforme em relação ao padrão nacional. Isso é o que um movimento nacional de opinião produz e também o que uma
+  troca uniforme produziria; o gráfico não separa um do outro. Falta uma eleição fora de suspeita para dizer quanto é o normal.
   (b) O R² exponencial de 2026 com Flávio sozinho (0,9975) é o maior dos quatro anos, por 0,0015 sobre 2022.
   (c) O item 4: a curva lisa não afasta uma troca uniforme.
   Contra:
-  (d) Não é coisa de 2026. Em 2022 o R² é 0,9960 e o resíduo é menor (1,008 contra 1,207). As duas cláusulas de 'anomalia' falharam.
+  (d) Não é coisa de 2026. Em 2022 o R² é 0,9960 e o resíduo é menor (1,008 contra 1,207; no item 7, 0,487 contra 0,530). As duas cláusulas de 'anomalia' falharam.
   (e) Os três R² da legenda saem da fórmula do eixo y sem nenhum voto do 2º turno (item 6, iv).
   (f) Os pontos se espalham, sim, quando se olha município e seção (item 5).
-  (g) Onde havia motivo local, o estado saiu da linha: Goiás fica a mais de 4 pontos da reta nas duas definições.
-
-8. EXPLORATÓRIO E2 (depois de ver o resultado): 2026 é mais alinhado que os outros anos quando os "outros" entram na conta?
-  Fatia do adversário no 2º turno contra duas variáveis do 1º (fatia do adversário e fatia dos outros candidatos), 27 UFs.
-  Desvio-padrão dos resíduos em pontos: 2026 0,530 (maior 1,42); 2022 0,487 (maior 0,96); 2018 1,959 (maior 4,74); 2014 2,509 (maior 8,59). Parcela dos "outros" que aparece no adversário: 2026 0,510; 2022 0,534; 2018 0,222; 2014 0,620.
-  Simulação A na mesma medida (mediana; percentil 1): sem ruído 0,297; 1 ponto 0,582 (0,398); 2 pontos 0,988 (0,675); 5 pontos 2,149 (1,480); comum de 2 pontos 2,188 (1,534).
-  Maiores desvios de 2026 nesta conta: RJ -1,42, AL -0,87, SP -0,73 e PI +0,92, BA +0,69, RO +0,59.
+  (g) O alinhamento tem explicação sem fraude: nos quatro anos o espalhamento acompanha a fatia de votos que estava fora dos
+  finalistas no 1º turno (itens 2 e 7). Com 92% já decididos, não há de onde vir espalhamento.
+  (h) Onde havia motivo local, o estado saiu da linha: Goiás fica a mais de 4 pontos da reta nas duas definições.
+  (i) EXPLORATÓRIO: uma troca do tamanho da margem concentrada numa região teria deixado a eleição verdadeira desalinhada fora
+  do padrão dos quatro anos (item 7). Isso pesa contra a forma concentrada, não contra a uniforme.
 
 DESVIOS E LIMITES
   1. O registro pede três definições de x; a regra da "que melhor reproduz" (família de 25 candidatas e soma dos quadrados em PI, BA e SC) é minha (D4). A vencedora foi o próprio bloco de direita, então (b) e (c) coincidem.
@@ -107,7 +124,7 @@ DESVIOS E LIMITES
   3. O registro pede os outros anos com o adversário do PT; a pedido da tarefa rodei também adversário mais outros. A leitura usa o adversário sozinho (D9).
   4. O registro não diz que definição de x entra em cada cláusula da leitura nem como se mede o resíduo; fixei em D7 e D9 e mostro as outras combinações ao lado. Em nenhuma delas a leitura muda.
   5. O registro diz "um ruído sorteado por UF". Tomei como principal um ruído para cada taxa de cada UF e rodei ao lado um ruído único por UF (D10). Com o segundo, a cláusula (2) da anomalia passaria; a (1) não.
-  6. As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão o mesmo que A.
+  6. As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão quase o mesmo que A.
   7. A fórmula "y = a x exp(b x)" foi lida como a vezes exp(b x). A leitura literal (a vezes x vezes exp(b x)) dá R² um pouco menor e está no JSON.
   8. A calibração com fraude plantada (D11), os níveis de ruído de 0, 0,5 e 1 ponto e a curva pura não estão no registro; foram declarados no docstring antes de rodar.
   9. Depois de ver o resultado: correção da razão infinita na versão D com ruído comum, reorganização do texto e os exploratórios E1 e E2. Nada disso entra na leitura.

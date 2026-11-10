@@ -1,7 +1,7 @@
 {
  "teste": "R29_J (Adendo 29, J1 a J4)",
  "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 29, commit 3929135",
- "origem_dos_dados": "cache",
+ "origem_dos_dados": "bases",
  "semente": 20261129,
  "secoes_por_ano": {
   "2026": {
@@ -13785,7 +13785,7 @@
   "Sorteios da simulação em que alguma UF fica com zero voto de um dos dois (razão infinita) saem da conta e são contados; só ocorre na versão D com ruído comum. Na primeira rodada esse cenário saiu sem número.",
   "O texto de saída foi reorganizado para ficar curto; nenhuma conta do registro mudou.",
   "E1 (exploratório): qual definição de x devolve os três R² da legenda do gráfico (0,935; 0,995; 0,999).",
-  "E2 (exploratório): resíduo da fatia de Flávio com dois regressores (adversário e outros candidatos do 1º turno), para comparar 2026 com 2014 e 2018 sem que Marina e Ciro estraguem a reta de um regressor só."
+  "E2 (exploratório): resíduo da fatia de Flávio com dois regressores (adversário e outros candidatos do 1º turno), para comparar 2026 com 2014 e 2018 sem que Marina e Ciro estraguem a reta de um regressor só; a mesma medida na simulação A e nos dois resultados \"sem a troca\" do D11."
  ],
  "desvios": [
   "O registro pede três definições de x; a regra da \"que melhor reproduz\" (família de 25 candidatas e soma dos quadrados em PI, BA e SC) é minha (D4). A vencedora foi o próprio bloco de direita, então (b) e (c) coincidem.",
@@ -13793,7 +13793,7 @@
   "O registro pede os outros anos com o adversário do PT; a pedido da tarefa rodei também adversário mais outros. A leitura usa o adversário sozinho (D9).",
   "O registro não diz que definição de x entra em cada cláusula da leitura nem como se mede o resíduo; fixei em D7 e D9 e mostro as outras combinações ao lado. Em nenhuma delas a leitura muda.",
   "O registro diz \"um ruído sorteado por UF\". Tomei como principal um ruído para cada taxa de cada UF e rodei ao lado um ruído único por UF (D10). Com o segundo, a cláusula (2) da anomalia passaria; a (1) não.",
-  "As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão o mesmo que A.",
+  "As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão quase o mesmo que A.",
   "A fórmula \"y = a x exp(b x)\" foi lida como a vezes exp(b x). A leitura literal (a vezes x vezes exp(b x)) dá R² um pouco menor e está no JSON.",
   "A calibração com fraude plantada (D11), os níveis de ruído de 0, 0,5 e 1 ponto e a curva pura não estão no registro; foram declarados no docstring antes de rodar.",
   "Depois de ver o resultado: correção da razão infinita na versão D com ruído comum, reorganização do texto e os exploratórios E1 e E2. Nada disso entra na leitura.",
@@ -13826,6 +13826,7 @@
       0.9939552566687186,
       0.9983619190586863
      ],
+     "dados_reais_exp_com_constante": 0.997560704075041,
      "distancia_dados_reais": 0.009465910558206421,
      "distancia_dados_reais_exp_pelo_log": 0.01039193288788446,
      "distancia_curva_pura": 0.006396340037922076
@@ -13847,6 +13848,7 @@
       0.9938436848982596,
       0.9980466299527877
      ],
+     "dados_reais_exp_com_constante": 0.997392848273427,
      "distancia_dados_reais": 0.016957901653375212,
      "distancia_dados_reais_exp_pelo_log": 0.01765760859840035,
      "distancia_curva_pura": 0.009125180811162857
@@ -13868,6 +13870,7 @@
       0.9935663022886976,
       0.9957285538223026
      ],
+     "dados_reais_exp_com_constante": 0.9928914234525249,
      "distancia_dados_reais": 0.03989659451141611,
      "distancia_dados_reais_exp_pelo_log": 0.04235456371680396,
      "distancia_curva_pura": 0.013855860841137005
@@ -13889,6 +13892,7 @@
       0.9951144407435274,
       0.9991289221357575
      ],
+     "dados_reais_exp_com_constante": 0.9972070547280671,
      "distancia_dados_reais": 0.0044883090965916654,
      "distancia_dados_reais_exp_pelo_log": 0.007891628560236152,
      "distancia_curva_pura": 0.006866549790102001
@@ -13910,6 +13914,7 @@
       0.9950096178618708,
       0.9989101646123855
      ],
+     "dados_reais_exp_com_constante": 0.9967780076964874,
      "distancia_dados_reais": 0.005541634202590912,
      "distancia_dados_reais_exp_pelo_log": 0.00755763583984222,
      "distancia_curva_pura": 0.004716288021518777
@@ -13931,6 +13936,7 @@
       0.9947604240602452,
       0.9970021074800582
      ],
+     "dados_reais_exp_com_constante": 0.9931349713098275,
      "distancia_dados_reais": 0.02293472019784472,
      "distancia_dados_reais_exp_pelo_log": 0.024802215645247695,
      "distancia_curva_pura": 0.002419168828175516
@@ -13952,6 +13958,7 @@
       0.9957714216033127,
       0.9994190240667385
      ],
+     "dados_reais_exp_com_constante": 0.997135967359167,
      "distancia_dados_reais": 0.011310690639722884,
      "distancia_dados_reais_exp_pelo_log": 0.01247927823501222,
      "distancia_curva_pura": 0.012120891282209934
@@ -13973,6 +13980,7 @@
       0.9956625837908268,
       0.9993153498577796
      ],
+     "dados_reais_exp_com_constante": 0.9966227561470173,
      "distancia_dados_reais": 0.006129718659118776,
      "distancia_dados_reais_exp_pelo_log": 0.007101320876507654,
      "distancia_curva_pura": 0.010224673640100237
@@ -13994,6 +14002,7 @@
       0.9954459274224168,
       0.9978184221365674
      ],
+     "dados_reais_exp_com_constante": 0.9911488466230072,
      "distancia_dados_reais": 0.018793548668748692,
      "distancia_dados_reais_exp_pelo_log": 0.02063793868226604,
      "distancia_curva_pura": 0.006493913857320719
@@ -14015,6 +14024,7 @@
       0.99578201468238,
       0.9994213829759464
      ],
+     "dados_reais_exp_com_constante": 0.997112305667081,
      "distancia_dados_reais": 0.011359738096848405,
      "distancia_dados_reais_exp_pelo_log": 0.012513609658660337,
      "distancia_curva_pura": 0.012183559328322878
@@ -14036,6 +14046,7 @@
       0.9956728374291474,
       0.9993202053343393
      ],
+     "dados_reais_exp_com_constante": 0.99659636808027,
      "distancia_dados_reais": 0.006186786790277331,
      "distancia_dados_reais_exp_pelo_log": 0.0071328538897475,
      "distancia_curva_pura": 0.010284546828008929
@@ -14057,6 +14068,7 @@
       0.9954548603429612,
       0.9978308698419647
      ],
+     "dados_reais_exp_com_constante": 0.9911315447001465,
      "distancia_dados_reais": 0.01875747773927527,
      "distancia_dados_reais_exp_pelo_log": 0.020574681253424824,
      "distancia_curva_pura": 0.006548274965205428
@@ -14078,6 +14090,7 @@
       0.9958058584322853,
       0.9994278460340248
      ],
+     "dados_reais_exp_com_constante": 0.9969974243248847,
      "distancia_dados_reais": 0.011665565791403048,
      "distancia_dados_reais_exp_pelo_log": 0.012879521071421304,
      "distancia_curva_pura": 0.012465088655536258
@@ -14099,6 +14112,7 @@
       0.995695808527344,
       0.9993324677843842
      ],
+     "dados_reais_exp_com_constante": 0.9965117556515432,
      "distancia_dados_reais": 0.006545401737026098,
      "distancia_dados_reais_exp_pelo_log": 0.007493305674706028,
      "distancia_curva_pura": 0.01057506006264595
@@ -14120,6 +14134,7 @@
       0.995479516043054,
       0.9978635144959361
      ],
+     "dados_reais_exp_com_constante": 0.9910792461765632,
      "distancia_dados_reais": 0.018428758505277115,
      "distancia_dados_reais_exp_pelo_log": 0.020267671644448884,
      "distancia_curva_pura": 0.006808923688914944
@@ -14141,6 +14156,7 @@
       0.9945554693684833,
       0.9987155936933029
      ],
+     "dados_reais_exp_com_constante": 0.9971681196413387,
      "distancia_dados_reais": 0.0033858806526372055,
      "distancia_dados_reais_exp_pelo_log": 0.008243427667938827,
      "distancia_curva_pura": 0.001843779552476253
@@ -14162,6 +14178,7 @@
       0.9944534509354859,
       0.9984294714220657
      ],
+     "dados_reais_exp_com_constante": 0.9966274186316705,
      "distancia_dados_reais": 0.00989472134417196,
      "distancia_dados_reais_exp_pelo_log": 0.012216366463518336,
      "distancia_curva_pura": 0.0009018285241141108
@@ -14183,6 +14200,7 @@
       0.9941950893503049,
       0.996255970561906
      ],
+     "dados_reais_exp_com_constante": 0.9934405288296789,
      "distancia_dados_reais": 0.028133067294380525,
      "distancia_dados_reais_exp_pelo_log": 0.030602872753306403,
      "distancia_curva_pura": 0.004335655178162993
@@ -14204,6 +14222,7 @@
       0.9945523830121699,
       0.9987341688854668
      ],
+     "dados_reais_exp_com_constante": 0.9971150621642376,
      "distancia_dados_reais": 0.003007595056803791,
      "distancia_dados_reais_exp_pelo_log": 0.007867676374534905,
      "distancia_curva_pura": 0.002386960644637925
@@ -14225,6 +14244,7 @@
       0.9944550675368876,
       0.9984510816982293
      ],
+     "dados_reais_exp_com_constante": 0.9966864270141435,
      "distancia_dados_reais": 0.008375671855914157,
      "distancia_dados_reais_exp_pelo_log": 0.010662787903858032,
      "distancia_curva_pura": 0.0007821405533787637
@@ -14246,6 +14266,7 @@
       0.9942158938527051,
       0.9962977340729886
      ],
+     "dados_reais_exp_com_constante": 0.9939613461219189,
      "distancia_dados_reais": 0.02569344164995544,
      "distancia_dados_reais_exp_pelo_log": 0.027952665587721442,
      "distancia_curva_pura": 0.003987643557888076
@@ -14267,6 +14288,7 @@
       0.9946125979595304,
       0.9988597577556817
      ],
+     "dados_reais_exp_com_constante": 0.9972027747617377,
      "distancia_dados_reais": 0.006805905240567017,
      "distancia_dados_reais_exp_pelo_log": 0.008247968402475936,
      "distancia_curva_pura": 0.0015084751880766222
@@ -14288,6 +14310,7 @@
       0.9944989947056299,
       0.9986000749352532
      ],
+     "dados_reais_exp_com_constante": 0.9970757126748708,
      "distancia_dados_reais": 0.013792906241258618,
      "distancia_dados_reais_exp_pelo_log": 0.014521804603550405,
      "distancia_curva_pura": 0.004132938785645709
@@ -14309,12 +14332,151 @@
       0.994222512775908,
       0.9965042735857796
      ],
+     "dados_reais_exp_com_constante": 0.9915311820984418,
      "distancia_dados_reais": 0.03773754875990061,
      "distancia_dados_reais_exp_pelo_log": 0.04015268363059551,
      "distancia_curva_pura": 0.009145006343674728
     }
    ],
    "maior_exponencial_com_dados_reais": 0.9974787133658747,
+   "maior_exponencial_pelo_log_com_dados_reais": 0.994613315025273,
+   "maior_exponencial_com_constante_com_dados_reais": 0.997560704075041,
+   "tres_mais_perto_com_dados_reais": [
+    {
+     "definicao": "N7 Flávio, Caiado e Zema (22+55+30) sobre válidos",
+     "dados_reais": [
+      0.9345796002979277,
+      0.9929993626101381,
+      0.9967940212715226
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9345796002979277,
+      0.9929993626101381,
+      0.9914025632178215
+     ],
+     "curva_pura": [
+      0.9373294965056429,
+      0.9945523830121699,
+      0.9987341688854668
+     ],
+     "dados_reais_exp_com_constante": 0.9971150621642376,
+     "distancia_dados_reais": 0.003007595056803791,
+     "distancia_dados_reais_exp_pelo_log": 0.007867676374534905,
+     "distancia_curva_pura": 0.002386960644637925
+    },
+    {
+     "definicao": "N6 Flávio e Caiado (22+55) sobre válidos",
+     "dados_reais": [
+      0.93313801517528,
+      0.9931992621929412,
+      0.9968195083910631
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.93313801517528,
+      0.9931992621929412,
+      0.9911741163068136
+     ],
+     "curva_pura": [
+      0.9367666433167122,
+      0.9945554693684833,
+      0.9987155936933029
+     ],
+     "dados_reais_exp_com_constante": 0.9971681196413387,
+     "distancia_dados_reais": 0.0033858806526372055,
+     "distancia_dados_reais_exp_pelo_log": 0.008243427667938827,
+     "distancia_curva_pura": 0.001843779552476253
+    },
+    {
+     "definicao": "N2 bloco de direita (22+55+30+14) sobre válidos",
+     "dados_reais": [
+      0.9382030042950127,
+      0.992631301729526,
+      0.9969324046488417
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9382030042950127,
+      0.992631301729526,
+      0.9921876704922384
+     ],
+     "curva_pura": [
+      0.9418643855092123,
+      0.9951144407435274,
+      0.9991289221357575
+     ],
+     "dados_reais_exp_com_constante": 0.9972070547280671,
+     "distancia_dados_reais": 0.0044883090965916654,
+     "distancia_dados_reais_exp_pelo_log": 0.007891628560236152,
+     "distancia_curva_pura": 0.006866549790102001
+    }
+   ],
+   "tres_mais_perto_com_curva_pura": [
+    {
+     "definicao": "N7 Flávio, Caiado e Zema (22+55+30) sobre comparecimento",
+     "dados_reais": [
+      0.9279395678012758,
+      0.9917377171656206,
+      0.9958919963137595
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9279395678012758,
+      0.9917377171656206,
+      0.9917059713629303
+     ],
+     "curva_pura": [
+      0.9351161083712187,
+      0.9944550675368876,
+      0.9984510816982293
+     ],
+     "dados_reais_exp_com_constante": 0.9966864270141435,
+     "distancia_dados_reais": 0.008375671855914157,
+     "distancia_dados_reais_exp_pelo_log": 0.010662787903858032,
+     "distancia_curva_pura": 0.0007821405533787637
+    },
+    {
+     "definicao": "N6 Flávio e Caiado (22+55) sobre comparecimento",
+     "dados_reais": [
+      0.9262275760625367,
+      0.9917589123244672,
+      0.9957680594962559
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9262275760625367,
+      0.9917589123244672,
+      0.9911400039114574
+     ],
+     "curva_pura": [
+      0.9345651713570327,
+      0.9944534509354859,
+      0.9984294714220657
+     ],
+     "dados_reais_exp_com_constante": 0.9966274186316705,
+     "distancia_dados_reais": 0.00989472134417196,
+     "distancia_dados_reais_exp_pelo_log": 0.012216366463518336,
+     "distancia_curva_pura": 0.0009018285241141108
+    },
+    {
+     "definicao": "N8 Flávio e Renan (22+14) sobre válidos",
+     "dados_reais": [
+      0.9284582703298705,
+      0.9948011718664126,
+      0.9971327596727206
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9284582703298705,
+      0.9948011718664126,
+      0.993980515657512
+     ],
+     "curva_pura": [
+      0.9335488800308068,
+      0.9946125979595304,
+      0.9988597577556817
+     ],
+     "dados_reais_exp_com_constante": 0.9972027747617377,
+     "distancia_dados_reais": 0.006805905240567017,
+     "distancia_dados_reais_exp_pelo_log": 0.008247968402475936,
+     "distancia_curva_pura": 0.0015084751880766222
+    }
+   ],
    "melhor_com_dados_reais": "N7 Flávio, Caiado e Zema (22+55+30) sobre válidos",
    "melhor_com_curva_pura": "N7 Flávio, Caiado e Zema (22+55+30) sobre comparecimento",
    "segundo_turno_contra_ele_mesmo": {
@@ -14332,6 +14494,8 @@
     "2026": {
      "dp": 0.5297888424490593,
      "maior": 1.419925224122963,
+     "fatia_nacional_dos_outros": 7.806303553774347,
+     "dp_sobre_fatia_dos_outros": 0.06786680005454136,
      "coef_adversario": 1.0360720217268233,
      "coef_outros": 0.5104539926783218,
      "intercepto": -4.268460728909821,
@@ -14368,6 +14532,8 @@
     "2022": {
      "dp": 0.48744180172570506,
      "maior": 0.9596655858837835,
+     "fatia_nacional_dos_outros": 8.364615909310329,
+     "dp_sobre_fatia_dos_outros": 0.05827425993142764,
      "coef_adversario": 1.063804696527561,
      "coef_outros": 0.5341769898912246,
      "intercepto": -1.317473082303913,
@@ -14404,6 +14570,8 @@
     "2018": {
      "dp": 1.959021319612862,
      "maior": 4.74008491164787,
+     "fatia_nacional_dos_outros": 24.679727883455993,
+     "dp_sobre_fatia_dos_outros": 0.07937775201022731,
      "coef_adversario": 1.1719021015879376,
      "coef_outros": 0.22177685331343028,
      "intercepto": -4.71802486387012,
@@ -14440,6 +14608,8 @@
     "2014": {
      "dp": 2.5086420784448507,
      "maior": 8.585787144712228,
+     "fatia_nacional_dos_outros": 24.849346281113707,
+     "dp_sobre_fatia_dos_outros": 0.10095404724395098,
      "coef_adversario": 1.1142803865633668,
      "coef_outros": 0.6198314266489564,
      "intercepto": -3.9354519136596346,
@@ -14472,6 +14642,18 @@
       "PA": 3.866779287074401,
       "AC": 8.585787144712228
      }
+    }
+   },
+   "sem_a_troca": {
+    "uniforme": {
+     "dp": 0.5297888424490599,
+     "maior": 1.4199252241229843,
+     "dp_sobre_fatia_dos_outros": 0.06786680005454143
+    },
+    "concentrada_nordeste": {
+     "dp": 1.5666377752412444,
+     "maior": 2.8925873388116585,
+     "dp_sobre_fatia_dos_outros": 0.20068881058100477
     }
    },
    "simulacao": {
@@ -14595,5 +14777,5 @@
    }
   }
  },
- "segundos": 90.1
+ "segundos": 118.3
 }
