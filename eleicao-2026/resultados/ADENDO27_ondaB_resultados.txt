@@ -1,0 +1,117 @@
+ADENDOS 27 E 28, ONDA B: O CANAL DO COMPARECIMENTO (RESULTADOS)
+
+Registro: Adendo 27 (commit 2748895) e Adendo 28 (commit 938be19, 10/11/2026 04:36:33 UTC), antes de rodar. Oito
+testes, cada um refeito por outro agente com código próprio, todos confirmados com correções. Números completos e as
+correções dos conferentes em resultados/testes_adendo27_ondaB_com_conferencia.json.
+
+A PERGUNTA DA ONDA
+A Onda A mostrou que a virada passa pelo comparecimento (quem saiu, quem entrou). Faltava separar mobilização
+desigual de irregularidade no registro de quem votou: voto lançado pela mesa em nome de quem faltou, ou eleitor
+registrado como ausente.
+
+RESUMO EM QUATRO LINHAS
+1. Os 2,96 milhões de votantes a mais entraram, em 80%, pela digital do próprio eleitor reconhecida pela urna, e de
+   manhã. Não entraram por liberação do mesário, por eleitor sem biometria, por urna trocada, recarga ou agregação.
+2. Voto lançado pela mesa não carrega a margem: lido inteiro a favor da tese, o canal sem biometria vale no máximo
+   15% dela, e quem entrou por ele dividiu o voto entre Lula e Flávio como quem entrou pela digital.
+3. A assimetria de "quem não voltou" existe, mas é menor do que a Onda A sugeria, depende do nível da comparação e
+   o boletim não separa saída de eleitor de Flávio de entrada de faltoso do lado de Lula.
+4. Sobra, para a tese, só o que dado público não alcança: um programa que registre como biometria e como presença
+   o que não aconteceu. Isso só se decide fora da urna (caderno de votação, cadastro de comparecimento do TSE).
+
+N1, POR ONDE ENTRARAM OS VOTOS A MAIS (amostra aleatória nova, 3.000 seções, boletins dos dois turnos)
+  Pela letra: INCONCLUSIVO (e não podia dar outra coisa: ver a ressalva).
+  Variação entre os turnos, país: biometria reconhecida (B) 80,4% do aumento (ep 2,0; 78,5% ancorado nos totais
+  exatos); sem biometria no cadastro (S) e liberado pelo mesário (M), juntos, de +563 mil a +637 mil eleitores,
+  13% a 14% da margem (teto de 95%: 15,3%).
+  Quem entrou por S + M dividiu o voto como quem entrou pela digital: Lula 0,78 contra 0,74; Flávio 0,36 contra
+  0,38. Voto lançado para Lula daria 1 e 0. O ganho de Flávio por eleitor a mais em S + M está 16 ep acima de zero.
+  S subiu o que a régua inocente prevê (comparecimento do eleitor sem biometria +1,81 ponto, do com biometria
+  +1,79). O que passa da régua é M: de 79 mil a 105 mil liberações (cerca de 2% da margem), no Nordeste e no RJ.
+  Ressalva do conferente: uma eleição em que cada seção só repetisse a composição do 1º turno também daria
+  inconclusivo (S + M subiria 420 mil). O rótulo não pesa; o que o teste mede com poder é o TETO.
+  A favor, pequeno: em PI, MA, TO, PB e CE a biometria responde por só 59% do saldo (que ali é de +0,8%); no PI e no
+  MA a liberação subiu (+7.757 e +10.698) com o comparecimento parado ou caindo.
+
+B2, LIBERAÇÕES PELO MESÁRIO E MUDANÇAS NA SEÇÃO (bweb inteiro, 494 mil seções)
+  Liberações: +290.023 para 2,91 milhões de votantes a mais. Sobra sobre a proporção do 1º turno: 95 mil (2,2% da
+  margem), SEM SINAL só com 2026. Contra 2022 e a municipal de 2024, anos em que a taxa de liberação CAIU no 2º
+  turno, a sobra é de 572 mil a 737 mil (13% a 17% da margem): INCONCLUSIVO pela letra, só por essa régua.
+  Elo com o voto dentro do local: zero (-0,0003, ep 0,0032). Plantar voto da mesa daria 0,24 a 0,43.
+  Aptos: 55.722 seções mudaram entre os turnos, com 37.346 eleitores a mais de um lado e 37.346 a menos do outro
+  (transferência entre seções). Nenhuma seção com comparecimento acima dos aptos.
+  Urna diferente (4.413 seções), carga depois do 1º turno (2.245), agregação (14.926): SEM SINAL, tetos de 2 mil a
+  18 mil votos.
+
+B3, RESERVATÓRIO E ELEITOR MARGINAL
+  Eleitor marginal dentro do mesmo prédio (D2-4): SEM SINAL, com poder. O votante a mais de 2026 dividiu o voto
+  quase como os vizinhos (+0,0345; limiar 0,15).
+  Reservatório de eleitores sem biometria: SEM SINAL no volume (teto de 7,8% da margem).
+  Sentinela dos muito idosos: INCONCLUSIVO, porque o TSE ainda não publicou o perfil do comparecimento do 2º turno.
+  T32 (idade): SEM PODER. O comparecimento subiu mais onde há mais eleitor de 70 anos ou mais (2,98 contra 2,27
+  pontos), mas Lula não ganhou mais por eleitor ali (0,51 contra 0,54).
+
+C1, QUEM LIBEROU E A QUE HORAS (logs de 3.897 seções)
+  Habilitações sem biometria: teto de 6% da margem. Votos depois das 17h de Brasília no 2º turno: cerca de 36 mil
+  no país; depois das 19h, zero. Votos impossíveis (antes da abertura, depois do encerramento, mais rápidos que o
+  programa permite): zero em 1,56 milhão de votos. Rajadas: 27 votos.
+  Os votos a mais entraram 80% por biometria reconhecida e de manhã.
+  Pequeno e real, para auditoria: 7 seções com mais votos por ano de nascimento do que o cadastro tem de eleitores
+  sem biometria (19 votos), lista em resultados/R27_C1_lista_local.csv; liberações sem nenhuma digital capturada
+  subiram de 1.066 para 1.359 na amostra.
+  Onde o voto por ano de nascimento mais cresceu, cada voto a mais veio com +0,74 para Lula e +0,26 para Flávio
+  (voto lançado daria 1 e 0), no ritmo normal de cabine.
+
+N2, QUEM NÃO VOLTOU: INCONCLUSIVO, e o teste não decide
+  A assimetria existe no modelo registrado: -0,0178 (4,6 ep), 872 mil votos (19,7% da margem). Com os controles de
+  mobilização local do registro ela cai 23% (limiares: 20% e 50%).
+  As marcas da explicação sem fraude não apareceram do jeito registrado: o voto de deputado do partido 22 tem sinal
+  contrário ao previsto, e a marca das UFs sem 2º turno de governador não aparece.
+  Mas a assimetria não tem forma de regra de programa: é quase zero onde Flávio é forte (44% dos votos dele), grande
+  nos redutos de Lula e nos municípios pequenos, e INVERTIDA no RJ, PA, AM e AP. A diferença entre município pequeno
+  e os demais tem o mesmo sinal e tamanho em 2014, 2018 e 2022.
+  O tamanho depende do nível: nada dentro da UF, 0,87 milhão dentro do município, 1,76 milhão dentro do local
+  (metade disso é perfil de idade e escolaridade).
+  Correção do conferente: entrada de faltosos do lado de Lula, plantada, produz a mesma assimetria que retirada de
+  eleitores de Flávio. O número NÃO pode ser lido como "eleitores de Flávio que sumiram" nem somado ao canal dos
+  faltosos da Onda A: são duas vistas do mesmo movimento.
+
+N3, FORMA REGULADA PELA FORÇA DE LULA: SEM SINAL, com poder (confirmação de um exploratório)
+  Onde Flávio é fraco, 1,9% dos votos dele aparecem em Lula e 1,9% dos de Lula aparecem em Flávio. A troca
+  concentrada do tamanho que vira o resultado daria 5,6% contra -2,5% e foi detectada em 200 de 200 sorteios.
+
+B1, CARGA, LOTE, FLASHCARD E ZONA: 0 sinal em 25 cláusulas
+  Modelo dentro do mesmo prédio (UE2022 contra UE2020, UE2015 contra UE2013), carga depois do 1º turno, urna
+  trocada, datas de carga, faixas de número de série: SEM SINAL, tetos de 1% a 6,5% da margem. Flashcard:
+  inconclusivo pela letra, sem excesso sobre 2022 depois da correção do conferente. Nenhuma urna e nenhuma carga
+  repetida. Por computador que gerou a mídia: sem poder.
+
+B5, JANELAS DA TOTALIZAÇÃO: nenhum sinal
+  O histórico oficial publicado em 03/11 é, passo a passo, a soma dos boletins do bweb (diferença zero em 6.250
+  zonas, 5.715 municípios e no país). Os resumos dos 56 zips conferem.
+  Boletins retidos das 17:08 às 19:03 contra os recebidos antes: +0,07 e +0,11 ponto, sinal CONTRÁRIO ao da
+  hipótese (inconclusivo pela letra só por um placebo do 1º turno). Pausa das 19:48, ordem de chegada e boletins
+  fora de hora: sem sinal.
+  Alegações novas: "um voto transferido a cada dez segundos depois das 17h01" (R1) refutada (previa 9,6 milhões de
+  votos transferidos e 8.558 seções com mais transferidos que votos de Lula; medido 0,2% do previsto). "Cadê os
+  165.699 votos" (R7): a tela era o acumulado exato das 17:06:27; diferença zero. "Flávio vencia com 30% apurado"
+  (R8): o fato confere, é ordem de chegada.
+
+LEITURA DEPOIS DAS ONDAS A E B
+1. Canais testados com poder e sem marca: troca de voto dentro da urna (uniforme e concentrada), voto lançado pela
+   mesa, urna, carga, lote, horário, totalização e transmissão.
+2. Tetos, lendo cada canal inteiro a favor da tese e sem nenhum movimento natural: troca de voto, metade da margem;
+   branco e nulo, metade; voto pela mesa, 15%. Só a soma dos três, com todo o movimento natural igual a zero,
+   chegaria à margem. Com os espelhos descontados, não chega perto.
+3. O que os dados mostram de positivo: o resultado mudou porque mudou QUEM COMPARECEU, e os que entraram passaram
+   pela biometria. Isso é o que a explicação sem fraude prevê. É também o que um programa que fabricasse presença
+   e biometria produziria, e essa versão não deixa marca em arquivo público.
+4. O que decide, e a quem pedir:
+   - TSE: por seção, quantos votaram no 1º turno e não no 2º, e quantos votaram no 2º e não no 1º (o cadastro de
+     comparecimento tem isso, sem identificar ninguém); quantos têm comparecimento e justificativa no mesmo turno;
+     o perfil do comparecimento do 2º turno.
+   - Juízos eleitorais: cadernos de votação de seções sorteadas, começando por PI, PB, AL, BA, CE, PE e RN e pelas
+     seções com abstenção do 1º turno abaixo de 10% e voto relevante de Flávio (7.351 seções).
+   - Qualquer eleitor: conferir no e-Título se o comparecimento do 2º turno consta.
+5. Achados pequenos, reais, para auditoria seção a seção: 7 seções com votos por ano de nascimento acima do
+   cadastro; 10 seções com ganho de Lula acima do limite físico (20 votos); Rafael Godeiro (RN); AM|2755|22|70.
