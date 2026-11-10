@@ -1,0 +1,384 @@
+R27_N4 (ADENDO 30, N4): SAÍDA CONTRA ENTRADA
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 30 (commit a7218fb, 10/11/2026 10:08:24 UTC), escrito depois da Onda B e
+antes de rodar. Decisões que o registro não fixa: docstring de scripts/analisar_R27_N4.py, gravado antes de qualquer
+conta com votos (cópia e SHA-256 14497e5621ff7ae7... em /home/user/trabalho-eleicao/adendo27/R27_N4/,
+2026-11-10T12:50:16Z).
+ESTE TESTE É CONFIRMAÇÃO DE UM EXPLORATÓRIO JÁ VISTO, NÃO TESTE CEGO: o conferente do N2 já tinha calculado a
+assimetria por faixa de abstenção (-0,0223, ep 0,0060, na faixa de menos de 10%). O número principal só podia
+confirmar a conta. O que é novo e decide é a calibração nas duas direções dentro da faixa, os espelhos, as regiões e a
+lista de seções.
+Limite dito no registro e que vale para tudo abaixo: saída é eleitor de Flávio que ficou em casa OU eleitor registrado
+como ausente; boletim não separa.
+
+VEREDITO PELA LETRA: SINAL ("há saída"), POR MARGEM ESTREITA E COM RESSALVA FORTE NA CALIBRAÇÃO
+  - Parte 1, a assimetria na faixa de menos de 10% de abstenção: A = -0,0223 (ep 0,0060; 3,69 erros-padrão; 7.211
+    seções, 6.412 no ajuste, 929 municípios). Cumpre os dois números da leitura "há saída" (-0,015 ou menos; mais de 3
+    erros-padrão). A mais 2 erros-padrão = -0,0102, longe de "não há saída medida" (-0,005).
+  - Parte 2, a calibração (o teste só vale se a entrada plantada mover menos de um terço do que a retirada plantada
+    move): NO LIMIAR. No sorteio fixado antes (semente 20261110) a razão é 0,319, abaixo de 0,333: pela regra do
+    docstring conta como CUMPRIDA. Sem sorteio (valores esperados) a razão é 0,348, ACIMA de 0,333; em 200 sorteios a
+    mediana é 0,349 e só 31,5% ficam abaixo de um terço; as três variantes fixadas ao lado não cumprem (0,348; 0,343;
+    0,350). A calibração passou por sorte do sorteio que eu tinha fixado; pela versão sem sorteio o veredito seria SEM
+    PODER.
+  - Leitura prudente: SINAL FRÁGIL, entre SINAL e SEM PODER. Não é indício enquanto o conferente não decidir qual
+    versão do plantio vale.
+Resumo em uma frase: na faixa em que quase não cabe entrada a assimetria continua (-0,0223; 3,7 ep), mas a calibração
+fica em cima do limiar, o sinal é do Nordeste e mora nas seções com menos de 50 votos de Flávio (reduto de Lula), onde
+o mesmo desenho já existia em 2018 e 2022; nas seções com voto relevante de Flávio a assimetria da faixa é zero e
+cresce com a abstenção, que é a forma de ENTRADA, não de saída.
+
+1. UNIVERSO E CONTA
+Universo (o do N2): 442.491 seções das 27 UFs com aptos iguais nos dois turnos (de 497.897), 5.571 municípios,
+139.432.569 aptos; abstenção do 1º turno 20,89%. Modelo 0 no país: A0 = -0,0178 (ep 0,0038), igual ao do N2. Código
+próprio; bate com scripts/lib.py (diferença máxima 3e-14 na faixa).
+Faixa = abstenção do 1º turno na seção (aptos menos comparecimento, sobre aptos), fechada embaixo e aberta em cima.
+Uma regressão por faixa, com efeito fixo de município dentro da faixa, peso aptos, erro por município. "Menos de 10%"
+é estrito: 7.211 seções; o conferente do N2 contou 7.351 porque incluiu as 140 com exatamente 10%.
+
+2. ASSIMETRIA POR FAIXA EM 2026 (A = coeficiente de Flávio menos o de Lula; negativa = o eleitor de Flávio voltou
+menos)
+    faixa          seções  municípios   A        ep      A/ep   abst.  var. comp.    Flávio 1T   V (votos)   % margem
+    menos de 10%    7.211       929   -0,0223  0,0060   -3,7    8,4%   -0,69 pt      570.346     12.721    0,29%
+    10 a 15%       54.226     3.160   -0,0118  0,0034   -3,5   13,2%   +0,49 pt    5.835.950     68.836    1,55%
+    15 a 20%      147.085     4.895   -0,0114  0,0029   -4,0   17,7%   +1,37 pt   17.156.275    196.114    4,43%
+    20 a 25%      141.426     4.921   -0,0164  0,0059   -2,8   22,3%   +2,20 pt   16.100.578    264.235    5,96%
+    25% ou mais    92.543     3.575   -0,0355  0,0074   -4,8   28,7%   +2,98 pt    9.470.114    336.232    7,59%
+    faixa          parte das quedas (ep)   parte das altas (ep)   seções em que caiu   em que subiu
+    menos de 10%  -0,0113 (0,0054)        -0,0110 (0,0018)           3.764              2.835
+    10 a 15%      +0,0023 (0,0027)        -0,0141 (0,0014)          18.194             32.732
+    15 a 20%      +0,0047 (0,0018)        -0,0162 (0,0017)          33.443            107.293
+    20 a 25%      +0,0043 (0,0018)        -0,0207 (0,0050)          22.156            114.949
+    25% ou mais   +0,0013 (0,0013)        -0,0368 (0,0073)          10.657             79.899
+Soma dos V das cinco faixas: 878.138 (19,8% da margem), quase o mesmo do N2 (872.404).
+"Parte das quedas" e "parte das altas": decomposição exata de A na parte carregada pelas seções em que o
+comparecimento caiu e na parte das seções em que subiu (fixada antes, descritiva). Na faixa de menos de 10% o
+comparecimento caiu em 3.764 seções e subiu em 2.835; metade da assimetria (-0,0110, ep 0,0018) vem das seções em que
+o comparecimento SUBIU e a outra metade (-0,0113, ep 0,0054; 2,1 ep) das seções em que caiu. Nas outras quatro faixas
+toda a assimetria vem das seções em que o comparecimento subiu; a parte das quedas é zero ou positiva.
+
+3. CALIBRAÇÃO NAS DUAS DIREÇÕES (plantio nos dados de 2026; os dois mexem só no comparecimento do 2º turno)
+Retirada (a irregularidade): em toda seção, Binomial(votos de Flávio no 2º turno; 0,036) eleitores passam à abstenção:
+1.881.528 no país, 20.962 na faixa de menos de 10%.
+Entrada (a explicação sem saída): cada faltoso do 1º turno entra com probabilidade k x inclinação da seção a Lula
+(L/(L+F)), k = 0,1324, limitada ao espaço físico da seção: 1.880.013 no país (o mesmo total), 11.497 na faixa. O
+limite físico cortou 9 seções.
+Deslocamento de A por faixa (sorteio fixado; entre parênteses, sem sorteio):
+    faixa          retirada             entrada              razão R
+    menos de 10%  -0,0377 (-0,0349)   -0,0120 (-0,0121)   0,319 (0,348)
+    10 a 15%      -0,0352 (-0,0356)   -0,0205 (-0,0212)   0,583 (0,593)
+    15 a 20%      -0,0360 (-0,0363)   -0,0307 (-0,0309)   0,852 (0,850)
+    20 a 25%      -0,0365 (-0,0368)   -0,0421 (-0,0420)   1,152 (1,140)
+    25% ou mais   -0,0375 (-0,0371)   -0,0594 (-0,0595)   1,584 (1,602)
+    país          -0,0363 (-0,0364)   -0,0339 (-0,0340)   0,935 (0,934)
+O teste enxerga a retirada: na faixa de menos de 10% ela desloca A em -0,0377, 6,2 erros-padrão da faixa. A menor
+retirada uniforme que levaria A a -0,015 é de 1,55% dos votos de Flávio; a que dá 3 erros-padrão, 1,87% (pelos valores
+sem sorteio).
+A razão cresce com a abstenção, como a ideia do teste previa: a entrada move um terço do que a retirada move na faixa
+de menos de 10%, o mesmo tanto no país e uma vez e meia na faixa de 25% ou mais. Mas "um terço" é exatamente o limiar
+do registro:
+  - sorteio fixado (o que o docstring disse que decide): R = 0,3191: CUMPRE por 0,014;
+  - sem sorteio: R = 0,3477: NÃO cumpre por 0,015;
+  - 200 sorteios: mediana 0,349; de 0,299 a 0,405 (95%); 31,5% abaixo de um terço. O sorteio fixado caiu entre os
+    favoráveis porque a retirada sorteada saiu 2 desvios acima da média (-0,0377 contra -0,0349, dp 0,0013);
+  - inclinação por válidos: 0,343; sem o limite físico: 0,350; retirada sobre os votos do 1º turno: 0,346;
+  - entrada na escala que a Onda A relatou (10,9% do lado de Lula e 5,5% do lado de Flávio; 2.369.729 entrantes):
+    desloca A da faixa em -0,0039 (-0,0049 sem sorteio), um quinto do observado;
+  - entrada uniforme, mesmo total: +0,00001 (não move, como devia);
+  - leitura dura (o mesmo total DENTRO da faixa, isto é, a entrada da faixa multiplicada por 1,86): R = 0,647.
+Conclusão da calibração: o teste tem poder para ver saída, mas na faixa de menos de 10% (abstenção média de 8,4%, não
+zero) ainda cabe entrada bastante para mover a assimetria um terço do que a retirada move. O critério do registro fica
+em cima do fio. Para a entrada explicar sozinha os -0,0223 da faixa, seria preciso que entrassem 24,4% dos faltosos
+numa seção toda de Lula (o plantio usa 13,2%; a Onda A mediu 10,9%).
+
+4. LEITURA DE DOSE (fixada antes, ao lado, não decide)
+A entrada que, sozinha, reproduz a assimetria do país inteiro (A0 = -0,0178) é 52,2% do plantio: 983.014 entrantes do
+lado de Lula. Nessa escala a entrada produziria, por faixa:
+    faixa          A observada  só entrada  excesso   ep (reamostragem)  intervalo de 95% do excesso
+    menos de 10%  -0,0223      -0,0063     -0,0160   0,0059             -0,0269 a -0,0037
+    10 a 15%      -0,0118      -0,0110     -0,0008   0,0032             -0,0072 a +0,0055
+    15 a 20%      -0,0114      -0,0161     +0,0047   0,0023             +0,0001 a +0,0090
+    20 a 25%      -0,0164      -0,0219     +0,0055   0,0023             +0,0015 a +0,0104
+    25% ou mais   -0,0355      -0,0311     -0,0044   0,0036             -0,0116 a +0,0023
+Nas faixas de 10% para cima a forma de entrada dá conta do observado (excessos pequenos e de sinais trocados). Na
+faixa de menos de 10% sobra -0,0160 (ep 0,0059; 2,7 erros-padrão): a entrada na escala que explicaria o país não
+alcança a assimetria da faixa. Fica abaixo de 3 erros-padrão.
+
+5. ESPELHOS
+  - E1, plantio espelho: retirada de 3,6% dos votos de Lula (2.049.205) move A da faixa em +0,0369; entrada de
+    faltosos do lado de Flávio, mesmo total, +0,0112; razão 0,302 (sem sorteio 0,323). Simétrico, sinais contrários,
+    como devia.
+  - E3, onde não deveria dar nada: com y embaralhado entre as seções do mesmo município (500 permutações), A da faixa
+    fica em -0,0002 com desvio 0,0046 (o erro agrupado do ajuste é 0,0060, mais cauteloso). Nenhuma das 500
+    permutações chega ao observado, que fica a 4,9 desvios. Reamostragem de municípios (999 réplicas): ep 0,0061,
+    intervalo de 95% de -0,0337 a -0,0097. O "mais de 3 erros-padrão" não depende da fórmula do erro.
+  - E2, a mesma conta nos outros anos: item 6.
+
+6. OUTROS ANOS, COM O VALOR BRUTO DE 2026 AO LADO (comparação, não régua de inocência: o Léo suspeita também deles)
+A = adversário do PT menos PT, por faixa de abstenção do 1º turno do próprio ano (ep entre parênteses):
+    ano    país              menos de 10%      10 a 15%          15 a 20%          20 a 25%          25% ou mais
+    2026   -0,0178 (0,0038)  -0,0223 (0,0060)  -0,0118 (0,0034)  -0,0114 (0,0029)  -0,0164 (0,0059)  -0,0355 (0,0074)
+    2022   +0,0230 (0,0025)  +0,0041 (0,0042)  +0,0157 (0,0023)  +0,0260 (0,0031)  +0,0310 (0,0036)  +0,0276 (0,0031)
+    2018   +0,0062 (0,0029)  +0,0006 (0,0038)  +0,0009 (0,0030)  +0,0070 (0,0036)  +0,0094 (0,0048)  +0,0160 (0,0033)
+    2014   +0,0290 (0,0032)  +0,0085 (0,0052)  +0,0176 (0,0035)  +0,0260 (0,0029)  +0,0373 (0,0026)  +0,0512 (0,0048)
+Seções na faixa de menos de 10%: 2026 7.211; 2022 6.359; 2018 22.864; 2014 28.625. Abstenção do 1º turno no universo:
+2026 20,9%; 2022 20,9%; 2018 20,2%; 2014 19,3%.
+Em 2014, 2018 e 2022 a assimetria da faixa de menos de 10% fica perto de zero (+0,0085; +0,0006; +0,0041) e cresce com
+a abstenção, que é a forma de entrada. Em 2026 a faixa de menos de 10% tem -0,0223. Diferença de 2026 para cada ano na
+faixa (erros somados como independentes; exploratório): 2022: -0,0264 (ep 0,0074); 2018: -0,0229 (ep 0,0071); 2014:
+-0,0308 (ep 0,0080).
+Faixa de menos de 10% por região, nos quatro anos (A, ep, seções; * = menos de 30 municípios informativos):
+    região        2026                      2022                      2018                      2014
+    Norte         -0,0038 (0,0158;  1.121)   +0,0094 (0,0140;    718)   -0,0042 (0,0125;  2.962)   +0,0166 (0,0109;  3.466)
+    Nordeste      -0,0368 (0,0059;  4.429)   -0,0072 (0,0063;  3.251)   -0,0153 (0,0060;  9.039)   -0,0044 (0,0108; 13.099)
+    Centro-Oeste  -0,0501 (0,0100;    116)*  +0,0056 (0,0252;    142)*  +0,0215 (0,0094;    858)*  -0,0133 (0,0055;  2.475)
+    Sudeste       -0,0360 (0,0167;    614)   -0,0065 (0,0114;    869)   +0,0273 (0,0042;  4.568)   +0,0091 (0,0072;  3.653)
+    Sul           +0,0222 (0,0103;    931)   +0,0242 (0,0060;  1.379)   -0,0004 (0,0041;  5.437)   +0,0004 (0,0034;  5.932)
+
+7. REGIÕES E UFs EM 2026
+A por região e faixa (ep entre parênteses):
+    região        menos de 10%      10 a 15%          15 a 20%          20 a 25%          25% ou mais       todas as faixas
+    Norte         -0,0038 (0,0158)  +0,0118 (0,0116)  +0,0235 (0,0103)  +0,0394 (0,0131)  +0,0069 (0,0168)  +0,0172 (0,0094)
+    Nordeste      -0,0368 (0,0059)  -0,0286 (0,0036)  -0,0311 (0,0041)  -0,0400 (0,0059)  -0,0616 (0,0073)  -0,0374 (0,0034)
+    Centro-Oeste  -0,0501 (0,0100)  -0,0093 (0,0070)  -0,0122 (0,0051)  -0,0198 (0,0061)  -0,0858 (0,0115)  -0,0385 (0,0066)
+    Sudeste       -0,0360 (0,0167)  -0,0013 (0,0039)  -0,0078 (0,0047)  -0,0232 (0,0117)  -0,0330 (0,0121)  -0,0218 (0,0094)
+    Sul           +0,0222 (0,0103)  +0,0089 (0,0049)  -0,0009 (0,0035)  -0,0018 (0,0039)  -0,0141 (0,0065)  -0,0045 (0,0029)
+A faixa de menos de 10% é 61% Nordeste (4.429 de 7.211 seções), e é lá que o sinal está: -0,0368 (ep 0,0059; 6,3 ep).
+Sem o Nordeste a faixa dá -0,0039 (ep 0,0115; 2.782 seções): nada medido. No Sul a faixa é invertida (+0,0222, 2,2
+ep), como em 2022 (+0,0242). No Nordeste a assimetria é negativa em todas as faixas e não some quando a abstenção cai.
+No Centro-Oeste a faixa tem só 116 seções em 16 municípios.
+UFs com 300 ou mais seções e 30 ou mais municípios informativos na faixa de menos de 10%: PI -0,0667 (ep 0,0222; 540
+seções); MA -0,0529 (ep 0,0291; 358 seções); BA -0,0441 (ep 0,0152; 514 seções); CE -0,0312 (ep 0,0073; 1.878 seções);
+PA -0,0172 (ep 0,0107; 739 seções); PE -0,0116 (ep 0,0133; 435 seções); RS +0,0145 (ep 0,0127; 410 seções); SC +0,0218
+(ep 0,0179; 404 seções). O Ceará sozinho tem 1.878 das 7.211 seções da faixa.
+
+8. SENSIBILIDADES (fixadas antes; não decidem)
+  - Sem peso: -0,0216 (ep 0,0066). Corte da faixa em 8%: -0,0232 (ep 0,0086; 2.560 seções; 2,7 ep). Corte em 12%:
+    -0,0185 (ep 0,0045; 18.950 seções).
+  - Modelo único (efeito fixo de município comum às faixas, interações): menos de 10% -0,0158 (ep 0,0032); 10 a 15%
+    -0,0112 (ep 0,0028); 15 a 20% -0,0170 (ep 0,0033); 20 a 25% -0,0249 (ep 0,0043); 25% ou mais -0,0315 (ep 0,0053).
+  - Efeito fixo de local de votação (seções da mesma escola): -0,0780 (ep 0,0138) na faixa de menos de 10%; nas
+    demais: -0,0492; -0,0301; -0,0324; -0,0320. Dentro do local a assimetria é maior em todas as faixas (o conferente
+    do N2 mostrou que metade disso é perfil de idade e escolaridade).
+  - Municípios com menos de 20.000 aptos: -0,0467 (ep 0,0130; 2.230 seções); demais: -0,0168 (ep 0,0067; 4.981
+    seções).
+  - Tirando uma UF de cada vez: de -0,0192 (sem CE, ep 0,0076: 2,5 ep, abaixo de 3) a -0,0277 (sem AP). Sempre -0,019
+    ou menos; só sem o Ceará deixa de passar de 3 erros-padrão. Tirando uma região: sem o Nordeste -0,0039; sem as
+    outras, de -0,0211 a -0,0308.
+  - SÓ SEÇÕES COM 50 OU MAIS VOTOS DE FLÁVIO NO 1º TURNO (o critério da lista; 4.608 seções, 501.863 dos 570.346 votos
+    de Flávio da faixa, 88%): A = +0,0002 (ep 0,0098). ZERO. A assimetria da faixa some onde Flávio tem voto
+    relevante. É o achado que mais pesa contra a leitura de saída e está detalhado no item 11.
+
+9. VOTOS DE MARGEM
+  - Na faixa de menos de 10%: V = 12.721 eleitores de Flávio que não voltaram acima da taxa do eleitor de Lula (ep
+    3.451), 0,29% da margem de 4.430.191. Cada um vale 1 voto de margem, não 2. A faixa é pequena: 1,2% dos votos de
+    Flávio.
+  - Extrapolação (não é medida): se a taxa da faixa valesse para todos os votos de Flávio do universo, 1.095.831 (ep
+    297.255), 24,7% da margem; no teto de 2 erros-padrão, 1.690.341 (38,2%). Nem no teto a saída sozinha vira o
+    resultado.
+  - Soma das cinco faixas: 878.138 (19,8% da margem), mas nas faixas de 10% para cima esse número tem forma de entrada
+    (item 4) e não pode ser lido como saída.
+  - Retirada uniforme máxima compatível com a faixa (A menos 2 ep, régua natural zero): 3,55% dos votos de Flávio na
+    faixa inteira; 1,95% nas seções com 50 ou mais votos de Flávio (exploratório). Para virar o resultado só por
+    retirada seriam precisos 4,43 milhões, 7,4% dos votos que Flávio teve no 2º turno.
+
+10. LISTA PARA CONFERÊNCIA DE CADERNOS (resultados/R27_N4_secoes_para_cadernos.csv)
+Critérios: seções do universo (aptos iguais nos dois turnos), abstenção do 1º turno abaixo de 10%, 50 ou mais votos de
+Flávio no 1º turno. Cumprem: 4.608 seções, com 501.863 votos de Flávio. Em 3.118 delas o voto de Flávio SUBIU do 1º
+para o 2º turno, em 251 ficou igual e em 1.239 caiu; no conjunto, Flávio ganhou 17.073 votos. Outras 781 seções
+cumpririam os critérios mas têm aptos diferentes entre os turnos e ficaram fora.
+As 300 de maior queda absoluta: quedas de 39 a 7 votos (mediana 10), soma 3.561 votos (0,08% da margem), em 187
+municípios. Nelas: Flávio 29.017 para 25.456; Lula +3.570; comparecimento -4.201; brancos e nulos -782; eliminados do
+1º turno 3.428. Forma de saída (queda do comparecimento de pelo menos metade da queda de Flávio): 225 seções; forma de
+troca (ganho de Lula de pelo menos metade da queda): 215; as duas: 140.
+Por UF: CE 71, PA 34, AP 28, RR 26, MA 26, AL 18, PI 18, RJ 13, RN 11, AC 10, PE 8, BA 7, AM 7, MG 5, TO 5, SE 4, PB
+4, PR 1, RO 1, SC 1, GO 1, ES 1. Por região: Nordeste 167, Norte 111, Sudeste 19, Sul 2, Centro-Oeste 1. Tipo de
+local: Convencional 298, Temporário 2. Municípios com mais seções: Macapá 17, Beberibe 7, Santana 6, Boa Vista 6,
+Fortaleza 6, Campos dos Goytacazes 5, Ocara 5, Manaus 5.
+Espelho da lista (as 300 maiores quedas de Lula pelos mesmos critérios; 6.062 seções candidatas, 517 com queda): soma
+2.535 votos, quedas de 68 a 3; Flávio -352; comparecimento -4.540. Nas quedas de Lula o outro lado não ganha (forma de
+saída em 279 de 300); nas quedas de Flávio, Lula ganha quase o mesmo tanto (+3.570 para -3.561). Parte disso é o voto
+dos eliminados indo para Lula (3.428 votos nas 300 seções). A lista é escolha de extremos entre 4.608 seções: serve
+para auditoria, não é evidência por si. As coordenadas vêm como estão no cadastro do TSE (vírgula decimal).
+Aviso sobre a lista: ela segue o registro (voto relevante de Flávio), mas nas seções com 50 ou mais votos de Flávio a
+assimetria medida na faixa é zero (item 8). O que o teste mediu mora nas seções com menos de 50 votos de Flávio.
+
+11. EXPLORATÓRIO (feito DEPOIS de ver os resultados acima; não muda veredito; cerca de 250 números olhados)
+(a) Faixa de menos de 10% por quantidade de votos de Flávio na seção:
+      menos de 20  A = -0,1489 (ep 0,0339)  seções    866  votos de Flávio    9.112  votos de Lula  102.488
+      20 a 49      A = -0,0599 (ep 0,0145)  seções  1.737  votos de Flávio   59.371  votos de Lula  218.047
+      menos de 50  A = -0,0754 (ep 0,0124)  seções  2.603  votos de Flávio   68.483  votos de Lula  320.535
+      50 ou mais   A = +0,0002 (ep 0,0098)  seções  4.608  votos de Flávio  501.863  votos de Lula  538.413
+      100 ou mais  A = -0,0152 (ep 0,0115)  seções  2.299  votos de Flávio  331.520  votos de Lula  245.638
+    Cortar por quantidade de votos de Flávio é cortar pelo regressor: não enviesa o coeficiente, mas muda onde ele é
+    medido e alarga o erro.
+    Diferença entre a faixa inteira e o recorte de 50 ou mais: -0,0225 (ep por reamostragem 0,0063; intervalo -0,0362
+    a -0,0119). Por força de Lula na seção: menos de 35% +0,0379 (ep 0,0187); 35 a 50% -0,0010 (ep 0,0213); 50 a 65%
+    -0,0173 (ep 0,0144); 65 a 80% +0,0018 (ep 0,0237); 80% ou mais -0,1165 (ep 0,0199). O sinal da faixa vem das
+    seções em que Lula tem 80% ou mais (22.420 votos de Flávio). Não é efeito do tamanho da seção: com o logaritmo dos
+    aptos no modelo A = -0,0238; só seções com 200 ou mais aptos, -0,0227.
+    Nordeste, 50 ou mais votos: -0,0243 (ep 0,0072; 2.656 seções; 3,4 ep); Nordeste, menos de 50: -0,0758 (ep 0,0124);
+    fora do Nordeste, 50 ou mais: +0,0375 (ep 0,0203). No Nordeste a assimetria da faixa resiste ao recorte; fora dele
+    é invertida. Só o Ceará: -0,0312 (ep 0,0073).
+(b) Poucos votos contra muitos votos, todas as faixas e os quatro anos (A; ordem das faixas: menos de 10, 10 a 15, 15
+a 20, 20 a 25, 25 ou mais):
+      menos de 50 votos do adversário do PT:
+        2026  todas -0,0841 (0,0043;  48.623 seções; V   +132.237)  faixas: -0,0754 -0,0795 -0,0738 -0,0798 -0,0822
+        2022  todas -0,0492 (0,0038;  62.982 seções; V    +93.345)  faixas: -0,0242 -0,0477 -0,0483 -0,0501 -0,0549
+        2018  todas -0,0720 (0,0045;  80.685 seções; V   +155.633)  faixas: -0,0582 -0,0701 -0,0674 -0,0796 -0,0686
+        2014  todas -0,0092 (0,0049; 134.931 seções; V    +32.917)  faixas: -0,0003 -0,0039 +0,0025 -0,0174 -0,0059
+      menos de 50 votos do PT (espelho):
+        2026  todas +0,0238 (0,0043;  31.059 seções; V    -99.178)  faixas: +0,0340 +0,0340 +0,0275 +0,0346 +0,0039
+        2022  todas +0,0595 (0,0052;  16.062 seções; V   -112.782)  faixas: +0,0427 +0,0531 +0,0652 +0,0565 +0,0786
+        2018  todas +0,0333 (0,0085; 193.910 seções; V   -895.093)  faixas: +0,0264 +0,0165 +0,0308 +0,0421 +0,0446
+        2014  todas +0,0318 (0,0056;  53.376 seções; V   -203.883)  faixas: +0,0102 +0,0112 +0,0319 +0,0510 +0,0691
+      50 ou mais votos do adversário do PT:
+        2026  todas -0,0168 (0,0049; 393.868 seções; V   +797.098)  faixas: +0,0002 -0,0095 -0,0116 -0,0188 -0,0326
+        2022  todas +0,0263 (0,0030; 358.559 seções; V -1.124.882)  faixas: +0,0100 +0,0191 +0,0271 +0,0332 +0,0300
+        2018  todas +0,0126 (0,0037; 356.008 seções; V   -564.674)  faixas: +0,0160 +0,0087 +0,0097 +0,0128 +0,0227
+        2014  todas +0,0258 (0,0035; 283.471 seções; V   -774.602)  faixas: +0,0059 +0,0144 +0,0215 +0,0331 +0,0608
+    Três leituras. Primeira: nas seções em que o adversário do PT tem menos de 50 votos, o eleitor dele "volta menos"
+    em 2026 (-0,084), em 2018 (-0,072) e em 2022 (-0,049), igual em todas as faixas de abstenção (forma de saída, não
+    de entrada); em 2014 não (-0,009). Segunda: o espelho existe: nas seções em que o PT tem menos de 50 votos é o
+    eleitor do PT que volta menos, nos quatro anos (+0,024 em 2026; +0,060; +0,033; +0,032). É um traço de minoria
+    local dos dois lados, não uma marca de 2026 nem só de um lado. Em 2026 ele vale 132.237 votos no país nas seções
+    de pouco voto de Flávio (3,0% da margem) e 99.178 no sentido contrário nas de pouco voto de Lula. Terceira: nas
+    seções com 50 ou mais votos de Flávio (97% dos votos dele) a assimetria de 2026 é zero na faixa de menos de 10% e
+    cresce com a abstenção.
+(c) Seções com 50 ou mais votos de Flávio, 2026: perfil por faixa contra as duas formas, cada uma na escala que
+reproduz o país nesse recorte (A = -0,0168):
+      faixa          observado          só entrada   só saída uniforme
+      menos de 10%  +0,0002 (ep 0,0098)   -0,0060      -0,0162
+      10 a 15%      -0,0095 (ep 0,0038)   -0,0099      -0,0164
+      15 a 20%      -0,0116 (ep 0,0029)   -0,0144      -0,0167
+      20 a 25%      -0,0188 (ep 0,0068)   -0,0195      -0,0169
+      25% ou mais   -0,0326 (ep 0,0092)   -0,0272      -0,0170
+    Soma dos desvios padronizados ao quadrado: 1,7 para a forma de entrada e 12,0 para a de saída uniforme (as faixas
+    partilham municípios; os números só comparam as duas formas). Onde Flávio tem voto relevante, o desenho por faixa
+    ajusta bem a forma de ENTRADA de faltosos do lado de Lula e mal a de saída uniforme de eleitores de Flávio.
+    Mistura das duas não fica excluída (na faixa de menos de 10% cabe saída de até 1,95% dos votos de Flávio, a 2 ep).
+    Em 2014 e 2022 o mesmo desenho aparece com o sinal trocado (entrada do lado do adversário do PT, que tinha ficado
+    atrás no 1º turno).
+(d) Nordeste por faixa nos quatro anos (A):
+      2026  -0,0368 (0,0059)  -0,0286 (0,0036)  -0,0311 (0,0041)  -0,0400 (0,0059)  -0,0616 (0,0073)
+      2022  -0,0072 (0,0063)  -0,0005 (0,0042)  +0,0015 (0,0035)  -0,0079 (0,0043)  -0,0228 (0,0051)
+      2018  -0,0153 (0,0060)  -0,0170 (0,0054)  -0,0219 (0,0072)  -0,0356 (0,0071)  -0,0533 (0,0085)
+      2014  -0,0044 (0,0108)  -0,0066 (0,0048)  +0,0109 (0,0098)  +0,0224 (0,0122)  -0,0031 (0,0083)
+    O Nordeste de 2018 tem o mesmo desenho do de 2026, com 40% a 90% do tamanho; na faixa de menos de 10%, -0,0153
+    (2,6 ep) em 2018 contra -0,0368 em 2026 (diferença -0,0215, ep 0,0084; 2,6 ep).
+
+A FAVOR DA TESE
+  - Pela letra, com a regra fixada antes, a leitura é "há saída": A = -0,0223 (3,7 ep) na faixa em que a entrada cabe
+    menos. Nenhuma de 500 permutações chega perto; o intervalo por reamostragem vai de -0,0337 a -0,0097; tirando
+    qualquer UF fica em -0,019 ou menos.
+  - A entrada não dá conta da faixa nas escalas conhecidas: na escala que explicaria o país inteiro ela produz -0,0063
+    e sobra -0,0160 (2,7 ep); na escala que a Onda A relatou, -0,0049. Para explicar a faixa sozinha, a entrada teria
+    de ser de 24% dos faltosos numa seção toda de Lula, mais que o dobro do que a Onda A mediu.
+  - Em 2014, 2018 e 2022 a mesma faixa dá +0,009, +0,001 e +0,004. 2026 fica de 0,023 a 0,031 abaixo (3,2 a 3,8 ep),
+    valor bruto ao lado; nenhum ano é régua segura.
+  - No Nordeste a assimetria da faixa é -0,0368 (6,3 ep), não some quando a abstenção cai (-0,029 a -0,062 nas cinco
+    faixas) e resiste ao recorte de 50 ou mais votos de Flávio (-0,0243; 3,4 ep; exploratório). É 2,4 vezes a de 2018
+    e 5 vezes a de 2022 na mesma faixa.
+  - Nas seções de reduto de Lula com menos de 50 votos de Flávio o eleitor de Flávio volta 7 a 8 pontos menos, em
+    todas as faixas de abstenção (forma de saída): -0,084 no país, 132.237 votos. São seções em que é de esperar pouca
+    fiscalização do lado dele. É o maior dos quatro anos (exploratório).
+  - Dentro do mesmo local de votação a assimetria da faixa é de -0,078 (ep 0,014).
+CONTRA A TESE
+  - A calibração que valida o teste está em cima do limiar e, no valor esperado, do lado errado: razão 0,348 sem
+    sorteio, mediana 0,349 em 200 sorteios, 68,5% dos sorteios acima de um terço. O sorteio fixado passou por acaso.
+    Na faixa de menos de 10% ainda cabe entrada para mover um terço do que a retirada move. Um leitor rigoroso diria
+    SEM PODER.
+  - Onde Flávio tem voto relevante não há saída medida: nas 4.608 seções da faixa com 50 ou mais votos dele (88% dos
+    votos de Flávio da faixa), A = +0,0002 (ep 0,0098). A sensibilidade foi fixada antes. O sinal da faixa inteira vem
+    das seções em que Lula tem 80% ou mais.
+  - Onde Flávio tem voto relevante (97% dos votos dele), a assimetria de 2026 é zero na faixa de menos de 10% e cresce
+    com a abstenção (0,000; -0,010; -0,012; -0,019; -0,033): ajusta a forma de ENTRADA de faltosos do lado de Lula e
+    não a de saída uniforme de eleitores de Flávio (soma de desvios 1,7 contra 12,0; exploratório). O mesmo desenho,
+    com o sinal trocado, aparece em 2014 e 2022.
+  - O "eleitor em minoria local volta menos" é traço dos dois lados e de vários anos: -0,072 em 2018 e -0,049 em 2022
+    nas seções de pouco voto do adversário do PT; +0,024 a +0,060 nas de pouco voto do PT, nos quatro anos
+    (exploratório). 2018 foi eleição que a direita venceu.
+  - O sinal da faixa é regional: sem o Nordeste, -0,0039 (ep 0,0115); no Sul é invertido (+0,0222); no Norte, nulo.
+    Sem o Ceará cai para 2,5 erros-padrão. Não tem forma de regra única de programa.
+  - Metade da assimetria da faixa é carregada por seções em que o comparecimento SUBIU; a parte das seções em que caiu
+    é -0,0113 (2,1 ep).
+  - Tamanho: 12.721 votos na faixa (0,29% da margem). Extrapolada a todo o país, 1,10 milhão (24,7%); no teto de 2 ep,
+    38%. As 300 seções da lista somam 3.561 votos de queda. Nas 4.608 seções candidatas o voto de Flávio subiu em
+    3.118 e caiu em 1.239.
+  - Limite do próprio teste: mesmo que haja saída, o boletim não separa quem ficou em casa de quem foi registrado como
+    ausente. Nada aqui prova retirada.
+O QUE ISSO SIGNIFICA
+O teste perguntava: onde quase não houve faltoso para entrar, o eleitor de Flávio ainda aparece voltando menos que o
+de Lula? A resposta pela letra é sim (-0,0223; 3,7 erros-padrão), e isso confirma, com código próprio, o exploratório
+do conferente do N2. Mas três coisas tiram força desse sim.
+Primeira: a condição que o próprio registro pôs para o teste valer (a entrada mover menos de um terço do que a
+retirada) fica exatamente em cima do fio: 0,319 no sorteio que eu tinha fixado, 0,348 na conta sem sorteio. Com
+abstenção média de 8,4%, a faixa não é um lugar sem entrada; é um lugar com menos entrada. O teste, como desenhado,
+não separa as duas coisas com folga.
+Segunda: o sinal não está onde a tese precisa dele. Some nas seções em que Flávio tem 50 votos ou mais, some fora do
+Nordeste, e vem das seções em que Lula tem 80% ou mais, onde há poucos votos de Flávio para perder (o canal inteiro,
+no país, vale cerca de 130 mil votos, 3% da margem). E nessas seções o mesmo desenho já existia em 2018 e em 2022, e
+existe ao contrário nos redutos de Flávio.
+Terceira, e a mais útil para o conjunto da investigação: onde Flávio tem voto relevante, a assimetria do N2 tem a
+forma da ENTRADA (zero onde não há faltoso, crescente com a abstenção). Isso combina com o que a Onda B achou por
+outro caminho (os votantes a mais entraram, 80% pela biometria). Se o conferente confirmar esse recorte, que é
+exploratório, a leitura é que a virada passou por quem entrou do lado de Lula, não por eleitor de Flávio que sumiu.
+Entrada é o que a explicação sem fraude prevê (o lado que ficou atrás no 1º turno mobiliza mais faltosos, como em 2014
+e 2022 com o sinal trocado) e é também o que um programa que fabricasse presença produziria. Dado público não separa
+as duas; caderno de votação separa.
+Em resumo: há um sinal pela letra, frágil, pequeno em votos e concentrado nos redutos de Lula do Nordeste; ele não
+sustenta a ideia de retirada em massa de eleitores de Flávio. Sinal só conta como indício depois de conferente
+independente refazer e decidir a calibração. Teste feito só com boletins e cadastro não é contrapeso à hipótese de
+programa adulterado na origem.
+PISTAS
+  - Cadernos, lado da SAÍDA: a lista das 300 seções (resultados/R27_N4_secoes_para_cadernos.csv). Conferir assinaturas
+    e registros de biometria do 2º turno contra o comparecimento do boletim; assinatura sem comparecimento seria prova
+    de eleitor registrado como ausente. Começar por Ceará (71 seções), Pará (34), Amapá (28, das quais 17 em Macapá),
+    Roraima (26) e Maranhão (26).
+  - Cadernos, lado da ENTRADA (o que este teste indica como mais importante): seções de abstenção alta no 1º turno em
+    que o comparecimento mais subiu e Lula mais ganhou. Ali a conferência é a contrária: comparecimento no boletim sem
+    assinatura nem digital do eleitor no caderno. Vale registrar um teste e uma lista para isso antes de pedir.
+  - Redutos de Lula com pouco voto de Flávio (menos de 50 por seção): é onde a forma de saída aparece (-0,084).
+    Registrar antes de rodar um teste próprio, com 2018 e 2022 ao lado e o espelho nos redutos de Flávio, e ouvir
+    fiscais e eleitores de Flávio dessas seções (comprovante do 2º turno no e-Título).
+  - Nordeste: é a única região em que a assimetria da faixa resiste a todos os recortes (-0,037; -0,024 com 50 ou mais
+    votos). Ceará tem 1.878 das 7.211 seções da faixa; vale entender por que tantas seções cearenses têm abstenção
+    abaixo de 10% (revisão de eleitorado recente?).
+  - Pedido ao TSE que decide sem inferência: por seção, quantos votaram no 1º turno e não no 2º, e quantos votaram no
+    2º e não no 1º. Com isso saída e entrada deixam de ser estimativa.
+  - Para o conferente: decidir se a calibração vale pelo sorteio fixado (0,319) ou pela conta sem sorteio (0,348);
+    refazer o recorte de 50 votos e o perfil por faixa com código próprio.
+DESVIOS E DECISÕES FORA DO REGISTRO (escritas no docstring antes de calcular, salvo o exploratório)
+  - Faixas fechadas embaixo e abertas em cima; "menos de 10%" estrito (7.211 seções, não as 7.351 do exploratório do
+    conferente, que incluía as de exatamente 10%).
+  - "Separado por faixa" = uma regressão por faixa com efeito fixo de município dentro da faixa; município com uma só
+    seção na faixa não informa (799 das 7.211 seções). Modelo único com efeito fixo comum ao lado (-0,0158).
+  - Plantios: retirada = o D7 do N2 (Binomial sobre os votos de Flávio do 2º turno, 3,6%, semente 20261110); entrada =
+    o plantio do conferente do N2 (faltosos x inclinação a Lula), com sorteio binomial e limite físico acrescentados
+    por mim. "Mesmo total" = mesmo total NACIONAL. A leitura dura (mesmo total dentro da faixa) dá R = 0,647 e não
+    cumpriria.
+  - Regra de decisão da calibração: fixei que decide o sorteio da semente 20261110 e que variantes divergentes
+    entrariam como "margem estreita". Foi o que aconteceu. Em retrospecto a conta sem sorteio é a medida mais limpa da
+    razão; não troquei a regra depois de ver, e relato as duas.
+  - Tradução da leitura em veredito: "há saída" = SINAL no sentido estreito; "não há saída medida" = SEM SINAL;
+    calibração não cumprida = SEM PODER; o resto = INCONCLUSIVO.
+  - Leitura de dose, espelhos (plantio espelho, permutação, outros anos), regiões, regra de "poucas unidades",
+    sensibilidades e descritivo da lista: definidos por mim no docstring.
+  - Lista: só seções com aptos iguais nos dois turnos; ordem pela queda absoluta de votos de Flávio; empate pela queda
+    relativa. 781 seções com aptos diferentes ficaram fora.
+  - Outros anos: fora as seções com turno anulado (5 em 2018, 1 em 2014); por isso o A0 de 2018 sai +0,0062 e não
+    +0,0063.
+  - O que eu conhecia antes: Ondas A e B, o N2 com a conferência, o exploratório por faixa do conferente e a definição
+    do plantio de entrada dele. Não fui cego para o número principal.
+  - EXPLORATÓRIO, depois de ver o resultado (item 11): recortes por quantidade de votos de Flávio e de Lula, por força
+    de Lula, tamanho da seção, Nordeste, perfil por faixa contra as duas formas, outros anos nos mesmos recortes,
+    diferenças entre anos.
+  - Nenhum limiar do registro foi mudado. Sem commit nem push; nenhum arquivo existente do repositório foi alterado;
+    nenhuma requisição ao site do TSE.
+
+Contagem: uma leitura por limiar (a da faixa de menos de 10%), uma calibração do registro, três espelhos; a 3
+erros-padrão o acaso daria um falso sinal em 0,13% das vezes. O bloco exploratório olhou cerca de 250 números; nada
+dele entra como indício sem teste registrado e conferência independente.
+Arquivos: scripts/analisar_R27_N4.py; resultados/R27_N4_saida_contra_entrada.json;
+resultados/R27_N4_secoes_para_cadernos.csv; trabalho e parciais em /home/user/trabalho-eleicao/adendo27/R27_N4/
+(base_AAAA.npz, parciais, rodada1.log, o script e o resultado guardados antes do exploratório).

@@ -140,9 +140,10 @@ D12. Produto (CSV para pedido de cadernos): seções de U (aptos iguais nos dois
     A lista é escolha de extremos: serve para auditoria, não é evidência por si.
 D13. Tudo o que for feito depois de ver resultado fica na chave "exploratorio" do JSON e marcado no texto.
 """
-# Acrescentado DEPOIS de rodar: só o comando "texto" (redação do .txt a partir do JSON) e o que estiver na função
-# explorar(), marcada como exploratória. As funções base(), rodar() e lista() são as do arquivo guardado antes de
-# rodar em /home/user/trabalho-eleicao/adendo27/R27_N4/analisar_R27_N4_antes_de_rodar.py.
+# Acrescentado DEPOIS de rodar: os comandos "explorar" e "explorar2" (bloco exploratório, não muda veredito) e
+# "texto" (redação do .txt a partir do JSON). As funções base(), rodar() e lista() são as do arquivo guardado antes
+# de rodar em /home/user/trabalho-eleicao/adendo27/R27_N4/analisar_R27_N4_antes_de_rodar.py (SHA-256 14497e56...).
+# Ordem completa: base, rodar, lista, explorar, explorar2, texto.
 import collections
 import csv
 import gzip
@@ -1092,6 +1093,382 @@ def explorar2():
     diga('exploratório 2 gravado')
 
 
+# ---------------------------------------------------------------- texto (redação; escrita depois de rodar)
+def _n(x):
+    return f'{int(round(x)):,}'.replace(',', '.')
+
+
+def _d(x, k=4, sinal=True):
+    if x is None:
+        return 'n/d'
+    t = f'{x:+.{k}f}' if sinal else f'{x:.{k}f}'
+    return t.replace('.', ',')
+
+
+def _si(x):
+    return ('+' if x > 0 else '-' if x < 0 else '') + _n(abs(x))
+
+
+def _p(x, k=1):
+    return f'{x:.{k}f}'.replace('.', ',') + '%'
+
+
+def _quebra(t, largura=118, recuo=''):
+    import textwrap
+    out = []
+    for par in t.split('\n'):
+        if not par.strip():
+            out.append('')
+            continue
+        ini = len(par) - len(par.lstrip(' '))
+        sub = ' ' * ini + ('  ' if par.lstrip().startswith('- ') else '')
+        out.extend(textwrap.wrap(par, width=largura, subsequent_indent=sub if par.lstrip().startswith('- ') else ' ' * ini,
+                                 break_long_words=False, break_on_hyphens=False) or [''])
+    return '\n'.join(out)
+
+
+def texto():
+    R = json.load(open(SAIDA_JSON))
+    fx = R['faixas_2026']
+    f1 = fx[0]
+    cal = R['calibracao']
+    sp, ss = cal['sorteio_principal'], cal['sem_sorteio']
+    Rz = cal['R_por_faixa_e_pais']
+    s200 = cal['200_sorteios_faixa1']
+    cr = cal['criterio']
+    dose = R['dose_ao_lado']
+    perm = R['espelho_permutacao_faixa1']
+    sen = R['sensibilidades']
+    E = R['exploratorio']
+    E2 = E['poucos_e_muitos_votos']
+    L = R['lista_para_cadernos']
+    u = R['universo']
+    anos = R['anos']
+    reg = R['regioes_2026']
+    nomes_reg = {'N': 'Norte', 'NE': 'Nordeste', 'CO': 'Centro-Oeste', 'SE': 'Sudeste', 'S': 'Sul'}
+    T = []
+    w = T.append
+
+    def wt(t):          # linha de tabela: não é quebrada
+        T.append('\x00' + t.rstrip())
+    w('R27_N4 (ADENDO 30, N4): SAÍDA CONTRA ENTRADA')
+    w('')
+    w('Registro: PRE-REGISTRO-2026-10-26.md, Adendo 30 (commit a7218fb, 10/11/2026 10:08:24 UTC), escrito depois da Onda B e antes de rodar. '
+      'Decisões que o registro não fixa: docstring de scripts/analisar_R27_N4.py, gravado antes de qualquer conta com votos '
+      '(cópia e SHA-256 14497e5621ff7ae7... em /home/user/trabalho-eleicao/adendo27/R27_N4/, 2026-11-10T12:50:16Z).')
+    w('ESTE TESTE É CONFIRMAÇÃO DE UM EXPLORATÓRIO JÁ VISTO, NÃO TESTE CEGO: o conferente do N2 já tinha calculado a assimetria por faixa de abstenção '
+      '(-0,0223, ep 0,0060, na faixa de menos de 10%). O número principal só podia confirmar a conta. O que é novo e decide é a calibração nas duas '
+      'direções dentro da faixa, os espelhos, as regiões e a lista de seções.')
+    w('Limite dito no registro e que vale para tudo abaixo: saída é eleitor de Flávio que ficou em casa OU eleitor registrado como ausente; boletim não separa.')
+    w('')
+    w('VEREDITO PELA LETRA: SINAL ("há saída"), POR MARGEM ESTREITA E COM RESSALVA FORTE NA CALIBRAÇÃO')
+    w(f'  - Parte 1, a assimetria na faixa de menos de 10% de abstenção: A = {_d(f1["A"])} (ep {_d(f1["ep"], 4, False)}; {_d(abs(f1["A"]) / f1["ep"], 2, False)} erros-padrão; '
+      f'{_n(f1["n_secoes_faixa"])} seções, {_n(f1["n_no_ajuste"])} no ajuste, {_n(f1["municipios_informativos"])} municípios). Cumpre os dois números da leitura "há saída" '
+      f'(-0,015 ou menos; mais de 3 erros-padrão). A mais 2 erros-padrão = {_d(f1["A"] + 2 * f1["ep"])}, longe de "não há saída medida" (-0,005).')
+    w(f'  - Parte 2, a calibração (o teste só vale se a entrada plantada mover menos de um terço do que a retirada plantada move): NO LIMIAR. '
+      f'No sorteio fixado antes (semente 20261110) a razão é {_d(cr["R_faixa1"], 3, False)}, abaixo de 0,333: pela regra do docstring conta como CUMPRIDA. '
+      f'Sem sorteio (valores esperados) a razão é {_d(Rz["sem_sorteio"][0], 3, False)}, ACIMA de 0,333; em 200 sorteios a mediana é {_d(s200["R_mediana"], 3, False)} '
+      f'e só {_p(100 * s200["fracao_abaixo_de_um_terco"])} ficam abaixo de um terço; as três variantes fixadas ao lado não cumprem '
+      f'({_d(Rz["sem_sorteio"][0], 3, False)}; {_d(Rz["inclinacao_por_validos"][0], 3, False)}; {_d(Rz["sem_limite_fisico"][0], 3, False)}). '
+      'A calibração passou por sorte do sorteio que eu tinha fixado; pela versão sem sorteio o veredito seria SEM PODER.')
+    w('  - Leitura prudente: SINAL FRÁGIL, entre SINAL e SEM PODER. Não é indício enquanto o conferente não decidir qual versão do plantio vale.')
+    w('Resumo em uma frase: na faixa em que quase não cabe entrada a assimetria continua (-0,0223; 3,7 ep), mas a calibração fica em cima do limiar, o sinal é '
+      'do Nordeste e mora nas seções com menos de 50 votos de Flávio (reduto de Lula), onde o mesmo desenho já existia em 2018 e 2022; nas seções com voto '
+      'relevante de Flávio a assimetria da faixa é zero e cresce com a abstenção, que é a forma de ENTRADA, não de saída.')
+    w('')
+    w('1. UNIVERSO E CONTA')
+    w(f'Universo (o do N2): {_n(u["secoes_U"])} seções das 27 UFs com aptos iguais nos dois turnos (de {_n(u["secoes_com_dois_turnos"])}), {_n(u["municipios_U"])} municípios, '
+      f'{_n(u["aptos_U"])} aptos; abstenção do 1º turno {_p(100 * u["abst_1t"], 2)}. Modelo 0 no país: A0 = {_d(R["modelo0_pais"]["A"])} (ep {_d(R["modelo0_pais"]["ep"], 4, False)}), '
+      f'igual ao do N2. Código próprio; bate com scripts/lib.py (diferença máxima {R["conferencia_lib"]["faixa_menos_de_10"]["dif_max_coef"]:.0e} na faixa).')
+    w('Faixa = abstenção do 1º turno na seção (aptos menos comparecimento, sobre aptos), fechada embaixo e aberta em cima. Uma regressão por faixa, com efeito '
+      'fixo de município dentro da faixa, peso aptos, erro por município. "Menos de 10%" é estrito: 7.211 seções; o conferente do N2 contou 7.351 porque incluiu '
+      'as 140 com exatamente 10%.')
+    w('')
+    w('2. ASSIMETRIA POR FAIXA EM 2026 (A = coeficiente de Flávio menos o de Lula; negativa = o eleitor de Flávio voltou menos)')
+    wt('    faixa          seções  municípios   A        ep      A/ep   abst.  var. comp.    Flávio 1T   V (votos)   % margem')
+    for m in fx:
+        wt(f'    {m["faixa"]:<13} {_n(m["n_secoes_faixa"]):>7}  {_n(m["municipios_informativos"]):>8}   {_d(m["A"])}  {_d(m["ep"], 4, False)}  {_d(m["A"] / m["ep"], 1):>5}  '
+           f'{_p(100 * m["abst_media_ponderada"]):>6}  {_d(100 * m["y_medio_ponderado"], 2):>6} pt  {_n(m["votos_F_1t"]):>11}  {_n(m["V_votos"]):>9}   {_p(m["V_pct_margem"], 2):>6}')
+    wt('    faixa          parte das quedas (ep)   parte das altas (ep)   seções em que caiu   em que subiu')
+    for m in fx:
+        wt(f'    {m["faixa"]:<13} {_d(m["A_parte_quedas"])} ({_d(m["ep_parte_quedas"], 4, False)})        {_d(m["A_parte_altas"])} ({_d(m["ep_parte_altas"], 4, False)})       '
+           f'{_n(m["secoes_comp_caiu"]):>9}          {_n(m["secoes_comp_subiu"]):>9}')
+    w(f'Soma dos V das cinco faixas: {_n(R["soma_V_faixas"])} ({_p(100 * R["soma_V_faixas"] / MARGEM)} da margem), quase o mesmo do N2 (872.404).')
+    w('"Parte das quedas" e "parte das altas": decomposição exata de A na parte carregada pelas seções em que o comparecimento caiu e na parte das seções em que subiu '
+      f'(fixada antes, descritiva). Na faixa de menos de 10% o comparecimento caiu em {_n(f1["secoes_comp_caiu"])} seções e subiu em {_n(f1["secoes_comp_subiu"])}; '
+      f'metade da assimetria ({_d(f1["A_parte_altas"])}, ep {_d(f1["ep_parte_altas"], 4, False)}) vem das seções em que o comparecimento SUBIU e a outra metade '
+      f'({_d(f1["A_parte_quedas"])}, ep {_d(f1["ep_parte_quedas"], 4, False)}; 2,1 ep) das seções em que caiu. Nas outras quatro faixas toda a assimetria vem das seções em que o '
+      'comparecimento subiu; a parte das quedas é zero ou positiva.')
+    w('')
+    w('3. CALIBRAÇÃO NAS DUAS DIREÇÕES (plantio nos dados de 2026; os dois mexem só no comparecimento do 2º turno)')
+    w(f'Retirada (a irregularidade): em toda seção, Binomial(votos de Flávio no 2º turno; 0,036) eleitores passam à abstenção: {_n(sp["retirada_F"]["total_U"])} no país, '
+      f'{_n(sp["retirada_F"]["total_faixas"][0])} na faixa de menos de 10%.')
+    w(f'Entrada (a explicação sem saída): cada faltoso do 1º turno entra com probabilidade k x inclinação da seção a Lula (L/(L+F)), k = {_d(sp["_k_entrada_L"], 4, False)}, '
+      f'limitada ao espaço físico da seção: {_n(sp["entrada_L"]["total_U"])} no país (o mesmo total), {_n(sp["entrada_L"]["total_faixas"][0])} na faixa. '
+      f'O limite físico cortou {sp["_cortadas_entrada_L"]} seções.')
+    w('Deslocamento de A por faixa (sorteio fixado; entre parênteses, sem sorteio):')
+    wt('    faixa          retirada             entrada              razão R')
+    for i, m in enumerate(fx):
+        wt(f'    {m["faixa"]:<13} {_d(sp["retirada_F"]["dA_faixas"][i])} ({_d(ss["retirada_F"]["dA_faixas"][i])})   {_d(sp["entrada_L"]["dA_faixas"][i])} ({_d(ss["entrada_L"]["dA_faixas"][i])})   '
+          f'{_d(Rz["principal"][i], 3, False)} ({_d(Rz["sem_sorteio"][i], 3, False)})')
+    wt(f'    país          {_d(sp["retirada_F"]["dA_pais"])} ({_d(ss["retirada_F"]["dA_pais"])})   {_d(sp["entrada_L"]["dA_pais"])} ({_d(ss["entrada_L"]["dA_pais"])})   '
+      f'{_d(Rz["principal"][5], 3, False)} ({_d(Rz["sem_sorteio"][5], 3, False)})')
+    w(f'O teste enxerga a retirada: na faixa de menos de 10% ela desloca A em {_d(cr["dA_retirada_faixa1"])}, {_d(cr["retirada_em_ep_da_faixa"], 1, False)} erros-padrão da faixa. '
+      f'A menor retirada uniforme que levaria A a -0,015 é de {_p(100 * TAXA * 0.015 / abs(ss["retirada_F"]["dA_faixas"][0]), 2)} dos votos de Flávio; a que dá 3 erros-padrão, '
+      f'{_p(100 * TAXA * 3 * f1["ep"] / abs(ss["retirada_F"]["dA_faixas"][0]), 2)} (pelos valores sem sorteio).')
+    w('A razão cresce com a abstenção, como a ideia do teste previa: a entrada move um terço do que a retirada move na faixa de menos de 10%, o mesmo tanto no país '
+      'e uma vez e meia na faixa de 25% ou mais. Mas "um terço" é exatamente o limiar do registro:')
+    w(f'  - sorteio fixado (o que o docstring disse que decide): R = {_d(cr["R_faixa1"], 4, False)}: CUMPRE por 0,014;')
+    w(f'  - sem sorteio: R = {_d(Rz["sem_sorteio"][0], 4, False)}: NÃO cumpre por 0,015;')
+    w(f'  - 200 sorteios: mediana {_d(s200["R_mediana"], 3, False)}; de {_d(s200["R_p2_5"], 3, False)} a {_d(s200["R_p97_5"], 3, False)} (95%); {_p(100 * s200["fracao_abaixo_de_um_terco"])} abaixo de um terço. '
+      f'O sorteio fixado caiu entre os favoráveis porque a retirada sorteada saiu 2 desvios acima da média ({_d(cr["dA_retirada_faixa1"])} contra {_d(s200["dA_retirada_media"])}, dp {_d(s200["dA_retirada_dp"], 4, False)});')
+    w(f'  - inclinação por válidos: {_d(Rz["inclinacao_por_validos"][0], 3, False)}; sem o limite físico: {_d(Rz["sem_limite_fisico"][0], 3, False)}; retirada sobre os votos do 1º turno: {_d(Rz["retirada_sobre_votos_1t"][0], 3, False)};')
+    w(f'  - entrada na escala que a Onda A relatou (10,9% do lado de Lula e 5,5% do lado de Flávio; {_n(sp["entrada_escala_ondaA"]["total_U"])} entrantes): desloca A da faixa em '
+      f'{_d(sp["entrada_escala_ondaA"]["dA_faixas"][0])} ({_d(ss["entrada_escala_ondaA"]["dA_faixas"][0])} sem sorteio), um quinto do observado;')
+    w(f'  - entrada uniforme, mesmo total: {_d(ss["entrada_uniforme"]["dA_faixas"][0], 5)} (não move, como devia);')
+    w(f'  - leitura dura (o mesmo total DENTRO da faixa, isto é, a entrada da faixa multiplicada por {_d(cal["leitura_dura_mesmo_total_na_faixa"]["fator"], 2, False)}): R = {_d(cal["leitura_dura_mesmo_total_na_faixa"]["R"], 3, False)}.')
+    w('Conclusão da calibração: o teste tem poder para ver saída, mas na faixa de menos de 10% (abstenção média de 8,4%, não zero) ainda cabe entrada bastante para mover '
+      'a assimetria um terço do que a retirada move. O critério do registro fica em cima do fio. Para a entrada explicar sozinha os -0,0223 da faixa, seria preciso que '
+      f'entrassem {_p(100 * abs(f1["A"] / ss["entrada_L"]["dA_faixas"][0]) * ss["_k_entrada_L"])} dos faltosos numa seção toda de Lula (o plantio usa {_p(100 * ss["_k_entrada_L"])}; a Onda A mediu 10,9%).')
+    w('')
+    w('4. LEITURA DE DOSE (fixada antes, ao lado, não decide)')
+    w(f'A entrada que, sozinha, reproduz a assimetria do país inteiro (A0 = -0,0178) é {_p(100 * dose["escala_s"])} do plantio: {_n(dose["entrantes_equivalentes_no_pais"])} entrantes do lado de Lula. '
+      'Nessa escala a entrada produziria, por faixa:')
+    wt('    faixa          A observada  só entrada  excesso   ep (reamostragem)  intervalo de 95% do excesso')
+    for m in dose['por_faixa']:
+        wt(f'    {m["faixa"]:<13} {_d(m["A_observada"])}      {_d(m["A_prevista_so_entrada"])}     {_d(m["excesso"])}   {_d(m["ep_excesso_reamostragem"], 4, False)}             '
+          f'{_d(m["ic95_excesso"][0])} a {_d(m["ic95_excesso"][1])}')
+    w(f'Nas faixas de 10% para cima a forma de entrada dá conta do observado (excessos pequenos e de sinais trocados). Na faixa de menos de 10% sobra {_d(dose["por_faixa"][0]["excesso"])} '
+      f'(ep {_d(dose["por_faixa"][0]["ep_excesso_reamostragem"], 4, False)}; {_d(abs(dose["por_faixa"][0]["excesso"]) / dose["por_faixa"][0]["ep_excesso_reamostragem"], 1, False)} erros-padrão): a entrada na escala que explicaria o país não alcança a assimetria da faixa. '
+      'Fica abaixo de 3 erros-padrão.')
+    w('')
+    w('5. ESPELHOS')
+    w(f'  - E1, plantio espelho: retirada de 3,6% dos votos de Lula ({_n(sp["retirada_L"]["total_U"])}) move A da faixa em {_d(sp["retirada_L"]["dA_faixas"][0])}; entrada de faltosos do lado de Flávio, '
+      f'mesmo total, {_d(sp["entrada_F"]["dA_faixas"][0])}; razão {_d(Rz["espelho_entrada_F_sobre_retirada_L"][0], 3, False)} (sem sorteio {_d(abs(ss["entrada_F"]["dA_faixas"][0] / ss["retirada_L"]["dA_faixas"][0]), 3, False)}). Simétrico, sinais contrários, como devia.')
+    w(f'  - E3, onde não deveria dar nada: com y embaralhado entre as seções do mesmo município (500 permutações), A da faixa fica em {_d(perm["media"])} com desvio {_d(perm["dp"], 4, False)} '
+      f'(o erro agrupado do ajuste é {_d(perm["ep_agrupado_do_ajuste"], 4, False)}, mais cauteloso). Nenhuma das 500 permutações chega ao observado, que fica a {_d(perm["A_observada_em_dp_da_permutacao"], 1, False)} desvios. '
+      f'Reamostragem de municípios (999 réplicas): ep {_d(dose["por_faixa"][0]["ep_A_reamostragem"], 4, False)}, intervalo de 95% de {_d(dose["por_faixa"][0]["ic95_A_reamostragem"][0])} a {_d(dose["por_faixa"][0]["ic95_A_reamostragem"][1])}. '
+      'O "mais de 3 erros-padrão" não depende da fórmula do erro.')
+    w('  - E2, a mesma conta nos outros anos: item 6.')
+    w('')
+    w('6. OUTROS ANOS, COM O VALOR BRUTO DE 2026 AO LADO (comparação, não régua de inocência: o Léo suspeita também deles)')
+    w('A = adversário do PT menos PT, por faixa de abstenção do 1º turno do próprio ano (ep entre parênteses):')
+    wt('    ano    país              menos de 10%      10 a 15%          15 a 20%          20 a 25%          25% ou mais')
+    for ano in ('2026', '2022', '2018', '2014'):
+        o = anos[ano]
+        wt(f'    {ano}   {_d(o["modelo0_pais"]["A"])} ({_d(o["modelo0_pais"]["ep"], 4, False)})  '
+           + '  '.join(f'{_d(m["A"])} ({_d(m["ep"], 4, False)})' for m in o['faixas']))
+    w('Seções na faixa de menos de 10%: ' + '; '.join(f'{ano} {_n(anos[ano]["faixas"][0]["n_secoes_faixa"])}' for ano in ('2026', '2022', '2018', '2014'))
+      + '. Abstenção do 1º turno no universo: ' + '; '.join(f'{ano} {_p(100 * anos[ano]["universo"]["abst_1t"])}' for ano in ('2026', '2022', '2018', '2014')) + '.')
+    w('Em 2014, 2018 e 2022 a assimetria da faixa de menos de 10% fica perto de zero (+0,0085; +0,0006; +0,0041) e cresce com a abstenção, que é a forma de entrada. '
+      f'Em 2026 a faixa de menos de 10% tem {_d(f1["A"])}. Diferença de 2026 para cada ano na faixa (erros somados como independentes; exploratório): '
+      + '; '.join(f'{a}: {_d(E["faixa1_2026_menos_ano"][a]["dif"])} (ep {_d(E["faixa1_2026_menos_ano"][a]["ep"], 4, False)})' for a in ('2022', '2018', '2014')) + '.')
+    w('Faixa de menos de 10% por região, nos quatro anos (A, ep, seções; * = menos de 30 municípios informativos):')
+    wt('    região        2026                      2022                      2018                      2014')
+    for r in REGIOES:
+        linha = f'    {nomes_reg[r]:<12}'
+        for ano in ('2026', '2022', '2018', '2014'):
+            m = anos[ano]['faixa1_por_regiao'][r]
+            linha += f'  {_d(m["A"])} ({_d(m["ep"], 4, False)}; {_n(m["n_secoes_faixa"]):>6}){"*" if m["poucas_unidades"] else " "}'
+        wt(linha)
+    w('')
+    w('7. REGIÕES E UFs EM 2026')
+    w('A por região e faixa (ep entre parênteses):')
+    wt('    região        menos de 10%      10 a 15%          15 a 20%          20 a 25%          25% ou mais       todas as faixas')
+    for r in REGIOES:
+        v = reg[r]
+        wt(f'    {nomes_reg[r]:<12}  ' + '  '.join(f'{_d(m["A"])} ({_d(m["ep"], 4, False)})' for m in v['faixas'])
+           + f'  {_d(v["todas_as_faixas"]["A"])} ({_d(v["todas_as_faixas"]["ep"], 4, False)})')
+    ne = reg['NE']['faixas'][0]
+    w(f'A faixa de menos de 10% é {_p(100 * ne["n_secoes_faixa"] / f1["n_secoes_faixa"], 0)} Nordeste ({_n(ne["n_secoes_faixa"])} de {_n(f1["n_secoes_faixa"])} seções), e é lá que o sinal está: {_d(ne["A"])} (ep {_d(ne["ep"], 4, False)}; '
+      f'{_d(abs(ne["A"]) / ne["ep"], 1, False)} ep). Sem o Nordeste a faixa dá {_d(sen["faixa1_sem_uma_regiao"]["NE"]["A"])} (ep {_d(sen["faixa1_sem_uma_regiao"]["NE"]["ep"], 4, False)}; {_n(sen["faixa1_sem_uma_regiao"]["NE"]["n"])} seções): nada medido. '
+      'No Sul a faixa é invertida (+0,0222, 2,2 ep), como em 2022 (+0,0242). No Nordeste a assimetria é negativa em todas as faixas e não some quando a abstenção cai. '
+      'No Centro-Oeste a faixa tem só 116 seções em 16 municípios.')
+    ufs = R['ufs_faixa1_2026']
+    w('UFs com 300 ou mais seções e 30 ou mais municípios informativos na faixa de menos de 10%: '
+      + '; '.join(f'{uf} {_d(o["A"])} (ep {_d(o["ep"], 4, False)}; {_n(o["secoes_faixa1"])} seções)' for uf, o in sorted(ufs.items(), key=lambda kv: kv[1].get('A', 9)) if 'A' in o) + '. '
+      f'O Ceará sozinho tem {_n(ufs["CE"]["secoes_faixa1"])} das {_n(f1["n_secoes_faixa"])} seções da faixa.')
+    w('')
+    w('8. SENSIBILIDADES (fixadas antes; não decidem)')
+    w(f'  - Sem peso: {_d(sen["sem_peso"][0]["A"])} (ep {_d(sen["sem_peso"][0]["ep"], 4, False)}). Corte da faixa em 8%: {_d(sen["corte_8"]["A"])} (ep {_d(sen["corte_8"]["ep"], 4, False)}; {_n(sen["corte_8"]["n_secoes_faixa"])} seções; 2,7 ep). '
+      f'Corte em 12%: {_d(sen["corte_12"]["A"])} (ep {_d(sen["corte_12"]["ep"], 4, False)}; {_n(sen["corte_12"]["n_secoes_faixa"])} seções).')
+    w(f'  - Modelo único (efeito fixo de município comum às faixas, interações): ' + '; '.join(f'{m["faixa"]} {_d(m["A"])} (ep {_d(m["ep"], 4, False)})' for m in sen['modelo_unico_efeito_fixo_comum']) + '.')
+    w(f'  - Efeito fixo de local de votação (seções da mesma escola): {_d(sen["efeito_fixo_local"][0]["A"])} (ep {_d(sen["efeito_fixo_local"][0]["ep"], 4, False)}) na faixa de menos de 10%; nas demais: '
+      + '; '.join(_d(m['A']) for m in sen['efeito_fixo_local'][1:]) + '. Dentro do local a assimetria é maior em todas as faixas (o conferente do N2 mostrou que metade disso é perfil de idade e escolaridade).')
+    w(f'  - Municípios com menos de 20.000 aptos: {_d(sen["faixa1_municipios_pequenos"]["A"])} (ep {_d(sen["faixa1_municipios_pequenos"]["ep"], 4, False)}; {_n(sen["faixa1_municipios_pequenos"]["n_secoes_faixa"])} seções); demais: '
+      f'{_d(sen["faixa1_municipios_demais"]["A"])} (ep {_d(sen["faixa1_municipios_demais"]["ep"], 4, False)}; {_n(sen["faixa1_municipios_demais"]["n_secoes_faixa"])} seções).')
+    semuf = sen['faixa1_sem_uma_uf']
+    w(f'  - Tirando uma UF de cada vez: de {_d(max(v["A"] for v in semuf.values()))} (sem CE, ep {_d(semuf["CE"]["ep"], 4, False)}: 2,5 ep, abaixo de 3) a {_d(min(v["A"] for v in semuf.values()))} (sem AP). Sempre -0,019 ou menos; só sem o Ceará '
+      'deixa de passar de 3 erros-padrão. Tirando uma região: sem o Nordeste ' + _d(sen['faixa1_sem_uma_regiao']['NE']['A']) + '; sem as outras, de '
+      + _d(max(v['A'] for k, v in sen['faixa1_sem_uma_regiao'].items() if k != 'NE')) + ' a ' + _d(min(v['A'] for k, v in sen['faixa1_sem_uma_regiao'].items() if k != 'NE')) + '.')
+    m50 = sen['faixa1_50_ou_mais_votos_F']
+    w(f'  - SÓ SEÇÕES COM 50 OU MAIS VOTOS DE FLÁVIO NO 1º TURNO (o critério da lista; {_n(m50["n_secoes_faixa"])} seções, {_n(m50["votos_F_1t"])} dos {_n(f1["votos_F_1t"])} votos de Flávio da faixa, 88%): '
+      f'A = {_d(m50["A"])} (ep {_d(m50["ep"], 4, False)}). ZERO. A assimetria da faixa some onde Flávio tem voto relevante. É o achado que mais pesa contra a leitura de saída e está detalhado no item 11.')
+    w('')
+    w('9. VOTOS DE MARGEM')
+    w(f'  - Na faixa de menos de 10%: V = {_n(f1["V_votos"])} eleitores de Flávio que não voltaram acima da taxa do eleitor de Lula (ep {_n(f1["V_ep"])}), {_p(f1["V_pct_margem"], 2)} da margem de 4.430.191. '
+      'Cada um vale 1 voto de margem, não 2. A faixa é pequena: 1,2% dos votos de Flávio.')
+    ex = R['extrapolacao_taxa_faixa1_a_todo_U']
+    w(f'  - Extrapolação (não é medida): se a taxa da faixa valesse para todos os votos de Flávio do universo, {_n(ex["votos"])} (ep {_n(ex["ep"])}), {_p(ex["pct_margem"])} da margem; no teto de 2 erros-padrão, '
+      f'{_n(ex["votos"] + 2 * ex["ep"])} ({_p(100 * (ex["votos"] + 2 * ex["ep"]) / MARGEM)}). Nem no teto a saída sozinha vira o resultado.')
+    w(f'  - Soma das cinco faixas: {_n(R["soma_V_faixas"])} ({_p(100 * R["soma_V_faixas"] / MARGEM)} da margem), mas nas faixas de 10% para cima esse número tem forma de entrada (item 4) e não pode ser lido como saída.')
+    w(f'  - Retirada uniforme máxima compatível com a faixa (A menos 2 ep, régua natural zero): {_p(E["faixa1_50_ou_mais_calibracao_sem_sorteio"]["idem_faixa_inteira"], 2)} dos votos de Flávio na faixa inteira; '
+      f'{_p(E["faixa1_50_ou_mais_calibracao_sem_sorteio"]["retirada_maxima_compativel_2ep_pct_dos_votos_F"], 2)} nas seções com 50 ou mais votos de Flávio (exploratório). Para virar o resultado só por retirada seriam precisos 4,43 milhões, 7,4% dos votos que Flávio teve no 2º turno.')
+    w('')
+    w('10. LISTA PARA CONFERÊNCIA DE CADERNOS (resultados/R27_N4_secoes_para_cadernos.csv)')
+    l3 = L['lista_300']
+    w(f'Critérios: seções do universo (aptos iguais nos dois turnos), abstenção do 1º turno abaixo de 10%, 50 ou mais votos de Flávio no 1º turno. Cumprem: {_n(L["candidatas"])} seções, com {_n(L["votos_flavio_1t_candidatas"])} votos de Flávio. '
+      f'Em {_n(L["candidatas_com_alta_de_flavio"])} delas o voto de Flávio SUBIU do 1º para o 2º turno, em {_n(L["candidatas_sem_variacao"])} ficou igual e em {_n(L["candidatas_com_queda_de_flavio"])} caiu; no conjunto, Flávio ganhou {_n(L["soma_variacao_flavio_candidatas"])} votos. '
+      f'Outras {_n(L["fora_da_lista_por_aptos_diferentes"])} seções cumpririam os critérios mas têm aptos diferentes entre os turnos e ficaram fora.')
+    w(f'As 300 de maior queda absoluta: quedas de {_n(l3["queda_max"])} a {_n(l3["queda_min"])} votos (mediana {_n(l3["queda_mediana"])}), soma {_n(l3["soma_queda"])} votos ({_p(100 * l3["soma_queda"] / MARGEM, 2)} da margem), em {_n(L["municipios_na_lista"])} municípios. '
+      f'Nelas: Flávio {_n(l3["votos_1t"])} para {_n(l3["votos_2t"])}; Lula {_si(l3["soma_variacao_do_outro"])}; comparecimento {_si(l3["soma_variacao_comparecimento"])}; brancos e nulos {_si(l3["soma_variacao_brancos_nulos"])}; '
+      f'eliminados do 1º turno {_n(-(l3["soma_variacao_comparecimento"] + l3["soma_queda"] - l3["soma_variacao_do_outro"] - l3["soma_variacao_brancos_nulos"]))}. '
+      f'Forma de saída (queda do comparecimento de pelo menos metade da queda de Flávio): {l3["forma_de_saida"]} seções; forma de troca (ganho de Lula de pelo menos metade da queda): {l3["forma_de_troca"]}; as duas: {l3["as_duas"]}.')
+    w('Por UF: ' + ', '.join(f'{k} {v}' for k, v in L['por_uf'].items()) + '. Por região: ' + ', '.join(f'{nomes_reg[k]} {v}' for k, v in L['por_regiao'].items()) + '. Tipo de local: '
+      + ', '.join(f'{k} {v}' for k, v in L['por_tipo_local'].items()) + '. Municípios com mais seções: Macapá 17, Beberibe 7, Santana 6, Boa Vista 6, Fortaleza 6, Campos dos Goytacazes 5, Ocara 5, Manaus 5.')
+    el = L['espelho_lula']['lista_300']
+    w(f'Espelho da lista (as 300 maiores quedas de Lula pelos mesmos critérios; {_n(L["espelho_lula"]["candidatas"])} seções candidatas, {_n(L["espelho_lula"]["candidatas_com_queda"])} com queda): soma {_n(el["soma_queda"])} votos, quedas de {_n(el["queda_max"])} a {_n(el["queda_min"])}; '
+      f'Flávio {_si(el["soma_variacao_do_outro"])}; comparecimento {_si(el["soma_variacao_comparecimento"])}. Nas quedas de Lula o outro lado não ganha (forma de saída em {el["forma_de_saida"]} de 300); nas quedas de Flávio, Lula ganha quase o mesmo tanto '
+      f'({_si(l3["soma_variacao_do_outro"])} para {_si(-l3["soma_queda"])}). Parte disso é o voto dos eliminados indo para Lula ({_n(-(l3["soma_variacao_comparecimento"] + l3["soma_queda"] - l3["soma_variacao_do_outro"] - l3["soma_variacao_brancos_nulos"]))} votos nas 300 seções). '
+      'A lista é escolha de extremos entre 4.608 seções: serve para auditoria, não é evidência por si. As coordenadas vêm como estão no cadastro do TSE (vírgula decimal).')
+    w('Aviso sobre a lista: ela segue o registro (voto relevante de Flávio), mas nas seções com 50 ou mais votos de Flávio a assimetria medida na faixa é zero (item 8). '
+      'O que o teste mediu mora nas seções com menos de 50 votos de Flávio.')
+    w('')
+    w('11. EXPLORATÓRIO (feito DEPOIS de ver os resultados acima; não muda veredito; cerca de 250 números olhados)')
+    pv = E['faixa1_por_votos_de_flavio']
+    w('(a) Faixa de menos de 10% por quantidade de votos de Flávio na seção:')
+    for k in ('menos de 20', '20 a 49', 'menos de 50', '50 ou mais', '100 ou mais'):
+        m = pv[k]
+        wt(f'      {k:<12} A = {_d(m["A"])} (ep {_d(m["ep"], 4, False)})  seções {_n(m["n_secoes_faixa"]):>6}  votos de Flávio {_n(m["votos_F_1t"]):>8}  votos de Lula {_n(m["votos_L_1t"]):>8}')
+    dd = E['faixa1_diferenca_todas_menos_50_ou_mais']
+    w('    Cortar por quantidade de votos de Flávio é cortar pelo regressor: não enviesa o coeficiente, mas muda onde ele é medido e alarga o erro.')
+    w(f'    Diferença entre a faixa inteira e o recorte de 50 ou mais: {_d(dd["dif"])} (ep por reamostragem {_d(dd["ep_reamostragem"], 4, False)}; intervalo {_d(dd["ic95"][0])} a {_d(dd["ic95"][1])}). '
+      f'Por força de Lula na seção: {"; ".join(k + " " + _d(v["A"]) + " (ep " + _d(v["ep"], 4, False) + ")" for k, v in E["faixa1_por_forca_de_lula"].items())}. '
+      f'O sinal da faixa vem das seções em que Lula tem 80% ou mais (22.420 votos de Flávio). Não é efeito do tamanho da seção: com o logaritmo dos aptos no modelo A = {_d(E["faixa1_com_log_aptos"]["A"])}; '
+      f'só seções com 200 ou mais aptos, {_d(E["faixa1_secoes_com_200_ou_mais_aptos"]["A"])}.')
+    w(f'    Nordeste, 50 ou mais votos: {_d(E["faixa1_NE_50_ou_mais"]["A"])} (ep {_d(E["faixa1_NE_50_ou_mais"]["ep"], 4, False)}; {_n(E["faixa1_NE_50_ou_mais"]["n_secoes_faixa"])} seções; 3,4 ep); Nordeste, menos de 50: {_d(E["faixa1_NE_menos_de_50"]["A"])} (ep {_d(E["faixa1_NE_menos_de_50"]["ep"], 4, False)}); '
+      f'fora do Nordeste, 50 ou mais: {_d(E["faixa1_fora_NE_50_ou_mais"]["A"])} (ep {_d(E["faixa1_fora_NE_50_ou_mais"]["ep"], 4, False)}). No Nordeste a assimetria da faixa resiste ao recorte; fora dele é invertida. Só o Ceará: {_d(E["faixa1_so_CE"]["A"])} (ep {_d(E["faixa1_so_CE"]["ep"], 4, False)}).')
+    w('(b) Poucos votos contra muitos votos, todas as faixas e os quatro anos (A; ordem das faixas: menos de 10, 10 a 15, 15 a 20, 20 a 25, 25 ou mais):')
+    rot = {'F_menos_de_50': 'menos de 50 votos do adversário do PT', 'F_50_ou_mais': '50 ou mais votos do adversário do PT',
+           'L_menos_de_50': 'menos de 50 votos do PT (espelho)', 'L_50_ou_mais': '50 ou mais votos do PT'}
+    for k in ('F_menos_de_50', 'L_menos_de_50', 'F_50_ou_mais'):
+        wt(f'      {rot[k]}:')
+        for ano in ('2026', '2022', '2018', '2014'):
+            v = E2[ano][k]
+            wt(f'        {ano}  todas {_d(v["todas"]["A"])} ({_d(v["todas"]["ep"], 4, False)}; {_n(v["todas"]["n"]):>7} seções; V {_si(v["todas"]["V_votos"]):>10})  faixas: ' + ' '.join(_d(m['A']) for m in v['faixas']))
+    w('    Três leituras. Primeira: nas seções em que o adversário do PT tem menos de 50 votos, o eleitor dele "volta menos" em 2026 (-0,084), em 2018 (-0,072) e em 2022 (-0,049), '
+      'igual em todas as faixas de abstenção (forma de saída, não de entrada); em 2014 não (-0,009). Segunda: o espelho existe: nas seções em que o PT tem menos de 50 votos é o eleitor do PT que volta menos, '
+      'nos quatro anos (+0,024 em 2026; +0,060; +0,033; +0,032). É um traço de minoria local dos dois lados, não uma marca de 2026 nem só de um lado. '
+      f'Em 2026 ele vale {_n(E2["2026"]["F_menos_de_50"]["todas"]["V_votos"])} votos no país nas seções de pouco voto de Flávio ({_p(100 * E2["2026"]["F_menos_de_50"]["todas"]["V_votos"] / MARGEM)} da margem) e {_n(-E2["2026"]["L_menos_de_50"]["todas"]["V_votos"])} no sentido contrário nas de pouco voto de Lula. '
+      'Terceira: nas seções com 50 ou mais votos de Flávio (97% dos votos dele) a assimetria de 2026 é zero na faixa de menos de 10% e cresce com a abstenção.')
+    pf = E2['2026']['perfil_50_ou_mais_contra_previsoes']
+    w('(c) Seções com 50 ou mais votos de Flávio, 2026: perfil por faixa contra as duas formas, cada uma na escala que reproduz o país nesse recorte (A = ' + _d(pf['A_pais_recorte']) + '):')
+    wt('      faixa          observado          só entrada   só saída uniforme')
+    for m in pf['faixas']:
+        wt(f'      {m["faixa"]:<13} {_d(m["A"])} (ep {_d(m["ep"], 4, False)})   {_d(m["previsto_so_entrada"])}      {_d(m["previsto_so_saida_uniforme"])}')
+    w(f'    Soma dos desvios padronizados ao quadrado: {_d(pf["soma_quadrados_padronizados_entrada"], 1, False)} para a forma de entrada e {_d(pf["soma_quadrados_padronizados_saida"], 1, False)} para a de saída uniforme (as faixas partilham municípios; os números só comparam as duas formas). '
+      'Onde Flávio tem voto relevante, o desenho por faixa ajusta bem a forma de ENTRADA de faltosos do lado de Lula e mal a de saída uniforme de eleitores de Flávio. Mistura das duas não fica excluída '
+      '(na faixa de menos de 10% cabe saída de até 1,95% dos votos de Flávio, a 2 ep). Em 2014 e 2022 o mesmo desenho aparece com o sinal trocado '
+      '(entrada do lado do adversário do PT, que tinha ficado atrás no 1º turno).')
+    w('(d) Nordeste por faixa nos quatro anos (A):')
+    for ano in ('2026', '2022', '2018', '2014'):
+        wt(f'      {ano}  ' + '  '.join(f'{_d(m["A"])} ({_d(m["ep"], 4, False)})' for m in E['anos'][ano]['NE_por_faixa']))
+    w('    O Nordeste de 2018 tem o mesmo desenho do de 2026, com 40% a 90% do tamanho; na faixa de menos de 10%, -0,0153 (2,6 ep) em 2018 contra -0,0368 em 2026 '
+      f'(diferença {_d(E["faixa1_2026_menos_ano"]["2018"]["dif_NE"])}, ep {_d(E["faixa1_2026_menos_ano"]["2018"]["ep_NE"], 4, False)}; 2,6 ep).')
+    w('')
+    w('A FAVOR DA TESE')
+    w(f'  - Pela letra, com a regra fixada antes, a leitura é "há saída": A = {_d(f1["A"])} (3,7 ep) na faixa em que a entrada cabe menos. Nenhuma de 500 permutações chega perto; o intervalo por reamostragem '
+      f'vai de {_d(dose["por_faixa"][0]["ic95_A_reamostragem"][0])} a {_d(dose["por_faixa"][0]["ic95_A_reamostragem"][1])}; tirando qualquer UF fica em -0,019 ou menos.')
+    w(f'  - A entrada não dá conta da faixa nas escalas conhecidas: na escala que explicaria o país inteiro ela produz {_d(dose["por_faixa"][0]["A_prevista_so_entrada"])} e sobra {_d(dose["por_faixa"][0]["excesso"])} (2,7 ep); na escala que a Onda A relatou, '
+      f'{_d(ss["entrada_escala_ondaA"]["dA_faixas"][0])}. Para explicar a faixa sozinha, a entrada teria de ser de 24% dos faltosos numa seção toda de Lula, mais que o dobro do que a Onda A mediu.')
+    w('  - Em 2014, 2018 e 2022 a mesma faixa dá +0,009, +0,001 e +0,004. 2026 fica de 0,023 a 0,031 abaixo (3,2 a 3,8 ep), valor bruto ao lado; nenhum ano é régua segura.')
+    w('  - No Nordeste a assimetria da faixa é -0,0368 (6,3 ep), não some quando a abstenção cai (-0,029 a -0,062 nas cinco faixas) e resiste ao recorte de 50 ou mais votos de Flávio (-0,0243; 3,4 ep; exploratório). '
+      'É 2,4 vezes a de 2018 e 5 vezes a de 2022 na mesma faixa.')
+    w('  - Nas seções de reduto de Lula com menos de 50 votos de Flávio o eleitor de Flávio volta 7 a 8 pontos menos, em todas as faixas de abstenção (forma de saída): -0,084 no país, '
+      f'{_n(E2["2026"]["F_menos_de_50"]["todas"]["V_votos"])} votos. São seções em que é de esperar pouca fiscalização do lado dele. É o maior dos quatro anos (exploratório).')
+    w('  - Dentro do mesmo local de votação a assimetria da faixa é de -0,078 (ep 0,014).')
+    w('CONTRA A TESE')
+    w(f'  - A calibração que valida o teste está em cima do limiar e, no valor esperado, do lado errado: razão {_d(Rz["sem_sorteio"][0], 3, False)} sem sorteio, mediana {_d(s200["R_mediana"], 3, False)} em 200 sorteios, {_p(100 * (1 - s200["fracao_abaixo_de_um_terco"]))} dos sorteios acima de um terço. '
+      'O sorteio fixado passou por acaso. Na faixa de menos de 10% ainda cabe entrada para mover um terço do que a retirada move. Um leitor rigoroso diria SEM PODER.')
+    w(f'  - Onde Flávio tem voto relevante não há saída medida: nas {_n(m50["n_secoes_faixa"])} seções da faixa com 50 ou mais votos dele (88% dos votos de Flávio da faixa), A = {_d(m50["A"])} (ep {_d(m50["ep"], 4, False)}). '
+      'A sensibilidade foi fixada antes. O sinal da faixa inteira vem das seções em que Lula tem 80% ou mais.')
+    w('  - Onde Flávio tem voto relevante (97% dos votos dele), a assimetria de 2026 é zero na faixa de menos de 10% e cresce com a abstenção (0,000; -0,010; -0,012; -0,019; -0,033): ajusta a forma de ENTRADA de faltosos do lado de Lula '
+      'e não a de saída uniforme de eleitores de Flávio (soma de desvios 1,7 contra 12,0; exploratório). O mesmo desenho, com o sinal trocado, aparece em 2014 e 2022.')
+    w('  - O "eleitor em minoria local volta menos" é traço dos dois lados e de vários anos: -0,072 em 2018 e -0,049 em 2022 nas seções de pouco voto do adversário do PT; +0,024 a +0,060 nas de pouco voto do PT, nos quatro anos (exploratório). '
+      '2018 foi eleição que a direita venceu.')
+    w('  - O sinal da faixa é regional: sem o Nordeste, -0,0039 (ep 0,0115); no Sul é invertido (+0,0222); no Norte, nulo. Sem o Ceará cai para 2,5 erros-padrão. Não tem forma de regra única de programa.')
+    w('  - Metade da assimetria da faixa é carregada por seções em que o comparecimento SUBIU; a parte das seções em que caiu é -0,0113 (2,1 ep).')
+    w(f'  - Tamanho: {_n(f1["V_votos"])} votos na faixa ({_p(f1["V_pct_margem"], 2)} da margem). Extrapolada a todo o país, 1,10 milhão (24,7%); no teto de 2 ep, 38%. As 300 seções da lista somam {_n(l3["soma_queda"])} votos de queda. '
+      f'Nas {_n(L["candidatas"])} seções candidatas o voto de Flávio subiu em {_n(L["candidatas_com_alta_de_flavio"])} e caiu em {_n(L["candidatas_com_queda_de_flavio"])}.')
+    w('  - Limite do próprio teste: mesmo que haja saída, o boletim não separa quem ficou em casa de quem foi registrado como ausente. Nada aqui prova retirada.')
+    w('O QUE ISSO SIGNIFICA')
+    w('O teste perguntava: onde quase não houve faltoso para entrar, o eleitor de Flávio ainda aparece voltando menos que o de Lula? A resposta pela letra é sim (-0,0223; 3,7 erros-padrão), '
+      'e isso confirma, com código próprio, o exploratório do conferente do N2. Mas três coisas tiram força desse sim.')
+    w('Primeira: a condição que o próprio registro pôs para o teste valer (a entrada mover menos de um terço do que a retirada) fica exatamente em cima do fio: 0,319 no sorteio que eu tinha fixado, 0,348 na conta sem sorteio. '
+      'Com abstenção média de 8,4%, a faixa não é um lugar sem entrada; é um lugar com menos entrada. O teste, como desenhado, não separa as duas coisas com folga.')
+    w('Segunda: o sinal não está onde a tese precisa dele. Some nas seções em que Flávio tem 50 votos ou mais, some fora do Nordeste, e vem das seções em que Lula tem 80% ou mais, onde há poucos votos de Flávio para perder '
+      '(o canal inteiro, no país, vale cerca de 130 mil votos, 3% da margem). E nessas seções o mesmo desenho já existia em 2018 e em 2022, e existe ao contrário nos redutos de Flávio.')
+    w('Terceira, e a mais útil para o conjunto da investigação: onde Flávio tem voto relevante, a assimetria do N2 tem a forma da ENTRADA (zero onde não há faltoso, crescente com a abstenção). '
+      'Isso combina com o que a Onda B achou por outro caminho (os votantes a mais entraram, 80% pela biometria). Se o conferente confirmar esse recorte, que é exploratório, a leitura é que a virada passou por quem entrou do lado de Lula, não por eleitor de Flávio que sumiu. '
+      'Entrada é o que a explicação sem fraude prevê (o lado que ficou atrás no 1º turno mobiliza mais faltosos, como em 2014 e 2022 com o sinal trocado) e é também o que um programa que fabricasse presença produziria. '
+      'Dado público não separa as duas; caderno de votação separa.')
+    w('Em resumo: há um sinal pela letra, frágil, pequeno em votos e concentrado nos redutos de Lula do Nordeste; ele não sustenta a ideia de retirada em massa de eleitores de Flávio. '
+      'Sinal só conta como indício depois de conferente independente refazer e decidir a calibração. Teste feito só com boletins e cadastro não é contrapeso à hipótese de programa adulterado na origem.')
+    w('PISTAS')
+    w('  - Cadernos, lado da SAÍDA: a lista das 300 seções (resultados/R27_N4_secoes_para_cadernos.csv). Conferir assinaturas e registros de biometria do 2º turno contra o comparecimento do boletim; '
+      'assinatura sem comparecimento seria prova de eleitor registrado como ausente. Começar por Ceará (71 seções), Pará (34), Amapá (28, das quais 17 em Macapá), Roraima (26) e Maranhão (26).')
+    w('  - Cadernos, lado da ENTRADA (o que este teste indica como mais importante): seções de abstenção alta no 1º turno em que o comparecimento mais subiu e Lula mais ganhou. '
+      'Ali a conferência é a contrária: comparecimento no boletim sem assinatura nem digital do eleitor no caderno. Vale registrar um teste e uma lista para isso antes de pedir.')
+    w('  - Redutos de Lula com pouco voto de Flávio (menos de 50 por seção): é onde a forma de saída aparece (-0,084). Registrar antes de rodar um teste próprio, com 2018 e 2022 ao lado e o espelho nos redutos de Flávio, '
+      'e ouvir fiscais e eleitores de Flávio dessas seções (comprovante do 2º turno no e-Título).')
+    w('  - Nordeste: é a única região em que a assimetria da faixa resiste a todos os recortes (-0,037; -0,024 com 50 ou mais votos). Ceará tem 1.878 das 7.211 seções da faixa; vale entender por que tantas seções cearenses têm abstenção abaixo de 10% (revisão de eleitorado recente?).')
+    w('  - Pedido ao TSE que decide sem inferência: por seção, quantos votaram no 1º turno e não no 2º, e quantos votaram no 2º e não no 1º. Com isso saída e entrada deixam de ser estimativa.')
+    w('  - Para o conferente: decidir se a calibração vale pelo sorteio fixado (0,319) ou pela conta sem sorteio (0,348); refazer o recorte de 50 votos e o perfil por faixa com código próprio.')
+    w('DESVIOS E DECISÕES FORA DO REGISTRO (escritas no docstring antes de calcular, salvo o exploratório)')
+    w('  - Faixas fechadas embaixo e abertas em cima; "menos de 10%" estrito (7.211 seções, não as 7.351 do exploratório do conferente, que incluía as de exatamente 10%).')
+    w('  - "Separado por faixa" = uma regressão por faixa com efeito fixo de município dentro da faixa; município com uma só seção na faixa não informa (799 das 7.211 seções). Modelo único com efeito fixo comum ao lado (-0,0158).')
+    w('  - Plantios: retirada = o D7 do N2 (Binomial sobre os votos de Flávio do 2º turno, 3,6%, semente 20261110); entrada = o plantio do conferente do N2 (faltosos x inclinação a Lula), com sorteio binomial e limite físico acrescentados por mim. '
+      '"Mesmo total" = mesmo total NACIONAL. A leitura dura (mesmo total dentro da faixa) dá R = 0,647 e não cumpriria.')
+    w('  - Regra de decisão da calibração: fixei que decide o sorteio da semente 20261110 e que variantes divergentes entrariam como "margem estreita". Foi o que aconteceu. Em retrospecto a conta sem sorteio é a medida mais limpa da razão; '
+      'não troquei a regra depois de ver, e relato as duas.')
+    w('  - Tradução da leitura em veredito: "há saída" = SINAL no sentido estreito; "não há saída medida" = SEM SINAL; calibração não cumprida = SEM PODER; o resto = INCONCLUSIVO.')
+    w('  - Leitura de dose, espelhos (plantio espelho, permutação, outros anos), regiões, regra de "poucas unidades", sensibilidades e descritivo da lista: definidos por mim no docstring.')
+    w('  - Lista: só seções com aptos iguais nos dois turnos; ordem pela queda absoluta de votos de Flávio; empate pela queda relativa. 781 seções com aptos diferentes ficaram fora.')
+    w('  - Outros anos: fora as seções com turno anulado (5 em 2018, 1 em 2014); por isso o A0 de 2018 sai +0,0062 e não +0,0063.')
+    w('  - O que eu conhecia antes: Ondas A e B, o N2 com a conferência, o exploratório por faixa do conferente e a definição do plantio de entrada dele. Não fui cego para o número principal.')
+    w('  - EXPLORATÓRIO, depois de ver o resultado (item 11): recortes por quantidade de votos de Flávio e de Lula, por força de Lula, tamanho da seção, Nordeste, perfil por faixa contra as duas formas, outros anos nos mesmos recortes, diferenças entre anos.')
+    w('  - Nenhum limiar do registro foi mudado. Sem commit nem push; nenhum arquivo existente do repositório foi alterado; nenhuma requisição ao site do TSE.')
+    w('')
+    w('Contagem: uma leitura por limiar (a da faixa de menos de 10%), uma calibração do registro, três espelhos; a 3 erros-padrão o acaso daria um falso sinal em 0,13% das vezes. '
+      'O bloco exploratório olhou cerca de 250 números; nada dele entra como indício sem teste registrado e conferência independente.')
+    w('Arquivos: scripts/analisar_R27_N4.py; resultados/R27_N4_saida_contra_entrada.json; resultados/R27_N4_secoes_para_cadernos.csv; trabalho e parciais em /home/user/trabalho-eleicao/adendo27/R27_N4/ '
+      '(base_AAAA.npz, parciais, rodada1.log, o script e o resultado guardados antes do exploratório).')
+    txt = '\n'.join(t[1:] if t.startswith('\x00') else _quebra(t) for t in T) + '\n'
+    assert chr(8212) not in txt and chr(8211) not in txt      # sem travessões
+    with open(SAIDA_TXT, 'w') as f:
+        f.write(txt)
+    # campos de redação no JSON (não mudam nenhum número)
+    R['veredito']['regra'] = 'docstring D5 e D6: decide o sorteio da semente 20261110; variantes divergentes entram como margem estreita'
+    R['veredito']['ressalva'] = ('Calibração no limiar: R = %.4f no sorteio fixado (cumpre), %.4f sem sorteio (não cumpre), mediana %.4f em 200 sorteios, '
+                                 '%.1f%% dos sorteios abaixo de um terço. Pela versão sem sorteio o veredito seria SEM PODER. Leitura prudente: SINAL FRÁGIL.'
+                                 % (cr['R_faixa1'], Rz['sem_sorteio'][0], s200['R_mediana'], 100 * s200['fracao_abaixo_de_um_terco']))
+    R['veredito']['por_parte'] = {
+        'parte_1_assimetria_na_faixa_de_menos_de_10': 'cumpre os números de "há saída" (A = %.4f, ep %.4f, %.2f ep)' % (f1['A'], f1['ep'], abs(f1['A']) / f1['ep']),
+        'parte_2_calibracao': 'no limiar: cumprida no sorteio fixado, não cumprida no valor esperado',
+        'pela_letra_com_a_regra_do_docstring': R['veredito']['pela_letra'],
+        'pela_versao_sem_sorteio': 'SEM PODER'}
+    R['resumo'] = ('Confirmação de um exploratório já visto. Na faixa de menos de 10% de abstenção a assimetria continua (-0,0223; 3,7 ep), mas a calibração fica em cima do '
+                   'limiar (0,319 no sorteio fixado, 0,348 sem sorteio), o sinal é do Nordeste e mora nas seções com menos de 50 votos de Flávio, onde o mesmo desenho '
+                   'existia em 2018 e 2022; nas seções com voto relevante de Flávio a assimetria da faixa é zero e cresce com a abstenção, que é a forma de entrada.')
+    R['docstring_antes_de_rodar'] = {'copia': os.path.join(TRAB, 'analisar_R27_N4_antes_de_rodar.py'),
+                                     'sha256': '14497e5621ff7ae796a6e22669dfdf95e8e054d59897445782ccf94b2c453ea3', 'gravado_em_utc': '2026-11-10T12:50:16Z'}
+    ini = T.index('DESVIOS E DECISÕES FORA DO REGISTRO (escritas no docstring antes de calcular, salvo o exploratório)')
+    R['desvios'] = [t.strip()[2:] for t in T[ini + 1:] if t.strip().startswith('- ')]
+    with open(SAIDA_JSON, 'w') as f:
+        json.dump(R, f, ensure_ascii=False, indent=1)
+    diga('texto gravado', SAIDA_TXT, len(txt.splitlines()), 'linhas')
+
+
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else ''
     if cmd == 'base':
@@ -1104,5 +1481,7 @@ if __name__ == '__main__':
         explorar()
     elif cmd == 'explorar2':
         explorar2()
+    elif cmd == 'texto':
+        texto()
     else:
         print(__doc__)

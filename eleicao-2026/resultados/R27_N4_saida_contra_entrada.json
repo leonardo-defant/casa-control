@@ -726,7 +726,15 @@
   "cond_A_menor_ou_igual_-0,015": true,
   "cond_mais_de_3_ep": true,
   "cond_calibracao": true,
-  "cond_sem_saida_A_mais_2ep_acima_de_-0,005": false
+  "cond_sem_saida_A_mais_2ep_acima_de_-0,005": false,
+  "regra": "docstring D5 e D6: decide o sorteio da semente 20261110; variantes divergentes entram como margem estreita",
+  "ressalva": "Calibração no limiar: R = 0.3191 no sorteio fixado (cumpre), 0.3477 sem sorteio (não cumpre), mediana 0.3487 em 200 sorteios, 31.5% dos sorteios abaixo de um terço. Pela versão sem sorteio o veredito seria SEM PODER. Leitura prudente: SINAL FRÁGIL.",
+  "por_parte": {
+   "parte_1_assimetria_na_faixa_de_menos_de_10": "cumpre os números de \"há saída\" (A = -0.0223, ep 0.0060, 3.69 ep)",
+   "parte_2_calibracao": "no limiar: cumprida no sorteio fixado, não cumprida no valor esperado",
+   "pela_letra_com_a_regra_do_docstring": "SINAL",
+   "pela_versao_sem_sorteio": "SEM PODER"
+  }
  },
  "dose_ao_lado": {
   "escala_s": 0.5219664173833183,
@@ -6796,5 +6804,24 @@
     }
    }
   }
- }
+ },
+ "resumo": "Confirmação de um exploratório já visto. Na faixa de menos de 10% de abstenção a assimetria continua (-0,0223; 3,7 ep), mas a calibração fica em cima do limiar (0,319 no sorteio fixado, 0,348 sem sorteio), o sinal é do Nordeste e mora nas seções com menos de 50 votos de Flávio, onde o mesmo desenho existia em 2018 e 2022; nas seções com voto relevante de Flávio a assimetria da faixa é zero e cresce com a abstenção, que é a forma de entrada.",
+ "docstring_antes_de_rodar": {
+  "copia": "/home/user/trabalho-eleicao/adendo27/R27_N4/analisar_R27_N4_antes_de_rodar.py",
+  "sha256": "14497e5621ff7ae796a6e22669dfdf95e8e054d59897445782ccf94b2c453ea3",
+  "gravado_em_utc": "2026-11-10T12:50:16Z"
+ },
+ "desvios": [
+  "Faixas fechadas embaixo e abertas em cima; \"menos de 10%\" estrito (7.211 seções, não as 7.351 do exploratório do conferente, que incluía as de exatamente 10%).",
+  "\"Separado por faixa\" = uma regressão por faixa com efeito fixo de município dentro da faixa; município com uma só seção na faixa não informa (799 das 7.211 seções). Modelo único com efeito fixo comum ao lado (-0,0158).",
+  "Plantios: retirada = o D7 do N2 (Binomial sobre os votos de Flávio do 2º turno, 3,6%, semente 20261110); entrada = o plantio do conferente do N2 (faltosos x inclinação a Lula), com sorteio binomial e limite físico acrescentados por mim. \"Mesmo total\" = mesmo total NACIONAL. A leitura dura (mesmo total dentro da faixa) dá R = 0,647 e não cumpriria.",
+  "Regra de decisão da calibração: fixei que decide o sorteio da semente 20261110 e que variantes divergentes entrariam como \"margem estreita\". Foi o que aconteceu. Em retrospecto a conta sem sorteio é a medida mais limpa da razão; não troquei a regra depois de ver, e relato as duas.",
+  "Tradução da leitura em veredito: \"há saída\" = SINAL no sentido estreito; \"não há saída medida\" = SEM SINAL; calibração não cumprida = SEM PODER; o resto = INCONCLUSIVO.",
+  "Leitura de dose, espelhos (plantio espelho, permutação, outros anos), regiões, regra de \"poucas unidades\", sensibilidades e descritivo da lista: definidos por mim no docstring.",
+  "Lista: só seções com aptos iguais nos dois turnos; ordem pela queda absoluta de votos de Flávio; empate pela queda relativa. 781 seções com aptos diferentes ficaram fora.",
+  "Outros anos: fora as seções com turno anulado (5 em 2018, 1 em 2014); por isso o A0 de 2018 sai +0,0062 e não +0,0063.",
+  "O que eu conhecia antes: Ondas A e B, o N2 com a conferência, o exploratório por faixa do conferente e a definição do plantio de entrada dele. Não fui cego para o número principal.",
+  "EXPLORATÓRIO, depois de ver o resultado (item 11): recortes por quantidade de votos de Flávio e de Lula, por força de Lula, tamanho da seção, Nordeste, perfil por faixa contra as duas formas, outros anos nos mesmos recortes, diferenças entre anos.",
+  "Nenhum limiar do registro foi mudado. Sem commit nem push; nenhum arquivo existente do repositório foi alterado; nenhuma requisição ao site do TSE."
+ ]
 }
