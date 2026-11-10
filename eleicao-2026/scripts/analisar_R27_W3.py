@@ -171,7 +171,7 @@ import sys, os, gzip, json, zipfile, zlib, struct, time, io, collections, csv, m
 import urllib.request, urllib.error
 
 RAIZ = '/home/user/casa-control/eleicao-2026'
-TRAB = '/home/user/trabalho-eleicao/adendo27/R27_W3'
+TRAB = os.environ.get('W3_TRAB', '/home/user/trabalho-eleicao/adendo27/R27_W3')  # W3_TRAB só para ensaio com dado sintético
 PERFIL_DIR = '/home/user/trabalho-eleicao/adendo21/F15_dl_perfil_secao'
 BWEB1 = '/home/user/trabalho-eleicao/bweb1t/zips'
 BWEB2 = '/home/user/trabalho-eleicao/trab2t/zips2t'
@@ -190,6 +190,49 @@ PAR_PLACEBO3 = ('70', '14')
 URL = 'https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes{ano}/arqurnatot/bu_imgbu_logjez_rdv_vscmr_{ano}_{turno}_{uf}.zip'
 AGENTE = 'auditoria-eleicao (pesquisa; leitura em fluxo, 1 pedido por pacote)'
 CTX = ssl.create_default_context(cafile=os.environ.get('SSL_CERT_FILE', '/root/.ccr/ca-bundle.crt'))
+
+
+DECISOES_RETOMADA = """DECISÕES ACRESCENTADAS NA RETOMADA (10/11/2026, por volta de 11h UTC, ANTES de qualquer conta com votos).
+O docstring acima é o do commit 6677983 (10/11/2026 10:48:36 UTC), sem mudança de uma letra. A execução anterior foi
+interrompida na leitura do segundo pacote; nenhum RDV tinha sido aberto para contar voto. O que segue só completa o
+que o docstring deixou sem dizer; nada muda limiar. Sai no resultado como desvio.
+R1. Conferência: além da base secoes2026 (D2 e D4), o RDV é conferido direto contra os zips do bweb de AC e TO,
+    candidato a candidato, brancos e nulos, para presidente e para governador, nos dois turnos. A regra do universo
+    continua a do D2 (os cinco números de presidente contra a base). A lista de candidatos a governador por UF e turno
+    sai do bweb, e a ausência do 13 e do 22 é conferida ali e nos votos nominais do RDV.
+R2. Correlação de postos: Spearman com postos médios nos empates. Município sem nenhuma testemunha 13 ou 22 no 1º
+    turno fica fora das correlações de W (W não existe). Simulações do D7 com a semente 20261110.
+R3. Células do D7 (ao lado, sem decidir): por UF, números 13, 22 e os eliminados do D7; célula = município x número;
+    parcela do número entre as testemunhas desses números no município contra a parcela oficial do mesmo candidato
+    entre os mesmos números; Spearman sobre todas as células de municípios com pelo menos 1 testemunha, e, como a
+    diferença entre números domina essa conta, também a correlação por número, entre municípios.
+R4. D11: o critério "enxerga o plantado" usa o plantio com a semente 20261110. Ao lado, 200 plantios com sementes
+    20261111 a 20261310 (média e desvio do aumento). O critério de SINAL no dado com plantio usa o mesmo bootstrap
+    de locais. O plantio espelhado (fração p dos votos de L para R) é feito do mesmo jeito para calibrar o espelho.
+    Poder dito ao lado: a menor fração p cuja fórmula alcança o maior entre 0,045 e 2,5 erros totais.
+R5. D12: (i) 200 plantios; passa se o aumento médio de Theta ficar a até 10% do valor direto
+    -[ln((A2 - m)/(B2 + m)) - ln(A2/B2)], com A2 e B2 = somas de g13 e g22 do 2º turno e m = média de testemunhas
+    movidas; o valor da fórmula do intervalo (D13) vai ao lado. (ii) 200 sorteios; passa se o valor absoluto da
+    mudança média de Theta for de no máximo metade do erro-padrão de Theta; o desvio entre sorteios vai ao lado.
+R6. D18: seções de ES, DF, AM e RN da amostra aleatória nova com RDV nos dois turnos em disco. Por UF e turno:
+    nulos de governador com dígitos 13 e 22 só quando o número não tem voto nominal de governador naquela UF e
+    turno; taxa por mil votos oficiais do mesmo lado nas mesmas seções (g13/L, g22/R); no ES, 2º turno, W_2 ao lado
+    de P_2. Sem erro além do binomial, sem veredito.
+R7. D20: finalistas de governador AC 10 e 11, TO 44 e 45 (observação do desenho D4, conferida no bweb do 2º turno).
+    Parcela = 1 menos os votos nominais dos dois finalistas sobre os votos nominais de governador do 1º turno da
+    seção (RDV). Seção sem voto nominal de governador fica fora dessa leitura.
+R8. Placebo AL 2022 (D21): os pacotes de 2022 têm outro padrão de nome (o00406-MMMMMZZZZSSSS.rdv); a chave sai do
+    nome e da identificação do próprio RDV. O boletim de 2022 não é decodificado (o leitor do repositório é o de
+    2026); a conferência de 2022 é RDV de presidente contra dados/secoes2022.json.gz. Sem tercis (não há perfil de
+    2022 em disco). Ao lado, a validade por município em AL (mesma regra do D7) e as taxas r13 e r22 por turno.
+    Para andar no tempo, o pacote de AL 2022 é lido em fluxo ao mesmo tempo que o de TO 2026 (dois fluxos no cdn,
+    nada em disco além de RDV e boletim): desvio da regra de um pacote por vez, dito no relatório.
+R9. Etapa 1 também grava o número de seções, de locais e de seções com pelo menos uma testemunha, e o erro-padrão
+    por UF. Réplicas de bootstrap com soma zero em algum termo (logit indefinido) são contadas e ficam fora do
+    desvio-padrão.
+R10. Sensibilidade do D2: Theta repetido com todas as seções que têm RDV nos dois turnos, mesmo as reprovadas na
+    conferência, usando os votos oficiais da base.
+"""
 
 
 def P(*a):
@@ -326,6 +369,14 @@ class Fluxo:
             pass
 
 
+def _tipo_do_nome(nome):
+    # 2026: o03220ac0101500020088-rdv.dat; 2022: o00406-2785500020201.rdv
+    base = nome.split('/')[-1]
+    if base.endswith(('.dat', '.jez', '.vsc')) and '-' in base:
+        return base.rsplit('-', 1)[-1]
+    return base.rsplit('.', 1)[-1]
+
+
 def baixar(ano, turno, uf):
     url = URL.format(ano=ano, turno=turno, uf=uf)
     os.makedirs(TRAB + '/pacotes', exist_ok=True)
@@ -336,8 +387,8 @@ def baixar(ano, turno, uf):
         return
     t0 = time.time()
     tam, cab, ents = _indice(url)
-    quer = [e for e in ents if e['nome'].endswith('-rdv.dat') or e['nome'].endswith('-bu.dat')]
-    tipos = collections.Counter(e['nome'].rsplit('-', 1)[-1] for e in ents)
+    quer = [e for e in ents if e['nome'].endswith(('-rdv.dat', '-bu.dat', '.rdv', '.bu'))]
+    tipos = collections.Counter(_tipo_do_nome(e['nome']) for e in ents)
     P(f'{ano} {turno} {uf}: {tam} bytes, {len(ents)} membros, {dict(tipos)}; quero {len(quer)}')
     if any(e['flag'] & 8 for e in quer) or any(e['meth'] not in (0, 8) for e in quer):
         raise RuntimeError('membro com descritor de dados ou método não previsto')
@@ -434,12 +485,13 @@ def _resumo_rdv(c):
     return {k: (dict(v) if isinstance(v, collections.Counter) else v) for k, v in r.items()}
 
 
-def _chave_do_nome(nome):
-    # o{pleito:5}{uf:2}{mun:5}{zona:4}{secao:4}-rdv.dat
+def _chave_do_nome(nome, uf=None):
     base = nome.split('/')[-1]
-    corpo = base.split('-')[0]
-    uf = corpo[6:8].upper()
-    return f'{uf}|{int(corpo[8:13])}|{int(corpo[13:17])}|{int(corpo[17:21])}'
+    if base.endswith('.dat'):  # 2026: o{pleito:5}{uf:2}{mun:5}{zona:4}{secao:4}-rdv.dat
+        corpo = base.split('-')[0]
+        return f'{corpo[6:8].upper()}|{int(corpo[8:13])}|{int(corpo[13:17])}|{int(corpo[17:21])}'
+    corpo = base.split('-')[1].split('.')[0]  # 2022: o00406-{mun:5}{zona:4}{secao:4}.rdv
+    return f'{uf}|{int(corpo[0:5])}|{int(corpo[5:9])}|{int(corpo[9:13])}'
 
 
 def extrair(ano):
@@ -459,9 +511,9 @@ def extrair(ano):
         z = zipfile.ZipFile(f'{TRAB}/pacotes/{nome_zip}')
         nomes = z.namelist()
         for n in nomes:
-            if not n.endswith('-rdv.dat'):
+            if not n.endswith(('-rdv.dat', '.rdv')):
                 continue
-            k = _chave_do_nome(n)
+            k = _chave_do_nome(n, uf)
             try:
                 ident, c = ler_rdv_bytes(z.read(n))
             except Exception as e:
@@ -478,9 +530,9 @@ def extrair(ano):
             out[k] = r
         # boletim: presidente e governador, para conferência interna
         for n in nomes:
-            if not n.endswith('-bu.dat'):
+            if not n.endswith('-bu.dat'):  # o boletim de 2022 (.bu) não é decodificado (R8)
                 continue
-            k = _chave_do_nome(n)
+            k = _chave_do_nome(n, uf)
             try:
                 with open(tmp, 'wb') as f:
                     f.write(z.read(n))
@@ -500,11 +552,1179 @@ def extrair(ano):
             P('   ', e)
 
 
+# ---------------------------------------------------------------- conferência (RDV contra bweb) e tabela por seção
+def _base(ano):
+    with gzip.open(f'{RAIZ}/dados/secoes{ano}.json.gz', 'rt') as f:
+        return json.load(f)
+
+
+def _extr(ano, turno, uf):
+    with gzip.open(f'{TRAB}/extr/rdv_{ano}_{turno}_{uf}.json.gz', 'rt') as f:
+        return json.load(f)
+
+
+def _bweb(uf, turno):
+    """bweb do TSE, direto do zip: {chave: {'1': {(tipo, numero): votos}, '3': {...}}} (presidente e governador)."""
+    pasta, pref = (BWEB1, 'bweb_1t_') if turno == '1' else (BWEB2, 'bweb_2t_')
+    zs = sorted(n for n in os.listdir(pasta) if n.startswith(pref + uf + '_') and n.endswith('.zip'))
+    if not zs:
+        return None, None
+    z = zipfile.ZipFile(f'{pasta}/{zs[0]}')
+    nome = [n for n in z.namelist() if n.lower().endswith('.csv')][0]
+    out = {}
+    with z.open(nome) as fh:
+        rd = csv.reader(io.TextIOWrapper(fh, encoding='latin1', newline=''), delimiter=';')
+        cab = next(rd)
+        ix = {c.strip().replace('SG_ UF', 'SG_UF'): i for i, c in enumerate(cab)}
+        iC, iU, iM, iZ, iS = ix['CD_CARGO_PERGUNTA'], ix['SG_UF'], ix['CD_MUNICIPIO'], ix['NR_ZONA'], ix['NR_SECAO']
+        iT, iN, iQ = ix['CD_TIPO_VOTAVEL'], ix['NR_VOTAVEL'], ix['QT_VOTOS']
+        for r in rd:
+            c = r[iC]
+            if c not in ('1', '3'):
+                continue
+            k = f'{r[iU]}|{int(r[iM])}|{int(r[iZ])}|{int(r[iS])}'
+            d = out.setdefault(k, {'1': collections.Counter(), '3': collections.Counter()})
+            d[c][(int(r[iT]), int(r[iN]))] += int(r[iQ])
+    return zs[0], out
+
+
+def _rdv5(r, x):
+    n = r[x + 'n']
+    return (n.get('13', 0), n.get('22', 0), sum(v for k, v in n.items() if k not in ('13', '22')), r[x + 'B'], r[x + 'N'])
+
+
+def conferir(ano):
+    ufs = UFS if ano == '2026' else ['AL']
+    base = _base(ano)
+    rel = {'ano': ano, 'ufs': {}}
+    tab = {}
+    for uf in ufs:
+        ru = rel['ufs'][uf] = {}
+        ex = {t: _extr(ano, f'{t}t', uf) for t in ('1', '2')}
+        falha = collections.defaultdict(list)
+        for t in ('1', '2'):
+            secs, erros = ex[t]['secoes'], ex[t]['erros']
+            bk = [k for k in base if k.startswith(uf + '|') and t in base[k]]
+            c = collections.Counter()
+            dif = {'pres': [], 'gov': [], 'bu': [], 'bweb_pres': [], 'bweb_gov': []}
+            digs = collections.Counter()
+            outros = collections.Counter()
+            gov_nom_13_22 = 0
+            eleicoes = collections.Counter()
+            nome_bweb, bw = (_bweb(uf, t) if ano == '2026' else (None, None))
+            cand_gov = collections.Counter()
+            cand_gov_rdv = collections.Counter()
+            if bw is not None:
+                for k, d in bw.items():
+                    for (tv, nv), q in d['3'].items():
+                        if tv not in (2, 3):
+                            cand_gov[str(nv)] += q
+            for k in bk:
+                b = base[k][t]
+                r = secs.get(k)
+                if r is None:
+                    c['sem_rdv'] += 1
+                    falha[k].append(f'sem RDV no {t}º turno')
+                    continue
+                c['com_rdv'] += 1
+                eleicoes[tuple(r['eleicoes'])] += 1
+                rp, bp = _rdv5(r, 'p'), (b['L'], b['R'], b['O'], b['B'], b['N'])
+                if rp == bp:
+                    c['pres_igual_base'] += 1
+                else:
+                    dif['pres'].append([k, list(rp), list(bp)])
+                    falha[k].append(f'RDV de presidente difere da base no {t}º turno')
+                if sum(rp) == b['comp']:
+                    c['total_pres_igual_comparecimento'] += 1
+                g = base[k].get(t + 'g')
+                if g is not None:
+                    rg, bg = (r['gB'], r['gN'], sum(r['gn'].values())), (g['B'], g['N'], g['V'])
+                    if rg == bg:
+                        c['gov_igual_base'] += 1
+                    else:
+                        dif['gov'].append([k, list(rg), list(bg)])
+                bu = r.get('bu')
+                if bu is not None and bu.get('p') is not None:
+                    c['com_boletim'] += 1
+                    q = bu['p']
+                    if (q['L'], q['R'], q['O'], q['B'], q['N'], q['comp'], q['apt'], q['loc']) == (b['L'], b['R'], b['O'], b['B'], b['N'], b['comp'], b['apt'], b['loc']):
+                        c['boletim_igual_base'] += 1
+                    else:
+                        dif['bu'].append(k)
+                    if bu.get('g') is not None and (bu['g']['B'], bu['g']['N'], bu['g']['V']) == (r['gB'], r['gN'], sum(r['gn'].values())):
+                        c['boletim_gov_igual_rdv'] += 1
+                if bw is not None:
+                    w = bw.get(k)
+                    if w is None:
+                        dif['bweb_pres'].append([k, 'sem linha no bweb'])
+                    else:
+                        for cargo, x in (('1', 'p'), ('3', 'g')):
+                            wn = {str(nv): q for (tv, nv), q in w[cargo].items() if tv not in (2, 3) and q}
+                            wb = sum(q for (tv, nv), q in w[cargo].items() if tv == 2)
+                            wnu = sum(q for (tv, nv), q in w[cargo].items() if tv == 3)
+                            rn = {n: q for n, q in r[x + 'n'].items() if q}
+                            if (wn, wb, wnu) == (rn, r[x + 'B'], r[x + 'N']):
+                                c['bweb_igual_' + ('pres' if x == 'p' else 'gov')] += 1
+                            else:
+                                dif['bweb_pres' if x == 'p' else 'bweb_gov'].append([k, cargo])
+                for dg, q in r['gd'].items():
+                    digs[len(dg)] += q
+                for o, q in r['outros'].items():
+                    outros[o] += q
+                gov_nom_13_22 += r['gn'].get('13', 0) + r['gn'].get('22', 0)
+                for n, q in r['gn'].items():
+                    cand_gov_rdv[n] += q
+                c['nulos_gov_com_digitos'] += sum(r['gd'].values())
+                c['nulos_gov_sem_digitos'] += r['g6']
+                c['brancos_gov'] += r['gB']
+                c['nominais_gov'] += sum(r['gn'].values())
+            fora = [k for k in secs if k not in base or t not in base[k]]
+            ru[t] = {'secoes_na_base': len(bk), 'rdv_no_pacote': len(secs), 'rdv_fora_da_base': len(fora),
+                     'erros_de_leitura': len(erros), 'erros_exemplos': erros[:5], 'contagens': dict(c),
+                     'diferencas_presidente_rdv_x_base': dif['pres'][:50], 'n_diferencas_presidente': len(dif['pres']),
+                     'n_diferencas_governador_rdv_x_base': len(dif['gov']), 'diferencas_governador_exemplos': dif['gov'][:20],
+                     'n_boletim_diferente_da_base': len(dif['bu']),
+                     'bweb_arquivo': nome_bweb, 'n_diferencas_bweb_presidente': len(dif['bweb_pres']),
+                     'n_diferencas_bweb_governador': len(dif['bweb_gov']), 'diferencas_bweb_exemplos': (dif['bweb_pres'] + dif['bweb_gov'])[:20],
+                     'candidatos_governador_bweb': sorted(cand_gov, key=int), 'candidatos_governador_rdv': sorted(cand_gov_rdv, key=int),
+                     'votos_nominais_de_governador_em_13_ou_22_no_rdv': gov_nom_13_22,
+                     'tamanho_dos_digitos_dos_nulos_de_governador': {str(a): b for a, b in sorted(digs.items())},
+                     'tipos_de_voto_nao_previstos': dict(outros), 'eleicoes_no_rdv': {str(a): b for a, b in eleicoes.items()}}
+            P(f'{ano} {uf} {t}º turno: base {len(bk)}, RDV {len(secs)}, presidente igual à base {c["pres_igual_base"]}, '
+              f'governador igual {c["gov_igual_base"]}, boletim igual {c["boletim_igual_base"]} de {c["com_boletim"]}, '
+              f'bweb direto presidente {c["bweb_igual_pres"]} governador {c["bweb_igual_gov"]}, erros de leitura {len(erros)}, '
+              f'nominal de governador em 13 ou 22: {gov_nom_13_22}, candidatos a governador {sorted(cand_gov or cand_gov_rdv, key=int)}')
+        # tabela por seção
+        for k in base:
+            if not k.startswith(uf + '|') or '1' not in base[k] or '2' not in base[k]:
+                continue
+            r1, r2 = ex['1']['secoes'].get(k), ex['2']['secoes'].get(k)
+            b1, b2 = base[k]['1'], base[k]['2']
+            _, mun, zona, sec = k.split('|')
+            row = {'uf': uf, 'mun': int(mun), 'zona': int(zona), 'loc': b2['loc'], 'L1': b1['L'], 'R1': b1['R'], 'O1': b1['O'],
+                   'L2': b2['L'], 'R2': b2['R'], 'comp1': b1['comp'], 'comp2': b2['comp'], 'apt2': b2['apt'],
+                   'tem_rdv': r1 is not None and r2 is not None, 'ok': k not in falha, 'motivo': falha.get(k, [])}
+            if row['tem_rdv']:
+                row.update({'gd1': r1['gd'], 'gd2': r2['gd'], 'gn1': r1['gn'], 'gn2': r2['gn'], 'g6_1': r1['g6'], 'g6_2': r2['g6'],
+                            'gB1': r1['gB'], 'gB2': r2['gB'], 'gN1': r1['gN'], 'gN2': r2['gN']})
+            tab[k] = row
+        ru['universo'] = {'secoes_nos_dois_turnos_da_base': sum(1 for k, v in tab.items() if v['uf'] == uf),
+                          'no_universo_D2': sum(1 for k, v in tab.items() if v['uf'] == uf and v['ok']),
+                          'fora': {k: v['motivo'] for k, v in tab.items() if v['uf'] == uf and not v['ok']}}
+        P(f'  universo {uf}: {ru["universo"]["no_universo_D2"]} de {ru["universo"]["secoes_nos_dois_turnos_da_base"]}')
+    with gzip.open(f'{TRAB}/tabela_{ano}.json.gz', 'wt') as f:
+        json.dump(tab, f)
+    grava(f'conferencia_{ano}.json', rel)
+
+
+# ---------------------------------------------------------------- contas
+import numpy as np  # noqa: E402
+
+COLS = ['L1', 'R1', 'L2', 'R2', 'a1', 'b1', 'a2', 'b2']
+
+
+def _carrega(ano, todas=False):
+    with gzip.open(f'{TRAB}/tabela_{ano}.json.gz', 'rt') as f:
+        tab = json.load(f)
+    ks = sorted(k for k, v in tab.items() if (v['ok'] or (todas and v['tem_rdv'])))
+    n = len(ks)
+    X = np.zeros((n, 8))
+    locs, loc = {}, np.zeros(n, int)
+    uf = np.empty(n, dtype=object)
+    mun = np.empty(n, dtype=object)
+    for i, k in enumerate(ks):
+        v = tab[k]
+        X[i] = (v['L1'], v['R1'], v['L2'], v['R2'], v['gd1'].get('13', 0), v['gd1'].get('22', 0), v['gd2'].get('13', 0), v['gd2'].get('22', 0))
+        lk = f"{v['uf']}|{v['mun']}|{v['zona']}|{v['loc']}"
+        loc[i] = locs.setdefault(lk, len(locs))
+        uf[i] = v['uf']
+        mun[i] = f"{v['uf']}|{v['mun']}"
+    uf_loc = np.empty(len(locs), dtype=object)
+    for lk, j in locs.items():
+        uf_loc[j] = lk.split('|')[0]
+    return {'k': ks, 'tab': tab, 'X': X, 'loc': loc, 'nloc': len(locs), 'uf': uf, 'mun': mun, 'uf_loc': uf_loc}
+
+
+def _contagens_boot(uf_loc, nboot=NBOOT, semente=SEMENTE):
+    """Multiplicidade de cada local em cada réplica; sorteio com reposição dentro da UF (D5)."""
+    rng = np.random.default_rng(semente)
+    C = np.zeros((nboot, len(uf_loc)), dtype=np.float64)
+    for u in sorted(set(uf_loc)):
+        idx = np.flatnonzero(uf_loc == u)
+        dr = rng.integers(0, len(idx), size=(nboot, len(idx)))
+        for b in range(nboot):
+            C[b, idx] = np.bincount(dr[b], minlength=len(idx))
+    return C
+
+
+def _theta(S):
+    with np.errstate(divide='ignore', invalid='ignore'):
+        return (np.log(S[..., 2] / S[..., 3]) - np.log(S[..., 0] / S[..., 1])) - (np.log(S[..., 6] / S[..., 7]) - np.log(S[..., 4] / S[..., 5]))
+
+
+def _agrega(X, loc, nloc, mask=None):
+    M = np.zeros((nloc, X.shape[1]))
+    if mask is None:
+        np.add.at(M, loc, X)
+    else:
+        np.add.at(M, loc[mask], X[mask])
+    return M
+
+
+def _conta(X, loc, nloc, C, mask=None):
+    """Theta, erro-padrão por bootstrap de locais e as somas. Devolve também as réplicas."""
+    Xs = X if mask is None else X[mask]
+    S = Xs.sum(0)
+    rep = _theta(C @ _agrega(X, loc, nloc, mask))
+    ok = np.isfinite(rep)
+    th = float(_theta(S))
+    r = {'n_secoes': int(len(Xs)), 'n_locais': int(len(set((loc if mask is None else loc[mask]).tolist()))),
+         'theta': th, 'ep': float(rep[ok].std(ddof=1)) if ok.sum() > 1 else float('nan'),
+         'ic95_percentis': [float(np.percentile(rep[ok], 2.5)), float(np.percentile(rep[ok], 97.5))] if ok.sum() > 1 else None,
+         'replicas_fora': int((~ok).sum()), 'somas': {c: int(v) for c, v in zip(COLS, S)},
+         'P1': float(S[0] / (S[0] + S[1])), 'P2': float(S[2] / (S[2] + S[3])),
+         'W1': float(S[4] / (S[4] + S[5])) if S[4] + S[5] else None, 'W2': float(S[6] / (S[6] + S[7])) if S[6] + S[7] else None,
+         'dlogit_P': float(np.log(S[2] / S[3]) - np.log(S[0] / S[1])),
+         'dlogit_W': float(np.log(S[6] / S[7]) - np.log(S[4] / S[5])) if min(S[4:8]) > 0 else None}
+    return r, rep
+
+
+def _postos(x):
+    from scipy.stats import rankdata
+    return rankdata(np.asarray(x, float), method='average', axis=-1)
+
+
+def _spearman(x, y):
+    x, y = np.asarray(x, float), np.asarray(y, float)
+    if len(x) < 3:
+        return None
+    rx, ry = _postos(x), _postos(y)
+    if rx.std() == 0 or ry.std() == 0:
+        return None
+    return float(np.corrcoef(rx, ry)[0, 1])
+
+
+def _spearman_linhas(Wsim, p):
+    """Spearman de cada linha de Wsim contra o vetor p."""
+    R = _postos(Wsim)
+    rp = _postos(p)
+    R = R - R.mean(1, keepdims=True)
+    rp = rp - rp.mean()
+    den = np.sqrt((R ** 2).sum(1) * (rp ** 2).sum())
+    with np.errstate(divide='ignore', invalid='ignore'):
+        return (R @ rp) / den
+
+
+def etapa1():
+    """Só o número de testemunhas por turno e o erro-padrão. Não imprime nem grava Theta (D6)."""
+    d = _carrega('2026')
+    X, loc, nloc = d['X'], d['loc'], d['nloc']
+    C = _contagens_boot(d['uf_loc'])
+    out = {'aviso': 'etapa 1: só número de testemunhas (13 + 22 somados) por turno e erro-padrão; Theta não foi impresso nem gravado',
+           'bootstrap': {'unidade': 'local de votação', 'replicas': NBOOT, 'semente': SEMENTE, 'estratos': 'UF'},
+           'recortes': {}}
+    for nome, mask in [('AC+TO', None)] + [(u, d['uf'] == u) for u in UFS]:
+        r, rep = _conta(X, loc, nloc, C, mask)
+        Xs = X if mask is None else X[mask]
+        t1, t2 = Xs[:, 4] + Xs[:, 5], Xs[:, 6] + Xs[:, 7]
+        comp1 = sum(d['tab'][k]['comp1'] for k, m in zip(d['k'], (np.ones(len(X), bool) if mask is None else mask)) if m)
+        comp2 = sum(d['tab'][k]['comp2'] for k, m in zip(d['k'], (np.ones(len(X), bool) if mask is None else mask)) if m)
+        out['recortes'][nome] = {'n_secoes': r['n_secoes'], 'n_locais': r['n_locais'],
+                                 'testemunhas_1t': int(t1.sum()), 'testemunhas_2t': int(t2.sum()),
+                                 'secoes_com_testemunha_1t': int((t1 > 0).sum()), 'secoes_com_testemunha_2t': int((t2 > 0).sum()),
+                                 'comparecimento_1t': int(comp1), 'comparecimento_2t': int(comp2),
+                                 'testemunhas_por_100_votantes_1t': float(100 * t1.sum() / comp1), 'testemunhas_por_100_votantes_2t': float(100 * t2.sum() / comp2),
+                                 'erro_padrao_de_theta': r['ep'], 'replicas_fora': r['replicas_fora']}
+        P(f'{nome}: {r["n_secoes"]} seções, {r["n_locais"]} locais; testemunhas (13 + 22) 1º turno {int(t1.sum())}, 2º turno {int(t2.sum())}; '
+          f'erro-padrão de Theta {r["ep"]:.4f} (réplicas fora {r["replicas_fora"]})')
+    ep = out['recortes']['AC+TO']['erro_padrao_de_theta']
+    out['limite_do_registro'] = 0.025
+    out['veredito_da_etapa1'] = 'SEM PODER' if not (ep <= 0.025) else 'segue para a validade do termômetro'
+    out['erro_total_com_sistematico_minimo_0015'] = float(math.hypot(ep, 0.015))
+    out['gravado_em_utc'] = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
+    P('etapa 1:', out['veredito_da_etapa1'], '| erro total com sistemático mínimo de 0,015:', round(out['erro_total_com_sistematico_minimo_0015'], 4))
+    grava('etapa1.json', out)
+
+
+def _votos_1t_por_candidato(ks):
+    with gzip.open(f'{RAIZ}/dados/candidatos2026_1t.json.gz', 'rt') as f:
+        c = json.load(f)['secoes']
+    return [c.get(k, {}) for k in ks]
+
+
+def _validade_conta(mun, n_m, g13_m, P_m, rotulo, rng):
+    """Regra do D7 sobre vetores por município (n_m = testemunhas 13 + 22, g13_m, P_m oficial)."""
+    grade = [1, 50, 100, 200, 400, 800]
+    out = {'rotulo': rotulo, 'municipios': int(len(n_m)), 'municipios_com_testemunha': int((n_m > 0).sum()), 'grade': []}
+    escolhido = None
+    for g in grade:
+        sel = n_m >= g
+        item = {'n_min': g, 'municipios': int(sel.sum())}
+        if sel.sum() >= 10:
+            sim = rng.binomial(n_m[sel].astype(int), P_m[sel], size=(2000, int(sel.sum()))) / n_m[sel]
+            rho = _spearman_linhas(sim, P_m[sel])
+            rho = rho[np.isfinite(rho)]
+            item.update({'termometro_perfeito_fracao_acima_de_09': float((rho >= 0.9).mean()), 'termometro_perfeito_mediana': float(np.median(rho)),
+                         'termometro_perfeito_p5': float(np.percentile(rho, 5))})
+            item['observado'] = _spearman(g13_m[sel] / n_m[sel], P_m[sel])
+            if escolhido is None and item['termometro_perfeito_fracao_acima_de_09'] >= 0.95:
+                escolhido = g
+        out['grade'].append(item)
+    out['n_min_escolhido'] = escolhido
+    if escolhido is not None:
+        it = [x for x in out['grade'] if x['n_min'] == escolhido][0]
+        out['regra'] = f'municípios com pelo menos {escolhido} testemunhas; limiar 0,9'
+        out['correlacao_que_decide'] = it['observado']
+        out['municipios_na_decisao'] = it['municipios']
+        out['aprovado'] = bool(it['observado'] is not None and it['observado'] >= 0.9)
+    else:
+        it = out['grade'][0]
+        out['regra'] = 'nenhum valor da grade serve; decide por compatibilidade com o termômetro perfeito (percentil 5), desvio maior'
+        out['correlacao_que_decide'] = it.get('observado')
+        out['municipios_na_decisao'] = it['municipios']
+        out['aprovado'] = bool(it.get('observado') is not None and it['observado'] >= it['termometro_perfeito_p5'])
+    it1 = out['grade'][0]
+    out['leitura_sem_minimo'] = {'observado': it1.get('observado'), 'municipios': it1['municipios'],
+                                 'teto_de_ruido_mediana': it1.get('termometro_perfeito_mediana'), 'teto_de_ruido_p5': it1.get('termometro_perfeito_p5'),
+                                 'aprovaria_pelo_limiar_09': bool(it1.get('observado') is not None and it1['observado'] >= 0.9)}
+    return out
+
+
+def validade():
+    """Termômetro no 1º turno (D7). Só usa dado do 1º turno."""
+    if not os.path.exists(f'{TRAB}/etapa1.json'):
+        raise SystemExit('rode etapa1 antes')
+    d = _carrega('2026')
+    ks, tab, X = d['k'], d['tab'], d['X']
+    v1 = _votos_1t_por_candidato(ks)
+    nums_todos = sorted(set(['13', '22'] + ELIM['AC'] + ELIM['TO']), key=int)
+    W = {n: np.array([tab[k]['gd1'].get(n, 0) for k in ks], float) for n in nums_todos}   # testemunhas por número, 1º turno
+    V = {n: np.array([v.get(n, 0) for v in v1], float) for n in nums_todos}               # votos oficiais por número, 1º turno
+    confere = {'L1_igual_candidatos': bool((V['13'] == X[:, 0]).all()), 'R1_igual_candidatos': bool((V['22'] == X[:, 1]).all())}
+    muns = sorted(set(d['mun']))
+    im = {m: i for i, m in enumerate(muns)}
+    idx = np.array([im[m] for m in d['mun']])
+    ufm = np.array([m.split('|')[0] for m in muns], dtype=object)
+
+    def pm(a):
+        return np.bincount(idx, weights=a, minlength=len(muns))
+    Wm = {n: pm(W[n]) for n in nums_todos}
+    Vm = {n: pm(V[n]) for n in nums_todos}
+    n_m = Wm['13'] + Wm['22']
+    P_m = Vm['13'] / (Vm['13'] + Vm['22'])
+    rng = np.random.default_rng(SEMENTE)
+    out = {'confere_base_x_candidatos': confere, 'limiar_do_registro': 0.9}
+    out['principal_AC_TO'] = _validade_conta(muns, n_m, Wm['13'], P_m, 'AC e TO juntos', rng)
+    out['por_uf'] = {}
+    for u in UFS:
+        s = ufm == u
+        out['por_uf'][u] = _validade_conta([m for m in muns if m.startswith(u)], n_m[s], Wm['13'][s], P_m[s], u, rng)
+    # composição por número no agregado da UF, células e correlações com os eliminados no denominador
+    out['composicao_por_uf'] = {}
+    cel_w, cel_v, cel_num = [], [], []
+    for u in UFS:
+        s = ufm == u
+        nums = ['13', '22'] + ELIM[u]
+        tw = sum(Wm[n][s].sum() for n in nums)
+        tv = sum(Vm[n][s].sum() for n in nums)
+        out['composicao_por_uf'][u] = {n: {'testemunhas': int(Wm[n][s].sum()), 'parcela_entre_testemunhas': float(Wm[n][s].sum() / tw),
+                                           'votos_oficiais': int(Vm[n][s].sum()), 'parcela_oficial': float(Vm[n][s].sum() / tv)} for n in nums}
+        out['composicao_por_uf'][u]['_postos_entre_numeros'] = _spearman([Wm[n][s].sum() / tw for n in nums], [Vm[n][s].sum() / tv for n in nums])
+        twm = sum(Wm[n] for n in nums)
+        tvm = sum(Vm[n] for n in nums)
+        for n in nums:
+            ok = s & (twm > 0)
+            cel_w += list(Wm[n][ok] / twm[ok])
+            cel_v += list(Vm[n][ok] / tvm[ok])
+            cel_num += [n] * int(ok.sum())
+    cel_w, cel_v, cel_num = np.array(cel_w), np.array(cel_v), np.array(cel_num)
+    out['celulas_municipio_x_numero'] = {'n_celulas': int(len(cel_w)), 'spearman': _spearman(cel_w, cel_v), 'pearson': float(np.corrcoef(cel_w, cel_v)[0, 1]),
+                                         'por_numero': {n: {'n': int((cel_num == n).sum()), 'spearman': _spearman(cel_w[cel_num == n], cel_v[cel_num == n])}
+                                                        for n in nums_todos}}
+    # parcelas de 13 e de 22 com os eliminados no denominador, por município (AC e TO juntos; denominador da própria UF)
+    den_w = np.zeros(len(muns))
+    den_v = np.zeros(len(muns))
+    for u in UFS:
+        s = ufm == u
+        for n in ['13', '22'] + ELIM[u]:
+            den_w[s] += Wm[n][s]
+            den_v[s] += Vm[n][s]
+    ok = den_w > 0
+    out['parcelas_com_eliminados_no_denominador'] = {
+        'municipios': int(ok.sum()),
+        'parcela_13': _spearman(Wm['13'][ok] / den_w[ok], Vm['13'][ok] / den_v[ok]),
+        'parcela_22': _spearman(Wm['22'][ok] / den_w[ok], Vm['22'][ok] / den_v[ok]),
+        'parcela_eliminados': _spearman(1 - (Wm['13'][ok] + Wm['22'][ok]) / den_w[ok], 1 - (Vm['13'][ok] + Vm['22'][ok]) / den_v[ok])}
+    # nível: W_1 contra P_1 no agregado (o termômetro não precisa acertar o nível, só acompanhar)
+    out['nivel_1t'] = {u: {'W1': float(Wm['13'][ufm == u].sum() / n_m[ufm == u].sum()), 'P1': float(Vm['13'][ufm == u].sum() / (Vm['13'][ufm == u].sum() + Vm['22'][ufm == u].sum())),
+                           'testemunhas_13_22': int(n_m[ufm == u].sum()), 'testemunhas_eliminados': int(sum(Wm[n][ufm == u].sum() for n in ELIM[u]))} for u in UFS}
+    out['por_municipio'] = [{'mun': m, 'testemunhas_13_22': int(n_m[i]), 'W1': (float(Wm['13'][i] / n_m[i]) if n_m[i] else None), 'P1': float(P_m[i])} for i, m in enumerate(muns)]
+    out['aprovado'] = out['principal_AC_TO']['aprovado']
+    out['gravado_em_utc'] = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
+    pr = out['principal_AC_TO']
+    P(f'validade (D7): n_min {pr["n_min_escolhido"]}, municípios na decisão {pr["municipios_na_decisao"]}, correlação de postos {pr["correlacao_que_decide"]}, '
+      f'aprovado: {pr["aprovado"]}')
+    P('  grade:', json.dumps(pr['grade']))
+    P('  leitura sem mínimo:', json.dumps(pr['leitura_sem_minimo']))
+    for u in UFS:
+        q = out['por_uf'][u]
+        P(f'  {u}: n_min {q["n_min_escolhido"]}, decide {q["correlacao_que_decide"]} em {q["municipios_na_decisao"]} municípios, sem mínimo {q["leitura_sem_minimo"]["observado"]}')
+    P('  células:', out['celulas_municipio_x_numero']['n_celulas'], out['celulas_municipio_x_numero']['spearman'], '| com eliminados no denominador:', out['parcelas_com_eliminados_no_denominador'])
+    P('  nível 1º turno:', out['nivel_1t'])
+    grava('validade.json', out)
+
+
+def _perfil():
+    """Eleitores por grau de escolaridade (códigos 1 a 8; 0 = não informado) por seção de AC e TO."""
+    if os.path.exists(f'{TRAB}/perfil_escolaridade.json'):
+        return le('perfil_escolaridade.json')
+    out = {}
+    for uf in UFS:
+        z = zipfile.ZipFile(f'{PERFIL_DIR}/perfil_eleitor_secao_2026_{uf}.zip')
+        nome = [n for n in z.namelist() if n.lower().endswith('.csv')][0]
+        with z.open(nome) as fh:
+            rd = csv.reader(io.TextIOWrapper(fh, encoding='latin1', newline=''), delimiter=';')
+            cab = next(rd)
+            ix = {c.strip(): i for i, c in enumerate(cab)}
+            iU, iM, iZ, iS, iE, iQ = (ix[c] for c in ('SG_UF', 'CD_MUNICIPIO', 'NR_ZONA', 'NR_SECAO', 'CD_GRAU_ESCOLARIDADE', 'QT_ELEITORES'))
+            for r in rd:
+                k = f'{r[iU]}|{int(r[iM])}|{int(r[iZ])}|{int(r[iS])}'
+                e = int(r[iE])
+                dd = out.setdefault(k, [0] * 9)
+                dd[e if 1 <= e <= 8 else 0] += int(r[iQ])
+    grava('perfil_escolaridade.json', out)
+    return out
+
+
+def _tercis(valores):
+    """Três grupos com o mesmo número de seções; 0 = menores valores, 2 = maiores. Empate desfeito pela chave."""
+    ks = sorted(valores, key=lambda k: (valores[k], k))
+    n = len(ks)
+    return {k: min(2, i * 3 // n) for i, k in enumerate(ks)}
+
+
+def _mascaras_tercil(ks, grupos, nomes):
+    return {nomes[g]: np.array([grupos.get(k) == g for k in ks]) for g in sorted(nomes, reverse=True)}
+
+
+def _bateria(X, d, C, masc_terc):
+    """Theta principal com erro, e Theta por UF e por tercil (para os critérios de sinal)."""
+    r, _ = _conta(X, d['loc'], d['nloc'], C)
+    b = {'theta': r['theta'], 'ep': r['ep'], 'por_uf': {}, 'por_tercil': {}}
+    for u in sorted(set(d['uf'])):
+        b['por_uf'][u] = float(_theta(X[d['uf'] == u].sum(0)))
+    for nome, m in (masc_terc or {}).items():
+        b['por_tercil'][nome] = float(_theta(X[m].sum(0)))
+    return b
+
+
+def _criterio_sinal(b, sis, espelho=False):
+    """Critério de SINAL do registro aplicado a uma bateria (ou ao espelho: a mesma regra em -Theta)."""
+    sg = -1.0 if espelho else 1.0
+    th = sg * b['theta']
+    err = math.hypot(b['ep'], sis)
+    partes = [sg * v for v in list(b['por_uf'].values()) + list(b['por_tercil'].values())]
+    c = {'theta': th, 'erro_total': err, 'theta_sobre_erro_total': th / err, 'tamanho_ok': bool(th >= 0.045), 'razao_ok': bool(th >= 2.5 * err),
+         'mesmo_sinal_ufs_e_tercis': bool(all(v > 0 for v in partes)), 'n_recortes': len(partes)}
+    c['sinal'] = bool(c['tamanho_ok'] and c['razao_ok'] and c['mesmo_sinal_ufs_e_tercis'])
+    return c
+
+
+def _traduz(theta, P2, R2u, L2u):
+    """D17: fração dos votos verdadeiros de um lado contada para o outro, e o que isso seria no país."""
+    lg = math.log(P2 / (1 - P2))
+    Pv = 1 / (1 + math.exp(-(lg - theta)))
+    if theta >= 0:
+        p = (P2 - Pv) / (1 - Pv)          # fração dos votos verdadeiros de Flávio contada para Lula
+        x = p / (1 - p) * R2_OFICIAL
+        xl = p / (1 - p) * R2u
+        return {'theta': theta, 'P2_oficial': P2, 'P2_verdadeiro_implicito': Pv, 'sentido': 'de Flávio para Lula', 'fracao_p': p,
+                'votos_trocados_no_pais_se_uniforme': x, 'efeito_na_margem_no_pais': 2 * x, 'fracao_da_margem': 2 * x / MARGEM,
+                'votos_trocados_em_AC_e_TO': xl}
+    q = (Pv - P2) / Pv                    # fração dos votos verdadeiros de Lula contada para Flávio
+    x = q / (1 - q) * L2_OFICIAL
+    xl = q / (1 - q) * L2u
+    return {'theta': theta, 'P2_oficial': P2, 'P2_verdadeiro_implicito': Pv, 'sentido': 'de Lula para Flávio', 'fracao_p': -q,
+            'votos_trocados_no_pais_se_uniforme': -x, 'efeito_na_margem_no_pais': -2 * x, 'fracao_da_margem': -2 * x / MARGEM,
+            'votos_trocados_em_AC_e_TO': -xl}
+
+
+def _taxas(S):
+    """D20: taxas de erro de tela por eleitor de cada lado e a decomposição de Theta."""
+    L1, R1, L2, R2, a1, b1, a2, b2 = (float(x) for x in S)
+    r = {'r13_1t': a1 / L1, 'r22_1t': b1 / R1, 'r13_2t': a2 / L2, 'r22_2t': b2 / R2}
+    r['dln_r13'] = math.log(r['r13_2t'] / r['r13_1t'])
+    r['dln_r22'] = math.log(r['r22_2t'] / r['r22_1t'])
+    r['theta_igual_a_menos_a_diferenca'] = -(r['dln_r13'] - r['dln_r22'])
+    r['multiplicador_r13'] = r['r13_2t'] / r['r13_1t']
+    r['multiplicador_r22'] = r['r22_2t'] / r['r22_1t']
+    return r
+
+
+def _descritivo_aas():
+    """D18 e R6: ES, DF, AM e RN, só com os RDV da amostra aleatória nova. Sem veredito."""
+    base = _base('2026')
+    out = {}
+    for uf in ('ES', 'DF', 'AM', 'RN'):
+        acc = {t: collections.Counter() for t in ('1', '2')}
+        nsec = 0
+        raiz2 = f'{AAS}/t2/{uf.lower()}'
+        for dp, _, fs in sorted(os.walk(raiz2)):
+            f2 = [f for f in fs if f.endswith('-rdv.dat')]
+            if not f2:
+                continue
+            rel = os.path.relpath(dp, raiz2)
+            dp1 = f'{AAS}/t1/{uf.lower()}/{rel}'
+            f1 = [f for f in os.listdir(dp1) if f.endswith('-rdv.dat')] if os.path.isdir(dp1) else []
+            if not f1:
+                continue
+            mun, zona, sec = (int(x) for x in rel.split('/'))
+            k = f'{uf}|{mun}|{zona}|{sec}'
+            if k not in base or '1' not in base[k] or '2' not in base[k]:
+                continue
+            lidos = {}
+            try:
+                for t, cam in (('1', f'{dp1}/{f1[0]}'), ('2', f'{dp}/{f2[0]}')):
+                    with open(cam, 'rb') as f:
+                        lidos[t] = _resumo_rdv(ler_rdv_bytes(f.read())[1])
+            except Exception:
+                continue
+            ok = all(_rdv5(lidos[t], 'p') == (base[k][t]['L'], base[k][t]['R'], base[k][t]['O'], base[k][t]['B'], base[k][t]['N']) for t in ('1', '2'))
+            if not ok:
+                acc['1']['rdv_diferente_da_base'] += 1
+                continue
+            nsec += 1
+            for t in ('1', '2'):
+                r, b = lidos[t], base[k][t]
+                a = acc[t]
+                a['L'] += b['L']; a['R'] += b['R']; a['comp'] += b['comp']
+                a['g13'] += r['gd'].get('13', 0); a['g22'] += r['gd'].get('22', 0)
+                a['nominal_gov_13'] += r['gn'].get('13', 0); a['nominal_gov_22'] += r['gn'].get('22', 0)
+                a['nulos_gov_com_digitos'] += sum(r['gd'].values()); a['nominais_gov'] += sum(r['gn'].values())
+        ou = out[uf] = {'secoes': nsec, 'rdv_diferente_da_base': acc['1']['rdv_diferente_da_base']}
+        for t in ('1', '2'):
+            a = acc[t]
+            q = {'L': a['L'], 'R': a['R'], 'comparecimento': a['comp'], 'nominal_gov_13': a['nominal_gov_13'], 'nominal_gov_22': a['nominal_gov_22'],
+                 'nulos_gov_com_digitos': a['nulos_gov_com_digitos']}
+            for n, lado in (('13', 'L'), ('22', 'R')):
+                if a['nominal_gov_' + n] == 0 and a['nominais_gov'] > 0:
+                    q['g' + n] = a['g' + n]
+                    q[f'g{n}_por_mil_votos_de_{lado}'] = 1000 * a['g' + n] / a[lado] if a[lado] else None
+                else:
+                    q['g' + n] = None  # o número é candidato a governador nessa UF e turno (ou não houve eleição de governador)
+            if q.get('g13') is not None and q.get('g22') is not None and q['g13'] + q['g22'] > 0:
+                q['W'] = q['g13'] / (q['g13'] + q['g22'])
+                q['P'] = a['L'] / (a['L'] + a['R'])
+                q['logit_W_menos_logit_P'] = math.log(q['g13'] / q['g22']) - math.log(a['L'] / a['R']) if min(q['g13'], q['g22']) > 0 else None
+            ou[f'{t}t'] = q
+    return out
+
+
+def abrir():
+    """Segunda etapa: Theta, leituras secundárias, calibração, espelho e tradução em votos."""
+    for a in ('etapa1.json', 'validade.json'):
+        if not os.path.exists(f'{TRAB}/{a}'):
+            raise SystemExit(f'falta {a}: a abertura só roda depois da etapa 1 e da validade')
+    d = _carrega('2026')
+    X, loc, nloc, ks, tab = d['X'], d['loc'], d['nloc'], d['k'], d['tab']
+    n = len(ks)
+    C = _contagens_boot(d['uf_loc'])
+    out = {'aberto_em_utc': time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())}
+    princ, rep = _conta(X, loc, nloc, C)
+    out['principal'] = princ
+    out['por_uf'] = {u: _conta(X, loc, nloc, C, d['uf'] == u)[0] for u in UFS}
+    # tercis de escolaridade (D8)
+    perf = _perfil()
+    baixa, sup = {}, {}
+    for k in ks:
+        q = perf.get(k)
+        if q and sum(q[1:9]) > 0:
+            baixa[k] = (q[1] + q[2] + q[3]) / sum(q[1:9])
+            sup[k] = q[8] / sum(q[1:9])
+    g_baixa = _tercis(baixa)                      # 2 = mais eleitores de pouca escolaridade
+    g_sup = _tercis({k: -v for k, v in sup.items()})   # 2 = menos eleitores com superior
+    nomes = {2: 'baixa', 1: 'media', 0: 'alta'}
+    mt = _mascaras_tercil(ks, g_baixa, nomes)
+    mts = _mascaras_tercil(ks, g_sup, nomes)
+    out['por_tercil_escolaridade'] = {'secoes_com_perfil': len(baixa), 'secoes_sem_perfil': n - len(baixa), 'medida': 'parcela com até fundamental incompleto'}
+    for nome, m in mt.items():
+        r = _conta(X, loc, nloc, C, m)[0]
+        vs = [baixa[k] for k, mm in zip(ks, m) if mm]
+        r['faixa_da_medida'] = [min(vs), max(vs)]
+        out['por_tercil_escolaridade'][nome] = r
+    out['por_tercil_superior_sensibilidade'] = {nome: _conta(X, loc, nloc, C, m)[0] for nome, m in mts.items()}
+    bat = _bateria(X, d, C, mt)
+    out['bateria'] = bat
+    S = X.sum(0)
+    L2u, R2u = float(S[2]), float(S[3])
+
+    # D13: intervalo dos eliminados
+    e_s = np.array([sum(tab[k]['gd1'].get(nm, 0) for nm in ELIM[tab[k]['uf']]) for k in ks], float)
+    a, b_, e = float(S[4]), float(S[5]), float(e_s.sum())
+    def desl(cw, c0=0.5):
+        return -(math.log((a + cw * e) / (b_ + (1 - cw) * e)) - math.log((a + c0 * e) / (b_ + (1 - c0) * e)))
+    out['intervalo_dos_eliminados'] = {'g13_1t': a, 'g22_1t': b_, 'testemunhas_de_eliminados_1t': e, 'parcela_de_eliminados_entre_testemunhas_1t': e / (a + b_ + e),
+                                       'por_numero': {u: {nm: int(sum(tab[k]['gd1'].get(nm, 0) for k in ks if tab[k]['uf'] == u)) for nm in ELIM[u]} for u in UFS},
+                                       'deslocamento_de_theta': {'cw_0,40': desl(0.4), 'cw_0,25': desl(0.25), 'cw_0,60': desl(0.6), 'cw_0,75': desl(0.75), 'cw_0': desl(0.0), 'cw_1': desl(1.0)},
+                                       'nota': 'limite do que uma conversão dos eliminados diferente de 50% entre os que erram a tela deslocaria; não é estimativa'}
+
+    # D11: calibração por efeito plantado (irregularidade) e o espelho do plantio (R4)
+    cal = {}
+    for lado in ('R_para_L', 'L_para_R'):
+        cal[lado] = {}
+        for p in (0.018, 0.0357):
+            rng = np.random.default_rng(SEMENTE)
+            Xp = X.copy()
+            if lado == 'R_para_L':
+                x = rng.binomial(X[:, 3].astype(int), p)
+                Xp[:, 2] += x; Xp[:, 3] -= x
+                formula = math.log((1 + p * R2u / L2u) / (1 - p))
+            else:
+                x = rng.binomial(X[:, 2].astype(int), p)
+                Xp[:, 2] -= x; Xp[:, 3] += x
+                formula = -math.log((1 + p * L2u / R2u) / (1 - p))
+            bp = _bateria(Xp, d, C, mt)
+            aum = bp['theta'] - princ['theta']
+            varios = []
+            for j in range(1, 201):
+                rg = np.random.default_rng(SEMENTE + j)
+                Xq = X.copy()
+                if lado == 'R_para_L':
+                    xx = rg.binomial(X[:, 3].astype(int), p); Xq[:, 2] += xx; Xq[:, 3] -= xx
+                else:
+                    xx = rg.binomial(X[:, 2].astype(int), p); Xq[:, 2] -= xx; Xq[:, 3] += xx
+                varios.append(float(_theta(Xq.sum(0))) - princ['theta'])
+            err015 = math.hypot(princ['ep'], 0.015)
+            item = {'p': p, 'votos_movidos': int(x.sum()), 'formula': formula, 'aumento_de_theta': aum, 'razao_aumento_formula': aum / formula,
+                    'aumento_em_erros_totais_com_sis_0015': abs(aum) / err015, 'duzentos_plantios_media': float(np.mean(varios)), 'duzentos_plantios_desvio': float(np.std(varios, ddof=1)),
+                    'bateria_com_plantio': bp,
+                    'criterio_de_sinal_no_dado_com_plantio_sis_0015': _criterio_sinal(bp, 0.015, espelho=(lado == 'L_para_R'))}
+            item['enxerga'] = bool(abs(aum / formula - 1) <= 0.10 and abs(aum) >= 2.5 * err015)
+            cal[lado][f'p_{p}'] = item
+    out['calibracao_plantio'] = cal
+    out['enxerga_o_plantado'] = cal['R_para_L']['p_0.0357']['enxerga']
+    err015 = math.hypot(princ['ep'], 0.015)
+    alvo = max(0.045, 2.5 * err015)
+    lo, hi = 0.0, 0.5
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if math.log((1 + mid * R2u / L2u) / (1 - mid)) >= alvo:
+            hi = mid
+        else:
+            lo = mid
+    out['poder'] = {'erro_total_sis_0015': err015, 'theta_minimo_para_sinal': alvo, 'menor_p_que_alcanca': hi,
+                    'menor_p_em_fracao_da_margem_se_uniforme_no_pais': 2 * hi / (1 - hi) * R2_OFICIAL / MARGEM,
+                    'formula_p_0357': math.log((1 + 0.0357 * R2u / L2u) / (1 - 0.0357)), 'formula_p_018': math.log((1 + 0.018 * R2u / L2u) / (1 - 0.018)), 'R_sobre_L_2t_universo': R2u / L2u}
+
+    # D12: explicações inocentes plantadas
+    k_razao = float((S[6] + S[7]) / (S[4] + S[5]))
+    ino = {'k_razao_testemunhas_2t_sobre_1t': k_razao, 'conversao_dos_eliminados': {}, 'queda_geral_da_propensao': {}}
+    for delta in (0.10, 0.25):
+        incs, movs = [], []
+        for j in range(200):
+            rg = np.random.default_rng(SEMENTE + 1000 + j)
+            mv = np.minimum(rg.binomial(e_s.astype(int), min(1.0, delta * k_razao)), X[:, 6])
+            Xq = X.copy(); Xq[:, 6] -= mv; Xq[:, 7] += mv
+            incs.append(float(_theta(Xq.sum(0))) - princ['theta']); movs.append(float(mv.sum()))
+        m = float(np.mean(movs))
+        direto = -(math.log((S[6] - m) / (S[7] + m)) - math.log(S[6] / S[7]))
+        ino['conversao_dos_eliminados'][f'delta_{delta}'] = {'testemunhas_movidas_media': m, 'aumento_medio_de_theta': float(np.mean(incs)), 'desvio': float(np.std(incs, ddof=1)),
+                                                             'valor_direto': float(direto), 'razao': float(np.mean(incs) / direto), 'formula_do_intervalo_D13': desl(0.5 - delta),
+                                                             'passa': bool(abs(np.mean(incs) / direto - 1) <= 0.10)}
+    muds = []
+    for j in range(200):
+        rg = np.random.default_rng(SEMENTE + 2000 + j)
+        Xq = X.copy(); Xq[:, 6] = rg.binomial(X[:, 6].astype(int), 0.5); Xq[:, 7] = rg.binomial(X[:, 7].astype(int), 0.5)
+        muds.append(float(_theta(Xq.sum(0))) - princ['theta'])
+    ino['queda_geral_da_propensao'] = {'mudanca_media_de_theta': float(np.mean(muds)), 'desvio_entre_sorteios': float(np.std(muds, ddof=1)),
+                                       'limite_meio_erro_padrao': princ['ep'] / 2, 'passa': bool(abs(np.mean(muds)) <= princ['ep'] / 2)}
+    out['explicacao_inocente_plantada'] = ino
+
+    # D14: duas metades
+    rng = np.random.default_rng(SEMENTE)
+    zs, eps, difs = [], [], []
+    for j in range(200):
+        perm = rng.permutation(n)
+        mA = np.zeros(n, bool); mA[perm[:n // 2]] = True
+        dif = float(_theta(X[mA].sum(0)) - _theta(X[~mA].sum(0)))
+        if j < 20:
+            ra = _theta(C[:400] @ _agrega(X, loc, nloc, mA)); rb = _theta(C[:400] @ _agrega(X, loc, nloc, ~mA))
+            eps.append(math.hypot(float(ra[np.isfinite(ra)].std(ddof=1)), float(rb[np.isfinite(rb)].std(ddof=1))))
+            er = eps[-1]
+        else:
+            er = float(np.mean(eps))
+        difs.append(dif); zs.append(dif / er)
+    zs = np.array(zs)
+    out['duas_metades'] = {'divisoes': 200, 'erro_medio_da_diferenca': float(np.mean(eps)), 'desvio_das_diferencas': float(np.std(difs, ddof=1)),
+                           'fracao_com_z_acima_de_2': float((np.abs(zs) > 2).mean()), 'maior_z': float(np.abs(zs).max()), 'passa': bool((np.abs(zs) > 2).mean() <= 0.10)}
+
+    # D16: placebo 3 (par de eliminados 70 e 14)
+    v1 = _votos_1t_por_candidato(ks)
+    n70 = np.array([tab[k]['gd1'].get(PAR_PLACEBO3[0], 0) for k in ks], float); n14 = np.array([tab[k]['gd1'].get(PAR_PLACEBO3[1], 0) for k in ks], float)
+    V70 = np.array([v.get(PAR_PLACEBO3[0], 0) for v in v1], float); V14 = np.array([v.get(PAR_PLACEBO3[1], 0) for v in v1], float)
+    Q = np.column_stack([n70, n14, V70, V14])
+    def est(Sq):
+        with np.errstate(divide='ignore', invalid='ignore'):
+            return np.log(Sq[..., 0] / Sq[..., 1]) - np.log(Sq[..., 2] / Sq[..., 3])
+    pl3 = {'par': list(PAR_PLACEBO3)}
+    for nome, m in [('AC+TO', np.ones(n, bool))] + [(u, d['uf'] == u) for u in UFS]:
+        rp = est(C @ _agrega(Q, loc, nloc, m)); okk = np.isfinite(rp)
+        Sq = Q[m].sum(0)
+        pl3[nome] = {'testemunhas_70': int(Sq[0]), 'testemunhas_14': int(Sq[1]), 'votos_70': int(Sq[2]), 'votos_14': int(Sq[3]),
+                     'parcela_70_testemunhas': float(Sq[0] / (Sq[0] + Sq[1])) if Sq[0] + Sq[1] else None, 'parcela_70_oficial': float(Sq[2] / (Sq[2] + Sq[3])),
+                     'diferenca_de_logits': float(est(Sq)) if min(Sq[0], Sq[1]) > 0 else None, 'ep': float(rp[okk].std(ddof=1)) if okk.sum() > 1 else None, 'replicas_fora': int((~okk).sum())}
+    muns = sorted(set(d['mun'])); im = {mm: i for i, mm in enumerate(muns)}; idx = np.array([im[mm] for mm in d['mun']])
+    Qm = np.zeros((len(muns), 4)); np.add.at(Qm, idx, Q)
+    sel = (Qm[:, 0] + Qm[:, 1]) >= 30
+    pl3['por_municipio'] = {'municipios_com_30_ou_mais': int(sel.sum()),
+                            'spearman': _spearman(Qm[sel, 0] / (Qm[sel, 0] + Qm[sel, 1]), Qm[sel, 2] / (Qm[sel, 2] + Qm[sel, 3])) if sel.sum() >= 3 else None}
+    out['placebo3_par_de_eliminados'] = pl3
+
+    # D19: lado oficial pesado pelas testemunhas
+    ns = X[:, 4:8].sum(1)
+    okp = ((X[:, 0] + X[:, 1]) > 0) & ((X[:, 2] + X[:, 3]) > 0)
+    p1 = np.where(okp, X[:, 0] / np.maximum(X[:, 0] + X[:, 1], 1), 0); p2 = np.where(okp, X[:, 2] / np.maximum(X[:, 2] + X[:, 3], 1), 0)
+    Xs = X.copy(); Xs[:, 0] = ns * p1; Xs[:, 1] = ns * (1 - p1); Xs[:, 2] = ns * p2; Xs[:, 3] = ns * (1 - p2)
+    r19 = _conta(Xs, loc, nloc, C, okp)[0]
+    r19.pop('somas')
+    out['oficial_pesado_pelas_testemunhas'] = {'AC+TO': r19, **{u: {kk: vv for kk, vv in _conta(Xs, loc, nloc, C, okp & (d['uf'] == u))[0].items() if kk != 'somas'} for u in UFS}}
+
+    # D20: taxas de erro de tela por lado e a disputa de governador
+    out['taxas_de_erro_de_tela'] = {'AC+TO': _taxas(S), **{u: _taxas(X[d['uf'] == u].sum(0)) for u in UFS}}
+    fin = {'AC': ('10', '11'), 'TO': ('44', '45')}
+    pe = {}
+    for k in ks:
+        g = tab[k]['gn1']; tot = sum(g.values())
+        if tot > 0:
+            pe[k] = 1 - sum(g.get(f, 0) for f in fin[tab[k]['uf']]) / tot
+    g_pe = _tercis(pe)
+    out['por_tercil_da_parcela_de_governador_eliminado'] = {'secoes': len(pe)}
+    for nome, m in _mascaras_tercil(ks, g_pe, {2: 'maior', 1: 'media', 0: 'menor'}).items():
+        r = _conta(X, loc, nloc, C, m)[0]
+        vs = [pe[k] for k, mm in zip(ks, m) if mm]
+        r['faixa_da_parcela'] = [min(vs), max(vs)]; r['taxas'] = _taxas(X[m].sum(0))
+        out['por_tercil_da_parcela_de_governador_eliminado'][nome] = r
+    gov = {}
+    for u in UFS:
+        mu = [k for k in ks if tab[k]['uf'] == u]
+        gov[u] = {}
+        for t in ('1', '2'):
+            nom = collections.Counter()
+            for k in mu:
+                for c_, q in tab[k]['gn' + t].items():
+                    nom[c_] += q
+            dig = collections.Counter()
+            for k in mu:
+                for c_, q in tab[k]['gd' + t].items():
+                    dig[c_] += q
+            gov[u][f'{t}t'] = {'nominais_por_candidato': dict(sorted(nom.items(), key=lambda kv: -kv[1])), 'brancos': sum(tab[k]['gB' + t] for k in mu),
+                               'nulos': sum(tab[k]['gN' + t] for k in mu), 'nulos_sem_digitos': sum(tab[k]['g6_' + t] for k in mu),
+                               'nulos_com_digitos_mais_frequentes': dict(sorted(dig.items(), key=lambda kv: -kv[1])[:15]),
+                               'comparecimento': sum(tab[k]['comp' + t] for k in mu)}
+    out['governador_descritivo'] = gov
+
+    # D17: tradução em votos
+    out['traducao_em_votos'] = {'ponto': _traduz(princ['theta'], princ['P2'], R2u, L2u)}
+    for sis_nome, sis in (('sis_0015', 0.015),):
+        err = math.hypot(princ['ep'], sis)
+        out['traducao_em_votos'][sis_nome] = {'erro_total': err, 'theta_menos_196_erros': _traduz(princ['theta'] - 1.96 * err, princ['P2'], R2u, L2u),
+                                              'theta_mais_196_erros': _traduz(princ['theta'] + 1.96 * err, princ['P2'], R2u, L2u)}
+    out['traducao_em_votos']['referencia_troca_que_vira'] = {'p': 0.0357, 'theta_previsto_no_universo': math.log((1 + 0.0357 * R2u / L2u) / (1 - 0.0357)), 'margem': MARGEM}
+
+    # R10: sensibilidade com as seções reprovadas na conferência
+    dt = _carrega('2026', todas=True)
+    if len(dt['k']) != n:
+        Ct = _contagens_boot(dt['uf_loc'])
+        out['sensibilidade_com_reprovadas_D2'] = _conta(dt['X'], dt['loc'], dt['nloc'], Ct)[0]
+    else:
+        out['sensibilidade_com_reprovadas_D2'] = {'nota': 'nenhuma seção reprovada com RDV nos dois turnos; conta idêntica à principal'}
+
+    # D18: descritivo das outras UFs com 2º turno de governador
+    try:
+        out['descritivo_ES_DF_AM_RN_amostra'] = _descritivo_aas()
+    except Exception as ex:  # descritivo não derruba a abertura
+        out['descritivo_ES_DF_AM_RN_amostra'] = {'erro': repr(ex)}
+    grava('aberto.json', out)
+    P(f'Theta AC+TO = {princ["theta"]:+.4f} (ep {princ["ep"]:.4f}; IC95 percentis {princ["ic95_percentis"][0]:+.4f} a {princ["ic95_percentis"][1]:+.4f}; n {princ["n_secoes"]} seções)')
+    P('  P1, P2, W1, W2:', round(princ['P1'], 4), round(princ['P2'], 4), round(princ['W1'], 4), round(princ['W2'], 4), '| somas', princ['somas'])
+    for u in UFS:
+        q = out['por_uf'][u]
+        P(f'  {u}: Theta {q["theta"]:+.4f} (ep {q["ep"]:.4f}) P1 {q["P1"]:.4f} P2 {q["P2"]:.4f} W1 {q["W1"]:.4f} W2 {q["W2"]:.4f} somas {q["somas"]}')
+    for nome in ('baixa', 'media', 'alta'):
+        q = out['por_tercil_escolaridade'][nome]
+        P(f'  tercil {nome}: Theta {q["theta"]:+.4f} (ep {q["ep"]:.4f}) n {q["n_secoes"]}')
+    P('  enxerga o plantado:', out['enxerga_o_plantado'], json.dumps({k_: {kk: vv for kk, vv in v_.items() if kk in ('formula', 'aumento_de_theta', 'razao_aumento_formula', 'aumento_em_erros_totais_com_sis_0015')} for k_, v_ in cal['R_para_L'].items()}))
+    P('  poder:', json.dumps(out['poder']))
+    P('  intervalo dos eliminados:', json.dumps(out['intervalo_dos_eliminados']['deslocamento_de_theta']), 'e =', e)
+    P('  inocente:', json.dumps(ino))
+    P('  metades:', json.dumps(out['duas_metades']))
+    P('  placebo 3:', json.dumps(pl3))
+    P('  pesado pelas testemunhas:', json.dumps({k_: (v_['theta'], v_['ep']) for k_, v_ in out['oficial_pesado_pelas_testemunhas'].items()}))
+    P('  taxas:', json.dumps(out['taxas_de_erro_de_tela']))
+    P('  tercil gov eliminado:', json.dumps({k_: (v_['theta'], v_['ep']) for k_, v_ in out['por_tercil_da_parcela_de_governador_eliminado'].items() if isinstance(v_, dict)}))
+    P('  tradução:', json.dumps(out['traducao_em_votos']['ponto']))
+
+
+def placebo():
+    """D21: AL 2022, mesma conta. Sem tercis (R8)."""
+    d = _carrega('2022')
+    X, loc, nloc, ks, tab = d['X'], d['loc'], d['nloc'], d['k'], d['tab']
+    C = _contagens_boot(d['uf_loc'])
+    r, rep = _conta(X, loc, nloc, C)
+    out = {'uf': 'AL', 'ano': 2022, 'principal': r, 'taxas_de_erro_de_tela': _taxas(X.sum(0)),
+           'testemunhas_1t': int(X[:, 4:6].sum()), 'testemunhas_2t': int(X[:, 6:8].sum())}
+    muns = sorted(set(d['mun'])); im = {m: i for i, m in enumerate(muns)}; idx = np.array([im[m] for m in d['mun']])
+    Xm = np.zeros((len(muns), 8)); np.add.at(Xm, idx, X)
+    n_m = Xm[:, 4] + Xm[:, 5]
+    rng = np.random.default_rng(SEMENTE)
+    out['validade_1t_por_municipio'] = _validade_conta(muns, n_m, Xm[:, 4], Xm[:, 0] / (Xm[:, 0] + Xm[:, 1]), 'AL 2022, 1º turno', rng)
+    n2 = Xm[:, 6] + Xm[:, 7]
+    ok = n2 > 0
+    out['nivel_2t_por_municipio_spearman'] = _spearman(Xm[ok, 6] / n2[ok], Xm[ok, 2] / (Xm[ok, 2] + Xm[ok, 3]))
+    # metades, para saber se o placebo é estável
+    rng = np.random.default_rng(SEMENTE)
+    n = len(ks); difs = []
+    for j in range(200):
+        perm = rng.permutation(n); mA = np.zeros(n, bool); mA[perm[:n // 2]] = True
+        difs.append(float(_theta(X[mA].sum(0)) - _theta(X[~mA].sum(0))))
+    out['duas_metades_desvio_das_diferencas'] = float(np.std(difs, ddof=1))
+    gov = {}
+    for t in ('1', '2'):
+        nom = collections.Counter(); dig = collections.Counter()
+        for k in ks:
+            for c_, q in tab[k]['gn' + t].items():
+                nom[c_] += q
+            for c_, q in tab[k]['gd' + t].items():
+                dig[c_] += q
+        gov[f'{t}t'] = {'nominais_por_candidato': dict(sorted(nom.items(), key=lambda kv: -kv[1])), 'nulos_com_digitos_mais_frequentes': dict(sorted(dig.items(), key=lambda kv: -kv[1])[:15]),
+                        'comparecimento': sum(tab[k]['comp' + t] for k in ks)}
+    out['governador_descritivo'] = gov
+    out['gravado_em_utc'] = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
+    grava('placebo_AL_2022.json', out)
+    P(f'placebo AL 2022: Theta {r["theta"]:+.4f} (ep {r["ep"]:.4f}); n {r["n_secoes"]} seções; testemunhas {out["testemunhas_1t"]} e {out["testemunhas_2t"]}')
+    P('  P1, P2, W1, W2:', r['P1'], r['P2'], r['W1'], r['W2'], r['somas'])
+    P('  taxas:', json.dumps(out['taxas_de_erro_de_tela']))
+    P('  validade 1t:', json.dumps({k_: v_ for k_, v_ in out['validade_1t_por_municipio'].items() if k_ != 'grade'}))
+
+
+# ---------------------------------------------------------------- veredito e relatório
+def _veredito(ab, val, sis):
+    """Ordem do D9, à letra. sis = erro sistemático usado."""
+    th, ep = ab['principal']['theta'], ab['principal']['ep']
+    err = math.hypot(ep, sis)
+    cs = _criterio_sinal(ab['bateria'], sis)
+    ce = _criterio_sinal(ab['bateria'], sis, espelho=True)
+    base = {'theta': th, 'erro_padrao': ep, 'erro_sistematico': sis, 'erro_total': err, 'criterio_de_sinal': cs, 'criterio_de_sinal_no_espelho': ce}
+    if ep > 0.025:
+        return dict(base, veredito='SEM PODER', motivos=['erro-padrão de Theta acima de 0,025'])
+    if not ab['enxerga_o_plantado']:
+        return dict(base, veredito='SEM PODER', motivos=['a calibração não enxerga a troca plantada de 3,57%'])
+    if not val['aprovado']:
+        return dict(base, veredito='INCONCLUSIVO', motivos=['termômetro reprovado na validade do 1º turno'])
+    if abs(th) <= 0.020 and err <= 0.025:
+        return dict(base, veredito='SEM SINAL', motivos=['|Theta| de no máximo 0,020 com erro total de no máximo 0,025'])
+    if cs['sinal']:
+        return dict(base, veredito='SINAL', motivos=['Theta de pelo menos 0,045, de pelo menos 2,5 erros totais, com o mesmo sinal em AC, TO e nos três tercis'])
+    m = []
+    if err > 0.025:
+        m.append('erro total acima de 0,025')
+    if 0.020 < th < 0.045:
+        m.append('Theta entre 0,020 e 0,045')
+    if th >= 0.045 and not cs['razao_ok']:
+        m.append('Theta acima de 0,045 mas abaixo de 2,5 erros totais')
+    if th >= 0.045 and not cs['mesmo_sinal_ufs_e_tercis']:
+        m.append('sinais diferentes entre AC, TO ou os tercis')
+    if th < -0.020:
+        m.append('Theta abaixo de -0,020, no sentido contrário ao da tese: o registro não tem cláusula para isso')
+    return dict(base, veredito='INCONCLUSIVO', motivos=m)
+
+
+def fv(x, n=4, sinal=True):
+    if x is None or (isinstance(x, float) and not math.isfinite(x)):
+        return 'n/d'
+    return (f'{x:+.{n}f}' if sinal else f'{x:.{n}f}').replace('.', ',')
+
+
+def fi(x):
+    return f'{int(round(x)):,}'.replace(',', '.')
+
+
+def fpc(x, n=1):
+    return (f'{100 * x:.{n}f}').replace('.', ',') + '%'
+
+
+def _quebra(txt, larg=118, rec='  '):
+    import textwrap
+    out = []
+    for par in txt.split('\n'):
+        if not par.strip():
+            out.append('')
+            continue
+        ind = len(par) - len(par.lstrip(' '))
+        out += textwrap.wrap(par.strip(), width=larg, initial_indent=' ' * ind, subsequent_indent=' ' * ind + (rec if ind == 0 else ''), break_long_words=False, break_on_hyphens=False)
+    return '\n'.join(out)
+
+
+def relatorio():
+    import ast, hashlib
+    et1, val, ab, conf = le('etapa1.json'), le('validade.json'), le('aberto.json'), le('conferencia_2026.json')
+    pla = le('placebo_AL_2022.json') if os.path.exists(f'{TRAB}/placebo_AL_2022.json') else None
+    conf22 = le('conferencia_2022.json') if os.path.exists(f'{TRAB}/conferencia_2022.json') else None
+    lei = le('leitura.json') if os.path.exists(f'{TRAB}/leitura.json') else {}
+    expl = le('exploratorio.json') if os.path.exists(f'{TRAB}/exploratorio.json') else None
+    src = open(RAIZ + '/scripts/analisar_R27_W3.py').read()
+    doc = ast.get_docstring(ast.parse(src), clean=False)
+    reg = le('registro_decisoes.json')
+    man = {}
+    for a in sorted(os.listdir(TRAB + '/pacotes')):
+        if a.endswith('.manifesto.json'):
+            man[a.replace('.manifesto.json', '')] = le('pacotes/' + a)
+    pr = ab['principal']
+    v015 = _veredito(ab, val, 0.015)
+    sis_pl = max(0.015, abs(pla['principal']['theta'])) if pla else None
+    vpl = _veredito(ab, val, sis_pl) if pla else None
+    trad = dict(ab['traducao_em_votos'])
+    L2u, R2u = pr['somas']['L2'], pr['somas']['R2']
+    if pla:
+        err = math.hypot(pr['ep'], sis_pl)
+        trad['sis_placebo'] = {'erro_total': err, 'theta_menos_196_erros': _traduz(pr['theta'] - 1.96 * err, pr['P2'], R2u, L2u), 'theta_mais_196_erros': _traduz(pr['theta'] + 1.96 * err, pr['P2'], R2u, L2u)}
+    clausulas = {'lista': ['principal', 'espelho', 'AC', 'TO', 'tercil baixa', 'tercil media', 'tercil alta', 'placebo 3', 'duas metades'], 'n': 9,
+                 'sinais_que_o_acaso_daria_a_5_por_cento': 0.45}
+    J = {'teste': 'R27_W3: testemunhas na tela de governador (D4-3), AC e TO',
+         'registro': {'adendo': 'Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b; Adendo 30 (commit a7218fb)', 'criterio': 'registro/adendo27/desenho_D4_proposta.json, teste D4-3',
+                      'docstring_sha256': hashlib.sha256(doc.encode()).hexdigest(), 'docstring_no_commit': '6677983 (10/11/2026 10:48:36 UTC), antes de qualquer conta com votos',
+                      'decisoes_da_retomada': reg},
+         'fonte': {'pacotes': man, 'endereco': URL},
+         'conferencia_rdv_x_bweb_2026': conf, 'conferencia_rdv_x_base_2022': conf22,
+         'etapa1': et1, 'validade_do_termometro': val, 'aberto': ab, 'placebo_AL_2022': pla,
+         'veredito': {'so_com_2026_erro_sistematico_minimo_0015': v015, 'com_placebo_AL_2022': vpl, 'erro_sistematico_com_placebo': sis_pl},
+         'traducao_em_votos_de_margem': trad, 'contagem_de_clausulas': clausulas,
+         'decisoes_retomada_texto': DECISOES_RETOMADA, 'leitura_escrita_depois_de_ver_o_resultado': lei, 'exploratorio_depois_de_ver_o_resultado': expl}
+    with open(RAIZ + '/resultados/R27_W3_testemunhas_governador.json', 'w') as f:
+        json.dump(J, f, ensure_ascii=False, indent=1)
+
+    # ---------------- texto
+    T = []
+    A = T.append
+    A('R27 W3: TESTEMUNHAS NA TELA DE GOVERNADOR, AC E TO (Adendo 27, teste D4-3)')
+    A('')
+    A('Registro: PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda D-b, e Adendo 30 (commit a7218fb). Critério: registro/adendo27/desenho_D4_proposta.json, teste D4-3, à letra. '
+      f'Decisões que o registro não fixa: docstring de scripts/analisar_R27_W3.py, no commit 6677983 (10:48:36 UTC) antes de qualquer conta com votos (SHA-256 {reg["docstring_sha256"][:16]}...), e o bloco de decisões da retomada, '
+      f'gravado às {reg["gravado_em_utc"][11:16]} UTC (SHA-256 {reg["decisoes_retomada_sha256"][:16]}...), também antes.')
+    A('A ideia: parte dos eleitores digita na tela de governador o número do seu presidenciável. Em AC e TO, 13 e 22 não são candidatos a governador em nenhum turno, e isso vira nulo de governador com os dígitos gravados no RDV. '
+      'É uma amostra da intenção presidencial que não passa pela contagem de presidente. W = parcela de 13 entre as testemunhas (13 + 22); P = parcela oficial de Lula entre Lula + Flávio nas mesmas seções. '
+      'Theta = [logit P do 2º turno menos logit P do 1º] menos [logit W do 2º menos logit W do 1º]. Troca de votos de Flávio para Lula só na contagem de presidente do 2º turno dá Theta positivo: '
+      f'{fv(ab["poder"]["formula_p_0357"])} para a troca de 3,57% que vira o resultado, nessas seções (R/L = {fv(ab["poder"]["R_sobre_L_2t_universo"], 3, False)}).')
+    A('')
+    A('VEREDITO PELA LETRA')
+    def linha_v(v, rot):
+        A(f'  {rot}: {v["veredito"]}. Theta = {fv(v["theta"])} (erro-padrão {fv(v["erro_padrao"], 4, False)}; erro sistemático {fv(v["erro_sistematico"], 4, False)}; erro total {fv(v["erro_total"], 4, False)}; '
+          f'n = {fi(pr["n_secoes"])} seções em {fi(pr["n_locais"])} locais; {fi(pr["somas"]["a1"] + pr["somas"]["b1"])} testemunhas no 1º turno e {fi(pr["somas"]["a2"] + pr["somas"]["b2"])} no 2º). Motivo: ' + '; '.join(v['motivos']) + '.')
+    linha_v(v015, 'Só com 2026 (erro sistemático mínimo de 0,015, sem usar outro ano)')
+    if vpl:
+        linha_v(vpl, f'Com o placebo AL 2022 (Theta do placebo {fv(pla["principal"]["theta"])}, erro-padrão {fv(pla["principal"]["ep"], 4, False)})')
+    else:
+        A('  Placebo AL 2022: não rodado; vale o erro sistemático mínimo de 0,015.')
+    A(f'  Etapa 1 (poder): {et1["veredito_da_etapa1"]} (erro-padrão {fv(et1["recortes"]["AC+TO"]["erro_padrao_de_theta"], 4, False)}, limite 0,025). Validade do termômetro no 1º turno: '
+      f'{"APROVADO" if val["aprovado"] else "REPROVADO"} (correlação de postos {fv(val["principal_AC_TO"]["correlacao_que_decide"], 3, False)} em {val["principal_AC_TO"]["municipios_na_decisao"]} municípios; limiar 0,9). '
+      f'Calibração: {"enxerga" if ab["enxerga_o_plantado"] else "NÃO enxerga"} a troca plantada de 3,57%. Espelho (a mesma regra a favor de Flávio): '
+      f'{"SINAL" if v015["criterio_de_sinal_no_espelho"]["sinal"] else "sem sinal"} com 0,015' + (f' e {"SINAL" if vpl["criterio_de_sinal_no_espelho"]["sinal"] else "sem sinal"} com o placebo.' if vpl else '.'))
+    if lei.get('uma_frase'):
+        A('  Em uma frase: ' + lei['uma_frase'])
+    A('')
+    A('1. FONTE E CONFERÊNCIA DOS RDV CONTRA O BWEB')
+    for nome, m in man.items():
+        A(f'  {nome}: pacote de {fi(m["tamanho_pacote"])} bytes ({m["cabecalhos"].get("Last-Modified")}), {fi(m["membros_no_pacote"])} membros; guardados {fi(m["guardados"])} (RDV e boletim), CRC de cada um conferido; '
+          f'{m["pedidos_de_fluxo"]} pedido(s) de fluxo, {m["quedas"]} queda(s).')
+    for uf in UFS:
+        for t in ('1', '2'):
+            q = conf['ufs'][uf][t]; c = q['contagens']
+            A(f'  {uf}, {t}º turno: {fi(q["secoes_na_base"])} seções na base, {fi(q["rdv_no_pacote"])} RDV no pacote, {q["erros_de_leitura"]} erros de leitura. Presidente (13, 22, demais, brancos, nulos) igual à base em '
+              f'{fi(c.get("pres_igual_base", 0))}; governador (brancos, nulos, nominais) igual em {fi(c.get("gov_igual_base", 0))}; boletim do pacote igual à base em {fi(c.get("boletim_igual_base", 0))} de {fi(c.get("com_boletim", 0))}. '
+              f'Direto contra o zip do bweb, candidato a candidato: presidente igual em {fi(c.get("bweb_igual_pres", 0))}, governador igual em {fi(c.get("bweb_igual_gov", 0))}. '
+              f'Candidatos a governador: {", ".join(q["candidatos_governador_bweb"])}. Votos nominais de governador em 13 ou 22: {q["votos_nominais_de_governador_em_13_ou_22_no_rdv"]}. '
+              f'Nulos de governador com dígitos: {fi(c.get("nulos_gov_com_digitos", 0))} (tamanho dos dígitos: {q["tamanho_dos_digitos_dos_nulos_de_governador"]}); sem dígitos: {fi(c.get("nulos_gov_sem_digitos", 0))}.')
+        u = conf['ufs'][uf]['universo']
+        A(f'  {uf}: universo (D2) = {fi(u["no_universo_D2"])} de {fi(u["secoes_nos_dois_turnos_da_base"])} seções.' + (f' Fora: {json.dumps(u["fora"], ensure_ascii=False)}.' if u['fora'] else ''))
+    A('  Limite: RDV, boletim e bweb saem do mesmo programa da urna. A igualdade fecha alteração depois da urna nessas seções e não pesa contra a hipótese de programa adulterado na origem. O que o teste tem de próprio é comparar dois cargos dentro do mesmo RDV.')
+    A('')
+    A('2. ETAPA 1 (sem abrir Theta): NÚMERO DE TESTEMUNHAS E ERRO-PADRÃO')
+    for nome, q in et1['recortes'].items():
+        A(f'  {nome}: {fi(q["n_secoes"])} seções, {fi(q["n_locais"])} locais; testemunhas (13 + 22) {fi(q["testemunhas_1t"])} no 1º turno ({fv(q["testemunhas_por_100_votantes_1t"], 2, False)} por 100 votantes) e {fi(q["testemunhas_2t"])} no 2º '
+          f'({fv(q["testemunhas_por_100_votantes_2t"], 2, False)} por 100); erro-padrão de Theta {fv(q["erro_padrao_de_theta"], 4, False)} (bootstrap de locais, 2.000 réplicas).')
+    A(f'  Decisão da etapa 1, gravada às {et1["gravado_em_utc"][11:16]} UTC: {et1["veredito_da_etapa1"]}. Erro total com o sistemático mínimo: {fv(et1["erro_total_com_sistematico_minimo_0015"], 4, False)}.')
+    A('')
+    A('3. VALIDADE DO TERMÔMETRO NO 1º TURNO (antes de abrir)')
+    vp = val['principal_AC_TO']
+    A(f'  Regra (D7): correlação de postos, entre municípios, de W do 1º turno contra P oficial do 1º turno; limiar 0,9. Mínimo de testemunhas por município escolhido pela simulação do termômetro perfeito: {vp["n_min_escolhido"]}. '
+      f'Correlação que decide: {fv(vp["correlacao_que_decide"], 3, False)} em {vp["municipios_na_decisao"]} municípios: {"APROVADO" if vp["aprovado"] else "REPROVADO"}.')
+    for g in vp['grade']:
+        if 'observado' in g:
+            A(f'    mínimo {g["n_min"]}: {g["municipios"]} municípios; observado {fv(g["observado"], 3, False)}; termômetro perfeito: mediana {fv(g["termometro_perfeito_mediana"], 3, False)}, percentil 5 {fv(g["termometro_perfeito_p5"], 3, False)}, passa de 0,9 em {fpc(g["termometro_perfeito_fracao_acima_de_09"])} dos sorteios.')
+        else:
+            A(f'    mínimo {g["n_min"]}: {g["municipios"]} municípios (menos de 10, fora da grade).')
+    ls = vp['leitura_sem_minimo']
+    A(f'  Leitura sem mínimo (todos os {ls["municipios"]} municípios com testemunha): {fv(ls["observado"], 3, False)}; teto de ruído (termômetro perfeito) mediana {fv(ls["teto_de_ruido_mediana"], 3, False)}, percentil 5 {fv(ls["teto_de_ruido_p5"], 3, False)}. '
+      f'Por essa leitura o termômetro {"passaria" if ls["aprovaria_pelo_limiar_09"] else "NÃO passaria"} de 0,9' + ('' if ls['aprovaria_pelo_limiar_09'] else ' e o veredito seria INCONCLUSIVO; nem um termômetro perfeito passaria, pelo ruído dos municípios pequenos') + '.')
+    for u in UFS:
+        q = val['por_uf'][u]
+        A(f'  {u}: sem mínimo {fv(q["leitura_sem_minimo"]["observado"], 3, False)} em {q["leitura_sem_minimo"]["municipios"]} municípios (teto de ruído {fv(q["leitura_sem_minimo"]["teto_de_ruido_mediana"], 3, False)}); '
+          f'nível no 1º turno: W = {fv(val["nivel_1t"][u]["W1"], 4, False)}, P = {fv(val["nivel_1t"][u]["P1"], 4, False)}; testemunhas de eliminados {fi(val["nivel_1t"][u]["testemunhas_eliminados"])}.')
+    ce = val['celulas_municipio_x_numero']; pe = val['parcelas_com_eliminados_no_denominador']
+    A(f'  Células município x número (13, 22 e eliminados): {fi(ce["n_celulas"])} células, correlação de postos {fv(ce["spearman"], 3, False)}. Com os eliminados no denominador: parcela do 13 {fv(pe["parcela_13"], 3, False)}, do 22 {fv(pe["parcela_22"], 3, False)}, dos eliminados {fv(pe["parcela_eliminados"], 3, False)}.')
+    for u in UFS:
+        comp = val['composicao_por_uf'][u]
+        A(f'  Composição no {u} (testemunhas contra oficial, 1º turno): ' + '; '.join(f'{nm} {fpc(q["parcela_entre_testemunhas"])} contra {fpc(q["parcela_oficial"])}' for nm, q in comp.items() if not nm.startswith('_')) + f'. Postos entre números: {fv(comp["_postos_entre_numeros"], 3, False)}.')
+    A('')
+    A('4. THETA (aberto depois da etapa 1 e da validade)')
+    def lin(nome, q):
+        A(f'  {nome}: Theta {fv(q["theta"])} (ep {fv(q["ep"], 4, False)}; {fv(q["theta"] / q["ep"], 2)} ep); P {fv(q["P1"], 4, False)} para {fv(q["P2"], 4, False)} (logit {fv(q["dlogit_P"])}); '
+          f'W {fv(q["W1"], 4, False)} para {fv(q["W2"], 4, False)} (logit {fv(q["dlogit_W"])}); testemunhas 13/22: {fi(q["somas"]["a1"])}/{fi(q["somas"]["b1"])} no 1º turno, {fi(q["somas"]["a2"])}/{fi(q["somas"]["b2"])} no 2º; {fi(q["n_secoes"])} seções.')
+    lin('AC + TO', pr)
+    A(f'    intervalo de 95% por percentis do bootstrap: {fv(pr["ic95_percentis"][0])} a {fv(pr["ic95_percentis"][1])}.')
+    for u in UFS:
+        lin(u, ab['por_uf'][u])
+    for nome in ('baixa', 'media', 'alta'):
+        lin(f'tercil de escolaridade {nome}', ab['por_tercil_escolaridade'][nome])
+    A('  Sensibilidade (tercis pela parcela com superior completo): ' + '; '.join(f'{nome} {fv(q["theta"])} (ep {fv(q["ep"], 4, False)})' for nome, q in ab['por_tercil_superior_sensibilidade'].items()) + '.')
+    sr = ab['sensibilidade_com_reprovadas_D2']
+    A('  Sensibilidade com as seções reprovadas na conferência: ' + (sr['nota'] if 'nota' in sr else f'Theta {fv(sr["theta"])} (ep {fv(sr["ep"], 4, False)}), {fi(sr["n_secoes"])} seções.'))
+    A('')
+    A('5. CRITÉRIOS, UM A UM')
+    for rot, v in (('sistemático 0,015', v015),) + ((('sistemático do placebo', vpl),) if vpl else ()):
+        cs, cesp = v['criterio_de_sinal'], v['criterio_de_sinal_no_espelho']
+        A(f'  Com {rot}: erro total {fv(v["erro_total"], 4, False)}. SINAL pede Theta >= 0,045 ({"sim" if cs["tamanho_ok"] else "não"}), Theta >= 2,5 erros totais ({fv(cs["theta_sobre_erro_total"], 2)}: {"sim" if cs["razao_ok"] else "não"}) e mesmo sinal em AC, TO e nos três tercis ({"sim" if cs["mesmo_sinal_ufs_e_tercis"] else "não"}). '
+          f'SEM SINAL pede |Theta| <= 0,020 ({"sim" if abs(v["theta"]) <= 0.020 else "não"}) e erro total <= 0,025 ({"sim" if v["erro_total"] <= 0.025 else "não"}). Veredito: {v["veredito"]}. '
+          f'Espelho: -Theta >= 0,045 ({"sim" if cesp["tamanho_ok"] else "não"}), >= 2,5 erros ({fv(cesp["theta_sobre_erro_total"], 2)}: {"sim" if cesp["razao_ok"] else "não"}), mesmo sinal ({"sim" if cesp["mesmo_sinal_ufs_e_tercis"] else "não"}): {"SINAL no espelho" if cesp["sinal"] else "sem sinal no espelho"}.')
+    A('')
+    A('6. CALIBRAÇÃO POR EFEITO PLANTADO NOS DADOS DE 2026')
+    for lado, rot in (('R_para_L', 'troca de votos de Flávio para Lula, só na contagem oficial do 2º turno'), ('L_para_R', 'espelho: de Lula para Flávio')):
+        for pk, q in ab['calibracao_plantio'][lado].items():
+            cs = q['criterio_de_sinal_no_dado_com_plantio_sis_0015']
+            A(f'  {rot}, p = {fpc(q["p"], 2)} ({fi(q["votos_movidos"])} votos): fórmula {fv(q["formula"])}; Theta mudou {fv(q["aumento_de_theta"])} ({fpc(q["razao_aumento_formula"])} da fórmula; {fv(q["aumento_em_erros_totais_com_sis_0015"], 2, False)} erros totais); '
+              f'200 plantios: média {fv(q["duzentos_plantios_media"])}, desvio {fv(q["duzentos_plantios_desvio"], 4, False)}. Enxerga pelo D11: {"sim" if q["enxerga"] else "não"}. Critério de SINAL no dado com o plantio, do jeito que sai: {"SINAL" if cs["sinal"] else "não dá sinal"} (Theta {fv(cs["theta"])}, {fv(cs["theta_sobre_erro_total"], 2)} erros).')
+    po = ab['poder']
+    A(f'  Poder: com erro total de {fv(po["erro_total_sis_0015"], 4, False)}, o SINAL pede Theta de {fv(po["theta_minimo_para_sinal"], 4, False)} ou mais; a menor troca uniforme que alcança isso é p = {fpc(po["menor_p_que_alcanca"], 2)} dos votos de Flávio '
+      f'({fpc(po["menor_p_em_fracao_da_margem_se_uniforme_no_pais"])} da margem, se fosse igual no país). A troca que vira o resultado (3,57%) daria {fv(po["formula_p_0357"])}; a de 1,8%, {fv(po["formula_p_018"])}.')
+    ino = ab['explicacao_inocente_plantada']
+    for dk, q in ino['conversao_dos_eliminados'].items():
+        A(f'  Explicação inocente plantada (i), conversão diferente dos eliminados, {dk.replace("delta_", "delta = ").replace(".", ",")}: {fi(q["testemunhas_movidas_media"])} testemunhas do 2º turno passam de 13 para 22; Theta sobe {fv(q["aumento_medio_de_theta"])} '
+          f'(valor direto {fv(q["valor_direto"])}; fórmula do intervalo {fv(q["formula_do_intervalo_D13"])}): {"passa" if q["passa"] else "não passa"}. O teste NÃO separa isso de troca na contagem: é o erro sistemático.')
+    q = ino['queda_geral_da_propensao']
+    A(f'  Explicação inocente plantada (ii), queda geral da propensão ao erro (metade das testemunhas do 2º turno retirada ao acaso): Theta muda {fv(q["mudanca_media_de_theta"])} em média (desvio entre sorteios {fv(q["desvio_entre_sorteios"], 4, False)}): {"passa" if q["passa"] else "não passa"}; cancela, como previsto.')
+    q = ab['duas_metades']
+    A(f'  Duas metades aleatórias das seções (200 divisões): {fpc(q["fracao_com_z_acima_de_2"])} com diferença acima de 2 erros (limite 10%); desvio das diferenças {fv(q["desvio_das_diferencas"], 4, False)} contra erro previsto {fv(q["erro_medio_da_diferenca"], 4, False)}: {"passa" if q["passa"] else "não passa"}.')
+    A('')
+    A('7. PLACEBOS')
+    if pla:
+        q = pla['principal']; tx = pla['taxas_de_erro_de_tela']
+        A(f'  (1) AL 2022, dois turnos, mesma conta: Theta {fv(q["theta"])} (ep {fv(q["ep"], 4, False)}; {fv(q["theta"] / q["ep"], 2)} ep); {fi(q["n_secoes"])} seções, {fi(q["n_locais"])} locais; testemunhas 13/22: {fi(q["somas"]["a1"])}/{fi(q["somas"]["b1"])} no 1º turno e {fi(q["somas"]["a2"])}/{fi(q["somas"]["b2"])} no 2º. '
+          f'P {fv(q["P1"], 4, False)} para {fv(q["P2"], 4, False)}; W {fv(q["W1"], 4, False)} para {fv(q["W2"], 4, False)}. Taxa de erro de tela por mil eleitores do lado: 13 de {fv(1000 * tx["r13_1t"], 2, False)} para {fv(1000 * tx["r13_2t"], 2, False)}; 22 de {fv(1000 * tx["r22_1t"], 2, False)} para {fv(1000 * tx["r22_2t"], 2, False)}.')
+        if conf22:
+            for t in ('1', '2'):
+                c22 = conf22['ufs']['AL'][t]
+                A(f'      conferência AL 2022, {t}º turno: {fi(c22["rdv_no_pacote"])} RDV, {c22["erros_de_leitura"]} erros de leitura, presidente igual à base em {fi(c22["contagens"].get("pres_igual_base", 0))} de {fi(c22["secoes_na_base"])}; governador igual em {fi(c22["contagens"].get("gov_igual_base", 0))}; nominais de governador em 13 ou 22: {c22["votos_nominais_de_governador_em_13_ou_22_no_rdv"]}; candidatos a governador no RDV: {", ".join(c22["candidatos_governador_rdv"])}.')
+        vq = pla['validade_1t_por_municipio']
+        A(f'      validade em AL 2022 (mesma regra): mínimo {vq["n_min_escolhido"]}, correlação {fv(vq["correlacao_que_decide"], 3, False)} em {vq["municipios_na_decisao"]} municípios; sem mínimo {fv(vq["leitura_sem_minimo"]["observado"], 3, False)}.')
+        A(f'      Aviso: o Léo suspeita também de 2022. Se 2022 tivesse a mesma alteração, o placebo seria positivo e inflaria o erro; por isso o veredito sai também só com 2026.')
+    else:
+        A('  (1) AL 2022: não rodado.')
+    A('  (2) W contra P por município no 1º turno de 2026, em nível: é a validade da seção 3.')
+    q = ab['placebo3_par_de_eliminados']
+    for nome in ('AC+TO', 'AC', 'TO'):
+        z = q[nome]
+        A(f'  (3) par de eliminados 70 e 14 no 1º turno, {nome}: {fi(z["testemunhas_70"])} e {fi(z["testemunhas_14"])} testemunhas; parcela do 70 entre as duas {fpc(z["parcela_70_testemunhas"]) if z["parcela_70_testemunhas"] is not None else "n/d"} contra {fpc(z["parcela_70_oficial"])} oficial; diferença de logits {fv(z["diferenca_de_logits"])} (ep {fv(z["ep"], 4, False)}).')
+    A(f'      por município com 30 ou mais testemunhas do par: {q["por_municipio"]["municipios_com_30_ou_mais"]} municípios, correlação de postos {fv(q["por_municipio"]["spearman"], 3, False)}. Sem limiar no registro: descritivo.')
+    A('')
+    A('8. LEITURAS SECUNDÁRIAS')
+    ie = ab['intervalo_dos_eliminados']; dd = ie['deslocamento_de_theta']
+    A(f'  Intervalo dos eliminados: no 1º turno, {fi(ie["testemunhas_de_eliminados_1t"])} testemunhas digitaram número de eliminado ({fpc(ie["parcela_de_eliminados_entre_testemunhas_1t"])} das testemunhas). Se entre os que erram a tela a parcela dos eliminados que foi para Lula fosse 40% em vez de 50%, Theta subiria {fv(dd["cw_0,40"])}; 25%, {fv(dd["cw_0,25"])}; 60%, {fv(dd["cw_0,60"])}; 75%, {fv(dd["cw_0,75"])}; extremos {fv(dd["cw_0"])} (nenhum para Lula) e {fv(dd["cw_1"])} (todos). É limite, não estimativa.')
+    q = ab['oficial_pesado_pelas_testemunhas']
+    A('  Lado oficial pesado pelas testemunhas (D19, não decide): ' + '; '.join(f'{nome} {fv(z["theta"])} (ep {fv(z["ep"], 4, False)})' for nome, z in q.items()) + '.')
+    for nome, tx in ab['taxas_de_erro_de_tela'].items():
+        A(f'  Taxas de erro de tela, {nome} (D20, não decide), por mil eleitores do lado: 13 de {fv(1000 * tx["r13_1t"], 2, False)} para {fv(1000 * tx["r13_2t"], 2, False)} (vezes {fv(tx["multiplicador_r13"], 3, False)}); 22 de {fv(1000 * tx["r22_1t"], 2, False)} para {fv(1000 * tx["r22_2t"], 2, False)} (vezes {fv(tx["multiplicador_r22"], 3, False)}). Theta = ln do multiplicador do 22 menos ln do multiplicador do 13.')
+    q = ab['por_tercil_da_parcela_de_governador_eliminado']
+    A('  Theta por tercil da parcela dos votos de governador do 1º turno dada a candidatos eliminados na seção (D20): ' + '; '.join(f'{nome} {fv(z["theta"])} (ep {fv(z["ep"], 4, False)}; parcela de {fpc(z["faixa_da_parcela"][0])} a {fpc(z["faixa_da_parcela"][1])})' for nome, z in q.items() if isinstance(z, dict)) + '.')
+    for u in UFS:
+        g = ab['governador_descritivo'][u]
+        A(f'  Governador no {u}: 1º turno nominais {json.dumps(g["1t"]["nominais_por_candidato"])}, nulos {fi(g["1t"]["nulos"])} (dígitos mais frequentes {json.dumps(g["1t"]["nulos_com_digitos_mais_frequentes"])}); 2º turno nominais {json.dumps(g["2t"]["nominais_por_candidato"])}, nulos {fi(g["2t"]["nulos"])} (dígitos {json.dumps(g["2t"]["nulos_com_digitos_mais_frequentes"])}).')
+    A('')
+    A('9. TRADUÇÃO EM VOTOS DE MARGEM')
+    tp = trad['ponto']
+    A(f'  Theta medido em AC e TO equivale a {fpc(abs(tp["fracao_p"]), 2)} dos votos verdadeiros contados para o outro lado, no sentido {tp["sentido"]} ({fi(abs(tp["votos_trocados_em_AC_e_TO"]))} votos em AC e TO). Se a mesma fração valesse no país (suposição, não medida): {fi(abs(tp["votos_trocados_no_pais_se_uniforme"]))} votos, efeito de {fi(tp["efeito_na_margem_no_pais"])} na margem ({fpc(tp["fracao_da_margem"])} de 4.430.191).')
+    for rot, kk in (('sistemático 0,015', 'sis_0015'), ('sistemático do placebo', 'sis_placebo')):
+        if kk in trad:
+            z = trad[kk]
+            A(f'  Intervalo de Theta mais ou menos 1,96 erro total ({rot}; erro total {fv(z["erro_total"], 4, False)}): Theta de {fv(z["theta_menos_196_erros"]["theta"])} a {fv(z["theta_mais_196_erros"]["theta"])}; efeito na margem, se uniforme no país, de {fi(z["theta_menos_196_erros"]["efeito_na_margem_no_pais"])} a {fi(z["theta_mais_196_erros"]["efeito_na_margem_no_pais"])} ({fpc(z["theta_menos_196_erros"]["fracao_da_margem"])} a {fpc(z["theta_mais_196_erros"]["fracao_da_margem"])} da margem).')
+    A(f'  Referência: a troca que vira o resultado (3,57% dos votos de Flávio, 100% da margem) daria Theta de {fv(trad["referencia_troca_que_vira"]["theta_previsto_no_universo"])} nessas seções.')
+    A('')
+    A('10. SÓ DESCRITIVO: ES, DF, AM E RN (seções da amostra aleatória nova; sem veredito)')
+    de = ab['descritivo_ES_DF_AM_RN_amostra']
+    if 'erro' in de:
+        A('  não rodado: ' + de['erro'])
+    else:
+        for uf, q in de.items():
+            partes = []
+            for t in ('1t', '2t'):
+                z = q[t]
+                p_ = [f'{t}: L {fi(z["L"])}, R {fi(z["R"])}']
+                for nm, lado in (('13', 'L'), ('22', 'R')):
+                    if z.get('g' + nm) is not None:
+                        p_.append(f'nulos de governador com {nm}: {fi(z["g" + nm])} ({fv(z[f"g{nm}_por_mil_votos_de_{lado}"], 2, False)} por mil votos do lado)')
+                    else:
+                        p_.append(f'{nm} é candidato a governador (ou não houve disputa): não serve')
+                if z.get('W') is not None:
+                    p_.append(f'W {fv(z["W"], 4, False)} contra P {fv(z["P"], 4, False)}')
+                partes.append(', '.join(p_))
+            A(f'  {uf} ({q["secoes"]} seções): ' + ' | '.join(partes) + '.')
+    A('')
+    if lei:
+        for tit, kk in (('11. O QUE PESA A FAVOR DA TESE', 'a_favor'), ('12. O QUE PESA CONTRA A TESE', 'contra'), ('13. O QUE ISSO SIGNIFICA', 'significa'), ('14. PISTAS', 'pistas')):
+            if lei.get(kk):
+                A(tit + ' (leitura escrita depois de ver o resultado)')
+                for x in lei[kk]:
+                    A('  ' + x)
+                A('')
+    if expl:
+        A('15. EXPLORATÓRIO (feito depois de ver o resultado; não decide nada)')
+        for x in expl.get('linhas', []):
+            A('  ' + x)
+        A('')
+    A('DESVIOS E DECISÕES FORA DO REGISTRO')
+    for x in lei.get('desvios', []):
+        A('  ' + x)
+    A(f'  Cláusulas contadas para o acaso: {clausulas["n"]} ({", ".join(clausulas["lista"])}); a 5% cada, o acaso daria {fv(clausulas["sinais_que_o_acaso_daria_a_5_por_cento"], 2, False)} sinal.')
+    A('')
+    A('AVISO QUE VALE PARA O TESTE INTEIRO')
+    A('  RDV e boletim saem do mesmo programa da urna. O teste enxerga uma alteração que mexa só na contagem de presidente; um programa que também reescrevesse os nulos de governador de forma coerente escaparia. Vale só para AC e TO (1,3% das seções do país).')
+    txt = _quebra('\n'.join(T))
+    for ch in ('—', '–'):
+        assert ch not in txt
+    with open(RAIZ + '/resultados/R27_W3_testemunhas_governador.txt', 'w') as f:
+        f.write(txt + '\n')
+    P('gravado: resultados/R27_W3_testemunhas_governador.json e .txt')
+    P('veredito só com 2026:', v015['veredito'], v015['motivos'])
+    if vpl:
+        P('veredito com placebo:', vpl['veredito'], vpl['motivos'], 'sis', sis_pl)
+
+
 if __name__ == '__main__':
     modo = sys.argv[1] if len(sys.argv) > 1 else ''
     if modo == 'baixar':
         baixar(sys.argv[2], sys.argv[3], sys.argv[4])
     elif modo == 'extrair':
         extrair(sys.argv[2])
+    elif modo == 'conferir':
+        conferir(sys.argv[2])
+    elif modo == 'etapa1':
+        etapa1()
+    elif modo == 'validade':
+        validade()
+    elif modo == 'abrir':
+        abrir()
+    elif modo == 'placebo':
+        placebo()
+    elif modo == 'relatorio':
+        relatorio()
     else:
         P(__doc__)

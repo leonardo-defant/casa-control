@@ -1,0 +1,68 @@
+ADENDO 29: CHECAGEM DO CARROSSEL "A MATEMÁTICA IMPOSSÍVEL DA ELEIÇÃO" (RESULTADOS)
+
+Registro: Adendo 29, commit 3929135 (10/11/2026 09:49:50 UTC), antes de rodar. Um agente rodou
+(resultados/R29_matematica_impossivel.txt) e outro refez com código próprio (resultados/R29_conferencia.json).
+Onde os dois divergem, vale o conferente, e as correções dele estão abaixo.
+
+RESUMO EM UMA LINHA
+O gráfico é verdadeiro e mostra um fato real: Flávio perdeu de 1 a 4 pontos em todos os 27 estados, quase por igual.
+Isso não mede chance de fraude. Um movimento nacional de opinião e uma troca igual em todos os estados deixam o
+gráfico exatamente assim; ele não separa um do outro. Pela regra registrada: nenhuma das duas leituras (inconclusivo).
+
+O QUE O GRÁFICO É (receita achada pelo conferente; a do primeiro agente estava errada)
+  28 pontos (27 UFs e o exterior). Eixo x: votos de Flávio sobre votos de Flávio mais Lula no 1º turno. Eixo y: votos
+  de Lula sobre votos de Flávio no 2º turno. Com essa receita a legenda sai exata dos dados oficiais: linear 0,9350,
+  quadrático 0,9949, exponencial 0,9987 (legenda: 0,935; 0,995; 0,999). Os pontos lidos na imagem batem: PI (25,3;
+  3,15), BA (30,1; 2,49), RR (75,7; 0,38), exterior (47,8; 1,17).
+  Correção: o primeiro agente não achou essa receita e escreveu que os números da legenda saíam "da fórmula do eixo"
+  e que não dava para saber que dados o autor usou. Está errado. O autor usou dados oficiais reais nos dois eixos.
+
+O FATO POR TRÁS DO GRÁFICO
+  Na disputa a dois, Flávio caiu de 51,02% para 48,22% no país e caiu em 27 de 27 UFs: de -1,21 (PI) a -4,25 (RJ),
+  média -2,74, desvio-padrão 0,69. Os estados andaram juntos.
+  Em 2022 foi o espelho: Bolsonaro subiu em 27 de 27 UFs, média +1,81, desvio-padrão 0,53.
+  Em 2018 o desvio-padrão foi 3,38 e em 2014, 4,01.
+
+POR QUE A CURVA É LISA E O QUE O R² MEDE
+  O eixo y é uma conta feita em cima da própria fatia: se p é a fatia de Flávio no 2º turno, y = (1 - p)/p (25% dá
+  3,0; 50% dá 1,0; 75% dá 0,33). Isso explica a FORMA da curva e por que o exponencial ganha do quadrático e do
+  linear. Os pontos caírem em cima da curva, porém, é fato dos dados: cada estado votou no 2º turno quase como tinha
+  votado três semanas antes.
+  R² não é probabilidade. É a parcela da variação entre os pontos que a curva acompanha. Não existe conta de chance
+  por trás de "a probabilidade disso ser orgânico é zero".
+
+A MESMA RECEITA NOS OUTROS ANOS (linear; quadrático; exponencial)
+  2026: 0,935; 0,995; 0,999.   2022: 0,909; 0,990; 0,998.   2018: 0,902; 0,975; 0,971.   2014: 0,851; 0,901; 0,898.
+  2022 tem o mesmo alinhamento de 2026 (resíduo 0,516 contra 0,533 ponto; qual é o mais justo depende da medida).
+  Ressalva: o Léo suspeita também de 2022, então ele não serve de eleição limpa de comparação. 2018 e 2014, com 25%
+  dos votos fora dos dois finalistas no 1º turno, são mais frouxos.
+
+A LEITURA REGISTRADA
+  "Propriedade do gráfico" NÃO fechou: na simulação de eleição sem fraude com ruído de 5 pontos por estado, a mediana
+  do R² é 0,965 (o registro pedia 0,98) e nenhum de 1.000 sorteios chega ao alinhamento real.
+  "Anomalia de 2026" NÃO fechou: o resíduo de 2026 nunca é menor que a metade do de 2022.
+  Pela letra: nenhuma das duas.
+
+A FAVOR DA SUSPEITA, SEM AMACIAR
+  - Os estados reais andaram mais juntos do que a simulação combinada como régua: o real equivale a um ruído de 0,5 a
+    2 pontos entre estados, não 5, e na medida do próprio gráfico fica abaixo de 99% dos sorteios com ruído de 2
+    pontos. A régua de 2 e 5 pontos é arbitrária; falta uma eleição fora de suspeita para dizer quanto é o normal.
+  - Uma troca de votos igual em todos os estados (ou proporcional aos votos de um dos dois) não mexe no gráfico:
+    desfeita, a curva fica idêntica. O gráfico não a enxerga e não a afasta.
+  - O alinhamento continua forte nos níveis finos quando medido em fatia: R² de 0,993 por município e 0,978 por
+    seção. O argumento do primeiro agente de que "os pontos se espalham por seção" era em boa parte artefato da razão.
+CONTRA A SUSPEITA
+  - Uma mudança normal de opinião no país inteiro produz o mesmo desenho, e 2022 é igual, com sinal trocado.
+  - Uma troca do tamanho que vira o resultado concentrada numa região teria deixado marca: a eleição "verdadeira"
+    teria resíduo de 1,6 contra 0,5, com inclinação fora do padrão dos quatro anos. Se houve troca desse tamanho, ela
+    teria de ser quase igual, em pontos, em todos os estados.
+  - A forma uniforme é justamente a que os testes das Ondas A e B do Adendo 27 atacam por outro caminho: onde há
+    poder, a parcela dos votos de Flávio que aparece em Lula é igual à do sentido contrário, e a virada passou pelo
+    comparecimento (resultados/ADENDO27_ondaA_resultados.txt e ADENDO27_ondaB_resultados.txt).
+
+PISTAS
+  - Maiores desvios da reta: RJ (-1,34), SP (-0,84) e AL (-0,81), Flávio abaixo; RO (+0,73), PI (+0,70) e AC (+0,66),
+    acima. O RJ, estado de Flávio, teve a maior queda entre os turnos (-4,25).
+  - Régua de fora: aplicar a mesma receita a eleições de dois turnos com cédula de papel e 1º turno polarizado
+    (França 2022 por departamento, Chile 2021, Colômbia 2022, Argentina 2023), para medir quanto os estados costumam
+    andar juntos numa eleição que ninguém contesta.

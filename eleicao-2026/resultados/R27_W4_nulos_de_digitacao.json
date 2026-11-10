@@ -1,0 +1,2220 @@
+{
+ "quando": "2026-11-10 10:53:39 UTC",
+ "n_secoes": 3000,
+ "n_principal": 3000,
+ "n_extensao": 0,
+ "municipios": 1421,
+ "codigos_em_uso": [
+  "31",
+  "32",
+  "52"
+ ],
+ "f52": 0.7340902675078645,
+ "bruto_2026": {
+  "oficial": {
+   "L1": 324131.0,
+   "R1": 337084.0,
+   "L2": 386715.0,
+   "R2": 358771.0,
+   "P1": 0.49020515263567827,
+   "P2": 0.518742136002554,
+   "logit_P1": -0.03918440238866639,
+   "logit_P2": 0.07500368567445398,
+   "delta_logit_P": 0.11418808806312036
+  },
+  "testemunhas": {
+   "n31_1": 179.0,
+   "n32_1": 39.0,
+   "n52_1_bruto": 24.0,
+   "n31_2": 491.0,
+   "n32_2": 54.0,
+   "n52_2": 24.0,
+   "N13_1": 179.0,
+   "N22_1": 56.61816642018875,
+   "N13_2": 491.0,
+   "N22_2": 78.0,
+   "W1": 0.7597037304873218,
+   "W2": 0.8629173989455184,
+   "logit_W1": 1.1510559106413034,
+   "logit_W2": 1.8397353011049289,
+   "delta_logit_W": 0.6886793904636255
+  },
+  "taxas_por_10_mil_eleitores_do_lado": {
+   "a1_13": 5.522458512144781,
+   "a2_13": 12.69668877597197,
+   "b1_22": 1.6796456200884278,
+   "b2_22": 2.1740887641420295,
+   "ln_a2_sobre_a1": 0.8325180893975928,
+   "ln_b2_sobre_b1": 0.25802678699708753
+  }
+ },
+ "theta": -0.5744913024005052,
+ "erro_padrao": {
+  "bootstrap_municipios_2000": 0.20684944783437145,
+  "bootstrap_secoes_2000": 0.21744110015737153,
+  "analitico": 0.19520742947410097,
+  "replicas_descartadas": 0
+ },
+ "ic95_percentil_boot": [
+  -0.9614819999518063,
+  -0.15731577882302664
+ ],
+ "subgrupos": {
+  "N": {
+   "n": 272,
+   "N13_1": 12.0,
+   "N22_1": 4.734090267507865,
+   "N13_2": 44.0,
+   "N22_2": 4.0,
+   "delta_logit_P": 0.08502998788765039,
+   "theta": -1.3827482139473533,
+   "ep": 0.7704655171835455,
+   "replicas_descartadas": 23,
+   "municipios": 146,
+   "ep_analitico": 0.7531895060975353
+  },
+  "NE": {
+   "n": 849,
+   "N13_1": 111.0,
+   "N22_1": 22.606812407570782,
+   "N13_2": 296.0,
+   "N22_2": 34.0,
+   "delta_logit_P": 0.0959702665980251,
+   "theta": -0.47674975661699937,
+   "ep": 0.2705176078780455,
+   "replicas_descartadas": 0,
+   "municipios": 499,
+   "ep_analitico": 0.29331485802316976
+  },
+  "SE": {
+   "n": 1224,
+   "N13_1": 38.0,
+   "N22_1": 15.670451337539323,
+   "N13_2": 101.0,
+   "N22_2": 27.0,
+   "delta_logit_P": 0.15384812052500588,
+   "theta": -0.2796262291895619,
+   "ep": 0.3650347585840431,
+   "replicas_descartadas": 0,
+   "municipios": 446,
+   "ep_analitico": 0.37022721118772467
+  },
+  "S": {
+   "n": 416,
+   "N13_1": 7.0,
+   "N22_1": 8.670451337539323,
+   "N13_2": 19.0,
+   "N22_2": 9.0,
+   "delta_logit_P": 0.13424150740746804,
+   "theta": -0.8269835921912632,
+   "ep": 0.6422288430052641,
+   "replicas_descartadas": 0,
+   "municipios": 219,
+   "ep_analitico": 0.6495645331024367
+  },
+  "CO": {
+   "n": 229,
+   "N13_1": 11.0,
+   "N22_1": 4.936361070031458,
+   "N13_2": 31.0,
+   "N22_2": 4.0,
+   "delta_logit_P": 0.1532123451835517,
+   "theta": -1.0932136596415871,
+   "ep": 0.8334916497764844,
+   "replicas_descartadas": 21,
+   "municipios": 101,
+   "ep_analitico": 0.7587789728365636
+  },
+  "tercil_1": {
+   "n": 997,
+   "N13_1": 90.0,
+   "N22_1": 25.340902675078645,
+   "N13_2": 272.0,
+   "N22_2": 35.0,
+   "delta_logit_P": 0.11070269636262436,
+   "theta": -0.6723614349088674,
+   "ep": 0.2983616866683551,
+   "replicas_descartadas": 0,
+   "municipios": 683,
+   "ep_analitico": 0.28778621174378494
+  },
+  "tercil_2": {
+   "n": 978,
+   "N13_1": 65.0,
+   "N22_1": 18.670451337539323,
+   "N13_2": 161.0,
+   "N22_2": 26.0,
+   "delta_logit_P": 0.12216209864291744,
+   "theta": -0.45370059016573766,
+   "ep": 0.3244080910683781,
+   "replicas_descartadas": 0,
+   "municipios": 656,
+   "ep_analitico": 0.33707254875522236
+  },
+  "tercil_3": {
+   "n": 1012,
+   "N13_1": 24.0,
+   "N22_1": 12.606812407570782,
+   "N13_2": 58.0,
+   "N22_2": 17.0,
+   "delta_logit_P": 0.12416549596550791,
+   "theta": -0.45924767529381866,
+   "ep": 0.48154148492524756,
+   "replicas_descartadas": 0,
+   "municipios": 482,
+   "ep_analitico": 0.44390738655806194
+  },
+  "exterior": {
+   "n": 10,
+   "N13_1": 0.0,
+   "N22_1": 0.0,
+   "N13_2": 0.0,
+   "N22_2": 0.0,
+   "delta_logit_P": 0.040947214492004474,
+   "theta": null
+  },
+  "sem_perfil": {
+   "n": 13,
+   "N13_1": 0.0,
+   "N22_1": 0.0,
+   "N13_2": 0.0,
+   "N22_2": 0.0,
+   "delta_logit_P": 0.031917471440333425,
+   "theta": null
+  }
+ },
+ "erro_sistematico": {
+  "valor": 0.015,
+  "nota": "piso do registro; o placebo de 2022 não foi rodado nesta etapa"
+ },
+ "erro_total": 0.20739260852157765,
+ "criterio": {
+  "veredito_pela_letra": "SEM PODER",
+  "condicoes": {
+   "theta_ge_0045": false,
+   "theta_ge_2e5_erro_total": false,
+   "regioes_mesmo_sinal_ge_4": true,
+   "tercis_mesmo_sinal_3": true,
+   "abs_theta_le_0020": false,
+   "erro_total_le_0027": false,
+   "ep_le_0022": false,
+   "pureza_com_substituto": false
+  },
+  "regioes_com_o_mesmo_sinal": 5,
+  "tercis_com_o_mesmo_sinal": 3,
+  "aritmetica_de_sinal_cumprida": false,
+  "aritmetica_de_sem_sinal_cumprida": false,
+  "theta_sobre_ep": -2.7773402753316123,
+  "theta_sobre_erro_total": -2.7700664285763765,
+  "limiar_de_sinal_com_este_erro": 0.5184815213039441,
+  "espelho_theta_le_menos_0045_e_menos_2e5_erro": true,
+  "enxerga_o_plantado": false
+ },
+ "leituras_secundarias": {
+  "a_so_32": {
+   "theta": -0.5694478334560176,
+   "ep": 0.22688935814627254,
+   "N22_1": 39.0,
+   "N22_2": 54.0,
+   "ep_analitico": 0.2275583358528435
+  },
+  "b_so_52_corrigido": {
+   "theta": -0.5857469562175184,
+   "ep": 30.441761252537283,
+   "N22_1": 17.61816642018875,
+   "N22_2": 24.0,
+   "ep_analitico": 0.3256524439548974
+  },
+  "c_sem_correcao_do_52": {
+   "theta": -0.6812961335925862,
+   "ep": 0.18776326202787533,
+   "N22_1": 63.0,
+   "N22_2": 78.0,
+   "ep_analitico": 0.1905696217924044
+  },
+  "e_mesma_urna_e_mesmos_aptos": {
+   "n": 2651,
+   "theta": -0.5697823525068643,
+   "ep": 0.21606161625828038
+  },
+  "f_validade_em_nivel": {
+   "1": {
+    "grupos": [
+     {
+      "grupo": 1,
+      "n": 600,
+      "P_oficial": 0.25930811745172516,
+      "logit_P": -1.0495677284904459,
+      "N13": 13.0,
+      "N22": 8.202270802523593,
+      "W": 0.6131418715042862,
+      "logit_W": 0.46053831439154785
+     },
+     {
+      "grupo": 2,
+      "n": 599,
+      "P_oficial": 0.3735876609934737,
+      "logit_P": -0.5168561642789877,
+      "N13": 14.0,
+      "N22": 9.670451337539323,
+      "W": 0.5914547128975606,
+      "logit_W": 0.3699823472434593
+     },
+     {
+      "grupo": 3,
+      "n": 601,
+      "P_oficial": 0.47080217769444505,
+      "logit_P": -0.11692431626882938,
+      "N13": 23.0,
+      "N22": 10.936361070031458,
+      "W": 0.6777391350986908,
+      "logit_W": 0.7434011004073798
+     },
+     {
+      "grupo": 4,
+      "n": 600,
+      "P_oficial": 0.5893024249703418,
+      "logit_P": 0.36108239037273626,
+      "N13": 36.0,
+      "N22": 11.404541605047188,
+      "W": 0.7594209073876386,
+      "logit_W": 1.149507275982807
+     },
+     {
+      "grupo": 5,
+      "n": 600,
+      "P_oficial": 0.7643353418833478,
+      "logit_P": 1.1765967676828943,
+      "N13": 93.0,
+      "N22": 16.404541605047186,
+      "W": 0.8500561186548549,
+      "logit_W": 1.7350412695233217
+     }
+    ],
+    "inclinacao": 0.6661268748867046,
+    "ep_inclinacao": 0.20026762470939918,
+    "intercepto_no_centro": 1.0815973332536768,
+    "cortes_quintis_P": [
+     0.32534732230356833,
+     0.4218009478672986,
+     0.5255483549351944,
+     0.6601176526854464
+    ]
+   },
+   "2": {
+    "grupos": [
+     {
+      "grupo": 1,
+      "n": 600,
+      "P_oficial": 0.2947112321934426,
+      "logit_P": -0.8726113156654839,
+      "N13": 23.0,
+      "N22": 9.0,
+      "W": 0.71875,
+      "logit_W": 0.9382696385929302
+     },
+     {
+      "grupo": 2,
+      "n": 600,
+      "P_oficial": 0.41174997033501654,
+      "logit_P": -0.3567357810250389,
+      "N13": 51.0,
+      "N22": 13.0,
+      "W": 0.796875,
+      "logit_W": 1.366876275262789
+     },
+     {
+      "grupo": 3,
+      "n": 600,
+      "P_oficial": 0.5045513059274797,
+      "logit_P": 0.01820572654828364,
+      "N13": 68.0,
+      "N22": 13.0,
+      "W": 0.8395061728395061,
+      "logit_W": 1.65455834771457
+     },
+     {
+      "grupo": 4,
+      "n": 600,
+      "P_oficial": 0.6159987383942124,
+      "logit_P": 0.4725990774560105,
+      "N13": 102.0,
+      "N22": 18.0,
+      "W": 0.85,
+      "logit_W": 1.7346010553881064
+     },
+     {
+      "grupo": 5,
+      "n": 600,
+      "P_oficial": 0.7787028238330946,
+      "logit_P": 1.2581230021472884,
+      "N13": 247.0,
+      "N22": 25.0,
+      "W": 0.9080882352941176,
+      "logit_W": 2.2905125117597764
+     }
+    ],
+    "inclinacao": 0.5916456894046886,
+    "ep_inclinacao": 0.16952660171035194,
+    "intercepto_no_centro": 1.7769805857076544,
+    "cortes_quintis_P": [
+     0.36506729434486085,
+     0.4585659155981576,
+     0.5572290283362947,
+     0.6798159618917556
+    ]
+   }
+  },
+  "g_metades": {
+   "metades": [
+    {
+     "n": 1500,
+     "theta": -0.6201679739694214,
+     "ep": 0.2894524347816098,
+     "ep_analitico": 0.29364294165479676
+    },
+    {
+     "n": 1500,
+     "theta": -0.5243894623311237,
+     "ep": 0.2443566689462412,
+     "ep_analitico": 0.26166569739936635
+    }
+   ],
+   "diferenca": -0.09577851163829765,
+   "ep_da_diferenca": 0.37880455865723817,
+   "z": -0.25284413677017803
+  },
+  "h_controles_00_99": {
+   "00": {
+    "1": {
+     "contagem": 11297.0,
+     "parcela_dos_nulos_com_digitos": 0.5193784193830169,
+     "ep": 0.018721325299654024,
+     "por_10_mil_votantes": 149.9996680542001
+    },
+    "2": {
+     "contagem": 8945.0,
+     "parcela_dos_nulos_com_digitos": 0.5451941244590723,
+     "ep": 0.012615209163349142,
+     "por_10_mil_votantes": 116.11394094220394
+    }
+   },
+   "99": {
+    "1": {
+     "contagem": 495.0,
+     "parcela_dos_nulos_com_digitos": 0.02275757436439704,
+     "ep": 0.002304219705050346,
+     "por_10_mil_votantes": 6.572526837817921
+    },
+    "2": {
+     "contagem": 462.0,
+     "parcela_dos_nulos_com_digitos": 0.02815871274456025,
+     "ep": 0.002703930993136317,
+     "por_10_mil_votantes": 5.997164976556537
+    }
+   }
+  }
+ },
+ "calibracao_A_plantio_na_contagem_oficial": {
+  "A1_troca_3e57": {
+   "deslocamento_medio": 0.06891622392035628,
+   "dp_entre_copias": 0.0005852722465316937,
+   "esperado_pela_formula": 0.06893648948158725,
+   "deslocamento_sobre_ep": 0.3331709349088468,
+   "deslocamento_sobre_erro_total": 0.33229836112112965,
+   "theta_plantado_medio": -0.5055750784801489,
+   "veredito_no_dado_plantado": {
+    "SEM PODER": 200
+   },
+   "aritmetica_de_sinal_no_plantado_medio": false,
+   "enxerga_a_2e5_erros": false
+  },
+  "A2_troca_1e8": {
+   "deslocamento_medio": 0.03475091621554388,
+   "dp_entre_copias": 0.00040368917355774504,
+   "esperado_pela_formula": 0.03472539128163357,
+   "deslocamento_sobre_ep": 0.16800101029696557,
+   "deslocamento_sobre_erro_total": 0.16756101610018714,
+   "theta_plantado_medio": -0.5397403861849612,
+   "veredito_no_dado_plantado": {
+    "SEM PODER": 200
+   },
+   "aritmetica_de_sinal_no_plantado_medio": false,
+   "enxerga_a_2e5_erros": false
+  },
+  "A3_acrescimo_da_margem_para_Lula": {
+   "deslocamento_medio": 0.06755393938360608,
+   "dp_entre_copias": 0.0003804153067823691,
+   "esperado_pela_formula": 0.06752763799782839,
+   "deslocamento_sobre_ep": 0.3265850602497034,
+   "deslocamento_sobre_erro_total": 0.3257297348501097,
+   "theta_plantado_medio": -0.5069373630168991,
+   "veredito_no_dado_plantado": {
+    "SEM PODER": 200
+   },
+   "aritmetica_de_sinal_no_plantado_medio": false,
+   "enxerga_a_2e5_erros": false
+  },
+  "A4_espelho_troca_3e57_de_Lula_para_Flavio": {
+   "deslocamento_medio": -0.07405895952485404,
+   "dp_entre_copias": 0.0006013038833807819,
+   "esperado_pela_formula": -0.0741115186262248,
+   "deslocamento_sobre_ep": -0.35803315068142966,
+   "deslocamento_sobre_erro_total": -0.35709546281707893,
+   "theta_plantado_medio": -0.6485502619253593,
+   "veredito_no_dado_plantado": {
+    "SEM PODER": 200
+   },
+   "aritmetica_de_sinal_no_plantado_medio": false,
+   "enxerga_a_2e5_erros": false
+  },
+  "A4_espelho_acrescimo_da_margem_para_Flavio": {
+   "deslocamento_medio": -0.07260234851815586,
+   "dp_entre_copias": 0.00038878028082301255,
+   "esperado_pela_formula": -0.07260069575268885,
+   "deslocamento_sobre_ep": -0.350991260930462,
+   "deslocamento_sobre_erro_total": -0.35007201575654096,
+   "theta_plantado_medio": -0.647093650918661,
+   "veredito_no_dado_plantado": {
+    "SEM PODER": 200
+   },
+   "aritmetica_de_sinal_no_plantado_medio": false,
+   "enxerga_a_2e5_erros": false
+  },
+  "nota": "acréscimo esperado na amostra: 27016 votos (9 por seção); no país 4.430.191. Fórmula nacional da troca: 0.0691; do acréscimo sobre o oficial: 0.0667; do acréscimo visto pela testemunha (ln de L oficial sobre L verdadeiro): 0.0714"
+ },
+ "calibracao_B_testemunhas_refeitas": {
+  "taxas_por_10_mil": {
+   "a31": 9.425388902800325,
+   "b32": 1.3364853309956817,
+   "b52": 0.5980867626184874,
+   "c55": 4.015246998748742
+  },
+  "impureza_estimada": {
+   "31": 3.8051783946002615e-12,
+   "32": 0.8227921524364432,
+   "52": 0.8557135409724081
+  },
+  "B0_nulo": {
+   "conjuntos": 1000,
+   "theta_medio": 0.0009716536829141944,
+   "dp_de_theta": 0.210403076811305,
+   "ep_da_media": 0.006653529494310814,
+   "theta_esperado_sem_ruido": 5.551115123125783e-17,
+   "f52_medio": 0.741895901616789,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.007,
+   "fracao_aritmetica_de_sinal_espelhada": 0.007,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.072,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.006177011191308868,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.006097185721967935,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.0052411061795802905,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.0048256652900147134,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.004564665298385062,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B1_troca_que_vira": {
+   "conjuntos": 1000,
+   "theta_medio": 0.07060065850337281,
+   "dp_de_theta": 0.20967173903698583,
+   "ep_da_media": 0.006630402563253146,
+   "theta_esperado_sem_ruido": 0.0713030239687758,
+   "f52_medio": 0.7476100154037693,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.016,
+   "fracao_aritmetica_de_sinal_espelhada": 0.004,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.072,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.015184254839528677,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.021156880824168,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.07930866626368216,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.112403477078038,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.13527943098610007,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B2_acrescimo_da_margem": {
+   "conjuntos": 1000,
+   "theta_medio": 0.08076211419532774,
+   "dp_de_theta": 0.21130028072120902,
+   "ep_da_media": 0.0066819015731198654,
+   "theta_esperado_sem_ruido": 0.07216637884766702,
+   "f52_medio": 0.753042207853645,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.023,
+   "fracao_aritmetica_de_sinal_espelhada": 0.002,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.067,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.017167064360034123,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.024942548047139024,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.10712867773569457,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.15546002024835381,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.1888658815634905,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B3_inocente_impureza_020": {
+   "conjuntos": 1000,
+   "theta_medio": 0.030420093163674285,
+   "dp_de_theta": 0.2054676699421744,
+   "ep_da_media": 0.006497458225449881,
+   "theta_esperado_sem_ruido": 0.03248470454474878,
+   "f52_medio": 0.73695422820809,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.011,
+   "fracao_aritmetica_de_sinal_espelhada": 0.001,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.081,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.009149771838647403,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.010579579227991687,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.019075526769132045,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.02238183880479383,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.024391109698741698,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B3_inocente_impureza_estimada": {
+   "conjuntos": 1000,
+   "theta_medio": 0.004762685348141743,
+   "dp_de_theta": 0.2052768902252569,
+   "ep_da_media": 0.006491425241081667,
+   "theta_esperado_sem_ruido": -0.010201360906996582,
+   "f52_medio": 0.7068984423822102,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.01,
+   "fracao_aritmetica_de_sinal_espelhada": 0.004,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.07,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.006504189881683886,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.0065589910950478725,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.00626417654870326,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.005981130261686007,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.005781464308241224,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B4_inocente_eliminados_10_pontos_a_mais_para_Lula": {
+   "conjuntos": 1000,
+   "theta_medio": -0.024735952503891327,
+   "dp_de_theta": 0.21372168771300895,
+   "ep_da_media": 0.00675847318548331,
+   "theta_esperado_sem_ruido": -0.030263463827108816,
+   "f52_medio": 0.7462671202161346,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.005,
+   "fracao_aritmetica_de_sinal_espelhada": 0.01,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.066,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.004317850109507582,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.0036566579420846956,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.0014225090615487268,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.0009825547297892534,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.0007808221180267694,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "B4_inocente_eliminados_10_pontos_a_mais_para_Flavio": {
+   "conjuntos": 1000,
+   "theta_medio": 0.045231415006882617,
+   "dp_de_theta": 0.20792678421612046,
+   "ep_da_media": 0.006575222246772889,
+   "theta_esperado_sem_ruido": 0.030229169125067845,
+   "f52_medio": 0.7409834595427437,
+   "fracao_aritmetica_de_sinal_com_o_erro_real": 0.013,
+   "fracao_aritmetica_de_sinal_espelhada": 0.004,
+   "fracao_aritmetica_de_sem_sinal": 0.0,
+   "fracao_abs_theta_le_0020_ignorando_o_erro": 0.065,
+   "projecao_normal": {
+    "3000": {
+     "ep": 0.20684944783437145,
+     "erro_total": 0.20739260852157765,
+     "limiar_de_sinal": 0.5184815213039441,
+     "prob_aritmetica_de_sinal": 0.011071777611196376,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "6000": {
+     "ep": 0.1462646472483771,
+     "erro_total": 0.147031789197752,
+     "limiar_de_sinal": 0.36757947299438,
+     "prob_aritmetica_de_sinal": 0.01376679448923035,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "35000": {
+     "ep": 0.060559317369278075,
+     "erro_total": 0.06238934941344512,
+     "limiar_de_sinal": 0.1559733735336128,
+     "prob_aritmetica_de_sinal": 0.03372582711252381,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "50000": {
+     "ep": 0.050667560077065694,
+     "erro_total": 0.052841287306074035,
+     "limiar_de_sinal": 0.1321032182651851,
+     "prob_aritmetica_de_sinal": 0.04321435542183405,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    },
+    "60000": {
+     "ep": 0.04625294264659512,
+     "erro_total": 0.04862442496800572,
+     "limiar_de_sinal": 0.1215610624200143,
+     "prob_aritmetica_de_sinal": 0.04944429636565428,
+     "prob_aritmetica_de_sem_sinal": 0.0
+    }
+   }
+  },
+  "enxerga_o_plantado": false
+ },
+ "votos_de_margem": {
+  "theta": {
+   "theta": -0.5744913024005052,
+   "votos_trocados_equivalentes": -17153214.569062613,
+   "efeito_na_margem_por_troca": -34306429.138125226,
+   "fracao_da_margem_por_troca": -7.743781055517748,
+   "acrescimo_equivalente": -49877405.15455821,
+   "fracao_da_margem_por_acrescimo": -11.258522522969825
+  },
+  "theta_menos_196_erro_total": {
+   "theta": -0.9809808151027973,
+   "votos_trocados_equivalentes": -27718393.697555527,
+   "efeito_na_margem_por_troca": -55436787.395111054,
+   "fracao_da_margem_por_troca": -12.513407976114586,
+   "acrescimo_equivalente": -107119692.12517515,
+   "fracao_da_margem_por_acrescimo": -24.179474908683428
+  },
+  "theta_mais_196_erro_total": {
+   "theta": -0.168001789698213,
+   "votos_trocados_equivalentes": -5177169.314961545,
+   "efeito_na_margem_por_troca": -10354338.62992309,
+   "fracao_da_margem_por_troca": -2.3372217202199836,
+   "acrescimo_equivalente": -11754953.332040234,
+   "fracao_da_margem_por_acrescimo": -2.653373936256977
+  },
+  "theta_menos_196_ep": {
+   "theta": -0.9799162201558732,
+   "votos_trocados_equivalentes": -27693050.42569415,
+   "efeito_na_margem_por_troca": -55386100.8513883,
+   "fracao_da_margem_por_troca": -12.501966811676585,
+   "acrescimo_equivalente": -106937343.26338771,
+   "fracao_da_margem_por_acrescimo": -24.138314412039506
+  },
+  "theta_mais_196_ep": {
+   "theta": -0.16906638464513712,
+   "votos_trocados_equivalentes": -5209722.741999063,
+   "efeito_na_margem_por_troca": -10419445.483998125,
+   "fracao_da_margem_por_troca": -2.3519178933816005,
+   "acrescimo_equivalente": -11835917.545253752,
+   "fracao_da_margem_por_acrescimo": -2.6716494944018785
+  },
+  "referencia_troca_que_vira": {
+   "theta": 0.06905100788128703,
+   "votos_trocados_equivalentes": 2141059.585436761,
+   "efeito_na_margem_por_troca": 4282119.170873522,
+   "fracao_da_margem_por_troca": 0.966576648924058,
+   "acrescimo_equivalente": 4287235.282585851,
+   "fracao_da_margem_por_acrescimo": 0.967731477623843
+  },
+  "menor_efeito_que_a_aritmetica_de_sinal_alcanca": {
+   "theta": 0.5184815213039441,
+   "votos_trocados_equivalentes": 15856223.013642693,
+   "efeito_na_margem_por_troca": 31712446.027285386,
+   "fracao_da_margem_por_troca": 7.158257065504712,
+   "acrescimo_equivalente": 25996529.28423273,
+   "fracao_da_margem_por_acrescimo": 5.868038033627157
+  }
+ },
+ "descritivo_digitos_nulos": {
+  "1": {
+   "nulos_com_digitos": 21751,
+   "nulos_sem_digitos": 231.0,
+   "brancos": 13651.0,
+   "votantes": 753135.0,
+   "codigos_distintos": 87,
+   "tabela": [
+    {
+     "digitos": "00",
+     "contagem": 11297,
+     "parcela_dos_nulos_com_digitos": 0.5193784193830169,
+     "por_10_mil_votantes": 149.9996680542001,
+     "rotulo": "código de controle"
+    },
+    {
+     "digitos": "10",
+     "contagem": 1390,
+     "parcela_dos_nulos_com_digitos": 0.06390510781113512,
+     "por_10_mil_votantes": 18.456186473872545,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "15",
+     "contagem": 1379,
+     "parcela_dos_nulos_com_digitos": 0.06339938393637075,
+     "por_10_mil_votantes": 18.310130321921037,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "11",
+     "contagem": 1087,
+     "parcela_dos_nulos_com_digitos": 0.049974713806261783,
+     "por_10_mil_votantes": 14.433003379208243,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "12",
+     "contagem": 940,
+     "parcela_dos_nulos_com_digitos": 0.04321640384350145,
+     "por_10_mil_votantes": 12.481162075856254,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "44",
+     "contagem": 697,
+     "parcela_dos_nulos_com_digitos": 0.03204450370097926,
+     "por_10_mil_votantes": 9.254648900927457,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "45",
+     "contagem": 584,
+     "parcela_dos_nulos_com_digitos": 0.02684934026021792,
+     "por_10_mil_votantes": 7.754253885425587,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "40",
+     "contagem": 544,
+     "parcela_dos_nulos_com_digitos": 0.025010344351983817,
+     "por_10_mil_votantes": 7.223140605601917,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "99",
+     "contagem": 495,
+     "parcela_dos_nulos_com_digitos": 0.02275757436439704,
+     "por_10_mil_votantes": 6.572526837817921,
+     "rotulo": "código de controle"
+    },
+    {
+     "digitos": "20",
+     "contagem": 329,
+     "parcela_dos_nulos_com_digitos": 0.015125741345225506,
+     "por_10_mil_votantes": 4.368406726549689,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "78",
+     "contagem": 187,
+     "parcela_dos_nulos_com_digitos": 0.008597305870994438,
+     "por_10_mil_votantes": 2.482954583175659,
+     "rotulo": ""
+    },
+    {
+     "digitos": "31",
+     "contagem": 179,
+     "parcela_dos_nulos_com_digitos": 0.008229506689347616,
+     "por_10_mil_votantes": 2.376731927210925,
+     "rotulo": "testemunha do 13 (dígitos invertidos)"
+    },
+    {
+     "digitos": "50",
+     "contagem": 167,
+     "parcela_dos_nulos_com_digitos": 0.007677807916877385,
+     "por_10_mil_votantes": 2.217397943263824,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "01",
+     "contagem": 163,
+     "parcela_dos_nulos_com_digitos": 0.007493908326053974,
+     "por_10_mil_votantes": 2.164286615281457,
+     "rotulo": ""
+    },
+    {
+     "digitos": "18",
+     "contagem": 152,
+     "parcela_dos_nulos_com_digitos": 0.006988184451289596,
+     "por_10_mil_votantes": 2.0182304633299473,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "73",
+     "contagem": 145,
+     "parcela_dos_nulos_com_digitos": 0.006666360167348628,
+     "por_10_mil_votantes": 1.925285639360805,
+     "rotulo": ""
+    },
+    {
+     "digitos": "33",
+     "contagem": 137,
+     "parcela_dos_nulos_com_digitos": 0.0062985609857018066,
+     "por_10_mil_votantes": 1.8190629833960712,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "23",
+     "contagem": 132,
+     "parcela_dos_nulos_com_digitos": 0.006068686497172544,
+     "por_10_mil_votantes": 1.7526738234181123,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "77",
+     "contagem": 114,
+     "parcela_dos_nulos_com_digitos": 0.005241138338467197,
+     "por_10_mil_votantes": 1.5136728474974606,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "25",
+     "contagem": 109,
+     "parcela_dos_nulos_com_digitos": 0.005011263849937934,
+     "por_10_mil_votantes": 1.4472836875195019,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "88",
+     "contagem": 95,
+     "parcela_dos_nulos_com_digitos": 0.0043676152820559975,
+     "por_10_mil_votantes": 1.261394039581217,
+     "rotulo": ""
+    },
+    {
+     "digitos": "66",
+     "contagem": 80,
+     "parcela_dos_nulos_com_digitos": 0.0036779918164682084,
+     "por_10_mil_votantes": 1.0622265596473408,
+     "rotulo": ""
+    },
+    {
+     "digitos": "56",
+     "contagem": 58,
+     "parcela_dos_nulos_com_digitos": 0.0026665440669394512,
+     "por_10_mil_votantes": 0.770114255744322,
+     "rotulo": ""
+    },
+    {
+     "digitos": "43",
+     "contagem": 57,
+     "parcela_dos_nulos_com_digitos": 0.0026205691692335986,
+     "por_10_mil_votantes": 0.7568364237487303,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "09",
+     "contagem": 56,
+     "parcela_dos_nulos_com_digitos": 0.002574594271527746,
+     "por_10_mil_votantes": 0.7435585917531385,
+     "rotulo": ""
+    },
+    {
+     "digitos": "08",
+     "contagem": 50,
+     "parcela_dos_nulos_com_digitos": 0.00229874488529263,
+     "por_10_mil_votantes": 0.663891599779588,
+     "rotulo": ""
+    },
+    {
+     "digitos": "89",
+     "contagem": 49,
+     "parcela_dos_nulos_com_digitos": 0.0022527699875867775,
+     "por_10_mil_votantes": 0.6506137677839963,
+     "rotulo": ""
+    },
+    {
+     "digitos": "17",
+     "contagem": 45,
+     "parcela_dos_nulos_com_digitos": 0.0020688703967633674,
+     "por_10_mil_votantes": 0.5975024398016292,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "36",
+     "contagem": 44,
+     "parcela_dos_nulos_com_digitos": 0.0020228954990575147,
+     "por_10_mil_votantes": 0.5842246078060375,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "32",
+     "contagem": 39,
+     "parcela_dos_nulos_com_digitos": 0.0017930210105282516,
+     "por_10_mil_votantes": 0.5178354478280787,
+     "rotulo": "testemunha do 22 (tecla vizinha no 1º dígito)"
+    },
+    {
+     "digitos": "02",
+     "contagem": 39,
+     "parcela_dos_nulos_com_digitos": 0.0017930210105282516,
+     "por_10_mil_votantes": 0.5178354478280787,
+     "rotulo": ""
+    },
+    {
+     "digitos": "41",
+     "contagem": 32,
+     "parcela_dos_nulos_com_digitos": 0.0014711967265872833,
+     "por_10_mil_votantes": 0.42489062385893633,
+     "rotulo": ""
+    },
+    {
+     "digitos": "03",
+     "contagem": 32,
+     "parcela_dos_nulos_com_digitos": 0.0014711967265872833,
+     "por_10_mil_votantes": 0.42489062385893633,
+     "rotulo": ""
+    },
+    {
+     "digitos": "54",
+     "contagem": 32,
+     "parcela_dos_nulos_com_digitos": 0.0014711967265872833,
+     "por_10_mil_votantes": 0.42489062385893633,
+     "rotulo": ""
+    },
+    {
+     "digitos": "19",
+     "contagem": 31,
+     "parcela_dos_nulos_com_digitos": 0.0014252218288814307,
+     "por_10_mil_votantes": 0.41161279186334454,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "96",
+     "contagem": 31,
+     "parcela_dos_nulos_com_digitos": 0.0014252218288814307,
+     "por_10_mil_votantes": 0.41161279186334454,
+     "rotulo": ""
+    },
+    {
+     "digitos": "42",
+     "contagem": 31,
+     "parcela_dos_nulos_com_digitos": 0.0014252218288814307,
+     "por_10_mil_votantes": 0.41161279186334454,
+     "rotulo": ""
+    },
+    {
+     "digitos": "69",
+     "contagem": 29,
+     "parcela_dos_nulos_com_digitos": 0.0013332720334697256,
+     "por_10_mil_votantes": 0.385057127872161,
+     "rotulo": ""
+    },
+    {
+     "digitos": "65",
+     "contagem": 29,
+     "parcela_dos_nulos_com_digitos": 0.0013332720334697256,
+     "por_10_mil_votantes": 0.385057127872161,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "07",
+     "contagem": 28,
+     "parcela_dos_nulos_com_digitos": 0.001287297135763873,
+     "por_10_mil_votantes": 0.37177929587656927,
+     "rotulo": ""
+    }
+   ],
+   "todos": {
+    "00": 11297,
+    "12": 940,
+    "15": 1379,
+    "20": 329,
+    "44": 697,
+    "45": 584,
+    "58": 20,
+    "40": 544,
+    "89": 49,
+    "43": 57,
+    "10": 1390,
+    "18": 152,
+    "99": 495,
+    "01": 163,
+    "31": 179,
+    "73": 145,
+    "11": 1087,
+    "78": 187,
+    "91": 7,
+    "23": 132,
+    "38": 13,
+    "72": 17,
+    "09": 56,
+    "33": 137,
+    "97": 7,
+    "19": 31,
+    "52": 24,
+    "85": 25,
+    "69": 29,
+    "26": 9,
+    "08": 50,
+    "63": 17,
+    "77": 114,
+    "56": 58,
+    "25": 109,
+    "17": 45,
+    "05": 15,
+    "74": 25,
+    "98": 27,
+    "41": 32,
+    "53": 23,
+    "07": 28,
+    "68": 9,
+    "88": 95,
+    "24": 25,
+    "50": 167,
+    "94": 6,
+    "32": 39,
+    "90": 21,
+    "96": 31,
+    "03": 32,
+    "57": 9,
+    "36": 44,
+    "62": 7,
+    "54": 32,
+    "67": 14,
+    "84": 10,
+    "66": 80,
+    "60": 13,
+    "47": 15,
+    "37": 13,
+    "64": 11,
+    "83": 8,
+    "76": 5,
+    "79": 18,
+    "42": 31,
+    "65": 29,
+    "61": 11,
+    "51": 20,
+    "86": 10,
+    "81": 6,
+    "87": 11,
+    "46": 15,
+    "59": 4,
+    "82": 7,
+    "02": 39,
+    "04": 12,
+    "48": 15,
+    "06": 11,
+    "93": 9,
+    "34": 18,
+    "95": 4,
+    "71": 28,
+    "75": 27,
+    "39": 4,
+    "49": 5,
+    "92": 7
+   }
+  },
+  "2": {
+   "nulos_com_digitos": 16407,
+   "nulos_sem_digitos": 1.0,
+   "brancos": 8470.0,
+   "votantes": 770364.0,
+   "codigos_distintos": 97,
+   "tabela": [
+    {
+     "digitos": "00",
+     "contagem": 8945,
+     "parcela_dos_nulos_com_digitos": 0.5451941244590723,
+     "por_10_mil_votantes": 116.11394094220394,
+     "rotulo": "código de controle"
+    },
+    {
+     "digitos": "11",
+     "contagem": 1005,
+     "parcela_dos_nulos_com_digitos": 0.06125434265862132,
+     "por_10_mil_votantes": 13.045780955496364,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "14",
+     "contagem": 831,
+     "parcela_dos_nulos_com_digitos": 0.05064911318339733,
+     "por_10_mil_votantes": 10.787108431858186,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "12",
+     "contagem": 579,
+     "parcela_dos_nulos_com_digitos": 0.0352898153227281,
+     "por_10_mil_votantes": 7.515927535554621,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "31",
+     "contagem": 491,
+     "parcela_dos_nulos_com_digitos": 0.029926250990430912,
+     "por_10_mil_votantes": 6.373610397162899,
+     "rotulo": "testemunha do 13 (dígitos invertidos)"
+    },
+    {
+     "digitos": "99",
+     "contagem": 462,
+     "parcela_dos_nulos_com_digitos": 0.02815871274456025,
+     "por_10_mil_votantes": 5.997164976556537,
+     "rotulo": "código de controle"
+    },
+    {
+     "digitos": "15",
+     "contagem": 451,
+     "parcela_dos_nulos_com_digitos": 0.0274882672030231,
+     "por_10_mil_votantes": 5.854375334257572,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "55",
+     "contagem": 369,
+     "parcela_dos_nulos_com_digitos": 0.022490400438837082,
+     "por_10_mil_votantes": 4.78994345530165,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "10",
+     "contagem": 232,
+     "parcela_dos_nulos_com_digitos": 0.01414030596696532,
+     "por_10_mil_votantes": 3.0115633648509017,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "33",
+     "contagem": 212,
+     "parcela_dos_nulos_com_digitos": 0.012921314073261412,
+     "por_10_mil_votantes": 2.7519458333982376,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "44",
+     "contagem": 211,
+     "parcela_dos_nulos_com_digitos": 0.012860364478576218,
+     "por_10_mil_votantes": 2.7389649568256047,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "23",
+     "contagem": 173,
+     "parcela_dos_nulos_com_digitos": 0.010544279880538795,
+     "por_10_mil_votantes": 2.2456916470655433,
+     "rotulo": "excluído de antemão: vizinho dos dois"
+    },
+    {
+     "digitos": "45",
+     "contagem": 171,
+     "parcela_dos_nulos_com_digitos": 0.010422380691168404,
+     "por_10_mil_votantes": 2.2197298939202765,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "73",
+     "contagem": 140,
+     "parcela_dos_nulos_com_digitos": 0.008532943255927348,
+     "por_10_mil_votantes": 1.8173227201686475,
+     "rotulo": ""
+    },
+    {
+     "digitos": "70",
+     "contagem": 123,
+     "parcela_dos_nulos_com_digitos": 0.007496800146279028,
+     "por_10_mil_votantes": 1.5966478184338833,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "01",
+     "contagem": 113,
+     "parcela_dos_nulos_com_digitos": 0.006887304199427074,
+     "por_10_mil_votantes": 1.4668390527075512,
+     "rotulo": ""
+    },
+    {
+     "digitos": "77",
+     "contagem": 98,
+     "parcela_dos_nulos_com_digitos": 0.0059730602791491436,
+     "por_10_mil_votantes": 1.2721259041180533,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "25",
+     "contagem": 95,
+     "parcela_dos_nulos_com_digitos": 0.005790211495093557,
+     "por_10_mil_votantes": 1.2331832744001536,
+     "rotulo": "excluído de antemão: número de partido"
+    },
+    {
+     "digitos": "88",
+     "contagem": 88,
+     "parcela_dos_nulos_com_digitos": 0.00536356433229719,
+     "por_10_mil_votantes": 1.1423171383917212,
+     "rotulo": ""
+    },
+    {
+     "digitos": "67",
+     "contagem": 86,
+     "parcela_dos_nulos_com_digitos": 0.005241665142926799,
+     "por_10_mil_votantes": 1.116355385246455,
+     "rotulo": ""
+    },
+    {
+     "digitos": "66",
+     "contagem": 86,
+     "parcela_dos_nulos_com_digitos": 0.005241665142926799,
+     "por_10_mil_votantes": 1.116355385246455,
+     "rotulo": ""
+    },
+    {
+     "digitos": "56",
+     "contagem": 68,
+     "parcela_dos_nulos_com_digitos": 0.004144572438593283,
+     "por_10_mil_votantes": 0.8826996069390574,
+     "rotulo": ""
+    },
+    {
+     "digitos": "35",
+     "contagem": 65,
+     "parcela_dos_nulos_com_digitos": 0.003961723654537697,
+     "por_10_mil_votantes": 0.8437569772211578,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "20",
+     "contagem": 64,
+     "parcela_dos_nulos_com_digitos": 0.003900774059852502,
+     "por_10_mil_votantes": 0.8307761006485246,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "78",
+     "contagem": 58,
+     "parcela_dos_nulos_com_digitos": 0.00353507649174133,
+     "por_10_mil_votantes": 0.7528908412127254,
+     "rotulo": ""
+    },
+    {
+     "digitos": "21",
+     "contagem": 55,
+     "parcela_dos_nulos_com_digitos": 0.003352227707685744,
+     "por_10_mil_votantes": 0.7139482114948258,
+     "rotulo": "excluído de antemão: candidato do 1º turno"
+    },
+    {
+     "digitos": "32",
+     "contagem": 54,
+     "parcela_dos_nulos_com_digitos": 0.0032912781130005485,
+     "por_10_mil_votantes": 0.7009673349221927,
+     "rotulo": "testemunha do 22 (tecla vizinha no 1º dígito)"
+    },
+    {
+     "digitos": "30",
+     "contagem": 51,
+     "parcela_dos_nulos_com_digitos": 0.0031084293289449626,
+     "por_10_mil_votantes": 0.662024705204293,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "17",
+     "contagem": 47,
+     "parcela_dos_nulos_com_digitos": 0.0028646309502041814,
+     "por_10_mil_votantes": 0.6101011989137602,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "18",
+     "contagem": 43,
+     "parcela_dos_nulos_com_digitos": 0.0026208325714633996,
+     "por_10_mil_votantes": 0.5581776926232275,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "69",
+     "contagem": 42,
+     "parcela_dos_nulos_com_digitos": 0.0025598829767782046,
+     "por_10_mil_votantes": 0.5451968160505942,
+     "rotulo": ""
+    },
+    {
+     "digitos": "50",
+     "contagem": 40,
+     "parcela_dos_nulos_com_digitos": 0.0024379837874078138,
+     "por_10_mil_votantes": 0.5192350629053278,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "07",
+     "contagem": 34,
+     "parcela_dos_nulos_com_digitos": 0.0020722862192966416,
+     "por_10_mil_votantes": 0.4413498034695287,
+     "rotulo": ""
+    },
+    {
+     "digitos": "19",
+     "contagem": 33,
+     "parcela_dos_nulos_com_digitos": 0.002011336624611446,
+     "por_10_mil_votantes": 0.4283689268968955,
+     "rotulo": "número de partido"
+    },
+    {
+     "digitos": "08",
+     "contagem": 31,
+     "parcela_dos_nulos_com_digitos": 0.0018894374352410555,
+     "por_10_mil_votantes": 0.4024071737516291,
+     "rotulo": ""
+    },
+    {
+     "digitos": "16",
+     "contagem": 31,
+     "parcela_dos_nulos_com_digitos": 0.0018894374352410555,
+     "por_10_mil_votantes": 0.4024071737516291,
+     "rotulo": "excluído de antemão: candidato do 1º turno"
+    },
+    {
+     "digitos": "71",
+     "contagem": 30,
+     "parcela_dos_nulos_com_digitos": 0.0018284878405558603,
+     "por_10_mil_votantes": 0.3894262971789959,
+     "rotulo": ""
+    },
+    {
+     "digitos": "03",
+     "contagem": 29,
+     "parcela_dos_nulos_com_digitos": 0.001767538245870665,
+     "por_10_mil_votantes": 0.3764454206063627,
+     "rotulo": ""
+    },
+    {
+     "digitos": "80",
+     "contagem": 28,
+     "parcela_dos_nulos_com_digitos": 0.0017065886511854697,
+     "por_10_mil_votantes": 0.3634645440337295,
+     "rotulo": "número de candidato do 1º turno (eliminado)"
+    },
+    {
+     "digitos": "51",
+     "contagem": 27,
+     "parcela_dos_nulos_com_digitos": 0.0016456390565002743,
+     "por_10_mil_votantes": 0.3504836674610963,
+     "rotulo": "número de partido"
+    }
+   ],
+   "todos": {
+    "00": 8945,
+    "14": 831,
+    "21": 55,
+    "31": 491,
+    "12": 579,
+    "87": 7,
+    "99": 462,
+    "10": 232,
+    "11": 1005,
+    "45": 171,
+    "55": 369,
+    "81": 12,
+    "33": 212,
+    "32": 54,
+    "69": 42,
+    "77": 98,
+    "84": 4,
+    "03": 29,
+    "07": 34,
+    "18": 43,
+    "23": 173,
+    "37": 24,
+    "75": 10,
+    "51": 27,
+    "88": 88,
+    "15": 451,
+    "02": 22,
+    "70": 123,
+    "08": 31,
+    "44": 211,
+    "05": 9,
+    "17": 47,
+    "35": 65,
+    "50": 40,
+    "78": 58,
+    "74": 20,
+    "73": 140,
+    "25": 95,
+    "67": 86,
+    "24": 24,
+    "82": 7,
+    "56": 68,
+    "80": 28,
+    "01": 113,
+    "52": 24,
+    "97": 9,
+    "90": 16,
+    "66": 86,
+    "71": 30,
+    "61": 3,
+    "57": 9,
+    "06": 7,
+    "20": 64,
+    "19": 33,
+    "30": 51,
+    "16": 31,
+    "92": 12,
+    "28": 18,
+    "36": 25,
+    "98": 12,
+    "41": 21,
+    "72": 8,
+    "54": 8,
+    "91": 3,
+    "86": 3,
+    "40": 19,
+    "85": 15,
+    "96": 24,
+    "38": 4,
+    "09": 23,
+    "65": 11,
+    "47": 11,
+    "43": 13,
+    "48": 3,
+    "39": 6,
+    "62": 5,
+    "27": 7,
+    "63": 9,
+    "58": 20,
+    "53": 13,
+    "68": 6,
+    "83": 8,
+    "79": 14,
+    "46": 11,
+    "04": 9,
+    "60": 3,
+    "89": 14,
+    "29": 6,
+    "95": 6,
+    "76": 6,
+    "42": 10,
+    "34": 4,
+    "64": 2,
+    "93": 2,
+    "49": 3,
+    "26": 11,
+    "59": 1
+   }
+  }
+ },
+ "descritivo_eliminados_digitados_no_2t": {
+  "14": {
+   "contagem_2t": 831.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 15923.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.05064911318339733,
+   "ep_parcela": 0.002334506671080307,
+   "por_10_mil_votantes_2t": 10.787108431858186,
+   "por_100_votos_do_proprio_candidato_no_1t": 5.218865791622182,
+   "ep_por_100_votos": 0.19447203706172778,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.8479636989940966,
+   "poisson_taxa_por_100_eleitores_proprios": 4.4254087412177,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 1.6418030953306177
+  },
+  "16": {
+   "contagem_2t": 31.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 258.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.0018894374352410555,
+   "ep_parcela": 0.00031651577139626063,
+   "por_10_mil_votantes_2t": 0.4024071737516291,
+   "por_100_votos_do_proprio_candidato_no_1t": 12.015503875968992,
+   "ep_por_100_votos": 2.449974947055313,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 6.221621753958584e-16,
+   "poisson_taxa_por_100_eleitores_proprios": 7.475592029950237e-15,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.4024233675566279
+  },
+  "21": {
+   "contagem_2t": 55.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 123.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.003352227707685744,
+   "ep_parcela": 0.0004904862303651842,
+   "por_10_mil_votantes_2t": 0.7139482114948258,
+   "por_100_votos_do_proprio_candidato_no_1t": 44.71544715447155,
+   "ep_por_100_votos": 8.485135991095932,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 6.250661846891201e-17,
+   "poisson_taxa_por_100_eleitores_proprios": 2.79501139495135e-15,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.7139991873391064
+  },
+  "27": {
+   "contagem_2t": 7.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 236.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.0004266471627963674,
+   "ep_parcela": 0.00016088251060542854,
+   "por_10_mil_votantes_2t": 0.09086613600843238,
+   "por_100_votos_do_proprio_candidato_no_1t": 2.9661016949152543,
+   "ep_por_100_votos": 1.1309893229380616
+  },
+  "28": {
+   "contagem_2t": 18.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 29.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.0010970927043335162,
+   "ep_parcela": 0.00024856702167170696,
+   "por_10_mil_votantes_2t": 0.23365577830739753,
+   "por_100_votos_do_proprio_candidato_no_1t": 62.06896551724138,
+   "ep_por_100_votos": 18.335053955800284
+  },
+  "29": {
+   "contagem_2t": 6.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 89.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.00036569756811117204,
+   "ep_parcela": 0.00014557918465785263,
+   "por_10_mil_votantes_2t": 0.07788525943579919,
+   "por_100_votos_do_proprio_candidato_no_1t": 6.741573033707865,
+   "ep_por_100_votos": 2.5732660973361074
+  },
+  "30": {
+   "contagem_2t": 51.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 1954.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.0031084293289449626,
+   "ep_parcela": 0.00042403581563782325,
+   "por_10_mil_votantes_2t": 0.662024705204293,
+   "por_100_votos_do_proprio_candidato_no_1t": 2.610030706243603,
+   "ep_por_100_votos": 0.38414139857403123,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.319167260250202,
+   "poisson_taxa_por_100_eleitores_proprios": 0.8330363496806705,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.4507579351152027
+  },
+  "35": {
+   "contagem_2t": 65.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 115.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.003961723654537697,
+   "ep_parcela": 0.00048820913003850365,
+   "por_10_mil_votantes_2t": 0.8437569772211578,
+   "por_100_votos_do_proprio_candidato_no_1t": 56.52173913043478,
+   "ep_por_100_votos": 10.56292016642546,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.008525597695425907,
+   "poisson_taxa_por_100_eleitores_proprios": 0.4818816088718991,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.8366340362612088
+  },
+  "55": {
+   "contagem_2t": 369.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 15894.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.022490400438837082,
+   "ep_parcela": 0.0036461416486400283,
+   "por_10_mil_votantes_2t": 4.78994345530165,
+   "por_100_votos_do_proprio_candidato_no_1t": 2.32163080407701,
+   "ep_por_100_votos": 0.3898588153312685,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.0572979678548575,
+   "poisson_taxa_por_100_eleitores_proprios": 0.13302472718285152,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 4.5176533595874995
+  },
+  "70": {
+   "contagem_2t": 123.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 20927.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.007496800146279028,
+   "ep_parcela": 0.0007280812846032663,
+   "por_10_mil_votantes_2t": 1.5966478184338833,
+   "por_100_votos_do_proprio_candidato_no_1t": 0.5877574425383476,
+   "ep_por_100_votos": 0.05522574497203297,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.554072307448496,
+   "poisson_taxa_por_100_eleitores_proprios": 0.32566012240724906,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.712103175289747
+  },
+  "80": {
+   "contagem_2t": 28.0,
+   "contagem_como_nulo_no_1t": 0.0,
+   "votos_do_candidato_1t_na_amostra": 739.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.0017065886511854697,
+   "ep_parcela": 0.0003245968068761078,
+   "por_10_mil_votantes_2t": 0.3634645440337295,
+   "por_100_votos_do_proprio_candidato_no_1t": 3.7889039242219216,
+   "ep_por_100_votos": 0.79830281671603,
+   "poisson_parte_atribuida_aos_proprios_eleitores": 0.0001972526561930624,
+   "poisson_taxa_por_100_eleitores_proprios": 0.0007473713631130917,
+   "poisson_taxa_de_fundo_por_10_mil_votantes": 0.36340605820871147
+  },
+  "todos_os_11": {
+   "contagem_2t": 1584.0,
+   "parcela_dos_nulos_com_digitos_2t": 0.09654415798134942,
+   "ep_parcela": 0.004318806273439692,
+   "por_10_mil_votantes_2t": 20.561708491050982,
+   "por_100_votos_de_eliminados_no_1t": 2.8141489153801054,
+   "ep_por_100_votos": 0.11794009867727641,
+   "estimativa_no_pais": 263580.24
+  },
+  "finalista_13_digitado_como_nulo": {
+   "1t": 0.0,
+   "2t": 0.0
+  },
+  "finalista_22_digitado_como_nulo": {
+   "1t": 0.0,
+   "2t": 0.0
+  }
+ },
+ "etapa1_pureza": {
+  "quando": "2026-11-10 10:51:04 UTC",
+  "n_secoes": 3000,
+  "n_principal": 3000,
+  "n_extensao": 0,
+  "municipios": 1421,
+  "conferencia_do_leitor_rdv_contra_oficial": {
+   "1": {
+    "L": 0,
+    "R": 0,
+    "O": 0,
+    "B": 0,
+    "N": 0,
+    "comparecimento": 0,
+    "tipos_fora_de_2_3_4_6": 0
+   },
+   "2": {
+    "L": 0,
+    "R": 0,
+    "O": 0,
+    "B": 0,
+    "N": 0,
+    "comparecimento": 0,
+    "tipos_fora_de_2_3_4_6": 0
+   }
+  },
+  "votos_1t": {
+   "L": 324131.0,
+   "R": 337084.0,
+   "O": 56287.0,
+   "B": 13651.0,
+   "N": 21982.0,
+   "comp": 753135.0
+  },
+  "nulos_com_digitos_1t": 21751.0,
+  "nulos_sem_digitos_1t": 231.0,
+  "codigos": {
+   "31": {
+    "lado_previsto": "L1 (13)",
+    "contagem_1t": 179.0,
+    "secoes_com_pelo_menos_um": 170,
+    "maximo_numa_secao": 2.0,
+    "por_10_mil_votantes": 2.376731927210925,
+    "principal_L1_R1_demais": {
+     "taxa_por_eleitor": {
+      "L1": 0.0005522458512123767,
+      "R1": 1.8864374013881376e-15,
+      "demais": 4.924300911145795e-16
+     },
+     "parte": {
+      "L1": 0.9999999999961948,
+      "R1": 3.552446173237536e-12,
+      "demais": 2.5238005021755664e-13
+     },
+     "info": {
+      "n": 3000,
+      "contagem_total": 179.0,
+      "contagem_fora_da_regressao": 0.0,
+      "iteracoes": 108
+     },
+     "parte_lado_previsto": 0.9999999999961948,
+     "ic95_boot_municipios": [
+      0.9999999999999997,
+      1.0000000000000002
+     ],
+     "ep_boot": 0.002164384994256895
+    },
+    "variante_demais_so_nominais": {
+     "parte": {
+      "L1": 0.999999999996293,
+      "R1": 3.7066902646779564e-12,
+      "outros_nominais": 1.52725281931432e-17
+     },
+     "parte_lado_previsto": 0.999999999996293
+    },
+    "variante_cinco_regressores": {
+     "parte": {
+      "L1": 0.9999999999992492,
+      "R1": 9.527882418621174e-21,
+      "V55": 1.0056662354645256e-25,
+      "demais_nominais": 3.465316792821235e-32,
+      "brancos_e_outros_nulos": 7.510427568768878e-13
+     },
+     "taxa_por_eleitor": {
+      "L1": 0.0005522458512140635,
+      "R1": 5.059542882288065e-24,
+      "V55": 1.132592526413427e-27,
+      "demais_nominais": 1.5356415862030575e-34,
+      "brancos_e_outros_nulos": 3.791861383227926e-15
+     },
+     "parte_lado_previsto": 0.9999999999992492
+    },
+    "aprovado": true
+   },
+   "32": {
+    "lado_previsto": "R1 (22)",
+    "contagem_1t": 39.0,
+    "secoes_com_pelo_menos_um": 39,
+    "maximo_numa_secao": 1.0,
+    "por_10_mil_votantes": 0.5178354478280787,
+    "principal_L1_R1_demais": {
+     "taxa_por_eleitor": {
+      "L1": 8.990476547469958e-05,
+      "R1": 2.0502622654824057e-05,
+      "demais": 3.2084679171335043e-05
+     },
+     "parte": {
+      "L1": 0.7472031163610218,
+      "R1": 0.17720784756355673,
+      "demais": 0.07558903607542142
+     },
+     "info": {
+      "n": 3000,
+      "contagem_total": 39.0,
+      "contagem_fora_da_regressao": 0.0,
+      "iteracoes": 2678
+     },
+     "parte_lado_previsto": 0.17720784756355673,
+     "ic95_boot_municipios": [
+      1.690007852422914e-266,
+      0.6166605572529431
+     ],
+     "ep_boot": 0.1844493835548217
+    },
+    "variante_demais_so_nominais": {
+     "parte": {
+      "L1": 0.77070394304921,
+      "R1": 0.2292960569492847,
+      "outros_nominais": 1.505309532252927e-12
+     },
+     "parte_lado_previsto": 0.2292960569492847
+    },
+    "variante_cinco_regressores": {
+     "parte": {
+      "L1": 0.21362326385477728,
+      "R1": 9.138187967832182e-22,
+      "V55": 7.344753518007216e-29,
+      "demais_nominais": 7.13801172178239e-52,
+      "brancos_e_outros_nulos": 0.7863767361452226
+     },
+     "taxa_por_eleitor": {
+      "L1": 2.570351891777187e-05,
+      "R1": 1.0572715725025665e-25,
+      "V55": 1.8022234000395206e-31,
+      "demais_nominais": 6.891849012193034e-55,
+      "brancos_e_outros_nulos": 0.0008616253500495501
+     },
+     "parte_lado_previsto": 9.138187967832182e-22
+    },
+    "aprovado": false
+   },
+   "52": {
+    "lado_previsto": "R1 (22)",
+    "contagem_1t": 24.0,
+    "secoes_com_pelo_menos_um": 24,
+    "maximo_numa_secao": 1.0,
+    "por_10_mil_votantes": 0.3186679678942022,
+    "principal_L1_R1_demais": {
+     "taxa_por_eleitor": {
+      "L1": 6.005286246003458e-05,
+      "R1": 1.3453636594617366e-05,
+      "demais": 1.1592567185024778e-15
+     },
+     "parte": {
+      "L1": 0.8110414317513945,
+      "R1": 0.18895856824416668,
+      "demais": 4.4387939751459875e-12
+     },
+     "info": {
+      "n": 3000,
+      "contagem_total": 24.0,
+      "contagem_fora_da_regressao": 0.0,
+      "iteracoes": 484
+     },
+     "parte_lado_previsto": 0.18895856824416668,
+     "ic95_boot_municipios": [
+      1.6155e-319,
+      0.7677381487017221
+     ],
+     "ep_boot": 0.23324475847904677
+    },
+    "variante_demais_so_nominais": {
+     "parte": {
+      "L1": 0.811041431740504,
+      "R1": 0.18895856825946797,
+      "outros_nominais": 2.7826446061910775e-14
+     },
+     "parte_lado_previsto": 0.18895856825946797
+    },
+    "variante_cinco_regressores": {
+     "parte": {
+      "L1": 0.7373321533793166,
+      "R1": 0.14428645902759188,
+      "V55": 3.551333636401181e-27,
+      "demais_nominais": 6.001582107427127e-87,
+      "brancos_e_outros_nulos": 0.11838138759309169
+     },
+     "taxa_por_eleitor": {
+      "L1": 5.459512259272824e-05,
+      "R1": 1.0273032883976115e-05,
+      "V55": 5.362527197283777e-30,
+      "demais_nominais": 3.5659141578553476e-90,
+      "brancos_e_outros_nulos": 7.978750603033504e-05
+     },
+     "parte_lado_previsto": 0.14428645902759188
+    },
+    "aprovado": false
+   }
+  },
+  "correcao_do_52": {
+   "f52_parte_atribuida_a_R1": 0.7340902675078645,
+   "parte_atribuida_ao_55": 0.2659097324921355,
+   "taxa_por_eleitor": {
+    "R1": 5.2266397753048946e-05,
+    "V55": 0.00040152469987487425
+   },
+   "ep_boot": 0.24586432643901973,
+   "ic95_boot": [
+    0.04713560968637302,
+    1.0
+   ],
+   "info": {
+    "n": 2999,
+    "contagem_total": 24.0,
+    "contagem_fora_da_regressao": 0.0,
+    "iteracoes": 196
+   },
+   "votos_do_55_na_amostra": 15894.0
+  },
+  "codigos_em_uso": [
+   "31",
+   "32",
+   "52"
+  ],
+  "situacao": "REPROVADO SEM SUBSTITUTO (inconclusivo pela letra; Theta com os três códigos só como descritivo)",
+  "sem_substituto": true
+ },
+ "etapas_2_3_cego": {
+  "quando": "2026-11-10 10:53:25 UTC",
+  "n_secoes": 3000,
+  "n_principal": 3000,
+  "n_extensao": 0,
+  "municipios": 1421,
+  "codigos_em_uso": [
+   "31",
+   "32",
+   "52"
+  ],
+  "f52": 0.7340902675078645,
+  "testemunhas_1t": {
+   "N13_1": 179.0,
+   "N22_1": 56.61816642018875,
+   "total": 235.61816642018874,
+   "n31": 179.0,
+   "n32": 39.0,
+   "n52_bruto": 24.0
+  },
+  "testemunhas_2t_total_sem_separar_lado": 569.0,
+  "votantes": {
+   "1t": 753135.0,
+   "2t": 770364.0
+  },
+  "nulos_com_digitos": {
+   "1t": 21751.0,
+   "2t": 16407.0
+  },
+  "erro_padrao": {
+   "bootstrap_municipios_2000": 0.20684944783437145,
+   "bootstrap_secoes_2000": 0.21744110015737153,
+   "analitico": 0.19520742947410097,
+   "replicas_descartadas": 0
+  },
+  "theta": "NÃO ABERTO NESTA ETAPA",
+  "testemunhas_por_10_mil_votantes": {
+   "1t": 3.1284984288366458,
+   "2t": 7.386118769828289
+  },
+  "testemunhas_no_universo_estimadas": {
+   "1t": 39207.25558926344,
+   "2t": 94682.54833333334
+  },
+  "regra_de_parada": {
+   "limite_ep": 0.022,
+   "ep_atual": 0.20684944783437145,
+   "erro_total_atual_com_piso_sistematico": 0.20739260852157765,
+   "secoes_necessarias_exato": 265206.78142180387,
+   "secoes_necessarias_em_blocos_de_10_mil": 270000,
+   "passa_do_teto_de_60_mil": true,
+   "alvo": 60000,
+   "ep_projetado": {
+    "6000": 0.1462646472483771,
+    "10000": 0.11329610858637337,
+    "20000": 0.08011244666347205,
+    "30000": 0.06541153879047974,
+    "35000": 0.060559317369278075,
+    "40000": 0.056648054293186687,
+    "50000": 0.050667560077065694,
+    "55000": 0.048309623021835654,
+    "60000": 0.04625294264659512,
+    "499205": 0.016035242421789317
+   },
+   "ep_projetado_no_alvo": 0.04625294264659512,
+   "erro_total_projetado_no_alvo": 0.04862442496800572,
+   "bytes_medios_rdv": {
+    "1t": 15147.052333333333,
+    "2t": 2754.038666666667
+   },
+   "custo_ate_o_alvo_descontando_a_principal": {
+    "secoes_a_baixar": 57000,
+    "requisicoes_so_rdv": 228000,
+    "horas_so_rdv": 63.333333333333336,
+    "dias_so_rdv": 2.638888888888889,
+    "requisicoes_com_boletim": 342000,
+    "horas_com_boletim": 95.0,
+    "disco_MB_rdv": 1020.362187
+   },
+   "custo_ate_o_alvo_descontando_principal_e_extensao": {
+    "secoes_a_baixar": 54000,
+    "requisicoes_so_rdv": 216000,
+    "horas_so_rdv": 60.0,
+    "dias_so_rdv": 2.5,
+    "requisicoes_com_boletim": 324000,
+    "horas_com_boletim": 90.0,
+    "disco_MB_rdv": 966.658914
+   },
+   "custo_ate_60_mil_descontando_principal_e_extensao": {
+    "secoes_a_baixar": 54000,
+    "requisicoes_so_rdv": 216000,
+    "horas_so_rdv": 60.0,
+    "dias_so_rdv": 2.5,
+    "requisicoes_com_boletim": 324000,
+    "horas_com_boletim": 90.0,
+    "disco_MB_rdv": 966.658914
+   },
+   "custo_do_placebo_2022_15_mil_secoes": {
+    "requisicoes": 60000,
+    "horas": 16.666666666666668
+   },
+   "fracao_do_universo_necessaria": 0.531258263482545,
+   "custo_ate_o_necessario_sem_teto_descontando_a_principal": {
+    "secoes_a_baixar": 262207,
+    "requisicoes_so_rdv": 1048828,
+    "horas_so_rdv": 291.3411111111111,
+    "dias_so_rdv": 12.139212962962963,
+    "requisicoes_com_boletim": 1573242,
+    "horas_com_boletim": 437.01166666666666,
+    "disco_MB_rdv": 4693.791367837
+   },
+   "custo_ate_o_necessario_em_blocos_descontando_a_principal": {
+    "secoes_a_baixar": 267000,
+    "requisicoes_so_rdv": 1068000,
+    "horas_so_rdv": 296.6666666666667,
+    "dias_so_rdv": 12.36111111111111,
+    "requisicoes_com_boletim": 1602000,
+    "horas_com_boletim": 445.0,
+    "disco_MB_rdv": 4779.591297
+   },
+   "custo_do_universo_secao_a_secao_descontando_a_principal": {
+    "secoes_a_baixar": 496205,
+    "requisicoes_so_rdv": 1984820,
+    "horas_so_rdv": 551.3388888888888,
+    "dias_so_rdv": 22.972453703703703,
+    "requisicoes_com_boletim": 2977230,
+    "horas_com_boletim": 827.0083333333333,
+    "disco_MB_rdv": 8882.610859655
+   },
+   "erro_total_projetado_no_universo": 0.021957436087247338,
+   "rota_pelos_pacotes_completos_do_TSE": {
+    "nota": "56 pacotes por UF e turno em cdn.tse.jus.br (arquivos transmitidos para totalização), lidos em fluxo como no teste W3, sem guardar o zip; tamanho extrapolado do pacote do AC por seção; velocidades medidas pelo W3 no AC",
+    "medido_no_AC_pelo_W3": {
+     "1t": {
+      "bytes_do_pacote_AC": 393536972,
+      "secoes_AC": 2270,
+      "segundos_de_leitura_em_fluxo": 17.5,
+      "MB_por_segundo": 21.257357428571428
+     },
+     "2t": {
+      "bytes_do_pacote_AC": 512147002,
+      "secoes_AC": 2270,
+      "segundos_de_leitura_em_fluxo": 128.4,
+      "MB_por_segundo": 3.97857722741433
+     }
+    },
+    "GB_a_ler_em_fluxo_estimados": 199.17267323377533,
+    "pedidos": 168,
+    "horas_na_velocidade_menor": 13.905911435805832,
+    "horas_na_velocidade_maior": 2.602663230876279,
+    "ep_projetado": 0.016035242421789317,
+    "erro_total_projetado": 0.021957436087247338
+   }
+  },
+  "sem_poder_nesta_etapa": true
+ },
+ "arquivos": {
+  "script": "scripts/analisar_R27_W4.py",
+  "trabalho": "/home/user/trabalho-eleicao/adendo27/R27_W4",
+  "docstring_antes_de_rodar": "/home/user/trabalho-eleicao/adendo27/R27_W4/docstring_antes_de_rodar.txt"
+ }
+}

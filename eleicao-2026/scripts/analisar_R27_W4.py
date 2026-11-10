@@ -602,6 +602,30 @@ def etapa_cego(ext=False):
         'custo_ate_60_mil_descontando_principal_e_extensao': custo(60000, 6000),
         'custo_do_placebo_2022_15_mil_secoes': {'requisicoes': 4 * 15000, 'horas': 4 * 15000 / 3600.0}}
     R['sem_poder_nesta_etapa'] = bool(etot > LIM_ETOT)
+    # ACRÉSCIMO feito depois de ver as etapas 1 a 3 e ANTES de abrir Theta (só aritmética de custo, nenhuma conta nova
+    # com votos): o custo até o número de seções que a regra pede sem o teto, e a rota pelos pacotes completos do TSE.
+    rp = R['regra_de_parada']
+    rp['fracao_do_universo_necessaria'] = nec / N_UNIVERSO
+    rp['custo_ate_o_necessario_sem_teto_descontando_a_principal'] = custo(int(math.ceil(nec)), 3000)
+    rp['custo_ate_o_necessario_em_blocos_descontando_a_principal'] = custo(min(blocos, N_UNIVERSO), 3000)
+    rp['custo_do_universo_secao_a_secao_descontando_a_principal'] = custo(N_UNIVERSO, 3000)
+    rp['erro_total_projetado_no_universo'] = math.sqrt(ep ** 2 * n / N_UNIVERSO + SIS_PISO ** 2)
+    man = {}
+    for t in ('1t', '2t'):
+        p = f'/home/user/trabalho-eleicao/adendo27/R27_W3/pacotes/rdv_bu_2026_{t}_AC.manifesto.json'
+        if os.path.exists(p):
+            m = json.load(open(p))
+            man[t] = {'bytes_do_pacote_AC': m['tamanho_pacote'], 'secoes_AC': m['tipos_no_pacote'].get('rdv.dat'),
+                      'segundos_de_leitura_em_fluxo': m['segundos'], 'MB_por_segundo': m['bytes_lidos'] / 1e6 / m['segundos']}
+    if len(man) == 2:
+        gb = sum(man[t]['bytes_do_pacote_AC'] / man[t]['secoes_AC'] for t in man) * N_UNIVERSO / 1e9
+        vel = sorted(man[t]['MB_por_segundo'] for t in man)
+        rp['rota_pelos_pacotes_completos_do_TSE'] = {
+            'nota': ('56 pacotes por UF e turno em cdn.tse.jus.br (arquivos transmitidos para totalização), lidos em fluxo como no teste W3, '
+                     'sem guardar o zip; tamanho extrapolado do pacote do AC por seção; velocidades medidas pelo W3 no AC'),
+            'medido_no_AC_pelo_W3': man, 'GB_a_ler_em_fluxo_estimados': gb, 'pedidos': 56 * 3,
+            'horas_na_velocidade_menor': gb * 1e3 / vel[0] / 3600.0, 'horas_na_velocidade_maior': gb * 1e3 / vel[1] / 3600.0,
+            'ep_projetado': ep * math.sqrt(n / N_UNIVERSO), 'erro_total_projetado': rp['erro_total_projetado_no_universo']}
     grava('etapa2_3_cego' + suf + '.json', R)
     print('ETAPAS 2 E 3 (CEGAS), n =', n, 'seções,', G, 'municípios; códigos em uso', usa, f'f52 = {f52:.3f}')
     print(f" testemunhas 1º turno: N13 = {pe['N13_1']:.1f}, N22 = {pe['N22_1']:.1f}, total {N1:.1f} ({R['testemunhas_por_10_mil_votantes']['1t']:.2f} por 10 mil votantes)")
@@ -610,9 +634,15 @@ def etapa_cego(ext=False):
     print(f" erro total com piso sistemático 0,015: {etot:.4f} (limite 0,027) -> {'SEM PODER nesta etapa' if etot > LIM_ETOT else 'dentro do limite'}")
     print(f" regra de parada: {nec:.0f} seções para o erro chegar a 0,022; em blocos de 10 mil: {blocos}; alvo {alvo}")
     print('  projeção do erro-padrão:', {k: round(v, 4) for k, v in proj.items()})
-    for k in ('custo_ate_o_alvo_descontando_a_principal', 'custo_ate_o_alvo_descontando_principal_e_extensao', 'custo_ate_60_mil_descontando_principal_e_extensao'):
+    for k in ('custo_ate_o_alvo_descontando_a_principal', 'custo_ate_o_alvo_descontando_principal_e_extensao', 'custo_ate_60_mil_descontando_principal_e_extensao',
+              'custo_ate_o_necessario_sem_teto_descontando_a_principal', 'custo_ate_o_necessario_em_blocos_descontando_a_principal',
+              'custo_do_universo_secao_a_secao_descontando_a_principal'):
         c = R['regra_de_parada'][k]
         print(f"  {k}: {c['secoes_a_baixar']} seções, {c['requisicoes_so_rdv']} requisições, {c['horas_so_rdv']:.1f} h ({c['dias_so_rdv']:.2f} dias), {c['disco_MB_rdv']:.0f} MB")
+    print(f"  fração do universo necessária: {rp['fracao_do_universo_necessaria']:.3f}; erro total projetado no universo: {rp['erro_total_projetado_no_universo']:.4f}")
+    if 'rota_pelos_pacotes_completos_do_TSE' in rp:
+        x = rp['rota_pelos_pacotes_completos_do_TSE']
+        print(f"  rota pelos pacotes do TSE: {x['GB_a_ler_em_fluxo_estimados']:.0f} GB em fluxo, {x['pedidos']} pedidos, de {x['horas_na_velocidade_maior']:.1f} a {x['horas_na_velocidade_menor']:.1f} horas")
     return R
 
 
@@ -945,6 +975,374 @@ def etapa_abrir(ext=False):
     return R, D
 
 
+# ---------------------------------------------------------------- EXPLORATÓRIO (escrito e rodado DEPOIS de ver Theta)
+# Nada daqui estava no registro nem no docstring. Não decide veredito. Motivo: a pureza reprovou os dois códigos do lado
+# do 22 e Theta saiu a -2,8 erros no sentido contrário ao da tese, o que pede saber se o instrumento é que se moveu.
+UF_GOV_2T = {'AC', 'AM', 'DF', 'ES', 'RN', 'TO'}
+
+
+def _wls(y, X, w):
+    Xw = X * w[:, None]
+    return np.linalg.solve(Xw.T @ X, Xw.T @ y)
+
+
+def exploratorio_quase_poisson(y, X, peso=None, it=100, piso=0.01):
+    """Média linear E[y] = X b SEM restrição de sinal; mínimos quadrados reponderados por 1/mu (quase-Poisson, identidade)."""
+    y = np.asarray(y, float); X = np.asarray(X, float)
+    p = np.ones(len(y)) if peso is None else peso
+    b = _wls(y, X, p)
+    for _ in range(it):
+        mu = np.maximum(X @ b, piso)
+        nb = _wls(y, X, p / mu)
+        if np.max(np.abs(nb - b)) <= 1e-10 * max(np.max(np.abs(nb)), 1e-300):
+            b = nb; break
+        b = nb
+    return b
+
+
+def exploratorio_razao(y, X, i, j, grupos, B, rng, mols=False):
+    """Razão b_i / b_j da regressão linear, com erro por bootstrap de municípios."""
+    f = (lambda yy, XX, pp: _wls(yy, XX, pp)) if mols else (lambda yy, XX, pp: exploratorio_quase_poisson(yy, XX, pp))
+    b = f(y, X, np.ones(len(y)))
+    W, _ = pesos_boot(grupos, B, rng)
+    rs = []; bs = []
+    for k in range(B):
+        try:
+            bb = f(y, X, W[k])
+        except np.linalg.LinAlgError:
+            continue
+        bs.append(bb)
+        if bb[j] > 0:
+            rs.append(bb[i] / bb[j])
+    return b, float(b[i] / b[j]), float(np.std(rs, ddof=1)), np.array(bs), W
+
+
+def exploratorio(ext=False):
+    suf = '_ext' if ext else ''
+    D = montar(ext); T = tabela(D); n = D['n']
+    rdv = D['_rdv']
+    X = {'aviso': 'EXPLORATÓRIO: tudo neste bloco foi escolhido e calculado depois de ver Theta; não decide veredito', 'quando': agora(), 'n_secoes': n}
+    mun = D['mun']
+    C = {t: D['comp' + t] for t in '12'}
+    Ls = {t: D['L' + t] for t in '12'}; Rs = {t: D['R' + t] for t in '12'}
+    # X1: pureza no 2º turno (a letra só pede no 1º)
+    Wb, _ = pesos_boot(mun, 1000, np.random.default_rng(SEMENTE + 101))
+    x1 = {}
+    for cod, lado in (('31', 0), ('32', 1), ('52', 1)):
+        y = T[f'n{cod}_2']
+        Xm = np.column_stack([Ls['2'], Rs['2'], np.maximum(C['2'] - Ls['2'] - Rs['2'] - y, 0)])
+        b, partes, info = poisson_em(y, Xm)
+        pb = em_lote(y, Xm, Wb)
+        x1[cod] = {'contagem_2t': float(y.sum()), 'parte': dict(zip(['L2', 'R2', 'demais'], partes.tolist())),
+                   'parte_lado_previsto': float(partes[lado]), 'ic95_boot': np.nanpercentile(pb[:, lado], [2.5, 97.5]).tolist(),
+                   'taxa_por_10_mil': dict(zip(['L2', 'R2', 'demais'], (1e4 * b).tolist()))}
+    X['X1_pureza_no_2o_turno'] = x1
+    # X2: o que cada família de códigos fez entre os turnos (taxa por 10 mil votantes e ln da razão)
+    tudo = {t: collections.Counter() for t in '12'}
+    for k in D['chaves']:
+        for t in '12':
+            tudo[t].update(rdv[k][t]['nul'])
+    cods = sorted(set(tudo['1']) | set(tudo['2']))
+    especiais = set(COD13) | set(COD22) | set(EXCLUIDOS) | set(ELIMINADOS) | {'00', '99', '13', '22'}
+    generico = [c for c in cods if c not in especiais and not (c.isdigit() and int(c) in PARTIDOS)]
+    partido = [c for c in cods if c.isdigit() and int(c) in PARTIDOS and c not in especiais]
+    fam = {'31': ['31'], '32': ['32'], '52': ['52'], '32_e_52': ['32', '52'], '00': ['00'], '99': ['99'], '12': ['12'], '23': ['23'], '21': ['21'],
+           '11': ['11'], '33': ['33'], '43': ['43'], '25': ['25'], '16': ['16'],
+           'genericos_sem_partido_sem_candidato': generico, 'numeros_de_partido_fora_os_especiais': partido,
+           'todos_os_nulos_com_digitos': cods, 'todos_menos_00': [c for c in cods if c != '00']}
+    Wd, _ = pesos_boot(mun, 1000, np.random.default_rng(SEMENTE + 102))
+    x2 = {}
+    for nome, lista in fam.items():
+        y1 = sum(cont(D, c, '1') for c in lista); y2 = sum(cont(D, c, '2') for c in lista)
+        r1 = y1.sum() / C['1'].sum(); r2 = y2.sum() / C['2'].sum()
+        e = {'contagem_1t': float(y1.sum()), 'contagem_2t': float(y2.sum()), 'por_10_mil_votantes_1t': 1e4 * r1, 'por_10_mil_votantes_2t': 1e4 * r2}
+        if y1.sum() > 0 and y2.sum() > 0:
+            with np.errstate(divide='ignore', invalid='ignore'):
+                lb = np.log((Wd @ y2) / (Wd @ C['2'])) - np.log((Wd @ y1) / (Wd @ C['1']))
+            lb = lb[np.isfinite(lb)]
+            e['ln_razao_das_taxas'] = float(math.log(r2 / r1)); e['ep'] = float(np.std(lb, ddof=1)); e['razao'] = float(r2 / r1)
+        x2[nome] = e
+    x2['n_codigos_genericos'] = len(generico)
+    # as testemunhas por eleitor OFICIAL do lado (o que entra em Theta)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        la = np.log((Wd @ T['n31_2']) / (Wd @ Ls['2'])) - np.log((Wd @ T['n31_1']) / (Wd @ Ls['1']))
+        y22_1 = T['n32_1'] + T['n52_1']; y22_2 = T['n32_2'] + T['n52_2']
+        lb22 = np.log((Wd @ y22_2) / (Wd @ Rs['2'])) - np.log((Wd @ y22_1) / (Wd @ Rs['1']))
+    x2['por_eleitor_oficial_do_lado'] = {
+        '31_por_voto_de_Lula': {'ln_razao': float(math.log((T['n31_2'].sum() / Ls['2'].sum()) / (T['n31_1'].sum() / Ls['1'].sum()))), 'ep': float(np.nanstd(la, ddof=1))},
+        '32_e_52_brutos_por_voto_de_Flavio': {'ln_razao': float(math.log((y22_2.sum() / Rs['2'].sum()) / (y22_1.sum() / Rs['1'].sum()))),
+                                               'ep': float(np.std(lb22[np.isfinite(lb22)], ddof=1))}}
+    X['X2_o_que_cada_codigo_fez_entre_os_turnos'] = x2
+    # X3: efeito de primeira tela. Nas 6 UFs com 2º turno de governador o presidente NÃO é a primeira tela do 2º turno.
+    x3 = {}
+    gov = np.array([u in UF_GOV_2T for u in D['uf']]); br = D['reg'] != 'EX'
+    for nome, m in (('6_UFs_com_governador_no_2t', gov & br), ('21_UFs_sem_governador_no_2t', ~gov & br)):
+        e = {'n': int(m.sum())}
+        for cod, lado in (('31', 'L'), ('32', 'R'), ('52', 'R')):
+            y1 = T[f'n{cod}_1'][m]; y2 = T[f'n{cod}_2'][m]
+            e[cod] = {'1t': float(y1.sum()), '2t': float(y2.sum()),
+                      'por_10_mil_votos_do_lado_1t': float(1e4 * y1.sum() / D[lado + '1'][m].sum()),
+                      'por_10_mil_votos_do_lado_2t': float(1e4 * y2.sum() / D[lado + '2'][m].sum())}
+            if y1.sum() > 0 and y2.sum() > 0:
+                Wm, _ = pesos_boot(mun[m], 1000, np.random.default_rng(SEMENTE + 103))
+                with np.errstate(divide='ignore', invalid='ignore'):
+                    l = np.log((Wm @ y2) / (Wm @ D[lado + '2'][m])) - np.log((Wm @ y1) / (Wm @ D[lado + '1'][m]))
+                l = l[np.isfinite(l)]
+                e[cod]['ln_razao'] = float(math.log((y2.sum() / D[lado + '2'][m].sum()) / (y1.sum() / D[lado + '1'][m].sum())))
+                e[cod]['ep'] = float(np.std(l, ddof=1))
+        for t in '12':
+            e['nulos_com_digitos_por_10_mil_votantes_' + t + 't'] = float(1e4 * D['nuld' + t][m].sum() / D['comp' + t][m].sum())
+        x3[nome] = e
+    a, b_ = x3['6_UFs_com_governador_no_2t']['31'], x3['21_UFs_sem_governador_no_2t']['31']
+    if 'ln_razao' in a and 'ln_razao' in b_:
+        x3['diferenca_21_menos_6_no_ln_da_razao_do_31'] = {'valor': b_['ln_razao'] - a['ln_razao'], 'ep': math.sqrt(a['ep'] ** 2 + b_['ep'] ** 2)}
+    X['X3_primeira_tela'] = x3
+    # X4: varredura de pureza no 1º turno de todos os códigos com 30 nulos ou mais (candidatos a testemunha num redesenho)
+    x4 = []
+    for c in cods:
+        y = cont(D, c, '1')
+        if y.sum() < 30:
+            continue
+        Xm = np.column_stack([Ls['1'], Rs['1'], np.maximum(C['1'] - Ls['1'] - Rs['1'] - y, 0)])
+        _, partes, _ = poisson_em(y, Xm)
+        y2 = cont(D, c, '2')
+        Xm2 = np.column_stack([Ls['2'], Rs['2'], np.maximum(C['2'] - Ls['2'] - Rs['2'] - y2, 0)])
+        p2 = poisson_em(y2, Xm2)[1] if y2.sum() >= 30 else [float('nan')] * 3
+        x4.append({'digitos': c, 'contagem_1t': float(y.sum()), 'parte_L1': float(partes[0]), 'parte_R1': float(partes[1]), 'parte_demais': float(partes[2]),
+                   'contagem_2t': float(y2.sum()), 'parte_L2': float(p2[0]), 'parte_R2': float(p2[1]), 'rotulo': rotulo(c)})
+    X['X4_varredura_de_pureza'] = {'codigos_com_30_ou_mais_no_1t': len(x4), 'tabela': x4,
+                                   'com_080_ou_mais_em_R1': [e['digitos'] for e in x4 if e['parte_R1'] >= 0.80],
+                                   'com_080_ou_mais_em_L1': [e['digitos'] for e in x4 if e['parte_L1'] >= 0.80]}
+    # X5: testemunha de um lado só (o 31, único código puro). (a) contaminação pelo voto do outro lado dentro de cada turno
+    x5 = {}
+    rg = np.random.default_rng(SEMENTE + 105)
+    Wc, _ = pesos_boot(mun, 500, rg)
+
+    def razoes(y, Xm, i, j):
+        b = exploratorio_quase_poisson(y, Xm)
+        bo = _wls(y, Xm, np.ones(n))
+        rb = []; rbo = []
+        for k in range(Wc.shape[0]):
+            bb = exploratorio_quase_poisson(y, Xm, Wc[k]); rb.append(bb[i] / bb[j] if bb[j] > 0 else np.nan)
+            bb = _wls(y, Xm, Wc[k]); rbo.append(bb[i] / bb[j] if bb[j] > 0 else np.nan)
+        return b, bo, np.array(rb), np.array(rbo)
+    cont_rb = {}
+    for t in '12':
+        y = T[f'n31_{t}']
+        Xm = np.column_stack([Ls[t], Rs[t], np.maximum(C[t] - Ls[t] - Rs[t] - y, 0)])
+        b, bo, rb, rbo = razoes(y, Xm, 1, 0)
+        cont_rb[t] = (rb, rbo)
+        x5['a_contaminacao_' + t + 't'] = {'taxa_por_10_mil': dict(zip(['L', 'R', 'demais'], (1e4 * b).tolist())), 'R_sobre_L': float(b[1] / b[0]),
+                                           'ep': float(np.nanstd(rb, ddof=1)), 'R_sobre_L_minimos_quadrados': float(bo[1] / bo[0]),
+                                           'ep_minimos_quadrados': float(np.nanstd(rbo, ddof=1))}
+    d = cont_rb['2'][0] - cont_rb['1'][0]; do = cont_rb['2'][1] - cont_rb['1'][1]
+    x5['a_diferenca_2t_menos_1t'] = {'valor': x5['a_contaminacao_2t']['R_sobre_L'] - x5['a_contaminacao_1t']['R_sobre_L'], 'ep': float(np.nanstd(d, ddof=1)),
+                                     'valor_minimos_quadrados': x5['a_contaminacao_2t']['R_sobre_L_minimos_quadrados'] - x5['a_contaminacao_1t']['R_sobre_L_minimos_quadrados'],
+                                     'ep_minimos_quadrados': float(np.nanstd(do, ddof=1)),
+                                     'esperado_com_a_troca_de_3e57': -P_TROCA / (1 - P_TROCA), 'esperado_sem_alteracao': 0.0}
+    x5['a_diferenca_2t_menos_1t']['ep_projetado_no_universo'] = x5['a_diferenca_2t_menos_1t']['ep'] * math.sqrt(n / N_UNIVERSO)
+    # (b) os votos a mais de Lula vieram com erro de digitação? n31 do 2º turno sobre L1 (quem já votava) e L2 - L1 (votos a mais)
+    y = T['n31_2']; dL = Ls['2'] - Ls['1']
+    Xm = np.column_stack([Ls['1'], dL])
+    b, bo, rb, rbo = razoes(y, Xm, 1, 0)
+    x5['b_votos_a_mais'] = {'taxa_por_10_mil': {'L1': 1e4 * b[0], 'L2_menos_L1': 1e4 * b[1]}, 'novos_sobre_antigos': float(b[1] / b[0]), 'ep': float(np.nanstd(rb, ddof=1)),
+                            'novos_sobre_antigos_minimos_quadrados': float(bo[1] / bo[0]), 'ep_minimos_quadrados': float(np.nanstd(rbo, ddof=1)),
+                            'soma_L1': float(Ls['1'].sum()), 'soma_L2_menos_L1': float(dL.sum()), 'secoes_com_L2_menor_que_L1': int((dL < 0).sum()),
+                            'leitura': 'razão 1: o voto a mais de Lula erra a tecla tanto quanto o antigo; razão 0: o voto a mais não traz erro de digitação'}
+    Xm3 = np.column_stack([Ls['1'], dL, Rs['2']])
+    b3, bo3, rb3, rbo3 = razoes(y, Xm3, 1, 0)
+    x5['b_votos_a_mais_com_R2_no_modelo'] = {'taxa_por_10_mil': {'L1': 1e4 * b3[0], 'L2_menos_L1': 1e4 * b3[1], 'R2': 1e4 * b3[2]},
+                                             'novos_sobre_antigos': float(b3[1] / b3[0]), 'ep': float(np.nanstd(rb3, ddof=1))}
+    # calibração do (b) e do (a) por plantio na contagem oficial (20 cópias): acréscimo da margem e troca de 3,57%
+    rp = np.random.default_rng(SEMENTE + 106)
+    L2i, R2i = D['L2'].astype(np.int64), D['R2'].astype(np.int64)
+    falt = np.maximum(D['apt2'] - D['comp2'], 0).astype(np.int64)
+    cal = {}
+    for nome in ('acrescimo_da_margem_para_Lula', 'troca_de_3e57'):
+        rr = []; cc = []
+        for _ in range(20):
+            if nome.startswith('acr'):
+                k = rp.binomial(falt, MARGEM / FALTOSOS_2T); l2 = L2i + k; r2 = R2i
+            else:
+                k = rp.binomial(R2i, P_TROCA); l2 = L2i + k; r2 = R2i - k
+            bb = exploratorio_quase_poisson(y, np.column_stack([Ls['1'], l2 - Ls['1']]))
+            rr.append(bb[1] / bb[0])
+            bc = exploratorio_quase_poisson(y, np.column_stack([l2, r2, np.maximum(C['2'] + (k if nome.startswith('acr') else 0) - l2 - r2 - y, 0)]))
+            cc.append(bc[1] / bc[0])
+        cal[nome] = {'novos_sobre_antigos_plantado': float(np.mean(rr)), 'deslocamento': float(np.mean(rr) - x5['b_votos_a_mais']['novos_sobre_antigos']),
+                     'deslocamento_sobre_ep': float((np.mean(rr) - x5['b_votos_a_mais']['novos_sobre_antigos']) / x5['b_votos_a_mais']['ep']),
+                     'contaminacao_2t_plantada': float(np.mean(cc)), 'deslocamento_da_contaminacao': float(np.mean(cc) - x5['a_contaminacao_2t']['R_sobre_L']),
+                     'deslocamento_da_contaminacao_sobre_ep_da_diferenca': float((np.mean(cc) - x5['a_contaminacao_2t']['R_sobre_L']) / x5['a_diferenca_2t_menos_1t']['ep'])}
+    x5['calibracao_por_plantio'] = cal
+    x5['b_votos_a_mais']['ep_projetado_no_universo'] = x5['b_votos_a_mais']['ep'] * math.sqrt(n / N_UNIVERSO)
+    # (c) placebo temporal do (b), acrescentado depois de ver o (b) dar razão NEGATIVA (que nenhuma diluição produz): a mesma
+    # regressão com o 31 do PRIMEIRO turno, quando o ganho futuro de Lula ainda não podia ter diluído nada. Se a razão já
+    # for negativa ali, ela mede a composição das seções (onde Lula ganhou mais votos erra-se menos a tecla), não diluição.
+    y1 = T['n31_1']
+    b1, bo1, rb1, rbo1 = razoes(y1, np.column_stack([Ls['1'], dL]), 1, 0)
+    dd = rb - rb1; ddo = rbo - rbo1
+    x5['c_placebo_temporal_31_do_1t_sobre_L1_e_ganho_futuro'] = {
+        'taxa_por_10_mil': {'L1': 1e4 * b1[0], 'L2_menos_L1': 1e4 * b1[1]}, 'razao': float(b1[1] / b1[0]), 'ep': float(np.nanstd(rb1, ddof=1)),
+        'razao_minimos_quadrados': float(bo1[1] / bo1[0]), 'ep_minimos_quadrados': float(np.nanstd(rbo1, ddof=1)),
+        'diferenca_2t_menos_1t': float(b[1] / b[0] - b1[1] / b1[0]), 'ep_da_diferenca': float(np.nanstd(dd, ddof=1)),
+        'diferenca_minimos_quadrados': float(bo[1] / bo[0] - bo1[1] / bo1[0]), 'ep_da_diferenca_minimos_quadrados': float(np.nanstd(ddo, ddof=1)),
+        'leitura': ('diferença 1: tirada a composição, o voto a mais de Lula erra a tecla como o antigo; maior que 1: erra mais; 0,57: o esperado se o '
+                    'acréscimo da margem fosse de votos sem eleitor; 0,79: o esperado com a troca de 3,57%; vale só se a composição pesar igual nos dois turnos')}
+    x5['c_placebo_temporal_31_do_1t_sobre_L1_e_ganho_futuro']['ep_da_diferenca_projetado_no_universo'] = \
+        x5['c_placebo_temporal_31_do_1t_sobre_L1_e_ganho_futuro']['ep_da_diferenca'] * math.sqrt(n / N_UNIVERSO)
+    # (d) o mesmo com a taxa de erro livre por estrato (região x tercil de escolaridade): E[n31] = a_estrato x (L1 + rho x ganho)
+    estr = np.array([f'{r}|{t}' for r, t in zip(D['reg'], D['terc'])])
+    ue, ei = np.unique(estr, return_inverse=True)
+    grade = np.round(np.arange(-3.0, 6.0001, 0.05), 2)
+
+    def rho_de(yv, peso):
+        melhor, mr = -np.inf, np.nan
+        for rho in grade:
+            E = Ls['1'] + rho * dL
+            if np.any((E <= 0) & (yv > 0) & (peso > 0)):
+                continue
+            E = np.maximum(E, 0)
+            sy = np.bincount(ei, weights=peso * yv, minlength=len(ue)); sE = np.bincount(ei, weights=peso * E, minlength=len(ue))
+            ac = np.where(sE > 0, sy / np.maximum(sE, 1e-300), 0)
+            mu = ac[ei] * E
+            ok = (yv > 0) & (peso > 0)
+            ll = float((peso[ok] * yv[ok] * np.log(mu[ok])).sum() - (peso * mu).sum())
+            if ll > melhor:
+                melhor, mr = ll, rho
+        return mr
+    um = np.ones(n)
+    r2 = rho_de(y, um); r1 = rho_de(y1, um)
+    bs2 = np.array([rho_de(y, Wc[k]) for k in range(200)]); bs1 = np.array([rho_de(y1, Wc[k]) for k in range(200)])
+    x5['d_por_estrato_regiao_x_tercil'] = {'estratos': int(len(ue)), 'rho_2t': float(r2), 'ep_2t': float(np.nanstd(bs2, ddof=1)), 'rho_placebo_1t': float(r1),
+                                           'ep_1t': float(np.nanstd(bs1, ddof=1)), 'diferenca': float(r2 - r1), 'ep_da_diferenca': float(np.nanstd(bs2 - bs1, ddof=1)),
+                                           'grade': [float(grade[0]), float(grade[-1]), 0.05], 'replicas': 200}
+    X['X5_testemunha_de_um_lado_so_codigo_31'] = x5
+    # X6: dose e resposta do 31 DENTRO da seção (acrescentado depois de ver que X5 é dominado pela composição das seções).
+    # Condicionado ao total de 31 da seção nos dois turnos, a parcela que cai no 2º turno tem chance = k x (L2/L1)^beta.
+    # A propensão ao erro da seção e qualquer mudança geral da taxa entre os turnos (k) saem da conta. beta = 1: o erro de
+    # digitação do lado do 13 cresce junto com o voto oficial de Lula na seção; beta = 0: o voto a mais não traz erro.
+    x6 = {}
+    y1 = T['n31_1']; y2 = T['n31_2']; m = y1 + y2
+    okb = (Ls['1'] > 0) & (Ls['2'] > 0)
+    lr = np.where(okb, np.log(np.maximum(Ls['2'], 1) / np.maximum(Ls['1'], 1)), 0.0)
+
+    def logistica(y2v, mv, Xd, peso, it=50):
+        b = np.zeros(Xd.shape[1])
+        for _ in range(it):
+            eta = Xd @ b; p = 1 / (1 + np.exp(-eta))
+            g = Xd.T @ (peso * (y2v - mv * p)); H = (Xd * (peso * mv * p * (1 - p))[:, None]).T @ Xd
+            try:
+                st = np.linalg.solve(H, g)
+            except np.linalg.LinAlgError:
+                return np.full(Xd.shape[1], np.nan)
+            b = b + st
+            if np.max(np.abs(st)) < 1e-10:
+                break
+        return b
+    use = okb & (m > 0)
+    x6['secoes_com_algum_31'] = int(use.sum()); x6['testemunhas'] = {'1t': float(y1[use].sum()), '2t': float(y2[use].sum())}
+    x6['fora_por_L_zero'] = float(m[~okb].sum())
+
+    def beta_de(l2v, cols_extra=None, peso=None, sel=None):
+        s = use if sel is None else (use & sel)
+        lrv = np.log(np.maximum(l2v[s], 1) / Ls['1'][s])
+        Xd = np.column_stack([np.ones(s.sum()), lrv] + ([] if cols_extra is None else [c[s] for c in cols_extra]))
+        return logistica(y2[s], m[s], Xd, np.ones(s.sum()) if peso is None else peso[s])
+    b0 = beta_de(Ls['2'])
+    Wx, _ = pesos_boot(mun, 1000, np.random.default_rng(SEMENTE + 107))
+    bb = np.array([beta_de(Ls['2'], peso=Wx[k]) for k in range(Wx.shape[0])])
+    x6['beta'] = float(b0[1]); x6['ep'] = float(np.nanstd(bb[:, 1], ddof=1)); x6['ln_k'] = float(b0[0])
+    x6['ic95'] = np.nanpercentile(bb[:, 1], [2.5, 97.5]).tolist()
+    x6['z_contra_1'] = (x6['beta'] - 1) / x6['ep']; x6['z_contra_0'] = x6['beta'] / x6['ep']
+    # com k livre por tercil de escolaridade e por região (a mudança geral da taxa pode depender do perfil da seção)
+    dter = [(D['terc'] == i).astype(float) for i in (1, 2)]
+    dreg = [(D['reg'] == r).astype(float) for r in ('NE', 'SE', 'S', 'CO')]
+    bt = beta_de(Ls['2'], dter + dreg)
+    bbt = np.array([beta_de(Ls['2'], dter + dreg, peso=Wx[k]) for k in range(400)])
+    x6['beta_com_k_por_tercil_e_regiao'] = {'beta': float(bt[1]), 'ep': float(np.nanstd(bbt[:, 1], ddof=1))}
+    # tabela por faixas do crescimento oficial de Lula na seção (tercis de ln L2/L1 entre as seções com algum 31)
+    q = np.quantile(lr[use], [1 / 3, 2 / 3]); fx = np.digitize(lr, q)
+    tab = []
+    for j in range(3):
+        s = use & (fx == j)
+        tab.append({'faixa': j + 1, 'secoes': int(s.sum()), 'L1': float(Ls['1'][s].sum()), 'L2': float(Ls['2'][s].sum()),
+                    'ln_L2_sobre_L1': float(math.log(Ls['2'][s].sum() / Ls['1'][s].sum())), 'n31_1t': float(y1[s].sum()), 'n31_2t': float(y2[s].sum()),
+                    'ln_n31_2t_sobre_1t': float(math.log(y2[s].sum() / y1[s].sum())) if y1[s].sum() > 0 and y2[s].sum() > 0 else None})
+    x6['por_tercil_do_crescimento_oficial_de_Lula'] = tab
+    # mesma tabela com TODAS as seções (sem condicionar a ter algum 31), por tercil do crescimento
+    q2 = np.quantile(lr[okb], [1 / 3, 2 / 3]); fx2 = np.digitize(lr, q2)
+    tab2 = []
+    for j in range(3):
+        s = okb & (fx2 == j)
+        tab2.append({'faixa': j + 1, 'secoes': int(s.sum()), 'L1': float(Ls['1'][s].sum()), 'L2': float(Ls['2'][s].sum()),
+                     'ln_L2_sobre_L1': float(math.log(Ls['2'][s].sum() / Ls['1'][s].sum())), 'n31_1t': float(y1[s].sum()), 'n31_2t': float(y2[s].sum()),
+                     'ln_n31_2t_sobre_1t': float(math.log(y2[s].sum() / y1[s].sum())),
+                     'por_10_mil_votos_de_Lula_1t': float(1e4 * y1[s].sum() / Ls['1'][s].sum()), 'por_10_mil_votos_de_Lula_2t': float(1e4 * y2[s].sum() / Ls['2'][s].sum())})
+    x6['todas_as_secoes_por_tercil_do_crescimento'] = tab2
+    # calibração: plantio na contagem oficial (testemunhas reais), 50 cópias cada
+    rq = np.random.default_rng(SEMENTE + 108)
+    calx = {}
+    for nome in ('acrescimo_da_margem_para_Lula', 'troca_de_3e57', 'espelho_troca_de_3e57_de_Lula_para_Flavio'):
+        vs = []
+        for _ in range(50):
+            if nome.startswith('acr'):
+                l2 = L2i + rq.binomial(falt, MARGEM / FALTOSOS_2T)
+            elif nome.startswith('troca'):
+                l2 = L2i + rq.binomial(R2i, P_TROCA)
+            else:
+                l2 = L2i - rq.binomial(L2i, P_TROCA)
+            vs.append(beta_de(l2.astype(float))[1])
+        calx[nome] = {'beta_plantado': float(np.nanmean(vs)), 'deslocamento': float(np.nanmean(vs) - x6['beta']),
+                      'deslocamento_sobre_ep': float((np.nanmean(vs) - x6['beta']) / x6['ep']),
+                      'deslocamento_sobre_ep_projetado_no_universo': float((np.nanmean(vs) - x6['beta']) / (x6['ep'] * math.sqrt(n / N_UNIVERSO)))}
+    x6['calibracao_por_plantio'] = calx
+    x6['ep_projetado_no_universo'] = x6['ep'] * math.sqrt(n / N_UNIVERSO)
+    # placebo com códigos que não deveriam seguir o voto de Lula (00 e 99) e com o total de nulos com dígitos menos o 31
+    plc = {}
+    for nome, lista in (('00', ['00']), ('99', ['99']), ('todos_os_nulos_com_digitos_menos_31_32_33_23_12', None)):
+        if lista is None:
+            ya = D['nuld1'] - sum(cont(D, c, '1') for c in ('31', '32', '33', '23', '12')); yb = D['nuld2'] - sum(cont(D, c, '2') for c in ('31', '32', '33', '23', '12'))
+        else:
+            ya = sum(cont(D, c, '1') for c in lista); yb = sum(cont(D, c, '2') for c in lista)
+        mm = ya + yb; s = okb & (mm > 0)
+        Xd = np.column_stack([np.ones(s.sum()), lr[s]])
+        bp = logistica(yb[s], mm[s], Xd, np.ones(s.sum()))
+        bbp = np.array([logistica(yb[s], mm[s], Xd, Wx[k][s]) for k in range(300)])
+        plc[nome] = {'beta': float(bp[1]), 'ep': float(np.nanstd(bbp[:, 1], ddof=1)), 'contagem_1t': float(ya[s].sum()), 'contagem_2t': float(yb[s].sum())}
+    x6['placebo_outros_codigos_sobre_o_crescimento_de_Lula'] = plc
+    # os outros códigos que a varredura atribui a Lula nos dois turnos (33, 23, 12, 32 juntos), a mesma conta
+    yo1 = sum(cont(D, c, '1') for c in ('32', '33')); yo2 = sum(cont(D, c, '2') for c in ('32', '33'))
+    mm = yo1 + yo2; s = okb & (mm > 0)
+    Xd = np.column_stack([np.ones(s.sum()), lr[s]])
+    bo_ = logistica(yo2[s], mm[s], Xd, np.ones(s.sum()))
+    bbo = np.array([logistica(yo2[s], mm[s], Xd, Wx[k][s]) for k in range(300)])
+    x6['codigos_32_e_33_juntos'] = {'beta': float(bo_[1]), 'ep': float(np.nanstd(bbo[:, 1], ddof=1)), 'contagem_1t': float(yo1[s].sum()), 'contagem_2t': float(yo2[s].sum())}
+    X['X6_dose_e_resposta_do_31_dentro_da_secao'] = x6
+    # X7: nas 6 UFs com 2º turno de governador, o que é digitado como nulo na tela de PRESIDENTE (erro de tela ao contrário)
+    fin_gov = {'AC': ['10', '11'], 'AM': ['22', '55'], 'DF': ['11', '13'], 'ES': ['10', '15'], 'RN': ['13', '44'], 'TO': ['44', '45']}
+    x7 = {}
+    for uf, nums in fin_gov.items():
+        mu_ = D['uf'] == uf
+        ks = [k for k, f in zip(D['chaves'], mu_) if f]
+        c1 = collections.Counter(); c2 = collections.Counter()
+        for k in ks:
+            c1.update(rdv[k]['1']['nul']); c2.update(rdv[k]['2']['nul'])
+        x7[uf] = {'secoes': len(ks), 'finalistas_de_governador': nums, 'votantes_1t': float(C['1'][mu_].sum()), 'votantes_2t': float(C['2'][mu_].sum()),
+                  'nulos_com_digitos_1t': sum(c1.values()), 'nulos_com_digitos_2t': sum(c2.values()),
+                  'nulos_com_numero_de_finalista_de_governador_1t': {x: c1.get(x, 0) for x in nums},
+                  'nulos_com_numero_de_finalista_de_governador_2t': {x: c2.get(x, 0) for x in nums},
+                  'cinco_mais_digitados_2t': c2.most_common(5)}
+    tot = {'secoes': sum(v['secoes'] for v in x7.values()), 'nulos_com_digitos_1t': sum(v['nulos_com_digitos_1t'] for v in x7.values()),
+           'nulos_com_digitos_2t': sum(v['nulos_com_digitos_2t'] for v in x7.values()),
+           'com_numero_de_finalista_de_governador_1t': sum(sum(v['nulos_com_numero_de_finalista_de_governador_1t'].values()) for v in x7.values()),
+           'com_numero_de_finalista_de_governador_2t': sum(sum(v['nulos_com_numero_de_finalista_de_governador_2t'].values()) for v in x7.values()),
+           'votantes_1t': sum(v['votantes_1t'] for v in x7.values()), 'votantes_2t': sum(v['votantes_2t'] for v in x7.values())}
+    x7['as_6_juntas'] = tot
+    X['X7_tela_de_presidente_nas_6_UFs_com_governador_no_2t'] = x7
+    grava('etapa5_exploratorio' + suf + '.json', X)
+    return X
+
+
 # ---------------------------------------------------------------- relatório
 def fm(x, d=4):
     if x is None or (isinstance(x, float) and not math.isfinite(x)):
@@ -1154,6 +1552,9 @@ if __name__ == '__main__':
             sys.exit('rode antes as etapas cegas (pureza e cego)')
         etapa_abrir(ext)
         finalizar(ext)
+    elif modo == 'exploratorio':
+        X = exploratorio(ext)
+        print(json.dumps(X, ensure_ascii=False, indent=1))
     elif modo == 'relatorio':
         finalizar(ext)
     else:
