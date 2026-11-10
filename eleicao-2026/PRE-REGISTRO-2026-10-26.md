@@ -743,3 +743,35 @@ Tudo isso está em `registro/adendo27/`, neste mesmo commit. **Os critérios val
 - **H2 do Léo no país inteiro** (fraude só no voto de presidente; presidente contra deputado, senador e governador na mesma urna, 1º turno): nenhum desenho cego trouxe critério. Um agente escreve a especificação e ela entra em adendo próprio antes de rodar.
 
 Cada teste é rodado por um agente e refeito por outro com código próprio. Decisões que os desenhos não fixam vão no docstring antes de calcular. O que for feito depois de ver o resultado é marcado como exploratório.
+
+## Adendo 28 (10/11/2026, depois da Onda A e antes de rodar o que segue): o canal do comparecimento
+
+A Onda A do Adendo 27 (`resultados/ADENDO27_ondaA_resultados.txt`) não achou marca de troca de voto dentro da urna onde o teste tem poder, e achou um indício novo: a virada passa pelo comparecimento. O eleitor de Flávio do 1º turno não voltou no 2º muito mais que o de Lula (2,67% contra -0,85% no país; no PI, 15 pontos de diferença) e os faltosos do 1º turno aparecem como voto de Lula no dobro da taxa de Flávio (10,9% contra 5,5%). Três testes novos, com critério fixado aqui. Os números acima já são conhecidos; o resultado de cada teste abaixo, não, salvo onde dito.
+
+### N1. Por onde entraram os votos a mais (amostra aleatória nova de 3.000 seções)
+- Dados: boletins de urna do 1º e do 2º turno das 3.000 seções de `registro/adendo27/amostra_aas_principal.txt`. Cada boletim traz três contagens de habilitação: B (biometria do eleitor reconhecida), M (eleitor com biometria liberado pelo mesário) e S (eleitor sem biometria no cadastro). Se o boletim do 1º turno não trouxer as três, M sai do bweb e S fica estimado pelo perfil do eleitorado, e isso é dito.
+- Estimativas nacionais da variação entre os turnos de B, M e S (média amostral vezes 499.205, erro de amostra aleatória simples com correção de população finita), conferidas contra o que se sabe exato: comparecimento +2.960.239 e M +290.239 pelo bweb.
+- Por seção, com efeito fixo de UF: ganho de Lula e ganho de Flávio contra as variações de B e de S + M.
+- Sinal (o canal sem biometria carrega parte relevante da margem): variação de S + M de 1.107.548 ou mais (25% da margem), com limite inferior de 95% de 443.019 ou mais, e coeficiente de Lula em S + M maior que o de B em 0,25 ou mais, a mais de 3 erros-padrão. Sem sinal: limite superior de 95% da variação de S + M abaixo de 443.019 (10% da margem). Entre os dois: inconclusivo.
+- Leitura fixada antes: se B responder por 90% ou mais do aumento líquido, os votos a mais entraram por eleitores cuja digital a urna reconheceu. Nesse caso fica excluído voto lançado pela mesa como portador da margem, e sobra só a hipótese de programa que registre biometria falsa, que dado público não testa e que só caderno de votação decide.
+- Ao lado: a mesma decomposição para as saídas (seções em que B caiu) e a assimetria das caudas (seções com S + M subindo 10 ou mais contra caindo 10 ou mais).
+
+### N2. Quem não voltou: mobilização do 1º turno ou retirada
+- Limite dito antes: boletim não distingue eleitor que ficou em casa de eleitor registrado como ausente. O teste mede se a explicação sem fraude deixa as marcas que deveria.
+- Universo: seções das 27 UFs com aptos iguais nos dois turnos de 2026. y = (comparecimento do 2º turno menos o do 1º) sobre aptos. Modelo 0: y contra as fatias sobre aptos de Flávio, Lula, eliminados e branco mais nulo no 1º turno, efeito fixo de município, peso aptos, erro por município. Assimetria = coeficiente de Flávio menos o de Lula.
+- Marcas da mobilização local que não se repetiu: (i) a assimetria diminui quando se controla o "puxão local" do 1º turno, medido por seção como a fatia dos candidatos do partido 22 a deputado federal sobre aptos menos a fatia de Flávio sobre aptos, e pelo comparecimento do 1º turno de 2026 menos o de 2022 na mesma seção (onde a chave liga); (ii) a assimetria é maior nos municípios pequenos e nas UFs sem 2º turno de governador.
+- Leitura: "explicada pela mobilização" se a assimetria cair 50% ou mais com os controles e as duas marcas de (ii) aparecerem a mais de 3 erros-padrão; "não explicada" se cair menos de 20%; entre os dois, inconclusivo. Calibração: retirada plantada de 3,6% dos votos de Flávio (para a abstenção, em toda seção) tem de aumentar a assimetria no modelo com controles tanto quanto no modelo sem controles.
+- Descritivo: a assimetria por UF, por porte do município e por faixa de força de Lula, com mapa das 20 zonas de maior valor para conferência de cadernos.
+
+### N3. Forma regulada pela força de Lula (confirmação de um exploratório)
+- O conferente da A3 já calculou, depois de ver os resultados, que onde Flávio tem menos de 35% a parcela dos votos dele que aparece em Lula é +0,0161, abaixo do espelho (+0,0208). Por isso este teste é confirmação por outro agente, não teste cego.
+- Matriz de transferência por seção sem a variação do comparecimento como controle, por faixa de força de Flávio no local (menos de 35%, 35 a 50, 50 a 65, 65 ou mais), com o espelho de Lula.
+- Sinal: na faixa de menos de 35%, parcela de Flávio que aparece em Lula acima do espelho em 0,02 ou mais, a mais de 4 erros-padrão. Sem sinal: diferença mais 2 erros-padrão abaixo de 0,01, com a forma concentrada plantada (2.136.651 votos) detectada.
+
+### Ordem de execução
+Onda B passa a ser: N1, B2, B3, C1 (logs: quem liberou e a que horas), N2, N3, B1 e B5. Ficam para a onda seguinte B4, B6, C2, C3 e a Onda D. Os critérios de B1 a B6 e C1 a C3 continuam os do Adendo 27.
+
+### Pedidos que só terceiros atendem e que este indício torna prioritários
+- Cadernos de votação (assinaturas contra o comparecimento do boletim) em seções sorteadas do PI, MA, TO, PB e CE.
+- Ao TSE: por seção e turno, quantos eleitores têm comparecimento registrado e justificativa de ausência no mesmo turno; e o perfil do comparecimento do 2º turno, ainda não publicado.
+- A qualquer eleitor de Flávio dessas UFs que votou no 2º turno: conferir no e-Título se o comparecimento consta.
