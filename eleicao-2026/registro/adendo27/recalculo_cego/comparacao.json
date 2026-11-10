@@ -1,0 +1,14 @@
+{
+ "totais": {
+  "itens": 60,
+  "principal_bate": 60,
+  "principal_fora": 0,
+  "principal_ausente": 0,
+  "saidas": 307,
+  "saidas_batem": 307,
+  "saidas_fora": 0,
+  "saidas_ausentes": 0,
+  "saidas_nao_numericas": 0
+ },
+ "fora": []
+}

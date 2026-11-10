@@ -1,0 +1,34 @@
+ADENDO 27, RECÁLCULO CEGO DOS NÚMEROS DECISIVOS (RESULTADO)
+
+Registro: Adendo 27, commit 2748895 (10/11/2026 00:16:42 UTC). O gabarito ficou fora do repositório até a comparação;
+o SHA-256 registrado antes confere com o arquivo agora guardado em registro/adendo27/recalculo_cego/.
+
+O QUE FOI FEITO
+Um agente escolheu 60 números que sustentam as conclusões dos Adendos 1 a 26 (307 saídas: totais, contagens,
+coeficientes de regressão com erro-padrão e n) e escreveu a receita de cada um sem o valor. Dois agentes que nunca
+viram os resultados, proibidos de abrir resultados/, README, RETOMAR, o pré-registro e os scripts de análise,
+recalcularam tudo a partir dos dados brutos (bweb dos dois turnos, bases por seção, arquivos de urna da amostra),
+com código próprio.
+
+RESULTADO
+60 de 60 itens batem na saída principal. 307 de 307 saídas batem na tolerância fixada antes (igualdade exata para
+contagens e somas; 2% ou 0,1 erro-padrão para coeficientes; 5% para erros-padrão, 15% com bootstrap).
+Nenhuma divergência.
+
+O QUE ISSO PROVA E O QUE NÃO PROVA
+- Prova que as contas anteriores estão certas e se reproduzem a partir do dado público por quem não conhece a
+  resposta: não há erro de soma, de filtro nem de código nos números decisivos.
+- Não prova que as ESCOLHAS de cada teste eram as melhores, nem que o dado é íntegro na origem. Coincidência aqui
+  não soma evidência a favor nem contra fraude. As fragilidades de desenho estão no relatório da equipe vermelha
+  (registro/adendo27/equipe_vermelha_relatorio.txt) e são o objeto das ondas A a D.
+
+OBSERVAÇÕES DOS AGENTES CEGOS, SEM CONHECER OS VALORES ANTERIORES
+- Último dígito (B13): o qui-quadrado dos votos de Flávio no 2º turno contra a uniforme é 71,5 com 9 graus de
+  liberdade, alto; contra o próprio histograma alisado cai para 11,1. A uniforme não é a referência certa quando o
+  histograma é inclinado.
+- Horários (C07): 604 seções com hora de boletim fora da regra, 596 delas no exterior, por efeito do fuso. Sobram 8
+  no Brasil (PA 7, PR 1).
+- Aptos (A10): 55.722 seções têm número de aptos diferente entre os turnos. Entra no teste D2-6 (Onda B).
+
+Arquivos: registro/adendo27/specs_recalculo.json (receitas), registro/adendo27/recalculo_cego/ (gabarito, respostas
+cegas, script e saída da comparação).

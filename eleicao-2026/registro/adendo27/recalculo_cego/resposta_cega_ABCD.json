@@ -1,0 +1,306 @@
+{
+ "A01": {
+  "lula": 64256232,
+  "flavio": 59826041,
+  "margem": 4430191,
+  "fatia_lula_pct": 51.7851828842626,
+  "comparecimento": 128236074,
+  "brancos": 1430496,
+  "nulos": 2723305
+ },
+ "A02": {
+  "lula_1t": 53879538,
+  "flavio_1t": 56104503,
+  "margem_flavio_1t": 2224965,
+  "comparecimento_1t": 125275835,
+  "eliminados_1t": 9316747,
+  "votos_28": 5246,
+  "observacao": "Conferência: soma por número no arquivo de candidatos = {\"13\": 53879538, \"14\": 2675887, \"16\": 43103, \"21\": 22693, \"22\": 56104503, \"27\": 40043, \"28\": 5246, \"29\": 15024, \"30\": 326488, \"35\": 16881, \"55\": 2605148, \"70\": 3448569, \"80\": 122911}; soma de O1 na base = 9321993; chaves no arquivo de candidatos = 499206."
+ },
+ "A03": {
+  "ganho_lula": 10376694,
+  "ganho_flavio": 3721538,
+  "var_comparecimento": 2960239
+ },
+ "A04": {
+  "secoes_1t": 499206,
+  "secoes_2t": 499205,
+  "secoes_2t_27ufs": 497897,
+  "secoes_dois_turnos": 499205
+ },
+ "A05": {
+  "ganho_lula_27ufs": 10333927,
+  "residuo_k10": 5354957,
+  "margem_lula_2t_27ufs": 4401534,
+  "margem_lula_1t_27ufs": -2238452
+ },
+ "A06": {
+  "secoes_L2_menor_10": 175,
+  "secoes_L2_zero": 4,
+  "votos_lula_nelas": 1098
+ },
+ "A07": {
+  "secoes_lula_a_frente": 250935,
+  "secoes_flavio_a_frente": 246115,
+  "secoes_empate": 2155
+ },
+ "A08": {
+  "ufs_ganho_L_maior": 27,
+  "ufs_ganho_R_negativo": 6,
+  "observacao": "UFs com ganho de R negativo: AC, AM, AP, MA, RR, TO. UFs com ganho de L menor ou igual ao de R: nenhuma."
+ },
+ "A09": {
+  "municipios": 5571,
+  "municipios_gL_maior": 5228,
+  "municipios_gR_maior": 339,
+  "municipios_empate": 4,
+  "municipios_pR_maior": 182,
+  "municipios_R1_maior_e_L2_maior": 211,
+  "municipios_L1_maior_e_R2_maior": 1,
+  "observacao": "Municípios das 27 UFs na base: 5571; fora por V1 = 0 ou L2+R2 = 0: 0. pR > pL comparado em inteiros (equivalente exato); com ponto flutuante a contagem dá 182. Empates exatos pR = pL: 0. Todas as contagens são dentro dos municípios considerados."
+ },
+ "A10": {
+  "secoes_aptos_diferentes": 55722,
+  "soma_modulo": 74692,
+  "secoes_comp_maior_que_aptos": 0,
+  "observacao": "comp > apt contado em pares (seção, turno) nas seções com os dois turnos: 0 no 1º turno e 0 no 2º turno. Alternativa com todas as seções de cada turno (inclui a seção que só tem 1º turno): 0."
+ },
+ "B01": {
+  "coef_adversario_1T": 0.03895913535857192,
+  "ep_adversario_1T": 0.0006707998101054688,
+  "coef_outros_1T": 0.5505699728311573,
+  "coef_queda_bn": 0.6361331663278468,
+  "coef_var_comp": 0.561825634270086,
+  "coef_proprio_1T": -0.013318913807967047,
+  "n": 477035,
+  "grupos": 72538,
+  "observacao": "Erros-padrão na ordem outros_1T, queda_bn, var_comp, adversario_1T, proprio_1T: 0.001644673, 0.002084056, 0.001571741, 0.000670800, 0.000671911. Seções com os dois turnos: 499205; descartadas por estarem sozinhas no local: 22170."
+ },
+ "B02": {
+  "coef_adversario_1T": 0.039289620125311654,
+  "ep_adversario_1T": 0.0006711678606704087,
+  "coef_grupo70": 0.5964355893267499,
+  "ep_grupo70": 0.0026564692410328064,
+  "coef_grupo14": 0.5421513605762741,
+  "coef_grupo55": 0.48799639029227343,
+  "coef_grupo30": 0.3610263672107978,
+  "ep_grupo30": 0.008571819977006716,
+  "n": 477035,
+  "grupos": 72538,
+  "observacao": "Coeficientes (ordem grupo70, grupo14, grupo55, grupo30, demais, queda_bn, var_comp, adversario_1T, proprio_1T): 0.596435589, 0.542151361, 0.487996390, 0.361026367, 0.831562287, 0.637563758, 0.563626781, 0.039289620, -0.013220177. Erros-padrão: 0.002656469, 0.002896716, 0.003065552, 0.008571820, 0.009797437, 0.002082056, 0.001568285, 0.000671168, 0.000663874. Seções sem registro no arquivo de candidatos: 0. Mínimo de demais (O1 menos os quatro): 0."
+ },
+ "B03": {
+  "pct_secoes_excesso_positivo": 8.991296160895825,
+  "pct_ganho_em_excesso": 1.4195944450911928,
+  "excesso_total": 147307,
+  "ganho_total": 10376696,
+  "secoes_disponivel_ate_2": 1744,
+  "observacao": "Seções consideradas: 499205; com excesso > 0: 44885."
+ },
+ "B04": {
+  "coef_bn_1t": 0.0250570268065945,
+  "ep_bn_1t": 0.0020955209847673506,
+  "n": 477035,
+  "grupos": 72538,
+  "observacao": "Outros coeficientes: 100 x O1/comp1 = -0.022441263 (ep 0.001787034); 100 x L1/comp1 = -0.191742770 (ep 0.000946643). Seções que passam nos filtros antes do descarte de locais com uma só: 499205."
+ },
+ "B05": {
+  "b": 0.9514532187822056,
+  "ep": 0.06806494707215258,
+  "n": 475803,
+  "grupos": 72445
+ },
+ "B06": {
+  "b": -3.351380465410479,
+  "ep": 0.09435774154335343,
+  "n": 475803,
+  "grupos": 72445,
+  "observacao": "Seções das 27 UFs com os dois turnos: 497897; com aptos = 0 em algum turno (fora, pois a razão não existe): 0."
+ },
+ "B07": {
+  "secoes_urna_diferente": 4435,
+  "coef": -0.02401044342630063,
+  "ep": 0.0319393527602848,
+  "n": 477035,
+  "grupos": 72538,
+  "secoes_g1_na_regressao": 4216,
+  "observacao": "Entram na regressão as seções com virada definida (L+R > 0 nos dois turnos): 499205 antes do descarte de locais com uma só; com g = 1 entre elas: 4435."
+ },
+ "B08": {
+  "A": -0.019950571640631576,
+  "ep_A": 0.0008382457620839728,
+  "d_faixa1": -0.0008177341268303367,
+  "ep_d_faixa1": 0.0012337704102221925,
+  "d_faixa2": -0.02342252253904175,
+  "ep_d_faixa2": 0.0014525044915330069,
+  "d_faixa3": -0.045963046744810054,
+  "ep_d_faixa3": 0.0022331377147671795,
+  "d_faixa4": -0.08218287412407949,
+  "ep_d_faixa4": 0.003302066836684353,
+  "observacao": "Somas por local feitas nas seções com os dois turnos (local do 2º turno). Faixas comparadas em inteiros; com ponto flutuante mudam de faixa 0 locais. Locais com válidos = 0 (sem fração, fora): 0. faixa 1: seções de L 119135 em 22389 locais com 2 ou mais; seções de R 156417 em 20797 locais com 2 ou mais; linhas usadas 258450; locais (grupos do erro) 43185; proprio_1T de L -0.014292914, de R -0.015110648; faixa 2: seções de L 149498 em 19652 locais com 2 ou mais; seções de R 162701 em 20468 locais com 2 ou mais; linhas usadas 305641; locais (grupos do erro) 29571; proprio_1T de L -0.017658295, de R -0.041080817; faixa 3: seções de L 170831 em 21943 locais com 2 ou mais; seções de R 97795 em 14504 locais com 2 ou mais; linhas usadas 261991; locais (grupos do erro) 36447; proprio_1T de L -0.023071559, de R -0.069034606; faixa 4: seções de L 59741 em 8554 locais com 2 ou mais; seções de R 82292 em 16769 locais com 2 ou mais; linhas usadas 127988; locais (grupos do erro) 25323; proprio_1T de L -0.031022830, de R -0.113205705."
+ },
+ "B09": {
+  "coef_adversario_1T_SC": 0.005745112492236047,
+  "ep_SC": 0.00209040157430578,
+  "n_SC": 16228,
+  "coef_adversario_1T_PI": 0.09567775756151882,
+  "ep_PI": 0.005925051900607885,
+  "n_PI": 8984,
+  "observacao": "SC: seções com os dois turnos 17326, locais usados 2380, condicionamento de XtX 555. PI: seções com os dois turnos 10225, locais usados 2181, condicionamento de XtX 2.61e+03."
+ },
+ "B10": {
+  "secoes_com_z": 476954,
+  "secoes_z_acima_de_4": 13,
+  "secoes_z_abaixo_de_menos_4": 57,
+  "secoes_sozinhas_no_local": 22170,
+  "secoes_p_fora": 81,
+  "observacao": "Segunda regra contada só entre as seções que não estão sozinhas no local. Dentro dela: n = 0 em 0; L2_previsto <= 0 em 5; L2_previsto >= n em 76 (categorias podem se sobrepor). z máximo 13.6263, mínimo -37.6350."
+ },
+ "B11": {
+  "secoes": 498538,
+  "zeros_observados": 3784,
+  "zeros_esperados": 5440.32226714956,
+  "rho": 0.00040348166313715914,
+  "observacao": "Seções com turno 2 e comp2 >= 50: 498585; referência pelo local: 476896; pelo município: 21642; sem referência (fora): 47. zeros_observados contado entre as seções com p definido; em todas as seções com comp2 >= 50 seriam 3788. Seções com p = 0: 655; com p >= 1: 0. rho antes do piso: 0.000403481663137. Soma de P0 refeita com a função gama em vez de lnBeta: 5440.322267150."
+ },
+ "B12": {
+  "secoes_UE2013": 12147,
+  "secoes_UE2015": 87500,
+  "secoes_UE2020": 200504,
+  "secoes_UE2022": 198100,
+  "secoes_sem_modelo": 954,
+  "coef_UE2015": -0.13872081133236716,
+  "ep_UE2015": 0.15234408872923794,
+  "coef_UE2013": -0.10481770929662952,
+  "ep_UE2013": 0.15522167250302046,
+  "coef_UE2022": 0.004047262198186121,
+  "ep_UE2022": 0.02198850110458936,
+  "n": 476073,
+  "grupos": 72504,
+  "observacao": "Contagem por modelo feita nas seções com os dois turnos (499205). Na regressão, antes do descarte de locais com uma só seção: 498251."
+ },
+ "B13": {
+  "qui2_L2": 13.172545360290306,
+  "contagens_L2": 482250,
+  "qui2_R2": 71.48118794247296,
+  "contagens_R2": 449180,
+  "observacao": "Dígitos 0 a 9 de L2: [48788, 48325, 48425, 48280, 48289, 48077, 48072, 48062, 47800, 48132]; de R2: [45588, 45427, 45253, 45571, 44860, 44968, 44907, 44498, 44434, 43674]. São 9 graus de liberdade. Exploratório, fora da especificação e sem entrar em nenhuma saída: a uniforme só é a referência certa se o histograma das contagens for plano dentro de cada dezena; trocando a referência pelo próprio histograma alisado (média móvel centrada de 10 valores), o qui-quadrado fica 6.4314 para L2 e 11.1382 para R2."
+ },
+ "B14": {
+  "secoes_universo_2t": 496405,
+  "secoes_evento1": 188,
+  "secoes_evento2": 23,
+  "secoes_evento3": 64,
+  "observacao": "Evento 3 comparado em inteiros (exato); em ponto flutuante: 64. Universo do evento 3: 496403 seções. Evento 3 exigindo também comp2 > 0: 64. Eventos 1 e 2 com L2+R2 = 0: 0. Seções do 2º turno com ab e enc ambos vazios: 27; só um dos dois vazio: 0."
+ },
+ "C01": {
+  "linhas": 2088107,
+  "secoes": 499207,
+  "aptos": 158745079,
+  "secoes_so_com_cargo_menos_1": 2,
+  "observacao": "Linhas contadas pelas quebras de linha do CSV de cada zip (cabeçalho fora); o leitor de CSV dá o mesmo número. Seções com linha de Presidente: 499205. Seções só com cargo -1: ZZ|29564|1|91, ZZ|30686|1|443 (aptos 72, 30). Soma de aptos só nas seções com linha de Presidente: 158744977. Para referência, o bweb do 1º turno tem 67858974 linhas de dados e 499206 seções."
+ },
+ "C02": {
+  "secoes_T": 8845,
+  "comparecimento_T": 2536441,
+  "margem_27ufs_sem_T": 4122786,
+  "fatia_L_em_T_pct": 55.698587435255405,
+  "observacao": "Seções das 27 UFs com linha de Presidente: 497897; sem hora de encerramento (ficam fora de T e dentro de \"não T\"): 0. Votos em T: L 1362256, R 1083508. Deslocamentos do 2º turno (horas: municípios): {\"-2\": 33, \"-1\": 339, \"0\": 5344, \"1\": 1}. Municípios com empate na hora mais frequente de abertura: 0 no 2º turno (regra usada no empate: menor hora). Dias de encerramento em hora de Brasília nas seções de T: {\"2026-10-25\": 8845}. Conferência das minhas tabelas do bweb contra a base por seção (campos L, R, O, B, N, comp, apt, loc, urna, ab, enc): 1º turno, seções só na base 0, só no bweb 0, seções com campo discordante 0; 2º turno, seções só na base 0, só no bweb 0, seções com campo discordante 0."
+ },
+ "C03": {
+  "coef": -0.041558772852292106,
+  "ep": 0.038310206247972774,
+  "n": 475801,
+  "grupos": 72445,
+  "observacao": "Seções no universo antes do descarte de locais com uma só: 497895 (com o filtro do 1º turno pelo campo enc da base: 497895, mesmo conjunto: sim). Seções de T entre as observações usadas: 8733; seções de T no universo: 8845."
+ },
+ "C04": {
+  "recebidos_ate_17h07m59": 1868,
+  "recebidos_de_17h08m00_a_18h59m59": 0,
+  "primeiro_recebimento_depois_de_18h59m59": "19:03:37",
+  "observacao": "Seções sem DT_BU_RECEBIDO: 0. Dias de recebimento (todas as seções): {\"2026-10-25\": 499207}. Primeiro recebimento de todos: 2026-10-25 17:05:10; último: 2026-10-25 23:21:40. Recebidos depois de 18:59:59: 497339. Último recebimento até 18:59:59: 17:07:27."
+ },
+ "C05": {
+  "fatia_13_pct": 57.71543324656006,
+  "hora_do_ultimo_delas": "17:06:22",
+  "observacao": "Votos nas 1.225 primeiras: 13 = 193996, 22 = 142129. A seção 1.226 foi recebida no horário 17:06:22 (empate de horário na fronteira: sim). Por UF nas 1.225: {\"ZZ\": 776, \"PA\": 129, \"AM\": 83, \"PR\": 60, \"DF\": 34, \"SC\": 26, \"RO\": 25, \"PB\": 19, \"AC\": 17, \"MG\": 16, \"MA\": 11, \"MT\": 6, \"BA\": 5, \"GO\": 4, \"TO\": 4, \"AP\": 3, \"RS\": 3, \"CE\": 2, \"RR\": 1, \"AL\": 1}."
+ },
+ "C06": {
+  "hora_definicao": "21:08:26",
+  "observacao": "Dia 2026-10-25. Condição atingida na seção de ordem 486980 de 499207 (margem acumulada 4207570, aptos restantes 4207389). Acumulando por instante (todas as seções do mesmo segundo juntas) a hora é 21:08:26. As seções de cargo -1 entram nos aptos restantes; sem elas a hora é 21:08:26. As sem DT_BU_RECEBIDO seriam tratadas como nunca recebidas (são 0)."
+ },
+ "C07": {
+  "secoes_de_junta": 29,
+  "secoes_de_junta_nas_27ufs": 0,
+  "secoes_regra_a": 0,
+  "secoes_regra_b": 0,
+  "secoes_regra_c": 604,
+  "secoes_regra_c_exterior": 596,
+  "observacao": "Seções de junta contadas em todas as seções do bweb (com as 2 de cargo -1); só com linha de Presidente: 27 (27 UFs: 0). Seções com linha de Presidente fora de junta: 499178; entre elas sem encerramento: 0, sem emissão: 0, sem recebimento: 0. Regra (b) com data e hora completas (antes de 25/10/2026 17:00:00 em Brasília); por UF: {}; olhando só a hora do dia: 0. Regra (c) por UF: {\"ZZ\": 596, \"PA\": 7, \"PR\": 1}. No exterior a definição de fuso dá deslocamento {\"0\": 146} (horas: cidades), isto é, a hora local da urna é comparada direto com a hora de Brasília do recebimento."
+ },
+ "D01": {
+  "nh_1t_27ufs": 8342249,
+  "nh_2t_27ufs": 8632488,
+  "nh_2t_exterior": 0,
+  "observacao": "NH no exterior no 1º turno: 0. Seções com linha de Presidente e NH sem valor: 0 no 1º turno, 0 no 2º turno. Seções com NH > comparecimento: 0 no 1º turno, 0 no 2º turno. Conferência das minhas tabelas do bweb contra a base por seção (campos L, R, O, B, N, comp, apt, loc, urna, ab, enc): 1º turno, seções só na base 0, só no bweb 0, seções com campo discordante 0; 2º turno, seções só na base 0, só no bweb 0, seções com campo discordante 0."
+ },
+ "D02": {
+  "diferenca": 95223.69617652491,
+  "observacao": "C do 1º turno (27 UFs) = 124934069; C do 2º turno (27 UFs) = 127854631; NH1 = 8342249; NH2 = 8632488; NH1/C1 = 6.67732114%; NH2/C2 = 6.75179924%. Valor exato em fração: 11896683828553/124934069."
+ },
+ "D03": {
+  "coef_x_a": 0.5203426480793595,
+  "ep_x_a": 0.00230382504210633,
+  "coef_x_b": 0.5219381067038616,
+  "ep_x_b": 0.0018462008558904122,
+  "dif_a_menos_b": -0.0015954586245021662,
+  "ep_dif": 0.0015603342754321166,
+  "n": 477035,
+  "grupos": 72538,
+  "observacao": "Seções com os dois turnos: 499205; com comp1 = 0 (fora): 0. Covariância entre os dois coeficientes: 3.14071218692e-06."
+ },
+ "D04": {
+  "coef": 0.08767674160449007,
+  "ep": 0.0017311723643245024,
+  "n": 477035,
+  "grupos": 72538
+ },
+ "D05": {
+  "secoes_A": 175703,
+  "secoes_B": 237829,
+  "secoes_C": 84365,
+  "margem_L_1t_C": 655464,
+  "margem_L_2t_C": 1611687,
+  "margem_L_2t_A": 1027449,
+  "margem_L_2t_B": 1762398,
+  "observacao": "Universo: 497897 seções (27 UFs, dois turnos, comp2 > 0); seções das 27 UFs com comp2 = 0: 0. Margem de L no 1º turno: faixa A -1523787, faixa B -1370129."
+ },
+ "D06": {
+  "coef_C": -0.11708487690043955,
+  "ep_C": 0.011387804814484254,
+  "coef_B": -0.061660454431780996,
+  "ep_B": 0.007182160238342417,
+  "n": 475803,
+  "grupos": 72445,
+  "coef_C_regressao2": 0.7664996203326325,
+  "ep_C_regressao2": 0.02467641578373639,
+  "observacao": "Regressão 2: coeficiente de B 0.376638122 (ep 0.015204718), n 475803, grupos 72445. Seções antes do descarte de locais com uma só: 497897; nas observações usadas: faixa B 228938, faixa C 76118."
+ },
+ "D07": {
+  "corte": 4.672897196261682,
+  "secoes_topo": 4987,
+  "secoes_G": 4427,
+  "coef": -0.07152493326065647,
+  "ep": 0.033753779566291185,
+  "n": 475803,
+  "grupos": 72445,
+  "observacao": "Universo: 497897 seções; m = 4979 (round do Python dá 4979). Corte exato = 500/107. Com ponto flutuante: corte 4.672897196262, topo 4987. Seções com x maior que o corte: 4966; empatadas no corte: 21. Seções de G entre as observações usadas na regressão: 4004."
+ },
+ "D08": {
+  "secoes_mesma_urna": 494770,
+  "secoes_mesma_urna_carga_diferente": 370,
+  "secoes_carga_em_24_10": 709,
+  "secoes_carga_em_25_10": 5,
+  "observacao": "Seções com linha de Presidente nos dois turnos: 499205; com urna diferente: 4435. Cargas do 2º turno com data a partir de 05/10/2026: 2245; dias mais tardios: {\"2026-10-20\": 116, \"2026-10-21\": 88, \"2026-10-22\": 61, \"2026-10-23\": 44, \"2026-10-24\": 709, \"2026-10-25\": 5}. Número de urna ou carga sem valor: 0."
+ }
+}

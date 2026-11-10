@@ -1,0 +1,177 @@
+{
+ "E01": {
+  "D": -0.6486475152247273,
+  "ep_bootstrap": 0.1575538167727153,
+  "virada_X": 1.5485869128658136,
+  "virada_contrafactual": 2.197234428090541,
+  "secoes_X": 1292,
+  "candidatas": 497741,
+  "observacao": "Padronização com desvio-padrão populacional (ddof 0) das candidatas; com ddof 1 o D é -0.6486475152 (as quatro variáveis mudam pelo mesmo fator, a ordem das distâncias não muda). Desempate pela chave em ordem de texto; seções de X com empate exato na 20ª distância: 0; com a chave em ordem numérica D = -0.6486475152 (0 seções de X com vizinhas diferentes). Seções fora por apt ou comp igual a zero em algum turno (variáveis indefinidas): 0. Candidatas distintas usadas como vizinhas: 17719. Cidades do exterior (grupos do bootstrap): 128. Bootstrap: 2.000 réplicas, cidades sorteadas com reposição (mesmo número de cidades), razão recalculada em cada réplica, pares fixos, semente numpy default_rng(20261110), desvio-padrão com ddof 1 (com ddof 0: 0.157514). A especificação não fixa a semente: com outras cinco sementes o erro-padrão deu [0.163338, 0.157558, 0.158132, 0.158525, 0.163941]. Erro-padrão por linearização agrupada por cidade (conferência, não pedido): 0.159849. Média das réplicas: -0.650557."
+ },
+ "E02": {
+  "beta": 0.32816797184989227,
+  "ep": 0.004302081045017994,
+  "n": 38483,
+  "grupos": 5931,
+  "observacao": "Seções com os campos 2 e 2g: 39739; com comp > 0 nos dois cargos: 39739; usadas depois de descartar locais de uma só seção: 38483. Local = loc do 2º turno."
+ },
+ "E03": {
+  "R1": 0.41977344944858586,
+  "R2": 0.577565557473681,
+  "R2_sobre_R1": 1.375898257101231,
+  "secoes": 39739,
+  "observacao": "Seções com os quatro campos: 39739. Somas (B+N, comp): presidente 1T [376332, 10042766], governador 1T [894328, 10018299], presidente 2T [394419, 10110793], governador 2T [681229, 10086066]."
+ },
+ "E04": {
+  "D": 0.01296614266673319,
+  "ep_D": 0.004710281642921561,
+  "coef_proprio_presidente": -0.03806340207828339,
+  "coef_proprio_governador": -0.05102954474501658,
+  "secoes": 24970,
+  "linhas": 48392,
+  "locais": 3246,
+  "observacao": "Colunas: bloco presidente [O1, queda_bn, var_comp, L1, R1], bloco governador [demais não finalistas 1T, queda de B+N de governador, variação do comp de governador, outro finalista 1T, referência 1T]. Coeficientes [0.436018, 0.408622, 0.487204, 0.024784, -0.038063, 0.325116, 0.462541, 0.432899, 0.082601, -0.05103]; ep [0.007021, 0.010042, 0.006047, 0.003209, 0.002901, 0.00915, 0.009675, 0.008714, 0.005522, 0.004985]. Efeito fixo por (local, bloco), erro agrupado por local, local = loc do 2º turno. Seções sem registro no arquivo de candidatos a governador do 1º turno (tratadas como zero): 0; sem linha de governador no bweb do 2º turno (tratadas como zero): 0. Conferências: seções em que B, N, comp ou válidos de governador do bweb do 2º turno diferem do campo 2g da base: 0; seções em que a soma dos candidatos do arquivo difere de V do campo 1g: 0; seções em que os demais pela soma do arquivo diferem de V(1g) menos os dois finalistas: 0."
+ },
+ "E05": {
+  "D": 0.04662646638614055,
+  "ep_D": 0.004945040858909805,
+  "secoes": 31624,
+  "linhas": 61098,
+  "locais": 4540,
+  "observacao": "coef_proprio_presidente -0.042622, coef_proprio_governador -0.089248. Colunas: bloco presidente [O1, queda_bn, var_comp, L1, R1], bloco governador [demais não finalistas 1T, queda de B+N de governador, variação do comp de governador, outro finalista 1T, referência 1T]. Coeficientes [0.442642, 0.41795, 0.505004, 0.029142, -0.042622, 0.330769, 0.462616, 0.449947, 0.093822, -0.089248]; ep [0.006468, 0.008763, 0.00559, 0.002888, 0.002602, 0.008681, 0.008506, 0.007902, 0.00538, 0.005247]. Efeito fixo por (local, bloco), erro agrupado por local, local = loc do 2º turno. Seções sem registro no arquivo de candidatos a governador do 1º turno (tratadas como zero): 0; sem linha de governador no bweb do 2º turno (tratadas como zero): 0. Conferências: seções em que B, N, comp ou válidos de governador do bweb do 2º turno diferem do campo 2g da base: 0; seções em que a soma dos candidatos do arquivo difere de V do campo 1g: 0; seções em que os demais pela soma do arquivo diferem de V(1g) menos os dois finalistas: 0."
+ },
+ "E06": {
+  "media_grupo1": 3.4384700028524735,
+  "media_grupo2": 1.9540774329878814,
+  "diferenca": 1.4843925698645921,
+  "observacao": "Virada por UF (pontos): AC 2.6353, AL 3.2660, AM 2.2850, AP 2.8544, BA 1.4415, CE 2.0001, DF 3.1049, ES 2.8272, GO 3.6507, MA 2.1022, MG 3.1177, MS 3.2217, MT 3.0040, PA 2.1478, PB 2.5065, PE 2.0439, PI 1.2117, PR 3.1802, RJ 4.2542, RN 2.5068, RO 2.6527, RR 3.2023, RS 3.0615, SC 3.2670, SE 2.3346, SP 3.7708, TO 2.3695, ZZ 1.6171. Médias simples (sem peso), só para referência: grupo 1 3.210879, grupo 2 2.195641."
+ },
+ "F01": {
+  "dois_turnos_2014": 428852,
+  "dois_turnos_2018": 454448,
+  "dois_turnos_2022": 472028,
+  "dois_turnos_2026": 499205,
+  "secoes_2026_sem_chave_em_2022": 37986,
+  "aptos_diferentes_2022": 49710,
+  "aptos_diferentes_2018": 17026,
+  "observacao": "Leitura literal: chave ausente da base de 2022 (em qualquer turno). Alternativa, chave sem os dois turnos em 2022: 37986. Total de chaves por base (qualquer turno): 2014=428854, 2018=454450, 2022=472028, 2026=499206."
+ },
+ "F02": {
+  "pct_secoes_excesso_2022_R": 5.268543391493725,
+  "pct_ganho_em_excesso_2022_R": 1.0863316825083904,
+  "pct_secoes_excesso_2018_L": 0.34195331479069113,
+  "pct_ganho_em_excesso_2018_L": 0.02291845139807331,
+  "observacao": "2022 R: 472028 seções, 24869 com excesso > 0, excesso positivo somado 77499, ganho total 7134009. 2018 L: 454448 seções, 1554 com excesso > 0, excesso positivo somado 3598, ganho total 15699141. Disponível calculado como no B03 (O1 + queda de B+N truncada em zero + alta do comparecimento truncada em zero)."
+ },
+ "F03": {
+  "coef_adversario_1T_2022_R": 0.037660565898361,
+  "ep_2022_R": 0.0006068835402235446,
+  "n_2022": 448168,
+  "coef_adversario_1T_2018_L": 0.006263623550177983,
+  "ep_2018_L": 0.0007084337693654115,
+  "n_2018": 427547,
+  "observacao": "Local = loc do 2º turno do próprio ano. 2022: grupos 68663, coeficientes {'outros_1T': 0.495603, 'queda_bn': 0.450892, 'var_comp': 0.459285, 'adversario_1T': 0.037661, 'proprio_1T': -0.015409}, ep {'outros_1T': 0.001647, 'queda_bn': 0.00358, 'var_comp': 0.002614, 'adversario_1T': 0.000607, 'proprio_1T': 0.000636}. 2018: grupos 66850, coeficientes {'outros_1T': 0.676855, 'queda_bn': 0.608272, 'var_comp': 0.493821, 'adversario_1T': 0.006264, 'proprio_1T': -0.041217}, ep {'outros_1T': 0.001425, 'queda_bn': 0.002413, 'var_comp': 0.002137, 'adversario_1T': 0.000708, 'proprio_1T': 0.000944}."
+ },
+ "F04": {
+  "secoes_comuns": 331087,
+  "A_2014": -0.0010660623220857977,
+  "ep_A_2014": 0.0014903156023038655,
+  "A_2018": 0.011061360997636535,
+  "ep_A_2018": 0.0014314796798814019,
+  "A_2022": 0.029321408955281902,
+  "ep_A_2022": 0.0011973755191614713,
+  "A_2026": -0.015075191084916265,
+  "ep_A_2026": 0.0013735134719924287,
+  "observacao": "Leitura literal adotada: a força local do adversário e as regressões usam só as seções do conjunto comum (somas do local feitas só nessas seções), com o local (loc do 2º turno) e os votos do próprio ano. | 2014: faixa 1: d=0.015917 ep=0.001785 n=300103 locais=42480 (locais com 2+ seções: L 28630, R 17616); faixa 2: d=-0.033788 ep=0.003404 n=160131 locais=19160 (locais com 2+ seções: L 11914, R 12054); faixa 3: d=-0.044458 ep=0.005074 n=99420 locais=15981 (locais com 2+ seções: L 7152, R 8829); faixa 4: d=-0.075065 ep=0.009478 n=54824 locais=12619 (locais com 2+ seções: L 1711, R 10908); locais sem válidos: 1 | 2018: faixa 1: d=0.015353 ep=0.001678 n=295390 locais=45429 (locais com 2+ seções: L 16602, R 30271); faixa 2: d=-0.001695 ep=0.003853 n=111736 locais=13935 (locais com 2+ seções: L 10876, R 6638); faixa 3: d=0.003441 ep=0.004611 n=145099 locais=21498 (locais com 2+ seções: L 15880, R 5618); faixa 4: d=-0.005326 ep=0.007318 n=64479 locais=12701 (locais com 2+ seções: L 5935, R 6766); locais sem válidos: 1 | 2022: faixa 1: d=0.016830 ep=0.001824 n=160399 locais=28227 (locais com 2+ seções: L 17206, R 11021); faixa 2: d=0.038738 ep=0.002167 n=218760 locais=21357 (locais com 2+ seções: L 14552, R 15450); faixa 3: d=0.037954 ep=0.002625 n=167257 locais=24643 (locais com 2+ seções: L 14066, R 10577); faixa 4: d=0.042099 ep=0.005073 n=72646 locais=15846 (locais com 2+ seções: L 3535, R 12311); locais sem válidos: 1 | 2026: faixa 1: d=0.000840 ep=0.002146 n=166386 locais=29323 (locais com 2+ seções: L 13702, R 15621); faixa 2: d=-0.012216 ep=0.002532 n=202247 locais=20673 (locais com 2+ seções: L 13556, R 14526); faixa 3: d=-0.029809 ep=0.002990 n=172614 locais=25666 (locais com 2+ seções: L 16052, R 9614); faixa 4: d=-0.065172 ep=0.004713 n=79289 locais=16619 (locais com 2+ seções: L 6535, R 10084); locais sem válidos: 0 | Alternativa (força local somada em todas as seções do local com os dois turnos naquele ano, regressão só nas comuns): 2014: A=-0.001077 ep=0.001490; 2018: A=0.011363 ep=0.001425; 2022: A=0.029488 ep=0.001198; 2026: A=-0.014888 ep=0.001373."
+ },
+ "F05": {
+  "A_2022": 0.028139943551676656,
+  "ep_A_2022": 0.0007976985940170641,
+  "secoes_2022": 461219,
+  "A_2018": 0.022040929901177765,
+  "ep_A_2018": 0.0011037317144719399,
+  "secoes_2018": 434876,
+  "observacao": "Leitura literal adotada: força local e regressões só com as seções do conjunto (chaves de 2026 com os dois turnos) que têm os dois turnos no ano, com local e votos do ano; válidos = L1+R1+O1. | 2022: faixa 1: d=0.015550 ep=0.001181 n=229571 locais=38927 (locais com 2+ seções: L 25162, R 13765); faixa 2: d=0.035748 ep=0.001406 n=301837 locais=28360 (locais com 2+ seções: L 19360, R 20279); faixa 3: d=0.043110 ep=0.001895 n=233163 locais=32501 (locais com 2+ seções: L 18042, R 14459); faixa 4: d=0.042315 ep=0.003762 n=110779 locais=23001 (locais com 2+ seções: L 4470, R 18531); locais sem válidos: 1 | 2018: faixa 1: d=0.024957 ep=0.001263 n=393283 locais=58881 (locais com 2+ seções: L 22778, R 38119); faixa 2: d=0.013467 ep=0.003137 n=147329 locais=17941 (locais com 2+ seções: L 13823, R 8682); faixa 3: d=0.015832 ep=0.003857 n=193498 locais=27799 (locais com 2+ seções: L 20081, R 7718); faixa 4: d=0.001013 ep=0.006253 n=84892 locais=16447 (locais com 2+ seções: L 7142, R 9305); locais sem válidos: 0 | Alternativa (força local somada em todas as seções do local com os dois turnos naquele ano): 2022: A=0.028396 ep=0.000791; 2018: A=0.022044 ep=0.001104."
+ },
+ "F06": {
+  "var_2014": -3.7111264717185177,
+  "var_2018": 5.981216491081797,
+  "var_2022": -1.9535299258981231,
+  "var_2026": 2.7993847847957607,
+  "observacao": "Somas usadas (27 UFs, seções com os dois turnos). 2014: n=427936 L1=43243312 R1=34831498 L2=54470059 R2=50937034; 2018: n=453704 L1=31322225 R1=49163078 L2=46987176 R2=57666176; 2022: n=471010 L1=57120571 R1=50949797 L2=60193094 R2=58061090; 2026: n=497897 L1=53722151 R1=55960603 L2=64056078 R2=59654544"
+ },
+ "F07": {
+  "var_2014": -1.7122010117998188,
+  "var_2018": -0.9733557504804202,
+  "var_2022": 0.36241051908413313,
+  "var_2026": 1.8505365266940799,
+  "observacao": "Somas usadas (27 UFs, seções com os dois turnos). 2014: n=427936 comp1=114981378 apt1=142468478 comp2=112542006 apt2=142468446; 2018: n=453704 comp1=117161229 apt1=146805286 comp2=115732285 apt2=146805278; 2022: n=471010 comp1=123378340 apt1=155758572 comp2=123942648 apt2=155758349; 2026: n=497897 comp1=124934069 apt1=157828968 comp2=127854631 apt2=157828819"
+ },
+ "F08": {
+  "secoes_2014": 74,
+  "secoes_2018": 62,
+  "secoes_2022": 44,
+  "secoes_2026": 117,
+  "observacao": "Comparações em aritmética inteira. 2014: universo 427936, tipos no turno 2 (27 UFs) {'APURADA': 427936}; 2018: universo 453703, tipos no turno 2 (27 UFs) {'Apurada': 453703, 'Anulada': 1}; 2022: universo 471010, tipos no turno 2 (27 UFs) {'APURADA': 471010}; 2026: universo 497897, tipos no turno 2 (27 UFs) {'Apurada': 497897}"
+ },
+ "F09": {
+  "b_2022": -1.004147090775535,
+  "ep_2022": 0.058973587763620744,
+  "n_2022": 447228,
+  "b_2018": -0.8389978574494873,
+  "ep_2018": 0.060996362529123854,
+  "n_2018": 426891,
+  "observacao": "2022: seções antes de descartar locais de uma seção 471010, locais usados 68579; 2018: seções antes de descartar locais de uma seção 453698, locais usados 66772"
+ },
+ "G01": {
+  "votos_partido_22": 25830609,
+  "validos": 114108482,
+  "pct_partido_22": 22.636887764399496,
+  "votos_partido_13": 14798202,
+  "observacao": "Linhas lidas no bweb do 1º turno: 67858974 (28 arquivos); linhas de Deputado Federal: 26151133, em 497897 seções de 27 UFs (o arquivo ZZ não tem esse cargo). Tipos de votável encontrados no cargo (código: linhas / votos): {'1': (23086841, 110670045), '2': (492270, 6445372), '3': (485537, 4214631), '4': (2086485, 3438437)}. Nominais 110670045, legendas 3438437, brancos 6445372, nulos 4214631. Nenhuma linha do cargo precisou do leitor de CSV por ponto e vírgula dentro de aspas (0) e nenhuma ficou com número de colunas errado (0)."
+ },
+ "G02": {
+  "corte_p20": 0.08875739644970414,
+  "corte_p80": 0.34444444444444444,
+  "coef_proprio_1T_q1": -0.08121639049795766,
+  "ep_q1": 0.002067315464737734,
+  "n_q1": 86171,
+  "coef_proprio_1T_q5": -0.029268795972794005,
+  "ep_q5": 0.0012081241193443895,
+  "n_q5": 93573,
+  "observacao": "Seções das 27 UFs com os dois turnos: 497897; sem linha de deputado federal no bweb: 0; com válidos de deputado federal igual a zero: 0 (ficam fora, fatia indefinida); usadas: 497897. Cortes p20, p40, p60, p80: [0.08875739644970414, 0.17105263157894737, 0.24778761061946902, 0.34444444444444444]. Com as seções sem válidos tratadas como fatia zero os cortes seriam [0.08875739644970414, 0.17105263157894737, 0.24778761061946902, 0.34444444444444444]. Seções por quintil / n usado (depois de descartar locais com uma só seção no quintil) / locais: {1: (99588, 86171, 19911), 2: (99620, 88838, 18661), 3: (99575, 90296, 18172), 4: (99556, 91754, 17571), 5: (99558, 93573, 15363)}. Coeficiente de proprio_1T e ep nos cinco quintis: {1: (-0.081216, 0.002067), 2: (-0.049067, 0.001566), 3: (-0.042153, 0.001483), 4: (-0.033433, 0.001374), 5: (-0.029269, 0.001208)}. Colunas, nesta ordem: grupo70, grupo14, grupo55, grupo30, demais (O1 da base menos os quatro, logo inclui o 28), queda_bn, var_comp, adversario_1T (L1), proprio_1T (R1). Seções usadas em que O1 da base difere da soma dos não finalistas no arquivo de candidatos: 0. Coeficientes completos do quintil 5: {'grupo70': 0.434054, 'grupo14': 0.512204, 'grupo55': 0.533041, 'grupo30': 0.693614, 'demais': 0.15515, 'queda_bn': 0.429895, 'var_comp': 0.517845, 'adversario_1T': 0.018897, 'proprio_1T': -0.029269}; do quintil 1: {'grupo70': 0.364932, 'grupo14': 0.381875, 'grupo55': 0.443797, 'grupo30': 0.481943, 'demais': 0.168123, 'queda_bn': 0.240805, 'var_comp': 0.290626, 'adversario_1T': 0.017868, 'proprio_1T': -0.081216}."
+ },
+ "H01": {
+  "secoes_com_boletim_e_log": 3897,
+  "secoes_votos_log_diferente_do_boletim": 0,
+  "secoes_com_voto_sem_habilitacao": 0,
+  "versoes_distintas": 1,
+  "pct_votos_a_partir_das_17h": 0.025832576974097604,
+  "secoes_com_voto_a_partir_das_17h": 225,
+  "observacao": "Pastas de seção na amostra: 3903; com boletim: 3897; com log: 3897; com boletim e log: 3897. Mais de um arquivo do mesmo tipo em alguma pasta: 0. Votos computados em 25/10/2026 no log, soma da amostra: 1002610; comparecimento de Presidente nos boletins, soma: 1002610; votos com hora >= 17:00:00: 259. Seções com diferença (pasta: log, boletim): {}. Voto sem habilitação, leitura literal (percorre cada logd.dat inteiro; a marca de habilitação e o voto anterior valem em qualquer data; conta só os votos de 25/10/2026): 0 seções, 0 votos. Alternativa (olhando só as linhas de 25/10/2026): 0 seções, 0 votos. Textos de versão (texto: seções em que aparece): {'10.23.0.0 - Praia da Barra do Cahy': 3897}. Linhas com o texto do voto ou da habilitação dentro de mensagem maior (não contadas): 0 e 0. Linhas com menos de 5 campos (ignoradas): 0. Pacotes de log com mais de um logd.dat: 97; .jez aninhado ilegível: 0. Boletins cuja identificação (município, zona, seção) difere da pasta: 0."
+ },
+ "H02": {
+  "secoes": 3873,
+  "hab_1t": 975952,
+  "bio_1t": 856548,
+  "hab_2t": 996603,
+  "bio_2t": 872616,
+  "observacao": "Seções da amostra com log: 3897. Excluídas, na ordem dos filtros: {'hab de 04/10 igual a zero': 22, 'votos do log diferentes do comp da base em algum dia': 2}. As excluídas pelo terceiro filtro: MG|46337|132|65: votos do log em 04/10 465 e em 25/10 268, comp da base 259 e 268, hab de 04/10 465, logd.dat no pacote 3; SP|70572|307|417: votos do log em 04/10 173 e em 25/10 294, comp da base 283 e 294, hab de 04/10 175, logd.dat no pacote 4. Votos do log nas que entram: 04/10 975600, 25/10 996521. Fatia bio/hab: 1º turno 87.7654%, 2º turno 87.5590%. Mensagens contadas por igualdade exata do quinto campo. Outras mensagens que começam por \"Tipo de habilitação do eleitor\" na amostra (não contadas como bio): {}."
+ },
+ "H03": {
+  "secoes_com_rdv": 835,
+  "secoes_com_diferenca": 0,
+  "nulos_com_digitos": 5087,
+  "nulos_digitados_13_ou_22": 0,
+  "observacao": "Nulos do RDV = tipo 4 mais tipo 6 (o boletim soma os dois). Votos de Presidente (cargo 1) no RDV por tipo: {2: 201598, 3: 2322, 4: 5087, 6: 1}; por código de eleição: {6258: 209008}. Tipo 4 com dígitos vazios: 0; tipo 6: 1. Comparação por igualdade exata dos dígitos com \"13\" e \"22\" (como texto). Somas RDV / boletim nas seções com RDV: 13 125928 / 125928; 22 75670 / 75670; brancos 2322 / 2322; nulos 5088 / 5088. Seções com RDV sem boletim: 0. Seções com diferença: {}. Dígitos mais frequentes nos nulos tipo 4: [('00', 2405), ('11', 534), ('31', 267), ('12', 226), ('14', 206), ('15', 120), ('99', 102), ('33', 96), ('73', 96), ('55', 72), ('23', 69), ('70', 57)]."
+ },
+ "H04": {
+  "urnas_distintas": 3948,
+  "urnas_UE2013": 98,
+  "urnas_UE2015": 979,
+  "urnas_UE2020": 1288,
+  "urnas_UE2022": 1583,
+  "urnas_com_mais_de_um_modelo": 0,
+  "observacao": "Urna = terceiro campo da linha, como texto; modelo = texto depois do prefixo. Contagem de urnas distintas por texto de modelo: {'UE2022': 1583, 'UE2020': 1288, 'UE2015': 979, 'UE2013': 98}. Urna com dois modelos conta em cada um. Com o número da urna convertido para inteiro as urnas distintas são 3948. Logs lidos: 3897."
+ }
+}

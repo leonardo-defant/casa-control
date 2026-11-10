@@ -1,0 +1,5684 @@
+{
+ "titulo": "Gabarito do recálculo cego: valores publicados, fonte (arquivo e linha) e tolerância",
+ "aviso": "Este arquivo NÃO pode ser lido por quem faz o recálculo cego. Os caminhos de arquivo são relativos a /home/user/casa-control/eleicao-2026.",
+ "regras_de_tolerancia": {
+  "exato": "contagens, somas de votos e horas: igualdade exata",
+  "absoluta": "percentuais, razões e médias descritivas: |recalculado - publicado| menor ou igual ao limite do item",
+  "coeficiente": "coeficientes de regressão: |recalculado - publicado| menor ou igual ao maior entre 2% do valor publicado e 0,1 erro-padrão publicado (o campo limite já traz esse número)",
+  "relativa": "erros-padrão: até 5% do valor publicado; erro-padrão por bootstrap: até 15% (a semente não é fixada na spec)",
+  "leitura": "Um item bate quando a saída principal bate. Saída auxiliar fora da tolerância com principal dentro é divergência menor, a relatar."
+ },
+ "blocos": [
+  {
+   "bloco": "A",
+   "titulo": "Totais e contagens de 2026 na base por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10"
+   ]
+  },
+  {
+   "bloco": "B",
+   "titulo": "Regressões e contagens por seção de 2026 na base por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14"
+   ]
+  },
+  {
+   "bloco": "C",
+   "titulo": "Horários e recebimento no bweb do 2º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip"
+   ],
+   "itens": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+   ]
+  },
+  {
+   "bloco": "D",
+   "titulo": "Biometria e carga no bweb dos dois turnos (linhas de Presidente)",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "itens": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08"
+   ]
+  },
+  {
+   "bloco": "E",
+   "titulo": "Exterior e governador na mesma urna",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos_gov_2026_1t_6ufs.json.gz",
+    "/home/user/trabalho-eleicao/trab2t/zips2t/*.zip"
+   ],
+   "itens": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06"
+   ]
+  },
+  {
+   "bloco": "F",
+   "titulo": "Série 2014, 2018, 2022 e 2026 nas bases por seção",
+   "entradas": [
+    "/home/user/casa-control/eleicao-2026/dados/secoes2014.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2018.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2022.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09"
+   ]
+  },
+  {
+   "bloco": "G",
+   "titulo": "Deputado federal no bweb inteiro do 1º turno",
+   "entradas": [
+    "/home/user/trabalho-eleicao/bweb1t/zips/*.zip",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz",
+    "/home/user/casa-control/eleicao-2026/dados/candidatos2026_1t.json.gz"
+   ],
+   "itens": [
+    "G01",
+    "G02"
+   ]
+  },
+  {
+   "bloco": "H",
+   "titulo": "Amostra de arquivos de urna do 2º turno (boletim, RDV e log)",
+   "entradas": [
+    "/home/user/trabalho-eleicao/amostra2t/arq",
+    "/home/user/casa-control/eleicao-2026/dados/secoes2026.json.gz"
+   ],
+   "itens": [
+    "H01",
+    "H02",
+    "H03",
+    "H04"
+   ]
+  }
+ ],
+ "itens": [
+  {
+   "id": "A01",
+   "bloco": "A",
+   "titulo_neutro": "Totais do 2º turno de 2026",
+   "teste_de_origem": "Soma dos boletins do 2º turno contra o oficial (T15, Adendo 9; L8 D3, Adendo 18)",
+   "o_que_sustenta": "Totalização: soma dos boletins igual ao total oficial; margem de 4,43 milhões",
+   "saida_principal": "margem",
+   "saidas": {
+    "lula": {
+     "valor": 64256232,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 21,
+      "local": "json: D3_resultado/L"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 64256232,
+      "bate_na_tolerancia": true
+     }
+    },
+    "flavio": {
+     "valor": 59826041,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 22,
+      "local": "json: D3_resultado/R"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 59826041,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem": {
+     "valor": 4430191,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 23,
+      "local": "json: D3_resultado/margem"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4430191,
+      "bate_na_tolerancia": true
+     }
+    },
+    "fatia_lula_pct": {
+     "valor": 51.7851828842626,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 25,
+      "local": "json: D3_resultado/L_pct_validos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 51.7851828842626,
+      "bate_na_tolerancia": true
+     }
+    },
+    "comparecimento": {
+     "valor": 128236074,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 24,
+      "local": "json: D3_resultado/comparecimento"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 128236074,
+      "bate_na_tolerancia": true
+     }
+    },
+    "brancos": {
+     "valor": 1430496,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 59,
+      "local": "texto: brancos: 1.430.496 e 1.430.496"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1430496,
+      "bate_na_tolerancia": true
+     }
+    },
+    "nulos": {
+     "valor": 2723305,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 60,
+      "local": "texto: nulos: 2.723.305 e 2.723.305"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2723305,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A02",
+   "bloco": "A",
+   "titulo_neutro": "Totais do 1º turno de 2026 e votos dos eliminados",
+   "teste_de_origem": "Votos por candidato no 1º turno (README seção 2; candidatos_1t_2026_totais)",
+   "o_que_sustenta": "Flávio venceu o 1º turno por 2,22 milhões; 9,32 milhões de votos dos eliminados",
+   "saida_principal": "margem_flavio_1t",
+   "saidas": {
+    "lula_1t": {
+     "valor": 53879538,
+     "fonte": {
+      "arquivo": "resultados/candidatos_1t_2026_totais.txt",
+      "linha": 4,
+      "local": "texto: 13 LULA"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 53879538,
+      "bate_na_tolerancia": true
+     }
+    },
+    "flavio_1t": {
+     "valor": 56104503,
+     "fonte": {
+      "arquivo": "resultados/candidatos_1t_2026_totais.txt",
+      "linha": 3,
+      "local": "texto: 22 FLAVIO BOLSONARO"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 56104503,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_flavio_1t": {
+     "valor": 2224965,
+     "fonte": {
+      "arquivo": "resultados/candidatos_1t_2026_totais.txt",
+      "linha": 3,
+      "local": "texto: 22 FLAVIO BOLSONARO",
+      "derivado": "56.104.503 - 53.879.538 (publicado como 2,22 milhões)"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2224965,
+      "bate_na_tolerancia": true
+     }
+    },
+    "comparecimento_1t": {
+     "valor": 125275835,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 132,
+      "local": "json: a_totais/Total/turno1/comparecimento"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 125275835,
+      "bate_na_tolerancia": true
+     }
+    },
+    "eliminados_1t": {
+     "valor": 9316747,
+     "fonte": {
+      "arquivo": "resultados/candidatos_1t_2026_totais.txt",
+      "linha": 16,
+      "local": "texto: eliminados (todos menos 13 e 22): 9.316.747"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 9316747,
+      "bate_na_tolerancia": true
+     }
+    },
+    "votos_28": {
+     "valor": 5246,
+     "fonte": {
+      "arquivo": "resultados/candidatos_1t_2026_totais.txt",
+      "linha": 17,
+      "local": "texto: 28 (anulado, contado como nulo): 5.246"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5246,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A03",
+   "bloco": "A",
+   "titulo_neutro": "Variação dos totais entre os turnos de 2026",
+   "teste_de_origem": "Variação entre turnos (README seção 2)",
+   "o_que_sustenta": "Lula ganhou 10,38 milhões, Flávio 3,72 milhões; comparecimento +2,96 milhões",
+   "saida_principal": "ganho_lula",
+   "saidas": {
+    "ganho_lula": {
+     "valor": 10376694,
+     "fonte": {
+      "arquivo": "README.md",
+      "linha": 29,
+      "local": "texto: | Lula (13) | 53.879.538 (45,16%) | 64.256.232 (51,79%) | +10.376.694 |"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 10376694,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ganho_flavio": {
+     "valor": 3721538,
+     "fonte": {
+      "arquivo": "README.md",
+      "linha": 28,
+      "local": "texto: | Flávio Bolsonaro (22) | 56.104.503 (47,03% dos válidos) | 59.826.041 (48,21%) | +3.721.538 |"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3721538,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_comparecimento": {
+     "valor": 2960239,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 144,
+      "local": "json: a_totais/Total/var_comparecimento"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2960239,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A04",
+   "bloco": "A",
+   "titulo_neutro": "Número de seções de 2026",
+   "teste_de_origem": "Número de seções (T15, T21, V1)",
+   "o_que_sustenta": "Universo das contas: 499.206 e 499.205 seções; 497.897 nas 27 UFs",
+   "saida_principal": "secoes_2t",
+   "saidas": {
+    "secoes_1t": {
+     "valor": 499206,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 131,
+      "local": "json: a_totais/Total/turno1/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 499206,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2t": {
+     "valor": 499205,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 138,
+      "local": "json: a_totais/Total/turno2/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 499205,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2t_27ufs": {
+     "valor": 497897,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 88,
+      "local": "json: a_totais/Brasil (27 UFs)/turno2/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 497897,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_dois_turnos": {
+     "valor": 499205,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 236,
+      "local": "json: 2026/secoes_com_os_dois_turnos"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 499205,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A05",
+   "bloco": "A",
+   "titulo_neutro": "Totais das 27 UFs em 2026",
+   "teste_de_origem": "V1 do Adendo 25 (vídeo dos 10 votos por urna)",
+   "o_que_sustenta": "O 5.354.957 do vídeo é resíduo da conta: ganho menos 10 vezes as urnas",
+   "saida_principal": "ganho_lula_27ufs",
+   "saidas": {
+    "ganho_lula_27ufs": {
+     "valor": 10333927,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 253,
+      "local": "json: 2026/T7_Lula_sem_exterior/ganho_total",
+      "derivado": "valor inteiro de 10333927.0"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 10333927,
+      "bate_na_tolerancia": true
+     }
+    },
+    "residuo_k10": {
+     "valor": 5354957,
+     "fonte": {
+      "arquivo": "resultados/ADENDO25_resultados.txt",
+      "linha": 17,
+      "local": "texto: Os 5.354.957: 10.333.927 menos 10 x 497.897 dá 5.354.957 exato"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5354957,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_lula_2t_27ufs": {
+     "valor": 4401534,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 46,
+      "local": "json: D1_prorrogacao/2t/margem_brasil_sem_exterior"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4401534,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_lula_1t_27ufs": {
+     "valor": -2238452,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 115,
+      "local": "json: D1_prorrogacao/1t_mesma_eleicao_sem_prorrogacao/margem_brasil_sem_exterior"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -2238452,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A06",
+   "bloco": "A",
+   "titulo_neutro": "Seções com poucos votos de L no 2º turno",
+   "teste_de_origem": "V2 do Adendo 25, item literal",
+   "o_que_sustenta": "\"10 a mais em toda urna\" é falso ao pé da letra: há urnas com menos de 10 votos de Lula",
+   "saida_principal": "secoes_L2_menor_10",
+   "saidas": {
+    "secoes_L2_menor_10": {
+     "valor": 175,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 36,
+      "local": "json: item1_literal/L2_menor_10/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 175,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_L2_zero": {
+     "valor": 4,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 38,
+      "local": "json: item1_literal/L2_menor_10/secoes_L2_zero"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4,
+      "bate_na_tolerancia": true
+     }
+    },
+    "votos_lula_nelas": {
+     "valor": 1098,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 37,
+      "local": "json: item1_literal/L2_menor_10/votos_Lula_2T"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1098,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A07",
+   "bloco": "A",
+   "titulo_neutro": "Quem lidera em cada seção no 2º turno",
+   "teste_de_origem": "L8 D3 do Adendo 18",
+   "o_que_sustenta": "Quem venceu em cada boletim: nenhum recorte dos 499 mil boletins dá vitória a Flávio",
+   "saida_principal": "secoes_lula_a_frente",
+   "saidas": {
+    "secoes_lula_a_frente": {
+     "valor": 250935,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 30,
+      "local": "json: D3_resultado/secoes_lula_na_frente"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 250935,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_flavio_a_frente": {
+     "valor": 246115,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 31,
+      "local": "json: D3_resultado/secoes_flavio_na_frente"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 246115,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_empate": {
+     "valor": 2155,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 32,
+      "local": "json: D3_resultado/secoes_empate"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2155,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A08",
+   "bloco": "A",
+   "titulo_neutro": "Ganho de votos por UF",
+   "teste_de_origem": "T38 por UF (Adendo 16)",
+   "o_que_sustenta": "Lula ganhou mais votos que Flávio em todas as 27 UFs; Flávio perdeu votos em 6",
+   "saida_principal": "ufs_ganho_L_maior",
+   "saidas": {
+    "ufs_ganho_L_maior": {
+     "valor": 27,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.txt",
+      "linha": 147,
+      "local": "texto: UFs (27 e exterior): Flávio ganhou mais votos que Lula em 0 e mais pontos em 0",
+      "derivado": "27 UFs menos as 0 em que Flávio ganhou mais votos"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 27,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ufs_ganho_R_negativo": {
+     "valor": 6,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.txt",
+      "linha": 147,
+      "local": "texto: UFs (27 e exterior): Flávio ganhou mais votos que Lula em 0 e mais pontos em 0",
+      "derivado": "conta das UFs listadas na mesma linha (AC, AP, RR, MA, AM, TO)"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 6,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A09",
+   "bloco": "A",
+   "titulo_neutro": "Ganho de votos por município",
+   "teste_de_origem": "T38 por município (Adendo 16)",
+   "o_que_sustenta": "Lula ganhou mais votos em 5.228 de 5.571 cidades (93,8%); 211 viraram",
+   "saida_principal": "municipios_gL_maior",
+   "saidas": {
+    "municipios": {
+     "valor": 5571,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1751,
+      "local": "json: 2026/T38/municipios"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5571,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_gL_maior": {
+     "valor": 5228,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1755,
+      "local": "json: 2026/T38/lula_mais_votos_que_flavio"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5228,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_gR_maior": {
+     "valor": 339,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1754,
+      "local": "json: 2026/T38/flavio_mais_votos_que_lula"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 339,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_empate": {
+     "valor": 4,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1756,
+      "local": "json: 2026/T38/empates_no_ganho"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_pR_maior": {
+     "valor": 182,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1757,
+      "local": "json: 2026/T38/flavio_mais_pontos_que_lula"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 182,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_R1_maior_e_L2_maior": {
+     "valor": 211,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1758,
+      "local": "json: 2026/T38/viraram_de_flavio_para_lula"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 211,
+      "bate_na_tolerancia": true
+     }
+    },
+    "municipios_L1_maior_e_R2_maior": {
+     "valor": 1,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 1759,
+      "local": "json: 2026/T38/viraram_de_lula_para_flavio"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "A10",
+   "bloco": "A",
+   "titulo_neutro": "Aptos entre os turnos, seção a seção",
+   "teste_de_origem": "T15 (Adendo 9), cadastro de seções",
+   "o_que_sustenta": "Aptos mudaram em 55.722 seções (reconciliado pelo cadastro); nenhuma seção com comparecimento acima dos aptos",
+   "saida_principal": "secoes_aptos_diferentes",
+   "saidas": {
+    "secoes_aptos_diferentes": {
+     "valor": 55722,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 96,
+      "local": "texto: Aptos diferentes entre os turnos, seção a seção: 55.722 seções, 74.692 aptos somados em módulo"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 55722,
+      "bate_na_tolerancia": true
+     }
+    },
+    "soma_modulo": {
+     "valor": 74692,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 96,
+      "local": "texto: Aptos diferentes entre os turnos, seção a seção: 55.722 seções, 74.692 aptos somados em módulo",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 74692,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_comp_maior_que_aptos": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 104,
+      "local": "texto: Comparecimento acima dos aptos: 2º turno 0 seções, 1º turno 0"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B01",
+   "bloco": "B",
+   "titulo_neutro": "Regressão de ganho de L em 2026, outros agregados",
+   "teste_de_origem": "T8 e T14 com o bweb, outros agregados (Adendos 3 e 8)",
+   "o_que_sustenta": "T14 SEM SINAL (limite de sem sinal 0,051); fluxo: branco, nulo e comparecimento a mais se dividiram como os demais",
+   "saida_principal": "coef_adversario_1T",
+   "saidas": {
+    "coef_adversario_1T": {
+     "valor": 0.03895913535857192,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 555,
+      "local": "json: 2026/T14_sem_grupos/coef/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0007791827071714384
+     },
+     "ep_publicado": 0.000670799810105469,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.03895913535857184,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_adversario_1T": {
+     "valor": 0.000670799810105469,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 562,
+      "local": "json: 2026/T14_sem_grupos/ep/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0006707998101054684,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_outros_1T": {
+     "valor": 0.5505699728311573,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 552,
+      "local": "json: 2026/T14_sem_grupos/coef/outros_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.011011399456623145
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.5505699728311583,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_queda_bn": {
+     "valor": 0.6361331663278468,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 553,
+      "local": "json: 2026/T14_sem_grupos/coef/queda_branco_nulo"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.012722663326556936
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.636133166327846,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_var_comp": {
+     "valor": 0.561825634270086,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 554,
+      "local": "json: 2026/T14_sem_grupos/coef/var_comparecimento"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.01123651268540172
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.561825634270084,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_proprio_1T": {
+     "valor": -0.013318913807967049,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 556,
+      "local": "json: 2026/T14_sem_grupos/coef/proprio_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.000266378276159341
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.013318913807967,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 549,
+      "local": "json: 2026/T14_sem_grupos/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 550,
+      "local": "json: 2026/T14_sem_grupos/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B02",
+   "bloco": "B",
+   "titulo_neutro": "Regressão de ganho de L em 2026, eliminados separados",
+   "teste_de_origem": "T14 principal e T37 (Adendos 8, 16 e 17)",
+   "o_que_sustenta": "T14 SEM SINAL: 0,0393 (ep 0,0007); urna põe em Lula 54% dos eleitores dos eliminados (Cury 0,60, Zema 0,36)",
+   "saida_principal": "coef_adversario_1T",
+   "saidas": {
+    "coef_adversario_1T": {
+     "valor": 0.039289620125311654,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 531,
+      "local": "json: 2026/T14_com_grupos/coef/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0007857924025062331
+     },
+     "ep_publicado": 0.0006711678606704087,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.03928962012531166,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_adversario_1T": {
+     "valor": 0.0006711678606704087,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 542,
+      "local": "json: 2026/T14_com_grupos/ep/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.000671167860670408,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_grupo70": {
+     "valor": 0.5964355893267499,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 524,
+      "local": "json: 2026/T14_com_grupos/coef/Cury"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.011928711786534998
+     },
+     "ep_publicado": 0.002656469241032807,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.5964355893267478,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_grupo70": {
+     "valor": 0.002656469241032807,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 535,
+      "local": "json: 2026/T14_com_grupos/ep/Cury"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0026564692410328,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_grupo14": {
+     "valor": 0.5421513605762741,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 525,
+      "local": "json: 2026/T14_com_grupos/coef/Renan"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.010843027211525483
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.5421513605762748,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_grupo55": {
+     "valor": 0.4879963902922733,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 526,
+      "local": "json: 2026/T14_com_grupos/coef/Caiado"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.009759927805845467
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.4879963902922715,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_grupo30": {
+     "valor": 0.3610263672107978,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 527,
+      "local": "json: 2026/T14_com_grupos/coef/Zema"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.007220527344215956
+     },
+     "ep_publicado": 0.008571819977006713,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.3610263672107977,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_grupo30": {
+     "valor": 0.008571819977006713,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 538,
+      "local": "json: 2026/T14_com_grupos/ep/Zema"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.008571819977006711,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 521,
+      "local": "json: 2026/T14_com_grupos/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 522,
+      "local": "json: 2026/T14_com_grupos/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B03",
+   "bloco": "B",
+   "titulo_neutro": "Ganho de L comparado com o total disponível na seção, 2026",
+   "teste_de_origem": "T7 com o bweb (Adendos 3 e 4)",
+   "o_que_sustenta": "T7 INCONCLUSIVO: (a) 8,99% entre 7,27 e 10,27; (b) 1,42% abaixo de 3,09",
+   "saida_principal": "pct_secoes_excesso_positivo",
+   "saidas": {
+    "pct_secoes_excesso_positivo": {
+     "valor": 8.991296160895825,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 242,
+      "local": "json: 2026/T7_Lula/pct_secoes_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 8.991296160895825,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_ganho_em_excesso": {
+     "valor": 1.4195944450911928,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 244,
+      "local": "json: 2026/T7_Lula/pct_ganho_em_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.4195944450911928,
+      "bate_na_tolerancia": true
+     }
+    },
+    "excesso_total": {
+     "valor": 147307,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 243,
+      "local": "json: 2026/T7_Lula/excesso_total",
+      "derivado": "valor inteiro"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 147307,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ganho_total": {
+     "valor": 10376696,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 240,
+      "local": "json: 2026/T7_Lula/ganho_total",
+      "derivado": "valor inteiro"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 10376696,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_disponivel_ate_2": {
+     "valor": 1744,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 246,
+      "local": "json: 2026/T7_Lula/secoes_sem_bolo"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1744,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B04",
+   "bloco": "B",
+   "titulo_neutro": "Virada contra a composição do 1º turno, 2026",
+   "teste_de_origem": "Branco e nulo por seção (seção 7 do documento original; rodar_2026.sh)",
+   "o_que_sustenta": "Conversão de branco e nulo: coeficiente 0,025 (ep 0,002), sem a marca de conversão",
+   "saida_principal": "coef_bn_1t",
+   "saidas": {
+    "coef_bn_1t": {
+     "valor": 0.025057026806594506,
+     "fonte": {
+      "arquivo": "resultados/bn_secao_2026.json",
+      "linha": 7,
+      "local": "json: base/coef/branco_nulo_1t"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0005011405361318901
+     },
+     "ep_publicado": 0.0020955209847673506,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.025057026806593486,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_bn_1t": {
+     "valor": 0.0020955209847673506,
+     "fonte": {
+      "arquivo": "resultados/bn_secao_2026.json",
+      "linha": 12,
+      "local": "json: base/ep/branco_nulo_1t"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.002095520984767356,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/bn_secao_2026.json",
+      "linha": 4,
+      "local": "json: base/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/bn_secao_2026.json",
+      "linha": 5,
+      "local": "json: base/grupos"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B05",
+   "bloco": "B",
+   "titulo_neutro": "Virada contra o inverso do tamanho da seção, 2026",
+   "teste_de_origem": "V2 do Adendo 25, dose",
+   "o_que_sustenta": "V2 SEM SINAL: b = +0,951 (ep 0,068), limiar 2,5; a afirmação previa de 4,8 a 10",
+   "saida_principal": "b",
+   "saidas": {
+    "b": {
+     "valor": 0.9514532187822058,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 283,
+      "local": "json: item2_dose/principal/b"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.019029064375644115
+     },
+     "ep_publicado": 0.06806494707215258,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.9514532187822058,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.06806494707215258,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 284,
+      "local": "json: item2_dose/principal/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.06806494707215256,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 475803,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 286,
+      "local": "json: item2_dose/principal/n_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 475803,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72445,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 287,
+      "local": "json: item2_dose/principal/n_locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72445,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B06",
+   "bloco": "B",
+   "titulo_neutro": "Variação do comparecimento contra o inverso dos aptos, 2026",
+   "teste_de_origem": "V2 do Adendo 25, comparecimento",
+   "o_que_sustenta": "Acréscimo de 10 eleitores por urna daria perto de +10; deu -3,35 (ep 0,09)",
+   "saida_principal": "b",
+   "saidas": {
+    "b": {
+     "valor": -3.351380465410478,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 402,
+      "local": "json: item3_comparecimento/principal/b"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.06702760930820956
+     },
+     "ep_publicado": 0.09435774154335339,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -3.3513804654104793,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.09435774154335339,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 403,
+      "local": "json: item3_comparecimento/principal/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.09435774154335343,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 475803,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 405,
+      "local": "json: item3_comparecimento/principal/n_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 475803,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72445,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 406,
+      "local": "json: item3_comparecimento/principal/n_locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72445,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B07",
+   "bloco": "B",
+   "titulo_neutro": "Seções com urna diferente entre os turnos, 2026",
+   "teste_de_origem": "L2 do Adendo 18, grupo U",
+   "o_que_sustenta": "L2 COERENTE: urna trocada -0,02 ponto (ep 0,03)",
+   "saida_principal": "coef",
+   "saidas": {
+    "secoes_urna_diferente": {
+     "valor": 4435,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 707,
+      "local": "json: grupos/U_urna_trocada/secoes_no_grupo_na_base"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4435,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef": {
+     "valor": -0.024010443426300616,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 695,
+      "local": "json: grupos/U_urna_trocada/coef"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0031939352760284798
+     },
+     "ep_publicado": 0.0319393527602848,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.024010443426300647,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.0319393527602848,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 696,
+      "local": "json: grupos/U_urna_trocada/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.031939352760284805,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 690,
+      "local": "json: grupos/U_urna_trocada/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 691,
+      "local": "json: grupos/U_urna_trocada/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_g1_na_regressao": {
+     "valor": 4216,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.json",
+      "linha": 692,
+      "local": "json: grupos/U_urna_trocada/n_grupo"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4216,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B08",
+   "bloco": "B",
+   "titulo_neutro": "Perda dos próprios votos por faixa de força local do adversário, 2026",
+   "teste_de_origem": "T35 com o bweb (Adendo 15)",
+   "o_que_sustenta": "Curva por força: A(2026) = -0,0200 (ep 0,0008); a direita perdeu mais dos próprios onde o adversário é forte (T35 inconclusivo, pista da tese)",
+   "saida_principal": "A",
+   "saidas": {
+    "A": {
+     "valor": -0.019950571640631576,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 83,
+      "local": "json: 2026/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.00039901143281263155
+     },
+     "ep_publicado": 0.000838245762083973,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.019950571640631486,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A": {
+     "valor": 0.000838245762083973,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 84,
+      "local": "json: 2026/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0008382457620839727,
+      "bate_na_tolerancia": true
+     }
+    },
+    "d_faixa1": {
+     "valor": -0.0008177341268303263,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 20,
+      "local": "json: 2026/faixas/0/d/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.00012337704102221927
+     },
+     "ep_publicado": 0.0012337704102221927,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.0008177341268303471,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_d_faixa1": {
+     "valor": 0.0012337704102221927,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 21,
+      "local": "json: 2026/faixas/0/d/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0012337704102221934,
+      "bate_na_tolerancia": true
+     }
+    },
+    "d_faixa2": {
+     "valor": -0.023422522539041743,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 39,
+      "local": "json: 2026/faixas/1/d/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0004684504507808349
+     },
+     "ep_publicado": 0.0014525044915330069,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.023422522539041982,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_d_faixa2": {
+     "valor": 0.0014525044915330069,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 40,
+      "local": "json: 2026/faixas/1/d/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0014525044915330064,
+      "bate_na_tolerancia": true
+     }
+    },
+    "d_faixa3": {
+     "valor": -0.045963046744810054,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 58,
+      "local": "json: 2026/faixas/2/d/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0009192609348962011
+     },
+     "ep_publicado": 0.0022331377147671795,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.045963046744808646,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_d_faixa3": {
+     "valor": 0.0022331377147671795,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 59,
+      "local": "json: 2026/faixas/2/d/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0022331377147671735,
+      "bate_na_tolerancia": true
+     }
+    },
+    "d_faixa4": {
+     "valor": -0.08218287412407949,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 77,
+      "local": "json: 2026/faixas/3/d/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0016436574824815898
+     },
+     "ep_publicado": 0.003302066836684353,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.08218287412407939,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_d_faixa4": {
+     "valor": 0.003302066836684353,
+     "fonte": {
+      "arquivo": "resultados/T35_curva_forca_bweb.json",
+      "linha": 78,
+      "local": "json: 2026/faixas/3/d/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0033020668366843526,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B09",
+   "bloco": "B",
+   "titulo_neutro": "Regressão de ganho de L por UF, 2026",
+   "teste_de_origem": "T16, piso por UF (Adendo 9)",
+   "o_que_sustenta": "T16 INCONCLUSIVO: coeficiente varia de +0,006 (SC) a +0,096 (PI) entre UFs",
+   "saida_principal": "coef_adversario_1T_SC",
+   "saidas": {
+    "coef_adversario_1T_SC": {
+     "valor": 0.005745112492236047,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3300,
+      "local": "json: 2026/com_grupos_principal/por_UF/SC/coef"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.000209040157430578
+     },
+     "ep_publicado": 0.00209040157430578,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0057451124922360515,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_SC": {
+     "valor": 0.00209040157430578,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3301,
+      "local": "json: 2026/com_grupos_principal/por_UF/SC/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0020904015743057826,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_SC": {
+     "valor": 16228,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3297,
+      "local": "json: 2026/com_grupos_principal/por_UF/SC/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 16228,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_adversario_1T_PI": {
+     "valor": 0.09567775756152022,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3237,
+      "local": "json: 2026/com_grupos_principal/por_UF/PI/coef"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0019135551512304044
+     },
+     "ep_publicado": 0.005925051900607959,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.09567775756151946,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_PI": {
+     "valor": 0.005925051900607959,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3238,
+      "local": "json: 2026/com_grupos_principal/por_UF/PI/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.005925051900607904,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_PI": {
+     "valor": 8984,
+     "fonte": {
+      "arquivo": "resultados/T16_bweb.json",
+      "linha": 3234,
+      "local": "json: 2026/com_grupos_principal/por_UF/PI/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 8984,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B10",
+   "bloco": "B",
+   "titulo_neutro": "Seções distantes do previsto pelo próprio 1º turno, 2026",
+   "teste_de_origem": "F5 do Adendo 20, caudas",
+   "o_que_sustenta": "F5 INCONCLUSIVO pela letra: 13 seções puxadas para Lula contra 57 para Flávio (o desvio aponta para Flávio)",
+   "saida_principal": "secoes_z_acima_de_4",
+   "saidas": {
+    "secoes_com_z": {
+     "valor": 476954,
+     "fonte": {
+      "arquivo": "resultados/F5_caudas.json",
+      "linha": 61,
+      "local": "json: secoes_com_z"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 476954,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_z_acima_de_4": {
+     "valor": 13,
+     "fonte": {
+      "arquivo": "resultados/F5_caudas.json",
+      "linha": 62,
+      "local": "json: acima_+4"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 13,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_z_abaixo_de_menos_4": {
+     "valor": 57,
+     "fonte": {
+      "arquivo": "resultados/F5_caudas.json",
+      "linha": 63,
+      "local": "json: abaixo_-4"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 57,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_sozinhas_no_local": {
+     "valor": 22170,
+     "fonte": {
+      "arquivo": "resultados/F5_caudas.json",
+      "linha": 58,
+      "local": "json: secoes_sozinhas_no_local"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 22170,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_p_fora": {
+     "valor": 81,
+     "fonte": {
+      "arquivo": "resultados/F5_caudas.json",
+      "linha": 60,
+      "local": "json: secoes_p_fora_0_1"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 81,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B11",
+   "bloco": "B",
+   "titulo_neutro": "Seções com branco mais nulo igual a zero no 2º turno, 2026",
+   "teste_de_origem": "T4 com o bweb do 2º turno (registro inicial e Adendo 6)",
+   "o_que_sustenta": "T4: 3.784 seções com branco e nulo zerado contra 5.440 esperadas (R0 0,70; calibrado 1,07): sem excesso",
+   "saida_principal": "zeros_observados",
+   "saidas": {
+    "secoes": {
+     "valor": 498538,
+     "fonte": {
+      "arquivo": "resultados/zeros_2026_2t.json",
+      "linha": 1,
+      "local": "json: secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 498538,
+      "bate_na_tolerancia": true
+     }
+    },
+    "zeros_observados": {
+     "valor": 3784,
+     "fonte": {
+      "arquivo": "resultados/zeros_2026_2t.json",
+      "linha": 1,
+      "local": "json: Z0_obs"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3784,
+      "bate_na_tolerancia": true
+     }
+    },
+    "zeros_esperados": {
+     "valor": 5440.32226714957,
+     "fonte": {
+      "arquivo": "resultados/zeros_2026_2t.json",
+      "linha": 1,
+      "local": "json: Z0_esp"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.001
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5440.32226714957,
+      "bate_na_tolerancia": true
+     }
+    },
+    "rho": {
+     "valor": 0.00040348166313715914,
+     "fonte": {
+      "arquivo": "resultados/zeros_2026_2t.json",
+      "linha": 1,
+      "local": "json: rho"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.01
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.00040348166313715914,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B12",
+   "bloco": "B",
+   "titulo_neutro": "Virada por modelo de urna dentro do local, 2026",
+   "teste_de_origem": "F4 do Adendo 20, modelo de urna",
+   "o_que_sustenta": "F4 INCONCLUSIVO por falta de poder (ep 0,155 e 0,152 contra limite de 0,15); virada igual em todos os modelos no mesmo local",
+   "saida_principal": "coef_UE2015",
+   "saidas": {
+    "secoes_UE2013": {
+     "valor": 12147,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 251,
+      "local": "json: aplicacao_ao_bweb/modelos_no_bweb_2t/UE2013"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 12147,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_UE2015": {
+     "valor": 87500,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 248,
+      "local": "json: aplicacao_ao_bweb/modelos_no_bweb_2t/UE2015"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 87500,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_UE2020": {
+     "valor": 200504,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 250,
+      "local": "json: aplicacao_ao_bweb/modelos_no_bweb_2t/UE2020"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 200504,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_UE2022": {
+     "valor": 198100,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 249,
+      "local": "json: aplicacao_ao_bweb/modelos_no_bweb_2t/UE2022"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 198100,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_sem_modelo": {
+     "valor": 954,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 252,
+      "local": "json: aplicacao_ao_bweb/modelos_no_bweb_2t/None"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 954,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_UE2015": {
+     "valor": -0.1387208113323692,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 295,
+      "local": "json: regressao_registrada/virada/coef/UE2015"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.015234408872923853
+     },
+     "ep_publicado": 0.15234408872923852,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.1387208113323721,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_UE2015": {
+     "valor": 0.15234408872923852,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 300,
+      "local": "json: regressao_registrada/virada/ep/UE2015"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.1523440887292434,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_UE2013": {
+     "valor": -0.10481770929663149,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 294,
+      "local": "json: regressao_registrada/virada/coef/UE2013"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.015522167250302095
+     },
+     "ep_publicado": 0.15522167250302094,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.10481770929663467,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_UE2013": {
+     "valor": 0.15522167250302094,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 299,
+      "local": "json: regressao_registrada/virada/ep/UE2013"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.15522167250302574,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_UE2022": {
+     "valor": 0.004047262198186151,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 296,
+      "local": "json: regressao_registrada/virada/coef/UE2022"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0021988501104589354
+     },
+     "ep_publicado": 0.021988501104589355,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.004047262198186129,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_UE2022": {
+     "valor": 0.021988501104589355,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 301,
+      "local": "json: regressao_registrada/virada/ep/UE2022"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.021988501104589334,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 476073,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 291,
+      "local": "json: regressao_registrada/virada/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 476073,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72504,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 292,
+      "local": "json: regressao_registrada/virada/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72504,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B13",
+   "bloco": "B",
+   "titulo_neutro": "Último dígito das contagens do 2º turno, 2026",
+   "teste_de_origem": "F2 do Adendo 20 item (a) e P3 do Adendo 26",
+   "o_que_sustenta": "Último dígito SEM SINAL: Lula no 2º turno com qui-quadrado 13,2 (p95 das simulações 44)",
+   "saida_principal": "qui2_L2",
+   "saidas": {
+    "qui2_L2": {
+     "valor": 13.172545360290306,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 847,
+      "local": "json: ultimo_digito/2026/2/L/qui2"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.01
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 13.172545360290306,
+      "bate_na_tolerancia": true
+     }
+    },
+    "contagens_L2": {
+     "valor": 482250,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 810,
+      "local": "json: ultimo_digito/2026/2/L/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 482250,
+      "bate_na_tolerancia": true
+     }
+    },
+    "qui2_R2": {
+     "valor": 71.48118794247296,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 896,
+      "local": "json: ultimo_digito/2026/2/R/qui2"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.01
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 71.48118794247296,
+      "bate_na_tolerancia": true
+     }
+    },
+    "contagens_R2": {
+     "valor": 449180,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 859,
+      "local": "json: ultimo_digito/2026/2/R/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 449180,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "B14",
+   "bloco": "B",
+   "titulo_neutro": "Seções com comparecimento muito alto e voto concentrado, 2026",
+   "teste_de_origem": "T28 (Adendo 9), observados",
+   "o_que_sustenta": "T28 SEM SINAL: 188 seções com comparecimento de 95% e Lula com 80% (O/E calibrado abaixo das referências)",
+   "saida_principal": "secoes_evento1",
+   "saidas": {
+    "secoes_universo_2t": {
+     "valor": 496405,
+     "fonte": {
+      "arquivo": "resultados/T28_bweb.txt",
+      "linha": 39,
+      "local": "texto: 2026_2T: boletins 499.205, menos_de_100_aptos 2.773, especiais 27, na_amostra 496.405"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 496405,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_evento1": {
+     "valor": 188,
+     "fonte": {
+      "arquivo": "resultados/T28_bweb.txt",
+      "linha": 56,
+      "local": "texto: 2026_2T                                esquerda>=80%           188"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 188,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_evento2": {
+     "valor": 23,
+     "fonte": {
+      "arquivo": "resultados/T28_bweb.txt",
+      "linha": 57,
+      "local": "texto: 2026_2T                                direita>=80%             23"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 23,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_evento3": {
+     "valor": 64,
+     "fonte": {
+      "arquivo": "resultados/T28_bweb.txt",
+      "linha": 64,
+      "local": "texto: 2026_aumento                           aumento>=15              64"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 64,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C01",
+   "bloco": "C",
+   "titulo_neutro": "Tamanho do bweb do 2º turno",
+   "teste_de_origem": "T15 (Adendo 9)",
+   "o_que_sustenta": "Os 499.207 boletins do 2º turno somam o oficial; aptos 158.745.079",
+   "saida_principal": "secoes",
+   "saidas": {
+    "linhas": {
+     "valor": 2088107,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 31,
+      "local": "texto: bweb do 2º turno: 28 arquivos (27 UFs e exterior, hash conferido antes), 2.088.107 linhas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2088107,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes": {
+     "valor": 499207,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 5,
+      "local": "json: seções/bweb_2t"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 499207,
+      "bate_na_tolerancia": true
+     }
+    },
+    "aptos": {
+     "valor": 158745079,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 63,
+      "local": "texto: aptos das seções apuradas: 158.745.079 e 158.745.079"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 158745079,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_so_com_cargo_menos_1": {
+     "valor": 2,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 8,
+      "local": "json: seções/bweb_sem_base_2t",
+      "derivado": "número de chaves listadas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C02",
+   "bloco": "C",
+   "titulo_neutro": "Seções pelo horário de encerramento no 2º turno",
+   "teste_de_origem": "L8 D1 do Adendo 18, prorrogação",
+   "o_que_sustenta": "A prorrogação não muda o resultado: sem as 8.845 seções fechadas depois das 17h15, Lula vence por 4,12 milhões",
+   "saida_principal": "secoes_T",
+   "saidas": {
+    "secoes_T": {
+     "valor": 8845,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 75,
+      "local": "json: D1_prorrogacao/2t/cortes/2/secoes_depois"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 8845,
+      "bate_na_tolerancia": true
+     }
+    },
+    "comparecimento_T": {
+     "valor": 2536441,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 76,
+      "local": "json: D1_prorrogacao/2t/cortes/2/comp_depois"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2536441,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_27ufs_sem_T": {
+     "valor": 4122786,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 81,
+      "local": "json: D1_prorrogacao/2t/cortes/2/margem_sem_essas_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4122786,
+      "bate_na_tolerancia": true
+     }
+    },
+    "fatia_L_em_T_pct": {
+     "valor": 55.698587435255405,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 79,
+      "local": "json: D1_prorrogacao/2t/cortes/2/L_pct_validos_depois"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 55.698587435255405,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C03",
+   "bloco": "C",
+   "titulo_neutro": "Virada das seções do grupo T contra as demais do mesmo local",
+   "teste_de_origem": "L8 E3 do Adendo 18",
+   "o_que_sustenta": "As seções mantidas abertas viraram igual às vizinhas do mesmo local: -0,04 (ep 0,04)",
+   "saida_principal": "coef",
+   "saidas": {
+    "coef": {
+     "valor": -0.04155877285229213,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 222,
+      "local": "json: D1_secao/a_so_tarde_2t/coef/tarde_2t"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0038310206247972774
+     },
+     "ep_publicado": 0.038310206247972774,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.04155877285229211,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.038310206247972774,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 225,
+      "local": "json: D1_secao/a_so_tarde_2t/ep/tarde_2t"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.038310206247972774,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 475801,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 219,
+      "local": "json: D1_secao/a_so_tarde_2t/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 475801,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72445,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 220,
+      "local": "json: D1_secao/a_so_tarde_2t/grupos"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72445,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C04",
+   "bloco": "C",
+   "titulo_neutro": "Distribuição da hora de recebimento dos boletins no 2º turno",
+   "teste_de_origem": "L8 V2 do Adendo 18, pausa no recebimento",
+   "o_que_sustenta": "A pausa existiu: nenhum boletim recebido entre 17:08:00 e 19:03:36",
+   "saida_principal": "recebidos_de_17h08m00_a_18h59m59",
+   "saidas": {
+    "recebidos_ate_17h07m59": {
+     "valor": 1868,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 367,
+      "local": "json: V2_pausa/2t/ate_17h07m59/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1868,
+      "bate_na_tolerancia": true
+     }
+    },
+    "recebidos_de_17h08m00_a_18h59m59": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 400,
+      "local": "json: V2_pausa/2t/de_17h08_a_18h59m59/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "primeiro_recebimento_depois_de_18h59m59": {
+     "valor": "19:03:37",
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 406,
+      "local": "json: V2_pausa/2t/primeiro_depois_de_18h59m59",
+      "derivado": "só a hora de \"25/10 19:03:37\""
+     },
+     "tolerancia": {
+      "tipo": "exato",
+      "regra": "texto identico (HH:MM:SS)"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": "19:03:37",
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C05",
+   "bloco": "C",
+   "titulo_neutro": "Os primeiros boletins recebidos no 2º turno",
+   "teste_de_origem": "L8 V2 do Adendo 18, parcial da pausa",
+   "o_que_sustenta": "Os 1.225 primeiros boletins dão Lula com 57,72% (o TSE divulgou 57,66%)",
+   "saida_principal": "fatia_13_pct",
+   "saidas": {
+    "fatia_13_pct": {
+     "valor": 57.71543324656006,
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 597,
+      "local": "json: V2_pausa/primeiros_1225_recebidos_2t/L_pct_validos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 57.71543324656006,
+      "bate_na_tolerancia": true
+     }
+    },
+    "hora_do_ultimo_delas": {
+     "valor": "17:06:22",
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 594,
+      "local": "json: V2_pausa/primeiros_1225_recebidos_2t/hora_do_1225o",
+      "derivado": "só a hora de \"25/10 17:06:22\""
+     },
+     "tolerancia": {
+      "tipo": "exato",
+      "regra": "texto identico (HH:MM:SS)"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": "17:06:22",
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C06",
+   "bloco": "C",
+   "titulo_neutro": "Instante em que o resultado fica matematicamente definido",
+   "teste_de_origem": "L8 D2 do Adendo 18",
+   "o_que_sustenta": "Resultado matematicamente definido às 21:08:26, antes do anúncio das 21h09",
+   "saida_principal": "hora_definicao",
+   "saidas": {
+    "hora_definicao": {
+     "valor": "21:08:26",
+     "fonte": {
+      "arquivo": "resultados/L8_dossie_eua.json",
+      "linha": 630,
+      "local": "json: D2_definicao/sem_olhar_o_futuro_aptos/hora",
+      "derivado": "só a hora de \"25/10 21:08:26\""
+     },
+     "tolerancia": {
+      "tipo": "exato",
+      "regra": "texto identico (HH:MM:SS)"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": "21:08:26",
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "C07",
+   "bloco": "C",
+   "titulo_neutro": "Coerência dos horários do boletim no 2º turno",
+   "teste_de_origem": "L1 do Adendo 18 (regras A, B e C) e T31 (juntas)",
+   "o_que_sustenta": "L1: nenhuma urna encerrou antes das 17h, nenhum boletim emitido antes do encerramento; os 604 recebidos \"antes\" da emissão se explicam por fuso (596 no exterior)",
+   "saida_principal": "secoes_regra_c",
+   "saidas": {
+    "secoes_de_junta": {
+     "valor": 29,
+     "fonte": {
+      "arquivo": "resultados/T31_bweb.txt",
+      "linha": 33,
+      "local": "texto: Seções com boletim de junta: 29, todas no exterior"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 29,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_de_junta_nas_27ufs": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T31_bweb.txt",
+      "linha": 33,
+      "local": "texto: Seções com boletim de junta: 29, todas no exterior",
+      "derivado": "\"todas no exterior\""
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_regra_a": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 149,
+      "local": "texto: 2º turno: A (encerramento antes das 17h) 0; B (emissão antes do encerramento) 0; C (recebimento antes da emissão) 604",
+      "derivado": "regra B da mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_regra_b": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 149,
+      "local": "texto: 2º turno: A (encerramento antes das 17h) 0; B (emissão antes do encerramento) 0; C (recebimento antes da emissão) 604",
+      "derivado": "regra A da mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_regra_c": {
+     "valor": 604,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 149,
+      "local": "texto: 2º turno: A (encerramento antes das 17h) 0; B (emissão antes do encerramento) 0; C (recebimento antes da emissão) 604"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 604,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_regra_c_exterior": {
+     "valor": 596,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 19,
+      "local": "texto: As outras 596 são do exterior"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 596,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D01",
+   "bloco": "D",
+   "titulo_neutro": "Total do campo de eleitores com biometria não habilitados por ela",
+   "teste_de_origem": "T21 (Adendo 9) parte (a)",
+   "o_que_sustenta": "Liberações sem biometria: 8,34 milhões no 1º turno e 8,63 milhões no 2º (+290 mil para +2,92 milhões de comparecimento)",
+   "saida_principal": "nh_2t_27ufs",
+   "saidas": {
+    "nh_1t_27ufs": {
+     "valor": 8342249,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 83,
+      "local": "json: a_totais/Brasil (27 UFs)/turno1/NH"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 8342249,
+      "bate_na_tolerancia": true
+     }
+    },
+    "nh_2t_27ufs": {
+     "valor": 8632488,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 90,
+      "local": "json: a_totais/Brasil (27 UFs)/turno2/NH"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 8632488,
+      "bate_na_tolerancia": true
+     }
+    },
+    "nh_2t_exterior": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 115,
+      "local": "json: a_totais/Exterior/turno2/NH"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D02",
+   "bloco": "D",
+   "titulo_neutro": "NH do 2º turno contra a proporção do 1º turno",
+   "teste_de_origem": "T21 (Adendo 9) parte (a); componente do T27",
+   "o_que_sustenta": "Excesso sobre a proporção do 1º turno: +95.224 (longe dos 400 mil do critério)",
+   "saida_principal": "diferenca",
+   "saidas": {
+    "diferenca": {
+     "valor": 95223.6961765252,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 100,
+      "local": "json: a_totais/Brasil (27 UFs)/excesso_sobre_proporcao_do_1t"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 1.0
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 95223.6961765252,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D03",
+   "bloco": "D",
+   "titulo_neutro": "Ganho de L contra as variações com e sem NH",
+   "teste_de_origem": "T21 (Adendo 9) parte (b)",
+   "o_que_sustenta": "Voto inserido por liberação sem biometria daria coeficiente perto de 1; deu 0,520 contra 0,522 (diferença -0,0016, ep 0,0016)",
+   "saida_principal": "coef_x_a",
+   "saidas": {
+    "coef_x_a": {
+     "valor": 0.5203426480793595,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 927,
+      "local": "json: b_regressoes/principal/coef/sem_biometria"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.01040685296158719
+     },
+     "ep_publicado": 0.00230382504210633,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.5203426480793595,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_x_a": {
+     "valor": 0.00230382504210633,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 931,
+      "local": "json: b_regressoes/principal/ep/sem_biometria"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.002303825042106321,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_x_b": {
+     "valor": 0.5219381067038616,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 928,
+      "local": "json: b_regressoes/principal/coef/com_biometria"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.010438762134077233
+     },
+     "ep_publicado": 0.0018462008558904131,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.5219381067038626,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_x_b": {
+     "valor": 0.0018462008558904131,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 932,
+      "local": "json: b_regressoes/principal/ep/com_biometria"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0018462008558904049,
+      "bate_na_tolerancia": true
+     }
+    },
+    "dif_a_menos_b": {
+     "valor": -0.001595458624502765,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 935,
+      "local": "json: b_regressoes/principal/diferenca_sem_menos_com/coef"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0007801671377160586,
+      "regra": "diferença pequena: até 0,5 erro-padrão"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.0015954586245031654,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_dif": {
+     "valor": 0.0015603342754321172,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 936,
+      "local": "json: b_regressoes/principal/diferenca_sem_menos_com/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0015603342754321172,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 924,
+      "local": "json: b_regressoes/principal/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 925,
+      "local": "json: b_regressoes/principal/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D04",
+   "bloco": "D",
+   "titulo_neutro": "Variação de NH contra a variação do comparecimento dentro do local",
+   "teste_de_origem": "T21 (Adendo 9), dentro do local",
+   "o_que_sustenta": "Dentro do local, NH por eleitor a mais = 0,0877 (ep 0,0017), contra fatia de 0,0666 no 1º turno",
+   "saida_principal": "coef",
+   "saidas": {
+    "coef": {
+     "valor": 0.08767674160449007,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 890,
+      "local": "json: a_dentro_do_local/coef"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0017535348320898015
+     },
+     "ep_publicado": 0.0017311723643245024,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.08767674160449015,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.0017311723643245024,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 891,
+      "local": "json: a_dentro_do_local/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0017311723643245046,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 477035,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 892,
+      "local": "json: a_dentro_do_local/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 477035,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72538,
+     "fonte": {
+      "arquivo": "resultados/T21_bweb.json",
+      "linha": 893,
+      "local": "json: a_dentro_do_local/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72538,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D05",
+   "bloco": "D",
+   "titulo_neutro": "Seções por faixa de NH no 2º turno",
+   "teste_de_origem": "C1 do Adendo 24 (reel das digitais órfãs)",
+   "o_que_sustenta": "A faixa de mais de 10% já era a única com Lula à frente no 1º turno (+655.464): diferença de nível, não de mudança",
+   "saida_principal": "secoes_C",
+   "saidas": {
+    "secoes_A": {
+     "valor": 175703,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 48,
+      "local": "json: C1_tabela/A/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 175703,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_B": {
+     "valor": 237829,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 67,
+      "local": "json: C1_tabela/B/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 237829,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_C": {
+     "valor": 84365,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 86,
+      "local": "json: C1_tabela/C/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 84365,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_L_1t_C": {
+     "valor": 655464,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 93,
+      "local": "json: C1_tabela/C/margem_Lula_1T"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 655464,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_L_2t_C": {
+     "valor": 1611687,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 94,
+      "local": "json: C1_tabela/C/margem_Lula_2T"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1611687,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_L_2t_A": {
+     "valor": 1027449,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 56,
+      "local": "json: C1_tabela/A/margem_Lula_2T"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1027449,
+      "bate_na_tolerancia": true
+     }
+    },
+    "margem_L_2t_B": {
+     "valor": 1762398,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 75,
+      "local": "json: C1_tabela/B/margem_Lula_2T"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1762398,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D06",
+   "bloco": "D",
+   "titulo_neutro": "Virada por faixa de NH dentro do local",
+   "teste_de_origem": "C1 do Adendo 24, regressão e placebo",
+   "o_que_sustenta": "Dentro do local a virada da faixa de mais de 10% ficou ABAIXO da de 0 a 5%: -0,117 (ep 0,011); placebo de nível +0,766",
+   "saida_principal": "coef_C",
+   "saidas": {
+    "coef_C": {
+     "valor": -0.11708487690043944,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 115,
+      "local": "json: C1_regressao/coef/C"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.002341697538008789
+     },
+     "ep_publicado": 0.01138780481448424,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.11708487690043948,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_C": {
+     "valor": 0.01138780481448424,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 119,
+      "local": "json: C1_regressao/ep/C"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.011387804814484235,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_B": {
+     "valor": -0.06166045443178079,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 114,
+      "local": "json: C1_regressao/coef/B"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0012332090886356159
+     },
+     "ep_publicado": 0.0071821602383424134,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.061660454431780774,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_B": {
+     "valor": 0.0071821602383424134,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 118,
+      "local": "json: C1_regressao/ep/B"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.007182160238342408,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 475803,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 111,
+      "local": "json: C1_regressao/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 475803,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72445,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 112,
+      "local": "json: C1_regressao/grupos"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72445,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_C_regressao2": {
+     "valor": 0.7664996203326321,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 149,
+      "local": "json: C1_robustez/placebo_y_fatia_Lula_1T/coef/C"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.015329992406652643
+     },
+     "ep_publicado": 0.024676415783736347,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.7664996203326322,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_C_regressao2": {
+     "valor": 0.024676415783736347,
+     "fonte": {
+      "arquivo": "resultados/C1_nivel_mudanca_biometria.json",
+      "linha": 153,
+      "local": "json: C1_robustez/placebo_y_fatia_Lula_1T/ep/C"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.02467641578373633,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D07",
+   "bloco": "D",
+   "titulo_neutro": "Seções com maior aumento de NH entre os turnos",
+   "teste_de_origem": "F6 do Adendo 20",
+   "o_que_sustenta": "F6 SEM SINAL: eleitor a mais sem biometria, -0,07 ponto (ep 0,03); o sinal pedia 2,0",
+   "saida_principal": "secoes_G",
+   "saidas": {
+    "corte": {
+     "valor": 4.672897196261682,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 31,
+      "local": "json: corte_x_pts"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4.672897196261682,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_topo": {
+     "valor": 4987,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 32,
+      "local": "json: top_1pct_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4987,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_G": {
+     "valor": 4427,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 33,
+      "local": "json: G_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4427,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef": {
+     "valor": -0.0715249332606564,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 40,
+      "local": "json: regressao_principal/coef/grupo"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0033753779566291194
+     },
+     "ep_publicado": 0.03375377956629119,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.07152493326065647,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.03375377956629119,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 43,
+      "local": "json: regressao_principal/ep/grupo"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.03375377956629119,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 475803,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 37,
+      "local": "json: regressao_principal/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 475803,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 72445,
+     "fonte": {
+      "arquivo": "resultados/F6_sem_biometria.json",
+      "linha": 38,
+      "local": "json: regressao_principal/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 72445,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "D08",
+   "bloco": "D",
+   "titulo_neutro": "Carga das urnas entre os turnos",
+   "teste_de_origem": "L2 e L1 do Adendo 18, carga",
+   "o_que_sustenta": "Carga coerente: 370 urnas recarregadas depois do 1º turno; 709 com carga na véspera (pegada do teste de integridade); 5 no dia, todas com troca de urna",
+   "saida_principal": "secoes_mesma_urna_carga_diferente",
+   "saidas": {
+    "secoes_mesma_urna": {
+     "valor": 494770,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.txt",
+      "linha": 166,
+      "local": "texto: Mesma urna nos dois turnos: 494.770 seções; código de carga diferente entre os turnos: 370"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 494770,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_mesma_urna_carga_diferente": {
+     "valor": 370,
+     "fonte": {
+      "arquivo": "resultados/L2_bweb.txt",
+      "linha": 166,
+      "local": "texto: Mesma urna nos dois turnos: 494.770 seções; código de carga diferente entre os turnos: 370",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 370,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_carga_em_24_10": {
+     "valor": 709,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 75,
+      "local": "texto: 709 têm carga na véspera (24/10) e 5 no próprio dia 25/10"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 709,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_carga_em_25_10": {
+     "valor": 5,
+     "fonte": {
+      "arquivo": "resultados/L1_horarios.txt",
+      "linha": 75,
+      "local": "texto: 709 têm carga na véspera (24/10) e 5 no próprio dia 25/10",
+      "derivado": "mesma fonte"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E01",
+   "bloco": "E",
+   "titulo_neutro": "Exterior contra seções das 27 UFs de composição parecida",
+   "teste_de_origem": "F19 do Adendo 23 (H1 da caça ao furo)",
+   "o_que_sustenta": "F19 INCONCLUSIVO: D = -0,65 (ep 0,16); direção da hipótese, 36% do desvio que viraria a eleição",
+   "saida_principal": "D",
+   "saidas": {
+    "D": {
+     "valor": -0.6486475152247274,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 134,
+      "local": "json: principal/D"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.016047231313931903
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.6486475152247273,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_bootstrap": {
+     "valor": 0.16047231313931903,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 135,
+      "local": "json: principal/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.15,
+      "regra": "bootstrap com outra semente: até 15%"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.15852517982493647,
+      "bate_na_tolerancia": true
+     }
+    },
+    "virada_X": {
+     "valor": 1.5485869128658136,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 145,
+      "local": "json: principal/virada_exterior"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.5485869128658136,
+      "bate_na_tolerancia": true
+     }
+    },
+    "virada_contrafactual": {
+     "valor": 2.197234428090541,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 146,
+      "local": "json: principal/virada_pares"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.01
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2.197234428090541,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_X": {
+     "valor": 1292,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 142,
+      "local": "json: principal/secoes_exterior"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1292,
+      "bate_na_tolerancia": true
+     }
+    },
+    "candidatas": {
+     "valor": 497741,
+     "fonte": {
+      "arquivo": "resultados/F19_exterior_pareado.json",
+      "linha": 157,
+      "local": "json: principal/candidatas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 497741,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E02",
+   "bloco": "E",
+   "titulo_neutro": "Branco e nulo de presidente contra o de governador, 2º turno",
+   "teste_de_origem": "T5 do 2º turno com o bweb (registro inicial e Adendo 14)",
+   "o_que_sustenta": "T5 INCONCLUSIVO pela letra: beta 0,328 entre 0,241 e 0,341; conversão de 52% do branco e nulo levaria a cerca de 0,15",
+   "saida_principal": "beta",
+   "saidas": {
+    "beta": {
+     "valor": 0.3281679718498922,
+     "fonte": {
+      "arquivo": "resultados/T5_2026_2t.json",
+      "linha": 1,
+      "local": "json: beta"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0065633594369978445
+     },
+     "ep_publicado": 0.004302081045017994,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.3281679718498922,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep": {
+     "valor": 0.004302081045017994,
+     "fonte": {
+      "arquivo": "resultados/T5_2026_2t.json",
+      "linha": 1,
+      "local": "json: beta_ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.004302081045017994,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n": {
+     "valor": 38483,
+     "fonte": {
+      "arquivo": "resultados/T5_2026_2t.json",
+      "linha": 1,
+      "local": "json: n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 38483,
+      "bate_na_tolerancia": true
+     }
+    },
+    "grupos": {
+     "valor": 5931,
+     "fonte": {
+      "arquivo": "resultados/T5_2026_2t.json",
+      "linha": 1,
+      "local": "json: locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5931,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E03",
+   "bloco": "E",
+   "titulo_neutro": "Razão entre branco e nulo de presidente e de governador nos dois turnos",
+   "teste_de_origem": "T39 com o bweb (descritivo)",
+   "o_que_sustenta": "A razão branco e nulo de presidente sobre o de governador subiu do 1º para o 2º turno (conversão só no presidente a baixaria)",
+   "saida_principal": "R2_sobre_R1",
+   "saidas": {
+    "R1": {
+     "valor": 0.4197734494485859,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 652,
+      "local": "json: T39/2026/todas/R1"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.41977344944858586,
+      "bate_na_tolerancia": true
+     }
+    },
+    "R2": {
+     "valor": 0.577565557473681,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 655,
+      "local": "json: T39/2026/todas/R2"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.577565557473681,
+      "bate_na_tolerancia": true
+     }
+    },
+    "R2_sobre_R1": {
+     "valor": 1.3758982571012308,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 658,
+      "local": "json: T39/2026/todas/R2_sobre_R1"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.001
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.375898257101231,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes": {
+     "valor": 39739,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 648,
+      "local": "json: T39/2026/todas/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 39739,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E04",
+   "bloco": "E",
+   "titulo_neutro": "Perda dos próprios votos: R a presidente contra um candidato a governador, 3 UFs",
+   "teste_de_origem": "T22b com o bweb (Adendo 14)",
+   "o_que_sustenta": "T22b SEM SINAL: D = +0,0130 (ep 0,0047); troca só no presidente puxaria D para -0,03",
+   "saida_principal": "D",
+   "saidas": {
+    "D": {
+     "valor": 0.0129661426667338,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 484,
+      "local": "json: T22b/D_proprio_Flavio_menos_aliado/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0004710281642921562
+     },
+     "ep_publicado": 0.004710281642921562,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.012966142666733814,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_D": {
+     "valor": 0.004710281642921562,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 485,
+      "local": "json: T22b/D_proprio_Flavio_menos_aliado/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.004710281642921562,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_proprio_presidente": {
+     "valor": -0.038063402078283175,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 457,
+      "local": "json: T22b/presidente_Flavio/proprio_1T/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0007612680415656635
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.038063402078283175,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_proprio_governador": {
+     "valor": -0.051029544745016975,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 479,
+      "local": "json: T22b/governador_aliado/proprio_1T/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0010205908949003394
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.05102954474501699,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes": {
+     "valor": 24970,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 436,
+      "local": "json: T22b/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 24970,
+      "bate_na_tolerancia": true
+     }
+    },
+    "linhas": {
+     "valor": 48392,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 437,
+      "local": "json: T22b/linhas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 48392,
+      "bate_na_tolerancia": true
+     }
+    },
+    "locais": {
+     "valor": 3246,
+     "fonte": {
+      "arquivo": "resultados/T22_bweb.json",
+      "linha": 438,
+      "local": "json: T22b/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3246,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E05",
+   "bloco": "E",
+   "titulo_neutro": "Perda dos próprios votos: R a presidente contra um candidato a governador, 5 UFs",
+   "teste_de_origem": "F20 do Adendo 23 (H2 da caça ao furo)",
+   "o_que_sustenta": "F20 INCONCLUSIVO pelo critério do T22b: D = +0,047, do lado contrário ao de uma troca só no presidente",
+   "saida_principal": "D",
+   "saidas": {
+    "D": {
+     "valor": 0.04662646638614103,
+     "fonte": {
+      "arquivo": "resultados/F20_governador_6ufs.json",
+      "linha": 148,
+      "local": "json: principal/observado/D_proprio_Flavio_menos_aliado/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0009325293277228205
+     },
+     "ep_publicado": 0.004945040858909805,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.04662646638614103,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_D": {
+     "valor": 0.004945040858909805,
+     "fonte": {
+      "arquivo": "resultados/F20_governador_6ufs.json",
+      "linha": 149,
+      "local": "json: principal/observado/D_proprio_Flavio_menos_aliado/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.004945040858909805,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes": {
+     "valor": 31624,
+     "fonte": {
+      "arquivo": "resultados/F20_governador_6ufs.json",
+      "linha": 100,
+      "local": "json: principal/observado/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 31624,
+      "bate_na_tolerancia": true
+     }
+    },
+    "linhas": {
+     "valor": 61098,
+     "fonte": {
+      "arquivo": "resultados/F20_governador_6ufs.json",
+      "linha": 101,
+      "local": "json: principal/observado/linhas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 61098,
+      "bate_na_tolerancia": true
+     }
+    },
+    "locais": {
+     "valor": 4540,
+     "fonte": {
+      "arquivo": "resultados/F20_governador_6ufs.json",
+      "linha": 102,
+      "local": "json: principal/observado/locais"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 4540,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "E06",
+   "bloco": "E",
+   "titulo_neutro": "Virada por UF em dois grupos de UFs",
+   "teste_de_origem": "L6 do Adendo 18 (grupo 1 = UFs com governador eleito pró-Flávio; grupo 2 = pró-Lula e neutros)",
+   "o_que_sustenta": "L6 INCOERÊNCIA pela letra: Lula virou mais onde o governador era de Flávio (+3,44 contra +1,95; diferença +1,48)",
+   "saida_principal": "diferenca",
+   "saidas": {
+    "media_grupo1": {
+     "valor": 3.4384700028524735,
+     "fonte": {
+      "arquivo": "resultados/L6_governadores.json",
+      "linha": 1051,
+      "local": "json: comparacoes/principal/media_pond_F"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3.4384700028524735,
+      "bate_na_tolerancia": true
+     }
+    },
+    "media_grupo2": {
+     "valor": 1.9540774329878814,
+     "fonte": {
+      "arquivo": "resultados/L6_governadores.json",
+      "linha": 1052,
+      "local": "json: comparacoes/principal/media_pond_outros"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.9540774329878814,
+      "bate_na_tolerancia": true
+     }
+    },
+    "diferenca": {
+     "valor": 1.4843925698645921,
+     "fonte": {
+      "arquivo": "resultados/L6_governadores.json",
+      "linha": 1053,
+      "local": "json: comparacoes/principal/dif_pond"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.4843925698645921,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F01",
+   "bloco": "F",
+   "titulo_neutro": "Seções por eleição, 2014 a 2026",
+   "teste_de_origem": "F21 do Adendo 23 (seções por ano e seções novas); T15 (aptos, referências)",
+   "o_que_sustenta": "37.986 seções novas de 2026 (pista aberta); aptos mudaram em número parecido em 2022",
+   "saida_principal": "secoes_2026_sem_chave_em_2022",
+   "saidas": {
+    "dois_turnos_2014": {
+     "valor": 428852,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 7,
+      "local": "json: secoes_com_dois_turnos/2014"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 428852,
+      "bate_na_tolerancia": true
+     }
+    },
+    "dois_turnos_2018": {
+     "valor": 454448,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 4,
+      "local": "json: secoes_com_dois_turnos/2018"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 454448,
+      "bate_na_tolerancia": true
+     }
+    },
+    "dois_turnos_2022": {
+     "valor": 472028,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 5,
+      "local": "json: secoes_com_dois_turnos/2022"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 472028,
+      "bate_na_tolerancia": true
+     }
+    },
+    "dois_turnos_2026": {
+     "valor": 499205,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 6,
+      "local": "json: secoes_com_dois_turnos/2026"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 499205,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2026_sem_chave_em_2022": {
+     "valor": 37986,
+     "fonte": {
+      "arquivo": "resultados/ADENDO23_resultados.txt",
+      "linha": 24,
+      "local": "texto: (Aécio contra Dilma no governo), o que sugere vantagem de quem governa; e as 37.986 seções novas de 2026"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 37986,
+      "bate_na_tolerancia": true
+     }
+    },
+    "aptos_diferentes_2022": {
+     "valor": 49710,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 103,
+      "local": "texto: Referências, aptos diferentes entre turnos na mesma seção: 2022 49.710 seções (72.306 em módulo, líquido +0); 2018 17.026"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 49710,
+      "bate_na_tolerancia": true
+     }
+    },
+    "aptos_diferentes_2018": {
+     "valor": 17026,
+     "fonte": {
+      "arquivo": "resultados/T15_bweb.txt",
+      "linha": 103,
+      "local": "texto: Referências, aptos diferentes entre turnos na mesma seção: 2022 49.710 seções (72.306 em módulo, líquido +0); 2018 17.026",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 17026,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F02",
+   "bloco": "F",
+   "titulo_neutro": "Ganho comparado com o total disponível na seção, 2018 e 2022",
+   "teste_de_origem": "T7, referências de 2018 e 2022 (Adendo 3)",
+   "o_que_sustenta": "Régua do T7: maior referência (a) 5,27% e (b) 1,09%, as duas de 2022",
+   "saida_principal": "pct_secoes_excesso_2022_R",
+   "saidas": {
+    "pct_secoes_excesso_2022_R": {
+     "valor": 5.268543391493725,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 89,
+      "local": "json: referencias/2022/T7_ganhador/pct_secoes_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5.268543391493725,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_ganho_em_excesso_2022_R": {
+     "valor": 1.0863316825083904,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 91,
+      "local": "json: referencias/2022/T7_ganhador/pct_ganho_em_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.0863316825083904,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_secoes_excesso_2018_L": {
+     "valor": 0.34195331479069113,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 11,
+      "local": "json: referencias/2018/T7_ganhador/pct_secoes_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.34195331479069113,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_ganho_em_excesso_2018_L": {
+     "valor": 0.02291845139807331,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 13,
+      "local": "json: referencias/2018/T7_ganhador/pct_ganho_em_excesso"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.02291845139807331,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F03",
+   "bloco": "F",
+   "titulo_neutro": "Regressão de ganho em 2018 e 2022, outros agregados",
+   "teste_de_origem": "T14, referências sem troca (Adendo 8)",
+   "o_que_sustenta": "Régua do T14: 2018 Haddad 0,0063 e 2022 Bolsonaro 0,0377; 2026 fica no nível de 2022",
+   "saida_principal": "coef_adversario_1T_2022_R",
+   "saidas": {
+    "coef_adversario_1T_2022_R": {
+     "valor": 0.03766056589836101,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 150,
+      "local": "json: referencias/2022/T8_ganhador_sem_grupos/coef/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0007532113179672202
+     },
+     "ep_publicado": 0.000606883540223545,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.037660565898361,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_2022_R": {
+     "valor": 0.000606883540223545,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 157,
+      "local": "json: referencias/2022/T8_ganhador_sem_grupos/ep/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0006068835402235446,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_2022": {
+     "valor": 448168,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 144,
+      "local": "json: referencias/2022/T8_ganhador_sem_grupos/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 448168,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_adversario_1T_2018_L": {
+     "valor": 0.006263623550178153,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 72,
+      "local": "json: referencias/2018/T8_ganhador_sem_grupos/coef/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.00012527247100356306
+     },
+     "ep_publicado": 0.0007084337693654118,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.006263623550177983,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_2018_L": {
+     "valor": 0.0007084337693654118,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 79,
+      "local": "json: referencias/2018/T8_ganhador_sem_grupos/ep/adversario_1T"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0007084337693654116,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_2018": {
+     "valor": 427547,
+     "fonte": {
+      "arquivo": "resultados/T7_T14_bweb.json",
+      "linha": 66,
+      "local": "json: referencias/2018/T8_ganhador_sem_grupos/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 427547,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F04",
+   "bloco": "F",
+   "titulo_neutro": "Estatística A do item B08 nas seções comuns às quatro eleições",
+   "teste_de_origem": "F21 do Adendo 23 (H4), série principal",
+   "o_que_sustenta": "F21 INCONSISTENTE com mecanismo repetido a favor do PT: só em 2026 a direita perdeu mais (A = -0,0151, raspando no limiar de 0,015)",
+   "saida_principal": "A_2026",
+   "saidas": {
+    "secoes_comuns": {
+     "valor": 331087,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 506,
+      "local": "json: serie_principal/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 331087,
+      "bate_na_tolerancia": true
+     }
+    },
+    "A_2014": {
+     "valor": -0.0010660623220847833,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 591,
+      "local": "json: A_serie_principal/2014/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0001490315602303863
+     },
+     "ep_publicado": 0.001490315602303863,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.0010660623220847892,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2014": {
+     "valor": 0.001490315602303863,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 592,
+      "local": "json: A_serie_principal/2014/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0014903156023038633,
+      "bate_na_tolerancia": true
+     }
+    },
+    "A_2018": {
+     "valor": 0.01106136099763667,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 676,
+      "local": "json: A_serie_principal/2018/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0002212272199527334
+     },
+     "ep_publicado": 0.0014314796798814008,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.011061360997636662,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2018": {
+     "valor": 0.0014314796798814008,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 677,
+      "local": "json: A_serie_principal/2018/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0014314796798814008,
+      "bate_na_tolerancia": true
+     }
+    },
+    "A_2022": {
+     "valor": 0.029321408955282315,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 761,
+      "local": "json: A_serie_principal/2022/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0005864281791056463
+     },
+     "ep_publicado": 0.0011973755191614721,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.029321408955282305,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2022": {
+     "valor": 0.0011973755191614721,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 762,
+      "local": "json: A_serie_principal/2022/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.001197375519161472,
+      "bate_na_tolerancia": true
+     }
+    },
+    "A_2026": {
+     "valor": -0.01507519108491634,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 846,
+      "local": "json: A_serie_principal/2026/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0003015038216983268
+     },
+     "ep_publicado": 0.0013735134719924276,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.01507519108491634,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2026": {
+     "valor": 0.0013735134719924276,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 847,
+      "local": "json: A_serie_principal/2026/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0013735134719924278,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F05",
+   "bloco": "F",
+   "titulo_neutro": "Estatística A do item B08 em 2018 e 2022 nas seções de 2026",
+   "teste_de_origem": "T35 com o bweb (Adendo 15), referências",
+   "o_que_sustenta": "T35: A de 2018 +0,022 e de 2022 +0,028 (direita mais fiel), contra -0,020 em 2026",
+   "saida_principal": "A_2022",
+   "saidas": {
+    "A_2022": {
+     "valor": 0.028139943551676695,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1360,
+      "local": "json: A_r2_universo_T35/2022/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0005627988710335339
+     },
+     "ep_publicado": 0.0007976985940170645,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.02813994355167654,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2022": {
+     "valor": 0.0007976985940170645,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1361,
+      "local": "json: A_r2_universo_T35/2022/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0007976985940170636,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2022": {
+     "valor": 461219,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1280,
+      "local": "json: A_r2_universo_T35/2022/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 461219,
+      "bate_na_tolerancia": true
+     }
+    },
+    "A_2018": {
+     "valor": 0.022040929901177793,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1275,
+      "local": "json: A_r2_universo_T35/2018/A/0"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.00044081859802355585
+     },
+     "ep_publicado": 0.0011037317144719423,
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.02204092990117755,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_A_2018": {
+     "valor": 0.0011037317144719423,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1276,
+      "local": "json: A_r2_universo_T35/2018/A/1"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.001103731714471939,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2018": {
+     "valor": 434876,
+     "fonte": {
+      "arquivo": "resultados/F21_serie_anos.json",
+      "linha": 1195,
+      "local": "json: A_r2_universo_T35/2018/secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 434876,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F06",
+   "bloco": "F",
+   "titulo_neutro": "Variação agregada da fatia do PT entre os turnos, 2014 a 2026",
+   "teste_de_origem": "P2 do Adendo 26, métrica (b)",
+   "o_que_sustenta": "Virada do PT entre os turnos: -3,71, +5,98, -1,95 e +2,80; 2014 é o oposto de 2026 na dinâmica",
+   "saida_principal": "var_2026",
+   "saidas": {
+    "var_2014": {
+     "valor": -3.7111264717185177,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 71,
+      "local": "json: metricas_por_ano/2014/b"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -3.7111264717185177,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2018": {
+     "valor": 5.981216491081797,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 135,
+      "local": "json: metricas_por_ano/2018/b"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5.981216491081797,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2022": {
+     "valor": -1.9535299258981231,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 199,
+      "local": "json: metricas_por_ano/2022/b"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -1.9535299258981231,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2026": {
+     "valor": 2.7993847847957607,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 263,
+      "local": "json: metricas_por_ano/2026/b"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 2.7993847847957607,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F07",
+   "bloco": "F",
+   "titulo_neutro": "Variação do comparecimento entre os turnos, 2014 a 2026",
+   "teste_de_origem": "P2 do Adendo 26, métrica (d)",
+   "o_que_sustenta": "Comparecimento entre turnos: -1,71, -0,97, +0,36 e +1,85 pontos dos aptos; a alta de 2026 é a maior da série",
+   "saida_principal": "var_2026",
+   "saidas": {
+    "var_2014": {
+     "valor": -1.7122010117998059,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 83,
+      "local": "json: metricas_por_ano/2014/d_pontos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -1.7122010117998188,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2018": {
+     "valor": -0.9733557504804224,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 147,
+      "local": "json: metricas_por_ano/2018/d_pontos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.9733557504804202,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2022": {
+     "valor": 0.36241051908413624,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 211,
+      "local": "json: metricas_por_ano/2022/d_pontos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.36241051908413313,
+      "bate_na_tolerancia": true
+     }
+    },
+    "var_2026": {
+     "valor": 1.8505365266940856,
+     "fonte": {
+      "arquivo": "resultados/P2_metricas_2014_2026.json",
+      "linha": 275,
+      "local": "json: metricas_por_ano/2026/d_pontos"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1.8505365266940799,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F08",
+   "bloco": "F",
+   "titulo_neutro": "Seções com comparecimento e fatia do PT muito altos no 2º turno, 2014 a 2026",
+   "teste_de_origem": "P3 do Adendo 26, canto do PT no 2º turno",
+   "o_que_sustenta": "Canto de enchimento: 2026 tem 117 seções, 1,75 vez a média dos outros anos, abaixo do limiar de 3 (o que pesa a favor da postagem)",
+   "saida_principal": "secoes_2026",
+   "saidas": {
+    "secoes_2014": {
+     "valor": 74,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 949,
+      "local": "json: canto/2014/2/canto_PT/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 74,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2018": {
+     "valor": 62,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 1015,
+      "local": "json: canto/2018/2/canto_PT/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 62,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2022": {
+     "valor": 44,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 1081,
+      "local": "json: canto/2022/2/canto_PT/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 44,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_2026": {
+     "valor": 117,
+     "fonte": {
+      "arquivo": "resultados/P3_pericia_4_anos.json",
+      "linha": 1147,
+      "local": "json: canto/2026/2/canto_PT/n"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 117,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "F09",
+   "bloco": "F",
+   "titulo_neutro": "A regressão do item B05 em 2018 e 2022",
+   "teste_de_origem": "V2 do Adendo 25, placebos",
+   "o_que_sustenta": "O gradiente de tamanho muda de sinal entre eleições: 2022 -1,00 e 2018 -0,84",
+   "saida_principal": "b_2022",
+   "saidas": {
+    "b_2022": {
+     "valor": -1.0041470907755374,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 494,
+      "local": "json: item5_placebos/2022/b"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.02008294181551075
+     },
+     "ep_publicado": 0.05897358776362084,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -1.004147090775537,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_2022": {
+     "valor": 0.05897358776362084,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 495,
+      "local": "json: item5_placebos/2022/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.05897358776362081,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_2022": {
+     "valor": 447228,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 497,
+      "local": "json: item5_placebos/2022/n_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 447228,
+      "bate_na_tolerancia": true
+     }
+    },
+    "b_2018": {
+     "valor": -0.8389978574494852,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 510,
+      "local": "json: item5_placebos/2018/b"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.016779957148989704
+     },
+     "ep_publicado": 0.060996362529123674,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.838997857449485,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_2018": {
+     "valor": 0.060996362529123674,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 511,
+      "local": "json: item5_placebos/2018/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.06099636252912368,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_2018": {
+     "valor": 426891,
+     "fonte": {
+      "arquivo": "resultados/V2_marca_por_urna.json",
+      "linha": 513,
+      "local": "json: item5_placebos/2018/n_secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 426891,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "G01",
+   "bloco": "G",
+   "titulo_neutro": "Votos para deputado federal no 1º turno, dois partidos",
+   "teste_de_origem": "L3 do Adendo 18, conferências",
+   "o_que_sustenta": "PL com 25.830.609 votos para deputado federal (22,64% dos válidos); base da medida de núcleo do PL",
+   "saida_principal": "votos_partido_22",
+   "saidas": {
+    "votos_partido_22": {
+     "valor": 25830609,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.txt",
+      "linha": 63,
+      "local": "texto: Totais de deputado federal no bweb: válidos 114.108.482 (nominal 110.670.045, legenda 3.438.437); PL 25.830.609"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 25830609,
+      "bate_na_tolerancia": true
+     }
+    },
+    "validos": {
+     "valor": 114108482,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.txt",
+      "linha": 63,
+      "local": "texto: Totais de deputado federal no bweb: válidos 114.108.482 (nominal 110.670.045, legenda 3.438.437); PL 25.830.609",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 114108482,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_partido_22": {
+     "valor": 22.636887764399496,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.txt",
+      "linha": 63,
+      "local": "texto: Totais de deputado federal no bweb: válidos 114.108.482 (nominal 110.670.045, legenda 3.438.437); PL 25.830.609",
+      "derivado": "25.830.609 / 114.108.482"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 22.636887764399496,
+      "bate_na_tolerancia": true
+     }
+    },
+    "votos_partido_13": {
+     "valor": 14798202,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.txt",
+      "linha": 63,
+      "local": "texto: Totais de deputado federal no bweb: válidos 114.108.482 (nominal 110.670.045, legenda 3.438.437); PL 25.830.609",
+      "derivado": "pt_nom + pt_leg de L3_bweb.json, totais_deputado_federal_universo (13.788.297 + 1.009.905)"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 14798202,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "G02",
+   "bloco": "G",
+   "titulo_neutro": "Regressão de ganho de R por quintil da força do partido 22 na seção",
+   "teste_de_origem": "L3 do Adendo 18, núcleo do PL",
+   "o_que_sustenta": "L3 COERENTE: Flávio perdeu 8,1% dos próprios onde o PL é fraco e 2,9% no núcleo",
+   "saida_principal": "coef_proprio_1T_q5",
+   "saidas": {
+    "corte_p20": {
+     "valor": 0.08875739644970414,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8391,
+      "local": "json: cortes/PL/0"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 5e-05
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.08875739644970414,
+      "bate_na_tolerancia": true
+     }
+    },
+    "corte_p80": {
+     "valor": 0.34444444444444444,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8394,
+      "local": "json: cortes/PL/3"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 5e-05
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.34444444444444444,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_proprio_1T_q1": {
+     "valor": -0.08121639049795754,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8439,
+      "local": "json: principal/Flavio_PL/quintis/0/P"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0016243278099591508
+     },
+     "ep_publicado": 0.002067315464737732,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.08121639049795766,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_q1": {
+     "valor": 0.002067315464737732,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8440,
+      "local": "json: principal/Flavio_PL/quintis/0/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.002067315464737734,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_q1": {
+     "valor": 86171,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8437,
+      "local": "json: principal/Flavio_PL/quintis/0/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 86171,
+      "bate_na_tolerancia": true
+     }
+    },
+    "coef_proprio_1T_q5": {
+     "valor": -0.02926879597279391,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8611,
+      "local": "json: principal/Flavio_PL/quintis/4/P"
+     },
+     "tolerancia": {
+      "tipo": "coeficiente",
+      "regra": "|dif| <= max(2% do valor; 0,1 erro-padrao)",
+      "limite": 0.0005853759194558783
+     },
+     "ep_publicado": 0.0012081241193443886,
+     "conferencia_do_preparador": {
+      "valor_recalculado": -0.029268795972794005,
+      "bate_na_tolerancia": true
+     }
+    },
+    "ep_q5": {
+     "valor": 0.0012081241193443886,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8612,
+      "local": "json: principal/Flavio_PL/quintis/4/ep"
+     },
+     "tolerancia": {
+      "tipo": "relativa",
+      "fracao": 0.05,
+      "regra": "erro-padrao: ate 5% do valor"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.0012081241193443897,
+      "bate_na_tolerancia": true
+     }
+    },
+    "n_q5": {
+     "valor": 93573,
+     "fonte": {
+      "arquivo": "resultados/L3_bweb.json",
+      "linha": 8609,
+      "local": "json: principal/Flavio_PL/quintis/4/n_informativas"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 93573,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "H01",
+   "bloco": "H",
+   "titulo_neutro": "Votos no log contra o boletim, amostra do 2º turno",
+   "teste_de_origem": "T3 e T10 nos logs das 3.897 seções (Adendos 1 e 9); votos depois das 17h (README seção 4)",
+   "o_que_sustenta": "T3: zero anomalias em 3.897 logs (nenhum voto sem habilitação); T10: mesma versão em todas as urnas; prorrogação: 0,026% dos votos a partir das 17h",
+   "saida_principal": "secoes_votos_log_diferente_do_boletim",
+   "saidas": {
+    "secoes_com_boletim_e_log": {
+     "valor": 3897,
+     "fonte": {
+      "arquivo": "resultados/T2_T3_amostra_inteira.txt",
+      "linha": 5,
+      "local": "texto: T3 turno 2: secoes 3897"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3897,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_votos_log_diferente_do_boletim": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T2_T3_amostra_inteira.txt",
+      "linha": 5,
+      "local": "texto: T3 turno 2: secoes 3897",
+      "derivado": "'A1_dif_comp': 0 na mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_com_voto_sem_habilitacao": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T2_T3_amostra_inteira.txt",
+      "linha": 5,
+      "local": "texto: T3 turno 2: secoes 3897",
+      "derivado": "'A3_sem_habilitacao': 0 na mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "versoes_distintas": {
+     "valor": 1,
+     "fonte": {
+      "arquivo": "resultados/T10_software_amostra_inteira.txt",
+      "linha": 2,
+      "local": "texto: versoes do aplicativo: {'10.23.0.0 - Praia da Barra do Cahy': 3897}"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1,
+      "bate_na_tolerancia": true
+     }
+    },
+    "pct_votos_a_partir_das_17h": {
+     "valor": 0.026,
+     "fonte": {
+      "arquivo": "README.md",
+      "linha": 99,
+      "local": "texto: 0,026% dos votos a partir das 17h"
+     },
+     "tolerancia": {
+      "tipo": "absoluta",
+      "limite": 0.0005
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0.025832576974097604,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_com_voto_a_partir_das_17h": {
+     "valor": 225,
+     "fonte": {
+      "arquivo": "README.md",
+      "linha": 134,
+      "local": "texto: (225 a partir das 17h locais)"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 225,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "H02",
+   "bloco": "H",
+   "titulo_neutro": "Habilitações com e sem a marca de biometria no log, dois turnos",
+   "teste_de_origem": "T9 nos logs da amostra inteira (Adendo 2)",
+   "o_que_sustenta": "T9 sem sinal: fração biométrica igual nos dois turnos (87,8% e 87,6%)",
+   "saida_principal": "bio_2t",
+   "saidas": {
+    "secoes": {
+     "valor": 3873,
+     "fonte": {
+      "arquivo": "resultados/T9_biometria_amostra_inteira.json",
+      "linha": 2,
+      "local": "json: secoes"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3873,
+      "bate_na_tolerancia": true
+     }
+    },
+    "hab_1t": {
+     "valor": 975952,
+     "fonte": {
+      "arquivo": "resultados/T9_biometria_amostra_inteira.json",
+      "linha": 4,
+      "local": "json: totais/hab1"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 975952,
+      "bate_na_tolerancia": true
+     }
+    },
+    "bio_1t": {
+     "valor": 856548,
+     "fonte": {
+      "arquivo": "resultados/T9_biometria_amostra_inteira.json",
+      "linha": 5,
+      "local": "json: totais/bio1"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 856548,
+      "bate_na_tolerancia": true
+     }
+    },
+    "hab_2t": {
+     "valor": 996603,
+     "fonte": {
+      "arquivo": "resultados/T9_biometria_amostra_inteira.json",
+      "linha": 6,
+      "local": "json: totais/hab2"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 996603,
+      "bate_na_tolerancia": true
+     }
+    },
+    "bio_2t": {
+     "valor": 872616,
+     "fonte": {
+      "arquivo": "resultados/T9_biometria_amostra_inteira.json",
+      "linha": 7,
+      "local": "json: totais/bio2"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 872616,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "H03",
+   "bloco": "H",
+   "titulo_neutro": "Registro digital do voto contra o boletim, amostra do 2º turno",
+   "teste_de_origem": "T2 (RDV contra boletim) e T19 (nulos no RDV), 835 seções",
+   "o_que_sustenta": "RDV igual ao boletim em 835 de 835; nenhum nulo digitado 13 ou 22 (sinal forte ausente)",
+   "saida_principal": "secoes_com_diferenca",
+   "saidas": {
+    "secoes_com_rdv": {
+     "valor": 835,
+     "fonte": {
+      "arquivo": "resultados/T2_T3_amostra_inteira.txt",
+      "linha": 3,
+      "local": "texto: T2 turno 2: secoes 835, com diferenca 0"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 835,
+      "bate_na_tolerancia": true
+     }
+    },
+    "secoes_com_diferenca": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/T2_T3_amostra_inteira.txt",
+      "linha": 3,
+      "local": "texto: T2 turno 2: secoes 835, com diferenca 0",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    },
+    "nulos_com_digitos": {
+     "valor": 5087,
+     "fonte": {
+      "arquivo": "resultados/ADENDO9_resultados_amostra.txt",
+      "linha": 40,
+      "local": "texto: (a) 5.087 nulos de presidente com dígitos: nenhum digitado 13 ou 22"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 5087,
+      "bate_na_tolerancia": true
+     }
+    },
+    "nulos_digitados_13_ou_22": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/ADENDO9_resultados_amostra.txt",
+      "linha": 40,
+      "local": "texto: (a) 5.087 nulos de presidente com dígitos: nenhum digitado 13 ou 22",
+      "derivado": "mesma linha"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  },
+  {
+   "id": "H04",
+   "bloco": "H",
+   "titulo_neutro": "Modelo de urna declarado nos logs da amostra",
+   "teste_de_origem": "F4 do Adendo 20, mapa de modelos pelos logs",
+   "o_que_sustenta": "Faixas de número de urna limpas (pureza de 100%): o modelo sai do número da urna",
+   "saida_principal": "urnas_UE2022",
+   "saidas": {
+    "urnas_distintas": {
+     "valor": 3948,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 4,
+      "local": "json: mapa/urnas_distintas_nos_logs"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 3948,
+      "bate_na_tolerancia": true
+     }
+    },
+    "urnas_UE2013": {
+     "valor": 98,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 9,
+      "local": "json: mapa/modelos/UE2013"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 98,
+      "bate_na_tolerancia": true
+     }
+    },
+    "urnas_UE2015": {
+     "valor": 979,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 8,
+      "local": "json: mapa/modelos/UE2015"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 979,
+      "bate_na_tolerancia": true
+     }
+    },
+    "urnas_UE2020": {
+     "valor": 1288,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 7,
+      "local": "json: mapa/modelos/UE2020"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1288,
+      "bate_na_tolerancia": true
+     }
+    },
+    "urnas_UE2022": {
+     "valor": 1583,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.json",
+      "linha": 6,
+      "local": "json: mapa/modelos/UE2022"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 1583,
+      "bate_na_tolerancia": true
+     }
+    },
+    "urnas_com_mais_de_um_modelo": {
+     "valor": 0,
+     "fonte": {
+      "arquivo": "resultados/F4_modelo_urna.txt",
+      "linha": 11,
+      "local": "texto: conflitos (mais de um modelo para o mesmo número): 0"
+     },
+     "tolerancia": {
+      "tipo": "exato"
+     },
+     "conferencia_do_preparador": {
+      "valor_recalculado": 0,
+      "bate_na_tolerancia": true
+     }
+    }
+   }
+  }
+ ],
+ "conferencia_do_preparador": {
+  "metodo": "Todas as 307 saídas dos 60 itens foram recalculadas pelo preparador com código próprio, escrito a partir do texto das specs (trabalho/recalcula.py, com MQO de efeito fixo próprio em trabalho/meu.py e leitura própria dos zips do bweb em trabalho/extrai.py; não usa scripts/lib.py nem os scripts analisar_*.py). Para boletim e RDV da amostra foi usado scripts/decodificar.py, que é ferramenta de leitura.",
+  "resultado": {
+   "saidas": 307,
+   "saidas_que_batem": 307,
+   "saidas_que_nao_batem": []
+  },
+  "sorteio_de_5_itens": {
+   "semente": 20261109,
+   "regra": "random.Random(20261109).sample(lista de ids na ordem do arquivo, 5)",
+   "itens": [
+    "A04",
+    "B02",
+    "B09",
+    "D01",
+    "E01"
+   ],
+   "resultado": {
+    "A04": true,
+    "B02": true,
+    "B09": true,
+    "D01": true,
+    "E01": true
+   }
+  }
+ }
+}
