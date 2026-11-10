@@ -1,0 +1,303 @@
+R27_B6 (Adendo 27, última onda): VIZINHO DE SALA (D4-5) E CAUDAS (F5 RECALIBRADO), COM O DESCRITIVO DA LINEARIDADE
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC) e Adendo 30 (commit a7218fb). Script: scripts/analisar_R27_B6.py.
+Docstring com as decisões gravado antes de qualquer conta com votos: /home/user/trabalho-eleicao/adendo27/R27_B6/docstring_antes_de_rodar.txt.
+O script com esse docstring entrou no repositório no commit 03fac40 (10/11/2026 13:23:32 UTC); a primeira conta com votos começou às 13:24:50 UTC.
+Depois disso mudaram só a função do exploratório, as funções de saída e três linhas do teto em votos (onde o plantio não move phi, o teto sai
+"sem limite" em vez de zero). As contas das partes A, B e C são as do commit; a parte A foi rodada duas vezes e deu os mesmos números.
+O desenho D4-5 é cego. O reteste do F5 foi escrito por quem já conhecia o resultado antigo. A parte C é descritiva, sem critério registrado.
+
+VEREDITOS PELA LETRA
+- A, D4-5 (troca aplicada só a parte das urnas de um mesmo local): SEM SINAL, com poder. phi de 2026 = 1,641; maior placebo = 1,985;
+  razão 0,827 (limite do sem sinal 1,15; do sinal 1,5); caudas 1,38 (faixa do sem sinal 0,67 a 1,5). O cenário de referência plantado
+  (dose inteira em 30% das urnas) multiplica phi por 2,30 e dá SINAL pela letra. O veredito depende só da comparação com 2014, 2018 e 2022.
+- B, F5 (caudas com z recalibrado): SEM PODER. Pela letra seria SEM SINAL (desvio para Flávio) (246 acima de +4 contra 624 abaixo de -4, razão 0,39),
+  mas o caso plantado (+5 pontos em 1.000 seções de 10 zonas) foi detectado em 0 de 20 sorteios: o critério não enxerga o que deveria enxergar.
+- C, linearidade: descritivo, sem veredito. Não apareceu regularidade maior que o acaso em nenhum ano; 2026 fica ao lado de 2022.
+Cláusulas com veredito nesta rodada: 2 (A e B). Sinais pela letra: 0. Com 2 cláusulas o acaso daria menos de 1 sinal.
+
+PARTE A. D4-5, DISPERSÃO DA PASSAGEM ENTRE TURNOS DENTRO DO MESMO LOCAL
+Universo: filtros do D4-1, locais com 4 ou mais seções válidas. Resíduo da equação de L2 (efeito fixo de local, peso 1/aptos, eliminados
+somados). phi = média de e2/v com k/(k-1); phi = 1 seria só o acaso binomial das transições. "Espelhada em R" = parte da dispersão de
+Lula que aparece com sinal trocado em Flávio (a marca de troca); "em abstenção" = a que aparece no comparecimento.
+  ano    seções   locais  dp do resíduo   phi (ep)         phi R2   phi BN2  phi A2   phi de troca  espelhada em R  em abstenção  em BN
+  2014   345.804  42.653   7,54 votos   1,985 (0,031)   1,993    1,168    1,991    1,207         60,8%         28,7%       10,5%
+  2018   374.810  45.458   6,92 votos   1,864 (0,017)   2,056    1,137    2,367    0,844         45,3%         29,0%       25,7%
+  2022   393.049  47.320   5,54 votos   1,574 (0,018)   1,710    1,050    2,452    0,565         35,9%         49,2%       14,7%
+  2026   420.440  50.629   5,58 votos   1,641 (0,015)   1,566    1,054    2,112    0,619         37,8%         50,8%       11,2%
+Primária: phi de 2026 = 1,641 (ep 0,015; n = 420.440 seções em 50.629 locais e 5.422 municípios).
+  Dividido pelo maior placebo (2014, 1,985): 0,827 (ep 0,015; IC 95% 0,799 a 0,856).
+  Contra cada ano: 2014: 0,827; 2018: 0,880; 2022: 1,042. Os placebos variam 1,26 vez entre si (limite 1,5).
+  Valor bruto de 2026, sem outro ano: phi 1,641, isto é, 64% acima do acaso binomial; resíduo de 5,58 votos por seção.
+Caudas (u = e/raiz(v phi_ref), phi_ref = 1,864; direita = Lula acima do previsto) e mistura de duas normais com variância comum:
+  ano    direita > 3      esquerda < -3     razão (IC 95%)        mistura: fração alta   separação (pontos dos válidos)   votos implicados
+  2014   0,187% (648)   0,162% (561)   1,16 (1,01 a 1,34)    0,29%                 7,76                            19.727 (fração fora de 5% a 95%: só isola a ponta)
+  2018   0,151% (567)   0,137% (515)   1,10 (0,97 a 1,27)    0,53%                 6,44                            30.523 (fração fora de 5% a 95%: só isola a ponta)
+  2022   0,058% (227)   0,053% (207)   1,10 (0,92 a 1,37)    0,18%                 5,61                            10.518 (fração fora de 5% a 95%: só isola a ponta)
+  2026   0,087% (366)   0,063% (265)   1,38 (1,18 a 1,63)    0,87%                 4,19                            39.270 (fração fora de 5% a 95%: só isola a ponta)
+  Mistura com variâncias livres em 2026: fração 13,9%, separação 0,29 ponto (duas larguras, sem dois grupos separados).
+Cláusulas em 2026: phi >= 1,5 x placebo: não; cauda de um lado 3 x a do outro: não; mistura com 2 pontos e fração de 5% a 95%: não; votos implicados >= 550 mil: não;
+  phi <= 1,15 x placebo: sim; caudas entre 0,67 e 1,5: sim. Pela letra: SEM SINAL.
+Espelho e controles, razão de 2026 sobre o maior placebo: equação de Flávio (R2) 0,76; branco e nulo 0,90; abstenção 0,86; phi de troca 0,51 (IC 95% 0,50 a 0,53); phi pela razão das somas 0,84; phi robusto 0,84.
+Variantes de 2026 (phi): sem seções agregadas 1,615; eliminados separados 1,651; com covariáveis de perfil 1,659 contra 1,641 no mesmo universo (13 seções sem perfil fora).
+  O perfil (idade, escolaridade, gênero) NÃO reduz a dispersão de 2026: a explicação inocente do desenho não é o que sustenta o phi acima de 1.
+  Coeficientes próprios de cada UF, phi: 2014 1,778; 2018 1,603; 2022 1,531; 2026 1,593; razão 0,896.
+  Locais com 2 ou mais seções, phi: 2014 2,106; 2018 2,032; 2022 1,721; 2026 1,783; razão 0,847.
+Placebo contemporâneo, que não depende de outro ano (governador nas mesmas urnas, mesmo dia, regressão dentro da UF):
+  AC: 1.528 seções; phi governador 1,465; phi presidente 1,433; razão 0,98; phi de troca governador 0,516, presidente 0,594
+  AM: 6.878 seções; phi governador 1,898; phi presidente 1,839; razão 0,97; phi de troca governador 0,936, presidente 0,553
+  DF: 6.671 seções; phi governador 1,718; phi presidente 1,368; razão 0,80; phi de troca governador 0,779, presidente 0,608
+  ES: 8.454 seções; phi governador 1,644; phi presidente 1,484; razão 0,90; phi de troca governador 0,959, presidente 0,587
+  RN: 6.864 seções; phi governador 1,476; phi presidente 1,452; razão 0,98; phi de troca governador 0,985, presidente 0,458
+  TO: 3.683 seções; phi governador 1,159; phi presidente 1,560; razão 1,35; phi de troca governador 0,637, presidente 0,503
+  6 UFs juntas: 34.078 seções; phi governador 1,616; phi presidente 1,532; razão 0,95; no phi de troca, razão 0,63.
+  Leitura escrita antes: 1,5 ou mais iria no sentido da tese; 1,15 ou menos, não. Só o TO fica entre os dois (e lá o phi de troca do presidente é menor que o do governador).
+phi por UF em 2026 (entre parênteses, a razão sobre o maior placebo da mesma UF): AC 1,68 (0,77); AL 2,06 (0,86); AM 2,19 (0,97); AP 2,22 (0,82); BA 2,07 (1,04); CE 2,03 (0,99); DF 1,30 (0,84); ES 1,53 (0,88); GO 1,31 (0,67); MA 2,10 (0,80); MG 1,58 (0,73); MS 1,51 (0,73); MT 1,46 (0,67); PA 1,97 (0,77); PB 1,96 (0,92); PE 1,97 (0,96); PI 2,20 (0,86); PR 1,33 (0,66); RJ 1,63 (0,86); RN 1,92 (0,91); RO 1,20 (0,49); RR 1,41 (0,49); RS 1,36 (0,71); SC 1,25 (0,63); SE 1,91 (0,89); SP 1,46 (0,82); TO 1,81 (0,84).
+  Nenhuma UF passa de 1,15; a maior razão é BA com 1,04.
+
+Calibração: troca plantada por cima de 2026 (dose inteira = 3,57% dos votos de Flávio do universo, em votos movidos)
+  dose   urnas   votos movidos   phi      fator   razão sobre placebo   caudas   fração alta   separação   votos implicados   espelhada em R   pela letra
+   1,00    10%    1.898.623   10,206   6,221      5,143             4,68       8,3%       16,87            1.508.052      91,2%       SINAL
+   0,50    10%      949.643    3,950   2,408      1,990            19,25       7,1%        9,17              701.520      76,0%       SINAL
+   0,25    10%      475.592    2,242   1,366      1,130            10,08       6,3%        5,14              347.197      56,0%       INCONCLUSIVO
+   1,00    30%    1.899.987    3,781   2,305      1,905             7,96      22,7%        5,78            1.408.451      76,4%       SINAL
+   0,50    30%      948.834    2,178   1,328      1,098             3,77      18,3%        3,32              653.184      56,7%       INCONCLUSIVO
+   0,25    30%      475.125    1,764   1,075      0,889             1,66       3,4%        3,25      fora de 5 a 95%      44,5%       INCONCLUSIVO
+   1,00    50%    1.899.809    2,483   1,514      1,251             2,26      37,5%        3,33            1.340.194      63,9%       INCONCLUSIVO
+   0,50    50%      950.401    1,845   1,124      0,929             1,80       5,0%        2,85              153.286      48,7%       INCONCLUSIVO
+   0,25    50%      474.293    1,680   1,024      0,846             1,48       1,2%        3,94      fora de 5 a 95%      41,5%       SEM SINAL
+   1,00    70%    1.899.663    1,944   1,185      0,980             1,31     100,0%       13,50      fora de 5 a 95%      54,1%       SEM SINAL
+   0,50    70%      950.111    1,702   1,037      0,857             1,41       1,2%        3,94      fora de 5 a 95%      44,1%       SEM SINAL
+   0,25    70%      475.338    1,639   0,999      0,826             1,23       1,0%        4,10      fora de 5 a 95%      40,0%       SEM SINAL
+   1,00    90%    1.901.196    1,642   1,001      0,827             1,24       0,4%        4,83      fora de 5 a 95%      45,7%       SEM SINAL
+   0,50    90%      949.013    1,613   0,983      0,813             1,43       0,7%        4,42      fora de 5 a 95%      41,0%       SEM SINAL
+   0,25    90%      474.018    1,616   0,985      0,814             1,26       0,8%        4,24      fora de 5 a 95%      39,2%       SEM SINAL
+   1,00   100%    1.900.673    1,536   0,936      0,774             1,34       0,8%        4,34      fora de 5 a 95%      41,9%       SEM SINAL
+  Por cima de 2022 (letra do desenho), fator: 1,0 dose em 10%: 6,85; 1,0 dose em 30%: 2,47; 1,0 dose em 50%: 1,59; 1,0 dose em 70%: 1,23; 1,0 dose em 90%: 1,01; 1,0 dose em 100%: 0,93; 0,5 dose em 30%: 1,40; 0,5 dose em 50%: 1,15.
+  Cenário de referência repetido com 5 sementes: fator 2,301, 2,273, 2,293, 2,301, 2,278; votos implicados pela mistura 1.411.663, 1.407.383, 1.391.999, 1.396.818, 1.405.807 (plantados 1.900.509: a mistura recupera cerca de 74%).
+  O que o SEM SINAL exclui (cenários que, plantados por cima de 2026, tiram o resultado do sem sinal): dose inteira em até 50% das urnas, meia dose em até 50%,
+  um quarto de dose em até 30%. O que NÃO exclui (continuaria SEM SINAL com a fraude plantada): dose inteira em 70% das urnas ou mais, meia dose em 70% ou mais,
+  um quarto de dose em 50% ou mais, e qualquer troca igual em todas as urnas. O desenho prometia excluir a dose inteira em até 70%: no dado real o alcance é até 50%.
+  (Meia dose em 50% e um quarto de dose em 30% saem do sem sinal só pela cláusula das caudas, que em 2026 já parte de 1,38; o fator de phi neles é menor que 1,15.)
+  Sinal pela letra só com: 1,00 dose em 10% das urnas; 0,50 dose em 10% das urnas; 1,00 dose em 30% das urnas.
+Espelho plantado (mesmos votos, de Lula para Flávio, 30% das urnas): phi 3,770 (fator 2,298); caudas 0,24; mistura 80,9% e 5,59 pontos; espelhada em R 78,3%; phi de troca vezes 4,77; pela letra SINAL.
+Explicação inocente I1 (mobilização desigual: faltosos que entram em 30% das seções, 2/3 para Lula): phi 3,722 (fator 2,269); caudas 5,12; mistura 24,5% e 5,45 pontos; espelhada em R -13,3%; phi de troca vezes -0,80; pela letra SINAL.
+Explicação inocente I2 (destino dos eleitores de eliminados conforme a idade da seção): phi 3,313 (fator 2,019); caudas 1,02; mistura 0,7% e 8,16 pontos; espelhada em R 68,1%; phi de troca vezes 3,64; pela letra INCONCLUSIVO.
+  Quanto as covariáveis de perfil absorvem da subida de phi: troca -2,2%; I1 -0,7%; I2 79,5%.
+  Leitura da calibração: o critério registrado NÃO separa troca em parte das urnas de mobilização desigual entre seções (I1 também daria SINAL). O que separa é a
+  parte espelhada em Flávio: sobe para cerca de 76% com a troca e cai abaixo de zero com a mobilização. Em 2026 ela é 37,8%, contra 35,9% em 2022.
+Tradução em votos de margem:
+  Mistura de 2026: 39.270 votos no universo (45.445 extrapolando ao país); margem 90.891 = 2,1% de 4.430.191. O limiar era 550 mil.
+  Teto lido inteiro a favor da tese: maior troca em parte das urnas cuja dispersão caberia na folga de phi, em % da margem (não é estimativa):
+  urnas atingidas   folga sobre o acaso binomial (phi - 1)   folga sobre 2022 (menor placebo)   sobre a mediana ou o maior placebo
+     10%                                      24,4%                                     6,1%       0,0%
+     30%                                      53,8%                                    17,1%       0,0%
+     50%                                      86,9%                                    27,4%       0,0%
+     70%                                     149,0%                                    46,2%       0,0%
+     90%             sem limite (o teste não enxerga)           sem limite (o teste não enxerga)       sem limite (o teste não enxerga)
+
+PARTE B. F5, CAUDAS COM z RECALIBRADO (previsão deixando a seção de fora; desvio robusto por faixa de tamanho)
+Base: 499.205 seções (exterior incluído); sozinhas no local 22.170; previsão fora de (0, n) 167; com z 476.868.
+Regressão do T8 reproduzida: diferença máxima dos coeficientes contra resultados/T7_T14_bweb.json = 2.7e-15.
+Desvio robusto de z por faixa de n: 1 a 49: 1,710 (mediana -0,499; 113 seções); 50 a 149: 0,878 (mediana -0,102; 11.844 seções); 150 a 299: 0,654 (mediana 0,002; 391.688 seções); 300 ou mais: 0,624 (mediana -0,014; 73.223 seções).
+Acima de +4: 246. Abaixo de -4: 624. Razão: 0,394 (ep do logaritmo 0,075). Nas 10 zonas com mais: 17,5% das de cima (198 zonas distintas; limiar 30%); no espelho 8,3%.
+  As 10 zonas com mais seções acima de +4: ZZ|1 16; AC|4 5; AC|3 4; AC|1 3; BA|123 3; BA|150 3; SC|44 3; AC|6 2; AC|8 2; AM|5 2 (ZZ|1 é o exterior inteiro).
+Margem movida pelas caudas: de cima 8.474 votos; de baixo -15.172; líquida -6.698 votos = -0,151% da margem nacional (a favor de Flávio).
+Classificação pela letra: SEM SINAL (desvio para Flávio).
+Sensibilidades escritas antes (acima / abaixo / razão):
+  só previsão entre 0,1 e 0,9: 186 / 203 / 0,92
+  faixas de tamanho cruzadas com faixas de previsão: 155 / 328 / 0,47
+  z em pontos (sem a fórmula binomial): 230 / 316 / 0,73
+  faixas por decis de n: 248 / 676 / 0,37
+  sem exterior: 230 / 617 / 0,37
+  n de 50 ou mais: 245 / 618 / 0,40
+  sem deixar a seção de fora: 138 / 242 / 0,57
+  z binomial sem recalibrar: 48 / 252 / 0,19
+  por faixa de previsão da fatia de Lula (acima/abaixo): 0,0-0,2: 73/4; 0,2-0,4: 40/14; 0,4-0,6: 27/16; 0,6-0,8: 37/46; 0,8-1,0: 69/544.
+  por faixa de n (acima/abaixo): 1-50: 1/6; 50-150: 44/199; 150-300: 179/392; 300-mais: 22/27.
+  O "desvio para Flávio" é efeito de borda: onde a previsão passa de 0,8 a fatia de Lula só pode errar para baixo (69 contra 544); onde fica abaixo de 0,2, só para cima (73 contra 4).
+  Longe das bordas as caudas são iguais (186 contra 203).
+Por UF (acima/abaixo): AC 19/10; AL 3/7; AM 13/20; AP 3/5; BA 25/113; CE 13/68; DF 0/0; ES 5/3; GO 6/2; MA 13/110; MG 10/27; MS 3/10; MT 5/2; PA 26/47; PB 6/19; PE 6/66; PI 4/44; PR 5/3; RJ 8/4; RN 2/13; RO 1/0; RR 7/2; RS 20/9; SC 16/2; SE 3/21; SP 8/10; TO 0/0; ZZ 16/7.
+Calibração, caso plantado (+5 pontos em 1.000 seções de 10 zonas, 20 sorteios): critério de sinal atingido em 0 de 20; em média 23,8 das 1.000 plantadas
+  passam de +4; razão média 0,42; 3,2 das 10 zonas plantadas aparecem entre as 10 primeiras; margem plantada 26.328 votos (0,59% da margem).
+  +10 pontos em 1.000 seções de 10 zonas: sinal em 0 de 5; plantadas além de +4: 364,6; razão média 0,83; margem plantada 54.681 votos.
+  +15 pontos em 1.000 seções de 10 zonas: sinal em 0 de 5; plantadas além de +4: 774,2; razão média 1,02; margem plantada 79.344 votos.
+  +5 pontos em 5.000 seções de 50 zonas: sinal em 0 de 5; plantadas além de +4: 111,2; razão média 0,50; margem plantada 130.592 votos.
+  +10 pontos em 5.000 seções de 50 zonas: sinal em 0 de 5; plantadas além de +4: 1.721,6; razão média 1,80; margem plantada 264.468 votos.
+  espelho (-5 pontos em 1.000 seções de 10 zonas): 21,2 plantadas além de -4; razão média 0,39.
+  Nenhum dos casos plantados dá SINAL: com 624 seções na cauda de baixo (efeito de borda), a razão de 1,3 exigiria 812 seções na cauda de cima (há 246),
+  e quando a razão passa (+10 pontos em 5.000 seções) a cláusula das 10 zonas falha. O critério do F5, mesmo recalibrado, não tem como acusar nem absolver.
+Caso plantado detectado: não. VEREDITO: SEM PODER.
+Das 30 de cima, 13 já tiveram boletim, RDV, log e assinatura conferidos no F5 original (sem sinal no arquivo); das 10 de baixo, 1.
+As 30 de maior z recalibrado e as 10 de menor (para auditoria; em local com 2 seções a previsão vem de uma única vizinha):
+  AM|2097|18|37          z    40,2 |   48,6 pontos | n  155 | 37/171 -> 84/71 | comp 231->190 | BN 15->35 | local com 2
+  AC|1554|3|100          z    37,8 |   31,7 pontos | n  160 | 68/110 -> 55/105 | comp 185->195 | BN 7->35 | local com 2
+  SC|81612|16|532        z    27,9 |   25,2 pontos | n   58 | 11/41 -> 15/43 | comp 57->58 | BN 1->0 | local com 2
+  PA|4723|80|314         z    14,2 |   11,4 pontos | n   59 | 7/51 -> 7/52 | comp 60->59 | BN 0->0 | local com 3
+  AM|2399|45|63          z    13,8 |   32,8 pontos | n  169 | 135/61 -> 167/2 | comp 227->197 | BN 19->28 | local com 2
+  AC|1139|7|67           z    13,1 |   57,7 pontos | n   66 | 35/59 -> 52/14 | comp 98->73 | BN 4->7 | local com 2 | agregada
+  PA|4405|18|511         z    12,9 |   16,7 pontos | n   76 | 11/62 -> 14/62 | comp 75->76 | BN 1->0 | local com 2
+  ZZ|30465|1|927         z    10,4 |    4,1 pontos | n  224 | 8/176 -> 11/213 | comp 194->227 | BN 5->3 | local com 2
+  ZZ|30473|1|1269        z     9,4 |   12,2 pontos | n  159 | 27/138 -> 30/129 | comp 175->160 | BN 2->1 | local com 5
+  RS|86460|58|190        z     9,2 |    9,4 pontos | n  151 | 16/127 -> 20/131 | comp 157->156 | BN 4->5 | local com 2
+  PR|77615|144|424       z     8,5 |   23,3 pontos | n   55 | 8/34 -> 16/39 | comp 52->55 | BN 1->0 | local com 3
+  AM|2615|5|176          z     7,8 |    6,6 pontos | n  333 | 310/16 -> 333/0 | comp 331->337 | BN 2->4 | local com 2
+  RJ|58513|54|134        z     7,6 |   14,6 pontos | n  181 | 65/198 -> 62/119 | comp 278->184 | BN 8->3 | local com 4
+  AM|2755|22|70          z     7,5 |   12,0 pontos | n  181 | 154/20 -> 180/1 | comp 183->184 | BN 3->3 | local com 2
+  MT|98191|27|50         z     7,4 |   10,0 pontos | n  141 | 13/126 -> 19/122 | comp 149->142 | BN 2->1 | local com 2
+  RS|86258|153|130       z     7,4 |   23,7 pontos | n   70 | 18/46 -> 24/46 | comp 76->74 | BN 4->4 | local com 2
+  ES|56375|15|145        z     7,3 |   10,0 pontos | n  167 | 22/137 -> 30/137 | comp 177->178 | BN 6->11 | local com 2 | agregada
+  RS|86819|65|230        z     6,9 |   18,3 pontos | n   62 | 11/47 -> 15/47 | comp 64->63 | BN 1->1 | local com 2
+  PR|76830|121|282       z     6,6 |   20,2 pontos | n   52 | 10/38 -> 14/38 | comp 53->53 | BN 1->1 | local com 6
+  RR|3042|7|99           z     6,6 |   10,4 pontos | n  162 | 33/169 -> 34/128 | comp 222->163 | BN 12->1 | local com 2
+  RS|98213|125|192       z     6,5 |   24,2 pontos | n   73 | 20/42 -> 29/44 | comp 70->73 | BN 0->0 | local com 6
+  PA|4715|34|436         z     6,4 |    8,5 pontos | n  200 | 25/166 -> 35/165 | comp 202->203 | BN 5->3 | local com 2
+  PA|5193|92|127         z     6,3 |    6,5 pontos | n  160 | 16/144 -> 17/143 | comp 163->161 | BN 3->1 | local com 3 | agregada
+  AC|1023|1|611          z     6,3 |   10,4 pontos | n  163 | 34/140 -> 36/127 | comp 188->171 | BN 5->8 | local com 2
+  PA|5452|53|244         z     6,2 |    2,5 pontos | n  163 | 1/156 -> 5/158 | comp 162->164 | BN 2->1 | local com 2
+  RS|86819|65|234        z     6,2 |   13,7 pontos | n   57 | 12/45 -> 10/47 | comp 60->57 | BN 0->0 | local com 5
+  MG|47970|99|61         z     6,1 |   13,2 pontos | n  200 | 64/118 -> 89/111 | comp 209->204 | BN 9->4 | local com 2
+  AC|1058|6|140          z     6,1 |   13,1 pontos | n  113 | 29/122 -> 23/90 | comp 157->117 | BN 3->4 | local com 2
+  SC|82678|25|134        z     5,9 |   15,9 pontos | n  114 | 21/84 -> 32/82 | comp 117->120 | BN 2->6 | local com 3
+  MT|90352|9|432         z     5,9 |    6,5 pontos | n  241 | 183/8 -> 239/2 | comp 209->242 | BN 12->1 | local com 3
+  CE|15598|24|693        z  -404,1 |  -21,6 pontos | n   51 | 37/12 -> 40/11 | comp 53->53 | BN 4->2 | local com 9
+  MA|7420|30|91          z   -92,4 |   -5,3 pontos | n  187 | 187/14 -> 177/10 | comp 215->191 | BN 12->4 | local com 3
+  MA|7510|68|243         z   -62,3 |   -8,4 pontos | n  130 | 115/10 -> 119/11 | comp 129->130 | BN 2->0 | local com 2
+  SE|31879|15|172        z   -50,8 |   -8,3 pontos | n  201 | 179/18 -> 184/17 | comp 204->203 | BN 4->2 | local com 2
+  PA|4413|12|447         z   -49,5 |  -11,8 pontos | n   76 | 70/7 -> 67/9 | comp 82->76 | BN 0->0 | local com 2
+  PE|24295|136|103       z   -34,1 |  -21,8 pontos | n   72 | 53/13 -> 56/16 | comp 71->73 | BN 1->1 | local com 4
+  PI|11754|43|3          z   -32,3 |   -4,6 pontos | n  215 | 202/4 -> 205/10 | comp 219->223 | BN 12->8 | local com 3
+  BA|34037|63|215        z   -24,3 |  -10,9 pontos | n   99 | 87/8 -> 88/11 | comp 101->101 | BN 3->2 | local com 2
+  PI|10979|57|87         z   -23,6 |   -5,6 pontos | n  155 | 146/7 -> 146/9 | comp 162->157 | BN 4->2 | local com 2
+  AC|1473|5|135          z   -22,7 |   -1,9 pontos | n  152 | 150/4 -> 149/3 | comp 159->161 | BN 5->9 | local com 2
+
+PARTE C. LINEARIDADE (descritivo): dispersão da virada por nível, em pontos da fatia de Lula (ou do PT) entre os dois finalistas
+"Sorteio novo" = teto do acaso (cada seção sorteada de novo com a virada da unidade de cima). "Regra única" = uma só regra nacional de transferência
+aplicada à composição de cada seção, mais o acaso. Razões são de variâncias.
+  ano   virada   fora dos finalistas no 1T   nível       observado   sorteio novo   regra única   obs/sorteio novo   obs/regra única
+  2014  -3,71     24,8%                    UF          4,13        0,76           6,13           29,30             0,46
+  2014  -3,71     24,8%                    município   2,77        0,81           3,24           11,73             0,73
+  2014  -3,71     24,8%                    local       2,78        1,38           3,50            4,07             0,63
+  2014  -3,71     24,8%                    seção       2,75        2,60           2,14            1,12             1,65
+        desvio simples entre as 27 UFs: 3,94 ponto (427.932 seções, 5.570 municípios, 94.189 locais)
+  2018  +5,98     24,7%                    UF          3,36        0,66           5,49           25,98             0,37
+  2018  +5,98     24,7%                    município   3,79        0,79           4,01           22,79             0,89
+  2018  +5,98     24,7%                    local       3,20        1,29           3,26            6,12             0,96
+  2018  +5,98     24,7%                    seção       2,65        2,65           2,17            1,00             1,49
+        desvio simples entre as 27 UFs: 3,32 ponto (453.698 seções, 5.570 municípios, 93.579 locais)
+  2022  -1,95      8,4%                    UF          0,55        0,24           1,53            5,10             0,13
+  2022  -1,95      8,4%                    município   0,70        0,36           1,23            3,89             0,33
+  2022  -1,95      8,4%                    local       1,12        1,21           1,11            0,85             1,01
+  2022  -1,95      8,4%                    seção       1,63        2,67           1,32            0,38             1,53
+        desvio simples entre as 27 UFs: 0,52 ponto (471.010 seções, 5.570 municípios, 92.361 locais)
+  2026  +2,80      7,8%                    UF          0,84        0,24           2,03           12,78             0,17
+  2026  +2,80      7,8%                    município   0,81        0,34           1,39            5,72             0,34
+  2026  +2,80      7,8%                    local       1,09        1,21           1,16            0,81             0,87
+  2026  +2,80      7,8%                    seção       1,72        2,70           1,44            0,41             1,42
+        desvio simples entre as 27 UFs: 0,67 ponto (497.897 seções, 5.571 municípios, 94.539 locais)
+Leitura (as frases de antes estão no docstring):
+  1. Entre UFs e entre municípios a virada de 2026 varia pouco em valor bruto (0,84 e 0,81 ponto), como em 2022 (0,55 e 0,70) e muito menos que em 2018 e 2014
+     (2,8 a 4,1). Em 2018 e 2014 um quarto dos votos do 1º turno estava fora dos finalistas; em 2022 e 2026, 8%.
+  2. Contra o acaso puro (sorteio novo), a variação entre UFs de 2026 é 12,8 vezes a do acaso, mais que em 2022 (5,1). As UFs não andaram juntas até o limite do acaso.
+  3. Contra a regra única, a razão entre UFs e entre municípios fica ABAIXO de 1 nos quatro anos (2026: 0,17 e 0,34; 2022: 0,13 e 0,33; 2018: 0,37 e 0,89;
+     2014: 0,46 e 0,73). A leitura escrita antes ("abaixo de 1 seria regularidade maior que o acaso") estava mal desenhada para esses níveis: a regra única não é
+     piso, porque soma ao acaso o efeito da composição, e a virada real varia menos entre lugares do que a composição faria prever, em todos os anos. A marca
+     registrada antes (perto de 1 em 2026 com os outros anos bem acima) não apareceu. 2026 e 2022 são parecidos; se isso for marca, é marca dos dois.
+  4. Dentro do local, onde a régua é limpa, a dispersão de 2026 está ACIMA do acaso (razão 1,42 contra a regra única; phi 1,64 na parte A), como nos outros anos.
+Locais regulares demais (T do local abaixo do quantil do qui-quadrado; observado contra simulado só com o acaso binomial das transições):
+  2014: 42.653 locais; abaixo do quantil de 1%: 0,21% (acaso 1,06%); de 5%: 1,20% (acaso 5,07%); acima do de 99%: 22,35% (acaso 1,00%).
+  2018: 45.458 locais; abaixo do quantil de 1%: 0,23% (acaso 0,99%); de 5%: 1,28% (acaso 4,96%); acima do de 99%: 19,47% (acaso 0,97%).
+  2022: 47.320 locais; abaixo do quantil de 1%: 0,34% (acaso 1,01%); de 5%: 1,83% (acaso 5,02%); acima do de 99%: 12,22% (acaso 1,00%).
+  2026: 50.629 locais; abaixo do quantil de 1%: 0,28% (acaso 0,90%); de 5%: 1,68% (acaso 4,88%); acima do de 99%: 14,35% (acaso 1,10%).
+  Em 2026 há MENOS locais regulares demais do que o acaso daria, em todas as UFs (a maior fração abaixo do quantil de 5% é SC, 3,9%, contra 5% do acaso).
+
+EXPLORATÓRIO (escrito e calculado DEPOIS de ver os resultados acima; pistas e réguas a mais, sem veredito)
+E0. Conferência interna: coeficientes iguais aos de lib.fe_ols (diferença máxima 2.8e-15); phi recalculado 1,6406.
+E1. Régua interna para a parte espelhada. Mesmo sem fraude e sem nenhuma heterogeneidade, o sorteio multinomial dá um "phi de troca" maior que zero.
+    ano    phi de troca   piso do acaso   excesso
+    2014   1,207          0,513           0,694
+    2018   0,844          0,393           0,452
+    2022   0,565          0,397           0,168
+    2026   0,619          0,451           0,169
+    O excesso de 2026 é igual ao de 2022 (0,169 contra 0,168) e muito menor que os de 2018 e 2014. Teto lendo TODO o excesso de 2026 como troca (sem
+    nenhuma heterogeneidade natural), em % da margem: 10% das urnas: 10,4%; 30% das urnas: 23,9%; 50% das urnas: 37,1%; 70% das urnas: 58,0%; 90% das urnas: 116,3%.
+    Descontando o excesso de 2022: 10%: 0,1%; 30%: 0,5%; 50%: 0,7%; 70%: 1,1%; 90%: 2,3%.
+E2. Anatomia das caudas da parte A (seções com Lula 3 desvios acima ou abaixo do previsto). Média do resíduo, em votos:
+    ano    cauda      seções   Lula     Flávio   branco e nulo   abstenção
+    2014   direita      648    +23,3    -12,0     -1,8            -9,5
+    2014   esquerda     561    -22,2    +10,5     +2,8            +8,9
+    2018   direita      567    +22,7     -7,5     -5,1           -10,1
+    2018   esquerda     515    -20,7     +6,7     +5,8            +8,3
+    2022   direita      227    +21,5     -2,5     -2,0           -17,0
+    2022   esquerda     207    -19,8     +3,9     +2,1           +13,8
+    2026   direita      366    +19,4     -5,7     -1,7           -12,0
+    2026   esquerda     265    -18,3     +3,9     +1,5           +12,8
+    Em 2026 a cauda direita (366 contra 265, razão 1,38, a maior dos quatro anos) tem como contrapartida a abstenção (-12,0 votos) mais que Flávio (-5,7):
+    são seções onde veio mais gente do que o previsto, não seções onde o voto de Flávio encolheu. Saldo de votos de Lula nas duas caudas: 2014 2.642; 2018 2.215; 2022 782; 2026 2.268.
+    Razão das caudas com outros limiares, 2026: 2,5 desvios 1,25 (1476 contra 1177); 4 desvios 1,11 (21 contra 19).
+    Por UF em 2026 (direita/esquerda): AC 1/0; AL 10/11; AM 16/15; AP 5/2; BA 53/45; CE 25/20; DF 2/1; ES 5/3; GO 3/2; MA 25/7; MG 25/8; MS 4/2; MT 6/1; PA 27/33; PB 13/15; PE 32/29; PI 12/16; PR 6/6; RJ 23/15; RN 6/3; RO 1/0; RR 0/0; RS 4/3; SC 7/1; SE 3/4; SP 50/21; TO 2/2.
+E3. Seções com a marca de troca nos dois lados ao mesmo tempo (Lula 3 desvios acima E Flávio 3 abaixo, na mesma seção), e o espelho:
+    2014: 108 a favor do PT e 83 contra; 2018: 42 a favor do PT e 35 contra; 2022: 4 a favor do PT e 1 contra; 2026: 9 a favor do PT e 4 contra.
+    Em 2026 são 9 em 420.440 seções (em 2014 eram 108). Lista para auditoria (resíduo de Lula e de Flávio em votos):
+      MT|98892|40|241      Lula +9,8, Flávio -12,9 | 5/60 -> 9/58 | comp 67->68 | BN 0->1 | local com 11
+      AM|2550|63|822       Lula +20,1, Flávio -25,9 | 113/147 -> 153/122 | comp 295->284 | BN 6->9 | local com 13
+      PA|4359|15|296       Lula +19,2, Flávio -21,2 | 87/150 -> 109/116 | comp 250->226 | BN 8->1 | local com 5
+      BA|33316|82|205      Lula +17,5, Flávio -19,4 | 147/110 -> 187/87 | comp 279->280 | BN 13->6 | local com 10
+      SC|80810|35|568      Lula +11,6, Flávio -12,7 | 31/84 -> 42/85 | comp 129->130 | BN 1->3 | local com 26
+      RS|98213|125|192     Lula +9,2, Flávio -10,3 | 20/42 -> 29/44 | comp 70->73 | BN 0->0 | local com 6
+      MG|53716|269|423     Lula +20,3, Flávio -18,8 | 141/126 -> 182/109 | comp 293->301 | BN 20->10 | local com 10
+      AM|2550|63|788       Lula +18,3, Flávio -19,4 | 116/135 -> 155/118 | comp 288->284 | BN 13->11 | local com 11
+      GO|92215|141|338     Lula +20,3, Flávio -21,2 | 85/160 -> 124/163 | comp 287->294 | BN 6->7 | local com 11
+    Espelho (Flávio acima e Lula abaixo): MG|42080|244|72 (104/55 -> 102/84); AM|2534|6|12 (159/120 -> 147/136); PA|4073|21|209 (67/133 -> 56/150); PR|76570|10|136 (113/116 -> 125/152).
+E4. Varredura por zona eleitoral (o que o F5 pela letra não enxerga). phi de troca por zona, 1513 zonas com 100 ou mais seções: mediana 0,62; percentil 99 1,06; máximo 1,23.
+    Com o caso plantado do F5 (+5 pontos em 100 seções de cada uma de 10 zonas, 5 sorteios), as zonas plantadas ficam com phi de troca de 1,60 a 3,63 e ocupam
+    as 10 primeiras posições em 5 de 5 sorteios. Com +3 pontos, 7, 7, 8, 8, 8 das 10 entram nas 10 primeiras.
+    No dado real nenhuma zona chega perto: a maior é SC|98 com 1,23. Não existe zona com a marca de +5 pontos em 100 das suas seções.
+    As 20 zonas de maior phi de troca em 2026 (entre parênteses, a mesma zona em 2022), para quem quiser auditar: SC|98 1,23 (0,89); PE|57 1,16 (0,53); SP|229 1,16 (0,48); MT|40 1,15 (0,46); AL|22 1,15 (0,63); AL|13 1,15 (0,51); SE|23 1,14 (0,54); PB|61 1,13 (0,61); PB|19 1,13 (0,52); MA|13 1,12 (0,79); RJ|148 1,10 (0,67); RJ|151 1,08 (0,85); PE|109 1,08 (0,64); MS|19 1,07 (0,99); CE|88 1,07 (0,87); CE|109 1,07 (0,59); SP|298 1,06 (0,65); RJ|88 1,05 (0,49); SP|289 1,04 (0,59); SC|14 1,04 (0,63).
+    Correlação do phi de troca por zona entre 2026 e 2022: 0,19 (1402 zonas). Zonas com 2026 acima do dobro de 2022 e acima de 1,5: 0.
+E5. Limite do teste da parte A: a mesma dose inteira aplicada a 30% dos LOCAIS inteiros dá fator 0,94; a 30% das ZONAS inteiras, 0,94.
+    O vizinho de sala só enxerga troca que atinja umas urnas e poupe outras DENTRO do mesmo prédio. Troca por prédio, zona ou UF inteira é assunto de B1, A3 e N3.
+
+O QUE PESA A FAVOR DA TESE (sem suavizar)
+- A cauda direita de 2026 (Lula acima do previsto) é 1,38 vez a esquerda, a maior assimetria dos quatro anos (1,10 a 1,16 nos outros); o intervalo de 95% (1,18 a 1,63) exclui 1
+  e contém o limite de 1,5 do registro. Está em SP (50 contra 21), MG (25 contra 8) e MA (25 contra 7). Em votos é pequeno: saldo de 2.268 votos.
+- phi de 2026 é 4,2% maior que o de 2022 (1,641 contra 1,574; diferença 0,066, ep 0,024, 2,8 erros-padrão). A razão registrada
+  fica em 0,83 porque o denominador é 2014, o ano mais disperso; contra 2022 seria 1,04, ainda abaixo de 1,15.
+- A dispersão de 2026 é 64% maior que o acaso binomial e o perfil do eleitorado não explica nada dela. Lida inteira a favor da tese, cabe ali uma troca em 30% das urnas
+  valendo até 54% da margem, ou em 50% das urnas valendo até 87%; pela parte espelhada (exploratório), 24% e 37%. Não são estimativas, são tetos.
+- O teste não exclui troca em 70% das urnas ou mais (com a dose inteira plantada em 70% o veredito continuaria SEM SINAL) e é cego para troca igual em todas
+  e para troca por prédio, zona ou UF inteira (fator 0,94 nos dois plantios).
+- O reteste do F5 não tem poder: pela letra não se pode dizer que não houve +5 pontos em 1.000 seções.
+- No TO o phi do presidente é 1,35 vez o do governador nas mesmas urnas (abaixo de 1,5; o phi de troca não acompanha).
+O QUE PESA CONTRA A TESE (sem suavizar)
+- Em nenhuma medida 2026 é mais disperso que o maior ano placebo: phi 0,83; equação de Flávio 0,76; phi de troca 0,51. Nenhuma UF passa de 1,15.
+- A troca plantada é vista: a dose inteira em 30% das urnas multiplica phi por 2,3 (5 sorteios, 2,27 a 2,30) e dá SINAL pela letra; em 10%, por 6,2.
+- A régua que não depende de outro ano vai no mesmo sentido: nas mesmas urnas, o phi do presidente é 0,95 do phi do governador, e o phi de troca, 0,63.
+- A parte da dispersão que espelha em Flávio é 37,8% em 2026 e 35,9% em 2022; o excesso sobre o acaso é igual nos dois anos (0,169 e 0,168). A troca plantada a leva a 76%.
+- As seções da cauda direita têm como contrapartida a abstenção, não o voto de Flávio: é o canal do comparecimento das Ondas A e B, não troca.
+- Seções com a marca de troca nos dois lados: 9 em 420 mil (4 no espelho). Nenhuma zona com aglomerado.
+- Se a marca de troca em parte das urnas existe em algum dos quatro anos, o ano que mais se parece com ela é 2014 (60,8% da dispersão espelhada no adversário,
+  excesso de 0,694 sobre o acaso, 108 seções com a marca nos dois lados), não 2026. Ressalva: em 2014 e 2018 um quarto dos eleitores votou em eliminados, e a divisão
+  deles entre os finalistas varia de seção para seção, o que produz dispersão espelhada sem fraude (é o mecanismo I2 da calibração).
+- Linearidade: dentro do local a dispersão está acima do acaso; há menos locais "regulares demais" do que o acaso daria; entre UFs a variação é 12,8 vezes a do acaso.
+
+PISTAS (para auditoria; nenhuma é indício pelas regras do Adendo 27)
+- As 9 seções de 2026 com Lula acima e Flávio abaixo ao mesmo tempo (lista em E3; duas na mesma zona de Manaus, AM|2550|63|822 e 788) e as 4 do espelho:
+  boletim, RDV, log e assinatura, e caderno de votação. Nenhuma está nas amostras de arquivos em disco; não baixei nada (há um download em curso no mesmo site).
+- As 366 seções da cauda direita da parte A (a assimetria vem de SP, MG e MA): o excesso de Lula ali vem com comparecimento acima do previsto. É o mesmo canal do N4;
+  o que decide é caderno de votação, não boletim.
+- As 30 seções de maior z do F5 recalibrado: 13 já tiveram os arquivos conferidos sem sinal; faltam 17 (todas em local com 2 ou 3 seções).
+- As 20 zonas de maior phi de troca (E4), começando por SC|98, PE|57, SP|229, MT|40, AL|22 e AL|13 (PE|57, SP|229, MT|40 e AL|13 mais que dobraram em relação a
+  2022, o que em parte é efeito de escolher as maiores). Em valor absoluto todas ficam abaixo de 1,25, longe do 1,6 a 3,6 do caso plantado.
+- TO: presidente mais disperso que governador nas mesmas urnas (1,35). Cruzar com o D4-3 (testemunhas na tela de governador, AC e TO).
+- 2014 é o ano em que a dispersão espelhada é maior. Para quem suspeita de 2014, é o lugar onde este teste teria mais a dizer, com a ressalva dos eliminados.
+
+DESVIOS DECLARADOS (decisões que o registro não fixa, tomadas no docstring antes de calcular)
+- Parte A: A1 (seções agregadas não excluídas, porque o campo estatistica não exclui e os outros anos não têm a marca; variante ao lado), A2 (regressão refeita no
+  universo restrito), A4 (phi como média de e2/v; razão das somas e versão robusta ao lado), A5 (bootstrap de municípios com coeficientes fixos), A6 (razão entre
+  caudas = direita sobre esquerda), A7 (mistura com variância comum, dado agrupado em classes de 0,02; conversão para pontos e votos), A8 (ordem do veredito),
+  A9 (regra do SEM PODER), A10 e A11 (plantios), A12 (parte espelhada e phi de troca, complementares), A13 (variantes), A14 (governador), A15 (tetos).
+- Parte B: B1 a B9; em especial B3 (quatro faixas de n), B6 (o que é "caso plantado" e "detectado": o critério inteiro em 16 de 20 sorteios) e B7.
+- Parte C inteira: sem critério registrado. Uma das leituras escritas antes (razão contra a regra única abaixo de 1 = regular demais) mostrou-se mal desenhada
+  para os níveis de UF, município e local, e isso é dito no texto em vez de ser corrigido em silêncio.
+- O desvio simples entre UFs sai 0,675 aqui e 0,69 no Adendo 29: lá entram todas as seções de cada turno; aqui, só as que têm os dois turnos, apuradas, no Brasil.
+- Exploratório (E0 a E5): tudo escrito depois de ver o resultado.

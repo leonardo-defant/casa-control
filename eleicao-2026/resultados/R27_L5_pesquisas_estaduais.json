@@ -1,0 +1,4291 @@
+{
+ "teste": "R27_L5: erro das pesquisas estaduais por UF e recorte por região",
+ "sha256_docstring": "8394f3affee455280a7361bd48ef396ecb41ec085ec7084d4c8f347b26542057",
+ "semente": 20261110,
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895), Adendo 28 (938be19) e Adendo 30 (a7218fb); fragilidade \"L5(a), F13 e F17\" de registro/adendo27/equipe_vermelha_relatorio.json",
+ "conferencias": {
+  "lula_2T": 64056078,
+  "flavio_2T": 59654544,
+  "validos_2T": 123710622,
+  "dif_max_coef_T16": 0.0,
+  "corr_coef_espelho": 0.05839234432093342,
+  "corr_coef_fatia_lula_1T": 0.8201480147662633,
+  "kappa": 59.05112904144106,
+  "media_ponderada_coef": 0.04572308851377231
+ },
+ "coleta": {
+  "descricao": "Coleta de pesquisas do teste R27_L5 (pesquisas estaduais e recorte por região), feita em 10/11/2026 com WebSearch e WebFetch e com o que já estava no repositório. Entrada de scripts/analisar_R27_L5.py. Percentuais como publicados. nivel: conferida (página aberta e número visto, ou já confirmada em resultados/estaduais_gov_pres_pesquisas_verificadas.txt), trecho (só resumo de busca ou manchete), tabela (segunda mão).",
+  "buscas_feitas": {
+   "segundo_turno_por_UF": "Uma busca ou mais por UF, com o nome do estado, presidente, 2º turno, Lula, Flávio e institutos: SP, MG (duas), BA, PE, RS, RJ, CE, PR (duas), SC, AM, RN, ES, MA, PI, GO, PA, PB, MT e MS (juntas), AL e SE (juntas), RO, RR e AP (juntas), DF, AC e TO (juntas). Mais buscas gerais por AtlasIntel, Quaest, Paraná Pesquisas e Real Time Big Data estaduais no 2º turno e as páginas da Wikipédia em português e em inglês de pesquisas presidenciais (sem tabela estadual).",
+   "resultado": "Pesquisa estadual de presidente com último dia de campo de 18 a 24/10/2026 só apareceu nas 6 UFs com 2º turno de governador. Nas outras 21 UFs as buscas só devolveram pesquisas anteriores ao 1º turno. As rodadas estaduais do Real Time Big Data de 15 a 19/10 (AM e RN conferidas) só trazem governador.",
+   "limites": "O buscador é restrito e devolve muita pesquisa antiga; ausência de resultado não prova que a pesquisa não existe. Poder360 e R7 não são acessíveis à ferramenta; Jornal Opção devolveu 403. O PesqEle do TSE não foi consultado (sem acesso por esta ferramenta)."
+  },
+  "parte_A_segundo_turno": [
+   {
+    "id": "A1",
+    "uf": "AC",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": 1191,
+    "amostra_publicada": true,
+    "lula_validos": 33.9,
+    "flavio_validos": 66.1,
+    "lula_total": 32.4,
+    "flavio_total": 63.3,
+    "registro": "AC-07723/2026 (Exame); a amostra aparece como 1.891 em outra página",
+    "url": "https://exame.com/brasil/pesquisa-atlas-mailza-assis-tem-604-e-alan-rick-396-no-2o-turno-no-acre/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A2",
+    "uf": "AM",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": 53.5,
+    "flavio_validos": 46.5,
+    "lula_total": 52.7,
+    "flavio_total": 45.9,
+    "registro": null,
+    "url": "https://exame.com/brasil/pesquisa-atlasintel-omar-aziz-tem-569-e-maria-do-carmo-431-no-amazonas/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A3",
+    "uf": "DF",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": 43.1,
+    "flavio_validos": 56.9,
+    "lula_total": 42.1,
+    "flavio_total": 55.7,
+    "registro": null,
+    "url": "https://www.metropoles.com/distrito-federal/flavio-tem-557-de-votos-no-df-contra-421-de-lula-aponta-atlasintel",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A4",
+    "uf": "ES",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": 41.5,
+    "flavio_validos": 58.5,
+    "lula_total": 40.7,
+    "flavio_total": 57.5,
+    "registro": null,
+    "url": "https://exame.com/brasil/pesquisa-atlasintel-pazolini-tem-512-e-ferraco-488-no-segundo-turno/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A5",
+    "uf": "RN",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": 63.0,
+    "flavio_validos": 37.0,
+    "lula_total": 61.7,
+    "flavio_total": 36.2,
+    "registro": null,
+    "url": "https://exame.com/brasil/pesquisa-atlasintel-cadu-tem-511-e-allyson-489-no-2o-turno-no-rn/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A6",
+    "uf": "TO",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": 47.6,
+    "flavio_validos": 52.4,
+    "lula_total": 47.1,
+    "flavio_total": 51.9,
+    "registro": null,
+    "url": "https://revistaforum.com.br/politica/lula-flavio-bolsonaro-tocantins-atlas/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)"
+   },
+   {
+    "id": "A7",
+    "uf": "TO",
+    "instituto": "Paraná Pesquisas",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": 1500,
+    "amostra_publicada": true,
+    "lula_validos": 43.0,
+    "flavio_validos": 57.0,
+    "lula_total": 41.0,
+    "flavio_total": 54.3,
+    "registro": "TO-02968/2026 e BR-05939/2026 (contratante Fieto)",
+    "url": "https://www.omelhordaamazonia.com.br/politica/flavio-vence-no-tocantins-com-vantagem-menor-que-a-prevista-em-pesquisa/",
+    "nivel": "conferida",
+    "historico_1T": null,
+    "nota": "Não achei pesquisa de presidente da Paraná Pesquisas com campo terminado de 04/09 a 03/10/2026 (as nacionais achadas são de dezembro de 2025 a março de 2026; a do Amapá é de março). Por P3 fica fora da principal e entra na sensibilidade S3."
+   },
+   {
+    "id": "A8",
+    "uf": "DF",
+    "instituto": "Quaest",
+    "campo_inicio": "2026-10-17",
+    "campo_fim": "2026-10-20",
+    "amostra": null,
+    "amostra_publicada": false,
+    "lula_validos": null,
+    "flavio_validos": null,
+    "lula_total": 39.0,
+    "flavio_total": 50.0,
+    "registro": "BR-03163/2026 (contratante TV Globo)",
+    "url": "https://jornaldebrasilia.com.br/brasilia/quaest-flavio-bolsonaro-tem-50-e-lula-39-no-df/",
+    "nivel": "conferida",
+    "historico_1T": "nacional (L5a)",
+    "nota": "Válidos não publicados pela Quaest; o Poder360 calculou 56,2 x 43,8. Campo começa em 17/10 e termina dentro da janela (entra na principal por P2 e sai na sensibilidade S1)."
+   }
+  ],
+  "parte_A_fora_da_janela_pos_1T": [
+   {
+    "uf": "AM",
+    "instituto": "Quaest",
+    "campo": "9 a 12/10/2026",
+    "lula_total": 47,
+    "flavio_total": 43,
+    "lula_validos": 52,
+    "flavio_validos": 48,
+    "url": "https://revistaforum.com.br/politica/quaest-lula-cresce-flavio-rn-amazonas/",
+    "nivel": "conferida"
+   },
+   {
+    "uf": "RN",
+    "instituto": "Quaest",
+    "campo": "9 a 12/10/2026",
+    "lula_total": 59,
+    "flavio_total": 33,
+    "lula_validos": 64,
+    "flavio_validos": 36,
+    "url": "https://revistaforum.com.br/politica/quaest-lula-cresce-flavio-rn-amazonas/",
+    "nivel": "conferida"
+   },
+   {
+    "uf": "AC",
+    "instituto": "Quaest",
+    "campo": "9 a 12/10/2026 (divulgada em 13/10)",
+    "lula_total": 28,
+    "flavio_total": 60,
+    "lula_validos": null,
+    "flavio_validos": null,
+    "url": null,
+    "fonte": "resumo de busca que cita a Quaest do Acre divulgada em 13/10; página do número de presidente não identificada",
+    "nivel": "trecho"
+   },
+   {
+    "uf": "DF",
+    "instituto": "Quaest",
+    "campo": "divulgada em 12/10/2026",
+    "lula_total": 40,
+    "flavio_total": 50,
+    "lula_validos": null,
+    "flavio_validos": null,
+    "url": "https://www.oliberal.com/politica/quaest-no-df-flavio-bolsonaro-tem-50-e-lula-40-no-2-turno-1.1181870",
+    "nivel": "trecho"
+   }
+  ],
+  "parte_B_recorte_regional_2T": [
+   {
+    "id": "B1",
+    "instituto": "Datafolha",
+    "campo_inicio": "2026-10-23",
+    "campo_fim": "2026-10-24",
+    "amostra": 4050,
+    "registro": "BR-09540/2026",
+    "base": "validos",
+    "regioes": {
+     "NE": {
+      "lula": 67,
+      "flavio": 33
+     },
+     "SE": {
+      "lula": 45,
+      "flavio": 55
+     },
+     "S": {
+      "lula": 35,
+      "flavio": 65
+     }
+    },
+    "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-datafolha-presidente-flavio-bolsonaro-lula-24-outubro-2026/",
+    "url2": "https://www.correiodamanha.com.br/politica/2026/10/amp/329650-datafolha-mostra-flavio-com-51-e-lula-com-49-na-vespera-da-eleicao.html",
+    "nivel": "conferida",
+    "nota": "Norte e Centro-Oeste não achados para esta rodada."
+   },
+   {
+    "id": "B2",
+    "instituto": "Nexus/BTG",
+    "campo_inicio": "2026-10-23",
+    "campo_fim": "2026-10-24",
+    "amostra": 2000,
+    "registro": null,
+    "base": "totais",
+    "regioes": {
+     "NE": {
+      "lula": 60.5,
+      "flavio": 33.1
+     },
+     "S": {
+      "lula": 34.2,
+      "flavio": 58.5
+     },
+     "SE": {
+      "lula": 42.1,
+      "flavio": 50.8
+     },
+     "N+CO": {
+      "lula": 43.7,
+      "flavio": 49.1
+     }
+    },
+    "url": "https://timesbrasil.com.br/brasil/decisao-2026-flavio-bolsonaro-tem-47-das-intencoes-de-voto-e-lula-aparece-com-46-aponta-pesquisa-nexus-btg/",
+    "nivel": "conferida",
+    "nota": "A matéria não diz a base; na rodada de 10 a 12/10 a Nexus informou que os recortes são sobre todos os entrevistados. Válidos = Lula / (Lula + Flávio)."
+   },
+   {
+    "id": "B3",
+    "instituto": "CNT/MDA",
+    "campo_inicio": "2026-10-21",
+    "campo_fim": "2026-10-23",
+    "amostra": 2032,
+    "registro": "BR-02136/2026",
+    "base": "validos",
+    "regioes": {
+     "NE": {
+      "lula": 67,
+      "flavio": 33
+     },
+     "S": {
+      "lula": 39,
+      "flavio": 61
+     }
+    },
+    "url": "https://exame.com/brasil/pesquisa-para-presidente-cnt-mda-flavio-bolsonaro-tem-507-e-lula-493-dos-votos-valdios/",
+    "nivel": "conferida",
+    "nota": "No Sul a matéria só dá Flávio 61% dos válidos; Lula 39% é o complemento."
+   },
+   {
+    "id": "B4",
+    "instituto": "AtlasIntel",
+    "campo_inicio": "2026-10-18",
+    "campo_fim": "2026-10-23",
+    "amostra": 4990,
+    "registro": "BR-06380/2026",
+    "base": "totais_um_lado",
+    "regioes": {
+     "NE": {
+      "lula": 62.3,
+      "flavio": null
+     },
+     "S": {
+      "lula": null,
+      "flavio": 60.3
+     },
+     "SE": {
+      "lula": null,
+      "flavio": 53.1
+     },
+     "N": {
+      "lula": null,
+      "flavio": 57.6
+     },
+     "CO": {
+      "lula": null,
+      "flavio": 62.1
+     }
+    },
+    "url": "https://www.bloomberglinea.com.br/brasil/flavio-bolsonaro-tem-508-dos-votos-validos-contra-492-de-lula-aponta-atlasintel/",
+    "nivel": "conferida",
+    "outros_nacional": 1.7,
+    "nota": "A matéria só dá o líder de cada região. Os recortes são sobre o total (homens 58,9 + 38,5 = 97,4; mulheres 99,0). O outro candidato é estimado como 100 menos o líder menos 1,7 (branco, nulo e indeciso do nacional), faixa de 1,0 a 2,6. Não cumpre B1 (Lula e Flávio publicados): entra só na sensibilidade."
+   }
+  ],
+  "parte_B_rodadas_anteriores": [
+   {
+    "instituto": "Datafolha",
+    "campo": "13 e 14/10/2026",
+    "amostra": 2520,
+    "registro": "BR-00466/2026",
+    "base": "validos",
+    "regioes": {
+     "NE": {
+      "lula": 66,
+      "flavio": 34
+     },
+     "SE": {
+      "lula": 44,
+      "flavio": 56
+     },
+     "S": {
+      "lula": 38,
+      "flavio": 62
+     },
+     "N+CO": {
+      "lula": 42,
+      "flavio": 58
+     }
+    },
+    "extra": {
+     "regioes_metropolitanas": {
+      "lula": 54,
+      "flavio": 46
+     },
+     "interior": {
+      "lula": 46,
+      "flavio": 54
+     }
+    },
+    "url": "https://brasil61.com/n/datafolha-flavio-bolsonaro-lidera-no-sul-sudeste-e-interior-lula-tem-vantagem-no-nordeste-e-nas-regioes-metropolitanas-bras2617297",
+    "nivel": "conferida"
+   },
+   {
+    "instituto": "Nexus/BTG",
+    "campo": "10 a 12/10/2026",
+    "amostra": 2002,
+    "registro": "BR-07997/2026",
+    "base": "totais",
+    "regioes": {
+     "NE": {
+      "lula": 61,
+      "flavio": 32
+     },
+     "SE": {
+      "lula": 41,
+      "flavio": 51
+     },
+     "S": {
+      "lula": 36,
+      "flavio": 57
+     },
+     "N+CO": {
+      "lula": 41,
+      "flavio": 56
+     }
+    },
+    "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/",
+    "nivel": "conferida"
+   },
+   {
+    "instituto": "Nexus/BTG",
+    "campo": "18 a 20/09/2026 (antes do 1º turno, cenário de 2º turno)",
+    "amostra": 2006,
+    "registro": "BR-00485/2026",
+    "base": "totais",
+    "regioes": {
+     "NE": {
+      "lula": 58,
+      "flavio": 35
+     },
+     "SE": {
+      "lula": 45,
+      "flavio": 46
+     },
+     "S": {
+      "lula": 30,
+      "flavio": 57
+     },
+     "N+CO": {
+      "lula": 43,
+      "flavio": 49
+     }
+    },
+    "regioes_1T_totais": {
+     "NE": {
+      "lula": 52,
+      "flavio": 30
+     },
+     "SE": {
+      "lula": 39,
+      "flavio": 39
+     },
+     "S": {
+      "lula": 27,
+      "flavio": 43
+     },
+     "N+CO": {
+      "lula": 34,
+      "flavio": 42
+     }
+    },
+    "url": "https://brasil61.com/n/eleicoes-2026-btg-nexus-aponta-lula-a-frente-no-nordeste-e-flavio-no-norte-centro-oeste-e-sul-bras2617151",
+    "nivel": "conferida",
+    "nota": "O 1º turno por região só traz Lula e Flávio (sem os demais nem branco e nulo): não dá para calcular válidos do 1º turno."
+   }
+  ],
+  "parte_B_espelho_1T": [
+   {
+    "instituto": "Datafolha",
+    "campo": "29/09 a 01/10/2026",
+    "amostra": 2506,
+    "registro": "BR-08039/2026",
+    "regioes_1T_validos": {
+     "NE": {
+      "lula": 61,
+      "flavio": 28
+     },
+     "S": {
+      "lula": 32,
+      "flavio": 55
+     }
+    },
+    "regioes_2T_hipotetico_totais": {
+     "NE": {
+      "lula": 62,
+      "flavio": 31
+     },
+     "S": {
+      "lula": 34,
+      "flavio": 59
+     }
+    },
+    "url": "https://brasil61.com/n/datafolha-lula-tem-mais-que-o-dobro-das-intencoes-de-votos-validos-que-flavio-no-nordeste-bras2617213",
+    "url2": "https://brasil61.com/n/datafolha-flavio-amplia-para-25-pontos-a-vantagem-contra-lula-no-sul-bras2617215",
+    "nivel": "conferida",
+    "nota": "Não é a última Datafolha do 1º turno (a de 2 e 3/10, 4.006 entrevistas, não teve recorte regional achado)."
+   },
+   {
+    "instituto": "Quaest",
+    "campo": "24 a 27/09/2026",
+    "amostra": 2004,
+    "registro": "BR-06520/2026",
+    "regioes_2T_hipotetico_totais": {
+     "NE": {
+      "lula": 58,
+      "flavio": null
+     },
+     "S": {
+      "lula": 29,
+      "flavio": 54
+     },
+     "SE": {
+      "lula": 37,
+      "flavio": 43
+     },
+     "CO": {
+      "lula": 29,
+      "flavio": 57
+     },
+     "N": {
+      "lula": 50,
+      "flavio": null
+     }
+    },
+    "url": "https://brasil61.com/n/quaest-no-recorte-regional-flavio-bolsonaro-pl-lidera-em-tres-regioes-em-eventual-2-turno-contra-lula-pt-bras2617183",
+    "nivel": "conferida",
+    "nota": "Sem Flávio no Nordeste: não dá para calcular válidos lá. Só descritivo."
+   }
+  ],
+  "parte_X_pre_1T_estaduais": [
+   {
+    "id": "X1",
+    "uf": "SP",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-24",
+    "campo_fim": "2026-09-28",
+    "amostra": 2000,
+    "registro": "BR-09891/2026",
+    "t1": {
+     "lula": 36,
+     "flavio": 43,
+     "outros": 15,
+     "bn": 3,
+     "ns": 3
+    },
+    "t2": {
+     "lula": 43,
+     "flavio": 51,
+     "bn": 3,
+     "ns": 3
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-em-sp-flavio-tem-51-no-2o-turno-lula-43/",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X2",
+    "uf": "RJ",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-25",
+    "campo_fim": "2026-09-29",
+    "amostra": 2000,
+    "registro": "BR-05193/2026",
+    "t1": {
+     "lula": 35,
+     "flavio": 44,
+     "outros": 15,
+     "bn": 3,
+     "ns": 3
+    },
+    "t2": {
+     "lula": 41,
+     "flavio": 52,
+     "bn": 4,
+     "ns": 3
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-big-data-no-rj-flavio-tem-52-no-2o-turno-lula-41/",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X3",
+    "uf": "RS",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-24",
+    "campo_fim": "2026-09-28",
+    "amostra": 1600,
+    "registro": "BR-08546/2026",
+    "t1": {
+     "lula": 41,
+     "flavio": 44,
+     "outros": 12,
+     "bn": 2,
+     "ns": 1
+    },
+    "t2": {
+     "lula": 43,
+     "flavio": 53,
+     "bn": 2,
+     "ns": 2
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-big-data-no-rs-flavio-tem-53-no-2o-turno-lula-43/",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X4",
+    "uf": "PR",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-24",
+    "campo_fim": "2026-09-28",
+    "amostra": 1600,
+    "registro": "PR-04181/2026 (CNN) ou BR-03875/2026 (Diário do Grande ABC)",
+    "t1": {
+     "lula": 30,
+     "flavio": 49,
+     "outros": 13,
+     "bn": 5,
+     "ns": 3
+    },
+    "t2": {
+     "lula": 30,
+     "flavio": 61,
+     "bn": 5,
+     "ns": 4
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-no-parana-flavio-tem-61-no-2o-turno-lula-30/",
+    "url2": "https://www.dgabc.com.br/Noticia/4349790/no-2-turno-do-parana-flavio-tem-61-e-lula-30-aponta-real-time-big-data",
+    "nivel": "conferida",
+    "nota": "O Diário do Grande ABC publica os válidos do 2º turno: 67 x 33."
+   },
+   {
+    "id": "X5",
+    "uf": "DF",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-24",
+    "campo_fim": "2026-09-28",
+    "amostra": 1600,
+    "registro": "BR-04482/2026",
+    "t1": {
+     "lula": 36,
+     "flavio": 40,
+     "outros": 18,
+     "bn": 3,
+     "ns": 3
+    },
+    "t2": {
+     "lula": 40,
+     "flavio": 48,
+     "bn": 7,
+     "ns": 5
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-no-df-flavio-tem-48-no-2o-turno-lula-40/",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X6",
+    "uf": "MG",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-28",
+    "campo_fim": "2026-10-02",
+    "amostra": 2000,
+    "registro": "BR-01068/2026",
+    "t1": null,
+    "t2": {
+     "lula_validos": 50,
+     "flavio_validos": 50
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-lula-e-flavio-empatam-em-50-dos-votos-validos-no-2o-turno-em-mg/",
+    "nivel": "conferida",
+    "nota": "A matéria não traz o 1º turno. Substitui a rodada de 23 a 26/09 (46 x 46, BR-06289/2026) por P5."
+   },
+   {
+    "id": "X7",
+    "uf": "MG",
+    "instituto": "Quaest",
+    "campo_inicio": "2026-09-25",
+    "campo_fim": "2026-09-28",
+    "amostra": 1506,
+    "registro": "BR-05155/2026 (a página escreve BRBR-05155/2026)",
+    "t1": {
+     "lula": 35,
+     "flavio": 31,
+     "outros": 14,
+     "bn": 6,
+     "ns": 14
+    },
+    "t2": {
+     "lula": 41,
+     "flavio": 40,
+     "bn": null,
+     "ns": null
+    },
+    "url": "https://www.metropoles.com/minas-gerais/quaest-em-minas-no-2o-turno-lula-tem-41-e-flavio-bolsonaro-tem-40",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X8",
+    "uf": "PE",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-23",
+    "campo_fim": "2026-09-26",
+    "amostra": 1600,
+    "registro": "BR-02938/2026",
+    "t1": {
+     "lula": 60,
+     "flavio": 26,
+     "outros": 10,
+     "bn": 2,
+     "ns": 2
+    },
+    "t2": {
+     "lula": 61,
+     "flavio": 35,
+     "bn": 2,
+     "ns": 2
+    },
+    "url": "https://www.cartacapital.com.br/politica/lula-supera-flavio-bolsonaro-com-folga-em-pernambuco-mostra-pesquisa-real-time/",
+    "nivel": "conferida"
+   },
+   {
+    "id": "X9",
+    "uf": "TO",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-21",
+    "campo_fim": "2026-09-24",
+    "amostra": 1600,
+    "registro": "BR-07147/2026",
+    "t1": {
+     "lula": 40,
+     "flavio": 40,
+     "outros": 14,
+     "bn": 3,
+     "ns": 3
+    },
+    "t2": {
+     "lula": 40,
+     "flavio": 48,
+     "bn": 7,
+     "ns": 5
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-big-data-no-tocantins-flavio-tem-48-no-2o-turno-lula-40/",
+    "nivel": "conferida",
+    "nota": "Os quatro números do 2º turno saíram iguais aos do DF na leitura da página; a manchete confirma 48 x 40."
+   },
+   {
+    "id": "X10",
+    "uf": "BA",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-23",
+    "campo_fim": "2026-09-26",
+    "amostra": 1600,
+    "registro": "BR-02319/2026",
+    "t1": null,
+    "t2": {
+     "lula": 64,
+     "flavio": 28,
+     "bn": 5,
+     "ns": 3
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-big-data-na-ba-lula-tem-64-contra-28-de-flavio-no-2o-turno/",
+    "nivel": "conferida",
+    "nota": "A página não traz o 1º turno."
+   },
+   {
+    "id": "X11",
+    "uf": "CE",
+    "instituto": "Real Time Big Data",
+    "campo_inicio": "2026-09-14",
+    "campo_fim": "2026-09-17",
+    "amostra": 1600,
+    "registro": "BR-03822/2026",
+    "t1": {
+     "lula": 59,
+     "flavio": 23,
+     "outros": 13,
+     "bn": 3,
+     "ns": 2
+    },
+    "t2": {
+     "lula": 64,
+     "flavio": 27,
+     "bn": 4,
+     "ns": 5
+    },
+    "url": "https://www.cnnbrasil.com.br/eleicoes/real-time-big-data-lula-tem-64-no-2o-turno-no-ceara-flavio-27/",
+    "nivel": "conferida",
+    "nota": "Fora das duas janelas (termina antes de 20/09). Só listada."
+   }
+  ],
+  "parte_X_so_manchete": [
+   {
+    "uf": "AL",
+    "instituto": "Real Time Big Data",
+    "t2": {
+     "lula": 54,
+     "flavio": 37
+    },
+    "campo": "não visto",
+    "nivel": "trecho",
+    "fonte": "manchete na CNN Brasil, vista só em resultado de busca"
+   },
+   {
+    "uf": "ES",
+    "instituto": "Real Time Big Data",
+    "t2": {
+     "lula": 41,
+     "flavio": 48
+    },
+    "campo": "não visto",
+    "nivel": "trecho",
+    "fonte": "manchete na CNN Brasil, vista só em resultado de busca"
+   }
+  ],
+  "nao_encontrado": [
+   "Pesquisa estadual de presidente no 2º turno, janela de 18 a 24/10, nas 21 UFs sem 2º turno de governador.",
+   "Pergunta de presidente nas rodadas estaduais de 23 e 24/10 da Quaest e nas de 15 a 19/10 do Real Time Big Data.",
+   "Recorte por região da última rodada de Quaest (23 e 24/10, BR-09158/2026), PoderData (23 e 24/10), Ipespe, Real Time Big Data, Futura, Gerp, Veritá e Vox Brasil.",
+   "Norte e Centro-Oeste da Datafolha de 23 e 24/10; Sudeste e Norte/Centro-Oeste da CNT/MDA de 21 a 23/10; o candidato de trás em cada região na AtlasIntel de 18 a 23/10.",
+   "Amostra das pesquisas AtlasIntel de AM, DF, ES, RN e TO e da Quaest DF de 17 a 20/10 (uso 1.000 no erro amostral, marcado).",
+   "Pesquisa de presidente da Paraná Pesquisas com campo terminado de 04/09 a 03/10/2026 (histórico do 1º turno, P3).",
+   "Pesquisas estaduais da última semana antes do 1º turno fora de SP, RJ, RS, PR, DF e MG: a coleta da parte exploratória foi interrompida de propósito depois de 11 pesquisas; há pelo menos AL e ES do Real Time Big Data vistas só em manchete."
+  ]
+ },
+ "por_UF_base": {
+  "AC": {
+   "coef_T16": 0.06272987554889187,
+   "coef_sem_grupos": 0.05837197359448761,
+   "coef_espelho": 0.12827413879734342,
+   "ep_espelho": 0.017869408521367654,
+   "lula_2T_validos": 33.434437380271525,
+   "lula_1T_validos": 28.731564428033582,
+   "validos_2T": 432228,
+   "validos_1T": 469066
+  },
+  "AL": {
+   "coef_T16": 0.057188380671680375,
+   "coef_sem_grupos": 0.057621635355175796,
+   "coef_espelho": 0.024032034308960212,
+   "ep_espelho": 0.004779767286005139,
+   "lula_2T_validos": 60.76785636144986,
+   "lula_1T_validos": 54.72995113411947,
+   "validos_2T": 1896761,
+   "validos_1T": 1818856
+  },
+  "AM": {
+   "coef_T16": 0.08217258706003115,
+   "coef_sem_grupos": 0.07910576142147796,
+   "coef_espelho": 0.02999191483018907,
+   "ep_espelho": 0.004743070829624772,
+   "lula_2T_validos": 54.02017323675123,
+   "lula_1T_validos": 48.23170470475128,
+   "validos_2T": 2121028,
+   "validos_1T": 2170763
+  },
+  "AP": {
+   "coef_T16": 0.09361069410178431,
+   "coef_sem_grupos": 0.09112105034884795,
+   "coef_espelho": 0.057264056893027895,
+   "ep_espelho": 0.00922252213266282,
+   "lula_2T_validos": 52.880879988236465,
+   "lula_1T_validos": 45.71352972305521,
+   "validos_2T": 421642,
+   "validos_1T": 464858
+  },
+  "BA": {
+   "coef_T16": 0.07689245316001289,
+   "coef_sem_grupos": 0.07717326265078386,
+   "coef_espelho": 0.01449332818942304,
+   "ep_espelho": 0.0016901140344193263,
+   "lula_2T_validos": 71.31344238449469,
+   "lula_1T_validos": 66.17498166826338,
+   "validos_2T": 9094019,
+   "validos_1T": 8560291
+  },
+  "CE": {
+   "coef_T16": 0.07857801050739974,
+   "coef_sem_grupos": 0.07894427925563191,
+   "coef_espelho": 0.011455675964669853,
+   "ep_espelho": 0.001819828556459957,
+   "lula_2T_validos": 68.9275671399798,
+   "lula_1T_validos": 63.285523515018475,
+   "validos_2T": 5855602,
+   "validos_1T": 5617814
+  },
+  "DF": {
+   "coef_T16": 0.030140393930172708,
+   "coef_sem_grupos": 0.0281886820814371,
+   "coef_espelho": 0.007329540236129274,
+   "ep_espelho": 0.007308422346139015,
+   "lula_2T_validos": 45.724708909631495,
+   "lula_1T_validos": 38.11055681156674,
+   "validos_2T": 1804766,
+   "validos_1T": 1772808
+  },
+  "ES": {
+   "coef_T16": 0.0235945235237728,
+   "coef_sem_grupos": 0.02135522918723623,
+   "coef_espelho": 0.02336815889709971,
+   "ep_espelho": 0.004664717382364764,
+   "lula_2T_validos": 43.63067822818422,
+   "lula_1T_validos": 37.76093054083422,
+   "validos_2T": 2296469,
+   "validos_1T": 2251078
+  },
+  "GO": {
+   "coef_T16": 0.016986880005183027,
+   "coef_sem_grupos": 0.016126018431424135,
+   "coef_espelho": 0.027991991943384028,
+   "ep_espelho": 0.004142636098584172,
+   "lula_2T_validos": 40.3357866375774,
+   "lula_1T_validos": 31.058907373721304,
+   "validos_2T": 3930889,
+   "validos_1T": 3827823
+  },
+  "MA": {
+   "coef_T16": 0.08519243696552997,
+   "coef_sem_grupos": 0.08546166353578197,
+   "coef_espelho": 0.014310235023525415,
+   "ep_espelho": 0.0023634581671982307,
+   "lula_2T_validos": 69.54161777939787,
+   "lula_1T_validos": 63.990525725487906,
+   "validos_2T": 4038202,
+   "validos_1T": 4010439
+  },
+  "MG": {
+   "coef_T16": 0.04003546777106905,
+   "coef_sem_grupos": 0.040067577319597696,
+   "coef_espelho": 0.015234254555329261,
+   "ep_espelho": 0.0019129088233581948,
+   "lula_2T_validos": 50.43402683340632,
+   "lula_1T_validos": 43.32693872489977,
+   "validos_2T": 12592885,
+   "validos_1T": 11976235
+  },
+  "MS": {
+   "coef_T16": 0.039513154495664116,
+   "coef_sem_grupos": 0.039062896947135384,
+   "coef_espelho": 0.031053690618534024,
+   "ep_espelho": 0.006472557227227179,
+   "lula_2T_validos": 40.399970453443295,
+   "lula_1T_validos": 34.68178420402099,
+   "validos_2T": 1556865,
+   "validos_1T": 1490278
+  },
+  "MT": {
+   "coef_T16": 0.03180289389784011,
+   "coef_sem_grupos": 0.032154039168170015,
+   "coef_espelho": 0.031047470112265354,
+   "ep_espelho": 0.005856338862120785,
+   "lula_2T_validos": 33.94018186387492,
+   "lula_1T_validos": 29.181984740790092,
+   "validos_2T": 2045266,
+   "validos_1T": 1993288
+  },
+  "PA": {
+   "coef_T16": 0.057091720684826416,
+   "coef_sem_grupos": 0.0567464193309899,
+   "coef_espelho": 0.033715178698897945,
+   "ep_espelho": 0.002434702435755332,
+   "lula_2T_validos": 55.01503050166357,
+   "lula_1T_validos": 49.91057277020019,
+   "validos_2T": 4890389,
+   "validos_1T": 4863172
+  },
+  "PB": {
+   "coef_T16": 0.07511087787829863,
+   "coef_sem_grupos": 0.07460769894886546,
+   "coef_espelho": 0.01606943976866225,
+   "ep_espelho": 0.003198067497169895,
+   "lula_2T_validos": 67.46436708734619,
+   "lula_1T_validos": 61.30795979070288,
+   "validos_2T": 2659269,
+   "validos_1T": 2513747
+  },
+  "PE": {
+   "coef_T16": 0.07209904927600688,
+   "coef_sem_grupos": 0.07241839106843512,
+   "coef_espelho": 0.015169830657023162,
+   "ep_espelho": 0.0022207051786098534,
+   "lula_2T_validos": 69.20111992016224,
+   "lula_1T_validos": 63.45224447631564,
+   "validos_2T": 5950067,
+   "validos_1T": 5601017
+  },
+  "PI": {
+   "coef_T16": 0.09567775756152022,
+   "coef_sem_grupos": 0.09522665010142813,
+   "coef_espelho": 0.014951150357372633,
+   "ep_espelho": 0.0022814317447884943,
+   "lula_2T_validos": 75.87634550665918,
+   "lula_1T_validos": 70.98929646653876,
+   "validos_2T": 2179848,
+   "validos_1T": 2146394
+  },
+  "PR": {
+   "coef_T16": 0.012977178718783091,
+   "coef_sem_grupos": 0.010951656429065457,
+   "coef_espelho": 0.019558735747310766,
+   "ep_espelho": 0.0031094989659756914,
+   "lula_2T_validos": 37.42378915675651,
+   "lula_1T_validos": 31.20001797959468,
+   "validos_2T": 6857948,
+   "validos_1T": 6585243
+  },
+  "RJ": {
+   "coef_T16": 0.03781801879001122,
+   "coef_sem_grupos": 0.037533941395644546,
+   "coef_espelho": 0.015025688356218979,
+   "ep_espelho": 0.002371808322040737,
+   "lula_2T_validos": 46.89945765677401,
+   "lula_1T_validos": 39.414506334247626,
+   "validos_2T": 9734426,
+   "validos_1T": 9369700
+  },
+  "RN": {
+   "coef_T16": 0.07920292576601401,
+   "coef_sem_grupos": 0.07852892367950001,
+   "coef_espelho": 0.00979328121661626,
+   "ep_espelho": 0.0031369461013416875,
+   "lula_2T_validos": 65.7179318504606,
+   "lula_1T_validos": 59.75019040512612,
+   "validos_2T": 2151005,
+   "validos_1T": 2071898
+  },
+  "RO": {
+   "coef_T16": 0.03527058633449703,
+   "coef_sem_grupos": 0.03571028102005128,
+   "coef_espelho": 0.05288913951421219,
+   "ep_espelho": 0.008327291972302668,
+   "lula_2T_validos": 30.39197876196807,
+   "lula_1T_validos": 25.89377300350495,
+   "validos_2T": 968828,
+   "validos_1T": 968059
+  },
+  "RR": {
+   "coef_T16": 0.03255476508781854,
+   "coef_sem_grupos": 0.029236416047549695,
+   "coef_espelho": 0.04146061513854151,
+   "ep_espelho": 0.01566932752678089,
+   "lula_2T_validos": 27.54304373639422,
+   "lula_1T_validos": 22.860126864181602,
+   "validos_2T": 303180,
+   "validos_1T": 325545
+  },
+  "RS": {
+   "coef_T16": 0.0184713430336068,
+   "coef_sem_grupos": 0.01820017668647487,
+   "coef_espelho": 0.02639527683213163,
+   "ep_espelho": 0.0033962942500356643,
+   "lula_2T_validos": 42.16422622717359,
+   "lula_1T_validos": 35.72695882919101,
+   "validos_2T": 6698930,
+   "validos_1T": 6423046
+  },
+  "SC": {
+   "coef_T16": 0.005745112492236047,
+   "coef_sem_grupos": 0.005249295706810333,
+   "coef_espelho": 0.004619679699828849,
+   "ep_espelho": 0.004311204230742074,
+   "lula_2T_validos": 30.57775497290544,
+   "lula_1T_validos": 25.04318583606779,
+   "validos_2T": 4638385,
+   "validos_1T": 4500897
+  },
+  "SE": {
+   "coef_T16": 0.0848578242669217,
+   "coef_sem_grupos": 0.08509938176926136,
+   "coef_espelho": 0.015563821998921038,
+   "ep_espelho": 0.004402387837514774,
+   "lula_2T_validos": 69.53349807894432,
+   "lula_1T_validos": 62.748974487536984,
+   "validos_2T": 1422395,
+   "validos_1T": 1364196
+  },
+  "SP": {
+   "coef_T16": 0.0321417523633775,
+   "coef_sem_grupos": 0.031850172518703215,
+   "coef_espelho": 0.020512402205097372,
+   "ep_espelho": 0.0016495071138474657,
+   "lula_2T_validos": 46.15380221195065,
+   "lula_1T_validos": 38.200509843126305,
+   "validos_2T": 26258452,
+   "validos_1T": 24882948
+  },
+  "TO": {
+   "coef_T16": 0.06835219841489967,
+   "coef_sem_grupos": 0.06846837426233325,
+   "coef_espelho": 0.033792940927609795,
+   "ep_espelho": 0.005253289085345678,
+   "lula_2T_validos": 48.63022270820022,
+   "lula_1T_validos": 43.42095788368386,
+   "validos_2T": 910878,
+   "validos_1T": 930447
+  }
+ },
+ "parte_A": {
+  "conjuntos": {
+   "principal": {
+    "n_UFs": 6,
+    "n_pesquisas": 7,
+    "UFs": [
+     "AC",
+     "AM",
+     "DF",
+     "ES",
+     "RN",
+     "TO"
+    ],
+    "por_UF": {
+     "AC": {
+      "urna": 33.434437380271525,
+      "media": 33.9,
+      "mediana": 33.9,
+      "media_pond_amostra": 33.9,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": -0.46556261972847324,
+      "erro_mediana": -0.46556261972847324,
+      "ep_amostral": 1.3716543909680619,
+      "pesquisas": [
+       {
+        "id": "A1",
+        "instituto": "AtlasIntel",
+        "fatia": 33.9,
+        "erro": -0.46556261972847324,
+        "amostra": 1191
+       }
+      ]
+     },
+     "AM": {
+      "urna": 54.02017323675123,
+      "media": 53.5,
+      "mediana": 53.5,
+      "media_pond_amostra": 53.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 0.5201732367512335,
+      "erro_mediana": 0.5201732367512335,
+      "ep_amostral": 1.5772602828956293,
+      "pesquisas": [
+       {
+        "id": "A2",
+        "instituto": "AtlasIntel",
+        "fatia": 53.5,
+        "erro": 0.5201732367512335,
+        "amostra": null
+       }
+      ]
+     },
+     "DF": {
+      "urna": 45.724708909631495,
+      "media": 43.460112359550564,
+      "mediana": 43.460112359550564,
+      "media_pond_amostra": 43.460112359550564,
+      "n_pesquisas": 2,
+      "institutos": [
+       "AtlasIntel",
+       "Quaest"
+      ],
+      "erro": 2.264596550080931,
+      "erro_mediana": 2.264596550080931,
+      "ep_amostral": 1.1083997899536961,
+      "pesquisas": [
+       {
+        "id": "A3",
+        "instituto": "AtlasIntel",
+        "fatia": 43.1,
+        "erro": 2.6247089096314937,
+        "amostra": null
+       },
+       {
+        "id": "A8",
+        "instituto": "Quaest",
+        "fatia": 43.82022471910113,
+        "erro": 1.9044841905303684,
+        "amostra": null
+       }
+      ]
+     },
+     "ES": {
+      "urna": 43.63067822818422,
+      "media": 41.5,
+      "mediana": 41.5,
+      "media_pond_amostra": 41.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.130678228184223,
+      "erro_mediana": 2.130678228184223,
+      "ep_amostral": 1.5581238718407466,
+      "pesquisas": [
+       {
+        "id": "A4",
+        "instituto": "AtlasIntel",
+        "fatia": 41.5,
+        "erro": 2.130678228184223,
+        "amostra": null
+       }
+      ]
+     },
+     "RN": {
+      "urna": 65.7179318504606,
+      "media": 63.0,
+      "mediana": 63.0,
+      "media_pond_amostra": 63.0,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.7179318504606016,
+      "erro_mediana": 2.7179318504606016,
+      "ep_amostral": 1.5267612779999367,
+      "pesquisas": [
+       {
+        "id": "A5",
+        "instituto": "AtlasIntel",
+        "fatia": 63.0,
+        "erro": 2.7179318504606016,
+        "amostra": null
+       }
+      ]
+     },
+     "TO": {
+      "urna": 48.63022270820022,
+      "media": 47.6,
+      "mediana": 47.6,
+      "media_pond_amostra": 47.6,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 1.0302227082002204,
+      "erro_mediana": 1.0302227082002204,
+      "ep_amostral": 1.5793163077737153,
+      "pesquisas": [
+       {
+        "id": "A6",
+        "instituto": "AtlasIntel",
+        "fatia": 47.6,
+        "erro": 1.0302227082002204,
+        "amostra": null
+       }
+      ]
+     }
+    },
+    "erro_medio_simples": 1.3663399923247894,
+    "dp_entre_UFs": 1.2167759465325048,
+    "ep_do_erro_medio": 0.4967467000494439,
+    "erro_medio_ponderado_validos": 1.715338289500112,
+    "fatia_dos_validos_do_pais": 0.0785411458039553,
+    "regressao_descritiva_coef": {
+     "n": 6,
+     "a": 2.3874243754746627,
+     "b": -17.69681961278129,
+     "ep": 22.67920781583895,
+     "ep_hc3": 19.81544146516664,
+     "t": -0.780310306977389,
+     "r2": 0.13211097350954992
+    },
+    "regressao_descritiva_fatia_lula_1T": {
+     "n": 6,
+     "a": -1.3507051548966713,
+     "b": 0.06367927684215148,
+     "ep": 0.04771727201277676,
+     "ep_hc3": 0.05890610582405126,
+     "t": 1.3345120992059383,
+     "r2": 0.3080689162849968
+    },
+    "veredito_pela_letra": "SEM PODER (menos de 8 UFs: sem regressão, P13)"
+   },
+   "S1_campo_inteiro_na_janela": {
+    "n_UFs": 6,
+    "n_pesquisas": 6,
+    "UFs": [
+     "AC",
+     "AM",
+     "DF",
+     "ES",
+     "RN",
+     "TO"
+    ],
+    "por_UF": {
+     "AC": {
+      "urna": 33.434437380271525,
+      "media": 33.9,
+      "mediana": 33.9,
+      "media_pond_amostra": 33.9,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": -0.46556261972847324,
+      "erro_mediana": -0.46556261972847324,
+      "ep_amostral": 1.3716543909680619,
+      "pesquisas": [
+       {
+        "id": "A1",
+        "instituto": "AtlasIntel",
+        "fatia": 33.9,
+        "erro": -0.46556261972847324,
+        "amostra": 1191
+       }
+      ]
+     },
+     "AM": {
+      "urna": 54.02017323675123,
+      "media": 53.5,
+      "mediana": 53.5,
+      "media_pond_amostra": 53.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 0.5201732367512335,
+      "erro_mediana": 0.5201732367512335,
+      "ep_amostral": 1.5772602828956293,
+      "pesquisas": [
+       {
+        "id": "A2",
+        "instituto": "AtlasIntel",
+        "fatia": 53.5,
+        "erro": 0.5201732367512335,
+        "amostra": null
+       }
+      ]
+     },
+     "DF": {
+      "urna": 45.724708909631495,
+      "media": 43.1,
+      "mediana": 43.1,
+      "media_pond_amostra": 43.1,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.6247089096314937,
+      "erro_mediana": 2.6247089096314937,
+      "ep_amostral": 1.5660108556456431,
+      "pesquisas": [
+       {
+        "id": "A3",
+        "instituto": "AtlasIntel",
+        "fatia": 43.1,
+        "erro": 2.6247089096314937,
+        "amostra": null
+       }
+      ]
+     },
+     "ES": {
+      "urna": 43.63067822818422,
+      "media": 41.5,
+      "mediana": 41.5,
+      "media_pond_amostra": 41.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.130678228184223,
+      "erro_mediana": 2.130678228184223,
+      "ep_amostral": 1.5581238718407466,
+      "pesquisas": [
+       {
+        "id": "A4",
+        "instituto": "AtlasIntel",
+        "fatia": 41.5,
+        "erro": 2.130678228184223,
+        "amostra": null
+       }
+      ]
+     },
+     "RN": {
+      "urna": 65.7179318504606,
+      "media": 63.0,
+      "mediana": 63.0,
+      "media_pond_amostra": 63.0,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.7179318504606016,
+      "erro_mediana": 2.7179318504606016,
+      "ep_amostral": 1.5267612779999367,
+      "pesquisas": [
+       {
+        "id": "A5",
+        "instituto": "AtlasIntel",
+        "fatia": 63.0,
+        "erro": 2.7179318504606016,
+        "amostra": null
+       }
+      ]
+     },
+     "TO": {
+      "urna": 48.63022270820022,
+      "media": 47.6,
+      "mediana": 47.6,
+      "media_pond_amostra": 47.6,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 1.0302227082002204,
+      "erro_mediana": 1.0302227082002204,
+      "ep_amostral": 1.5793163077737153,
+      "pesquisas": [
+       {
+        "id": "A6",
+        "instituto": "AtlasIntel",
+        "fatia": 47.6,
+        "erro": 1.0302227082002204,
+        "amostra": null
+       }
+      ]
+     }
+    },
+    "erro_medio_simples": 1.4263587189165499,
+    "dp_entre_UFs": 1.277320047876954,
+    "ep_do_erro_medio": 0.5214637259209861,
+    "erro_medio_ponderado_validos": 1.782227289727628,
+    "fatia_dos_validos_do_pais": 0.0785411458039553,
+    "regressao_descritiva_coef": {
+     "n": 6,
+     "a": 2.6308087910263906,
+     "b": -20.874803307613327,
+     "ep": 23.326932234213245,
+     "ep_hc3": 20.7077212036161,
+     "t": -0.8948799224013083,
+     "r2": 0.1668072810463631
+    },
+    "regressao_descritiva_fatia_lula_1T": {
+     "n": 6,
+     "a": -1.1661828385879967,
+     "b": 0.06076129126302602,
+     "ep": 0.051993656589078015,
+     "ep_hc3": 0.06336415771758608,
+     "t": 1.1686289299335366,
+     "r2": 0.25452321429932456
+    },
+    "veredito_pela_letra": "SEM PODER (menos de 8 UFs: sem regressão, P13)"
+   },
+   "S3_todas_da_janela": {
+    "n_UFs": 6,
+    "n_pesquisas": 8,
+    "UFs": [
+     "AC",
+     "AM",
+     "DF",
+     "ES",
+     "RN",
+     "TO"
+    ],
+    "por_UF": {
+     "AC": {
+      "urna": 33.434437380271525,
+      "media": 33.9,
+      "mediana": 33.9,
+      "media_pond_amostra": 33.9,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": -0.46556261972847324,
+      "erro_mediana": -0.46556261972847324,
+      "ep_amostral": 1.3716543909680619,
+      "pesquisas": [
+       {
+        "id": "A1",
+        "instituto": "AtlasIntel",
+        "fatia": 33.9,
+        "erro": -0.46556261972847324,
+        "amostra": 1191
+       }
+      ]
+     },
+     "AM": {
+      "urna": 54.02017323675123,
+      "media": 53.5,
+      "mediana": 53.5,
+      "media_pond_amostra": 53.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 0.5201732367512335,
+      "erro_mediana": 0.5201732367512335,
+      "ep_amostral": 1.5772602828956293,
+      "pesquisas": [
+       {
+        "id": "A2",
+        "instituto": "AtlasIntel",
+        "fatia": 53.5,
+        "erro": 0.5201732367512335,
+        "amostra": null
+       }
+      ]
+     },
+     "DF": {
+      "urna": 45.724708909631495,
+      "media": 43.460112359550564,
+      "mediana": 43.460112359550564,
+      "media_pond_amostra": 43.460112359550564,
+      "n_pesquisas": 2,
+      "institutos": [
+       "AtlasIntel",
+       "Quaest"
+      ],
+      "erro": 2.264596550080931,
+      "erro_mediana": 2.264596550080931,
+      "ep_amostral": 1.1083997899536961,
+      "pesquisas": [
+       {
+        "id": "A3",
+        "instituto": "AtlasIntel",
+        "fatia": 43.1,
+        "erro": 2.6247089096314937,
+        "amostra": null
+       },
+       {
+        "id": "A8",
+        "instituto": "Quaest",
+        "fatia": 43.82022471910113,
+        "erro": 1.9044841905303684,
+        "amostra": null
+       }
+      ]
+     },
+     "ES": {
+      "urna": 43.63067822818422,
+      "media": 41.5,
+      "mediana": 41.5,
+      "media_pond_amostra": 41.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.130678228184223,
+      "erro_mediana": 2.130678228184223,
+      "ep_amostral": 1.5581238718407466,
+      "pesquisas": [
+       {
+        "id": "A4",
+        "instituto": "AtlasIntel",
+        "fatia": 41.5,
+        "erro": 2.130678228184223,
+        "amostra": null
+       }
+      ]
+     },
+     "RN": {
+      "urna": 65.7179318504606,
+      "media": 63.0,
+      "mediana": 63.0,
+      "media_pond_amostra": 63.0,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.7179318504606016,
+      "erro_mediana": 2.7179318504606016,
+      "ep_amostral": 1.5267612779999367,
+      "pesquisas": [
+       {
+        "id": "A5",
+        "instituto": "AtlasIntel",
+        "fatia": 63.0,
+        "erro": 2.7179318504606016,
+        "amostra": null
+       }
+      ]
+     },
+     "TO": {
+      "urna": 48.63022270820022,
+      "media": 45.3,
+      "mediana": 45.3,
+      "media_pond_amostra": 44.84,
+      "n_pesquisas": 2,
+      "institutos": [
+       "AtlasIntel",
+       "Paraná Pesquisas"
+      ],
+      "erro": 3.3302227082002247,
+      "erro_mediana": 3.3302227082002247,
+      "ep_amostral": 1.0159035387279642,
+      "pesquisas": [
+       {
+        "id": "A6",
+        "instituto": "AtlasIntel",
+        "fatia": 47.6,
+        "erro": 1.0302227082002204,
+        "amostra": null
+       },
+       {
+        "id": "A7",
+        "instituto": "Paraná Pesquisas",
+        "fatia": 43.0,
+        "erro": 5.630222708200222,
+        "amostra": 1500
+       }
+      ]
+     }
+    },
+    "erro_medio_simples": 1.7496733256581234,
+    "dp_entre_UFs": 1.4328232512533212,
+    "ep_do_erro_medio": 0.5849476428610425,
+    "erro_medio_ponderado_validos": 1.9309556998632786,
+    "fatia_dos_validos_do_pais": 0.0785411458039553,
+    "regressao_descritiva_coef": {
+     "n": 6,
+     "a": 2.318022006860199,
+     "b": -9.850277072466959,
+     "ep": 28.24045008418612,
+     "ep_hc3": 19.255383119949194,
+     "t": -0.3488002862242923,
+     "r2": 0.02951761942299691
+    },
+    "regressao_descritiva_fatia_lula_1T": {
+     "n": 6,
+     "a": -1.0988203566388879,
+     "b": 0.06676003082378155,
+     "ep": 0.05872643934569432,
+     "ep_hc3": 0.07130287663422973,
+     "t": 1.1367968425737058,
+     "r2": 0.24418595639302032
+    },
+    "veredito_pela_letra": "SEM PODER (menos de 8 UFs: sem regressão, P13)"
+   },
+   "S5_com_trecho_e_tabela": {
+    "n_UFs": 6,
+    "n_pesquisas": 7,
+    "UFs": [
+     "AC",
+     "AM",
+     "DF",
+     "ES",
+     "RN",
+     "TO"
+    ],
+    "por_UF": {
+     "AC": {
+      "urna": 33.434437380271525,
+      "media": 33.9,
+      "mediana": 33.9,
+      "media_pond_amostra": 33.9,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": -0.46556261972847324,
+      "erro_mediana": -0.46556261972847324,
+      "ep_amostral": 1.3716543909680619,
+      "pesquisas": [
+       {
+        "id": "A1",
+        "instituto": "AtlasIntel",
+        "fatia": 33.9,
+        "erro": -0.46556261972847324,
+        "amostra": 1191
+       }
+      ]
+     },
+     "AM": {
+      "urna": 54.02017323675123,
+      "media": 53.5,
+      "mediana": 53.5,
+      "media_pond_amostra": 53.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 0.5201732367512335,
+      "erro_mediana": 0.5201732367512335,
+      "ep_amostral": 1.5772602828956293,
+      "pesquisas": [
+       {
+        "id": "A2",
+        "instituto": "AtlasIntel",
+        "fatia": 53.5,
+        "erro": 0.5201732367512335,
+        "amostra": null
+       }
+      ]
+     },
+     "DF": {
+      "urna": 45.724708909631495,
+      "media": 43.460112359550564,
+      "mediana": 43.460112359550564,
+      "media_pond_amostra": 43.460112359550564,
+      "n_pesquisas": 2,
+      "institutos": [
+       "AtlasIntel",
+       "Quaest"
+      ],
+      "erro": 2.264596550080931,
+      "erro_mediana": 2.264596550080931,
+      "ep_amostral": 1.1083997899536961,
+      "pesquisas": [
+       {
+        "id": "A3",
+        "instituto": "AtlasIntel",
+        "fatia": 43.1,
+        "erro": 2.6247089096314937,
+        "amostra": null
+       },
+       {
+        "id": "A8",
+        "instituto": "Quaest",
+        "fatia": 43.82022471910113,
+        "erro": 1.9044841905303684,
+        "amostra": null
+       }
+      ]
+     },
+     "ES": {
+      "urna": 43.63067822818422,
+      "media": 41.5,
+      "mediana": 41.5,
+      "media_pond_amostra": 41.5,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.130678228184223,
+      "erro_mediana": 2.130678228184223,
+      "ep_amostral": 1.5581238718407466,
+      "pesquisas": [
+       {
+        "id": "A4",
+        "instituto": "AtlasIntel",
+        "fatia": 41.5,
+        "erro": 2.130678228184223,
+        "amostra": null
+       }
+      ]
+     },
+     "RN": {
+      "urna": 65.7179318504606,
+      "media": 63.0,
+      "mediana": 63.0,
+      "media_pond_amostra": 63.0,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 2.7179318504606016,
+      "erro_mediana": 2.7179318504606016,
+      "ep_amostral": 1.5267612779999367,
+      "pesquisas": [
+       {
+        "id": "A5",
+        "instituto": "AtlasIntel",
+        "fatia": 63.0,
+        "erro": 2.7179318504606016,
+        "amostra": null
+       }
+      ]
+     },
+     "TO": {
+      "urna": 48.63022270820022,
+      "media": 47.6,
+      "mediana": 47.6,
+      "media_pond_amostra": 47.6,
+      "n_pesquisas": 1,
+      "institutos": [
+       "AtlasIntel"
+      ],
+      "erro": 1.0302227082002204,
+      "erro_mediana": 1.0302227082002204,
+      "ep_amostral": 1.5793163077737153,
+      "pesquisas": [
+       {
+        "id": "A6",
+        "instituto": "AtlasIntel",
+        "fatia": 47.6,
+        "erro": 1.0302227082002204,
+        "amostra": null
+       }
+      ]
+     }
+    },
+    "erro_medio_simples": 1.3663399923247894,
+    "dp_entre_UFs": 1.2167759465325048,
+    "ep_do_erro_medio": 0.4967467000494439,
+    "erro_medio_ponderado_validos": 1.715338289500112,
+    "fatia_dos_validos_do_pais": 0.0785411458039553,
+    "regressao_descritiva_coef": {
+     "n": 6,
+     "a": 2.3874243754746627,
+     "b": -17.69681961278129,
+     "ep": 22.67920781583895,
+     "ep_hc3": 19.81544146516664,
+     "t": -0.780310306977389,
+     "r2": 0.13211097350954992
+    },
+    "regressao_descritiva_fatia_lula_1T": {
+     "n": 6,
+     "a": -1.3507051548966713,
+     "b": 0.06367927684215148,
+     "ep": 0.04771727201277676,
+     "ep_hc3": 0.05890610582405126,
+     "t": 1.3345120992059383,
+     "r2": 0.3080689162849968
+    },
+    "veredito_pela_letra": "SEM PODER (menos de 8 UFs: sem regressão, P13)"
+   },
+   "S4_validos_pelos_totais": {
+    "erro_medio_simples": 1.3958613144763419,
+    "por_UF": {
+     "AC": -0.4213619927692278,
+     "AM": 0.5718973746822655,
+     "DF": 2.2910791676678457,
+     "ES": 2.184649714945934,
+     "RN": 2.69443848988859,
+     "TO": 1.054465132442644
+    }
+   }
+  },
+  "calibracao_permutacao_pela_letra": {
+   "uniforme_0": {
+    "plantado": 0.0,
+    "permutacoes": 720,
+    "frac_estruturado": 0.0,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 7.815970093361103e-15,
+    "ep_medio": 20.099062027922123
+   },
+   "limiar_20": {
+    "plantado": 20.0,
+    "permutacoes": 720,
+    "frac_estruturado": 0.0,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 20.00000000000003,
+    "ep_medio": 20.099062027922123
+   },
+   "puro_kappa": {
+    "plantado": 59.05112904144106,
+    "permutacoes": 720,
+    "frac_estruturado": 0.0,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 59.05112904144112,
+    "ep_medio": 20.099062027922123
+   }
+  },
+  "calibracao_permutacao_sem_exigir_15": {
+   "uniforme_0": {
+    "plantado": 0.0,
+    "permutacoes": 720,
+    "frac_estruturado": 0.005555555555555556,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 7.815970093361103e-15,
+    "ep_medio": 20.099062027922123
+   },
+   "limiar_20": {
+    "plantado": 20.0,
+    "permutacoes": 720,
+    "frac_estruturado": 0.07083333333333333,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 20.00000000000003,
+    "ep_medio": 20.099062027922123
+   },
+   "puro_kappa": {
+    "plantado": 59.05112904144106,
+    "permutacoes": 720,
+    "frac_estruturado": 0.3486111111111111,
+    "frac_uniforme": 0.0,
+    "inclinacao_media": 59.05112904144112,
+    "ep_medio": 20.099062027922123
+   }
+  },
+  "simulacao_desenho": {
+   "desenho_real": {
+    "so_amostral": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0002,
+      "ep_medio": 24.564703253917333,
+      "dp_da_inclinacao": 26.22465908958924
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0002,
+      "ep_medio": 24.564703253917333,
+      "dp_da_inclinacao": 26.22465908958924
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 24.564703253917333,
+      "dp_da_inclinacao": 26.22465908958924
+     }
+    },
+    "central": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0001,
+      "ep_medio": 39.019210402321654,
+      "dp_da_inclinacao": 41.210439549370996
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0001,
+      "ep_medio": 39.019210402321654,
+      "dp_da_inclinacao": 41.210439549370996
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 39.019210402321654,
+      "dp_da_inclinacao": 41.210439549370996
+     }
+    },
+    "pessimista": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 53.8203322954766,
+      "dp_da_inclinacao": 56.56622436966239
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 53.8203322954766,
+      "dp_da_inclinacao": 56.566224369662386
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 53.8203322954766,
+      "dp_da_inclinacao": 56.56622436966239
+     }
+    }
+   },
+   "hipotetico_27_UFs_1_pesquisa_de_1500": {
+    "so_amostral": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0027,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.782468160175306,
+      "dp_da_inclinacao": 8.721937122159583
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.25,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.782468160175306,
+      "dp_da_inclinacao": 8.721937122159583
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.9998,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.782468160175306,
+      "dp_da_inclinacao": 8.721937122159583
+     }
+    },
+    "central": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0039,
+      "frac_uniforme": 0.0,
+      "ep_medio": 15.178457995142468,
+      "dp_da_inclinacao": 15.401330734711399
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.0619,
+      "frac_uniforme": 0.0,
+      "ep_medio": 15.178457995142468,
+      "dp_da_inclinacao": 15.401330734711399
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.7887,
+      "frac_uniforme": 0.0,
+      "ep_medio": 15.178457995142468,
+      "dp_da_inclinacao": 15.401330734711397
+     }
+    },
+    "pessimista": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0031,
+      "frac_uniforme": 0.0,
+      "ep_medio": 21.64820643305194,
+      "dp_da_inclinacao": 21.98783401741335
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.0282,
+      "frac_uniforme": 0.0,
+      "ep_medio": 21.64820643305194,
+      "dp_da_inclinacao": 21.98783401741335
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.4001,
+      "frac_uniforme": 0.0,
+      "ep_medio": 21.64820643305194,
+      "dp_da_inclinacao": 21.98783401741335
+     }
+    }
+   },
+   "hipotetico_27_UFs_3_pesquisas_de_1500": {
+    "so_amostral": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0,
+      "frac_uniforme": 0.0571,
+      "ep_medio": 5.069120465064894,
+      "dp_da_inclinacao": 5.065152717120482
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.5025,
+      "frac_uniforme": 0.0005,
+      "ep_medio": 5.069120465064894,
+      "dp_da_inclinacao": 5.065152717120482
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 1.0,
+      "frac_uniforme": 0.0,
+      "ep_medio": 5.069120465064894,
+      "dp_da_inclinacao": 5.065152717120482
+     }
+    },
+    "central": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0018,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.751737608095553,
+      "dp_da_inclinacao": 8.822690643783565
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.2495,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.751737608095553,
+      "dp_da_inclinacao": 8.822690643783565
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.9995,
+      "frac_uniforme": 0.0,
+      "ep_medio": 8.751737608095553,
+      "dp_da_inclinacao": 8.822690643783565
+     }
+    },
+    "pessimista": {
+     "uniforme_0": {
+      "plantado": 0.0,
+      "frac_estruturado": 0.0036,
+      "frac_uniforme": 0.0,
+      "ep_medio": 12.519098459198185,
+      "dp_da_inclinacao": 12.654960863436777
+     },
+     "limiar_20": {
+      "plantado": 20.0,
+      "frac_estruturado": 0.1017,
+      "frac_uniforme": 0.0,
+      "ep_medio": 12.519098459198185,
+      "dp_da_inclinacao": 12.654960863436777
+     },
+     "puro_kappa": {
+      "plantado": 59.05112904144106,
+      "frac_estruturado": 0.9404,
+      "frac_uniforme": 0.0,
+      "ep_medio": 12.519098459198183,
+      "dp_da_inclinacao": 12.654960863436777
+     }
+    }
+   }
+  },
+  "cenarios": {
+   "so_amostral": {
+    "dp_vies_de_casa": 0.0,
+    "dp_nao_amostral": 0.0,
+    "efeito_de_desenho": 1.0
+   },
+   "central": {
+    "dp_vies_de_casa": 1.0,
+    "dp_nao_amostral": 1.5,
+    "efeito_de_desenho": 1.5
+   },
+   "pessimista": {
+    "dp_vies_de_casa": 1.5,
+    "dp_nao_amostral": 2.5,
+    "efeito_de_desenho": 2.0
+   }
+  }
+ },
+ "explicacao_inocente_plantada": {
+  "cenarios": {
+   "so_Nordeste|pequenos|T2|u=0.10": {
+    "inclinacao_27_UFs": 3.3839054274175426,
+    "inclinacao_UFs_incluidas": 2.2980913368410314,
+    "erro_medio_27": 0.10181695811902963,
+    "erro_nacional_pontos": 0.07888558706479068,
+    "erro_NE": 0.3054508743570889,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.42005723771201264,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.1639497353929653,
+     "CE": 0.2548596331774733,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.2958960529627297,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.47186342533507286,
+     "PE": 0.32589959274089697,
+     "PI": 0.24491278091630653,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.33372149434331977,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.23789791663302307,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|pequenos|T2|u=0.20": {
+    "inclinacao_27_UFs": 7.201117395248941,
+    "inclinacao_UFs_incluidas": 4.899789636624409,
+    "erro_medio_27": 0.21653184416003124,
+    "erro_nacional_pontos": 0.16715483455754393,
+    "erro_NE": 0.6495955324800937,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.8978630036697632,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.347798609482719,
+     "CE": 0.5331588112895802,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.6310917057455234,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.0111207953289458,
+     "PE": 0.6813240655203834,
+     "PI": 0.5288937803183291,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.7115318235131229,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.5035771974524761,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|pequenos|T2|u=0.30": {
+    "inclinacao_27_UFs": 11.543533293318244,
+    "inclinacao_UFs_incluidas": 7.869515793115105,
+    "erro_medio_27": 0.34684292700483693,
+    "erro_nacional_pontos": 0.26665895343719365,
+    "erro_NE": 1.040528781014511,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 1.4462050189898545,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.5554035244828448,
+     "CE": 0.8382870172359835,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 1.0139732723469685,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.6333208029914559,
+     "PE": 1.0704759952423037,
+     "PI": 0.8621014063929788,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 1.142785984236272,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.8022060072119364,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|pequenos|T1|u=0.10": {
+    "inclinacao_27_UFs": 3.9531908555478346,
+    "inclinacao_UFs_incluidas": 2.524773395576631,
+    "erro_medio_27": 0.11713515314718784,
+    "erro_nacional_pontos": 0.09286724849531171,
+    "erro_NE": 0.3514054594415635,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.4487609831361872,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.24310328905328138,
+     "CE": 0.29938336144533784,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.34212426461625034,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.5212524668008034,
+     "PE": 0.35686826850187536,
+     "PI": 0.2953667655908654,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.3666395399272049,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.28915019590226576,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|pequenos|T1|u=0.20": {
+    "inclinacao_27_UFs": 8.413999717235015,
+    "inclinacao_UFs_incluidas": 5.385610330335869,
+    "erro_medio_27": 0.2491340579956287,
+    "erro_nacional_pontos": 0.19683983059559487,
+    "erro_NE": 0.7474021739868861,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.9595867958654969,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.5159980829574695,
+     "CE": 0.6262690666068882,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.7299288855307839,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.1166284090938228,
+     "PE": 0.7459499124502611,
+     "PI": 0.6380675301394412,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.7820811551646489,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.6121097280731624,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|pequenos|T1|u=0.30": {
+    "inclinacao_27_UFs": 13.490427326879528,
+    "inclinacao_UFs_incluidas": 8.654393123359453,
+    "erro_medio_27": 0.39911286713407995,
+    "erro_nacional_pontos": 0.3141188698496589,
+    "erro_NE": 1.1973386014022398,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 1.5463095412485028,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.8245181094745702,
+     "CE": 0.9846292460994444,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 1.1732171775970301,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.8031488765068993,
+     "PE": 1.1718127951967916,
+     "PI": 1.0404716866492136,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 1.2567633668260303,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.9751766130216777,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T2|u=0.10": {
+    "inclinacao_27_UFs": 2.1181955157174865,
+    "inclinacao_UFs_incluidas": 1.5566657285372305,
+    "erro_medio_27": 0.0654696829275757,
+    "erro_nacional_pontos": 0.04204615718662831,
+    "erro_NE": 0.1964090487827271,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.37958919241301015,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": -0.036318550855762854,
+     "CE": 0.2532903798315611,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.1259726439467368,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.2759099278896504,
+     "PE": 0.15017242634561834,
+     "PI": 0.19468103508263335,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.22605403222770715,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.19833035216338946,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T2|u=0.20": {
+    "inclinacao_27_UFs": 4.628006020329198,
+    "inclinacao_UFs_incluidas": 3.403543140163237,
+    "erro_medio_27": 0.1428942121034377,
+    "erro_nacional_pontos": 0.09180129801715993,
+    "erro_NE": 0.42868263631031306,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.823501550186756,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": -0.07983173353366402,
+     "CE": 0.5502288784917209,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.2776018066543484,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.6054814643928208,
+     "PE": 0.33007432573697315,
+     "PI": 0.42493553277648255,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.49425167946481885,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.431900222622561,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T2|u=0.30": {
+    "inclinacao_27_UFs": 7.649527823590189,
+    "inclinacao_UFs_incluidas": 5.6301319668172125,
+    "erro_medio_27": 0.23589352360842877,
+    "erro_nacional_pontos": 0.15161172514006319,
+    "erro_NE": 0.7076805708252863,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 1.3496003755723351,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": -0.1329124441274976,
+     "CE": 0.9031617302436623,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.46361426175964837,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.006055895669311,
+     "PE": 0.5495038282958498,
+     "PI": 0.7014942335446195,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.8175898073307541,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.7110174491388954,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T1|u=0.10": {
+    "inclinacao_27_UFs": 2.4995079489819823,
+    "inclinacao_UFs_incluidas": 1.694046869482069,
+    "erro_medio_27": 0.07533602149611592,
+    "erro_nacional_pontos": 0.05099505614818884,
+    "erro_NE": 0.22600806448834776,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.4012496538475352,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.016821647308762344,
+     "CE": 0.2808588323148786,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.15991329275820698,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.30188363286003383,
+     "PE": 0.15620071753477127,
+     "PI": 0.24004498676951647,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.24600408334870538,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.23109573365271974,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T1|u=0.20": {
+    "inclinacao_27_UFs": 5.462727084705209,
+    "inclinacao_UFs_incluidas": 3.7056841877636937,
+    "erro_medio_27": 0.16449235841615029,
+    "erro_nacional_pontos": 0.1114144363079218,
+    "erro_NE": 0.4934770752484508,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 0.8707932323393841,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.036996142636380736,
+     "CE": 0.6100961755595047,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.3523745806460199,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 0.6623539465602457,
+     "PE": 0.3432437688348111,
+     "PI": 0.52408270027402,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.5381276387407818,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.5032254916449097,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "so_Nordeste|interior|T1|u=0.30": {
+    "inclinacao_27_UFs": 9.032402647124357,
+    "inclinacao_UFs_incluidas": 6.133459668659183,
+    "erro_medio_27": 0.27167469666687843,
+    "erro_nacional_pontos": 0.18415163100503304,
+    "erro_NE": 0.8150240900006354,
+    "erro_S": 0.0,
+    "por_UF": {
+     "AC": 0.0,
+     "AL": 1.4276883190250444,
+     "AM": 0.0,
+     "AP": 0.0,
+     "BA": 0.061636865721315104,
+     "CE": 1.0013900063868264,
+     "DF": 0.0,
+     "ES": 0.0,
+     "GO": 0.0,
+     "MA": 0.5884466997648219,
+     "MG": 0.0,
+     "MS": 0.0,
+     "MT": 0.0,
+     "PA": 0.0,
+     "PB": 1.1002986230929324,
+     "PE": 0.5712646765773655,
+     "PI": 0.8654268682640853,
+     "PR": 0.0,
+     "RJ": 0.0,
+     "RN": 0.8906814508656824,
+     "RO": 0.0,
+     "RR": 0.0,
+     "RS": 0.0,
+     "SC": 0.0,
+     "SE": 0.8283833003076446,
+     "SP": 0.0,
+     "TO": 0.0
+    }
+   },
+   "todas_as_UFs|pequenos|T2|u=0.10": {
+    "inclinacao_27_UFs": 5.125446299348244,
+    "inclinacao_UFs_incluidas": 7.51768395178531,
+    "erro_medio_27": 0.13712558850007447,
+    "erro_nacional_pontos": 0.06162283500736602,
+    "erro_NE": 0.3054508743570889,
+    "erro_S": -0.0700904213822721,
+    "por_UF": {
+     "AC": 0.04905805591828294,
+     "AL": 0.42005723771201264,
+     "AM": 0.4403146269089886,
+     "AP": 0.1886857883667603,
+     "BA": 0.1639497353929653,
+     "CE": 0.2548596331774733,
+     "DF": 0.0,
+     "ES": -0.052502981771679336,
+     "GO": 0.06625994872640484,
+     "MA": 0.2958960529627297,
+     "MG": 0.12463055027525094,
+     "MS": 0.05414763148633428,
+     "MT": -0.0727378804079748,
+     "PA": 0.1189288209843875,
+     "PB": 0.47186342533507286,
+     "PE": 0.32589959274089697,
+     "PI": 0.24491278091630653,
+     "PR": 0.07571777317851858,
+     "RJ": -0.0422668334489118,
+     "RN": 0.33372149434331977,
+     "RO": -0.09959968386564766,
+     "RR": 0.21267580386137852,
+     "RS": -0.22985408685700093,
+     "SC": -0.056134950468333944,
+     "SE": 0.23789791663302307,
+     "SP": -0.15120723521445667,
+     "TO": 0.3272176726159093
+    }
+   },
+   "todas_as_UFs|pequenos|T2|u=0.20": {
+    "inclinacao_27_UFs": 10.82899220789243,
+    "inclinacao_UFs_incluidas": 15.814951151841708,
+    "erro_medio_27": 0.2907917595115618,
+    "erro_nacional_pontos": 0.13295203034635603,
+    "erro_NE": 0.6495955324800937,
+    "erro_S": -0.14740462654799594,
+    "por_UF": {
+     "AC": 0.10275863762538306,
+     "AL": 0.8978630036697632,
+     "AM": 0.913663431303191,
+     "AP": 0.3876653856011325,
+     "BA": 0.347798609482719,
+     "CE": 0.5331588112895802,
+     "DF": 0.0,
+     "ES": -0.10901502348753533,
+     "GO": 0.13845677864395833,
+     "MA": 0.6310917057455234,
+     "MG": 0.2619965756304299,
+     "MS": 0.11397226364107116,
+     "MT": -0.15365368215384811,
+     "PA": 0.2485609357391394,
+     "PB": 1.0111207953289458,
+     "PE": 0.6813240655203834,
+     "PI": 0.5288937803183291,
+     "PR": 0.15846870226400855,
+     "RJ": -0.08537052199646955,
+     "RN": 0.7115318235131229,
+     "RO": -0.2093286386526727,
+     "RR": 0.44278143780207,
+     "RS": -0.4828585963919163,
+     "SC": -0.11782398551608009,
+     "SE": 0.5035771974524761,
+     "SP": -0.3082960003667423,
+     "TO": 0.7030400148062055
+    }
+   },
+   "todas_as_UFs|pequenos|T2|u=0.30": {
+    "inclinacao_27_UFs": 17.22505463191456,
+    "inclinacao_UFs_incluidas": 25.032731107790113,
+    "erro_medio_27": 0.46433515858122376,
+    "erro_nacional_pontos": 0.216012605719585,
+    "erro_NE": 1.040528781014511,
+    "erro_S": -0.23311678372374503,
+    "por_UF": {
+     "AC": 0.1617934821117495,
+     "AL": 1.4462050189898545,
+     "AM": 1.4239088360986307,
+     "AP": 0.5978047866797565,
+     "BA": 0.5554035244828448,
+     "CE": 0.8382870172359835,
+     "DF": 0.0,
+     "ES": -0.17001354260484658,
+     "GO": 0.21742582831510981,
+     "MA": 1.0139732723469685,
+     "MG": 0.4141552610980481,
+     "MS": 0.18041607778349622,
+     "MT": -0.24420871878041983,
+     "PA": 0.39040933089796725,
+     "PB": 1.6333208029914559,
+     "PE": 1.0704759952423037,
+     "PI": 0.8621014063929788,
+     "PR": 0.24928044230824176,
+     "RJ": -0.12933616790550273,
+     "RN": 1.142785984236272,
+     "RO": -0.3308148657922394,
+     "RR": 0.692551146179049,
+     "RS": -0.7626964919851653,
+     "SC": -0.18593430149431156,
+     "SE": 0.8022060072119364,
+     "SP": -0.471616263939445,
+     "TO": 1.1391654135923246
+    }
+   },
+   "todas_as_UFs|pequenos|T1|u=0.10": {
+    "inclinacao_27_UFs": 5.402140765450128,
+    "inclinacao_UFs_incluidas": 7.85974099106934,
+    "erro_medio_27": 0.17429704693032727,
+    "erro_nacional_pontos": 0.0993937447635158,
+    "erro_NE": 0.3514054594415635,
+    "erro_S": -0.03411903675177482,
+    "por_UF": {
+     "AC": 0.10960745695832164,
+     "AL": 0.4487609831361872,
+     "AM": 0.4889538697221474,
+     "AP": 0.21574133888466185,
+     "BA": 0.24310328905328138,
+     "CE": 0.29938336144533784,
+     "DF": 0.0,
+     "ES": -0.010334365001979373,
+     "GO": 0.07896932602795004,
+     "MA": 0.34212426461625034,
+     "MG": 0.16293020051592055,
+     "MS": 0.08714258893369742,
+     "MT": -0.03530020304856607,
+     "PA": 0.17406692374895005,
+     "PB": 0.5212524668008034,
+     "PE": 0.35686826850187536,
+     "PI": 0.2953667655908654,
+     "PR": 0.11575775752195594,
+     "RJ": -0.03521228696981571,
+     "RN": 0.3666395399272049,
+     "RO": -0.05160908343609383,
+     "RR": 0.22637990128538676,
+     "RS": -0.1872508359040348,
+     "SC": -0.0308640318732456,
+     "SE": 0.28915019590226576,
+     "SP": -0.12130384898868529,
+     "TO": 0.35569642376819255
+    }
+   },
+   "todas_as_UFs|pequenos|T1|u=0.20": {
+    "inclinacao_27_UFs": 11.431200600379293,
+    "inclinacao_UFs_incluidas": 16.55819616099727,
+    "erro_medio_27": 0.36924494160582394,
+    "erro_nacional_pontos": 0.21209473699732811,
+    "erro_NE": 0.7474021739868861,
+    "erro_S": -0.0719900113065645,
+    "por_UF": {
+     "AC": 0.23013858544547738,
+     "AL": 0.9595867958654969,
+     "AM": 1.0155275954930432,
+     "AP": 0.4442342138502531,
+     "BA": 0.5159980829574695,
+     "CE": 0.6262690666068882,
+     "DF": 0.0,
+     "ES": -0.021457940872526837,
+     "GO": 0.16503495651076228,
+     "MA": 0.7299288855307839,
+     "MG": 0.34245815751466346,
+     "MS": 0.18339738578762588,
+     "MT": -0.0745791402687046,
+     "PA": 0.3640422132633381,
+     "PB": 1.1166284090938228,
+     "PE": 0.7459499124502611,
+     "PI": 0.6380675301394412,
+     "PR": 0.24223129861091208,
+     "RJ": -0.07114014480916753,
+     "RN": 0.7820811551646489,
+     "RO": -0.10845577716723787,
+     "RR": 0.4724668674139315,
+     "RS": -0.39342184640948075,
+     "SC": -0.06477948612112483,
+     "SE": 0.6121097280731624,
+     "SP": -0.2473261335000254,
+     "TO": 0.7646230527335318
+    }
+   },
+   "todas_as_UFs|pequenos|T1|u=0.30": {
+    "inclinacao_27_UFs": 18.214022284780732,
+    "inclinacao_UFs_incluidas": 26.250492420887504,
+    "erro_medio_27": 0.5889445156573481,
+    "erro_nacional_pontos": 0.3407440114359843,
+    "erro_NE": 1.1973386014022398,
+    "erro_S": -0.11425828052510911,
+    "por_UF": {
+     "AC": 0.36331203572685933,
+     "AL": 1.5463095412485028,
+     "AM": 1.5842365611460185,
+     "AP": 0.6866435848644104,
+     "BA": 0.8245181094745702,
+     "CE": 0.9846292460994444,
+     "DF": 0.0,
+     "ES": -0.033464721906578676,
+     "GO": 0.2591984179637019,
+     "MA": 1.1732171775970301,
+     "MG": 0.5412562162514567,
+     "MS": 0.2902724884038588,
+     "MT": -0.11854965742745249,
+     "PA": 0.5722111487089454,
+     "PB": 1.8031488765068993,
+     "PE": 1.1718127951967916,
+     "PI": 1.0404716866492136,
+     "PR": 0.38098078844489014,
+     "RJ": -0.10780560976790254,
+     "RN": 1.2567633668260303,
+     "RO": -0.17138002013320497,
+     "RR": 0.7409513448663696,
+     "RS": -0.6215332084076541,
+     "SC": -0.10222242161256334,
+     "SE": 0.9751766130216777,
+     "SP": -0.3783476182085521,
+     "TO": 1.2396951812156332
+    }
+   },
+   "todas_as_UFs|interior|T2|u=0.10": {
+    "inclinacao_27_UFs": 4.528302073999878,
+    "inclinacao_UFs_incluidas": 7.198071278124085,
+    "erro_medio_27": 0.0660683998413962,
+    "erro_nacional_pontos": -0.03335611709973303,
+    "erro_NE": 0.1964090487827271,
+    "erro_S": -0.11003438151079663,
+    "por_UF": {
+     "AC": -0.000617924632789757,
+     "AL": 0.37958919241301015,
+     "AM": 0.5728715830052189,
+     "AP": 0.11497677480364343,
+     "BA": -0.036318550855762854,
+     "CE": 0.2532903798315611,
+     "DF": 0.0,
+     "ES": -0.046426243700903314,
+     "GO": 0.06622276816333761,
+     "MA": 0.1259726439467368,
+     "MG": 0.016222099886464836,
+     "MS": 0.053168007549930785,
+     "MT": -0.12728804439005592,
+     "PA": 6.354985128131929e-05,
+     "PB": 0.2759099278896504,
+     "PE": 0.15017242634561834,
+     "PI": 0.19468103508263335,
+     "PR": -0.005091821656655338,
+     "RJ": -0.1870975269438857,
+     "RN": 0.22605403222770715,
+     "RO": -0.25017362888803407,
+     "RR": 0.21267580386137852,
+     "RS": -0.182728370345292,
+     "SC": -0.14228295253044254,
+     "SE": 0.19833035216338946,
+     "SP": -0.2675830788243738,
+     "TO": 0.1892543614643305
+    }
+   },
+   "todas_as_UFs|interior|T2|u=0.20": {
+    "inclinacao_27_UFs": 9.833462782720812,
+    "inclinacao_UFs_incluidas": 15.360803100185905,
+    "erro_medio_27": 0.14123354167084262,
+    "erro_nacional_pontos": -0.07302542419852995,
+    "erro_NE": 0.42868263631031306,
+    "erro_S": -0.2441837148284313,
+    "por_UF": {
+     "AC": -0.0013101779086310827,
+     "AL": 0.823501550186756,
+     "AM": 1.2016356071589795,
+     "AP": 0.24039857421211952,
+     "BA": -0.07983173353366402,
+     "CE": 0.5502288784917209,
+     "DF": 0.0,
+     "ES": -0.10314473121978418,
+     "GO": 0.14496943921195604,
+     "MA": 0.2776018066543484,
+     "MG": 0.03591090063261859,
+     "MS": 0.11457912762550815,
+     "MT": -0.27953382475943145,
+     "PA": 0.00013967039482754018,
+     "PB": 0.6054814643928208,
+     "PE": 0.33007432573697315,
+     "PI": 0.42493553277648255,
+     "PR": -0.011205357081583989,
+     "RJ": -0.40075681583712774,
+     "RN": 0.49425167946481885,
+     "RO": -0.5415794480882419,
+     "RR": 0.44278143780207,
+     "RS": -0.4043830031118023,
+     "SC": -0.3169627842919076,
+     "SE": 0.431900222622561,
+     "SP": -0.5812689291521844,
+     "TO": 0.4148922127325483
+    }
+   },
+   "todas_as_UFs|interior|T2|u=0.30": {
+    "inclinacao_27_UFs": 16.148019576629963,
+    "inclinacao_UFs_incluidas": 24.726704161816116,
+    "erro_medio_27": 0.22771520458305808,
+    "erro_nacional_pontos": -0.12092100807774972,
+    "erro_NE": 0.7076805708252863,
+    "erro_S": -0.4113645258699154,
+    "por_UF": {
+     "AC": -0.0020910292612585923,
+     "AL": 1.3496003755723351,
+     "AM": 1.894891318870795,
+     "AP": 0.3777564365210151,
+     "BA": -0.1329124441274976,
+     "CE": 0.9031617302436623,
+     "DF": 0.0,
+     "ES": -0.17400466205792497,
+     "GO": 0.24016377916649678,
+     "MA": 0.46361426175964837,
+     "MG": 0.06031061053466402,
+     "MS": 0.1863114587127901,
+     "MT": -0.4648754787301923,
+     "PA": 0.0002325009042736248,
+     "PB": 1.006055895669311,
+     "PE": 0.5495038282958498,
+     "PI": 0.7014942335446195,
+     "PR": -0.01868242259824293,
+     "RJ": -0.647066413555597,
+     "RN": 0.8175898073307541,
+     "RO": -0.8853263950222956,
+     "RR": 0.692551146179049,
+     "RS": -0.6788852992736016,
+     "SC": -0.5365258557379016,
+     "SE": 0.7110174491388954,
+     "SP": -0.9540955268399876,
+     "TO": 0.6885212185029077
+    }
+   },
+   "todas_as_UFs|interior|T1|u=0.10": {
+    "inclinacao_27_UFs": 4.840886980014988,
+    "inclinacao_UFs_incluidas": 7.905281883398262,
+    "erro_medio_27": 0.09259176045254496,
+    "erro_nacional_pontos": -0.008130577787461514,
+    "erro_NE": 0.22600806448834776,
+    "erro_S": -0.09386300107931216,
+    "por_UF": {
+     "AC": 0.06795586810468546,
+     "AL": 0.4012496538475352,
+     "AM": 0.63385851167026,
+     "AP": 0.14335901811034502,
+     "BA": 0.016821647308762344,
+     "CE": 0.2808588323148786,
+     "DF": 0.0,
+     "ES": -0.03906611752361733,
+     "GO": 0.06380676762341442,
+     "MA": 0.15991329275820698,
+     "MG": 0.025407912775909924,
+     "MS": 0.0817176149696397,
+     "MT": -0.09660714232495038,
+     "PA": 0.035430472110770106,
+     "PB": 0.30188363286003383,
+     "PE": 0.15620071753477127,
+     "PI": 0.24004498676951647,
+     "PR": 0.01499753389714864,
+     "RJ": -0.17778641329006528,
+     "RN": 0.24600408334870538,
+     "RO": -0.18608214273620471,
+     "RR": 0.22637990128538676,
+     "RS": -0.17023910258549546,
+     "SC": -0.12634743454958963,
+     "SE": 0.23109573365271974,
+     "SP": -0.23823856602323557,
+     "TO": 0.20735827030918252
+    }
+   },
+   "todas_as_UFs|interior|T1|u=0.20": {
+    "inclinacao_27_UFs": 10.50557355800331,
+    "inclinacao_UFs_incluidas": 16.870599282365408,
+    "erro_medio_27": 0.19883920670186295,
+    "erro_nacional_pontos": -0.01808251758133559,
+    "erro_NE": 0.4934770752484508,
+    "erro_S": -0.20842050626642314,
+    "por_UF": {
+     "AC": 0.14446566550548323,
+     "AL": 0.8707932323393841,
+     "AM": 1.3312098433689301,
+     "AP": 0.3002993813459587,
+     "BA": 0.036996142636380736,
+     "CE": 0.6100961755595047,
+     "DF": 0.0,
+     "ES": -0.08678958730695685,
+     "GO": 0.13964676968787337,
+     "MA": 0.3523745806460199,
+     "MG": 0.05624692103014528,
+     "MS": 0.17605203571213757,
+     "MT": -0.21212676897238714,
+     "PA": 0.07791414453270917,
+     "PB": 0.6623539465602457,
+     "PE": 0.3432437688348111,
+     "PI": 0.52408270027402,
+     "PR": 0.03299726844824269,
+     "RJ": -0.38117810308300193,
+     "RN": 0.5381276387407818,
+     "RO": -0.4026689980080711,
+     "RR": 0.4724668674139315,
+     "RS": -0.3767930332262581,
+     "SC": -0.28146575402125396,
+     "SE": 0.5032254916449097,
+     "SP": -0.5176418526163351,
+     "TO": 0.4547301039030949
+    }
+   },
+   "todas_as_UFs|interior|T1|u=0.30": {
+    "inclinacao_27_UFs": 17.23851953862212,
+    "inclinacao_UFs_incluidas": 27.155063272742254,
+    "erro_medio_27": 0.32228941973572217,
+    "erro_nacional_pontos": -0.030413456119827355,
+    "erro_NE": 0.8150240900006354,
+    "erro_S": -0.35137095182283434,
+    "por_UF": {
+     "AC": 0.2312529545385411,
+     "AL": 1.4276883190250444,
+     "AM": 2.102096987548896,
+     "AP": 0.4728470306524457,
+     "BA": 0.061636865721315104,
+     "CE": 1.0013900063868264,
+     "DF": 0.0,
+     "ES": -0.1464068199120261,
+     "GO": 0.23127839919211968,
+     "MA": 0.5884466997648219,
+     "MG": 0.0944668081841793,
+     "MS": 0.286169661600566,
+     "MT": -0.35271513413895894,
+     "PA": 0.1297899638378619,
+     "PB": 1.1002986230929324,
+     "PE": 0.5712646765773655,
+     "PI": 0.8654268682640853,
+     "PR": 0.055000935931664996,
+     "RJ": -0.6161359299358682,
+     "RN": 0.8906814508656824,
+     "RO": -0.6579313085132266,
+     "RR": 0.7409513448663696,
+     "RS": -0.6326689469833613,
+     "SC": -0.4764448444168068,
+     "SE": 0.8283833003076446,
+     "SP": -0.8498879156416117,
+     "TO": 0.7549343360479965
+    }
+   }
+  },
+  "u_para_inclinacao_20": {
+   "so_Nordeste": 0.46169371781870727,
+   "todas_as_UFs": 0.33986956519074735
+  },
+  "pesos": {
+   "AC": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4322602885514127,
+    "lula_pequenos": 34.52029865924479,
+    "lula_grandes": 32.60769459601537
+   },
+   "AL": {
+    "erro": 0.0,
+    "peso_pequenos": 0.6043096626301363,
+    "lula_pequenos": 67.29882545490395,
+    "lula_grandes": 50.79357254207027
+   },
+   "AM": {
+    "erro": 0.0,
+    "peso_pequenos": 0.34894117380817224,
+    "lula_pequenos": 66.19845050897564,
+    "lula_grandes": 47.49310963608161
+   },
+   "AP": {
+    "erro": 0.0,
+    "peso_pequenos": 0.25866493375897087,
+    "lula_pequenos": 59.986796743196656,
+    "lula_grandes": 50.4014997856535
+   },
+   "BA": {
+    "erro": 0.0,
+    "peso_pequenos": 0.5411819570643078,
+    "lula_pequenos": 74.17896791620636,
+    "lula_grandes": 67.93351707609347
+   },
+   "CE": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4211213467035499,
+    "lula_pequenos": 74.72463612957279,
+    "lula_grandes": 64.71032836993902
+   },
+   "DF": {
+    "erro": 0.0,
+    "peso_pequenos": 0.0,
+    "lula_pequenos": null,
+    "lula_grandes": 45.724708909631495
+   },
+   "ES": {
+    "erro": 0.0,
+    "peso_pequenos": 0.3547084676518603,
+    "lula_pequenos": 42.203008432597535,
+    "lula_grandes": 44.41544997881087
+   },
+   "GO": {
+    "erro": 0.0,
+    "peso_pequenos": 0.41115940948726865,
+    "lula_pequenos": 41.88106584367742,
+    "lula_grandes": 39.25679158168324
+   },
+   "MA": {
+    "erro": 0.0,
+    "peso_pequenos": 0.5862188171864607,
+    "lula_pequenos": 74.29325763432139,
+    "lula_grandes": 62.80979716708998
+   },
+   "MG": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4635598593967943,
+    "lula_pequenos": 52.99794982694813,
+    "lula_grandes": 48.218436141304146
+   },
+   "MS": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4744701692182688,
+    "lula_pequenos": 41.487045916668244,
+    "lula_grandes": 39.41851355265779
+   },
+   "MT": {
+    "erro": 0.0,
+    "peso_pequenos": 0.5053352473467999,
+    "lula_pequenos": 32.57352123032862,
+    "lula_grandes": 35.336322958602224
+   },
+   "PA": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4128334167281989,
+    "lula_pequenos": 57.77689611652986,
+    "lula_grandes": 53.07317881797948
+   },
+   "PB": {
+    "erro": 0.0,
+    "peso_pequenos": 0.6248773629143949,
+    "lula_pequenos": 74.54380017776793,
+    "lula_grandes": 55.671483792323606
+   },
+   "PE": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4153467515575875,
+    "lula_pequenos": 76.72166649604405,
+    "lula_grandes": 63.858406784552734
+   },
+   "PI": {
+    "erro": 0.0,
+    "peso_pequenos": 0.687866768692129,
+    "lula_pequenos": 79.19190100337124,
+    "lula_grandes": 68.56965651239045
+   },
+   "PR": {
+    "erro": 0.0,
+    "peso_pequenos": 0.424959331858451,
+    "lula_pequenos": 39.12983654325546,
+    "lula_grandes": 36.16300744573675
+   },
+   "RJ": {
+    "erro": 0.0,
+    "peso_pequenos": 0.09707465031836494,
+    "lula_pequenos": 42.58766982092477,
+    "lula_grandes": 47.36302343943769
+   },
+   "RN": {
+    "erro": 0.0,
+    "peso_pequenos": 0.5834784205522535,
+    "lula_pequenos": 71.10372769537832,
+    "lula_grandes": 58.173315177355626
+   },
+   "RO": {
+    "erro": 0.0,
+    "peso_pequenos": 0.46155870804724886,
+    "lula_pequenos": 28.333679956884502,
+    "lula_grandes": 32.15637861660056
+   },
+   "RR": {
+    "erro": 0.0,
+    "peso_pequenos": 0.3787354047100732,
+    "lula_pequenos": 32.94578706727629,
+    "lula_grandes": 24.249422632794456
+   },
+   "RS": {
+    "erro": 0.0,
+    "peso_pequenos": 0.45751007996799486,
+    "lula_pequenos": 37.37005796083826,
+    "lula_grandes": 46.20739869161625
+   },
+   "SC": {
+    "erro": 0.0,
+    "peso_pequenos": 0.4501678924884416,
+    "lula_pequenos": 29.38691182020371,
+    "lula_grandes": 31.552742328158715
+   },
+   "SE": {
+    "erro": 0.0,
+    "peso_pequenos": 0.5228364835365703,
+    "lula_pequenos": 73.84574010327023,
+    "lula_grandes": 64.80849841244115
+   },
+   "SP": {
+    "erro": 0.0,
+    "peso_pequenos": 0.18720402863047678,
+    "lula_pequenos": 38.22787369743564,
+    "lula_grandes": 47.97931045857041
+   },
+   "TO": {
+    "erro": 0.0,
+    "peso_pequenos": 0.6466442267789978,
+    "lula_pequenos": 53.363247732651516,
+    "lula_grandes": 39.96874456292098
+   }
+  }
+ },
+ "parte_B": {
+  "urna_por_regiao": {
+   "NE": 69.36850075444359,
+   "SE": 47.24189575645974,
+   "S": 37.423861364356206,
+   "N": 50.00536913526469,
+   "CO": 39.987198250206205,
+   "N+CO": 45.179838665706455
+  },
+  "coef_por_regiao": {
+   "NE": 0.07774367434599902,
+   "SE": 0.034795554967242834,
+   "S": 0.01315634153985798,
+   "N": 0.062337351161299896,
+   "CO": 0.02653004928718948,
+   "N+CO": 0.04508976892212142
+  },
+  "coef_espelho_por_regiao": {
+   "NE": 0.014498813992946126,
+   "SE": 0.018285319092923635,
+   "S": 0.018267433537748838,
+   "N": 0.04007438875827445,
+   "CO": 0.02517815864312927,
+   "N+CO": 0.03289920547113446
+  },
+  "delta_c": 0.06458733280614104,
+  "D_plantado_puro": 3.813954923977934,
+  "limiar_estruturado_D": 1.2917466561228208,
+  "limiar_uniforme_D": 0.5166986624491283,
+  "ep_max_uniforme_D": 0.25834933122456416,
+  "institutos": [
+   {
+    "id": "B1",
+    "instituto": "Datafolha",
+    "campo": "2026-10-23 a 2026-10-24",
+    "amostra": 4050,
+    "base": "validos",
+    "regioes": {
+     "NE": {
+      "lula_validos": 67.0,
+      "estimado": false,
+      "erro": 2.3685007544435877,
+      "ep_amostral": 1.4353795892657149
+     },
+     "SE": {
+      "lula_validos": 45.0,
+      "estimado": false,
+      "erro": 2.2418957564597406,
+      "ep_amostral": 1.2639766004440132
+     },
+     "S": {
+      "lula_validos": 35.0,
+      "estimado": false,
+      "erro": 2.423861364356206,
+      "ep_amostral": 2.026497354625468
+     }
+    },
+    "D": -0.055360609912618486,
+    "ep_amostral_D": 2.4833457458808734
+   },
+   {
+    "id": "B2",
+    "instituto": "Nexus/BTG",
+    "campo": "2026-10-23 a 2026-10-24",
+    "amostra": 2000,
+    "base": "totais",
+    "regioes": {
+     "NE": {
+      "lula_validos": 64.63675213675214,
+      "estimado": false,
+      "erro": 4.731748617691451,
+      "ep_amostral": 2.0768290232865514
+     },
+     "S": {
+      "lula_validos": 36.89320388349515,
+      "estimado": false,
+      "erro": 0.5306574808610591,
+      "ep_amostral": 2.917286661738931
+     },
+     "SE": {
+      "lula_validos": 45.31754574811625,
+      "estimado": false,
+      "erro": 1.9243500083434881,
+      "ep_amostral": 1.7997871066590794
+     },
+     "N+CO": {
+      "lula_validos": 47.0905172413793,
+      "estimado": false,
+      "erro": -1.910678575672847,
+      "ep_amostral": 2.923727324015297
+     }
+    },
+    "D": 4.201091136830392,
+    "ep_amostral_D": 3.581030614044684
+   },
+   {
+    "id": "B3",
+    "instituto": "CNT/MDA",
+    "campo": "2026-10-21 a 2026-10-23",
+    "amostra": 2032,
+    "base": "validos",
+    "regioes": {
+     "NE": {
+      "lula_validos": 67.0,
+      "estimado": false,
+      "erro": 2.3685007544435877,
+      "ep_amostral": 2.0264338256885965
+     },
+     "S": {
+      "lula_validos": 39.0,
+      "estimado": false,
+      "erro": -1.5761386356437939,
+      "ep_amostral": 2.9256220561861106
+     }
+    },
+    "D": 3.9446393900873815,
+    "ep_amostral_D": 3.5588900608950493
+   },
+   {
+    "id": "B4",
+    "instituto": "AtlasIntel",
+    "campo": "2026-10-18 a 2026-10-23",
+    "amostra": 4990,
+    "base": "totais_um_lado",
+    "regioes": {
+     "NE": {
+      "lula_validos": 63.37741607324517,
+      "faixa": [
+       62.92929292929293,
+       63.96303901437371
+      ],
+      "estimado": true,
+      "erro": 5.991084681198416,
+      "ep_amostral": 1.324925289514864
+     },
+     "S": {
+      "lula_validos": 38.657171922685656,
+      "faixa": [
+       38.09034907597537,
+       39.09090909090909
+      ],
+      "estimado": true,
+      "erro": -1.2333105583294497,
+      "ep_amostral": 1.8639296464760355
+     },
+     "SE": {
+      "lula_validos": 45.98168870803662,
+      "faixa": [
+       45.48254620123203,
+       46.36363636363637
+      ],
+      "estimado": true,
+      "erro": 1.2602070484231191,
+      "ep_amostral": 1.140753030948382
+     },
+     "N": {
+      "lula_validos": 41.40386571719227,
+      "faixa": [
+       40.86242299794662,
+       41.81818181818182
+      ],
+      "estimado": true,
+      "erro": 8.601503418072419,
+      "ep_amostral": 2.5370155245732136
+     },
+     "CO": {
+      "lula_validos": 36.826042726347914,
+      "faixa": [
+       36.24229979466119,
+       37.27272727272727
+      ],
+      "estimado": true,
+      "erro": 3.161155523858291,
+      "ep_amostral": 2.577130182719313
+     }
+    },
+    "D": 7.224395239527865,
+    "ep_amostral_D": 2.286845152127342
+   }
+  ],
+  "principal": {
+   "conjunto": "principal: Lula e Flávio publicados no Nordeste e no Sul",
+   "institutos": [
+    "Datafolha",
+    "Nexus/BTG",
+    "CNT/MDA"
+   ],
+   "k": 3,
+   "D_medio": 2.696789972335052,
+   "dp_entre_institutos": 2.386879028171836,
+   "ep_entre_institutos": 1.3780652494380818,
+   "ep_amostral": 1.8754698616568195,
+   "inclinacao_B": 41.7541622353329,
+   "ep_B_entre": 21.336463197425203,
+   "ep_B_amostral": 29.037735112642668,
+   "erro_medio_NE": 3.1562500421928754,
+   "erro_medio_S": 0.4594600698578238,
+   "veredito_ep_entre_institutos": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 40,8% das vezes)",
+   "poder_plantado_puro_ep_entre_institutos": 0.40811974393950057,
+   "poder_plantado_20_ep_entre_institutos": 0.01957353996723954,
+   "letra_sem_regra_de_poder_ep_entre_institutos": "INCONCLUSIVO",
+   "veredito_ep_amostral": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes)",
+   "poder_plantado_puro_ep_amostral": 0.1669219538037945,
+   "poder_plantado_20_ep_amostral": 0.010409772109374993,
+   "letra_sem_regra_de_poder_ep_amostral": "INCONCLUSIVO",
+   "veredito_ep_maior_dos_dois": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes)",
+   "poder_plantado_puro_ep_maior_dos_dois": 0.1669219538037945,
+   "poder_plantado_20_ep_maior_dos_dois": 0.010409772109374993,
+   "letra_sem_regra_de_poder_ep_maior_dos_dois": "INCONCLUSIVO"
+  },
+  "com_AtlasIntel_estimada": {
+   "conjunto": "sensibilidade: com a AtlasIntel estimada",
+   "institutos": [
+    "Datafolha",
+    "Nexus/BTG",
+    "CNT/MDA",
+    "AtlasIntel"
+   ],
+   "k": 4,
+   "D_medio": 3.828691289133255,
+   "dp_entre_institutos": 2.9871273871891892,
+   "ep_entre_institutos": 1.4935636935945946,
+   "ep_amostral": 1.5183491357321233,
+   "inclinacao_B": 59.27929088858765,
+   "ep_B_entre": 23.124715462047767,
+   "ep_B_amostral": 23.508466285323316,
+   "erro_medio_NE": 3.8649587019442606,
+   "erro_medio_S": 0.03626741281100543,
+   "veredito_ep_entre_institutos": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 32,8% das vezes)",
+   "poder_plantado_puro_ep_entre_institutos": 0.3276519120896866,
+   "poder_plantado_20_ep_entre_institutos": 0.01637542121079183,
+   "letra_sem_regra_de_poder_ep_entre_institutos": "INCONCLUSIVO",
+   "veredito_ep_amostral": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 31,3% das vezes)",
+   "poder_plantado_puro_ep_amostral": 0.3127427079334262,
+   "poder_plantado_20_ep_amostral": 0.015807584203962,
+   "letra_sem_regra_de_poder_ep_amostral": "INCONCLUSIVO",
+   "veredito_ep_maior_dos_dois": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 31,3% das vezes)",
+   "poder_plantado_puro_ep_maior_dos_dois": 0.3127427079334262,
+   "poder_plantado_20_ep_maior_dos_dois": 0.015807584203962,
+   "letra_sem_regra_de_poder_ep_maior_dos_dois": "INCONCLUSIVO"
+  },
+  "AtlasIntel_faixa_D": [
+   6.071949451689036,
+   8.106255551703548
+  ],
+  "todas_as_regioes_efeito_fixo_de_instituto": {
+   "pontos": 9,
+   "inclinacao": 40.066454834478144,
+   "ep": 25.317200023524652,
+   "graus_de_liberdade": 5
+  },
+  "espelho_Sudeste_menos_Norte_Centro_Oeste": {
+   "delta_c": -0.01029421395487859,
+   "institutos": [
+    {
+     "instituto": "Nexus/BTG",
+     "D_espelho": 3.835028584016335,
+     "ep_amostral": 3.4332805149725107
+    }
+   ]
+  },
+  "espelho_por_candidato": {
+   "coef_espelho_por_regiao": {
+    "NE": 0.014498813992946126,
+    "SE": 0.018285319092923635,
+    "S": 0.018267433537748838,
+    "N": 0.04007438875827445,
+    "CO": 0.02517815864312927,
+    "N+CO": 0.03289920547113446
+   },
+   "delta_coef_espelho_NE_menos_S": -0.0037686195448027125,
+   "aplicavel_ao_contraste_regional": false,
+   "parte_A_descritivo": {
+    "n": 6,
+    "inclinacao": 22.99435209895351,
+    "ep": 7.045778566823925
+   },
+   "parte_A_descritivo_sem_AC": {
+    "n": 5,
+    "inclinacao": 66.24071244489924,
+    "ep": 23.191152180998838
+   }
+  },
+  "erro_medio_por_regiao": {
+   "NE": {
+    "n_institutos": 3,
+    "erro_medio": 3.1562500421928754,
+    "erros": [
+     2.3685007544435877,
+     4.731748617691451,
+     2.3685007544435877
+    ],
+    "peso": 0.2849162620813595,
+    "contribuicao_ao_erro_nacional": 0.8992669642157273,
+    "previsto_forma_pura": 4.590851745961359,
+    "previsto_uniforme": 2.7
+   },
+   "SE": {
+    "n_institutos": 2,
+    "erro_medio": 2.0831228824016144,
+    "erros": [
+     2.2418957564597406,
+     1.9243500083434881
+    ],
+    "peso": 0.4113004298046452,
+    "contribuicao_ao_erro_nacional": 0.8567893368676753,
+    "previsto_forma_pura": 2.054716806439212,
+    "previsto_uniforme": 2.7
+   },
+   "S": {
+    "n_institutos": 3,
+    "erro_medio": 0.4594600698578238,
+    "erros": [
+     2.423861364356206,
+     0.5306574808610591,
+     -1.5761386356437939
+    ],
+    "peso": 0.14707922978513518,
+    "contribuicao_ao_erro_nacional": 0.06757703319171313,
+    "previsto_forma_pura": 0.7768968219834249,
+    "previsto_uniforme": 2.7
+   },
+   "N+CO": {
+    "n_institutos": 1,
+    "erro_medio": -1.910678575672847,
+    "erros": [
+     -1.910678575672847
+    ],
+    "peso": 0.15670407832886007,
+    "contribuicao_ao_erro_nacional": -0.29941112518351265,
+    "previsto_forma_pura": 2.6626017630689507,
+    "previsto_uniforme": 2.7
+   }
+  },
+  "espelho_1T": {
+   "urna_1T_por_regiao": {
+    "NE": 63.77334499700516,
+    "SE": 39.68113340685237,
+    "S": 31.278004585707183,
+    "N": 44.64915800865589,
+    "CO": 32.61755551976691,
+    "N+CO": 38.97905837522068
+   },
+   "institutos": [
+    {
+     "instituto": "Datafolha",
+     "campo": "29/09 a 01/10/2026",
+     "amostra": 2506,
+     "erro_1T_NE": 2.773344997005161,
+     "erro_1T_S": -0.7219954142928167,
+     "D_1T": 3.4953404112979776,
+     "ep_amostral_D_1T": 3.1513202431810874,
+     "lula_2T_hipotetico_NE": 66.66666666666667,
+     "lula_2T_hipotetico_S": 36.55913978494624,
+     "D_2T_hipotetico": 1.8371125083669497
+    },
+    {
+     "instituto": "Quaest",
+     "campo": "24 a 27/09/2026",
+     "amostra": 2004
+    }
+   ],
+   "Datafolha_D_2T_menos_D_1T": {
+    "valor": -3.550701021210596,
+    "ep_amostral": 4.012209536984271
+   },
+   "Datafolha_erros": {
+    "NE_1T": 2.773344997005161,
+    "NE_2T": 2.3685007544435877,
+    "S_1T": -0.7219954142928167,
+    "S_2T": 2.423861364356206
+   }
+  },
+  "rodadas_anteriores": [
+   {
+    "instituto": "Datafolha",
+    "campo": "13 e 14/10/2026",
+    "D": 3.9446393900873815,
+    "erros": {
+     "NE": 3.3685007544435877,
+     "SE": 3.2418957564597406,
+     "S": -0.5761386356437939,
+     "N+CO": 3.1798386657064555
+    }
+   },
+   {
+    "instituto": "Nexus/BTG",
+    "campo": "10 a 12/10/2026",
+    "D": 5.062918959979854,
+    "erros": {
+     "NE": 3.77710290498122,
+     "SE": 2.6766783651553894,
+     "S": -1.2858160549986337,
+     "N+CO": 2.9117974285930543
+    }
+   },
+   {
+    "instituto": "Nexus/BTG",
+    "campo": "18 a 20/09/2026 (antes do 1º turno, cenário de 2º turno)",
+    "D": 4.061806612927576,
+    "erros": {
+     "NE": 7.002909356594124,
+     "SE": -2.208653694089712,
+     "S": 2.941102743666548,
+     "N+CO": -1.5592917690761539
+    }
+   }
+  ],
+  "explicacao_inocente_por_regiao": {
+   "so_Nordeste|u=0.10": {
+    "erro_NE": 0.27902561410719784,
+    "erro_S": 0.0,
+    "D": 0.27902561410719784
+   },
+   "so_Nordeste|u=0.20": {
+    "erro_NE": 0.5908402902309762,
+    "erro_S": 0.0,
+    "D": 0.5908402902309762
+   },
+   "so_Nordeste|u=0.30": {
+    "erro_NE": 0.9415845196748651,
+    "erro_S": 0.0,
+    "D": 0.9415845196748651
+   },
+   "todas_as_UFs|u=0.10": {
+    "erro_NE": 0.27902561410719784,
+    "erro_S": -0.06886523895422991,
+    "D": 0.34789085306142775
+   },
+   "todas_as_UFs|u=0.20": {
+    "erro_NE": 0.5908402902309762,
+    "erro_S": -0.1444312109593726,
+    "D": 0.7352715011903488
+   },
+   "todas_as_UFs|u=0.30": {
+    "erro_NE": 0.9415845196748651,
+    "erro_S": -0.22772592282720994,
+    "D": 1.169310442502075
+   },
+   "u_que_produz_o_D_observado": {
+    "so_Nordeste": 0.6639946266543122,
+    "todas_as_UFs": 0.576535584917292
+   }
+  }
+ },
+ "parte_X_exploratoria": {
+  "janela_27_09_a_03_10": {
+   "por_UF": {
+    "DF": {
+     "e1": -0.18731552885879665,
+     "e2": 0.2701634550860419,
+     "DD": 0.45747898394483855,
+     "pesquisas": [
+      {
+       "id": "X5",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 38.297872340425535,
+       "L2": 45.45454545454545,
+       "e1": -0.18731552885879665,
+       "e2": 0.2701634550860419,
+       "DD": 0.45747898394483855
+      }
+     ]
+    },
+    "MG": {
+     "e1": -0.42306127510023117,
+     "e2": 0.12538485809767863,
+     "DD": 0.23980415788926734,
+     "pesquisas": [
+      {
+       "id": "X6",
+       "instituto": "Real Time Big Data",
+       "campo": "28/09 a 02/10",
+       "amostra": 2000,
+       "L1": null,
+       "L2": 50.0,
+       "e1": null,
+       "e2": 0.4340268334063211,
+       "DD": null
+      },
+      {
+       "id": "X7",
+       "instituto": "Quaest",
+       "campo": "25/09 a 28/09",
+       "amostra": 1506,
+       "L1": 43.75,
+       "L2": 50.617283950617285,
+       "e1": -0.42306127510023117,
+       "e2": -0.18325711721096383,
+       "DD": 0.23980415788926734
+      }
+     ]
+    },
+    "PR": {
+     "e1": -1.408677672579234,
+     "e2": 4.456756189723549,
+     "DD": 5.865433862302783,
+     "pesquisas": [
+      {
+       "id": "X4",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 32.608695652173914,
+       "L2": 32.967032967032964,
+       "e1": -1.408677672579234,
+       "e2": 4.456756189723549,
+       "DD": 5.865433862302783
+      }
+     ]
+    },
+    "RJ": {
+     "e1": 2.1804637810561402,
+     "e2": 2.813436151397667,
+     "DD": 0.6329723703415269,
+     "pesquisas": [
+      {
+       "id": "X2",
+       "instituto": "Real Time Big Data",
+       "campo": "25/09 a 29/09",
+       "amostra": 2000,
+       "L1": 37.234042553191486,
+       "L2": 44.086021505376344,
+       "e1": 2.1804637810561402,
+       "e2": 2.813436151397667,
+       "DD": 0.6329723703415269
+      }
+     ]
+    },
+    "RS": {
+     "e1": -6.541082407922389,
+     "e2": -2.6274404394930713,
+     "DD": 3.9136419684293173,
+     "pesquisas": [
+      {
+       "id": "X3",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 42.2680412371134,
+       "L2": 44.791666666666664,
+       "e1": -6.541082407922389,
+       "e2": -2.6274404394930713,
+       "DD": 3.9136419684293173
+      }
+     ]
+    },
+    "SP": {
+     "e1": -0.09736249729922974,
+     "e2": 0.4091213608868216,
+     "DD": 0.5064838581860514,
+     "pesquisas": [
+      {
+       "id": "X1",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 2000,
+       "L1": 38.297872340425535,
+       "L2": 45.744680851063826,
+       "e1": -0.09736249729922974,
+       "e2": 0.4091213608868216,
+       "DD": 0.5064838581860514
+      }
+     ]
+    }
+   },
+   "regressoes": {
+    "e1": {
+     "UFs": [
+      "DF",
+      "MG",
+      "PR",
+      "RJ",
+      "RS",
+      "SP"
+     ],
+     "n": 6,
+     "media": -1.0795059334506234,
+     "inclinacao": 178.18701683543793,
+     "ep": 102.84564739984488,
+     "ep_hc3": 197.91760364699437,
+     "leitura_exploratoria": "sem dados para o limiar (menos de 8 UFs)",
+     "contra_fatia_lula_1T": {
+      "inclinacao": 0.2841012552443023,
+      "ep": 0.33396392024411814
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.030555555555555555,
+       "frac_uniforme": 0.0,
+       "ep_medio": 90.88366686755673
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.03888888888888889,
+       "frac_uniforme": 0.0,
+       "ep_medio": 90.88366686755673
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.06944444444444445,
+       "frac_uniforme": 0.0,
+       "ep_medio": 90.88366686755673
+      }
+     }
+    },
+    "e2": {
+     "UFs": [
+      "DF",
+      "MG",
+      "PR",
+      "RJ",
+      "RS",
+      "SP"
+     ],
+     "n": 6,
+     "media": 0.9079035959497812,
+     "inclinacao": -23.846308086281077,
+     "ep": 113.337434044203,
+     "ep_hc3": 238.18132391174254,
+     "leitura_exploratoria": "sem dados para o limiar (menos de 8 UFs)",
+     "contra_fatia_lula_1T": {
+      "inclinacao": -0.2185888813562756,
+      "ep": 0.2836279984447595
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.016666666666666666,
+       "frac_uniforme": 0.0,
+       "ep_medio": 100.17994664647175
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.016666666666666666,
+       "frac_uniforme": 0.0,
+       "ep_medio": 100.17994664647172
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.041666666666666664,
+       "frac_uniforme": 0.0,
+       "ep_medio": 100.17994664647172
+      }
+     }
+    },
+    "DD": {
+     "UFs": [
+      "DF",
+      "MG",
+      "PR",
+      "RJ",
+      "RS",
+      "SP"
+     ],
+     "n": 6,
+     "media": 1.9359692001822975,
+     "inclinacao": -208.1482620279505,
+     "ep": 36.893248578204556,
+     "ep_hc3": 52.48722025014842,
+     "leitura_exploratoria": "sem dados para o limiar (menos de 8 UFs)",
+     "contra_fatia_lula_1T": {
+      "inclinacao": -0.5242296587117466,
+      "ep": 0.13427771988075424
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.03333333333333333,
+       "frac_uniforme": 0.0,
+       "ep_medio": 32.54503351253861
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.07083333333333333,
+       "frac_uniforme": 0.0,
+       "ep_medio": 32.54503351253861
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.15,
+       "frac_uniforme": 0.0,
+       "ep_medio": 32.54503351253861
+      }
+     }
+    }
+   },
+   "so_Real_Time_Big_Data": {
+    "e1": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF"
+     ],
+     "n": 5,
+     "media": -1.2107948651207017,
+     "inclinacao": 223.30582585116443,
+     "ep": 129.90500835131095
+    },
+    "e2": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF",
+      "MG"
+     ],
+     "n": 6,
+     "media": 0.9593439251678882,
+     "inclinacao": -17.731370980049736,
+     "ep": 112.84564399939335
+    },
+    "DD": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF"
+     ],
+     "n": 5,
+     "media": 2.2752022086409034,
+     "inclinacao": -230.50580899556894,
+     "ep": 43.35853443084076
+    }
+   }
+  },
+  "janela_larga_20_09_a_03_10": {
+   "por_UF": {
+    "BA": {
+     "e1": null,
+     "e2": 1.7482249931903482,
+     "DD": null,
+     "pesquisas": [
+      {
+       "id": "X10",
+       "instituto": "Real Time Big Data",
+       "campo": "23/09 a 26/09",
+       "amostra": 1600,
+       "L1": null,
+       "L2": 69.56521739130434,
+       "e1": null,
+       "e2": 1.7482249931903482,
+       "DD": null
+      }
+     ]
+    },
+    "DF": {
+     "e1": -0.18731552885879665,
+     "e2": 0.2701634550860419,
+     "DD": 0.45747898394483855,
+     "pesquisas": [
+      {
+       "id": "X5",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 38.297872340425535,
+       "L2": 45.45454545454545,
+       "e1": -0.18731552885879665,
+       "e2": 0.2701634550860419,
+       "DD": 0.45747898394483855
+      }
+     ]
+    },
+    "MG": {
+     "e1": -0.42306127510023117,
+     "e2": 0.12538485809767863,
+     "DD": 0.23980415788926734,
+     "pesquisas": [
+      {
+       "id": "X6",
+       "instituto": "Real Time Big Data",
+       "campo": "28/09 a 02/10",
+       "amostra": 2000,
+       "L1": null,
+       "L2": 50.0,
+       "e1": null,
+       "e2": 0.4340268334063211,
+       "DD": null
+      },
+      {
+       "id": "X7",
+       "instituto": "Quaest",
+       "campo": "25/09 a 28/09",
+       "amostra": 1506,
+       "L1": 43.75,
+       "L2": 50.617283950617285,
+       "e1": -0.42306127510023117,
+       "e2": -0.18325711721096383,
+       "DD": 0.23980415788926734
+      }
+     ]
+    },
+    "PE": {
+     "e1": 0.9522444763156415,
+     "e2": 5.6594532534955775,
+     "DD": 4.707208777179936,
+     "pesquisas": [
+      {
+       "id": "X8",
+       "instituto": "Real Time Big Data",
+       "campo": "23/09 a 26/09",
+       "amostra": 1600,
+       "L1": 62.5,
+       "L2": 63.541666666666664,
+       "e1": 0.9522444763156415,
+       "e2": 5.6594532534955775,
+       "DD": 4.707208777179936
+      }
+     ]
+    },
+    "PR": {
+     "e1": -1.408677672579234,
+     "e2": 4.456756189723549,
+     "DD": 5.865433862302783,
+     "pesquisas": [
+      {
+       "id": "X4",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 32.608695652173914,
+       "L2": 32.967032967032964,
+       "e1": -1.408677672579234,
+       "e2": 4.456756189723549,
+       "DD": 5.865433862302783
+      }
+     ]
+    },
+    "RJ": {
+     "e1": 2.1804637810561402,
+     "e2": 2.813436151397667,
+     "DD": 0.6329723703415269,
+     "pesquisas": [
+      {
+       "id": "X2",
+       "instituto": "Real Time Big Data",
+       "campo": "25/09 a 29/09",
+       "amostra": 2000,
+       "L1": 37.234042553191486,
+       "L2": 44.086021505376344,
+       "e1": 2.1804637810561402,
+       "e2": 2.813436151397667,
+       "DD": 0.6329723703415269
+      }
+     ]
+    },
+    "RS": {
+     "e1": -6.541082407922389,
+     "e2": -2.6274404394930713,
+     "DD": 3.9136419684293173,
+     "pesquisas": [
+      {
+       "id": "X3",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 1600,
+       "L1": 42.2680412371134,
+       "L2": 44.791666666666664,
+       "e1": -6.541082407922389,
+       "e2": -2.6274404394930713,
+       "DD": 3.9136419684293173
+      }
+     ]
+    },
+    "SP": {
+     "e1": -0.09736249729922974,
+     "e2": 0.4091213608868216,
+     "DD": 0.5064838581860514,
+     "pesquisas": [
+      {
+       "id": "X1",
+       "instituto": "Real Time Big Data",
+       "campo": "24/09 a 28/09",
+       "amostra": 2000,
+       "L1": 38.297872340425535,
+       "L2": 45.744680851063826,
+       "e1": -0.09736249729922974,
+       "e2": 0.4091213608868216,
+       "DD": 0.5064838581860514
+      }
+     ]
+    },
+    "TO": {
+     "e1": 0.8677663943221603,
+     "e2": 3.1756772536547686,
+     "DD": 2.3079108593326083,
+     "pesquisas": [
+      {
+       "id": "X9",
+       "instituto": "Real Time Big Data",
+       "campo": "21/09 a 24/09",
+       "amostra": 1600,
+       "L1": 42.5531914893617,
+       "L2": 45.45454545454545,
+       "e1": 0.8677663943221603,
+       "e2": 3.1756772536547686,
+       "DD": 2.3079108593326083
+      }
+     ]
+    }
+   },
+   "regressoes": {
+    "e1": {
+     "UFs": [
+      "DF",
+      "MG",
+      "PE",
+      "PR",
+      "RJ",
+      "RS",
+      "SP",
+      "TO"
+     ],
+     "n": 8,
+     "media": -0.5821280912582423,
+     "inclinacao": 71.3819017297694,
+     "ep": 41.23161516059134,
+     "ep_hc3": 45.423596456195675,
+     "leitura_exploratoria": "INCONCLUSIVO",
+     "contra_fatia_lula_1T": {
+      "inclinacao": 0.1083612108415434,
+      "ep": 0.10214904027796325
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.0029,
+       "frac_uniforme": 0.0,
+       "ep_medio": 37.94161578209851
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.017,
+       "frac_uniforme": 0.0,
+       "ep_medio": 37.94161578209851
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.0903,
+       "frac_uniforme": 0.0,
+       "ep_medio": 37.94161578209851
+      }
+     }
+    },
+    "e2": {
+     "UFs": [
+      "BA",
+      "DF",
+      "MG",
+      "PE",
+      "PR",
+      "RJ",
+      "RS",
+      "SP",
+      "TO"
+     ],
+     "n": 9,
+     "media": 1.7811974528932646,
+     "inclinacao": 46.81662391510437,
+     "ep": 36.58299335894273,
+     "ep_hc3": 56.160850654676445,
+     "leitura_exploratoria": "INCONCLUSIVO",
+     "contra_fatia_lula_1T": {
+      "inclinacao": 0.07500137093913788,
+      "ep": 0.07333144560265847
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.0145,
+       "frac_uniforme": 0.0,
+       "ep_medio": 34.06354561860947
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.0337,
+       "frac_uniforme": 0.0,
+       "ep_medio": 34.06354561860947
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.137,
+       "frac_uniforme": 0.0,
+       "ep_medio": 34.06354561860947
+      }
+     }
+    },
+    "DD": {
+     "UFs": [
+      "DF",
+      "MG",
+      "PE",
+      "PR",
+      "RJ",
+      "RS",
+      "SP",
+      "TO"
+     ],
+     "n": 8,
+     "media": 2.328866854700791,
+     "inclinacao": -5.509150788959019,
+     "ep": 42.58558780837641,
+     "ep_hc3": 67.06737395146145,
+     "leitura_exploratoria": "INCONCLUSIVO",
+     "contra_fatia_lula_1T": {
+      "inclinacao": 0.028505037938646102,
+      "ep": 0.09329703031117674
+     },
+     "plantio_sem_exigir_15_UFs": {
+      "uniforme_0": {
+       "frac_estruturado": 0.0213,
+       "frac_uniforme": 0.0,
+       "ep_medio": 39.17992829692914
+      },
+      "limiar_20": {
+       "frac_estruturado": 0.0443,
+       "frac_uniforme": 0.0,
+       "ep_medio": 39.17992829692914
+      },
+      "puro_kappa": {
+       "frac_estruturado": 0.1129,
+       "frac_uniforme": 0.0,
+       "ep_medio": 39.179928296929134
+      }
+     }
+    }
+   },
+   "so_Real_Time_Big_Data": {
+    "e1": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF",
+      "PE",
+      "TO"
+     ],
+     "n": 7,
+     "media": -0.6048519221379581,
+     "inclinacao": 71.35025639043232,
+     "ep": 45.1697823956506
+    },
+    "e2": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF",
+      "MG",
+      "PE",
+      "TO",
+      "BA"
+     ],
+     "n": 9,
+     "media": 1.815491005705336,
+     "inclinacao": 46.59663386653978,
+     "ep": 36.210807098031275
+    },
+    "DD": {
+     "UFs": [
+      "SP",
+      "RJ",
+      "RS",
+      "PR",
+      "DF",
+      "PE",
+      "TO"
+     ],
+     "n": 7,
+     "media": 2.6273043828167233,
+     "inclinacao": -4.737768018760519,
+     "ep": 43.18808423779444
+    }
+   }
+  }
+ },
+ "votos": {
+  "votos_por_ponto_de_erro_uniforme": 1237106.22,
+  "parte_A_erro_medio_ponderado": 1.715338289500112,
+  "parte_A_votos_de_Lula_se_valesse_no_pais": 2122055.6673447494,
+  "parte_A_votos_nas_UFs_incluidas": 166668.6835730336,
+  "estruturado_votos_por_unidade_de_inclinacao": 49134.7991722749,
+  "limiar_20_votos": 982695.9834454979,
+  "limiar_20_margem": 1965391.9668909959,
+  "puro_kappa_votos": 2901465.366347296,
+  "puro_kappa_margem": 5802930.732694592,
+  "margem_oficial": 4430191,
+  "parte_B_inclinacao": 41.7541622353329,
+  "parte_B_votos_estruturados": 2051582.3760396668,
+  "parte_B_margem_estruturada": 4103164.7520793336,
+  "parte_B_votos_NE": 1112488.7548717938,
+  "parte_B_votos_S": 83599.96809061476,
+  "parte_B_ic95_margem_estruturada_ep_amostral": [
+   -1489747.3179761244,
+   9696076.822134793
+  ]
+ },
+ "vereditos": {
+  "parte_A_coeficiente": "SEM PODER (menos de 8 UFs: sem regressão, P13)",
+  "parte_A_fatia_lula_1T": "SEM PODER (mesmas 6 UFs; sem regressão)",
+  "parte_B_letra_ep_entre_institutos": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 40,8% das vezes)",
+  "parte_B_ep_amostral": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes)",
+  "parte_B_maior_ep": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes)",
+  "parte_B_com_AtlasIntel": "SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 32,8% das vezes)",
+  "testes_com_limiar": 3
+ },
+ "leitura": {
+  "a_favor": [
+   "No recorte por região das pesquisas nacionais finais o erro de Lula foi maior no Nordeste (3,16) que no Sul (0,46): D = 2,70 pontos, acima do limiar traduzido (1,29) e perto do que a forma pura prevê (3,81).",
+   "A ordem das regiões acompanha o coeficiente: Nordeste 3,16, Sudeste 2,08, Sul 0,46; a forma pura previa 4,59, 2,05 e 0,78. O Norte/Centro-Oeste foge: -1,91 na Nexus, único instituto com esse recorte, contra 2,66 previstos.",
+   "Três dos quatro institutos com recorte (Nexus, CNT/MDA e a AtlasIntel estimada) têm D de 3,94 a 7,22.",
+   "A subamostragem dos municípios pequenos não explica sozinha um D desse tamanho: precisaria tirar 58% do peso deles em todas as UFs (66% se só no Nordeste).",
+   "Nas 6 UFs com pesquisa estadual a urna deu mais a Lula que as pesquisas em 5 de 6 (média 1,37, ep 0,50)."
+  ],
+  "contra": [
+   "O D de 2,70 está a 2,0 ep de zero pela dispersão entre institutos e a 1,4 ep pelo erro amostral (k = 3); a letra pede 3. Não distingue zero da forma pura.",
+   "A Datafolha, a maior amostra presencial (4.050), errou igual nas três regiões publicadas: Nordeste 2,37, Sudeste 2,24, Sul 2,42 (D = -0,06).",
+   "O contraste já existia antes do 2º turno: a Datafolha de 29/09 a 01/10 errou Lula no 1º turno em 2,77 no Nordeste e -0,72 no Sul (D = 3,50), com o erro nacional de Lula perto de zero.",
+   "O contraste que não deveria dar nada (Sudeste menos Norte/Centro-Oeste, previsão da forma regulada -0,61) deu 3,84 na Nexus: recorte regional de uma pesquisa de 2.000 erra 3 a 4 pontos por acaso.",
+   "Nas 6 UFs com pesquisa estadual o erro não cresce com o coeficiente (reta -17,7, ep 22,7): AM 0,52 e AC -0,47, de coeficiente alto, contra DF 2,26 e ES 2,13, de coeficiente baixo.",
+   "Exploratório: nas pesquisas estaduais de antes do 1º turno, o quanto a urna andou a favor de Lula além do previsto (DD) não acompanha o coeficiente (janela larga, 8 UFs: reta -5,5, ep 42,6; janela de uma semana, 6 UFs: -208,1, ep 36,9); os maiores DD estão no PR, em PE e no RS.",
+   "Exploratório: o espelho do 1º turno por UF aponta para o mesmo lado que o 2º (erro de Lula no 1º turno contra o coeficiente, janela larga, 8 UFs: reta 71,4, ep 41,2; cenário de 2º turno, 9 UFs: 46,8, ep 36,6): se há estrutura, ela não é própria do 2º turno. Pela regra fixada, com menos de 10 UFs este espelho fica como sem dados."
+  ],
+  "neutro": [
+   "O contraste não surgiu na última semana: na Nexus o cenário Lula contra Flávio já dava D = 4,06 em 18 a 20/09 e 5,06 em 10 a 12/10, contra 4,20 na véspera; na Datafolha, 3,94 em 13 e 14/10. Isso afasta uma virada de última hora concentrada no Nordeste, mas não separa viés fixo das pesquisas no Nordeste de desvio na urna.",
+   "A reta do espelho por candidato nas 6 UFs (erro de Flávio contra o coeficiente espelho: 23,0, ep 7,0; sem o AC: 66,2, ep 23,2) passaria do limiar de 3 ep se a exigência de 15 UFs fosse ignorada, enquanto a reta principal nas mesmas UFs é -17,7 (ep 22,7). São 6 pontos e coeficientes tirados da própria urna: não conta para lado nenhum."
+  ],
+  "ressalva_sobre_o_espelho_do_1T": "Para a hipótese do Léo de que o 1º turno também foi alterado, o contraste já existir no 1º turno não é contrapeso: uma alteração presente nos dois turnos no Nordeste daria o mesmo. O espelho do 1º turno só pesa contra a hipótese de algo novo no 2º turno."
+ },
+ "desvios": [
+  "O registro não fixa regra de inclusão nem de média: P1 a P10 foram escritas no docstring antes da coleta (hash e hora em trabalho-eleicao/adendo27/R27_L5).",
+  "P3: \"instituto com histórico no 1º turno\" lido como pesquisa de presidente, nacional ou estadual, com campo terminado de 04/09 a 03/10/2026. A Paraná Pesquisas (TO) ficou fora da principal por isso.",
+  "P12 e P13: estimador (mínimos quadrados por UF, ep clássico) e piso de 8 UFs para haver regressão; tradução ESTRUTURADO = SINAL, UNIFORME = SEM SINAL.",
+  "P14: limiar para a fatia de Lula no 1º turno traduzido pela diferença prevista entre PI e SC; não chegou a ser usado (6 UFs).",
+  "P15 a P17: forma pura (kappa = 2,70 / 0,04572), regra dos 80% para SEM PODER e explicação inocente plantada (municípios com menos de 50 mil aptos) não estão no registro.",
+  "Parte B: o registro só diz \"somar o recorte por região\"; o critério (B3) é tradução da letra, com piso de 3 institutos e regra de poder de 80%.",
+  "Parte B: a AtlasIntel só publicou o líder de cada região; o outro lado foi estimado e ela entra só na sensibilidade. Na CNT/MDA o Lula do Sul é o complemento do Flávio (base válidos).",
+  "Parte B, espelho do 1º turno: a Datafolha usada é a de 29/09 a 01/10 (2.506), não a última (2 e 3/10), cujo recorte regional não achei.",
+  "P19: o docstring supôs que o coeficiente espelho era correlacionado com o do T16; a correlação é 0,06 e o coeficiente espelho não difere entre Nordeste e Sul, então o espelho por candidato não se aplica ao contraste regional.",
+  "Parte exploratória (seção 3): decidida depois de ver que só 6 UFs têm pesquisa na janela; regras escritas antes de levantar essas pesquisas; coleta interrompida de propósito com 11 pesquisas.",
+  "Amostra não publicada: 1.000 no erro amostral (AtlasIntel de AM, DF, ES, RN e TO; Quaest DF).",
+  "As versões ao lado de P12 (meta-regressão, peso pelos válidos, efeito fixo de instituto) e o segundo regressor de P14 não foram calculados como teste: com 6 UFs não há regressão.",
+  "Feito depois de ver o primeiro resultado (exploratório): a tabela de erro médio por região ao lado da forma pura; a busca da rodada Nexus de 18 a 20/09; a redação do espelho da Datafolha; a reta do espelho por candidato sem o AC. Os desenhos hipotéticos de 27 UFs na simulação de poder não estão no docstring.",
+  "O critério da letra traz \"(1,6 ponto entre PI e SC)\"; com os coeficientes principais do T16 são 1,80. Vale a inclinação de 20."
+ ],
+ "limites": [
+  "A coleta depende de um buscador restrito: não achar pesquisa estadual em 21 UFs não prova que não exista. O PesqEle do TSE não foi consultado.",
+  "Os números vêm de matérias de imprensa lidas por ferramenta automática, não dos relatórios registrados; cada um tem link no JSON da coleta.",
+  "Recorte regional de pesquisa nacional tem subamostra pequena (Sul: 280 a 600 entrevistas); o ep amostral de cada D vai de 2,3 a 3,6 pontos.",
+  "Com 3 institutos, o ep pela dispersão entre institutos é ele mesmo incerto; por isso o ep amostral vai ao lado e o veredito é o mesmo com os dois.",
+  "O limiar de ep até 4 do ERRO UNIFORME não é alcançável com pesquisa estadual real: na simulação, nem 3 pesquisas de 1.500 em cada uma das 27 UFs chegam lá (ep 8,8 no cenário central).",
+  "O coeficiente do T16 é calculado com a própria urna e acompanha a fatia de Lula no 1º turno (correlação 0,82): o teste não separa \"regulado pelo coeficiente\" de \"maior onde Lula é forte\"."
+ ],
+ "pistas": [
+  "Microdados ou relatórios completos das pesquisas nacionais finais registradas (AtlasIntel 4.990, Datafolha 4.050, Quaest 3.702, CNT/MDA 2.032, Nexus 2.000, PoderData), com a UF de cada entrevista: partido político pode requerer à Justiça Eleitoral acesso ao sistema interno de controle e aos dados das pesquisas registradas (Resolução TSE 23.600/2019, art. 13; conferir a redação que valeu em 2026). Com eles o teste por UF passa a ter as 27 UFs.",
+  "Recorte por região das últimas rodadas de Quaest, PoderData, Ipespe e Real Time Big Data: com 7 ou 8 institutos o ep do D cai para perto de 1 ponto e a forma pura (3,8) passa a ser visível.",
+  "O mesmo recorte por região nas pesquisas finais do 1º turno, de todos os institutos: é o espelho que separa defeito fixo das pesquisas no Nordeste de algo próprio do 2º turno.",
+  "O erro das pesquisas se concentra no Nordeste e no Sudeste, e o Nordeste é também onde o comparecimento mais subiu (Adendo 28): cruzar com a conferência de cadernos de votação em PI, MA, CE, PB e TO, que continua sendo a checagem que decide."
+ ],
+ "tempo_s": 31.120052337646484
+}

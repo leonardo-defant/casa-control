@@ -1,0 +1,226 @@
+R27_T22 (Adendo 27, onda D-c; Adendo 30, última onda): GOVERNADOR NA MESMA URNA COM RÉGUA
+Fragilidade "T22b e F20 (governador na mesma urna)" da equipe vermelha. Rodado em 10/11/2026.
+Script: scripts/analisar_R27_T22.py (decisões no docstring, gravado antes de calcular: 5df93c4fe6e82374...).
+Alinhamento gravado antes de qualquer D de 2018 ou 2022: resultados/R27_T22_alinhamento_2018_2022.json (2026-11-10T13:52:07Z, sha256 49c7de82345c748c...).
+Aviso do registro: este reteste foi escolhido por quem já conhecia os D de 2026. O critério é novo. Os D de 2018 e 2022
+não eram conhecidos de ninguém antes desta rodada.
+
+O QUE O TESTE MEDE
+  Na mesma urna, quanto dos próprios eleitores do 1º turno o presidenciável da direita perde até o 2º turno, menos
+  quanto perde o candidato a governador do campo dele (D). Troca feita só no voto de presidente puxa D para baixo
+  (troca de 3,6% dos votos: cerca de -0,0345). A pergunta desta rodada: quanto D varia sozinho, sem troca nenhuma?
+  A régua são os pares UF e ano de 2018 e 2022 com 2º turno de governador e um finalista claramente do campo de Bolsonaro.
+
+VEREDITO PELA LETRA, POR PARTE
+  Parte 1, régua: SEM PODER. Dispersão natural de D (desvio-padrão dos 10 naturais principais): 0,0507; limite da letra: 0,03.
+  Partes 2 e 3, D de 2026 empilhado em AM, DF e ES: INCONCLUSIVO. D = +0,0130 (ep 0,0047); percentil 5 dos naturais -0,0116, percentil 95 +0,1269; D + 0,0345 = +0,0475.
+      abaixo do percentil 5: não; de -0,03 ou menos: não; D + 0,0345 acima do percentil 95: não; naturais abaixo do D de 2026: 2 de 10.
+  Partes 2 e 3, D de 2026 só em AM: INCONCLUSIVO. D = -0,0104 (ep 0,0115); percentil 5 dos naturais -0,0116, percentil 95 +0,1269; D + 0,0345 = +0,0241.
+      abaixo do percentil 5: não; de -0,03 ou menos: não; D + 0,0345 acima do percentil 95: não; naturais abaixo do D de 2026: 1 de 10.
+  Troca de 3,6% plantada em 2026: o critério NÃO ENXERGA no empilhado (D plantado -0,0217, letra INCONCLUSIVO) e ENXERGA em AM (D plantado -0,0436, letra SINAL).
+  Espelho (lado de Lula, que a troca não move): INCONCLUSIVO pela letra espelhada. AM e DF +0,0017 (ep 0,0062); régua de 11 pares, percentil 5 -0,0642, percentil 95 +0,0915, desvio-padrão 0,0572.
+  Contraste C = D menos espelho: INCONCLUSIVO pela letra aplicada a C. AM e DF -0,0003 (ep 0,0097); AM -0,0225 (ep 0,0142); régua de 5 pares, percentil 5 +0,0230, desvio-padrão 0,0350. Os C de 2026 ficam abaixo dos 5 naturais, sem chegar a -0,03.
+  VEREDITO DO TESTE: SEM PODER. O desenho deixa de ser citado como contrapeso (T22b "sem sinal", F20 "exclusão") e também não é indício.
+  O veredito depende só da comparação com 2018 e 2022 (anos de que o Léo também suspeita). Ver "limites".
+
+DADOS
+  2018 e 2022: voto por candidato a governador nos dois turnos, por seção, do arquivo de votação por seção do TSE (26 pares
+  UF e ano, lidos em fluxo, sem gravar zip). Conferência contra as bases (branco, nulo, válidos e comparecimento de governador,
+  1º e 2º turno): 527.333 seções conferem, 0 não conferem.
+  Contra o bweb do 2º turno (a fonte que o registro cita), voto por candidato a governador seção a seção: 527.333 seções iguais,
+  0 diferentes, 0 só em uma das fontes.
+  2026: governador do 2º turno por candidato lido de novo dos zips do bweb: 39.739 seções iguais à base, 0 diferentes; iguais à extração da onda A em 39.739.
+  O código novo reproduz os D publicados de 2026 (T22b, F20, espelho, C): sim (maior diferença 0,00005, arredondamento).
+
+ALINHAMENTO (regra do F20 transposta; fontes no arquivo de alinhamento)
+  Naturais principais (um só finalista no campo de Bolsonaro), 10: 2018 MG 30, 2018 RJ 20, 2018 RN 12, 2018 RR 17, 2018 SP 45, 2022 AM 44, 2022 ES 22, 2022 RS 22, 2022 SC 22, 2022 SP 10.
+  Secundário (os dois no campo; desempate pelo partido de Bolsonaro), 5: 2018 AM 12, 2018 RO 17, 2018 SC 17, 2022 MS 45, 2022 RO 22.
+  Fora do D: 2018 AP (sem campo de Bolsonaro), 2018 DF (fora), 2018 PA (fora), 2018 SE (sem campo de Bolsonaro), 2022 AL (sem campo de Bolsonaro), 2022 BA (sem campo de Bolsonaro), 2022 PB (sem campo de Bolsonaro), 2022 PE (sem campo de Bolsonaro), 2022 SE (sem campo de Bolsonaro); duplos sem desempate: 2018 MS, 2018 RS.
+  Espelho (um só finalista no campo do PT), 11: 2018 AP 40, 2018 RN 13, 2018 SE 55, 2022 AL 15, 2022 AM 15, 2022 BA 13, 2022 ES 40, 2022 PB 40, 2022 PE 77, 2022 SC 13, 2022 SP 13.
+  Polarizados, para C, 5: 2018 RN, 2022 AM, 2022 ES, 2022 SC, 2022 SP.
+  O registro falava em 26 D naturais. Com fonte clara e um só aliado, sobram 10.
+
+VALOR BRUTO DE 2026 (sem comparação com outro ano)
+  Empilhado AM, DF, ES: D = +0,0130 (ep 0,0047); 24.196 seções, 3.246 locais.
+  AC (aliado 11): próprio de Flávio -0,0584 (ep 0,0097); do aliado -0,1046 (ep 0,0142); D = +0,0462 (ep 0,0159)
+  AM (aliado 22): próprio de Flávio -0,0791 (ep 0,0072); do aliado -0,0687 (ep 0,0121); D = -0,0104 (ep 0,0115)
+  DF (aliado 11): próprio de Flávio -0,0282 (ep 0,0058); do aliado -0,0384 (ep 0,0073); D = +0,0103 (ep 0,0067)
+  ES (aliado 10): próprio de Flávio -0,0214 (ep 0,0034); do aliado -0,0703 (ep 0,0066); D = +0,0489 (ep 0,0060)
+  TO (aliado 44): próprio de Flávio -0,0685 (ep 0,0057); do aliado -0,3664 (ep 0,0137); D = +0,2979 (ep 0,0153)
+  Empilhado nas 5 UFs do F20: D = +0,0466 (ep 0,0049).
+
+D NATURAIS (próprio de Bolsonaro menos próprio do aliado a governador, mesma regressão, por UF)
+  par       aliado  seções   próprio Bolsonaro    próprio aliado       D
+  principais:
+  2022 SC     22    14955   +0,0021 (ep 0,0020)  +0,0237 (ep 0,0045)  -0,0216 (ep 0,0042)
+  2022 SP     10   100670   -0,0129 (ep 0,0011)  -0,0136 (ep 0,0016)  +0,0007 (ep 0,0014)
+  2022 ES     22     8933   -0,0142 (ep 0,0030)  -0,0625 (ep 0,0059)  +0,0483 (ep 0,0058)
+  2022 RS     22    23665   -0,0024 (ep 0,0024)  -0,0522 (ep 0,0046)  +0,0498 (ep 0,0044)
+  2018 SP     45    95923   +0,0093 (ep 0,0014)  -0,0502 (ep 0,0037)  +0,0595 (ep 0,0033)
+  2018 RJ     20    33542   -0,0128 (ep 0,0017)  -0,1035 (ep 0,0038)  +0,0907 (ep 0,0038)
+  2018 RR     17     1073   -0,0584 (ep 0,0104)  -0,1537 (ep 0,0159)  +0,0952 (ep 0,0163)
+  2022 AM     44     7007   -0,0524 (ep 0,0054)  -0,1576 (ep 0,0104)  +0,1051 (ep 0,0111)
+  2018 RN     12     7147   -0,0575 (ep 0,0086)  -0,1644 (ep 0,0130)  +0,1069 (ep 0,0112)
+  2018 MG     30    45239   -0,0358 (ep 0,0020)  -0,1791 (ep 0,0040)  +0,1433 (ep 0,0044)
+  secundário (duplos com desempate):
+  2018 RO     17     4047   -0,0342 (ep 0,0048)  -0,0175 (ep 0,0141)  -0,0167 (ep 0,0141)
+  2018 SC     17    14026   +0,0079 (ep 0,0025)  +0,0106 (ep 0,0070)  -0,0027 (ep 0,0070)
+  2018 AM     12     6577   -0,0414 (ep 0,0053)  -0,1499 (ep 0,0099)  +0,1086 (ep 0,0105)
+  2022 MS     45     6800   -0,0184 (ep 0,0042)  -0,1663 (ep 0,0147)  +0,1480 (ep 0,0155)
+  2022 RO     22     4067   -0,0299 (ep 0,0051)  -0,2167 (ep 0,0129)  +0,1868 (ep 0,0123)
+  descritivo, o outro finalista dos duplos como aliado:
+  2018 RS     15    23437   -0,0075 (ep 0,0029)  -0,0588 (ep 0,0054)  +0,0513 (ep 0,0053)
+  2018 AM     20     6577   -0,0414 (ep 0,0053)  -0,1164 (ep 0,0094)  +0,0750 (ep 0,0099)
+  2022 MS     28     6800   -0,0184 (ep 0,0042)  -0,0936 (ep 0,0105)  +0,0752 (ep 0,0102)
+  2018 MS     45     6394   -0,0410 (ep 0,0042)  -0,2008 (ep 0,0086)  +0,1598 (ep 0,0090)
+  2022 RO     44     4067   -0,0299 (ep 0,0051)  -0,1923 (ep 0,0134)  +0,1624 (ep 0,0154)
+  2018 MS     12     6394   -0,0410 (ep 0,0042)  -0,2174 (ep 0,0095)  +0,1764 (ep 0,0101)
+  2018 RS     45    23437   -0,0075 (ep 0,0029)  -0,2114 (ep 0,0072)  +0,2039 (ep 0,0078)
+  2018 RO     45     4047   -0,0342 (ep 0,0048)  -0,4093 (ep 0,0158)  +0,3751 (ep 0,0165)
+  2018 SC     55    14026   +0,0079 (ep 0,0025)  -0,6281 (ep 0,0084)  +0,6360 (ep 0,0092)
+  descritivo, só pela coligação (candidato declarou neutralidade):
+  2018 DF     15     6703   -0,0103 (ep 0,0053)  -0,0650 (ep 0,0084)  +0,0547 (ep 0,0095)
+  2018 PA     15    14963   -0,0718 (ep 0,0039)  -0,1769 (ep 0,0050)  +0,1051 (ep 0,0063)
+
+RÉGUA
+  principais (a régua da letra)                n 10  p5 -0,0116  mediana +0,0751  p95 +0,1269  mín -0,0216  máx +0,1433  dp 0,0507  dp sem erro de estimação 0,0501
+  principais de 2018                           n  5  p5 +0,0657  mediana +0,0952  p95 +0,1360  mín +0,0595  máx +0,1433  dp 0,0303  dp sem erro de estimação 0,0288
+  principais de 2022                           n  5  p5 -0,0172  mediana +0,0483  p95 +0,0941  mín -0,0216  máx +0,1051  dp 0,0492  dp sem erro de estimação 0,0488
+  principais mais duplos com desempate         n 15  p5 -0,0182  mediana +0,0907  p95 +0,1596  mín -0,0216  máx +0,1868  dp 0,0638  dp sem erro de estimação 0,0631
+  mais os dois só pela coligação               n 17  p5 -0,0177  mediana +0,0907  p95 +0,1557  mín -0,0216  máx +0,1868  dp 0,0604  dp sem erro de estimação 0,0597
+  todos, com o outro finalista dos duplos      n 26  p5 -0,0132  mediana +0,1002  p95 +0,3323  mín -0,0216  máx +0,6360  dp 0,1338  dp sem erro de estimação 0,1334
+  trios empilhados do mesmo ano                n 20  p5 -0,0023  mediana +0,0595  p95 +0,1351  mín -0,0050  máx +0,1364  dp 0,0512  dp sem erro de estimação 0,0511
+  espelho (lado do PT)                         n 11  p5 -0,0642  mediana +0,0263  p95 +0,0915  mín -0,1081  máx +0,1087  dp 0,0572  dp sem erro de estimação 0,0563
+  C nos polarizados                            n  5  p5 +0,0230  mediana +0,0573  p95 +0,0997  mín +0,0209  máx +0,1030  dp 0,0350  dp sem erro de estimação 0,0330
+  D com todos os principais empilhados: 2018 +0,1029 (ep 0,0024); 2022 +0,0071 (ep 0,0017); os dois anos +0,0868 (ep 0,0025).
+  O D empilhado de 2026 contra os trios empilhados: letra INCONCLUSIVO; trios abaixo dele: 8 de 20.
+  Letra com outras réguas (empilhado / só AM): secundário INCONCLUSIVO / INCONCLUSIVO; só 2018 INCONCLUSIVO / INCONCLUSIVO; só 2022 INCONCLUSIVO / INCONCLUSIVO.
+
+CALIBRAÇÃO POR EFEITO PLANTADO
+  2026, AM, DF e ES empilhados: D observado +0,0130 (ep 0,0047)
+    troca só no presidente (valor esperado): 0,5% D +0,0082 INCONCLUSIVO; 1,0% D +0,0033 INCONCLUSIVO; 1,5% D -0,0015 INCONCLUSIVO; 2,0% D -0,0063 INCONCLUSIVO; 2,5% D -0,0111 INCONCLUSIVO; 3,0% D -0,0159 INCONCLUSIVO; 3,6% D -0,0217 INCONCLUSIVO; 4,0% D -0,0255 INCONCLUSIVO; 5,0% D -0,0351 SINAL; 6,0% D -0,0448 SINAL; 8,0% D -0,0640 SINAL; 10,0% D -0,0832 SINAL
+    troca de 3,6% por sorteio binomial: D -0,0197, INCONCLUSIVO. Deslocamento de D por ponto de troca: -0,962.
+    menor troca da grade que a cláusula de sinal vê: 5,0% dos votos de Flávio.
+    explicação inocente plantada (3,6% dos eleitores de Flávio faltam ao 2º turno nos dois cargos): proporcional D +0,0067 (INCONCLUSIVO); todos do aliado D +0,0145 (INCONCLUSIVO).
+    limite do desenho, troca de 3,6% nos dois cargos: D +0,0125 (deslocamento -0,0005): INCONCLUSIVO.
+  2026, só AM: D observado -0,0104 (ep 0,0115)
+    troca só no presidente (valor esperado): 0,5% D -0,0150 INCONCLUSIVO; 1,0% D -0,0196 INCONCLUSIVO; 1,5% D -0,0242 INCONCLUSIVO; 2,0% D -0,0289 INCONCLUSIVO; 2,5% D -0,0335 SINAL; 3,0% D -0,0381 SINAL; 3,6% D -0,0436 SINAL; 4,0% D -0,0473 SINAL; 5,0% D -0,0565 SINAL; 6,0% D -0,0657 SINAL; 8,0% D -0,0841 SINAL; 10,0% D -0,1025 SINAL
+    troca de 3,6% por sorteio binomial: D -0,0407, SINAL. Deslocamento de D por ponto de troca: -0,921.
+    menor troca da grade que a cláusula de sinal vê: 2,5% dos votos de Flávio.
+    explicação inocente plantada (3,6% dos eleitores de Flávio faltam ao 2º turno nos dois cargos): proporcional D -0,0161 (INCONCLUSIVO); todos do aliado D -0,0071 (INCONCLUSIVO).
+    limite do desenho, troca de 3,6% nos dois cargos: D -0,0101 (deslocamento +0,0004): INCONCLUSIVO.
+  Nos naturais, um de fora por vez: a troca de 3,6% plantada é vista em 2 de 10 pares; falso alarme sem troca em 0 de 10; 'exclusão' com a troca plantada (erro) em 1 de 10; 'exclusão' sem troca em 4 de 10.
+
+ESPELHO (próprio do candidato do PT menos próprio do governador do campo do PT; a troca só no presidente quase não o move)
+  régua: 11 pares, p5 -0,0642, p95 +0,0915, dp 0,0572
+  2026 AM e DF empilhados: espelho +0,0017 (ep 0,0062); letra espelhada INCONCLUSIVO; naturais abaixo: 2 de 11
+  2026 AM: espelho +0,0121 (ep 0,0077); letra espelhada INCONCLUSIVO; naturais abaixo: 3 de 11
+  2026 DF: espelho +0,0072 (ep 0,0088); letra espelhada INCONCLUSIVO; naturais abaixo: 3 de 11
+  2026 RN: espelho +0,0081 (ep 0,0082); letra espelhada INCONCLUSIVO; naturais abaixo: 3 de 11
+  com a troca de 3,6% plantada, o espelho de AM e DF fica em +0,0025 (ep 0,0062).
+  espelhos naturais: 2022 SC -0,1081; 2022 SP -0,0202; 2018 RN +0,0039; 2022 ES +0,0170; 2018 SE +0,0252; 2022 BA +0,0263; 2018 AP +0,0300; 2022 AM +0,0479; 2022 PB +0,0743; 2022 AL +0,0744; 2022 PE +0,1087
+
+CONTRASTE C = D MENOS ESPELHO (pares com um finalista de cada campo; critério aplicado a C é decisão desta rodada)
+  régua: 5 pares, p5 +0,0230, p95 +0,0997, dp 0,0350
+  C naturais: 2022 SP +0,0209 (ep 0,0023); 2022 ES +0,0314 (ep 0,0074); 2022 AM +0,0573 (ep 0,0188); 2022 SC +0,0864 (ep 0,0085); 2018 RN +0,1030 (ep 0,0134)
+  2026 AM e DF empilhados: C = -0,0003 (ep 0,0097); letra aplicada a C: INCONCLUSIVO; naturais abaixo: 0 de 5
+  2026 AM: C = -0,0225 (ep 0,0142); letra aplicada a C: INCONCLUSIVO; naturais abaixo: 0 de 5
+  2026 DF: C = +0,0030 (ep 0,0127); letra aplicada a C: INCONCLUSIVO; naturais abaixo: 0 de 5
+  com a troca de 3,6% plantada: C de AM e DF -0,0351 (ep 0,0096); C de AM -0,0568 (ep 0,0141).
+
+TRADUÇÃO EM VOTOS DE MARGEM (regra de três com a troca plantada; 3,6% dos votos de Flávio no país = 2.153.737 votos trocados = 4.307.475 de margem)
+  Largura da faixa natural (percentil 5 a 95, 0,1385): 14,40% dos votos de Flávio, 17.224.974 votos de margem no país (389% da margem).
+  Um desvio-padrão natural (0,0507): 5,27% dos votos de Flávio, 6.310.863 votos de margem no país (142% da margem).
+  Maior troca que a régua não deixa excluir no empilhado (folga até o percentil 95, +0,1139): 11,84% dos votos de Flávio, 14.170.858 votos de margem no país (320% da margem).
+  Troca que seria preciso para a cláusula de sinal disparar no empilhado (distância 0,0430): 4,47% dos votos de Flávio, 5.344.415 votos de margem no país (121% da margem).
+  D de 2026 menos a mediana natural: -0,0621 (D de 2026 abaixo da mediana natural: no sentido da troca); em troca equivalente: 6,46% dos votos de Flávio, 7.729.510 votos de margem no país (174% da margem).
+  Votos de Flávio no 2º turno em AM, DF e ES: 3.249.291; 3,6% deles: 116.974 votos.
+
+EXPLORATÓRIO (acrescentado depois de ver o resultado; fora do registro; não entra em veredito)
+  Posição de 2026 na régua em desvios (t preditivo, uma cauda, supondo naturais normais):
+    D empilhado contra os 10 naturais: t -1,03, p 0,16; D de AM: t -1,47, p 0,09; D empilhado contra os 20 trios: t -0,84, p 0,20.
+    C de AM e DF contra os 5 C naturais: t -1,57, p 0,10; C de AM: t -2,15, p 0,05; espelho de AM e DF contra os 11 espelhos: t -0,40, p 0,35.
+  Por ano: abaixo do D empilhado de 2026 ficam 0 dos 5 naturais de 2018 e 2 dos 5 de 2022; abaixo do D de AM, 0 e 1.
+  De onde vem a diferença entre os anos (média simples dos coeficientes próprios; dp entre UFs entre parênteses):
+    2018, 5 pares       presidenciável -0,031 (0,029); aliado -0,130 (0,053); D +0,099 (0,030)
+    2022, 5 pares       presidenciável -0,016 (0,022); aliado -0,052 (0,068); D +0,036 (0,049)
+    2026, AM, DF e ES   presidenciável -0,043 (0,032); aliado -0,059 (0,018); D +0,016 (0,030)
+    De 2018 para 2022 o D médio cai 0,063: o coeficiente do presidenciável SOBE 0,015 e o do aliado sobe 0,078. A queda vem do lado do governador.
+    De 2022 para 2026 o D médio cai 0,020: o coeficiente do presidenciável cai 0,027 e o do aliado cai 0,007. A queda vem do lado do presidente, com 5 e 3 UFs diferentes.
+  Mesma UF em duas eleições, variação de D: SP 2018 a 2022 -0,059; SC 2018 a 2022 -0,019; RO 2018 a 2022 +0,203; AM 2018 a 2022 -0,003; AM 2022 a 2026 -0,116; ES 2022 a 2026 +0,001; DF 2018 a 2026 -0,044.
+  Régua interna de 2026, sem outro ano: desvio-padrão do D entre AM, DF e ES 0,030; entre as 5 UFs do F20 0,125.
+  Aliado do próprio partido do presidenciável (PSL em 2018, PL em 2022; 7 pares): D mediano +0,048, dp 0,074; de outro partido (8 pares): mediano +0,106, dp 0,047. AM em 2026 (aliada do PL): 2 de 7 abaixo.
+
+LEITURA (escrita depois de ver o resultado)
+O que a régua mostrou
+  1. D não tem zero natural. Em 9 dos 10 pares de 2018 e 2022 o presidenciável da direita perdeu uma fração MENOR dos próprios
+     eleitores que o aliado a governador (D de -0,022 a +0,143, mediana +0,075). A variação natural entre estados
+     (desvio-padrão 0,051) é maior que o deslocamento que a troca de 3,6% produz (0,0345).
+  2. Por isso o desenho não separa "troca só no presidente do tamanho que vira a eleição" de "diferença normal entre estados".
+     Pela letra fica SEM PODER. O "SEM SINAL" do T22b (Adendo 14), que supunha D natural igual a zero, e a "EXCLUSÃO" do F20
+     (Adendo 23) não valem mais como contrapeso à tese. O teste também não acusa nada.
+A favor da tese, com o mesmo rigor
+  a. Contra a régua, o D de 2026 fica na parte de baixo: só 2 dos 10 naturais ficam abaixo do empilhado (+0,013) e 1 abaixo do de AM (-0,010,
+     a 0,0012 do percentil 5). A distância do empilhado até a mediana natural (0,062) equivale a uma troca de 6,5% dos votos de Flávio,
+     mais do que os 3,6% que viram o resultado. Não passa de nenhum limiar: pela conta exploratória, um valor assim ou mais baixo
+     sai por acaso em cerca de 16% das vezes (AM: 9%).
+  b. O contraste C de 2026 (AM e DF -0,0003; AM -0,0225; DF +0,0030) fica abaixo dos 5 C naturais (+0,0209 a +0,1030).
+     São só 5 naturais, 4 deles de 2022, e nenhum C de 2026 chega a -0,03. Pela conta exploratória: p 0,10 (AM e DF) e 0,05 (AM).
+  c. Os 5 naturais de 2018, ano em que a direita venceu, são todos mais altos (+0,059 a +0,143) que qualquer D de AM, DF e ES em 2026.
+  d. O coeficiente próprio de Flávio em AM, DF e ES (média -0,043) é mais negativo que o de Bolsonaro nos naturais de 2022 (-0,016),
+     e o do aliado a governador ficou quase igual (-0,059 contra -0,052). Diferença de 0,027, perto do que a troca de 3,6% daria,
+     mas com UFs diferentes nos dois anos e desvio entre UFs de 0,02 a 0,03 (cerca de 1,3 erro-padrão). Item visto depois do dado.
+Contra a tese, com o mesmo rigor
+  a. Pela letra não há sinal: nem o empilhado nem AM ficam abaixo do percentil 5 (-0,0116), e nenhum chega a -0,03.
+  b. 2026 está dentro da faixa natural. Na comparação de igual para igual (D empilhado contra trios empilhados do mesmo ano),
+     8 dos 20 trios ficam abaixo de 2026. Com todos os principais de 2022 empilhados o D é +0,0071, abaixo do de 2026.
+  c. O espelho, que a troca não move, também fica abaixo da mediana da régua dele (+0,002 contra +0,026; 2 de 11 abaixo;
+     RN 3 de 11). Em 2026 D e espelho estão os dois perto de zero: parte do "D baixo" aparece também do lado de Lula.
+     A distância do espelho à mediana dele (0,025) é menor que a do D (0,062); a diferença é o que o C mede (item b a favor).
+  d. ES, a única UF com a mesma estrutura (aliado da direita contra não alinhado ou do outro campo) em 2022 e 2026, tem o mesmo D: +0,048 e +0,049.
+     (Se as duas eleições tiverem a mesma troca, isso não distingue nada; pesa só contra "troca nova em 2026".)
+  e. A diferença entre 2018 e os anos seguintes vem do lado do governador (aliados de 2018 perderam muito mais dos próprios
+     eleitores), e o coeficiente de Bolsonaro até subiu de 2018 para 2022. Troca só no presidente agiria no coeficiente do presidente.
+  f. O D de uma mesma UF muda de uma eleição para outra tanto ou mais do que a troca moveria, nos dois sentidos: de 2018 a 2022,
+     SP -0,059, SC -0,019, AM -0,003, RO +0,203. Em AM, de 2022 a 2026, -0,116, dos quais -0,089
+     vêm do lado do governador (troca de candidato aliado) e -0,027 do lado do presidente.
+  g. O fato bruto que o T22b relatou continua de pé: em AM e DF o aliado a governador perdeu os próprios eleitores na mesma
+     proporção que Flávio, na mesma urna. O que mudou é a leitura: nos anos de referência o aliado costumava perder MAIS.
+O que isso significa em votos
+  A faixa natural de D (percentil 5 a 95) tem a largura de uma troca de 14,4% dos votos de Flávio (17.224.974 votos de margem
+  se fosse no país inteiro, 3,9 vezes a margem). Um desvio-padrão natural vale 5,3% (6.310.863 votos, 142% da margem).
+  A cláusula de sinal só dispararia no empilhado com troca de 4,5% ou mais; a de exclusão não exclui nada abaixo de 11,8%.
+  O teste cobre 3.249.291 votos de Flávio (AM, DF e ES), 5,4% dos dele no país.
+Limites
+  1. O veredito depende só da comparação com 2018 e 2022. Se nesses anos houve a mesma troca só no presidente, os naturais já
+     vêm deslocados e a comparação é cega. Sem outro ano, a régua interna de 2026 dá o mesmo recado: o D varia 0,030 entre AM, DF e ES
+     e 0,125 entre as 5 UFs.
+  2. Cego, por desenho, a desvio que mexa também no governador (troca plantada nos dois cargos move D em -0,0005) ou que poupe as 6 UFs.
+  3. Só 10 naturais com fonte clara (o registro previa 26); percentis 5 e 95 de 10 valores são quase o mínimo e o máximo.
+  4. Calibração: a troca de 3,6% plantada em 2026 não é vista no empilhado; nos naturais é vista em 2 de 10; a cláusula de
+     exclusão erra para os dois lados ("exclui" 4 de 10 pares sem troca e 1 de 10 com a troca plantada).
+     A explicação inocente plantada (abstenção de eleitores de Flávio nos dois cargos) move D em -0,0063 e +0,0015: não imita a troca.
+  5. Rodado por um agente só. Falta o conferente independente (regra do Adendo 27).
+Desvios do registro (todos decididos antes de calcular qualquer D de 2018 ou 2022; detalhes no docstring e no arquivo de alinhamento)
+  1. Fonte: arquivo de votação por seção do TSE (traz os dois turnos por candidato) em vez do bweb, porque o D precisa do voto por
+     candidato a governador também no 1º turno. Conferido contra as bases e, no 2º turno, contra o bweb que o registro cita.
+  2. Zip lido em fluxo por faixas de bytes, sem gravar em disco, em vez de baixar e apagar.
+  3. Naturais: 10 principais em vez de 26 (regra de um só finalista no campo de Bolsonaro, com fonte); duplos e casos só pela coligação ao lado.
+  4. Refinamento gravado no arquivo de alinhamento, depois do docstring e antes de qualquer D: candidato com o partido de Bolsonaro
+     na coligação que declarou neutralidade (DF e PA em 2018) conta como fonte contraditória e sai.
+  5. O alinhamento foi fixado pelo mesmo agente que depois calculou o D (o registro pedia outro agente), antes de qualquer D, com
+     hash e hora gravados.
+  6. Percentis por interpolação linear; desvio-padrão amostral; precedência das cláusulas; trios empilhados; critério aplicado a C;
+     RN no espelho: decisões do docstring.
+Contagem: 2 estatísticas registradas (empilhado e AM) em 2 cláusulas, mais espelho e C: 0 sinal, 0 exclusão.
+Pistas (o que daria poder a este desenho, ou onde olhar)
+  1. O contraste C varia menos que o D (desvio-padrão 0,035 contra 0,051) e em 2026 ficou abaixo dos 5 naturais. Uma régua de C com mais
+     pares polarizados (2º turno de governador de 2014, 2010 e 2006, PT contra PSDB, pelo mesmo arquivo do TSE) diria se isso é acaso.
+  2. Só o lado do presidente (não depende de alinhamento): o coeficiente próprio de Flávio em AM (-0,079) é o 2º mais negativo
+     dos 32 calculados (26 pares de 2018 e 2022 e 6 UFs de 2026; o mais baixo é 2018 SE, -0,096); RN, TO e AC de 2026 estão em 3º, 5º e 7º.
+     Nas quatro UFs que se repetem, o de 2026 é mais negativo que o da eleição anterior: AM -0,027 e ES -0,007 contra 2022;
+     RN -0,021 e DF -0,018 contra 2018 (a troca de 3,6% daria -0,035). Em AM a aliada perdeu o mesmo (-0,069), o que casa com
+     eleitor que não voltou (os dois cargos caem juntos) e não com troca só no presidente. É o canal do comparecimento das ondas
+     A e B, que se decide em caderno de votação, não em boletim.
+  3. Este desenho só alcança troca que poupe o governador. As testemunhas (D4-3 e D4-4) seguem sendo os únicos desenhos
+     registrados que enxergam troca uniforme e coerente dentro da urna.

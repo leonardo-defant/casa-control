@@ -1,0 +1,237 @@
+R27_L5 (Adendo 27, Onda D-c; Adendo 30, última onda): ERRO DAS PESQUISAS ESTADUAIS POR UF E RECORTE POR REGIÃO
+Script: scripts/analisar_R27_L5.py. Coleta com fontes: resultados/R27_L5_coleta_pesquisas.json. Números: resultados/R27_L5_pesquisas_estaduais.json.
+SHA-256 do docstring (regras): 8394f3affee455280a7361bd48ef396ecb41ec085ec7084d4c8f347b26542057
+Aviso do Adendo 27: reteste escrito pela equipe vermelha, que já conhecia os resultados antigos; o critério é novo, a escolha do que
+retestar é posterior ao dado. Regras de inclusão e de média fixadas no docstring antes da coleta (14h35 UTC de 10/11) e o acréscimo
+exploratório antes de levantar as pesquisas do 1º turno (14h41 UTC). Nenhum outro ano serve de régua neste teste.
+
+CRITÉRIO PELA LETRA (equipe_vermelha_relatorio.json)
+  ERRO ESTRUTURADO (indício a cruzar): inclinação de 20 pontos ou mais por unidade de coeficiente a mais de 3 ep, com 15 UFs ou mais.
+  ERRO UNIFORME: |inclinação| abaixo de 8 com ep até 4. "Não dá veredito de fraude sozinho: diz qual forma procurar."
+
+0. CONFERÊNCIAS DA BASE
+  Urna do 2º turno sem o exterior: Lula 64.056.078, Flávio 59.654.544, válidos 123.710.622; Lula 51,779% dos válidos.
+  Coeficiente do T16 refeito aqui por UF (mesma regressão): maior diferença contra resultados/T16_bweb.json = 0.00e+00.
+  Coeficiente espelho (votos de Lula no 1º turno no ganho de Flávio), calculado aqui: correlação com o do T16 entre as 27 UFs = 0,058.
+  Correlação do coeficiente do T16 com a fatia de Lula no 1º turno: 0,820. kappa (forma pura) = 2,70 / 0,04572 = 59,05 pontos por unidade.
+
+1. PARTE A: PESQUISAS ESTADUAIS DE PRESIDENTE NO 2º TURNO, JANELA DE 18 A 24/10/2026
+  O que existe: as buscas das 27 UFs só acharam pesquisa estadual de presidente na janela nas 6 UFs com 2º turno de governador.
+  Nas outras 21 UFs (92,1% dos válidos do país) não achei nenhuma. Lista do que entrou e do que ficou de fora no JSON da coleta.
+  pesquisa                      | campo        | amostra | Lula válidos | urna   | erro (urna menos pesquisa) | fonte
+  AC AtlasIntel                 | 18/10 a 23/10 |    1191 |        33,90 |  33,43 |    -0,47 | conferida
+  AM AtlasIntel                 | 18/10 a 23/10 |     n/p |        53,50 |  54,02 |     0,52 | conferida
+  DF AtlasIntel                 | 18/10 a 23/10 |     n/p |        43,10 |  45,72 |     2,62 | conferida
+  DF Quaest                     | 17/10 a 20/10 |     n/p |        43,82 |  45,72 |     1,90 | conferida
+  ES AtlasIntel                 | 18/10 a 23/10 |     n/p |        41,50 |  43,63 |     2,13 | conferida
+  RN AtlasIntel                 | 18/10 a 23/10 |     n/p |        63,00 |  65,72 |     2,72 | conferida
+  TO AtlasIntel                 | 18/10 a 23/10 |     n/p |        47,60 |  48,63 |     1,03 | conferida
+  TO Paraná Pesquisas           | 18/10 a 23/10 |    1500 |        43,00 |  48,63 |     5,63 | conferida [sem histórico de 1º turno comprovado: fora da principal]
+
+  Análise principal (conferidas, uma por instituto e UF, instituto com pesquisa de presidente no 1º turno): 7 pesquisas em 6 UFs
+  (7,9% dos válidos do país).
+  UF | coef T16 | Lula 1T | urna 2T | média das pesquisas (n) | erro   | ep amostral | institutos
+  AC | +0.0627  |   28,73 |   33,43 |  33,90 (1)              |  -0,47 |  1,37       | AtlasIntel
+  AM | +0.0822  |   48,23 |   54,02 |  53,50 (1)              |   0,52 |  1,58       | AtlasIntel
+  DF | +0.0301  |   38,11 |   45,72 |  43,46 (2)              |   2,26 |  1,11       | AtlasIntel, Quaest
+  ES | +0.0236  |   37,76 |   43,63 |  41,50 (1)              |   2,13 |  1,56       | AtlasIntel
+  RN | +0.0792  |   59,75 |   65,72 |  63,00 (1)              |   2,72 |  1,53       | AtlasIntel
+  TO | +0.0684  |   43,42 |   48,63 |  47,60 (1)              |   1,03 |  1,58       | AtlasIntel
+  Erro médio de Lula nas 6 UFs: 1,37 pontos (dp entre UFs 1,22; ep 0,50); ponderado pelos válidos: 1,72.
+  Para comparar: as 11 pesquisas nacionais finais erraram Lula em +2,70 (L5a).
+  VEREDITO PELA LETRA (Parte A, coeficiente): SEM PODER (menos de 8 UFs: sem regressão, P13).
+    A letra exige 15 UFs para ESTRUTURADO; há 6. Com menos de 8 UFs não há regressão (P13).
+    Só descritivo, sem veredito: reta pelos 6 pontos = -17,7 pontos por unidade de coeficiente (ep 22,7; HC3 19,8);
+    contra a fatia de Lula no 1º turno: 0,064 ponto de erro por ponto de fatia (ep 0,048). Nenhum dos dois decide nada com 6 pontos.
+  Sensibilidades (mesma conta):
+    S1_campo_inteiro_na_janela: 6 pesquisas, 6 UFs, erro médio 1,43, reta -20,9 (ep 23,3); veredito SEM PODER (menos de 8 UFs: sem regressão, P13).
+    S3_todas_da_janela: 8 pesquisas, 6 UFs, erro médio 1,75, reta -9,9 (ep 28,2); veredito SEM PODER (menos de 8 UFs: sem regressão, P13).
+    S5_com_trecho_e_tabela: 7 pesquisas, 6 UFs, erro médio 1,37, reta -17,7 (ep 22,7); veredito SEM PODER (menos de 8 UFs: sem regressão, P13).
+    S4_validos_pelos_totais: erro médio 1,40.
+  Fora da janela, depois do 1º turno (só listadas): AM Quaest 9 a 12/10/2026: Lula 52,0 (urna 54,0) [conferida]; RN Quaest 9 a 12/10/2026: Lula 64,0 (urna 65,7) [conferida]; AC Quaest 9 a 12/10/2026 (divulgada em 13/10): Lula 31,8 (urna 33,4) [trecho]; DF Quaest divulgada em 12/10/2026: Lula 44,4 (urna 45,7) [trecho].
+
+  1.1 Calibração por efeito plantado (P15 e P16)
+    Plantio nos resíduos reais das 6 UFs (todas as 720 permutações):
+      plantado    0,0: ESTRUTURADO pela letra em 0,0% (ignorando a exigência de 15 UFs: 0,6%); UNIFORME em 0,0%; ep médio da reta 20,1.
+      plantado   20,0: ESTRUTURADO pela letra em 0,0% (ignorando a exigência de 15 UFs: 7,1%); UNIFORME em 0,0%; ep médio da reta 20,1.
+      plantado   59,1: ESTRUTURADO pela letra em 0,0% (ignorando a exigência de 15 UFs: 34,9%); UNIFORME em 0,0%; ep médio da reta 20,1.
+    Poder do desenho a priori (simulação, 10.000 sorteios; viés de casa, erro não amostral e efeito de desenho do docstring):
+      desenho_real                             so_amostral: ep médio  24,6; plantado kappa vira ESTRUTURADO em   0,0%; plantado 20 em   0,0%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,00%
+      desenho_real                             central    : ep médio  39,0; plantado kappa vira ESTRUTURADO em   0,0%; plantado 20 em   0,0%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,00%
+      desenho_real                             pessimista : ep médio  53,8; plantado kappa vira ESTRUTURADO em   0,0%; plantado 20 em   0,0%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,00%
+      hipotetico_27_UFs_1_pesquisa_de_1500     so_amostral: ep médio   8,8; plantado kappa vira ESTRUTURADO em 100,0%; plantado 20 em  25,0%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,27%
+      hipotetico_27_UFs_1_pesquisa_de_1500     central    : ep médio  15,2; plantado kappa vira ESTRUTURADO em  78,9%; plantado 20 em   6,2%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,39%
+      hipotetico_27_UFs_1_pesquisa_de_1500     pessimista : ep médio  21,6; plantado kappa vira ESTRUTURADO em  40,0%; plantado 20 em   2,8%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,31%
+      hipotetico_27_UFs_3_pesquisas_de_1500    so_amostral: ep médio   5,1; plantado kappa vira ESTRUTURADO em 100,0%; plantado 20 em  50,2%; uniforme vira UNIFORME em   5,7%; falso ESTRUTURADO 0,00%
+      hipotetico_27_UFs_3_pesquisas_de_1500    central    : ep médio   8,8; plantado kappa vira ESTRUTURADO em 100,0%; plantado 20 em  24,9%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,18%
+      hipotetico_27_UFs_3_pesquisas_de_1500    pessimista : ep médio  12,5; plantado kappa vira ESTRUTURADO em  94,0%; plantado 20 em  10,2%; uniforme vira UNIFORME em   0,0%; falso ESTRUTURADO 0,36%
+    Leitura: com as 6 UFs que existem, o plantado puro nunca vira ESTRUTURADO pela letra. Mesmo com uma pesquisa de 1.500 em cada
+    uma das 27 UFs o limiar de ep até 4 (UNIFORME) não seria alcançado no cenário central. O desenho da letra pede mais dado do que há.
+
+  1.2 Explicação inocente plantada (P17): subamostragem dos municípios com menos de 50 mil aptos
+    Quanto os municípios pequenos pesam e quanto Lula tem neles (2º turno): PI 69% dos válidos, Lula 79,2 contra 68,6; MA 59% dos válidos, Lula 74,3 contra 62,8; BA 54% dos válidos, Lula 74,2 contra 67,9; CE 42% dos válidos, Lula 74,7 contra 64,7; PE 42% dos válidos, Lula 76,7 contra 63,9; SP 19% dos válidos, Lula 38,2 contra 48,0; SC 45% dos válidos, Lula 29,4 contra 31,6; PR 42% dos válidos, Lula 39,1 contra 36,2; RS 46% dos válidos, Lula 37,4 contra 46,2.
+    cenário                               | u    | inclinação nas 27 UFs | erro médio NE | erro médio Sul | erro nacional (pontos)
+    so_Nordeste, municípios < 50 mil aptos | 0,10 |      3,4              |   0,31        |   0,00         | 0,08
+    so_Nordeste, municípios < 50 mil aptos | 0,20 |      7,2              |   0,65        |   0,00         | 0,17
+    so_Nordeste, municípios < 50 mil aptos | 0,30 |     11,5              |   1,04        |   0,00         | 0,27
+    todas_as_UFs, municípios < 50 mil aptos | 0,10 |      5,1              |   0,31        |  -0,07         | 0,06
+    todas_as_UFs, municípios < 50 mil aptos | 0,20 |     10,8              |   0,65        |  -0,15         | 0,13
+    todas_as_UFs, municípios < 50 mil aptos | 0,30 |     17,2              |   1,04        |  -0,23         | 0,22
+    Subamostragem que produziria sozinha a inclinação de 20 nas 27 UFs: só no Nordeste u = 46,2%; em todas as UFs u = 34,0%.
+    Ao lado, capital contra o resto do estado (o resto pesando 80% do que pesa, em todas as UFs): inclinação 9,8; erro médio no Nordeste 0,43, no Sul -0,24.
+    Leitura: pesquisa que ouça de menos o município pequeno do Nordeste produz um erro que cresce com o coeficiente, do mesmo lado que
+    um desvio regulado pela força local. O teste por UF não separa as duas coisas; o espelho do 1º turno é o que pode separar.
+
+2. PARTE B: RECORTE POR REGIÃO DAS PESQUISAS NACIONAIS FINAIS (NORDESTE CONTRA SUL)
+  Urna por região (Lula, válidos do 2º turno) e coeficiente médio do T16 (ponderado pelos válidos):
+    NE: urna 69,37, coef +0.0777, 28,5% dos válidos; SE: urna 47,24, coef +0.0348, 41,1% dos válidos; S: urna 37,42, coef +0.0132, 14,7% dos válidos; N: urna 50,01, coef +0.0623, 8,1% dos válidos; CO: urna 39,99, coef +0.0265, 7,5% dos válidos; N+CO: urna 45,18, coef +0.0451, 15,7% dos válidos
+  delta_c = coef do Nordeste menos o do Sul = 0.0646. Limiares traduzidos (B3): ESTRUTURADO se D >= 1,29 ponto a mais de 3 ep,
+  com 3 institutos ou mais; UNIFORME se |D| < 0,52 com ep até 0,26. Plantado puro: D = kappa x delta_c = 3,81 pontos.
+  instituto (campo, amostra)                 | região: Lula válidos na pesquisa -> erro (urna menos pesquisa)                              | D = erro NE - erro Sul (ep amostral)
+  Datafolha  (23/10 a 24/10, 4050)           | NE 67,0 -> 2,4; SE 45,0 -> 2,2; S 35,0 -> 2,4                                               | -0,06 (2,48)
+  Nexus/BTG  (23/10 a 24/10, 2000)           | NE 64,6 -> 4,7; S 36,9 -> 0,5; SE 45,3 -> 1,9; N+CO 47,1 -> -1,9                            | 4,20 (3,58)
+  CNT/MDA    (21/10 a 23/10, 2032)           | NE 67,0 -> 2,4; S 39,0 -> -1,6                                                              | 3,94 (3,56)
+  AtlasIntel (18/10 a 23/10, 4990) [estimada]| NE 63,4 -> 6,0; S 38,7 -> -1,2; SE 46,0 -> 1,3; N 41,4 -> 8,6; CO 36,8 -> 3,2               | 7,22 (2,29)
+  principal: Lula e Flávio publicados no Nordeste e no Sul (Datafolha, Nexus/BTG, CNT/MDA):
+    erro médio no Nordeste 3,16, no Sul 0,46; D médio = 2,70 pontos; ep entre institutos 1,38 (dp 2,39, k = 3); ep amostral 1,88.
+    Em unidades da letra: inclinação_B = 41,8 pontos por unidade de coeficiente; ep 21,3 (entre institutos) ou 29,0 (amostral).
+    Veredito com o ep entre institutos (o do docstring): SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 40,8% das vezes).
+    Com o ep amostral: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes). Com o maior dos dois: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes).
+  sensibilidade: com a AtlasIntel estimada (Datafolha, Nexus/BTG, CNT/MDA, AtlasIntel):
+    erro médio no Nordeste 3,86, no Sul 0,04; D médio = 3,83 pontos; ep entre institutos 1,49 (dp 2,99, k = 4); ep amostral 1,52.
+    Em unidades da letra: inclinação_B = 59,3 pontos por unidade de coeficiente; ep 23,1 (entre institutos) ou 23,5 (amostral).
+    Veredito com o ep entre institutos (o do docstring): SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 32,8% das vezes).
+    Com o ep amostral: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 31,3% das vezes). Com o maior dos dois: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 31,3% das vezes).
+    AtlasIntel: D entre 6,07 e 8,11 conforme o branco, nulo e indeciso regional seja de 2,6% a 1,0% (só o líder de cada região foi publicado).
+  Ao lado, todas as regiões publicadas com efeito fixo de instituto (9 pontos, 5 graus de liberdade): inclinação 40,1 (ep 25,3).
+  Espelho Sudeste menos Norte/Centro-Oeste (coef +0.0348 contra +0.0451; a forma regulada prevê -0,61 ponto): Nexus/BTG 3,84 (ep amostral 3,43).
+  Espelho por candidato (P19): o coeficiente espelho quase não muda entre as regiões (NE +0.0145, SE +0.0183, Sul +0.0183, N+CO +0.0329; NE menos Sul = -0.0038) e não acompanha o do T16 (correlação 0,06, e não alta como o docstring supôs).
+    Sem diferença de coeficiente espelho entre Nordeste e Sul, o espelho por candidato não se aplica ao contraste regional. Nas 6 UFs da Parte A,
+    só descritivo: erro de Flávio contra o coeficiente espelho = 23,0 por unidade (ep 7,0); sem o AC (coeficiente espelho 0,128, o maior do país): 66,2 (ep 23,2).
+    Pelo limiar do P19 (20 ou mais a mais de 3 ep) o espelho passaria se a exigência de 15 UFs fosse ignorada, enquanto o teste principal, nas mesmas UFs, dá -17,7.
+    Com 6 pontos, e com coeficientes tirados da própria urna do 2º turno (onde Flávio foi melhor que o esperado o coeficiente espelho é maior e o erro dele é menor
+    por construção), isso não vale como sinal para nenhum lado; mostra que o desenho por UF, com o que existe, não mede o que promete.
+  Erro médio por região (institutos com Lula e Flávio publicados) ao lado do que cada forma prevê:
+    região | institutos | erro médio | forma pura (kappa x coef) | forma uniforme | peso nos válidos | contribuição ao erro nacional
+    NE     | 3          |   3,16     |   4,59                    |   2,70         |  28,5%           | 0,90
+    SE     | 2          |   2,08     |   2,05                    |   2,70         |  41,1%           | 0,86
+    S      | 3          |   0,46     |   0,78                    |   2,70         |  14,7%           | 0,07
+    N+CO   | 1          |  -1,91     |   2,66                    |   2,70         |  15,7%           | -0,30
+  Espelho no tempo (1º turno, onde a suspeita não está):
+    Datafolha 29/09 a 01/10/2026 (2506): 1º turno, Lula nos válidos: Nordeste pesquisa 61 contra urna 63,77 (erro 2,77); Sul pesquisa 32 contra urna 31,28 (erro -0,72); D do 1º turno = 3,50 (ep amostral 3,15).
+    Datafolha 29/09 a 01/10/2026: cenário de 2º turno perguntado antes do 1º: Nordeste 66,7, Sul 36,6; D contra a urna do 2º turno = 1,84.
+    Datafolha, D do 2º turno (-0,06) menos D do 1º turno (3,50) = -3,55 (ep amostral 4,01). Na Datafolha o erro de Lula no Nordeste
+    foi do mesmo tamanho nos dois turnos (2,77 no 1º, 2,37 no 2º); o que mudou do 1º para o 2º turno foi o Sul (-0,72 para 2,42). Um instituto só, descritivo.
+  Rodadas anteriores do cenário Lula contra Flávio (fora da janela, descritivo; D contra a urna do 2º turno): Datafolha 13 e 14/10/2026: D = 3,94; Nexus/BTG 10 a 12/10/2026: D = 5,06; Nexus/BTG 18 a 20/09/2026 (antes do 1º turno, cenário de 2º turno): D = 4,06.
+  Explicação inocente plantada, agregada por região (municípios com menos de 50 mil aptos pesando 1 - u):
+    so_Nordeste, u=0.10: D = 0,28; so_Nordeste, u=0.20: D = 0,59; so_Nordeste, u=0.30: D = 0,94; todas_as_UFs, u=0.10: D = 0,35; todas_as_UFs, u=0.20: D = 0,74; todas_as_UFs, u=0.30: D = 1,17.
+    Para produzir sozinha o D observado (2,70): só no Nordeste u = 66%; em todas as UFs u = 58%.
+
+3. PARTE EXPLORATÓRIA (acréscimo ao docstring): PESQUISAS ESTADUAIS DA ÚLTIMA SEMANA ANTES DO 1º TURNO
+  Decidida depois de ver que a janela registrada só tem 6 UFs; regras escritas antes de levantar estas pesquisas. Coleta incompleta.
+  janela 27 09 a 03 10: 7 pesquisas em 6 UFs
+    UF | coef T16 | pesquisa (campo, amostra)                  | 1T: pesq. -> urna (e1)      | 2T: pesq. -> urna (e2)      | DD = e2 - e1
+    DF | +0.0301  | Real Time Big Data (24/09 a 28/09, 1600)   | 38,3 -> 38,1 (-0,2)         | 45,5 -> 45,7 (0,3)          | 0,5
+    MG | +0.0400  | Real Time Big Data (28/09 a 02/10, 2000)   | não publicado               | 50,0 -> 50,4 (0,4)          | n/d
+    MG | +0.0400  | Quaest (25/09 a 28/09, 1506)               | 43,8 -> 43,3 (-0,4)         | 50,6 -> 50,4 (-0,2)         | 0,2
+    PR | +0.0130  | Real Time Big Data (24/09 a 28/09, 1600)   | 32,6 -> 31,2 (-1,4)         | 33,0 -> 37,4 (4,5)          | 5,9
+    RJ | +0.0378  | Real Time Big Data (25/09 a 29/09, 2000)   | 37,2 -> 39,4 (2,2)          | 44,1 -> 46,9 (2,8)          | 0,6
+    RS | +0.0185  | Real Time Big Data (24/09 a 28/09, 1600)   | 42,3 -> 35,7 (-6,5)         | 44,8 -> 42,2 (-2,6)         | 3,9
+    SP | +0.0321  | Real Time Big Data (24/09 a 28/09, 2000)   | 38,3 -> 38,2 (-0,1)         | 45,7 -> 46,2 (0,4)          | 0,5
+    e1 (espelho E1: 1º turno): 6 UFs, média -1,08; reta contra o coeficiente 178,2 (ep 102,8; HC3 197,9); contra a fatia de Lula no 1º turno 0,284 (ep 0,334). Leitura: sem dados para o limiar (menos de 8 UFs).
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 6,9%, 20 em 3,9%, uniforme vira UNIFORME em 0,0%.
+    e2 (cenário de 2º turno perguntado antes do 1º): 6 UFs, média 0,91; reta contra o coeficiente -23,8 (ep 113,3; HC3 238,2); contra a fatia de Lula no 1º turno -0,219 (ep 0,284). Leitura: sem dados para o limiar (menos de 8 UFs).
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 4,2%, 20 em 1,7%, uniforme vira UNIFORME em 0,0%.
+    DD (e2 menos e1): 6 UFs, média 1,94; reta contra o coeficiente -208,1 (ep 36,9; HC3 52,5); contra a fatia de Lula no 1º turno -0,524 (ep 0,134). Leitura: sem dados para o limiar (menos de 8 UFs).
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 15,0%, 20 em 7,1%, uniforme vira UNIFORME em 0,0%.
+    Só Real Time Big Data (mesmo método em todas): e1: 5 UFs, média -1,21, reta 223,3 (ep 129,9); e2: 6 UFs, média 0,96, reta -17,7 (ep 112,8); DD: 5 UFs, média 2,28, reta -230,5 (ep 43,4).
+  janela larga 20 09 a 03 10: 10 pesquisas em 9 UFs
+    UF | coef T16 | pesquisa (campo, amostra)                  | 1T: pesq. -> urna (e1)      | 2T: pesq. -> urna (e2)      | DD = e2 - e1
+    BA | +0.0769  | Real Time Big Data (23/09 a 26/09, 1600)   | não publicado               | 69,6 -> 71,3 (1,7)          | n/d
+    DF | +0.0301  | Real Time Big Data (24/09 a 28/09, 1600)   | 38,3 -> 38,1 (-0,2)         | 45,5 -> 45,7 (0,3)          | 0,5
+    MG | +0.0400  | Real Time Big Data (28/09 a 02/10, 2000)   | não publicado               | 50,0 -> 50,4 (0,4)          | n/d
+    MG | +0.0400  | Quaest (25/09 a 28/09, 1506)               | 43,8 -> 43,3 (-0,4)         | 50,6 -> 50,4 (-0,2)         | 0,2
+    PE | +0.0721  | Real Time Big Data (23/09 a 26/09, 1600)   | 62,5 -> 63,5 (1,0)          | 63,5 -> 69,2 (5,7)          | 4,7
+    PR | +0.0130  | Real Time Big Data (24/09 a 28/09, 1600)   | 32,6 -> 31,2 (-1,4)         | 33,0 -> 37,4 (4,5)          | 5,9
+    RJ | +0.0378  | Real Time Big Data (25/09 a 29/09, 2000)   | 37,2 -> 39,4 (2,2)          | 44,1 -> 46,9 (2,8)          | 0,6
+    RS | +0.0185  | Real Time Big Data (24/09 a 28/09, 1600)   | 42,3 -> 35,7 (-6,5)         | 44,8 -> 42,2 (-2,6)         | 3,9
+    SP | +0.0321  | Real Time Big Data (24/09 a 28/09, 2000)   | 38,3 -> 38,2 (-0,1)         | 45,7 -> 46,2 (0,4)          | 0,5
+    TO | +0.0684  | Real Time Big Data (21/09 a 24/09, 1600)   | 42,6 -> 43,4 (0,9)          | 45,5 -> 48,6 (3,2)          | 2,3
+    e1 (espelho E1: 1º turno): 8 UFs, média -0,58; reta contra o coeficiente 71,4 (ep 41,2; HC3 45,4); contra a fatia de Lula no 1º turno 0,108 (ep 0,102). Leitura: INCONCLUSIVO.
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 9,0%, 20 em 1,7%, uniforme vira UNIFORME em 0,0%.
+    e2 (cenário de 2º turno perguntado antes do 1º): 9 UFs, média 1,78; reta contra o coeficiente 46,8 (ep 36,6; HC3 56,2); contra a fatia de Lula no 1º turno 0,075 (ep 0,073). Leitura: INCONCLUSIVO.
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 13,7%, 20 em 3,4%, uniforme vira UNIFORME em 0,0%.
+    DD (e2 menos e1): 8 UFs, média 2,33; reta contra o coeficiente -5,5 (ep 42,6; HC3 67,1); contra a fatia de Lula no 1º turno 0,029 (ep 0,093). Leitura: INCONCLUSIVO.
+      plantio nos resíduos, sem exigir 15 UFs: kappa vira ESTRUTURADO em 11,3%, 20 em 4,4%, uniforme vira UNIFORME em 0,0%.
+    Só Real Time Big Data (mesmo método em todas): e1: 7 UFs, média -0,60, reta 71,4 (ep 45,2); e2: 9 UFs, média 1,82, reta 46,6 (ep 36,2); DD: 7 UFs, média 2,63, reta -4,7 (ep 43,2).
+  Espelho E1 pela regra fixada em P18: ESPELHO SEM DADOS (o docstring pede 10 UFs; há 6 na janela de uma semana e 8 na larga).
+  Leitura exploratória: com 6 a 9 UFs nenhuma reta decide. O que os números dizem sem reta está na seção 6.
+
+4. TRADUÇÃO EM VOTOS DE MARGEM (P20)
+  Um ponto de erro igual em todo o país vale 1.237.106 votos de Lula, ou 2.474.212 de margem (margem oficial: 4.430.191).
+  Parte A: erro médio ponderado de 1,72 ponto nas 6 UFs = 166.669 votos de Lula acima das pesquisas nessas UFs (333.337 de margem, 7,5% da margem oficial). Estendido ao país seriam 2.122.056 votos (4.244.111 de margem), mas 6 UFs com 7,9% dos válidos não representam o país.
+  Forma estruturada: cada ponto de inclinação vale 49.135 votos acima do nível da UF de menor coeficiente (SC). No limiar de 20: 982.696 votos, 1.965.392 de margem (44,4% da oficial). Na forma pura (kappa): 2.901.465 votos, 5.802.931 de margem.
+  Parte B: erro médio de 3,16 no Nordeste = 1.112.489 votos de Lula acima das pesquisas (2.224.978 de margem); de 0,46 no Sul = 83.600 votos (167.200 de margem).
+    O contraste D = 2,70 equivale à inclinação 41,8; aplicada às 27 UFs, a parte regulada pela força local seria de 2.051.582 votos, 4.103.165 de margem (92,6% da oficial; faixa de 95% pelo ep amostral: -1.489.747 a 9.696.077).
+
+5. VEREDITOS PELA LETRA
+  Parte A, coeficiente do T16: SEM PODER (menos de 8 UFs: sem regressão, P13)
+  Parte A, fatia de Lula no 1º turno (ao lado): SEM PODER (mesmas 6 UFs; sem regressão)
+  Parte B, Nordeste contra Sul (critério traduzido, ep entre institutos): SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 40,8% das vezes)
+    com o ep amostral: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes); com o maior dos dois: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 16,7% das vezes); com a AtlasIntel estimada: SEM PODER (pela letra seria INCONCLUSIVO; o plantado puro só viraria ESTRUTURADO em 32,8% das vezes)
+  Três vereditos com limiar; a 3 ep unilateral, a chance de um ESTRUTURADO por acaso em cada um é de cerca de 0,1%, e eles não são independentes.
+  Nenhum SINAL e nenhum SEM SINAL: o teste não chega a dizer se o erro das pesquisas é igual em toda parte ou cresce com a força de Lula.
+
+6. LEITURA, NOS DOIS SENTIDOS
+  A favor da tese (erro regulado pela força local de Lula):
+   - No recorte por região das pesquisas nacionais finais o erro de Lula foi maior no Nordeste (3,16) que no Sul (0,46): D = 2,70 pontos, acima do limiar traduzido (1,29) e perto do que a forma pura prevê (3,81).
+   - A ordem das regiões acompanha o coeficiente: Nordeste 3,16, Sudeste 2,08, Sul 0,46; a forma pura previa 4,59, 2,05 e 0,78. O Norte/Centro-Oeste foge: -1,91 na Nexus, único instituto com esse recorte, contra 2,66 previstos.
+   - Três dos quatro institutos com recorte (Nexus, CNT/MDA e a AtlasIntel estimada) têm D de 3,94 a 7,22.
+   - A subamostragem dos municípios pequenos não explica sozinha um D desse tamanho: precisaria tirar 58% do peso deles em todas as UFs (66% se só no Nordeste).
+   - Nas 6 UFs com pesquisa estadual a urna deu mais a Lula que as pesquisas em 5 de 6 (média 1,37, ep 0,50).
+  Contra:
+   - O D de 2,70 está a 2,0 ep de zero pela dispersão entre institutos e a 1,4 ep pelo erro amostral (k = 3); a letra pede 3. Não distingue zero da forma pura.
+   - A Datafolha, a maior amostra presencial (4.050), errou igual nas três regiões publicadas: Nordeste 2,37, Sudeste 2,24, Sul 2,42 (D = -0,06).
+   - O contraste já existia antes do 2º turno: a Datafolha de 29/09 a 01/10 errou Lula no 1º turno em 2,77 no Nordeste e -0,72 no Sul (D = 3,50), com o erro nacional de Lula perto de zero.
+   - O contraste que não deveria dar nada (Sudeste menos Norte/Centro-Oeste, previsão da forma regulada -0,61) deu 3,84 na Nexus: recorte regional de uma pesquisa de 2.000 erra 3 a 4 pontos por acaso.
+   - Nas 6 UFs com pesquisa estadual o erro não cresce com o coeficiente (reta -17,7, ep 22,7): AM 0,52 e AC -0,47, de coeficiente alto, contra DF 2,26 e ES 2,13, de coeficiente baixo.
+   - Exploratório: nas pesquisas estaduais de antes do 1º turno, o quanto a urna andou a favor de Lula além do previsto (DD) não acompanha o coeficiente (janela larga, 8 UFs: reta -5,5, ep 42,6; janela de uma semana, 6 UFs: -208,1, ep 36,9); os maiores DD estão no PR, em PE e no RS.
+   - Exploratório: o espelho do 1º turno por UF aponta para o mesmo lado que o 2º (erro de Lula no 1º turno contra o coeficiente, janela larga, 8 UFs: reta 71,4, ep 41,2; cenário de 2º turno, 9 UFs: 46,8, ep 36,6): se há estrutura, ela não é própria do 2º turno. Pela regra fixada, com menos de 10 UFs este espelho fica como sem dados.
+  Nem a favor nem contra:
+   - O contraste não surgiu na última semana: na Nexus o cenário Lula contra Flávio já dava D = 4,06 em 18 a 20/09 e 5,06 em 10 a 12/10, contra 4,20 na véspera; na Datafolha, 3,94 em 13 e 14/10. Isso afasta uma virada de última hora concentrada no Nordeste, mas não separa viés fixo das pesquisas no Nordeste de desvio na urna.
+   - A reta do espelho por candidato nas 6 UFs (erro de Flávio contra o coeficiente espelho: 23,0, ep 7,0; sem o AC: 66,2, ep 23,2) passaria do limiar de 3 ep se a exigência de 15 UFs fosse ignorada, enquanto a reta principal nas mesmas UFs é -17,7 (ep 22,7). São 6 pontos e coeficientes tirados da própria urna: não conta para lado nenhum.
+  Ressalva: Para a hipótese do Léo de que o 1º turno também foi alterado, o contraste já existir no 1º turno não é contrapeso: uma alteração presente nos dois turnos no Nordeste daria o mesmo. O espelho do 1º turno só pesa contra a hipótese de algo novo no 2º turno.
+  O que cada resultado significaria (fixado antes): erro igual em toda parte combina com virada nacional de última hora e também com desvio
+  uniforme na contagem; erro maior onde Lula é forte combina com desvio regulado pela força local e também com subamostragem do interior do
+  Nordeste ou mobilização maior onde Lula é forte. O teste não chegou a nenhum dos dois. Pesquisa não é contagem: erro de pesquisa, com
+  qualquer forma, não prova alteração de voto.
+
+7. DESVIOS E DECISÕES NÃO REGISTRADAS
+  - O registro não fixa regra de inclusão nem de média: P1 a P10 foram escritas no docstring antes da coleta (hash e hora em trabalho-eleicao/adendo27/R27_L5).
+  - P3: "instituto com histórico no 1º turno" lido como pesquisa de presidente, nacional ou estadual, com campo terminado de 04/09 a 03/10/2026. A Paraná Pesquisas (TO) ficou fora da principal por isso.
+  - P12 e P13: estimador (mínimos quadrados por UF, ep clássico) e piso de 8 UFs para haver regressão; tradução ESTRUTURADO = SINAL, UNIFORME = SEM SINAL.
+  - P14: limiar para a fatia de Lula no 1º turno traduzido pela diferença prevista entre PI e SC; não chegou a ser usado (6 UFs).
+  - P15 a P17: forma pura (kappa = 2,70 / 0,04572), regra dos 80% para SEM PODER e explicação inocente plantada (municípios com menos de 50 mil aptos) não estão no registro.
+  - Parte B: o registro só diz "somar o recorte por região"; o critério (B3) é tradução da letra, com piso de 3 institutos e regra de poder de 80%.
+  - Parte B: a AtlasIntel só publicou o líder de cada região; o outro lado foi estimado e ela entra só na sensibilidade. Na CNT/MDA o Lula do Sul é o complemento do Flávio (base válidos).
+  - Parte B, espelho do 1º turno: a Datafolha usada é a de 29/09 a 01/10 (2.506), não a última (2 e 3/10), cujo recorte regional não achei.
+  - P19: o docstring supôs que o coeficiente espelho era correlacionado com o do T16; a correlação é 0,06 e o coeficiente espelho não difere entre Nordeste e Sul, então o espelho por candidato não se aplica ao contraste regional.
+  - Parte exploratória (seção 3): decidida depois de ver que só 6 UFs têm pesquisa na janela; regras escritas antes de levantar essas pesquisas; coleta interrompida de propósito com 11 pesquisas.
+  - Amostra não publicada: 1.000 no erro amostral (AtlasIntel de AM, DF, ES, RN e TO; Quaest DF).
+  - As versões ao lado de P12 (meta-regressão, peso pelos válidos, efeito fixo de instituto) e o segundo regressor de P14 não foram calculados como teste: com 6 UFs não há regressão.
+  - Feito depois de ver o primeiro resultado (exploratório): a tabela de erro médio por região ao lado da forma pura; a busca da rodada Nexus de 18 a 20/09; a redação do espelho da Datafolha; a reta do espelho por candidato sem o AC. Os desenhos hipotéticos de 27 UFs na simulação de poder não estão no docstring.
+  - O critério da letra traz "(1,6 ponto entre PI e SC)"; com os coeficientes principais do T16 são 1,80. Vale a inclinação de 20.
+
+8. LIMITES
+  - A coleta depende de um buscador restrito: não achar pesquisa estadual em 21 UFs não prova que não exista. O PesqEle do TSE não foi consultado.
+  - Os números vêm de matérias de imprensa lidas por ferramenta automática, não dos relatórios registrados; cada um tem link no JSON da coleta.
+  - Recorte regional de pesquisa nacional tem subamostra pequena (Sul: 280 a 600 entrevistas); o ep amostral de cada D vai de 2,3 a 3,6 pontos.
+  - Com 3 institutos, o ep pela dispersão entre institutos é ele mesmo incerto; por isso o ep amostral vai ao lado e o veredito é o mesmo com os dois.
+  - O limiar de ep até 4 do ERRO UNIFORME não é alcançável com pesquisa estadual real: na simulação, nem 3 pesquisas de 1.500 em cada uma das 27 UFs chegam lá (ep 8,8 no cenário central).
+  - O coeficiente do T16 é calculado com a própria urna e acompanha a fatia de Lula no 1º turno (correlação 0,82): o teste não separa "regulado pelo coeficiente" de "maior onde Lula é forte".
+
+9. PISTAS
+  - Microdados ou relatórios completos das pesquisas nacionais finais registradas (AtlasIntel 4.990, Datafolha 4.050, Quaest 3.702, CNT/MDA 2.032, Nexus 2.000, PoderData), com a UF de cada entrevista: partido político pode requerer à Justiça Eleitoral acesso ao sistema interno de controle e aos dados das pesquisas registradas (Resolução TSE 23.600/2019, art. 13; conferir a redação que valeu em 2026). Com eles o teste por UF passa a ter as 27 UFs.
+  - Recorte por região das últimas rodadas de Quaest, PoderData, Ipespe e Real Time Big Data: com 7 ou 8 institutos o ep do D cai para perto de 1 ponto e a forma pura (3,8) passa a ser visível.
+  - O mesmo recorte por região nas pesquisas finais do 1º turno, de todos os institutos: é o espelho que separa defeito fixo das pesquisas no Nordeste de algo próprio do 2º turno.
+  - O erro das pesquisas se concentra no Nordeste e no Sudeste, e o Nordeste é também onde o comparecimento mais subiu (Adendo 28): cruzar com a conferência de cadernos de votação em PI, MA, CE, PB e TO, que continua sendo a checagem que decide.

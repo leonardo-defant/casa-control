@@ -1,0 +1,5556 @@
+{
+ "teste": "R27_T22: governador na mesma urna com régua (fragilidade \"T22b e F20\" da equipe vermelha)",
+ "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 27 (commit 2748895) e Adendo 30 (commit a7218fb); registro/adendo27/equipe_vermelha_relatorio.json, fragilidade \"T22b e F20 (governador na mesma urna)\"",
+ "alinhamento": {
+  "arquivo": "resultados/R27_T22_alinhamento_2018_2022.json",
+  "sha256": "49c7de82345c748cb87955070ef12540d818d9654e6f88596acb523b511f72b1",
+  "gravado_em_utc": "2026-11-10T13:52:07Z",
+  "resumo": {
+   "principais_limpos": [
+    [
+     "2018",
+     "MG",
+     "30"
+    ],
+    [
+     "2018",
+     "RJ",
+     "20"
+    ],
+    [
+     "2018",
+     "RN",
+     "12"
+    ],
+    [
+     "2018",
+     "RR",
+     "17"
+    ],
+    [
+     "2018",
+     "SP",
+     "45"
+    ],
+    [
+     "2022",
+     "AM",
+     "44"
+    ],
+    [
+     "2022",
+     "ES",
+     "22"
+    ],
+    [
+     "2022",
+     "RS",
+     "22"
+    ],
+    [
+     "2022",
+     "SC",
+     "22"
+    ],
+    [
+     "2022",
+     "SP",
+     "10"
+    ]
+   ],
+   "secundario_duplos_com_desempate": [
+    [
+     "2018",
+     "AM",
+     "12"
+    ],
+    [
+     "2018",
+     "RO",
+     "17"
+    ],
+    [
+     "2018",
+     "SC",
+     "17"
+    ],
+    [
+     "2022",
+     "MS",
+     "45"
+    ],
+    [
+     "2022",
+     "RO",
+     "22"
+    ]
+   ],
+   "duplos_sem_desempate_fora": [
+    [
+     "2018",
+     "MS"
+    ],
+    [
+     "2018",
+     "RS"
+    ]
+   ],
+   "descritivo_pela_coligacao": [
+    [
+     "2018",
+     "DF",
+     "15"
+    ],
+    [
+     "2018",
+     "PA",
+     "15"
+    ]
+   ],
+   "espelho": [
+    [
+     "2018",
+     "AP",
+     "40"
+    ],
+    [
+     "2018",
+     "RN",
+     "13"
+    ],
+    [
+     "2018",
+     "SE",
+     "55"
+    ],
+    [
+     "2022",
+     "AL",
+     "15"
+    ],
+    [
+     "2022",
+     "AM",
+     "15"
+    ],
+    [
+     "2022",
+     "BA",
+     "13"
+    ],
+    [
+     "2022",
+     "ES",
+     "40"
+    ],
+    [
+     "2022",
+     "PB",
+     "40"
+    ],
+    [
+     "2022",
+     "PE",
+     "77"
+    ],
+    [
+     "2022",
+     "SC",
+     "13"
+    ],
+    [
+     "2022",
+     "SP",
+     "13"
+    ]
+   ],
+   "polarizados_para_C": [
+    [
+     "2018",
+     "RN"
+    ],
+    [
+     "2022",
+     "AM"
+    ],
+    [
+     "2022",
+     "ES"
+    ],
+    [
+     "2022",
+     "SC"
+    ],
+    [
+     "2022",
+     "SP"
+    ]
+   ],
+   "fora_do_D": [
+    [
+     "2018",
+     "AP",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2018",
+     "DF",
+     "fora"
+    ],
+    [
+     "2018",
+     "PA",
+     "fora"
+    ],
+    [
+     "2018",
+     "SE",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2022",
+     "AL",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2022",
+     "BA",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2022",
+     "PB",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2022",
+     "PE",
+     "sem campo de Bolsonaro"
+    ],
+    [
+     "2022",
+     "SE",
+     "sem campo de Bolsonaro"
+    ]
+   ]
+  }
+ },
+ "conferencia_dados": {
+  "2018_AP": {
+   "secoes_na_base": 1632,
+   "confere": 1632,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_AP.zip",
+    "tamanho": 7653995,
+    "last_modified": "Wed, 24 Apr 2024 17:19:15 GMT",
+    "etag": "\"74ca6b-616dadeba5845\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "12",
+    "40"
+   ],
+   "nomes_2t": {
+    "12": "ANTONIO WALDEZ GÓES DA SILVA",
+    "40": "JOAO ALBERTO RODRIGUES CAPIBERIBE"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "12": 133214,
+    "40": 119500
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "12": 191741,
+    "40": 174540
+   },
+   "secoes_usadas": 1632
+  },
+  "2018_AM": {
+   "secoes_na_base": 7017,
+   "confere": 7017,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_AM.zip",
+    "tamanho": 26048634,
+    "last_modified": "Wed, 24 Apr 2024 17:19:05 GMT",
+    "etag": "\"18d787a-616dade23b515\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "20",
+    "12"
+   ],
+   "nomes_2t": {
+    "20": "WILSON MIRANDA LIMA",
+    "12": "AMAZONINO ARMANDO MENDES"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "20": 596585,
+    "12": 579016
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "20": 1033954,
+    "12": 733414
+   },
+   "secoes_usadas": 7017
+  },
+  "2018_DF": {
+   "secoes_na_base": 6732,
+   "confere": 6719,
+   "base_sem_os_4_blocos": 13,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_DF.zip",
+    "tamanho": 37108246,
+    "last_modified": "Fri, 15 Aug 2025 13:52:26 GMT",
+    "etag": "\"2363a16-63c67b335de76\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "15",
+    "40"
+   ],
+   "nomes_2t": {
+    "15": "IBANEIS ROCHA BARROS JUNIOR",
+    "40": "RODRIGO SOBRAL ROLLEMBERG"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "15": 634008,
+    "40": 210510
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "15": 1042574,
+    "40": 451329
+   },
+   "secoes_usadas": 6719
+  },
+  "2018_MG": {
+   "secoes_na_base": 48166,
+   "confere": 48166,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_MG.zip",
+    "tamanho": 192869746,
+    "last_modified": "Wed, 24 Apr 2024 17:37:54 GMT",
+    "etag": "\"b7ef572-616db2167f02f\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "30",
+    "45"
+   ],
+   "nomes_2t": {
+    "30": "ROMEU ZEMA NETO",
+    "45": "ANTONIO AUGUSTO JUNHO ANASTASIA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "30": 4138967,
+    "45": 2814704
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "30": 6963806,
+    "45": 2734452
+   },
+   "secoes_usadas": 48166
+  },
+  "2018_MS": {
+   "secoes_na_base": 6529,
+   "confere": 6529,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_MS.zip",
+    "tamanho": 19603873,
+    "last_modified": "Wed, 24 Apr 2024 17:19:10 GMT",
+    "etag": "\"12b21a1-616dade6a111f\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "45",
+    "12"
+   ],
+   "nomes_2t": {
+    "45": "REINALDO AZAMBUJA SILVA",
+    "12": "ODILON DE OLIVEIRA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 576993,
+    "12": 408969
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 677310,
+    "12": 616422
+   },
+   "secoes_usadas": 6529
+  },
+  "2018_PA": {
+   "secoes_na_base": 17286,
+   "confere": 17286,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_PA.zip",
+    "tamanho": 55889161,
+    "last_modified": "Wed, 24 Apr 2024 17:19:26 GMT",
+    "etag": "\"354cd09-616dadf585e1c\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "15",
+    "25"
+   ],
+   "nomes_2t": {
+    "15": "HELDER ZAHLUTH BARBALHO",
+    "25": "MARCIO DESIDÉRIO TEIXEIRA MIRANDA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "15": 1825708,
+    "25": 1156680
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "15": 2068319,
+    "25": 1663045
+   },
+   "secoes_usadas": 17286
+  },
+  "2018_RJ": {
+   "secoes_na_base": 33901,
+   "confere": 33901,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_RJ.zip",
+    "tamanho": 204050711,
+    "last_modified": "Wed, 24 Apr 2024 17:32:18 GMT",
+    "etag": "\"c299117-616db0d663ff6\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "20",
+    "25"
+   ],
+   "nomes_2t": {
+    "20": "WILSON JOSÉ WITZEL",
+    "25": "EDUARDO DA COSTA PAES"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "20": 3154771,
+    "25": 1494831
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "20": 4675355,
+    "25": 3134400
+   },
+   "secoes_usadas": 33901
+  },
+  "2018_RN": {
+   "secoes_na_base": 7389,
+   "confere": 7389,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_RN.zip",
+    "tamanho": 22815737,
+    "last_modified": "Wed, 24 Apr 2024 17:19:00 GMT",
+    "etag": "\"15c23f9-616daddd28f47\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "13",
+    "12"
+   ],
+   "nomes_2t": {
+    "13": "MARIA DE FATIMA BEZERRA",
+    "12": "CARLOS EDUARDO NUNES ALVES"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "13": 748150,
+    "12": 525933
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "13": 1022910,
+    "12": 753035
+   },
+   "secoes_usadas": 7389
+  },
+  "2018_RO": {
+   "secoes_na_base": 4181,
+   "confere": 4181,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_RO.zip",
+    "tamanho": 17325762,
+    "last_modified": "Wed, 24 Apr 2024 17:19:15 GMT",
+    "etag": "\"1085ec2-616dadeb9d75c\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "17",
+    "45"
+   ],
+   "nomes_2t": {
+    "17": "MARCOS JOSE ROCHA DOS SANTOS",
+    "45": "EXPEDITO GONÇALVES FERREIRA JUNIOR"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "17": 183691,
+    "45": 241885
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "17": 530188,
+    "45": 269032
+   },
+   "secoes_usadas": 4181
+  },
+  "2018_RR": {
+   "secoes_na_base": 1172,
+   "confere": 1172,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_RR.zip",
+    "tamanho": 6242815,
+    "last_modified": "Wed, 24 Apr 2024 17:19:20 GMT",
+    "etag": "\"5f41ff-616dadf02a469\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "17",
+    "45"
+   ],
+   "nomes_2t": {
+    "17": "ANTONIO OLIVERIO GARCIA DE ALMEIDA",
+    "45": "JOSE DE ANCHIETA JUNIOR"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "17": 113468,
+    "45": 104114
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "17": 136612,
+    "45": 119489
+   },
+   "secoes_usadas": 1172
+  },
+  "2018_RS": {
+   "secoes_na_base": 27274,
+   "confere": 27274,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_RS.zip",
+    "tamanho": 183466885,
+    "last_modified": "Wed, 24 Apr 2024 17:25:31 GMT",
+    "etag": "\"aef7b85-616daf51b7735\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "45",
+    "15"
+   ],
+   "nomes_2t": {
+    "45": "EDUARDO FIGUEIREDO CAVALHEIRO LEITE",
+    "15": "JOSÉ IVO SARTORI"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 2143603,
+    "15": 1857335
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 3128317,
+    "15": 2705601
+   },
+   "secoes_usadas": 27274
+  },
+  "2018_SC": {
+   "secoes_na_base": 15562,
+   "confere": 15562,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_SC.zip",
+    "tamanho": 90446538,
+    "last_modified": "Wed, 24 Apr 2024 17:18:53 GMT",
+    "etag": "\"5641aca-616dadd621d9c\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "17",
+    "55"
+   ],
+   "nomes_2t": {
+    "17": "CARLOS MOISÉS DA SILVA",
+    "55": "GELSON LUIZ MERÍSIO"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "17": 1071406,
+    "55": 1121869
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "17": 2644179,
+    "55": 1075242
+   },
+   "secoes_usadas": 15562
+  },
+  "2018_SE": {
+   "secoes_na_base": 5137,
+   "confere": 5137,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_SE.zip",
+    "tamanho": 15065673,
+    "last_modified": "Wed, 24 Apr 2024 17:19:43 GMT",
+    "etag": "\"e5e249-616dae05bd52a\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "55",
+    "40"
+   ],
+   "nomes_2t": {
+    "55": "BELIVALDO CHAGAS SILVA",
+    "40": "ANTONIO CARLOS VALADARES FILHO"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "55": 403252,
+    "40": 212169
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "55": 679051,
+    "40": 370161
+   },
+   "secoes_usadas": 5137
+  },
+  "2018_SP": {
+   "secoes_na_base": 96328,
+   "confere": 96328,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2018_SP.zip",
+    "tamanho": 495073028,
+    "last_modified": "Wed, 24 Apr 2024 18:04:13 GMT",
+    "etag": "\"1d823704-616db7f8382ab\""
+   },
+   "dt_geracao": [
+    "15/07/2021"
+   ],
+   "finalistas": [
+    "45",
+    "40"
+   ],
+   "nomes_2t": {
+    "45": "JOÃO AGRIPINO DA COSTA DORIA JUNIOR",
+    "40": "MARCIO LUIZ FRANÇA GOMES"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 6431555,
+    "40": 4358998
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 10990350,
+    "40": 10248740
+   },
+   "secoes_usadas": 96328
+  },
+  "2022_AL": {
+   "secoes_na_base": 6626,
+   "confere": 6626,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_AL.zip",
+    "tamanho": 30273477,
+    "last_modified": "Mon, 22 Jun 2026 14:45:25 GMT",
+    "etag": "\"1cdefc5-654d8b1580dbf\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "15",
+    "44"
+   ],
+   "nomes_2t": {
+    "15": "PAULO SURUAGY DO AMARAL DANTAS",
+    "44": "RODRIGO SANTOS CUNHA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "15": 708984,
+    "44": 407220
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "15": 834278,
+    "44": 759984
+   },
+   "secoes_usadas": 6626
+  },
+  "2022_AM": {
+   "secoes_na_base": 7453,
+   "confere": 7453,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_AM.zip",
+    "tamanho": 44046931,
+    "last_modified": "Mon, 22 Jun 2026 14:45:22 GMT",
+    "etag": "\"2a01a53-654d8b1283bba\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "44",
+    "15"
+   ],
+   "nomes_2t": {
+    "44": "WILSON MIRANDA LIMA",
+    "15": "CARLOS EDUARDO DE SOUZA BRAGA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "44": 819784,
+    "15": 401817
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "44": 1039192,
+    "15": 795098
+   },
+   "secoes_usadas": 7453
+  },
+  "2022_BA": {
+   "secoes_na_base": 34424,
+   "confere": 34424,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_BA.zip",
+    "tamanho": 191461319,
+    "last_modified": "Mon, 22 Jun 2026 14:44:56 GMT",
+    "etag": "\"b6977c7-654d8afa01296\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "13",
+    "44"
+   ],
+   "nomes_2t": {
+    "13": "JERÔNIMO RODRIGUES SOUZA",
+    "44": "ANTONIO CARLOS PEIXOTO DE MAGALHÃES NETO"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "13": 4019830,
+    "44": 3316711
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "13": 4480464,
+    "44": 4007023
+   },
+   "secoes_usadas": 34424
+  },
+  "2022_ES": {
+   "secoes_na_base": 9239,
+   "confere": 9239,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_ES.zip",
+    "tamanho": 49893772,
+    "last_modified": "Mon, 22 Jun 2026 14:44:58 GMT",
+    "etag": "\"2f9518c-654d8afbb6a7d\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "40",
+    "22"
+   ],
+   "nomes_2t": {
+    "40": "JOSÉ RENATO CASAGRANDE",
+    "22": "CARLOS HUMBERTO MANNATO"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "40": 976652,
+    "22": 800598
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "40": 1171288,
+    "22": 1006021
+   },
+   "secoes_usadas": 9239
+  },
+  "2022_MS": {
+   "secoes_na_base": 6912,
+   "confere": 6912,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_MS.zip",
+    "tamanho": 38353961,
+    "last_modified": "Mon, 22 Jun 2026 14:44:51 GMT",
+    "etag": "\"2493c29-654d8af5b2e1d\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "45",
+    "28"
+   ],
+   "nomes_2t": {
+    "45": "EDUARDO CORREA RIEDEL",
+    "28": "RENAN BARBOSA CONTAR"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 361981,
+    "28": 384275
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 808210,
+    "28": 612113
+   },
+   "secoes_usadas": 6912
+  },
+  "2022_PB": {
+   "secoes_na_base": 9602,
+   "confere": 9602,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_PB.zip",
+    "tamanho": 47957126,
+    "last_modified": "Mon, 22 Jun 2026 14:45:20 GMT",
+    "etag": "\"2dbc486-654d8b1118b37\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "40",
+    "45"
+   ],
+   "nomes_2t": {
+    "40": "JOÃO AZEVEDO LINS FILHO",
+    "45": "PEDRO OLIVEIRA CUNHA LIMA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "40": 863174,
+    "45": 520155
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "40": 1221904,
+    "45": 1104963
+   },
+   "secoes_usadas": 9602
+  },
+  "2022_PE": {
+   "secoes_na_base": 20572,
+   "confere": 20572,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_PE.zip",
+    "tamanho": 122201173,
+    "last_modified": "Mon, 22 Jun 2026 14:45:06 GMT",
+    "etag": "\"748a455-654d8b04110dc\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "45",
+    "77"
+   ],
+   "nomes_2t": {
+    "45": "RAQUEL TEIXEIRA LYRA LUCENA",
+    "77": "MARÍLIA VALENÇA ROCHA ARRAES DE ALENCAR"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 1009556,
+    "77": 1175651
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 3113415,
+    "77": 2190264
+   },
+   "secoes_usadas": 20572
+  },
+  "2022_RO": {
+   "secoes_na_base": 4198,
+   "confere": 4198,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_RO.zip",
+    "tamanho": 20721026,
+    "last_modified": "Mon, 22 Jun 2026 14:44:05 GMT",
+    "etag": "\"13c2d82-654d8ac9a728c\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "44",
+    "22"
+   ],
+   "nomes_2t": {
+    "44": "MARCOS JOSÉ ROCHA DOS SANTOS",
+    "22": "MARCOS ROGERIO DA SILVA BRITO"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "44": 330656,
+    "22": 315035
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "44": 458370,
+    "22": 415278
+   },
+   "secoes_usadas": 4198
+  },
+  "2022_RS": {
+   "secoes_na_base": 27201,
+   "confere": 27201,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_RS.zip",
+    "tamanho": 181897570,
+    "last_modified": "Mon, 22 Jun 2026 14:44:34 GMT",
+    "etag": "\"ad78962-654d8ae5626d2\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "45",
+    "22"
+   ],
+   "nomes_2t": {
+    "45": "EDUARDO FIGUEIREDO CAVALHEIRO LEITE",
+    "22": "ONYX DORNELLES LORENZONI"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "45": 1702815,
+    "22": 2382026
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "45": 3687126,
+    "22": 2767786
+   },
+   "secoes_usadas": 27201
+  },
+  "2022_SC": {
+   "secoes_na_base": 16242,
+   "confere": 16242,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_SC.zip",
+    "tamanho": 100162943,
+    "last_modified": "Mon, 22 Jun 2026 14:44:38 GMT",
+    "etag": "\"5f85d7f-654d8ae875095\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "22",
+    "13"
+   ],
+   "nomes_2t": {
+    "22": "JORGINHO DOS SANTOS MELLO",
+    "13": "DÉCIO NERY DE LIMA"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "22": 1575912,
+    "13": 710859
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "22": 2983949,
+    "13": 1237016
+   },
+   "secoes_usadas": 16242
+  },
+  "2022_SE": {
+   "secoes_na_base": 5498,
+   "confere": 5498,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_SE.zip",
+    "tamanho": 25947561,
+    "last_modified": "Mon, 22 Jun 2026 14:44:27 GMT",
+    "etag": "\"18beda9-654d8ade0c85c\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "55",
+    "13"
+   ],
+   "nomes_2t": {
+    "55": "FÁBIO CRUZ MITIDIERI",
+    "13": "ROGERIO CARVALHO SANTOS"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "55": 294936,
+    "13": 338796
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "55": 623851,
+    "13": 582940
+   },
+   "secoes_usadas": 5498
+  },
+  "2022_SP": {
+   "secoes_na_base": 101073,
+   "confere": 101073,
+   "secoes_do_arquivo_fora_da_base": 0,
+   "fonte": {
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2022_SP.zip",
+    "tamanho": 900947881,
+    "last_modified": "Mon, 22 Jun 2026 14:44:46 GMT",
+    "etag": "\"35b35fa9-654d8af0b6885\""
+   },
+   "dt_geracao": [
+    "01/11/2022"
+   ],
+   "finalistas": [
+    "10",
+    "13"
+   ],
+   "nomes_2t": {
+    "10": "TARCISIO GOMES DE FREITAS",
+    "13": "FERNANDO HADDAD"
+   },
+   "votos_1t_nas_secoes_usadas": {
+    "10": 9881995,
+    "13": 8337139
+   },
+   "votos_2t_nas_secoes_usadas": {
+    "10": 13480643,
+    "13": 10909371
+   },
+   "secoes_usadas": 101073
+  },
+  "2026": {
+   "confere_com_a_base": 39739,
+   "igual_a_extracao_da_onda_A": 39739,
+   "secoes_sem_governador_1t_por_candidato": 0,
+   "secoes_usadas_AC": 2270,
+   "secoes_usadas_AM": 8157,
+   "secoes_usadas_DF": 6969,
+   "secoes_usadas_ES": 9844,
+   "secoes_usadas_RN": 8115,
+   "secoes_usadas_TO": 4384
+  }
+ },
+ "2026": {
+  "empilhado_AM_DF_ES": {
+   "secoes": 24196,
+   "linhas": 48392,
+   "locais": 3246,
+   "D": [
+    0.012966142666733654,
+    0.004710281642921561
+   ],
+   "proprio_presidenciavel": [
+    -0.03806340207828315,
+    0.0029013601850533125
+   ],
+   "proprio_governador": [
+    -0.0510295447450168,
+    0.004985458038243974
+   ],
+   "coef_presidente": {
+    "outros_1T": [
+     0.43601816019047734,
+     0.0070210846982875575
+    ],
+    "queda_branco_nulo": [
+     0.4086218051216245,
+     0.010042346765027086
+    ],
+    "var_comparecimento": [
+     0.4872042367474649,
+     0.006046876691086603
+    ],
+    "adversario_1T": [
+     0.0247837823462373,
+     0.0032086604387985317
+    ],
+    "proprio_1T": [
+     -0.03806340207828315,
+     0.0029013601850533125
+    ]
+   },
+   "coef_governador": {
+    "outros_1T": [
+     0.32511584439508007,
+     0.009149584774362824
+    ],
+    "queda_branco_nulo": [
+     0.46254136211201086,
+     0.009675012725531335
+    ],
+    "var_comparecimento": [
+     0.43289892346723474,
+     0.008714000962712184
+    ],
+    "adversario_1T": [
+     0.08260141824142359,
+     0.0055215068923946675
+    ],
+    "proprio_1T": [
+     -0.0510295447450168,
+     0.004985458038243974
+    ]
+   }
+  },
+  "so_AM": {
+   "secoes": 7690,
+   "linhas": 15380,
+   "locais": 1164,
+   "D": [
+    -0.01043590118946558,
+    0.011514312826673818
+   ],
+   "proprio_presidenciavel": [
+    -0.079105761421478,
+    0.00715770431041359
+   ],
+   "proprio_governador": [
+    -0.06866986023201242,
+    0.012130361355919553
+   ],
+   "coef_presidente": {
+    "outros_1T": [
+     0.3645103818057158,
+     0.013200397454785691
+    ],
+    "queda_branco_nulo": [
+     0.34351701594987655,
+     0.022191847685323507
+    ],
+    "var_comparecimento": [
+     0.457680517118682,
+     0.009690286681192118
+    ],
+    "adversario_1T": [
+     0.03196551428255393,
+     0.004761478126634644
+    ],
+    "proprio_1T": [
+     -0.079105761421478,
+     0.00715770431041359
+    ]
+   },
+   "coef_governador": {
+    "outros_1T": [
+     0.3417649361830496,
+     0.010954900194994493
+    ],
+    "queda_branco_nulo": [
+     0.2769143181081143,
+     0.01811421352512953
+    ],
+    "var_comparecimento": [
+     0.34058242107055825,
+     0.01341492984394277
+    ],
+    "adversario_1T": [
+     0.044016597400517214,
+     0.008637915322453987
+    ],
+    "proprio_1T": [
+     -0.06866986023201242,
+     0.012130361355919553
+    ]
+   },
+   "espelho_pela_identidade": [
+    0.012051083117963282,
+    0.00766222419410931
+   ],
+   "C": [
+    -0.02248698430742886,
+    0.01417672242913378
+   ]
+  },
+  "empilhado_5_UFs_F20": {
+   "secoes": 30549,
+   "linhas": 61098,
+   "locais": 4540,
+   "D": [
+    0.04662646638614027,
+    0.004945040858909801
+   ],
+   "proprio_presidenciavel": [
+    -0.042621946213522395,
+    0.002601830634779292
+   ],
+   "proprio_governador": [
+    -0.08924841259966267,
+    0.005247472766519151
+   ],
+   "coef_presidente": {
+    "outros_1T": [
+     0.442642273763925,
+     0.006468219615522234
+    ],
+    "queda_branco_nulo": [
+     0.4179503994736336,
+     0.008762925817126285
+    ],
+    "var_comparecimento": [
+     0.5050044139843074,
+     0.005590246032924916
+    ],
+    "adversario_1T": [
+     0.029141690480531553,
+     0.0028878149262454252
+    ],
+    "proprio_1T": [
+     -0.042621946213522395,
+     0.002601830634779292
+    ]
+   },
+   "coef_governador": {
+    "outros_1T": [
+     0.33076946057194323,
+     0.008680586063988444
+    ],
+    "queda_branco_nulo": [
+     0.4626164720560403,
+     0.008505832317607593
+    ],
+    "var_comparecimento": [
+     0.44994733127268305,
+     0.007902120888400633
+    ],
+    "adversario_1T": [
+     0.09382211579599904,
+     0.005379786039651809
+    ],
+    "proprio_1T": [
+     -0.08924841259966267,
+     0.005247472766519151
+    ]
+   }
+  },
+  "por_uf": {
+   "AC": {
+    "secoes": 2143,
+    "linhas": 4286,
+    "locais": 541,
+    "D": [
+     0.04624956741649317,
+     0.015863403317114666
+    ],
+    "proprio_presidenciavel": [
+     -0.058371973594487654,
+     0.009697540711547282
+    ],
+    "proprio_governador": [
+     -0.10462154101098083,
+     0.014198670899767873
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.520115986762717,
+      0.03289313458793623
+     ],
+     "queda_branco_nulo": [
+      0.6221097116716527,
+      0.031915139263519354
+     ],
+     "var_comparecimento": [
+      0.7193433819182934,
+      0.01764524977007208
+     ],
+     "adversario_1T": [
+      0.12845688209776965,
+      0.017984035163746453
+     ],
+     "proprio_1T": [
+      -0.058371973594487654,
+      0.009697540711547282
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6327977403458065,
+      0.024913233754848923
+     ],
+     "queda_branco_nulo": [
+      0.6184702159122655,
+      0.024984912188054115
+     ],
+     "var_comparecimento": [
+      0.6887577414133847,
+      0.024440963000893844
+     ],
+     "adversario_1T": [
+      0.3176663308259053,
+      0.018136682712474025
+     ],
+     "proprio_1T": [
+      -0.10462154101098083,
+      0.014198670899767873
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.18920944872813564,
+     0.0202676482878981
+    ],
+    "C": [
+     -0.14295988131164244,
+     0.023116240339994893
+    ]
+   },
+   "AM": {
+    "secoes": 7690,
+    "linhas": 15380,
+    "locais": 1164,
+    "D": [
+     -0.01043590118946558,
+     0.011514312826673818
+    ],
+    "proprio_presidenciavel": [
+     -0.079105761421478,
+     0.00715770431041359
+    ],
+    "proprio_governador": [
+     -0.06866986023201242,
+     0.012130361355919553
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.3645103818057158,
+      0.013200397454785691
+     ],
+     "queda_branco_nulo": [
+      0.34351701594987655,
+      0.022191847685323507
+     ],
+     "var_comparecimento": [
+      0.457680517118682,
+      0.009690286681192118
+     ],
+     "adversario_1T": [
+      0.03196551428255393,
+      0.004761478126634644
+     ],
+     "proprio_1T": [
+      -0.079105761421478,
+      0.00715770431041359
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.3417649361830496,
+      0.010954900194994493
+     ],
+     "queda_branco_nulo": [
+      0.2769143181081143,
+      0.01811421352512953
+     ],
+     "var_comparecimento": [
+      0.34058242107055825,
+      0.01341492984394277
+     ],
+     "adversario_1T": [
+      0.044016597400517214,
+      0.008637915322453987
+     ],
+     "proprio_1T": [
+      -0.06866986023201242,
+      0.012130361355919553
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.012051083117963282,
+     0.00766222419410931
+    ],
+    "C": [
+     -0.02248698430742886,
+     0.01417672242913378
+    ]
+   },
+   "DF": {
+    "secoes": 6954,
+    "linhas": 13908,
+    "locais": 607,
+    "D": [
+     0.010255279285727045,
+     0.006693288153383812
+    ],
+    "proprio_presidenciavel": [
+     -0.02818868208143728,
+     0.0058121330739881035
+    ],
+    "proprio_governador": [
+     -0.038443961367164325,
+     0.0072734448695195375
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4888688141240787,
+      0.011744786267187031
+     ],
+     "queda_branco_nulo": [
+      0.47637422188012224,
+      0.017520929938964334
+     ],
+     "var_comparecimento": [
+      0.5211367803173876,
+      0.012638806796176188
+     ],
+     "adversario_1T": [
+      0.006608419274462689,
+      0.00754869735072188
+     ],
+     "proprio_1T": [
+      -0.02818868208143728,
+      0.0058121330739881035
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6590719836094707,
+      0.012631310198476232
+     ],
+     "queda_branco_nulo": [
+      0.6527293727153085,
+      0.014758003771071483
+     ],
+     "var_comparecimento": [
+      0.5708117291002701,
+      0.0133491090004572
+     ],
+     "adversario_1T": [
+      0.013822333986769386,
+      0.008147223084081598
+     ],
+     "proprio_1T": [
+      -0.038443961367164325,
+      0.0072734448695195375
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.007213914712306697,
+     0.00882849195282744
+    ],
+    "C": [
+     0.0030413645734203507,
+     0.012687899472994448
+    ]
+   },
+   "ES": {
+    "secoes": 9552,
+    "linhas": 19104,
+    "locais": 1475,
+    "D": [
+     0.048904484904503054,
+     0.006030142729022696
+    ],
+    "proprio_presidenciavel": [
+     -0.0213552291872364,
+     0.0033508120132805853
+    ],
+    "proprio_governador": [
+     -0.07025971409173945,
+     0.006609735972604477
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4417591769095512,
+      0.011415403632612748
+     ],
+     "queda_branco_nulo": [
+      0.41355822668803804,
+      0.01319985851830762
+     ],
+     "var_comparecimento": [
+      0.49537345568225527,
+      0.009539794201111236
+     ],
+     "adversario_1T": [
+      0.024327975043734996,
+      0.004739238725364887
+     ],
+     "proprio_1T": [
+      -0.0213552291872364,
+      0.0033508120132805853
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.05350749677094625,
+      0.011139871941859393
+     ],
+     "queda_branco_nulo": [
+      0.498576290473797,
+      0.013025985948575706
+     ],
+     "var_comparecimento": [
+      0.478951461048811,
+      0.013729278072163615
+     ],
+     "adversario_1T": [
+      0.2093907716941822,
+      0.007883969267372708
+     ],
+     "proprio_1T": [
+      -0.07025971409173945,
+      0.006609735972604477
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.1850627966504472,
+     0.008420624078522499
+    ],
+    "C": [
+     -0.13615831174594414,
+     0.00992652759512735
+    ]
+   },
+   "TO": {
+    "secoes": 4210,
+    "linhas": 8420,
+    "locais": 753,
+    "D": [
+     0.297919586156985,
+     0.015266898664117711
+    ],
+    "proprio_presidenciavel": [
+     -0.06846837426233322,
+     0.005694712454037881
+    ],
+    "proprio_governador": [
+     -0.3663879604193182,
+     0.013721473122956207
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4594487276964436,
+      0.016821292815736216
+     ],
+     "queda_branco_nulo": [
+      0.36695682450869715,
+      0.019321090147136614
+     ],
+     "var_comparecimento": [
+      0.4838607926973884,
+      0.014923607444444438
+     ],
+     "adversario_1T": [
+      0.0336572416348431,
+      0.005237153569553624
+     ],
+     "proprio_1T": [
+      -0.06846837426233322,
+      0.005694712454037881
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.2524902796480275,
+      0.02369141156161221
+     ],
+     "queda_branco_nulo": [
+      0.3709659564433839,
+      0.018630522036818375
+     ],
+     "var_comparecimento": [
+      0.38846264952544757,
+      0.020152314028262053
+     ],
+     "adversario_1T": [
+      0.11587884346721732,
+      0.011538570129407334
+     ],
+     "proprio_1T": [
+      -0.3663879604193182,
+      0.013721473122956207
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.08222160183237422,
+     0.012514859062364497
+    ],
+    "C": [
+     0.21569798432461076,
+     0.020356898706765443
+    ]
+   }
+  },
+  "publicado_para_conferir": {
+   "T22b_AM_DF_ES": [
+    0.013,
+    0.0047
+   ],
+   "AM": [
+    -0.0104,
+    0.0115
+   ],
+   "DF": [
+    0.0103,
+    0.0067
+   ],
+   "ES": [
+    0.0489,
+    0.006
+   ],
+   "AC": [
+    0.0462,
+    0.0159
+   ],
+   "TO": [
+    0.2979,
+    0.0153
+   ],
+   "F20_5_UFs": [
+    0.0466,
+    0.0049
+   ],
+   "espelho_AM_DF": [
+    0.0017,
+    0.0062
+   ],
+   "C_AM": [
+    -0.0225,
+    0.0142
+   ]
+  },
+  "espelho": {
+   "AM_DF": {
+    "espelho": [
+     0.001703927523107416,
+     0.006215478493958911
+    ],
+    "proprio_Lula": [
+     -0.022673372546615132,
+     0.0040762271446776605
+    ],
+    "proprio_gov_campo_Lula": [
+     -0.024377300069722548,
+     0.006448284774389538
+    ],
+    "secoes": 14644
+   },
+   "AM": {
+    "espelho": [
+     0.012051083117963199,
+     0.0076622241941093
+    ],
+    "proprio_Lula": [
+     -0.031965514282554064,
+     0.004761478126634646
+    ],
+    "proprio_gov_campo_Lula": [
+     -0.04401659740051726,
+     0.008637915322453968
+    ],
+    "secoes": 7690
+   },
+   "DF": {
+    "espelho": [
+     0.007213914712306836,
+     0.008828491952827443
+    ],
+    "proprio_Lula": [
+     -0.006608419274462713,
+     0.007548697350721892
+    ],
+    "proprio_gov_campo_Lula": [
+     -0.013822333986769549,
+     0.008147223084081608
+    ],
+    "secoes": 6954
+   },
+   "RN": {
+    "espelho": [
+     0.008100015493157009,
+     0.008231340533317838
+    ],
+    "proprio_Lula": [
+     -0.009961249000939329,
+     0.003145035965122903
+    ],
+    "proprio_gov_campo_Lula": [
+     -0.018061264494096337,
+     0.008474640007224608
+    ],
+    "secoes": 7934
+   }
+  },
+  "C": {
+   "AM_DF": {
+    "secoes": 14644,
+    "linhas": 29288,
+    "locais": 1771,
+    "D": [
+     0.0014368261001233146,
+     0.006360371996156577
+    ],
+    "proprio_presidenciavel": [
+     -0.05437528619021972,
+     0.004563701557683869
+    ],
+    "proprio_governador": [
+     -0.05581211229034303,
+     0.006364124859622819
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.42807111772402806,
+      0.008840967697151883
+     ],
+     "queda_branco_nulo": [
+      0.40221752550450723,
+      0.01453229184070412
+     ],
+     "var_comparecimento": [
+      0.4823643771525223,
+      0.00764494095606099
+     ],
+     "adversario_1T": [
+      0.022673372546615275,
+      0.0040762271446776605
+     ],
+     "proprio_1T": [
+      -0.05437528619021972,
+      0.004563701557683869
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.42782379599391657,
+      0.00995306798206398
+     ],
+     "queda_branco_nulo": [
+      0.43440413593787963,
+      0.013144934603972286
+     ],
+     "var_comparecimento": [
+      0.4230557967021949,
+      0.010612324890505663
+     ],
+     "adversario_1T": [
+      0.0243773000697226,
+      0.0064482847743895415
+     ],
+     "proprio_1T": [
+      -0.05581211229034303,
+      0.006364124859622819
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.0017039275231073257,
+     0.00621547849395891
+    ],
+    "C": [
+     -0.0002671014229840146,
+     0.009712366010648956
+    ]
+   },
+   "AM": {
+    "secoes": 7690,
+    "linhas": 15380,
+    "locais": 1164,
+    "D": [
+     -0.01043590118946558,
+     0.011514312826673818
+    ],
+    "proprio_presidenciavel": [
+     -0.079105761421478,
+     0.00715770431041359
+    ],
+    "proprio_governador": [
+     -0.06866986023201242,
+     0.012130361355919553
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.3645103818057158,
+      0.013200397454785691
+     ],
+     "queda_branco_nulo": [
+      0.34351701594987655,
+      0.022191847685323507
+     ],
+     "var_comparecimento": [
+      0.457680517118682,
+      0.009690286681192118
+     ],
+     "adversario_1T": [
+      0.03196551428255393,
+      0.004761478126634644
+     ],
+     "proprio_1T": [
+      -0.079105761421478,
+      0.00715770431041359
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.3417649361830496,
+      0.010954900194994493
+     ],
+     "queda_branco_nulo": [
+      0.2769143181081143,
+      0.01811421352512953
+     ],
+     "var_comparecimento": [
+      0.34058242107055825,
+      0.01341492984394277
+     ],
+     "adversario_1T": [
+      0.044016597400517214,
+      0.008637915322453987
+     ],
+     "proprio_1T": [
+      -0.06866986023201242,
+      0.012130361355919553
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.012051083117963282,
+     0.00766222419410931
+    ],
+    "C": [
+     -0.02248698430742886,
+     0.01417672242913378
+    ]
+   },
+   "DF": {
+    "secoes": 6954,
+    "linhas": 13908,
+    "locais": 607,
+    "D": [
+     0.010255279285727045,
+     0.006693288153383812
+    ],
+    "proprio_presidenciavel": [
+     -0.02818868208143728,
+     0.0058121330739881035
+    ],
+    "proprio_governador": [
+     -0.038443961367164325,
+     0.0072734448695195375
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4888688141240787,
+      0.011744786267187031
+     ],
+     "queda_branco_nulo": [
+      0.47637422188012224,
+      0.017520929938964334
+     ],
+     "var_comparecimento": [
+      0.5211367803173876,
+      0.012638806796176188
+     ],
+     "adversario_1T": [
+      0.006608419274462689,
+      0.00754869735072188
+     ],
+     "proprio_1T": [
+      -0.02818868208143728,
+      0.0058121330739881035
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6590719836094707,
+      0.012631310198476232
+     ],
+     "queda_branco_nulo": [
+      0.6527293727153085,
+      0.014758003771071483
+     ],
+     "var_comparecimento": [
+      0.5708117291002701,
+      0.0133491090004572
+     ],
+     "adversario_1T": [
+      0.013822333986769386,
+      0.008147223084081598
+     ],
+     "proprio_1T": [
+      -0.038443961367164325,
+      0.0072734448695195375
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.007213914712306697,
+     0.00882849195282744
+    ],
+    "C": [
+     0.0030413645734203507,
+     0.012687899472994448
+    ]
+   }
+  },
+  "diferenca_para_o_publicado": {
+   "T22b_AM_DF_ES": -3.385733326634506e-05,
+   "F20_5_UFs": 2.646638614026836e-05,
+   "espelho_AM_DF": 3.927523107416031e-06,
+   "C_AM": 1.3015692571137494e-05,
+   "AC": 4.9567416493173644e-05,
+   "AM": -3.590118946558002e-05,
+   "DF": -4.472071427295485e-05,
+   "ES": 4.484904503054832e-06,
+   "TO": 1.958615698499644e-05
+  },
+  "codigo_reproduz_o_publicado": true,
+  "votos_Flavio_2t": {
+   "AC": 287715.0,
+   "AM": 975245.0,
+   "DF": 979542.0,
+   "ES": 1294504.0,
+   "RN": 737409.0,
+   "TO": 467916.0
+  },
+  "votos_Lula_2t": {
+   "AC": 144513.0,
+   "AM": 1145783.0,
+   "DF": 825224.0,
+   "ES": 1001965.0,
+   "RN": 1413596.0,
+   "TO": 442962.0
+  }
+ },
+ "naturais": {
+  "principais": {
+   "2018_MG": {
+    "secoes": 45239,
+    "linhas": 90478,
+    "locais": 7135,
+    "D": [
+     0.14326192750642178,
+     0.004408078265666815
+    ],
+    "proprio_presidenciavel": [
+     -0.035817205773660266,
+     0.0020208774295745824
+    ],
+    "proprio_governador": [
+     -0.17907913328008204,
+     0.003970937768642971
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.3406037912098511,
+      0.0039810046308347505
+     ],
+     "queda_branco_nulo": [
+      0.43048118182083944,
+      0.0051162203077751755
+     ],
+     "var_comparecimento": [
+      0.5531330585416537,
+      0.0056891974569784716
+     ],
+     "adversario_1T": [
+      0.10114527946763315,
+      0.0025764871413190425
+     ],
+     "proprio_1T": [
+      -0.035817205773660266,
+      0.0020208774295745824
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.7307620708321275,
+      0.004937465579830399
+     ],
+     "queda_branco_nulo": [
+      0.7554707616121199,
+      0.005170249434999539
+     ],
+     "var_comparecimento": [
+      0.755560888397025,
+      0.007448666507976271
+     ],
+     "adversario_1T": [
+      0.535699066184301,
+      0.005860776816602268
+     ],
+     "proprio_1T": [
+      -0.17907913328008204,
+      0.003970937768642971
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.43455378671666783,
+     0.006197976929266253
+    ],
+    "C": [
+     -0.29129185921024603,
+     0.008038094132257112
+    ],
+    "aliado": "30"
+   },
+   "2018_RJ": {
+    "secoes": 33542,
+    "linhas": 67084,
+    "locais": 4532,
+    "D": [
+     0.0907324694980914,
+     0.003841496360379435
+    ],
+    "proprio_presidenciavel": [
+     -0.012805142491720189,
+     0.0016544620429530517
+    ],
+    "proprio_governador": [
+     -0.10353761198981158,
+     0.0038363185183293157
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.24449192837695205,
+      0.003412239679063423
+     ],
+     "queda_branco_nulo": [
+      0.4962882651213395,
+      0.006221285754667484
+     ],
+     "var_comparecimento": [
+      0.6008042966579005,
+      0.006190733747648077
+     ],
+     "adversario_1T": [
+      0.11805837949758058,
+      0.004705978608693944
+     ],
+     "proprio_1T": [
+      -0.012805142491720189,
+      0.0016544620429530517
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.3998064485363527,
+      0.006508881504831874
+     ],
+     "queda_branco_nulo": [
+      0.6463685032227494,
+      0.006692219061093558
+     ],
+     "var_comparecimento": [
+      0.5552361141211165,
+      0.008919194812058131
+     ],
+     "adversario_1T": [
+      0.2837228074844702,
+      0.008874792668167092
+     ],
+     "proprio_1T": [
+      -0.10353761198981158,
+      0.0038363185183293157
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.16566442798688963,
+     0.009586593200174692
+    ],
+    "C": [
+     -0.07493195848879823,
+     0.010135684265729535
+    ],
+    "aliado": "20"
+   },
+   "2018_RN": {
+    "secoes": 7147,
+    "linhas": 14294,
+    "locais": 1295,
+    "D": [
+     0.10688433292310921,
+     0.011219425094513917
+    ],
+    "proprio_presidenciavel": [
+     -0.0575392302120875,
+     0.00859667914300674
+    ],
+    "proprio_governador": [
+     -0.1644235631351967,
+     0.013022273525865472
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.2274464223892401,
+      0.008684381345992651
+     ],
+     "queda_branco_nulo": [
+      0.32524463278069354,
+      0.012978369070146455
+     ],
+     "var_comparecimento": [
+      0.3574022899046065,
+      0.014038855398850213
+     ],
+     "adversario_1T": [
+      0.03647063052778276,
+      0.005506071694424095
+     ],
+     "proprio_1T": [
+      -0.0575392302120875,
+      0.00859667914300674
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5580870317560104,
+      0.015907721586371947
+     ],
+     "queda_branco_nulo": [
+      0.4525882550393579,
+      0.015063072560863065
+     ],
+     "var_comparecimento": [
+      0.39137577418418573,
+      0.01810622907885794
+     ],
+     "adversario_1T": [
+      0.04039898456050995,
+      0.00927649702482536
+     ],
+     "proprio_1T": [
+      -0.1644235631351967,
+      0.013022273525865472
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.003928354032727191,
+     0.008206517920875506
+    ],
+    "C": [
+     0.10295597889038202,
+     0.01335906709561882
+    ],
+    "aliado": "12"
+   },
+   "2018_RR": {
+    "secoes": 1073,
+    "linhas": 2146,
+    "locais": 227,
+    "D": [
+     0.09522592278276948,
+     0.016257900364274644
+    ],
+    "proprio_presidenciavel": [
+     -0.05843266689846758,
+     0.01036841606465039
+    ],
+    "proprio_governador": [
+     -0.15365858968123705,
+     0.01593765098797813
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.49796268009865685,
+      0.022575771428809722
+     ],
+     "queda_branco_nulo": [
+      0.6071616461966695,
+      0.04503261849402501
+     ],
+     "var_comparecimento": [
+      0.6973935946155512,
+      0.02810556556692791
+     ],
+     "adversario_1T": [
+      0.17222698731417324,
+      0.023631962961746685
+     ],
+     "proprio_1T": [
+      -0.05843266689846758,
+      0.01036841606465039
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5370913719439301,
+      0.03349998887105535
+     ],
+     "queda_branco_nulo": [
+      0.44005529699683815,
+      0.053589572036625545
+     ],
+     "var_comparecimento": [
+      0.46128798307304186,
+      0.039290240971692474
+     ],
+     "adversario_1T": [
+      0.1847446958320995,
+      0.019058803761743504
+     ],
+     "proprio_1T": [
+      -0.15365858968123705,
+      0.01593765098797813
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.012517708517926246,
+     0.028089361708125562
+    ],
+    "C": [
+     0.08270821426484323,
+     0.02952790302337419
+    ],
+    "aliado": "17"
+   },
+   "2018_SP": {
+    "secoes": 95923,
+    "linhas": 191846,
+    "locais": 10229,
+    "D": [
+     0.059481791712572216,
+     0.003316831393743616
+    ],
+    "proprio_presidenciavel": [
+     0.009277626794304272,
+     0.0014009325031722213
+    ],
+    "proprio_governador": [
+     -0.05020416491826794,
+     0.0036602969919084507
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.38181922073865227,
+      0.0026193980931104124
+     ],
+     "queda_branco_nulo": [
+      0.4749881772677862,
+      0.004011006524628906
+     ],
+     "var_comparecimento": [
+      0.6620642935119366,
+      0.004394455451533861
+     ],
+     "adversario_1T": [
+      0.0668843637591562,
+      0.0027270513985973924
+     ],
+     "proprio_1T": [
+      0.009277626794304272,
+      0.0014009325031722213
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.38821162168296797,
+      0.0033030495212391323
+     ],
+     "queda_branco_nulo": [
+      0.49267673585428956,
+      0.004376528330482247
+     ],
+     "var_comparecimento": [
+      0.5429074637548144,
+      0.005799015930925172
+     ],
+     "adversario_1T": [
+      0.20039713103687096,
+      0.004086964029775396
+     ],
+     "proprio_1T": [
+      -0.05020416491826794,
+      0.0036602969919084507
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.13351276727771477,
+     0.0048637777435832676
+    ],
+    "C": [
+     -0.07403097556514254,
+     0.00551287166534687
+    ],
+    "aliado": "45"
+   },
+   "2022_AM": {
+    "secoes": 7007,
+    "linhas": 14014,
+    "locais": 1051,
+    "D": [
+     0.10513213731553545,
+     0.01105030814460438
+    ],
+    "proprio_presidenciavel": [
+     -0.05243628494768258,
+     0.005380651788314787
+    ],
+    "proprio_governador": [
+     -0.15756842226321802,
+     0.0104453669886725
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.466743541010324,
+      0.011566676625193758
+     ],
+     "queda_branco_nulo": [
+      0.4591457864017346,
+      0.01725451757304582
+     ],
+     "var_comparecimento": [
+      0.44100638247912954,
+      0.011838928619181965
+     ],
+     "adversario_1T": [
+      0.0592150198011255,
+      0.004443666979506376
+     ],
+     "proprio_1T": [
+      -0.05243628494768258,
+      0.005380651788314787
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5319636240270952,
+      0.009734807871603555
+     ],
+     "queda_branco_nulo": [
+      0.5185271991845645,
+      0.016484452534181276
+     ],
+     "var_comparecimento": [
+      0.5915347456135351,
+      0.015366013267427167
+     ],
+     "adversario_1T": [
+      0.10708551928603723,
+      0.015214935342490452
+     ],
+     "proprio_1T": [
+      -0.15756842226321802,
+      0.0104453669886725
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.047870499484911726,
+     0.014661550203529147
+    ],
+    "C": [
+     0.05726163783062371,
+     0.018763468323995686
+    ],
+    "aliado": "44"
+   },
+   "2022_ES": {
+    "secoes": 8933,
+    "linhas": 17866,
+    "locais": 1400,
+    "D": [
+     0.048335746121895534,
+     0.005803502610539659
+    ],
+    "proprio_presidenciavel": [
+     -0.014209663228558862,
+     0.003017772849877911
+    ],
+    "proprio_governador": [
+     -0.0625454093504544,
+     0.005862009623968181
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5199707152832913,
+      0.010828911285788433
+     ],
+     "queda_branco_nulo": [
+      0.4671258139338585,
+      0.014366193622022702
+     ],
+     "var_comparecimento": [
+      0.5151783594174506,
+      0.010867389041731346
+     ],
+     "adversario_1T": [
+      0.05756431316308736,
+      0.00422349726855781
+     ],
+     "proprio_1T": [
+      -0.014209663228558862,
+      0.003017772849877911
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5439157133910122,
+      0.012895790389027452
+     ],
+     "queda_branco_nulo": [
+      0.33138531484477435,
+      0.014052705752350386
+     ],
+     "var_comparecimento": [
+      0.43316534632180487,
+      0.014137287262404744
+     ],
+     "adversario_1T": [
+      0.07453361108336672,
+      0.0057854723912483036
+     ],
+     "proprio_1T": [
+      -0.0625454093504544,
+      0.005862009623968181
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.016969297920279354,
+     0.005844409487997172
+    ],
+    "C": [
+     0.03136644820161618,
+     0.007363156635295785
+    ],
+    "aliado": "22"
+   },
+   "2022_RS": {
+    "secoes": 23665,
+    "linhas": 47330,
+    "locais": 4489,
+    "D": [
+     0.04981570103182131,
+     0.00441144352828932
+    ],
+    "proprio_presidenciavel": [
+     -0.0023662717034870395,
+     0.0024005892970874404
+    ],
+    "proprio_governador": [
+     -0.052181972735308356,
+     0.004640714071695551
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.540356890833994,
+      0.006727554301681508
+     ],
+     "queda_branco_nulo": [
+      0.5224796915389577,
+      0.009278687563512007
+     ],
+     "var_comparecimento": [
+      0.5526424249576872,
+      0.006876898423779833
+     ],
+     "adversario_1T": [
+      0.06633270320181395,
+      0.0030463464833237583
+     ],
+     "proprio_1T": [
+      -0.0023662717034870395,
+      0.0024005892970874404
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.17972897908847965,
+      0.006672710471319901
+     ],
+     "queda_branco_nulo": [
+      0.34160011916951855,
+      0.009324580754680093
+     ],
+     "var_comparecimento": [
+      0.4459102020960085,
+      0.009338310359712892
+     ],
+     "adversario_1T": [
+      0.08491818447535043,
+      0.0054100161243562555
+     ],
+     "proprio_1T": [
+      -0.052181972735308356,
+      0.004640714071695551
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.018585481273536486,
+     0.0057264431698422396
+    ],
+    "C": [
+     0.031230219758284834,
+     0.0073006053083342366
+    ],
+    "aliado": "22"
+   },
+   "2022_SC": {
+    "secoes": 14955,
+    "linhas": 29910,
+    "locais": 2201,
+    "D": [
+     -0.021626272883021228,
+     0.004195091419156981
+    ],
+    "proprio_presidenciavel": [
+     0.0020605310688852703,
+     0.001988977540212035
+    ],
+    "proprio_governador": [
+     0.023686803951906497,
+     0.0045349141639001896
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.6196648082012877,
+      0.007854121695732874
+     ],
+     "queda_branco_nulo": [
+      0.6207175463290299,
+      0.012336281381106151
+     ],
+     "var_comparecimento": [
+      0.6627390541623435,
+      0.007742172638050844
+     ],
+     "adversario_1T": [
+      0.059939918247915835,
+      0.0039607652409895215
+     ],
+     "proprio_1T": [
+      0.0020605310688852703,
+      0.001988977540212035
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.7541683314062104,
+      0.0052166504153039655
+     ],
+     "queda_branco_nulo": [
+      0.6750347975263716,
+      0.010631649747404673
+     ],
+     "var_comparecimento": [
+      0.721657413815649,
+      0.010442114582150351
+     ],
+     "adversario_1T": [
+      -0.048133178916510096,
+      0.008765938839050627
+     ],
+     "proprio_1T": [
+      0.023686803951906497,
+      0.0045349141639001896
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.10807309716442592,
+     0.007268853700851986
+    ],
+    "C": [
+     0.08644682428140471,
+     0.00849951922593638
+    ],
+    "aliado": "22"
+   },
+   "2022_SP": {
+    "secoes": 100670,
+    "linhas": 201340,
+    "locais": 10443,
+    "D": [
+     0.0006826459555626281,
+     0.001437949450783715
+    ],
+    "proprio_presidenciavel": [
+     -0.012916746838458943,
+     0.0011416485804347802
+    ],
+    "proprio_governador": [
+     -0.01359939279402157,
+     0.0015836159432259032
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5184165650790513,
+      0.002824350242238171
+     ],
+     "queda_branco_nulo": [
+      0.5433220008799339,
+      0.0038795850649086215
+     ],
+     "var_comparecimento": [
+      0.5133560803067942,
+      0.003097213968962594
+     ],
+     "adversario_1T": [
+      0.051887396671709086,
+      0.001450122603806901
+     ],
+     "proprio_1T": [
+      -0.012916746838458943,
+      0.0011416485804347802
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5705432535389916,
+      0.0025149250174946857
+     ],
+     "queda_branco_nulo": [
+      0.5882690511654697,
+      0.003172187629203117
+     ],
+     "var_comparecimento": [
+      0.5380680246764994,
+      0.003690699518387107
+     ],
+     "adversario_1T": [
+      0.03163930915250174,
+      0.001971043158245306
+     ],
+     "proprio_1T": [
+      -0.01359939279402157,
+      0.0015836159432259032
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.02024808751920735,
+     0.0016755599610096645
+    ],
+    "C": [
+     0.02093073347476998,
+     0.0022856143777890002
+    ],
+    "aliado": "10"
+   }
+  },
+  "secundario_duplos": {
+   "2018_AM": {
+    "secoes": 6577,
+    "linhas": 13154,
+    "locais": 1011,
+    "D": [
+     0.10856621757755999,
+     0.01045585064388828
+    ],
+    "proprio_presidenciavel": [
+     -0.04137108348322887,
+     0.005345170563915765
+    ],
+    "proprio_governador": [
+     -0.14993730106078887,
+     0.009864615582153458
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.3834672158520072,
+      0.010223527789633894
+     ],
+     "queda_branco_nulo": [
+      0.39681837379149654,
+      0.01749732950448676
+     ],
+     "var_comparecimento": [
+      0.43041556344217785,
+      0.014160893223590564
+     ],
+     "adversario_1T": [
+      0.057929556252134175,
+      0.005007875926180891
+     ],
+     "proprio_1T": [
+      -0.04137108348322887,
+      0.005345170563915765
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.37351870233554646,
+      0.009890880461996435
+     ],
+     "queda_branco_nulo": [
+      0.43403481049749953,
+      0.019086510248891096
+     ],
+     "var_comparecimento": [
+      0.48825662980279144,
+      0.0172253897644387
+     ],
+     "adversario_1T": [
+      0.1164015669653133,
+      0.009445737152569859
+     ],
+     "proprio_1T": [
+      -0.14993730106078887,
+      0.009864615582153458
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.058472010713179125,
+     0.010734888677845191
+    ],
+    "C": [
+     0.050094206864380875,
+     0.014279349912464738
+    ],
+    "aliado": "12"
+   },
+   "2018_RO": {
+    "secoes": 4047,
+    "linhas": 8094,
+    "locais": 507,
+    "D": [
+     -0.01667738072522977,
+     0.01405492654392475
+    ],
+    "proprio_presidenciavel": [
+     -0.034213952282460984,
+     0.004774870903192774
+    ],
+    "proprio_governador": [
+     -0.017536571557231213,
+     0.014110534010216625
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5249152894464998,
+      0.012625513259588212
+     ],
+     "queda_branco_nulo": [
+      0.5947540312197472,
+      0.020093718796344598
+     ],
+     "var_comparecimento": [
+      0.6970165964091007,
+      0.014598917111754647
+     ],
+     "adversario_1T": [
+      0.14747378013315995,
+      0.00998521709455933
+     ],
+     "proprio_1T": [
+      -0.034213952282460984,
+      0.004774870903192774
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6605791049509534,
+      0.009989316684995867
+     ],
+     "queda_branco_nulo": [
+      0.6304916788828995,
+      0.021185322257159606
+     ],
+     "var_comparecimento": [
+      0.6343380186762786,
+      0.021026128139015065
+     ],
+     "adversario_1T": [
+      0.40928421519548164,
+      0.01582463945238078
+     ],
+     "proprio_1T": [
+      -0.017536571557231213,
+      0.014110534010216625
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.2618104350623217,
+     0.01829486740561656
+    ],
+    "C": [
+     -0.27848781578755144,
+     0.020737408820393405
+    ],
+    "aliado": "17"
+   },
+   "2018_SC": {
+    "secoes": 14026,
+    "linhas": 28052,
+    "locais": 2172,
+    "D": [
+     -0.0026747107660549975,
+     0.0069549809143770736
+    ],
+    "proprio_presidenciavel": [
+     0.007930626861707871,
+     0.0025482811174477654
+    ],
+    "proprio_governador": [
+     0.010605337627762869,
+     0.007011135448776237
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4588814123036597,
+      0.008636093458203039
+     ],
+     "queda_branco_nulo": [
+      0.6106422171137064,
+      0.010925061676571939
+     ],
+     "var_comparecimento": [
+      0.7058044192022606,
+      0.011328199964086584
+     ],
+     "adversario_1T": [
+      0.08193437325249718,
+      0.0061731329087810856
+     ],
+     "proprio_1T": [
+      0.007930626861707871,
+      0.0025482811174477654
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5894290129161297,
+      0.009228355923117977
+     ],
+     "queda_branco_nulo": [
+      0.7114631505065131,
+      0.010999607225660936
+     ],
+     "var_comparecimento": [
+      0.7067858914062094,
+      0.015032921057271515
+     ],
+     "adversario_1T": [
+      0.6280759674568702,
+      0.00841469163320179
+     ],
+     "proprio_1T": [
+      0.010605337627762869,
+      0.007011135448776237
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.546141594204373,
+     0.009832429011998106
+    ],
+    "C": [
+     -0.548816304970428,
+     0.010789571025893988
+    ],
+    "aliado": "17"
+   },
+   "2022_MS": {
+    "secoes": 6800,
+    "linhas": 13600,
+    "locais": 914,
+    "D": [
+     0.14797733295512008,
+     0.015501187944280367
+    ],
+    "proprio_presidenciavel": [
+     -0.018367672976547147,
+     0.004230853939672792
+    ],
+    "proprio_governador": [
+     -0.16634500593166723,
+     0.01465154494461439
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5265668767213838,
+      0.012744845910564
+     ],
+     "queda_branco_nulo": [
+      0.521594640982074,
+      0.0175208493446397
+     ],
+     "var_comparecimento": [
+      0.5285068139268939,
+      0.012234855551754971
+     ],
+     "adversario_1T": [
+      0.06992065625180635,
+      0.005920961457062395
+     ],
+     "proprio_1T": [
+      -0.018367672976547147,
+      0.004230853939672792
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.7162904605703039,
+      0.011867865265159167
+     ],
+     "queda_branco_nulo": [
+      0.6136599140575691,
+      0.018216843176169336
+     ],
+     "var_comparecimento": [
+      0.588174892294986,
+      0.01749043904785115
+     ],
+     "adversario_1T": [
+      0.093568176812735,
+      0.0104963242149955
+     ],
+     "proprio_1T": [
+      -0.16634500593166723,
+      0.01465154494461439
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.023647520560928642,
+     0.011545293914808293
+    ],
+    "C": [
+     0.12432981239419144,
+     0.021226150475634434
+    ],
+    "aliado": "45"
+   },
+   "2022_RO": {
+    "secoes": 4067,
+    "linhas": 8134,
+    "locais": 499,
+    "D": [
+     0.18680010017422768,
+     0.012300220673726336
+    ],
+    "proprio_presidenciavel": [
+     -0.029904797913627323,
+     0.005097760253043977
+    ],
+    "proprio_governador": [
+     -0.216704898087855,
+     0.012877249386153188
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5756074707489434,
+      0.019122789060210334
+     ],
+     "queda_branco_nulo": [
+      0.5577454823667934,
+      0.0237073932286029
+     ],
+     "var_comparecimento": [
+      0.6429296365622297,
+      0.013215045057661943
+     ],
+     "adversario_1T": [
+      0.0907869592110628,
+      0.007573245912205148
+     ],
+     "proprio_1T": [
+      -0.029904797913627323,
+      0.005097760253043977
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.4170142537887245,
+      0.015366569045007229
+     ],
+     "queda_branco_nulo": [
+      0.42990518897373775,
+      0.024687793202071807
+     ],
+     "var_comparecimento": [
+      0.47350194848849086,
+      0.0230445725074875
+     ],
+     "adversario_1T": [
+      0.1923476145384018,
+      0.013401818213863503
+     ],
+     "proprio_1T": [
+      -0.216704898087855,
+      0.012877249386153188
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.10156065532733899,
+     0.014704689482408592
+    ],
+    "C": [
+     0.0852394448468887,
+     0.018626668150841564
+    ],
+    "aliado": "22"
+   }
+  },
+  "pela_coligacao_descritivo": {
+   "2018_DF": {
+    "secoes": 6703,
+    "linhas": 13406,
+    "locais": 595,
+    "D": [
+     0.054702542771482954,
+     0.009510998128710398
+    ],
+    "proprio_presidenciavel": [
+     -0.01032319634117179,
+     0.005294174681982581
+    ],
+    "proprio_governador": [
+     -0.06502573911265475,
+     0.008430921979727396
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.38047305144035043,
+      0.009845301554521796
+     ],
+     "queda_branco_nulo": [
+      0.5167926313640233,
+      0.01671035502921706
+     ],
+     "var_comparecimento": [
+      0.7128416104589703,
+      0.01360094981279834
+     ],
+     "adversario_1T": [
+      0.12095671365276256,
+      0.011503634796546749
+     ],
+     "proprio_1T": [
+      -0.01032319634117179,
+      0.005294174681982581
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6979353336453352,
+      0.009885105936043664
+     ],
+     "queda_branco_nulo": [
+      0.7891475311781643,
+      0.014768045919291962
+     ],
+     "var_comparecimento": [
+      0.7512059521384343,
+      0.016020002365974367
+     ],
+     "adversario_1T": [
+      0.06124936458094183,
+      0.018396451927464367
+     ],
+     "proprio_1T": [
+      -0.06502573911265475,
+      0.008430921979727396
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.05970734907182073,
+     0.021052932904982443
+    ],
+    "C": [
+     0.11440989184330369,
+     0.021222596413266015
+    ],
+    "aliado": "15"
+   },
+   "2018_PA": {
+    "secoes": 14963,
+    "linhas": 29926,
+    "locais": 2832,
+    "D": [
+     0.10514083497831742,
+     0.006250751524770965
+    ],
+    "proprio_presidenciavel": [
+     -0.07175527809611232,
+     0.003872521445023726
+    ],
+    "proprio_governador": [
+     -0.17689611307442973,
+     0.004980617147056836
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.33356524474439536,
+      0.006353717625438798
+     ],
+     "queda_branco_nulo": [
+      0.40078924134272514,
+      0.010707372147314194
+     ],
+     "var_comparecimento": [
+      0.43305440901863435,
+      0.008535078627114683
+     ],
+     "adversario_1T": [
+      0.07832703389486724,
+      0.003448217156322404
+     ],
+     "proprio_1T": [
+      -0.07175527809611232,
+      0.003872521445023726
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.563092143707122,
+      0.0099733472969854
+     ],
+     "queda_branco_nulo": [
+      0.4798561841524287,
+      0.009524298791580055
+     ],
+     "var_comparecimento": [
+      0.5785139860904013,
+      0.009872410495760521
+     ],
+     "adversario_1T": [
+      0.12359960383753453,
+      0.006149028706988153
+     ],
+     "proprio_1T": [
+      -0.17689611307442973,
+      0.004980617147056836
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.04527256994266729,
+     0.006944119851753011
+    ],
+    "C": [
+     0.059868265035650126,
+     0.008294659918897085
+    ],
+    "aliado": "15"
+   }
+  },
+  "sensibilidade_outro_finalista": {
+   "2018_AM_20": {
+    "secoes": 6577,
+    "linhas": 13154,
+    "locais": 1011,
+    "D": [
+     0.07503048348208405,
+     0.009947501027901507
+    ],
+    "proprio_presidenciavel": [
+     -0.04137108348322887,
+     0.005345170563915765
+    ],
+    "proprio_governador": [
+     -0.11640156696531292,
+     0.009445737152569859
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.3834672158520072,
+      0.010223527789633894
+     ],
+     "queda_branco_nulo": [
+      0.39681837379149654,
+      0.01749732950448676
+     ],
+     "var_comparecimento": [
+      0.43041556344217785,
+      0.014160893223590564
+     ],
+     "adversario_1T": [
+      0.057929556252134175,
+      0.005007875926180891
+     ],
+     "proprio_1T": [
+      -0.04137108348322887,
+      0.005345170563915765
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6264812976644538,
+      0.009890880461996439
+     ],
+     "queda_branco_nulo": [
+      0.5659651895024996,
+      0.0190865102488911
+     ],
+     "var_comparecimento": [
+      0.5117433701972083,
+      0.0172253897644387
+     ],
+     "adversario_1T": [
+      0.1499373010607883,
+      0.009864615582153449
+     ],
+     "proprio_1T": [
+      -0.11640156696531292,
+      0.009445737152569859
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.09200774480865412,
+     0.011235055067621194
+    ],
+    "C": [
+     -0.016977261326570042,
+     0.01432246545960979
+    ],
+    "aliado": "20"
+   },
+   "2018_MS_45": {
+    "secoes": 6394,
+    "linhas": 12788,
+    "locais": 911,
+    "D": [
+     0.15984205944970342,
+     0.008989748328641863
+    ],
+    "proprio_presidenciavel": [
+     -0.04096095229526375,
+     0.004232648849577746
+    ],
+    "proprio_governador": [
+     -0.20080301174496717,
+     0.008601646529651582
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.44875369873461335,
+      0.008400675801680886
+     ],
+     "queda_branco_nulo": [
+      0.5076447441841894,
+      0.017039974260926405
+     ],
+     "var_comparecimento": [
+      0.5984118997454315,
+      0.013484735894026538
+     ],
+     "adversario_1T": [
+      0.08777005692534946,
+      0.008159263485910971
+     ],
+     "proprio_1T": [
+      -0.04096095229526375,
+      0.004232648849577746
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.4610513011601715,
+      0.015351149841498931
+     ],
+     "queda_branco_nulo": [
+      0.45965046373220436,
+      0.0160889078840689
+     ],
+     "var_comparecimento": [
+      0.5128991127690786,
+      0.01695281482616813
+     ],
+     "adversario_1T": [
+      0.217352885201099,
+      0.009528079693187681
+     ],
+     "proprio_1T": [
+      -0.20080301174496717,
+      0.008601646529651582
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.12958282827574952,
+     0.011496398948429855
+    ],
+    "C": [
+     0.030259231173953904,
+     0.012056575692163961
+    ],
+    "aliado": "45"
+   },
+   "2018_MS_12": {
+    "secoes": 6394,
+    "linhas": 12788,
+    "locais": 911,
+    "D": [
+     0.17639193290583485,
+     0.010097509908253463
+    ],
+    "proprio_presidenciavel": [
+     -0.04096095229526375,
+     0.004232648849577746
+    ],
+    "proprio_governador": [
+     -0.2173528852010986,
+     0.00952807969318768
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.44875369873461335,
+      0.008400675801680886
+     ],
+     "queda_branco_nulo": [
+      0.5076447441841894,
+      0.017039974260926405
+     ],
+     "var_comparecimento": [
+      0.5984118997454315,
+      0.013484735894026538
+     ],
+     "adversario_1T": [
+      0.08777005692534946,
+      0.008159263485910971
+     ],
+     "proprio_1T": [
+      -0.04096095229526375,
+      0.004232648849577746
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.5389486988398282,
+      0.015351149841498928
+     ],
+     "queda_branco_nulo": [
+      0.540349536267795,
+      0.0160889078840689
+     ],
+     "var_comparecimento": [
+      0.48710088723092154,
+      0.016952814826168134
+     ],
+     "adversario_1T": [
+      0.20080301174496704,
+      0.008601646529651582
+     ],
+     "proprio_1T": [
+      -0.2173528852010986,
+      0.00952807969318768
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.11303295481961757,
+     0.011155890334716862
+    ],
+    "C": [
+     0.0633589780862173,
+     0.013123363930347064
+    ],
+    "aliado": "12"
+   },
+   "2018_RO_45": {
+    "secoes": 4047,
+    "linhas": 8094,
+    "locais": 507,
+    "D": [
+     0.3750702629130222,
+     0.016499427358292476
+    ],
+    "proprio_presidenciavel": [
+     -0.034213952282460984,
+     0.004774870903192774
+    ],
+    "proprio_governador": [
+     -0.4092842151954832,
+     0.015824639452380797
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5249152894464998,
+      0.012625513259588212
+     ],
+     "queda_branco_nulo": [
+      0.5947540312197472,
+      0.020093718796344598
+     ],
+     "var_comparecimento": [
+      0.6970165964091007,
+      0.014598917111754647
+     ],
+     "adversario_1T": [
+      0.14747378013315995,
+      0.00998521709455933
+     ],
+     "proprio_1T": [
+      -0.034213952282460984,
+      0.004774870903192774
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.3394208950490455,
+      0.009989316684995872
+     ],
+     "queda_branco_nulo": [
+      0.3695083211170998,
+      0.021185322257159606
+     ],
+     "var_comparecimento": [
+      0.3656619813237209,
+      0.021026128139015065
+     ],
+     "adversario_1T": [
+      0.017536571557234232,
+      0.014110534010216624
+     ],
+     "proprio_1T": [
+      -0.4092842151954832,
+      0.015824639452380797
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.12993720857592572,
+     0.01635085837873045
+    ],
+    "C": [
+     0.5050074714889479,
+     0.021088319118446733
+    ],
+    "aliado": "45"
+   },
+   "2018_RS_45": {
+    "secoes": 23437,
+    "linhas": 46874,
+    "locais": 4536,
+    "D": [
+     0.2039040013225713,
+     0.007771176499430597
+    ],
+    "proprio_presidenciavel": [
+     -0.0074772914280941925,
+     0.002856398847326354
+    ],
+    "proprio_governador": [
+     -0.2113812927506655,
+     0.007183798917485016
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.31647085082660203,
+      0.005843644903499618
+     ],
+     "queda_branco_nulo": [
+      0.442916607964848,
+      0.008962213585134151
+     ],
+     "var_comparecimento": [
+      0.5792380204306519,
+      0.008929014636467588
+     ],
+     "adversario_1T": [
+      0.10130352471123912,
+      0.004724298773249204
+     ],
+     "proprio_1T": [
+      -0.0074772914280941925,
+      0.002856398847326354
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.6965410942597713,
+      0.005051652346830004
+     ],
+     "queda_branco_nulo": [
+      0.5877484242699842,
+      0.008053163360064881
+     ],
+     "var_comparecimento": [
+      0.5780543817443697,
+      0.011025122491991925
+     ],
+     "adversario_1T": [
+      0.058767161089529306,
+      0.00541473398401429
+     ],
+     "proprio_1T": [
+      -0.2113812927506655,
+      0.007183798917485016
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.04253636362170981,
+     0.006957176490269952
+    ],
+    "C": [
+     0.24644036494428112,
+     0.009972833085216468
+    ],
+    "aliado": "45"
+   },
+   "2018_RS_15": {
+    "secoes": 23437,
+    "linhas": 46874,
+    "locais": 4536,
+    "D": [
+     0.05128986966143542,
+     0.005272324590117735
+    ],
+    "proprio_presidenciavel": [
+     -0.0074772914280941925,
+     0.002856398847326354
+    ],
+    "proprio_governador": [
+     -0.05876716108952961,
+     0.005414733984014292
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.31647085082660203,
+      0.005843644903499618
+     ],
+     "queda_branco_nulo": [
+      0.442916607964848,
+      0.008962213585134151
+     ],
+     "var_comparecimento": [
+      0.5792380204306519,
+      0.008929014636467588
+     ],
+     "adversario_1T": [
+      0.10130352471123912,
+      0.004724298773249204
+     ],
+     "proprio_1T": [
+      -0.0074772914280941925,
+      0.002856398847326354
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.30345890574022905,
+      0.0050516523468300024
+     ],
+     "queda_branco_nulo": [
+      0.4122515757300151,
+      0.00805316336006488
+     ],
+     "var_comparecimento": [
+      0.42194561825563087,
+      0.011025122491991923
+     ],
+     "adversario_1T": [
+      0.21138129275066564,
+      0.007183798917485022
+     ],
+     "proprio_1T": [
+      -0.05876716108952961,
+      0.005414733984014292
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.11007776803942652,
+     0.008495115766146017
+    ],
+    "C": [
+     -0.05878789837799111,
+     0.00904429206013489
+    ],
+    "aliado": "15"
+   },
+   "2018_SC_55": {
+    "secoes": 14026,
+    "linhas": 28052,
+    "locais": 2172,
+    "D": [
+     0.6360065943185759,
+     0.00915150784232399
+    ],
+    "proprio_presidenciavel": [
+     0.007930626861707871,
+     0.0025482811174477654
+    ],
+    "proprio_governador": [
+     -0.628075967456868,
+     0.008414691633201781
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.4588814123036597,
+      0.008636093458203039
+     ],
+     "queda_branco_nulo": [
+      0.6106422171137064,
+      0.010925061676571939
+     ],
+     "var_comparecimento": [
+      0.7058044192022606,
+      0.011328199964086584
+     ],
+     "adversario_1T": [
+      0.08193437325249718,
+      0.0061731329087810856
+     ],
+     "proprio_1T": [
+      0.007930626861707871,
+      0.0025482811174477654
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.4105709870838691,
+      0.00922835592311798
+     ],
+     "queda_branco_nulo": [
+      0.2885368494934865,
+      0.01099960722566094
+     ],
+     "var_comparecimento": [
+      0.29321410859379116,
+      0.01503292105727152
+     ],
+     "adversario_1T": [
+      -0.010605337627762789,
+      0.0070111354487762375
+     ],
+     "proprio_1T": [
+      -0.628075967456868,
+      0.008414691633201781
+     ]
+    },
+    "espelho_pela_identidade": [
+     -0.09253971088025997,
+     0.00872146265610217
+    ],
+    "C": [
+     0.7285463051988359,
+     0.012080811919401479
+    ],
+    "aliado": "55"
+   },
+   "2022_MS_28": {
+    "secoes": 6800,
+    "linhas": 13600,
+    "locais": 914,
+    "D": [
+     0.07520050383618782,
+     0.0102102661232221
+    ],
+    "proprio_presidenciavel": [
+     -0.018367672976547147,
+     0.004230853939672792
+    ],
+    "proprio_governador": [
+     -0.09356817681273497,
+     0.010496324214995493
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5265668767213838,
+      0.012744845910564
+     ],
+     "queda_branco_nulo": [
+      0.521594640982074,
+      0.0175208493446397
+     ],
+     "var_comparecimento": [
+      0.5285068139268939,
+      0.012234855551754971
+     ],
+     "adversario_1T": [
+      0.06992065625180635,
+      0.005920961457062395
+     ],
+     "proprio_1T": [
+      -0.018367672976547147,
+      0.004230853939672792
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.2837095394296967,
+      0.011867865265159178
+     ],
+     "queda_branco_nulo": [
+      0.3863400859424307,
+      0.018216843176169336
+     ],
+     "var_comparecimento": [
+      0.41182510770501346,
+      0.01749043904785115
+     ],
+     "adversario_1T": [
+      0.16634500593166723,
+      0.014651544944614396
+     ],
+     "proprio_1T": [
+      -0.09356817681273497,
+      0.010496324214995493
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.09642434967986088,
+     0.013410357366787726
+    ],
+    "C": [
+     -0.021223845843673067,
+     0.016479157245193107
+    ],
+    "aliado": "28"
+   },
+   "2022_RO_44": {
+    "secoes": 4067,
+    "linhas": 8134,
+    "locais": 499,
+    "D": [
+     0.16244281662477447,
+     0.015412283987415348
+    ],
+    "proprio_presidenciavel": [
+     -0.029904797913627323,
+     0.005097760253043977
+    ],
+    "proprio_governador": [
+     -0.1923476145384018,
+     0.013401818213863501
+    ],
+    "coef_presidente": {
+     "outros_1T": [
+      0.5756074707489434,
+      0.019122789060210334
+     ],
+     "queda_branco_nulo": [
+      0.5577454823667934,
+      0.0237073932286029
+     ],
+     "var_comparecimento": [
+      0.6429296365622297,
+      0.013215045057661943
+     ],
+     "adversario_1T": [
+      0.0907869592110628,
+      0.007573245912205148
+     ],
+     "proprio_1T": [
+      -0.029904797913627323,
+      0.005097760253043977
+     ]
+    },
+    "coef_governador": {
+     "outros_1T": [
+      0.582985746211275,
+      0.015366569045007229
+     ],
+     "queda_branco_nulo": [
+      0.5700948110262613,
+      0.024687793202071814
+     ],
+     "var_comparecimento": [
+      0.5264980515115091,
+      0.0230445725074875
+     ],
+     "adversario_1T": [
+      0.2167048980878556,
+      0.012877249386153203
+     ],
+     "proprio_1T": [
+      -0.1923476145384018,
+      0.013401818213863501
+     ]
+    },
+    "espelho_pela_identidade": [
+     0.12591793887679278,
+     0.015710339913790353
+    ],
+    "C": [
+     0.03652487774798169,
+     0.024095905864687423
+    ],
+    "aliado": "44"
+   }
+  },
+  "espelho": {
+   "2018_AP": {
+    "espelho": [
+     0.029973447001918972,
+     0.01785271610802227
+    ],
+    "proprio_PT": [
+     -0.04876536943123214,
+     0.011815231834457774
+    ],
+    "proprio_gov_campo_PT": [
+     -0.07873881643315112,
+     0.013815108533745615
+    ],
+    "secoes": 1521,
+    "aliado_PT": "40"
+   },
+   "2018_RN": {
+    "espelho": [
+     0.0039283540327272395,
+     0.008206517920875511
+    ],
+    "proprio_PT": [
+     -0.03647063052778272,
+     0.005506071694424092
+    ],
+    "proprio_gov_campo_PT": [
+     -0.04039898456050996,
+     0.009276497024825362
+    ],
+    "secoes": 7147,
+    "aliado_PT": "13"
+   },
+   "2018_SE": {
+    "espelho": [
+     0.02521492512259656,
+     0.011491499976877729
+    ],
+    "proprio_PT": [
+     -0.028554419204196328,
+     0.004633516180701364
+    ],
+    "proprio_gov_campo_PT": [
+     -0.05376934432679289,
+     0.01194152183937935
+    ],
+    "secoes": 4970,
+    "aliado_PT": "55"
+   },
+   "2022_AL": {
+    "espelho": [
+     0.07437376041190152,
+     0.010594446878446385
+    ],
+    "proprio_PT": [
+     -0.054141893761190614,
+     0.004342722115767593
+    ],
+    "proprio_gov_campo_PT": [
+     -0.12851565417309213,
+     0.011631606052176046
+    ],
+    "secoes": 6595,
+    "aliado_PT": "15"
+   },
+   "2022_AM": {
+    "espelho": [
+     0.047870499484911566,
+     0.014661550203529133
+    ],
+    "proprio_PT": [
+     -0.05921501980112588,
+     0.00444366697950638
+    ],
+    "proprio_gov_campo_PT": [
+     -0.10708551928603745,
+     0.015214935342490446
+    ],
+    "secoes": 7007,
+    "aliado_PT": "15"
+   },
+   "2022_BA": {
+    "espelho": [
+     0.026307462172975325,
+     0.003129278286888429
+    ],
+    "proprio_PT": [
+     -0.02368034747516304,
+     0.0013115390135230482
+    ],
+    "proprio_gov_campo_PT": [
+     -0.049987809648138364,
+     0.003387782130406564
+    ],
+    "secoes": 31523,
+    "aliado_PT": "13"
+   },
+   "2022_ES": {
+    "espelho": [
+     0.01696929792027895,
+     0.0058444094879971705
+    ],
+    "proprio_PT": [
+     -0.05756431316308747,
+     0.004223497268557812
+    ],
+    "proprio_gov_campo_PT": [
+     -0.07453361108336642,
+     0.005785472391248302
+    ],
+    "secoes": 8933,
+    "aliado_PT": "40"
+   },
+   "2022_PB": {
+    "espelho": [
+     0.07433759686300241,
+     0.009828792238436048
+    ],
+    "proprio_PT": [
+     -0.028452196314351207,
+     0.0032963382096769752
+    ],
+    "proprio_gov_campo_PT": [
+     -0.10278979317735362,
+     0.009971729203014602
+    ],
+    "secoes": 9504,
+    "aliado_PT": "40"
+   },
+   "2022_PE": {
+    "espelho": [
+     0.10869214684296001,
+     0.008988503152716532
+    ],
+    "proprio_PT": [
+     -0.034893324203767215,
+     0.0018912655456928662
+    ],
+    "proprio_gov_campo_PT": [
+     -0.14358547104672723,
+     0.009382770485567064
+    ],
+    "secoes": 20236,
+    "aliado_PT": "77"
+   },
+   "2022_SC": {
+    "espelho": [
+     -0.10807309716442551,
+     0.007268853700851987
+    ],
+    "proprio_PT": [
+     -0.05993991824791557,
+     0.003960765240989517
+    ],
+    "proprio_gov_campo_PT": [
+     0.04813317891650993,
+     0.008765938839050627
+    ],
+    "secoes": 14955,
+    "aliado_PT": "13"
+   },
+   "2022_SP": {
+    "espelho": [
+     -0.02024808751920751,
+     0.0016755599610096645
+    ],
+    "proprio_PT": [
+     -0.051887396671709135,
+     0.001450122603806901
+    ],
+    "proprio_gov_campo_PT": [
+     -0.03163930915250163,
+     0.001971043158245306
+    ],
+    "secoes": 100670,
+    "aliado_PT": "13"
+   }
+  },
+  "C_polarizados": {
+   "2018_RN": {
+    "C": [
+     0.10295597889038202,
+     0.01335906709561882
+    ],
+    "D": [
+     0.10688433292310921,
+     0.011219425094513917
+    ],
+    "espelho_pela_identidade": [
+     0.003928354032727191,
+     0.008206517920875506
+    ]
+   },
+   "2022_AM": {
+    "C": [
+     0.05726163783062371,
+     0.018763468323995686
+    ],
+    "D": [
+     0.10513213731553545,
+     0.01105030814460438
+    ],
+    "espelho_pela_identidade": [
+     0.047870499484911726,
+     0.014661550203529147
+    ]
+   },
+   "2022_ES": {
+    "C": [
+     0.03136644820161618,
+     0.007363156635295785
+    ],
+    "D": [
+     0.048335746121895534,
+     0.005803502610539659
+    ],
+    "espelho_pela_identidade": [
+     0.016969297920279354,
+     0.005844409487997172
+    ]
+   },
+   "2022_SC": {
+    "C": [
+     0.08644682428140471,
+     0.00849951922593638
+    ],
+    "D": [
+     -0.021626272883021228,
+     0.004195091419156981
+    ],
+    "espelho_pela_identidade": [
+     -0.10807309716442592,
+     0.007268853700851986
+    ]
+   },
+   "2022_SP": {
+    "C": [
+     0.02093073347476998,
+     0.0022856143777890002
+    ],
+    "D": [
+     0.0006826459555626281,
+     0.001437949450783715
+    ],
+    "espelho_pela_identidade": [
+     -0.02024808751920735,
+     0.0016755599610096645
+    ]
+   }
+  }
+ },
+ "reguas": {
+  "principais": {
+   "n": 10,
+   "p5": -0.011587259405658492,
+   "p95": 0.12689200994393107,
+   "min": -0.021626272883021228,
+   "max": 0.14326192750642178,
+   "mediana": 0.0751071306053318,
+   "media": 0.06779264019647578,
+   "dp_ddof1": 0.05073584880850055,
+   "dp_ddof0": 0.04813225237704053,
+   "media_ep2": 6.30301719766296e-05,
+   "dp_descontado_erro": 0.05011083897064982
+  },
+  "principais_2018": {
+   "n": 5,
+   "p5": 0.06573192726967605,
+   "p95": 0.13598640858975924,
+   "min": 0.059481791712572216,
+   "max": 0.14326192750642178,
+   "mediana": 0.09522592278276948,
+   "media": 0.09911728888459283,
+   "dp_ddof1": 0.03027167262683072,
+   "dp_ddof0": 0.027075807114485245,
+   "media_ep2": 8.70768884967332e-05,
+   "dp_descontado_erro": 0.02879752203105814
+  },
+  "principais_2022": {
+   "n": 5,
+   "p5": -0.017164489115304455,
+   "p95": 0.0940688500587926,
+   "min": -0.021626272883021228,
+   "max": 0.10513213731553545,
+   "mediana": 0.048335746121895534,
+   "media": 0.036467991508358735,
+   "dp_ddof1": 0.04921713212903527,
+   "dp_ddof0": 0.04402114123924473,
+   "media_ep2": 3.8983455456526e-05,
+   "dp_descontado_erro": 0.04881949036553321
+  },
+  "secundario_principais_mais_duplos": {
+   "n": 15,
+   "p5": -0.018162048372567206,
+   "p95": 0.1596241631208523,
+   "min": -0.021626272883021228,
+   "max": 0.18680010017422768,
+   "mediana": 0.0907324694980914,
+   "media": 0.07346119741202539,
+   "dp_ddof1": 0.06383059396171656,
+   "dp_ddof0": 0.06166621233548529,
+   "media_ep2": 9.180810056228883e-05,
+   "dp_descontado_erro": 0.06310734208428713
+  },
+  "mais_pela_coligacao": {
+   "n": 17,
+   "p5": -0.017667159156788063,
+   "p95": 0.15574188639894157,
+   "min": -0.021626272883021228,
+   "max": 0.18680010017422768,
+   "mediana": 0.0907324694980914,
+   "media": 0.07422125523118712,
+   "dp_ddof1": 0.06040824241319855,
+   "dp_ddof0": 0.05860460332412572,
+   "media_ep2": 8.862661696841717e-05,
+   "dp_descontado_erro": 0.05967016955299644
+  },
+  "todos_com_sensibilidade": {
+   "n": 26,
+   "p5": -0.013176713235436077,
+   "p95": 0.3322786975154095,
+   "min": -0.021626272883021228,
+   "max": 0.6360065943185759,
+   "mediana": 0.10017903004915246,
+   "media": 0.1221899947478604,
+   "dp_ddof1": 0.13380153596442962,
+   "dp_ddof0": 0.13120320054448337,
+   "media_ep2": 9.901301416334984e-05,
+   "dp_descontado_erro": 0.13343102342512855
+  },
+  "espelho": {
+   "n": 11,
+   "p5": -0.06416059234181651,
+   "p95": 0.09153295362743077,
+   "min": -0.10807309716442551,
+   "max": 0.10869214684296001,
+   "mediana": 0.026307462172975325,
+   "media": 0.025395118651785422,
+   "dp_ddof1": 0.057173875540343456,
+   "dp_ddof0": 0.05451315140990111,
+   "media_ep2": 0.00010202872050263126,
+   "dp_descontado_erro": 0.056274535305056515
+  },
+  "C_polarizados": {
+   "n": 5,
+   "p5": 0.02301787642013922,
+   "p95": 0.09965414796858656,
+   "min": 0.02093073347476998,
+   "max": 0.10295597889038202,
+   "mediana": 0.05726163783062371,
+   "media": 0.05979232453575932,
+   "dp_ddof1": 0.0349936476174286,
+   "dp_ddof0": 0.03129926994129756,
+   "media_ep2": 0.00013244287060055064,
+   "dp_descontado_erro": 0.03304712548728279
+  },
+  "trios_empilhados_mesmo_ano": {
+   "n": 20,
+   "p5": -0.002296966483959064,
+   "p95": 0.13507769430597272,
+   "min": -0.004998615841539667,
+   "max": 0.13636049805704056,
+   "mediana": 0.0595321377714475,
+   "media": 0.05727702906666722,
+   "dp_ddof1": 0.051192735688903285,
+   "dp_ddof0": 0.04989650667079025,
+   "media_ep2": 9.025322910726362e-06,
+   "dp_descontado_erro": 0.05110450923747517
+  }
+ },
+ "calibracao_2026": {
+  "empilhado_AM_DF_ES": {
+   "D_observado": [
+    0.012966142666733654,
+    0.004710281642921561
+   ],
+   "grade_troca_so_presidente": {
+    "0.005": {
+     "D": [
+      0.008156459677125256,
+      0.004707251251184401
+     ],
+     "deslocamento": -0.004809682989608398,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.010": {
+     "D": [
+      0.0033467766875164284,
+      0.004704263642958006
+     ],
+     "deslocamento": -0.009619365979217226,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.015": {
+     "D": [
+      -0.0014629063020931143,
+      0.004701318899806954
+     ],
+     "deslocamento": -0.014429048968826769,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.020": {
+     "D": [
+      -0.006272589291700971,
+      0.0046984171023286
+     ],
+     "deslocamento": -0.019238731958434625,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.025": {
+     "D": [
+      -0.011082272281309244,
+      0.00469555833014263
+     ],
+     "deslocamento": -0.024048414948042898,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.030": {
+     "D": [
+      -0.01589195527091817,
+      0.0046927426618807834
+     ],
+     "deslocamento": -0.028858097937651823,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.036": {
+     "D": [
+      -0.02166357485844809,
+      0.004689420866383593
+     ],
+     "deslocamento": -0.03462971752518174,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.040": {
+     "D": [
+      -0.025511321250135006,
+      0.004687240946655367
+     ],
+     "deslocamento": -0.03847746391686866,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.050": {
+     "D": [
+      -0.03513068722935301,
+      0.004681912565560582
+     ],
+     "deslocamento": -0.048096829896086664,
+     "letra": "SINAL"
+    },
+    "0.060": {
+     "D": [
+      -0.04475005320857026,
+      0.004676758111051946
+     ],
+     "deslocamento": -0.05771619587530392,
+     "letra": "SINAL"
+    },
+    "0.080": {
+     "D": [
+      -0.06398878516700332,
+      0.004666973267473953
+     ],
+     "deslocamento": -0.07695492783373697,
+     "letra": "SINAL"
+    },
+    "0.100": {
+     "D": [
+      -0.08322751712543836,
+      0.004657890814744528
+     ],
+     "deslocamento": -0.09619365979217201,
+     "letra": "SINAL"
+    }
+   },
+   "troca_3_6_valor_esperado": {
+    "D": [
+     -0.02166357485844809,
+     0.004689420866383593
+    ],
+    "deslocamento": -0.03462971752518174,
+    "letra": "INCONCLUSIVO"
+   },
+   "troca_3_6_binomial": {
+    "D": [
+     -0.019728457375855234,
+     0.004792381976309372
+    ],
+    "deslocamento": -0.03269460004258889,
+    "letra": "INCONCLUSIVO",
+    "semente": 20261110
+   },
+   "deslocamento_por_ponto_de_troca": -0.9619365979217152,
+   "menor_troca_da_grade_que_o_criterio_ve": 0.05,
+   "enxerga_a_troca_de_3_6": false,
+   "inocente_abstencao_3_6_proporcional": {
+    "D": [
+     0.00666377730787561,
+     0.004637937933825748
+    ],
+    "deslocamento": -0.006302365358858045,
+    "letra": "INCONCLUSIVO"
+   },
+   "inocente_abstencao_3_6_todos_do_aliado": {
+    "D": [
+     0.014479683835201526,
+     0.004675099969941667
+    ],
+    "deslocamento": 0.0015135411684678718,
+    "letra": "INCONCLUSIVO"
+   },
+   "limite_troca_3_6_nos_dois_cargos": {
+    "D": [
+     0.012499361530730724,
+     0.004540711503776383
+    ],
+    "deslocamento": -0.0004667811360029306,
+    "letra": "INCONCLUSIVO"
+   }
+  },
+  "so_AM": {
+   "D_observado": [
+    -0.01043590118946558,
+    0.011514312826673818
+   ],
+   "grade_troca_so_presidente": {
+    "0.005": {
+     "D": [
+      -0.015040372382358391,
+      0.011506404667296242
+     ],
+     "deslocamento": -0.004604471192892812,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.010": {
+     "D": [
+      -0.01964484357525033,
+      0.011498602458612029
+     ],
+     "deslocamento": -0.009208942385784749,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.015": {
+     "D": [
+      -0.024249314768143446,
+      0.011490906416439461
+     ],
+     "deslocamento": -0.013813413578677866,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.020": {
+     "D": [
+      -0.028853785961036146,
+      0.011483316754234838
+     ],
+     "deslocamento": -0.018417884771570567,
+     "letra": "INCONCLUSIVO"
+    },
+    "0.025": {
+     "D": [
+      -0.033458257153928236,
+      0.011475833683064669
+     ],
+     "deslocamento": -0.023022355964462657,
+     "letra": "SINAL"
+    },
+    "0.030": {
+     "D": [
+      -0.03806272834682106,
+      0.01146845741157816
+     ],
+     "deslocamento": -0.027626827157355482,
+     "letra": "SINAL"
+    },
+    "0.036": {
+     "D": [
+      -0.043588093778292286,
+      0.011459747151539272
+     ],
+     "deslocamento": -0.03315219258882671,
+     "letra": "SINAL"
+    },
+    "0.040": {
+     "D": [
+      -0.047271670732606505,
+      0.011454026090003126
+     ],
+     "deslocamento": -0.036835769543140925,
+     "letra": "SINAL"
+    },
+    "0.050": {
+     "D": [
+      -0.05648061311839213,
+      0.011440024409325424
+     ],
+     "deslocamento": -0.04604471192892655,
+     "letra": "SINAL"
+    },
+    "0.060": {
+     "D": [
+      -0.0656895555041767,
+      0.011426453948957676
+     ],
+     "deslocamento": -0.05525365431471112,
+     "letra": "SINAL"
+    },
+    "0.080": {
+     "D": [
+      -0.08410744027574767,
+      0.01140061279974127
+     ],
+     "deslocamento": -0.07367153908628209,
+     "letra": "SINAL"
+    },
+    "0.100": {
+     "D": [
+      -0.10252532504731875,
+      0.011376514437928453
+     ],
+     "deslocamento": -0.09208942385785317,
+     "letra": "SINAL"
+    }
+   },
+   "troca_3_6_valor_esperado": {
+    "D": [
+     -0.043588093778292286,
+     0.011459747151539272
+    ],
+    "deslocamento": -0.03315219258882671,
+    "letra": "SINAL"
+   },
+   "troca_3_6_binomial": {
+    "D": [
+     -0.04065539246721027,
+     0.011634845904018695
+    ],
+    "deslocamento": -0.03021949127774469,
+    "letra": "SINAL",
+    "semente": 20261110
+   },
+   "deslocamento_por_ponto_de_troca": -0.9208942385785197,
+   "menor_troca_da_grade_que_o_criterio_ve": 0.025,
+   "enxerga_a_troca_de_3_6": true,
+   "inocente_abstencao_3_6_proporcional": {
+    "D": [
+     -0.01607212488765762,
+     0.011249200003678414
+    ],
+    "deslocamento": -0.005636223698192042,
+    "letra": "INCONCLUSIVO"
+   },
+   "inocente_abstencao_3_6_todos_do_aliado": {
+    "D": [
+     -0.007076568863327734,
+     0.011319315609825452
+    ],
+    "deslocamento": 0.0033593323261378455,
+    "letra": "INCONCLUSIVO"
+   },
+   "limite_troca_3_6_nos_dois_cargos": {
+    "D": [
+     -0.0100602087466449,
+     0.011099797564913564
+    ],
+    "deslocamento": 0.0003756924428206798,
+    "letra": "INCONCLUSIVO"
+   }
+  },
+  "espelho_AM_DF_com_troca_3_6": [
+   0.0025201689347856965,
+   0.006177514022191235
+  ],
+  "C_AM_DF_com_troca_3_6": [
+   -0.03512583253181397,
+   0.009631700185158612
+  ],
+  "C_AM_com_troca_3_6": [
+   -0.0567899354104275,
+   0.01411810024750497
+  ],
+  "deslocamento_de_C_AM_DF": -0.034858731108829956,
+  "deslocamento_de_C_AM": -0.034302951102998636
+ },
+ "calibracao_naturais": {
+  "por_par": {
+   "2018_MG": {
+    "D": 0.14326192750642178,
+    "D_com_troca_3_6": 0.10855134691427383,
+    "deslocamento": -0.03471058059214795,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.10618345468007971,
+    "letra_sem_troca": "EXCLUSÃO",
+    "letra_com_troca": "EXCLUSÃO"
+   },
+   "2018_RJ": {
+    "D": 0.0907324694980914,
+    "D_com_troca_3_6": 0.05519345462779332,
+    "deslocamento": -0.03553901487029808,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2018_RN": {
+    "D": 0.10688433292310921,
+    "D_com_troca_3_6": 0.07295574521074444,
+    "deslocamento": -0.033928587712364774,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12801001143006724,
+    "letra_sem_troca": "EXCLUSÃO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2018_RR": {
+    "D": 0.09522592278276948,
+    "D_com_troca_3_6": 0.06132949879111438,
+    "deslocamento": -0.0338964239916551,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "EXCLUSÃO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2018_SP": {
+    "D": 0.059481791712572216,
+    "D_com_troca_3_6": 0.023147797147977104,
+    "deslocamento": -0.036333994564595115,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2022_AM": {
+    "D": 0.10513213731553545,
+    "D_com_troca_3_6": 0.07101984357365192,
+    "deslocamento": -0.03411229374188353,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "EXCLUSÃO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2022_ES": {
+    "D": 0.048335746121895534,
+    "D_com_troca_3_6": 0.012847293998123448,
+    "deslocamento": -0.035488452123772087,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2022_RS": {
+    "D": 0.04981570103182131,
+    "D_com_troca_3_6": 0.013900886813147176,
+    "deslocamento": -0.03591481421867414,
+    "p5_sem_o_proprio": -0.012702705347587684,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "INCONCLUSIVO"
+   },
+   "2022_SC": {
+    "D": -0.021626272883021228,
+    "D_com_troca_3_6": -0.05770045200150124,
+    "deslocamento": -0.036074179118480015,
+    "p5_sem_o_proprio": 0.019743886022095793,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "SINAL"
+   },
+   "2022_SP": {
+    "D": 0.0006826459555626281,
+    "D_com_troca_3_6": -0.034852351158253046,
+    "deslocamento": -0.03553499711381568,
+    "p5_sem_o_proprio": 0.0063585347189454786,
+    "p95_sem_o_proprio": 0.12871088967309674,
+    "letra_sem_troca": "INCONCLUSIVO",
+    "letra_com_troca": "SINAL"
+   }
+  },
+  "deteccao_da_troca_3_6": [
+   2,
+   10
+  ],
+  "falso_alarme_sem_troca": [
+   0,
+   10
+  ],
+  "exclusao_indevida_com_troca": [
+   1,
+   10
+  ],
+  "exclusao_sem_troca": [
+   4,
+   10
+  ],
+  "deslocamento_medio": -0.03515333380476865
+ },
+ "trios": {
+  "2018_MG_RJ_RN": [
+   0.13360978801115594,
+   0.0029891382791639616
+  ],
+  "2018_MG_RJ_RR": [
+   0.13636049805704056,
+   0.0030213835831205205
+  ],
+  "2018_MG_RJ_SP": [
+   0.10248019456501126,
+   0.0024118445987176213
+  ],
+  "2018_MG_RN_RR": [
+   0.13501017831907441,
+   0.0042003665957026405
+  ],
+  "2018_MG_RN_SP": [
+   0.10623226334529932,
+   0.0028590551230288056
+  ],
+  "2018_MG_RR_SP": [
+   0.10555804659280561,
+   0.002886446536319496
+  ],
+  "2018_RJ_RN_RR": [
+   0.09310868575295012,
+   0.003585306718476903
+  ],
+  "2018_RJ_RN_SP": [
+   0.07414758809613589,
+   0.002540465470421112
+  ],
+  "2018_RJ_RR_SP": [
+   0.07133686433543424,
+   0.002576239451586136
+  ],
+  "2018_RN_RR_SP": [
+   0.06591273111332624,
+   0.0031652905882518746
+  ],
+  "2022_AM_ES_RS": [
+   0.05315154442956876,
+   0.0038073950253136317
+  ],
+  "2022_AM_ES_SC": [
+   0.029632552868202655,
+   0.004239172458770449
+  ],
+  "2022_AM_ES_SP": [
+   0.012815396573538796,
+   0.0016453048829200422
+  ],
+  "2022_AM_RS_SC": [
+   0.008009059143089657,
+   0.004629286909824679
+  ],
+  "2022_AM_RS_SP": [
+   0.012405521546653796,
+   0.0018497351771697254
+  ],
+  "2022_AM_SC_SP": [
+   0.003692909944024861,
+   0.001654441032802047
+  ],
+  "2022_ES_RS_SC": [
+   -0.004998615841539667,
+   0.0039894259385452975
+  ],
+  "2022_ES_RS_SP": [
+   0.008555249495689738,
+   0.0016616963191327257
+  ],
+  "2022_ES_SC_SP": [
+   0.0006748993983895692,
+   0.0014101700646197682
+  ],
+  "2022_RS_SC_SP": [
+   -0.0021547744125074535,
+   0.0017562034036137841
+  ]
+ },
+ "naturais_empilhados_descritivo": {
+  "2018": {
+   "D": [
+    0.10288187431852326,
+    0.002370104781792197
+   ],
+   "secoes": 182924,
+   "locais": 23418
+  },
+  "2022": {
+   "D": [
+    0.007138943498869364,
+    0.0017337053048777117
+   ],
+   "secoes": 155230,
+   "locais": 19584
+  },
+  "todos": {
+   "D": [
+    0.08676579945331202,
+    0.0025204504259988846
+   ],
+   "secoes": 338742,
+   "locais": 33232
+  }
+ },
+ "vereditos": {
+  "parte1_regua": {
+   "n_naturais_principais": 10,
+   "dispersao_dp_ddof1": 0.05073584880850055,
+   "limite": 0.03,
+   "veredito": "SEM PODER",
+   "motivo": "dispersão natural acima de 0,03"
+  },
+  "percentis_principais": {
+   "p5": -0.011587259405658492,
+   "p95": 0.12689200994393107
+  },
+  "empilhado_AM_DF_ES": {
+   "D": [
+    0.012966142666733654,
+    0.004710281642921561
+   ],
+   "abaixo_do_p5": false,
+   "menor_ou_igual_a_menos_0_03": false,
+   "D_mais_0_0345": 0.04746614266673366,
+   "acima_do_p95": false,
+   "letra": "INCONCLUSIVO",
+   "posto_entre_os_naturais": 2,
+   "letra_no_conjunto_secundario": "INCONCLUSIVO",
+   "letra_so_com_2018": "INCONCLUSIVO",
+   "letra_so_com_2022": "INCONCLUSIVO",
+   "letra_contra_trios_empilhados": "INCONCLUSIVO",
+   "posto_entre_os_trios": [
+    8,
+    20
+   ]
+  },
+  "so_AM": {
+   "D": [
+    -0.01043590118946558,
+    0.011514312826673818
+   ],
+   "abaixo_do_p5": false,
+   "menor_ou_igual_a_menos_0_03": false,
+   "D_mais_0_0345": 0.024064098810534423,
+   "acima_do_p95": false,
+   "letra": "INCONCLUSIVO",
+   "posto_entre_os_naturais": 1,
+   "letra_no_conjunto_secundario": "INCONCLUSIVO",
+   "letra_so_com_2018": "INCONCLUSIVO",
+   "letra_so_com_2022": "INCONCLUSIVO"
+  },
+  "plantado_visto": {
+   "empilhado_AM_DF_ES": false,
+   "so_AM": true
+  },
+  "espelho": {
+   "regua": {
+    "n": 11,
+    "p5": -0.06416059234181651,
+    "p95": 0.09153295362743077,
+    "dp_ddof1": 0.057173875540343456
+   },
+   "AM_DF": {
+    "espelho": [
+     0.001703927523107416,
+     0.006215478493958911
+    ],
+    "letra_espelhada": "INCONCLUSIVO",
+    "posto": [
+     2,
+     11
+    ]
+   },
+   "AM": {
+    "espelho": [
+     0.012051083117963199,
+     0.0076622241941093
+    ],
+    "letra_espelhada": "INCONCLUSIVO",
+    "posto": [
+     3,
+     11
+    ]
+   },
+   "DF": {
+    "espelho": [
+     0.007213914712306836,
+     0.008828491952827443
+    ],
+    "letra_espelhada": "INCONCLUSIVO",
+    "posto": [
+     3,
+     11
+    ]
+   },
+   "RN": {
+    "espelho": [
+     0.008100015493157009,
+     0.008231340533317838
+    ],
+    "letra_espelhada": "INCONCLUSIVO",
+    "posto": [
+     3,
+     11
+    ]
+   }
+  },
+  "C": {
+   "regua": {
+    "n": 5,
+    "p5": 0.02301787642013922,
+    "p95": 0.09965414796858656,
+    "dp_ddof1": 0.0349936476174286
+   },
+   "AM_DF": {
+    "C": [
+     -0.0002671014229840146,
+     0.009712366010648956
+    ],
+    "deslocamento_usado": 0.034858731108829956,
+    "letra_aplicada_a_C": "INCONCLUSIVO",
+    "posto": [
+     0,
+     5
+    ]
+   },
+   "AM": {
+    "C": [
+     -0.02248698430742886,
+     0.01417672242913378
+    ],
+    "deslocamento_usado": 0.034302951102998636,
+    "letra_aplicada_a_C": "INCONCLUSIVO",
+    "posto": [
+     0,
+     5
+    ]
+   },
+   "DF": {
+    "C": [
+     0.0030413645734203507,
+     0.012687899472994448
+    ],
+    "deslocamento_usado": 0.034858731108829956,
+    "letra_aplicada_a_C": "INCONCLUSIVO",
+    "posto": [
+     0,
+     5
+    ]
+   }
+  },
+  "veredito_do_teste": "SEM PODER"
+ },
+ "traducao_em_votos": {
+  "deslocamento_de_D_por_ponto_de_troca": -0.9619365979217152,
+  "troca_3_6_no_pais": {
+   "votos_trocados": 2153737.476,
+   "margem": 4307474.952
+  },
+  "votos_Flavio_2t_AM_DF_ES": 3249291.0,
+  "troca_3_6_em_AM_DF_ES_votos": 116974.476,
+  "largura_faixa_natural_p5_p95": {
+   "fracao_dos_votos_de_Flavio": 0.14395883226480521,
+   "votos_trocados_no_pais": 8612487.00138636,
+   "margem_equivalente_no_pais": 17224974.00277272,
+   "fracao_da_margem": 3.8880883471553975,
+   "largura": 0.13847926934958957
+  },
+  "um_desvio_padrao_natural": {
+   "fracao_dos_votos_de_Flavio": 0.0527434437135633,
+   "votos_trocados_no_pais": 3155431.4260888305,
+   "margem_equivalente_no_pais": 6310862.852177661,
+   "fracao_da_margem": 1.4245125892264376,
+   "dp": 0.05073584880850055
+  },
+  "maior_troca_que_nao_da_para_excluir_empilhado": {
+   "fracao_dos_votos_de_Flavio": 0.11843386302521051,
+   "votos_trocados_no_pais": 7085429.145134628,
+   "margem_equivalente_no_pais": 14170858.290269256,
+   "fracao_da_margem": 3.1987014307665866,
+   "folga_ate_p95": 0.11392586727719742
+  },
+  "troca_necessaria_para_o_criterio_ver_empilhado": {
+   "fracao_dos_votos_de_Flavio": 0.04466629376568366,
+   "votos_trocados_no_pais": 2672207.5221438347,
+   "margem_equivalente_no_pais": 5344415.0442876695,
+   "fracao_da_margem": 1.2063622187593424,
+   "distancia": 0.04296614266673365
+  },
+  "D_2026_menos_mediana_natural": {
+   "fracao_dos_votos_de_Flavio": 0.06459987911142491,
+   "votos_trocados_no_pais": 3864755.01631515,
+   "margem_equivalente_no_pais": 7729510.0326303,
+   "fracao_da_margem": 1.74473516663961,
+   "diferenca": -0.06214098793859815,
+   "sentido": "D de 2026 abaixo da mediana natural: no sentido da troca"
+  }
+ },
+ "exploratorio_depois_de_ver_o_resultado": {
+  "aviso": "Acrescentado depois de ver os D de 2018 e 2022. Descritivo, fora do registro, não entra em veredito.",
+  "posicao_t": {
+   "empilhado_AM_DF_ES_contra_naturais": {
+    "valor": 0.012966142666733654,
+    "n": 10,
+    "media": 0.06779264019647578,
+    "dp": 0.05073584880850055,
+    "t_preditivo": -1.0303368431123314,
+    "p_unicaudal_abaixo": 0.16487230364038266,
+    "naturais_abaixo": 2
+   },
+   "so_AM_contra_naturais": {
+    "valor": -0.01043590118946558,
+    "n": 10,
+    "media": 0.06779264019647578,
+    "dp": 0.05073584880850055,
+    "t_preditivo": -1.4701239729776385,
+    "p_unicaudal_abaixo": 0.08780046654989908,
+    "naturais_abaixo": 1
+   },
+   "empilhado_contra_trios": {
+    "valor": 0.012966142666733654,
+    "n": 20,
+    "media": 0.05727702906666722,
+    "dp": 0.051192735688903285,
+    "t_preditivo": -0.8447096387443664,
+    "p_unicaudal_abaixo": 0.2043920075595002,
+    "naturais_abaixo": 8
+   },
+   "C_AM_DF_contra_C_naturais": {
+    "valor": -0.0002671014229840146,
+    "n": 5,
+    "media": 0.05979232453575932,
+    "dp": 0.0349936476174286,
+    "t_preditivo": -1.5667559032452913,
+    "p_unicaudal_abaixo": 0.09611822090215642,
+    "naturais_abaixo": 0
+   },
+   "C_AM_contra_C_naturais": {
+    "valor": -0.02248698430742886,
+    "n": 5,
+    "media": 0.05979232453575932,
+    "dp": 0.0349936476174286,
+    "t_preditivo": -2.1464006821104302,
+    "p_unicaudal_abaixo": 0.04918908817411327,
+    "naturais_abaixo": 0
+   },
+   "espelho_AM_DF_contra_espelhos_naturais": {
+    "valor": 0.001703927523107416,
+    "n": 11,
+    "media": 0.025395118651785422,
+    "dp": 0.057173875540343456,
+    "t_preditivo": -0.3967299468028425,
+    "p_unicaudal_abaixo": 0.34995055945766285,
+    "naturais_abaixo": 2
+   }
+  },
+  "decomposicao_por_ano": {
+   "2018_principais": {
+    "n": 5,
+    "proprio_presidenciavel_media": -0.031063323716326252,
+    "proprio_presidenciavel_dp": 0.029297642547399864,
+    "proprio_aliado_media": -0.13018061260091907,
+    "proprio_aliado_dp": 0.05296447408213065,
+    "D_media": 0.09911728888459283,
+    "D_dp": 0.03027167262683072,
+    "D_mediana": 0.09522592278276948
+   },
+   "2022_principais": {
+    "n": 5,
+    "proprio_presidenciavel_media": -0.01597368712986043,
+    "proprio_presidenciavel_dp": 0.021519598535519203,
+    "proprio_aliado_media": -0.05244167863821917,
+    "proprio_aliado_dp": 0.06793021065353586,
+    "D_media": 0.036467991508358735,
+    "D_dp": 0.04921713212903527,
+    "D_mediana": 0.048335746121895534
+   },
+   "2026_AM_DF_ES": {
+    "n": 3,
+    "proprio_presidenciavel_media": -0.04288322423005056,
+    "proprio_presidenciavel_dp": 0.03155516075149315,
+    "proprio_aliado_media": -0.059124511896972064,
+    "proprio_aliado_dp": 0.017927514788329435,
+    "D_media": 0.016241287666921508,
+    "D_dp": 0.030119670942759552,
+    "D_mediana": 0.010255279285727045
+   },
+   "2026_5_UFs": {
+    "n": 5,
+    "proprio_presidenciavel_media": -0.05109800410939451,
+    "proprio_presidenciavel_dp": 0.025241555800027165,
+    "proprio_aliado_media": -0.12967660742424306,
+    "proprio_aliado_dp": 0.13438341332970666,
+    "D_media": 0.07857860331484853,
+    "D_dp": 0.12512777992740026,
+    "D_mediana": 0.04624956741649317
+   }
+  },
+  "regua_interna_2026": {
+   "dp_D_entre_AM_DF_ES": 0.030119670942759552,
+   "dp_D_entre_as_5_UFs": 0.12512777992740026,
+   "D_por_uf": {
+    "AC": [
+     0.04624956741649317,
+     0.015863403317114666
+    ],
+    "AM": [
+     -0.01043590118946558,
+     0.011514312826673818
+    ],
+    "DF": [
+     0.010255279285727045,
+     0.006693288153383812
+    ],
+    "ES": [
+     0.048904484904503054,
+     0.006030142729022696
+    ],
+    "TO": [
+     0.297919586156985,
+     0.015266898664117711
+    ]
+   }
+  },
+  "posto_por_ano": {
+   "empilhado_AM_DF_ES": {
+    "abaixo_em_2018": 0,
+    "abaixo_em_2022": 2,
+    "de": 5
+   },
+   "so_AM": {
+    "abaixo_em_2018": 0,
+    "abaixo_em_2022": 1,
+    "de": 5
+   }
+  },
+  "mesma_UF_em_dois_anos": [
+   {
+    "uf": "SP",
+    "anos": [
+     "2018",
+     "2022"
+    ],
+    "D": [
+     0.059481791712572216,
+     0.0006826459555626281
+    ],
+    "variacao_D": -0.05879914575700959,
+    "variacao_proprio_presidenciavel": -0.022194373632763213,
+    "variacao_proprio_aliado": 0.03660477212424637,
+    "obs": "principais nos dois anos (Doria; Tarcísio)"
+   },
+   {
+    "uf": "SC",
+    "anos": [
+     "2018",
+     "2022"
+    ],
+    "D": [
+     -0.0026747107660549975,
+     -0.021626272883021228
+    ],
+    "variacao_D": -0.01895156211696623,
+    "variacao_proprio_presidenciavel": -0.0058700957928226015,
+    "variacao_proprio_aliado": 0.013081466324143629,
+    "obs": "2018 pelo desempate (Moisés); 2022 principal (Jorginho)"
+   },
+   {
+    "uf": "RO",
+    "anos": [
+     "2018",
+     "2022"
+    ],
+    "D": [
+     -0.01667738072522977,
+     0.18680010017422768
+    ],
+    "variacao_D": 0.20347748089945744,
+    "variacao_proprio_presidenciavel": 0.004309154368833661,
+    "variacao_proprio_aliado": -0.1991683265306238,
+    "obs": "os dois pelo desempate (Marcos Rocha; Marcos Rogério)"
+   },
+   {
+    "uf": "AM",
+    "anos": [
+     "2018",
+     "2022"
+    ],
+    "D": [
+     0.10856621757755999,
+     0.10513213731553545
+    ],
+    "variacao_D": -0.003434080262024547,
+    "variacao_proprio_presidenciavel": -0.011065201464453708,
+    "variacao_proprio_aliado": -0.0076311212024291475,
+    "obs": "2018 pelo desempate (Amazonino); 2022 principal (Wilson Lima)"
+   },
+   {
+    "uf": "AM",
+    "anos": [
+     "2022",
+     "2026"
+    ],
+    "D": [
+     0.10513213731553545,
+     -0.01043590118946558
+    ],
+    "variacao_D": -0.11556803850500103,
+    "variacao_proprio_presidenciavel": -0.026669476473795424,
+    "variacao_proprio_aliado": 0.0888985620312056,
+    "obs": "Wilson Lima; Maria do Carmo"
+   },
+   {
+    "uf": "ES",
+    "anos": [
+     "2022",
+     "2026"
+    ],
+    "D": [
+     0.048335746121895534,
+     0.048904484904503054
+    ],
+    "variacao_D": 0.0005687387826075196,
+    "variacao_proprio_presidenciavel": -0.007145565958677538,
+    "variacao_proprio_aliado": -0.007714304741285052,
+    "obs": "Manato; Pazolini"
+   },
+   {
+    "uf": "DF",
+    "anos": [
+     "2018",
+     "2026"
+    ],
+    "D": [
+     0.054702542771482954,
+     0.010255279285727045
+    ],
+    "variacao_D": -0.04444726348575591,
+    "variacao_proprio_presidenciavel": -0.017865485740265488,
+    "variacao_proprio_aliado": 0.02658177774549042,
+    "obs": "2018 só pela coligação (Ibaneis, neutro); Celina Leão"
+   }
+  ],
+  "mesma_UF_dp_das_variacoes_2018_2022": 0.11760456866554697,
+  "aliado_do_partido_do_presidenciavel": {
+   "do_partido": {
+    "n": 7,
+    "p5": -0.020141605235683792,
+    "p95": 0.15932784695679014,
+    "min": -0.021626272883021228,
+    "max": 0.18680010017422768,
+    "mediana": 0.048335746121895534,
+    "media": 0.04845701510520114,
+    "dp_ddof1": 0.07427046385945422,
+    "dp_ddof0": 0.0687610882605136
+   },
+   "de_outro_partido": {
+    "n": 8,
+    "p5": 0.02126234697051599,
+    "p95": 0.14632694104807567,
+    "min": 0.0006826459555626281,
+    "max": 0.14797733295512008,
+    "mediana": 0.10600823511932234,
+    "media": 0.0953398569304966,
+    "dp_ddof1": 0.047416611732379405,
+    "dp_ddof0": 0.044354178886062336
+   },
+   "AM_2026_PL_naturais_do_partido_abaixo": 2
+  },
+  "proprio_do_presidenciavel_da_direita_em_todos_os_pares": {
+   "2018_SE": [
+    -0.09629622202587228,
+    0.008968684170379833
+   ],
+   "2026_AM": [
+    -0.079105761421478,
+    0.00715770431041359
+   ],
+   "2026_RN": [
+    -0.07852892367949983,
+    0.004893630057938836
+   ],
+   "2018_PA": [
+    -0.07175527809611232,
+    0.003872521445023726
+   ],
+   "2026_TO": [
+    -0.06846837426233322,
+    0.005694712454037881
+   ],
+   "2018_RR": [
+    -0.05843266689846758,
+    0.01036841606465039
+   ],
+   "2026_AC": [
+    -0.058371973594487654,
+    0.009697540711547282
+   ],
+   "2018_AP": [
+    -0.05777657120063362,
+    0.012244049766911654
+   ],
+   "2018_RN": [
+    -0.0575392302120875,
+    0.00859667914300674
+   ],
+   "2022_SE": [
+    -0.05454809255385221,
+    0.006379311768888033
+   ],
+   "2022_AM": [
+    -0.05243628494768258,
+    0.005380651788314787
+   ],
+   "2018_AM": [
+    -0.04137108348322887,
+    0.005345170563915765
+   ],
+   "2022_AL": [
+    -0.04124945018877307,
+    0.0062199487265694915
+   ],
+   "2022_BA": [
+    -0.04115165032479755,
+    0.0029365342493953995
+   ],
+   "2018_MS": [
+    -0.04096095229526375,
+    0.004232648849577746
+   ],
+   "2022_PE": [
+    -0.038808966971875365,
+    0.0029173407567704055
+   ],
+   "2018_MG": [
+    -0.035817205773660266,
+    0.0020208774295745824
+   ],
+   "2018_RO": [
+    -0.034213952282460984,
+    0.004774870903192774
+   ],
+   "2022_PB": [
+    -0.03365378495789518,
+    0.005195161020266815
+   ],
+   "2022_RO": [
+    -0.029904797913627323,
+    0.005097760253043977
+   ],
+   "2026_DF": [
+    -0.02818868208143728,
+    0.0058121330739881035
+   ],
+   "2026_ES": [
+    -0.0213552291872364,
+    0.0033508120132805853
+   ],
+   "2022_MS": [
+    -0.018367672976547147,
+    0.004230853939672792
+   ],
+   "2022_ES": [
+    -0.014209663228558862,
+    0.003017772849877911
+   ],
+   "2022_SP": [
+    -0.012916746838458943,
+    0.0011416485804347802
+   ],
+   "2018_RJ": [
+    -0.012805142491720189,
+    0.0016544620429530517
+   ],
+   "2018_DF": [
+    -0.01032319634117179,
+    0.005294174681982581
+   ],
+   "2018_RS": [
+    -0.0074772914280941925,
+    0.002856398847326354
+   ],
+   "2022_RS": [
+    -0.0023662717034870395,
+    0.0024005892970874404
+   ],
+   "2022_SC": [
+    0.0020605310688852703,
+    0.001988977540212035
+   ],
+   "2018_SC": [
+    0.007930626861707871,
+    0.0025482811174477654
+   ],
+   "2018_SP": [
+    0.009277626794304272,
+    0.0014009325031722213
+   ]
+  },
+  "proprio_do_presidenciavel_2026_menos_eleicao_anterior_na_mesma_UF": {
+   "AM_contra_2022": -0.026669476473795424,
+   "ES_contra_2022": -0.007145565958677538,
+   "RN_contra_2018": -0.020989693467412335,
+   "DF_contra_2018": -0.017865485740265488
+  }
+ },
+ "docstring_sha256_antes_de_rodar": "5df93c4fe6e82374983ca4da9bbc746717837d781c43a9bed4ae85fca4ace290  docstring_antes_de_rodar.txt  gravado 2026-11-10T13:47:19.616957Z",
+ "nota_pos_resultado": "ACRESCENTADO DEPOIS DE VER O RESULTADO (o docstring acima fica igual ao gravado antes de calcular):\no bloco 8 da função rodar (posição em desvios, decomposição por ano, mesma UF em dois anos, régua interna de 2026,\naliado do partido do presidenciável, coeficiente próprio do presidenciável em todos os pares) e a função leitura.\nSão descritivos, marcados como exploratórios nas saídas, e não entram em nenhum veredito.\nO subcomando conferir_bweb2t (comparação com o bweb do 2º turno, a fonte citada no registro) foi escrito depois do\ndocstring e antes de calcular qualquer D; ele só compara votos por candidato entre duas fontes.",
+ "veredito_por_parte": {
+  "parte1_regua": "SEM PODER",
+  "empilhado_AM_DF_ES": "INCONCLUSIVO",
+  "so_AM": "INCONCLUSIVO",
+  "espelho": "INCONCLUSIVO",
+  "C": "INCONCLUSIVO",
+  "troca_3_6_plantada_vista": {
+   "empilhado_AM_DF_ES": false,
+   "so_AM": true
+  },
+  "teste": "SEM PODER",
+  "depende_so_de_comparacao_com_outros_anos": true
+ },
+ "conferencia_bweb2t": {
+  "2018_AP": {
+   "igual": 1632,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AP_301020181744.zip",
+   "tamanho": 605450,
+   "cabecalho_tem": []
+  },
+  "2018_AM": {
+   "igual": 7017,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AM_301020181744.zip",
+   "tamanho": 1559466,
+   "cabecalho_tem": []
+  },
+  "2018_DF": {
+   "igual": 6719,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_DF_301020181744.zip",
+   "tamanho": 1524675,
+   "cabecalho_tem": []
+  },
+  "2018_MG": {
+   "igual": 48166,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MG_301020181744.zip",
+   "tamanho": 8926694,
+   "cabecalho_tem": []
+  },
+  "2018_MS": {
+   "igual": 6529,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MS_301020181744.zip",
+   "tamanho": 1471088,
+   "cabecalho_tem": []
+  },
+  "2018_PA": {
+   "igual": 17286,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PA_301020181744.zip",
+   "tamanho": 3367242,
+   "cabecalho_tem": []
+  },
+  "2018_RJ": {
+   "igual": 33901,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RJ_301020181744.zip",
+   "tamanho": 6488942,
+   "cabecalho_tem": []
+  },
+  "2018_RN": {
+   "igual": 7389,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RN_301020181744.zip",
+   "tamanho": 1640857,
+   "cabecalho_tem": []
+  },
+  "2018_RO": {
+   "igual": 4181,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RO_301020181744.zip",
+   "tamanho": 1058933,
+   "cabecalho_tem": []
+  },
+  "2018_RR": {
+   "igual": 1172,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RR_301020181744.zip",
+   "tamanho": 516876,
+   "cabecalho_tem": []
+  },
+  "2018_RS": {
+   "igual": 27274,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RS_301020181744.zip",
+   "tamanho": 5321281,
+   "cabecalho_tem": []
+  },
+  "2018_SC": {
+   "igual": 15562,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SC_301020181744.zip",
+   "tamanho": 3106315,
+   "cabecalho_tem": []
+  },
+  "2018_SE": {
+   "igual": 5137,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SE_301020181744.zip",
+   "tamanho": 1242173,
+   "cabecalho_tem": []
+  },
+  "2018_SP": {
+   "igual": 96328,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SP_301020181744.zip",
+   "tamanho": 17587277,
+   "cabecalho_tem": []
+  },
+  "2022_AL": {
+   "igual": 6626,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AL_311020221535.zip",
+   "tamanho": 1341316,
+   "cabecalho_tem": []
+  },
+  "2022_AM": {
+   "igual": 7453,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AM_311020221535.zip",
+   "tamanho": 1480749,
+   "cabecalho_tem": []
+  },
+  "2022_BA": {
+   "igual": 34424,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_BA_311020221535.zip",
+   "tamanho": 5522366,
+   "cabecalho_tem": []
+  },
+  "2022_ES": {
+   "igual": 9239,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_ES_311020221535.zip",
+   "tamanho": 1717142,
+   "cabecalho_tem": []
+  },
+  "2022_MS": {
+   "igual": 6912,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_MS_311020221535.zip",
+   "tamanho": 1380373,
+   "cabecalho_tem": []
+  },
+  "2022_PB": {
+   "igual": 9602,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PB_311020221535.zip",
+   "tamanho": 1806259,
+   "cabecalho_tem": []
+  },
+  "2022_PE": {
+   "igual": 20572,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PE_311020221535.zip",
+   "tamanho": 3469891,
+   "cabecalho_tem": []
+  },
+  "2022_RO": {
+   "igual": 4198,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RO_311020221535.zip",
+   "tamanho": 959055,
+   "cabecalho_tem": []
+  },
+  "2022_RS": {
+   "igual": 27201,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RS_311020221535.zip",
+   "tamanho": 4537987,
+   "cabecalho_tem": []
+  },
+  "2022_SC": {
+   "igual": 16242,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SC_311020221535.zip",
+   "tamanho": 2776735,
+   "cabecalho_tem": []
+  },
+  "2022_SE": {
+   "igual": 5498,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SE_311020221535.zip",
+   "tamanho": 1168873,
+   "cabecalho_tem": []
+  },
+  "2022_SP": {
+   "igual": 101073,
+   "so_na_votacao_por_secao": 0,
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SP_311020221535.zip",
+   "tamanho": 16096583,
+   "cabecalho_tem": []
+  }
+ },
+ "leitura_escrita_depois_de_ver_o_resultado": [
+  "EXPLORATÓRIO (acrescentado depois de ver o resultado; fora do registro; não entra em veredito)",
+  "  Posição de 2026 na régua em desvios (t preditivo, uma cauda, supondo naturais normais):",
+  "    D empilhado contra os 10 naturais: t -1,03, p 0,16; D de AM: t -1,47, p 0,09; D empilhado contra os 20 trios: t -0,84, p 0,20.",
+  "    C de AM e DF contra os 5 C naturais: t -1,57, p 0,10; C de AM: t -2,15, p 0,05; espelho de AM e DF contra os 11 espelhos: t -0,40, p 0,35.",
+  "  Por ano: abaixo do D empilhado de 2026 ficam 0 dos 5 naturais de 2018 e 2 dos 5 de 2022; abaixo do D de AM, 0 e 1.",
+  "  De onde vem a diferença entre os anos (média simples dos coeficientes próprios; dp entre UFs entre parênteses):",
+  "    2018, 5 pares       presidenciável -0,031 (0,029); aliado -0,130 (0,053); D +0,099 (0,030)",
+  "    2022, 5 pares       presidenciável -0,016 (0,022); aliado -0,052 (0,068); D +0,036 (0,049)",
+  "    2026, AM, DF e ES   presidenciável -0,043 (0,032); aliado -0,059 (0,018); D +0,016 (0,030)",
+  "    De 2018 para 2022 o D médio cai 0,063: o coeficiente do presidenciável SOBE 0,015 e o do aliado sobe 0,078. A queda vem do lado do governador.",
+  "    De 2022 para 2026 o D médio cai 0,020: o coeficiente do presidenciável cai 0,027 e o do aliado cai 0,007. A queda vem do lado do presidente, com 5 e 3 UFs diferentes.",
+  "  Mesma UF em duas eleições, variação de D: SP 2018 a 2022 -0,059; SC 2018 a 2022 -0,019; RO 2018 a 2022 +0,203; AM 2018 a 2022 -0,003; AM 2022 a 2026 -0,116; ES 2022 a 2026 +0,001; DF 2018 a 2026 -0,044.",
+  "  Régua interna de 2026, sem outro ano: desvio-padrão do D entre AM, DF e ES 0,030; entre as 5 UFs do F20 0,125.",
+  "  Aliado do próprio partido do presidenciável (PSL em 2018, PL em 2022; 7 pares): D mediano +0,048, dp 0,074; de outro partido (8 pares): mediano +0,106, dp 0,047. AM em 2026 (aliada do PL): 2 de 7 abaixo.",
+  "",
+  "LEITURA (escrita depois de ver o resultado)",
+  "O que a régua mostrou",
+  "  1. D não tem zero natural. Em 9 dos 10 pares de 2018 e 2022 o presidenciável da direita perdeu uma fração MENOR dos próprios",
+  "     eleitores que o aliado a governador (D de -0,022 a +0,143, mediana +0,075). A variação natural entre estados",
+  "     (desvio-padrão 0,051) é maior que o deslocamento que a troca de 3,6% produz (0,0345).",
+  "  2. Por isso o desenho não separa \"troca só no presidente do tamanho que vira a eleição\" de \"diferença normal entre estados\".",
+  "     Pela letra fica SEM PODER. O \"SEM SINAL\" do T22b (Adendo 14), que supunha D natural igual a zero, e a \"EXCLUSÃO\" do F20",
+  "     (Adendo 23) não valem mais como contrapeso à tese. O teste também não acusa nada.",
+  "A favor da tese, com o mesmo rigor",
+  "  a. Contra a régua, o D de 2026 fica na parte de baixo: só 2 dos 10 naturais ficam abaixo do empilhado (+0,013) e 1 abaixo do de AM (-0,010,",
+  "     a 0,0012 do percentil 5). A distância do empilhado até a mediana natural (0,062) equivale a uma troca de 6,5% dos votos de Flávio,",
+  "     mais do que os 3,6% que viram o resultado. Não passa de nenhum limiar: pela conta exploratória, um valor assim ou mais baixo",
+  "     sai por acaso em cerca de 16% das vezes (AM: 9%).",
+  "  b. O contraste C de 2026 (AM e DF -0,0003; AM -0,0225; DF +0,0030) fica abaixo dos 5 C naturais (+0,0209 a +0,1030).",
+  "     São só 5 naturais, 4 deles de 2022, e nenhum C de 2026 chega a -0,03. Pela conta exploratória: p 0,10 (AM e DF) e 0,05 (AM).",
+  "  c. Os 5 naturais de 2018, ano em que a direita venceu, são todos mais altos (+0,059 a +0,143) que qualquer D de AM, DF e ES em 2026.",
+  "  d. O coeficiente próprio de Flávio em AM, DF e ES (média -0,043) é mais negativo que o de Bolsonaro nos naturais de 2022 (-0,016),",
+  "     e o do aliado a governador ficou quase igual (-0,059 contra -0,052). Diferença de 0,027, perto do que a troca de 3,6% daria,",
+  "     mas com UFs diferentes nos dois anos e desvio entre UFs de 0,02 a 0,03 (cerca de 1,3 erro-padrão). Item visto depois do dado.",
+  "Contra a tese, com o mesmo rigor",
+  "  a. Pela letra não há sinal: nem o empilhado nem AM ficam abaixo do percentil 5 (-0,0116), e nenhum chega a -0,03.",
+  "  b. 2026 está dentro da faixa natural. Na comparação de igual para igual (D empilhado contra trios empilhados do mesmo ano),",
+  "     8 dos 20 trios ficam abaixo de 2026. Com todos os principais de 2022 empilhados o D é +0,0071, abaixo do de 2026.",
+  "  c. O espelho, que a troca não move, também fica abaixo da mediana da régua dele (+0,002 contra +0,026; 2 de 11 abaixo;",
+  "     RN 3 de 11). Em 2026 D e espelho estão os dois perto de zero: parte do \"D baixo\" aparece também do lado de Lula.",
+  "     A distância do espelho à mediana dele (0,025) é menor que a do D (0,062); a diferença é o que o C mede (item b a favor).",
+  "  d. ES, a única UF com a mesma estrutura (aliado da direita contra não alinhado ou do outro campo) em 2022 e 2026, tem o mesmo D: +0,048 e +0,049.",
+  "     (Se as duas eleições tiverem a mesma troca, isso não distingue nada; pesa só contra \"troca nova em 2026\".)",
+  "  e. A diferença entre 2018 e os anos seguintes vem do lado do governador (aliados de 2018 perderam muito mais dos próprios",
+  "     eleitores), e o coeficiente de Bolsonaro até subiu de 2018 para 2022. Troca só no presidente agiria no coeficiente do presidente.",
+  "  f. O D de uma mesma UF muda de uma eleição para outra tanto ou mais do que a troca moveria, nos dois sentidos: de 2018 a 2022,",
+  "     SP -0,059, SC -0,019, AM -0,003, RO +0,203. Em AM, de 2022 a 2026, -0,116, dos quais -0,089",
+  "     vêm do lado do governador (troca de candidato aliado) e -0,027 do lado do presidente.",
+  "  g. O fato bruto que o T22b relatou continua de pé: em AM e DF o aliado a governador perdeu os próprios eleitores na mesma",
+  "     proporção que Flávio, na mesma urna. O que mudou é a leitura: nos anos de referência o aliado costumava perder MAIS.",
+  "O que isso significa em votos",
+  "  A faixa natural de D (percentil 5 a 95) tem a largura de uma troca de 14,4% dos votos de Flávio (17.224.974 votos de margem",
+  "  se fosse no país inteiro, 3,9 vezes a margem). Um desvio-padrão natural vale 5,3% (6.310.863 votos, 142% da margem).",
+  "  A cláusula de sinal só dispararia no empilhado com troca de 4,5% ou mais; a de exclusão não exclui nada abaixo de 11,8%.",
+  "  O teste cobre 3.249.291 votos de Flávio (AM, DF e ES), 5,4% dos dele no país.",
+  "Limites",
+  "  1. O veredito depende só da comparação com 2018 e 2022. Se nesses anos houve a mesma troca só no presidente, os naturais já",
+  "     vêm deslocados e a comparação é cega. Sem outro ano, a régua interna de 2026 dá o mesmo recado: o D varia 0,030 entre AM, DF e ES",
+  "     e 0,125 entre as 5 UFs.",
+  "  2. Cego, por desenho, a desvio que mexa também no governador (troca plantada nos dois cargos move D em -0,0005) ou que poupe as 6 UFs.",
+  "  3. Só 10 naturais com fonte clara (o registro previa 26); percentis 5 e 95 de 10 valores são quase o mínimo e o máximo.",
+  "  4. Calibração: a troca de 3,6% plantada em 2026 não é vista no empilhado; nos naturais é vista em 2 de 10; a cláusula de",
+  "     exclusão erra para os dois lados (\"exclui\" 4 de 10 pares sem troca e 1 de 10 com a troca plantada).",
+  "     A explicação inocente plantada (abstenção de eleitores de Flávio nos dois cargos) move D em -0,0063 e +0,0015: não imita a troca.",
+  "  5. Rodado por um agente só. Falta o conferente independente (regra do Adendo 27).",
+  "Desvios do registro (todos decididos antes de calcular qualquer D de 2018 ou 2022; detalhes no docstring e no arquivo de alinhamento)",
+  "  1. Fonte: arquivo de votação por seção do TSE (traz os dois turnos por candidato) em vez do bweb, porque o D precisa do voto por",
+  "     candidato a governador também no 1º turno. Conferido contra as bases e, no 2º turno, contra o bweb que o registro cita.",
+  "  2. Zip lido em fluxo por faixas de bytes, sem gravar em disco, em vez de baixar e apagar.",
+  "  3. Naturais: 10 principais em vez de 26 (regra de um só finalista no campo de Bolsonaro, com fonte); duplos e casos só pela coligação ao lado.",
+  "  4. Refinamento gravado no arquivo de alinhamento, depois do docstring e antes de qualquer D: candidato com o partido de Bolsonaro",
+  "     na coligação que declarou neutralidade (DF e PA em 2018) conta como fonte contraditória e sai.",
+  "  5. O alinhamento foi fixado pelo mesmo agente que depois calculou o D (o registro pedia outro agente), antes de qualquer D, com",
+  "     hash e hora gravados.",
+  "  6. Percentis por interpolação linear; desvio-padrão amostral; precedência das cláusulas; trios empilhados; critério aplicado a C;",
+  "     RN no espelho: decisões do docstring.",
+  "Contagem: 2 estatísticas registradas (empilhado e AM) em 2 cláusulas, mais espelho e C: 0 sinal, 0 exclusão.",
+  "Pistas (o que daria poder a este desenho, ou onde olhar)",
+  "  1. O contraste C varia menos que o D (desvio-padrão 0,035 contra 0,051) e em 2026 ficou abaixo dos 5 naturais. Uma régua de C com mais",
+  "     pares polarizados (2º turno de governador de 2014, 2010 e 2006, PT contra PSDB, pelo mesmo arquivo do TSE) diria se isso é acaso.",
+  "  2. Só o lado do presidente (não depende de alinhamento): o coeficiente próprio de Flávio em AM (-0,079) é o 2º mais negativo",
+  "     dos 32 calculados (26 pares de 2018 e 2022 e 6 UFs de 2026; o mais baixo é 2018 SE, -0,096); RN, TO e AC de 2026 estão em 3º, 5º e 7º.",
+  "     Nas quatro UFs que se repetem, o de 2026 é mais negativo que o da eleição anterior: AM -0,027 e ES -0,007 contra 2022;",
+  "     RN -0,021 e DF -0,018 contra 2018 (a troca de 3,6% daria -0,035). Em AM a aliada perdeu o mesmo (-0,069), o que casa com",
+  "     eleitor que não voltou (os dois cargos caem juntos) e não com troca só no presidente. É o canal do comparecimento das ondas",
+  "     A e B, que se decide em caderno de votação, não em boletim.",
+  "  3. Este desenho só alcança troca que poupe o governador. As testemunhas (D4-3 e D4-4) seguem sendo os únicos desenhos",
+  "     registrados que enxergam troca uniforme e coerente dentro da urna."
+ ]
+}

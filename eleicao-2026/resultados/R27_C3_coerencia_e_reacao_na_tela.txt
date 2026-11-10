@@ -1,0 +1,313 @@
+R27_C3: COERÊNCIA INTERNA DA URNA E REAÇÃO DO ELEITOR NA TELA (teste D1.6 do desenho cego D1)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda C, item C3; mantido pelos Adendos 28 e 30 (commit a7218fb).
+Critérios: campos do D1.6 em registro/adendo27/desenho_D1_proposta.json, aplicados pela letra. Decisões que o desenho não fixa:
+docstring de scripts/analisar_R27_C3.py, gravado antes de qualquer conta com votos (cópia e SHA-256 em
+/home/user/trabalho-eleicao/adendo27/R27_C3/docstring_antes_de_rodar.*). Rodado em 2026-11-10 14:27:35 UTC.
+Amostras: ANT = amostra antiga (3.897 seções, não aleatória); AAS = amostra aleatória simples nova (3.000 seções); UNI = união.
+Desvio mandado pela tarefa: em vez de baixar os 3.062 RDV que faltam na ANT, entram os 3.000 RDV da AAS.
+
+O QUE CADA PARTE PROVA E O QUE NÃO PROVA
+  (a) e (b) usam só arquivos escritos pelo próprio programa da urna. Excluem alteração descuidada (um produto mexido e os outros não),
+  programa trocado em parte das urnas que o verificador acusa, e mistura de versões. Um programa adulterado na origem, assinado com as
+  chaves oficiais e coerente passa por (a) e (b) inteiras. Só (c) mede algo fora do controle do programa (o que o eleitor faz diante da
+  tela), e só se a tela MOSTRASSE a troca; troca invisível passa por (c) também. E (c) supõe que o log registre a tecla CORRIGE.
+
+VEREDITO PELA LETRA
+  (a) boletim contra RDV e log: SEM SINAL. Violações sem explicação: 0; explicadas por evento do próprio log: 2.
+      Leitura mais estrita (zero violação sem descontar as explicadas): INCONCLUSIVO.
+  (b) impressão digital do programa: SEM SINAL. Leitura mais estrita (uma lista por modelo no país inteiro e nenhuma etapa sem SUCESSO
+      em nenhuma data em urna que depois recebeu voto): INCONCLUSIVO. Cláusula de resíduo: com poder para f = 30% em 25 urnas.
+  (c) reação na tela: SEM SINAL (UNI). T = t2 - t1 = -0,00406 (ep 0,00089, z -4,55); limite superior de 99% = -0,00176; limiar 0,0045.
+      ANT: SEM PODER (T -0,00264, ep 0,00118). AAS: SEM PODER (T -0,00561, ep 0,00141).
+      ESPELHO, com o mesmo destaque: T é NEGATIVO. No 2º turno a correção na tela de presidente cresceu mais onde LULA é forte, não onde Flávio é forte.
+      Critério espelhado (T de -0,0045 ou menos com z de -3,3 ou menos): UNI não cumprido (T -0,00406); AAS sozinha cumprido (T -0,00561, z -3,97); ANT não cumprido.
+      Pela regra C6, fixada antes, esse contraste não conta como indício: o placebo da tecla indevida moveu 3,74 desvios-padrão contra -0,61 da correção (placebo sujo).
+
+PARTE (a). BOLETIM, RDV E LOG DA MESMA URNA
+  Identidades: I1 BU = RDV (cada candidato, brancos, nulos); I2a linhas do RDV = comparecimento; I2b votos computados no log = comparecimento;
+  I3 confirmações + nulos por suspensão no log = votos computados; I4 RDV tipo 6 = suspensões do log; I5 nulos do BU >= suspensões do log.
+  ANT 2º turno, Presidente: 3.897 seções; com BU e RDV 835; com log do dia 3.897.
+     violam: I1 0 de 835; I2a 0 de 835; I2b 0 de 3.897; I3 1 de 3.897 (1 explicadas, 0 sem explicação); I4 0 de 835; I5 0 de 3.897.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  ANT 2º turno, Governador: 187 seções; com BU e RDV 12; com log do dia 187.
+     violam: I1 0 de 12; I2a 0 de 12; I2b 10 de 187 (0 explicadas, 10 sem explicação); I3 10 de 187 (0 explicadas, 10 sem explicação); I4 0 de 12; I5 0 de 187.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  AAS 2º turno, Presidente: 3.000 seções; com BU e RDV 3.000; com log do dia 3.000.
+     violam: I1 0 de 3.000; I2a 0 de 3.000; I2b 0 de 3.000; I3 1 de 3.000 (1 explicadas, 0 sem explicação); I4 0 de 3.000; I5 0 de 3.000.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  AAS 2º turno, Governador: 220 seções; com BU e RDV 220; com log do dia 220.
+     violam: I1 0 de 220; I2a 0 de 220; I2b 12 de 220 (0 explicadas, 12 sem explicação); I3 12 de 220 (0 explicadas, 12 sem explicação); I4 0 de 220; I5 0 de 220.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  AAS 1º turno (placebo e espelho), Presidente: 3.000 seções; com BU e RDV 3.000; com log do dia 2.986.
+     violam: I1 0 de 3.000; I2a 0 de 3.000; I2b 0 de 2.986; I3 1 de 2.986 (1 explicadas, 0 sem explicação); I4 0 de 2.986; I5 0 de 2.986.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  AAS 1º turno (placebo e espelho), Governador: 2.990 seções; com BU e RDV 2.990; com log do dia 2.976.
+     violam: I1 0 de 2.990; I2a 0 de 2.990; I2b 108 de 2.976 (0 explicadas, 108 sem explicação); I3 112 de 2.976 (4 explicadas, 108 sem explicação); I4 0 de 2.976; I5 0 de 2.976.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  ANT 1º turno (só log, placebo), Presidente: 3.874 seções; com BU e RDV 0; com log do dia 3.874.
+     violam: I3 0 de 3.874.
+  ANT 1º turno (só log, placebo), Governador: 3.874 seções; com BU e RDV 0; com log do dia 3.874.
+     violam: I3 92 de 3.874 (1 explicadas, 91 sem explicação).
+  Lista P e C1, 2º turno (ao lado), Presidente: 400 seções; com BU e RDV 400; com log do dia 400.
+     violam: I1 0 de 400; I2a 0 de 400; I2b 0 de 400; I3 1 de 400 (1 explicadas, 0 sem explicação); I4 0 de 400; I5 0 de 400.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  Lista P e C1, 2º turno (ao lado), Governador: 1 seções; com BU e RDV 1; com log do dia 1.
+     violam: I1 0 de 1; I2a 0 de 1; I2b 0 de 1; I3 0 de 1; I4 0 de 1; I5 0 de 1.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  Extensão 2º turno (ao lado, só BU e RDV), Presidente: 3.000 seções; com BU e RDV 3.000; com log do dia 0.
+     violam: I1 0 de 3.000; I2a 0 de 3.000.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  Extensão 2º turno (ao lado, só BU e RDV), Governador: 228 seções; com BU e RDV 228; com log do dia 0.
+     violam: I1 0 de 228; I2a 0 de 228.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  Extensão 1º turno (ao lado, só BU e RDV), Presidente: 1.452 seções; com BU e RDV 1.451; com log do dia 0.
+     violam: I1 0 de 1.451; I2a 0 de 1.451.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  Extensão 1º turno (ao lado, só BU e RDV), Governador: 1.450 seções; com BU e RDV 1.449; com log do dia 0.
+     violam: I1 0 de 1.449; I2a 0 de 1.449.
+     soma com sinal BU menos RDV: 13 +0; 22 +0; outros +0; brancos +0; nulos +0; a favor de Lula +0.
+  ANT 1º turno, 80 boletins (ao lado, só BU e log), Presidente: 80 seções; com BU e RDV 0; com log do dia 79.
+     violam: I2b 0 de 79; I3 0 de 79; I5 0 de 79.
+  ANT 1º turno, 80 boletins (ao lado, só BU e log), Governador: 80 seções; com BU e RDV 0; com log do dia 79.
+     violam: I2b 0 de 79; I3 0 de 79; I5 0 de 79.
+  Casos de presidente (todas as violações, com a explicação quando há):
+     MG|46698|139|34 (ANT 2º turno, Presidente, I3): EXPLICADA: 1 confirmação órfã com religamento, desligamento ou reinício no log. Log: 159 confirmações, 0 suspensões, 158 votos computados.
+     BA|37311|50|156 (AAS 2º turno, Presidente, I3): EXPLICADA: 1 confirmação órfã com religamento, desligamento ou reinício no log. Log: 185 confirmações, 0 suspensões, 184 votos computados; boletim 184.
+     CE|13676|22|4 (AAS 1º turno (placebo e espelho), Presidente, I3): EXPLICADA: 1 confirmação órfã com religamento, desligamento ou reinício no log. Log: 262 confirmações, 0 suspensões, 261 votos computados; boletim 261.
+     RJ|60011|234|189 (Lista P e C1, 2º turno (ao lado), Presidente, I3): EXPLICADA: 1 confirmação órfã com religamento, desligamento ou reinício no log. Log: 319 confirmações, 0 suspensões, 318 votos computados; boletim 318.
+  Governador (placebo do desenho): I2b e I3, do jeito que escrevi antes de rodar, acusam AAS 1º turno (placebo e espelho) I2b 108; AAS 1º turno (placebo e espelho) I3 112; AAS 2º turno I2b 12; AAS 2º turno I3 12; ANT 1º turno (só log, placebo) I3 92; ANT 2º turno I2b 10; ANT 2º turno I3 10.
+  São seções com eleitores que só têm a tela de presidente (voto em trânsito fora da UF): o comparecimento de governador é menor que o de presidente.
+  Erro meu de especificação do placebo, visto depois de rodar; a conferência corrigida está no EXPLORATÓRIO. I1, I2a, I4 e I5 de governador: zero violação.
+  Nulos por suspensão de presidente no log: 2º turno ANT 3 em 1.002.610 votos; AAS 1 em 770.364;
+  1º turno ANT 334 em 975.859; AAS 230 em 749.627.
+  Teto do canal "nulo por suspensão convertido" no 2º turno, pela AAS: 166 votos no país (ep 166), 0,004% da margem.
+  Em votos (AAS, n = 3.000, 0 violação sem explicação): no máximo 0,0998% das seções (498 no país) com incoerência interna,
+  a 95%; pior caso, com todos os votos dessas seções trocados: 247.688 votos de margem, Phi = 0,056 (5,6% da margem).
+  União das duas amostras: 3.826 seções com BU e RDV, 6.869 com log (28 repetidas contadas uma vez).
+  Calibração. P1, 1 voto do 22 para o 13 no RDV de 30 seções: I1 apontou 30 de 30 e 0 fora; soma com sinal -60 (plantado -60 em BU menos RDV).
+  Espelho (13 para 22): I1 apontou 30 de 30; soma +60.
+  P2, nulo por suspensão convertido de forma coerente em boletim e RDV, 2º turno: 1 seções com suspensão; I4 apontou 1, I5 0, I1 0.
+  P2, nulo por suspensão convertido de forma coerente em boletim e RDV, 1º turno: 178 seções com suspensão; I4 apontou 178, I5 1, I1 0.
+  P3, um voto computado a menos no log em 30 seções: I2b apontou 30, I3 30; fora 1.
+  Explicação inocente (contingência): lendo só o log principal, I2b acusaria 11 seções na ANT e 13 na AAS; somando o log aninhado, as que ficam estão na tabela.
+
+PARTE (b). IMPRESSÃO DIGITAL DO PROGRAMA NA INICIALIZAÇÃO DO DIA
+  Impressão de programa (FP) = versão, modelo, UEFI, fase e pacotes de programa verificados; completa (FC) = FP mais os pacotes de dados.
+  UNI, dia do 2º turno: UE2013: 219 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2015: 1.551 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 2.552 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 2.824 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  UNI, dia do 1º turno: UE2013: 219 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2015: 1.569 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 2.541 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 2.813 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  ANT, dia do 2º turno: UE2013: 119 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2015: 1.006 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 1.315 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 1.606 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  ANT, dia do 1º turno: UE2013: 114 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2015: 1.023 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 1.321 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 1.601 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  AAS, dia do 2º turno: UE2013: 100 inicializações com voto, FP 1, FC 3, ordens dos avpart 23, com etapa sem SUCESSO 0; UE2015: 553 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 1.244 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 1.233 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  AAS, dia do 1º turno: UE2013: 105 inicializações com voto, FP 1, FC 3, ordens dos avpart 22, com etapa sem SUCESSO 0; UE2015: 556 inicializações com voto, FP 1, FC 3, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 1.227 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 1.224 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  P, dia do 2º turno: UE2013: 7 inicializações com voto, FP 1, FC 1, ordens dos avpart 6, com etapa sem SUCESSO 0; UE2015: 71 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 192 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 148 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  P, dia do 1º turno: UE2013: 7 inicializações com voto, FP 1, FC 1, ordens dos avpart 5, com etapa sem SUCESSO 0; UE2015: 72 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2020: 199 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0; UE2022: 146 inicializações com voto, FP 1, FC 2, ordens dos avpart 24, com etapa sem SUCESSO 0.
+  Variantes da lista completa no país (UNI, 2º turno):
+     UE2022 F9931f22638: 1 urnas, UFs BA; coincide com UF inteira: não; a mais []; a menos ['/dsk/fe/estatico/<MZS>-lo.vsc|SUCESSO'].
+     UE2022 F8539c171b4: 129 urnas, UFs PE; coincide com UF inteira: sim; a mais ['/dsk/fi/estatico/o06261<uf>-ce.vsc|SUCESSO']; a menos [].
+     UE2020 F54150004c6: 80 urnas, UFs PE; coincide com UF inteira: sim; a mais ['/dsk/fi/estatico/o06261<uf>-ce.vsc|SUCESSO']; a menos [].
+     UE2015 Fc7f0c3aa0e: 78 urnas, UFs PE; coincide com UF inteira: sim; a mais ['/dsk/fi/estatico/o06261<uf>-ce.vsc|SUCESSO']; a menos [].
+     UE2015 F4655e7b574: 2 urnas, UFs ZZ; coincide com UF inteira: sim; a mais []; a menos ['/dsk/fi/estatico/o06259<uf>-ce.vsc|SUCESSO'].
+     UE2013 F251c251780: 11 urnas, UFs PE; coincide com UF inteira: sim; a mais ['/dsk/fi/estatico/o06261<uf>-ce.vsc|SUCESSO']; a menos [].
+     UE2013 F45af24ed95: 9 urnas, UFs ZZ; coincide com UF inteira: sim; a mais []; a menos ['/dsk/fi/estatico/o06259<uf>-ce.vsc|SUCESSO'].
+  Variantes dentro de UF (UNI, 2º turno):
+     UE2022 BA: 1 urna(s); a menos ['/dsk/fe/estatico/<MZS>-lo.vsc|SUCESSO']; a mais []; contingência de mídia no log: sim; BA|34193|53|239 série 02305282 25/10/2026 08:07:17 votos 187.
+  Etapas de assinatura sem SUCESSO (todas as datas, GAP e SCUE):
+     BA|33553|169|132 (ant), 04/10/2026 08:24:40, série 02305138: Verificação de assinatura - Etapa [2] - [/uenux/bin/avusrbin.vst] - [ERRO]
+        votos oficiais depois: na mesma ligação 0; no mesmo bloco pela mesma série 0; em ligações posteriores da mesma série 0.
+        depois: 04/10/2026 08:24:40 ERRO GAP Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue e ligue a urna. Se o err
+        depois: 04/10/2026 08:24:40 WHAT GAP WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao valida
+        depois: 04/10/2026 08:25:42 INFO INITJE Urna desligada pela chave
+        depois: 04/10/2026 08:25:50 INFO LOGD Fechando o arquivo de Log
+     PB|21873|33|98 (ant), 22/09/2026 10:16:58, série 02352462: Verificação de assinatura - Etapa [26] - [/dsk/fe/estatico/infomidia.vsc] - [ERRO]
+        votos oficiais depois: na mesma ligação 0; no mesmo bloco pela mesma série 479; em ligações posteriores da mesma série 479.
+        depois: 22/09/2026 10:16:58 ERRO GAP Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova c
+        depois: 22/09/2026 10:16:58 WHAT GAP WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao valida
+        depois: 22/09/2026 10:17:13 INFO INITJE Urna desligada pela chave
+        depois: 22/09/2026 10:17:21 INFO LOGD Fechando o arquivo de Log
+     DF|97012|13|105 (aas), 23/09/2026 10:28:27, série 02464161: Verificação de assinatura - Etapa [26] - [/dsk/fe/estatico/infomidia.vsc] - [ERRO]
+        votos oficiais depois: na mesma ligação 0; no mesmo bloco pela mesma série 0; em ligações posteriores da mesma série 592.
+        depois: 23/09/2026 10:28:27 ERRO GAP Inicialização do aplicativo | Validando assinaturas (9336) | Erro na verificação de integridade do sistema. Desligue a urna e faça uma nova c
+        depois: 23/09/2026 10:28:27 WHAT GAP WHAT: virtual void gap::impl::CValidadorUrna::ValidaAssinaturas() const:508:9336 - Validação de árvore genérica mal sucedida. Falha ao valida
+        depois: 23/09/2026 10:30:40 INFO INITJE Urna desligada pela chave
+        depois: 23/09/2026 10:30:48 INFO LOGD Fechando o arquivo de Log
+  Corridas do dia com etapa sem SUCESSO seguidas de voto: 0. Votos em ligação sem corrida de verificação: 0.
+  Nenhuma variante minoritária com 20 urnas ou mais que varie dentro de UF: o teste de resíduo da letra não tem em que ser aplicado.
+  Ao lado, sem veredito (PE, lista de dados própria da UF, 298 urnas na UNI; não identificável): resíduo médio 0,27 ponto; outras UFs média 0,05, dp 0,54; distância 0,42 dp; posição 11 de 27.
+  Ao lado (ordem dos quatro pacotes avpart9x): 72 classes com 20 urnas ou mais; |z| >= 3,3 em 1 (acaso: 0,07); |z| >= 2 em 6 (acaso: 3,3); maior |z| 3,30.
+  Lista de arquivos verificados pelo SCUE na carga (resumo da parte de aplicação), por modelo: UE2022: 1 resumo(s); UE2020: 1 resumo(s); UE2015: 1 resumo(s); UE2013: 1 resumo(s).
+  Versão no cabeçalho do boletim: ant2: 10.23.0.0 - Praia da Barra do Cahy = 3897; aas2: 10.23.0.0 - Praia da Barra do Cahy = 3000; aas1: 10.23.0.0 - Praia da Barra do Cahy = 3000; c1p2: 10.23.0.0 - Praia da Barra do Cahy = 400; ext2: 10.23.0.0 - Praia da Barra do Cahy = 3000.
+  Calibração. Q1, etapa trocada por [ERRO] em 30 urnas: apontadas 30 de 30.
+  Q2 inocente_sem_mover_voto: b médio 0,044; |z| >= 3,3 em 0,0% das 200 cópias; no sentido plantado 0,0%.
+  Q2 f_3,57%: b médio 1,678; |z| >= 3,3 em 77,0% das 200 cópias; no sentido plantado 77,0%.
+  Q2 f_10%: b médio 4,822; |z| >= 3,3 em 100,0% das 200 cópias; no sentido plantado 100,0%.
+  Q2 f_30%: b médio 14,201; |z| >= 3,3 em 100,0% das 200 cópias; no sentido plantado 100,0%.
+  Q2 espelho_f_10%_de_Lula_para_Flavio: b médio -5,224; |z| >= 3,3 em 100,0% das 200 cópias; no sentido plantado 100,0%.
+  Em votos (AAS, 3.000 seções, uma só impressão de programa por modelo): no máximo 0,0998% das urnas (498 no país) com programa de
+  impressão diferente, a 95%; pior caso 247.688 votos de margem (5,6% da margem). Isso NÃO limita programa adulterado com a mesma impressão.
+
+PARTE (c). REAÇÃO DO ELEITOR NA TELA DE PRESIDENTE
+  Universo: pares com a mesma urna (ou o log do 1º turno no pacote), fora o exterior, L2 + R2 de 30 ou mais, com perfil. UNI 6.820; ANT 3.847 (sem as repetidas, que valem como AAS); AAS 2.973.
+  Fora do universo: aas: sem par (urna trocada sem o log do 1º turno) 14; aas: sem perfil 3; aas: exterior 10; ant: sem par (urna trocada sem o log do 1º turno) 22; repetida na AAS 28.
+  Valor bruto de 2026, AAS: c1 = 0,739% (ep 0,011); c2 = 0,844% (ep 0,013); c2 - c1 = 0,105 ponto (ep 0,015);
+     razão de totais 0,733% e 0,827%; tecla indevida 30,6% e 20,2%; dp de c2 entre seções 0,0068; dp de r2 dentro da UF 0,119.
+     por terço da fração de Flávio (r2): r2 0,28: c1 0,740%, c2 0,970%, c2 - c1 0,230 (ep 0,027); r2 0,49: c1 0,780%, c2 0,859%, c2 - c1 0,079 (ep 0,026); r2 0,67: c1 0,696%, c2 0,703%, c2 - c1 0,007 (ep 0,024).
+     cauda: seções com c2 de 5% ou mais 2 (r2 médio 0,154; geral 0,479); com c1 de 5% ou mais 0.
+     tempo na tela de presidente: 2º turno 10,6 s sem correção e 26,9 s com; 1º turno 6,3 s e 22,4 s.
+  Valor bruto de 2026, UNI: c1 = 0,736% (ep 0,007); c2 = 0,853% (ep 0,008); c2 - c1 = 0,117 ponto (ep 0,010);
+     razão de totais 0,729% e 0,838%; tecla indevida 30,9% e 20,1%; dp de c2 entre seções 0,0066; dp de r2 dentro da UF 0,115.
+     por terço da fração de Flávio (r2): r2 0,26: c1 0,725%, c2 0,965%, c2 - c1 0,240 (ep 0,018); r2 0,48: c1 0,798%, c2 0,870%, c2 - c1 0,072 (ep 0,017); r2 0,66: c1 0,685%, c2 0,725%, c2 - c1 0,040 (ep 0,016).
+     cauda: seções com c2 de 5% ou mais 2 (r2 médio 0,154; geral 0,466); com c1 de 5% ou mais 0.
+     tempo na tela de presidente: 2º turno 10,8 s sem correção e 27,4 s com; 1º turno 6,4 s e 22,5 s.
+  Valor bruto de 2026, ANT: c1 = 0,734% (ep 0,010); c2 = 0,861% (ep 0,010); c2 - c1 = 0,127 ponto (ep 0,013);
+     razão de totais 0,725% e 0,847%; tecla indevida 31,1% e 20,0%; dp de c2 entre seções 0,0065; dp de r2 dentro da UF 0,110.
+     por terço da fração de Flávio (r2): r2 0,25: c1 0,723%, c2 0,954%, c2 - c1 0,231 (ep 0,024); r2 0,46: c1 0,804%, c2 0,889%, c2 - c1 0,085 (ep 0,022); r2 0,65: c1 0,675%, c2 0,740%, c2 - c1 0,065 (ep 0,021).
+     cauda: seções com c2 de 5% ou mais 0 (r2 médio n/d; geral 0,457); com c1 de 5% ou mais 0.
+     tempo na tela de presidente: 2º turno 10,9 s sem correção e 27,7 s com; 1º turno 6,5 s e 22,6 s.
+  Estimativas (T = t2 - t1; erro por município):
+  UNI, letra: t2 = -0,00442 (ep 0,00080); t1 = -0,00036 (ep 0,00063); T = -0,00406 (ep 0,00089, z -4,55); IC99 -0,00636 a -0,00176; coeficiente de c1 0,153; n 6.820, municípios 1.605.
+     S1_peso_n: T -0,00415 (ep 0,00084, z -4,94; n 6.820)
+     S2_sem_controle_c1: T -0,00417 (ep 0,00085, z -4,93; n 6.820)
+     S3_primeira_diferenca: T -0,00382 (ep 0,00088, z -4,35; n 6.820)
+     S4_efeito_fixo_de_municipio: T -0,00387 (ep 0,00168, z -2,31; n 5.965)
+     S5_mais_controles: T -0,00183 (ep 0,00094, z -1,96; n 6.820)
+     S6_21_UFs_so_presidente: T -0,00380 (ep 0,00092, z -4,12; n 6.418)
+     S6_6_UFs_com_governador_antes: T -0,00812 (ep 0,00334, z -2,43; n 402)
+     S7_correcoes_por_eleitor: T -0,00593 (ep 0,00123, z -4,83; n 6.820)
+     S8_tempo_medio_s: T 2,53371 (ep 0,34498, z 7,34; n 6.820)
+     S8_fracao_mais_de_30_s: T 0,00219 (ep 0,00269, z 0,82; n 6.820)
+     placebo tecla indevida: T 0,20803 (ep 0,01788, z 11,64); padronizado 3,744 contra -0,611 da correção.
+     placebo, gradiente em r1 nas telas do 1º turno: Deputado Federal 0,00200 (z 1,1; taxa 2,61%); Deputado Estadual 0,00330 (z 2,5; taxa 1,36%); Senador#1 0,00151 (z 1,9; taxa 0,92%); Senador#2 -0,00064 (z -0,9; taxa 0,80%); Governador -0,00249 (z -2,3; taxa 1,23%); Presidente -0,00037 (z -0,6; taxa 0,74%).
+     placebo tela de governador do 2º turno: T -0,00147 (ep 0,00629, z -0,23; n 402).
+  ANT, letra: t2 = -0,00297 (ep 0,00100); t1 = -0,00032 (ep 0,00086); T = -0,00264 (ep 0,00118, z -2,23); IC99 -0,00569 a 0,00040; coeficiente de c1 0,126; n 3.847, municípios 411.
+     S1_peso_n: T -0,00295 (ep 0,00110, z -2,67; n 3.847)
+     S2_sem_controle_c1: T -0,00274 (ep 0,00112, z -2,44; n 3.847)
+     S3_primeira_diferenca: T -0,00230 (ep 0,00115, z -1,99; n 3.847)
+     S4_efeito_fixo_de_municipio: T -0,00005 (ep 0,00190, z -0,03; n 3.844)
+     S5_mais_controles: T -0,00053 (ep 0,00131, z -0,40; n 3.847)
+     S6_21_UFs_so_presidente: T -0,00243 (ep 0,00120, z -2,01; n 3.663)
+     S6_6_UFs_com_governador_antes: T -0,00792 (ep 0,00601, z -1,32; n 184)
+     S7_correcoes_por_eleitor: T -0,00293 (ep 0,00160, z -1,83; n 3.847)
+     S8_tempo_medio_s: T 2,85399 (ep 0,47566, z 6,00; n 3.847)
+     S8_fracao_mais_de_30_s: T 0,00081 (ep 0,00386, z 0,21; n 3.847)
+     placebo tecla indevida: T 0,22415 (ep 0,01880, z 11,92); padronizado 4,113 contra -0,408 da correção.
+     placebo, gradiente em r1 nas telas do 1º turno: Deputado Federal 0,00074 (z 0,3; taxa 2,58%); Deputado Estadual 0,00319 (z 1,6; taxa 1,36%); Senador#1 0,00126 (z 1,3; taxa 0,92%); Senador#2 -0,00019 (z -0,2; taxa 0,79%); Governador -0,00420 (z -2,9; taxa 1,22%); Presidente -0,00033 (z -0,4; taxa 0,73%).
+     placebo tela de governador do 2º turno: T 0,01215 (ep 0,01180, z 1,03; n 184).
+  AAS, letra: t2 = -0,00593 (ep 0,00121); t1 = -0,00032 (ep 0,00087); T = -0,00561 (ep 0,00141, z -3,97); IC99 -0,00925 a -0,00197; coeficiente de c1 0,187; n 2.973, municípios 1.406.
+     S1_peso_n: T -0,00531 (ep 0,00136, z -3,92; n 2.973)
+     S2_sem_controle_c1: T -0,00572 (ep 0,00133, z -4,30; n 2.973)
+     S3_primeira_diferenca: T -0,00548 (ep 0,00137, z -3,98; n 2.973)
+     S4_efeito_fixo_de_municipio: T -0,00594 (ep 0,00321, z -1,85; n 2.022)
+     S5_mais_controles: T -0,00310 (ep 0,00149, z -2,08; n 2.973)
+     S6_21_UFs_so_presidente: T -0,00523 (ep 0,00148, z -3,53; n 2.755)
+     S6_6_UFs_com_governador_antes: T -0,00867 (ep 0,00475, z -1,82; n 218)
+     S7_correcoes_por_eleitor: T -0,00949 (ep 0,00194, z -4,88; n 2.973)
+     S8_tempo_medio_s: T 2,13299 (ep 0,35799, z 5,96; n 2.973)
+     S8_fracao_mais_de_30_s: T 0,00215 (ep 0,00292, z 0,74; n 2.973)
+     placebo tecla indevida: T 0,19310 (ep 0,02137, z 9,03); padronizado 3,393 contra -0,821 da correção.
+     placebo, gradiente em r1 nas telas do 1º turno: Deputado Federal 0,00374 (z 1,9; taxa 2,65%); Deputado Estadual 0,00351 (z 2,5; taxa 1,36%); Senador#1 0,00185 (z 1,7; taxa 0,92%); Senador#2 -0,00102 (z -1,0; taxa 0,81%); Governador -0,00088 (z -0,7; taxa 1,25%); Presidente -0,00033 (z -0,4; taxa 0,74%).
+     placebo tela de governador do 2º turno: T -0,00846 (ep 0,00742, z -1,14; n 218).
+  ANT menos AAS: 0,00297 (ep 0,00184, z 1,61).
+  Calibração por efeito plantado (200 cópias por caso; "enxerga" = incremento sobre o observado com z de 3,3 ou mais):
+     UNI Phi_0,25_q_0,5: plantado 0,00446; deslocamento médio 0,00442; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     UNI Phi_0,5_q_0,5: plantado 0,00893; deslocamento médio 0,00891; recuperação 1,00; enxerga em 100,0%; SINAL pela letra em 84,0%; SINAL espelhado em 0,0%.
+     UNI Phi_1_q_0,5: plantado 0,01785; deslocamento médio 0,01776; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 100,0%; SINAL espelhado em 0,0%.
+     UNI Phi_1_q_0,25: plantado 0,00893; deslocamento médio 0,00881; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 69,5%; SINAL espelhado em 0,0%.
+     UNI Phi_1_q_0,10: plantado 0,00357; deslocamento médio 0,00353; recuperação 0,99; enxerga em 93,5%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     UNI espelho_Phi_0,25_q_0,5_eleitor_de_Lula: plantado -0,00446; deslocamento médio -0,00440; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 0,0%; SINAL espelhado em 100,0%.
+     UNI inocente_J1_nivel: deslocamento médio de T 0,00002; SINAL pela letra em 0,0% das cópias.
+     UNI inocente_J2_idade: deslocamento médio de T 0,00002; SINAL pela letra em 0,0% das cópias.
+     ANT Phi_0,25_q_0,5: plantado 0,00446; deslocamento médio 0,00439; recuperação 0,98; enxerga em 73,0%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     ANT Phi_0,5_q_0,5: plantado 0,00893; deslocamento médio 0,00892; recuperação 1,00; enxerga em 100,0%; SINAL pela letra em 100,0%; SINAL espelhado em 0,0%.
+     ANT Phi_1_q_0,5: plantado 0,01785; deslocamento médio 0,01776; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 100,0%; SINAL espelhado em 0,0%.
+     ANT Phi_1_q_0,25: plantado 0,00893; deslocamento médio 0,00884; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 99,5%; SINAL espelhado em 0,0%.
+     ANT Phi_1_q_0,10: plantado 0,00357; deslocamento médio 0,00354; recuperação 0,99; enxerga em 9,5%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     ANT espelho_Phi_0,25_q_0,5_eleitor_de_Lula: plantado -0,00446; deslocamento médio -0,00444; recuperação 1,00; enxerga em 71,0%; SINAL pela letra em 0,0%; SINAL espelhado em 100,0%.
+     ANT inocente_J1_nivel: deslocamento médio de T 0,00002; SINAL pela letra em 0,0% das cópias.
+     ANT inocente_J2_idade: deslocamento médio de T 0,00004; SINAL pela letra em 0,0% das cópias.
+     AAS Phi_0,25_q_0,5: plantado 0,00446; deslocamento médio 0,00449; recuperação 1,01; enxerga em 21,5%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     AAS Phi_0,5_q_0,5: plantado 0,00893; deslocamento médio 0,00886; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 0,5%; SINAL espelhado em 0,0%.
+     AAS Phi_1_q_0,5: plantado 0,01785; deslocamento médio 0,01773; recuperação 0,99; enxerga em 100,0%; SINAL pela letra em 100,0%; SINAL espelhado em 0,0%.
+     AAS Phi_1_q_0,25: plantado 0,00893; deslocamento médio 0,00894; recuperação 1,00; enxerga em 100,0%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     AAS Phi_1_q_0,10: plantado 0,00357; deslocamento médio 0,00353; recuperação 0,99; enxerga em 0,0%; SINAL pela letra em 0,0%; SINAL espelhado em 0,0%.
+     AAS espelho_Phi_0,25_q_0,5_eleitor_de_Lula: plantado -0,00446; deslocamento médio -0,00438; recuperação 0,98; enxerga em 15,5%; SINAL pela letra em 0,0%; SINAL espelhado em 100,0%.
+     AAS inocente_J1_nivel: deslocamento médio de T 0,00002; SINAL pela letra em 0,0% das cópias.
+     AAS inocente_J2_idade: deslocamento médio de T 0,00003; SINAL pela letra em 0,0% das cópias.
+  Tempo (S8, UNI): cada correção custa 16,6 s a mais; T do tempo 2,534 s (ep 0,345); plantio Phi 0,25: deslocamento 0,074 s, enxerga em 0,0%; Phi 1: 0,295 s, enxerga em 0,0%.
+  Em votos de margem:
+     UNI: T = -0,00406; limite superior de 99% -0,00176. O intervalo inteiro fica abaixo de zero: nenhuma troca visível contra Flávio cabe nele, a menos que a linha de base inocente fosse de -0,0063 ou menos.
+        Limite mais folgado entre as especificações fixadas antes (S5_mais_controles, 99% = 0,00058): metade reagindo 143.765 votos de margem (3,2% da margem); um quarto 287.529 (6,5%); um décimo 718.824 (16,2%).
+        Troca visível que zera a margem (Phi = 1) fica excluída se 1,6% ou mais dos atingidos apertassem CORRIGE.
+        Leitura espelhada do ponto (troca visível CONTRA Lula, metade reagindo): Phi 0,227 = 1.007.107 votos de margem no sentido de Flávio; não conta como indício (placebo sujo, ver acima).
+     ANT: T = -0,00264; limite superior de 99% 0,00040. Máximo a 99% com metade reagindo: 100.429 votos de margem (2,3% da margem); um quarto reagindo 200.858; um décimo 502.144.
+        Limite mais folgado entre as especificações fixadas antes (S4_efeito_fixo_de_municipio, 99% = 0,00484): metade reagindo 1.202.382 votos de margem (27,1% da margem); um quarto 2.404.765 (54,3%); um décimo 6.011.911 (135,7%).
+        Troca visível que zera a margem (Phi = 1) fica excluída se 13,6% ou mais dos atingidos apertassem CORRIGE.
+        Leitura espelhada do ponto (troca visível CONTRA Lula, metade reagindo): Phi 0,148 = 655.881 votos de margem no sentido de Flávio; não conta como indício (placebo sujo, ver acima).
+     AAS: T = -0,00561; limite superior de 99% -0,00197. O intervalo inteiro fica abaixo de zero: nenhuma troca visível contra Flávio cabe nele, a menos que a linha de base inocente fosse de -0,0065 ou menos.
+        Limite mais folgado entre as especificações fixadas antes (S4_efeito_fixo_de_municipio, 99% = 0,00233): metade reagindo 577.422 votos de margem (13,0% da margem); um quarto 1.154.844 (26,1%); um décimo 2.887.110 (65,2%).
+        Troca visível que zera a margem (Phi = 1) fica excluída se 6,5% ou mais dos atingidos apertassem CORRIGE.
+        Leitura espelhada do ponto (troca visível CONTRA Lula, metade reagindo): Phi 0,314 = 1.392.887 votos de margem no sentido de Flávio; não conta como indício (placebo sujo, ver acima).
+
+EXPLORATÓRIO (feito depois de ver os resultados da primeira rodada; não entra em veredito)
+  E1. Governador com a conferência corrigida (confirmações + suspensões de governador contra o comparecimento de governador):
+     ANT 2º turno: 187 seções; 10 com diferença; 10 fecham com as sessões só de presidente do próprio log (282 eleitores); boletim fecha em 10 de 10; sem fechar: 0.
+     AAS 2º turno: 220 seções; 12 com diferença; 12 fecham com as sessões só de presidente do próprio log (360 eleitores); boletim fecha em 12 de 12; sem fechar: 0.
+     AAS 1º turno: 2.976 seções; 112 com diferença; 112 fecham com as sessões só de presidente do próprio log (1.281 eleitores); boletim fecha em 112 de 112; sem fechar: 0.
+     ANT 1º turno (só log): 3.874 seções; 92 com diferença; 92 fecham com as sessões só de presidente do próprio log (699 eleitores); boletim fecha em 0 de 0; sem fechar: 0.
+  E2. Ordem dos pacotes avpart9x: é da urna (igual nos dois turnos em 6.785 de 6.793) e não agrupa por lugar (pares com a mesma ordem: 4,2% dentro do local, 4,2% no município, 4,2% na UF; ao acaso 4,2%).
+      Teste conjunto das classes contra o resíduo de y, por modelo (permutação dos rótulos dentro do município, 2.000 vezes): UE2013: 18 classes, p 0,382 (Wald com erro por município, que rejeita demais nesse desenho: p 0,000); UE2015: 24 classes, p 0,160 (Wald com erro por município, que rejeita demais nesse desenho: p 0,000); UE2020: 24 classes, p 0,215 (Wald com erro por município, que rejeita demais nesse desenho: p 0,248); UE2022: 24 classes, p 0,299 (Wald com erro por município, que rejeita demais nesse desenho: p 0,025).
+  E3. Os três estimadores de T (com o controle do 1º turno, como na letra; sem ele; primeira diferença). O estimando da letra controla c1 só na
+      regressão do 2º turno; quando o desfecho se repete muito de um turno para o outro, isso sozinho desloca T.
+     UNI correcao: letra T -0,00406 (z -4,5; t2 -0,00442, t1 -0,00036, coeficiente do 1º turno 0,15); sem controle T -0,00417 (z -4,9; t2 -0,00453); primeira diferença -0,00382 (z -4,4).
+     UNI tecla_indevida: letra T 0,20803 (z 11,6; t2 0,01354, t1 -0,19449, coeficiente do 1º turno 0,50); sem controle T 0,10129 (z 9,1; t2 -0,09319); primeira diferença 0,11875 (z 10,8).
+     UNI tempo_medio_s: letra T 2,534 (z 7,3; t2 -0,265, t1 -2,798, coeficiente do 1º turno 0,77); sem controle T 0,301 (z 1,2; t2 -2,497); primeira diferença 0,418 (z 1,7).
+     UNI fracao_mais_de_30_s: letra T 0,00219 (z 0,8; t2 -0,01496, t1 -0,01715, coeficiente do 1º turno 0,45); sem controle T -0,00591 (z -2,5; t2 -0,02307); primeira diferença -0,00494 (z -2,1).
+     AAS correcao: letra T -0,00561 (z -4,0; t2 -0,00593, t1 -0,00032, coeficiente do 1º turno 0,19); sem controle T -0,00572 (z -4,3; t2 -0,00604); primeira diferença -0,00548 (z -4,0).
+     AAS tecla_indevida: letra T 0,19310 (z 9,0; t2 0,01077, t1 -0,18233, coeficiente do 1º turno 0,50); sem controle T 0,09312 (z 7,9; t2 -0,08921); primeira diferença 0,11152 (z 8,9).
+     AAS tempo_medio_s: letra T 2,133 (z 6,0; t2 -0,426, t1 -2,559, coeficiente do 1º turno 0,77); sem controle T 0,109 (z 0,4; t2 -2,451); primeira diferença 0,190 (z 0,8).
+     AAS fracao_mais_de_30_s: letra T 0,00215 (z 0,7; t2 -0,01381, t1 -0,01596, coeficiente do 1º turno 0,43); sem controle T -0,00512 (z -2,0; t2 -0,02108); primeira diferença -0,00419 (z -1,7).
+     ANT correcao: letra T -0,00264 (z -2,2; t2 -0,00297, t1 -0,00032, coeficiente do 1º turno 0,13); sem controle T -0,00274 (z -2,4; t2 -0,00306); primeira diferença -0,00230 (z -2,0).
+     ANT tecla_indevida: letra T 0,22415 (z 11,9; t2 0,01362, t1 -0,21053, coeficiente do 1º turno 0,50); sem controle T 0,10921 (z 8,6; t2 -0,10132); primeira diferença 0,12655 (z 10,4).
+     ANT tempo_medio_s: letra T 2,854 (z 6,0; t2 -0,133, t1 -2,987, coeficiente do 1º turno 0,78); sem controle T 0,399 (z 1,1; t2 -2,588); primeira diferença 0,553 (z 1,6).
+     ANT fracao_mais_de_30_s: letra T 0,00081 (z 0,2; t2 -0,01697, t1 -0,01778, coeficiente do 1º turno 0,46); sem controle T -0,00781 (z -2,3; t2 -0,02558); primeira diferença -0,00676 (z -2,0).
+  E4. Correção na tela de presidente por décimo da fração de Flávio (r2), valor bruto:
+     AAS: r2 0,16: 0,66% e 0,96% (0,30, ep 0,05); r2 0,28: 0,76% e 1,00% (0,24, ep 0,05); r2 0,35: 0,79% e 0,99% (0,20, ep 0,05); r2 0,41: 0,81% e 0,89% (0,08, ep 0,05); r2 0,47: 0,79% e 0,92% (0,13, ep 0,05); r2 0,52: 0,74% e 0,78% (0,04, ep 0,04); r2 0,57: 0,79% e 0,81% (0,02, ep 0,05); r2 0,61: 0,70% e 0,72% (0,02, ep 0,04); r2 0,66: 0,72% e 0,72% (0,01, ep 0,04); r2 0,75: 0,62% e 0,64% (0,02, ep 0,05).
+     UNI: r2 0,16: 0,67% e 0,92% (0,24, ep 0,03); r2 0,26: 0,73% e 1,03% (0,29, ep 0,03); r2 0,34: 0,76% e 0,95% (0,19, ep 0,03); r2 0,40: 0,79% e 0,92% (0,14, ep 0,03); r2 0,45: 0,82% e 0,92% (0,09, ep 0,03); r2 0,50: 0,78% e 0,83% (0,05, ep 0,03); r2 0,55: 0,77% e 0,83% (0,06, ep 0,03); r2 0,60: 0,72% e 0,76% (0,03, ep 0,03); r2 0,66: 0,70% e 0,73% (0,03, ep 0,03); r2 0,75: 0,61% e 0,66% (0,05, ep 0,03).
+  E5. T com um controle a mais de cada vez:
+     UNI: so_idade_(letra): -0,00406 (ep 0,00089, z -4,5, 99% até -0,00176); mais_escolaridade: -0,00186 (ep 0,00093, z -2,0, 99% até 0,00054); mais_biometria: -0,00406 (ep 0,00089, z -4,6, 99% até -0,00176); mais_mulheres: -0,00400 (ep 0,00089, z -4,5, 99% até -0,00172); mais_variacao_do_comparecimento: -0,00407 (ep 0,00090, z -4,5, 99% até -0,00176); mais_abstencao_do_1t: -0,00412 (ep 0,00091, z -4,5, 99% até -0,00178); tudo_junto: -0,00183 (ep 0,00094, z -2,0, 99% até 0,00059).
+        coeficiente da variação do comparecimento sobre c2 - c1: -0,00061 (ep 0,00332, z -0,2).
+     AAS: so_idade_(letra): -0,00561 (ep 0,00141, z -4,0, 99% até -0,00197); mais_escolaridade: -0,00303 (ep 0,00146, z -2,1, 99% até 0,00074); mais_biometria: -0,00567 (ep 0,00142, z -4,0, 99% até -0,00201); mais_mulheres: -0,00546 (ep 0,00140, z -3,9, 99% até -0,00186); mais_variacao_do_comparecimento: -0,00555 (ep 0,00142, z -3,9, 99% até -0,00190); mais_abstencao_do_1t: -0,00543 (ep 0,00143, z -3,8, 99% até -0,00176); tudo_junto: -0,00305 (ep 0,00149, z -2,0, 99% até 0,00079).
+        coeficiente da variação do comparecimento sobre c2 - c1: 0,00526 (ep 0,00524, z 1,0).
+  E6. T por região (UNI): N: -0,00133 (ep 0,00254, z -0,5; n 532; c1 0,72%, c2 0,96%); NE: -0,00336 (ep 0,00183, z -1,8; n 2.091; c1 0,72%, c2 0,95%); SE: -0,00496 (ep 0,00140, z -3,6; n 2.767; c1 0,78%, c2 0,83%); S: -0,00287 (ep 0,00218, z -1,3; n 963; c1 0,64%, c2 0,67%); CO: -0,01157 (ep 0,00421, z -2,7; n 467; c1 0,74%, c2 0,85%).
+  E7. Taxa de correção por tipo de habilitação do eleitor (UNI, agregado): 1º turno: biometria 0,72% de 1.506.403, liberado_pelo_mesario 0,68% de 119.991, sem_biometria_no_cadastro 0,88% de 89.400; 2º turno: biometria 0,83% de 1.536.476, liberado_pelo_mesario 0,91% de 123.796, sem_biometria_no_cadastro 0,89% de 93.409.
+  E8. c2 - c1 por terço de r2 e por terço de baixa escolaridade (AAS; correlação entre r2 e baixa escolaridade -0,37):
+     terço 1 de r2: escolaridade baixa terço 1: 0,13 (ep 0,07; n 177); escolaridade baixa terço 2: 0,22 (ep 0,05; n 287); escolaridade baixa terço 3: 0,27 (ep 0,04; n 526).
+     terço 2 de r2: escolaridade baixa terço 1: 0,04 (ep 0,04; n 385); escolaridade baixa terço 2: 0,08 (ep 0,04; n 345); escolaridade baixa terço 3: 0,13 (ep 0,05; n 262).
+     terço 3 de r2: escolaridade baixa terço 1: -0,06 (ep 0,04; n 429); escolaridade baixa terço 2: 0,06 (ep 0,04; n 359); escolaridade baixa terço 3: 0,05 (ep 0,05; n 203).
+  E9. Os votantes a mais se comportam na cabine como os outros? Inclinação da taxa do 2º turno contra a variação do comparecimento da seção, com a taxa do
+      1º turno, r2 e idade de controle; ao lado, a inclinação que apareceria se as sessões a mais fossem "limpas" (sem tecla indevida e sem correção),
+      plantadas nos dados de 2026:
+     UNI (6.820 seções; 5.158 com aumento): tecla_indevida: observada 0,0134 (ep 0,0235); com sessões limpas plantadas -0,1107; distância 5,3 ep; correcao: observada -0,0010 (ep 0,0026); com sessões limpas plantadas -0,0065; distância 2,1 ep.
+        tecla indevida por faixa da variação do comparecimento (1º e 2º turno): queda de 2% ou mais: 30,2% e 20,4% (n 686); -2% a 0%: 30,0% e 20,0% (n 976); 0% a 2%: 30,4% e 20,0% (n 1497); 2% a 5%: 30,8% e 19,9% (n 2412); 5% a 10%: 32,3% e 20,5% (n 1159); alta de 10% ou mais: 34,8% e 20,5% (n 90).
+        em primeira diferença, sem o controle do 1º turno, a inclinação da tecla indevida é -0,0594 (z -2,8): vem do 1º turno (taxa mais alta onde o comparecimento depois subiu), não do 2º, que é plano.
+     AAS (2.973 seções; 2.280 com aumento): tecla_indevida: observada 0,0341 (ep 0,0257); com sessões limpas plantadas -0,0901; distância 4,8 ep; correcao: observada 0,0036 (ep 0,0044); com sessões limpas plantadas -0,0021; distância 1,3 ep.
+        tecla indevida por faixa da variação do comparecimento (1º e 2º turno): queda de 2% ou mais: 29,5% e 20,1% (n 291); -2% a 0%: 29,6% e 20,2% (n 402); 0% a 2%: 30,3% e 20,1% (n 667); 2% a 5%: 30,6% e 20,0% (n 1064); 5% a 10%: 31,9% e 20,6% (n 500); alta de 10% ou mais: 35,7% e 21,0% (n 49).
+        em primeira diferença, sem o controle do 1º turno, a inclinação da tecla indevida é -0,0478 (z -1,6): vem do 1º turno (taxa mais alta onde o comparecimento depois subiu), não do 2º, que é plano.
+      Só fala contra a versão ingênua (sessões fabricadas sem imitar o erro do eleitor); um programa que imitasse o comportamento passaria.
+
+DESVIOS, DECISÕES NÃO FIXADAS PELO REGISTRO (escritas no docstring antes de rodar) E ERROS VISTOS DEPOIS
+  - RDV: em vez de baixar os 3.062 que faltam na amostra antiga, entram os 3.000 da amostra aleatória nova (mandado pela tarefa). As identidades com RDV valem para 835 + 3.000 seções; as de log e boletim para as duas amostras inteiras.
+  - Parte (a): "explicada por contingência documentada no próprio log" virou regra automática (confirmação órfã com religamento, desligamento ou reinício no log). O veredito SEM SINAL desconta as violações explicadas por inteiro; a leitura mais estrita (zero violação de qualquer identidade) sai ao lado. Regra escrita sabendo dos casos já achados pelo R27_DA.
+  - Parte (b): "lista ordenada" lida como lista em ordem alfabética; a ordem em que os quatro pacotes avpart9x aparecem no log muda de urna para urna e sai ao lado. Normalização do código da seção e da UF. "Uma impressão por modelo" lida como uma impressão de PROGRAMA por modelo no país e uma lista completa por modelo dentro da UF, descontada a contingência de mídia registrada no log; a leitura mais estrita sai ao lado. Regra escrita depois de ver a estrutura dos logs (sem voto).
+  - Parte (b): "etapa sem SUCESSO em urna que recebeu voto" lida como etapa sem SUCESSO na corrida de verificação seguida de voto oficial na mesma ligação; a leitura mais estrita (qualquer data, mesma série) sai ao lado.
+  - Parte (b): resíduo de y com efeito fixo de município (a amostra aleatória quase não tem duas seções no mesmo local); local e UF ao lado. Variante que coincide com UF inteira: não identificável, só descrita.
+  - Parte (c): regressão sem peso (o desenho não fixa peso); amostra do veredito = união das duas; erro de t2 - t1 pelas duas regressões empilhadas com erro por município; "enxerga o plantado" = incremento com z de 3,3 ou mais em 95% das cópias e recuperação entre 0,8 e 1,2.
+  - Parte (c): o exterior fica fora (efeito fixo de UF); o universo exige o log dos dois turnos no mesmo pacote.
+  - Parte (c): tempo de cabine entra só ao lado (S8), sem veredito, porque no 2º turno a tela de presidente é a primeira e o intervalo inclui o caminho até a cabine.
+  - ERRO MEU, visto depois de rodar: as identidades I2b e I3 de governador (placebo) comparavam com o total de votos computados, e parte dos eleitores só tem a tela de presidente (voto em trânsito fora da UF). A tabela registrada fica como saiu; a conferência corrigida está no exploratório E1 e fecha em todas as seções. As identidades de presidente, que dão o veredito, não mudam.
+  - LIMITE DO ESTIMANDO DA LETRA, visto depois de rodar: ele controla c1 só na regressão do 2º turno. Para a correção isso quase não pesa (coeficiente de c1 de 0,15), mas para o tempo de tela (0,77) e para a tecla indevida (0,50) desloca T por construção. Os números da letra ficam como saíram; o exploratório E3 traz os três estimadores lado a lado.
+  - Apresentação decidida depois de ver o resultado: como T saiu negativo, o limite em votos é dado também pela especificação menos favorável entre as fixadas antes (letra, S1, S2, S4, S5).
+  - O exterior tem só 10 pares na amostra aleatória: não foi descrito à parte (o registro pedia 20 ou mais).
+
+CONTAGEM DE TESTES: 3 partes com veredito (a, b, c). Com z de 3,3 de um lado, a chance de um sinal por acaso em (c) é 0,05%; (a) e (b) são contagens exatas.
+Nenhuma comparação com outro ano foi usada: não há log de outro ano em disco e nenhum veredito depende de 2014, 2018 ou 2022.

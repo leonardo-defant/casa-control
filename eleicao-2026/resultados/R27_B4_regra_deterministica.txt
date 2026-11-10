@@ -1,0 +1,412 @@
+R27_B4, REGRA DETERMINÍSTICA: PENTE, PAREDÃO, DEGRAU E LIMIAR DE CONTAGEM (RESULTADOS)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), ordem do Adendo 30 (commit a7218fb). Testes D1.2 e D1.3
+  de desenho_D1_proposta.json, D4-2 de desenho_D4_proposta.json (desenhos cegos) e a fragilidade "V2 e contagem do
+  T30" da equipe vermelha (critério novo, mas escolhido por quem conhecia os resultados antigos). As decisões que o
+  registro não fixa foram escritas no docstring de scripts/analisar_R27_B4.py antes de qualquer conta com votos (cópia
+  e SHA-256 em /home/user/trabalho-eleicao/adendo27/R27_B4/). Ainda sem conferente independente.
+
+Base: 499.205 seções do 2º turno (Lula 64.256.232, Flávio 59.826.041, iguais ao oficial; brancos 1.430.496, nulos
+  2.723.305). Universo U (definição comum do D1): 497.741 seções (fora 1.308 do exterior, 27 com junta e as com menos
+  de 30 votos nos dois finalistas).
+
+O QUE SE PROCURA. Uma troca feita por REGRA FIXA dentro do programa (um a cada tantos votos, fração arredondada, teto
+  de fração, virada quando o adversário lidera na urna, ou só depois do voto de número K) deixa marca aritmética nas
+  contagens inteiras que nenhum comportamento de eleitor produz. PONTO CEGO, dito antes e medido aqui: troca SORTEADA
+  voto a voto não deixa dente; estes testes não a enxergam.
+
+VEREDITOS PELA LETRA
+  1. Pente D1.2(a), votos de Flávio (R2): SEM SINAL, com poder. Lula (L2, espelho): SEM SINAL.
+     Brancos (B2) e nulos (N2): pela letra, SINAL e SINAL (3 e 8 rodadas de UF com as condições numéricas e placebo
+    ausente no mesmo período). É ARTEFATO DEMONSTRADO do alisamento em contagens pequenas, previsto no docstring (P11)
+    antes do dado, e não conta como indício pelas três condições do Adendo 27 (o espelho e os placebos mostram o
+    mesmo). Combinado pela letra: SINAL.
+  2. Pente D4-2 (R2 e L2, país e recortes): SEM SINAL, com poder.
+  3. Resíduos módulo k de 2 a 200 (equipe vermelha): R2 SEM SINAL, L2 SEM SINAL, B2 SEM SINAL, N2 INCONCLUSIVO;
+    combinado pela letra: INCONCLUSIVO.
+  4. Paredão D1.2(b): SEM SINAL, com poder.
+  5. Degrau D1.2(c): INCONCLUSIVO, com poder; o desvio medido tem o sinal CONTRÁRIO ao da tese.
+  6. Limiar de contagem D1.3: K = 50: SEM PODER; K = 75: SEM PODER; K = 100: SEM PODER; K = 150: SEM PODER; K = 200:
+    SEM SINAL. K = 25 é descritivo. Com y_BN (brancos e nulos): K = 50: SEM PODER; K = 75: SEM PODER; K = 100: SEM
+    PODER; K = 150: SEM SINAL; K = 200: SEM SINAL.
+  7. Gatilho por contagem da equipe vermelha (conta do T30, N de 50 a 300): INCONCLUSIVO.
+
+1. PENTE D1.2(a): DENTES PERIÓDICOS NO HISTOGRAMA DAS CONTAGENS
+  Votos de Flávio (R2), país: |Z| máximo 3,65 (p = 115, o = 4, Z = -3,65, amplitude -4,7%); nulo: mediana 4,09,
+    percentil 99 5,20, maior 5,63. Periodograma: pico 7,0 (período 4,90; z equivalente 3,31); nulo: percentil 99 17,6,
+    maior 21,2.
+  Votos de Lula (L2), país: |Z| máximo 4,12 (p = 62, o = 43, Z = 4,12, amplitude 4,0%); nulo: mediana 4,10, percentil
+    99 5,22, maior 5,71. Periodograma: pico 8,7 (período 3,88; z equivalente 3,75); nulo: percentil 99 16,7, maior
+    22,6.
+  Por modelo de urna (|Z| máximo de R2 e de L2; percentil 99 do nulo entre 5,1 e 5,4): UE2013: 3,83 e 3,99; UE2015:
+    4,08 e 3,81; UE2020: 3,58 e 4,04; UE2022: 4,84 e 4,40. Nenhum passa de 5 e todos os periodogramas ficam dentro do
+    percentil 99 do nulo.
+  Por UF (R2 e L2): 50 rodadas avaliáveis; a maior é PA R2 com |Z| = 5,11 (percentil 99 do nulo dela: 5,50); as outras
+    ficam abaixo de 5. Com cerca de 50 rodadas, uma acima de 5 é o que o acaso dá. Não avaliáveis por falta de seções:
+    AC R2, AP R2, AP L2, RR R2.
+  Sensibilidade com todas as seções do Brasil (sem o corte de 30 votos e com as de junta): R2 3,65, L2 4,12.
+  Placebos, mesma conta (|Z| máximo): 2026 1º turno R1: 3,77; 2026 1º turno L1: 4,41; 2022 2º turno R2: 3,95; 2022 2º
+    turno L2: 3,68; 2018 2º turno R2: 4,43; 2018 2º turno L2: 3,83; 2014 2º turno R2: 3,71; 2014 2º turno L2: 4,11;
+    governador do 2º turno G1: 3,36; governador do 2º turno G2: 4,35.
+  Calibração (regra plantada nos dados de 2026; votos movidos, fração da troca necessária, |Z| e período achado):
+    um a cada 110 votos de Flávio, todas as seções: 305.302 votos (13,8% do necessário), |Z| = 57,3, p = 109
+    um a cada 56, todas: 821.009 votos (37,1% do necessário), |Z| = 87,7, p = 55
+    um a cada 28, todas: 1.890.790 votos (85,4% do necessário), |Z| = 122,0, p = 27
+    um a cada 7, em 25% das seções: 2.079.437 votos (93,9% do necessário), |Z| = 46,2, p = 6
+    fração de 0,89% arredondada: 789.912 votos (35,7% do necessário), |Z| = 56,5, p = 111
+    fração de 1,79% arredondada: 1.309.961 votos (59,1% do necessário), |Z| = 88,2, p = 55
+    fração de 3,57% arredondada: 2.370.799 votos (107,0% do necessário), |Z| = 123,0, p = 27
+    SORTEADA (binomial), tamanho que vira o resultado: 2.215.265 votos (100,0% do necessário), |Z| = 4,2, p = 89 (NÃO
+      ENXERGA: ponto cego)
+    espelho: um a cada 110 votos de Lula: 327.470 votos (14,8% do necessário), |Z| = 67,5, p = 109
+    espelho: um a cada 28 votos de Lula: 2.047.554 votos (92,4% do necessário), |Z| = 118,9, p = 27
+  A menor regra plantada (um a cada 110) move 13,8% da troca necessária e dá |Z| de 57; o limiar de sinal é 8 e o
+    observado é 3,65. Obs.: o desenho chamava esse par de "Phi = 0,25"; com a parte inteira, o que ele move de fato é
+    0,138.
+  Pior caso para o pente (calibração extra, acrescentada depois): regra de período curto em poucas seções. um a cada 3
+    em 11,2% das seções (100% do necessário): |Z| = 18,1; um a cada 3 em 5,6% das seções (50% do necessário): |Z| =
+    8,8; um a cada 3 em 2,8% das seções (25% do necessário): |Z| = 4,4 (não vê); um a cada 3 em 1,7% das seções (15%
+    do necessário): |Z| = 4,1 (não vê); um a cada 5 em 18,9% das seções (100% do necessário): |Z| = 36,6; um a cada 5
+    em 9,4% das seções (50% do necessário): |Z| = 17,9; um a cada 5 em 4,7% das seções (25% do necessário): |Z| = 8,9;
+    um a cada 5 em 2,8% das seções (15% do necessário): |Z| = 5,2 (não vê); um a cada 7 em 26,7% das seções (100% do
+    necessário): |Z| = 51,0; um a cada 7 em 13,3% das seções (50% do necessário): |Z| = 25,7; um a cada 7 em 6,7% das
+    seções (25% do necessário): |Z| = 13,2; um a cada 7 em 4,0% das seções (15% do necessário): |Z| = 7,4 (não vê). A
+    regra de um a cada dois não tem período e escapa do pente (dito no desenho). O desenho afirmava que um quarto da
+    margem daria z de 10 ou mais em qualquer configuração; no dado real isso não vale para um a cada 3 em poucas
+    seções.
+  BRANCOS E NULOS. A regressão quadrática de 21 valores da letra não acompanha histogramas tão estreitos (média de 2,9
+    brancos e 5,5 nulos por seção; o "liso" erra em até 50%). Resultado da letra, país: B2 |Z| = 90,3 (nulo: mediana
+    48,4); N2 |Z| = 67,8 (nulo: mediana 29,5). Os placebos dão o mesmo: brancos do 1º turno de 2026 84,5, de 2022
+    64,0, de 2018 66,5, de 2014 99,9; nulos 55,1, 29,5, 9,2 e 13,4. No país e por modelo o pico aparece nos placebos
+    no mesmo (p, o): INCONCLUSIVO pela letra.
+  Por UF, as condições numéricas de sinal aparecem em 54 de 54 rodadas de B2 e N2 (em todas), e em 11 delas o placebo
+    da própria UF não tem |Z| de 5 no mesmo (p, o): AL B2, PB B2, SP B2, AL N2, BA N2, CE N2, MG N2, PB N2, PE N2, PI
+    N2, RJ N2. Pela letra isso é SINAL em recorte. Por que é artefato e não indício:
+    (i) EXPLORATÓRIO, feito depois de ver: histogramas sorteados sem regra nenhuma (binomial por seção, gerador E2 do
+      docstring) passam pela conta da letra e dão |Z| mediano de 88,9 em brancos (observado 90,3) e de 63,3 em nulos
+      (observado 67,8); 100% e 100% dos sorteios cumprem "Z de 8 com amplitude de 2%". Nos votos de Flávio e de Lula
+      os mesmos sorteios dão 4,0 e 4,0 e nenhum dispara.
+    (ii) Nas 11 rodadas de UF marcadas, os sorteios sem regra disparam em 100%, 100%, 100%, 58%, 100%, 100%, 100%,
+      65%, 100%, 100%, 100% dos casos (na ordem da lista).
+    (iii) Complemento declarado antes (quarta diferença do logaritmo, que não depende de curva lisa): nenhum dente em
+      B2 nem em N2 no país (maior |z|: 1,66 e 2,50; limiar 8 com 2% de amplitude), e 0 dentes nas 128 rodadas por
+      recorte. As conversões determinísticas plantadas aparecem nesse complemento: um a cada 3 brancos, 6 dentes
+      (314.978 votos); um a cada 3 nulos, 10 (741.010); um a cada 5 nulos, 12 (345.415); um a cada 10 nulos, 6 (59.271
+      votos, 1,3% da margem).
+
+2. PENTE D4-2 (segunda diferença e periodograma em 3 harmônicos, períodos de 8 a 150)
+  R2 nacional (todas as seções, exterior incluído): Z = 5,1 (nulo: mediana 7,0, percentil 99 14,7, maior 17,8; limiar
+    de sinal 26,7). L2 nacional: Z = 7,2 (percentil 99 14,5; limiar 29,1). Maior dos 17 placebos: 12,8 (L do 2º turno
+    de 2014). Os dois ficam abaixo da mediana ou perto dela.
+  Recortes: 15 avaliáveis (3 faixas de tamanho e as UFs grandes); o maior é SP R2 com 9,8, contra percentil 99 do
+    conjunto de 19,5 e limiar de sinal de 40,5. 47 recortes (UFs menores e exterior) não têm casas com 300 seções e
+    não são avaliáveis por este teste; neles vale o D1.2(a) por UF.
+  Calibração em R2 de 2026 (Z; enxerga se passar de 26,7): piso de 3,57% em todas as seções: 1076; piso de 3,57% em
+    50%: 275; piso de 3,57% em 20%: 51; piso de 3,57% em 10%: 16 (não vê); piso de 1,8% em todas: 209; piso de 1,8% em
+    50%: 57; piso de 1,8% em 20%: 20 (não vê); piso de 1% em todas: 85; piso de 1% em 50%: 23 (não vê); sorteada
+    (binomial) de 3,57%, ponto cego: 9 (não vê); arredondamento de 3,57%: 1059; inflar Lula em 3,45% dos próprios
+    votos: 931; piso de 1,8% do comparecimento, ponto cego: 6 (não vê). Os mesmos plantios em R1 de 2026 e em R2 de
+    2022 dão números parecidos (no JSON). Isso reproduz no dado real o que o desenhista mediu em dado sintético.
+  Exclui, pela calibração: troca por parte inteira de 1% ou mais dos votos de Flávio em todas as seções (16% da troca
+    necessária), de 1,8% em metade (19%) e de 3,57% em 20% delas (17%). Não exclui troca sorteada nem troca calculada
+    sobre o comparecimento (cego por construção).
+  B2 e N2 (descritivo; o critério do D4-2 é sobre R2 e L2): Z = 2674 e 590, o mesmo artefato de contagem pequena; os
+    brancos e nulos do 1º turno dão 765 e 208, os de 2022 1392 e 130 (acrescentado depois de ver).
+
+3. RESÍDUOS MÓDULO k (EQUIPE VERMELHA), k DE 2 A 200, CONTRA 200 SORTEIOS BINOMIAIS
+  Flávio: maior estatística 3,37 (k = 99, classe 19, excesso 4,7%, p depois de Bonferroni 1,0000); sorteios: mediana
+    3,69, percentil 99 5,20. k com as duas condições de sinal: 0. 1º turno: 4,32 (percentil 99 4,79; k com as duas
+    condições: 0).
+  Lula: maior estatística 4,38 (k = 181, classe 43, excesso 11,6%, p depois de Bonferroni 0,8454); sorteios: mediana
+    3,70, percentil 99 4,94. k com as duas condições de sinal: 0. 1º turno: 3,65 (percentil 99 4,59; k com as duas
+    condições: 0).
+  brancos: maior estatística 1,38 (k = 2, classe 1, excesso 0,3%, p depois de Bonferroni 1,0000); sorteios: mediana
+    1,58, percentil 99 3,59. k com as duas condições de sinal: 0. 1º turno: 8,51 (percentil 99 3,44; k com as duas
+    condições: 193).
+  nulos: maior estatística 5,23 (k = 9, classe 5, excesso 2,8%, p depois de Bonferroni 0,0006); sorteios: mediana
+    1,94, percentil 99 3,54. k com as duas condições de sinal: 0. 1º turno: 4,38 (percentil 99 3,74; k com as duas
+    condições: 0).
+  Plantado "um a cada 28 votos de Flávio": z = 117,3 na classe 0 de k = 27, excesso de 98% (exigido: acima de 20).
+    Espelho em Lula: 136,1.
+  Leitura: em Flávio, Lula e brancos a estatística fica abaixo do percentil 99 dos sorteios. Em nulos passa (5,23
+    contra 3,54), sem chegar às condições de sinal (excesso de 2,8% contra 3%; p de 0,0006 contra 0,000001). Não é
+    dente: com tão poucas casas a classe é quase um valor só (v = 5 e v = 14), e o mesmo acontece no 1º turno em nulos
+    e, mais forte, em brancos (193 valores de k com as duas condições no 1º turno, 0 no 2º). É a referência que não
+    reproduz a forma exata de contagens tão pequenas (ela iguala média e variância, não a curva). Pela letra,
+    INCONCLUSIVO em nulos.
+
+4. PAREDÃO D1.2(b): TETO OU PISO NA FRAÇÃO DE LULA
+  477.705 seções com 150 votos ou mais nos dois finalistas, 831 faixas de 0,1 ponto que decidem. Maior z: 3,42 (faixa
+    41,9%; 1133 contra 1024); menor: -3,66 (faixa 13,6%). Nenhuma faixa com |z| de 6 ou mais fora dos picos naturais.
+    Nos picos naturais, o maior |z| é 5,71, na faixa de 100% (seções com todos os votos em Lula), e o empate (50,0%)
+    tem 2000 seções contra 2063 esperadas.
+  Placebos (maior e menor z): 2026 1º turno: 3,34 e -3,77; 2022 2º turno: 3,26 e -4,10; 2018 2º turno: 3,27 e -4,52;
+    2014 2º turno: 3,70 e -3,58. Nenhum com |z| de 6 fora dos picos.
+  Caudas, valor bruto (seções com 150 votos ou mais): Lula abaixo de 5% em 16 seções e acima de 95% em 1.175. Outros
+    anos: 2026 1º turno: 22 e 947; 2022 2º turno: 4 e 1.587; 2018 2º turno: 28 e 2.923; 2014 2º turno: 30 e 1.647. A
+    cauda de Lula acima de 95% é MENOR em 2026 que em 2022, 2018 e 2014.
+  Contra o modelo base (efeito fixo de local): abaixo de 5%, 7 observadas e 13,8 previstas; acima de 95%, 719 e 882
+    (razão 0,81). Com efeito fixo de UF: 16 e 23,8; 1.173 e 1.861 (razão 0,63). Nenhuma cauda vazia; a previsão é
+    larga demais porque o resíduo do modelo é menor que o ruído binomial (o eleitor do 2º turno é o mesmo do 1º) e a
+    simulação usa o binomial.
+  Valor bruto do extremo (exploratório): seções com 150 votos ou mais e ZERO voto para Flávio: 42 no 2º turno de 2026
+    (26 no 1º turno); com zero para o adversário do PT em 2022, 2018 e 2014: 36, 85 e 14. Com zero para Lula: 0. Por
+    UF em 2026: AM 20, MA 5, PA 5, RR 4, TO 4, MT 2, PE 1, PR 1. A lista das seções está no JSON, para conferência de
+    boletim impresso.
+  Calibração: teto de 85% para Flávio plantado em todas as seções (12.449 votos em 1.831 seções): z = 41,1; em 20% das
+    seções (2.566 votos): z = 7,9. Espelho (teto de 85% para Lula, 172.699 votos): z = 160,6.
+  Tradução: votos que um teto para Flávio moveria nos dados de 2026: teto de 95%: 130 (0,0% do necessário); teto de
+    90%: 1.679 (0,1% do necessário); teto de 85%: 12.449 (0,6% do necessário); teto de 80%: 61.372 (2,8% do
+    necessário); teto de 70%: 626.606 (28,3% do necessário). Para pesar na margem o teto teria de ficar em 70% ou
+    menos, e ali há 44.692 seções acima dele: seria um paredão impossível de não ver.
+
+5. DEGRAU D1.2(c): VIRADA CONDICIONADA AO PLACAR DA URNA
+  Seções com Lula de 1 a 10 votos à frente: 21.331; com Flávio de 1 a 10 à frente: 23.162. Log da razão: -0,0824
+    (previsto pelo polinômio: -0,0509). S = -0,0315 (ep 0,0093, z = -3,37). Empates: 2147 contra 2219 previstos (z =
+    -1,53).
+  Limiares: sinal com |S| de 0,05 e z de 5; sem sinal com |S| abaixo de 0,02. O valor fica entre os dois:
+    INCONCLUSIVO. O sinal é NEGATIVO: faltam seções com Lula pouco à frente, o contrário do que uma virada a favor de
+    Lula produziria. Placebos (S e z): 2026 1º turno: -0,0242 (-2,43); 2022 2º turno: -0,0035 (-0,33); 2018 2º turno:
+    0,0097 (0,75); 2014 2º turno: -0,0154 (-1,36); 2026 governador: 0,0169 (0,61). O 1º turno de 2026 tem quase o
+    mesmo desvio, o que aponta para o ajuste do polinômio e não para o 2º turno.
+  Calibração: virar 543 seções (2,5% das que têm Flávio pouco à frente, 1.937 votos) move S em 0,0489 (5,2 erros); o
+    espelho move -0,0471. Tradução: o S medido, lido inteiro como virada, valeria cerca de 1.248 votos trocados, e a
+    favor de Flávio. Degrau em zero não explica margem nacional.
+
+6. LIMIAR DE CONTAGEM D1.3: A URNA QUE SÓ AGE DEPOIS DO VOTO DE NÚMERO K
+  Modelo base da letra (efeito fixo de local, 27 controles, peso V, erro por município): 475.667 seções em 72.402
+    locais e 5.570 municípios. 2022: 436.776 seções. Erro do estimador principal por 500 reamostragens de municípios.
+  K | seções até K | b 2026 (ep) | b 2022 (ep) | diferença (ep) z | Phi da diferença [IC 99%] | Phi só com 2026 [IC
+    99%] | joelho 2026 z | regiões
+  25 | 0 | -0,198 (1,071) | -1,728 (0,975) | 1,530 (1,314) 1,16 | 0,771 [-0,935; 2,478] | -0,100 [-1,491; 1,291] |
+    n.d. | 3 de 5
+  50 | 476 | 0,058 (0,567) | -0,948 (0,514) | 1,006 (0,696) 1,45 | 0,452 [-0,353; 1,258] | 0,026 [-0,631; 0,683] |
+    1,54 | 4 de 5
+  75 | 2.119 | 0,273 (0,486) | -0,784 (0,468) | 1,057 (0,607) 1,74 | 0,418 [-0,200; 1,036] | 0,108 [-0,387; 0,603] |
+    1,26 | 4 de 5
+  100 | 4.925 | 0,280 (0,434) | -0,320 (0,450) | 0,600 (0,557) 1,08 | 0,205 [-0,285; 0,695] | 0,096 [-0,286; 0,477] |
+    0,75 | 4 de 5
+  150 | 17.989 | 0,309 (0,299) | 0,443 (0,267) | -0,134 (0,341) -0,39 | -0,031 [-0,238; 0,175] | 0,073 [-0,108; 0,253]
+    | 1,04 | 4 de 5
+  200 | 73.587 | 0,054 (0,168) | 0,163 (0,155) | -0,109 (0,217) -0,50 | -0,015 [-0,090; 0,061] | 0,007 [-0,051; 0,066]
+    | 0,23 | 2 de 5
+  Nenhum K chega perto do sinal (z de 3,9; o maior é 1,74). Mas o intervalo só cabe no limite de sem sinal em K = 200.
+    O erro de b ficou entre 0,17 e 0,57 ponto, contra 0,06 a 0,10 previstos no desenho, porque o modelo base da letra
+    já tem o logaritmo dos aptos e as duas abstenções, que juntos quase determinam o comparecimento: sobra pouca
+    variação da dose.
+  Calibração (taxa plantada f x D_K; fração das 200 cópias detectadas com z de 3,9), Phi = 0,25 | 0,5 | 1: K = 50: 0%
+    | 0% | 0%; K = 75: 0% | 0% | 0%; K = 100: 0% | 0% | 55%; K = 150: 0% | 100% | 100%; K = 200: 100% | 100% | 100%.
+    Recuperação do coeficiente plantado: de 0,75 a 0,98. O registro exige 95% em Phi = 0,25: só K = 200 cumpre.
+    Espelho (plantio a favor de Flávio, Phi = 0,25): K = 50: 0%; K = 75: 0%; K = 100: 0%; K = 150: 0%; K = 200: 100%.
+  Explicação inocente plantada (seção pequena diferente: transferência com dose suave, sem joelho, no tamanho de meia
+    margem): o estimador principal se move K = 50: -0,09 erro; K = 100: -0,15 erro; K = 150: 0,03 erro; K = 200: 0,21
+    erro, e o joelho no máximo 0,25 erro. Os controles do modelo base absorvem uma inclinação suave por inteiro: o
+    teste não confunde seção pequena diferente com gatilho, e é por isso mesmo que lhe sobra pouco poder.
+  Placebo de 2018, que mostra quanto o estimador muda sozinho de uma eleição para outra (Phi de 2022 menos 2018 | de
+    2026 menos 2018): K = 50: 0,33 | 0,79; K = 75: 0,30 | 0,71; K = 100: 0,25 | 0,46; K = 150: -0,02 | -0,05; K = 200:
+    -0,07 | -0,09. O coeficiente vem subindo de eleição em eleição (K = 50: -1,69 em 2018, -0,95 em 2022, 0,06 em
+    2026).
+  Placebo de cargo: governador do 2º turno nas 6 UFs, qui-quadrado dos 6 z (6 graus de liberdade; 12,6 seria 5%): K =
+    50: 6,2; K = 75: 7,7; K = 100: 4,3; K = 150: 7,1; K = 200: 13,2.
+  Placebo de turno trocado (1º turno de 2026 contra 2022, dose do 1º turno), que serve também de teste da hipótese no
+    1º turno: NÃO É LIMPO. b (z): K = 50: -16,45 (-7,0); K = 100: -8,89 (-6,8); K = 150: -2,59 (-2,9); K = 200: 2,88
+    (6,2). O sinal é negativo (contra Lula) nos K baixos e positivo em K = 200. EXPLORATÓRIO, depois de ver: (i) a
+    mesma conta um ciclo antes (1º turno de 2022 contra 2018) dá K = 50: -1,97 (-0,7); K = 100: -0,65 (-0,4); K = 150:
+    1,41 (1,1); K = 200: 0,73 (1,6), limpo; (ii) em 2026 não há joelho: com 1/comparecimento no modelo sobra K = 100:
+    -3,64 (-1,2); K = 150: -1,26 (-1,3); K = 200: 1,05 (1,8); (iii) o coeficiente troca de sinal quando sai o controle
+    da mudança da abstenção (K = 50: 9,90; K = 100: 5,31; K = 150: 4,44; K = 200: 4,27), e em 2022 contra 2018
+    acontece o mesmo (6,90; 3,81; 3,09; 2,24); (iv) em valor bruto, a mudança da fração de Lula de 2022 para o 1º
+    turno de 2026, dentro do local, por faixa de comparecimento, varia só de -0,053 a 0,054 ponto. Leitura: entre 2022
+    e o 1º turno de 2026 a fração de Lula mudou de modo ligado ao comparecimento da seção (o canal do comparecimento
+    das ondas A e B), sem degrau em nenhum K e com diferença bruta de centésimos de ponto. Não é marca de gatilho, mas
+    o placebo registrado não saiu limpo e isso fica dito.
+  Sensibilidade, as duas regressões sem o perfil do eleitorado (Phi da diferença, ep): K = 50: 1,151 (0,370); K = 75:
+    0,897 (0,292); K = 100: 0,402 (0,232); K = 150: -0,158 (0,093); K = 200: -0,092 (0,032).
+  y_BN (brancos e nulos; Phi positivo = caem com a dose, sentido da conversão), Phi da diferença [IC 99%]: K = 50:
+    -0,056 [-0,283; 0,171]; K = 75: 0,009 [-0,169; 0,187]; K = 100: 0,002 [-0,146; 0,150]; K = 150: -0,000 [-0,070;
+    0,069]; K = 200: 0,001 [-0,022; 0,024]. Detecção do plantio de Phi = 0,25: K = 50: 0%; K = 75: 0%; K = 100: 8%; K
+    = 150: 100%; K = 200: 100%.
+  Resíduo médio do modelo base por faixa de comparecimento (pontos de fração de Lula; 2026 | 2022), no lugar da
+    figura: 1 a 165: 0,007 | 0,001; 166 a 184: -0,005 | -0,011; 185 a 198: -0,010 | 0,002; 199 a 209: -0,006 | 0,007;
+    210 a 219: 0,013 | 0,021; 220 a 227: -0,015 | -0,034 ... (as 25 faixas estão no JSON).
+
+7. GATILHO POR CONTAGEM DA EQUIPE VERMELHA (conta do T30 no bweb inteiro, com ln do tamanho)
+  Regressão da virada (fatia de Lula do 2º turno menos a do 1º) na fração de votantes além de N, com a variação do
+    comparecimento e ln(votantes), efeito fixo de local, 475.789 seções, erro por local. Coeficiente em pontos (z) | o
+    mesmo em 2022: N = 50: 7,59 (14,6) | -3,31; N = 75: 6,76 (15,6) | -2,86; N = 100: 4,94 (12,1) | -1,99; N = 125:
+    1,18 (3,3) | -0,31; N = 150: -1,50 (-5,5) | 0,90; N = 175: -2,32 (-11,6) | 1,20; N = 200: -2,29 (-14,5) | 1,09; N
+    = 225: -1,98 (-14,8) | 1,06; N = 250: -1,79 (-13,8) | 0,93; N = 275: -1,80 (-12,5) | 0,70; N = 300: -1,62 (-8,6) |
+    0,35.
+  Pela letra (docstring T2, que segue o código do T30): sinal exige 4 pontos, z de 3,32 e |coeficiente de 2022| abaixo
+    de 1,5. Em N = 50, 75 e 100 o coeficiente de 2026 passa de 4 pontos com z de 12 a 16, mas 2022 não está limpo
+    (-3,31; -2,86; -1,99, sinal contrário). Não é SINAL por essa leitura; como nem todos os cortes ficam dentro de 1,5
+    ponto, é INCONCLUSIVO. AVISO: se "ausente em 2022" for lido como "2022 não mostra o mesmo sinal positivo", N = 50,
+    75 e 100 dariam SINAL. Por isso o resultado foi aberto por dentro (EXPLORATÓRIO, depois de ver):
+    (a) Um gatilho real não produz esse desenho. Plantado com o tamanho que vira o resultado, um gatilho em K = 100
+      move o coeficiente de N = 100 em 1,53 ponto (o observado é 4,94) e deixa os cortes altos perto de zero; o
+      observado troca de sinal e fica negativo de N = 150 em diante (z até -14,8). Os 11 coeficientes observados são
+      reproduzidos em 98,9% por um único efeito em K = 200 de sinal NEGATIVO (Phi = -0,36, a favor de Flávio) ou, com
+      ajuste pior (96,4%), por um gatilho em K = 75 de 5,4 vezes a margem inteira, o que é impossível (seriam 12
+      milhões de votos trocados). Sem o ln do tamanho (conta original do T30) o coeficiente de 2026 é negativo em
+      TODOS os cortes (N = 100: -1,48; 2022: 0,99).
+    (b) O que explica: controles acrescentados um a um (coeficiente de 2026 em N = 50 | 100 | 200; erro por
+      município): T30 com ln (como rodado): 7,59 | 4,94 | -2,29; mais frações do 1º turno: 7,49 | 5,13 | -2,31; mais
+      abstenção do 1º turno: 2,30 | 1,30 | -0,75; mais perfil do eleitorado: -0,00 | 0,28 | 0,12; só perfil (sem
+      frações do 1º turno): 5,00 | 3,45 | -1,42. Com a abstenção do 1º turno e o perfil do eleitorado o coeficiente
+      some (-0,00, ep 0,58, em N = 50). É o canal do comparecimento e da idade visto pelo tamanho da seção, não uma
+      regra de contagem.
+    (c) Valor bruto: virada dentro do local (menos a média do local, em pontos) por faixa de comparecimento, 2026 |
+      2022: 1 a 50: 0,034 | -0,074; 51 a 75: -0,040 | -0,039; 76 a 100: 0,057 | -0,051; 101 a 150: 0,058 | -0,080; 151
+      a 200: 0,033 | -0,034; 201 a 250: 0,016 | -0,018; 251 a 300: -0,001 | -0,005; 301 a mais: -0,026 | 0,027. Em
+      2026 nenhuma faixa se afasta mais de 0,06 ponto; somadas, essas diferenças valem cerca de 8.807 votos, contra
+      2.215.096 necessários. Os coeficientes de 5 a 8 "pontos por unidade" saem de diferenças de centésimos de ponto
+      esticadas pela colinearidade entre a fração além de N e o ln do tamanho.
+    (d) Contraste direto, sem a dose colinear: virada das seções com comparecimento acima de K menos a das seções de
+      até K, dentro do mesmo local (em pontos; ep por município), com a escala tirada de um gatilho plantado do
+      tamanho da margem: K = 50: -0,150 (0,466), esperado com Phi = 1: 1,79, Phi = -0,08 [IC 99%: -0,76; 0,59], 2022:
+      0,177; K = 75: 0,106 (0,202), esperado com Phi = 1: 1,66, Phi = 0,06 [IC 99%: -0,25; 0,38], 2022: 0,115; K =
+      100: -0,102 (0,101), esperado com Phi = 1: 1,56, Phi = -0,07 [IC 99%: -0,23; 0,10], 2022: 0,178; K = 150: -0,164
+      (0,042), esperado com Phi = 1: 1,12, Phi = -0,15 [IC 99%: -0,24; -0,05], 2022: 0,248; K = 200: -0,180 (0,020),
+      esperado com Phi = 1: 0,89, Phi = -0,20 [IC 99%: -0,26; -0,14], 2022: 0,189. Em 2026 as seções acima de K
+      viraram um pouco MENOS para Lula que as pequenas (em 2022 foi o contrário). Limite superior de 99% para um
+      gatilho a favor de Lula: 59% da margem em K = 50, 38% em K = 75, 10% em K = 100 e abaixo de zero em K = 150 e
+      200. Ressalva: sem controles, a composição das seções pequenas pesa cerca de 0,2 ponto para um lado ou para o
+      outro (é o tamanho do contraste de 2022).
+
+CALIBRAÇÃO, ESPELHO E PONTO CEGO
+  Calibração por efeito plantado nos dados de 2026: todas as regras determinísticas da letra foram enxergadas (pente
+    D1.2(a): |Z| de 46,2 a 123,0 contra limiar 8; D4-2: Z de 1.076 contra limiar de 26,7; módulo k: z de 117 contra
+    20; paredão: z de 41; degrau: 5,2 erros). O limiar de contagem só tem poder em K = 200.
+  Espelho: a mesma conta em Lula (L2) é tão lisa quanto em Flávio; os plantios de Lula para Flávio são enxergados com
+    a mesma força; no degrau e no contraste por tamanho o desvio medido tem o sinal contrário ao da tese.
+  Ponto cego, medido: a troca SORTEADA do tamanho que vira o resultado (2.215.265 votos) dá |Z| = 4,2 no D1.2(a) e Z =
+    8,7 no D4-2: invisível. O mesmo vale para troca calculada sobre o comparecimento. SEM SINAL aqui não diz nada
+    sobre elas.
+
+A FAVOR DA TESE (o que fica aberto ou aponta para ela)
+  1. Limiar de contagem em K de 50 a 150: o teste registrado não tem poder. A diferença contra 2022 é positiva nos K
+    baixos (Phi de 0,45 em K = 50, 0,42 em K = 75, 0,20 em K = 100), com z de 1,45, 1,74 e 1,08, e o intervalo de 99%
+    admite até 1,26, 1,04 e 0,69 vezes a margem. Sem o perfil do eleitorado a diferença sobe para 1,15 e 0,90 (z perto
+    de 3,1). Não é evidência (ver os itens 5 e 6 do outro lado), mas também não é exclusão.
+  2. Gatilho por contagem na conta do T30: coeficiente acima de 4 pontos com z de 12 a 16 em N = 50, 75 e 100, e sinal
+    contrário em 2022. Só não é SINAL pela leitura fixada antes (2022 não está limpo). Aberto por dentro, não tem
+    forma de gatilho (itens 6 e 7 do outro lado).
+  3. O placebo do 1º turno de 2026 contra 2022 não saiu limpo (z de -7,0 a +6,2), o que não acontece um ciclo antes.
+  4. Brancos e nulos no pente da letra: SINAL numérico em rodadas de UF (artefato demonstrado, mas é o que a letra
+    dá). Nulos nos resíduos módulo k: INCONCLUSIVO.
+  5. Degrau: INCONCLUSIVO pela letra (|S| entre 0,02 e 0,05).
+  6. Estes testes são cegos, por construção, para a troca sorteada voto a voto e para tudo o que passa pelo
+    comparecimento, e o pente quase não vê regra de período curto concentrada em poucas seções (um a cada 3 em menos
+    de 6% das seções).
+
+CONTRA A TESE
+  1. Nenhum dente nas contagens de Flávio e de Lula, em nenhum recorte: |Z| de 3,65 e 4,12 no país, até 4,84 por
+    modelo de urna e até 5,11 por UF, contra limiar 8 e contra |Z| de 46 a 123 das regras plantadas. Três métodos
+    diferentes (D1.2(a), D4-2 e módulo k) dão o mesmo.
+  2. Nenhum paredão: nenhuma faixa de fração com excesso ou buraco, e a cauda de seções com Lula acima de 95% é menor
+    em 2026 que em 2022, 2018 e 2014.
+  3. Degrau com sinal contrário (S = -0,0315): faltam, não sobram, seções com Lula pouco à frente; o 1º turno mostra
+    quase o mesmo.
+  4. Limiar em K = 200, onde há poder: Phi = -0,015 [IC 99%: -0,090; 0,061], isto é, no máximo 269.055 votos de margem
+    (6,1%).
+  5. Em 2026 sozinho, sem comparar com outro ano, o coeficiente do limiar é zero em todo K: Phi de 0,026; 0,108;
+    0,096; 0,073; 0,007 (K = 50 a 200). A diferença positiva dos K baixos vem de 2022 ter coeficiente negativo, e o
+    coeficiente já vinha subindo de 2018 para 2022 sem 2026 (Phi de 2022 menos 2018: 0,33; 0,30; 0,25). O joelho, que
+    é o que distingue gatilho de composição, não passa de z 1,54.
+  6. Contraste direto (exploratório): as seções acima de K viraram MENOS para Lula que as de até K (-0,102 ponto em K
+    = 100, -0,180 em K = 200). Um gatilho a favor de Lula fica limitado a 10% da margem em K = 100 e abaixo de zero em
+    K = 150 e 200.
+  7. O coeficiente grande da conta do T30 some com a abstenção do 1º turno e o perfil do eleitorado, troca de sinal
+    sem o ln do tamanho, tem o desenho espelhado de um efeito a favor de Flávio e corresponde, em valor bruto, a
+    diferenças de centésimos de ponto (cerca de 8.807 votos).
+  8. Brancos e nulos: a quarta diferença do logaritmo não acha nenhum dente em nenhum recorte, e acha as conversões
+    plantadas (até a de 59 mil votos).
+
+O QUE ISSO SIGNIFICA
+  Fica fechada, para os votos de Flávio e de Lula, a família das regras fixas por seção aplicadas a todas as seções ou
+    a boa parte delas: um a cada k, fração arredondada, teto de fração e virada pelo placar. Nessa forma, uma regra
+    que movesse de 14% a 17% da troca necessária (305 mil a 375 mil votos) apareceria com folga de 6 a 15 vezes o
+    limiar, no país, por modelo de urna e nas UFs. Em votos: a regra em todas as seções fica limitada a menos de 305
+    mil votos trocados (610 mil de margem, 14% dela); em 20% a 50% das seções, a menos de 375 mil a 414 mil; o paredão
+    e o degrau, a alguns milhares; o limiar em K = 200, a 270 mil votos de margem.
+  O pente NÃO fecha o canto da regra de período curto concentrada em poucas seções (calibração extra). Menor plantio
+    enxergado: um a cada 3: 50% da troca necessária, em 5,6% das seções; um a cada 5: 25% da troca necessária, em 4,7%
+    das seções; um a cada 7: 25% da troca necessária, em 6,7% das seções; abaixo disso escapa (um a cada 3 com um
+    quarto do necessário dá |Z| de 4,4). Esse canto não é invisível: tirar um terço, um quinto ou um sétimo dos votos
+    de Flávio de uma seção é mudança grande dentro do prédio, e quem a mede são os testes de mudança concentrada
+    (caudas e vizinho de sala, B6; troca concentrada, N3; matriz de transferência, A3), não este.
+  Não fica fechado: (i) troca sorteada voto a voto, coerente em boletim, RDV e log (ponto cego destes testes; só as
+    testemunhas D4-3 e D4-4 e medida de fora do programa alcançam); (ii) gatilho por contagem com K de 50 a 75, onde
+    há poucas seções pequenas (476 e 2.119) e o limite superior fica em 38% a 59% da margem; (iii) regra de período
+    curto em poucas seções (parágrafo acima), que depende de outros testes; (iv) tudo o que passa pelo comparecimento,
+    que é o canal apontado pelas ondas A e B e não é desta frente.
+  Este resultado não soma evidência a favor de fraude e tira do caminho a versão mais simples de programa adulterado
+    (regra aritmética fixa). Como todo teste feito só com arquivos da urna, não vale contra um programa que sorteie a
+    troca.
+
+PISTAS
+  1. Gatilho por contagem com K baixo: o Teste de Integridade responde direto. Pedir aos TREs as atas com o NÚMERO DE
+    VOTOS digitados em cada urna auditada no 2º turno. Se cada urna auditada recebeu mais de 100 a 200 votos (o
+    procedimento manda digitar cédulas em número próximo do comparecimento esperado; o número exato tem de sair das
+    atas), a variante "só age depois do voto K" fica coberta por conferência física, sem depender de estatística.
+  2. O placebo do 1º turno contra 2022 não saiu limpo. Vale um teste próprio, com critério escrito antes: a mudança da
+    fração de Lula entre 2022 e o 1º turno de 2026 contra a mudança da abstenção por seção, com 2018 a 2022 como régua
+    e o valor bruto de 2026 ao lado. É o mesmo canal do comparecimento, agora no 1º turno.
+  3. Para o conferente: refazer o pente de brancos e nulos com curva lisa que sirva a contagens pequenas (por exemplo,
+    mistura de binomiais ajustada por seção) e confirmar que a conta da letra dispara em histogramas sorteados sem
+    regra.
+  4. As 476 seções de U com comparecimento de até 50 e as 2.119 de até 75 são poucas demais para decidir K baixo por
+    estatística; a lista sai da base por seção se alguém quiser conferir boletim impresso contra o divulgado nelas.
+
+DESVIOS DO REGISTRO E DECISÕES (todas no docstring, salvo onde dito)
+  1. P4: a estatística do pente é o maior |Z| (dente e buraco contam); a letra fala em "máximo de Z". Os dois sentidos
+    ficam no JSON.
+  2. P3: só entram casas com curva lisa de 30 seções ou mais e combinações (p, o) com 2 dentes ou mais.
+  3. Na primeira execução o código exigia 10 casas usadas (regra que não estava no docstring) e deixou B2 do país, com
+    9, fora; foi corrigido para a regra escrita (qualquer rodada com alguma combinação de 2 dentes) quando só se
+    tinham visto os |Z| de R2, L2 e N2.
+  4. Placebos na própria UF para as rodadas de UF: acrescentados depois de ver a primeira rodada, porque o placebo
+    nacional não tem as mesmas casas.
+  5. Os pares (q, k) do desenho D1.2 não dão os Phi que o desenho anuncia: com a parte inteira, k = 110, 56 e 28 em
+    todas as seções movem 13,8%, 37,1% e 85,4% da troca necessária, e k = 7 em 25% das seções, 93,9%. Todos foram
+    enxergados. A conta do desenho para o limiar (um quarto da margem dá z de 10 em qualquer configuração) não se
+    confirma para período curto em poucas seções (calibração extra).
+  6. B2 e N2 no D1.2(a): pela leitura mais favorável à tese (basta o placebo não ter |Z| de 5 no mesmo (p, o)) há
+    SINAL pela letra em rodadas de UF; pela via do periodograma o pico aparece nos placebos em todas elas. O relatório
+    dá o rótulo da leitura favorável e a demonstração de que é artefato.
+  7. D1.2(b): a densidade lisa da referência é condicionada ao tamanho da própria seção (fração da seção mais ruído de
+    1 p.p.), não sorteada independente do tamanho; caudas "dentro do previsto" = razão entre 0,5 e 2.
+  8. D1.2(c): ajuste ponderado por h; erro de S por reamostragem Poisson.
+  9. D1.3: a regressão de 2022 leva o perfil do eleitorado de 2026 pela chave (não há perfil de 2022 em disco); Phi da
+    diferença usa a exposição de 2026; o joelho é lido em 2026; a figura virou tabela; por K, quem não detecta o
+    plantio de Phi = 0,25 em 95% das cópias sai como SEM PODER (regra do pedido), e não como INCONCLUSIVO.
+  10. D1.3, joelho com K = 25: não é identificado (U exige 30 votos nos finalistas, então nenhuma seção de U tem
+    comparecimento de até 25).
+  11. D4-2: 47 recortes (UFs menores e exterior) não têm casas com 300 seções e ficam sem avaliação; "três faixas de
+    tamanho" = tercis do comparecimento.
+  12. Equipe vermelha: "200 sorteios binomiais" = binomial por seção com encolhimento que mantém a variância;
+    "percentil 99 em todos os k" lido como o máximo sobre k; o gatilho por contagem não tinha critério no reteste e
+    levou o do T30 com Bonferroni para 11 cortes.
+  13. Governador no pente e no degrau: mais votado e segundo da UF, 6 UFs juntas.
+
+O QUE É EXPLORATÓRIO (feito depois de ver resultado; não muda veredito)
+  1. Conta da letra do pente em histogramas sorteados sem regra (modo exploratorio): mostra que o disparo em brancos e
+    nulos é do alisamento.
+  2. B e N de outros turnos e anos no D4-2, só para comparar.
+  3. Gatilho por contagem aberto por dentro (modo exploratorio2): controles um a um, gatilho plantado em vários K,
+    virada bruta por faixa de tamanho, contraste direto acima e abaixo de K, e o placebo entre eleições refeito um
+    ciclo antes e com e sem cada controle.
+  4. Contagem de seções com zero voto para um finalista e calibração extra do pente com regra de período curto em
+    poucas seções (modo exploratorio2).
+
+CONTAGEM DE TESTES
+  Pente D1.2(a): 124 rodadas avaliáveis com duas estatísticas cada, mais 18 placebos nacionais e 432 por UF. D4-2: 4
+    nacionais, 15 recortes e 17 placebos. Módulo k: 796 testes no 2º turno e 796 no 1º. Paredão: 831 faixas. Degrau:
+    1. Limiar: 5 valores de K em dois desfechos. Contagem do T30: 11 cortes. Com os limiares usados (z de 8, 6, 5, 3,9
+    e 3,32) o acaso daria menos de 0,1 sinal. Sinais pela letra: os de brancos e nulos em rodadas de UF, que são do
+    método (a mesma conta dispara em 100% dos histogramas sorteados sem regra no país e em 58% a 100% nessas UFs).
+    Nenhum passou pelas três condições do Adendo 27.
+
+Reprodução: python3 -I scripts/analisar_R27_B4.py com os modos, nesta ordem: perfil, gov2t, base, pente, paredao,
+  degrau, limiar, exploratorio, exploratorio2, relatorio. Números completos em
+  resultados/R27_B4_regra_deterministica.json; parciais em /home/user/trabalho-eleicao/adendo27/R27_B4/.

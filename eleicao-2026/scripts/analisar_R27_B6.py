@@ -866,7 +866,9 @@ def parte_A():
         linha = {'ajuste_a': a_, 'ajuste_c': c_, 'subidas_medidas': {f'{d:g}': float(x) for d, x in zip(ds, dl)}}
         for nb, base in bases_phi.items():
             folga = phis[2026] - base
-            if folga <= 0:
+            if a_ <= 0 and c_ <= 0:
+                dmax = float('nan')          # o plantio não move phi nessa fração de urnas: o teste é cego, não há teto
+            elif folga <= 0:
                 dmax = 0.0
             elif c_ > 0:
                 dmax = (-a_ + np.sqrt(a_ ** 2 + 4 * c_ * folga)) / (2 * c_)
@@ -1292,6 +1294,162 @@ def parte_C():
     gravar('parcial_C.json', R)
 
 
+# ================================================================ EXPLORATÓRIO (escrito DEPOIS de ver os resultados das partes A, B e C)
+def exploratorio_tudo():
+    """Feito depois de ver o resultado; só pistas e réguas internas a mais, sem veredito.
+    E0 conferência interna dos coeficientes com lib.fe_ols; E1 piso multinomial do "phi de troca" e teto interno;
+    E2 anatomia das caudas da parte A; E3 seções com Lula acima e Flávio abaixo ao mesmo tempo (lista para auditoria);
+    E4 varredura por zona eleitoral (onde o reteste do F5 não tem poder), calibrada com o mesmo caso plantado."""
+    from lib import fe_ols
+    t0 = time.time()
+    A = json.load(open(TRAB + '/parcial_A.json'))
+    phi_ref = A['phi_ref_mediana_placebo']
+    phiR_ref = float(np.median([A['por_ano'][str(a)]['phi_R2'] for a in PLACEBO]))
+    out = {'aviso': 'tudo aqui foi escrito e calculado depois de ver os resultados das partes A, B e C', 'phi_R2_ref': phiR_ref}
+    bases = {a: derivar(montar(a)) for a in ANOS}
+    piso = {}; anat = {}; par = {}; zon = {}
+    guard = {}
+    for a in ANOS:
+        b = bases[a]; D = Dado(b, universo(b, 4))
+        beta, E = D.mod.fit(D.Y)
+        V = [D.mod.v(beta[:, j]) for j in range(4)]
+        kf = D.mod.kfac
+        if a == 2026:
+            r = fe_ols(D.Y[:, 0], D.mod.X, D.s['loc1'], 1.0 / D.s['apt1'], NX)
+            out['E0_conferencia_interna'] = {'dif_max_coeficientes_contra_lib_fe_ols': float(max(abs(r['coef'][x] - beta[i, 0]) for i, x in enumerate(NX))),
+                                             'n': r['n'], 'phi_recalculado': float(np.mean(E[:, 0] ** 2 / V[0] * kf))}
+        bL = np.clip(beta[:6, 0], 0, 1); bR = np.clip(beta[:6, 1], 0, 1)
+        p_i = (D.mod.X[:, :6] @ (bL * bR)) / V[0]
+        tro = -(E[:, 0] * E[:, 1] / V[0] * kf)
+        piso[str(a)] = {'phi_de_troca': float(tro.mean()), 'piso_multinomial': float(p_i.mean()), 'excesso': float(tro.mean() - p_i.mean()),
+                        'phi': float(np.mean(E[:, 0] ** 2 / V[0] * kf)), 'excesso_de_phi_sobre_1': float(np.mean(E[:, 0] ** 2 / V[0] * kf) - 1)}
+        u = E[:, 0] / np.sqrt(V[0] * phi_ref); uR = E[:, 1] / np.sqrt(V[1] * phiR_ref)
+        an = {}
+        for nome, mk in (('direita', u > 3), ('esquerda', u < -3)):
+            an[nome] = {'secoes': int(mk.sum()), 'media_e_L': float(E[mk, 0].mean()), 'media_e_R': float(E[mk, 1].mean()),
+                        'media_e_BN': float(E[mk, 2].mean()), 'media_e_abstencao': float(E[mk, 3].mean()),
+                        'soma_e_L': float(E[mk, 0].sum()), 'soma_e_R': float(E[mk, 1].sum())}
+        an['saldo_votos_L_nas_duas_caudas'] = an['direita']['soma_e_L'] + an['esquerda']['soma_e_L']
+        for lim in (2.5, 4.0):
+            an[f'razao_caudas_limiar_{lim:g}'] = float((u > lim).sum() / max((u < -lim).sum(), 1)); an[f'n_limiar_{lim:g}'] = [int((u > lim).sum()), int((u < -lim).sum())]
+        anat[str(a)] = an
+        fav = (u > 3) & (uR < -3); con = (u < -3) & (uR > 3)
+        par[str(a)] = {'lula_acima_e_adversario_abaixo': int(fav.sum()), 'lula_abaixo_e_adversario_acima': int(con.sum()),
+                       'razao': float(fav.sum() / max(con.sum(), 1)), 'por_100_mil_secoes': [float(1e5 * fav.mean()), float(1e5 * con.mean())],
+                       'limiar_2,5': [int(((u > 2.5) & (uR < -2.5)).sum()), int(((u < -2.5) & (uR > 2.5)).sum())]}
+        if a == 2026:
+            s = D.s
+            por_uf = {}
+            for uf in np.unique(D.uf):
+                m = D.uf == uf
+                por_uf[str(uf)] = [int((u[m] > 3).sum()), int((u[m] < -3).sum()), int(fav[m].sum()), int(con[m].sum())]
+            out['E2_caudas_2026_por_uf_[direita, esquerda, par a favor de Lula, par a favor de Flávio]'] = por_uf
+            idx = np.where(fav)[0]; idx = idx[np.argsort(-(u[idx] - uR[idx]))][:40]
+            out['E3_lista_2026_lula_acima_e_flavio_abaixo'] = [
+                {'secao': str(s['chave'][i]), 'u_L': float(u[i]), 'u_R': float(uR[i]), 'e_L': float(E[i, 0]), 'e_R': float(E[i, 1]), 'e_BN': float(E[i, 2]), 'e_abst': float(E[i, 3]),
+                 'L1': int(s['L1'][i]), 'R1': int(s['R1'][i]), 'L2': int(s['L2'][i]), 'R2': int(s['R2'][i]), 'comp1': int(s['comp1'][i]), 'comp2': int(s['comp2'][i]),
+                 'BN1': int(s['B1'][i] + s['N1'][i]), 'BN2': int(s['BN2'][i]), 'secoes_no_local': int(D.mod.k_loc[i]), 'agregada': bool(s['agr'][i])} for i in idx]
+            idx = np.where(con)[0]; idx = idx[np.argsort(u[idx] - uR[idx])][:15]
+            out['E3_lista_2026_espelho_flavio_acima_e_lula_abaixo'] = [
+                {'secao': str(s['chave'][i]), 'u_L': float(u[i]), 'u_R': float(uR[i]), 'e_L': float(E[i, 0]), 'e_R': float(E[i, 1]),
+                 'L1': int(s['L1'][i]), 'R1': int(s['R1'][i]), 'L2': int(s['L2'][i]), 'R2': int(s['R2'][i]), 'comp1': int(s['comp1'][i]), 'comp2': int(s['comp2'][i])} for i in idx]
+        if a in (2022, 2026):
+            zs, zi = np.unique(D.s['zona'], return_inverse=True)
+            nz = np.bincount(zi)
+            zphi = np.bincount(zi, weights=E[:, 0] ** 2 / V[0] * kf) / nz; ztro = np.bincount(zi, weights=tro) / nz
+            zon[a] = {str(z): (int(nz[j]), float(zphi[j]), float(ztro[j])) for j, z in enumerate(zs)}
+            guard[a] = (D, zi, zs, nz)
+    out['E1_piso_multinomial_do_phi_de_troca'] = piso
+    out['E2_anatomia_das_caudas'] = anat
+    out['E3_pares_lula_acima_adversario_abaixo'] = par
+    # E1: teto interno pela parte espelhada (base = piso multinomial de 2026; e base = excesso de 2022)
+    cal = A['calibracao_troca']['2026']; tro26 = piso['2026']['phi_de_troca']
+    teto = {}
+    for f in (10, 30, 50, 70, 90):
+        ds = np.array([0.25, 0.5, 1.0])
+        dl = np.array([cal[f'dose{d:g}_f{f}']['phi_de_troca'] - tro26 for d in ds])
+        M = np.column_stack([ds, ds ** 2]); co, *_ = np.linalg.lstsq(M, dl, rcond=None)
+        a_, c_ = float(co[0]), float(co[1])
+        if a_ < 0:
+            a_ = 0.0; c_ = float((dl * ds ** 2).sum() / (ds ** 4).sum())
+        if c_ < 0:
+            c_ = 0.0; a_ = float((dl * ds).sum() / (ds ** 2).sum())
+        linha = {'subidas_medidas_do_phi_de_troca': {f'{d:g}': float(x) for d, x in zip(ds, dl)}}
+        for nb, folga in (('base_piso_multinomial', piso['2026']['excesso']), ('base_excesso_de_2022', piso['2026']['excesso'] - piso['2022']['excesso']),
+                          ('base_menor_excesso_placebo', piso['2026']['excesso'] - min(piso[str(x)]['excesso'] for x in PLACEBO))):
+            if folga <= 0:
+                dmax = 0.0
+            elif c_ > 0:
+                dmax = (-a_ + np.sqrt(a_ ** 2 + 4 * c_ * folga)) / (2 * c_)
+            else:
+                dmax = folga / a_ if a_ > 0 else float('nan')
+            pp = dmax * P_DOSE
+            mov = pp / (1 - pp) * R2_OFICIAL
+            linha[nb] = {'folga': float(folga), 'dose_maxima': float(dmax), 'pct_da_margem': float(100 * 2 * mov / MARGEM)}
+        teto[f'{f}%'] = linha
+    out['E1_teto_interno_pela_parte_espelhada'] = teto
+    gravar('parcial_exploratorio.json', out)
+    # E4: varredura por zona (2026), com 2022 ao lado e o caso plantado do F5 (+5 pontos em 100 seções de cada uma de 10 zonas)
+    D, zi, zs, nz = guard[2026]
+    z26 = zon[2026]; z22 = zon[2022]
+    gr = [(z, v) for z, v in z26.items() if v[0] >= 100]
+    arr_phi = np.array([v[1] for _, v in gr]); arr_tro = np.array([v[2] for _, v in gr])
+    e4 = {'zonas_com_100_ou_mais_secoes': len(gr),
+          'phi_por_zona_quantis': {str(q): float(np.quantile(arr_phi, q / 100)) for q in (1, 5, 25, 50, 75, 95, 99, 100)},
+          'phi_de_troca_por_zona_quantis': {str(q): float(np.quantile(arr_tro, q / 100)) for q in (1, 5, 25, 50, 75, 95, 99, 100)}}
+    top = sorted(gr, key=lambda x: -x[1][2])[:20]
+    e4['top20_zonas_por_phi_de_troca'] = [{'zona': z, 'secoes': v[0], 'phi': v[1], 'phi_de_troca': v[2],
+                                           'em_2022': ({'secoes': z22[z][0], 'phi': z22[z][1], 'phi_de_troca': z22[z][2]} if z in z22 else None)} for z, v in top]
+    com = [(z, v[2], z22[z][2]) for z, v in gr if z in z22 and z22[z][0] >= 100]
+    d26 = np.array([c[1] for c in com]); d22 = np.array([c[2] for c in com])
+    e4['zonas_nos_dois_anos'] = len(com)
+    e4['correlacao_phi_de_troca_2026_x_2022_por_zona'] = float(np.corrcoef(d26, d22)[0, 1])
+    e4['zonas_com_phi_de_troca_2026_acima_do_dobro_de_2022_e_acima_de_1,5'] = [{'zona': c[0], '2026': c[1], '2022': c[2]} for c in com if c[1] > 2 * c[2] and c[1] > 1.5]
+    S = D.s; nfin = (S['L2'] + S['R2']).astype(float)
+    eleg = np.where(nz >= 200)[0]
+    cals = []
+    for i in range(5):
+        rng = np.random.default_rng(SEMENTE + 700 + i)
+        zsel = rng.choice(eleg, 10, replace=False)
+        sel = np.zeros(D.n, bool)
+        for zq in zsel:
+            cand = np.where(zi == zq)[0]; sel[rng.choice(cand, 100, replace=False)] = True
+        linha = {}
+        for pts in (3, 5):
+            mv = np.minimum(np.where(sel, np.rint(pts / 100 * nfin), 0), S['R2'])
+            Y = y_troca(D, mv)
+            beta, E = D.mod.fit(Y)
+            v0 = D.mod.v(beta[:, 0])
+            tro = -(E[:, 0] * E[:, 1] / v0 * D.mod.kfac)
+            ztro = np.bincount(zi, weights=tro) / nz
+            grande = nz >= 100
+            ordem = np.argsort(-np.where(grande, ztro, -9))
+            rank = {int(z): int(np.where(ordem == z)[0][0]) + 1 for z in zsel}
+            linha[f'+{pts}pts'] = {'phi_de_troca_das_zonas_plantadas': [float(ztro[z]) for z in zsel], 'posicoes_no_ranking': sorted(rank.values()),
+                                   'entre_as_10_primeiras': int(sum(r <= 10 for r in rank.values())), 'entre_as_20_primeiras': int(sum(r <= 20 for r in rank.values())),
+                                   'margem_plantada': float(2 * mv.sum())}
+        cals.append(linha)
+    e4['calibracao_caso_plantado_100_secoes_em_cada_uma_de_10_zonas'] = cals
+    out['E4_varredura_por_zona'] = e4
+    # E5: limite do teste da parte A: a mesma dose inteira aplicada a 30% dos LOCAIS inteiros, ou a 30% das ZONAS inteiras
+    e5 = {}
+    R2 = S['R2']; phi0 = piso['2026']['phi']
+    for nome, gid, sem in (('30%_dos_locais_inteiros', D.mod.g, 801), ('30%_das_zonas_inteiras', zi, 802)):
+        rng = np.random.default_rng(SEMENTE + sem)
+        selg = rng.random(int(gid.max() + 1)) < 0.30
+        sel = selg[gid]
+        pc = P_DOSE * R2.sum() / R2[sel].sum()
+        mov = np.where(sel, rng.binomial(R2, pc), 0)
+        beta, E = D.mod.fit(y_troca(D, mov))
+        v0 = D.mod.v(beta[:, 0])
+        ph = float(np.mean(E[:, 0] ** 2 / v0 * D.mod.kfac))
+        e5[nome] = {'votos_movidos': int(mov.sum()), 'phi': ph, 'fator_sobre_bruto': ph / phi0, 'fracao_das_secoes': float(sel.mean())}
+    out['E5_troca_por_local_ou_zona_inteira'] = e5
+    out['segundos'] = round(time.time() - t0)
+    gravar('parcial_exploratorio.json', out)
+    log('exploratorio pronto', round(time.time() - t0))
+
+
 # ================================================================ saída
 def fn(x, nd=2, sinal=False):
     if x is None:
@@ -1320,138 +1478,281 @@ def final():
            'parte_A': A, 'parte_B': B, 'parte_C': C}
     if extra:
         out['exploratorio_depois_de_ver_o_resultado'] = extra
+    out = _finito(out)
     with open(SAIDA_JSON, 'w') as f:
-        json.dump(out, f, ensure_ascii=False, indent=1)
+        json.dump(out, f, ensure_ascii=False, indent=1, allow_nan=False)
     txt = texto(out)
     with open(SAIDA_TXT, 'w') as f:
         f.write(txt)
     print(txt)
 
 
+def _finito(o):
+    if isinstance(o, dict):
+        return {k: _finito(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_finito(v) for v in o]
+    if isinstance(o, float) and (np.isnan(o) or np.isinf(o)):
+        return 'sem limite' if np.isnan(o) else 'infinito'
+    return o
+
+
 def texto(o):
     A, B, C = o['parte_A'], o['parte_B'], o['parte_C']
+    X = o.get('exploratorio_depois_de_ver_o_resultado', {})
+    AN = ('2014', '2018', '2022', '2026')
     L = []
     w = L.append
+    pr = A['primaria']; pa = A['por_ano']; cl = A['clausulas_bruto']; po = A['poder']; cal = A['calibracao_troca']['2026']
+    p = B['principal']; ca = B['calibracao']; rf = ca['referencia_+5pts_1000_secoes_10_zonas']
     w('R27_B6 (Adendo 27, última onda): VIZINHO DE SALA (D4-5) E CAUDAS (F5 RECALIBRADO), COM O DESCRITIVO DA LINEARIDADE')
     w('Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC) e Adendo 30 (commit a7218fb). Script: scripts/analisar_R27_B6.py.')
-    w('O desenho D4-5 é cego. O reteste do F5 foi escrito por quem já conhecia o resultado antigo. A parte C é descritiva.')
+    w('Docstring com as decisões gravado antes de qualquer conta com votos: ' + o['docstring_antes_de_rodar'] + '.')
+    w('O script com esse docstring entrou no repositório no commit 03fac40 (10/11/2026 13:23:32 UTC); a primeira conta com votos começou às 13:24:50 UTC.')
+    w('Depois disso mudaram só a função do exploratório, as funções de saída e três linhas do teto em votos (onde o plantio não move phi, o teto sai')
+    w('"sem limite" em vez de zero). As contas das partes A, B e C são as do commit; a parte A foi rodada duas vezes e deu os mesmos números.')
+    w('O desenho D4-5 é cego. O reteste do F5 foi escrito por quem já conhecia o resultado antigo. A parte C é descritiva, sem critério registrado.')
     w('')
-    w('VEREDITOS')
-    w(f"- A, D4-5 (troca em parte das urnas): {A['veredito']} (pela letra, antes da regra de poder: {A['veredito_pela_letra_bruto']}).")
-    w(f"- B, F5 (caudas com z recalibrado): {B['veredito']} (classificação pela letra: {B['classificacao_pela_letra']}).")
-    w('- C, linearidade: descritivo, sem veredito.')
+    w('VEREDITOS PELA LETRA')
+    w(f"- A, D4-5 (troca aplicada só a parte das urnas de um mesmo local): {A['veredito']}, com poder. phi de 2026 = {fn(pr['phi_2026'], 3)}; maior placebo = {fn(pr['maior_placebo'], 3)};")
+    w(f"  razão {fn(pr['razao'], 3)} (limite do sem sinal 1,15; do sinal 1,5); caudas {fn(pa['2026']['razao_caudas'], 2)} (faixa do sem sinal 0,67 a 1,5). O cenário de referência plantado")
+    w(f"  (dose inteira em 30% das urnas) multiplica phi por {fn(po['fator_cenario_referencia'], 2)} e dá {po['veredito_com_referencia_plantada']} pela letra. O veredito depende só da comparação com 2014, 2018 e 2022.")
+    w(f"- B, F5 (caudas com z recalibrado): {B['veredito']}. Pela letra seria {B['classificacao_pela_letra']} ({fi(p['acima'])} acima de +4 contra {fi(p['abaixo'])} abaixo de -4, razão {fn(p['razao'], 2)}),")
+    w(f"  mas o caso plantado (+5 pontos em 1.000 seções de 10 zonas) foi detectado em {rf['sinal_em']} de {rf['de']} sorteios: o critério não enxerga o que deveria enxergar.")
+    w('- C, linearidade: descritivo, sem veredito. Não apareceu regularidade maior que o acaso em nenhum ano; 2026 fica ao lado de 2022.')
+    w('Cláusulas com veredito nesta rodada: 2 (A e B). Sinais pela letra: 0. Com 2 cláusulas o acaso daria menos de 1 sinal.')
     w('')
     # ---------------- A
-    pr = A['primaria']; pa = A['por_ano']
     w('PARTE A. D4-5, DISPERSÃO DA PASSAGEM ENTRE TURNOS DENTRO DO MESMO LOCAL')
-    w('Universo: filtros do D4-1, locais com 4 ou mais seções válidas. Resíduo da equação de L2 (efeito fixo de local, peso 1/aptos,')
-    w('eliminados somados). phi = média de e2/v com k/(k-1); phi = 1 seria só o acaso binomial das transições.')
-    w('  ano    seções   locais   phi (ep)          phi R2   phi BN2  phi A2   phi de troca   espelhada em R   em abstenção   em BN')
-    for a in ('2014', '2018', '2022', '2026'):
+    w('Universo: filtros do D4-1, locais com 4 ou mais seções válidas. Resíduo da equação de L2 (efeito fixo de local, peso 1/aptos, eliminados')
+    w('somados). phi = média de e2/v com k/(k-1); phi = 1 seria só o acaso binomial das transições. "Espelhada em R" = parte da dispersão de')
+    w('Lula que aparece com sinal trocado em Flávio (a marca de troca); "em abstenção" = a que aparece no comparecimento.')
+    w('  ano    seções   locais  dp do resíduo   phi (ep)         phi R2   phi BN2  phi A2   phi de troca  espelhada em R  em abstenção  em BN')
+    for a in AN:
         r = pa[a]
-        w(f"  {a}  {fi(r['n']):>8} {fi(r['locais']):>7}   {fn(r['phi'], 3)} ({fn(r['ep_phi'], 3)})   {fn(r['phi_R2'], 3)}    {fn(r['phi_BN2'], 3)}    {fn(r['phi_A2'], 3)}    {fn(r['phi_de_troca'], 3)}          {fn(100 * r['parcela_espelhada_em_R'], 1)}%          {fn(100 * r['parcela_em_abstencao'], 1)}%        {fn(100 * r['parcela_em_BN'], 1)}%")
-    w(f"Primária: phi de 2026 = {fn(pr['phi_2026'], 3)} (ep {fn(pr['ep_phi_2026'], 3)}); maior placebo = {fn(pr['maior_placebo'], 3)}; razão = {fn(pr['razao'], 3)} (IC 95% {fn(pr['ic95_razao'][0], 3)} a {fn(pr['ic95_razao'][1], 3)}).")
-    cl = A['clausulas_bruto']
-    w(f"Placebos variam {fn(cl['max_sobre_min_placebo'], 2)} vez entre si (limite 1,5). phi_ref (mediana placebo) = {fn(A['phi_ref_mediana_placebo'], 3)}.")
-    w('Caudas (u = e/raiz(v phi_ref); direita = Lula acima do previsto) e mistura de duas normais (variância comum):')
-    w('  ano    direita >3   esquerda <-3   razão (IC 95%)        pi alto   delta (pontos)   votos implicados   espelho')
-    for a in ('2014', '2018', '2022', '2026'):
+        w(f"  {a}  {fi(r['n']):>8} {fi(r['locais']):>7}   {fn(r['dp_residuo_votos'], 2)} votos   {fn(r['phi'], 3)} ({fn(r['ep_phi'], 3)})   {fn(r['phi_R2'], 3)}    {fn(r['phi_BN2'], 3)}    {fn(r['phi_A2'], 3)}    {fn(r['phi_de_troca'], 3)}         {fn(100 * r['parcela_espelhada_em_R'], 1)}%         {fn(100 * r['parcela_em_abstencao'], 1)}%       {fn(100 * r['parcela_em_BN'], 1)}%")
+    w(f"Primária: phi de 2026 = {fn(pr['phi_2026'], 3)} (ep {fn(pr['ep_phi_2026'], 3)}; n = {fi(pa['2026']['n'])} seções em {fi(pa['2026']['locais'])} locais e {fi(pa['2026']['municipios'])} municípios).")
+    w(f"  Dividido pelo maior placebo (2014, {fn(pr['maior_placebo'], 3)}): {fn(pr['razao'], 3)} (ep {fn(pr['ep_razao'], 3)}; IC 95% {fn(pr['ic95_razao'][0], 3)} a {fn(pr['ic95_razao'][1], 3)}).")
+    w('  Contra cada ano: ' + '; '.join(f"{a}: {fn(pr['phi_2026'] / pr['phi_placebo'][a], 3)}" for a in ('2014', '2018', '2022')) + f". Os placebos variam {fn(cl['max_sobre_min_placebo'], 2)} vez entre si (limite 1,5).")
+    w(f"  Valor bruto de 2026, sem outro ano: phi {fn(pr['phi_2026'], 3)}, isto é, {fn(100 * (pr['phi_2026'] - 1), 0)}% acima do acaso binomial; resíduo de {fn(pa['2026']['dp_residuo_votos'], 2)} votos por seção.")
+    w(f"Caudas (u = e/raiz(v phi_ref), phi_ref = {fn(A['phi_ref_mediana_placebo'], 3)}; direita = Lula acima do previsto) e mistura de duas normais com variância comum:")
+    w('  ano    direita > 3      esquerda < -3     razão (IC 95%)        mistura: fração alta   separação (pontos dos válidos)   votos implicados')
+    for a in AN:
         r = pa[a]; mx = r['mistura']
-        w(f"  {a}   {fn(100 * r['cauda_direita'], 3)}%      {fn(100 * r['cauda_esquerda'], 3)}%       {fn(r['razao_caudas'], 2)} ({fn(r['ic95_razao_caudas'][0], 2)} a {fn(r['ic95_razao_caudas'][1], 2)})    {fn(100 * mx['pi_alto'], 1)}%    {fn(mx['delta_pp'], 2)}           {fi(mx['votos_implicados']):>10}     {fi(mx['votos_implicados_espelho']):>10}")
-    w(f"Cláusulas (2026): phi >= 1,5 x placebo: {cl['sinal_phi_1,5']}; cauda 3 x: {cl['sinal_cauda_3x']}; mistura 2 pontos e 5% a 95%: {cl['sinal_mistura_2pp_5a95']}; votos >= 550 mil: {cl['sinal_votos_550mil']}; phi <= 1,15 x: {cl['semsinal_phi_1,15']}; caudas 0,67 a 1,5: {cl['semsinal_caudas_0,67_a_1,5']}.")
+        fora = '' if 0.05 <= mx['pi_alto'] <= 0.95 else ' (fração fora de 5% a 95%: só isola a ponta)'
+        w(f"  {a}   {fn(100 * r['cauda_direita'], 3)}% ({r['n_direita']})   {fn(100 * r['cauda_esquerda'], 3)}% ({r['n_esquerda']})   {fn(r['razao_caudas'], 2)} ({fn(r['ic95_razao_caudas'][0], 2)} a {fn(r['ic95_razao_caudas'][1], 2)})    {fn(100 * mx['pi_alto'], 2)}%                 {fn(mx['delta_pp'], 2)}                            {fi(mx['votos_implicados'])}{fora}")
+    ml = pa['2026']['mistura_variancias_livres']
+    w(f"  Mistura com variâncias livres em 2026: fração {fn(100 * ml['pi_alto'], 1)}%, separação {fn(ml['delta_pp'], 2)} ponto (duas larguras, sem dois grupos separados).")
+    w(f"Cláusulas em 2026: phi >= 1,5 x placebo: {'sim' if cl['sinal_phi_1,5'] else 'não'}; cauda de um lado 3 x a do outro: {'sim' if cl['sinal_cauda_3x'] else 'não'}; mistura com 2 pontos e fração de 5% a 95%: {'sim' if cl['sinal_mistura_2pp_5a95'] else 'não'}; votos implicados >= 550 mil: {'sim' if cl['sinal_votos_550mil'] else 'não'};")
+    w(f"  phi <= 1,15 x placebo: {'sim' if cl['semsinal_phi_1,15'] else 'não'}; caudas entre 0,67 e 1,5: {'sim' if cl['semsinal_caudas_0,67_a_1,5'] else 'não'}. Pela letra: {A['veredito_pela_letra_bruto']}.")
     e = A['espelho_outras_equacoes']
-    w('Razão 2026 sobre o maior placebo, por medida: ' + '; '.join(f"{k} {fn(v['razao_2026_sobre_maior_placebo'], 2)}" for k, v in e.items()) + '.')
+    w('Espelho e controles, razão de 2026 sobre o maior placebo: equação de Flávio (R2) ' + fn(e['phi_R2']['razao_2026_sobre_maior_placebo'], 2) + '; branco e nulo ' + fn(e['phi_BN2']['razao_2026_sobre_maior_placebo'], 2)
+      + '; abstenção ' + fn(e['phi_A2']['razao_2026_sobre_maior_placebo'], 2) + '; phi de troca ' + fn(e['phi_de_troca']['razao_2026_sobre_maior_placebo'], 2)
+      + f" (IC 95% {fn(e['phi_de_troca']['ic95_razao'][0], 2)} a {fn(e['phi_de_troca']['ic95_razao'][1], 2)}); phi pela razão das somas " + fn(e['phi_razao_das_somas']['razao_2026_sobre_maior_placebo'], 2) + '; phi robusto ' + fn(e['phi_robusto']['razao_2026_sobre_maior_placebo'], 2) + '.')
     v = A['variantes']
-    w('Variantes de 2026 (phi): sem agregadas ' + fn(v['v1_2026_sem_agregadas']['phi'], 3) + '; eliminados separados ' + fn(v['v2_2026_eliminados_separados']['phi'], 3)
-      + '; com covariáveis de perfil ' + fn(v['v3_2026_com_covariaveis_de_perfil']['phi'], 3) + ' contra ' + fn(v['v3_2026_mesmo_universo_sem_covariaveis']['phi'], 3) + ' no mesmo universo.')
-    w('Coeficientes por UF (v4), phi: ' + '; '.join(f"{a} {fn(v['v4_coeficientes_por_uf'][a]['phi'], 3)}" for a in ('2014', '2018', '2022', '2026')) + f"; razão {fn(v['v4_coeficientes_por_uf']['razao_2026_sobre_maior_placebo'], 3)}.")
-    w('Locais com 2 ou mais (v5), phi: ' + '; '.join(f"{a} {fn(v['v5_locais_com_2_ou_mais'][a]['phi'], 3)}" for a in ('2014', '2018', '2022', '2026')) + f"; razão {fn(v['v5_locais_com_2_ou_mais']['razao_2026_sobre_maior_placebo'], 3)}.")
+    w('Variantes de 2026 (phi): sem seções agregadas ' + fn(v['v1_2026_sem_agregadas']['phi'], 3) + '; eliminados separados ' + fn(v['v2_2026_eliminados_separados']['phi'], 3)
+      + '; com covariáveis de perfil ' + fn(v['v3_2026_com_covariaveis_de_perfil']['phi'], 3) + ' contra ' + fn(v['v3_2026_mesmo_universo_sem_covariaveis']['phi'], 3) + f" no mesmo universo ({v['v3_secoes_sem_perfil_fora']} seções sem perfil fora).")
+    w('  O perfil (idade, escolaridade, gênero) NÃO reduz a dispersão de 2026: a explicação inocente do desenho não é o que sustenta o phi acima de 1.')
+    w('  Coeficientes próprios de cada UF, phi: ' + '; '.join(f"{a} {fn(v['v4_coeficientes_por_uf'][a]['phi'], 3)}" for a in AN) + f"; razão {fn(v['v4_coeficientes_por_uf']['razao_2026_sobre_maior_placebo'], 3)}.")
+    w('  Locais com 2 ou mais seções, phi: ' + '; '.join(f"{a} {fn(v['v5_locais_com_2_ou_mais'][a]['phi'], 3)}" for a in AN) + f"; razão {fn(v['v5_locais_com_2_ou_mais']['razao_2026_sobre_maior_placebo'], 3)}.")
     g = A['placebo_governador']
-    w('Placebo contemporâneo (governador, mesmas urnas, regressão dentro da UF):')
+    w('Placebo contemporâneo, que não depende de outro ano (governador nas mesmas urnas, mesmo dia, regressão dentro da UF):')
     for uf, r in g['por_uf'].items():
-        w(f"  {uf}: n {fi(r['n'])}; phi governador {fn(r['phi_governador'], 3)}; phi presidente {fn(r['phi_presidente'], 3)}; razão {fn(r['razao_pres_sobre_gov'], 2)}; phi de troca gov {fn(r['phi_de_troca_governador'], 3)}, pres {fn(r['phi_de_troca_presidente'], 3)}")
+        w(f"  {uf}: {fi(r['n'])} seções; phi governador {fn(r['phi_governador'], 3)}; phi presidente {fn(r['phi_presidente'], 3)}; razão {fn(r['razao_pres_sobre_gov'], 2)}; phi de troca governador {fn(r['phi_de_troca_governador'], 3)}, presidente {fn(r['phi_de_troca_presidente'], 3)}")
     s6 = g['seis_ufs']
-    w(f"  6 UFs: n {fi(s6['n'])}; phi governador {fn(s6['phi_governador'], 3)}; phi presidente {fn(s6['phi_presidente'], 3)}; razão {fn(s6['razao_pres_sobre_gov'], 2)}; phi de troca: razão {fn(s6['razao_phi_de_troca'], 2)}.")
-    w('phi por UF em 2026 (razão sobre o maior placebo da UF): ' + '; '.join(f"{uf} {fn(r['phi_2026'], 2)} ({fn(r['razao_sobre_maior_placebo'], 2)})" for uf, r in A['phi_por_uf'].items()) + '.')
+    w(f"  6 UFs juntas: {fi(s6['n'])} seções; phi governador {fn(s6['phi_governador'], 3)}; phi presidente {fn(s6['phi_presidente'], 3)}; razão {fn(s6['razao_pres_sobre_gov'], 2)}; no phi de troca, razão {fn(s6['razao_phi_de_troca'], 2)}.")
+    w('  Leitura escrita antes: 1,5 ou mais iria no sentido da tese; 1,15 ou menos, não. Só o TO fica entre os dois (e lá o phi de troca do presidente é menor que o do governador).')
+    w('phi por UF em 2026 (entre parênteses, a razão sobre o maior placebo da mesma UF): ' + '; '.join(f"{uf} {fn(r['phi_2026'], 2)} ({fn(r['razao_sobre_maior_placebo'], 2)})" for uf, r in A['phi_por_uf'].items()) + '.')
+    mxuf = max(A['phi_por_uf'].items(), key=lambda kv: kv[1]['razao_sobre_maior_placebo'])
+    w(f"  Nenhuma UF passa de 1,15; a maior razão é {mxuf[0]} com {fn(mxuf[1]['razao_sobre_maior_placebo'], 2)}.")
     w('')
-    w('Calibração: troca plantada por cima de 2026 (dose inteira = 3,57% dos votos de Flávio do universo)')
-    w('  cenário         votos movidos   phi      fator   razão s/ placebo   caudas (razão)   pi alto   delta   votos implicados   espelhada em R   veredito pela letra')
-    for k, r in A['calibracao_troca']['2026'].items():
+    w('Calibração: troca plantada por cima de 2026 (dose inteira = 3,57% dos votos de Flávio do universo, em votos movidos)')
+    w('  dose   urnas   votos movidos   phi      fator   razão sobre placebo   caudas   fração alta   separação   votos implicados   espelhada em R   pela letra')
+    for k, r in cal.items():
         mx = r['mistura']
-        w(f"  {k:<15} {fi(r['votos_movidos']):>10}   {fn(r['phi'], 3)}   {fn(r['fator_sobre_bruto'], 3)}      {fn(r['clausulas']['razao_phi_sobre_maior_placebo'], 3)}          {fn(r['razao_caudas'], 2)}          {fn(100 * mx['pi_alto'], 1)}%   {fn(mx['delta_pp'], 2)}     {fi(mx['votos_implicados']):>10}        {fn(100 * r['parcela_espelhada_em_R'], 1)}%        {r['veredito_pela_letra_com_plantio']}")
-    w('Por cima de 2022 (letra do desenho): ' + '; '.join(f"{k} fator {fn(r['fator_sobre_bruto'], 2)}" for k, r in A['calibracao_troca']['2022'].items()) + '.')
+        w(f"  {fn(r['dose'], 2):>5}  {fn(100 * r['fracao_urnas'], 0):>4}%   {fi(r['votos_movidos']):>10}   {fn(r['phi'], 3):>6}   {fn(r['fator_sobre_bruto'], 3)}      {fn(r['clausulas']['razao_phi_sobre_maior_placebo'], 3)}            {fn(r['razao_caudas'], 2):>5}     {fn(100 * mx['pi_alto'], 1):>5}%       {fn(mx['delta_pp'], 2):>5}      {fi(mx['votos_implicados']) if 0.05 <= mx['pi_alto'] <= 0.95 else 'fora de 5 a 95%':>15}      {fn(100 * r['parcela_espelhada_em_R'], 1)}%       {r['veredito_pela_letra_com_plantio']}")
+    w('  Por cima de 2022 (letra do desenho), fator: ' + '; '.join(f"{fn(r['dose'], 1)} dose em {fn(100 * r['fracao_urnas'], 0)}%: {fn(r['fator_sobre_bruto'], 2)}" for k, r in A['calibracao_troca']['2022'].items()) + '.')
     rep = A['calibracao_referencia_5_sorteios']
-    w('Cenário de referência (dose inteira em 30% das urnas), 5 sorteios: fator ' + ', '.join(fn(x['fator_sobre_bruto'], 3) for x in rep) + '; votos implicados ' + ', '.join(fi(x['votos_implicados']) for x in rep) + '.')
-    po = A['poder']
-    w(f"Poder: fator do cenário de referência {fn(po['fator_cenario_referencia'], 3)}; veredito pela letra com ele plantado: {po['veredito_com_referencia_plantada']}; sem poder: {po['sem_poder']}.")
-    w('  Enxerga (fator >= 1,15): ' + ', '.join(po['cenarios_com_fator_1,15_ou_mais']) + '.')
-    w('  Não enxerga: ' + ', '.join(po['cenarios_com_fator_abaixo_de_1,15']) + '.')
-    w('  Dão SINAL pela letra: ' + (', '.join(po['cenarios_que_dao_SINAL_pela_letra']) or 'nenhum') + '.')
-    for nome, tit in (('espelho_plantado_L_para_R', 'Espelho plantado (de Lula para Flávio, 30% das urnas)'), ('inocente_I1_mobilizacao_desigual', 'Inocente I1 (mobilização desigual, 30% das seções)'),
-                      ('inocente_I2_conversao_por_perfil', 'Inocente I2 (conversão dos eliminados por perfil)')):
+    w('  Cenário de referência repetido com 5 sementes: fator ' + ', '.join(fn(x['fator_sobre_bruto'], 3) for x in rep) + '; votos implicados pela mistura ' + ', '.join(fi(x['votos_implicados']) for x in rep) + f" (plantados {fi(rep[0]['votos_movidos'])}: a mistura recupera cerca de {fn(100 * np.mean([x['votos_implicados'] / x['votos_movidos'] for x in rep]), 0)}%).")
+    w('  O que o SEM SINAL exclui (cenários que, plantados por cima de 2026, tiram o resultado do sem sinal): dose inteira em até 50% das urnas, meia dose em até 50%,')
+    w('  um quarto de dose em até 30%. O que NÃO exclui (continuaria SEM SINAL com a fraude plantada): dose inteira em 70% das urnas ou mais, meia dose em 70% ou mais,')
+    w('  um quarto de dose em 50% ou mais, e qualquer troca igual em todas as urnas. O desenho prometia excluir a dose inteira em até 70%: no dado real o alcance é até 50%.')
+    w('  (Meia dose em 50% e um quarto de dose em 30% saem do sem sinal só pela cláusula das caudas, que em 2026 já parte de 1,38; o fator de phi neles é menor que 1,15.)')
+    w('  Sinal pela letra só com: ' + '; '.join(f"{fn(cal[k]['dose'], 2)} dose em {fn(100 * cal[k]['fracao_urnas'], 0)}% das urnas" for k in po['cenarios_que_dao_SINAL_pela_letra']) + '.')
+    for nome, tit in (('espelho_plantado_L_para_R', 'Espelho plantado (mesmos votos, de Lula para Flávio, 30% das urnas)'), ('inocente_I1_mobilizacao_desigual', 'Explicação inocente I1 (mobilização desigual: faltosos que entram em 30% das seções, 2/3 para Lula)'),
+                      ('inocente_I2_conversao_por_perfil', 'Explicação inocente I2 (destino dos eleitores de eliminados conforme a idade da seção)')):
         r = A[nome]; mx = r['mistura']
-        w(f"{tit}: phi {fn(r['phi'], 3)} (fator {fn(r['fator_sobre_bruto'], 3)}); caudas {fn(r['razao_caudas'], 2)}; pi {fn(100 * mx['pi_alto'], 1)}%, delta {fn(mx['delta_pp'], 2)}, votos {fi(mx['votos_implicados'])}; espelhada em R {fn(100 * r['parcela_espelhada_em_R'], 1)}%; fator do phi de troca {fn(r['fator_phi_de_troca'], 3)}; pela letra {r['veredito_pela_letra_com_plantio']}.")
+        w(f"{tit}: phi {fn(r['phi'], 3)} (fator {fn(r['fator_sobre_bruto'], 3)}); caudas {fn(r['razao_caudas'], 2)}; mistura {fn(100 * mx['pi_alto'], 1)}% e {fn(mx['delta_pp'], 2)} pontos; espelhada em R {fn(100 * r['parcela_espelhada_em_R'], 1)}%; phi de troca vezes {fn(r['fator_phi_de_troca'], 2)}; pela letra {r['veredito_pela_letra_com_plantio']}.")
     ab = A['absorcao_pelas_covariaveis']
-    w('Quanto as covariáveis de perfil absorvem da subida de phi: ' + '; '.join(f"{k} {fn(100 * ab[k]['fracao_absorvida_pelas_covariaveis'], 1)}%" for k in ('troca_referencia', 'I1', 'I2')) + f". Bruto: {fn(ab['bruto']['phi_sem_cov'], 3)} sem e {fn(ab['bruto']['phi_com_cov'], 3)} com.")
+    w('  Quanto as covariáveis de perfil absorvem da subida de phi: troca ' + fn(100 * ab['troca_referencia']['fracao_absorvida_pelas_covariaveis'], 1) + '%; I1 ' + fn(100 * ab['I1']['fracao_absorvida_pelas_covariaveis'], 1) + '%; I2 ' + fn(100 * ab['I2']['fracao_absorvida_pelas_covariaveis'], 1) + '%.')
+    w('  Leitura da calibração: o critério registrado NÃO separa troca em parte das urnas de mobilização desigual entre seções (I1 também daria SINAL). O que separa é a')
+    w('  parte espelhada em Flávio: sobe para cerca de 76% com a troca e cai abaixo de zero com a mobilização. Em 2026 ela é ' + fn(100 * pa['2026']['parcela_espelhada_em_R'], 1) + '%, contra ' + fn(100 * pa['2022']['parcela_espelhada_em_R'], 1) + '% em 2022.')
     t = A['traducao_em_votos']
-    w(f"Tradução em votos: mistura de 2026 implica {fi(t['votos_implicados_mistura_universo'])} votos no universo ({fi(t['votos_implicados_mistura_extrapolado_pais'])} extrapolado ao país); margem = o dobro.")
-    w('Teto lido inteiro a favor da tese (maior dose cuja dispersão cabe na folga de phi), em % da margem de 4.430.191:')
-    w('  urnas atingidas   base binomial (1)   base menor placebo   base mediana placebo   base maior placebo')
+    w('Tradução em votos de margem:')
+    w(f"  Mistura de 2026: {fi(t['votos_implicados_mistura_universo'])} votos no universo ({fi(t['votos_implicados_mistura_extrapolado_pais'])} extrapolando ao país); margem {fi(2 * t['votos_implicados_mistura_extrapolado_pais'])} = {fn(100 * 2 * t['votos_implicados_mistura_extrapolado_pais'] / MARGEM, 1)}% de 4.430.191. O limiar era 550 mil.")
+    w('  Teto lido inteiro a favor da tese: maior troca em parte das urnas cuja dispersão caberia na folga de phi, em % da margem (não é estimativa):')
+    w('  urnas atingidas   folga sobre o acaso binomial (phi - 1)   folga sobre 2022 (menor placebo)   sobre a mediana ou o maior placebo')
     for f, r in t['teto_por_fracao_de_urnas'].items():
-        w(f"  {f:>6}            {fn(r['binomial_1']['pct_da_margem'], 1)}%             {fn(r['menor_placebo']['pct_da_margem'], 1)}%               {fn(r['mediana_placebo']['pct_da_margem'], 1)}%                 {fn(r['maior_placebo']['pct_da_margem'], 1)}%")
+        def cel(x):
+            return fn(x['pct_da_margem'], 1) + '%' if isinstance(x['pct_da_margem'], (int, float)) else 'sem limite (o teste não enxerga)'
+        w(f"  {f:>6}             {cel(r['binomial_1']):>30}           {cel(r['menor_placebo']):>30}       {cel(r['mediana_placebo'])}")
     w('')
     # ---------------- B
-    p = B['principal']
     w('PARTE B. F5, CAUDAS COM z RECALIBRADO (previsão deixando a seção de fora; desvio robusto por faixa de tamanho)')
-    w(f"Base: {fi(B['secoes_base'])} seções; sozinhas no local {fi(B['sozinhas_no_local'])}; previsão fora de (0, n) {fi(B['previsao_fora_de_0_n'])}; com z {fi(p['secoes_com_z'])}. Coeficientes contra o T8 gravado: diferença máxima {B['conferencia_coeficientes_T8_dif_max']}.")
-    w('Desvio robusto de z por faixa de n: ' + '; '.join(f"{x['faixa']}: {fn(x['desvio_robusto'], 3)} (mediana {fn(x['mediana'], 3)}, {fi(x['secoes'])} seções)" for x in B['faixas_de_tamanho']) + '.')
-    w(f"Acima de +4: {fi(p['acima'])}. Abaixo de -4: {fi(p['abaixo'])}. Razão: {fn(p['razao'], 3)} (ep do log {fn(p.get('ep_log_razao'), 3)}). Nas 10 zonas com mais: {fn(p['pct_nas_10_zonas'], 1)}% das de cima ({p.get('zonas_distintas_acima')} zonas distintas); espelho {fn(p.get('pct_nas_10_zonas_abaixo'), 1)}%.")
-    w(f"Margem movida: cauda de cima {fi(p['margem_cauda_de_cima'])}; de baixo {fi(p['margem_cauda_de_baixo'])}; líquida {fi(p['margem_liquida'])} votos = {fn(p['pct_da_margem_nacional'], 3)}% da margem nacional.")
+    w(f"Base: {fi(B['secoes_base'])} seções (exterior incluído); sozinhas no local {fi(B['sozinhas_no_local'])}; previsão fora de (0, n) {fi(B['previsao_fora_de_0_n'])}; com z {fi(p['secoes_com_z'])}.")
+    w(f"Regressão do T8 reproduzida: diferença máxima dos coeficientes contra resultados/T7_T14_bweb.json = {B['conferencia_coeficientes_T8_dif_max']:.1e}.")
+    w('Desvio robusto de z por faixa de n: ' + '; '.join(f"{x['faixa']}: {fn(x['desvio_robusto'], 3)} (mediana {fn(x['mediana'], 3)}; {fi(x['secoes'])} seções)" for x in B['faixas_de_tamanho']) + '.')
+    w(f"Acima de +4: {fi(p['acima'])}. Abaixo de -4: {fi(p['abaixo'])}. Razão: {fn(p['razao'], 3)} (ep do logaritmo {fn(p.get('ep_log_razao'), 3)}). Nas 10 zonas com mais: {fn(p['pct_nas_10_zonas'], 1)}% das de cima ({p.get('zonas_distintas_acima')} zonas distintas; limiar 30%); no espelho {fn(p.get('pct_nas_10_zonas_abaixo'), 1)}%.")
+    w('  As 10 zonas com mais seções acima de +4: ' + '; '.join(f"{z} {n}" for z, n in p['top10_zonas']) + ' (ZZ|1 é o exterior inteiro).')
+    w(f"Margem movida pelas caudas: de cima {fi(p['margem_cauda_de_cima'])} votos; de baixo {fi(p['margem_cauda_de_baixo'])}; líquida {fi(p['margem_liquida'])} votos = {fn(p['pct_da_margem_nacional'], 3)}% da margem nacional (a favor de Flávio).")
     w(f"Classificação pela letra: {B['classificacao_pela_letra']}.")
-    w('Sensibilidades (acima / abaixo / razão):')
+    w('Sensibilidades escritas antes (acima / abaixo / razão):')
+    nomes_s = {'previsao_entre_0,1_e_0,9': 'só previsão entre 0,1 e 0,9', 'faixas_de_tamanho_x_previsao': 'faixas de tamanho cruzadas com faixas de previsão', 'z_em_pontos': 'z em pontos (sem a fórmula binomial)',
+               'faixas_por_decis_de_n': 'faixas por decis de n', 'sem_exterior': 'sem exterior', 'n_50_ou_mais': 'n de 50 ou mais', 'sem_deixar_de_fora': 'sem deixar a seção de fora',
+               'z_bruto_deixando_de_fora_sem_recalibrar': 'z binomial sem recalibrar'}
     for k, r in B['sensibilidades'].items():
         if 'acima' in r:
-            w(f"  {k}: {fi(r['acima'])} / {fi(r['abaixo'])} / {fn(r['razao'], 2)}")
-    for nome in ('por_faixa_de_tamanho', 'por_faixa_de_previsao'):
-        w(f"  {nome}: " + '; '.join(f"{k}: {r['acima']}/{r['abaixo']}" for k, r in B['sensibilidades'][nome].items()))
+            w(f"  {nomes_s.get(k, k)}: {fi(r['acima'])} / {fi(r['abaixo'])} / {fn(r['razao'], 2)}")
+    w('  por faixa de previsão da fatia de Lula (acima/abaixo): ' + '; '.join(f"{k.replace('.', ',')}: {r['acima']}/{r['abaixo']}" for k, r in B['sensibilidades']['por_faixa_de_previsao'].items()) + '.')
+    w('  por faixa de n (acima/abaixo): ' + '; '.join(f"{k}: {r['acima']}/{r['abaixo']}" for k, r in B['sensibilidades']['por_faixa_de_tamanho'].items()) + '.')
+    w('  O "desvio para Flávio" é efeito de borda: onde a previsão passa de 0,8 a fatia de Lula só pode errar para baixo (69 contra 544); onde fica abaixo de 0,2, só para cima (73 contra 4).')
+    w('  Longe das bordas as caudas são iguais (186 contra 203).')
     w('Por UF (acima/abaixo): ' + '; '.join(f"{uf} {r['acima']}/{r['abaixo']}" for uf, r in B['por_uf'].items()) + '.')
-    ca = B['calibracao']
-    rf = ca['referencia_+5pts_1000_secoes_10_zonas']
-    w(f"Calibração, caso plantado (+5 pontos em 1.000 seções de 10 zonas, 20 sorteios): critério de sinal atingido em {rf['sinal_em']} de {rf['de']}; em média {fn(rf['media_plantadas_alem_de_4'], 1)} das 1.000 plantadas passam de +4; razão média {fn(rf['media_razao'], 2)}; {fn(rf['media_zonas_plantadas_entre_as_10'], 1)} das 10 zonas plantadas aparecem entre as 10 primeiras; margem plantada {fi(rf['media_margem_plantada'])} votos ({fn(100 * rf['media_margem_plantada'] / MARGEM, 2)}% da margem).")
+    w(f"Calibração, caso plantado (+5 pontos em 1.000 seções de 10 zonas, 20 sorteios): critério de sinal atingido em {rf['sinal_em']} de {rf['de']}; em média {fn(rf['media_plantadas_alem_de_4'], 1)} das 1.000 plantadas")
+    w(f"  passam de +4; razão média {fn(rf['media_razao'], 2)}; {fn(rf['media_zonas_plantadas_entre_as_10'], 1)} das 10 zonas plantadas aparecem entre as 10 primeiras; margem plantada {fi(rf['media_margem_plantada'])} votos ({fn(100 * rf['media_margem_plantada'] / MARGEM, 2)}% da margem).")
+    nomes_c = {'+10pts_1000_secoes_10_zonas': '+10 pontos em 1.000 seções de 10 zonas', '+15pts_1000_secoes_10_zonas': '+15 pontos em 1.000 seções de 10 zonas',
+               '+5pts_5000_secoes_50_zonas': '+5 pontos em 5.000 seções de 50 zonas', '+10pts_5000_secoes_50_zonas': '+10 pontos em 5.000 seções de 50 zonas'}
     for k, r in ca.items():
         if k.startswith('+'):
-            w(f"  {k}: sinal em {r['sinal_em']} de {r['de']}; plantadas além de +4: {fn(r['media_plantadas_alem_de_4'], 1)}; razão média {fn(r['media_razao'], 2)}; margem plantada {fi(r['media_margem_plantada'])}.")
+            w(f"  {nomes_c.get(k, k)}: sinal em {r['sinal_em']} de {r['de']}; plantadas além de +4: {fn(r['media_plantadas_alem_de_4'], 1)}; razão média {fn(r['media_razao'], 2)}; margem plantada {fi(r['media_margem_plantada'])} votos.")
     es = ca['espelho_-5pts_1000_secoes_10_zonas']
-    w(f"  espelho (-5 pontos): {fn(es['media_plantadas_alem_de_-4'], 1)} plantadas além de -4; razão média {fn(es['media_razao'], 2)}.")
-    w(f"Caso plantado detectado: {B['caso_plantado_detectado']}. VEREDITO: {B['veredito']}.")
-    w('As 30 de maior z recalibrado e as 10 de menor (para auditoria):')
+    w(f"  espelho (-5 pontos em 1.000 seções de 10 zonas): {fn(es['media_plantadas_alem_de_-4'], 1)} plantadas além de -4; razão média {fn(es['media_razao'], 2)}.")
+    w(f"  Nenhum dos casos plantados dá SINAL: com {fi(p['abaixo'])} seções na cauda de baixo (efeito de borda), a razão de 1,3 exigiria {fi(np.ceil(1.3 * p['abaixo']))} seções na cauda de cima (há {fi(p['acima'])}),")
+    w('  e quando a razão passa (+10 pontos em 5.000 seções) a cláusula das 10 zonas falha. O critério do F5, mesmo recalibrado, não tem como acusar nem absolver.')
+    w(f"Caso plantado detectado: {'sim' if B['caso_plantado_detectado'] else 'não'}. VEREDITO: {B['veredito']}.")
+    jc = B.get('ja_conferidas_no_F5_original')
+    if isinstance(jc, dict):
+        w(f"Das 30 de cima, {len(jc['top30'])} já tiveram boletim, RDV, log e assinatura conferidos no F5 original (sem sinal no arquivo); das 10 de baixo, {len(jc['bot10'])}.")
+    w('As 30 de maior z recalibrado e as 10 de menor (para auditoria; em local com 2 seções a previsão vem de uma única vizinha):')
     for r in B['top30'] + B['bot10']:
-        w(f"  {r['secao']:<22} z {fn(r['z_recalibrado'], 1):>6} | {fn(r['residuo_pontos'], 1):>6} pontos | n {r['n']:>4} | {r['L1']}/{r['R1']} -> {r['L2']}/{r['R2']} | comp {r['comp1']}->{r['comp2']} | BN {r['BN1']}->{r['BN2']} | local com {r['secoes_no_local']}" + (' | agregada' if r['agregada'] else ''))
+        w(f"  {r['secao']:<22} z {fn(r['z_recalibrado'], 1):>7} | {fn(r['residuo_pontos'], 1):>6} pontos | n {r['n']:>4} | {r['L1']}/{r['R1']} -> {r['L2']}/{r['R2']} | comp {r['comp1']}->{r['comp2']} | BN {r['BN1']}->{r['BN2']} | local com {r['secoes_no_local']}" + (' | agregada' if r['agregada'] else ''))
     w('')
     # ---------------- C
-    w('PARTE C. LINEARIDADE (descritivo): dispersão da virada por nível, em pontos da fatia de Lula entre os finalistas')
-    w('  ano   virada   outros 1T   nível       observado   sorteio novo   regra única   obs/sorteio novo   obs/regra única (variâncias)')
+    w('PARTE C. LINEARIDADE (descritivo): dispersão da virada por nível, em pontos da fatia de Lula (ou do PT) entre os dois finalistas')
+    w('"Sorteio novo" = teto do acaso (cada seção sorteada de novo com a virada da unidade de cima). "Regra única" = uma só regra nacional de transferência')
+    w('aplicada à composição de cada seção, mais o acaso. Razões são de variâncias.')
+    w('  ano   virada   fora dos finalistas no 1T   nível       observado   sorteio novo   regra única   obs/sorteio novo   obs/regra única')
     nomes = {'uf': 'UF', 'mun': 'município', 'loc': 'local', 'sec': 'seção'}
-    for a in ('2014', '2018', '2022', '2026'):
+    for a in AN:
         r = C['por_ano'][a]
         for k in ('uf', 'mun', 'loc', 'sec'):
-            w(f"  {a}  {fn(r['virada_nacional_pontos'], 2, True)}   {fn(100 * r['outros_sobre_validos_1t'], 1)}%     {nomes[k]:<10}  {fn(r['dp_observado_pontos'][k], 2)}        {fn(r['dp_sorteio_novo_pontos'][k], 2)}           {fn(r['dp_regra_unica_pontos'][k], 2)}          {fn(r['razao_var_observada_sobre_sorteio_novo'][k], 2)}               {fn(r['razao_var_observada_sobre_regra_unica'][k], 2)}")
-        w(f"        desvio simples entre as 27 UFs: {fn(r['dp_simples_entre_ufs_pontos'], 2)} ponto(s)")
-    w('Locais regulares demais (T do local abaixo do quantil do qui-quadrado; observado contra simulado só com o acaso binomial):')
-    for a in ('2014', '2018', '2022', '2026'):
+            w(f"  {a}  {fn(r['virada_nacional_pontos'], 2, True)}    {fn(100 * r['outros_sobre_validos_1t'], 1):>5}%                    {nomes[k]:<10}  {fn(r['dp_observado_pontos'][k], 2)}        {fn(r['dp_sorteio_novo_pontos'][k], 2)}           {fn(r['dp_regra_unica_pontos'][k], 2)}          {fn(r['razao_var_observada_sobre_sorteio_novo'][k], 2):>6}             {fn(r['razao_var_observada_sobre_regra_unica'][k], 2)}")
+        w(f"        desvio simples entre as 27 UFs: {fn(r['dp_simples_entre_ufs_pontos'], 2)} ponto ({fi(r['secoes'])} seções, {fi(r['municipios'])} municípios, {fi(r['locais'])} locais)")
+    w('Leitura (as frases de antes estão no docstring):')
+    w('  1. Entre UFs e entre municípios a virada de 2026 varia pouco em valor bruto (0,84 e 0,81 ponto), como em 2022 (0,55 e 0,70) e muito menos que em 2018 e 2014')
+    w('     (2,8 a 4,1). Em 2018 e 2014 um quarto dos votos do 1º turno estava fora dos finalistas; em 2022 e 2026, 8%.')
+    w('  2. Contra o acaso puro (sorteio novo), a variação entre UFs de 2026 é 12,8 vezes a do acaso, mais que em 2022 (5,1). As UFs não andaram juntas até o limite do acaso.')
+    w('  3. Contra a regra única, a razão entre UFs e entre municípios fica ABAIXO de 1 nos quatro anos (2026: 0,17 e 0,34; 2022: 0,13 e 0,33; 2018: 0,37 e 0,89;')
+    w('     2014: 0,46 e 0,73). A leitura escrita antes ("abaixo de 1 seria regularidade maior que o acaso") estava mal desenhada para esses níveis: a regra única não é')
+    w('     piso, porque soma ao acaso o efeito da composição, e a virada real varia menos entre lugares do que a composição faria prever, em todos os anos. A marca')
+    w('     registrada antes (perto de 1 em 2026 com os outros anos bem acima) não apareceu. 2026 e 2022 são parecidos; se isso for marca, é marca dos dois.')
+    w('  4. Dentro do local, onde a régua é limpa, a dispersão de 2026 está ACIMA do acaso (razão 1,42 contra a regra única; phi 1,64 na parte A), como nos outros anos.')
+    w('Locais regulares demais (T do local abaixo do quantil do qui-quadrado; observado contra simulado só com o acaso binomial das transições):')
+    for a in AN:
         r = C['por_ano'][a]['locais_regulares_demais']
-        w(f"  {a}: {fi(r['locais'])} locais; abaixo de 1%: {fn(100 * r['obs_abaixo_1%'], 2)}% contra {fn(100 * r['sim_abaixo_1%'], 2)}%; abaixo de 5%: {fn(100 * r['obs_abaixo_5%'], 2)}% contra {fn(100 * r['sim_abaixo_5%'], 2)}%; acima de 99%: {fn(100 * r['obs_acima_99%'], 2)}% contra {fn(100 * r['sim_acima_99%'], 2)}%; phi no simulado {fn(r['phi_no_dado_simulado'], 3)}.")
-    if 'exploratorio_depois_de_ver_o_resultado' in o:
-        w('')
-        w('EXPLORATÓRIO (feito depois de ver o resultado; pistas, sem veredito)')
-        for k, vv in o['exploratorio_depois_de_ver_o_resultado'].items():
-            if isinstance(vv, str):
-                w(f'- {k}: {vv}')
-            else:
-                w(f'- {k}: ' + json.dumps(vv, ensure_ascii=False))
+        w(f"  {a}: {fi(r['locais'])} locais; abaixo do quantil de 1%: {fn(100 * r['obs_abaixo_1%'], 2)}% (acaso {fn(100 * r['sim_abaixo_1%'], 2)}%); de 5%: {fn(100 * r['obs_abaixo_5%'], 2)}% (acaso {fn(100 * r['sim_abaixo_5%'], 2)}%); acima do de 99%: {fn(100 * r['obs_acima_99%'], 2)}% (acaso {fn(100 * r['sim_acima_99%'], 2)}%).")
+    pu = C['por_ano']['2026']['locais_regulares_demais']['por_uf_2026']
+    mxu = max(pu.items(), key=lambda kv: kv[1]['obs_abaixo_5%'])
+    w(f"  Em 2026 há MENOS locais regulares demais do que o acaso daria, em todas as UFs (a maior fração abaixo do quantil de 5% é {mxu[0]}, {fn(100 * mxu[1]['obs_abaixo_5%'], 1)}%, contra 5% do acaso).")
     w('')
-    w('DESVIOS DECLARADOS (decisões que o registro não fixa, tomadas no docstring antes de calcular): A1 a A16 (parte A), B1 a B9 (parte B) e')
-    w('a parte C inteira (sem critério registrado). Ver o docstring de scripts/analisar_R27_B6.py.')
+    if X:
+        w('EXPLORATÓRIO (escrito e calculado DEPOIS de ver os resultados acima; pistas e réguas a mais, sem veredito)')
+        e0 = X['E0_conferencia_interna']
+        w(f"E0. Conferência interna: coeficientes iguais aos de lib.fe_ols (diferença máxima {e0['dif_max_coeficientes_contra_lib_fe_ols']:.1e}); phi recalculado {fn(e0['phi_recalculado'], 4)}.")
+        w('E1. Régua interna para a parte espelhada. Mesmo sem fraude e sem nenhuma heterogeneidade, o sorteio multinomial dá um "phi de troca" maior que zero.')
+        w('    ano    phi de troca   piso do acaso   excesso')
+        for a in AN:
+            r = X['E1_piso_multinomial_do_phi_de_troca'][a]
+            w(f"    {a}   {fn(r['phi_de_troca'], 3)}          {fn(r['piso_multinomial'], 3)}           {fn(r['excesso'], 3)}")
+        w('    O excesso de 2026 é igual ao de 2022 (0,169 contra 0,168) e muito menor que os de 2018 e 2014. Teto lendo TODO o excesso de 2026 como troca (sem')
+        w('    nenhuma heterogeneidade natural), em % da margem: ' + '; '.join(f"{f} das urnas: {fn(r['base_piso_multinomial']['pct_da_margem'], 1)}%" for f, r in X['E1_teto_interno_pela_parte_espelhada'].items()) + '.')
+        w('    Descontando o excesso de 2022: ' + '; '.join(f"{f}: {fn(r['base_excesso_de_2022']['pct_da_margem'], 1)}%" for f, r in X['E1_teto_interno_pela_parte_espelhada'].items()) + '.')
+        w('E2. Anatomia das caudas da parte A (seções com Lula 3 desvios acima ou abaixo do previsto). Média do resíduo, em votos:')
+        w('    ano    cauda      seções   Lula     Flávio   branco e nulo   abstenção')
+        for a in AN:
+            for lado in ('direita', 'esquerda'):
+                r = X['E2_anatomia_das_caudas'][a][lado]
+                w(f"    {a}   {lado:<9}  {r['secoes']:>5}   {fn(r['media_e_L'], 1, True):>6}   {fn(r['media_e_R'], 1, True):>6}   {fn(r['media_e_BN'], 1, True):>6}          {fn(r['media_e_abstencao'], 1, True):>6}")
+        an = X['E2_anatomia_das_caudas']
+        w('    Em 2026 a cauda direita (366 contra 265, razão 1,38, a maior dos quatro anos) tem como contrapartida a abstenção (-12,0 votos) mais que Flávio (-5,7):')
+        w('    são seções onde veio mais gente do que o previsto, não seções onde o voto de Flávio encolheu. Saldo de votos de Lula nas duas caudas: ' + '; '.join(f"{a} {fi(an[a]['saldo_votos_L_nas_duas_caudas'])}" for a in AN) + '.')
+        w('    Razão das caudas com outros limiares, 2026: 2,5 desvios ' + fn(an['2026']['razao_caudas_limiar_2.5'], 2) + f" ({an['2026']['n_limiar_2.5'][0]} contra {an['2026']['n_limiar_2.5'][1]}); 4 desvios " + fn(an['2026']['razao_caudas_limiar_4'], 2) + f" ({an['2026']['n_limiar_4'][0]} contra {an['2026']['n_limiar_4'][1]}).")
+        puf = X['E2_caudas_2026_por_uf_[direita, esquerda, par a favor de Lula, par a favor de Flávio]']
+        w('    Por UF em 2026 (direita/esquerda): ' + '; '.join(f"{u} {x[0]}/{x[1]}" for u, x in puf.items()) + '.')
+        w('E3. Seções com a marca de troca nos dois lados ao mesmo tempo (Lula 3 desvios acima E Flávio 3 abaixo, na mesma seção), e o espelho:')
+        w('    ' + '; '.join(f"{a}: {r['lula_acima_e_adversario_abaixo']} a favor do PT e {r['lula_abaixo_e_adversario_acima']} contra" for a, r in X['E3_pares_lula_acima_adversario_abaixo'].items()) + '.')
+        w('    Em 2026 são 9 em 420.440 seções (em 2014 eram 108). Lista para auditoria (resíduo de Lula e de Flávio em votos):')
+        for r in X['E3_lista_2026_lula_acima_e_flavio_abaixo']:
+            w(f"      {r['secao']:<20} Lula {fn(r['e_L'], 1, True)}, Flávio {fn(r['e_R'], 1, True)} | {r['L1']}/{r['R1']} -> {r['L2']}/{r['R2']} | comp {r['comp1']}->{r['comp2']} | BN {r['BN1']}->{r['BN2']} | local com {r['secoes_no_local']}")
+        w('    Espelho (Flávio acima e Lula abaixo): ' + '; '.join(f"{r['secao']} ({r['L1']}/{r['R1']} -> {r['L2']}/{r['R2']})" for r in X['E3_lista_2026_espelho_flavio_acima_e_lula_abaixo']) + '.')
+        e4 = X['E4_varredura_por_zona']
+        w(f"E4. Varredura por zona eleitoral (o que o F5 pela letra não enxerga). phi de troca por zona, {e4['zonas_com_100_ou_mais_secoes']} zonas com 100 ou mais seções: mediana {fn(e4['phi_de_troca_por_zona_quantis']['50'], 2)}; percentil 99 {fn(e4['phi_de_troca_por_zona_quantis']['99'], 2)}; máximo {fn(e4['phi_de_troca_por_zona_quantis']['100'], 2)}.")
+        cz = e4['calibracao_caso_plantado_100_secoes_em_cada_uma_de_10_zonas']
+        mn5 = min(min(c['+5pts']['phi_de_troca_das_zonas_plantadas']) for c in cz); mx5 = max(max(c['+5pts']['phi_de_troca_das_zonas_plantadas']) for c in cz)
+        w(f"    Com o caso plantado do F5 (+5 pontos em 100 seções de cada uma de 10 zonas, 5 sorteios), as zonas plantadas ficam com phi de troca de {fn(mn5, 2)} a {fn(mx5, 2)} e ocupam")
+        w('    as 10 primeiras posições em 5 de 5 sorteios. Com +3 pontos, ' + ', '.join(str(c['+3pts']['entre_as_10_primeiras']) for c in cz) + ' das 10 entram nas 10 primeiras.')
+        w(f"    No dado real nenhuma zona chega perto: a maior é {e4['top20_zonas_por_phi_de_troca'][0]['zona']} com {fn(e4['top20_zonas_por_phi_de_troca'][0]['phi_de_troca'], 2)}. Não existe zona com a marca de +5 pontos em 100 das suas seções.")
+        w('    As 20 zonas de maior phi de troca em 2026 (entre parênteses, a mesma zona em 2022), para quem quiser auditar: ' + '; '.join(f"{r['zona']} {fn(r['phi_de_troca'], 2)} ({fn(r['em_2022']['phi_de_troca'], 2) if r['em_2022'] else 'n/d'})" for r in e4['top20_zonas_por_phi_de_troca']) + '.')
+        w(f"    Correlação do phi de troca por zona entre 2026 e 2022: {fn(e4['correlacao_phi_de_troca_2026_x_2022_por_zona'], 2)} ({e4['zonas_nos_dois_anos']} zonas). Zonas com 2026 acima do dobro de 2022 e acima de 1,5: {len(e4['zonas_com_phi_de_troca_2026_acima_do_dobro_de_2022_e_acima_de_1,5'])}.")
+        e5 = X['E5_troca_por_local_ou_zona_inteira']
+        w(f"E5. Limite do teste da parte A: a mesma dose inteira aplicada a 30% dos LOCAIS inteiros dá fator {fn(e5['30%_dos_locais_inteiros']['fator_sobre_bruto'], 2)}; a 30% das ZONAS inteiras, {fn(e5['30%_das_zonas_inteiras']['fator_sobre_bruto'], 2)}.")
+        w('    O vizinho de sala só enxerga troca que atinja umas urnas e poupe outras DENTRO do mesmo prédio. Troca por prédio, zona ou UF inteira é assunto de B1, A3 e N3.')
+        w('')
+    w('O QUE PESA A FAVOR DA TESE (sem suavizar)')
+    w('- A cauda direita de 2026 (Lula acima do previsto) é 1,38 vez a esquerda, a maior assimetria dos quatro anos (1,10 a 1,16 nos outros); o intervalo de 95% (1,18 a 1,63) exclui 1')
+    w('  e contém o limite de 1,5 do registro. Está em SP (50 contra 21), MG (25 contra 8) e MA (25 contra 7). Em votos é pequeno: saldo de 2.268 votos.')
+    d22 = pr['phi_2026'] - pr['phi_placebo']['2022']; e22 = float(np.hypot(pr['ep_phi_2026'], pr['ep_phi_placebo']['2022']))
+    w(f"- phi de 2026 é {fn(100 * (pr['phi_2026'] / pr['phi_placebo']['2022'] - 1), 1)}% maior que o de 2022 ({fn(pr['phi_2026'], 3)} contra {fn(pr['phi_placebo']['2022'], 3)}; diferença {fn(d22, 3)}, ep {fn(e22, 3)}, {fn(d22 / e22, 1)} erros-padrão). A razão registrada")
+    w('  fica em 0,83 porque o denominador é 2014, o ano mais disperso; contra 2022 seria 1,04, ainda abaixo de 1,15.')
+    w('- A dispersão de 2026 é 64% maior que o acaso binomial e o perfil do eleitorado não explica nada dela. Lida inteira a favor da tese, cabe ali uma troca em 30% das urnas')
+    w('  valendo até 54% da margem, ou em 50% das urnas valendo até 87%; pela parte espelhada (exploratório), 24% e 37%. Não são estimativas, são tetos.')
+    w('- O teste não exclui troca em 70% das urnas ou mais (com a dose inteira plantada em 70% o veredito continuaria SEM SINAL) e é cego para troca igual em todas')
+    w('  e para troca por prédio, zona ou UF inteira (fator 0,94 nos dois plantios).')
+    w('- O reteste do F5 não tem poder: pela letra não se pode dizer que não houve +5 pontos em 1.000 seções.')
+    w('- No TO o phi do presidente é 1,35 vez o do governador nas mesmas urnas (abaixo de 1,5; o phi de troca não acompanha).')
+    w('O QUE PESA CONTRA A TESE (sem suavizar)')
+    w('- Em nenhuma medida 2026 é mais disperso que o maior ano placebo: phi 0,83; equação de Flávio 0,76; phi de troca 0,51. Nenhuma UF passa de 1,15.')
+    w('- A troca plantada é vista: a dose inteira em 30% das urnas multiplica phi por 2,3 (5 sorteios, 2,27 a 2,30) e dá SINAL pela letra; em 10%, por 6,2.')
+    w('- A régua que não depende de outro ano vai no mesmo sentido: nas mesmas urnas, o phi do presidente é 0,95 do phi do governador, e o phi de troca, 0,63.')
+    w('- A parte da dispersão que espelha em Flávio é 37,8% em 2026 e 35,9% em 2022; o excesso sobre o acaso é igual nos dois anos (0,169 e 0,168). A troca plantada a leva a 76%.')
+    w('- As seções da cauda direita têm como contrapartida a abstenção, não o voto de Flávio: é o canal do comparecimento das Ondas A e B, não troca.')
+    w('- Seções com a marca de troca nos dois lados: 9 em 420 mil (4 no espelho). Nenhuma zona com aglomerado.')
+    w('- Se a marca de troca em parte das urnas existe em algum dos quatro anos, o ano que mais se parece com ela é 2014 (60,8% da dispersão espelhada no adversário,')
+    w('  excesso de 0,694 sobre o acaso, 108 seções com a marca nos dois lados), não 2026. Ressalva: em 2014 e 2018 um quarto dos eleitores votou em eliminados, e a divisão')
+    w('  deles entre os finalistas varia de seção para seção, o que produz dispersão espelhada sem fraude (é o mecanismo I2 da calibração).')
+    w('- Linearidade: dentro do local a dispersão está acima do acaso; há menos locais "regulares demais" do que o acaso daria; entre UFs a variação é 12,8 vezes a do acaso.')
+    w('')
+    w('PISTAS (para auditoria; nenhuma é indício pelas regras do Adendo 27)')
+    w('- As 9 seções de 2026 com Lula acima e Flávio abaixo ao mesmo tempo (lista em E3; duas na mesma zona de Manaus, AM|2550|63|822 e 788) e as 4 do espelho:')
+    w('  boletim, RDV, log e assinatura, e caderno de votação. Nenhuma está nas amostras de arquivos em disco; não baixei nada (há um download em curso no mesmo site).')
+    w('- As 366 seções da cauda direita da parte A (a assimetria vem de SP, MG e MA): o excesso de Lula ali vem com comparecimento acima do previsto. É o mesmo canal do N4;')
+    w('  o que decide é caderno de votação, não boletim.')
+    w('- As 30 seções de maior z do F5 recalibrado: 13 já tiveram os arquivos conferidos sem sinal; faltam 17 (todas em local com 2 ou 3 seções).')
+    w('- As 20 zonas de maior phi de troca (E4), começando por SC|98, PE|57, SP|229, MT|40, AL|22 e AL|13 (PE|57, SP|229, MT|40 e AL|13 mais que dobraram em relação a')
+    w('  2022, o que em parte é efeito de escolher as maiores). Em valor absoluto todas ficam abaixo de 1,25, longe do 1,6 a 3,6 do caso plantado.')
+    w('- TO: presidente mais disperso que governador nas mesmas urnas (1,35). Cruzar com o D4-3 (testemunhas na tela de governador, AC e TO).')
+    w('- 2014 é o ano em que a dispersão espelhada é maior. Para quem suspeita de 2014, é o lugar onde este teste teria mais a dizer, com a ressalva dos eliminados.')
+    w('')
+    w('DESVIOS DECLARADOS (decisões que o registro não fixa, tomadas no docstring antes de calcular)')
+    w('- Parte A: A1 (seções agregadas não excluídas, porque o campo estatistica não exclui e os outros anos não têm a marca; variante ao lado), A2 (regressão refeita no')
+    w('  universo restrito), A4 (phi como média de e2/v; razão das somas e versão robusta ao lado), A5 (bootstrap de municípios com coeficientes fixos), A6 (razão entre')
+    w('  caudas = direita sobre esquerda), A7 (mistura com variância comum, dado agrupado em classes de 0,02; conversão para pontos e votos), A8 (ordem do veredito),')
+    w('  A9 (regra do SEM PODER), A10 e A11 (plantios), A12 (parte espelhada e phi de troca, complementares), A13 (variantes), A14 (governador), A15 (tetos).')
+    w('- Parte B: B1 a B9; em especial B3 (quatro faixas de n), B6 (o que é "caso plantado" e "detectado": o critério inteiro em 16 de 20 sorteios) e B7.')
+    w('- Parte C inteira: sem critério registrado. Uma das leituras escritas antes (razão contra a regra única abaixo de 1 = regular demais) mostrou-se mal desenhada')
+    w('  para os níveis de UF, município e local, e isso é dito no texto em vez de ser corrigido em silêncio.')
+    w('- O desvio simples entre UFs sai 0,675 aqui e 0,69 no Adendo 29: lá entram todas as seções de cada turno; aqui, só as que têm os dois turnos, apuradas, no Brasil.')
+    w('- Exploratório (E0 a E5): tudo escrito depois de ver o resultado.')
     return '\n'.join(L) + '\n'
 
 
@@ -1467,6 +1768,8 @@ if __name__ == '__main__':
         parte_B()
     elif cmd == 'C':
         parte_C()
+    elif cmd == 'E':
+        exploratorio_tudo()
     elif cmd == 'final':
         final()
     else:

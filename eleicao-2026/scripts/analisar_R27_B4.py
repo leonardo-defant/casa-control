@@ -1669,6 +1669,222 @@ def modo_exploratorio():
     grava('parcial_exploratorio.json', out)
 
 
+def modo_exploratorio2():
+    """exploratorio_contagem: FEITO DEPOIS de ver os coeficientes do gatilho por contagem (conta do T30) e o placebo do
+    1º turno contra 2022. (a) a conta do T30 com blocos de controle acrescentados um a um; (b) o que um gatilho plantado
+    em K = 50, 75, 100, 150 e 200 faz com os 11 coeficientes; (c) a virada bruta dentro do local por faixa de tamanho;
+    (d) o placebo entre eleições refeito um ciclo antes (1º turno de 2022 contra 2018)."""
+    rng = np.random.default_rng([SEMENTE, 8])
+    b = carrega(2026); U = universo_U(b)
+    b22 = carrega(2022); b18 = carrega(2018)
+    out = {}
+
+    def base_T30(bb, mask, perfil_cols):
+        V_ = (bb['L2'] + bb['R2']).astype(float); V1_ = (bb['L1'] + bb['R1']).astype(float)
+        c1 = np.maximum(bb['comp1'], 1).astype(float); c2 = np.maximum(bb['comp2'], 1).astype(float)
+        cc = {f'x{N}': np.maximum(0.0, c2 - N) / c2 for N in NS_EV}
+        cc['dcomp'] = 100 * (bb['comp2'] - bb['comp1']) / np.maximum(bb['apt2'], 1); cc['lncomp'] = np.log(c2)
+        cc['f13'] = bb['L1'] / c1; cc['f22'] = bb['R1'] / c1; cc['fB'] = bb['B1'] / c1; cc['fN'] = bb['N1'] / c1
+        cc['abst1'] = 1 - bb['comp1'] / np.maximum(bb['apt1'], 1)
+        for nm in COLS_PERFIL_X:
+            cc[nm] = perfil_cols[nm]
+        yy = {'dy': 100 * bb['L2'] / np.maximum(V_, 1) - 100 * bb['L1'] / np.maximum(V1_, 1)}
+        mk = mask & (V1_ > 0)
+        return cc, yy, V_, mk
+
+    blocos = {'T30 com ln (como rodado)': ['dcomp', 'lncomp'],
+              'mais frações do 1º turno': ['dcomp', 'lncomp', 'f13', 'f22', 'fB', 'fN'],
+              'mais abstenção do 1º turno': ['dcomp', 'lncomp', 'f13', 'f22', 'fB', 'fN', 'abst1'],
+              'mais perfil do eleitorado': ['dcomp', 'lncomp', 'f13', 'f22', 'fB', 'fN', 'abst1'] + COLS_PERFIL_X,
+              'só perfil (sem frações do 1º turno)': ['dcomp', 'lncomp'] + COLS_PERFIL_X}
+    cols26, _, _, _, am26 = colunas_2026(b)
+    cc, yy, V_, mk = base_T30(b, U & am26, cols26)
+    Rc = monta_reg(cc, yy, V_, mk, b['loc'], b['mun'])
+    c22, _, _, _, am22 = colunas_ano(b22, b)
+    cc2, yy2, V2_, mk2 = base_T30(b22, am22, c22)
+    Rc2 = monta_reg(cc2, yy2, V2_, mk2, b22['loc'], b22['mun'])
+    a = {}
+    for nome, ctr in blocos.items():
+        a[nome] = {}
+        for N in (50, 75, 100, 150, 200, 300):
+            r = Rc.ajusta([f'x{N}'] + ctr, 'dy'); r2 = Rc2.ajusta([f'x{N}'] + ctr, 'dy')
+            a[nome][str(N)] = {'coef_2026': r['coef'][f'x{N}'], 'ep_2026': r['ep'][f'x{N}'], 'coef_2022': r2['coef'][f'x{N}'], 'ep_2022': r2['ep'][f'x{N}']}
+        log('expl2 (a)', nome, {N: (round(v['coef_2026'], 2), round(v['ep_2026'], 2), round(v['coef_2022'], 2)) for N, v in a[nome].items()})
+    out['a_blocos_de_controle'] = {'nota': 'erro agrupado por município (o T30 agrupa por local); amostra com perfil', 'n_2026': Rc.n, 'n_2022': Rc2.n, 'resultados': a}
+    # (b) gatilho plantado em vários K, efeito nos 11 coeficientes (conta do T30 com ln)
+    lin = np.nonzero(mk)[0][Rc.linhas]
+    aN = {N: Rc.projetor([f'x{N}', 'dcomp', 'lncomp'], f'x{N}') for N in NS_EV}
+    c2 = np.maximum(b['comp2'], 1).astype(float)
+    bq = {}
+    for K in (50, 75, 100, 150, 200):
+        DK = np.maximum(0.0, 1 - K / c2)
+        f = NECESSARIO / float((DK[U] * b['R2'][U]).sum())
+        acc = {N: [] for N in NS_EV}
+        for _ in range(10):
+            dy = 100 * rng.binomial(b['R2'][lin], np.minimum(1.0, f * DK[lin])) / V_[lin]
+            for N in NS_EV:
+                acc[N].append(aN[N] @ dy)
+        bq[str(K)] = {str(N): float(np.mean(acc[N])) for N in NS_EV}
+    obs = {str(N): Rc.ajusta([f'x{N}', 'dcomp', 'lncomp'], 'dy')['coef'][f'x{N}'] for N in NS_EV}
+    # melhor combinação de um gatilho único que reproduz os 11 coeficientes observados (mínimos quadrados em Phi)
+    aj = {}
+    ov = np.array([obs[str(N)] for N in NS_EV])
+    for K, pat in bq.items():
+        pv = np.array([pat[str(N)] for N in NS_EV])
+        phi = float(pv @ ov / (pv @ pv)); aj[K] = {'Phi_que_melhor_ajusta': phi, 'R2_do_ajuste': float(1 - ((ov - phi * pv) ** 2).sum() / (ov ** 2).sum())}
+    out['b_gatilho_plantado_Phi_1'] = {'efeito_nos_coeficientes': bq, 'observado_na_mesma_amostra': obs, 'ajuste_de_um_gatilho_unico': aj}
+    log('expl2 (b)', aj)
+    # (c) virada bruta dentro do local por faixa de comparecimento
+    def virada_por_faixa(bb, mask):
+        V_ = (bb['L2'] + bb['R2']).astype(float); V1_ = (bb['L1'] + bb['R1']).astype(float)
+        mk_ = mask & (V1_ > 0)
+        dy = (100 * bb['L2'] / np.maximum(V_, 1) - 100 * bb['L1'] / np.maximum(V1_, 1))[mk_]; w = V_[mk_]
+        _, g = np.unique(bb['loc'][mk_], return_inverse=True)
+        dd = dy - (np.bincount(g, w * dy) / np.bincount(g, w))[g]
+        cp = bb['comp2'][mk_]; bordas = [0, 50, 75, 100, 150, 200, 250, 300, 100000]
+        return [{'comp_de': bordas[i] + 1, 'comp_ate': bordas[i + 1], 'n': int(((cp > bordas[i]) & (cp <= bordas[i + 1])).sum()),
+                 'votos_V': float(w[(cp > bordas[i]) & (cp <= bordas[i + 1])].sum()),
+                 'virada_menos_media_do_local': float(np.average(dd[(cp > bordas[i]) & (cp <= bordas[i + 1])], weights=w[(cp > bordas[i]) & (cp <= bordas[i + 1])])),
+                 'virada_media': float(np.average(dy[(cp > bordas[i]) & (cp <= bordas[i + 1])], weights=w[(cp > bordas[i]) & (cp <= bordas[i + 1])]))}
+                for i in range(len(bordas) - 1)]
+    out['c_virada_por_faixa'] = {'2026': virada_por_faixa(b, U), '2022': virada_por_faixa(b22, universo_ano(b22)), '2018': virada_por_faixa(b18, universo_ano(b18))}
+    log('expl2 (c)', [(t['comp_ate'], round(t['virada_menos_media_do_local'], 3)) for t in out['c_virada_por_faixa']['2026']],
+        [(t['comp_ate'], round(t['virada_menos_media_do_local'], 3)) for t in out['c_virada_por_faixa']['2022']])
+    # (d) placebo entre eleições um ciclo antes: 1º turno de 2022 contra 2018
+    pos18 = {k: i for i, k in enumerate(b18['chave'])}
+    j18 = np.array([pos18.get(k, -1) for k in b22['chave']]); tem = j18 >= 0; j = np.maximum(j18, 0)
+    tem &= universo_ano(b18)[j]
+    c1_18 = np.maximum(b18['comp1'][j], 1).astype(float); c1 = np.maximum(b22['comp1'], 1).astype(float)
+    V1 = (b22['L1'] + b22['R1']).astype(float)
+    cp = {'yant': 100 * b18['L2'][j] / np.maximum(b18['L2'][j] + b18['R2'][j], 1), 'fLa': b18['L1'][j] / c1_18, 'fRa': b18['R1'][j] / c1_18,
+          'fBa': b18['B1'][j] / c1_18, 'fNa': b18['N1'][j] / c1_18, 'absta': 1 - b18['comp1'][j] / np.maximum(b18['apt1'][j], 1)}
+    cp['dab'] = (1 - b22['comp1'] / np.maximum(b22['apt1'], 1)) - cp['absta']
+    for nm in COLS_PERFIL_X:
+        cp[nm] = c22[nm]
+    cp['lnapt1'] = np.log(np.maximum(b22['apt1'], 1)); cp['pos'] = c22['pos']
+    basep = list(cp)
+    for K in KS_LIMIAR:
+        cp[f'D{K}'] = np.maximum(0.0, 1 - K / c1)
+    mp = am22 & tem & (V1 >= 30)
+    Rp = monta_reg(cp, {'y1': 100 * b22['L1'] / np.maximum(V1, 1)}, V1, mp, b22['loc'], b22['mun'])
+    d_ = {'n': Rp.n}
+    for K in KS_LIMIAR:
+        r = Rp.ajusta(basep + [f'D{K}'], 'y1')
+        d_[str(K)] = {'b': r['coef'][f'D{K}'], 'ep': r['ep'][f'D{K}'], 'z': r['coef'][f'D{K}'] / r['ep'][f'D{K}']}
+    out['d_placebo_1t_2022_contra_2018'] = d_
+    log('expl2 (d)', {K: (round(v['b'], 2), round(v['z'], 1)) for K, v in d_.items() if K != 'n'})
+    # (e) o placebo do 1º turno de 2026 contra 2022 por dentro: tabela bruta por faixa, joelho e controles um a um
+    def entre_eleicoes(bn, ba, perfil, am_n, rotulo):
+        posa = {k: i for i, k in enumerate(ba['chave'])}
+        ja = np.array([posa.get(k, -1) for k in bn['chave']]); tem_ = ja >= 0; jj = np.maximum(ja, 0)
+        tem_ &= universo_ano(ba)[jj]
+        Vn = (bn['L1'] + bn['R1']).astype(float); c1n = np.maximum(bn['comp1'], 1).astype(float); c1a = np.maximum(ba['comp1'][jj], 1).astype(float)
+        yn = 100 * bn['L1'] / np.maximum(Vn, 1); ya = 100 * ba['L2'][jj] / np.maximum(ba['L2'][jj] + ba['R2'][jj], 1)
+        m_ = am_n & tem_ & (Vn >= 30)
+        dy = (yn - ya)[m_]; w = Vn[m_]
+        _, g = np.unique(bn['loc'][m_], return_inverse=True)
+        dd = dy - (np.bincount(g, w * dy) / np.bincount(g, w))[g]
+        cpv = bn['comp1'][m_]; bordas = [0, 50, 75, 100, 150, 200, 250, 300, 100000]
+        tab = [{'comp_de': bordas[i] + 1, 'comp_ate': bordas[i + 1], 'n': int(((cpv > bordas[i]) & (cpv <= bordas[i + 1])).sum()),
+                'votos_V': float(w[(cpv > bordas[i]) & (cpv <= bordas[i + 1])].sum()),
+                'mudanca_menos_media_do_local': float(np.average(dd[(cpv > bordas[i]) & (cpv <= bordas[i + 1])], weights=w[(cpv > bordas[i]) & (cpv <= bordas[i + 1])]))}
+               for i in range(len(bordas) - 1)]
+        cq = {'yant': ya, 'fLa': ba['L1'][jj] / c1a, 'fRa': ba['R1'][jj] / c1a, 'fBa': ba['B1'][jj] / c1a, 'fNa': ba['N1'][jj] / c1a,
+              'absta': 1 - ba['comp1'][jj] / np.maximum(ba['apt1'][jj], 1)}
+        cq['dab'] = (1 - bn['comp1'] / np.maximum(bn['apt1'], 1)) - cq['absta']
+        for nm in COLS_PERFIL_X:
+            cq[nm] = perfil[nm]
+        cq['lnapt1'] = np.log(np.maximum(bn['apt1'], 1)); cq['pos'] = perfil['pos']
+        cq['dapt'] = np.log(np.maximum(bn['apt1'], 1)) - np.log(np.maximum(ba['apt1'][jj], 1))
+        for K in KS_LIMIAR:
+            cq[f'D{K}'] = np.maximum(0.0, 1 - K / c1n)
+        cq['inv'] = 1 / c1n
+        Rq = monta_reg(cq, {'y1': yn}, Vn, m_, bn['loc'], bn['mun'])
+        cheio = ['yant', 'fLa', 'fRa', 'fBa', 'fNa', 'absta', 'dab'] + COLS_PERFIL_X + ['lnapt1', 'pos']
+        specs = {'registrado': cheio, 'com joelho (1/comparecimento)': cheio + ['inv'], 'sem a mudança da abstenção': [c for c in cheio if c != 'dab'],
+                 'sem o perfil': [c for c in cheio if c not in COLS_PERFIL_X], 'com a mudança dos aptos entre as eleições': cheio + ['dapt'],
+                 'só o resultado anterior': ['yant']}
+        res_ = {}
+        for nome, ctr in specs.items():
+            res_[nome] = {}
+            for K in (50, 100, 150, 200):
+                r = Rq.ajusta(ctr + [f'D{K}'], 'y1')
+                res_[nome][str(K)] = {'b': r['coef'][f'D{K}'], 'ep': r['ep'][f'D{K}'], 'z': r['coef'][f'D{K}'] / r['ep'][f'D{K}']}
+            log('expl2 (e)', rotulo, nome, {K: (round(v['b'], 2), round(v['z'], 1)) for K, v in res_[nome].items()})
+        log('expl2 (e)', rotulo, 'tabela', [(t['comp_ate'], t['n'], round(t['mudanca_menos_media_do_local'], 3)) for t in tab])
+        return {'n': Rq.n, 'tabela_bruta': tab, 'especificacoes': res_}
+
+    p26 = dict(cols26); p22 = dict(c22)
+    out['e_entre_eleicoes'] = {'1t_2026_contra_2022': entre_eleicoes(b, b22, p26, am26, '2026x2022'),
+                               '1t_2022_contra_2018': entre_eleicoes(b22, b18, p22, am22, '2022x2018')}
+    # (f) contraste direto, sem a colinearidade da dose: seções com comparecimento acima de K contra as de até K,
+    #     dentro do local. A: com os controles do modelo base; B: virada bruta, só efeito fixo de local.
+    colsf, basef, ysf, Vf, amf = colunas_2026(b)
+    V1f = (b['L1'] + b['R1']).astype(float)
+    for K in (50, 75, 100, 150, 200):
+        colsf[f'I{K}'] = (b['comp2'] > K).astype(float)
+    ysf['vir'] = ysf['y'] - 100 * b['L1'] / np.maximum(V1f, 1)
+    mf = amf & (V1f > 0)
+    Rf = monta_reg({k: colsf[k] for k in basef + [f'I{K}' for K in (50, 75, 100, 150, 200)]}, {'y': ysf['y'], 'vir': ysf['vir']}, Vf, mf, b['loc'], b['mun'])
+    linf = np.nonzero(mf)[0][Rf.linhas]
+    cA, bA, yA, VA, amA = colunas_ano(b22, b)
+    V1a = (b22['L1'] + b22['R1']).astype(float)
+    for K in (50, 75, 100, 150, 200):
+        cA[f'I{K}'] = (b22['comp2'] > K).astype(float)
+    yA['vir'] = yA['y'] - 100 * b22['L1'] / np.maximum(V1a, 1)
+    Ra = monta_reg({k: cA[k] for k in bA + [f'I{K}' for K in (50, 75, 100, 150, 200)]}, {'y': yA['y'], 'vir': yA['vir']}, VA, amA & (V1a > 0), b22['loc'], b22['mun'])
+    fz = {}
+    for K in (50, 75, 100, 150, 200):
+        DK = np.maximum(0.0, 1 - K / c2)
+        f = NECESSARIO / float((DK[U] * b['R2'][U]).sum())
+        aA_ = Rf.projetor(basef + [f'I{K}'], f'I{K}'); aB_ = Rf.projetor([f'I{K}'], f'I{K}')
+        sA, sB = [], []
+        for _ in range(5):
+            dy = 100 * rng.binomial(b['R2'][linf], np.minimum(1.0, f * DK[linf])) / Vf[linf]
+            sA.append(aA_ @ dy); sB.append(aB_ @ dy)
+        sA = float(np.mean(sA)); sB = float(np.mean(sB))
+        rA = Rf.ajusta(basef + [f'I{K}'], 'y'); rB = Rf.ajusta([f'I{K}'], 'vir')
+        qA = Ra.ajusta(bA + [f'I{K}'], 'y'); qB = Ra.ajusta([f'I{K}'], 'vir')
+        dA, eA = rA['coef'][f'I{K}'], rA['ep'][f'I{K}']; dB, eB = rB['coef'][f'I{K}'], rB['ep'][f'I{K}']
+        fz[str(K)] = {'secoes_ate_K_na_amostra': int((b['comp2'][linf] <= K).sum()),
+                      'com_controles': {'d_2026': dA, 'ep': eA, 'd_esperado_com_Phi_1': sA, 'Phi': dA / sA, 'Phi_ic99': [(dA - Z99 * eA) / sA, (dA + Z99 * eA) / sA],
+                                        'd_2022': qA['coef'][f'I{K}'], 'ep_2022': qA['ep'][f'I{K}'],
+                                        'Phi_2026_menos_2022': (dA - qA['coef'][f'I{K}']) / sA,
+                                        'ep_Phi_2026_menos_2022': math.hypot(eA, qA['ep'][f'I{K}']) / sA},
+                      'virada_bruta': {'d_2026': dB, 'ep': eB, 'd_esperado_com_Phi_1': sB, 'Phi': dB / sB, 'Phi_ic99': [(dB - Z99 * eB) / sB, (dB + Z99 * eB) / sB],
+                                       'd_2022': qB['coef'][f'I{K}'], 'ep_2022': qB['ep'][f'I{K}']}}
+        log('expl2 (f)', K, {k: (round(v['d_2026'], 3), round(v['ep'], 3), round(v['d_esperado_com_Phi_1'], 3), round(v['Phi'], 3), [round(x, 3) for x in v['Phi_ic99']], round(v['d_2022'], 3))
+                             for k, v in fz[str(K)].items() if isinstance(v, dict)})
+    out['f_contraste_direto_acima_e_abaixo_de_K'] = fz
+    # (g) valor bruto: seções com 150 votos ou mais nos finalistas e zero voto para um deles
+    zer = {}
+    for nome, bb, mk_, t in (('2026_2t', b, U, '2'), ('2026_1t', b, U, '1'), ('2022_2t', b22, universo_ano(b22), '2'), ('2018_2t', b18, universo_ano(b18), '2')):
+        Vv = bb['L' + t] + bb['R' + t]; mm = mk_ & (Vv >= 150)
+        zer[nome] = {'zero_para_o_adversario_do_PT': int((mm & (bb['R' + t] == 0)).sum()), 'zero_para_o_PT': int((mm & (bb['L' + t] == 0)).sum())}
+    b14 = carrega(2014); Vv = b14['L2'] + b14['R2']; mm = universo_ano(b14) & (Vv >= 150)
+    zer['2014_2t'] = {'zero_para_o_adversario_do_PT': int((mm & (b14['R2'] == 0)).sum()), 'zero_para_o_PT': int((mm & (b14['L2'] == 0)).sum())}
+    mm = U & (b['L2'] + b['R2'] >= 150) & (b['R2'] == 0)
+    ufs, cnt = np.unique(b['uf'][mm], return_counts=True)
+    zer['2026_2t_por_UF'] = {str(u): int(c) for u, c in sorted(zip(ufs, cnt), key=lambda x: -x[1])}
+    zer['2026_2t_lista'] = [{'secao': str(k), 'Lula_2t': int(l2), 'Lula_1t': int(l1), 'Flavio_1t': int(r1), 'comparecimento_2t': int(c_), 'aptos': int(a_)}
+                            for k, l2, l1, r1, c_, a_ in zip(b['chave'][mm], b['L2'][mm], b['L1'][mm], b['R1'][mm], b['comp2'][mm], b['apt2'][mm])]
+    out['g_secoes_com_zero_voto_para_um_finalista'] = zer
+    # (h) calibração extra do pente D1.2(a): regra de período curto em PARTE das seções (o pior caso para o pente),
+    #     no tamanho de um quarto e de 15% da troca necessária
+    Rr = b['R2'][U]; extra = {}
+    for k in (3, 5, 7):
+        for phi in (1.0, 0.5, 0.25, 0.15):
+            q = phi * NECESSARIO / float((Rr // k).sum())
+            sel = rng.random(len(Rr)) < q
+            mv = np.where(sel, Rr // k, 0)
+            o = roda_pente(Rr - mv, 10, rng, nulo=False)
+            extra[f'k{k}_Phi{phi}'] = {'fracao_das_secoes': q, 'votos_movidos': int(mv.sum()), 'Phi_efetivo': float(mv.sum() / NECESSARIO),
+                                       'maxabsZ': o['maxabsZ'], 'p': o['maiores_Z'][0]['p'], 'enxerga_Z8': bool(o['maxabsZ'] >= 8)}
+    out['h_pente_regra_curta_em_parte_das_secoes'] = extra
+    log('expl2 (h)', {k_: (round(v_['fracao_das_secoes'], 4), round(v_['maxabsZ'], 1)) for k_, v_ in extra.items()})
+    grava('parcial_exploratorio2.json', out)
+
+
 # ---------------------------------------------------------------------------------------------------------------
 # Relatório
 # ---------------------------------------------------------------------------------------------------------------
@@ -1748,10 +1964,11 @@ def vereditos():
     return v
 
 
-def modo_relatorio():
+def _corpo_relatorio():
     import textwrap
     meta = le('base_meta.json'); d12 = le('parcial_pente_D12a.json'); d42 = le('parcial_pente_D42.json'); ev = le('parcial_pente_EV.json')
     par = le('parcial_paredao.json'); deg = le('parcial_degrau.json'); lim = le('parcial_limiar.json'); ex = le('parcial_exploratorio.json')
+    e2 = le('parcial_exploratorio2.json')
     v = vereditos()
     R = d12['rodadas']; PL = d12['plantios']
     T = []
@@ -1804,7 +2021,7 @@ def modo_relatorio():
     P('1. PENTE D1.2(a): DENTES PERIÓDICOS NO HISTOGRAMA DAS CONTAGENS')
     P('Votos de Flávio (R2), país: ' + lz('pais|R2'), 2)
     P('Votos de Lula (L2), país: ' + lz('pais|L2'), 2)
-    P('Por modelo de urna (|Z| máximo de R2 e de L2; percentil 99 do nulo perto de 5,2 em todos): ' + '; '.join(
+    P('Por modelo de urna (|Z| máximo de R2 e de L2; percentil 99 do nulo entre 5,1 e 5,4): ' + '; '.join(
         f"{m}: {br(R[f'modelo_{m}|R2']['maxabsZ'])} e {br(R[f'modelo_{m}|L2']['maxabsZ'])}" for m in ('UE2013', 'UE2015', 'UE2020', 'UE2022'))
       + '. Nenhum passa de 5 e todos os periodogramas ficam dentro do percentil 99 do nulo.', 2)
     ufs = sorted((o['maxabsZ'], k) for k, o in R.items() if k.startswith('uf_') and k[-2:] in ('R2', 'L2') and o.get('avaliavel'))
@@ -1815,7 +2032,7 @@ def modo_relatorio():
     s = d12['sensibilidade_todas_as_secoes_do_Brasil']
     P(f"Sensibilidade com todas as seções do Brasil (sem o corte de 30 votos e com as de junta): R2 {br(s['R2']['maxabsZ'])}, L2 {br(s['L2']['maxabsZ'])}.", 2)
     pc = d12['placebos']
-    P('Placebos, mesma conta (|Z| máximo): ' + '; '.join(f"{k.replace('_2t', ' 2º turno').replace('_1t', ' 1º turno').replace('|', ' ')}: {br(pc[k]['maxabsZ'])}"
+    P('Placebos, mesma conta (|Z| máximo): ' + '; '.join(f"{k.replace('2026_gov2t', 'governador do 2º turno').replace('_2t', ' 2º turno').replace('_1t', ' 1º turno').replace('|', ' ')}: {br(pc[k]['maxabsZ'])}"
                                                           for k in ('2026_1t|R1', '2026_1t|L1', '2022_2t|R2', '2022_2t|L2', '2018_2t|R2', '2018_2t|L2', '2014_2t|R2', '2014_2t|L2',
                                                                     '2026_gov2t|G1', '2026_gov2t|G2')) + '.', 2)
     P('Calibração (regra plantada nos dados de 2026; votos movidos, fração da troca necessária, |Z| e período achado):', 2)
@@ -1829,6 +2046,11 @@ def modo_relatorio():
           + (' (NÃO ENXERGA: ponto cego)' if not o['enxerga_Z8'] else ''), 4)
     P('A menor regra plantada (um a cada 110) move 13,8% da troca necessária e dá |Z| de 57; o limiar de sinal é 8 e o observado é 3,65. '
       'Obs.: o desenho chamava esse par de "Phi = 0,25"; com a parte inteira, o que ele move de fato é 0,138.', 2)
+    hx = e2['h_pente_regra_curta_em_parte_das_secoes']
+    P('Pior caso para o pente (calibração extra, acrescentada depois): regra de período curto em poucas seções. ' + '; '.join(
+        f"um a cada {k_[1:].split('_')[0]} em {br(100 * o['fracao_das_secoes'], 1)}% das seções ({br(100 * o['Phi_efetivo'], 0)}% do necessário): |Z| = {br(o['maxabsZ'], 1)}"
+        + ('' if o['enxerga_Z8'] else ' (não vê)') for k_, o in hx.items()) + '. A regra de um a cada dois não tem período e escapa do pente (dito no desenho). '
+      'O desenho afirmava que um quarto da margem daria z de 10 ou mais em qualquer configuração; no dado real isso não vale para um a cada 3 em poucas seções.', 2)
     P('BRANCOS E NULOS. A regressão quadrática de 21 valores da letra não acompanha histogramas tão estreitos (média de 2,9 brancos e 5,5 nulos por '
       'seção; o "liso" erra em até 50%). Resultado da letra, país: B2 ' + f"|Z| = {br(R['pais|B2']['maxabsZ'], 1)} (nulo: mediana {br(R['pais|B2']['nulo']['maxabsZ_q50'], 1)}); "
       f"N2 |Z| = {br(R['pais|N2']['maxabsZ'], 1)} (nulo: mediana {br(R['pais|N2']['nulo']['maxabsZ_q50'], 1)}). Os placebos dão o mesmo: brancos do 1º turno de 2026 "
@@ -1872,9 +2094,15 @@ def modo_relatorio():
       f"percentil 99 do conjunto de {br(conj['q99'], 1)} e limiar de sinal de {br(conj['limiar_de_sinal'], 1)}. {v['D4-2']['recortes_nao_avaliaveis']} recortes (UFs "
       f"menores e exterior) não têm casas com 300 seções e não são avaliáveis por este teste; neles vale o D1.2(a) por UF.", 2)
     p26 = d42['plantios']['R2_2026']
+    rot = {'piso_0.0357_em_1.0_das_secoes': 'piso de 3,57% em todas as seções', 'piso_0.0357_em_0.5_das_secoes': 'piso de 3,57% em 50%',
+           'piso_0.0357_em_0.2_das_secoes': 'piso de 3,57% em 20%', 'piso_0.0357_em_0.1_das_secoes': 'piso de 3,57% em 10%',
+           'piso_0.018_em_1.0_das_secoes': 'piso de 1,8% em todas', 'piso_0.018_em_0.5_das_secoes': 'piso de 1,8% em 50%',
+           'piso_0.018_em_0.2_das_secoes': 'piso de 1,8% em 20%', 'piso_0.01_em_1.0_das_secoes': 'piso de 1% em todas',
+           'piso_0.01_em_0.5_das_secoes': 'piso de 1% em 50%', 'binomial_0.0357 (ponto cego)': 'sorteada (binomial) de 3,57%, ponto cego',
+           'arredonda_0.0357': 'arredondamento de 3,57%', 'inflar_beneficiado_0.0345 (em L)': 'inflar Lula em 3,45% dos próprios votos',
+           'piso_0.018_do_comparecimento (ponto cego)': 'piso de 1,8% do comparecimento, ponto cego'}
     P('Calibração em R2 de 2026 (Z; enxerga se passar de ' + br(1.5 * nac['R2']['nulo']['max'], 1) + '): ' + '; '.join(
-        f"{k.replace('_das_secoes', '').replace('_em_', ' em ').replace('piso_', 'piso de ').replace('0.0357', '3,57%').replace('0.018', '1,8%').replace('0.01', '1%').replace('1.0', 'todas').replace('0.5', '50%').replace('0.2', '20%').replace('0.1', '10%')}: "
-        f"{br(o['Z'], 0)}{'' if o['enxerga'] else ' (não vê)'}" for k, o in p26.items()) + '. Os mesmos plantios em R1 de 2026 e em R2 de 2022 dão números '
+        f"{rot[k]}: {br(o['Z'], 0)}{'' if o['enxerga'] else ' (não vê)'}" for k, o in p26.items()) + '. Os mesmos plantios em R1 de 2026 e em R2 de 2022 dão números '
       'parecidos (no JSON). Isso reproduz no dado real o que o desenhista mediu em dado sintético.', 2)
     P('Exclui, pela calibração: troca por parte inteira de 1% ou mais dos votos de Flávio em todas as seções (16% da troca necessária), de 1,8% em metade '
       '(19%) e de 3,57% em 20% delas (17%). Não exclui troca sorteada nem troca calculada sobre o comparecimento (cego por construção).', 2)
@@ -1894,10 +2122,12 @@ def modo_relatorio():
     pp = ev['R2']['plantado_um_a_cada_28']
     P(f"Plantado \"um a cada 28 votos de Flávio\": z = {br(pp['zc_k27_classe0'], 1)} na classe 0 de k = 27, excesso de {br(100 * pp['excesso_corrigido_k27_classe0'], 0)}% "
       f"(exigido: acima de 20). Espelho em Lula: {br(ev['L2']['plantado_um_a_cada_28']['zc_k27_classe0'], 1)}.", 2)
-    P('Leitura: em Flávio, Lula e brancos a estatística fica abaixo do percentil 99 dos sorteios. Em nulos passa (5,23 contra 3,54), sem chegar às '
-      'condições de sinal (excesso de 2,8% contra 3%; p de 0,0006 contra 0,000001). Não é dente: a classe é a que contém v = 5, e o mesmo acontece no 1º '
-      'turno em nulos e, mais forte, em brancos (193 valores de k com as duas condições no 1º turno, zero no 2º). É a referência que não reproduz a forma '
-      'exata de contagens tão pequenas (ela iguala média e variância, não a curva). Pela letra, INCONCLUSIVO em nulos.', 2)
+    en = ev['N2']
+    P(f"Leitura: em Flávio, Lula e brancos a estatística fica abaixo do percentil 99 dos sorteios. Em nulos passa ({br(en['maxT'])} contra {br(en['sorteios_maxT_q99'])}), sem "
+      f"chegar às condições de sinal (excesso de {br(100 * en['excesso_corrigido_no_max'], 1)}% contra 3%; p de {br(en['p_bonferroni_no_max'], 4)} contra 0,000001). Não é dente: "
+      f"com tão poucas casas a classe é quase um valor só (v = 5 e v = 14), e o mesmo acontece no 1º turno em nulos e, mais forte, em brancos "
+      f"({len(ev['B1']['k_com_condicoes_de_sinal'])} valores de k com as duas condições no 1º turno, {len(ev['B2']['k_com_condicoes_de_sinal'])} no 2º). É a referência que não "
+      'reproduz a forma exata de contagens tão pequenas (ela iguala média e variância, não a curva). Pela letra, INCONCLUSIVO em nulos.', 2)
     P()
     # ---------------- 4
     p = par['2026_2t']
@@ -1918,6 +2148,11 @@ def modo_relatorio():
       f"{cm['observado_acima_de_95']} e {br(cm['previsto_acima_de_95'], 0)} (razão {br(cm['razao_acima'])}). Com efeito fixo de UF: {cu['observado_abaixo_de_5']} e "
       f"{br(cu['previsto_abaixo_de_5'], 1)}; {mil(cu['observado_acima_de_95'])} e {mil(cu['previsto_acima_de_95'])} (razão {br(cu['razao_acima'])}). Nenhuma cauda vazia; a "
       'previsão é larga demais porque o resíduo do modelo é menor que o ruído binomial (o eleitor do 2º turno é o mesmo do 1º) e a simulação usa o binomial.', 2)
+    zr = e2['g_secoes_com_zero_voto_para_um_finalista']
+    P(f"Valor bruto do extremo (exploratório): seções com 150 votos ou mais e ZERO voto para Flávio: {zr['2026_2t']['zero_para_o_adversario_do_PT']} no 2º turno de 2026 "
+      f"({zr['2026_1t']['zero_para_o_adversario_do_PT']} no 1º turno); com zero para o adversário do PT em 2022, 2018 e 2014: {zr['2022_2t']['zero_para_o_adversario_do_PT']}, "
+      f"{zr['2018_2t']['zero_para_o_adversario_do_PT']} e {zr['2014_2t']['zero_para_o_adversario_do_PT']}. Com zero para Lula: {zr['2026_2t']['zero_para_o_PT']}. Por UF em 2026: "
+      + ', '.join(f"{u} {n_}" for u, n_ in zr['2026_2t_por_UF'].items()) + '. A lista das seções está no JSON, para conferência de boletim impresso.', 2)
     pl = par['plantios']; tr = par['votos_que_um_teto_moveria']
     P(f"Calibração: teto de 85% para Flávio plantado em todas as seções ({mil(pl['teto_85_para_Flavio_em_todas']['votos_movidos'])} votos em "
       f"{mil(pl['teto_85_para_Flavio_em_todas']['secoes_alteradas'])} seções): z = {br(pl['teto_85_para_Flavio_em_todas']['maior_z']['z'], 1)}; em 20% das seções "
@@ -1954,8 +2189,8 @@ def modo_relatorio():
         P(f"{K} | {mil(lim['secoes_de_U_com_comparecimento_ate_K'][K])} | {br(o['b_2026'], 3)} ({br(o['ep_2026_cr1'], 3)}) | {br(o['b_2022'], 3)} ({br(o['ep_2022_cr1'], 3)}) | "
           f"{br(o['diferenca'], 3)} ({br(o['ep_bootstrap'], 3)}) {br(o['z'])} | {br(o['Phi_diferenca'], 3)} [{br(o['Phi_ic99'][0], 3)}; {br(o['Phi_ic99'][1], 3)}] | "
           f"{br(o['Phi_so_2026'], 3)} [{br(o['Phi_so_2026_ic99'][0], 3)}; {br(o['Phi_so_2026_ic99'][1], 3)}] | {br(o['joelho_2026']['z'])} | {o['regioes_no_sentido_da_nacional']} de 5", 2)
-    P('Nenhum K chega perto do sinal (z de 3,9; o maior é 1,74). Mas o intervalo só cabe no limite de sem sinal em K = 200. O erro é 5 a 8 vezes o que o desenho '
-      'previa (0,06 a 0,10 ponto), porque o modelo base da letra já tem o logaritmo dos aptos e as duas abstenções, que juntos quase determinam o '
+    P('Nenhum K chega perto do sinal (z de 3,9; o maior é ' + br(max(lim['principal']['y'][K]['z'] for K in ('50', '75', '100', '150', '200'))) + '). Mas o intervalo só cabe no limite de sem sinal em K = 200. O erro de b ficou entre 0,17 e 0,57 ponto, contra '
+      '0,06 a 0,10 previstos no desenho, porque o modelo base da letra já tem o logaritmo dos aptos e as duas abstenções, que juntos quase determinam o '
       'comparecimento: sobra pouca variação da dose.', 2)
     cal = lim['calibracao']
     P('Calibração (taxa plantada f x D_K; fração das 200 cópias detectadas com z de 3,9), Phi = 0,25 | 0,5 | 1: ' + '; '.join(
@@ -1964,17 +2199,31 @@ def modo_relatorio():
       f"{br(max(cal[K]['Phi_1.0']['recuperacao'] for K in cal))}. O registro exige 95% em Phi = 0,25: só K = 200 cumpre. Espelho (plantio a favor de Flávio, Phi = 0,25): "
       + '; '.join(f"K = {K}: {br(100 * cal[K]['espelho_Phi_0.25']['deteccao_z_3_9'], 0)}%" for K in ('50', '75', '100', '150', '200')) + '.', 2)
     ino = lim['explicacao_inocente_plantada']['Phi_0.5']
-    P('Explicação inocente plantada (seção pequena diferente, dose suave sem joelho, tamanho de Phi = 0,5): o estimador principal se move ' + '; '.join(
-        f"K = {K}: {br(ino[K]['principal_deslocamento_em_erros'], 1)} erros (Phi aparente {br(ino[K]['principal_Phi_aparente'])}), joelho {br(ino[K]['joelho_deslocamento_em_erros'], 1)}"
-        for K in ('50', '100', '150', '200')) + '. Ou seja: uma inclinação suave do tamanho de meia margem também apareceria no estimador principal, e é o joelho que a separa.', 2)
+    P('Explicação inocente plantada (seção pequena diferente: transferência com dose suave, sem joelho, no tamanho de meia margem): o estimador principal se move ' + '; '.join(
+        f"K = {K}: {br(ino[K]['principal_deslocamento_em_erros'], 2)} erro" for K in ('50', '100', '150', '200'))
+      + ', e o joelho no máximo ' + br(max(abs(ino[K]['joelho_deslocamento_em_erros']) for K in ('50', '75', '100', '150', '200')), 2)
+      + ' erro. Os controles do modelo base absorvem uma inclinação suave por inteiro: o teste não confunde seção pequena diferente com gatilho, e é por isso mesmo que '
+      'lhe sobra pouco poder.', 2)
     P('Placebo de 2018, que mostra quanto o estimador muda sozinho de uma eleição para outra (Phi de 2022 menos 2018 | de 2026 menos 2018): ' + '; '.join(
         f"K = {K}: {br(lim['principal']['y'][K]['placebo_2018']['Phi_2022_menos_2018'])} | {br(lim['principal']['y'][K]['placebo_2018']['Phi_2026_menos_2018'])}"
         for K in ('50', '75', '100', '150', '200')) + '. O coeficiente vem subindo de eleição em eleição (K = 50: ' +
       f"{br(lim['principal']['y']['50']['placebo_2018']['b_2018'])} em 2018, {br(lim['principal']['y']['50']['b_2022'])} em 2022, {br(lim['principal']['y']['50']['b_2026'])} em 2026).", 2)
     gv = lim['placebo_governador']['resumo']; p1 = lim['placebo_1t_2026_contra_2022']
-    P('Outros placebos: governador do 2º turno nas 6 UFs, qui-quadrado dos 6 z (6 graus de liberdade): ' + '; '.join(f"K = {K}: {br(gv[K]['qui2_dos_6_z'], 1)}" for K in ('50', '100', '150', '200'))
-      + '. 1º turno de 2026 contra 2022 com a dose do 1º turno (b, z, Phi equivalente): ' + '; '.join(
-          f"K = {K}: {br(p1[K]['b'], 3)}, {br(p1[K]['z'])}, {br(p1[K]['Phi_equivalente'], 3)}" for K in ('50', '100', '150', '200')) + '.', 2)
+    P('Placebo de cargo: governador do 2º turno nas 6 UFs, qui-quadrado dos 6 z (6 graus de liberdade; 12,6 seria 5%): ' + '; '.join(f"K = {K}: {br(gv[K]['qui2_dos_6_z'], 1)}" for K in ('50', '75', '100', '150', '200')) + '.', 2)
+    ee = e2['e_entre_eleicoes']['1t_2026_contra_2022']; ea = e2['e_entre_eleicoes']['1t_2022_contra_2018']
+    P('Placebo de turno trocado (1º turno de 2026 contra 2022, dose do 1º turno), que serve também de teste da hipótese no 1º turno: NÃO É LIMPO. b (z): ' + '; '.join(
+        f"K = {K}: {br(p1[K]['b'])} ({br(p1[K]['z'], 1)})" for K in ('50', '100', '150', '200'))
+      + '. O sinal é negativo (contra Lula) nos K baixos e positivo em K = 200. EXPLORATÓRIO, depois de ver: (i) a mesma conta um ciclo antes (1º turno de 2022 contra 2018) '
+      'dá ' + '; '.join(f"K = {K}: {br(e2['d_placebo_1t_2022_contra_2018'][K]['b'])} ({br(e2['d_placebo_1t_2022_contra_2018'][K]['z'], 1)})" for K in ('50', '100', '150', '200'))
+      + ', limpo; (ii) em 2026 não há joelho: com 1/comparecimento no modelo sobra ' + '; '.join(
+          f"K = {K}: {br(ee['especificacoes']['com joelho (1/comparecimento)'][K]['b'])} ({br(ee['especificacoes']['com joelho (1/comparecimento)'][K]['z'], 1)})" for K in ('100', '150', '200'))
+      + '; (iii) o coeficiente troca de sinal quando sai o controle da mudança da abstenção (' + '; '.join(
+          f"K = {K}: {br(ee['especificacoes']['sem a mudança da abstenção'][K]['b'])}" for K in ('50', '100', '150', '200'))
+      + '), e em 2022 contra 2018 acontece o mesmo (' + '; '.join(f"{br(ea['especificacoes']['sem a mudança da abstenção'][K]['b'])}" for K in ('50', '100', '150', '200'))
+      + '); (iv) em valor bruto, a mudança da fração de Lula de 2022 para o 1º turno de 2026, dentro do local, por faixa de comparecimento, varia só de '
+      + br(min(t['mudanca_menos_media_do_local'] for t in ee['tabela_bruta']), 3) + ' a ' + br(max(t['mudanca_menos_media_do_local'] for t in ee['tabela_bruta']), 3)
+      + ' ponto. Leitura: entre 2022 e o 1º turno de 2026 a fração de Lula mudou de modo ligado ao comparecimento da seção (o canal do comparecimento das ondas A e B), sem '
+      'degrau em nenhum K e com diferença bruta de centésimos de ponto. Não é marca de gatilho, mas o placebo registrado não saiu limpo e isso fica dito.', 2)
     sp = lim['sensibilidade_sem_perfil']
     P('Sensibilidade, as duas regressões sem o perfil do eleitorado (Phi da diferença, ep): ' + '; '.join(f"K = {K}: {br(sp[K]['Phi'], 3)} ({br(sp[K]['ep_Phi'], 3)})" for K in ('50', '75', '100', '150', '200')) + '.', 2)
     P('y_BN (brancos e nulos; Phi positivo = caem com a dose, sentido da conversão), Phi da diferença [IC 99%]: ' + '; '.join(
@@ -1988,21 +2237,221 @@ def modo_relatorio():
     # ---------------- 7
     c = lim['EV_contagem']['cortes']
     P('7. GATILHO POR CONTAGEM DA EQUIPE VERMELHA (conta do T30 no bweb inteiro, com ln do tamanho)')
-    P('Coeficiente em pontos por unidade da fração de votantes além de N (ep) | o mesmo em 2022: ' + '; '.join(
-        f"N = {N}: {br(c[N]['coef'])} ({br(c[N]['ep'])}) | {br(c[N]['coef_2022'])}" for N in c) + '.', 2)
-    cc = lim['EV_contagem']['calibracao']
-    P(f"Limiares do T30: sinal com 4 pontos e z de 3,32 (11 cortes), ausente em 2022; sem sinal com até 1,5 ponto em módulo. Calibração: o plantio de Phi = 1 com K = 100 "
-      f"move o coeficiente de N = 100 em {br(cc['K100_Phi1.0']['100']['deslocamento'])} ponto ({br(cc['K100_Phi1.0']['100']['em_erros'], 1)} erros) e o de K = 200 move o de "
-      f"N = 200 em {br(cc['K200_Phi1.0']['200']['deslocamento'])} ({br(cc['K200_Phi1.0']['200']['em_erros'], 1)} erros). O limiar de 4 pontos do T30 corresponde a mais do que a "
-      f"margem inteira nos cortes baixos; o que decide é o erro. Sem o ln do tamanho (conta original do T30), N = 100: {br(c['100']['sem_ln_coef'])} em 2026 e "
-      f"{br(c['100']['sem_ln_coef_2022'])} em 2022.", 2)
+    P(f"Regressão da virada (fatia de Lula do 2º turno menos a do 1º) na fração de votantes além de N, com a variação do comparecimento e ln(votantes), efeito fixo de local, "
+      f"{mil(lim['EV_contagem']['n'])} seções, erro por local. Coeficiente em pontos (z) | o mesmo em 2022: " + '; '.join(
+        f"N = {N}: {br(c[N]['coef'])} ({br(c[N]['z'], 1)}) | {br(c[N]['coef_2022'])}" for N in c) + '.', 2)
+    P('Pela letra (docstring T2, que segue o código do T30): sinal exige 4 pontos, z de 3,32 e |coeficiente de 2022| abaixo de 1,5. Em N = 50, 75 e 100 o coeficiente de 2026 '
+      'passa de 4 pontos com z de ' + br(min(c[N]['z'] for N in ('50', '75', '100')), 0) + ' a ' + br(max(c[N]['z'] for N in ('50', '75', '100')), 0) + ', mas 2022 não está limpo ('
+      + '; '.join(br(c[N]['coef_2022']) for N in ('50', '75', '100')) + ', sinal contrário). Não é SINAL por essa leitura; como nem todos os cortes ficam '
+      'dentro de 1,5 ponto, é INCONCLUSIVO. AVISO: se "ausente em 2022" for lido como "2022 não mostra o mesmo sinal positivo", N = 50, 75 e 100 dariam SINAL. Por isso o '
+      'resultado foi aberto por dentro (EXPLORATÓRIO, depois de ver):', 2)
+    cc = lim['EV_contagem']['calibracao']; bq = e2['b_gatilho_plantado_Phi_1']
+    P(f"(a) Um gatilho real não produz esse desenho. Plantado com o tamanho que vira o resultado, um gatilho em K = 100 move o coeficiente de N = 100 em "
+      f"{br(cc['K100_Phi1.0']['100']['deslocamento'])} ponto (o observado é {br(c['100']['coef'])}) e deixa os cortes altos perto de zero; o observado troca de sinal e fica "
+      f"negativo de N = 150 em diante (z até {br(min(o['z'] for o in c.values()), 1)}). Os 11 coeficientes observados são reproduzidos em "
+      f"{br(100 * bq['ajuste_de_um_gatilho_unico']['200']['R2_do_ajuste'], 1)}% por um único efeito em K = 200 de sinal NEGATIVO (Phi = "
+      f"{br(bq['ajuste_de_um_gatilho_unico']['200']['Phi_que_melhor_ajusta'])}, a favor de Flávio) ou, com ajuste pior ({br(100 * bq['ajuste_de_um_gatilho_unico']['75']['R2_do_ajuste'], 1)}%), "
+      f"por um gatilho em K = 75 de {br(bq['ajuste_de_um_gatilho_unico']['75']['Phi_que_melhor_ajusta'], 1)} vezes a margem inteira, o que é impossível (seriam 12 milhões de "
+      f"votos trocados). Sem o ln do tamanho (conta original do T30) o coeficiente de 2026 é negativo em TODOS os cortes (N = 100: {br(c['100']['sem_ln_coef'])}; 2022: "
+      f"{br(c['100']['sem_ln_coef_2022'])}).", 4)
+    ab = e2['a_blocos_de_controle']['resultados']
+    P('(b) O que explica: controles acrescentados um a um (coeficiente de 2026 em N = 50 | 100 | 200; erro por município): ' + '; '.join(
+        f"{nome}: {br(ab[nome]['50']['coef_2026'])} | {br(ab[nome]['100']['coef_2026'])} | {br(ab[nome]['200']['coef_2026'])}" for nome in ab)
+      + f". Com a abstenção do 1º turno e o perfil do eleitorado o coeficiente some ({br(ab['mais perfil do eleitorado']['50']['coef_2026'])}, ep "
+      f"{br(ab['mais perfil do eleitorado']['50']['ep_2026'])}, em N = 50). É o canal do comparecimento e da idade visto pelo tamanho da seção, não uma regra de contagem.", 4)
+    tb = e2['c_virada_por_faixa']
+    vt = sum(abs(t['virada_menos_media_do_local']) * t['votos_V'] / 100 for t in tb['2026']) / 2
+    P('(c) Valor bruto: virada dentro do local (menos a média do local, em pontos) por faixa de comparecimento, 2026 | 2022: ' + '; '.join(
+        f"{t['comp_de']} a {t['comp_ate'] if t['comp_ate'] < 9999 else 'mais'}: {br(t['virada_menos_media_do_local'], 3)} | {br(u['virada_menos_media_do_local'], 3)}"
+        for t, u in zip(tb['2026'], tb['2022'])) + f". Em 2026 nenhuma faixa se afasta mais de 0,06 ponto; somadas, essas diferenças valem cerca de {mil(vt)} votos, contra "
+      '2.215.096 necessários. Os coeficientes de 5 a 8 "pontos por unidade" saem de diferenças de centésimos de ponto esticadas pela colinearidade entre a fração além de N e o ln do tamanho.', 4)
+    fz = e2['f_contraste_direto_acima_e_abaixo_de_K']
+    P('(d) Contraste direto, sem a dose colinear: virada das seções com comparecimento acima de K menos a das seções de até K, dentro do mesmo local (em pontos; ep por '
+      'município), com a escala tirada de um gatilho plantado do tamanho da margem: ' + '; '.join(
+          f"K = {K}: {br(fz[K]['virada_bruta']['d_2026'], 3)} ({br(fz[K]['virada_bruta']['ep'], 3)}), esperado com Phi = 1: {br(fz[K]['virada_bruta']['d_esperado_com_Phi_1'])}, "
+          f"Phi = {br(fz[K]['virada_bruta']['Phi'])} [IC 99%: {br(fz[K]['virada_bruta']['Phi_ic99'][0])}; {br(fz[K]['virada_bruta']['Phi_ic99'][1])}], 2022: {br(fz[K]['virada_bruta']['d_2022'], 3)}"
+          for K in ('50', '75', '100', '150', '200')) + '. Em 2026 as seções acima de K viraram um pouco MENOS para Lula que as pequenas (em 2022 foi o contrário). '
+      'Limite superior de 99% para um gatilho a favor de Lula: 59% da margem em K = 50, 38% em K = 75, 10% em K = 100 e abaixo de zero em K = 150 e 200. Ressalva: '
+      'sem controles, a composição das seções pequenas pesa cerca de 0,2 ponto para um lado ou para o outro (é o tamanho do contraste de 2022).', 4)
     P()
     return T, v
+
+
+DESVIOS = [
+    'P4: a estatística do pente é o maior |Z| (dente e buraco contam); a letra fala em "máximo de Z". Os dois sentidos ficam no JSON.',
+    'P3: só entram casas com curva lisa de 30 seções ou mais e combinações (p, o) com 2 dentes ou mais.',
+    'Na primeira execução o código exigia 10 casas usadas (regra que não estava no docstring) e deixou B2 do país, com 9, fora; foi corrigido para a '
+    'regra escrita (qualquer rodada com alguma combinação de 2 dentes) quando só se tinham visto os |Z| de R2, L2 e N2.',
+    'Placebos na própria UF para as rodadas de UF: acrescentados depois de ver a primeira rodada, porque o placebo nacional não tem as mesmas casas.',
+    'Os pares (q, k) do desenho D1.2 não dão os Phi que o desenho anuncia: com a parte inteira, k = 110, 56 e 28 em todas as seções movem 13,8%, 37,1% e '
+    '85,4% da troca necessária, e k = 7 em 25% das seções, 93,9%. Todos foram enxergados. A conta do desenho para o limiar (um quarto da margem dá z de 10 em '
+    'qualquer configuração) não se confirma para período curto em poucas seções (calibração extra).',
+    'B2 e N2 no D1.2(a): pela leitura mais favorável à tese (basta o placebo não ter |Z| de 5 no mesmo (p, o)) há SINAL pela letra em rodadas de UF; pela '
+    'via do periodograma o pico aparece nos placebos em todas elas. O relatório dá o rótulo da leitura favorável e a demonstração de que é artefato.',
+    'D1.2(b): a densidade lisa da referência é condicionada ao tamanho da própria seção (fração da seção mais ruído de 1 p.p.), não sorteada independente '
+    'do tamanho; caudas "dentro do previsto" = razão entre 0,5 e 2.',
+    'D1.2(c): ajuste ponderado por h; erro de S por reamostragem Poisson.',
+    'D1.3: a regressão de 2022 leva o perfil do eleitorado de 2026 pela chave (não há perfil de 2022 em disco); Phi da diferença usa a exposição de 2026; '
+    'o joelho é lido em 2026; a figura virou tabela; por K, quem não detecta o plantio de Phi = 0,25 em 95% das cópias sai como SEM PODER (regra do pedido), '
+    'e não como INCONCLUSIVO.',
+    'D1.3, joelho com K = 25: não é identificado (U exige 30 votos nos finalistas, então nenhuma seção de U tem comparecimento de até 25).',
+    'D4-2: 47 recortes (UFs menores e exterior) não têm casas com 300 seções e ficam sem avaliação; "três faixas de tamanho" = tercis do comparecimento.',
+    'Equipe vermelha: "200 sorteios binomiais" = binomial por seção com encolhimento que mantém a variância; "percentil 99 em todos os k" lido como o '
+    'máximo sobre k; o gatilho por contagem não tinha critério no reteste e levou o do T30 com Bonferroni para 11 cortes.',
+    'Governador no pente e no degrau: mais votado e segundo da UF, 6 UFs juntas.',
+]
+
+EXPLORATORIO = [
+    'Conta da letra do pente em histogramas sorteados sem regra (modo exploratorio): mostra que o disparo em brancos e nulos é do alisamento.',
+    'B e N de outros turnos e anos no D4-2, só para comparar.',
+    'Gatilho por contagem aberto por dentro (modo exploratorio2): controles um a um, gatilho plantado em vários K, virada bruta por faixa de tamanho, '
+    'contraste direto acima e abaixo de K, e o placebo entre eleições refeito um ciclo antes e com e sem cada controle.',
+    'Contagem de seções com zero voto para um finalista e calibração extra do pente com regra de período curto em poucas seções (modo exploratorio2).',
+]
+
+
+def modo_relatorio():
+    T, v = _corpo_relatorio()
+    import textwrap
+    d12 = le('parcial_pente_D12a.json'); d42 = le('parcial_pente_D42.json'); ev = le('parcial_pente_EV.json')
+    par = le('parcial_paredao.json'); deg = le('parcial_degrau.json'); lim = le('parcial_limiar.json')
+    ex = le('parcial_exploratorio.json'); e2 = le('parcial_exploratorio2.json'); meta = le('base_meta.json')
+    R = d12['rodadas']; PL = d12['plantios']; pr = lim['principal']['y']; fz = e2['f_contraste_direto_acima_e_abaixo_de_K']
+
+    def P(txt='', rec=0):
+        if not txt:
+            T.append(''); return
+        T.extend(textwrap.wrap(txt, 118, initial_indent=' ' * rec, subsequent_indent=' ' * (rec + 2)))
+
+    P('CALIBRAÇÃO, ESPELHO E PONTO CEGO')
+    P(f"Calibração por efeito plantado nos dados de 2026: todas as regras determinísticas da letra foram enxergadas (pente D1.2(a): |Z| de "
+      f"{br(min(PL[k]['maxabsZ'] for k in PL if k.endswith('|R2') and 'binomial' not in k), 1)} a "
+      f"{br(max(PL[k]['maxabsZ'] for k in PL if k.endswith('|R2') and 'binomial' not in k), 1)} contra limiar 8; D4-2: Z de 1.076 contra limiar de "
+      f"{br(1.5 * d42['nacional']['R2']['nulo']['max'], 1)}; módulo k: z de {br(ev['R2']['plantado_um_a_cada_28']['zc_k27_classe0'], 0)} contra 20; paredão: z de 41; degrau: 5,2 erros). "
+      f"O limiar de contagem só tem poder em K = 200.", 2)
+    P('Espelho: a mesma conta em Lula (L2) é tão lisa quanto em Flávio; os plantios de Lula para Flávio são enxergados com a mesma força; no degrau e no contraste por '
+      'tamanho o desvio medido tem o sinal contrário ao da tese.', 2)
+    P(f"Ponto cego, medido: a troca SORTEADA do tamanho que vira o resultado ({mil(PL['binomial_Phi1|R2']['votos_movidos'])} votos) dá |Z| = "
+      f"{br(PL['binomial_Phi1|R2']['maxabsZ'], 1)} no D1.2(a) e Z = {br(d42['plantios']['R2_2026']['binomial_0.0357 (ponto cego)']['Z'], 1)} no D4-2: invisível. O mesmo "
+      'vale para troca calculada sobre o comparecimento. SEM SINAL aqui não diz nada sobre elas.', 2)
+    P()
+    P('A FAVOR DA TESE (o que fica aberto ou aponta para ela)')
+    P(f"1. Limiar de contagem em K de 50 a 150: o teste registrado não tem poder. A diferença contra 2022 é positiva nos K baixos (Phi de {br(pr['50']['Phi_diferenca'])} em "
+      f"K = 50, {br(pr['75']['Phi_diferenca'])} em K = 75, {br(pr['100']['Phi_diferenca'])} em K = 100), com z de {br(pr['50']['z'])}, {br(pr['75']['z'])} e {br(pr['100']['z'])}, "
+      f"e o intervalo de 99% admite até {br(pr['50']['Phi_ic99'][1])}, {br(pr['75']['Phi_ic99'][1])} e {br(pr['100']['Phi_ic99'][1])} vezes a margem. Sem o perfil do "
+      f"eleitorado a diferença sobe para {br(lim['sensibilidade_sem_perfil']['50']['Phi'])} e {br(lim['sensibilidade_sem_perfil']['75']['Phi'])} (z perto de 3,1). "
+      'Não é evidência (ver os itens 5 e 6 do outro lado), mas também não é exclusão.', 2)
+    P('2. Gatilho por contagem na conta do T30: coeficiente acima de 4 pontos com z de 12 a 16 em N = 50, 75 e 100, e sinal contrário em 2022. Só não é SINAL pela '
+      'leitura fixada antes (2022 não está limpo). Aberto por dentro, não tem forma de gatilho (itens 6 e 7 do outro lado).', 2)
+    P('3. O placebo do 1º turno de 2026 contra 2022 não saiu limpo (z de -7,0 a +6,2), o que não acontece um ciclo antes.', 2)
+    P('4. Brancos e nulos no pente da letra: SINAL numérico em rodadas de UF (artefato demonstrado, mas é o que a letra dá). Nulos nos resíduos módulo k: INCONCLUSIVO.', 2)
+    P('5. Degrau: INCONCLUSIVO pela letra (|S| entre 0,02 e 0,05).', 2)
+    P('6. Estes testes são cegos, por construção, para a troca sorteada voto a voto e para tudo o que passa pelo comparecimento, e o pente quase não vê regra de '
+      'período curto concentrada em poucas seções (um a cada 3 em menos de 6% das seções).', 2)
+    P()
+    P('CONTRA A TESE')
+    P(f"1. Nenhum dente nas contagens de Flávio e de Lula, em nenhum recorte: |Z| de {br(R['pais|R2']['maxabsZ'])} e {br(R['pais|L2']['maxabsZ'])} no país, até "
+      f"{br(max(R[k]['maxabsZ'] for k in R if k.startswith('modelo_') and k[-2:] in ('R2', 'L2')))} por modelo de urna e até "
+      f"{br(max(R[k]['maxabsZ'] for k in R if k.startswith('uf_') and k[-2:] in ('R2', 'L2') and R[k].get('avaliavel')))} por UF, contra limiar 8 e contra |Z| de "
+      f"{br(min(PL[k]['maxabsZ'] for k in PL if k.endswith('|R2') and 'binomial' not in k), 0)} a {br(max(PL[k]['maxabsZ'] for k in PL if k.endswith('|R2') and 'binomial' not in k), 0)} "
+      'das regras plantadas. Três métodos diferentes (D1.2(a), D4-2 e módulo k) dão o mesmo.', 2)
+    P('2. Nenhum paredão: nenhuma faixa de fração com excesso ou buraco, e a cauda de seções com Lula acima de 95% é menor em 2026 que em 2022, 2018 e 2014.', 2)
+    P(f"3. Degrau com sinal contrário (S = {br(deg['2026_2t']['S'], 4)}): faltam, não sobram, seções com Lula pouco à frente; o 1º turno mostra quase o mesmo.", 2)
+    P(f"4. Limiar em K = 200, onde há poder: Phi = {br(pr['200']['Phi_diferenca'], 3)} [IC 99%: {br(pr['200']['Phi_ic99'][0], 3)}; {br(pr['200']['Phi_ic99'][1], 3)}], isto é, no "
+      f"máximo {mil(pr['200']['votos_de_margem_ic99'][1])} votos de margem ({br(100 * pr['200']['Phi_ic99'][1], 1)}%).", 2)
+    P(f"5. Em 2026 sozinho, sem comparar com outro ano, o coeficiente do limiar é zero em todo K: Phi de {br(pr['50']['Phi_so_2026'], 3)}; {br(pr['75']['Phi_so_2026'], 3)}; "
+      f"{br(pr['100']['Phi_so_2026'], 3)}; {br(pr['150']['Phi_so_2026'], 3)}; {br(pr['200']['Phi_so_2026'], 3)} (K = 50 a 200). A diferença positiva dos K baixos vem de 2022 ter coeficiente "
+      f"negativo, e o coeficiente já vinha subindo de 2018 para 2022 sem 2026 (Phi de 2022 menos 2018: {br(pr['50']['placebo_2018']['Phi_2022_menos_2018'])}; "
+      f"{br(pr['75']['placebo_2018']['Phi_2022_menos_2018'])}; {br(pr['100']['placebo_2018']['Phi_2022_menos_2018'])}). O joelho, que é o que distingue gatilho de composição, não "
+      f"passa de z {br(max(pr[K]['joelho_2026']['z'] for K in ('50', '75', '100', '150', '200')))}.", 2)
+    P(f"6. Contraste direto (exploratório): as seções acima de K viraram MENOS para Lula que as de até K ({br(fz['100']['virada_bruta']['d_2026'], 3)} ponto em K = 100, "
+      f"{br(fz['200']['virada_bruta']['d_2026'], 3)} em K = 200). Um gatilho a favor de Lula fica limitado a 10% da margem em K = 100 e abaixo de zero em K = 150 e 200.", 2)
+    P('7. O coeficiente grande da conta do T30 some com a abstenção do 1º turno e o perfil do eleitorado, troca de sinal sem o ln do tamanho, tem o desenho espelhado de '
+      'um efeito a favor de Flávio e corresponde, em valor bruto, a diferenças de centésimos de ponto (cerca de '
+      + mil(sum(abs(t['virada_menos_media_do_local']) * t['votos_V'] / 100 for t in e2['c_virada_por_faixa']['2026']) / 2) + ' votos).', 2)
+    P('8. Brancos e nulos: a quarta diferença do logaritmo não acha nenhum dente em nenhum recorte, e acha as conversões plantadas (até a de 59 mil votos).', 2)
+    P()
+    P('O QUE ISSO SIGNIFICA')
+    P('Fica fechada, para os votos de Flávio e de Lula, a família das regras fixas por seção aplicadas a todas as seções ou a boa parte delas: um a cada k, fração '
+      'arredondada, teto de fração e virada pelo placar. Nessa forma, uma regra que movesse de 14% a 17% da troca necessária (305 mil a 375 mil votos) apareceria com '
+      'folga de 6 a 15 vezes o limiar, no país, por modelo de urna e nas UFs. Em votos: a regra em todas as seções fica limitada a menos de 305 mil votos trocados (610 mil '
+      'de margem, 14% dela); em 20% a 50% das seções, a menos de 375 mil a 414 mil; o paredão e o degrau, a alguns milhares; o limiar em K = 200, a 270 mil votos de margem.', 2)
+    hx = e2['h_pente_regra_curta_em_parte_das_secoes']
+    piso = {k: min((o['Phi_efetivo'], o['fracao_das_secoes']) for k_, o in hx.items() if k_.startswith(f'k{k}_') and o['enxerga_Z8']) for k in (3, 5, 7)}
+    P('O pente NÃO fecha o canto da regra de período curto concentrada em poucas seções (calibração extra). Menor plantio enxergado: ' + '; '.join(
+        f"um a cada {k}: {br(100 * piso[k][0], 0)}% da troca necessária, em {br(100 * piso[k][1], 1)}% das seções" for k in (3, 5, 7))
+      + '; abaixo disso escapa (um a cada 3 com um quarto do necessário dá |Z| de ' + br(hx['k3_Phi0.25']['maxabsZ'], 1) + '). Esse canto não é invisível: tirar um terço, '
+      'um quinto ou um sétimo dos votos de Flávio de uma seção é mudança grande dentro do prédio, e quem a mede são os testes de mudança concentrada (caudas e vizinho de '
+      'sala, B6; troca concentrada, N3; matriz de transferência, A3), não este.', 2)
+    P('Não fica fechado: (i) troca sorteada voto a voto, coerente em boletim, RDV e log (ponto cego destes testes; só as testemunhas D4-3 e D4-4 e medida de fora do '
+      'programa alcançam); (ii) gatilho por contagem com K de 50 a 75, onde há poucas seções pequenas (476 e 2.119) e o limite superior fica em 38% a 59% da margem; '
+      '(iii) regra de período curto em poucas seções (parágrafo acima), que depende de outros testes; (iv) tudo o que passa pelo comparecimento, que é o canal apontado '
+      'pelas ondas A e B e não é desta frente.', 2)
+    P('Este resultado não soma evidência a favor de fraude e tira do caminho a versão mais simples de programa adulterado (regra aritmética fixa). Como todo teste feito só '
+      'com arquivos da urna, não vale contra um programa que sorteie a troca.', 2)
+    P()
+    P('PISTAS')
+    P('1. Gatilho por contagem com K baixo: o Teste de Integridade responde direto. Pedir aos TREs as atas com o NÚMERO DE VOTOS digitados em cada urna auditada no 2º turno. '
+      'Se cada urna auditada recebeu mais de 100 a 200 votos (o procedimento manda digitar cédulas em número próximo do comparecimento esperado; o número exato tem de '
+      'sair das atas), a variante "só age depois do voto K" fica coberta por conferência física, sem depender de estatística.', 2)
+    P('2. O placebo do 1º turno contra 2022 não saiu limpo. Vale um teste próprio, com critério escrito antes: a mudança da fração de Lula entre 2022 e o 1º turno de 2026 '
+      'contra a mudança da abstenção por seção, com 2018 a 2022 como régua e o valor bruto de 2026 ao lado. É o mesmo canal do comparecimento, agora no 1º turno.', 2)
+    P('3. Para o conferente: refazer o pente de brancos e nulos com curva lisa que sirva a contagens pequenas (por exemplo, mistura de binomiais ajustada por seção) e '
+      'confirmar que a conta da letra dispara em histogramas sorteados sem regra.', 2)
+    P('4. As 476 seções de U com comparecimento de até 50 e as 2.119 de até 75 são poucas demais para decidir K baixo por estatística; a lista sai da base por seção se '
+      'alguém quiser conferir boletim impresso contra o divulgado nelas.', 2)
+    P()
+    P('DESVIOS DO REGISTRO E DECISÕES (todas no docstring, salvo onde dito)')
+    for i, d in enumerate(DESVIOS, 1):
+        P(f'{i}. {d}', 2)
+    P()
+    P('O QUE É EXPLORATÓRIO (feito depois de ver resultado; não muda veredito)')
+    for i, d in enumerate(EXPLORATORIO, 1):
+        P(f'{i}. {d}', 2)
+    P()
+    nrod = sum(1 for o in R.values() if o.get('avaliavel'))
+    P('CONTAGEM DE TESTES')
+    P(f"Pente D1.2(a): {nrod} rodadas avaliáveis com duas estatísticas cada, mais {len(d12['placebos'])} placebos nacionais e {len(d12['placebos_por_UF'])} por UF. D4-2: 4 nacionais, "
+      f"{v['D4-2']['recortes_avaliaveis']} recortes e 17 placebos. Módulo k: 796 testes no 2º turno e 796 no 1º. Paredão: {par['2026_2t']['faixas_que_decidem']} faixas. Degrau: 1. "
+      f"Limiar: 5 valores de K em dois desfechos. Contagem do T30: 11 cortes. Com os limiares usados (z de 8, 6, 5, 3,9 e 3,32) o acaso daria menos de 0,1 sinal. Sinais pela "
+      f"letra: os de brancos e nulos em rodadas de UF, que são do método (a mesma conta dispara em 100% dos histogramas sorteados sem regra no país e em 58% a 100% nessas UFs). "
+      'Nenhum passou pelas três condições do Adendo 27.', 2)
+    P()
+    P('Reprodução: python3 -I scripts/analisar_R27_B4.py com os modos, nesta ordem: perfil, gov2t, base, pente, paredao, degrau, limiar, exploratorio, exploratorio2, '
+      'relatorio. Números completos em resultados/R27_B4_regra_deterministica.json; parciais em /home/user/trabalho-eleicao/adendo27/R27_B4/.')
+    txt = '\n'.join(T) + '\n'
+    assert chr(0x2014) not in txt and chr(0x2013) not in txt
+    with open(SAIDA_TXT, 'w') as f:
+        f.write(txt)
+    resumo_uf = {k: {'maxabsZ': o.get('maxabsZ'), 'casas_usadas': o.get('casas_usadas'), 'avaliavel': o.get('avaliavel')} for k, o in d12['placebos_por_UF'].items()}
+    d12 = dict(d12); d12['placebos_por_UF'] = resumo_uf
+    saida = {'teste': 'R27_B4, regra determinística: D1.2 (pente, paredão, degrau), D1.3 (limiar de contagem), D4-2 (pente) e fragilidade "V2 e contagem do T30"',
+             'registro': {'adendo': 'Adendo 27 (commit 2748895), ordem do Adendo 30 (commit a7218fb)',
+                          'docstring_antes_de_rodar_sha256': open(f'{TRAB}/docstring_antes_de_rodar.sha256').read().strip(),
+                          'conferente_independente': 'ainda não'},
+             'base': meta, 'vereditos_pela_letra': v,
+             'resumo': ('Regra fixa por seção (um a cada k, fração arredondada, teto, virada pelo placar) não deixou marca nos votos de Flávio e de Lula e teria '
+                        'deixado, com folga, se movesse 14% da troca necessária; o limiar de contagem só tem poder em K = 200 (sem sinal) e fica sem poder em K de 50 a '
+                        '150; brancos e nulos dão sinal pela letra por artefato demonstrado do alisamento; troca sorteada continua fora do alcance.'),
+             'D1.2a_pente': d12, 'D4-2_pente': d42, 'EV_residuos_modulo_k': ev, 'D1.2b_paredao': par, 'D1.2c_degrau': deg, 'D1.3_limiar_e_EV_contagem': lim,
+             'exploratorio_artefato_brancos_e_nulos': ex, 'exploratorio_contagem': e2, 'desvios': DESVIOS, 'exploratorio': EXPLORATORIO}
+    def limpa(o):
+        if isinstance(o, dict):
+            return {str(k): limpa(x) for k, x in o.items()}
+        if isinstance(o, (list, tuple)):
+            return [limpa(x) for x in o]
+        if isinstance(o, float) and (math.isnan(o) or math.isinf(o)):
+            return None
+        return o
+    with open(SAIDA_JSON, 'w') as f:
+        json.dump(limpa(saida), f, ensure_ascii=False, indent=1, default=_jsonavel, allow_nan=False)
+    log('relatorio gravado', len(T), 'linhas;', os.path.getsize(SAIDA_JSON), 'bytes de JSON')
+    print(txt)
 
 
 if __name__ == '__main__':
     modo = sys.argv[1] if len(sys.argv) > 1 else ''
     f = globals().get('modo_' + modo)
     if not f:
-        sys.exit('modos: perfil gov2t base pente paredao degrau limiar relatorio')
+        sys.exit('modos: perfil gov2t base pente paredao degrau limiar exploratorio exploratorio2 relatorio')
     f()

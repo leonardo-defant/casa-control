@@ -1,0 +1,1340 @@
+{
+ "teste": "R27_T22: alinhamento dos finalistas a governador de 2018 e 2022 ao campo de cada presidenciável",
+ "gravado_em_utc": "2026-11-10T13:52:07Z",
+ "estado_ao_gravar": "Gravado antes de calcular qualquer D, espelho ou C de 2018 ou 2022. Até aqui só foi feita a extração do voto por candidato a governador por seção (em andamento) e a leitura dos totais do 2º turno por candidato (resultado público). Já se conheciam os D de 2026 (T22b e F20).",
+ "regras": {
+  "A1": "Papel de Flávio em 2018 e 2022: Jair Bolsonaro (PSL 17 em 2018, PL 22 em 2022).",
+  "A2_campo_de_Bolsonaro": "(a) o finalista declarou apoio ou voto em Bolsonaro no 2º turno presidencial daquele ano, ou recebeu apoio declarado do próprio Bolsonaro; ou (b) é do partido de Bolsonaro ou tem esse partido na coligação registrada no TSE para governador. Basta uma.",
+  "A3_campo_do_PT": "o finalista declarou apoio ou voto no candidato do PT no 2º turno, ou recebeu apoio declarado dele, ou é do PT ou tem o PT na coligação registrada, e não está no campo de Bolsonaro.",
+  "A4_classes": "limpo: exatamente um finalista no campo de Bolsonaro (naturais principais). duplo: os dois no campo de Bolsonaro (fora dos principais; no secundário só com o desempate D2 do F20: o único que atende a (a) e (b)). sem campo de Bolsonaro: fora do D. fora: fonte contraditória ou sem fonte clara.",
+  "refinamento_gravado_aqui_antes_de_qualquer_D": "Quando só (b) vale e o próprio candidato declarou neutralidade (ou recebeu o apoio do outro lado), as fontes se contradizem: o par é classe \"fora\" e não entra nos principais nem no secundário. Aconteceu em DF 2018 (Ibaneis) e PA 2018 (Helder). Esses dois vão só num conjunto descritivo \"pela coligação\", marcado como tal.",
+  "A5": "Naturais do espelho: pares com exatamente um finalista no campo do PT. Naturais de C: pares limpos com o outro finalista no campo do PT (polarizados).",
+  "conferencia_no_dado": "O script confere que os dois números de cada par são os dois com voto nominal no 2º turno do arquivo do TSE."
+ },
+ "fontes_gerais": {
+  "Metropoles_20_10_2018": {
+   "url": "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+   "o_que_traz": "Quadro estado a estado dos 26 finalistas de 13 UFs com o presidenciável apoiado (\"Dos 26 finalistas, 15 declaram apoio ao presidenciável do PSL\"; \"O petista tem palanque em apenas três estados\"), mais a frase sobre o DF: Ibaneis e Rollemberg \"anunciaram, pelo menos oficialmente, a neutralidade na disputa presidencial\". Lido em 10/11/2026."
+  },
+  "Congresso_em_Foco_09_10_2018": {
+   "url": "https://www.congressoemfoco.com.br/noticia/45198/psb-define-apoio-a-haddad-mas-libera-diretorios-em-sp-e-df-ptb-apoia-bolsonaro",
+   "o_que_traz": "PSB apoia Haddad e libera DF e SP; Márcio França \"já declarou que ficará neutro na disputa nacional\"; Rollemberg \"também poderá se manter neutro\"."
+  },
+  "O_Antagonista_15_10_2018": {
+   "url": "https://oantagonista.com.br/?p=121110",
+   "o_que_traz": "Helder Barbalho comemora o apoio do PT no 2º turno no Pará."
+  },
+  "CNN_Brasil_25_10_2022": {
+   "url": "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+   "o_que_traz": "Quadro dos 24 finalistas dos 12 estados com o presidenciável apoiado (Lula, Bolsonaro ou neutro), com \"apoio integral\" a Bolsonaro em MS e RO. Lido em 10/11/2026."
+  },
+  "TSE_coligacoes_2018": {
+   "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip",
+   "o_que_traz": "Composição oficial das coligações para governador por UF (campo DS_COMPOSICAO_COLIGACAO). Baixado e lido em 10/11/2026."
+  },
+  "TSE_coligacoes_2022": {
+   "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip",
+   "o_que_traz": "Idem, 2022."
+  }
+ },
+ "pares": [
+  {
+   "ano": "2018",
+   "uf": "AP",
+   "finalistas": [
+    {
+     "numero": "12",
+     "nome": "Waldez Góes",
+     "partido": "PDT",
+     "coligacao_registrada_TSE": "Com a Força do Povo por Mais Conquistas: PDT, PROS, PTB, MDB, DC, PRB, PRP, PCdoB, PMB",
+     "posicao_declarada_no_2t_presidencial": "sem voto declarado",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    },
+    {
+     "numero": "40",
+     "nome": "João Capiberibe",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "Com o Povo pra Avançar: PT, PSB",
+     "posicao_declarada_no_2t_presidencial": "Fernando Haddad",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "40",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "AM",
+   "finalistas": [
+    {
+     "numero": "20",
+     "nome": "Wilson Lima",
+     "partido": "PSC",
+     "coligacao_registrada_TSE": "Transformação por um Novo Amazonas: PSC, PRTB, REDE",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "12",
+     "nome": "Amazonino Mendes",
+     "partido": "PDT",
+     "coligacao_registrada_TSE": "Eu Voto no Amazonas: PDT, PRP, Avante, PP, PV, PR, Solidariedade, PPS, PTB, PHS, PSL, PPL",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": "12",
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro. Só Amazonino tem o PSL na coligação registrada: pelo desempate D2 do F20 o aliado do conjunto secundário é o 12. Robustez: o outro finalista (20)."
+  },
+  {
+   "ano": "2018",
+   "uf": "DF",
+   "finalistas": [
+    {
+     "numero": "15",
+     "nome": "Ibaneis Rocha",
+     "partido": "MDB",
+     "coligacao_registrada_TSE": "Pra Fazer a Diferença: MDB, PP, Avante, PSL, PPL",
+     "posicao_declarada_no_2t_presidencial": "neutralidade oficial (\"anunciaram, pelo menos oficialmente, a neutralidade na disputa presidencial\")",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "contraditório",
+     "obs": ""
+    },
+    {
+     "numero": "40",
+     "nome": "Rodrigo Rollemberg",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "Brasília de Mãos Limpas: PSB, PV, PCdoB, PDT, REDE",
+     "posicao_declarada_no_2t_presidencial": "neutralidade (liberado pelo PSB nacional, que apoiou Haddad)",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "fora",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": "15",
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://www.congressoemfoco.com.br/noticia/45198/psb-define-apoio-a-haddad-mas-libera-diretorios-em-sp-e-df-ptb-apoia-bolsonaro",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Ibaneis tem o PSL na coligação (b) mas declarou neutralidade: fontes que se contradizem, o par sai dos principais (A4). Vai só no conjunto descritivo \"pela coligação\"."
+  },
+  {
+   "ano": "2018",
+   "uf": "MG",
+   "finalistas": [
+    {
+     "numero": "30",
+     "nome": "Romeu Zema",
+     "partido": "NOVO",
+     "coligacao_registrada_TSE": "sem coligação (NOVO)",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "Antonio Anastasia",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Reconstruir Minas: PSDB, PSD, Solidariedade, PTB, PPS, PMN, PSC, DEM, PP, PTC, Patriota, PMB",
+     "posicao_declarada_no_2t_presidencial": "sem voto declarado",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "30",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "MS",
+   "finalistas": [
+    {
+     "numero": "45",
+     "nome": "Reinaldo Azambuja",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Avançar com Responsabilidade: PMN, DEM, PP, PSB, PTB, PSDB, Patriota, PSD, PPS, Avante, Solidariedade, PROS",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "12",
+     "nome": "Juiz Odilon",
+     "partido": "PDT",
+     "coligacao_registrada_TSE": "Esperança e Mudança: PDT, PRB, PODE",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro e nenhum tem o PSL na coligação: sem desempate, fora também do secundário. Os dois D vão só no descritivo de sensibilidade."
+  },
+  {
+   "ano": "2018",
+   "uf": "PA",
+   "finalistas": [
+    {
+     "numero": "15",
+     "nome": "Helder Barbalho",
+     "partido": "MDB",
+     "coligacao_registrada_TSE": "O Pará Daqui pra Frente: MDB, PP, PRB, PR, PSC, PTB, PHS, PMB, PODE, DC, PTC, Patriota, PSD, Avante, PSL, PROS",
+     "posicao_declarada_no_2t_presidencial": "neutralidade; recebeu o apoio do PT do Pará no 2º turno",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "contraditório",
+     "obs": ""
+    },
+    {
+     "numero": "25",
+     "nome": "Márcio Miranda",
+     "partido": "DEM",
+     "coligacao_registrada_TSE": "Em Defesa do Pará: DEM, PSDB, PDT, PSB, Solidariedade, PRP, PMN, PRTB, PPS",
+     "posicao_declarada_no_2t_presidencial": "neutralidade",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "fora",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": "15",
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://oantagonista.com.br/?p=121110",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "\"Único estado em que nenhum candidato no 2º turno declarou apoio a presidenciável.\" Helder tem o PSL na coligação (b), declarou neutralidade e teve o apoio do PT: contraditório, fora. Só no descritivo \"pela coligação\"."
+  },
+  {
+   "ano": "2018",
+   "uf": "RJ",
+   "finalistas": [
+    {
+     "numero": "20",
+     "nome": "Wilson Witzel",
+     "partido": "PSC",
+     "coligacao_registrada_TSE": "Mais Ordem, Mais Progresso: PSC, PROS",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "25",
+     "nome": "Eduardo Paes",
+     "partido": "DEM",
+     "coligacao_registrada_TSE": "Força do Rio: DEM, PP, MDB, PTB, Solidariedade, PSDB, PPS, PV, DC, PHS, Avante, PMN",
+     "posicao_declarada_no_2t_presidencial": "neutralidade",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "20",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "RN",
+   "finalistas": [
+    {
+     "numero": "12",
+     "nome": "Carlos Eduardo Alves",
+     "partido": "PDT",
+     "coligacao_registrada_TSE": "100% RN: PDT, PP, MDB, PODE, DEM",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "13",
+     "nome": "Fátima Bezerra",
+     "partido": "PT",
+     "coligacao_registrada_TSE": "Do Lado Certo: PT, PCdoB, PHS",
+     "posicao_declarada_no_2t_presidencial": "Fernando Haddad",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "12",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "13",
+   "polarizado_para_C": true,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "RO",
+   "finalistas": [
+    {
+     "numero": "17",
+     "nome": "Coronel Marcos Rocha",
+     "partido": "PSL",
+     "coligacao_registrada_TSE": "sem coligação (PSL)",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "Expedito Júnior",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Rondônia, Esperança de um Novo Tempo: PSDB, DEM, PSD, PRB, Patriota",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": "17",
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro; só Marcos Rocha é do PSL. Robustez: o outro finalista (45)."
+  },
+  {
+   "ano": "2018",
+   "uf": "RR",
+   "finalistas": [
+    {
+     "numero": "17",
+     "nome": "Antonio Denarium",
+     "partido": "PSL",
+     "coligacao_registrada_TSE": "Agora é Roraima com Tudo: PSL, PRB, PTC, PRP, PROS, PSC, PPL, Patriota",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "José de Anchieta Júnior",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Todos por Roraima: PSDB, DEM, MDB, PSD, PPS, Solidariedade, DC",
+     "posicao_declarada_no_2t_presidencial": "neutralidade",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "17",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "RS",
+   "finalistas": [
+    {
+     "numero": "45",
+     "nome": "Eduardo Leite",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Rio Grande da Gente: PSDB, PTB, PRB, PPS, PHS, REDE, PP",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "15",
+     "nome": "José Ivo Sartori",
+     "partido": "MDB",
+     "coligacao_registrada_TSE": "Rio Grande no Rumo Certo: MDB, PSD, PSB, PR, PSC, Patriota, PRP, PMN, PTC",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro e nenhum tem o PSL na coligação: sem desempate, fora também do secundário. Os dois D vão só no descritivo de sensibilidade."
+  },
+  {
+   "ano": "2018",
+   "uf": "SC",
+   "finalistas": [
+    {
+     "numero": "17",
+     "nome": "Comandante Moisés",
+     "partido": "PSL",
+     "coligacao_registrada_TSE": "sem coligação (PSL)",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "55",
+     "nome": "Gelson Merisio",
+     "partido": "PSD",
+     "coligacao_registrada_TSE": "Aqui é Trabalho: PSD, PRB, PDT, PSB, PODE, Solidariedade, PROS, PSC, PCdoB, PHS, PP, DEM, PRP, PPL, PV",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": "17",
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro; só Moisés é do PSL. Robustez: o outro finalista (55)."
+  },
+  {
+   "ano": "2018",
+   "uf": "SE",
+   "finalistas": [
+    {
+     "numero": "55",
+     "nome": "Belivaldo Chagas",
+     "partido": "PSD",
+     "coligacao_registrada_TSE": "Pra Sergipe Avançar: PP, MDB, DC, PCdoB, PSD, PT, PHS",
+     "posicao_declarada_no_2t_presidencial": "Fernando Haddad",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "40",
+     "nome": "Valadares Filho",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "Um Novo Governo para Nossa Gente: PSB, PDT, PPL, PTB, PROS, PRP",
+     "posicao_declarada_no_2t_presidencial": "sem voto declarado",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "55",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2018",
+   "uf": "SP",
+   "finalistas": [
+    {
+     "numero": "45",
+     "nome": "João Doria",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Acelera SP: PSDB, DEM, PSD, PRB, PP, PTC",
+     "posicao_declarada_no_2t_presidencial": "Jair Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "40",
+     "nome": "Márcio França",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "São Paulo Confia e Avança: PSB, PSC, PPS, PTB, PV, PR, PODE, PMB, PHS, PPL, PRP, Patriota, PROS, Solidariedade, Avante",
+     "posicao_declarada_no_2t_presidencial": "neutralidade (\"já declarou que ficará neutro na disputa nacional\")",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "45",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.metropoles.com/brasil/eleicoes-2018/nos-estados-com-2o-turno-bolsonaro-tem-amplo-apoio-contra-haddad",
+    "https://www.congressoemfoco.com.br/noticia/45198/psb-define-apoio-a-haddad-mas-libera-diretorios-em-sp-e-df-ptb-apoia-bolsonaro",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2018.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "AL",
+   "finalistas": [
+    {
+     "numero": "15",
+     "nome": "Paulo Dantas",
+     "partido": "MDB",
+     "coligacao_registrada_TSE": "Alagoas Daqui pra Melhor: MDB, Federação Brasil da Esperança (PT, PCdoB, PV), PDT, PSC, PODE, Solidariedade",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "44",
+     "nome": "Rodrigo Cunha",
+     "partido": "União Brasil",
+     "coligacao_registrada_TSE": "Alagoas Merece Mais: União, Federação PSDB Cidadania, PSB, PP",
+     "posicao_declarada_no_2t_presidencial": "neutro",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "15",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "AM",
+   "finalistas": [
+    {
+     "numero": "44",
+     "nome": "Wilson Lima",
+     "partido": "União Brasil",
+     "coligacao_registrada_TSE": "Aqui é Trabalho: Republicanos, PP, PTB, PSC, PL, PRTB, PMN, União, Patriota, Avante",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "15",
+     "nome": "Eduardo Braga",
+     "partido": "MDB",
+     "coligacao_registrada_TSE": "Em Defesa da Vida: Federação Brasil da Esperança (PT, PCdoB, PV), MDB, PSD",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "44",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "15",
+   "polarizado_para_C": true,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "BA",
+   "finalistas": [
+    {
+     "numero": "13",
+     "nome": "Jerônimo Rodrigues",
+     "partido": "PT",
+     "coligacao_registrada_TSE": "Pela Bahia, pelo Brasil: Federação Brasil da Esperança (PT, PCdoB, PV), PSB, PSD, Avante, MDB",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "44",
+     "nome": "ACM Neto",
+     "partido": "União Brasil",
+     "coligacao_registrada_TSE": "Pra Mudar a Bahia: Federação PSDB Cidadania, Republicanos, PP, PDT, PTB, PODE, PSC, DC, PRTB, União, Solidariedade, PMN",
+     "posicao_declarada_no_2t_presidencial": "neutro",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "13",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "ES",
+   "finalistas": [
+    {
+     "numero": "22",
+     "nome": "Carlos Manato",
+     "partido": "PL",
+     "coligacao_registrada_TSE": "Espírito Santo de Todos os Capixabas: PTB, PL",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "40",
+     "nome": "Renato Casagrande",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "Juntos por um Espírito Santo Mais Forte: MDB, PP, PROS, PSB, PODE, Federação Brasil da Esperança (PT, PCdoB, PV), Federação PSDB Cidadania, PDT",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "22",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "40",
+   "polarizado_para_C": true,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "MS",
+   "finalistas": [
+    {
+     "numero": "45",
+     "nome": "Eduardo Riedel",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Trabalhando por um Novo Futuro: Federação PSDB Cidadania, Republicanos, PP, PSB, PL, PDT",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "28",
+     "nome": "Capitão Contar",
+     "partido": "PRTB",
+     "coligacao_registrada_TSE": "Mudança de Verdade: Avante, PRTB",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": "45",
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro (\"apoio integral\"); só Riedel tem o PL na coligação. Robustez: o outro finalista (28)."
+  },
+  {
+   "ano": "2022",
+   "uf": "PB",
+   "finalistas": [
+    {
+     "numero": "40",
+     "nome": "João Azevêdo",
+     "partido": "PSB",
+     "coligacao_registrada_TSE": "Juntos pela Paraíba: PSB, Agir, PP, Avante, PMN, PSD, Solidariedade, PODE, Republicanos, Patriota, PROS",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "Pedro Cunha Lima",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Coragem para Mudar: PDT, Federação PSDB Cidadania, União, PMB, PSC, PTB, PROS",
+     "posicao_declarada_no_2t_presidencial": "neutro",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "40",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "PE",
+   "finalistas": [
+    {
+     "numero": "77",
+     "nome": "Marília Arraes",
+     "partido": "Solidariedade",
+     "coligacao_registrada_TSE": "Pernambuco na Veia: Solidariedade, PSD, Avante, Agir, PMN, PROS",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "Raquel Lyra",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Pernambuco Quer Mudar: Federação PSDB Cidadania, PRTB",
+     "posicao_declarada_no_2t_presidencial": "neutra",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "77",
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "RO",
+   "finalistas": [
+    {
+     "numero": "22",
+     "nome": "Marcos Rogério",
+     "partido": "PL",
+     "coligacao_registrada_TSE": "Pelo Bem de Rondônia, pelo Bem do Brasil: PL, DC, PMB, PTB",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "44",
+     "nome": "Coronel Marcos Rocha",
+     "partido": "União Brasil",
+     "coligacao_registrada_TSE": "Compromisso, Trabalho e Fé: União, Republicanos, Avante, MDB, Patriota, PSC, Federação PSDB Cidadania",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    }
+   ],
+   "classe": "duplo",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": "22",
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": "Os dois declararam Bolsonaro (\"apoio integral\"); só Marcos Rogério é do PL. Robustez: o outro finalista (44)."
+  },
+  {
+   "ano": "2022",
+   "uf": "RS",
+   "finalistas": [
+    {
+     "numero": "22",
+     "nome": "Onyx Lorenzoni",
+     "partido": "PL",
+     "coligacao_registrada_TSE": "Para Defender e Transformar o Rio Grande: Republicanos, Patriota, PROS, PL",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "45",
+     "nome": "Eduardo Leite",
+     "partido": "PSDB",
+     "coligacao_registrada_TSE": "Um Só Rio Grande: Federação PSDB Cidadania, MDB, PSD, PODE, União",
+     "posicao_declarada_no_2t_presidencial": "neutro",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "nenhum",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "22",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "SC",
+   "finalistas": [
+    {
+     "numero": "22",
+     "nome": "Jorginho Mello",
+     "partido": "PL",
+     "coligacao_registrada_TSE": "sem coligação (PL)",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "13",
+     "nome": "Décio Lima",
+     "partido": "PT",
+     "coligacao_registrada_TSE": "Frente Democrática: Federação Brasil da Esperança (PT, PCdoB, PV), PSB, Solidariedade",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "22",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "13",
+   "polarizado_para_C": true,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  },
+  {
+   "ano": "2022",
+   "uf": "SE",
+   "finalistas": [
+    {
+     "numero": "13",
+     "nome": "Rogério Carvalho",
+     "partido": "PT",
+     "coligacao_registrada_TSE": "Sergipe da Esperança: Federação Brasil da Esperança (PT, PCdoB, PV), MDB, PSB, Solidariedade",
+     "posicao_declarada_no_2t_presidencial": "declarou apoio a Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    },
+    {
+     "numero": "55",
+     "nome": "Fábio Mitidieri",
+     "partido": "PSD",
+     "coligacao_registrada_TSE": "Novo Tempo pra Sergipe: PDT, PSC, União, Republicanos, PP, PSD, Avante",
+     "posicao_declarada_no_2t_presidencial": "declarou apoio a Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "sem campo de Bolsonaro",
+   "aliado_de_Bolsonaro_principal": null,
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": null,
+   "polarizado_para_C": false,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": "Os dois finalistas no campo do PT: fora também do espelho (não há um único finalista do campo do PT)."
+  },
+  {
+   "ano": "2022",
+   "uf": "SP",
+   "finalistas": [
+    {
+     "numero": "10",
+     "nome": "Tarcísio de Freitas",
+     "partido": "Republicanos",
+     "coligacao_registrada_TSE": "São Paulo Pode Mais: Republicanos, PL, PSD, PTB, PSC, PMN",
+     "posicao_declarada_no_2t_presidencial": "apoia Bolsonaro",
+     "atende_a_apoio_declarado_a_Bolsonaro": true,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": true,
+     "PT_no_partido_ou_coligacao": false,
+     "campo": "Bolsonaro",
+     "obs": ""
+    },
+    {
+     "numero": "13",
+     "nome": "Fernando Haddad",
+     "partido": "PT",
+     "coligacao_registrada_TSE": "Juntos por São Paulo: Federação Brasil da Esperança (PT, PCdoB, PV), PSB, Federação PSOL Rede, Agir",
+     "posicao_declarada_no_2t_presidencial": "apoia Lula",
+     "atende_a_apoio_declarado_a_Bolsonaro": false,
+     "atende_b_partido_de_Bolsonaro_no_partido_ou_coligacao": false,
+     "PT_no_partido_ou_coligacao": true,
+     "campo": "PT",
+     "obs": ""
+    }
+   ],
+   "classe": "limpo",
+   "aliado_de_Bolsonaro_principal": "10",
+   "aliado_de_Bolsonaro_secundario_desempate_D2": null,
+   "aliado_so_pela_coligacao_robustez": null,
+   "finalista_do_campo_do_PT_para_o_espelho": "13",
+   "polarizado_para_C": true,
+   "fontes": [
+    "https://www.cnnbrasil.com.br/politica/lula-tem-16-palanques-nos-estados-bolsonaro-conta-com-18/",
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_coligacao/consulta_coligacao_2022.zip"
+   ],
+   "obs": ""
+  }
+ ],
+ "resumo": {
+  "principais_limpos": [
+   [
+    "2018",
+    "MG",
+    "30"
+   ],
+   [
+    "2018",
+    "RJ",
+    "20"
+   ],
+   [
+    "2018",
+    "RN",
+    "12"
+   ],
+   [
+    "2018",
+    "RR",
+    "17"
+   ],
+   [
+    "2018",
+    "SP",
+    "45"
+   ],
+   [
+    "2022",
+    "AM",
+    "44"
+   ],
+   [
+    "2022",
+    "ES",
+    "22"
+   ],
+   [
+    "2022",
+    "RS",
+    "22"
+   ],
+   [
+    "2022",
+    "SC",
+    "22"
+   ],
+   [
+    "2022",
+    "SP",
+    "10"
+   ]
+  ],
+  "secundario_duplos_com_desempate": [
+   [
+    "2018",
+    "AM",
+    "12"
+   ],
+   [
+    "2018",
+    "RO",
+    "17"
+   ],
+   [
+    "2018",
+    "SC",
+    "17"
+   ],
+   [
+    "2022",
+    "MS",
+    "45"
+   ],
+   [
+    "2022",
+    "RO",
+    "22"
+   ]
+  ],
+  "duplos_sem_desempate_fora": [
+   [
+    "2018",
+    "MS"
+   ],
+   [
+    "2018",
+    "RS"
+   ]
+  ],
+  "descritivo_pela_coligacao": [
+   [
+    "2018",
+    "DF",
+    "15"
+   ],
+   [
+    "2018",
+    "PA",
+    "15"
+   ]
+  ],
+  "espelho": [
+   [
+    "2018",
+    "AP",
+    "40"
+   ],
+   [
+    "2018",
+    "RN",
+    "13"
+   ],
+   [
+    "2018",
+    "SE",
+    "55"
+   ],
+   [
+    "2022",
+    "AL",
+    "15"
+   ],
+   [
+    "2022",
+    "AM",
+    "15"
+   ],
+   [
+    "2022",
+    "BA",
+    "13"
+   ],
+   [
+    "2022",
+    "ES",
+    "40"
+   ],
+   [
+    "2022",
+    "PB",
+    "40"
+   ],
+   [
+    "2022",
+    "PE",
+    "77"
+   ],
+   [
+    "2022",
+    "SC",
+    "13"
+   ],
+   [
+    "2022",
+    "SP",
+    "13"
+   ]
+  ],
+  "polarizados_para_C": [
+   [
+    "2018",
+    "RN"
+   ],
+   [
+    "2022",
+    "AM"
+   ],
+   [
+    "2022",
+    "ES"
+   ],
+   [
+    "2022",
+    "SC"
+   ],
+   [
+    "2022",
+    "SP"
+   ]
+  ],
+  "fora_do_D": [
+   [
+    "2018",
+    "AP",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2018",
+    "DF",
+    "fora"
+   ],
+   [
+    "2018",
+    "PA",
+    "fora"
+   ],
+   [
+    "2018",
+    "SE",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2022",
+    "AL",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2022",
+    "BA",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2022",
+    "PB",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2022",
+    "PE",
+    "sem campo de Bolsonaro"
+   ],
+   [
+    "2022",
+    "SE",
+    "sem campo de Bolsonaro"
+   ]
+  ]
+ }
+}
