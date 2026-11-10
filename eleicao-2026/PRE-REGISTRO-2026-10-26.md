@@ -775,3 +775,15 @@ Onda B passa a ser: N1, B2, B3, C1 (logs: quem liberou e a que horas), N2, N3, B
 - Cadernos de votação (assinaturas contra o comparecimento do boletim) em seções sorteadas do PI, MA, TO, PB e CE.
 - Ao TSE: por seção e turno, quantos eleitores têm comparecimento registrado e justificativa de ausência no mesmo turno; e o perfil do comparecimento do 2º turno, ainda não publicado.
 - A qualquer eleitor de Flávio dessas UFs que votou no 2º turno: conferir no e-Título se o comparecimento consta.
+
+## Adendo 29 (10/11/2026, antes de rodar): checagem do carrossel "A matemática impossível da eleição" (R² de 99,8% por estado)
+
+Afirmação (capturas enviadas pelo Léo, perfil jesseeldemizaelreserva no Instagram): gráfico com um ponto por UF, eixo x "Percentual da Direita no 1º Turno (%)" e eixo y "Razão de Votos no 2º Turno (Lula : Direita)", com três ajustes: linear (R² 0,935), quadrático (0,995) e exponencial (0,999). Conclusão do autor: os pontos "não estão espalhados", "a probabilidade disso ser orgânico é ZERO" e isso "aponta diretamente para uma função de transferência sistêmica". O autor não publica método nem dados além do gráfico.
+
+Observação escrita antes do dado: se quase todo eleitor da direita do 1º turno vota no candidato da direita no 2º, a fatia p dele no 2º turno acompanha x, e a razão do eixo y é (1 menos p) sobre p, função exata de p. Um R² alto pode ser propriedade do gráfico, não da eleição. O teste mede isso.
+
+- **J1, reprodução.** Por UF, com as bases por seção: x em três definições (Flávio sozinho; Flávio mais os eliminados de direita, com a lista de candidatos fixada no docstring antes de calcular; e a que melhor reproduzir os pontos legíveis do gráfico: PI perto de x 25 e y 3,1; BA perto de 30 e 2,5; SC perto de 75 e 0,4) e y = votos de Lula sobre votos de Flávio no 2º turno. Ajustes linear, quadrático e exponencial, com R².
+- **J2, outros anos, a mesma conta.** 2022, 2018 (ano em que a direita venceu) e 2014, com o adversário do PT no lugar da direita.
+- **J3, simulação sem fraude.** Votos reais do 1º turno de 2026 por UF; no 2º turno, cada bloco (Lula, Flávio, cada eliminado, branco e nulo, faltosos) se divide com taxas nacionais mais um ruído sorteado por UF, com desvio de 2, 5 e 10 pontos nas taxas; 1.000 sorteios por nível; distribuição do R² dos três ajustes.
+- **J4, onde está a variação.** O mesmo gráfico por município e por seção em 2026; e, por UF, o desvio em pontos de fatia entre o 2º turno e o previsto pelo 1º.
+- **Leitura fixada antes.** "Propriedade do gráfico" se o R² do melhor ajuste for 0,98 ou mais na mediana da simulação com ruído de 5 pontos e em pelo menos dois dos outros anos. "Anomalia de 2026" se o desvio-padrão dos resíduos de 2026 (em pontos de fatia do 2º turno) for menor que a metade do menor dos outros anos e ficar abaixo do percentil 1 da simulação com ruído de 2 pontos. Como o Léo suspeita dos outros anos, a simulação é a régua principal e os outros anos vão ao lado.
