@@ -1,0 +1,111 @@
+ADENDO 32: A PROBABILIDADE DE CADA MOVIMENTO DA ELEIÇÃO DE 2026 (RESULTADOS)
+
+Registro: Adendo 32, commit cbd7577 (10/11/2026 17:59:00 UTC), com a régua fixada antes das contas.
+Script: scripts/analisar_R32_probabilidade.py. Números: resultados/R32_frequencias.json.
+Descritivo. Não é teste de fraude; o que os testes dizem sobre fraude está em SINTESE_RECALCULO.txt.
+Este levantamento foi feito por um agente só, sem conferente independente.
+
+A RÉGUA
+Frequência com que coisa igual ou mais extrema aconteceu nos casos comparáveis: muito provável, 75% ou mais;
+provável, 50% a 75%; duvidoso, 25% a 50%; pouco provável, 5% a 25%; muito pouco provável, menos de 5%.
+Casos: 6 segundos turnos de presidente antes de 2026 (2002 a 2022) e 26 de governador (2018 e 2022).
+"Fatia a dois" = votos de um finalista sobre a soma dos dois. "Líder" = o mais votado do 1º turno.
+
+OS DADOS DE BASE
+Presidente (fatia a dois do líder do 1º turno; movimento no 2º turno; comparecimento entre os turnos):
+  2002  Lula       66,69   -5,42   comparecimento -3,14 milhões
+  2006  Lula       53,86   +6,96   -2,82 milhões
+  2010  Dilma      58,99   -2,93   -4,59 milhões
+  2014  Dilma      55,35   -3,72   -2,44 milhões
+  2018  Bolsonaro  61,12   -5,99   -1,43 milhão
+  2022  Lula       52,86   -1,95   +0,57 milhão
+  2026  Flávio     51,01   -2,80   +2,96 milhões   (único em que o líder ficou abaixo de 50 no 2º turno)
+Governador, 26 segundos turnos de 2018 e 2022: o líder caiu em 19; caiu 1,01 ponto ou mais em 17; caiu 2,80 ou
+mais em 14; houve virada em 6. Com vantagem de até 1,5 ponto sobre 50 (4 casos): virada em 2. Em 2026, nos 6
+segundos turnos de governador, o líder caiu em 5 e houve virada em 2 (RN e TO, os dois com menos de 1 ponto).
+
+CLASSIFICAÇÃO
+
+ 1. O líder do 1º turno perder terreno no 2º: MUITO PROVÁVEL.
+    Aconteceu em 5 de 6 presidenciais e em 19 de 26 de governador (24 de 32, 75%). Favoreceu o adversário do PT em
+    2002, 2010, 2014 e 2022, e o PT em 2018 e 2026. Não é padrão de um lado só.
+
+ 2. O tamanho do movimento (2,80 pontos contra o líder): PROVÁVEL.
+    Queda igual ou maior do líder em 4 de 6 presidenciais e 14 de 26 de governador (18 de 32, 56%). Em valor
+    absoluto, o movimento de 2026 é o segundo MENOR das sete presidenciais; só o de 2022 foi menor.
+
+ 3. A virada, dada a vantagem de 1,01 ponto: PROVÁVEL.
+    Para virar bastava o líder cair 1,01 ponto. Isso aconteceu em 5 de 6 presidenciais e 17 de 26 de governador
+    (22 de 32, 69%). Só entre os de governador com vantagem parecida (até 1,5 ponto): 2 de 4.
+    Nunca tinha havido virada para presidente (0 de 6) porque nunca um líder tinha chegado com tão pouco: as
+    vantagens anteriores foram de 2,9 a 16,7 pontos. A menor, a de Lula em 2022, quase virou (ficou com 0,9).
+
+ 4. Lula ganhar terreno em todos os estados e em 94% das cidades: MUITO PROVÁVEL, dado o movimento nacional.
+    O líder do 1º turno caiu em 26 de 27 UFs em 2014, 25 em 2018 e 27 em 2022. Quando o país anda, os estados
+    andam juntos; em 2022 foi igual, a favor de Bolsonaro.
+
+ 5. O comparecimento subir entre os turnos: POUCO PROVÁVEL. Subir 2,96 milhões: MUITO POUCO PROVÁVEL.
+    Subiu em 1 de 6 presidenciais (2022, +0,57 milhão); nas outras cinco caiu de 1,4 a 4,6 milhões. Alta do
+    tamanho da de 2026 (1,85 ponto dos aptos) nunca aconteceu: 0 de 6 no país e 0 de 81 estados-ano de 2014 a
+    2022; em 2026, 10 estados passaram disso (BA, ES, MG, MS, PE, PR, RN, RS, SC e SP, dos dois lados do mapa).
+    É o movimento mais fora do histórico. É também o mais bem medido nos arquivos: 80% dos que entraram passaram
+    pela biometria, de manhã, e dividiram o voto como os vizinhos de prédio.
+
+ 6. Os que entraram votarem em Lula no dobro da taxa: PROVÁVEL pela pesquisa; sem histórico suficiente.
+    A urna dá 60% para Lula entre quem não tinha votado no 1º turno; o PoderData media 59%. Em 2022 a entrada foi
+    quase igual para os dois lados (5,7% e 5,3%), então pelo histórico de um ano só não era o esperado.
+
+ 7. Os eleitores dos eliminados irem mais para Lula do que as pesquisas mediam: DUVIDOSO.
+    A urna dá cerca de 52% deles para Lula; as pesquisas presenciais e por telefone davam de 32% a 44%; os
+    painéis online ficaram perto da urna. Não há série histórica para comparar. É o ponto em que as medidas de
+    fora da urna discordam entre si.
+
+ 8. Flávio reter menos dos próprios eleitores que Lula: DUVIDOSO.
+    Em 2026 Lula reteve 98,5% e Flávio 94,5%. O tamanho da diferença (3,9 pontos) é o de sempre: 2,9 em 2014, 3,5
+    em 2018 e 4,1 em 2022. O lado é que é novo: nos três anos anteriores quem retinha menos era o PT (0 de 3).
+    Lido pela posição, e não pelo partido, quem retém menos é o líder do 1º turno em 2 de 3 (2014 e 2022).
+
+ 9. Flávio perder votos absolutos em 6 estados, com o comparecimento caindo no Norte: DUVIDOSO.
+    Um finalista perder votos absolutos em algum estado aconteceu em 1 de 3 anos: em 2022, Lula, então líder,
+    perdeu votos em AC, AM, AP e RR, quatro dos seis estados em que Flávio perdeu em 2026. O comparecimento cai no
+    2º turno nesses estados todo ano (em 2022 caiu em 12 UFs, quase a mesma lista de 2026).
+
+10. As pesquisas errarem cerca de 2,7 pontos na mesma direção: POUCO PROVÁVEL.
+    Nos três segundos turnos anteriores o erro médio das últimas pesquisas no candidato do PT foi -0,9 (2014),
+    -0,6 (2018) e -2,1 (2022): nenhum chegou a 2,7 e todos foram para o outro lado. Três semanas antes, no 1º
+    turno desta mesma eleição, os institutos acertaram Lula e subestimaram Flávio em 3,4 pontos (davam mais votos
+    aos outros candidatos do que eles tiveram); erro grande, de natureza diferente.
+
+11. Brancos e nulos caírem entre os turnos: PROVÁVEL.
+    Caíram em 4 de 6 presidenciais anteriores. Só subiram em 2018 e 2022.
+
+LEITURA
+- O resultado em si não é improvável pelo histórico. Um líder com 1 ponto de vantagem perde essa vantagem na
+  maioria dos segundos turnos, e o movimento de 2026 foi pequeno para o padrão. A virada parece impossível quando
+  se olha "Flávio venceu o 1º turno e tinha a direita unida"; pelos números, ele chegou ao 2º turno com a menor
+  vantagem que um líder já teve.
+- O que é fora do padrão é o CAMINHO: o comparecimento subir como nunca tinha subido (item 5) e as pesquisas
+  errarem como não tinham errado em 2º turno (item 10). Os itens 7 e 8 são o mesmo fato visto de outro ângulo.
+- Os movimentos não são independentes. Quem tentar multiplicar as probabilidades chega a um número minúsculo e
+  errado: comparecimento maior, eleitor de Flávio que não voltou, pesquisa errada e estados andando juntos são
+  faces de um movimento só.
+
+O QUE ISSO DIZ SOBRE FRAUDE, COM O QUE TEMOS
+- Fraude depois da urna (transmissão, totalização, arquivos): MUITO POUCO PROVÁVEL. Medido: zero diferença em
+  3.000 seções sorteadas e na soma inteira.
+- Troca de votos dentro da urna do tamanho que vira o resultado: MUITO POUCO PROVÁVEL. Medido: sem marca onde o
+  teste enxerga; teto de 44% da margem.
+- Voto lançado pela mesa em nome de quem faltou, do tamanho que vira: MUITO POUCO PROVÁVEL. Medido: teto de 15%.
+- Um programa que fabrique presença, biometria e voto de forma coerente em todo o país: NÃO MENSURÁVEL com dado
+  público. Não há indício a favor. É o único caminho compatível com o item 5 que os arquivos não excluem. Juízo
+  meu, não medida: pouco provável, porque teria de imitar ao mesmo tempo o horário (de manhã), o tipo de
+  habilitação e a divisão do voto dos eleitores reais, seção por seção, e passar pelo teste de integridade.
+- Mudança real de quem compareceu, que as pesquisas não captaram: é a explicação que os arquivos sustentam em cada
+  ponto que deu para medir. Não está provada, porque a prova estaria fora da urna.
+
+LIMITES
+- Os anos de comparação saíram do mesmo sistema de que o Léo suspeita. Se todos fossem viciados no mesmo sentido,
+  a régua estaria viciada; mas o padrão do item 1 favoreceu o PT em 2 anos e o adversário em 4.
+- Com 6 presidenciais, as frequências são grosseiras. Os 26 segundos turnos de governador dão mais casos, com a
+  ressalva de serem eleições estaduais.
+- As classes dos itens 6 e 7 se apoiam em pesquisas e em estimativas por seção, não em contagem.
