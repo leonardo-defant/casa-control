@@ -1,0 +1,395 @@
+R27_N2 (ADENDO 28, N2): QUEM NÃO VOLTOU. MOBILIZAÇÃO DO 1º TURNO OU RETIRADA
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 28, commit 938be19 (10/11/2026 04:36:33 UTC), escrito depois da Onda A
+e antes de rodar. Decisões que o registro não fixa: docstring de scripts/analisar_R27_N2.py, gravado antes de
+qualquer conta com votos (cópia e SHA-256 ae657bd0c2ca9a6a... em /home/user/trabalho-eleicao/adendo27/R27_N2/,
+2026-11-10T06:04:09Z). Limite dito no registro e que vale para tudo abaixo: boletim não distingue eleitor que ficou
+em casa de eleitor registrado como ausente. O teste só mede se a explicação sem fraude (mobilização local do 1º
+turno que não se repetiu) deixa as marcas que deveria.
+
+VEREDITO PELA LETRA: INCONCLUSIVO
+  - Marca (i), controles pela letra (puxão P e comparecimento contra 2022, T): a assimetria cai 22,7% (intervalo de
+    95% por reamostragem de municípios: 5,6% a 55,5%). Fica entre os 20% (não explicada) e os 50% (explicada):
+    INCONCLUSIVO. O intervalo cruza os dois limiares.
+  - Marca (ii), municípios pequenos: APARECE (diferença -0,0307, ep 0,0056, 5,5 erros-padrão). Mas aparece com o
+    mesmo sinal e tamanho parecido em 2014 (-0,021), 2018 (-0,042) e 2022 (-0,033): não é marca própria de 2026.
+  - Marca (ii), UFs sem 2º turno de governador: NÃO APARECE (diferença -0,0058, ep 0,0096, 0,6 erro-padrão). Com só
+    6 UFs do outro lado, a marca só passaria de 3 erros-padrão com diferença de 0,029, maior que a própria
+    assimetria: pouco poder.
+  - Calibração do registro (retirada plantada de 3,6%): PASSA. A retirada aumenta a assimetria em -0,0362 sem
+    controles e em -0,0372 com controles (razão 1,029). Os controles não escondem uma retirada real. Não é SEM PODER
+    por esse critério.
+  - Plantio da explicação inocente: a marca (i) PELA LETRA NÃO DISTINGUE as duas leituras. Um puxão de deputado do
+    22 plantado, do mesmo tamanho, em vez de ser absorvido é ampliado pelo controle da letra (razão 2,71; precisava
+    ser 0,50 ou menos). Na versão D (fatia do deputado do 22 como regressor, descrita antes de rodar), o puxão
+    plantado é absorvido (razão 0,011) e a retirada plantada fica (razão 0,983). Nessa versão a assimetria de 2026
+    NÃO cai: cresce 14,7% (Q = -0,147; intervalo -0,465 a +0,014), o que pela régua do registro seria "não
+    explicada". Com o voto de deputado de todos os partidos (exploratório, também separa os plantios) cai 28,7%
+    (intervalo 2,4% a 50,6%). Em nenhuma forma de pôr o voto de deputado no modelo a assimetria cai pela metade (Q
+    de -0,49 a +0,33).
+Resumo em uma frase: a assimetria existe no modelo do registro e as duas medidas de mobilização local que o registro
+escolheu não a explicam, mas ela não tem a forma de uma retirada uniforme e o mesmo desenho por porte e por força do
+PT aparece em eleições anteriores; o teste não decide entre abstenção e retirada.
+
+1. UNIVERSO E MODELO 0
+Universo (letra): 442.491 seções das 27 UFs com aptos iguais nos dois turnos (de 497.897 com os dois turnos; 55.406
+ficam fora por aptos diferentes), 5.571 municípios, 139.432.569 aptos. Comparecimento 110.298.263 no 1º turno e
+112.886.274 no 2º. Flávio 49.133.263 e 52.313.581; Lula 47.735.254 e 56.895.823; margem do 2º turno no universo
+4.582.242.
+Modelo 0 (y = variação do comparecimento sobre aptos; fatias do 1º turno sobre aptos; efeito fixo de município; peso
+aptos; erro por município; n = 442.491): Flávio -0,1793 (ep 0,0056), Lula -0,1615 (ep 0,0048), eliminados -0,2418
+(ep 0,0054), branco e nulo -0,1190 (ep 0,0074). Cada coeficiente é a variação do comparecimento por eleitor daquele
+tipo, em relação a um faltoso do 1º turno. Código próprio; bate com scripts/lib.py (diferença máxima 1e-16).
+ASSIMETRIA A0 = Flávio menos Lula = -0,0178 (ep 0,0038; 4,6 erros-padrão). Em palavras: dentro do mesmo município,
+de cada 100 eleitores de Flávio do 1º turno voltaram 1,78 a menos do que de cada 100 eleitores de Lula (leitura por
+seção, não por eleitor: é inferência, não contagem). Em votos: 872.404 (ep 187.644), 19,7% da margem oficial de
+4.430.191. Cada um vale 1 voto de margem, não 2, porque não vira voto de Lula.
+Aviso: este número não é o da Onda A (2,67% contra -0,85%, 3,5 pontos, 1,73 milhão). O modelo do registro, com
+efeito fixo de município, mede 1,78 ponto. A diferença está explicada no item 10 (o tamanho depende do nível da
+comparação).
+
+2. MARCA (i): A ASSIMETRIA DIMINUI COM OS CONTROLES DO PUXÃO LOCAL?
+P = votos nominais dos candidatos do 22 a deputado federal sobre aptos menos a fatia de Flávio (bweb do 1º turno:
+26.151.133 linhas de deputado federal em 497.897 seções, de 67.858.974 linhas lidas; 22.030.686 votos nominais do 22
+no universo). T = comparecimento do 1º turno de 2026 menos o de 2022 na mesma seção; a chave liga em 409.088 seções
+(U22). Tabela (A, ep, n):
+    U   M0       A = -0,0178  ep 0,0038  n = 442.491
+    U   M0+P     A = -0,0130  ep 0,0047  n = 442.491   controles: P +0,0075 (ep 0,0029)
+    U   M0+D     A = -0,0205  ep 0,0037  n = 442.491   controles: D +0,0075 (ep 0,0029)
+    U22 M0       A = -0,0177  ep 0,0042  n = 409.088
+    U22 M0+T     A = -0,0178  ep 0,0034  n = 409.088   controles: T -0,1029 (ep 0,0070)
+    U22 M0+P     A = -0,0125  ep 0,0049  n = 409.088   controles: P +0,0081 (ep 0,0028)
+    U22 M0+P+T   A = -0,0137  ep 0,0044  n = 409.088   controles: P +0,0066 (ep 0,0028), T -0,1028 (ep 0,0070)
+    U22 M0+D+T   A = -0,0203  ep 0,0033  n = 409.088   controles: D +0,0066 (ep 0,0028), T -0,1028 (ep 0,0070)
+Queda principal (letra), M0+P+T contra M0 nas mesmas 409.088 seções: Q = +0,227 (ep 0,131; intervalo de 95% +0,056 a
++0,555). Só P: +0,267 em U (+0,071 a +0,622). Só T: -0,009 (-0,145 a +0,070): T não mexe na assimetria.
+O que os controles dizem, em português simples:
+  - O coeficiente de T é forte (-0,103, 15 erros-padrão): seção que compareceu mais no 1º turno de 2026 do que em
+    2022 perdeu mais comparecimento no 2º. A marca do "comparecimento extra que não volta" existe, mas vale igual
+    para os dois lados e não muda a assimetria. E é a mesma em 2022 (-0,118) e em 2018 (-0,118).
+  - O coeficiente do puxão do 22 é POSITIVO (+0,0075, ep 0,0029): onde os candidatos a deputado do 22 tiveram mais
+    voto, com o voto de Flávio fixo, o comparecimento se segurou um pouco MELHOR. A hipótese da mobilização previa o
+    contrário (quem veio pelo deputado não volta).
+  - Por isso a "queda" de 22,7% pela letra é efeito de álgebra: P contém menos F, então com P no modelo o
+    coeficiente de Flávio soma o coeficiente (positivo) do puxão. Com a fatia do deputado do 22 como regressor
+    (versão D, mesmo ajuste), A vai de -0,0177 para -0,0203: cresce 14,7%. Dito de outro modo: o eleitor de Flávio
+    que também votou em deputado do 22 tem assimetria -0,0137; o que votou em Flávio sem votar em deputado do 22,
+    -0,0203. Os dois tipos voltaram menos que o eleitor de Lula, e o que veio "pelo deputado" voltou um pouco mais,
+    não menos.
+
+3. MARCAS (ii)
+Municípios pequenos (menos de 20.000 aptos; 4.212 municípios, 109.815 seções, 10.346.272 votos de Flávio): A =
+-0,0417 (ep 0,0022) contra -0,0110 (ep 0,0052) nos demais. Diferença -0,0307 (ep 0,0056), 5,46 erros-padrão: a marca
+aparece. Cortes ao lado: 10 mil -0,0400 (7,6 ep); 50 mil -0,0226 (3,0 ep).
+UFs sem 2º turno de governador (21) contra as 6 com (AC, AM, DF, ES, RN, TO): A = -0,0179 (ep 0,0041) contra -0,0122
+(ep 0,0087). Diferença -0,0058 (ep 0,0096), 0,60 erro-padrão: não aparece. Permutação exata das 296.010 escolhas de
+6 UFs: p unilateral 0,49 (média simples) e 0,34 (ponderada).
+Com a retirada plantada as marcas quase não mudam (pequenos -0,0284, 5,0 ep; UFs -0,0067, 0,7 ep): as marcas (ii)
+existiriam com ou sem retirada uniforme. Elas são condição para a leitura inocente, não prova dela.
+
+4. CALIBRAÇÃO POR EFEITO PLANTADO (dados de 2026)
+Retirada (a irregularidade do registro): em cada seção, Binomial(votos de Flávio no 2º turno; 0,036) eleitores
+passam à abstenção: 1.881.528 no universo. A assimetria aumenta -0,0362 no modelo 0 e -0,0372 com P e T: razão 1,029
+(reamostragem: 1,017 a 1,041). Versão D: 0,983. Sem sorteio: 1,024. Com 3,6% dos votos do 1º turno: 0,995. O teste
+enxerga a retirada do tamanho registrado e os controles não a engolem (critério: 0,80 ou mais).
+Inocente A (puxão do deputado do 22 que não volta): Binomial(votos nominais do 22; 8,54%), 1.881.842 eleitores, o
+mesmo total. Aumenta a assimetria -0,0316 no modelo 0. Com os controles da letra o aumento vira -0,0854 (razão
+2,71): a letra não reconhece o puxão, amplia. Na versão D o aumento vira -0,0004 (razão 0,011): absorvido. Ressalva:
+o plantio A é proporcional a D22 por construção, então a versão D o absorve quase por definição; o que não é trivial
+é a letra ampliar.
+Inocente B (comparecimento extra do 1º turno contra 2022 que não volta): 1.766.264 eleitores, 91,4% do
+comparecimento extra (1.932.105). No modelo 0 a assimetria anda +0,0119, isto é, no sentido CONTRÁRIO: dentro dos
+municípios, o comparecimento a mais do que em 2022 esteve mais nas seções de Lula. Essa forma de mobilização não tem
+como produzir a assimetria observada, e a razão (1,02) não tem leitura.
+Conclusão da calibração: pelo critério do registro o teste tem poder. Mas a marca (i) como escrita não separa
+mobilização de retirada: tanto a retirada plantada (Q do próprio plantio -0,03) quanto o puxão plantado (-1,71)
+dariam "não explicada". Quem separa é a versão D (+0,02 contra +0,99), e nela o dado de 2026 dá -0,15. O modelo com
+deputado de todos os partidos (exploratório, item 10e) também separa e dá +0,29.
+
+5. ESPELHOS
+  - E1, controle espelho (puxão dos candidatos do 13, P13 = D13/aptos menos L): A vai de -0,0177 para -0,0306 (Q =
+    -0,73). O mesmo cálculo feito para o lado do PT mexe 3,2 vezes mais e no sentido contrário. Com os dois puxões
+    juntos (exploratório): A = -0,0263, Q = -0,49 (intervalo -0,95 a -0,16). Tratando os dois lados do mesmo jeito,
+    a assimetria cresce. A queda de 23% da letra não é marca da mobilização da direita.
+  - E2, plantio espelho (3,6% dos votos de Lula do 2º turno, 2.046.909 eleitores): A anda +0,0372 sem controles e
+    +0,0380 com (razão 1,022). Simétrico, como devia.
+  - E3, outros anos: item 6.
+
+6. OUTROS ANOS, COM O VALOR BRUTO DE 2026 AO LADO (comparação, não régua de inocência: o Léo suspeita também deles)
+    ano   A0 (adversário menos PT)  ep       pequenos menos demais           sem menos com governador        coef. T   Q só T
+    2026    -0,0178                0,0038   -0,0307 (ep 0,0056; 5,5 ep)   -0,0058 (ep 0,0096; 0,6 ep)   -0,103    -0,01
+    2022    +0,0230                0,0025   -0,0330 (ep 0,0038; 8,7 ep)   -0,0057 (ep 0,0050; 1,1 ep)   -0,118    +0,08
+    2018    +0,0063                0,0029   -0,0419 (ep 0,0046; 9,2 ep)   -0,0313 (ep 0,0058; 5,4 ep)   -0,118    -0,46
+    2014    +0,0290                0,0032   -0,0207 (ep 0,0040; 5,1 ep)   -0,0087 (ep 0,0062; 1,4 ep)    n/d      n/d
+2026 é o único dos quatro anos em que o eleitor do adversário do PT voltou menos que o do PT neste modelo. Contra
+2022 a diferença é -0,041. A diferença entre municípios pequenos e os demais tem o mesmo sinal e tamanho parecido
+nos quatro anos: é um traço fixo (no município pequeno o eleitor da direita volta menos, em relação ao do PT, do que
+na cidade grande), não uma novidade de 2026. UFs com 2º turno de governador: 2026: AC, AM, DF, ES, RN, TO; 2022: AL,
+AM, BA, ES, MS, PB, PE, RO, RS, SC, SE, SP; 2018: AM, AP, DF, MG, MS, PA, RJ, RN, RO, RR, RS, SC, SE, SP; 2014: AC,
+AM, AP, CE, DF, GO, MS, PA, PB, RJ, RN, RO, RR, RS.
+
+7. VOTOS DE MARGEM
+  - Modelo do registro: 872.404 eleitores de Flávio que não voltaram acima da taxa do eleitor de Lula (ep 187.644),
+    19,7% da margem. Estendido às seções fora do universo (extrapolação): 993.629, 22,4%.
+  - Em U22: 813.775 sem controles; 628.668 com P e T (os controles da letra "absorvem" 185.107); 933.106 na versão D
+    (cresce 119.331).
+  - Tamanho de comparação: a retirada plantada de 3,6% são 1.881.528 eleitores e desloca A em -0,0363. A assimetria
+    observada (-0,0178) equivale a uma retirada uniforme de 1,8% dos votos de Flávio se a régua natural for zero; de
+    4,0% se for a de 2022; 2,4% se for a de 2018; 4,6% se for a de 2014. Nenhuma régua é segura (o Léo suspeita de
+    todos os anos).
+  - Sozinho este canal não vira o resultado: para virar só por retirada seriam precisos 4,43 milhões de eleitores de
+    Flávio.
+
+8. DESCRITIVO (modelo 0 dentro de cada recorte)
+  Por UF (A, ep, erros-padrão, votos V; * = UF com 2º turno de governador):
+    PI   A = -0,0624  ep 0,0093  ( 6,7 ep)  seções   9.376  Flávio 1º turno    461.843  V =   28.813
+    AC*  A = -0,0612  ep 0,0404  ( 1,5 ep)  seções   1.925  Flávio 1º turno    258.098  V =   15.783
+    MS   A = -0,0584  ep 0,0113  ( 5,2 ep)  seções   6.455  Flávio 1º turno    783.149  V =   45.719
+    PB   A = -0,0427  ep 0,0114  ( 3,7 ep)  seções   9.547  Flávio 1º turno    722.548  V =   30.833
+    AL   A = -0,0400  ep 0,0114  ( 3,5 ep)  seções   6.361  Flávio 1º turno    635.502  V =   25.446
+    BA   A = -0,0375  ep 0,0074  ( 5,0 ep)  seções  31.586  Flávio 1º turno  2.105.344  V =   78.974
+    SP   A = -0,0370  ep 0,0107  ( 3,4 ep)  seções  92.021  Flávio 1º turno 11.426.860  V =  423.244
+    CE   A = -0,0365  ep 0,0048  ( 7,7 ep)  seções  21.646  Flávio 1º turno  1.566.246  V =   57.095
+    PE   A = -0,0351  ep 0,0078  ( 4,5 ep)  seções  19.425  Flávio 1º turno  1.547.593  V =   54.285
+    RN*  A = -0,0348  ep 0,0081  ( 4,3 ep)  seções   6.531  Flávio 1º turno    567.743  V =   19.782
+    MT   A = -0,0285  ep 0,0064  ( 4,4 ep)  seções   7.412  Flávio 1º turno  1.145.065  V =   32.600
+    SE   A = -0,0280  ep 0,0079  ( 3,6 ep)  seções   4.709  Flávio 1º turno    320.268  V =    8.954
+    GO   A = -0,0264  ep 0,0075  ( 3,5 ep)  seções  14.107  Flávio 1º turno  1.831.779  V =   48.313
+    MA   A = -0,0261  ep 0,0096  ( 2,7 ep)  seções  16.919  Flávio 1º turno  1.133.001  V =   29.540
+    MG   A = -0,0248  ep 0,0040  ( 6,2 ep)  seções  46.276  Flávio 1º turno  5.057.389  V =  125.670
+    RR   A = -0,0247  ep 0,0217  ( 1,1 ep)  seções   1.348  Flávio 1º turno    204.503  V =    5.048
+    TO*  A = -0,0225  ep 0,0108  ( 2,1 ep)  seções   4.022  Flávio 1º turno    421.400  V =    9.482
+    DF*  A = -0,0180  ep 0,0056  ( 3,2 ep)  seções   4.934  Flávio 1º turno    648.041  V =   11.634
+    ES*  A = -0,0126  ep 0,0065  ( 1,9 ep)  seções   8.892  Flávio 1º turno  1.102.007  V =   13.908
+    PR   A = -0,0107  ep 0,0057  ( 1,9 ep)  seções  24.123  Flávio 1º turno  3.459.911  V =   36.945
+    SC   A = -0,0092  ep 0,0061  ( 1,5 ep)  seções  15.297  Flávio 1º turno  2.648.159  V =   24.359
+    RO   A = -0,0088  ep 0,0154  ( 0,6 ep)  seções   4.315  Flávio 1º turno    598.998  V =    5.242
+    RS   A = +0,0024  ep 0,0038  ( 0,7 ep)  seções  24.578  Flávio 1º turno  3.175.198  V =   -7.760
+    RJ   A = +0,0125  ep 0,0025  ( 5,0 ep)  seções  32.706  Flávio 1º turno  4.336.711  V =  -54.305
+    PA   A = +0,0252  ep 0,0124  ( 2,0 ep)  seções  19.339  Flávio 1º turno  1.979.073  V =  -49.835
+    AM*  A = +0,0263  ep 0,0188  ( 1,4 ep)  seções   6.932  Flávio 1º turno    808.371  V =  -21.234
+    AP   A = +0,1158  ep 0,0499  ( 2,3 ep)  seções   1.709  Flávio 1º turno    188.463  V =  -21.824
+  22 de 27 UFs têm A negativa; 14 a mais de 3 erros-padrão. Invertida (o eleitor de Flávio voltou MAIS): RJ
+  (+0,0125, 5,0 ep), PA, AM e AP. Em votos pesa SP (423.244), depois MG, BA, CE e PE. Soma das 27: 976.709.
+  Diferem da Onda A: aqui PI -0,062, MA -0,026, TO -0,023, PB -0,043, CE -0,036 (a Onda A dava de 8 a 15 pontos
+  nessas UFs). O efeito fixo de município tira a parte que é diferença entre municípios inteiros.
+  Por porte do município (aptos no 1º turno):
+    até 10 mil       A = -0,0540  ep 0,0030  municípios 2.940  seções  51.729  Flávio  5.000.222  V =  270.201
+    10 a 20 mil      A = -0,0329  ep 0,0030  municípios 1.272  seções  58.086  Flávio  5.346.050  V =  176.025
+    20 a 50 mil      A = -0,0193  ep 0,0029  municípios   863  seções  80.295  Flávio  7.920.249  V =  153.220
+    50 a 200 mil     A = -0,0008  ep 0,0035  municípios   394  seções 100.371  Flávio 12.309.243  V =    9.784
+    200 mil ou mais  A = -0,0125  ep 0,0117  municípios   102  seções 152.010  Flávio 18.557.499  V =  231.747
+  Por força de Lula na seção (Lula sobre válidos do 1º turno):
+    menos de 35%  A = -0,0042  ep 0,0027  seções 138.589  Flávio 21.408.690  V =   89.281
+    35 a 50%      A = -0,0230  ep 0,0053  seções 138.480  Flávio 16.535.906  V =  380.445
+    50 a 65%      A = -0,0346  ep 0,0063  seções  87.174  Flávio  7.669.231  V =  265.583
+    65% ou mais   A = -0,0500  ep 0,0039  seções  76.791  Flávio  3.519.436  V =  175.813
+  A assimetria é quase zero onde Flávio é forte e cresce com a força de Lula e com o município menor. Não é
+  uniforme.
+
+  AS 20 ZONAS DE MAIOR ASSIMETRIA (para conferência de cadernos de votação)
+  Zonas com 50 ou mais seções no universo: 2.562. Tamanho = menos A da zona (efeito fixo de município, erro robusto
+  por seção). Mediana +0,021; 477 zonas com tamanho positivo a 2 erros-padrão e 126 com negativo (o acaso daria
+  cerca de 58 de cada lado). A estimativa por zona é ruidosa: o limite conservador é tamanho menos 1,645 ep. As 20
+  ficam todas acima do tamanho nacional por esse limite, mas somam só 27.375 votos: são zonas pequenas, quase todas
+  reduto de Lula.
+    zona     seções tam.   ep    limite Flávio 1T/2T   Lula 1T/2T      comp. 1T/2T       V   lat, lon          municípios
+    PA|86       83  0,484 0,108 0,306   3.984/3.847  15.177/15.156  20.450/19.272 1.927  -1,74, -49,80    CURRALINHO
+    AM|11       56  0,413 0,119 0,216   4.559/4.299   7.402/8.394   13.305/13.418 1.883  -6,66, -69,87    EIRUNEPÉ
+    AL|28       99  0,389 0,075 0,266   5.654/5.227  13.705/14.963  21.606/20.722 2.201  -9,33, -36,47    BELÉM, CHÃ PRETA, PAULO JACINTO, QUEBRANGULO
+    MG|12       63  0,370 0,071 0,252   4.585/4.972   8.119/9.468   14.529/14.966 1.694  -20,11, -43,05   ALVINÓPOLIS, SEM PEIXE, DOM SILVÉRIO
+    PI|74       83  0,346 0,066 0,237   3.966/3.617  12.560/12.865  17.676/16.828 1.372  -5,82, -42,20    BARRO DURO, PASSAGEM FRANCA DO PIAUÍ, SANTA CRUZ DOS MILAGRES, PRATA DO PIAUÍ e mais 2
+    AM|26       62  0,343 0,109 0,164   1.425/1.382  14.516/14.407  16.800/16.300   489  -2,81, -57,07    BARREIRINHA
+    CE|108      88  0,316 0,047 0,239   4.339/4.307  12.775/14.124  18.882/18.903 1.370  -3,03, -41,24    BARROQUINHA, CHAVAL
+    MA|63      142  0,272 0,085 0,132   4.134/3.566  22.381/22.567  28.495/26.681 1.125  -2,91, -44,83    CAJAPIÓ, SÃO JOÃO BATISTA, SÃO VICENTE FERRER
+    RN|54       55  0,270 0,100 0,106   3.538/3.417   9.853/10.831  14.410/14.670   957  -5,64, -36,87    ITAJÁ, IPANGUAÇU, PARAÚ
+    RN|21       53  0,268 0,064 0,162   3.422/3.606   8.408/9.386   13.057/13.477   916  -6,15, -36,72    TENENTE LAURENTINO CRUZ, FLORÂNIA, SÃO VICENTE
+    PB|33       76  0,252 0,103 0,082   3.933/3.991  12.763/14.454  18.540/18.913   991  -7,31, -38,15    ITAPORANGA, SÃO JOSÉ DE CAIANA, SERRA GRANDE
+    PI|54       69  0,251 0,079 0,121   3.461/3.487  11.264/11.896  15.974/15.797   868  -5,36, -42,67    DEMERVAL LOBÃO, LAGOA DO PIAUÍ
+    PB|20      113  0,246 0,071 0,128   7.171/7.300  17.928/20.897  28.234/29.056 1.761  -6,54, -35,74    ARARUNA, RIACHÃO, CACIMBA DE DENTRO, TACIMA
+    RN|37       55  0,238 0,128 0,027   3.695/3.440   8.962/9.744   13.705/13.608   878  -6,10, -37,64    ALMINO AFONSO, MESSIAS TARGINO, PATU, RAFAEL GODEIRO
+    MG|343      71  0,237 0,051 0,153   6.646/7.173   6.731/8.190   15.715/15.995 1.574  -21,40, -44,84   CARRANCAS, INGAÍ, ITUMIRIM, ITUTINGA e mais 1
+    MG|283      86  0,236 0,054 0,146   6.995/7.814   9.185/11.081  18.993/19.755 1.648  -18,82, -42,62   DIVINOLÂNDIA DE MINAS, SANTA EFIGÊNIA DE MINAS, SÃO GERALDO DA PIEDADE, SARDOÁ e mais 1
+    MA|106     129  0,235 0,040 0,169   4.082/3.816  18.851/20.211  24.672/24.463   958  -2,87, -45,36    PEDRO DO ROSÁRIO, PRESIDENTE SARNEY
+    BA|184     102  0,235 0,043 0,163   5.176/5.437  15.970/17.921  23.261/24.044 1.214  -12,84, -39,09   CONCEIÇÃO DO ALMEIDA, SÃO FELIPE
+    AC|5        98  0,231 0,080 0,099  10.624/8.854   7.489/7.163   20.021/17.056 2.457  -8,16, -70,77    JORDÃO, TARAUACÁ
+    PB|75       97  0,223 0,052 0,138   4.881/4.941  13.952/16.059  21.214/21.614 1.091  -7,12, -35,42    CALDAS BRANDÃO, GURINHÉM, MULUNGU
+  Pela ordem do limite conservador entram no lugar de outras: MA|62, BA|127, PE|92, MG|4, PB|52. UFs das 20: MG 3,
+  RN 3, PB 3, AM 2, PI 2, MA 2, PA 1, AL 1, CE 1, BA 1, AC 1.
+
+9. SENSIBILIDADES (fixadas antes; não decidem)
+  - Sem peso: A0 = -0,0148; Q da letra +0,327; versão D -0,187.
+  - Efeito fixo de local de votação (compara seções da mesma escola): A0 = -0,0359 (ep 0,0029), o dobro do modelo do
+    registro; Q da letra +0,100; versão D -0,088.
+  - Ligação com 2022 só com aptos a 20% (373.419 seções): Q da letra +0,158; versão D -0,127.
+  - P com legenda: Q = +0,266. Seções que não ligam com 2022 (33.403): A0 = -0,0221.
+  O Q da letra fica entre +0,10 e +0,33 conforme a variante: nunca chega a 0,50; em 2 das 5 fica abaixo de 0,20. A
+  versão D é negativa em todas.
+
+10. EXPLORATÓRIO (feito DEPOIS de ver os resultados acima; não muda veredito; cerca de 200 números olhados)
+  (a) O tamanho e até o sinal de A dependem do nível da comparação. A (adversário menos PT), erro por município
+  entre parênteses:
+      efeito fixo               2026               2022               2018               2014
+      nenhum (constante)      -0,0034 (0,0038)  +0,0278 (0,0031)  +0,0303 (0,0034)  +0,0423 (0,0035)
+      UF                      +0,0072 (0,0041)  +0,0430 (0,0024)  +0,0345 (0,0028)  +0,0478 (0,0034)
+      zona                    -0,0081 (0,0023)  +0,0286 (0,0018)  +0,0138 (0,0022)  +0,0317 (0,0021)
+      município (registro)    -0,0178 (0,0038)  +0,0230 (0,0025)  +0,0063 (0,0029)  +0,0290 (0,0032)
+      local de votação        -0,0359 (0,0029)  +0,0087 (0,0024)  +0,0047 (0,0032)  +0,0100 (0,0027)
+  Em 2026, comparando seções do país inteiro ou da mesma UF, o eleitor de Flávio NÃO aparece voltando menos (+0,0072
+  com efeito fixo de UF). A assimetria só aparece dentro do município (-0,0178) e dobra dentro do mesmo local de
+  votação (-0,0359, 1.761.560 votos; estendido a todas as seções, 2.006.338, 45,3% da margem). É esse número, o de
+  dentro do local, que fica do tamanho do 1,73 milhão da Onda A (não conferi qual comparação a Onda A usou). Do
+  efeito fixo de UF ao de local, em todos os anos A fica mais negativa quanto mais fina a comparação; 2026 fica
+  abaixo de 2022 em todos os níveis (de -0,031 a -0,045).
+  (b) Por força do PT na seção, A com efeito fixo de município e, entre colchetes, de local:
+      faixa do PT       2026                2022                2018                2014
+      menos de 35%   -0,004 [-0,001]  +0,043 [+0,040]  +0,016 [+0,008]  +0,018 [+0,000]
+      35 a 50%       -0,023 [-0,025]  +0,033 [+0,025]  -0,004 [-0,030]  +0,029 [-0,002]
+      50 a 65%       -0,035 [-0,053]  +0,013 [-0,008]  -0,037 [-0,056]  +0,025 [+0,013]
+      65% ou mais    -0,050 [-0,159]  -0,020 [-0,082]  -0,079 [-0,109]  -0,025 [+0,012]
+  O degrau "onde o PT é forte o eleitor da direita volta menos" existe em 2018 e 2022 também. Dentro do local, 2026
+  repete 2018 em três das quatro faixas e passa dele na faixa de 65% ou mais (-0,159 contra -0,109; essa faixa tem
+  3.519.436 votos de Flávio). Contra 2022 a diferença é parecida em todas as faixas (de 3 a 8 pontos).
+  (c) Por porte, A por ano (efeito fixo de município):
+      porte              2026      2022      2018      2014
+      até 10 mil        -0,0540  -0,0099  -0,0363  +0,0018
+      10 a 20 mil       -0,0329  +0,0018  -0,0200  +0,0152
+      20 a 50 mil       -0,0193  +0,0188  -0,0124  +0,0179
+      50 a 200 mil      -0,0008  +0,0343  +0,0240  +0,0252
+      200 mil ou mais   -0,0125  +0,0340  +0,0283  +0,0372
+  (d) A de 2026 menos A de 2022 por UF: negativa nas 27. Maiores: AC -0,110, MS -0,109, SP -0,060, AL -0,057, MT
+  -0,054, SC -0,052. Menores: SE -0,026, CE -0,026, PA -0,023, RR -0,014, PI -0,012, MA -0,007. As UFs que a Onda A
+  apontou (PI, MA, CE, TO, PB) estão entre as que MENOS mudaram contra 2022: ali o eleitor da direita já voltava
+  menos em 2022 (PI -0,050, MA -0,020, CE -0,011). A mudança é nacional, não regional.
+  (e) Puxão medido pelos candidatos a deputado federal de TODOS os partidos (fatia de cada partido com 1% ou mais
+  dos nominais, demais somados, legenda; referência = branco e nulo de deputado), mais T: A vai de -0,0177 para
+  -0,0126, Q = +0,287 (intervalo +0,024 a +0,506). Esse modelo preserva a retirada plantada (razão 0,978) e absorve
+  o puxão plantado (0,011). Com efeito fixo de local: de -0,0337 para -0,0378 (Q = -0,122, cresce). Leitura: nesse
+  modelo A compara eleitores de Flávio e de Lula que NÃO votaram em deputado (branco ou nulo). Quase todo
+  coeficiente de partido é positivo (quem vota em deputado volta mais, o contrário do que o puxão previa), e o do 13
+  (+0,041) é maior que o do 22 (+0,031). Para o par típico (Flávio com deputado do 22 contra Lula com deputado do
+  13) a assimetria é -0,0231 (ep 0,0063), maior que A0. O voto de deputado explica no máximo um terço da assimetria
+  dentro do município, e isso só entre quem não votou em deputado; dentro do local, nada. Só um partido tem
+  coeficiente negativo: o 14, MISSÃO (-0,071, ep 0,011): quem votou em deputado dele voltou menos.
+  (f) Zonas por votos: as 477 zonas com tamanho positivo a 2 erros-padrão somam 685.353 votos; as 126 com negativo,
+  -333.933. As 20 de maior V (onde cadernos renderiam mais votos conferidos):
+      AC|4     seções  332  tamanho 0,155 (ep 0,048)  Flávio 42.796  V = 6.654  -7,64, -72,68    MARECHAL THAUMATURGO, PORTO WALTER, CRUZEIRO DO SUL e mais 2
+      SP|419   seções  410  tamanho 0,146 (ep 0,034)  Flávio 45.236  V = 6.610  -23,45, -46,33   ITAQUAQUECETUBA
+      SP|256   seções  427  tamanho 0,106 (ep 0,023)  Flávio 52.140  V = 5.509  -23,46, -46,60   SÃO PAULO
+      SP|280   seções  445  tamanho 0,116 (ep 0,022)  Flávio 42.645  V = 4.961  -23,73, -46,70   SÃO PAULO
+      SP|413   seções  376  tamanho 0,114 (ep 0,020)  Flávio 42.998  V = 4.921  -23,63, -46,61   SÃO PAULO
+      SP|353   seções  535  tamanho 0,104 (ep 0,028)  Flávio 46.677  V = 4.850  -23,54, -46,41   SÃO PAULO
+      RJ|75    seções  329  tamanho 0,106 (ep 0,036)  Flávio 45.640  V = 4.843  -21,82, -41,28   CAMPOS DOS GOYTACAZES
+      SP|327   seções  461  tamanho 0,094 (ep 0,022)  Flávio 47.063  V = 4.402  -23,48, -46,70   SÃO PAULO
+      MG|313   seções  319  tamanho 0,096 (ep 0,032)  Flávio 45.793  V = 4.375  -19,88, -44,03   CONTAGEM
+      GO|28    seções  301  tamanho 0,099 (ep 0,029)  Flávio 41.232  V = 4.085  -15,75, -48,28   ÁGUAS LINDAS DE GOIÁS
+      BA|19    seções  289  tamanho 0,183 (ep 0,049)  Flávio 22.310  V = 4.074  -12,91, -38,41   SALVADOR
+      SP|260   seções  429  tamanho 0,086 (ep 0,019)  Flávio 46.613  V = 4.007  -23,61, -46,60   SÃO PAULO
+      SP|317   seções  273  tamanho 0,099 (ep 0,036)  Flávio 39.877  V = 3.947  -24,01, -46,43   PRAIA GRANDE
+      SP|320   seções  445  tamanho 0,088 (ep 0,024)  Flávio 44.958  V = 3.940  -23,65, -46,64   SÃO PAULO
+      SP|177   seções  301  tamanho 0,115 (ep 0,036)  Flávio 34.117  V = 3.934  -23,97, -46,38   SÃO VICENTE
+      RJ|22    seções  264  tamanho 0,112 (ep 0,037)  Flávio 35.072  V = 3.931  -22,83, -43,33   RIO DE JANEIRO
+      SP|351   seções  340  tamanho 0,118 (ep 0,020)  Flávio 33.141  V = 3.913  -23,67, -46,66   SÃO PAULO
+      MG|167   seções  278  tamanho 0,110 (ep 0,028)  Flávio 35.520  V = 3.893  -20,25, -42,04   SÃO JOÃO DO MANHUAÇU, REDUTO, MANHUAÇU e mais 2
+      MS|43    seções  280  tamanho 0,094 (ep 0,016)  Flávio 38.613  V = 3.644  -22,22, -54,81   LAGUNA CARAPÃ, DOURADOS, ITAPORÃ
+      PB|3     seções  238  tamanho 0,174 (ep 0,043)  Flávio 20.916  V = 3.636  -7,14, -34,98    CONDE, CRUZ DO ESPÍRITO SANTO, SANTA RITA
+  (g) Quem liderou o 1º turno: em 2014 (PT na frente) A0 = +0,029; em 2022 (PT na frente) +0,023; em 2026 (Flávio na
+  frente) -0,018; em 2018 (Bolsonaro na frente) +0,006. Em três dos quatro anos, quem voltou menos foi o eleitor de
+  quem liderou o 1º turno; 2018 não segue a regra. Quatro pontos não fazem lei, e o Léo suspeita dos quatro anos.
+
+A FAVOR DA TESE
+  - A assimetria existe no modelo fixado antes: -0,0178 (4,6 ep), 872.404 votos; dentro do mesmo local de votação é
+    o dobro (-0,0359, cerca de 1.761.560 votos).
+  - A explicação inocente, na forma em que foi registrada, não deixou as marcas: o puxão do deputado do 22 tem sinal
+    contrário ao previsto; o comparecimento a mais do que em 2022 não muda a assimetria e esteve do lado de Lula; a
+    marca das UFs sem governador não aparece; na versão D a assimetria cresce 15% em vez de cair; em nenhuma das 20
+    formas calculadas de pôr o voto de deputado no modelo ela cai pela metade (Q de -0,49 a +0,33).
+  - Os controles não escondem retirada: uma retirada de 3,6% plantada passa inteira (razão 1,03).
+  - 2026 é o único dos quatro anos com A negativa neste modelo, e fica abaixo de 2022 nas 27 UFs (de -0,007 a
+    -0,110) e em todas as faixas e portes (cerca de 4 pontos, do tamanho de uma retirada uniforme de 4,0% dos votos
+    de Flávio se 2022 fosse a régua).
+  - Nos redutos de Lula (65% ou mais), dentro do mesmo local, a diferença chega a -0,159: maior que em 2018 (-0,109)
+    e 2022 (-0,082) (exploratório).
+CONTRA A TESE
+  - Não tem a forma de retirada uniforme por programa: é -0,004 onde Flávio é forte (44% dos votos dele) e -0,050
+    nos redutos de Lula; -0,054 nos municípios até 10 mil e -0,001 nos de 50 a 200 mil; invertida no RJ (5,0 ep),
+    PA, AM e AP. Para ser fraude teria de ser operada local a local, não uma regra única.
+  - O mesmo desenho aparece antes: a diferença entre município pequeno e os demais tem o mesmo sinal e tamanho
+    parecido em 2014 (-0,021), 2018 (-0,042) e 2022 (-0,033), contra -0,031 em 2026; o degrau por força do PT existe
+    em 2018 (mais forte que em 2026 no modelo do registro) e em 2022; dentro do local, 2026 repete 2018, eleição que
+    a direita venceu, em três das quatro faixas (exploratório).
+  - O sinal depende do nível: com efeito fixo de UF A é +0,0072, sem efeito fixo -0,0034. No agregado deste modelo o
+    eleitor de Flávio não voltou menos; isso só aparece em comparações finas (exploratório).
+  - Com o voto de deputado de todos os partidos (exploratório) a assimetria cai 29% (intervalo de 2% a 51%), dentro
+    da faixa inconclusiva: parte dela anda junto com o eleitor de Lula votar mais em deputado do próprio partido, e
+    quem vota em deputado volta mais.
+  - Tamanho: 19,7% da margem no modelo do registro (até 45,3% na leitura mais larga, exploratória). Não vira o
+    resultado sozinho.
+  - Em 2014 (+0,029) e 2022 (+0,023) a assimetria foi maior em tamanho e contra o PT, que venceu as duas. Assimetria
+    deste tipo não é, por si, marca de quem perde por fraude.
+  - Limite do próprio teste: o boletim não separa quem ficou em casa de quem foi registrado como ausente. Nada aqui
+    prova retirada.
+O QUE ISSO SIGNIFICA
+  O teste foi desenhado para dar à explicação sem fraude a chance de se mostrar: se o eleitor de Flávio não voltou
+  porque no 1º turno tinha sido puxado por campanhas locais, isso deveria aparecer onde os deputados do partido dele
+  foram fortes, onde o comparecimento subiu contra 2022, nos municípios pequenos e nas UFs sem 2º turno de
+  governador. Das quatro marcas, só a dos municípios pequenos apareceu, e ela existe em todas as eleições. Logo, a
+  mobilização local, do jeito que foi medida, NÃO explica o que a Onda A achou. Isso mantém o indício de pé. Mas o
+  mesmo teste mostra que o indício é menor no modelo fixado (0,87 milhão, não 1,73), que ele não é uniforme e que
+  tem geografia social (redutos de Lula, cidade pequena) repetida de outras eleições. Essa geografia combina com
+  comportamento de eleitor em minoria local e combina também com irregularidade feita na mesa onde o adversário tem
+  pouca fiscalização; o que ela torna pouco provável é uma regra única de programa aplicada igual em todo o país. As
+  duas leituras continuam abertas; só documento de fora da urna decide (caderno de votação, comprovante no e-Título,
+  perfil do comparecimento do 2º turno).
+PISTAS
+  - Cadernos de votação: as 20 zonas do item 8 (assimetria extrema, redutos de Lula, poucos votos) e as 20 do item
+    10(f) (onde há mais votos: zonas da capital e da Grande São Paulo, Baixada Santista, Campos, Contagem, Águas
+    Lindas, Salvador, Cruzeiro do Sul, Dourados, Santa Rita).
+  - Registrar antes de rodar um teste por local de votação: nas seções com Lula a 65% ou mais, a diferença de 2026
+    contra 2018 e 2022 dentro do mesmo local (hoje exploratória).
+  - Perfil do comparecimento do 2º turno, quando o TSE publicar: a assimetria dobra dentro do mesmo local, onde as
+    seções costumam diferir pela época do alistamento (idade do eleitor); o perfil diz se quem faltou tem idade de
+    voto facultativo.
+  - SP soma 423.244 dos 976.709 votos da soma por UF e passou de +0,023 em 2022 para -0,037; AC e MS são as UFs que
+    mais mudaram contra 2022. As UFs da Onda A (PI, MA, CE) quase não mudaram.
+  - O partido MISSÃO (14) é o único cujo voto de deputado anda junto com perda de comparecimento: vale cruzar com o
+    destino dos eleitores dos eliminados (L4, T37).
+  - Na síntese, dizer de qual modelo sai cada número do "eleitor que não voltou": 0,87 milhão (dentro do município),
+    1,76 milhão (dentro do local), nenhum (dentro da UF).
+DESVIOS E DECISÕES FORA DO REGISTRO (escritas no docstring antes de calcular, salvo o exploratório)
+  - Parametrização do puxão (D4): a conta principal usa P como escrito no registro (D22/aptos menos F). Ao lado, a
+    versão D (D22/aptos como regressor), que dá o mesmo ajuste e outro coeficiente de Flávio. O aviso foi escrito
+    antes de rodar; o plantio inocente mostrou que só a versão D separa mobilização de retirada. O veredito pela
+    letra é o de P.
+  - A queda principal Q compara o modelo com P e T contra o modelo 0 nas mesmas seções que ligam com 2022 (409.088
+    de 442.491); o registro não diz em que amostra comparar. Erro de Q por reamostragem de municípios (999
+    réplicas).
+  - P usa só votos nominais dos candidatos do 22 (o registro diz "candidatos"); com legenda, ao lado. T liga pela
+    chave UF, município, zona e seção; ao lado, só seções com aptos de 2022 a 20% dos de 2026.
+  - Município pequeno = menos de 20.000 aptos (o registro não fixa corte); 10 e 50 mil ao lado. Marcas (ii) por
+    modelo 0 separado em cada grupo e diferença a mais de 3 erros-padrão no sentido de A0; para as UFs, permutação
+    exata ao lado.
+  - Tradução da leitura em veredito: "explicada" = SEM SINAL; "não explicada" = SINAL no sentido estreito (a marca
+    inocente não apareceu); o resto = INCONCLUSIVO; SEM PODER se a retirada plantada for engolida pelos controles
+    (razão abaixo de 0,80).
+  - Retirada plantada sobre os votos de Flávio do 2º turno, por sorteio binomial (semente 20261110); "tanto quanto"
+    = razão de 0,80 ou mais. Versões sem sorteio e sobre o 1º turno ao lado.
+  - Plantios inocentes A (puxão do deputado do 22) e B (comparecimento extra contra 2022) não estão no registro; são
+    exigência desta onda. Limiar de "distingue": retirada com razão de 0,80 ou mais e inocente com 0,50 ou menos.
+  - Espelhos: puxão do 13 como controle, retirada plantada de Lula, e os anos de 2014, 2018 e 2022 (UFs de
+    governador de cada ano; 2014 pela lista publicada no R27_A1). O controle P não existe para outros anos.
+  - Descritivo por zona: só zonas com 50 ou mais seções, erro robusto por seção, lista pelo tamanho com o limite
+    conservador ao lado; coordenada = mediana dos locais no cadastro do TSE. No DF (um município) o erro é por zona.
+  - O que eu conhecia antes: o texto dos resultados da Onda A. Não li N1, B2 nem B3.
+  - EXPLORATÓRIO, depois de ver o resultado (item 10): efeito fixo em outros níveis, faixas e portes por ano,
+    diferença contra 2022 por UF, controle dos dois puxões, deputado de todos os partidos (segunda passada no bweb),
+    zonas por votos, extrapolação às seções fora do universo.
+  - Nenhum limiar do registro foi mudado.
+
+Contagem: uma leitura por limiar (Q), duas marcas a 3 erros-padrão (o acaso daria uma marca falsa em 0,13% das
+vezes), uma calibração do registro, dois plantios inocentes, três espelhos. O bloco exploratório olhou cerca de 200
+números; nada dele entra como indício sem teste registrado e conferência independente. Teste feito só com boletins e
+cadastro: não é contrapeso à hipótese de programa adulterado na origem.
+Arquivos: scripts/analisar_R27_N2.py; resultados/R27_N2_quem_nao_voltou.json; trabalho e parciais em
+/home/user/trabalho-eleicao/adendo27/R27_N2/ (base_2026.npz, depfed_1t.npz, depfed_partidos_1t.npz, parciais e o
+resultado registrado antes do exploratório).

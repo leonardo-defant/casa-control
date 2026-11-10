@@ -1,0 +1,233 @@
+R27_B3: RESERVATÓRIO E ELEITOR MARGINAL (Adendo 27, Onda B; contexto do Adendo 28)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC) e Adendo 28 (commit 938be19, 10/11/2026 04:36:33 UTC).
+Decisões que o registro não fixa: gravadas no docstring de scripts/analisar_R27_B3.py antes de qualquer conta com voto (SHA-256 9bfc1c1c4ebac7a2..., 10/11/2026 04:49:16 UTC).
+D2-3 e D2-4 são desenho cego. O T32 por seção é reteste da equipe vermelha: a escolha do que retestar é posterior ao dado antigo, o critério é novo.
+Pergunta desta onda: a virada pelo comparecimento é mobilização desigual ou irregularidade no registro de quem votou? Este teste olha três
+lugares onde "voto lançado em nome de quem faltou" deixaria marca: seções que sobem mais que as vizinhas de prédio, eleitores sem biometria e
+eleitores muito idosos.
+
+VEREDITOS PELA LETRA
+  D2-4 INCREMENTO (eleitor marginal dentro do prédio): SEM SINAL, com poder medido por plantio.
+  D2-3 RESERVA: volume (R1 e R2) SEM SINAL; sentinela R3 INCONCLUSIVO (o TSE não publicou o 2º turno no perfil de
+    comparecimento); teste inteiro pela letra INCONCLUSIVO, porque o registro exige o R3 para dizer sem sinal.
+  T32 por seção (equipe vermelha): SEM PODER. Pela letra cai em INCONCLUSIVO; o critério de sinal não dispara nem com a margem
+    inteira plantada em nome de eleitores de 70 anos ou mais, então não serve para acusar. O que ele mede é relatado.
+  Resumo em uma frase: nas formas que este teste enxerga (inserção desigual entre seções do mesmo prédio, uso de eleitores sem biometria, uso de
+  seções de eleitorado muito idoso) não há marca de voto lançado em nome de faltosos; a forma espalhada por igual e registrada como biometria
+  continua fora do alcance.
+
+PARTE I. D2-4 INCREMENTO: PARA QUEM FOI O COMPARECIMENTO A MAIS, DENTRO DO MESMO PRÉDIO
+  Conta: dentro de cada local, regressão do ganho de margem de Lula (em aptos) contra a variação do comparecimento (em aptos), com controles do
+  1º turno, efeito fixo de local, erro por município. θ = margem ganha por eleitor a mais. θ0 = o que daria se o eleitor a mais votasse como o
+  prédio. Θ = θ - θ0. Voto inserido para um candidato só puxa Θ para +1.
+  ano    seções    locais   θ (ep)             θ0        Θ         ep de Θ por reamostragem
+  2014   371.731   51.302  +0,0201 (0,0214)  +0,0305  -0,0104   0,0055
+  2018   400.695   54.096  -0,0521 (0,0150)  -0,0770  +0,0248   0,0064
+  2022   419.053   55.989  +0,0834 (0,0107)  +0,0032  +0,0802   0,0047
+  2026   447.756   59.742  +0,0710 (0,0103)  +0,0365  +0,0345   0,0037
+  Valor bruto de 2026: Θ = +0,0345 (IC de 95% de +0,0142 a +0,0548). Por eleitor a mais dentro do prédio, Lula ganha
+  0,513 e Flávio 0,442 (em 2022: 0,511 e 0,427; em 2018: 0,413 e 0,465; em 2014: 0,468 e 0,448).
+  O eleitor a mais se reparte quase meio a meio. Não vai inteiro para um candidato.
+  Estatística primária: Θ_2026 - Θ_ref = +0,0029 (ep 0,0140; por reamostragem 0,0049). Θ_ref = +0,0316. Maior Θ histórico
+  +0,0802 (2022). Amplitude histórica 0,0906 (o limite que levaria a inconclusivo é 0,10; passou perto).
+  Critério: sinal pede 0,15 ou mais e 0,10 acima do maior histórico; sem sinal pede módulo abaixo de 0,05 e cauda abaixo de 443.019 votos.
+  Cauda (ii): 252 seções com alta acima de 4 desvios robustos e 226 com queda; assimetria de 1.987 votos. Veredito: SEM SINAL.
+  Secundárias e placebos (sem limiar no registro):
+   (i) dispersão da variação do comparecimento dentro do prédio: 2014 0,0163; 2018 0,0165; 2022 0,0157; 2026 0,0172. A de 2026 é a maior dos quatro anos
+       (de 4% a 10% acima). O registro não fixou limiar; é o único item desta parte que pende para a marca.
+   (iii) entre locais do mesmo município: Θ 2014 +0,049; 2018 +0,078; 2022 +0,118; 2026 +0,085. 2026 menos a referência: +0,003 (ep 0,035).
+   (iv) seções com comparecimento de 95% ou mais: 2014 2.215 no 1º turno e 1.021 no 2º; 2018 932 no 1º turno e 488 no 2º; 2022 254 no 1º turno e 227 no 2º; 2026 538 no 1º turno e 620 no 2º.
+       Valor bruto de 2026 na (iii), sem usar outros anos: se todo o +0,085 fosse inserção em prédios inteiros, seriam cerca de 519.462 votos em metade dos prédios.
+   Placebo branco e nulo: 2026 menos referência -0,009. Sentido inverso (1º turno como suspeito): +0,021.
+   Só PI, MA, TO, PB e CE (escolha não cega, feita conhecendo a Onda A): Θ 2014 -0,038; 2018 +0,002; 2022 +0,057; 2026 -0,019; 2026 menos referência -0,026 (ep 0,024).
+  Calibração por plantio em 2026 (deslocamento de Θ; a fórmula do registro ao lado):
+   K            fração   fórmula  inserção p/ Lula  entrada real  abstenção de Flávio  inserção p/ Flávio  prédios inteiros  (iii) prédios inteiros
+   1.107.548      5%   0,785    +0,709            -0,025        -0,816               -0,771              -0,007            +0,792
+   1.107.548     20%   0,435    +0,372            -0,017        -0,429               -0,414              -0,008            +0,589
+   1.107.548     50%   0,161    +0,130            -0,005        -0,162               -0,142              -0,008            +0,282
+   1.107.548     80%   0,046    +0,030            -0,002        -0,051               -0,035              -0,008            +0,091
+   4.430.191      5%   0,983    +0,844            -0,033        -0,936               -0,923              -0,019            +0,835   (passa da abstenção média)
+   4.430.191     20%   0,925    +0,829            -0,032        -1,000               -0,913              -0,028            +0,839
+   4.430.191     50%   0,755    +0,664            -0,026        -0,800               -0,731              -0,032            +0,768
+   4.430.191     80%   0,435    +0,356            -0,011        -0,462               -0,387              -0,032            +0,569
+   O teste enxerga a inserção desigual (o deslocamento fica de 10% a 35% abaixo da fórmula, porque a dispersão natural de 2026 é 0,0173 e não 0,016).
+   Distingue as explicações: eleitor real que entra e vota como a seção não mexe em Θ; eleitor de Flávio que falta (abstenção pura) puxa Θ para
+   baixo; inserção para Flávio (espelho) puxa para baixo. Só inserção para Lula puxa para cima. É cego para inserção igual em todas as seções do
+   prédio (deslocamento -0,033 com a margem inteira) e para prédios inteiros; a variante (iii) enxerga prédios inteiros.
+   Limiar do sinal (0,15): 25% da margem só o atinge se couber em até 46% das seções (o registro dizia metade); a margem inteira, em até 93%.
+   O sem sinal (0,05) exclui 25% da margem inserida em menos de 74% das seções e a margem inteira em menos de 98% (o registro dizia 78% e 98%).
+  Tradução em votos de margem (cada voto inserido vale 1):
+   Excluído pelo sem sinal: inserção desigual acima de 149.335 votos se concentrada em 5% das seções; 325.468 em 20%; 650.936 em 50%; 1.301.872 em 80%.
+   Limite superior de 95% do excesso de 2026 sobre a referência: 115.012; 250.662; 501.325; 1.002.650 (mesmas frações).
+   Sem usar outros anos (o Léo suspeita deles): se TODO o Θ bruto de 2026 fosse inserção, seriam 122.961; 267.988; 535.976; 1.071.952 votos
+   (no limite superior de 95%: 156.696; 341.512; 683.024; 1.366.048), de 3% a 31% da margem conforme o espalhamento. O veredito sem sinal depende
+   da comparação com 2014, 2018 e 2022; o teto sem essa comparação é o desta linha.
+
+PARTE II. D2-3 RESERVA: ELEITORES SEM BIOMETRIA E MUITO IDOSOS
+  Perfil do eleitorado (cadastro de 14/07/2026): 157.826.587 eleitores no Brasil, 16.747.631 sem biometria (10,6%).
+  16.562 seções agregadas somadas na principal. Universo do R1: 489.650 seções (5.098 fora por diferença de mais de 10 entre perfil e aptos).
+  R1 (censo, efeito fixo de local, controles de idade, instrução, sexo e comparecimento do 1º turno):
+   2026: δ = -0,0220 (ep 0,0027); γ_sb = -0,0141 (ep 0,0012); n = 467.741 seções, 72.100 locais, 5.570 municípios.
+         V1 = δ × ΣN_sb = -368.035 votos (IC de 95% de -455.231 a -280.839). O sinal é o contrário do previsto pela hipótese:
+         seção com mais eleitores sem biometria teve MENOS alta de comparecimento e MENOS ganho de margem para Lula que as vizinhas de prédio.
+   2022 (placebo): δ = -0,0042 (ep 0,0008); γ_sb = -0,0007 (ep 0,0006); V1 = -159.559. Mesmo sinal, cinco vezes menor.
+   Com efeito fixo de município (enxerga prédios inteiros): 2026 δ = -0,0250, γ_sb = -0,0187; 2022 δ = -0,0039, γ_sb = -0,0018.
+   Metades em 2026: variação de Lula -0,0208 (ep 0,0019), de Flávio -0,0067 (ep 0,0012), de branco e nulo +0,0028 (ep 0,0005).
+   Só PI, MA, TO, PB e CE: δ = -0,0015 (ep 0,0033), γ_sb = +0,0035 (ep 0,0034). Nesses cinco estados há só 851.305 eleitores sem
+   biometria no total: o reservatório quase não existe justamente onde a Onda A achou o desvio do comparecimento.
+   Valor bruto de 2026 por quinto da fração sem biometria (sem controles): alta do comparecimento de 1,36, 1,66, 1,72, 2,03, 2,46 pontos
+   e ganho de margem de Lula de 4,03, 3,97, 4,29, 4,55, 4,25 pontos. No bruto a alta cresce com a fração sem biometria
+   (essas seções tinham mais faltosos no 1º turno); com o comparecimento do 1º turno no modelo, como o registro manda, o sinal inverte.
+  R2 (conta exata nos logs; 3.855 seções da amostra antiga com a mesma urna nos dois turnos, 738 locais; soma das habilitações do log igual ao
+   comparecimento do bweb nos dois turnos, 971.149 e 991.986):
+   comparecimento dos eleitores sem biometria: 41,88% no 1º turno e 43,72% no 2º (habilitações ANO 48.434 e 50.564 sobre 115.650 eleitores).
+   Δτ = +0,0184 (ep 0,0012). V2 = 308.452 votos no país (IC de 95% de 269.806 a 347.098; de 99% até 359.244).
+   Grupo com biometria na mesma seção (placebo): cresceu 2,02%; o sem biometria cresceu 4,40%. Diferença +2,37 pontos (ep 0,25).
+   A marca (a) do desenho apareceu na direção (o sem biometria subiu mais), mas o volume é pequeno: acima do crescimento do grupo biométrico
+   são 166.425 votos no país (3,8% da margem). Do aumento de 2.960.239 no comparecimento, 10,4% veio de eleitores
+   sem biometria, que são 10,6% do eleitorado. Só no prefixo autoponderado da amostra: V2 = 317.041 (de 274.597 a 359.485).
+   A amostra de logs não é aleatória simples; o N1 refaz essa conta na amostra aleatória nova.
+  V = max(V1, V2) = 308.452 (de 269.806 a 347.098), 7,0% da margem. Limites superiores de V1 e de V2 abaixo de 443.019: volume SEM SINAL.
+  Calibração: plantados 1.107.548 votos (φ = 6,61% dos sem biometria) em C2 e L2, o R1 devolve δ = +0,0442 (subiu exatamente φ), γ_sb = +0,0521,
+   γ_sb/δ = 1,18, e o R2 devolve V = 1.416.000: o critério de sinal dispara. O R1 sozinho não dispararia (V1 plantado = 739.513,
+   porque parte de δ negativo); quem enxerga o volume é a conta exata do R2. Com 443.019 plantados, V = 751.471: entre os limiares, inconclusivo, como devia.
+   Explicação inocente plantada (os mesmos eleitores entram e votam como a seção): δ igual, γ_sb = -0,0129, critério não dispara. O teste separa as
+   duas pelo γ_sb. Espelho (inserção para Flávio): γ_sb = -0,0802, não dispara.
+  R3 (faixas etárias, dado oficial): o arquivo de 2026 no ar em 10/11/2026 é o mesmo de 21/10 (gerado em 13/10) e só tem o 1º turno. INCONCLUSIVO pela letra.
+   O que dá para ver (Brasil sem exterior; os arquivos de 2022 e 2018 não trazem o DF):
+   faixa         2022 1º turno   2022 2º turno   razão   2026 1º turno
+   60 a 69        85,82%          86,53%         1,008    87,26%
+   70 a 79        53,31%          57,81%         1,084    62,14%
+   80 a 89        22,81%          27,04%         1,186    32,69%
+   90 a 94         6,64%           8,48%         1,278    13,47%
+   95 a 99         1,60%           2,14%         1,340     4,35%
+   100 ou mais     0,90%           1,13%         1,250     0,72%
+   Sentinela em 2022 (placebo): razão relativa à faixa de 60 a 69 de 1,268 (90 a 94), 1,329 (95 a 99) e 1,239 (100 ou mais).
+   O desenho supunha que 2022 ficaria abaixo de 1,05. Não ficou: o próprio 2022 passa do limiar de 1,15 que acusaria 2026. Pela letra, a cláusula
+   de razão nunca daria sinal em 2026, e a sentinela em 2022 fica ela mesma acesa (o Léo suspeita de 2022).
+   Plantio: 3 pontos a mais na faixa de 100 anos ou mais são 10.161 votos e disparam a cláusula de nível (limiar de 4,13%);
+   a razão de 1,15 nas faixas de 90 ou mais seriam cerca de 16.082 votos. A sentinela mede uso de nome de morto, não volume.
+
+PARTE III. T32 POR SEÇÃO (reteste da equipe vermelha)
+  (a) Variação do comparecimento (pontos dos aptos) contra as fatias de idade, efeito fixo de município:
+   2026: 16 e 17 -5,42 (ep 0,48); 18 a 24 -0,13 (0,15); 60 a 69 +2,31 (0,27); 70 ou mais +4,17 (0,61).
+   2022: 16 e 17 -0,46 (ep 0,27); 18 a 24 -1,30 (0,11); 60 a 69 +3,61 (0,26); 70 ou mais +2,47 (0,50).
+   Em 2026 a seção com mais eleitores de 70 anos ou mais subiu mais: lido como votos, 717.317 de comparecimento a mais ligados a essa fatia
+   (de 512.819 a 921.816); em 2022, 366.360. Isso some quando se controla o comparecimento do 1º turno
+   (coeficiente de 70 ou mais -2,36 em 2026 e -3,87 em 2022): seção de idosos tem mais faltosos para voltar. Dentro do prédio, com esse
+   controle: +0,06 (ep 0,38) em 2026 contra -3,18 (ep 0,34) em 2022. A regressão depende da especificação e não decide.
+  (b) Por terço da fatia de 70 ou mais (alta do comparecimento; ganho por eleitor a mais de Lula e de Flávio, efeito fixo de município):
+   2026: terço 1: alta +1,26 p.p., Lula 0,535, Flávio 0,426; terço 2: alta +1,77 p.p., Lula 0,560, Flávio 0,398; terço 3: alta +2,58 p.p., Lula 0,546, Flávio 0,411.
+   2022: terço 1: alta -0,08 p.p., Lula 0,540, Flávio 0,405; terço 2: alta +0,33 p.p., Lula 0,545, Flávio 0,396; terço 3: alta +0,87 p.p., Lula 0,504, Flávio 0,437.
+  (c) Decil de maior fatia de 70 ou mais contra as demais seções dos mesmos municípios:
+   2026: alta de 2,98 p.p. contra 2,27 (razão 1,32, ep 0,07; diferença +0,72 p.p., ep 0,12); ganho de Lula por eleitor a mais
+         0,514 no decil e 0,540 no resto (diferença -0,026, -3,7 ep); o de Flávio, 0,447 e 0,417 (+4,2 ep).
+   2022: alta de 1,18 p.p. contra 0,55 (razão 2,17; diferença +0,64 p.p., ep 0,09); ganho de Lula 0,452 e 0,546 (-9,4 ep).
+   Critério de sinal: alta de 2 vezes ou mais (2026: 1,32, não) E ganho de Lula de 0,9 ou mais no decil (2026: 0,51, não). Critério de sem sinal:
+   ganho de Lula a até 0,1 entre os terços (amplitude 0,025, sim) E alta proporcional aos faltosos do 1º turno (entrada por faltoso no terço de
+   cima 1,74 vezes a do terço de baixo; minha faixa era de 0,8 a 1,25; não). Pela letra: INCONCLUSIVO.
+  Calibração: com 1.107.548 votos plantados em nome de eleitores de 70 ou mais (φ = 6,43% deles) a razão do decil vai a 1,64 e o ganho de Lula
+   no decil a 0,516; com a margem inteira (φ = 25,7%), razão 2,10 e ganho 0,648. O limiar de 0,9 não é atingido nem assim: o critério de
+   sinal da equipe vermelha é SEM PODER. O que responde ao plantio é o coeficiente de 70 ou mais em (a): de 4,17 para 10,61 com 25% da margem
+   e 29,94 com a margem inteira. O observado (4,17) está 1,70 acima de 2022 (2,47); a entrada real plantada dá o mesmo coeficiente, então só o
+   ganho por eleitor a mais separa as duas, e ele é igual dentro e fora do decil.
+  Tradução em votos: eleitores a mais no decil, além da taxa das vizinhas de município: 108.493 em 2026 (94.668 em 2022). Pela repartição
+   medida (0,514 para Lula e 0,447 para Flávio), isso vale cerca de 7.295 votos de margem. Se todos fossem votos inseridos para Lula, 2,4% da margem.
+  Só PI, MA, TO, PB e CE: alta de 1,85 p.p. no decil contra 0,45 nas demais (razão 4,1, ep 1,9; diferença +1,39 p.p., ep 0,10);
+   em 2022 a diferença era +0,79 p.p. (ep 0,11). Ganho de Lula por eleitor a mais 0,681 no decil e 0,652 no resto. São 24.773 eleitores
+   a mais no decil. A condição de "2 vezes" vale nesses cinco estados, a do ganho de 0,9 não.
+  Espelho (fatia de 16 a 24 anos): o decil mais jovem subiu 0,40 p.p. contra 1,11 das demais (diferença -0,71); em 2022 a diferença foi -0,73.
+
+EXPLORATÓRIOS (feitos depois de ver resultados; não entram em veredito)
+  E1. Θ por UF (27 contas; o acaso daria 1 ou 2 além de 2 ep). Além de 3,11 ep (corte para 27 comparações): AC e AP, com sinal NEGATIVO, e MG
+   bem no limite (3,11), com sinal positivo.
+   AC: Θ +0,131; +0,019; +0,171; 2026 -0,127 (ep 0,028). 2026 menos referência -0,234 (-4,7 ep). Metades em 2026: Lula -0,083, Flávio +0,044. Equivale a 5.053 votos se em metade das seções.
+   AP: Θ +0,167; +0,027; +0,218; 2026 -0,135 (ep 0,060). 2026 menos referência -0,272 (-3,8 ep). Metades em 2026: Lula -0,072, Flávio +0,063. Equivale a 5.874 votos se em metade das seções.
+   RR: Θ +0,103; +0,024; +0,133; 2026 -0,072 (ep 0,066). 2026 menos referência -0,159 (-1,8 ep). Metades em 2026: Lula -0,036, Flávio +0,036. Equivale a 2.765 votos se em metade das seções.
+   MG: Θ -0,079; +0,025; +0,078; 2026 +0,067 (ep 0,012). 2026 menos referência +0,058 (+3,1 ep). Metades em 2026: Lula +0,032, Flávio -0,035. Equivale a 67.309 votos se em metade das seções.
+   SC: Θ -0,059; +0,055; +0,088; 2026 +0,109 (ep 0,029). 2026 menos referência +0,081 (+2,3 ep). Metades em 2026: Lula +0,051, Flávio -0,059. Equivale a 27.652 votos se em metade das seções.
+   MS: Θ -0,010; +0,033; +0,122; 2026 +0,116 (ep 0,018). 2026 menos referência +0,067 (+2,3 ep). Metades em 2026: Lula +0,049, Flávio -0,067. Equivale a 9.355 votos se em metade das seções.
+   Em AC, AP e RR o comparecimento caiu 5 a 7,5 pontos entre os turnos (como nos outros anos). Em 2026, dentro do prédio, a seção que caiu mais
+   perdeu votos de Flávio além da proporção (Θ de Flávio positivo, de Lula negativo); em 2014, 2018 e 2022 era o contrário. É a assinatura da
+   "abstenção pura" do plantio (eleitor de Flávio que não volta), desigual entre seções, e não de inserção para Lula. Em votos é pequeno (cerca de
+   5 a 6 mil em cada estado), mas é o lugar onde caderno de votação separaria as duas leituras com menos seções.
+   MG, SC e MS têm excesso positivo só por causa de 2014; contra 2022 sozinho dão -0,011, +0,021, -0,006.
+  E2. Comparecimento oficial dos muito idosos, série (Brasil sem DF e sem exterior):
+   80 anos ou mais: 16,1% e 16,7% (2018, 1º e 2º turno); 17,8% e 21,2% (2022); 26,9% (2026, 1º turno, com o DF).
+   70 a 79: 48,0% e 49,3%; 53,3% e 57,8%; 62,1%. 90 ou mais: 3,98% e 4,09%; 4,18% e 5,37%; 8,18%.
+   Em votos: de 80 anos ou mais votaram 905.980 no 1º turno de 2022, 1.080.088 no 2º, e 1.482.213 no 1º turno de 2026.
+   Em 2018 os muito idosos votaram igual nos dois turnos (razão de 1,03 a 1,04). O salto começa no 2º turno de 2022 (mais 19% nos de 80 ou mais,
+   mais 29% nos de 90 ou mais) e o 1º turno de 2026 já está muito acima. Não é dado do 2º turno de 2026 nem aponta candidato: o salto de 2026
+   é no turno que Flávio venceu e aparece em todas as UFs, inclusive nas dele. Explicações inocentes a testar (não testadas aqui): transporte gratuito
+   no dia da eleição e depuração do cadastro (em BA, CE, MA, AM e PA os aptos de 90 ou mais caíram 40% a 57%, o que sobe a taxa sem
+   subir os votos). O número de votantes, porém, subiu em toda parte. É a faixa onde "nome que ninguém reclama" mais cresceu na série, nos
+   dois sentidos de leitura.
+  E4. O grupo sem biometria como controle da hipótese de "biometria falsa" (amostra de logs). Um programa que registrasse votos falsos como
+   habilitação biométrica só poderia usar nomes de quem tem biometria no cadastro. Variação do comparecimento em pontos do próprio grupo:
+   com biometria +1,69; sem biometria +1,84; diferença -0,15 (ep 0,11). A margem inteira entrando como biometria falsa pediria
+   +3,14 pontos a mais no grupo com biometria; 25% da margem, +0,79. SE os dois grupos variassem igual sem fraude, o limite superior de 95% seria
+   de 86.967 votos. Mas essa hipótese NÃO foi testada, e a escala decide a conta: medido por faltoso do 1º turno, voltaram em saldo
+   10,2% dos faltosos com biometria e 3,2% dos sem biometria; se a régua fosse essa, sobrariam 1.641.800 votos no grupo com
+   biometria. O faltoso sem biometria é em boa parte cadastro parado (quem nunca volta), então essa segunda régua exagera. Sem o mesmo dado de
+   2022 (tipo de habilitação por turno) não há como escolher a régua: o E4 não é teto nem indício, é a conta que falta fazer com dado do TSE.
+  E3. Lista para cadernos: resultados JSON, campo exploratorios.secoes_AC_AP_RR_para_cadernos (15 seções por UF com a maior queda de comparecimento
+   em relação às vizinhas de prédio, com a variação de Lula e de Flávio). A marca do E1 é da média do estado: em parte dessas seções quem caiu
+   foi Lula. A lista serve para conferir assinaturas contra o comparecimento, não aponta seção fraudada.
+
+A FAVOR DA TESE (ou que a mantém aberta)
+  1. O comparecimento dos eleitores sem biometria cresceu mais que o dos demais na mesma seção (4,40% contra 2,02%, diferença a 9 ep).
+     É a marca (a) do desenho, na direção prevista. O excesso vale 166.425 votos (3,8% da margem).
+  2. Seções com mais idosos subiram mais (decil de 70 ou mais: +0,72 p.p. sobre as vizinhas; nos cinco estados da Onda A, +1,39 p.p., acima dos +0,79 de 2022).
+  3. A dispersão da variação do comparecimento dentro do prédio é a maior dos quatro anos (0,0172 contra 0,0157 a 0,0165).
+  4. O R3 não pôde rodar: o TSE ainda não publicou o perfil de comparecimento do 2º turno. Não há atraso anormal até aqui: o do 1º turno foi
+     gerado 9 dias depois da votação e só subiu ao ar 17 dias depois; o 2º turno está no dia 16. E a série mostra salto do comparecimento dos
+     muito idosos a partir do 2º turno de 2022 (E2), que ninguém explicou com dado.
+  5. O teste é cego, por desenho, para comparecimento a mais espalhado por igual nas seções do prédio e registrado como biometria. É a forma que
+     a Onda A deixou de pé. Ausência de marca aqui não a alcança.
+CONTRA A TESE
+  1. Dentro do prédio, o eleitor a mais de 2026 se repartiu como em 2022 (0,513 para Lula e 0,442 para Flávio), e o excesso sobre o padrão é +0,003
+     (ep 0,014). Voto inserido só para Lula em parte das seções daria de +0,13 a +0,84 nos plantios. Fica excluída inserção desigual acima de
+     149.335 a 1.301.872 votos, conforme o espalhamento.
+  2. O reservatório sem biometria não prevê alta de comparecimento nem ganho de Lula (δ e γ_sb negativos), e a conta exata dos logs limita o canal
+     a 347.098 votos (7,8% da margem) mesmo contando TODO o aumento desses eleitores como suspeito. Nos cinco estados da Onda A quase não
+     há eleitor sem biometria (851.305).
+  3. Nas seções de eleitorado idoso o eleitor a mais não foi mais para Lula (0,514 contra 0,540 no resto; para Flávio 0,447 contra 0,417), e o
+     padrão de subir mais onde há mais idosos existia igual em 2022.
+  4. Saltos isolados de comparecimento quase não existem: 252 seções acima de 4 desvios, 226 abaixo, saldo de 1.987 votos.
+  5. Onde há marca por UF (AC e AP), ela é de eleitor de Flávio que falta, não de voto a mais para Lula, e vale poucos milhares de votos.
+
+O QUE ISSO SIGNIFICA
+  Para o Léo, em português direto: se alguém lançou votos em nome de quem faltou, não foi (a) em algumas seções mais que em outras do mesmo
+  prédio, (b) usando eleitores sem biometria, nem (c) concentrando em seções de idosos com voto de um lado só. Essas três portas ficam fechadas
+  até estes tetos: 7,8% da margem pelo eleitor sem biometria; 2,4% pelas seções de idosos; e, para inserção desigual entre seções, de 3% da margem
+  (se concentrada em 5% das seções) a 29% (se espalhada por 80% delas). Quanto mais espalhada, menos este teste limita. A virada pelo comparecimento
+  que a Onda A achou é, portanto, um fenômeno espalhado por igual dentro dos prédios: isso é o que mobilização (ou desmobilização) de verdade produz, e é
+  também o que produziria um desvio feito no programa e registrado como biometria. Este teste não separa essas duas; quem separa é o N1 (por
+  onde entraram os votos a mais), o perfil de comparecimento do 2º turno e, de vez, os cadernos de votação.
+
+PISTAS
+  1. Cobrar do TSE o perfil de comparecimento do 2º turno de 2026. Com ele o R3 roda em minutos (modo parte2r3). Números que acusariam: faixa de
+     100 anos ou mais acima de 4,13%, ou razão 2º sobre 1º turno das faixas de 90 ou mais acima de 1,15 vez a da faixa de 60 a 69.
+  2. Cadernos de votação em AC e AP (lista do E3): é onde a saída de eleitores de Flávio foi desigual entre salas do mesmo prédio.
+  3. Pedir ao TSE o comparecimento por seção, turno e faixa etária COM o tipo de habilitação (biometria, mesário, sem biometria), 2018 a 2026:
+     responde de uma vez o salto dos muito idosos (E2) e a marca (a) do R2.
+  4. Cruzar com o N1: se a variação de S na amostra aleatória ficar perto de 308 mil, as duas contas se confirmam.
+
+DESVIOS E DECISÕES
+  Antes de rodar (no docstring): aptos do 1º turno como base; local do 1º turno; erro de Θ pela regressão (reamostragem ao lado); ordem do
+  veredito; plantios sem teto de faltosos; explicações inocentes plantadas; metades θ_L e θ_R; faixa de 0,8 a 1,25 para "proporcional aos
+  faltosos"; ganho por eleitor a mais definido como inclinação com controles; seções com diferença de mais de 10 entre perfil e aptos fora.
+  Depois de ver resultado (marcados): (1) filtro de mesma urna no R2, posto depois de ver que 20 seções com urna trocada traziam no log do 1º
+  turno votos de outra seção (sem o filtro V2 = 304.319; com ele 308.452); (2) erro agrupado por local no DF, que tem um município só; (3) os
+  arquivos de 2022 e 2018 do perfil de comparecimento não trazem o DF, descoberto depois; (4) T32 de 2022 como placebo (escrito no código antes
+  de ver qualquer resultado da Parte III, mas fora do docstring); (5) veredito SEM PODER do T32 pela regra geral da tarefa; (6) E1, E2, E3 e E4.
+  O R2 pede a "amostra L"; usei todas as seções com log dos dois dias e dei o prefixo autoponderado ao lado. Não usei a amostra aleatória nova
+  (é do N1).
+  Contagem: 4 vereditos com critério registrado, 0 sinal; o acaso daria 0,2. No exploratório por UF, 5 de 27 além de 2 ep
+  (AC, AP, MG, MS, SC); o acaso daria 1,2.
+  Conferências: fe_reg igual a lib.fe_ols quando o grupo do erro é o local (θ = 0,0710, ep 0,0030); contagem ANO do extrator D2 igual ao tipo S do
+  extrator D1 em 7.733 de 7.772 pares seção e turno (99.519 contra 99.480); perfil de comparecimento do 1º turno de 2026 igual ao perfil por seção
+  em todas as faixas etárias. Falta a conferência independente por outro agente.
+
+Arquivos: scripts/analisar_R27_B3.py; resultados/R27_B3_reservatorio_e_marginal.json; trabalho em /home/user/trabalho-eleicao/adendo27/R27_B3.

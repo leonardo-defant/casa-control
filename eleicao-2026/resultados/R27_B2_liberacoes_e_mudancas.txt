@@ -1,0 +1,327 @@
+R27_B2: LIBERAÇÕES E MUDANÇAS NA SEÇÃO (D2-1 LIBERA, D2-6 TROCA e D4-6 parte a)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), Onda B, item B2, na ordem do Adendo 28 (commit 938be19,
+04:36:33 UTC). Critérios de registro/adendo27/desenho_D2_proposta.json (D2-1 e D2-6) e desenho_D4_proposta.json (D4-6 a).
+Desenhos cegos. Docstring com as decisões que o registro não fixa congelado às 04:52 UTC, com uma emenda às 04:58 UTC
+(plantio do a3), tudo antes de qualquer conta. Script: scripts/analisar_R27_B2.py. Números completos no JSON ao lado.
+
+PERGUNTA. A Onda A mostrou que a virada passa pelo comparecimento. Se os votos a mais tivessem sido lançados pela mesa em
+nome de quem não foi votar, o eleitor com biometria teria de ser liberado pelo mesário, e cada liberação fica contada no
+boletim (QT_ELEI_BIOM_SEM_HABILITACAO). Se tivessem vindo de aptos acrescentados, urna trocada, urna recarregada ou seção
+agregada, isso também fica nos campos do boletim. Este teste olha esses campos em todas as seções do país.
+
+VEREDITOS
+  D2-1 LIBERA: SEM PODER pela regra de poder que fixei antes de rodar (L8); pela letra do critério do registro, sem
+     essa regra, INCONCLUSIVO. O inconclusivo vem só da comparação com 2022 (a régua de 2024, exploratória, aponta
+     para o mesmo lado); só com 2026 as três condições de SEM SINAL se cumprem.
+  D4-6 (a):    SEM PODER pela regra de poder que fixei antes (F4); pela letra do critério do registro, SEM SINAL.
+  D2-6 TROCA:  SEM SINAL (as cinco bandeiras e os aptos), com plantio recuperado.
+  Em uma frase: a alta do comparecimento não entrou por liberação do mesário, nem por aptos, urna trocada, recarga ou
+  agregação; sobra uma diferença de nível contra 2022 e 2024 (a liberação não caiu no 2º turno como caía: 570 a 740 mil,
+  13% a 17% da margem) que não tem ligação com o voto e não chega a um quarto da margem.
+
+0. DADOS E CONFERÊNCIAS
+  bweb de 2026 lido de novo dos zips (uma linha por seção): 499.206 seções no 1º turno e 499.205 no 2º;
+  0 divergências em 11 campos contra a extração dos desenhistas e 0 contra dados/secoes2026 (aptos, comparecimento, urna, local).
+  Pareadas pela chave: 499.205. Só no 1º turno: 1 seção do exterior (30 aptos, 2 votos).
+  bweb de 2022 (placebo): baixado em fluxo do CDN do TSE, 54 arquivos, sem erro e sem bloqueio; 471.010 seções por turno;
+  aptos e comparecimento iguais aos de dados/secoes2022 em todas; sem o campo só as 1.018 seções do exterior (não baixado).
+  Regressão própria (erro por município) conferida contra lib.fe_ols: maior diferença de coeficiente 1.2e-15.
+
+1. D2-1 LIBERA: liberações manuais em todas as seções
+  Universo (letra): 494.381 seções, 127.035.945 votantes no 2º turno. Fora: 4.824 seções e 1.200.129 votantes
+  (exterior 1.308; comparecimento abaixo de 50 em algum turno 678; aptos variando mais de 2: 2.910); a margem de fora é 29.192.
+
+  S1, NÍVEL (enxerga inserção espalhada ou concentrada, porque é soma nacional)
+    2026 bruto: liberações 8.292.850 no 1º turno (6,681% do comparecimento) e 8.582.873 no 2º (6,756%).
+    Razão q = 1,0112 (IC 95% 1,0053 a 1,0174): a taxa subiu 1,1%. Alta de 290.023 liberações para 2.911.994 votantes
+    a mais: 10,0% da alta do comparecimento veio por liberação, contra 6,7% de taxa de base.
+    Sobra bruta de 2026 (q_ref = 1, sem outro ano): E = 95.470 liberações (IC 95% 45.737 a 149.871; 99% 34.388 a 168.357),
+    2,2% da margem.
+    2022 (placebo): a taxa CAIU do 1º para o 2º turno, de 8,75% para 8,09%: q_ref = 0,9244 (IC 0,9163 a 0,9323);
+    763.437 liberações a menos com 573.389 votantes a mais.
+    Sobra pela letra (contra o padrão de 2022): E = 737.280 (IC 95% 612.173 a 891.307; 99% 594.515 a 961.645),
+    16,6% da margem. Com q_ref fixo o IC é 640.317 a 852.580. Este número depende inteiro de 2022.
+    Mesma urna nos dois turnos (490.000 seções): q 1,0114, E bruto 95.365, E contra 2022 721.493.
+    Urna diferente (4.381 seções): q 1,0009, E bruto 85, E contra 2022 9.753.
+
+    Por UF (E bruto usa só 2026; E contra 2022 usa o q de 2022 da própria UF; IC 95% por reamostragem de municípios):
+    UF  seções  taxa 1T  q 2026  q 2022    E bruto  E contra 2022   IC 95% do E contra 2022   alta de H  alta de C
+    AC   2.259    5,00%   1,000   0,892         -1          2.423              776 a 5.204      -1.722    -34.436
+    AL   7.040    6,54%   1,067   1,018      8.481          6.189            3.438 a 9.867       9.338     13.105
+    AM   8.094    5,39%   1,006   0,940        738          7.767           1.206 a 19.242      -1.538    -42.222
+    AP   1.900    4,40%   1,041   0,981        775          1.130              121 a 2.943      -1.264    -46.308
+    BA  35.241    7,30%   1,023   0,939     15.462         57.432          44.386 a 73.140      42.273    367.301
+    CE  23.622    6,89%   1,035   0,992     14.500         17.753          12.771 a 22.934      22.364    114.140
+    DF   6.776    4,81%   0,932   1,067     -5.963        -11.834                      n/d      -4.238     35.835
+    ES   9.794    6,43%   0,977   0,888     -3.575         13.752           7.149 a 21.835          85     56.882
+    GO  15.610    6,81%   0,976   0,958     -6.562          4.876            1.645 a 8.078      -1.404     75.763
+    MA  18.011    5,99%   1,051   0,969     12.623         20.165          14.406 a 27.213      10.701    -32.099
+    MG  51.685    6,69%   1,018   0,957     15.655         53.222          44.442 a 62.702      42.806    405.794
+    MS   7.086    7,83%   0,927   0,925     -9.083            252           -4.653 a 4.091      -4.913     53.288
+    MT   8.245    6,72%   0,981   0,913     -2.625          9.579           4.629 a 16.472        -388     33.275
+    PA  20.640    5,41%   1,028   0,932      7.623         25.891          16.477 a 38.346       3.497    -76.297
+    PB  10.661    6,96%   1,043   0,985      8.192         11.088           8.171 a 14.472      12.336     59.523
+    PE  21.365    6,26%   1,043   0,954     16.584         34.302          25.605 a 45.035      30.082    215.665
+    PI  10.183    8,66%   1,041   0,952      7.846         17.169          11.946 a 23.599       7.770       -877
+    PR  26.938    7,49%   0,935   0,893    -34.353         21.950          15.069 a 29.961     -18.100    217.063
+    RJ  37.376    7,05%   1,056   0,976     39.689         56.314         18.437 a 128.729      54.927    216.181
+    RN   8.009    7,90%   1,024   0,968      4.244          9.835           5.795 a 13.996       9.072     61.086
+    RO   4.684    6,25%   1,003   0,922        209          5.020            2.813 a 7.713          50     -2.553
+    RR   1.505    3,84%   1,067   1,026        792            488                177 a 822        -126    -23.896
+    RS  27.369    8,24%   1,027   0,829     15.438        112.095         84.264 a 146.979      30.793    186.396
+    SC  17.198    7,57%   0,994   0,862     -2.249         47.214          36.625 a 59.329       6.374    113.893
+    SE   5.865    6,77%   1,031   0,979      3.050          5.103            3.122 a 7.632       4.924     27.698
+    SP 102.858    6,02%   0,990   0,874    -15.843        190.268        110.471 a 325.418      40.057    928.195
+    TO   4.367    5,28%   0,937   0,826     -3.184          5.557            3.491 a 8.377      -3.733    -10.401
+    Soma das UFs: E bruto 88.462 (só as positivas: 171.902); E contra 2022 724.998.
+    Nas cinco UFs do indício da Onda A (PI, MA, TO, PB, CE): q = 1,0371 contra 1,0075 no resto; E bruto = 40.557
+    (IC 33.227 a 49.857); E contra 2022 = 74.811. A margem de Lula nessas cinco UFs é 5.812.256.
+
+  S2, CAUDA (enxerga inserção concentrada em poucas seções)
+    Cauda direita (z de 4 ou mais): 160 seções, X+ = 8.905 liberações acima do esperado.
+    Cauda esquerda (z de -4 ou menos): 260 seções, X- = 17.594. A = X+ menos X- = -8.689 (IC 95% -13.323 a -4.338).
+    Há mais queda grande que subida grande. Sem centrar (ao lado): A = -9.626. Em 2022: X+ 49.966, X- 70.542, A -20.576.
+
+  S3, ELO COM O VOTO (dentro do mesmo local de votação)
+    gama = -0,0003 (ep 0,0032; IC 95% -0,0066 a 0,0059; n = 472.747 seções em 72.268 locais, erro por 5.570 municípios).
+    Onde a liberação subiu mais, Lula não ganhou mais margem. O registro esperava 0,3 a 1,1 com inserção.
+    2022: gama = 0,0216 (ep 0,0027), positivo e pequeno.
+    Espelho por candidato em 2026: ganho de Lula por liberação a mais -0,0007 (ep 0,0016); de Flávio -0,0004 (ep 0,0017).
+    Desfecho placebo (branco e nulo): 0,0011 (ep 0,0009).
+    Turnos invertidos (1º turno tratado como suspeito): E bruto -93.281; cauda A = 12.081 (X+ 19.935, X- 7.854); gama = 0,0139 (ep 0,0028).
+
+  CALIBRAÇÃO POR EFEITO PLANTADO (20 repetições cada; K = votos somados a H2, C2 e L2)
+    plantio                                              E devolve   A devolve   gama (ep)
+    inserção uniforme, 25% da margem                       93,8%       -0,3%   0,054 (0,003)
+    inserção uniforme, 10% da margem                       93,8%       -0,3%   0,023 (0,003)
+    inserção em 5% das seções, 25% da margem               93,8%       82,6%   0,427 (0,009)
+    inserção em 5% das seções, 10% da margem               93,8%       17,7%   0,239 (0,007)
+    INOCENTE eleitor real para Lula, uniforme, 25%          0,5%        0,0%   -0,004 (0,003)
+    INOCENTE eleitor real para Lula, 5% das seções          0,5%       -0,0%   -0,051 (0,004)
+    INOCENTE leitor pior (só H sobe), uniforme            100,0%       -0,3%   -0,000 (0,003)
+    INOCENTE leitor pior, 5% das seções                   100,0%       94,4%   -0,000 (0,001)
+    INOCENTE abstenção pura de Flávio, uniforme            -0,5%        0,0%   0,004 (0,003)
+    INOCENTE abstenção pura de Flávio, 5% das seções       -0,5%        0,0%   0,067 (0,005)
+    observado em 2026                                                                -0,000 (0,003)
+    Leitura: S1 devolve 93,8% do plantado em qualquer desenho (o registro esperava 95% a 105%; pela fórmula o esperado é
+    93,8%, porque o voto inserido também aumenta o comparecimento). S2 devolve 82,6% do plantio concentrado de 25% e só
+    17,7% do de 10% (18 votos por seção não passam de z = 4). S3 dá gama de 0,43 e 0,24, não os 0,6 do registro, porque
+    a própria regressão do registro controla a variação do comparecimento, que sobe junto com a liberação inserida.
+    O teste distingue as explicações: eleitor real que entra (I1) e abstenção pura (I3) não mexem em E nem em A; leitor
+    pior (I2) mexe em E e em A igual à inserção, e só gama separa os dois (gama fica em zero).
+
+  PODER E VEREDITO
+    Regra L8, fixada antes: S1 enxerga (sim); S2 enxerga se devolver 90% (devolve 82,6%: não); S3 enxerga se gama plantado for 0,6
+    ou mais (é 0,43: não). Com S2 e S3 abaixo da régua do registro, a regra dá SEM PODER para o conjunto.
+    Pela letra do critério do registro: SINAL exige Q de 1.107.548 ou mais (Q = 737.280: não) e gama de 0,30 ou mais (não).
+    SEM SINAL exige limite superior do IC de E abaixo de 443.019 (é 891.307: não), A abaixo de 443.019 (sim) e limite superior
+    de gama abaixo de 0,10 (é 0,0059: sim). Resultado pela letra: INCONCLUSIVO.
+    Só com 2026 (q_ref = 1): limite superior de E = 149.871, abaixo de 443.019; as três condições de SEM SINAL se cumprem.
+    O que decide entre INCONCLUSIVO e SEM SINAL é, portanto, aceitar ou não a queda de 2022 como o padrão natural. O
+    exploratório com 2024 (seção 4, item e) mostra que a queda entre turnos se repete; isso reforça o INCONCLUSIVO.
+
+  COMPLEMENTOS FIXADOS ANTES (não decidem)
+    Elo nas cinco UFs: gama = 0,0130 (ep 0,0075); no resto: -0,0038 (ep 0,0034).
+    Por região: Norte -0,003 (0,010); Nordeste 0,004 (0,004); Sudeste -0,012 (0,005); Sul -0,012 (0,007); Centro-Oeste -0,004 (0,017).
+    Com perfil da seção (idade e fração sem biometria no cadastro): gama = 0,0120 (ep 0,0030); positivo, e 20 vezes menor que o
+    que 10% da margem inserida produziria.
+    Cauda e voto: as seções da cauda direita ganharam 0,0014 de margem por votante contra as vizinhas (ep 0,0031): 57 votos.
+    Dentro do local, cada votante a mais traz 0,089 liberação (ep 0,003), contra 0,067 de taxa média: o eleitor marginal é
+    liberado pelo mesário um terço mais vezes que a média, e 91% dele entra sem liberação.
+
+  ACHADO LOCAL (para pedido de ata, caderno e arquivos da urna)
+    52 seções com z de 6 ou mais, 5.588 liberações acima do esperado; 29 delas com urna trocada entre os turnos.
+    Variação da margem nelas: 0,061 por votante, contra 0,053 no país. As dez maiores:
+      BA|34290|127|336     H  18 de 270 no 1º turno; 243 de 281 no 2º; z 19,1; margem +16; urna trocada: sim
+      BA|34290|127|335     H  39 de 281 no 1º turno; 281 de 314 no 2º; z 15,9; margem +44; urna trocada: não
+      RJ|58637|221|178     H  21 de 227 no 1º turno; 188 de 216 no 2º; z 15,3; margem +18; urna trocada: sim
+      RJ|60011|188|82      H  37 de 262 no 1º turno; 228 de 269 no 2º; z 14,8; margem +36; urna trocada: sim
+      SE|31054|1|265       H  22 de 288 no 1º turno; 181 de 290 no 2º; z 14,6; margem +21; urna trocada: sim
+      SP|70750|174|447     H  34 de 211 no 1º turno; 205 de 218 no 2º; z 14,2; margem -5; urna trocada: não
+      RS|89770|88|113      H  61 de 292 no 1º turno; 282 de 294 no 2º; z 13,9; margem -7; urna trocada: sim
+      GO|96539|110|116     H  21 de 182 no 1º turno; 157 de 178 no 2º; z 13,5; margem +5; urna trocada: não
+      BA|36854|180|175     H  51 de 306 no 1º turno; 260 de 339 no 2º; z 13,5; margem +27; urna trocada: não
+      RJ|60011|9|262       H  34 de 313 no 1º turno; 200 de 339 no 2º; z 13,3; margem +2; urna trocada: sim
+    Lista inteira no JSON (campo achado_local).
+
+2. D4-6 (a): VOTOS SEM ORIGEM PELO COMPARECIMENTO SEM BIOMETRIA
+  (a1) Excesso nacional F = 93.113 (IC 95% 46.446 a 151.836), 2,1% da margem: variação de NB 290.239, do comparecimento 2.960.241,
+       fatia de NB no 1º turno 6,66%. Só 27 UFs: 95.224. No universo do D2-1: 95.470 (é o E bruto da S1).
+       2022: F = -818.942 (IC -1.018.122 a -688.426): negativo, a liberação caiu.
+  (a2) mu menos mu' = 0,0022 (ep 0,0026; IC 95% -0,0028 a 0,0072; 472.894 seções). Margem por votante a mais com biometria:
+       mu' = 0,105 (ep 0,010); por liberado sem biometria: mu = 0,107 (ep 0,010). É o mesmo valor.
+       Em separado: cada votante a mais com biometria dá 0,531 voto a Lula e 0,426 a Flávio; liberado pelo mesário, 0,531 e 0,424.
+       2022 (eliminados somados): mu menos mu' = 0,0043 (ep 0,0019); 2026 na mesma versão: 0,0016 (ep 0,0026).
+       Espelho com os turnos invertidos: 0,0034 (ep 0,0026). Desfecho placebo (branco e nulo): 0,0020 (ep 0,0007).
+  (a3) Eleitores sem biometria no cadastro: 16.747.631 (10,6% do eleitorado). Coeficiente na alta do comparecimento:
+       -0,0275 (ep 0,0020): onde há mais eleitor sem biometria o comparecimento subiu MENOS. Votos implicados: -460.810
+       (IC 95% -525.278 a -396.343). Plantio: o coeficiente sobe 100,0% do plantado. O reservatório sem biometria não aparece.
+  (a4) Logs da amostra antiga (3.877 seções, não aleatória, sem extrapolar): votos depois das 17h locais: 31.123 no 1º turno e
+       227 no 2º; sem biometria entre eles: 3.621 (11,6%) e 38 (16,7%). Excesso tardio sobre a parcela do
+       1º turno: 11,6 votos (IC -0,3 a 24,9). No dia inteiro: 12,24% sem biometria no 1º turno e 12,44% no 2º.
+       Nesta amostra quase não houve voto depois das 17h no 2º turno; por aí não entrou volume.
+  Calibração (20 repetições; plantio em 5% das seções sorteadas, somado a L2, comparecimento e NB):
+    inserção de 10% da margem                          F devolve  93,3%; mu menos mu' = 0,226 (ep 0,006); mu' = 0,304
+    inserção de 25% da margem                          F devolve  93,3%; mu menos mu' = 0,402 (ep 0,008); mu' = 0,459
+    inserção da margem inteira                         F devolve  93,3%; mu menos mu' = 0,471 (ep 0,008); mu' = 0,518
+    ESPELHO: 25% inseridos para Flávio                 F devolve  93,3%; mu menos mu' = -0,493 (ep 0,011); mu' = -0,333
+    INOCENTE eleitor real para Lula, 5% das seções     F devolve   0,0%; mu menos mu' = -0,016 (ep 0,003); mu' = 0,765
+    INOCENTE eleitor real para Lula, uniforme          F devolve   0,0%; mu menos mu' = 0,001 (ep 0,003); mu' = 0,167
+    INOCENTE abstenção pura de Flávio, 5% das seções   F devolve   0,0%; mu menos mu' = 0,024 (ep 0,003); mu' = -0,736
+    INOCENTE abstenção pura de Flávio, uniforme        F devolve   0,0%; mu menos mu' = 0,004 (ep 0,003); mu' = 0,053
+    observado                                          F = 93.113; mu menos mu' = 0,002 (ep 0,003); mu' = 0,105
+    Leitura: o registro esperava mu menos mu' perto de 1 com inserção; nem a margem inteira plantada chega a 0,5, porque a
+    liberação natural troca de lugar com a biometria na mesma seção e isso dilui o coeficiente. Logo o teste não tem como
+    ACUSAR pelo limiar de 0,5 (regra F4: SEM PODER). Para ABSOLVER ele tem poder: 10% da margem plantados dão 0,226, acima
+    do limiar de 0,2, e o observado é 0,002. Eleitor real que entra e abstenção pura não mexem na estatística.
+  Veredito: SEM PODER pela regra F4; pela letra do registro, SEM SINAL (F de até 443.019: sim; mu menos mu' de até 0,2: sim;
+  votos implicados em (a3) de até 443.019: sim; nenhum IC de 95% cruza o limiar).
+
+3. D2-6 TROCA: O QUE MUDOU NA SEÇÃO ENTRE OS TURNOS
+  T1, APTOS
+    Seções com aptos diferentes: 55.722 (30.782 com alta, 24.940 com queda). Soma das altas: 37.346 eleitores;
+    espelho, soma das quedas: 37.346; líquido 0. Só 27 UFs: altas 37.079, quedas 37.228.
+    Tamanho: 29.870 seções com 1 ou 2 a mais, 855 com 3 a 10, 57 com 11 ou mais (maior alta 46); 22.942 com 1 ou 2 a menos,
+    1.818 com 3 a 10, 180 com 11 ou mais a menos (maior queda -84).
+    Boletim contra o arquivo de locais do TSE (gerado em 25/10/2026; cadastro de cada turno, agregadas somadas na principal): igual em 499.205 de
+    499.205 seções no 1º turno e em 499.205 no 2º. Soma das altas sem explicação pelo cadastro: 0.
+    O eleitorado inscrito da seção (QT_ELEITOR_SECAO) é igual nos dois turnos em todas; o que muda é o número de aptos da
+    eleição federal em cada turno, na casa de 1 ou 2 por seção, com soma zero. Limite: isso mostra que o boletim segue o
+    cadastro publicado, não por que o cadastro de cada turno difere.
+    Comparecimento acima dos aptos: 0 seções no 1º turno e 0 no 2º. Com 95% ou mais dos aptos: 559 e 639.
+    Outros anos (seções com aptos diferentes; soma das altas): 2014: 9.571; 7.601; 2018: 17.026; 12.051; 2022: 49.710; 36.153; 2026: 55.722; 37.346.
+    Plantio: 1 apto a mais em 4.992 seções leva a soma das altas de 37.346 para 42.085 (253 das plantadas estavam em queda): a contagem enxerga.
+
+  T2 e T3, BANDEIRAS (elo dentro do local; IC ao nível de 0,2%; V em votos de margem)
+    bandeira                                   seções        teto     gama (ep)             V     IC 99,8% de V        rho do plantio de 10%
+    U urna diferente da do 1º turno             4.413   1.136.602   -0,00032 (0,00060)      -365         -2.461 a 1.731   1,22
+    CT carga de 05/10 em diante                 2.245     576.632   0,00090 (0,00082)       517           -941 a 1.974   1,54
+    CD carga no dia 25/10                           5       1.111   -0,02238 (0,00983)       -25                -59 a 9   teto abaixo de 443.019
+    AG seção com agregadas                     14.926   3.861.057   0,00255 (0,00067)     9.862         1.809 a 17.914   0,98
+    AM conjunto de agregadas mudou                  0           0   sem seção marcada
+    U e CT juntas em 1.875 seções; U sem CT em 2.538; CT sem U em 370. AM: zero pelo bweb e zero pelo arquivo de locais.
+    Espelho por candidato na bandeira U: Lula -0,00033 (ep 0,00031); Flávio -0,00001 (ep 0,00031).
+    AG: gama positivo a 3,8 ep dentro do local, 9.862 votos; com efeito fixo de município o sinal inverte (-10.759 votos, exploratório).
+    Desfecho placebo (branco e nulo): U 0,00033 (0,00018); CT -0,00017 (0,00024); AG -0,00045 (0,00020).
+    Placebo da bandeira U em outros anos: 2014: gama 0,00053 (ep 0,00048), V 1.501, 2,51% das seções; 2018: gama 0,00039 (ep 0,00045), V 1.108, 2,47% das seções; 2022: gama 0,00034 (ep 0,00034), V 1.102, 2,66% das seções.
+    Em 2026 a urna foi trocada em 0,89% das seções, um terço da taxa dos outros anos.
+    Placebo do 1º turno (carga tardia antes de 04/10, 2.309 seções): diferença de nível no 1º turno contra as vizinhas 0,0034 (ep 0,0019).
+    Com o modelo da urna como controle, U: -0,00054 (ep 0,00060). Por UF, o maior desvio de U é o da PB: -0,0075 (z -3,2),
+    a favor de Flávio, -220 votos; com 24 UFs testadas, um z desse tamanho por acaso é esperado uma vez a cada 30 baterias.
+    Complementos: seções com aptos em alta: gama 0,00027 (ep 0,00029), V 2.262; em queda: -0,00000 (ep 0,00029), V -26;
+    dose (apto a mais por votante): -0,065 (ep 0,061).
+    Plantio (votos somados a L2 e C2 nas seções marcadas): U devolve 122% de 443.019 e 163% de 1.107.548; CT 154%; AG 98% e 110%.
+    Passa de 100% porque o teto é medido depois do plantio; com o teto de antes: U 88%, CT 87%, AG 88%. O efeito plantado é
+    29 (U), 28 (CT) e 24 (AG) vezes a meia largura do IC. Inocente plantado (eleitor real que divide o voto como a
+    seção): V de U vai a -62.874, sem acusar inserção.
+  CG na amostra de logs (3.895 seções, não aleatória): 189 seções com reinício do aplicativo de votação, contingência, ajuste de
+    relógio ou duas urnas no dia 25/10 (contingência ou duas urnas: 13). Teto 49.432; gama 0,0008 (ep 0,0026); V = 38 votos
+    (IC 99,8% -361 a 437). Plantio de 10% da margem da amostra: devolve 90%, 6,6 vezes a meia largura.
+    Placebo do 1º turno (mesmos eventos em 04/10, 439 seções): -0,0055 (ep 0,0037).
+  Veredito: SEM SINAL. Tetos de CD (1.111) e AM (0) abaixo de 443.019; U, CT e AG com limite superior de V abaixo de 18 mil votos;
+  soma das altas de aptos de 37 mil, toda no cadastro; nenhuma seção com comparecimento acima dos aptos.
+
+4. EXPLORATÓRIO (feito depois de ver os resultados; não decide veredito)
+  a) Efeito fixo mais largo, como pede a equipe vermelha (o efeito fixo de local é cego para inserção no prédio inteiro):
+     gama com efeito fixo de zona -0,043 (ep 0,003); de município -0,047 (ep 0,007); de UF -0,052 (ep 0,007).
+     O sinal é NEGATIVO: entre prédios e entre cidades, onde a liberação subiu mais Lula ganhou menos (por candidato, com
+     efeito fixo de município: Lula -0,024, Flávio 0,023). Plantio de 10% da margem em 5% dos PRÉDIOS inteiros: gama de
+     0,023 com efeito fixo de local (cego, como previsto) e 0,181 com efeito fixo de município (enxerga).
+     a2 com efeito fixo de município: mu menos mu' = 0,0001 (ep 0,0026). Bandeiras com efeito fixo de município: U -710 votos,
+     CT -80, AG -10.759 (z -6,5, a favor de Flávio).
+     Nas cinco UFs, dentro do local: Lula 0,0017 (ep 0,0038), Flávio -0,0113 (ep 0,0040); com efeito fixo de município: gama -0,017 (ep 0,009).
+  b) Entre as 27 UFs: o q bruto de 2026 acompanha o ganho de margem de Lula entre os turnos (correlação 0,65; por postos 0,72),
+     mas o q de 2022 das mesmas UFs acompanha o ganho de 2026 quase igual (0,55; 0,62): é um padrão regional que já existia. A razão
+     q de 2026 sobre q de 2022, que é o que forma a sobra de 737 mil, não acompanha a virada (-0,14; -0,18) nem a perda de Flávio
+     (0,06). As maiores razões estão em RS, SC, SP, TO e AC, onde Flávio venceu.
+  c) Leitura calibrada: o gama observado está a 75 erros-padrão do que 10% da margem inserida em 5% das seções produziria, e a
+     17 do que 25% inseridos por igual produziria; mu menos mu' está a 87 erros-padrão do plantio de 10%.
+  d) Seções com carga da urna no próprio dia 25/10: 5: MS|90514|8|486 (margem -63 no 1º turno e -54 no 2º); MS|91650|51|44 (margem -25 no 1º turno e -20 no 2º); PR|74918|56|37 (margem -96 no 1º turno e -92 no 2º); PR|75833|43|397 (margem +4 no 1º turno e +7 no 2º); SP|61816|16|436 (margem -76 no 1º turno e -63 no 2º).
+     Zonas de maior sobra bruta de liberações (UF|zona: liberações a mais; q), para pedido de atas e cadernos. No país: RJ|119: 927; 1,08; RJ|9: 911; 1,08; PE|56: 785; 1,12; RJ|161: 720; 1,11; MA|2: 717; 1,09; BA|127: 713; 1,14; RJ|55: 665; 1,07; RJ|179: 660; 1,07.
+     Nas cinco UFs: MA|2: 717; 1,09; CE|13: 577; 1,07; PI|6: 564; 1,11; PI|1: 519; 1,11; PI|3: 493; 1,08; PI|98: 465; 1,08; PI|7: 420; 1,08; CE|121: 416; 1,06. Listas completas no JSON.
+  e) Segundo ano de referência para q (download novo, exploratório): eleição municipal de 2024, 51 cidades com 2º turno,
+     97.301 seções de 20 UFs. Taxa de liberação: 5,76% no 1º turno e 5,44% no 2º: q de 2024 = 0,9438 (IC 95% 0,9026 a 0,9733).
+     Nas mesmas cidades: q de 2022 = 0,8956 (IC 0,8722 a 0,9359); q de 2026 = 0,9946 (IC 0,9775 a 1,0117).
+     Sobra de 2026 nessas cidades com q_ref de 2024: 81.499; bruta: -8.621.
+     No país, com q_ref de 2024 no lugar do de 2022: E = 572.152 (12,9% da margem; só com a incerteza de q de 2024:
+     322.203 a 921.838). A queda da taxa entre os turnos é a regra nos dois anos que têm o campo, e 2026 é a exceção.
+     Parte é composição: o eleitor marginal é liberado 33% mais vezes que a média; em 2024 o comparecimento caiu 5,2% entre os
+     turnos (efeito de -1,8 ponto em q) e em 2026 subiu 2,3% (efeito de +0,8 ponto). Isso explica menos de um terço da distância.
+     A hipótese de que a queda de 2022 fosse efeito da volta da biometria depois da pandemia não se sustenta: 2024 caiu também.
+     Limite: 2024 é eleição municipal e só de cidades grandes; serve para saber se a queda é regra ou exceção, não de régua fina.
+  f) Se a sobra de nível fosse voto inserido para Lula espalhado por igual, o gama seria de cerca de 0,029 a 0,037 (interpolação entre os
+     dois plantios uniformes). O observado é -0,0003 (ep 0,0032) na conta do registro, 0,012 com perfil e 0,014 com os controles do 2º
+     turno: de 5 a 12 erros-padrão abaixo (plantios medidos na conta do registro). A sobra tem a forma do plantio inocente
+     I2 (a liberação sobe e o voto não muda), não a da inserção.
+
+5. TRADUÇÃO EM VOTOS DE MARGEM (voto inserido vale 1)
+  Liberação manual acima da taxa do próprio 1º turno de 2026: 95.470 votos no máximo (2,2% da margem; limite de 99%: 168.357).
+  Liberação manual acima do padrão de 2022: 737.280 (16,6% da margem; limite de 99%: 961.645, 21,7%). Mesmo lida inteira
+  a favor da tese, não chega a um quarto da margem; e não tem nenhuma ligação medida com o voto.
+  Com a régua de 2024 (exploratório, 51 cidades): 572.152 (12,9% da margem).
+  Cauda de seções com liberação anormal: 8.905 votos à direita contra 17.594 à esquerda. Aptos acrescentados: 37.346 no teto,
+  compensados por 37.346 retirados. Urna trocada: -365 votos (limite 1.731). Carga depois do 1º turno: 517 (limite 1.974).
+  Agregadas: 9.862 (limite 17.914). Eleitores sem biometria como reservatório: -460.810 (negativo).
+
+6. O QUE PESA A FAVOR DA TESE, SEM SUAVIZAR
+  1. Contra 2022, 2026 tem 737.280 liberações a mais do que o padrão (IC 612.173 a 891.307). Em 2022 a taxa caiu 7,6% do 1º
+     para o 2º turno; em 2026 subiu 1,1%. Pela letra isso impede o SEM SINAL. E não é só 2022: nas 51 cidades com 2º turno
+     em 2024 a taxa caiu 5,6% (q 0,944); nas mesmas cidades caiu 10,4% em 2022 e só 0,5% em 2026. Com a régua de
+     2024 a sobra do país é de 572.152 (13% da margem). Em 2026 a liberação não caiu como caía, e eu não sei dizer por quê.
+  2. A taxa de liberação subiu mais justamente onde a Onda A achou o indício: q de 1,037 nas cinco UFs contra 1,007 no resto; essas UFs têm
+     13,5% das seções e 42% da sobra bruta do país. No MA e no PI a liberação subiu com o comparecimento caindo.
+  3. O eleitor marginal foi liberado pelo mesário mais vezes que a média (0,089 contra 0,067).
+  4. O gama muda com os controles: com o perfil da seção fica em 0,012 (4 ep) e com os controles do 2º turno (conta invertida) em
+     0,014 (5 ep), os dois positivos. São 17 a 20 vezes menores que a marca de 10% da margem inserida (0,24).
+  5. Há 52 seções com salto de liberação sem explicação nos dados (uma com 281 liberações em 314 votantes na mesma urna).
+  6. Limite que vale para tudo aqui: se o programa registrasse como biométrica uma habilitação que não houve, nenhum
+     destes campos mudaria. Este teste fecha a porta da mesa, não a do programa.
+
+7. O QUE PESA CONTRA, COM O MESMO RIGOR
+  1. Em 2026, sem comparar com ano nenhum, a sobra é de 95.470 liberações, 2,2% da margem. Nas cinco UFs do indício são 40.557,
+     contra 5.812.256 de margem de Lula ali.
+  2. Onde a liberação subiu mais, Lula não ganhou mais: gama -0,0003 (ep 0,0032) dentro do prédio e -0,047 entre prédios da mesma
+     cidade (sinal contrário; exploratório). O voto de quem foi liberado pelo mesário vale a mesma margem que o de quem passou na
+     biometria (mu menos mu' = 0,002, ep 0,003); 10% da margem inserida daria 0,23.
+  3. Não há cauda: 160 seções com subida anormal contra 260 com queda anormal.
+  4. A sobra contra 2022 e 2024 não se comporta como voto inserido: não está onde a virada está (é maior, em proporção,
+     em RS, SC, SP, TO e AC, onde Flávio venceu), não tem cauda e não tem elo com o voto. Mesmo espalhada por igual, uma
+     inserção desse volume levaria gama a cerca de 0,03; o observado fica entre 0,000 e 0,014. E lida inteira a favor da
+     tese ela vale de 13% a 17% da margem (limite de 99%: 22%), não a margem.
+  5. Onde há mais eleitor sem biometria no cadastro o comparecimento subiu menos (-0,028 por eleitor).
+  6. Aptos: 37.346 a mais e 37.346 a menos, tudo igual ao cadastro; nenhuma seção com mais votos que aptos. Urna trocada, recarga e
+     agregação: efeito dentro de 18 mil votos no limite mais largo, e a troca de urna foi um terço da de outros anos.
+
+8. O QUE ISSO SIGNIFICA PARA O INDÍCIO DO COMPARECIMENTO
+  O canal do comparecimento da Onda A vale cerca de 3,35 milhões de votos de margem. Se a mesa tivesse votado no lugar de
+  eleitores com biometria, esse volume teria de aparecer como liberação manual. O que aparece, medido só com 2026, são
+  95.470 liberações acima da taxa do 1º turno (limite de 99%: 168.357); na leitura mais favorável à tese (o padrão de 2022
+  como natural), 737.280 (limite de 99%: 961.645), menos de um terço do canal, e sem ligação com o voto em nenhum desenho.
+  Aptos (teto de 37 mil, compensado por quedas iguais), urna trocada, recarga e agregação (limites de 2 mil, 2 mil e 18
+  mil) não somam 60 mil votos. Logo o indício da Onda A NÃO passou pela liberação da mesa nem por mudança na seção.
+  Ficam de pé duas leituras: comparecimento real e desigual (o eleitor foi, pôs o dedo e
+  a urna reconheceu), ou registro falso feito pelo próprio programa, que dado público não testa. O N1 mede quanto entrou
+  por biometria reconhecida; o que separa as duas é caderno de votação e comprovante no e-Título.
+
+9. DESVIOS E DECISÕES QUE O REGISTRO NÃO FIXAVA
+  1. Regras de poder L8, F4 e T8 são minhas. L8 e F4 usaram como régua os valores que o registro esperava do plantio (90%
+     em A, gama de 0,6, mu menos mu' de 0,5). O plantio de 25% da margem dá 83%, 0,43 e 0,40; o mu menos mu' não chega a
+     0,5 nem com a margem inteira (0,47). Por isso os rótulos SEM PODER; o rótulo pela letra do registro sai ao lado. Não
+     mudei a regra depois de ver o resultado. Nos dois testes o plantio de 10% da margem NÃO seria absolvido pela letra.
+  2. S1 devolve 93,8% e não 95% a 105%: é a fórmula do registro (o voto inserido aumenta também o comparecimento).
+  3. IC de E com q_ref reestimado em cada réplica (mesmos municípios nos dois anos); z de S2 centrado na mediana da faixa.
+  4. D4-6: universo do D4-1 para (a2) e (a3); eliminados com termo próprio: 14, 55 e 70; peso 1/aptos do 1º turno.
+  5. D2-6: universo do elo sem filtro de aptos; IC de 99,8% para V; "cerimônia" da zona definida pelos dias com 5% ou
+     mais das cargas; CG só na amostra antiga de logs. A bandeira AM não tem nenhuma seção.
+  6. Emenda de 04:58 UTC, antes de qualquer conta: plantio do (a3).
+  7. Perfil do eleitorado (a3 e complemento): reaproveitei a extração sem votos do A6, conferida pelo total.
+  8. Exploratório marcado na seção 4. O placebo de 2022 usa download novo (cdn.tse.jus.br), lido em fluxo.
+
+10. CONTAGEM
+  Estatísticas com limiar do registro: 3 no D2-1 (Q, A, gama), 3 no D4-6 a (F, mu menos mu', a3), 6 no D2-6 (cinco bandeiras e
+  aptos): 12, nenhuma em SINAL. Ao lado rodaram cerca de 90 estatísticas com erro-padrão (espelhos, placebos, UFs, regiões,
+  complementos, exploratório); por acaso se esperam 4 ou 5 acima de 1,96 ep e nenhuma perto dos limiares em votos. As que
+  Entre as que passam de 3 ep estão: gama de 2022 (+0,022), gama com perfil (+0,012) e com os controles do 2º turno (+0,014),
+  AG dentro do local (+0,0026) e entre prédios (-0,0028), U na PB (-0,0075), o coeficiente dos eleitores sem biometria
+  (-0,028) e o gama com efeito fixo largo (-0,047). Nenhuma das positivas chega a um décimo da marca de inserção.

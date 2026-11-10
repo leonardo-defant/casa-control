@@ -1,0 +1,339 @@
+R27_B1: CARGA, LOTE, FLASHCARD E ZONA (Adendo 27, Onda B, item B1)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC) e Adendo 28 (commit 938be19). Três peças: D1.1 do desenho cego D1
+(modelo, lote, carga e flashcard dentro do mesmo prédio), o reteste da equipe vermelha para F9, L2 e T20 (desenho entre zonas, sem
+efeito fixo de local) e D3-4 do desenho cego D3 (identidade da urna e boletins repetidos). O reteste da equipe vermelha foi escrito
+por quem conhecia os resultados antigos; os dois desenhos são cegos.
+Decisões que o registro não fixa: no docstring de scripts/analisar_R27_B1.py, gravado antes de qualquer conta com votos
+(82f049d32459f5b180e5e38ae607c312826003b0c033925ae6e3eb8099b2859e  docstring_antes_de_rodar.txt  2026-11-10 06:42:02 UTC).
+Este teste ainda não foi refeito por conferente independente: pelo Adendo 27, nenhum veredito daqui conta como indício antes disso.
+
+RESUMO
+1. Nenhuma das 25 cláusulas deu SINAL. Onde a peça tem poder (vê um décimo da margem em 100% das cópias plantadas), modelo de urna dentro da
+   família, lote de fabricação, data de carga, carga tardia, urna trocada entre os turnos, grupo de carga da zona e boletim repetido não
+   mostram nada: os tetos de 99% dos contrastes ficam entre 1,0% e 6,5% da margem.
+2. Inconclusivos: o flashcard (variância entre flashcards dentro do prédio acima da de 2022 por 0,255 p.p., sem passar no limite de 99,9%
+   e sem direção; teto de 19,5% da margem pela letra, e sem excesso nas contas exploratórias) e a família de urna nova contra antiga (só comparável
+   em SP). Sem poder: computador da mídia (dentro do prédio e entre zonas na amostra de logs) e a cláusula rho de boletins repetidos.
+3. Para o indício do comparecimento da Onda A: a calibração mostra que a peça veria abstenção localizada num tipo de urna ou numa carga tanto
+   quanto veria troca de voto. Não viu. A leitura com fraude perde a forma "lote de urnas ou leva de cargas" e fica restrita a algo igual em
+   todas as urnas ou feito na mesa, que esta peça não enxerga.
+
+VEREDITOS PELA LETRA
+  D1.1(a): SEM SINAL. intervalo de 99% de Phi de -0,014 a 0,008, dentro de -0,10 a +0,10, com poder
+  D1.1(b): SEM SINAL. intervalo de 99% de Phi de -0,010 a 0,004, dentro de -0,10 a +0,10, com poder
+  D1.1(c): INCONCLUSIVO. pela letra, (c) só pode dar sinal ou inconclusivo; o intervalo de 99% de Phi vai de -0,015 a 0,034
+  D1.1(d): SEM SINAL. intervalo de 99% de b de -0,082 a 0,116 p.p., dentro de -0,18 a +0,18, com poder
+  D1.1(e): SEM SINAL. intervalo de 99% de b de -0,104 a 0,045 p.p., dentro de -0,18 a +0,18, com poder
+  D1.1(f): SEM SINAL. nenhum dos 29 grupos testados com |z| de 5 ou mais (maior |z| 1,76)
+  D1.1(h): SEM SINAL. nenhum dos 121 grupos testados com |z| de 5 ou mais (maior |z| 3,39)
+  D1.1(g): INCONCLUSIVO. excesso de 0,255 p.p. (acima de 0,22), limite inferior de 99,9% -0,072 (não acima de zero), assimetria -0,002 (não a favor de Lula), limite superior de 99% 0,347 (não abaixo de 0,15)
+  D1.1(g) logs: computador da carga: SEM PODER. só 3 locais da amostra têm dois grupos; o plantio em metade dos grupos é visto em 0% das cópias
+  D1.1(g) logs: usuário da carga: SEM PODER. só 1 locais da amostra têm dois grupos; o plantio em metade dos grupos é visto em 12% das cópias
+  D1.1(g) logs: computador da mídia de resultado: SEM PODER. só 96 locais da amostra têm dois grupos; o plantio em metade dos grupos é visto em 0% das cópias
+  D1.1(g) logs: usuário da mídia de resultado: SEM PODER. só 48 locais da amostra têm dois grupos; o plantio em metade dos grupos é visto em 0% das cópias
+  EV data_de_carga_UF_x_dia (principal): SEM SINAL. p = 1,0000 (acima de 0,05), razão 0,58 e nenhum grupo de 500 seções ou mais acima de +0,5. Ressalva: a referência deste agrupamento ficou acima do observado em todas as permutações, também no placebo de 2022; o p não informa. Sustentam o veredito a calibração (o plantio é visto) e a ausência de grupo acima de 0,5 em módulo
+  EV dia_modal_da_zona (ao lado): SEM SINAL. p = 0,3245 (acima de 0,05), razão 1,05 e nenhum grupo de 500 seções ou mais acima de +0,5
+  EV flashcard (celula = local, estrato = zona): INCONCLUSIVO. razão 1,31 (abaixo de 2) com p = 0,0005; nenhum grupo de 500 seções; o placebo de 2022 com os mesmos grupos dá razão 1,30
+  EV código de carga: NÃO TESTÁVEL. o código de carga é único por urna e não forma grupo
+  EV logs: computador da mídia de resultado do 2º turno: SEM PODER. razão 1,01, p = 0,247; mas um quarto da margem concentrado em 10% dos grupos só tira o p de cima de 0,05 em 85% das cópias (em 50% dos grupos, 1%), e a razão chega a 2 em 0%
+  EV logs: computador da mídia de carga: SEM PODER. razão 1,01, p = 0,263; mas um quarto da margem concentrado em 10% dos grupos só tira o p de cima de 0,05 em 72% das cópias (em 50% dos grupos, 3%), e a razão chega a 2 em 0%
+  EV logs: UF x dia de geração da mídia de resultado do 2º turno: SEM SINAL. p = 0,512, razão 1,00; 1 grupo(s) de 500 seções ou mais, nenhum acima de +0,5
+  EV logs: UF x dia de geração da mídia de carga: SEM SINAL. p = 0,439, razão 1,02; 1 grupo(s) de 500 seções ou mais, nenhum acima de +0,5
+  D3-4(a) censo de urna e carga repetidas: SEM SINAL. nenhuma urna e nenhuma carga repetida fora das seções de junta, nos dois turnos (contagem exata)
+  D3-4(a) C_exato (vetor completo idêntico): SEM SINAL. C_exato = 1, dentro do percentil 95 das permutações (1); a cópia plantada de 5 seções sobe a contagem em 5
+  D3-4(a) rho (votos idênticos contra reamostragem): SEM PODER. a cópia plantada de 3.000 seções não passa o limiar (rho vai de 1,418 a 1,475; o limiar pede 2,083, cerca de 34.498 pares a mais). O observado fica abaixo dos dois placebos do registro
+  D3-4(b) urna diferente: SEM SINAL. intervalo de 95% de beta de -0,079 a 0,037, dentro de -1 a +1; placebo 0,053 (ep 0,048)
+  D3-4(b) carga depois de 04/10: SEM SINAL. intervalo de 95% de beta de -0,052 a 0,103, dentro de -1 a +1; placebo 0,005 (ep 0,067)
+  Contagem: 14 SEM SINAL, 3 INCONCLUSIVO, 7 SEM PODER, 1 NÃO TESTÁVEL, em 25 cláusulas. Nenhuma tem limiar em que o acaso daria sinal com frequência
+  (z de 3,3 a 5; p de 0,001): o esperado por acaso é menos de 0,1 sinal no conjunto.
+
+PARTE 1. D1.1: MODELO, LOTE, CARGA E FLASHCARD DENTRO DO MESMO PRÉDIO
+Universo U: 497.741 seções (2º turno pareado com o 1º, L2 + R2 de 30 ou mais, sem exterior e sem junta); 273 sem perfil do
+eleitorado ficam fora das regressões. Modelos em U: UE2013 11.423, UE2015 87.184, UE2020 200.448, UE2022 198.686.
+Carga depois de 04/10: 2.243 seções; urna diferente da do 1º turno: 4.412.
+Conferência da regressão própria contra lib.fe_ols (SE, erro pelo local): b -0,135911 e -0,135911; erro 0,166659 e 0,166659.
+
+Contrastes (y = 100 x L2/(L2+R2); b em pontos percentuais; erro agrupado por município)
+  (a) UE2022 contra UE2020, locais mistos
+    b = -0,0125 (ep 0,0188; z -0,67); n = 45.242 seções, 5.349 grupos onde o atributo varia (45.242 seções, 22.399 com D = 1), 831 municípios. Erro por local: 0,0199; municípios onde varia: 831 (23 UFs).
+    Tamanho de referência: b = 4,48 p.p. zeraria a margem (Phi = 1). Phi a favor de Lula = 0,0028 (D=0); intervalo de 99% de Phi na escala da classe maior: -0,0136 a 0,0080.
+    Em votos de margem: 12.409; teto do intervalo de 99%: 60.286 (1,4% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte 0,012 (z 0,2; 147); Nordeste -0,047 (z -1,2; 280); Sudeste 0,007 (z 0,3; 360); Sul 0,163 (z 0,6; 14); Centro-Oeste 0,029 (z 0,2; 30). Mesmo sentido do nacional em 1 de 5.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 0,0185 (ep 0,0193; n 42.320); virada de 2018 0,0443 (ep 0,0288; n 39.558); 1º turno de 2026 com referência em 2022 -0,0316 (ep 0,0294; n 42.320); governador do 2º turno, 6 UFs -0,0109 (ep 0,0803; n 4.428; erro por local 0,104; municípios onde varia: 149).
+    y_BN: b = -0,0017 (ep 0,0114), Phi_BN = 0,0002 (889 votos de margem). y_alt (contra 2022): b = -0,0545 (ep 0,0284; n 42.320).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 100%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,034 (viés 3,4%); espelho (plantio a favor de Flávio) visto em 100%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 1,07.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em 0,0019 (z médio 0,10); abstenção pura só nas urnas expostas, com o mesmo efeito na margem que Phi = 0,25, desloca b em 1,0969, 98% do que a troca daria, e é vista em 100% das cópias.
+  (b) UE2015 contra UE2013, locais mistos
+    b = -0,0286 (ep 0,0281; z -1,02); n = 24.760 seções, 3.067 grupos onde o atributo varia (24.760 seções, 18.885 com D = 1), 757 municípios. Erro por local: 0,0278; municípios onde varia: 757 (19 UFs).
+    Tamanho de referência: b = 10,08 p.p. zeraria a margem (Phi = 1). Phi a favor de Lula = 0,0004 (D=0); intervalo de 99% de Phi na escala da classe maior: -0,0100 a 0,0043.
+    Em votos de margem: 1.614; teto do intervalo de 99%: 44.394 (1,0% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte -0,530 (z -2,1; 16); Nordeste -0,044 (z -1,0; 215); Sudeste -0,012 (z -0,3; 263); Sul 0,005 (z 0,1; 229); Centro-Oeste -0,411 (z -1,9; 34). Mesmo sentido do nacional em 4 de 5.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 -0,0644 (ep 0,0280; n 23.184); virada de 2018 -0,0051 (ep 0,0437; n 22.041); 1º turno de 2026 com referência em 2022 -0,0501 (ep 0,0438; n 23.184); governador do 2º turno, 6 UFs sem estimativa.
+    y_BN: b = -0,0153 (ep 0,0172), Phi_BN = 0,0008 (3.472 votos de margem). y_alt (contra 2022): b = -0,0241 (ep 0,0458; n 23.184).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 100%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,026 (viés 2,6%); espelho (plantio a favor de Flávio) visto em 100%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 1,07.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em -0,0085 (z médio -0,30); abstenção pura só nas urnas expostas, com o mesmo efeito na margem que Phi = 0,25, desloca b em 2,0587, 82% do que a troca daria, e é vista em 100% das cópias.
+  (c) família nova contra antiga, zona e município
+    b = 0,0212 (ep 0,0213; z 1,00); n = 497.468 seções, 415 grupos onde o atributo varia (99.677 seções, 74.672 com D = 1), 5.571 municípios. Erro por local: 0,0181; municípios onde varia: 266 (UFs: AM, MA, MT, SP).
+    Tamanho de referência: b = 2,24 p.p. zeraria a margem (Phi = 1). Phi a favor de Lula = 0,0095 (D=1); intervalo de 99% de Phi na escala da classe maior: -0,0150 a 0,0340.
+    Em votos de margem: 41.963; teto do intervalo de 99%: 150.545 (3,4% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte -0,109 (z -1,7; 1); Nordeste -0,378 (z -1,3; 1); Sudeste 0,023 (z 1,2; 262); Sul sem variação; Centro-Oeste 0,036 (z 0,3; 2). Mesmo sentido do nacional em 2 de 4.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 -0,0361 (ep 0,0167; n 460.075); virada de 2018 0,1114 (ep 0,0500; n 433.946); 1º turno de 2026 com referência em 2022 -0,0465 (ep 0,0345; n 460.060); governador do 2º turno, 6 UFs -0,2528 (ep 0,0236; n 39.698; erro por local 0,120; municípios onde varia: 1).
+    y_BN: b = -0,0037 (ep 0,0111), Phi_BN = 0,0008 (3.742 votos de margem). y_alt (contra 2022): b = -0,0115 (ep 0,0260; n 460.075).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 100%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,115 (viés 11,5%); espelho (plantio a favor de Flávio) visto em 100%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 0,98.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em -0,0036 (z médio -0,16); abstenção pura só nas urnas expostas, com o mesmo efeito na margem que Phi = 0,25, desloca b em 0,5581, 100% do que a troca daria, e é vista em 100% das cópias.
+  (c) conferência com efeito fixo de local
+    b = -0,0093 (ep 0,1210; z -0,08); n = 475.667 seções, 123 grupos onde o atributo varia (1.366 seções, 850 com D = 1), 5.570 municípios. Erro por local: 0,1387; municípios onde varia: 47 (UFs: AM, MT, SP).
+    Tamanho de referência: b = 2,24 p.p. zeraria a margem (Phi = 1). Phi a favor de Lula = 0,0010 (D=0); intervalo de 99% de Phi na escala da classe maior: -0,1434 a 0,1351.
+    Em votos de margem: 4.605; teto do intervalo de 99%: 635.142 (14,3% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte 0,462 (z 0,6; 1); Nordeste sem variação; Sudeste 0,057 (z 0,4; 44); Sul sem variação; Centro-Oeste -2,366 (z -4,9; 2). Mesmo sentido do nacional em 1 de 3.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 0,0611 (ep 0,0885; n 437.918); virada de 2018 0,2535 (ep 0,3041; n 411.746); 1º turno de 2026 com referência em 2022 -0,3693 (ep 0,1782; n 437.918); governador do 2º turno, 6 UFs -0,1251 (ep 0,1700; n 38.476; erro por local 0,378; municípios onde varia: 1).
+    y_BN: b = -0,0394 (ep 0,0586), Phi_BN = 0,0091 (40.262 votos de margem). y_alt (contra 2022): b = -0,2552 (ep 0,2065; n 437.918).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 0%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,154 (viés 15,4%); espelho (plantio a favor de Flávio) visto em 4%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 1,15.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em 0,0021 (z médio 0,02).
+  (d) carga depois de 04/10
+    b = 0,0170 (ep 0,0386; z 0,44); n = 475.667 seções, 1.930 grupos onde o atributo varia (18.462 seções, 2.124 com D = 1), 5.570 municípios. Erro por local: 0,0410; municípios onde varia: 977 (27 UFs).
+    Phi = menos b / 1,785 = -0,0095; intervalo de 99% de b: -0,0824 a 0,1163 p.p. (limites do registro: 0,45 para sinal, 0,18 para sem sinal).
+    Em votos de margem: -42.107; teto do intervalo de 99%: 288.741 (6,5% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte -0,131 (z -0,9; 109); Nordeste 0,057 (z 0,8; 355); Sudeste 0,054 (z 0,9; 323); Sul -0,157 (z -1,1; 111); Centro-Oeste 0,037 (z 0,2; 79). Mesmo sentido do nacional em 3 de 5.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 -0,0463 (ep 0,0392; n 437.918); virada de 2018 0,0433 (ep 0,0540; n 411.746); 1º turno de 2026 com referência em 2022 -0,0225 (ep 0,0635; n 437.918); governador do 2º turno, 6 UFs -0,3509 (ep 0,2280; n 38.476; erro por local 0,198; municípios onde varia: 84).
+    y_BN: b = -0,0155 (ep 0,0231), Phi_BN = 0,0000 (89 votos de margem). y_alt (contra 2022): b = 0,0348 (ep 0,0640; n 437.918).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 100%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,006 (viés 0,6%); espelho (plantio a favor de Flávio) visto em 100%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 1,03.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em 0,0064 (z médio 0,16); abstenção pura só nas urnas expostas, com o mesmo efeito na margem que Phi = 0,25, desloca b em -0,4244, 95% do que a troca daria, e é vista em 100% das cópias.
+  (e) urna diferente da do 1º turno
+    b = -0,0293 (ep 0,0290; z -1,01); n = 475.667 seções, 3.893 grupos onde o atributo varia (35.785 seções, 4.176 com D = 1), 5.570 municípios. Erro por local: 0,0291; municípios onde varia: 1.627 (27 UFs).
+    Phi = menos b / 1,785 = 0,0164; intervalo de 99% de b: -0,1039 a 0,0454 p.p. (limites do registro: 0,45 para sinal, 0,18 para sem sinal).
+    Em votos de margem: 72.642; teto do intervalo de 99%: 257.948 (5,8% da margem).
+    Regiões (b; z com erro por local; municípios onde o atributo varia): Norte -0,154 (z -1,3; 157); Nordeste -0,034 (z -0,7; 577); Sudeste -0,003 (z -0,1; 442); Sul -0,044 (z -0,6; 307); Centro-Oeste 0,090 (z 0,9; 144). Mesmo sentido do nacional em 4 de 5.
+    Placebos (mesmo D de 2026, onde não deveria dar nada): virada de 2022 -0,0373 (ep 0,0268; n 437.918); virada de 2018 0,0348 (ep 0,0410; n 411.746); 1º turno de 2026 com referência em 2022 0,0311 (ep 0,0460; n 437.918); governador do 2º turno, 6 UFs -0,1198 (ep 0,1919; n 38.476; erro por local 0,146; municípios onde varia: 123).
+    y_BN: b = 0,0337 (ep 0,0176), Phi_BN = -0,0001 (-382 votos de margem). y_alt (contra 2022): b = 0,0280 (ep 0,0459; n 437.918).
+    Calibração (200 cópias por tamanho): poder Phi 0,1: 100%, Phi 0,25: 100%, Phi 0,5: 100%, Phi 1,0: 100%; recuperação em Phi = 0,25: 1,024 (viés 2,4%); espelho (plantio a favor de Flávio) visto em 100%; atributo embaralhado no município: 0,0% de falso sinal, desvio-padrão de z 1,03.
+    Explicação inocente plantada: abstenção pura uniforme (3,6% dos votos de Flávio em toda seção) desloca b em 0,0004 (z médio 0,01); abstenção pura só nas urnas expostas, com o mesmo efeito na margem que Phi = 0,25, desloca b em -0,4280, 96% do que a troca daria, e é vista em 100% das cópias.
+  (d) e (e) na mesma regressão: carga tardia 0,0646 (ep 0,0466); urna diferente -0,0565 (ep 0,0353).
+  Todo U com indicadoras de modelo (referência UE2020): UE2013 0,0343 (ep 0,1263); UE2015 0,0007 (ep 0,1195); UE2022 -0,0111 (ep 0,0189).
+  Placebo de ano (modelos de 2022 na virada de 2022): UE2020 contra anteriores, zona e município: 0,0285 (ep 0,0183); UE2020 contra anteriores, local de 2022: 0,0029 (ep 0,1221); UE2015 contra UE2013, locais mistos de 2022: 0,0417 (ep 0,0449).
+
+  (f) Datas de carga (dia), uma por vez contra as outras no mesmo local
+    y: 29 grupos testados de 33; maior |z| = 1,76 (o acaso daria perto de 2,60); com |z| de 3 ou mais: 0; de 5 ou mais: 0; desvio-padrão dos z: 0,92; positivos 14, negativos 15.
+    yBN: 29 grupos testados de 33; maior |z| = 2,62 (o acaso daria perto de 2,60); com |z| de 3 ou mais: 0; de 5 ou mais: 0; desvio-padrão dos z: 1,20; positivos 15, negativos 14.
+    yalt: 29 grupos testados de 33; maior |z| = 1,59 (o acaso daria perto de 2,60); com |z| de 3 ou mais: 0; de 5 ou mais: 0; desvio-padrão dos z: 0,78; positivos 11, negativos 18.
+    Maiores em y: 2026-09-21 b 0,053 z 1,76 (39.884 seções, Phi 0,0024); 2026-09-24 b -0,053 z -1,75 (70.783 seções, Phi -0,0043); 2026-09-17 b -0,151 z -1,57 (1.453 seções, Phi -0,0002); 2026-10-23 b 0,453 z 1,45 (42 seções, Phi 0,0000).
+    Poder por fórmula: o deslocamento que daria z = 5 tem mediana de 0,480 p.p.; em Phi do grupo, mediana 0,0008 e máximo 0,0125: nenhuma data ou faixa isolada poderia esconder 1% da margem sem passar de z = 5.
+  (h) Faixas de 5.000 números de série dentro do modelo
+    y: 121 grupos testados de 121; maior |z| = 3,39 (o acaso daria perto de 3,10); com |z| de 3 ou mais: 1; de 5 ou mais: 0; desvio-padrão dos z: 1,15; positivos 61, negativos 60.
+    yBN: 121 grupos testados de 121; maior |z| = 2,58 (o acaso daria perto de 3,10); com |z| de 3 ou mais: 0; de 5 ou mais: 0; desvio-padrão dos z: 1,05; positivos 60, negativos 61.
+    yalt: 120 grupos testados de 121; maior |z| = 3,30 (o acaso daria perto de 3,09); com |z| de 3 ou mais: 1; de 5 ou mais: 0; desvio-padrão dos z: 1,10; positivos 55, negativos 65.
+    Maiores em y: UE2022:2325000 b -0,093 z -3,39 (4.369 seções, Phi -0,0005); UE2020:2130000 b 0,096 z 2,93 (4.142 seções, Phi 0,0004); UE2015:1830000 b -0,086 z -2,70 (4.375 seções, Phi -0,0004); UE2015:1790000 b 0,076 z 2,53 (4.064 seções, Phi 0,0004).
+    Poder por fórmula: o deslocamento que daria z = 5 tem mediana de 0,160 p.p.; em Phi do grupo, mediana 0,0007 e máximo 0,0013: nenhuma data ou faixa isolada poderia esconder 1% da margem sem passar de z = 5.
+    Plantio de conferência: f: grupo 2026-09-17 (1.453 seções), Phi plantado 0,101, z médio 9,9, visto em 100%; h: grupo UE2022:2285000 (4.205 seções), Phi plantado 0,229, z médio 38,5, visto em 100%.
+
+  (g) Flashcard de carga: componente de variância entre flashcards dentro do local (tau, p.p.)
+    2026 nas seções com par em 2022 (23.454 locais com os dois tipos de par, 187.502 seções): tau = 0,259 (tau2 0,0673, ep 0,0166). Placebo de 2022 com os flashcards de 2026: tau = 0,045 (tau2 0,0020, ep 0,0154).
+    Excesso sobre 2022 = 0,255 p.p. (limiar de sinal 0,22); limite inferior de 99,9% = -0,072; limite superior de 99% = 0,347 (limiar de sem sinal 0,15); intervalo de 95%: 0,147 a 0,335.
+    Placebo de 2018 (ao lado): tau de 2018 = 0,423 contra 0,271 de 2026 nas mesmas seções; excesso de 2026 sobre 2018 = -0,325 (negativo: 2018 tem mais).
+    2026 em todo U: tau = 0,183 (tau2 0,0334, ep 0,0162). Sem o desconto binomial: 2026 0,237, 2022 0,247: sem o desconto os dois anos ficam iguais, e o excesso depende inteiro dele.
+    Assimetria das médias por flashcard (13.324 flashcards): -0,002 em 2026 (42 acima de +3 e 45 abaixo de -3); no placebo de 2022, -0,035 (43 e 59). Sem cauda para um lado.
+    y_BN: tau = 0,068 em 2026 e 0,132 em 2022 (excesso -0,113). y_alt: tau = 0,543 (sem placebo próprio).
+    Calibração (um quarto da margem em fração q dos flashcards, 200 cópias): q = 0,1: excesso médio 1,453, limite de 99,9% acima de zero em 100%, assimetria positiva em 100%, regra completa em 100%; q = 0,5: excesso médio 0,541, limite de 99,9% acima de zero em 100%, assimetria positiva em 75%, regra completa em 75%; q = 0,8: excesso médio 0,348, limite de 99,9% acima de zero em 100%, assimetria positiva em 0%, regra completa em 0%.
+    Com q = 0,8 a cauda fica do lado contrário (a minoria é que fica sem o efeito): a exigência de assimetria a favor de Lula impede a regra de enxergar efeito presente na maioria dos flashcards.
+    Nulo (rótulos embaralhados dentro do local, 200 vezes): tau2 médio 0,0015 (dp 0,0146); o observado em todo U (0,0334) fica a 2,18 desvios, p = 0,035.
+    Em votos: se o tau de 2026 inteiro fosse efeito de carga concentrado em metade dos flashcards, valeria 14,5% da margem (643.989 votos); pelo limite superior de 99% do excesso, 19,5% (862.270).
+    EXPLORATÓRIO (feito depois de ver o resultado acima; não entra no veredito):
+      Pares de seções vizinhas na numeração do mesmo local (370.368 pares; 83,0% com o mesmo flashcard): tau de 2026 = 0,232 (z 2,22); de 2022 = 0,219 (z 1,89); excesso = 0,078 (z 0,18). 2018: 0,346 (z 2,45) contra 0,252 de 2026 nas mesmas seções.
+      O mesmo tau com o desfecho do 1º turno de 2026 (referência 2022) e os flashcards do 2º turno: 0,600 (z 9,07), contra 0,259 do 2º turno nas mesmas seções.
+      Variação do comparecimento entre os turnos (y_T): tau de 2026 = 0,400 (z 10,58); de 2022 = 0,468 (z 4,72); excesso = -0,244 (z -1,23).
+      Sem depender do desconto binomial: com o resíduo padronizado pelo tamanho da seção, tau de 2026 = 0,244 (tau2 0,0596, ep 0,0161) e de 2022 = 0,208 (tau2 0,0432, ep 0,0135); excesso = 0,128 (z 0,79). Só nos 20.996 locais de seções de tamanho parecido, com desconto: 0,258 e 0,231; excesso = 0,115 (z 0,58). Contra 2018, padronizado: 0,242 e 0,458 (z -4,23).
+      Flashcards mais afastados (lista de conferência, não teste; média do resíduo, seções, zona): a favor de Lula 87F43800 1,63 (22; RR|3018|5); C3FB3B94 1,87 (15; AC|1066|4); D4B4EB07 1,96 (11; RJ|59277|146); B46759CF 1,69 (14; PE|25496|109); 4085CB0C 1,36 (20; GO|93300|33); a favor de Flávio 2ECE270B -1,91 (12; AC|1554|3); 5300FD31 -1,33 (19; PB|19810|17); 69B0E0BF -1,60 (12; AC|1066|4); BAE6FE51 -1,35 (16; MA|7536|26); 21DF2182 -1,33 (16; RO|132|4).
+      Por região (tau de 2026; tau de 2022; z do excesso): Norte 0,30; -0,21; 1,4; Nordeste 0,30; -0,14; 3,1; Sudeste 0,30; 0,27; 0,5; Sul -0,16; -0,07; -0,4; Centro-Oeste 0,30; -0,30; 2,2.
+      UFs com maior z do excesso: PE tau 0,31 contra -0,21 (z 2,4); GO tau 0,37 contra -0,31 (z 2,2); MA tau 0,42 contra -0,39 (z 2,0); PA tau 0,28 contra -0,41 (z 1,8); SC tau 0,27 contra -0,24 (z 1,7); PB tau 0,32 contra -0,24 (z 1,6). PI, MA, TO, PB e CE (as UFs do indício da Onda A): PI 0,53 contra 0,20 (z 1,1); MA 0,42 contra -0,39 (z 2,0); TO 0,39 contra -0,51 (z 0,8); PB 0,32 contra -0,24 (z 1,6); CE -0,28 contra -0,21 (z -0,2).
+
+  (g) na amostra de logs (3.897 seções da amostra antiga, não aleatória): computador e usuário das mídias
+    computador da mídia de carga: 416 grupos; locais da amostra com dois grupos: 3 (31 seções); tau = -0,665, placebo de 2022 0,964, excesso -1,171 (99,9% inferior -1,466; 99% superior -0,769); plantio em metade dos grupos visto em 0% das cópias.
+    usuário da mídia de carga: 407 grupos; locais da amostra com dois grupos: 1 (16 seções); tau = -1,203, placebo de 2022 -0,925, excesso -0,769 (99,9% inferior -0,769; 99% superior -0,769); plantio em metade dos grupos visto em 12% das cópias.
+    computador da mídia de resultado do 2º turno: 517 grupos; locais da amostra com dois grupos: 96 (772 seções); tau = -0,173, placebo de 2022 -0,627, excesso 0,603 (99,9% inferior -0,910; 99% superior 1,087); plantio em metade dos grupos visto em 0% das cópias.
+    usuário da mídia de resultado do 2º turno: 466 grupos; locais da amostra com dois grupos: 48 (383 seções); tau = -0,391, placebo de 2022 -0,638, excesso 0,503 (99,9% inferior -1,264; 99% superior 1,178); plantio em metade dos grupos visto em 0% das cópias.
+    computador da mídia de votação (ao lado): 506 grupos; locais da amostra com dois grupos: 84 (650 seções); tau = 0,427, placebo de 2022 -0,554, excesso 0,700 (99,9% inferior -0,641; 99% superior 1,147); plantio em metade dos grupos visto em 1% das cópias.
+    usuário da mídia de votação (ao lado): 466 grupos; locais da amostra com dois grupos: 57 (432 seções); tau = 0,650, placebo de 2022 -0,332, excesso 0,730 (99,9% inferior -0,857; 99% superior 1,252); plantio em metade dos grupos visto em 0% das cópias.
+    Como a equipe vermelha previu, quase todo local usa um computador só: dentro do prédio este agrupamento não tem como ser testado. O desenho entre zonas está na Parte 2.
+
+  EXPLORATÓRIO declarado antes (A9), fora do veredito: os mesmos contrastes sem o controle da variação da abstenção e na variação do comparecimento
+    (a) UE2022 contra UE2020, locais mistos: y sem o controle -0,0118 (ep 0,0187); y_T = 0,0129 p.p. dos aptos (ep 0,0177; z 0,73; z com erro por local 0,69), ou 8.151 eleitores nas urnas D = 1. A mesma conta na variação do comparecimento de 2022 (exploratório posterior): 0,0337 (z 1,71).
+    (b) UE2015 contra UE2013, locais mistos: y sem o controle -0,0325 (ep 0,0279); y_T = -0,1027 p.p. dos aptos (ep 0,0447; z -2,30; z com erro por local -3,51), ou -28.799 eleitores nas urnas D = 1. A mesma conta na variação do comparecimento de 2022 (exploratório posterior): -0,0100 (z -0,38).
+    (c) família nova contra antiga, zona e município: y sem o controle 0,0182 (ep 0,0218); y_T = -0,1015 p.p. dos aptos (ep 0,0300; z -3,38; z com erro por local -5,99), ou -128.115 eleitores nas urnas D = 1. A mesma conta na variação do comparecimento de 2022 (exploratório posterior): 0,0071 (z 0,36).
+    (d) carga depois de 04/10: y sem o controle 0,0209 (ep 0,0383); y_T = 0,0946 p.p. dos aptos (ep 0,0434; z 2,18; z com erro por local 2,24), ou 674 eleitores nas urnas D = 1. A mesma conta na variação do comparecimento de 2022 (exploratório posterior): -0,0233 (z -0,57).
+    (e) urna diferente da do 1º turno: y sem o controle -0,0288 (ep 0,0291); y_T = 0,0106 p.p. dos aptos (ep 0,0276; z 0,39; z com erro por local 0,37), ou 149 eleitores nas urnas D = 1. A mesma conta na variação do comparecimento de 2022 (exploratório posterior): -0,0063 (z -0,23).
+    y_T de (b) UE2015 contra UE2013, locais mistos por UF (b; z com erro por local; UFs com 10 ou mais grupos onde varia): RJ -0,49 (-4,5); MG -0,19 (-1,8); PE -0,14 (-1,5); SP -0,09 (-1,5); PB -0,26 (-1,5); MA -0,23 (-1,3); CE -0,20 (-1,2); MT -0,31 (-0,7); BA -0,12 (-0,6); SC -0,03 (-0,3); GO 0,01 (0,0); ES 0,09 (0,3); PA 0,10 (0,4); AL 0,06 (0,5); MS 0,27 (0,7); SE 0,41 (0,9); RS 0,14 (1,2); PR 0,09 (1,3); PI 0,57 (2,5).
+    y_T de (c) família nova contra antiga, zona e município por UF (b; z com erro por local; UFs com 10 ou mais grupos onde varia): SP -0,06 (-3,2); AM -0,23 (-3,2).
+    y_T de (d) carga depois de 04/10 por UF (b; z com erro por local; UFs com 10 ou mais grupos onde varia): RJ -0,31 (-1,8); SE -0,36 (-1,5); AC -0,56 (-1,1); MT -0,43 (-1,0); ES -0,19 (-0,8); RS -0,18 (-0,7); GO -0,20 (-0,7); AL -0,19 (-0,6); DF -0,13 (-0,3); MA -0,07 (-0,2); TO -0,08 (-0,2); MS 0,02 (0,1); CE 0,02 (0,1); PI 0,05 (0,1); RN 0,05 (0,2); RR 0,22 (0,4); AM 0,22 (0,5); PA 0,15 (0,6); PR 0,16 (0,8); SP 0,06 (0,9); AP 0,50 (1,3); BA 0,27 (1,5); SC 0,34 (1,6); RO 0,63 (1,6); PE 0,35 (1,9); MG 0,30 (2,2); PB 0,62 (2,6).
+
+PARTE 2. EQUIPE VERMELHA (F9, L2, T20): DESENHO ENTRE ZONAS, SEM EFEITO FIXO DE LOCAL
+Resíduo de um modelo por UF com a composição completa do 1º turno (497.468 seções; desvio-padrão ponderado 1,90 p.p.; em 2022, 1,84).
+  data_de_carga_UF_x_dia (principal): 462 grupos, 7.993 células; T = 0,0118 p.p.2 (raiz 0,109 p.p.); média das permutações 0,0204; razão 0,579; p = 1,0000. Placebo (resíduo de 2022, grupos de 2026): razão 0,565, p = 1,0000.
+    Grupos de 500 seções ou mais: 172; com +1,0 ou mais a mais de 4 ep: 0 (espelho, -1,0: 0); acima de +0,5: 0 (abaixo de -0,5: 0).
+    Maiores a favor de Lula: GO 2026-09-27 0,319 (z 1,9; 1.189 seções em 11 zonas); AL 2026-09-23 0,303 (z 2,5; 750 seções em 5 zonas); GO 2026-09-26 0,291 (z 3,0; 1.347 seções em 14 zonas); BA 2026-09-22 0,242 (z 2,0; 2.529 seções em 13 zonas).
+    Maiores a favor de Flávio: SC 2026-09-24 -0,385 (z -4,3; 1.524 seções em 19 zonas); MG 2026-09-27 -0,367 (z -3,4; 1.597 seções em 18 zonas); GO 2026-09-23 -0,335 (z -1,2; 895 seções em 6 zonas); RO 2026-09-29 -0,320 (z -1,2; 555 seções em 3 zonas).
+  dia_modal_da_zona (ao lado): 213 grupos, 2.640 células; T = 0,0125 p.p.2 (raiz 0,112 p.p.); média das permutações 0,0120; razão 1,045; p = 0,3245. Placebo (resíduo de 2022, grupos de 2026): razão 0,944, p = 0,6760.
+    Grupos de 500 seções ou mais: 168; com +1,0 ou mais a mais de 4 ep: 0 (espelho, -1,0: 0); acima de +0,5: 0 (abaixo de -0,5: 0).
+    Maiores a favor de Lula: AL dia modal 2026-09-23 0,298 (z 2,4; 754 seções em 5 zonas); GO dia modal 2026-09-27 0,278 (z 1,1; 784 seções em 6 zonas); GO dia modal 2026-09-26 0,274 (z 2,3; 1.753 seções em 10 zonas); BA dia modal 2026-09-22 0,260 (z 2,2; 2.505 seções em 11 zonas).
+    Maiores a favor de Flávio: SP dia modal 2026-09-29 -0,458 (z -2,0; 1.711 seções em 5 zonas); GO dia modal 2026-09-23 -0,412 (z -1,5; 873 seções em 4 zonas); SC dia modal 2026-09-27 -0,401 (z -3,7; 569 seções em 3 zonas); MG dia modal 2026-09-27 -0,374 (z -2,7; 1.184 seções em 6 zonas).
+  flashcard (celula = local, estrato = zona): 23.111 grupos, 160.521 células; T = 0,2294 p.p.2 (raiz 0,479 p.p.); média das permutações 0,1755; razão 1,307; p = 0,0005. Placebo (resíduo de 2022, grupos de 2026): razão 1,296, p = 0,0005.
+    Código de carga (CD_CARGA_1): único por urna, não forma grupo; não testável por variância entre grupos.
+  Calibração do agrupamento principal (100 cópias, 1.999 permutações): concentrado em 10 por cento dos votos: deslocamento 4,23 p.p., razão média 7,8, p < 0,001 em 100%, grupo que cumpre em 100%, regra completa em 100%; concentrado em 50 por cento dos votos: deslocamento 0,88 p.p., razão média 4,4, p < 0,001 em 100%, grupo que cumpre em 39%, regra completa em 39%; um grupo de 500 ou mais com 2 pontos: deslocamento 2,00 p.p., razão média 1,2, p < 0,001 em 33%, grupo que cumpre em 98%, regra completa em 8%.
+  EXPLORATÓRIO (depois de ver a primeira saída): a referência do agrupamento principal ficou acima do observado em todas as permutações, em 2026 e em 2022. Ela embaralha rótulos
+  entre células de tamanhos muito diferentes e por isso não reproduz "agrupamentos do mesmo tamanho": o p de 1,0000 não é evidência de nada. A variante declarada antes como "ao lado"
+  (dia modal da zona, que permuta zonas inteiras) não tem esse defeito. Calibração das duas nas mesmas cópias (um quarto da margem):
+    plantio em grupos UF x dia: 10 por cento dos votos: principal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia como sem sinal em 0%; dia modal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia em 0%.
+    plantio em grupos UF x dia: 50 por cento dos votos: principal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia como sem sinal em 0%; dia modal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia em 0%.
+    plantio em grupos de zonas pelo dia modal: 10 por cento dos votos: principal com razão de 2 ou mais em 99%, p mínimo em 100%, escaparia como sem sinal em 0%; dia modal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia em 0%.
+    plantio em grupos de zonas pelo dia modal: 50 por cento dos votos: principal com razão de 2 ou mais em 99%, p mínimo em 100%, escaparia como sem sinal em 0%; dia modal com razão de 2 ou mais em 100%, p mínimo em 100%, escaparia em 0%.
+  Amostra de logs (3.897 seções; grupo x zona como célula, UF como estrato)
+    computador da mídia de resultado do 2º turno: 517 grupos; razão 1,010; p = 0,247 (placebo de 2022: razão 0,994, p = 0,716). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 3; espelho: 1; no placebo: 2 e 1.
+    computador da mídia de carga: 416 grupos; razão 1,009; p = 0,263 (placebo de 2022: razão 0,999, p = 0,538). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 3; espelho: 1; no placebo: 0 e 1.
+    UF x dia de geração da mídia de resultado do 2º turno: 88 grupos; razão 0,996; p = 0,512 (placebo de 2022: razão 1,044, p = 0,374). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 1; espelho: 1; no placebo: 0 e 0.
+    UF x dia de geração da mídia de carga: 100 grupos; razão 1,020; p = 0,439 (placebo de 2022: razão 0,865, p = 0,869). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 0; espelho: 0; no placebo: 1 e 0.
+    usuário da mídia de resultado do 2º turno (ao lado): 466 grupos; razão 1,009; p = 0,291 (placebo de 2022: razão 0,994, p = 0,708). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 3; espelho: 2; no placebo: 0 e 2.
+    usuário da mídia de carga (ao lado): 407 grupos; razão 1,012; p = 0,261 (placebo de 2022: razão 0,977, p = 0,959). Grupos de 10 seções ou mais com +1,0 e z acima de 4: 3; espelho: 1; no placebo: 0 e 1.
+    Maiores grupos de computador da mídia de resultado (erro por seção quando o grupo tem uma zona só, o que exagera o z): a favor de Lula GO ZGO088WKS02 3,21 (14 seções, 183 votos de margem); BA ZBA081WKS01 2,75 (10 seções, 138 votos de margem); SP ZSP381STD16 1,95 (14 seções, 133 votos de margem); a favor de Flávio SP ZSP223STD13 -2,66 (12 seções); RS ZRS169WKS80 -2,01 (13 seções); MG ZMG247STD02 -1,85 (10 seções).
+    Grupos de 500 seções ou mais em UF x dia de geração da mídia de resultado do 2º turno: SP 2026-10-14 -0,043 (ep 0,106; 520 seções em 47 zonas).
+    Grupos de 500 seções ou mais em UF x dia de geração da mídia de carga: SP 2026-09-23 -0,083 (ep 0,097; 548 seções em 52 zonas).
+    Poder na amostra (um quarto da margem concentrado em 10% e em 50% dos grupos; fração das cópias com p abaixo de 0,05, e com razão de 2 ou mais no caso de 10%): computador da mídia de resultado do 2º turno: 85% e 1% (razão: 0%); computador da mídia de carga: 72% e 3% (razão: 0%); UF x dia de geração da mídia de resultado do 2º turno: 98% e 89% (razão: 82%); UF x dia de geração da mídia de carga: 100% e 86% (razão: 86%).
+    Coincidência citada pela equipe vermelha (mídia gerada de 16 a 24/10 em AM e MA), exploratório: na amostra, 339 seções em 61 zonas têm mídia de resultado gerada de 16/10 em diante; resíduo médio -0,027 contra 0,145 das demais; diferença -0,171 (ep 0,166; z -1,04). AM: 18 seções tardias, diferença -0,741 (ep 0,911); MA: 43 seções tardias, diferença -0,728 (ep 0,547); AM_e_MA: 61 seções tardias, diferença -0,764 (ep 0,469).
+
+PARTE 3. D3-4: IDENTIDADE DA URNA E BOLETINS REPETIDOS
+  (a) Censo do 2º turno (499.205 seções): números de urna repetidos {"1808076": 18, "1762246": 9}; códigos de carga repetidos 2; seções de junta 27; seções em urna repetida 27; fora de junta: 0 de urna e 0 de carga.
+  (a) Censo do 1º turno (499.206 seções): números de urna repetidos {"1808076": 28}; códigos de carga repetidos 1; seções de junta 30; seções em urna repetida 28; fora de junta: 0 de urna e 0 de carga.
+  (a) C_exato (vetor completo idêntico) no 2º turno: 1 par em 499.178 seções (5.576 seções têm votos e biometria iguais aos de outra); 1.000 permutações dos horários dentro da UF: média 0,115, percentil 95 = 1, percentil 99,9 = 2, máximo 3. No 1º turno: 0.
+      O par: MG|45950|351|28 e SP|70750|414|15 (comparecimento 286, Lula 145, Flávio 128, brancos 4, nulos 9, biometria sem habilitação 12, encerramento 17:01:07, emissão 17:02:55); urnas 2293266 e 2010193, aptos 349 e 355: são urnas diferentes em estados diferentes.
+      Poder: copiar o vetor de 5 seções para outras 5 aumentou C_exato em [5] nas 20 repetições.
+  (a) C_votos (comparecimento, 13, 22, brancos e nulos idênticos, seções com 50 votos ou mais) e rho = C_votos / média de 200 reamostragens multinomiais
+      2026 2t: C_votos 73.540; média reamostrada 51.876; rho = 1,418 (498.585 seções).
+      2026 1t: C_votos 2.024; média reamostrada 1.215; rho = 1,666 (498.607 seções).
+      2022 2t: C_votos 37.050; média reamostrada 25.599; rho = 1,447 (471.416 seções).
+      2022 1t: C_votos 1.500; média reamostrada 951; rho = 1,578 (471.445 seções).
+      2018 2t: C_votos 13.334; média reamostrada 9.680; rho = 1,377 (453.041 seções).
+      2018 1t: C_votos 243; média reamostrada 185; rho = 1,313 (453.220 seções).
+      2014 2t: C_votos 16.902; média reamostrada 12.993; rho = 1,301 (427.498 seções).
+      2014 1t: C_votos 150; média reamostrada 116; rho = 1,296 (427.673 seções).
+      2026 no 2º turno sobre o maior placebo do registro (2º turno de 2022 e 1º de 2026): razão 0,851 (sinal pede 1,25 ou mais); excesso sobre o maior placebo: -12.891 pares (sinal pede 3.000 ou mais).
+      Poder: copiar os votos de 3.000 seções grandes para outras 3.000 leva rho a 1,475 (razão 0,886; excesso -9.893); passa o limiar em 0% das repetições (razão de 1,25 em 0%; excesso de 3.000 em 0%).
+      Para passar o limiar seriam precisos cerca de 34.498 pares a mais: a cláusula só enxerga cópia de dezenas de milhares de boletins. C_votos menos a média reamostrada de 2026: 21.664 pares (leitura alternativa do excesso; todos os anos têm excesso desse tipo).
+  (b) Urna trocada e carga tardia contra as vizinhas do mesmo local (499.018 seções com 30 válidos nos dois turnos; 497.460 com perfil; 4.428 com urna diferente; 2.243 com carga tardia)
+      urna diferente entre os turnos: beta = -0,0210 (ep 0,0295; p = 0,477; n 475.665; 4.176 tratadas com vizinha de comparação); intervalo de 95%: -0,079 a 0,037. Sem a idade e com o exterior: -0,0189 (ep 0,0294).
+        Margem implicada: -444 votos; teto de 95%: 1.669 (0,04% da margem). Placebo (1º turno de 2026 contra 2022): 0,0528 (ep 0,0477).
+        Poder: com 1,8 ponto plantado, beta médio 1,779, p < 0,001 em 100% das 200 cópias; espelho (a favor de Flávio): -1,821, visto em 100%; tratamento embaralhado no município: desvio-padrão de z 1,03, p < 0,001 em 0,0%.
+      carga depois de 04/10: beta = 0,0251 (ep 0,0396; p = 0,526; n 475.665; 2.124 tratadas com vizinha de comparação); intervalo de 95%: -0,052 a 0,103. Sem a idade e com o exterior: 0,0242 (ep 0,0395).
+        Margem implicada: 272 votos; teto de 95%: 1.111 (0,03% da margem). Placebo (1º turno de 2026 contra 2022): 0,0047 (ep 0,0672).
+        Poder: com 1,8 ponto plantado, beta médio 1,824, p < 0,001 em 100% das 200 cópias; espelho (a favor de Flávio): -1,774, visto em 100%; tratamento embaralhado no município: desvio-padrão de z 1,03, p < 0,001 em 1,0%.
+
+LEITURA (escrita depois de ver os números; o que pesa a favor e o que pesa contra a tese, com o mesmo rigor)
+
+O QUE ESTA PEÇA ENXERGA
+Irregularidade que não seja igual em todas as urnas: presente só num modelo, num lote de fabricação, numa leva ou data de carga, num
+flashcard, nas urnas trocadas ou recarregadas entre os turnos, ou num grupo de zonas. Não enxerga programa igual em todas as urnas nem o
+que se faz fora da urna (mesa, caderno). Todos os dados vêm do boletim da própria urna: o que fica fechado aqui é "diferença por
+equipamento ou por carga", não "programa adulterado na origem".
+A calibração mostrou uma coisa que importa para a pergunta desta onda: os contrastes veem tanto a troca de voto quanto a abstenção
+localizada. Tirar eleitores de Flávio só das urnas com o atributo (sem dar voto a Lula), no tamanho de um quarto da margem, desloca o
+coeficiente em 82% a 100% do que a troca daria e é visto em 100% das cópias; a abstenção igual em todas as seções (3,6% dos votos de
+Flávio) não desloca nada (z médio de 0,3 ou menos em módulo). Ou seja: se o indício do comparecimento da Onda A tivesse endereço num
+tipo de urna ou numa carga, estes contrastes o mostrariam; se for igual em toda parte, não.
+
+A FAVOR DA TESE, OU QUE A PEÇA NÃO CONSEGUE AFASTAR
+1. Flashcard, D1.1(g): dentro do mesmo prédio, seções carregadas por flashcards diferentes viraram de modo mais diferente entre si do
+   que seções do mesmo flashcard, e mais do que as mesmas seções na virada de 2022: tau de 0,259 p.p. contra 0,045, excesso de 0,255,
+   acima do tamanho que o registro marcou (0,22). Não é SINAL pela letra por duas razões: o limite inferior de 99,9% não fica acima
+   de zero (-0,072; o intervalo de 95% vai de 0,147 a 0,335) e não existe cauda para o lado de Lula (assimetria de -0,002; 42
+   flashcards acima de +3 e 45 abaixo de -3). Também não é SEM SINAL: o limite superior de 99% é 0,347. Lido inteiro a favor da tese,
+   concentrado em metade dos flashcards, valeria 14,5% da margem (644 mil votos de margem); pelo limite superior, 19,5% (862 mil).
+   O excesso aparece no Nordeste (z 3,1), no Centro-Oeste (2,2) e no Norte (1,4), não no Sudeste nem no Sul.
+2. Família de urna, D1.1(c): pela letra não pode fechar, e só é identificada onde as duas famílias convivem na mesma zona, o que
+   acontece em 266 municípios, 262 deles em SP. No resto do país não existe comparação entre urna nova e antiga (AC, AP, RO e RR nem
+   têm urna antiga). O viés do plantio em (c) foi de 11,5%, acima dos 10% que o registro pedia.
+3. Comparecimento por idade da urna (exploratório declarado antes, A9): em 2026 o comparecimento subiu entre os turnos 0,10 ponto dos
+   aptos a mais nas urnas antigas que nas novas da mesma zona (z -3,4 com erro por município; -6,0 por local), 0,10 a mais na UE2013
+   que na UE2015 do mesmo prédio (z -2,3; -3,5) e 0,09 a mais nas urnas de carga tardia (z 2,2). A mesma conta na variação do
+   comparecimento de 2022, nas mesmas seções, não mostra nada (-0,010; +0,007; -0,023). O tamanho é pequeno: cerca de 32 mil eleitores
+   nas urnas antigas e 3,7 mil na UE2013, menos de 1% da margem mesmo se todos fossem votos de Lula, e a fatia de Lula não acompanha
+   (nos mesmos grupos o contraste de voto é zero dentro do erro). Por UF os sinais se misturam (em (b): RJ -0,49; PI +0,57).
+4. Um par de boletins com o vetor completo idêntico: MG|45950|351|28 e SP|70750|414|15 (286 comparecimentos, 145 a 128, 4 brancos,
+   9 nulos, 12 liberações, encerramento 17:01:07 e emissão 17:02:55). O acaso dá 0,115 par; um par aparece em cerca de 11% das
+   permutações. São urnas diferentes, de estados diferentes, com aptos diferentes (349 e 355).
+5. Na amostra de logs, três computadores de zona com 10 a 18 seções e resíduo de +1,4 a +3,2 pontos (GO zona 88, BA zona 81, SP zona
+   272), contra um do lado de Flávio (RS zona 169, -2,0). No resíduo de 2022 há 2 e 1 pelo computador da mídia de resultado e 0 e 1
+   pelo da carga. Os três somam 456 votos de margem. Esses grupos ficam numa zona só, e o z deles, calculado por seção, é exagerado.
+6. Partes sem poder: computador e usuário dentro do prédio (quase todo local usa um só), computador entre zonas na amostra de logs (um
+   quarto da margem em 10% dos computadores só é visto em 72% a 85% das cópias) e a cláusula rho de boletins repetidos (só veria a
+   cópia de dezenas de milhares de boletins; a cópia de 3.000 que o registro mandou plantar passa despercebida).
+
+CONTRA A TESE
+1. Modelo dentro da família. Em 5.349 prédios que têm UE2022 e UE2020 lado a lado, a diferença é de -0,0125 p.p. (ep 0,0188); para
+   zerar a margem seriam precisos 4,48 p.p. Teto de 99%: 60 mil votos de margem (1,4%). Em 3.067 prédios com UE2015 e UE2013: -0,029
+   (ep 0,028); teto de 44 mil (1,0%). O teste vê um décimo da margem em 100% das cópias, e vê igual o plantio a favor de Flávio.
+2. Carga tardia e urna trocada. Contra as vizinhas do mesmo prédio: +0,017 (ep 0,039) e -0,029 (ep 0,029) pelo D1; +0,025 (ep 0,040)
+   e -0,021 (ep 0,030) pelo D3, que vê 1,8 ponto plantado em 100% das cópias. As 2.243 urnas carregadas depois de 04/10 e as 4.412
+   trocadas votaram como as outras. Teto: 6,5% e 5,8% da margem na leitura "todas as outras estão alteradas"; 0,04% na leitura "estas
+   estão alteradas".
+3. Datas de carga e lotes de fabricação. Nenhuma das 29 datas testadas passa de |z| 1,76 e nenhuma das 121 faixas de 5.000 números
+   de série passa de 3,39 (o acaso sozinho dá perto de 3,1). Nenhuma data ou faixa poderia carregar 1,3% da margem sem passar de z = 5.
+4. Entre zonas, sem efeito fixo de local. Dos 172 grupos de UF e dia de carga com 500 seções ou mais, o mais alto está +0,32 ponto
+   acima do previsto (GO, 27/09) e o mais baixo -0,39 (SC, 24/09); nenhum passa de 0,5 para nenhum lado. A variância entre grupos é a
+   de agrupamentos aleatórios de zonas (razão 1,05; p 0,32) e igual à que os mesmos grupos mostram no resíduo de 2022 (0,94).
+5. A coincidência citada pela equipe vermelha (zonas do AM e do MA com mídia gerada de 16 a 24/10 e coeficientes altos) não se
+   confirma: nas 61 seções da amostra de AM e MA com mídia de resultado gerada de 16/10 em diante o resíduo é 0,76 ponto MENOR que
+   nas demais (ep 0,47); na amostra inteira, -0,17 (ep 0,17).
+6. Flashcard, o que pesa contra a leitura de fraude: (i) sem direção, com as caudas iguais dos dois lados e a mesma zona aparecendo
+   nas duas pontas; (ii) o placebo de 2018 com os mesmos flashcards tem MAIS variância (0,42) que 2026; (iii) o desfecho do 1º turno
+   de 2026, decidido antes do 2º, tem mais ainda (0,60); (iv) entre seções vizinhas na numeração, 2026 e 2022 empatam (0,232 e 0,219;
+   excesso de 0,078, z 0,18); (v) o excesso depende do desconto da variância binomial: sem ele os dois anos dão 0,237 e 0,247, e com
+   o resíduo padronizado pelo tamanho da seção dão 0,244 e 0,208 (excesso de 0,128, z 0,79); (vi) entre zonas, o flashcard tem razão
+   de 1,31 em 2026 e de 1,30 no resíduo de 2022. Os itens (iv) e (v) são exploratórios, feitos depois de ver o resultado.
+7. Boletins repetidos e identidade. Nenhuma urna e nenhum código de carga repetido fora das seções de junta (27 no 2º turno, 30 no
+   1º, todas no exterior). Um par idêntico em 499.178 seções, dentro do que o acaso dá. A razão rho de 2026 (1,418) fica abaixo dos
+   dois placebos do registro (1,447 em 2022; 1,666 no 1º turno de 2026).
+8. Branco e nulo e o desfecho contra 2022 (y_BN e y_alt): nenhum contraste de (a) a (e) passa de |z| 2 (os maiores: 1,92 em y_alt
+   de (a) e 1,91 em y_BN da urna trocada).
+
+O QUE ISSO SIGNIFICA
+1. A virada de 2026, no voto e no comparecimento, não depende do equipamento nem da carga: nem do modelo (dentro da família), nem do
+   lote, nem da data ou da mídia de carga, nem de a urna ter sido trocada ou recarregada entre os turnos, nem do grupo de carga da
+   zona. Uma irregularidade que tivesse entrado por um lote de urnas, por uma leva de cargas ou pelo computador de uma zona teria de
+   aparecer aqui, e onde a peça tem poder ela veria um décimo da margem. Os tetos de 99% vão de 1,0% a 6,5% da margem.
+2. Para o indício do comparecimento da Onda A, a peça tira uma das formas da leitura com fraude (registro irregular de quem votou
+   feito por um tipo de urna ou por uma carga) e deixa as outras duas: igual em todas as urnas (programa comum) ou feito na mesa. Para
+   essas a peça é cega. Quem decide são o N1 (por onde entraram os votos a mais), o C1 (quem liberou e a que horas), os cadernos de
+   votação e o teste de integridade.
+3. Não é absolvição: é a retirada de um endereço. O flashcard fica inconclusivo, com teto de 19,5% da margem pela letra; a leitura
+   mais provável dele, pelos exploratórios, é estrutura do eleitorado dentro do prédio (seções de épocas diferentes), que existe
+   também em 2022, em 2018 e no 1º turno.
+4. Nenhuma das 25 cláusulas deu SINAL. Com os limiares usados o acaso daria menos de 0,1 sinal; o resultado não precisa de desconto
+   por múltiplos testes. Falta o conferente independente.
+
+PISTAS (para conferência, não são evidência)
+1. Par idêntico MG|45950|351|28 e SP|70750|414|15: baixar boletim, RDV e log das duas e conferir se a coincidência vai além do vetor.
+2. Flashcards mais afastados (lista em parte1_D1_1.lista_de_flashcards_extremos do JSON): pedir a ata de carga e a tabela de
+   correspondência das zonas. Os primeiros: 87F43800 (RR, zona 5), C3FB3B94 (AC, zona 4), D4B4EB07 (RJ, zona 146) a favor de Lula;
+   2ECE270B (AC, zona 3), 5300FD31 (PB, zona 17) a favor de Flávio.
+3. Computadores de zona da amostra de logs com resíduo alto: ZGO088WKS02 (GO, zona 88), ZBA081WKS01 (BA, zona 81), ZSP272STD04 (SP,
+   zona 272): pedir os logs do gerador de mídias dessas zonas.
+4. Comparecimento por idade da urna: RJ, UE2013 contra UE2015 no mesmo prédio (-0,49 ponto dos aptos, z -4,5). Cruzar com a
+   prorrogação do horário no RJ e com as liberações pelo mesário por modelo de urna (N1 e C1).
+5. Pedidos que só terceiros atendem: atas de carga, tabela de correspondência esperada (qual urna e qual carga deveriam estar em cada
+   seção), logs do gerador de mídias e, para a comparação que falta entre urna nova e antiga, a regra de distribuição das urnas.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+Tomadas antes de qualquer conta com votos (docstring): definição de Phi para contraste entre duas classes de urna (A2); placebo limpo
+como um terço do próprio efeito (A3); estimador de tau por pares dentro do prédio com desconto binomial (A7); (f) e (h) com uma
+regressão por grupo e "repetida em 3 UFs" pelo coeficiente parcial (A6); agrupamentos, células e estratos da equipe vermelha (E2);
+código de carga declarado não testável por ser único por urna; reaproveitamento da extração do perfil do eleitorado feita no A6;
+acréscimo A9 (comparecimento), fora do veredito.
+Tomadas depois de ver resultado, todas marcadas como exploratórias e fora do veredito: (i) erro agrupado por local e por zona, ao ver
+que o placebo de governador de (c) só existe em Manaus e que o erro por município degenera ali (o z de -10,7 vira -2,1); (ii) as
+contas do flashcard com pares vizinhos, 1º turno, comparecimento, por UF, resíduo padronizado e locais de tamanho parecido; (iii) na
+equipe vermelha, a referência do agrupamento principal ficou acima do observado em todas as permutações (p = 1,0000 em 2026 e em
+2022), porque embaralha células de tamanhos muito diferentes: o p dela não informa, e por isso a calibração foi refeita para os dois
+agrupamentos, com o dia modal da zona (declarado antes como "ao lado") servindo de referência válida; (iv) poder na amostra de logs e
+conferência da coincidência de AM e MA; (v) o D3-4(a) saiu em três cláusulas (censo, C_exato, rho) porque a calibração de uma delas
+falha e a das outras não; (vi) contrastes de comparecimento em 2022 e por UF; (vii) lista de flashcards extremos.
+Não feito: os logs e assinaturas da amostra aleatória nova ainda estavam baixando; a parte de logs usa só a amostra antiga, que não é
+aleatória. O placebo de ano usa os modelos de 2022 inferidos do número de série. O plantio de (f) e (h) saiu com taxa limitada a
+100% dos votos de Flávio do grupo (Phi efetivo de 0,10 e 0,23), porque uma data ou faixa mediana não comporta um quarto da margem.

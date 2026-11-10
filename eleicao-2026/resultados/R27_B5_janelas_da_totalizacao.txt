@@ -1,0 +1,290 @@
+R27_B5: JANELAS DA TOTALIZAÇÃO (D3-5, D3-6, parte do D3-2, alegações R1, R7 e R8)
+
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC), item B5, mantido pelo Adendo 28 (commit 938be19). D3-5, D3-6 e D3-2 são do desenho cego D3
+(registro/adendo27/desenho_D3_proposta.json). Os grupos de tratamento são os congelados em desenho_D3/grupos_2t.json.gz, com SHA-256 conferido antes de
+qualquer conta. As alegações R1, R7 e R8 (novidades_relatorio.json) não têm critério no registro: o critério de cada uma foi escrito no docstring antes de
+calcular. Docstring gravado às 2026-11-10T07:33:52Z, antes de qualquer conta com votos (SHA-256 0ccf5ed3e5b6d516...). O programa foi ensaiado com um 2º turno
+sorteado (sem efeito de hora) antes de rodar no dado real; os testes estatísticos (D3-5, D3-6, R1, R8) rodaram uma vez no dado real, sem mudança de estimador.
+
+VEREDITOS PELA LETRA
+  INCONCLUSIVO  D3-5 retenção das 17:08 às 19:03
+                beta_E de A = +0,067 (ep 0,108), de B = +0,111 (ep 0,067); a hipótese previa -0,45 ou mais negativo. Cláusulas de inconclusivo: placebo de 0,15 ou mais: placebo (3), o do 1º turno, = +0,691. Os limites numéricos de SEM SINAL estão cumpridos (limite inferior de 95% acima de -0,45 nos dois). Os placebos (1) e (2), que são os comparáveis ao coeficiente real, ficam abaixo de 0,15: sem o placebo (3) o veredito seria SEM SINAL.
+  SEM SINAL     D3-6 (1) salto na pausa das 19:48
+                tau = +0,038 (ep 0,045) na banda de 8 minutos; intervalo de 95% de -0,050 a +0,126, dentro de -0,45 a +0,45.
+  SEM SINAL     D3-6 (2) inclinação dentro da zona
+                theta = +0,051 (ep 0,014, p = 0,0004); o limiar de sinal é +0,9; intervalo de 95% de +0,023 a +0,079.
+  SEM SINAL     D3-6 (3) deslocados de 30 minutos ou mais
+                beta = -0,052 (ep 0,042); limiar de sinal local +1,0; placebo -0,066.
+  SEM SINAL     D3-6 (3) deslocados de 60 minutos ou mais
+                beta = +0,103 (ep 0,076); limiar de sinal local +1,0; placebo +0,116.
+  SEM SINAL     D3-6 (3) cauda das 21:10 em diante
+                beta = +0,021 (ep 0,056); limiar de sinal local +1,0; placebo -0,237.
+  SEM SINAL     D3-2 (parte rodada) bweb contra o histórico e .sha512
+                diferença zero nas 6.250 zonas, 5.715 municípios, 28 UFs e no país para 13, 22, brancos, nulos e comparecimento; 89.518 passos conferidos, nenhum sem atribuição possível, nenhum boletim somado antes de recebido; 56 de 56 zips iguais ao resumo publicado. Vale só para o que rodou: o JSON oficial por município e o aux.json da amostra antiga ficaram para a onda D.
+  SEM SINAL     R1 um voto a cada dez segundos depois das 17h01 (ao pé da letra)
+                a alegação prevê kappa = 1; medido +0,0021 (ep 0,0009), teto de 95% em 0,0039 voto a cada dez segundos. Critério meu, escrito antes.
+  SEM SINAL     R1 efeito do horário de encerramento com alcance
+                margem implicada +16.827 votos, teto de 95% 30.956, abaixo de 443.019 (10% da margem).
+  SEM SINAL     R7 os 165.699 votos sem origem
+                total nacional menos a soma das UFs = 0 no histórico, no bweb e no JSON oficial; a tela do vídeo é o estado exato das 17:06:27. Critério meu, escrito antes.
+  SEM SINAL     R8 tendência de vitória de Flávio com 30% apurado
+                o fato confere (Flávio com 50,46% aos 30% das seções), mas a composição explica 2,09 dos 2,24 pontos; dentro da zona a diferença é -0,034 (ep 0,013), contra -2,55 previstos por uma alteração ligada aos 30%. Critério meu, escrito antes.
+
+RESUMO EM UMA FRASE
+  A retenção das 17:08 às 19:03, a pausa das 19:48, a ordem de chegada e os boletins fora de hora não marcam a virada: onde o teste enxerga meio ponto, os contrastes de hora ficam entre -0,05 e +0,11 ponto; o bweb é igual ao histórico oficial passo a passo; e as três alegações com número (R1, R7, R8) não se sustentam com o número que preveem.
+
+AVISOS DE ALCANCE (valem para tudo abaixo)
+  1. Estes testes comparam boletins conforme a HORA em que o TSE os recebeu ou somou. Enxergam alteração feita na totalização, na fila de espera ou ligada
+     a um horário. Não enxergam alteração feita dentro da urna antes da emissão do boletim e igual em todas as horas: essa hipótese fica com os testes de
+     urna, de log e, no fim, com o papel (boletim impresso e caderno de votação).
+  2. Se a alteração tivesse alcançado também os boletins já recebidos antes das 17:08, o D3-5 não teria contraste (aviso do próprio desenho).
+  3. O modelo do registro controla a variação do comparecimento. A calibração mostra que, mesmo assim, ele NÃO separa troca de voto de entrada de
+     eleitores ou de abstenção de um lado só: os três mecanismos plantados mexem o coeficiente quase igual. Um sinal aqui não diria qual dos três; a
+     ausência de sinal vale para os três.
+
+PARTE 1. D3-5: A RETENÇÃO DAS 17:08 ÀS 19:03 (boletins recebidos antes contra recebidos depois)
+  Estrutura: 1.092 seções do Brasil foram recebidas de 17:05 a 17:07, antes da retenção (1.088 entram nas contas); nenhuma de 17:08 a 19:02;
+  5.651 no minuto 19:03. Votos válidos recebidos antes: 488.682; depois: 123.593.591.
+  y = fatia de Lula nos válidos do 2º turno (pontos). beta_E = quanto a seção recebida ANTES difere da comparável recebida DEPOIS. A hipótese prevê negativo.
+
+  comparação                                      beta_E     ep      z    p        IC 95%            n     cedo  tardias  municípios   margem implicada (IC 95%)
+  A mesmo prédio (local e minuto de emissão)      +0,067  0,108  +0,62  0,537   -0,145 a  +0,278    3.874    722    3.152     168     -164.611 (-687.126 a +357.903)
+  B cedo contra rajada das 19:03 (zona, minuto)   +0,111  0,067  +1,66  0,097   -0,020 a  +0,242    6.482  1.060    5.422     516     -273.686 (-597.303 a +49.931)
+  C cedo contra tardias da zona (ao lado)         +0,078  0,074  +1,06  0,288   -0,066 a  +0,222  452.681  1.088  451.593   5.567     -192.995 (-549.299 a +163.309)
+  C com minuto de emissão (ao lado)               +0,088  0,074  +1,19  0,234   -0,057 a  +0,233  452.681  1.088  451.593   5.567     -217.631 (-576.137 a +140.875)
+  Margem implicada = 2 x (-beta_E) x válidos recebidos depois. Positiva = a favor de Lula nas tardias; negativa = o contrário.
+  Em votos: o pior caso a favor da tese (limite inferior de 95%) é +357.903 votos de margem em A e +49.931 em B, isto é,
+  8,1% e 1,1% da margem de 4.430.191. A estimativa pontual tem o sinal contrário ao da hipótese nas quatro contas.
+  Sem o controle de idade: A +0,059 (ep 0,111); B +0,109 (ep 0,070).
+  Valor bruto de 2026, sem modelo e sem outro ano (média ponderada pelos válidos):
+    A: cedo 45,34% no 1º turno (fatia dos dois) e 48,34% no 2º, virada +2,99; tardias 44,72% e 47,69%, virada +2,97; diferença +0,02.
+    B: cedo 48,68% no 1º turno (fatia dos dois) e 51,40% no 2º, virada +2,72; tardias 48,01% e 50,76%, virada +2,75; diferença -0,03.
+  Placebos (o registro pede todos abaixo de 0,15 em módulo):
+    (1) desfecho anterior em A (1º turno de 2026 controlado por 2022)   -0,074 (ep 0,128, n 3.575)
+    (1) desfecho anterior em B                                          -0,085 (ep 0,134, n 5.730)
+    (1) desfecho anterior em C (ao lado, fora do critério)              +0,351 (ep 0,195, n 418.958)
+    (2) corte falso: rajada das 19:03 contra 19:05 a 19:30              -0,020 (ep 0,030, n 28.180)
+    (3) 1º turno: recebidas de 17:08 a 17:10 contra as seguintes da zona  +0,691 (ep 0,278, n 297.990)  PASSA DE 0,15
+    Os placebos (1) e (3) comparam com 2022: o veredito desta parte depende, na cláusula do placebo, de outro ano. O placebo (2) é interno a 2026.
+    O placebo (3) tem erro de 0,28, maior que o próprio limiar de 0,15: ele não consegue ficar abaixo do limiar com segurança, e só 502 seções tratadas entram.
+    Exploratório (depois de ver): o mesmo placebo (3) dentro do mesmo prédio (efeito fixo de local e de minuto) dá +0,180 (ep 0,126, 371 tratadas): a maior parte dos +0,69 é diferença
+    entre prédios da mesma zona, não entre horas; ainda assim a estimativa pontual não fica abaixo de 0,15.
+  Calibração (troca binomial do 22 para o 13 em toda seção recebida de 19:03 em diante, 200 cópias): incremento médio de beta_E e detecção
+    x = 0,45%: A -0,450 (detecta 100%), B -0,449 (100%), C -0,450 (100%); cumpre o critério inteiro em A: 0%, em B: 0%.
+    x = 0,9%: A -0,900 (detecta 100%), B -0,897 (100%), C -0,900 (100%); cumpre o critério inteiro em A: 100%, em B: 100%.
+    x = 1,79%: A -1,788 (detecta 100%), B -1,783 (100%), C -1,787 (100%); cumpre o critério inteiro em A: 100%, em B: 100%.
+    Efeito mínimo detectável com 80% de poder: A 0,45 ponto (p < 0,001), B 0,23 (p < 0,01). O teste enxerga o que diz enxergar.
+  Espelho (mesma conta a favor de Flávio): plantio de 0,45 devolve A +0,450, B +0,451; de 1,79, A +1,790, B +1,788.
+    No dado real o critério espelhado (beta_E de +0,45 ou mais) NÃO é cumprido.
+  Explicação inocente plantada (mesmo efeito na margem que a troca de 1,79%, nas tardias, 100 cópias): fração do incremento da troca que aparece
+    entrada de eleitores reais de Lula: A 76%, B 83%, C 70%
+    abstenção pura de eleitores de Flávio: A 89%, B 92%, C 98%
+    O teste NÃO distingue troca de voto de diferença de comparecimento (todas acima de 50%). Como não há sinal, isso só importa para a leitura: a
+    ausência de contraste entre cedo e tardias vale também para entrada de votos e para retirada de eleitores durante a retenção.
+  VEREDITO PELA LETRA: INCONCLUSIVO. Motivo: placebo de 0,15 ou mais: placebo (3), o do 1º turno, = +0,691.
+    Condições de SINAL: ausentes. Limite inferior de 95% acima de -0,90 em A e B: sim; acima de -0,45 (sem sinal forte): sim.
+    Como o registro manda quando o placebo passa de 0,15, fica a diferença entre o beta real e o do placebo (1), sem concluir: A +0,140, B +0,196.
+
+PARTE 2. D3-6: PAUSA DAS 19:48, ORDEM DE CHEGADA E BOLETINS FORA DE HORA
+  Resíduo r = fatia de Lula no 2º turno menos o previsto pelo 1º turno, com efeito fixo de zona (497.460 seções, 6.106 zonas; desvio padrão 1,89 ponto).
+  (1) Salto na pausa (último boletim antes às 19:47:43, primeiro depois às 19:50:57). tau positivo = quem entrou depois virou mais para Lula.
+      banda     tau      ep      z     p       IC 95%           antes    depois   margem implicada (IC 95%)
+       8 min   +0,038  0,045  +0,85  0,395  -0,050 a  +0,126   22.458   26.011   +79.848 (-104.263 a +263.958)
+       4 min   +0,042  0,065  +0,63  0,526  -0,087 a  +0,170   11.240   10.836   +86.868 (-181.419 a +355.156)
+      16 min   +0,034  0,031  +1,10  0,272  -0,027 a  +0,095   44.761   63.006   +70.992 (-55.771 a +197.755)
+      Margem = 2 x tau x válidos recebidos de 19:50 em diante (104.624.781). Zonas com os dois lados na banda de 8: 1.214 (o desenho dizia 1.255).
+      Cortes falsos (banda de 8): maior salto em módulo 0,081 nos 12 da grade do registro e 0,081 nos 20 de 3 em 3 minutos;
+      com p < 0,001: 0 e 0. O salto real (0,038) NÃO é maior que todos os falsos da grade.
+      Grade: 20:10 +0,008, 20:15 +0,043, 20:20 -0,059, 20:25 -0,009, 20:30 -0,042, 20:35 +0,000, 20:40 -0,012, 20:45 -0,004, 20:50 +0,033, 20:55 -0,022, 21:00 -0,024, 21:05 +0,081
+      Desfecho placebo (1º turno controlado por 2022) no mesmo corte: +0,047 (ep 0,083); bandas de 4 e 16: +0,032 e -0,026. Limite do registro: 0,15.
+      Pausas do 1º turno (mesma conta, desfecho do 1º turno controlado por 2022): 18:02:00 a 18:08:00: +0,011 (ep 0,081); 18:50:00 a 18:53:00: +0,001 (ep 0,066); 19:32:00 a 19:59:00: +0,071 (ep 0,118).
+      Degraus de vazão (exploratório do registro, só contam com p < 0,00017), banda de 8: 19:12 -0,068 (p 0,730); 19:14 +0,117 (p 0,387); 19:18 -0,112 (p 0,252); 19:24 -0,061 (p 0,358); 19:30 +0,019 (p 0,678); 20:00 +0,029 (p 0,426).
+      Banda de 2: 19:12 +0,600 (p 0,502); 19:14 -0,296 (p 0,772); 19:18 -0,091 (p 0,673); 19:24 -0,022 (p 0,869); 19:30 +0,144 (p 0,173); 20:00 +0,045 (p 0,518).
+      Bruto de 2026, sem modelo: 8 minutos antes da pausa, 22.458 seções com 45,74% no 1º turno e 48,57% no 2º (virada +2,83);
+      8 minutos depois, 26.011 seções com 45,59% e 48,45% (virada +2,86). A composição muda no corte; a virada, não.
+      Calibração (troca em toda seção recebida de 19:50 em diante, resíduo refeito, 100 cópias): +0,45 devolve +0,418 (detecta 100%); +0,9 devolve +0,836 (detecta 100%); +2,1 devolve +1,948 (detecta 100%).
+      Devolve 93% do plantado porque o efeito fixo de zona absorve as zonas que entraram inteiras depois da pausa. Efeito mínimo detectável: 0,19 ponto.
+      Espelho: plantio de 0,45 a favor de Flávio devolve -0,416; no dado real o critério espelhado NÃO é cumprido.
+      Inocentes: composição (2,1 pontos em zonas inteiras que entraram depois, 432.169 seções) mexe tau em -0,003: o teste não confunde bloco de zona com salto.
+      Entrada de eleitores reais e abstenção pura depois da pausa devolvem 68% e 81% do que a troca devolve: o teste não separa troca de comparecimento.
+      VEREDITO PELA LETRA: SEM SINAL.
+
+  (2) Inclinação: r contra a posição do recebimento dentro da zona (0 = primeiro boletim da zona, 1 = último), sem prorrogadas.
+      theta = +0,051 ponto (ep 0,014 por município, 0,013 por zona; z +3,57; p = 0,0004); IC 95% +0,023 a +0,079; n 490.695.
+      Margem pela fórmula do registro (theta x válidos totais): +63.289 votos (IC 95% +28.553 a +98.025), 1,4% da margem.
+      Placebo (desfecho anterior): -0,077 (ep 0,025); limite do registro 0,3.
+      Bruto de 2026 por terço da posição na zona: 1º terço: 1º turno 48,58%, 2º turno 51,49%, virada +2,91; 2º terço: 1º turno 48,63%, 2º turno 51,61%, virada +2,99; 3º terço: 1º turno 49,10%, 2º turno 52,07%, virada +2,97.
+      Calibração (100 cópias, resíduo refeito). Rampa pela ordem NACIONAL de chegada: 0 a 0,9 devolve +0,329; 0 a 1,8 devolve +0,658; 0 a 3,6 devolve +1,314 (fator 0,365).
+      Rampa pela posição DENTRO da zona: 0 a 0,9 devolve +0,892; 0 a 1,8 devolve +1,782; 0 a 3,6 devolve +3,563. Efeito mínimo detectável: 0,059 ponto.
+      Leitura calibrada: a rampa nacional que vira a eleição (0 a 3,6) apareceria aqui como theta de 1,31, e cumpre o critério em 100% das cópias.
+      O theta medido equivale a uma rampa nacional de 0 a 0,14 ponto (teto de 95%: 0,22), isto é, 173.351 votos de margem (teto 268.495,
+      6,1% da margem). Contado a partir do placebo (-0,077) em vez de zero, a diferença é +0,128 e a rampa nacional equivalente vai a 0,35 ponto,
+      433.436 votos (9,8% da margem). Essa conta contra o placebo é exploratória.
+      VEREDITO PELA LETRA: SEM SINAL. O coeficiente é positivo e distinguível de zero (p = 0,0004), no sentido da hipótese, mas tem 6% do limiar de +0,9.
+
+  (3) Deslocados: seção recebida muito depois da mediana do próprio prédio, contra as vizinhas (efeito fixo de local).
+      grupo                beta      ep      p       IC 95%          tratadas  placebo   com encerramento   margem implicada (IC 95%)
+      30 minutos ou mais    -0,052  0,042  0,217  -0,135 a  +0,031    2.109   -0,066       -0,052          -570 (-1.476 a +335)
+      60 minutos ou mais    +0,103  0,076  0,174  -0,046 a  +0,252      620   +0,116       +0,103          +323 (-142 a +788)
+      cauda (21:10 ou mais)  +0,021  0,056  0,710  -0,088 a  +0,130    2.491   -0,237       +0,021          +340 (-1.451 a +2.132)
+      Calibração: +5 pontos plantados devolvem +5,00 (detecta 100%); efeito mínimo detectável 0,17 (30 min), 0,31 (60 min), 0,23 (cauda).
+      Inocente: entrada de eleitores reais nos deslocados devolve 81% do que a troca devolve (não separa).
+      Bruto de 2026 (30 min): virada das deslocadas +2,80, das demais +3,00.
+      VEREDITO PELA LETRA: 30 min: SEM SINAL; 60 min: SEM SINAL; cauda: SEM SINAL. O grupo é pequeno: mesmo no teto não move a margem.
+
+PARTE 3. D3-2 (PARTE RODADA): BWEB CONTRA O HISTÓRICO OFICIAL DA TOTALIZAÇÃO (publicado em 03/11) E .SHA512 DOS ZIPS
+  2º turno, lido de novo direto dos 28 zips do bweb (499.205 seções; 0 diferentes da base dados/).
+  Histórico: 358.072 linhas, 89.518 passos de totalização em 6.250 pares de município e zona.
+  (a) Fim: último acumulado de cada município e zona contra a soma dos boletins. Unidades com diferença para 13, 22, brancos, nulos e comparecimento:
+      zonas 0 de 6.250; municípios e cidades do exterior 0 de 5.715; UFs 0 de 28; país 0.
+      Totais iguais: Lula 64.256.232, Flávio 59.826.041, brancos 1.430.496, nulos 2.723.305, comparecimento 128.236.074, seções 499.205.
+      d líquido nacional (13 menos 22): 0 voto. Aptos por zona: 0 zonas diferentes (158.744.977 dos dois lados).
+  (b) Ordem: passos em que um boletim teria sido somado antes de recebido: 0. Boletins sem passo: 0.
+  (c) Passo a passo: 88.563 passos fecham voto a voto na ordem estrita de DT_BU_RECEBIDO; 955 fecham com a ordem trocada dentro de
+      473 trechos de 2 ou 3 passos vizinhos (11 deles resolvidos por programação inteira); sem atribuição possível: 0; busca interrompida: 0.
+  (d) Série por minuto: em 0 de 377 minutos o acumulado do histórico passa o acumulado recebido. Defasagem entre receber e somar: mediana 24 s,
+      99% até 61 s, máximo 246 s, nenhuma negativa. Maior fila: 4.975 boletins às 19:03 (a rajada), zerada no minuto seguinte.
+      Em português: a série do histórico é a dos boletins do bweb, cada um somado segundos depois de recebido, sem voto a mais nem a menos em passo nenhum.
+  Plantios numa cópia do bweb do 2º turno (20 sorteios cada):
+      1 voto a mais para o 13 em 1 seção: aponta exatamente 1 zona, 1 município, 1 UF e o país em 20 de 20 (e também no passo a passo em 20);
+      1 seção retirada: aponta 1 zona em 20 de 20; 10 votos trocados entre dois municípios da mesma UF: aponta os 2 municípios, com UF e país fechando, em 20 de 20;
+      hora de recebimento trocada entre passos (boletim somado antes de recebido): acusa em 20 de 20. Inocente (hora trocada dentro do mesmo passo): acusa em 0 de 20.
+  Placebo, 1º turno (base dados/ e hora do bweb): 69.151 passos em 6.251 zonas, 13 candidatos mais brancos e nulos.
+      Votável a votável, tudo zero menos dois: o 28 (candidatura anulada) tem 5.246 votos como nominais no bweb e zero no histórico, e os nulos do histórico têm exatamente
+      esses 5.246 a mais (2.148 zonas). É classificação do candidato anulado, não voto de 13 nem de 22. Somando nulos e 28 dos dois lados:
+      diferença zero em todas as zonas; 69.083 passos fecham na ordem, 68 com ordem trocada, 0 sem atribuição; defasagem mediana 115 s, máximo 2.038 s.
+  .sha512: 56 zips do bweb (28 do 1º turno, 28 do 2º). Iguais ao resumo baixado junto com o zip (26 e 28/10): 56. Iguais ao resumo que o repositório
+      serve hoje (2026-11-10T07:38:06Z, 56 pedidos a 1 por segundo, nenhum 429): 56. Diferentes: 0. Os dois zips do histórico têm o SHA-256 anotado em 09/11.
+  Universo: a configuração do site lista 499.248 seções no 2º turno = 499.205 do bweb + 2 com hora e fora do bweb (ZZ|29564|1|91, ZZ|30686|1|443) + 41 sem hora.
+      Nenhuma seção do bweb falta na configuração. O histórico traz QT_SECOES_BRASIL = 499.248 e QT_APTOS_BRASIL = 158.745.502, 525 aptos a mais que o bweb: são as 43 seções fora dele.
+  Pontos a explicar, sem voto envolvido: a coluna QT_APTOS_TOT do histórico traz o comparecimento do passo, e não os aptos como diz o LEIAME do TSE; e o
+      histórico soma o 28 em nulos enquanto o bweb o mantém como nominal.
+  VEREDITO PELA LETRA (só a parte rodada): SEM SINAL. Aviso do desenho: isso prova que bweb e histórico são a mesma conta; não diz nada sobre mudança
+      feita antes de o boletim existir e levada de forma coerente às duas camadas. Faltam o JSON oficial por município e o aux.json da amostra antiga (onda D).
+
+PARTE 4. ALEGAÇÕES NOVAS, AO PÉ DA LETRA (critérios meus, escritos antes de calcular; não são do registro)
+  R1. "Código ativado às 17h01 transfere um voto a cada dez segundos; quanto mais tempo a urna fica aberta, maior a diferença."
+    (a) Aritmética da própria alegação: 370.081 seções encerraram depois de 17:01:00 de Brasília (mediana de 44 s depois). Um voto a cada 10 s daria
+        9.593.036 votos transferidos, isto é, 19.186.071 de margem: 4,33 vezes a margem oficial. Flávio teria tido 69.419.077 votos, 55,9% dos válidos.
+        Em 8.558 seções o número previsto passa de TODOS os votos que Lula teve na seção (impossível), inclusive nas 6.352 que encerraram de 19h em diante
+        (previsto 730 votos transferidos por urna, comparecimento médio 293).
+    (b) Dose: kappa = fração da taxa alegada que aparece nos votos (1 = a alegação vale; 0 = o horário não transfere nada). Seções que encerraram antes de 17:10 (n 462.220),
+        efeito fixo de local: kappa = +0,0021 (ep 0,0009; p = 0,0196); IC 95% +0,0003 a +0,0039. O teto equivale a 1 voto a cada 42 minutos, não a cada 10 segundos.
+        Margem implicada: +16.827 votos (IC 95% +2.698 a +30.956), 0,38% da margem. Todas as seções com dose limitada: +0,0007 (ep 0,0005).
+        Placebo (1º turno controlado por 2022, mesma dose): -0,0064 (ep 0,0014): do tamanho do efeito e de sinal contrário. Contra o placebo a diferença seria +0,0086,
+        67.184 votos de margem (1,5% da margem). O kappa positivo é pequeno demais para ser a alegação e não se separa do ruído do desenho.
+    (c) Dez grupos por horário de encerramento (diferença ajustada contra o grupo que encerrou antes de 17:01, mesmo prédio):
+        grupo               seções   encerra   T previsto  virada bruta   previsto pela alegação   medido (ep)
+        antes de 17:01      125.484  17:00:42       0,0      +2,93            +0,0 pontos       referência
+        17:01               154.344  17:01:26       2,6      +2,95            +1,1 pontos       +0,009 (0,008)
+        17:02                83.094  17:02:27       8,7      +2,99            +3,5 pontos       +0,012 (0,009)
+        17:03 a 17:04        77.145  17:03:50      17,0      +3,00            +6,7 pontos       +0,014 (0,012)
+        17:05 a 17:09        44.028  17:06:33      33,3      +2,94           +12,9 pontos       +0,010 (0,016)
+        17:10 a 17:19         5.145  17:12:35      69,5      +2,84           +26,9 pontos       -0,012 (0,028)
+        17:20 a 17:39           824  17:26:27     152,7      +2,81           +59,5 pontos       +0,014 (0,077)
+        17:40 a 18:29           632  18:01:54     365,4      +2,81          +142,0 pontos       -0,155 (0,133)
+        18:30 a 18:59           420  18:57:16     697,6      +3,33          +241,6 pontos       +0,072 (0,050)
+        19:00 em diante       6.344  19:02:37     729,7      +3,18          +258,4 pontos       -0,005 (0,033)
+        Grupos em que aparece pelo menos metade do previsto: 0 de 9. A virada bruta de 2026 é a mesma (2,8 a 3,3 pontos) em quem fechou às 17:00 e em quem ficou aberto até as 19h.
+    Calibração: a alegação plantada devolve kappa +0,980; 1 voto a cada 100 s devolve +0,1001; a cada 1.000 s, +0,0099 (z 10,7).
+        Efeito mínimo detectável: 0,0038 voto a cada 10 s. Espelho (de Lula para Flávio): -0,998. Inocentes: fila real repartida como a seção mexe -5%;
+        entrada de eleitores reais de Lula aparece com 80% do tamanho da transferência (o teste não separa as duas).
+    VEREDITO: a alegação ao pé da letra está REFUTADA; efeito do horário com alcance: SEM SINAL. Não li os logs (votos depois das 17h01 por urna): fica para a onda C.
+
+  R7. "Cadê os 165.699 votos do Nine?" (total nacional de Lula menos a soma das páginas dos estados e do exterior; tela com Lula 193.574 e Flávio 142.169)
+    (a) A tela existe no histórico: o acumulado nacional é exatamente Lula 193.574 e Flávio 142.169 às 17:06:27, com 1.223 seções (0,24% das 499.248).
+        É o ponto em que a divulgação parou (a imprensa registrou 0,25%). A totalização interna seguiu até 17:07:37: até 17:05: Lula 174.065, Flávio 123.039, 1.059 seções; até 17:06: Lula 224.164, Flávio 171.447, 1.477 seções; até 17:07: Lula 271.370, Flávio 217.312, 1.868 seções.
+        As 645 seções somadas depois desse instante e antes da pausa não estão na tela do vídeo (gravado por volta das 17h57, segundo a checagem): se a divulgação ficou
+        parada ali durante toda a pausa, elas só apareceram ao público depois das 19h. Isso é inferência da tela e do registro da imprensa, não dado do TSE.
+    (b) De onde sairia 165.699: não há instante anterior com Lula = 27.875 no país (0) nem só nas 27 UFs (0). A busca por conjuntos de UFs que somem 165.699 no
+        instante da tela acha 15 conjuntos, mas com 20 UFs há 2^20 conjuntos e o acaso dá 5,4 por número: essa busca NÃO distingue nada (teste meu sem poder).
+        Exploratório: naquele instante 141.386 dos 193.574 votos de Lula (73%) eram do exterior (776 seções), e as 27 UFs somavam 52.188.
+        O exterior sozinho não é o número (faltam 24.313), então a conta do vídeo não se reproduz ao voto; ela depende de em que estado estava cada página.
+    (c) O que a alegação prevê, votos de Lula sem seção de origem, não existe: total nacional menos soma das UFs = 0 no histórico; Lula no histórico 64.256.232,
+        no bweb 64.256.232, no JSON oficial nacional 64.256.232. Cada passo do histórico pertence a um município e zona, e todos fecham com boletins (parte 3).
+    VEREDITO: SEM SINAL. O número previsto é 165.699; o medido é 0. A diferença entre painéis no meio da pausa é atraso de publicação, não voto.
+
+  R8. "Flávio tinha tendência de vitória com 30% apurado."
+    (a) O fato confere: com 23% das seções Flávio tinha 50,48% do acumulado (20:00:51); com 30%, 50,46% (20:08:03); com 38%, 50,30%.
+        Lula liderou até 19:44:34, Flávio de 19:44:50 a 20:24:01, Lula de 20:24:04 em diante (28 cruzamentos passo a passo, 26 deles nesses dois momentos da noite).
+        Maior fatia de Flávio depois dos 5% das seções: 50,54% às 20:02:50. Final: 48,21%.
+    (b) Composição: as primeiras 30% das seções (recebidas até 20:07:32) deram a Flávio 50,45% no 2º turno, +2,24 ponto acima do final do país (48,21%).
+        As MESMAS seções já tinham dado a Flávio, no 1º turno, 53,10% dos votos dos dois, +2,09 ponto acima do país (51,01%).
+        Se a parcial fosse representativa, esse segundo número seria zero. Sobra g2 - g1 = +0,14 ponto; uma alteração ligada depois dos 30% que virasse a eleição prevê +1,79.
+        Bruto de 2026: virada a favor de Lula de 2,65 pontos nas primeiras 30% e de 2,84 nas demais (país 2,80).
+    (c) Curva prevista sem ajuste: usando só o 1º turno de cada seção e a variação nacional, a fatia prevista de Flávio aos 30% é 50,48% (real 50,45%);
+        a maior distância entre a curva real e a prevista, em toda a apuração, é 0,16 ponto. A troca de liderança prevista cai às 20:25:43; a real (pela ordem de recebimento), às 20:23:38.
+        Com a fatia final de cada zona no lugar do voto da seção: 50,24% aos 30%, distância máxima 0,59.
+    (d) Dentro da zona (seção entre as primeiras 30% contra as demais da mesma zona, controles do registro): -0,034 ponto (ep 0,013; p = 0,0102); IC 95% -0,059 a -0,008;
+        2.544 zonas com os dois lados. Uma alteração ligada aos 30% prevê -2,55. Margem implicada: +58.720 votos (IC 95% +13.914 a +103.526), 1,3% da margem.
+        Placebo (desfecho anterior): -0,032 (ep 0,031), do mesmo tamanho e sinal. Plantios de 2,55 e 0,45 devolvem -2,55 e -0,45 (detecção 100%).
+    VEREDITO: o fato é verdadeiro e a inferência não: SEM SINAL. A liderança de Flávio com 30% é o que a ordem de chegada das seções prevê, com erro de 0,16 ponto.
+
+EXPLORATÓRIO (feito DEPOIS de ver os resultados acima; sem critério registrado; não entra em veredito)
+  Como o indício da Onda A passa pelo comparecimento e o modelo do registro controla o comparecimento, os mesmos contrastes de hora foram refeitos com o
+  comparecimento como desfecho (pontos percentuais dos aptos), sem esse controle. Lê-se: quem foi recebido ANTES da retenção, e portanto não pode ter sido
+  mexido durante ela, teve variação de comparecimento diferente da seção gêmea recebida depois?
+  desfecho                                                   cedo menos tardias: A (mesmo prédio)   B (cedo contra rajada)   C (zona)       salto na pausa     inclinação na zona
+  fatia de Lula, sem o controle do comparecimento (pontos)     +0,071 (0,107)          +0,110 (0,066)        +0,059 (0,075)     +0,041 (0,045)     +0,055 (0,014)
+  variação do comparecimento (pp dos aptos)                    +0,078 (0,089)          -0,008 (0,117)        -0,349 (0,123)     +0,044 (0,051)     +0,069 (0,016)
+  ganho de Lula entre os turnos (pp dos aptos)                 +0,028 (0,102)          +0,051 (0,094)        -0,183 (0,111)     +0,044 (0,049)     +0,044 (0,016)
+  ganho de Flávio entre os turnos (pp dos aptos)               -0,061 (0,093)          -0,149 (0,089)        -0,159 (0,073)     -0,029 (0,040)     -0,023 (0,013)
+  variação de brancos e nulos (pp dos aptos)                   +0,118 (0,048)          +0,076 (0,031)        +0,012 (0,031)     +0,024 (0,019)     +0,017 (0,006)
+  Régua: se a margem inteira tivesse entrado como comparecimento a mais só nas seções recebidas depois da retenção, a variação do comparecimento delas seria 2,81 pp dos aptos
+  maior que a das cedo (coeficiente negativo desse tamanho na linha do comparecimento).
+  Leituras: (i) nos desenhos de gêmeas a variação do comparecimento é a mesma: +0,078 (ep 0,089) no mesmo prédio e -0,008 (ep 0,117) contra a rajada.
+  (ii) Em C (zona inteira, o desenho mais fraco) as cedo tiveram -0,35 pp de variação do comparecimento (ep 0,12), repartido quase igual entre os dois: Lula -0,18,
+  Flávio -0,16. Não gera margem; é o que se espera de seção sem fila, que transmite primeiro.
+  (iii) Brancos e nulos caíram um pouco MENOS nas cedo que nas gêmeas tardias: +0,118 (ep 0,048) em A e +0,076 (ep 0,031) em B. Se fosse tudo branco e nulo convertido em voto de Lula
+  durante a retenção, valeria 186.244 votos de margem pela conta de A (4,2% da margem) e 120.706 pela de B. São 25 contas exploratórias: a 5% o acaso dá uma ou duas
+  desse tamanho, e o ganho de Lula nas mesmas contas não acompanha (linha do ganho de Lula). Fica como pista para o teste de branco e nulo, não como indício.
+  (iv) Dentro da zona, boletim que chega mais tarde tem um pouco mais de aumento de comparecimento (+0,069 pp, ep 0,016), que aparece como ganho de Lula (+0,044)
+  e perda de Flávio (-0,023): é o mesmo theta do D3-6 (2) visto pelo comparecimento. Tamanho: centésimos de ponto.
+
+O QUE PESA A FAVOR DA TESE
+  1. D3-6 (2): dentro da zona, boletim que chegou mais tarde virou um pouco mais para Lula: theta = +0,051 (ep 0,014, p = 0,0004), no sentido da hipótese, enquanto o placebo com desfecho anterior tem o sinal contrário (-0,077). É 6% do limiar; lido como rampa nacional, vale de 63.289 a 433.436 votos de margem conforme a régua (1% a 10% da margem). O teste não separa isso de eleitor de fim de fila.
+  2. R8 (d): as seções das primeiras 30% viraram 0,034 ponto a menos para Lula que as demais da mesma zona (p = 0,0102), mesmo sentido; mas o placebo dá o mesmo (-0,032), então não é novidade do 2º turno. No bruto, g2 - g1 = +0,14 ponto.
+  3. R1: o kappa é positivo (+0,0021, p = 0,0196): seção que fechou segundos mais tarde tem fatia de Lula um nada maior no mesmo prédio. Vale 16.827 votos de margem (0,4%), 466 vezes menos que a alegação, e o placebo tem tamanho maior com sinal contrário.
+  4. D3-5: o veredito pela letra não é SEM SINAL e sim INCONCLUSIVO, porque o placebo (3) do 1º turno deu +0,69 (ep 0,28): as primeiras seções recebidas no 1º turno já diferiam das seguintes da zona. Isso tira do teste a absolvição formal, embora o coeficiente real tenha o sinal contrário ao da hipótese e os placebos comparáveis a ele, (1) e (2), fiquem abaixo de 0,15.
+  5. Exploratório: brancos e nulos caíram um pouco menos nas seções recebidas antes da retenção que nas gêmeas recebidas depois (+0,118 pp dos aptos, ep 0,048, no mesmo prédio; +0,076, ep 0,031, contra a rajada). No teto, 186.244 votos de margem (4,2%). Uma de 25 contas exploratórias; o ganho de Lula nas mesmas seções não acompanha.
+  6. Limite de alcance que continua de pé: nada aqui testa alteração feita dentro da urna antes de o boletim existir, igual em todas as horas; e o histórico e o bweb saem do mesmo banco do TSE, então a igualdade entre os dois não é conferência independente. Continuam sem publicação o perfil do comparecimento do 2º turno e os logs do receptor de arquivos.
+  7. Pontos sem explicação pública: a retenção de 116 minutos com 1.868 boletins já somados (645 deles fora da tela divulgada, pelo que o vídeo das 17h57 mostra), a coluna QT_APTOS_TOT do histórico com comparecimento no lugar de aptos, e as 2 seções do exterior com hora no site e fora do bweb.
+
+O QUE PESA CONTRA A TESE
+  1. D3-5: os boletins recebidos ANTES da retenção, que não podem ter sido mexidos durante ela, viraram para Lula tanto quanto os gêmeos que esperaram duas horas: +0,067 (ep 0,108) no mesmo prédio e +0,111 (ep 0,067) contra a rajada. Uma alteração na retenção que virasse a eleição daria -1,79 (z perto de 17); o intervalo de 95% exclui até -0,45. O plantio de 1,79 é detectado em 100% das cópias.
+  2. D3-6 (1): não há salto na pausa das 19:48: +0,038 (ep 0,045), menor que o maior de 12 cortes falsos (0,081) e igual ao do desfecho placebo (+0,047). Teto de 95%: 263.958 votos de margem (6,0%). O plantio de 0,45 é detectado em 100% das cópias.
+  3. D3-6 (3): boletins que chegaram 30 minutos ou mais depois dos vizinhos de prédio não viraram mais para Lula (-0,052, ep 0,042); nem os de 60 minutos nem a cauda.
+  4. D3-2: o histórico oficial e o bweb são a mesma conta, zona a zona e passo a passo: 89.518 passos, nenhum com voto que não venha de boletim recebido antes dele; nenhum boletim somado antes de recebido; nenhum recebido e não somado. Um único voto plantado é apontado em 20 de 20 sorteios. Os 56 zips do bweb continuam iguais aos resumos publicados.
+  5. R1: a alegação das 17h01 erra por três ordens de grandeza: prevê 9.593.036 votos transferidos e mais votos transferidos que votos de Lula em 8.558 seções; o teto medido é de 1 voto a cada 42 minutos. Nos dez grupos, nenhum mostra nem metade do previsto.
+  6. R7: os "165.699 votos sem origem" não existem no resultado: a tela é o estado das 17:06:27, e nacional menos soma das UFs é zero.
+  7. R8: a liderança de Flávio com 30% apurado é prevista pelo 1º turno das mesmas seções (50,48% previsto, 50,45% real); a curva inteira da apuração sai do 1º turno mais uma variação nacional uniforme com erro máximo de 0,16 ponto.
+  8. Exploratório, canal do comparecimento: a variação do comparecimento das seções recebidas antes da retenção não difere da das gêmeas recebidas depois (+0,078 pp dos aptos, ep 0,089, no mesmo prédio; -0,008, ep 0,117, contra a rajada), contra -2,81 se a margem tivesse entrado como voto a mais durante a retenção.
+
+O QUE ISSO SIGNIFICA
+  A totalização não é o lugar da virada. Se a diferença de 4,43 milhões tivesse sido fabricada na fila de espera das 17:08 às 19:03, numa pausa, aos poucos ao longo da noite ou em boletins segurados, os boletins que entraram antes teriam de se comportar diferente dos que entraram depois, e não se comportam: os contrastes ficam em centésimos de ponto, com poder medido para meio ponto. O que o TSE publicou como histórico é, passo a passo, a soma dos boletins do bweb. Para a pergunta desta onda (mobilização desigual ou irregularidade no registro de quem votou), este teste fecha uma porta: a diferença de comparecimento entre eleitores de Flávio e de Lula já está nos boletins na hora em que cada urna os emitiu, igual para os recebidos antes e depois da retenção. Se houve irregularidade, ela está antes da transmissão: na seção (mesa, caderno, habilitação) ou no programa da urna. Não separa as duas leituras; diz onde não procurar.
+
+PISTAS
+  1. Caderno de votação e boletim impresso continuam sendo a única conferência independente: priorizar PI, MA, TO, PB e CE (Adendo 28).
+  2. Completar o D3-2 na onda D: JSON oficial por município (5.750 pedidos) e aux.json da amostra antiga, para fechar a terceira camada.
+  3. Pedir ao TSE o registro da ordem de retenção e de retomada (horários e quem mandou), os logs do receptor de arquivos e a explicação para as 645 seções somadas de 17:06:27 a 17:07:37 que não aparecem na tela gravada às 17h57.
+  4. O theta positivo dentro da zona (0,05 ponto) merece uma conta com os logs: se for eleitor de fim de fila, some ao controlar a hora do último voto da urna (onda C).
+  5. R1 nos logs (votos computados depois das 17h01 por urna contra o ganho de Lula) não foi feito aqui.
+  6. Pedir ao TSE a correção do LEIAME do histórico (QT_APTOS_TOT traz comparecimento) e a identificação das 2 seções do exterior com hora no site e fora do bweb.
+
+DESVIOS E DECISÕES FORA DO REGISTRO
+  1. R1, R7 e R8 não têm critério no registro; os critérios são meus, escritos no docstring antes de calcular.
+  2. D3-2 rodou só em parte (bweb contra histórico, .sha512 e universo pela configuração em disco). O histórico não existia quando o desenho foi escrito; o critério do D3-2 foi levado a ele pela letra. Não rodaram o JSON oficial por município nem o aux.json.
+  3. No 1º turno a conferência usou a base dados/ (extraída do bweb e conferida no Adendo 25) e não uma leitura nova dos zips; no 2º turno os zips foram lidos de novo.
+  4. Cortes falsos do D3-6: o registro fala em vinte, mas a grade que ele mesmo descreve (de 5 em 5 minutos de 19:55 a 21:05) tem 15 pontos, e 12 depois de pular os que ficam a menos de 10 minutos de um corte registrado. Usei os 12 como principal e um conjunto de 20 (de 3 em 3 minutos) ao lado.
+  5. Pausas do 1º turno: usei os limites vistos nos metadados (18:02 a 18:08, 18:50 a 18:53, 19:32 a 19:59); o desenho dizia 19:32 a 19:54.
+  6. Zona = UF, município e zona: reproduz as 274 zonas do D3-5; no D3-6 dá 1.216 zonas com os dois lados da pausa (1.214 na conta), não as 1.255 do texto do desenho.
+  7. Placebo (3) do D3-5: o registro diz "primeiras seções recebidas de cada zona contra as seguintes"; fixei antes de calcular os três primeiros minutos do recebimento do 1º turno (17:08 a 17:10) contra as seguintes da zona com emissão antes de 17:11. É essa escolha que leva o D3-5 a INCONCLUSIVO pela letra.
+  8. Cláusulas "sinais opostos" e "muda de sinal entre bandas" lidas pela letra (sinal da estimativa, sem exigir significância), como escrito no docstring.
+  9. Ordem de execução: o desenho pede plantios e placebos antes do dado real. O programa foi ensaiado inteiro com um 2º turno sorteado sem efeito de hora (os placebos, que não usam o 2º turno, saíram já nesse ensaio); depois o dado real rodou uma vez, sem mudança de estimador.
+  10. Busca do R7 por conjuntos de UFs: escrita antes, mostrou-se sem poder (o acaso dá 5 conjuntos por número). Fica relatada como tal.
+  11. No R1 o plantio de 1 voto a cada 100 s e a cada 1.000 s usa arredondamento sorteado (a parte inteira daria zero voto em quase toda seção); detalhe decidido no ensaio, antes do dado real.
+  12. A conciliação passo a passo usa busca por trocas e, onde ela não acha, programação inteira (11 passos do 2º turno); nos plantios só a busca por trocas, com a mesma régua para a linha de base. A conciliação rodou três vezes por causa da busca (a primeira versão deixava 16 passos sem decidir, a segunda 11; a programação inteira decidiu todos); o fim de zona deu zero nas três. A primeira passada do 1º turno mostrou a diferença do 28, e a soma de nulos com o 28 foi acrescentada depois de vê-la. O R7 rodou duas vezes (a segunda só acrescentou o bloco exploratório).
+  13. Exploratório: os contrastes com o comparecimento como desfecho e a leitura do theta contra o placebo foram feitos depois de ver os resultados.
+  14. Contagem: esta peça tem 11 vereditos. Com limiar de p < 0,001 (e condições de tamanho), o acaso daria cerca de 0,01 sinal. Nenhum SINAL saiu.
+
+Arquivos: scripts/analisar_R27_B5.py; resultados/R27_B5_janelas_da_totalizacao.json; parciais e docstring datado em /home/user/trabalho-eleicao/adendo27/R27_B5/.

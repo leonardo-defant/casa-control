@@ -1,0 +1,303 @@
+R27_C1: QUEM LIBEROU E A QUE HORAS
+Testes D2-2 (MESALOG) e D2-5 (RELOGIO) do desenho cego D2, com os logs das 3.897 seções da amostra antiga.
+Registro: Adendo 27 (commit 2748895, 10/11/2026 00:16:42 UTC) e Adendo 28 (commit 938be19, 04:36:33 UTC).
+Docstring com as decisões gravado antes de rodar: SHA-256 76a39dbf6c45ba370055a2da1bfc20c8013f96498c5bd8716ec47a6766c8b3f3
+  (igual ao docstring atual do script: sim).
+O log da urna não traz o candidato votado. Os votos por seção vêm de dados/secoes2026.json.gz.
+Nenhum outro ano entra neste teste. O controle é o 1º turno de 2026 na mesma seção.
+Escala: margem 4.430.191; 25% = 1.107.548; 10% = 443.019; comparecimento do 2º turno 128.236.074. Voto inserido vale 1 na margem.
+
+VEREDITOS PELA LETRA
+  D2-2 MESALOG: INCONCLUSIVO.
+    Nas cláusulas de tamanho o resultado é SEM SINAL: V = 124.684 votos, limite superior 268.803,
+    abaixo de 443.019; B3 + B4 = -44.285, limite superior -6.467. O que leva a INCONCLUSIVO é só a cláusula B6:
+    7 seções no 2º turno com habilitações por ano de nascimento acima do reservatório do perfil, sem explicação cadastral
+    pelas regras fixadas antes (19 votos acima do 1º turno, somadas as 7). A calibração mostra poder: sim.
+  D2-5 RELOGIO: SEM SINAL.
+    Teto da prorrogação (todos os votos depois das 17h de Brasília): 35.733 votos no país, limite superior 43.649
+    (1,0% da margem). Votos impossíveis ou em rajada: 3.086, limite superior 7.816.
+    A calibração mostra poder: sim.
+
+RESUMO
+1. Pela porta sem biometria (ano de nascimento ou liberação do mesário) não entrou, a mais que no 1º turno, nada perto de um décimo
+   da margem: 124.684 votos (de -23.639 a 268.803), 2,8% da margem, teto de 6,1%.
+2. A liberação pelo mesário subiu junto com as biometrias difíceis (3ª ou 4ª tentativa): a razão entre as duas ficou igual
+   (ln = -0,0033, ep 0,0082). É a marca de dedo ruim, não de voto lançado na mesa.
+3. Não há fim de fila sem biometria nem sequências a mais no 2º turno (há menos que no 1º), nem voto em ritmo impossível.
+4. Depois das 17h de Brasília houve cerca de 35.733 votos no país. A prorrogação não chega a 1% da margem, votem como votarem.
+5. O que pesa a favor da tese, pequeno: a seção onde as habilitações sem biometria mais cresceram ganhou margem para o 13 contra as
+   vizinhas do prédio (gama = +0,0811 (ep 0,0329), abaixo do 0,30 do registro), e esse elo vem quase todo do ano de nascimento
+   (+0,3571 (ep 0,1152) por voto; liberação do mesário +0,0569 (ep 0,0346)). Em votos, o canal inteiro do ano de
+   nascimento não passa de 192.056 acima do proporcional, ou de 306.978 se todo o aumento bruto fosse irregular.
+
+O QUE FOI LIDO
+  Pacotes de log: 3.897, todos lidos. Leitor próprio, com filtro pela identidade da seção gravada no próprio log
+  (um pacote pode trazer, em bloco aninhado, o log de outra seção: 2 trechos com 381 habilitações ficaram fora por isso).
+  Votos computados no log iguais ao comparecimento do bweb: 3.897 de 3.897 seções no 2º turno e 3.874 de 3.874 no 1º.
+  Liberações pelo mesário no log iguais ao campo QT_ELEI_BIOM_SEM_HABILITACAO do bweb: 3.874 de 3.874 no 1º turno e 3.874 de 3.874 no 2º.
+  Leitor conferido contra o extrator de referência do desenhista em 399 pacotes sorteados (206.473 votos): contagens por classe e
+  de BIO na 3ª ou 4ª tentativa idênticas em 798 de 798 seções e dias.
+  Seções com log próprio dos dois dias (pares): 3.874; só com o 2º turno: 23.
+  Amostra principal L: 3.046 seções pares em 476 locais inteiros sorteados (de 3.062 seções em 476 locais).
+  Secundária M10: 728 seções em 10 municípios inteiros. Resto: 100 seções avulsas.
+  Votos em L: 771.348 no 1º turno e 789.523 no 2º. IC de 95% por reamostragem de locais, 2.000 réplicas.
+
+====================================================================================================
+D2-2 MESALOG: HABILITAÇÕES SEM BIOMETRIA, 1º CONTRA 2º TURNO NA MESMA SEÇÃO (amostra L)
+====================================================================================================
+Tipos: BIO = dedo do eleitor reconhecido; ANO = eleitor sem biometria no cadastro, liberado pelo ano de nascimento;
+MAN = eleitor com biometria, quatro leituras frustradas e dedo do mesário (mesário identificado, dedo já visto sem mesário, dedo novo).
+
+                          1º turno              2º turno
+  votos computados                         771.348 (100,00%)      789.523 (100,00%)
+  BIO                                      678.628 ( 87,98%)      693.218 ( 87,80%)
+    BIO na 3ª ou 4ª tentativa               63.489 (  8,23%)       65.748 (  8,33%)
+  ANO                                       40.082 (  5,20%)       41.972 (  5,32%)
+  MAN                                       52.638 (  6,82%)       54.333 (  6,88%)
+    mesário identificado                    32.887 (  4,26%)       37.453 (  4,74%)
+    dedo já visto, sem mesário              10.595 (  1,37%)        9.264 (  1,17%)
+    dedo novo                                9.156 (  1,19%)        7.616 (  0,96%)
+    MAN sem digital do eleitor capturada     1.066 (  0,14%)        1.359 (  0,17%)
+
+B1, nível:  ANO subiu 0,120 ponto (ep 0,015; IC de 0,090 a 0,150).
+            MAN subiu 0,058 ponto (ep 0,044; IC de -0,026 a 0,143).
+            As BIO difíceis (3ª ou 4ª tentativa) subiram 0,097 ponto (ep 0,044; IC de 0,014 a 0,188).
+B2, razão de cauda MAN/BIO3: 0,8291 no 1º turno e 0,8264 no 2º; ln(rho2/rho1) = -0,0033 (ep 0,0082; IC de -0,0198 a 0,0131).
+            O limite superior (0,0131) fica abaixo de 0,045, que é o que 10% da margem produziria.
+            Liberações a mais que a razão do 1º turno explicaria: X = -0,0225% dos votos = -28.897 (ep 72.643; IC 95% de -175.932 a 115.573) votos no país.
+V (primária) = (X + sobra de ANO) x 128.236.074 = 124.684 (ep 74.485; IC 95% de -23.639 a 268.803).
+            Parte do ANO: 153.580 (ep 19.406; IC 95% de 115.995 a 192.056). Em M10: V = 115.186 (ep 115.031; IC 95% de -169.360 a 277.738) (10 municípios, IC grosseiro).
+            Ao lado, só nível, sem a razão de cauda (ANO mais MAN acima do proporcional): 227.435 (ep 54.174; IC 95% de 142.180 a 343.487).
+B3, fim de fila (habilitações sem biometria depois da última BIO do dia, seções com 3 ou mais): 47 votos no 1º turno e 33 no 2º;
+            no país, 2º menos 1º: -2.454 (ep 3.363; IC 95% de -10.075 a 3.546).
+B4, sequências de 4 ou mais sem biometria: 2.359 votos no 1º turno (esperado por permutação 2.131,2) e 2.302 no 2º (esperado 2.326,3);
+            excesso 2º menos 1º no país: -41.832 (ep 18.338; IC 95% de -78.005 a -4.852). B3 + B4 = -44.285 (ep 19.102; IC 95% de -81.612 a -6.467).
+B5, dedo:   MAN por dedo novo ou não associado: 37,52% no 1º turno e 31,07% no 2º (diferença -6,45 ponto (ep 0,85; IC de -8,08 a -4,83)).
+            MAN sem nenhuma digital do eleitor capturada: 2,03% e 2,50% (diferença 0,48 ponto (ep 0,14; IC de 0,20 a 0,75));
+            por voto, isso equivale a 43.510 (ep 12.557; IC 95% de 18.395 a 68.145) votos no país.
+B6, reservatório: seções com ANO acima dos eleitores sem biometria do perfil mais 2: 42 no 1º turno e 46 no 2º
+            (de 3.874 seções pares). No 2º turno: 8 com aptos do boletim diferentes do perfil; 37 que já passavam no 1º turno
+            com o mesmo tamanho (algumas com as duas); 7 sem explicação. Excesso total: 231 votos no 1º turno e 268 no 2º.
+            Em L, o ANO usa 40,1% do reservatório no 1º turno e 42,0% no 2º (100.023 eleitores sem biometria no perfil).
+B7, elo com o voto (efeito fixo de local, peso C1, erro por local; 3.045 seções em 475 locais):
+            gama = +0,0811 (ep 0,0329), IC de 0,0167 a 0,1455. O registro pede 0,30 ou mais.
+            Separado: suspeito (fim de fila, sequência, dedo novo) +0,0526 (ep 0,0496); comum +0,0854 (ep 0,0335).
+            Em M10: +0,1035 (ep 0,0688). Todas as pares: +0,0810 (ep 0,0286).
+B8, alertas de eleitor que já votou, por mil votos: 1,103 no 1º turno e 0,760 no 2º.
+
+Placebos e espelho do D2-2
+  Razão de cauda de tarde contra de manhã, dentro do 1º turno: ln = -0,1238 (ep 0,0124; IC de -0,1481 a -0,0987); no 2º: -0,0862;
+  diferença em diferenças 0,0377 (ep 0,0176; IC de 0,0045 a 0,0718). A razão não é estável dentro do dia (varia 12% entre manhã e tarde),
+  mas entre os turnos, na mesma metade do dia, fica em -0,0348 (manhã) e 0,0028 (tarde). Só importaria se houvesse sinal.
+  Turnos invertidos (1º turno tratado como suspeito): V = 28.561 (ep 71.685; IC 95% de -114.855 a 172.728).
+  B7 com o ganho de cada candidato: Lula +0,0369 (ep 0,0177); Flávio -0,0441 (ep 0,0171).
+  B7 com desfecho placebo (branco e nulo): +0,0072 (ep 0,0114).
+  B6 espelhado (a mesma regra com os turnos trocados; exploratório): 2 seções e 5 votos no 1º turno,
+  contra 7 seções e 19 votos no 2º.
+
+Calibração do D2-2 (efeito plantado nos registros de 2026, só no 2º turno, amostra L)
+  (a) Liberações MAN sintéticas espalhadas, 6.741 votos (0,847%; 1.085.619 no país): ln sobe 0,1170 (esperado 0,109),
+      X sobe 0,847%, V sobe 1.028.151 e passa a 1.152.834 (de 1.006.408 a 1.295.426). O teste enxerga.
+      Mas gama fica em 0,122 e B3 + B4 não mexe: pela letra daria INCONCLUSIVO, não SINAL. Nunca daria sem sinal.
+  (a') O mesmo com 0,345% (442.691 no país): V sobe 419.257, vai a 543.941 (limite superior 687.892): INCONCLUSIVO.
+  (b) 30 habilitações ANO depois do último voto em 5% das seções (152 seções, 4.560 votos, 736.392 no país):
+      (passa de 100% porque o bloco puxa para a conta habilitações sem biometria que já estavam no fim do dia)
+      B3 acusa 100,6% e B4 acusa 100,7% dos votos; todas as 152 seções entram na lista local; B3 + B4 vai a 1.388.482;
+      gama = 0,407 (ep 0,030), suspeito 0,565. O registro esperava gama perto de 1; com o controle de comparecimento do D2-1
+      o voto plantado se reparte entre x e o comparecimento, e gama fica perto de 0,4. Veredito: INCONCLUSIVO (o plantio soma menos de 25% da margem).
+  (b'') O mesmo bloco somando 0,864% (227 seções, 1.096.636 no país): V = 1.163.268, B3 + B4 = 2.072.786, gama = 0,444: SINAL.
+  (b') Somando 0,345% (91 seções): V = 543.177, B3 + B4 = 814.785, gama = 0,360: INCONCLUSIVO.
+  Explicações inocentes plantadas, para ver se o teste as separa da irregularidade:
+  (i1) Eleitores reais sem biometria entrando espalhados (6.849 votos ANO, votando como a seção): V sobe 1.044.482, igual ao plantio (a).
+       gama = 0,077; B3 + B4 parado. Veredito INCONCLUSIVO. Ou seja: pelo V, o teste NÃO separa eleitor real sem biometria de voto lançado
+       espalhado pelo dia. O que separa é só o elo com o voto, e ele é fraco nas duas situações. O V é um teto para os dois juntos.
+  (i2) Leitor pior (11,5% a mais de MAN e de BIO difíceis): ln mexe 0,0032, V mexe 28.278, s_MAN sobe 0,808%. Veredito SEM SINAL.
+       A razão de cauda separa dedo ruim de voto lançado.
+  (i3) Abstenção pura de 3,57% dos eleitores de Flávio (13.108 votos tirados): V mexe 7.984. Veredito SEM SINAL.
+       O teste é cego para eleitor que ficou em casa ou foi registrado como ausente, como devia: ele só olha quem foi habilitado.
+
+Achado local do D2-2 (arquivo resultados/R27_C1_lista_local.csv; para pedido de ata, caderno e digitais)
+  Seções com 5 ou mais habilitações sem biometria depois da última BIO: 1 no 2º turno (1 no 1º).
+  Seções com mais de 30% das liberações por dedo novo: 444 no 2º turno (441 entre as pares) e 643 no 1º; 329 nos dois, 112 só no 2º, 314 só no 1º.
+  Seções com ANO acima do reservatório: 46. Total na lista: 488.
+
+====================================================================================================
+D2-5 RELOGIO: VOTOS FORA DE HORA E EM RITMO QUE MESA E CABINE NÃO FAZEM (amostra L)
+====================================================================================================
+g = da habilitação ao voto computado anterior (mesa); d = da habilitação ao voto computado (cabine); c = ciclo entre votos.
+  Mínimos observados: g 12 s e 12 s; d 4 s e 2 s; c 25 s e 19 s (1º e 2º turno). Pisos do registro: 12, 2 e 15 s.
+
+                                        1º turno      2º turno      2º turno no país (IC 95%)
+  IMP por g < 12 s                                 0           0      0 (0 a 0)
+  IMP por d < 2 s                                  0           0      0 (0 a 0)
+  IMP por c < 15 s                                 0           0      0 (0 a 0)
+  IMP antes de urna pronta                         0           0      0 (0 a 0)
+  IMP depois do início do encerramento             0           0      0 (0 a 0)
+  IMP por relógio para trás                        0           1      162 (0 a 524)
+  RAJ (8 ou mais com g abaixo do p5 do 1T)         9          18      2.924 (0 a 7.656)
+  T17 (depois das 17h de Brasília)            21.232         220      35.733 (28.419 a 43.649)
+    depois das 18h                             3.932           2      325 (0 a 990)
+    depois das 19h                               517           0      0 (0 a 0)
+  T17o (depois de 15 min sem voto)               288          54      8.771 (5.006 a 12.794)
+  IMP ou RAJ                                       9          19      3.086 (0 a 7.816)
+  IMP ou RAJ ou T17o                             297          73      11.857 (6.705 a 18.040)
+  CURTO (BIO ou MAN com d < 4 s; descritivo)       0         843      136.922 (119.252 a 156.429)
+  Voto sem habilitação: 0 e 0. Total do log diferente do boletim: 0 e 0 seções.
+  T17 no 1º turno, sem liminar: 21.232 votos (2,75%), o que no país seriam 3.529.805. No 2º: 0,028%.
+  V (primária) = votos em (IMP ou RAJ ou T17o) no 2º turno menos a taxa do 1º: -37.519 (ep 18.447; IC 95% de -77.051 a -7.144). Razão das taxas: 0,24 (o registro pede 3 ou mais).
+  Taxa de RAJ no 1º turno (placebo): 0,0012%, abaixo de 0,1%: a definição não pega fila normal.
+  Em M10: T17 no país 26.713 (ep 5.375; IC 95% de 19.329 a 40.931); IMP ou RAJ 5.624 (até 30.027).
+  Nas 23 seções só com o 2º turno no log (5.821 votos): 3 votos depois das 17h, nenhum IMP, nenhuma rajada.
+  Composição: fatia sem biometria entre os votos depois das 17h: 16,4% no 2º turno (36 de 220 votos) contra 12,2% no resto do dia;
+  no 1º turno 12,0% contra 12,0%. ln da razão de chances 2º contra 1º: 0,341 (ep 0,230; IC de -0,163 a 0,728). Poucos votos, não decide.
+  Elo com o voto na amostra (x = fração dos votos da seção em IMP ou RAJ ou T17o; 49 seções com x acima de zero):
+    margem +0,738 (ep 0,301), IC de 0,147 a 1,328; ganho de Lula +0,258 (ep 0,230); ganho de Flávio -0,480 (ep 0,156);
+    placebo branco e nulo +0,223 (ep 0,251). Pela letra é elo positivo com IC que exclui zero.
+    Exploratório: o coeficiente depende de 2 seções com rajada (x grande). Sem elas: +0,631 (ep 0,857).
+    Com x = 1 se a seção tem algum voto nas categorias: +0,0001 (ep 0,0048). Em votos, o elo cheio vale 8.747 de margem.
+
+As rajadas, uma a uma (exploratório): todas de manhã ou perto do meio do dia e todas com biometria do eleitor reconhecida
+    AL|27910|50|87 (M10, 2T): 8 votos de 08:59:18 a 09:02:29, classes {'BIO': 8}, g de 14 a 18 s (limiar da seção 20,0 s)
+    BA|36250|27|182 (resto, 2T): 8 votos de 08:41:16 a 08:44:51, classes {'BIO': 8}, g de 16 a 21 s (limiar da seção 22,0 s)
+    PA|5010|22|43 (L, 2T): 10 votos de 08:27:38 a 08:34:01, classes {'BIO': 10}, g de 24 a 35 s (limiar da seção 36,2 s)
+    SP|63053|37|163 (L, 2T): 8 votos de 11:42:52 a 11:48:51, classes {'BIO': 8}, g de 38 a 44 s (limiar da seção 47,0 s)
+    SP|71072|353|153 (L, 1T): 9 votos de 12:43:38 a 12:53:19, classes {'BIO': 9}, g de 18 a 24 s (limiar da seção 24,6 s)
+
+Lista IMP (resultados/R27_C1_lista_IMP.csv e R27_C1_trechos_IMP.txt)
+    2T imp_retro: 1
+    2T recuo_de_relogio_no_dia: 1
+    O único caso é artefato: na seção SP|66079|63|214 a urna estava com o relógio um mês adiantado na carga (marcava 25/10/2026
+    13:07 no dia 25/09/2026) e o operador acertou a data. As 64 linhas da carga ficaram com a data do 2º turno e o leitor vê a
+    hora "voltar" quando o dia verdadeiro começa. O voto marcado é o primeiro do dia (08:05:30, biometria reconhecida, d = 8 s).
+
+Censo dos encerramentos (país inteiro, bweb; universo do D2-1)
+  Universo: 494.381 seções. Encerraram depois de 17:30 de Brasília: 7.540 no 2º turno (1,53%; comparecimento 2.190.479;
+  6.277 depois das 19h) e 86.538 no 1º (17,50%; comparecimento 24.859.047).
+  No 2º turno por UF: RJ 3.302, SP 1.946, BA 1.044, PE 715, PB 305, SE 54.
+  Regressão do D2-1 com o indicador de tardia no 2º turno (472.745 seções, erro por município): margem -0,00034 (ep 0,00057);
+  ganho de Lula -0,00036 (ep 0,00027); ganho de Flávio -0,00002 (ep 0,00035); placebo branco e nulo +0,00037 (ep 0,00027).
+  Em votos: -713 de margem (de -3.065 a 1.640) nas seções tardias.
+  Por minuto de atraso: 3,45 por milhão (ep 4,85).
+  Calibração: 40 votos a mais para o 13 em cada seção tardia (301.600 votos) levariam o coeficiente a +0,1247 (ep 0,0036). O censo veria.
+  Aviso (exploratório): o efeito fixo de local só compara dentro de prédios mistos: 993 prédios com 3.513 seções tardias;
+  outras 4.027 estão em prédios inteiros tardios. Com efeito fixo de município: margem -0,00372 (ep 0,00215).
+  Placebo do 1º turno em corte: a seção que fechou tarde tinha +0,879 (ep 0,055) ponto a mais de 13 que as vizinhas, sem liminar nenhuma.
+  Ou seja, fechar tarde anda junto com voto no 13 por composição (fila onde o eleitor é mais lento). No 2º turno, em corte: -0,038 (ep 0,092) ponto.
+
+Calibração do D2-5 (5% das seções de L, só no 2º turno)
+  (p40) 40 ciclos de 20 s, 20 minutos depois do último voto: 6.080 votos (979.980 no país).
+      RAJ pega 97,5%; T17 94,9%; T17o 88,2%. V recupera 976.989 (0,762% dos votos). Elo +0,994 (ep 0,044). Veredito: INCONCLUSIVO.
+  (p15) 15 ciclos de 20 s, 20 minutos depois do último voto: 2.280 votos (369.256 no país).
+      RAJ pega 93,3%; T17 91,8%; T17o 88,2%. V recupera 366.307 (0,286% dos votos). Elo +0,936 (ep 0,065). Veredito: SEM SINAL.
+  (p40c) 40 ciclos de 20 s colados ao último voto: 6.080 votos (979.980 no país).
+      RAJ pega 100,0%; T17 38,2%; T17o 3,3%. V recupera 979.890 (0,764% dos votos). Elo +0,991 (ep 0,044). Veredito: INCONCLUSIVO.
+  (fila) INOCENTE: 40 eleitores reais em fila, no ritmo da própria seção: 6.080 votos (979.980 no país).
+      RAJ pega 0,0%; T17 86,2%; T17o 10,7%. V recupera 104.516 (0,082% dos votos). Elo +0,013 (ep 0,170). Veredito: INCONCLUSIVO.
+  Leitura: o teste recupera o bloco sintético inteiro e só um décimo da fila real; separa as duas. O teto T17 não separa, por construção.
+  O plantio de 40 votos soma 0,76% dos votos, abaixo dos 25% da margem, por isso dá inconclusivo e não sinal; o de 15 fica abaixo de 10% e dá sem sinal.
+
+====================================================================================================
+DESCRITIVO PEDIDO: POR ONDE ENTRARAM E QUANDO (amostra L, seções pares)
+====================================================================================================
+Seções em que o comparecimento SUBIU: 2.353 seções, de 601.909 para 624.147 votos (+22.238).
+    BIO 18.488 (83,1% da variação); ANO 2.160 (9,7%); MAN 1.590 (7,1%).
+    Dentro do MAN: mesário identificado 3.637; dedo já visto -848; dedo novo -1.199. BIO difíceis 2.548.
+    Composição no 1º turno: BIO 87,7%, ANO 5,4%, MAN 6,9%.
+    Antes do meio-dia (Brasília): 44,4% dos votos no 1º turno e 59,9% no 2º. Depois das 17h: variação de -16.077 votos.
+Seções em que o comparecimento CAIU: 591 seções, de 143.627 para 139.564 votos (-4.063).
+    BIO -3.837 (94,4% da variação); ANO -272 (6,7%); MAN 46 (-1,1%).
+    Dentro do MAN: mesário identificado 704; dedo já visto -384; dedo novo -274. BIO difíceis -420.
+    Composição no 1º turno: BIO 89,0%, ANO 4,7%, MAN 6,4%.
+    Antes do meio-dia (Brasília): 43,7% dos votos no 1º turno e 60,9% no 2º. Depois das 17h: variação de -4.279 votos.
+Líquido das 3.046 seções: +18.175 votos (2,36%). BIO 14.590, ANO 1.890, MAN 1.695.
+    A biometria reconhecida responde por 80,3% do aumento líquido (IC de 76,2% a 84,0%). Fica abaixo dos 90% da leitura fixada no N1.
+    ANO e MAN somam 19,7% do aumento, contra 12,0% dos votos do 1º turno. No país, o aumento bruto equivale a 306.978 votos ANO
+    e 275.306 votos MAN (o bweb conta +290.239 liberações no país: a amostra reproduz).
+Horas: o 2º turno inteiro andou para a manhã (um cargo só, sem fila), nas seções que subiram e nas que caíram por igual.
+    Hora de Brasília   subiu 1T   subiu 2T   caiu 1T   caiu 2T   diferença em diferenças
+    08h                   9,6%     16,4%      9,3%     18,1%     -1,84 ponto
+    09h                  10,9%     15,4%     10,7%     16,0%     -0,80 ponto
+    10h                  11,7%     15,0%     11,5%     14,9%     -0,07 ponto
+    11h                  12,2%     13,0%     12,2%     12,0%      1,01 ponto
+    12h                  12,1%     10,2%     11,8%      9,3%      0,65 ponto
+    13h                  11,4%      8,8%     11,0%      8,3%      0,18 ponto
+    14h                  10,7%      8,3%     10,8%      8,1%      0,25 ponto
+    15h                  10,0%      7,7%     10,4%      8,0%      0,14 ponto
+    16h                   8,8%      5,2%      9,3%      5,5%      0,17 ponto
+    17h                   2,2%      0,0%      2,5%      0,0%      0,35 ponto
+    18h                   0,4%      0,0%      0,4%      0,0%     -0,01 ponto
+    19h                   0,1%      0,0%      0,0%      0,0%     -0,03 ponto
+    Contra as seções que caíram, as que subiram têm um pouco menos de voto às 8h e 9h e um pouco mais das 11h às 13h. Nada no fim do dia.
+Grupo PI, MA, TO, PB, CE (em L, 385 seções; amostra pequena): líquido +930 votos; BIO 498, ANO 65, MAN 367.
+    Onde subiu (248 seções, +1.680): BIO 73,5%, ANO 6,3%, MAN 20,2%; BIO difíceis +387.
+    Onde caiu (120 seções, -750): saiu BIO (94,8% da queda); ANO -46; MAN 7.
+    Exploratório, D2-2 só nesse grupo: MAN sobe 0,331 ponto (ep 0,117; IC de 0,108 a 0,571) e as BIO difíceis sobem 0,244 ponto (ep 0,120; IC de 0,010 a 0,478);
+    razão de cauda ln = 0,0171 (ep 0,0231; IC de -0,0291 a 0,0615); ANO 0,034 ponto (ep 0,029; IC de -0,024 a 0,091). A liberação do mesário cresceu mais ali que no resto do país,
+    acompanhada das BIO difíceis. O limite superior do ln passa de 0,045: nesse grupo a amostra não exclui uma sobra do tamanho de 10% da taxa.
+    Em votos do grupo (comparecimento 16.090.767): sobra de nível de ANO mais MAN 58.751 (de 24.825 a 95.813).
+
+====================================================================================================
+O QUE PESA A FAVOR E CONTRA A TESE
+====================================================================================================
+A favor (tudo pequeno em votos)
+  1. Elo do D2-2 positivo com IC que exclui zero: gama = +0,0811 (ep 0,0329). Vem do ganho de Lula (+0,0369 (ep 0,0177)) e da perda de Flávio (-0,0441 (ep 0,0171)).
+  2. Separando (conta escrita no código antes de rodar, mas fora do docstring, então exploratória): por voto ANO a mais, margem +0,3571 (ep 0,1152) em L
+     e +0,8064 (ep 0,3030) em M10; Lula +0,1994 (ep 0,0576), Flávio -0,1577 (ep 0,0632); placebo -0,0417 (ep 0,0370).
+     Em nível, a seção com mais ANO não é mais lulista que as vizinhas (-0,091 (ep 0,053) no 1º turno, -0,039 (ep 0,054) no 2º): a composição não explica sozinha.
+     Passa do 0,30 do registro, mas não era a estatística registrada. Tamanho: 0,357 x 306.978 = 109.625 votos de margem.
+     Cauda (exploratório): 109 seções de L com alta de 5 ou mais votos ANO (soma +668) contra 13 com queda de 5 ou mais;
+     nas 109, a margem ficou 202 votos acima das vizinhas (1,86 por seção, ep 1,00): 32.855 no país.
+     Por grupo de UF (exploratório): no grupo PI, MA, TO, PB, CE gama = +0,0371 (ep 0,0898) e ANO +0,2172 (ep 0,4466);
+     nas demais UFs gama = +0,0855 (ep 0,0303) e ANO +0,4260 (ep 0,1114). O elo não está concentrado onde o eleitor de Flávio não voltou.
+  3. A fatia de ANO subiu de verdade (0,120 ponto (ep 0,015; IC de 0,090 a 0,150)): o eleitor sem biometria cresceu o dobro do resto. Vale 153.580 votos (até 192.056).
+  4. MAN sem nenhuma digital do eleitor capturada subiu 0,48 ponto (ep 0,14; IC de 0,20 a 0,75) das liberações (43.510 votos no país).
+     Seções com 5 ou mais: 9 no 1º turno e 25 no 2º. Sem elo com o voto (exploratório): -0,1238 (ep 0,1782).
+  5. B6: 7 seções e 19 votos no 2º turno contra 2 e 5 no espelho.
+  6. Elo do D2-5 positivo pela letra (+0,738 (ep 0,301)), mas sustentado por 2 seções; vale 8.747 votos.
+  7. A biometria reconhecida responde por 80,3% do aumento líquido, não por 90%.
+Contra
+  1. O teto de tudo o que entrou a mais sem biometria é 268.803 votos (6,1% da margem). A margem é 4.430.191.
+  2. A liberação pelo mesário não subiu além das biometrias difíceis (ln = -0,0033; limite superior 0,0131).
+  3. Fim de fila e sequências sem biometria: menos no 2º turno que no 1º (B3 + B4 = -44.285).
+  4. Liberação por dedo novo ou não associado caiu de 37,5% para 31,1%. Alertas de eleitor que já votou caíram.
+  5. Nenhum voto em ritmo impossível em 1.560.871 votos de L; as 4 rajadas do 2º turno são de eleitores com biometria reconhecida, de manhã.
+  6. Depois das 17h: 35.733 votos no país (até 43.649); depois das 18h, 2 votos em L. No 1º turno foram 3.529.805.
+  7. No censo, a seção que ficou aberta até tarde não ganhou margem contra as vizinhas (-713 votos; até 1.640).
+  8. Explicação inocente com apoio parcial (exploratório): o eleitor sem biometria voltou mais nos locais que tiveram mais fila no 1º turno
+     (entre locais do mesmo município +0,0136 (ep 0,0039); dentro do mesmo local +0,0045 (ep 0,0040)).
+  9. CURTO (voto computado menos de 4 s depois da habilitação): 843 votos em L no 2º turno, cauda natural de um turno com um cargo só
+     (d de 2 s em 18 votos, 3 s em 870, 4 s em 6.039, 5 s em 17.014); espalhados em 537 seções; sem elo com o voto (-0,308 (ep 0,221)).
+
+O QUE ESTE TESTE NÃO ENXERGA
+  Voto lançado e registrado no log como biometria reconhecida (programa adulterado na origem): log, boletim e RDV saem do mesmo programa.
+  Eleitor de Flávio registrado como ausente ou que ficou em casa: o teste só vê quem foi habilitado (plantio i3).
+  Inserção por ANO escondida atrás de uma queda natural do comparecimento dos sem biometria: o V supõe a fatia natural estável.
+  Eventos raros fora da amostra: são 0,78% das seções do país; os testes de tamanho valem para o país, os achados locais não.
+  O que decide: cadernos de votação (assinaturas contra o comparecimento) e o confronto pericial das digitais das liberações.
+
+DESVIOS E DECISÕES (todas escritas no docstring antes de rodar, salvo onde dito)
+  1. Pares: 3.874 seções, não as 3.855 do desenho. O leitor usa a identidade da seção gravada no log e os blocos aninhados.
+  2. Contagens por VOTO computado (classe da habilitação que levou ao voto), não por habilitação. Bate com o bweb em todas as seções.
+  3. T17o lido por bloco: todos os votos depois de 15 minutos de mesa parada terminados depois das 17h (é o que faz valer o campo poder).
+     Leitura estrita (só o primeiro voto depois da parada): 7.634 votos no país; leitura larga (parada terminada depois das 16:45): 12.669.
+  4. B6: regra de "explicação cadastral" fixada por mim (aptos diferentes do perfil, ou a mesma sobra já no 1º turno). Com ela sobram 7 seções.
+     Sem a regra (b), as 46 seções do 2º turno contariam; com qualquer leitura, a cláusula dá inconclusivo. A régua do perfil (cadastro de 14/07/2026)
+     não é a marca de biometria que a urna usa: há seções com zero eleitor sem biometria no perfil e 18 a 20 votos ANO nos dois turnos.
+  5. B7: controles do D2-1 ao pé da letra (com a variação do comparecimento). Por isso o plantio concentrado dá gama perto de 0,4 e não de 1.
+     Sem o controle de comparecimento: gama = +0,1198 (ep 0,0336).
+  6. IMP no 1º turno pela letra (só g e regras de relógio); com as regras completas nos dois turnos o V é o mesmo (não há IMP por d ou c).
+  7. Censo: usei a extração de estrutura do bweb feita pela B2 (R27_B2/est2026_*.json.gz), conferida contra a base (comparecimento e hora de
+     encerramento iguais em 494.381 de 494.381 seções) e contra os meus logs (liberações iguais em todas as pares).
+  8. Plantio (c) do D2-2: fiz 0,345% nos dois desenhos e acrescentei o concentrado somando 0,864%, que o registro não pedia.
+  9. Exploratório (depois de ver o resultado): rajadas uma a uma, elo do D2-5 sem elas, espelho do B6, nível por ANO, CURTO, D2-2 e B7 por grupo de UF,
+     diferença em diferenças por hora, contexto do recuo de relógio, censo com efeito fixo de município. A separação de ANO e MAN no B7 estava no
+     código antes da primeira rodada, mas não no docstring: trato como exploratória.
+
+CONTAGEM
+  Dois vereditos com limiar (D2-2 e D2-5). Estatísticas olhadas: 9 no D2-2 e 7 no D2-5, em L e em M10. Com 16 estatísticas a 5%,
+  o acaso daria perto de 1 intervalo excluindo zero; apareceram 2 a favor (gama do B7 e elo do D2-5) e vários contra (B4, B5, B8, V do D2-5).
+  Nenhum SINAL pela letra. O conferente independente ainda precisa refazer.
+
+ARQUIVOS
+  scripts/analisar_R27_C1.py; resultados/R27_C1_quem_liberou_e_quando.json e .txt; resultados/R27_C1_lista_local.csv;
+  resultados/R27_C1_lista_IMP.csv; resultados/R27_C1_trechos_IMP.txt; trabalho em /home/user/trabalho-eleicao/adendo27/R27_C1/.

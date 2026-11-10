@@ -1,0 +1,43 @@
+R27_C1: trechos do log dos votos marcados como IMP (12 linhas antes e 4 depois; até 300 casos por regra e turno).
+A última coluna do log (código de verificação da linha) foi cortada. O log não traz o candidato votado.
+
+=== 2T imp_retro: 1 casos ===
+--- SP|66079|63|214 2T imp_retro 08:05:30 g=None d=8.0 c=None classe=BIO
+    25/10/2026 07:58:24	INFO	02290625	VOTA	Quantidade de memória usada [350.0 MB]
+    25/10/2026 07:58:24	INFO	02290625	VOTA	Urna ligada conectada na rede CA em [126.51V] e na Bateria Interna com [13.89V/0A]
+    25/10/2026 08:00:01	INFO	02290625	VOTA	Urna pronta para receber votos
+    25/10/2026 08:00:01	INFO	02290625	VOTA	Aguardando digitação do identificador do eleitor
+    25/10/2026 08:05:13	INFO	02290625	VOTA	Identificador do eleitor digitado pelo mesário
+    25/10/2026 08:05:13	INFO	02290625	VOTA	Identificador digitado pelo mesário foi: (Título de eleitor)
+    25/10/2026 08:05:13	INFO	02290625	VOTA	Foto do eleitor apresentada
+    25/10/2026 08:05:15	INFO	02290625	VOTA	Solicita digital. Tentativa [1] de [4]
+    25/10/2026 08:05:18	INFO	02290625	VOTA	Capturada a digital. Tentativa [1] de [4]
+    25/10/2026 08:05:22	INFO	02290625	VOTA	Tipo de habilitação do eleitor [biométrica]
+    25/10/2026 08:05:22	INFO	02290625	VOTA	Eleitor foi habilitado
+    25/10/2026 08:05:29	INFO	02290625	VOTA	Voto confirmado para [Presidente]
+    25/10/2026 08:05:30	INFO	02290625	VOTA	O voto do eleitor foi computado
+    25/10/2026 08:05:31	INFO	02290625	VOTA	Aguardando digitação do identificador do eleitor
+    25/10/2026 08:06:02	INFO	02290625	VOTA	Aguardando digitação do identificador do eleitor
+    25/10/2026 08:06:20	INFO	02290625	VOTA	Identificador do eleitor digitado pelo mesário
+    25/10/2026 08:06:20	INFO	02290625	VOTA	Identificador digitado pelo mesário foi: (Título de eleitor)
+
+=== 2T recuo_de_relogio_no_dia: 1 casos ===
+--- SP|66079|63|214 2T recuo_de_relogio_no_dia 07:25:55 g=None d=None c=None classe=None
+    23/10/2026 10:59:08	INFO	02290625	VOTA	Espaço utilizado na MV [23.2 MB]
+    23/10/2026 10:59:08	INFO	02290625	VOTA	Quantidade de memória total [3.7 GB]
+    23/10/2026 10:59:08	INFO	02290625	VOTA	Quantidade de memória livre [3.3 GB]
+    23/10/2026 10:59:08	INFO	02290625	VOTA	Quantidade de memória usada [341.6 MB]
+    23/10/2026 10:59:08	INFO	02290625	VOTA	Urna ligada desconectada da rede CA em [0.00V] e na Bateria Interna com [13.13V/-0.78A]
+    23/10/2026 11:03:58	INFO	02290625	VOTA	Teste de Teclado do TE não executado
+    23/10/2026 11:03:58	INFO	02290625	VOTA	Aguardando data e hora para emissão da zerésima
+    23/10/2026 11:05:31	INFO	02290625	INITJE	Urna desligada pela chave
+    23/10/2026 11:05:31	INFO	02290625	VOTA	Mudança do estado da chave: URNA DESLIGADA
+    23/10/2026 11:05:31	INFO	02290625	VOTA	Desligando a urna
+    23/10/2026 11:05:31	INFO	02290625	VOTA	Finalização de aplicativo
+    23/10/2026 11:05:39	INFO	02290625	LOGD	Fechando o arquivo de Log
+    25/10/2026 07:25:55	INFO	02290625	LOGD	Início das operações do logd
+    25/10/2026 07:25:55	INFO	02290625	LOGD	Urna ligada em 25/10/2026 às 07:25:18
+    25/10/2026 07:26:18	INFO	02290625	GAP	Estrutura de diretórios da ME: OK
+    25/10/2026 07:26:20	INFO	02290625	GAP	Iniciando aplicação - 2º turno
+    25/10/2026 07:26:20	INFO	02290625	GAP	Versão da aplicação: 10.23.0.0 - Praia da Barra do Cahy
+

@@ -1,0 +1,398 @@
+R27_N3: FORMA REGULADA PELA FORÇA DE LULA (Adendo 28, teste N3)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 28, item N3 (commit 938be19, 10/11/2026 04:36:33 UTC), antes de rodar.
+Natureza: CONFIRMAÇÃO, por outro agente e com código próprio, de um exploratório que o conferente da A3 já tinha
+visto (+0,0161 contra +0,0208). Não é teste cego. As decisões que o registro não fixa estão no docstring de
+scripts/analisar_R27_N3.py, gravado em 10/11/2026 06:34:58 UTC, antes da primeira conta com votos
+(SHA-256 75070810938e6bdd8d44502174d7b598f67a7776150c69f9cf5a48ae34f16102).
+Rodado em 2026-11-10 07:18:10 UTC. Semente 28032026. Total plantado: 2.136.651 votos.
+
+VEREDITO PELA LETRA
+  Leitura A (faixa pela fatia no LOCAL de votação; é a letra): SEM SINAL.
+    D = -0,0003 (ep 0,0033); D + 2 ep = +0,0062 (limite do sem sinal: 0,01; limiar do sinal: 0,02 a mais de 4 ep).
+  Leitura B (faixa pela fatia na SEÇÃO; é a conta do exploratório): SEM SINAL.
+    D = -0,0047 (ep 0,0038); D + 2 ep = +0,0028.
+  Forma concentrada plantada (2.136.651 votos): detectada em 100% dos 200 sorteios na Leitura A e em 100% na B.
+  Especificidade: o critério NÃO separa troca de abstenção concentrada (dispara em 100% dos sorteios com abstenção
+  pura concentrada plantada, pelo lado do espelho). Isso tiraria valor de um SINAL; não muda um SEM SINAL.
+  Ao lado, 14 variantes: 11 SEM SINAL, 1 INCONCLUSIVO e 2 SINAL (as duas com efeito fixo de município no lugar de
+  local); a do desenho D4-1 na Leitura A passa a INCONCLUSIVO com o erro por município que aquele desenho pede.
+  Descritivo por UF: sem veredito.
+  Em uma frase: onde Flávio é fraco, a parcela dos votos dele que aparece em Lula é igual à do sentido contrário,
+  e a troca concentrada do tamanho que vira o resultado teria aparecido; o teste não decide o canal do
+  comparecimento, e o "igual ao espelho" não tem zero estável quando se olha 2014, 2018 e 2022.
+
+1. BASE E CONFERÊNCIAS
+  499.205 seções com os dois turnos, 94.708 locais de votação, soma igual ao oficial (Lula 64.256.232, Flávio 59.826.041, margem 4.430.191).
+  Comparecimento 125.275.833 no 1º turno e 128.236.074 no 2º (aumento de 2.960.241). Identidades de soma dos dois turnos: erro zero.
+  Universo principal (aptos iguais nos dois turnos, com o exterior): 443.483 seções (55.722 saem; 992 do exterior ficam).
+  Nele: Lula 57.028.494 e Flávio 52.450.344 no 2º turno, margem 4.578.150.
+  Estimador próprio conferido contra lib.fe_ols: 420.456 seções informativas em 70.378 locais nos dois; maior diferença de
+  coeficiente 2.2e-15 e de erro-padrão 1.9e-17.
+  Matriz no universo inteiro (referência, 420.456 seções informativas): de Flávio para Lula +0,0219 (ep 0,0008); de Lula para Flávio +0,0153 (ep 0,0007);
+  diferença +0,0065 (ep 0,0011). Não voltou: Flávio +0,0267 (ep 0,0011), Lula -0,0085 (ep 0,0011). Faltosos do 1º turno que aparecem em Lula +0,1094 (ep 0,0015) e em Flávio +0,0548 (ep 0,0012).
+  Cada linha da matriz soma 1 (conferido: 1,000000 e 1,000000).
+
+2. RESULTADO REGISTRADO: MATRIZ DE TRANSFERÊNCIA POR FAIXA, COM O ESPELHO
+  V = parcela dos votos de Flávio no 1º turno que aparece em Lula no 2º, na faixa pela força de FLÁVIO.
+  M = parcela dos votos de Lula no 1º turno que aparece em Flávio no 2º, na faixa pela força de LULA (espelho).
+  D = V - M. Efeito fixo de local, sem peso, erro por local; n = seções informativas (lado de V / lado de M).
+  Leitura A (faixa pela fatia no LOCAL de votação; é a letra)
+    faixa          V (ep)             M (ep)             D (ep)             D/ep   D+2ep     n de V / n de M
+    menos de 35%   +0,0190 (0,0026)   +0,0193 (0,0020)   -0,0003 (0,0033)     -0,1  +0,0062   96.698 / 132.460
+    35 a 50%       +0,0299 (0,0016)   +0,0221 (0,0014)   +0,0078 (0,0021)     +3,7  +0,0120   127.257 / 139.344
+    50 a 65%       +0,0213 (0,0011)   +0,0210 (0,0013)   +0,0004 (0,0017)     +0,2  +0,0038   146.237 / 83.050
+    65% ou mais    +0,0043 (0,0016)   +0,0175 (0,0010)   -0,0132 (0,0018)     -7,2  -0,0095   50.264 / 65.602
+    Na faixa que decide: 109.265 seções no recorte de V (96.698 informativas em 21.622 locais) e 137.474 no de M (132.460 em 20.269 locais).
+    Erro de D por município: 0,0037; pela raiz da soma dos quadrados: 0,0033. Distância ao limiar: (D - 0,02)/ep = -6,2.
+    Onde Flávio é fraco: eleitor de Flávio que não voltou +0,0977 (ep 0,0027); faltosos do 1º turno que aparecem em Lula +0,1493 (ep 0,0044) e
+    em Flávio +0,0292 (ep 0,0017). Onde Lula é fraco: eleitor de Lula que não voltou +0,0056 (ep 0,0019); faltosos em Lula +0,0759 (ep 0,0022), em Flávio +0,0759 (ep 0,0030).
+  Leitura B (faixa pela fatia na SEÇÃO; é a conta do exploratório)
+    faixa          V (ep)             M (ep)             D (ep)             D/ep   D+2ep     n de V / n de M
+    menos de 35%   +0,0161 (0,0030)   +0,0208 (0,0022)   -0,0047 (0,0038)     -1,2  +0,0028   95.386 / 130.253
+    35 a 50%       +0,0337 (0,0020)   +0,0253 (0,0018)   +0,0084 (0,0027)     +3,2  +0,0137   118.055 / 129.243
+    50 a 65%       +0,0207 (0,0014)   +0,0236 (0,0016)   -0,0029 (0,0021)     -1,4  +0,0014   136.484 / 78.236
+    65% ou mais    +0,0070 (0,0019)   +0,0177 (0,0010)   -0,0106 (0,0022)     -4,9  -0,0063   50.446 / 63.315
+    Na faixa que decide: 111.495 seções no recorte de V (95.386 informativas em 23.350 locais) e 139.155 no de M (130.253 em 23.541 locais).
+    Erro de D por município: 0,0041; pela raiz da soma dos quadrados: 0,0038. Distância ao limiar: (D - 0,02)/ep = -6,6.
+    Onde Flávio é fraco: eleitor de Flávio que não voltou +0,1038 (ep 0,0032); faltosos do 1º turno que aparecem em Lula +0,1524 (ep 0,0038) e
+    em Flávio +0,0292 (ep 0,0016). Onde Lula é fraco: eleitor de Lula que não voltou +0,0091 (ep 0,0021); faltosos em Lula +0,0745 (ep 0,0025), em Flávio +0,0772 (ep 0,0032).
+  Reprodução do exploratório (Leitura B): V = +0,0161 (ep 0,0030) com n = 95.386 e espelho +0,0208 (ep 0,0022). O conferente da A3 tinha +0,0161
+  (ep 0,0030; n 95.386) e +0,0208 (ep 0,0022). Igual.
+  Pela letra: SINAL exige D >= 0,02 a mais de 4 ep; não dispara em nenhuma das duas leituras. SEM SINAL exige
+  D + 2 ep < 0,01 com a forma plantada detectada; vale nas duas (+0,0062 e +0,0028). Com erro por município o veredito
+  fica SEM SINAL na A e SEM SINAL na B.
+
+3. CALIBRAÇÃO: A FORMA CONCENTRADA PLANTADA NOS DADOS DE 2026
+  Regra C1 (a do registro): em toda seção do país, votos saem de Flávio e entram em Lula no 2º turno com taxa
+  igual a 0,0909 vezes a fatia de Lula na seção no 1º turno (taxa média 3,57% dos votos de Flávio, máxima 9,09%),
+  total esperado de 2.136.651 votos (4.273.302 de margem, 96,5% da margem oficial).
+  cenário  regra                                         leitura   V        M        D (dp)             dV       dM       dD      dispara
+  P_C1     C1: taxa proporcional à fatia de Lula na seção A   +0,0555  -0,0245  +0,0801 (0,0010)   +0,0365  -0,0439  +0,0803   200 de 200
+  P_C1     C1: taxa proporcional à fatia de Lula na seção B   +0,0556  -0,0261  +0,0818 (0,0010)   +0,0395  -0,0470  +0,0865   200 de 200
+  P_C1L    C1L: proporcional à fatia de Lula no local    A   +0,0722  +0,0191  +0,0531 (0,0011)   +0,0531  -0,0002  +0,0533   30 de 30
+  P_C1L    C1L: proporcional à fatia de Lula no local    B   +0,0702  +0,0197  +0,0505 (0,0014)   +0,0541  -0,0011  +0,0552   30 de 30
+  P_C2     C2: só onde Lula teve 50% ou mais, uniforme   A   +0,1511  +0,0193  +0,1317 (0,0012)   +0,1320  +0,0000  +0,1320   30 de 30
+  P_C2     C2: só onde Lula teve 50% ou mais, uniforme   B   +0,1581  +0,0208  +0,1373 (0,0010)   +0,1420  +0,0000  +0,1420   30 de 30
+  P_C3     C3: proporcional ao quadrado da fatia         A   +0,0498  -0,0351  +0,0850 (0,0011)   +0,0308  -0,0544  +0,0852   30 de 30
+  P_C3     C3: proporcional ao quadrado da fatia         B   +0,0541  -0,0331  +0,0872 (0,0012)   +0,0379  -0,0539  +0,0919   30 de 30
+  P_C4     C4: forma k x L (proporcional aos votos de Lula) A   +0,0196  -0,0130  +0,0326 (0,0009)   +0,0006  -0,0323  +0,0329   30 de 30
+  P_C4     C4: forma k x L (proporcional aos votos de Lula) B   +0,0166  -0,0114  +0,0281 (0,0010)   +0,0005  -0,0323  +0,0328   30 de 30
+  P_C5     C5: só no Nordeste, uniforme                  A   +0,1495  +0,0194  +0,1302 (0,0010)   +0,1305  +0,0000  +0,1304   30 de 30
+  P_C5     C5: só no Nordeste, uniforme                  B   +0,1514  +0,0205  +0,1308 (0,0009)   +0,1352  -0,0003  +0,1355   30 de 30
+  P_U      U: uniforme no país (referência)              A   +0,0504  +0,0187  +0,0317 (0,0009)   +0,0313  -0,0006  +0,0319   30 de 30
+  P_U      U: uniforme no país (referência)              B   +0,0474  +0,0202  +0,0272 (0,0012)   +0,0312  -0,0007  +0,0319   30 de 30
+  Pelo valor esperado (sem sorteio), a C1 dá D = +0,0801 na Leitura A e +0,0819 na B, e o critério dispara nas duas.
+  A taxa plantada na faixa de menos de 35% é 6,12%; V sobe 0,0365 e o espelho M cai 0,0439 (o plantio tira voto de
+  Flávio também onde Lula é fraco, em proporção à fatia de Lula, e isso rebaixa M). Com M fixo no valor bruto,
+  o critério ainda dispara em 100% dos sorteios (A) e 100% (B): a detecção não depende do espelho.
+  A forma k x L (C4) quase não mexe em V (+0,0008): o critério só a enxerga pelo espelho (M cai 0,0322).
+  Nas regras em que a taxa é a mesma dentro do local (C1L, C2 quase, C5, U) o espelho não se mexe e a detecção
+  vem toda de V.
+  Perfil da C1 nas quatro faixas (subida de D, Leitura A): menos de 35% +0,0804; 35 a 50% +0,0489; 50 a 65% +0,0269; 65% ou mais +0,0111.
+  Doses da C1 pelo valor esperado (Leitura A):
+     10% do total (213.665 votos): V sobe +0,0036, M -0,0044, D vai a +0,0078 (+2,4 ep). Critério não dispara.
+     25% do total (534.163 votos): V sobe +0,0091, M -0,0110, D vai a +0,0198 (+6,1 ep). Critério não dispara.
+     50% do total (1.068.326 votos): V sobe +0,0182, M -0,0220, D vai a +0,0399 (+12,4 ep). Critério dispara.
+     75% do total (1.602.488 votos): V sobe +0,0274, M -0,0329, D vai a +0,0600 (+18,7 ep). Critério dispara.
+    100% do total (2.136.651 votos): V sobe +0,0365, M -0,0439, D vai a +0,0801 (+25,1 ep). Critério dispara.
+    125% do total (2.670.814 votos): V sobe +0,0456, M -0,0549, D vai a +0,1002 (+31,5 ep). Critério dispara.
+  Inclinação: D sobe +0,0804 por 2.136.651 votos na Leitura A e +0,0866 na B.
+
+4. ESPECIFICIDADE: O QUE PASSA PELO COMPARECIMENTO, PLANTADO
+  Aviso fixado antes: boletim não separa quem faltou de quem foi registrado como faltoso, nem eleitor real que
+  entrou de voto lançado em nome de faltoso. "Inocente" aqui quer dizer só "não é troca de voto dentro da urna".
+  cenário  o que se planta                                leitura   V        M        D (dp)             dV       dM       dD      dispara
+  I1       I1: abstenção pura concentrada (regra C1)     A   +0,0190  -0,0246  +0,0436 (0,0006)   +0,0000  -0,0439  +0,0439   200 de 200
+  I1       I1: abstenção pura concentrada (regra C1)     B   +0,0161  -0,0262  +0,0424 (0,0007)   +0,0000  -0,0471  +0,0471   200 de 200
+  I2       I2: abstenção pura uniforme de 3,6%           A   +0,0190  +0,0187  +0,0003 (0,0008)   +0,0000  -0,0006  +0,0006   0 de 200
+  I2       I2: abstenção pura uniforme de 3,6%           B   +0,0161  +0,0202  -0,0040 (0,0009)   +0,0000  -0,0007  +0,0007   0 de 200
+  I3       I3: entrada concentrada de eleitores reais    A   +0,0043  +0,0193  -0,0150 (0,0009)   -0,0148  +0,0000  -0,0148   0 de 200
+  I3       I3: entrada concentrada de eleitores reais    B   +0,0030  +0,0208  -0,0179 (0,0010)   -0,0132  +0,0000  -0,0132   0 de 200
+  I4       I4: I1 e I3 juntas (virada pelo comparecimento) A   +0,0042  -0,0246  +0,0288 (0,0011)   -0,0148  -0,0439  +0,0291   200 de 200
+  I4       I4: I1 e I3 juntas (virada pelo comparecimento) B   +0,0029  -0,0263  +0,0292 (0,0012)   -0,0133  -0,0471  +0,0339   200 de 200
+  S1       S1: troca C1 mais entrada I3 (estresse)       A   +0,0407  -0,0246  +0,0653 (0,0012)   +0,0217  -0,0439  +0,0656   200 de 200
+  S1       S1: troca C1 mais entrada I3 (estresse)       B   +0,0425  -0,0262  +0,0687 (0,0014)   +0,0263  -0,0470  +0,0734   200 de 200
+  Leitura: (i) abstenção pura CONCENTRADA pela regra C1 dispara o critério sem nenhuma troca. Ela não mexe em V
+  (+0,0000, por aritmética: Lula não ganha voto), mas rebaixa o espelho M em 0,0439, e D sobe 0,0439. Logo um SINAL neste
+  teste não distinguiria troca de abstenção concentrada. (ii) Abstenção uniforme não mexe em nada. (iii) Entrada
+  concentrada de eleitores reais para Lula REBAIXA V em 0,0148 (taxa de 10,9% dos faltosos na faixa): pode esconder parte de
+  uma troca. (iv) Com troca e entrada do mesmo tamanho juntas (S1) o critério ainda dispara em 100% dos sorteios
+  (com M fixo, em 90%). (v) A estatística só com V é específica contra abstenção e cega para a forma k x L.
+  (vi) Depois de ver (exploratório E9): com taxa igual dentro do local, a abstenção não mexe em nada e a entrada
+  SOBE V em vez de rebaixar. O efeito da entrada depende da forma.
+  Consequência para a leitura do resultado: como o resultado bruto é SEM SINAL, a falta de especificidade não o
+  afeta; o que o afeta é a possibilidade (iii), tratada na seção 9.
+
+5. ESPELHO
+  (i) Critério invertido nos dados brutos (-D >= 0,02 a mais de 4 ep): não dispara na Leitura A e não dispara na B.
+  (ii) Plantio espelho (2.136.651 votos de Lula para Flávio, concentrados onde Flávio é forte): D vai a -0,0751 (A) e
+  -0,0849 (B); o critério invertido dispara em 100% e 100% dos 200 sorteios e o direto em 0% e 0%.
+  (iii) Nas outras faixas (tabela da seção 2) D não passa de 0,02 em nenhuma. Na de 35 a 50% fica em +0,0078 (ep 0,0021) (A) e
+  +0,0084 (ep 0,0027) (B); na de 65% ou mais fica negativo, -0,0132 (ep 0,0018) (A): nos redutos, quem aparece mais no adversário é o
+  eleitor de Lula, não o de Flávio.
+
+6. AO LADO: OUTROS UNIVERSOS E ESPECIFICAÇÕES (faixa de menos de 35%)
+  variante                 leitura  D (ep)              D+2ep     veredito        com a C1 plantada
+  sem_exterior             A        +0,0005 (0,0032)   +0,0069   SEM SINAL       D = +0,0808, dispara
+  sem_exterior             B        -0,0056 (0,0036)   +0,0017   SEM SINAL       D = +0,0809, dispara
+  todas_as_secoes          A        +0,0040 (0,0031)   +0,0102   INCONCLUSIVO    D = +0,0839, dispara
+  todas_as_secoes          B        +0,0001 (0,0037)   +0,0075   SEM SINAL       D = +0,0864, dispara
+  desenho_D4_1             A        +0,0033 (0,0030)   +0,0092   SEM SINAL       D = +0,0840, dispara  (com erro por município: INCONCLUSIVO)
+  desenho_D4_1             B        -0,0025 (0,0033)   +0,0042   SEM SINAL       D = +0,0844, dispara
+  outros_agregados         A        -0,0020 (0,0033)   +0,0046   SEM SINAL       D = +0,0784, dispara
+  outros_agregados         B        -0,0067 (0,0038)   +0,0009   SEM SINAL       D = +0,0799, dispara
+  bn_separados             A        +0,0012 (0,0033)   +0,0077   SEM SINAL       D = +0,0816, dispara
+  bn_separados             B        -0,0030 (0,0038)   +0,0045   SEM SINAL       D = +0,0836, dispara
+  efeito_fixo_municipio    A        +0,0268 (0,0041)   +0,0351   SINAL           D = +0,1176, dispara
+  efeito_fixo_municipio    B        +0,0357 (0,0042)   +0,0441   SINAL           D = +0,1310, dispara
+  peso_aptos               A        -0,0040 (0,0038)   +0,0036   SEM SINAL       D = +0,0759, dispara
+  peso_aptos               B        -0,0053 (0,0045)   +0,0037   SEM SINAL       D = +0,0809, dispara
+    sem_exterior: universo principal sem o exterior (442.491 seções).
+    todas_as_secoes: todas as seções com os dois turnos (aptos podem diferir) (499.205 seções).
+    desenho_D4_1: universo do D4-1: aptos a até 2, comparecimento 1T de 30 ou mais, sem exterior, peso 1/aptos (494.874 seções).
+    outros_agregados: outros candidatos num termo só (443.483 seções).
+    bn_separados: branco e nulo do 1º turno em termos separados (443.483 seções).
+    efeito_fixo_municipio: efeito fixo e erro por município em vez de local (443.483 seções).
+    peso_aptos: universo principal com peso igual aos aptos (443.483 seções).
+  Duas variantes saem do SEM SINAL por margem mínima (todas as seções, Leitura A; D4-1 com erro por município).
+  Uma variante DISPARA: com efeito fixo de município no lugar de local, D = +0,0268 (ep 0,0041) (A) e +0,0357 (ep 0,0042) (B).
+  Nela V e M são negativos (V = -0,0072, M = -0,0341 na A), o que uma parcela de eleitores não pode ser: é a marca de
+  viés de composição entre bairros do mesmo município. Ver o exploratório E1.
+
+7. OUTROS ANOS, AO LADO (NÃO É RÉGUA; o Léo suspeita também de 2014, 2018 e 2022)
+  A mesma estatística com os eliminados agregados (as bases antigas não os separam), efeito fixo de local.
+  ano    leitura   V         M         D (ep)             n de V / n de M     na mesma linha, 2026 bruto
+  2014   A         +0,0918   +0,0450   +0,0468 (0,0033)   218.331 / 163.494   2026: -0,0020 (0,0033)
+  2014   B         +0,0923   +0,0391   +0,0532 (0,0036)   215.100 / 160.468   2026: -0,0067 (0,0038)
+  2018   A         -0,0171   +0,0339   -0,0510 (0,0037)   108.097 / 285.573   2026: -0,0020 (0,0033)
+  2018   B         -0,0305   +0,0342   -0,0647 (0,0041)   107.106 / 282.388   2026: -0,0067 (0,0038)
+  2022   A         -0,0096   +0,0392   -0,0488 (0,0041)   120.742 / 88.538   2026: -0,0020 (0,0033)
+  2022   B         -0,0144   +0,0450   -0,0593 (0,0041)   119.507 / 87.744   2026: -0,0067 (0,0038)
+  2026   A         +0,0180   +0,0200   -0,0020 (0,0033)   96.698 / 132.460   2026: -0,0020 (0,0033)
+  2026   B         +0,0151   +0,0217   -0,0067 (0,0038)   95.386 / 130.253   2026: -0,0067 (0,0038)
+  Pelo mesmo critério, 2014 daria SINAL direto (a favor de Dilma), 2018 e 2022 dariam SINAL invertido (contra o
+  PT), e 2026 é o único dos quatro anos em que D fica perto de zero. O "zero" deste instrumento não é estável:
+  andou de -0,05 a +0,05 em três eleições. Nenhum veredito acima depende desses anos.
+
+8. POR UF (DESCRITIVO, SEM VEREDITO): A MATRIZ DENTRO DE CADA UF, UNIVERSO PRINCIPAL
+  V = de Flávio para Lula; M = de Lula para Flávio; D = V - M (erro conjunto por local). "Não voltou" = coeficiente
+  do candidato na equação dos faltosos do 2º turno. A1>L e A1>F = faltosos do 1º turno que aparecem em cada um.
+  UF  n        V (ep)             M (ep)             D (ep)             não voltou F    L        A1>L     A1>F     D com C1  D com U
+  AM    6.455  +0,0504 (0,0089)   +0,0167 (0,0058)   +0,0337 (0,0108)   +0,0653         +0,0084  +0,0581  +0,0002  +0,0647   +0,0656
+  RN    6.293  +0,0355 (0,0072)   +0,0138 (0,0040)   +0,0217 (0,0078)   +0,0616         +0,0030  +0,1759  +0,0551  +0,0622   +0,0543
+  PE   19.108  +0,0371 (0,0046)   +0,0157 (0,0023)   +0,0214 (0,0051)   +0,0432         -0,0087  +0,1916  +0,0464  +0,0631   +0,0545
+  RJ   32.326  +0,0358 (0,0022)   +0,0159 (0,0032)   +0,0199 (0,0036)   -0,0051         -0,0085  +0,0956  +0,0658  +0,0638   +0,0547
+  SE    4.527  +0,0283 (0,0095)   +0,0094 (0,0048)   +0,0189 (0,0102)   +0,0704         +0,0161  +0,1860  +0,0400  +0,0604   +0,0511
+  DF    4.907  +0,0208 (0,0076)   +0,0053 (0,0069)   +0,0155 (0,0105)   +0,0177         -0,0018  +0,1200  +0,0563  +0,0593   +0,0497
+  BA   28.617  +0,0290 (0,0041)   +0,0160 (0,0018)   +0,0131 (0,0043)   +0,0611         -0,0096  +0,2099  +0,0515  +0,0550   +0,0460
+  SP   91.564  +0,0279 (0,0017)   +0,0198 (0,0021)   +0,0081 (0,0028)   +0,0080         -0,0052  +0,1099  +0,0767  +0,0506   +0,0430
+  MS    6.335  +0,0257 (0,0058)   +0,0200 (0,0073)   +0,0056 (0,0091)   +0,0261         +0,0111  +0,1135  +0,0833  +0,0476   +0,0400
+  CE   19.407  +0,0192 (0,0043)   +0,0152 (0,0021)   +0,0040 (0,0046)   +0,0767         -0,0072  +0,2052  +0,0465  +0,0448   +0,0366
+  TO    3.846  +0,0241 (0,0073)   +0,0218 (0,0066)   +0,0024 (0,0093)   +0,0781         -0,0147  +0,0669  +0,0166  +0,0405   +0,0350
+  MA   14.703  +0,0202 (0,0054)   +0,0179 (0,0025)   +0,0024 (0,0057)   +0,0948         -0,0170  +0,0911  +0,0236  +0,0400   +0,0345
+  MG   43.619  +0,0214 (0,0023)   +0,0190 (0,0023)   +0,0023 (0,0032)   +0,0313         -0,0120  +0,1188  +0,0694  +0,0432   +0,0366
+  PA   16.995  +0,0202 (0,0036)   +0,0209 (0,0029)   -0,0007 (0,0044)   +0,0617         +0,0260  +0,0716  +0,0416  +0,0352   +0,0328
+  AP    1.606  +0,0232 (0,0119)   +0,0247 (0,0141)   -0,0016 (0,0179)   +0,1360         +0,0582  +0,0036  -0,0113  +0,0350   +0,0290
+  PB    9.405  +0,0170 (0,0062)   +0,0204 (0,0036)   -0,0034 (0,0071)   +0,0756         -0,0147  +0,1531  +0,0409  +0,0373   +0,0295
+  SC   14.177  -0,0005 (0,0024)   +0,0038 (0,0055)   -0,0043 (0,0061)   +0,0051         -0,0015  +0,0889  +0,0882  +0,0466   +0,0312
+  ES    8.587  +0,0081 (0,0041)   +0,0142 (0,0054)   -0,0061 (0,0067)   +0,0231         -0,0030  +0,0863  +0,0554  +0,0363   +0,0287
+  PR   23.097  +0,0105 (0,0026)   +0,0207 (0,0037)   -0,0102 (0,0046)   +0,0097         -0,0042  +0,1046  +0,0793  +0,0357   +0,0253
+  MT    7.098  +0,0183 (0,0041)   +0,0297 (0,0072)   -0,0114 (0,0081)   +0,0235         +0,0075  +0,0824  +0,0626  +0,0324   +0,0237
+  AL    6.315  +0,0140 (0,0063)   +0,0257 (0,0056)   -0,0116 (0,0080)   +0,0604         +0,0035  +0,1306  +0,0649  +0,0274   +0,0222
+  PI    8.109  +0,0087 (0,0073)   +0,0207 (0,0026)   -0,0120 (0,0077)   +0,1236         -0,0277  +0,0965  +0,0198  +0,0307   +0,0198
+  RS   21.373  +0,0091 (0,0028)   +0,0232 (0,0043)   -0,0141 (0,0053)   +0,0141         +0,0116  +0,0934  +0,0873  +0,0290   +0,0214
+  AC    1.787  +0,0288 (0,0105)   +0,0577 (0,0232)   -0,0289 (0,0238)   +0,0791         +0,0671  +0,0018  +0,0067  +0,0168   +0,0040
+  GO   13.830  +0,0004 (0,0037)   +0,0327 (0,0054)   -0,0322 (0,0064)   +0,0296         -0,0190  +0,0948  +0,0499  +0,0142   +0,0033
+  RO    4.198  +0,0241 (0,0061)   +0,0602 (0,0123)   -0,0361 (0,0150)   +0,0338         -0,0171  +0,0470  +0,0574  +0,0153   -0,0004
+  RR    1.246  +0,0079 (0,0076)   +0,0510 (0,0230)   -0,0431 (0,0234)   +0,0579         -0,0193  -0,0041  +0,0095  -0,0002   -0,0082
+  ZZ      926  -0,0020 (0,0171)   -0,0208 (0,0092)   +0,0188 (0,0220)   -0,0522         -0,0901  +0,0265  +0,0120  +0,0504   +0,0554  (exterior, fora das 27)
+  Resumo das 27 UFs: D vai de -0,0431 (RR) a +0,0337 (AM); média simples -0,0017; ponderada pelo inverso da variância +0,0032 (ep 0,0011);
+  desvio-padrão entre UFs 0,0187; qui-quadrado de homogeneidade 137,7 com 26 graus de liberdade (heterogêneo).
+  Acima de +0,010: 7 UFs (AM, BA, DF, PE, RJ, RN, SE). Abaixo de -0,010: 9 (AC, AL, GO, MT, PI, PR, RO, RR, RS).
+  Positivas a mais de 2 ep: AM, BA, PE, RJ, RN, SP. Negativas a mais de 2 ep: GO, PR, RO, RS.
+  A forma C1 plantada subiria D em TODAS as 27 UFs, de +0,0310 a +0,0514 (média +0,0420); a uniforme, de +0,0306 a +0,0357.
+  Correlação entre D da UF e a fatia de Lula na UF no 1º turno: +0,54 (27 UFs); inclinação +0,035 por unidade de fatia.
+  Nas cinco UFs do indício do comparecimento: PI -0,0120 (ep 0,0077); MA +0,0024 (ep 0,0057); TO +0,0024 (ep 0,0093); PB -0,0034 (ep 0,0071); CE +0,0040 (ep 0,0046).
+  Nelas a diferença de quem não voltou (Flávio menos Lula) é: PI +0,1513; MA +0,1118; TO +0,0928; PB +0,0904; CE +0,0838.
+  Dentro da faixa de menos de 35% (Leitura A), onde há 30 locais ou mais de cada lado na UF:
+    AM: V +0,1065 (ep 0,0309); M +0,0018 (ep 0,0435); D +0,1046 (ep 0,0534) (+2,0 ep); n 1.526 / 1.015
+    RJ: V +0,0829 (ep 0,0243); M +0,0085 (ep 0,0064); D +0,0744 (ep 0,0251) (+3,0 ep); n 927 / 10.540
+    PR: V +0,0809 (ep 0,0573); M +0,0243 (ep 0,0052); D +0,0566 (ep 0,0576) (+1,0 ep); n 188 / 16.595
+    SP: V +0,0506 (ep 0,0104); M +0,0192 (ep 0,0037); D +0,0314 (ep 0,0111) (+2,8 ep); n 5.227 / 37.931
+    RS: V +0,0460 (ep 0,0291); M +0,0154 (ep 0,0065); D +0,0306 (ep 0,0298) (+1,0 ep); n 985 / 10.022
+    BA: V +0,0238 (ep 0,0054); M -0,0060 (ep 0,0451); D +0,0298 (ep 0,0454) (+0,7 ep); n 21.747 / 240
+    MG: V +0,0349 (ep 0,0106); M +0,0073 (ep 0,0073); D +0,0276 (ep 0,0129) (+2,1 ep); n 5.101 / 8.854
+    ES: V +0,0257 (ep 0,0631); M +0,0021 (ep 0,0106); D +0,0236 (ep 0,0640) (+0,4 ep); n 215 / 3.318
+    MT: V +0,0570 (ep 0,0799); M +0,0411 (ep 0,0091); D +0,0159 (ep 0,0805) (+0,2 ep); n 90 / 5.112
+    TO: V +0,0178 (ep 0,0281); M +0,0225 (ep 0,0169); D -0,0047 (ep 0,0328) (-0,1 ep); n 492 / 977
+    MS: V +0,0323 (ep 0,0931); M +0,0394 (ep 0,0118); D -0,0072 (ep 0,0938) (-0,1 ep); n 154 / 3.532
+    MA: V +0,0134 (ep 0,0081); M +0,0397 (ep 0,0325); D -0,0263 (ep 0,0335) (-0,8 ep); n 9.674 / 320
+    GO: V -0,0048 (ep 0,0621); M +0,0329 (ep 0,0072); D -0,0377 (ep 0,0625) (-0,6 ep); n 176 / 9.693
+    PA: V -0,0055 (ep 0,0116); M +0,0390 (ep 0,0112); D -0,0445 (ep 0,0161) (-2,8 ep); n 4.267 / 3.370
+    Só V (a UF não tem 30 locais em que Lula é fraco): AL +0,0146 (ep 0,0141); AP -0,0652 (ep 0,0655); CE +0,0050 (ep 0,0066); PB +0,0076 (ep 0,0096); PE +0,0422 (ep 0,0069); PI +0,0098 (ep 0,0086); RN +0,0506 (ep 0,0122); SE +0,0172 (ep 0,0124).
+
+9. TRADUÇÃO EM VOTOS DE MARGEM (margem oficial 4.430.191; vira com 2.215.096 votos trocados)
+  Leitura A (faixa pela fatia no LOCAL de votação; é a letra)
+    Votos de Flávio no 1º turno nas seções da faixa, país inteiro: 6.694.161.
+    Direta: D x esses votos = -1.886 votos (-0,09% da margem, contando em dobro). Teto com D + 2 ep: 41.680 votos,
+    83.360 de margem, 1,88% da margem.
+    Pela calibração, premissa "o espelho é o nível natural": a forma concentrada C1 cabe até 165.524 votos
+    (7,5% da margem); o plantado tinha 2.136.651.
+    Premissa extrema (tudo o que há em V é troca, nível natural zero): até 1.418.554 votos (64,0% da margem).
+  Leitura B (faixa pela fatia na SEÇÃO; é a conta do exploratório)
+    Votos de Flávio no 1º turno nas seções da faixa, país inteiro: 6.826.758.
+    Direta: D x esses votos = -32.065 votos (-1,45% da margem, contando em dobro). Teto com D + 2 ep: 19.299 votos,
+    38.599 de margem, 0,87% da margem.
+    Pela calibração, premissa "o espelho é o nível natural": a forma concentrada C1 cabe até 69.740 votos
+    (3,1% da margem); o plantado tinha 2.136.651.
+    Premissa extrema (tudo o que há em V é troca, nível natural zero): até 1.198.930 votos (54,1% da margem).
+  Aviso: a premissa extrema supõe que nada rebaixa V. A entrada concentrada de eleitores reais (I3) rebaixa V em
+  0,0148 por 2.136.651 entradas. Se uma entrada desse tamanho e dessa forma existir nos dados, o teto da premissa
+  extrema sobe para 2.287.859 votos na Leitura A (103,3% da margem) e 1.914.730 na B (86,4%): conta feita depois de ver.
+  Sem a premissa do espelho, o teste sozinho não exclui a forma concentrada do tamanho que vira. O contrário
+  também vale: entrada com taxa igual dentro do local sobe V (E9), e nesse caso o teto verdadeiro seria menor.
+
+10. EXPLORATÓRIO (feito DEPOIS de ver os resultados acima; não entra em veredito; ninguém refez)
+  E1. A variante com efeito fixo de município, que disparou. Faixas (Leitura A):
+      menos de 35%  V -0,0072 (0,0036)  M -0,0341 (0,0021)  D +0,0268 (0,0041)  +6,5 ep
+      35 a 50%      V -0,0011 (0,0043)  M -0,0139 (0,0031)  D +0,0128 (0,0023)  +5,4 ep
+      50 a 65%      V +0,0011 (0,0024)  M -0,0003 (0,0020)  D +0,0014 (0,0029)  +0,5 ep
+      65% ou mais   V -0,0037 (0,0013)  M -0,0002 (0,0007)  D -0,0035 (0,0015)  -2,4 ep
+      O que cada plantio faz nela (subida de D): C1 +0,0908; uniforme +0,0327; k x L +0,0361; abstenção concentrada +0,0446;
+      entrada concentrada -0,0196. No universo inteiro com efeito fixo de município: V -0,0142 (ep 0,0022), M -0,0224 (ep 0,0020).
+      Leitura: V e M negativos mostram que, entre locais do mesmo município, a regressão carrega diferença de
+      composição entre bairros; o disparo vem de M ser mais negativo que V, não de V positivo. A abstenção
+      concentrada sozinha produz essa subida. Ainda assim é uma especificação em que o critério dispara, e isso
+      fica dito.
+  E2. Não é régua. D na faixa de menos de 35% nos quatro anos (outros agregados; * dispara, # dispara invertido):
+      ano    efeito fixo de local: A            B                 efeito fixo de município: A      B
+      2014   +0,0468 (0,0033)*   +0,0532 (0,0036)*            +0,0038 (0,0210)    +0,0072 (0,0225) 
+      2018   -0,0510 (0,0037)#   -0,0647 (0,0041)#            -0,0266 (0,0185)    -0,0333 (0,0187) 
+      2022   -0,0488 (0,0041)#   -0,0593 (0,0041)#            -0,0748 (0,0038)#   -0,0793 (0,0039)#
+      2026   -0,0020 (0,0033)    -0,0067 (0,0038)             +0,0294 (0,0043)*   +0,0389 (0,0044)*
+      2026 menos 2014 (Leitura A, local): -0,0488 (ep 0,0046). Se fosse a forma C1: -1.297.294 votos (-58,6% da margem); direta: -326.668 votos.
+      2026 menos 2018 (Leitura A, local): +0,0490 (ep 0,0050). Se fosse a forma C1: 1.303.100 votos (58,8% da margem); direta: 328.130 votos.
+      2026 menos 2022 (Leitura A, local): +0,0468 (ep 0,0052). Se fosse a forma C1: 1.245.015 votos (56,2% da margem); direta: 313.504 votos.
+      Leitura nos dois sentidos: medido contra 2018 ou 2022, 2026 está cerca de 0,05 ACIMA, o que na forma C1
+      valeria perto de 1,3 milhão de votos (perto de 58% da margem; sozinho não vira). Medido contra 2014, está
+      0,05 ABAIXO. Como os três anos também são suspeitos para o Léo, nenhum serve de zero.
+      Por região, efeito fixo de local, faixa de menos de 35% (Leitura A), D (ep):
+        N   2014 +0,0877 (0,0148);  2018 -0,0408 (0,0112);  2022 -0,0990 (0,0121);  2026 -0,0258 (0,0133)
+        NE  2014 +0,0842 (0,0100);  2018 -0,0358 (0,0056);  2022 -0,0648 (0,0358);  2026 +0,0163 (0,0271)
+        SE  2014 +0,0767 (0,0045);  2018 +0,0259 (0,0091);  2022 -0,0466 (0,0053);  2026 +0,0339 (0,0077)
+        S   2014 +0,0029 (0,0116);  2018 -0,0488 (0,0157);  2022 -0,0353 (0,0121);  2026 +0,0326 (0,0220)
+        CO  2014 +0,0608 (0,0099);  2018 -0,1656 (0,0289);  2022 -0,0471 (0,0277);  2026 -0,0794 (0,0383)
+  E3 e E4. Por regra de concentração (Leitura A / Leitura B): menor tamanho que o critério enxerga e maior tamanho
+      compatível com o observado (premissa: o espelho é o nível natural), em votos trocados:
+      C1: taxa proporcional à fatia de Lula na seção   enxerga a partir de 539.178 / 609.249;  cabe até 165.524 / 69.740
+      C1L: proporcional à fatia de Lula no local       enxerga a partir de 815.587 / 961.217;  cabe até 250.380 / 110.029
+      C2: só onde Lula teve 50% ou mais, uniforme      enxerga a partir de 328.258 / 371.696;  cabe até 100.773 / 42.547
+      C3: proporcional ao quadrado da fatia            enxerga a partir de 507.779 / 574.680;  cabe até 155.885 / 65.783
+      C4: forma k x L (proporcional aos votos de Lula) enxerga a partir de 1.315.218 / 1.610.070;  cabe até 403.764 / 184.302
+      C5: só no Nordeste, uniforme                     enxerga a partir de 331.366 / 387.878;  cabe até 101.727 / 44.400
+      U: uniforme no país (referência)                 enxerga a partir de 1.350.532 / 1.646.544;  cabe até 414.605 / 188.477
+  E5. Por região e nas cinco UFs do indício do comparecimento, faixa de menos de 35%:
+      grupo                        leitura  V (ep)             M (ep)             D (ep)             D/ep   n de V / n de M    D com C1
+      N                            A        +0,0219 (0,0111)   +0,0448 (0,0072)   -0,0229 (0,0132)   -1,7   6.474 / 11.979   +0,0560
+      N                            B        +0,0202 (0,0134)   +0,0529 (0,0081)   -0,0328 (0,0157)   -2,1   6.196 / 11.581   +0,0530
+      NE                           A        +0,0166 (0,0028)   -0,0024 (0,0276)   +0,0190 (0,0277)   +0,7   76.855 / 677   +0,0972
+      NE                           B        +0,0139 (0,0031)   -0,0530 (0,0322)   +0,0669 (0,0323)   +2,1   75.343 / 763   +0,1505
+      SE                           A        +0,0434 (0,0071)   +0,0114 (0,0028)   +0,0320 (0,0076)   +4,2   11.470 / 60.643   +0,1055
+      SE                           B        +0,0300 (0,0087)   +0,0190 (0,0034)   +0,0110 (0,0093)   +1,2   11.897 / 60.311   +0,0908
+      S                            A        +0,0490 (0,0221)   +0,0139 (0,0034)   +0,0351 (0,0224)   +1,6   1.226 / 39.125   +0,1123
+      S                            B        +0,0409 (0,0271)   +0,0124 (0,0038)   +0,0284 (0,0273)   +1,0   1.244 / 37.846   +0,1115
+      CO                           A        -0,0354 (0,0375)   +0,0335 (0,0049)   -0,0688 (0,0378)   -1,8   447 / 19.700   +0,0109
+      CO                           B        -0,0450 (0,0509)   +0,0273 (0,0056)   -0,0723 (0,0512)   -1,4   470 / 19.418   +0,0135
+      cinco_UFs_PI_MA_TO_PB_CE     A        +0,0071 (0,0040)   +0,0393 (0,0154)   -0,0322 (0,0159)   -2,0   34.573 / 1.313   +0,0466
+      cinco_UFs_PI_MA_TO_PB_CE     B        +0,0017 (0,0045)   +0,0348 (0,0194)   -0,0331 (0,0199)   -1,7   33.866 / 1.284   +0,0512
+      resto_sem_as_cinco           A        +0,0275 (0,0032)   +0,0181 (0,0019)   +0,0094 (0,0038)   +2,5   61.899 / 130.811   +0,0893
+      resto_sem_as_cinco           B        +0,0251 (0,0036)   +0,0201 (0,0023)   +0,0049 (0,0043)   +1,1   61.284 / 128.635   +0,0911
+      Nas cinco UFs juntas (PI, MA, TO, PB, CE), onde Flávio é fraco, V = +0,0071 (ep 0,0040) com 34.573 seções informativas
+      (1.996.441 votos de Flávio no 1º turno), abaixo do resto do país (+0,0275 (ep 0,0032)); a C1 plantada o subiria em 0,0373.
+      A diferença de quem não voltou nelas é +0,1057 (ep 0,0033). O eleitor de Flávio dali aparece na abstenção, não em Lula.
+      Ressalva: entrada concentrada de eleitores reais rebaixa V (seção 4), e nessas UFs a entrada para Lula é alta.
+      No Sudeste a Leitura A dá D = +0,0320 (ep 0,0076) (+4,2 ep), acima de 0,02 e de 4 ep; a Leitura B dá +0,0110 (ep 0,0093) (+1,2 ep).
+      É recorte escolhido depois de ver (uma de cinco regiões, uma de duas leituras) e vale 27.099 votos (54.198 de
+      margem, 1,22% da margem), porque no Sudeste há poucos votos de Flávio em locais onde ele é fraco (845.561).
+      No Sudeste o mesmo D foi positivo também em 2014 e 2018 e negativo em 2022 (tabela do E2; não é régua).
+  E6. Contraste entre as faixas extremas, D(menos de 35%) menos D(65% ou mais), que tira um deslocamento
+      constante do instrumento: observado +0,0129 (ep 0,0038) (A) e +0,0059 (ep 0,0044) (B); com a C1 plantada +0,0821 (A); com abstenção
+      concentrada +0,0505; com entrada concentrada +0,0063.
+      Nos outros anos (não é régua; efeito fixo de local, Leitura A): 2014 +0,0665; 2018 -0,0345; 2022 -0,0341; 2026 +0,0107.
+  E9. As explicações pelo comparecimento com taxa igual dentro do local (valor esperado, Leitura A), para
+      saber quando a abstenção dispara o critério: subida de V, de M e de D, e se dispara.
+      abstenção, taxa pela fatia de Lula no local    dV +0,0000  dM +0,0000  dD +0,0000  não dispara
+      abstenção, só no Nordeste, uniforme            dV +0,0000  dM +0,0000  dD +0,0000  não dispara
+      entrada, taxa pela fatia de Lula no local      dV +0,0112  dM +0,0000  dD +0,0112  não dispara
+      entrada, só no Nordeste, uniforme              dV +0,0288  dM +0,0000  dD +0,0288  dispara
+      abstenção e entrada juntas, taxa por local     dV +0,0112  dM +0,0000  dD +0,0112  não dispara
+      Com taxa igual dentro do local, a abstenção não mexe em V nem em M: o critério não a acusa e também não
+      a enxerga. A entrada com taxa igual dentro do local SOBE V (ao contrário da I3), porque parte dos faltosos
+      do 2º turno é eleitor de Flávio que não voltou; concentrada só no Nordeste, ela sozinha dispararia o critério.
+      Resumo: o teste confunde abstenção com troca só quando a taxa varia de seção para seção no mesmo local, e
+      a entrada tanto pode esconder uma troca (taxa que acompanha a fatia de Lula da seção) quanto imitá-la
+      (taxa igual no local). O aviso do docstring ("não acusa nem absolve o comparecimento") vale só em parte.
+  E10. "Voto em nome de faltoso" na forma mais simples: entrada para Lula pro rata do estoque de faltosos do
+      2º turno da seção, taxa uniforme (valor esperado).
+      No país, 2.136.651 votos (7,00% dos faltosos): V sobe +0,0068 e D vai a +0,0066 na Leitura A; critério não dispara.
+      Só nas cinco UFs (PI, MA, TO, PB, CE), 10% dos faltosos (322.397 votos):
+        as cinco UFs inteiras:             V observado +0,0175 (ep 0,0026); com o plantio +0,0263 (sobe 0,0088); n 55.470. Teto com V + 2 ep e nível natural
+                                           zero: taxa de 25,7% dos faltosos, 827.364 votos.
+        faixa de menos de 35%, Leitura A:  V observado +0,0071 (ep 0,0040); com o plantio +0,0203 (sobe 0,0132); n 34.573. Teto com V + 2 ep e nível natural
+                                           zero: taxa de 11,5% dos faltosos, 370.172 votos.
+        faixa de menos de 35%, Leitura B:  V observado +0,0017 (ep 0,0045); com o plantio +0,0158 (sobe 0,0141); n 33.866. Teto com V + 2 ep e nível natural
+                                           zero: taxa de 7,5% dos faltosos, 242.815 votos.
+      Leitura: voto lançado em proporção ao estoque de faltosos do 2º turno faria o voto de Flávio do 1º turno
+      "aparecer em Lula" na regressão, porque parte desse estoque é eleitor de Flávio que não voltou. Nas cinco
+      UFs isso não aparece (V fica abaixo do resto do país). O limite vale só para essa forma pro rata: voto lançado
+      em nome de quem já tinha faltado no 1º turno cai no coeficiente dos faltosos do 1º turno, igual à entrada
+      de eleitor real, e este teste não separa as duas coisas.
+  E7. Soma por UF de D x votos de Flávio no 1º turno (universo): 95.958 votos (ep 58.164), 4,3% da margem contando em
+      dobro. Só as UFs positivas: 321.283 votos (14,5%); só as negativas: -225.326. Somar só as positivas é escolher depois
+      de ver; serve de teto grosseiro, não de estimativa.
+
+11. LEITURA, NOS DOIS SENTIDOS
+  Contra a tese (troca de voto dentro da urna regulada pela força de Lula):
+  a) Pela letra, SEM SINAL nas duas leituras, com poder: a forma do registro foi detectada em 200 de 200 sorteios,
+     e também nas outras seis regras de concentração testadas (30 de 30 em cada).
+  b) D é -0,0003 (ep 0,0033) na Leitura A e -0,0047 (ep 0,0038) na B: a parcela de Flávio que aparece em Lula onde Flávio é
+     fraco é igual ou menor que a do sentido contrário. A forma plantada daria +0,0801.
+  c) Nas cinco UFs em que o eleitor de Flávio mais deixou de voltar (PI, MA, TO, PB, CE), a parcela dele que
+     aparece em Lula onde ele é fraco é 0,7% (ep 0,4), abaixo do resto do país (2,8%, ep 0,3). O que aparece
+     ali é comparecimento, não troca (exploratório E5).
+  d) O plantio espelho se comporta de modo simétrico; o critério invertido não dispara nos dados brutos.
+  A favor da tese, ou limitando o que o resultado exclui:
+  e) O teste não decide o canal do comparecimento. É cego para eleitor de Flávio registrado como ausente quando
+     a taxa é igual dentro do local, e para voto lançado em nome de quem já tinha faltado no 1º turno. Só a
+     forma pro rata do estoque de faltosos do 2º turno mexeria em V (E9 e E10). O indício da Onda A continua aberto.
+  f) O "sem sinal" depende da premissa de que, sem desvio, D seria zero. Em 2014, 2018 e 2022 o mesmo D foi
+     +0,047, -0,051 e -0,049. Contra 2018 e 2022, o valor de 2026 fica cerca de 0,05 acima (seção 10, E2).
+  g) Com efeito fixo de município a mesma estatística dispara (seção 6 e E1), com as ressalvas ditas.
+  h) Entre UFs, D é heterogêneo e cresce com a força de Lula (correlação +0,54); é positivo a mais de 2 ep em AM, BA, PE, RJ, RN, SP.
+  i) No Sudeste, na Leitura A, o critério dispararia sozinho (exploratório E5), valendo poucos votos.
+  j) Entrada de eleitores para Lula com taxa que acompanha a fatia de Lula da seção rebaixa V; se existir nos
+     dados, sem a premissa do espelho o teto do teste chega ao que vira o resultado (seção 9). Com taxa igual
+     dentro do local o efeito é o contrário (E9).
+
+12. DESVIOS E DECISÕES (o que o registro não fixa; tudo escrito no docstring antes de calcular)
+  1. "Força de Flávio no local" tem duas leituras (local de votação, como no T35; seção, como no exploratório).
+     Calculei as duas com veredito completo; deram o mesmo veredito.
+  2. Universo: aptos iguais nos dois turnos, com o exterior (o do exploratório). Variantes ao lado.
+  3. Erro de D pela contribuição de cada local às duas estimativas; "a mais de 4 ep" lido a partir de zero.
+  4. "Detectada" = o critério de sinal dispara com a forma plantada (valor esperado e 95% de 200 sorteios).
+  5. Regra de concentração C1 (taxa proporcional à fatia de Lula na seção, total esperado exato de 2.136.651),
+     mais seis regras ao lado. No exploratório do conferente o total de 2.136.651 foi o resultado de um sorteio
+     com taxa média de 3,57%; aqui é o valor esperado, e cada sorteio fica a poucas centenas de votos dele.
+  6. Explicações pelo comparecimento plantadas: abstenção concentrada, abstenção uniforme de 3,6%, entrada
+     concentrada, as duas juntas, e troca mais entrada como estresse.
+  7. Regra do SEM PODER e a leitura mais frouxa de "detectada" (não mudou nada).
+  8. A correlação de D por UF com a fatia de Lula estava no código antes da primeira rodada, mas não no docstring.
+  Depois de ver os resultados (exploratório, seção 10): E1 a E10. A parte registrada saiu idêntica na primeira
+  rodada (06:38 UTC, antes do exploratório existir) e na final.
+
+13. CONTAGEM DE TESTES
+  Um critério de decisão registrado, em duas leituras: zero disparos. Ao lado, 14 variantes (7 especificações x 2
+  leituras): 2 disparam (as duas com efeito fixo de município). A 4 erros-padrão o acaso de amostra daria perto
+  de zero disparos em 16; o disparo da variante de município não é acaso de amostra, é diferença de especificação.
+  No exploratório há dezenas de recortes (27 UFs, 5 regiões, 4 anos, 2 leituras); os destaques dele não contam.

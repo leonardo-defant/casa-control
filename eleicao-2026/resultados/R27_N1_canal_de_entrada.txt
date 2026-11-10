@@ -1,0 +1,320 @@
+R27 N1: POR ONDE ENTRARAM OS VOTOS A MAIS (Adendo 28, teste N1)
+
+Registro: PRE-REGISTRO-2026-10-26.md, Adendo 28 (commit 938be19, 10/11/2026 04:36:33 UTC), antes de rodar. Decisões
+que o registro não fixa: docstring de scripts/analisar_R27_N1.py, fechado às 05:37 UTC de 10/11/2026 antes de qualquer
+conta com votos (SHA-256 d8bfc10ccdf08f0d...). Dados: boletins de urna dos dois turnos das 3.000 seções da amostra
+aleatória simples nova (universo de 499.205 seções do 2º turno), conferidos contra o bweb.
+B = eleitor com a digital reconhecida pela urna. M = eleitor com biometria liberado pelo mesário. S = eleitor sem
+biometria no cadastro. Margem do 2º turno: 4.430.191. Limiares: 25% da margem = 1.107.548; 10% = 443.019.
+
+VEREDITO PELA LETRA
+  Parte 1, nível de S + M: INCONCLUSIVO. Variação estimada de S + M = +562.604 (ep 58.661; IC 95% de 447.629 a
+  677.579; n = 3.000), 12,7% da margem (IC de 10,1% a 15,3%). Não chega a 1.107.548 (falta 9,3 ep) e o limite superior
+  não desce abaixo de 443.019. Com os totais exatos como âncora: +636.997 (ep 20.959; IC de 595.918 a 678.076), mesmo
+  veredito.
+  Parte 2, regressão: SEM PODER. Coeficiente de Lula em S + M 0,780 contra 0,743 em B; contraste D_L = +0,037 (ep
+  0,027; 1,33 ep), longe de 0,25. A condição não se cumpre, mas não podia se cumprir: o contraste tem teto de 0,257 (1
+  menos o coeficiente de B) e na calibração nem a margem inteira plantada pela mesa chega a 0,25 (D_L médio de 0,152
+  espalhada e 0,177 concentrada; 0% das cópias cumprem).
+  Parte 3, leitura dos 90%: NÃO ATENDIDA. B responde por 80,4% do aumento líquido (ep 2,0 ponto; IC 95% de 76,5% a
+  84,3%); ancorado nos exatos, 78,5% (IC de 77,1% a 79,9%). Aviso da calibração: a leitura também não seria atendida
+  com entrada inocente de eleitores reais (B é 87,6% do comparecimento do 1º turno; 0% das cópias inocentes passam de
+  90%).
+  Combinado pela letra: INCONCLUSIVO (nem SINAL, nem SEM SINAL). Espelho (Flávio): D_F = -0,020 (ep 0,017), não mostra
+  o mesmo.
+  Em uma frase: INCONCLUSIVO pela letra: o canal sem biometria (S + M) ganhou 562.604 eleitores entre os turnos (ep
+  58.661; 636.997 com os totais exatos do bweb como âncora), 12,7% a 14,4% da margem: acima do limiar de 10% que daria
+  SEM SINAL e muito abaixo do de 25% que daria SINAL; B responde por 78,5% a 80,4% do aumento, não por 90%; o eleitor
+  a mais de S + M rende a Lula o mesmo que o de B (0,78 contra 0,74), mas essa cláusula não tinha poder; S subiu o que
+  a régua inocente prevê e o que passa da régua é a alta de M, de 79.342 a 105.112 liberações.
+
+1. CONFERÊNCIA DOS BOLETINS CONTRA O BWEB (achado, se houvesse diferença)
+  1º turno: 3.000 boletins lidos; chave igual 3.000; aptos iguais 3.000; comparecimento igual 3.000; com as três
+  contagens 2.990 (as 10 sem o campo são do exterior, com M = 0 no bweb); S + B + M igual ao comparecimento 2.990; M
+  igual ao QT_ELEI_BIOM_SEM_HABILITACAO 2.990; votos de Presidente iguais ao bweb, candidato a candidato, brancos e
+  nulos 3.000 (23.056 linhas); iguais à base do repositório 3.000.
+  2º turno: 3.000 boletins lidos; chave igual 3.000; aptos iguais 3.000; comparecimento igual 3.000; com as três
+  contagens 2.990 (as 10 sem o campo são do exterior, com M = 0 no bweb); S + B + M igual ao comparecimento 2.990; M
+  igual ao QT_ELEI_BIOM_SEM_HABILITACAO 2.990; votos de Presidente iguais ao bweb, candidato a candidato, brancos e
+  nulos 3.000 (11.998 linhas); iguais à base do repositório 3.000.
+  Diferenças encontradas: 0. Sorteio refeito com a semente registrada no universo lido aqui: igual à lista; SHA-256 da
+  lista e do universo conferem: sim.
+  Limite: boletim, bweb e log saem do mesmo programa. A igualdade fecha alteração depois da urna nessas seções e não
+  pesa contra a hipótese de programa adulterado na origem.
+
+2. ESTIMATIVAS NACIONAIS DA VARIAÇÃO ENTRE OS TURNOS (letra: média x 499.205, erro de amostra aleatória simples)
+     canal            estimativa     ep        IC 95%                       exato (bweb)   z contra o exato
+     B (digital)      +2.304.330   91.279    2.125.424 a 2.483.237      não existe         
+     M (mesário)        +225.308   53.524      120.401 a 330.215          +290.239    -1,21
+     S (sem biom.)      +337.296   22.810      292.589 a 382.003        não existe         
+     S + M              +562.604   58.661      447.629 a 677.579        não existe         
+     comparecimento   +2.866.934   85.458    2.699.436 a 3.034.433      +2.960.241    -1,09
+  A amostra bate com o que se sabe exato: comparecimento +2.866.934 contra +2.960.241 (-1,09 ep) e M +225.308 contra
+  +290.239 (-1,21 ep). Votos: ganho de Lula +10.414.082 contra +10.376.696 exato; ganho de Flávio +3.608.753 contra
+  +3.721.538.
+  Ancorado nos totais exatos (ao lado): S +346.758 (ep 20.959); S + M +636.997 (IC de 595.918 a 678.076); B
+  +2.323.244. Só o Brasil, ancorado: S + M +601.872 (IC de 571.288 a 632.456); exterior, exato: +39.679, tudo contado
+  como S. Erro por reamostragem das seções: 58.709 (igual ao da fórmula).
+  Níveis: no 1º turno B era 87,59% do comparecimento, M 6,63% e S 5,78%; no 2º, 87,43%, 6,65% e 5,91%. Crescimento: B
+  +2,10%, M +3,48% (exato), S +4,66%, comparecimento +2,36% (exato).
+  Excesso sobre a composição do 1º turno da própria seção (D11): S +121.429 (ep 13.536); M +21.141 (ep 55.047) pela
+  amostra e +79.342 exato no bweb inteiro; B -142.570 (ep 56.539).
+
+3. LEITURA DOS 90%
+  Fração do aumento líquido: B 80,4% (ep 2,0), M 7,9% (exato 9,8%), S 11,8% (ep 0,7). Ancorada: B 78,5% (IC de 77,1% a
+  79,9%). Como M sozinho já é 9,8% do aumento, o teto de B era 90,2% se S não subisse nada. NÃO ATENDIDA. O intervalo
+  não contém 90%.
+  O que a leitura valia: plantando eleitores reais para Lula (canal sorteado na composição da seção), a fração de B
+  fica em 81,8% com 25% da margem e 83,4% com a margem inteira. Nunca chega a 90%. A leitura não separava as duas
+  hipóteses.
+
+4. REGRESSÃO POR SEÇÃO (efeito fixo de UF, 2.990 seções do Brasil, votos ganhos por eleitor a mais no canal)
+     desfecho                 coef. em B (ep)      coef. em S + M (ep)   contraste (ep)        ep por UF   ep por município
+     ganho de Lula              +0,743 (0,021)    +0,780 (0,031)     +0,037 (0,027)     0,025       0,027
+     ganho de Flávio (espelho)  +0,375 (0,016)    +0,355 (0,022)     -0,020 (0,017)     0,021       0,016
+     brancos e nulos (placebo)  -0,029 (0,011)    -0,043 (0,015)     -0,014 (0,013)     0,009       0,012
+     eliminados                 -0,089 (0,017)    -0,092 (0,028)     -0,002 (0,026)     0,022       0,025
+     margem (Lula - Flávio)     +0,368 (0,033)    +0,424 (0,045)     +0,056 (0,036)     0,038       0,036
+  Critério: contraste de Lula de 0,25 ou mais a mais de 3 ep. Observado +0,037, a 1,33 ep (por UF 1,48; reamostragem:
+  ep 0,027). Espelho de Flávio -0,020, a -1,19 ep.
+  Ao lado. M e S separados, Lula: B 0,735, M 0,762 (ep 0,035), S 0,886 (ep 0,092); Flávio: B 0,381, M 0,368 (ep
+  0,023), S 0,275 (ep 0,073). Contraste S menos B: Lula +0,151 (1,56 ep), Flávio -0,106 (-1,38 ep). Com controles do
+  1º turno: D_L +0,004 (ep 0,017), D_F -0,013 (ep 0,017). Mesma urna e mesmos aptos (2.643 seções): D_L +0,034 (ep
+  0,032), D_F -0,032 (ep 0,021). Com as 10 do exterior: D_L +0,031, D_F -0,014.
+
+5. CALIBRAÇÃO POR EFEITO PLANTADO NOS DADOS DE 2026 (200 cópias por cenário, semente 20261110)
+     cenário                                                        plantado   alta de S+M   fração B   D_L     D_F    nível>=25%  contraste  SINAL  SEM SINAL
+     PA mesa espalhada, 10% da margem                                 449.496     +449.496     69,5%  +0,052 -0,028       0%         0%     0%      0%
+     PB mesa concentrada, 10% da margem                               450.578     +450.578     69,5%  +0,097 -0,108       0%         0%     0%      0%
+     PA mesa espalhada, 25% da margem                               1.123.192   +1.123.192     57,8%  +0,073 -0,040     100%         0%     0%      0%
+     PB mesa concentrada, 25% da margem                             1.122.320   +1.122.320     57,8%  +0,156 -0,204     100%         0%     0%      0%
+     PA mesa espalhada, margem inteira                              4.496.138   +4.496.138     31,3%  +0,152 -0,100     100%         0%     0%      0%
+     PB mesa concentrada, margem inteira                            4.495.987   +4.495.987     31,3%  +0,177 -0,232     100%         0%     0%      0%
+     PE espelho: mesa espalhada a favor de Flávio, 25% da margem    1.123.851   +1.123.851     57,7%  +0,013 +0,020     100%         0%     0%      0%
+     PE espelho: mesa concentrada a favor de Flávio, 25% da margem  1.134.743   +1.134.743     57,6%  -0,363 +0,315     100%         0%     0%      0%
+     I1 abstenção pura de 3,6% dos votos de Flávio                  2.150.491     -266.428     58,6%  +0,043 -0,018       0%         0%     0%    100%
+     I2 eleitores reais para Lula espalhados, 10% da margem           450.552      +65.928     81,1%  +0,036 -0,021       0%         0%     0%      0%
+     I2 eleitores reais para Lula espalhados, 25% da margem         1.125.275     +165.456     81,8%  +0,035 -0,023       0%         0%     0%      0%
+     I2 eleitores reais para Lula espalhados, margem inteira        4.495.895     +661.392     83,4%  +0,029 -0,031     100%         0%     0%      0%
+     I2 eleitores reais para Lula concentrados, 25% da margem       1.128.889     +161.876     81,9%  +0,031 -0,017       0%         0%     0%      0%
+     I2 eleitores reais para Lula concentrados, margem inteira      4.503.402     +658.098     83,4%  +0,021 -0,017      98%         0%     0%      0%
+     I3 leitor pior espalhado, 25% da margem                        1.109.021   +1.109.021     41,7%  +0,078 -0,002     100%         0%     0%      0%
+     I3 leitor pior concentrado, 25% da margem                      1.110.031   +1.110.031     41,7%  +0,021 -0,001     100%         0%     0%      0%
+  Nível: o teste enxerga. A quantia plantada pela mesa volta inteira na estimativa de S + M (recuperação de 1,014) e
+  nenhuma cópia com 10% da margem plantados é absolvida. O nível sozinho não separa mesa de leitor pior (I3 sobe S + M
+  do mesmo tanto) nem de entrada grande de eleitores reais (a margem inteira em eleitores reais sobe S + M em
+  661.392).
+  Regressão: SEM PODER no limiar registrado. O contraste de Lula sobe para 0,073 (espalhada) e 0,156 (concentrada) com
+  25% da margem, e para 0,152 e 0,177 com a margem inteira; 0,25 nunca é alcançado. Motivo: o eleitor a mais de B já
+  rende 0,743 voto a Lula, então o teto do contraste é 0,257. No espelho o teto é 0,625: a mesma fraude a favor de
+  Flávio, concentrada, daria D_F de 0,315 e dispararia em 100% das cópias. O critério registrado ficou, sem que isso
+  tivesse sido notado ao registrar, alcançável a favor de Flávio e inalcançável a favor de Lula.
+  O que a regressão enxerga sem o limiar (exploratório): forma concentrada sim (10% da margem mexe D_F em -0,088, 5,3
+  ep do observado; 25% em -0,184); forma espalhada não (25% mexe D_L em +0,036 e D_F em -0,020, cerca de 1 ep).
+  Distinção: nenhuma explicação inocente plantada vira SINAL (0% das cópias), mas só porque nada vira. Abstenção pura
+  de 3,6% dos votos de Flávio derruba o saldo de S + M em 266.428 e faria o teste dizer SEM SINAL em 100% das cópias:
+  o saldo mistura entrada e saída. Retirada de eleitores de Flávio do registro deixa o mesmo boletim que abstenção:
+  este teste não a vê.
+
+6. SAÍDAS (seções em que B caiu) E CAUDAS
+     domínio        seções no país     dB            dM           dS          dcomp        ganho Lula   ganho Flávio
+     B caiu          130.126 ( 782)     -903.395    +484.894     +25.127     -393.374   +1.874.348     +347.280
+     B igual          24.461 ( 147)           +0     +39.604     +47.092      +86.695     +448.452     +160.910
+     B subiu         344.618 (2071)   +3.207.725    -299.190    +265.078   +3.173.613   +8.091.281   +3.100.562
+  Erros-padrão no JSON (dM onde B caiu: 27.322; dS onde B subiu: 14.680). Onde B caiu, mais da metade da queda
+  reaparece em M; S quase não se mexe (+25.127). Onde B subiu, S sobe junto (+265.078) e M cai. Regressão dentro de 'B
+  caiu': Lula 0,693 em B e 0,646 em S + M (contraste -0,047, ep 0,073); Flávio 0,405 e 0,466 (contraste +0,061, ep
+  0,049).
+  Caudas de S+M: subiu 10 ou mais em 216 seções da amostra (35.943 no país, soma +473.246); caiu 10 ou mais em 88
+  (14.643, soma -209.333); assimetria +263.913 (ep 46.297). Todas as altas somadas: +1.416.078; todas as quedas:
+  -853.474.
+  Caudas de M: subiu 10 ou mais em 140 seções da amostra (23.296 no país, soma +281.718); caiu 10 ou mais em 88
+  (14.643, soma -213.826); assimetria +67.892 (ep 39.535). Todas as altas somadas: +1.137.023; todas as quedas:
+  -911.715.
+  Caudas de S: subiu 10 ou mais em 14 seções da amostra (2.330 no país, soma +50.753); caiu 10 ou mais em 1 (166, soma
+  -1.664); assimetria +49.088 (ep 16.624). Todas as altas somadas: +472.747; todas as quedas: -135.451.
+  Nas seções com S + M subindo 10 ou mais: dB -1,32, dM +10,01, dS +3,15, comparecimento +11,84, ganho de Lula +25,75,
+  de Flávio +8,82. Caindo 10 ou mais: dB +15,62, dM -14,02, comparecimento +1,33, Lula +17,90, Flávio +4,23. Resto:
+  comparecimento +5,40, Lula +20,57, Flávio +7,20. Margem (Lula menos Flávio): +16,93 (ep 1,00) na alta, +13,67 (ep
+  1,33) na queda, +13,37 (ep 0,24) no resto.
+  Exploratório (X2): recentrando na média (+1,13), 110 seções sobem 10 ou mais e 126 caem 10 ou mais: a assimetria
+  some. Margem acima do que os mesmos eleitores dariam pelo canal B: +0,83 (ep 0,81) na cauda de alta, contra +8,4 se
+  a alta fosse voto lançado para Lula.
+
+7. A MESMA DECOMPOSIÇÃO POR REGIÃO E POR UF (descritivo; dcomp e dM exatos do bweb, S ancorado, B por diferença)
+     lugar                  n     dcomp exato   (%)       dM exato   dS (ep)             S + M      fração de B (ep)   excesso de M   ganho Lula   ganho Flávio   D_L (ep)
+     Norte                 272     -237.883   -2,25      -4.786    -12.520 ( 3.848)    -17.306         92,7% (1,6)      +7.416     +474.024      +14.110   +0,06 (0,09)
+     Nordeste              849     +826.761   +2,33    +148.972    +65.278 ( 7.616)   +214.250         74,1% (0,9)     +89.184   +2.955.848     +397.763   +0,04 (0,05)
+     Sudeste              1224   +1.613.905   +3,15    +138.338   +197.019 (11.008)   +335.357         79,2% (0,7)     +29.571   +4.800.333   +1.944.892   -0,00 (0,05)
+     Sul                   416     +518.761   +2,85     +18.987    +47.534 ( 6.026)    +66.521         87,2% (1,2)     -22.605   +1.332.846     +866.745   +0,08 (0,03)
+     Centro-Oeste          229     +199.018   +2,12     -11.272    +15.539 ( 4.091)     +4.267         97,9% (2,1)     -24.225     +770.876     +470.431   +0,06 (0,10)
+     Exterior               10      +39.679  +11,61          +0    +27.006 ( 8.592)    +27.006        31,9% (21,7)          +0      +42.769      +27.597   n/d
+     PI MA TO PB CE        395     +129.886   +0,81     +49.467     +4.199 ( 4.567)    +53.666         58,7% (3,5)     +39.826   +1.144.955      +94.818   -0,05 (0,08)
+     RS RJ SC SP PR       1275   +1.668.805   +3,06    +114.262   +151.814 ( 9.885)   +266.076         84,1% (0,6)      -3.572   +4.819.079   +2.286.089   +0,01 (0,04)
+     demais UFs           1320   +1.121.871   +2,06    +126.510   +156.791 (11.269)   +283.301         74,7% (1,0)     +43.088   +4.369.893   +1.313.034   +0,09 (0,04)
+     PI                     68       -1.053   -0,05      +7.757       -273 ( 1.274)     +7.484    saldo perto de 0      +8.039     +130.279       +8.831   -0,11 (0,18)
+     MA                    105      -32.572   -0,78     +10.698     -4.443 ( 3.253)     +6.255       119,2% (10,0)     +12.611     +241.930       -9.069   -0,23 (0,16)
+     TO                     25      -10.433   -1,08      -3.753     -2.204 (   971)     -5.957         42,9% (9,3)      -3.160      +38.953       -1.405   n/d
+     PB                     69      +59.572   +2,22     +12.309     +1.115 ( 1.514)    +13.424         77,5% (2,5)      +8.060     +252.932      +33.833   +0,06 (0,16)
+     CE                    128     +114.372   +1,94     +22.456    +10.323 ( 2.369)    +32.779         71,3% (2,1)     +14.276     +480.861      +62.628   +0,00 (0,12)
+     RS                    151     +186.735   +2,79     +30.950    +36.675 ( 4.977)    +67.625         63,8% (2,7)     +15.565     +529.793     +300.595   +0,07 (0,10)
+     RJ                    237     +217.647   +2,21     +55.119    +29.102 ( 4.413)    +84.221         61,3% (2,0)     +37.542     +872.372     +202.189   -0,10 (0,08)
+     SC                     95     +114.144   +2,46      +6.417    +11.603 ( 2.293)    +18.020         84,2% (2,0)      -2.480     +291.146     +220.051   +0,14 (0,12)
+     SP                    622     +932.397   +3,53     +40.156    +74.695 ( 6.423)   +114.851         87,7% (0,7)     -18.510   +2.613.861   +1.217.155   -0,03 (0,06)
+     PR                    170     +217.882   +3,18     -18.380     +1.901 ( 1.997)    -16.479        107,6% (0,9)     -35.689     +511.907     +346.099   +0,07 (0,04)
+  Leitura: nas cinco UFs de maior diferença o comparecimento quase não subiu (+0,81%), Lula ganhou 1.144.955 e Flávio
+  94.818; M responde por 49.467 do saldo de 129.886 e S ficou parado (+4.199). O saldo de S + M ali é 5,1% da virada
+  de margem das cinco UFs; nas cinco de menor diferença, 10,5%. Composição do comparecimento do 1º turno nas cinco de
+  maior: B 90,0%, M 6,6%, S 3,4%; nas de menor: B 88,0%, M 6,9%, S 5,1%. Com n de 25 a 128 por UF, os números de S por
+  UF são grossos; os de comparecimento e de M são exatos. Onde o comparecimento caiu (Norte, MA, TO), a 'fração de B'
+  é a parte de B na queda.
+
+8. TRADUÇÃO EM VOTOS DE MARGEM
+  (a) Teto pelo saldo: se cada eleitor a mais de S e de M fosse um voto lançado para Lula, 562.604 votos pela letra
+  (12,7% da margem; IC de 10,1% a 15,3%) e 636.997 ancorado (14,4%; teto de 95% 678.076, 15,3%). Só o Brasil: 601.872
+  (13,6%).
+  (b) Pela regressão: a margem que acompanha o saldo de S + M além do que acompanharia pelo canal B é +31.717 votos
+  (ep 20.391), 0,72% da margem; sobre a soma das altas, +79.832 (ep 50.689). Na calibração essa tradução devolve só
+  14% da quantia plantada espalhada e 52% da concentrada (25% da margem): vale como piso grosso, não como medida.
+  (c) Pelas réguas inocentes (exploratório, Brasil): S + M esperado de 355.515 (proporcional ao comparecimento do 1º
+  turno) a 485.579 (mesma alta em pontos para eleitores com e sem biometria, M proporcional); observado 601.872; sobra
+  de 116.293 a 246.357 (ep 15.604), 2,6% a 5,6% da margem. Pela régua b, S esperado 300.452 e observado 311.633 (ep
+  15.604): a sobra é toda de M. Se a entrada fosse proporcional aos faltosos, S subiria 878.159 (os sem biometria são
+  30,1% dos faltosos).
+
+9. A FAVOR DA TESE (sem suavizar)
+  1. A leitura fixada antes NÃO foi atendida: B (digital reconhecida) responde por 80,4% do aumento líquido pela letra
+  e 78,5% com os totais exatos, não por 90%. S + M, que eram 12,4% do comparecimento do 1º turno, carregam 21,5% do
+  aumento.
+  2. O teste não consegue dizer SEM SINAL: o saldo de S + M é de 562.604 (letra) a 636.997 (ancorado) eleitores e o
+  limite inferior de 95% (447.629; ancorado 595.918) fica acima de 10% da margem.
+  3. Os canais sem biometria cresceram mais depressa que o da digital: B +2,10%, M +3,48% (exato), S +4,66%. Sobre o
+  que a composição do 1º turno daria, sobram +121.429 em S (ep 13.536) e +79.342 em M (exato, bweb inteiro).
+  4. A alta de M (liberação pelo mesário) passa das réguas de proporção: M subiu 290.239 (exato) quando a proporção
+  daria de 185.127 a 195.015. A sobra, de 79.342 a 105.112 liberações (1,8% a 2,4% da margem), pode ser leitor pior ou
+  liberação indevida, e o boletim não separa. Ela está no Nordeste (excesso exato de M +89.184) e no RJ (+37.542). No
+  PI o comparecimento ficou parado (-1.053) e M subiu 7.757; no MA o comparecimento caiu 32.572 e M subiu 10.698.
+  5. Nas cinco UFs de maior diferença (PI, MA, TO, PB, CE) B responde por só 58,7% do aumento líquido (ep 3,5 ponto),
+  contra 84,1% nas cinco de menor (RS, RJ, SC, SP, PR). Ressalva: nas cinco de maior o saldo é pequeno (+0,81% do
+  comparecimento), então a fração é de pouca coisa.
+  6. Caudas: há 2,45 seções com S + M subindo 10 ou mais para cada seção caindo 10 ou mais (35.943 contra 14.643 no
+  país; assimetria de +263.913 eleitores, 5,7 ep). Nas seções de alta o comparecimento subiu 11,8 com B caindo 1,3:
+  ali todo o aumento entrou sem digital reconhecida.
+  7. O eleitor a mais de S (sem biometria no cadastro) rende a Lula 0,89 voto e a Flávio 0,28, contra 0,73 e 0,38 no
+  canal B: a direção é a da tese, sem passar de 1,6 ep.
+  8. A regressão é cega para voto lançado de forma espalhada: 25% da margem plantados assim mexem o contraste em só
+  +0,036, do mesmo tamanho do contraste observado (+0,037). Ela não absolve essa forma.
+  9. Limite do teste, dito antes: saldo esconde entradas compensadas por saídas no mesmo canal, e todos os campos saem
+  do programa da urna. N1 não pesa contra a hipótese de programa que registre biometria falsa.
+
+10. CONTRA A TESE (sem suavizar)
+  1. Tamanho: mesmo que cada eleitor a mais de S e de M fosse um voto lançado pela mesa para Lula, seriam 636.997
+  votos (teto de 95%: 678.076), 14,4% da margem (teto 15,3%). Faltam 9,3 ep para o limiar de SINAL pela letra. Pelo
+  menos 85% da margem não entrou, em saldo, por S nem por M.
+  2. S subiu o que a régua inocente prevê: o comparecimento dos eleitores sem biometria subiu 1,81 ponto (de 40,8%
+  para 42,6%) e o dos eleitores com biometria 1,79 ponto (de 83,6% para 85,4%). Diferença de 0,02 ponto (ep 0,10):
+  +3.008 eleitores, no máximo +34.755 (exploratório). Se a mesa votasse por quem faltou, o alvo fácil seria o eleitor
+  sem biometria (59% deles faltam e basta o ano de nascimento); o comparecimento deles não subiu mais que o dos
+  outros.
+  3. O eleitor a mais de S + M divide o voto como o eleitor a mais de B: Lula 0,780 contra 0,743, Flávio 0,355 contra
+  0,375. Voto lançado para Lula daria 1 e 0. Para cada 100 eleitores a mais em S + M, Flávio ganhou 36 votos (16 ep
+  acima de zero). Em S sozinho, que não sofre com erro de leitor, Flávio ganha 0,28 por eleitor a mais (3,8 ep acima
+  de zero). Com controles do 1º turno os contrastes são +0,004 (ep 0,017) e -0,013 (ep 0,017).
+  4. Forma concentrada: 10% da margem lançados pela mesa em 5% das seções mexeriam o contraste de Flávio em -0,088
+  (5,3 ep) e 25% em -0,184; o observado é -0,020 (ep 0,017). Essa forma teria aparecido (leitura exploratória, sem o
+  limiar de 0,25).
+  5. A assimetria das caudas é só o deslocamento da média: recentrando na média de +1,13, são 110 seções da amostra
+  acima de +10 contra 126 abaixo de -10. Nas seções de alta a margem de Lula ficou +0,83 voto (ep 0,81) acima do que
+  os mesmos eleitores dariam pelo canal B; se a alta fosse voto lançado, ficaria +8,4 (exploratório).
+  6. M anda ao contrário de B, como reclassificação do mesmo eleitor: nas 130.126 seções em que B caiu (-903.395), M
+  subiu 484.894; onde B subiu (+3.207.725), M caiu 299.190. O plantio de 'leitor pior' reproduz alta de S + M sem
+  mudar voto nenhum.
+  7. Onde o indício da Onda A é mais forte, o canal sem biometria é pequeno: em PI, MA, TO, PB e CE o saldo de S + M é
+  +53.666 (ep 4.567), 5,1% da virada de margem dessas UFs (1.050.137 votos). No país, 9,6% da virada de 6.655.158.
+  8. Boletim igual ao bweb em 3.000 de 3.000 seções nos dois turnos (35.054 linhas de voto, aptos, comparecimento e
+  M), sorteio refeito e igual à lista. Isso fecha alteração depois da urna nessas seções; não diz nada sobre o
+  programa.
+  9. A leitura dos 90% falharia mesmo sem fraude: B é 87,6% do comparecimento, então entrada proporcional de eleitores
+  reais dá menos de 90%. A falha da leitura, sozinha, não é indício.
+
+11. O QUE ISSO SIGNIFICA
+  N1 não decide a tese e estreita o caminho da mesa. Os votos a mais entraram em sua maior parte (78,5% a 80,4%) por
+  eleitores cuja digital a urna registrou como reconhecida, e o restante (636.997 eleitores, 14,4% da margem) por S e
+  M. Desse restante, S está na régua inocente e a parte que passa da régua é a alta de M, da ordem de 79.342 a 105.112
+  liberações (1,8% a 2,4% da margem). Voto lançado pela mesa não pode ser o portador da margem em saldo (teto de
+  15,3%); somando ao saldo a saída de eleitores de Flávio que a Onda A estimou (2,67% dos votos dele no 1º turno, dos
+  quais cerca de 185.829 votariam por S ou M), o teto fica perto de 20% da margem (conta ilustrativa, exploratória). A
+  leitura registrada (B com 90% ou mais) não foi atendida e o critério de SEM SINAL também não: fica INCONCLUSIVO. O
+  'dobro da taxa' da Onda A reaparece aqui dentro do canal da digital: cada eleitor a mais em B rende 0,74 voto a Lula
+  e 0,37 a Flávio. Portanto, se a virada pelo comparecimento for irregular, a irregularidade teria de estar no
+  registro da biometria pelo programa (que dado público não testa) ou na retirada de eleitores de Flávio (que boletim
+  não distingue de abstenção). As duas só se decidem com caderno de votação. Se for mobilização desigual, é o que
+  estes números mostram sem precisar de mais nada.
+
+12. PISTAS
+  1. Liberação manual (M) no Nordeste e no RJ: excesso exato de M de +89.184 no Nordeste (PI +8.039, MA +12.611, CE
+  +14.276, PB +8.060) e +37.542 no RJ, contra -35.689 no PR e -18.510 em SP. É o objeto do B2 (D2-1) e do C1 (logs:
+  quem liberou e a que horas): começar por PI e MA, onde M subiu com o comparecimento parado ou caindo.
+  2. Cadernos de votação: pedir primeiro nas seções da amostra com as maiores altas de S + M (lista de 30 no JSON,
+  campo X7) e nas seções de PI, MA, PB e CE em que M subiu e B caiu. Cada seção da amostra representa cerca de 166 do
+  país.
+  3. Exterior: sem biometria nenhuma, o comparecimento subiu 39.679 (11,6%), com Lula +42.769 e Flávio +27.597. É onde
+  a mesa não deixa marca no boletim; liga com o A5.
+  4. Seções com muito eleitor sem biometria (RS com S de 10,0% do comparecimento, RJ 7,3%, contra PR 0,6%): as 14
+  seções da amostra com S subindo 10 ou mais estão listadas no JSON (5 no exterior; as outras em BA 1, ES 2, GO 1, MG
+  2, PE 1, RJ 1, RS 1).
+  5. Perfil do comparecimento do 2º turno (o TSE ainda não publicou): com ele dá para refazer a régua de S por idade,
+  que aqui é só aproximada pelo cadastro de julho.
+  6. O que N1 não alcança: programa que registre biometria falsa e eleitor de Flávio dado como ausente. Para os dois,
+  só caderno de votação e o comprovante no e-Título, nas UFs do indício.
+
+13. DESVIOS E DECISÕES
+  1. Nenhum limiar foi mudado. Decisões que o registro não fixava foram escritas no docstring antes de qualquer conta
+  com votos (SHA-256 do docstring no JSON; cópia em
+  /home/user/trabalho-eleicao/adendo27/R27_N1/docstring_antes_de_rodar.txt, 05:37 UTC).
+  2. D2: nas 10 seções do exterior, que não trazem o campo de habilitações, S = comparecimento, B = M = 0. Só com o
+  Brasil o saldo de S + M é 530.535 (ep 56.724); ancorado, 601.872 (ep 15.604). O veredito não muda.
+  3. D6 e D7: a regressão usa as 2.990 seções do Brasil, sem peso, com erro robusto por seção (HC1). Com erro agrupado
+  por UF (o de lib.fe_ols) o contraste fica a 1,48 ep; a conclusão não muda.
+  4. D4: o estimador ancorado nos totais exatos do bweb vai ao lado; o veredito é o da letra e os dois coincidem.
+  5. D14 e D15: a regra de poder e os rótulos por parte são meus. Por ela a cláusula da regressão é SEM PODER: o
+  limiar registrado de 0,25 fica colado no teto de 0,257 e nenhuma irregularidade plantada o alcança. O SINAL pela
+  letra não podia ocorrer para Lula (para Flávio podia: o espelho plantado concentrado dispara em 100% das cópias).
+  6. Leitura dos 90% julgada pela estimativa pontual (D5). Ela é inatingível também na entrada inocente plantada; isso
+  é dito no veredito.
+  7. PB com a margem inteira usa 25% das seções em vez de 5% (em 5% não cabem os votos); o I3 usa a soma de B estimada
+  pela amostra.
+  8. Ordem dos fatos: a extração do bweb e dos boletins rodou primeiro por uma cópia das mesmas funções na pasta de
+  trabalho (extrair_N1.py), sem conta nenhuma; depois foi refeita pelo script final e o resultado é idêntico. Antes do
+  docstring, um boletim (PI, 10090, zona 8, seção 116) foi aberto para ver o formato e mostrou os votos dessa seção.
+  9. Exploratório (escolhido depois de ver o resultado, não decide nada): réguas inocentes X1 (com o perfil do
+  eleitorado extraído pelo A5, que não refiz), caudas recentradas X2, leitura da regressão sem o limiar X3, Brasil
+  separado do exterior X4, saldo contra a virada por lugar X5 e lista de seções X7.
+  10. O exato do comparecimento no universo do sorteio é +2.960.241 (o +2.960.239 nacional inclui uma seção do
+  exterior que só existiu no 1º turno, com 2 votos).
+  11. Não há comparação com outro ano neste teste: todos os números são os brutos de 2026.
+
+14. O QUE FOI FIXADO ANTES E O QUE É EXPLORATÓRIO
+  Fixado no Adendo 28 antes de rodar: os dados, o estimador, a regressão, os limiares de SINAL e de SEM SINAL, a
+  leitura dos 90%, as saídas e as caudas. Fixado no docstring antes de qualquer conta com votos: D1 a D17 (exterior,
+  tipo de erro, estimador ancorado, cenários e regra de poder da calibração, rótulos por parte, tradução,
+  conferência). Exploratório, depois de ver o resultado: X1 a X7 e as frases marcadas como exploratórias. Contagem: um
+  veredito combinado e três partes, nenhum SINAL; no exploratório foram olhadas cerca de doze comparações, das quais
+  nenhuma a mais de 3 ep na direção da tese depois de descontada a régua (o acaso daria 0,03).
+  Condições do Adendo 27 para um resultado contar como indício: (i) conferente independente, ainda não feito; (ii)
+  calibração, feita (nível com poder, regressão sem); (iii) espelho, feito (Flávio não mostra o mesmo).
+
+15. ARQUIVOS
+  /home/user/casa-control/eleicao-2026/scripts/analisar_R27_N1.py
+  /home/user/casa-control/eleicao-2026/resultados/R27_N1_canal_de_entrada.json
+  /home/user/casa-control/eleicao-2026/resultados/R27_N1_canal_de_entrada.txt
+  /home/user/trabalho-eleicao/adendo27/R27_N1/docstring_antes_de_rodar.txt
+  /home/user/trabalho-eleicao/adendo27/R27_N1/docstring_antes_de_rodar.sha256
+  /home/user/trabalho-eleicao/adendo27/R27_N1/analisar_R27_N1_antes_de_rodar.py
+  /home/user/trabalho-eleicao/adendo27/R27_N1/bu_amostra.json
+  /home/user/trabalho-eleicao/adendo27/R27_N1/bweb_amostra_1t.json
+  /home/user/trabalho-eleicao/adendo27/R27_N1/bweb_amostra_2t.json
+  /home/user/trabalho-eleicao/adendo27/R27_N1/bweb_pop_1t.json.gz
+  /home/user/trabalho-eleicao/adendo27/R27_N1/bweb_pop_2t.json.gz
+  /home/user/trabalho-eleicao/adendo27/R27_N1/parcial_tudo.json
+  /home/user/trabalho-eleicao/adendo27/R27_N1/parcial_calibracao.json
