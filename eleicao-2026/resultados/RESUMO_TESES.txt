@@ -1,3 +1,7 @@
+AVISO (10/11/2026): este arquivo é anterior ao recálculo dos Adendos 27 a 31. A leitura atual está em
+resultados/SINTESE_RECALCULO.txt. Não valem mais como contrapeso: o governador na mesma urna (T22b e F20), as
+"seções com pouca biometria" (L7) e o "sem sinal" da troca proporcional (T14), todos revistos para sem poder.
+
 RESUMO DAS TESES DE FRAUDE NO 2º TURNO DE 2026 E O QUE OS DADOS MOSTRARAM (02/11/2026)
 
 Cada linha: tese, de onde veio, situação, onde está a prova no repositório.

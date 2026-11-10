@@ -1,3 +1,7 @@
+AVISO (10/11/2026): este arquivo é anterior ao recálculo dos Adendos 27 a 31. A leitura atual está em
+resultados/SINTESE_RECALCULO.txt. Não valem mais como contrapeso: o governador na mesma urna (T22b e F20), as
+"seções com pouca biometria" (L7) e o "sem sinal" da troca proporcional (T14), todos revistos para sem poder.
+
 CAÇA AO FURO: A ÚNICA PORTA ABERTA, DECOMPOSTA EM HIPÓTESES E TESTES (03/11/2026)
 
 Enquadramento: perícia. Para cada hipótese de como a contagem teria sido desviada, derivamos a ASSINATURA que

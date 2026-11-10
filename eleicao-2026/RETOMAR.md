@@ -1,14 +1,14 @@
 # Retomar a investigação numa sessão nova
 
-Passagem escrita em 09/11/2026 para continuar ou refazer o trabalho com outro modelo. Vale junto com o `README.md` (ponto de entrada até o Adendo 22) e o `PRE-REGISTRO-2026-10-26.md` (critérios de todos os testes).
+Passagem escrita em 09/11/2026 e atualizada em 10/11/2026, depois do recálculo dos Adendos 27 a 31, para continuar ou refazer o trabalho com outro modelo. Vale junto com o `README.md` (ponto de entrada até o Adendo 22) e o `PRE-REGISTRO-2026-10-26.md` (critérios de todos os testes).
 
 ## 1. Onde está tudo
 
 | Onde | O que tem |
 |---|---|
 | GitHub `leonardo-defant/casa-control`, branch `claude/new-session-5cnflo`, pasta `eleicao-2026/` | Tudo o que foi achado, em commits com horário. É a fonte da verdade. |
-| `PRE-REGISTRO-2026-10-26.md` | Critérios de cada teste, escritos antes de rodar: registro inicial (T1 a T6) e Adendos 1 a 26. |
-| `README.md` | Situação, tese do Léo, fatos conferidos e resultados até o Adendo 22. Os Adendos 23 a 26 estão resumidos aqui, na seção 4. |
+| `PRE-REGISTRO-2026-10-26.md` | Critérios de cada teste, escritos antes de rodar: registro inicial (T1 a T6) e Adendos 1 a 31. |
+| `README.md` | Situação, tese do Léo, fatos conferidos e resultados até o Adendo 22. Os Adendos 23 a 31 estão resumidos aqui, na seção 4, e em `resultados/SINTESE_RECALCULO.txt`. |
 | `resultados/` | Um arquivo por teste. Os principais:<br>• `ADENDOxx_resultados.txt`: resumo de cada adendo;<br>• `testes_adendoxx_com_conferencia.json`: números completos e conferência independente;<br>• sínteses `RESUMO_TESES.txt`, `CACA_AO_FURO.txt` e `onde_pode_estar_a_fraude.txt`. |
 | `checagens/` | Posts e reels das redes checados: reel do Felipe Cecílio, post dos 84,7 segundos, "passo a passo da fraude", reel hugo.hal, relatório pericial do Instagram. |
 | `scripts/` | Todo o código (Python, sempre com `python3 -I`). |
@@ -61,60 +61,80 @@ O trabalho é de detecção: hipótese, marca esperada, teste. Nunca se escreve 
    - sem identificador de modelo em commit.
 6. **O disco da sessão é limitado.** Apague intermediários grandes, porque os zips do bweb e os pacotes da amostra enchem o espaço.
 
-## 4. Estado em 09/11/2026
+## 4. Estado em 10/11/2026, depois do recálculo
+
+A leitura completa está em `resultados/SINTESE_RECALCULO.txt`. Ela substitui, onde houver diferença, o README (seções 5.2 e 5.3), o `RESUMO_TESES.txt` e o `CACA_AO_FURO.txt`.
 
 ### 4.1 Leitura atual
 
-Nenhum teste com dado público mostrou marca de fraude.
+Com tudo o que é público recalculado e atacado de novo, não apareceu marca de fraude. A virada passou por quem compareceu, e quem entrou passou pela biometria. O que resta da tese é a parte que só papel fora da urna decide.
 
-**Portas fechadas pelos dados:**
-- **Totalização e transmissão:** a soma dos boletins é igual ao oficial e as assinaturas conferem.
-- **Prorrogação:** não muda o resultado.
-- **Inserção de votos pelo mesário:** voto sem habilitação é zero.
-- **Dígitos e números redondos.**
-- **Modelo de urna:** a vantagem nas urnas antigas some quando se usa o prédio em que a seção de fato votou.
-- **Carga das urnas, horários e certificados:** as 18 seções com horário fora do padrão (L1) fecham nos próprios arquivos; nos certificados houve falha de gestão, mas as assinaturas valem.
-- **Alegações das redes checadas:** 84,7 segundos, digitais órfãs e 10 votos por urna.
+**O que bate:**
+- Os números dos Adendos 1 a 26: 307 de 307 saídas reproduzidas por agentes que não conheciam os valores.
+- A soma: o histórico oficial da totalização é, passo a passo, a soma dos boletins.
+- Os arquivos: 3.000 seções sorteadas ao acaso, 770.364 votos conferidos um a um, nenhuma diferença.
 
-**O que fica de pé:**
-- **Urna contra pesquisas no 2º turno** (L5a, Adendo 18): cerca de 2,7 pontos a mais para Lula do que as pesquisas mediam, concentrados no eleitorado de direita do 1º turno. Depende do método: os painéis online calibrados (AtlasIntel, Palver) mediram perto da urna. Não se separa, com dado público, entre transferência, comparecimento e contagem.
-- **Comparecimento:** subiu 2,92 milhões do 1º para o 2º turno, a maior alta da série. Os votantes a mais se dividiram como os demais.
-- **Exterior:** ficou 0,65 ponto abaixo de seções do Brasil de composição igual, concentrado em alguns países (Japão, Paraguai, Líbano, Espanha). Nos EUA, zero.
-- **Seções novas de 2026:** as 37.986 que não existiam em 2022 têm assimetria maior (-0,058 contra -0,011), com virada igual.
-- **A única porta aberta:** um programa adulterado na origem que reconheça o teste de integridade. Só a compilação independente do código-fonte e a publicação dos resumos (hash.dat) fecham.
+**Caminhos testados com poder e sem marca** (teto = quanto da margem o caminho poderia carregar):
+- **Depois da urna** (transmissão, totalização, pausa): teto de 9,7%.
+- **Troca de voto dentro da urna:** proporcional aos votos de Flávio (teto de 44%), regulada pela força de Lula, regra fixa, só em parte das urnas, por modelo, lote, carga e urna trocada, e por horário no fim da tarde.
+- **Voto lançado pela mesa em nome de quem faltou:** teto de 15%. Os votantes a mais entraram 80% pela digital do próprio eleitor.
+- **Branco e nulo convertido:** teto de metade da margem; a descontinuidade na divisa é igual nos quatro anos.
+
+**Indícios que ficam, nenhum com as três condições de marca de fraude:**
+- A urna cerca de 2,7 pontos acima das pesquisas para Lula no 2º turno.
+- O eleitorado de Flávio encolheu mais que o de Lula entre os turnos (0,87 a 1,76 milhão conforme o nível da comparação), sem forma de regra de programa e sem como separar saída de entrada.
+- A liberação pelo mesário não caiu no 2º turno como em 2022 e 2024, sem ligação com o voto.
+- O exterior 0,78 ponto abaixo do pareado.
+- O coeficiente do branco e nulo por seção positivo só em 2026.
+- Achados pequenos para auditoria seção a seção (lista no item 5g da síntese).
+
+**Sem teste possível com dado público:**
+- Um programa adulterado na origem que grave presença, biometria e votos de forma coerente. Os dois testes de "testemunha" desenhados para alcançar isso não funcionaram como instrumento.
+- Gatilho por horário que comece de manhã ou ao meio-dia (sem poder).
+- Fraude só no voto de presidente, igual em toda urna e nos dois turnos.
+
+**Rótulos antigos que caíram para "sem poder"** e não podem mais ser usados como contrapeso: troca proporcional T14, governador na mesma urna (T22b e F20), "seções com pouca biometria viraram igual" (L7), caudas (F5), computador da mídia (F9).
 
 ### 4.2 Adendos e vereditos
 
 | Adendo | O que testou | Resultado | Arquivo |
 |---|---|---|---|
-| 1 a 17 | Totalização, inserção, branco e nulo, troca de votos, modelos, gatilhos, governador na mesma urna, curva por força | Nenhum sinal. Pontos inconclusivos listados no README, seção 5.2 | `README.md` seções 5.1 a 5.3; `ADENDO9`, `ADENDO14`, `ADENDO16` |
-| 18 e 19 | Incoerências de lógica só dentro de 2026 (L1 a L8) e errata | A incoerência que se sustenta é urna contra pesquisas (L5a); nenhuma marca física | `ADENDO18_resultados.txt` |
-| 20 a 22 | Testes forenses nos boletins e o que não depende de ninguém (F2 a F18) | Sem sinal. Urnas antigas explicadas pelo prédio. Falhas de gestão sem efeito nos votos | `ADENDO20/21/22_resultados.txt` |
-| 23 | Exterior pareado (F19), governador nas UFs (F20), série 2014 a 2026 (F21) | F19 inconclusivo (-0,65, menos da metade do que viraria); F20 inconclusivo pela letra, sem sinal tirando AC e TO; F21 inconsistente com mecanismo repetido a favor do PT | `ADENDO23_resultados.txt`, `CACA_AO_FURO.txt` |
-| 24 | Reel @assis.salvioli, "digitais órfãs" | Contagens certas, conclusão errada. O +15,6 é nível sem o 1º turno; com controle, -0,13 ponto (ep 0,38). O 139 e o 79 são erros de digitação na mesa | `ADENDO24_resultados.txt` |
-| 25 | Vídeo "10 votos extras para Lula por urna" | Conta circular: o 5.354.957 é o ganho menos 10 vezes as urnas. Sem marca física (b = 0,951 contra 4,8 a 10 previstos) | `ADENDO25_resultados.txt` |
-| 26 | Postagem "2014 parecida com 2026" (Felipe Cecílio) | O autor não diz as métricas. 2014 é o ano mais perto de 2026 em só 3 de 10. 2026 sem sinal nos padrões de perícia. A auditoria do PSDB de 2014 não achou fraude na totalização | `ADENDO26_resultados.txt` |
+| 1 a 17 | Totalização, inserção, branco e nulo, troca de votos, modelos, gatilhos, governador, curva por força | Nenhum sinal; vários rótulos revistos no Adendo 27 | `README.md` seções 5.1 a 5.3 |
+| 18 e 19 | Incoerências de lógica só dentro de 2026 (L1 a L8) | A que se sustenta é urna contra pesquisas (L5a) | `ADENDO18_resultados.txt` |
+| 20 a 22 | Testes forenses nos boletins (F2 a F18) | Sem sinal; falhas de gestão sem efeito nos votos | `ADENDO20/21/22_resultados.txt` |
+| 23 | Exterior, governador, série 2014 a 2026 | Exterior inconclusivo; governador sem poder (revisto); série não acompanha o PT | `ADENDO23_resultados.txt` |
+| 24 | Reel das "digitais órfãs" | Contagens certas, conclusão errada | `ADENDO24_resultados.txt` |
+| 25 | Vídeo "10 votos por urna" | Conta circular; sem marca física | `ADENDO25_resultados.txt` |
+| 26 | Postagem "2014 parecida com 2026" | Sem métrica do autor; 2026 sem sinal nos padrões de perícia | `ADENDO26_resultados.txt` |
+| 27, etapa 1 | Desenho cego, equipe vermelha, leitura do chat, novidades | 21 fragilidades e 14 hipóteses sem teste | `registro/adendo27/` |
+| 27, recálculo cego | 60 números decisivos | 307 de 307 saídas batem | `R27_recalculo_cego.txt` |
+| 27, onda A | Branco e nulo, vazamento, troca com régua interna, curva por força 2002 a 2026, exterior, tipo de habilitação | Sem marca de troca; a virada passa pelo comparecimento | `ADENDO27_ondaA_resultados.txt` |
+| 27 e 28, onda B | Canal de entrada, liberações, reservatório, logs, quem não voltou, forma concentrada, carga e zona, totalização | Entrada 80% pela biometria; voto pela mesa com teto de 15% | `ADENDO27_ondaB_resultados.txt` |
+| 27 e 30, última onda | Amostra de ponta a ponta, testemunhas, horário, regra fixa, vizinho de sala, governador, coerência, pesquisas estaduais, saída contra entrada | Zero diferença na amostra; testemunhas sem poder | `ADENDO27_onda_final_resultados.txt` |
+| 29 | Carrossel "A matemática impossível" | Gráfico verdadeiro; não mede chance de fraude | `ADENDO29_resultados.txt` |
+| 31 | Régua de fora (eleições em papel) | 2026 dentro do padrão, na ponta uniforme | `ADENDO31_resultados.txt` |
 
-### 4.3 Pistas abertas, em ordem de valor
+### 4.3 O que decide, e a quem pedir
 
-1. **2014 por modelo de urna dentro do local.**
-   - O relatório da auditoria do PSDB (pp. 135 e 136) deixou em aberto um padrão bruto: margem de Dilma maior nas urnas com biometria e nas com circuito MSD.
-   - Em 2026, o padrão parecido sumiu dentro do local.
-   - Dá para testar com a base de 2014, se o modelo sair do número da urna. Precisa de adendo novo.
-2. **Seções novas de 2026 e exterior país a país** (2022 contra 2026). Oferecidos ao Léo, ainda não registrados.
-3. **Digitais órfãs** (falta de auditoria real, sem marca no voto):
-   - pedir ao TRE-MG os arquivos `wsqmes.jez` e `wsqman.jez` de Itabira (MG|46337, zona 132);
-   - pedir os cadernos de votação de BA|39713|68|82 e PI|10243|13|199.
-4. **Pedidos a terceiros:**
-   - compilação independente do código-fonte;
-   - publicação do hash.dat;
-   - detalhe da divergência do teste de integridade na CLDF;
-   - relatório do TCU (até 24/11/2026) e da missão da UE;
-   - perfil do comparecimento por idade e zona nos dois turnos.
-5. **Painel essencia-ai.com:**
-   - conferir a seção real do "Caso 1" (MA, zona 106, seção 163) como no C3;
-   - descobrir o filtro do universo de 492.988 seções.
-6. **Picos de comparecimento por município**, ligados a revisões biométricas do cadastro (P3 do Adendo 26).
+1. **Cadernos de votação** (assinaturas contra o comparecimento do boletim), aos juízos eleitorais e TREs. Lista pronta de 300 seções em `resultados/R27_N4_secoes_para_cadernos.csv`; começar por CE, PA, AP, RR e MA.
+2. **TSE:**
+   - por seção, quantos votaram no 1º turno e não no 2º, e o contrário;
+   - quantos têm comparecimento e justificativa de ausência no mesmo turno;
+   - o perfil do comparecimento do 2º turno (não publicado até 10/11);
+   - os resumos dos programas instalados (hash.dat) e os relatórios do teste de integridade.
+3. **Entidades fiscalizadoras:** compilação independente do código-fonte comparada com o programa assinado.
+4. **Qualquer eleitor:** conferir no e-Título se o comparecimento do 2º turno consta.
+5. **PL e fiscais:** os boletins impressos recolhidos nas seções, contra o bweb.
+6. **Prazos de terceiros:** relatório do TCU até 24/11/2026; auditoria do teste de integridade até 27/11/2026.
+
+### 4.4 Pistas que ainda dá para rodar com dado público
+
+- 2014 por modelo de urna dentro do local (o padrão que a auditoria do PSDB deixou em aberto).
+- Seções novas de 2026 (37.986).
+- Exterior: postos pequenos contra grandes do mesmo país; logs do exterior para o relógio.
+- Auditoria seção a seção dos achados pequenos (item 5g da síntese), baixando os arquivos como no C3.
+- Digitais órfãs: os arquivos `wsqmes.jez` e `wsqman.jez` ficam com os TREs (Itabira, MG|46337, zona 132).
+- O perfil do comparecimento do 2º turno, quando o TSE publicar: mostra por idade, sexo e escolaridade quem entrou e quem saiu.
 
 ## 5. Como rodar de novo com um modelo novo
 

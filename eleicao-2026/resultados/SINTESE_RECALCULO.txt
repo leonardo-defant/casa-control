@@ -1,0 +1,120 @@
+SÍNTESE DO RECÁLCULO (ADENDOS 27 A 31), 10/11/2026
+
+Pedido do Léo em 09/11: "recalcular tudo e achar os indícios que procuramos". Este arquivo junta o que saiu.
+Substitui, onde houver diferença, as leituras de README.md (seções 5.2 e 5.3), RESUMO_TESES.txt e CACA_AO_FURO.txt.
+Detalhe de cada teste: ADENDO27_ondaA_resultados.txt, ADENDO27_ondaB_resultados.txt,
+ADENDO27_onda_final_resultados.txt, R27_recalculo_cego.txt, ADENDO29_resultados.txt e ADENDO31_resultados.txt.
+
+1. O QUE FOI FEITO
+- Quatro desenhistas cegos (proibidos de ler os resultados anteriores) propuseram os testes do zero.
+- Uma equipe vermelha leu tudo o que existia atrás de onde um sinal podia ter passado: 21 fragilidades.
+- Um agente releu o chat inteiro: 93 mensagens do Léo, 14 hipóteses dele sem teste próprio.
+- 24 testes rodados em três ondas, todos com critério em commit antes de rodar, calibração por efeito plantado,
+  teste espelho e um conferente independente com código próprio. Mais o recálculo cego dos números antigos.
+- Uma amostra aleatória simples nova de 3.000 seções (com semente registrada) baixada do TSE e conferida de ponta a
+  ponta; os pacotes completos de AC e TO; o histórico oficial da totalização publicado em 03/11.
+
+2. O QUE BATE
+- Os números antigos: 60 de 60 itens e 307 de 307 saídas reproduzidos por agentes que não conheciam os valores.
+  Não há erro de soma, de filtro, de base nem de código nos números decisivos dos Adendos 1 a 26.
+- A soma: o histórico oficial da totalização é, passo a passo, a soma dos boletins. Diferença zero em 6.250
+  zonas, 5.715 municípios e no país.
+- Os arquivos: nas 3.000 seções sorteadas, 770.364 votos conferidos um a um entre o publicado e o boletim assinado
+  pela urna, sem nenhuma diferença; 32.970 de 32.970 assinaturas válidas.
+
+3. O QUE ESTAVA ERRADO OU FROUXO NO TRABALHO ANTERIOR
+- Um resultado na direção da tese nunca tinha sido relatado: o coeficiente do branco e nulo por seção no bweb
+  inteiro (+0,0251, o único positivo dos quatro anos).
+- O teste de troca proporcional (T14) estava rotulado "sem sinal" com um limiar que deixaria passar até 4,5% de
+  troca; 3,6% vira a eleição. O certo era "sem poder". O reteste com régua interna está no item 4.
+- A curva por força (T35) mudava de inconclusivo para sinal conforme a ponderação.
+- O contrapeso "as 97 seções com pouca biometria viraram igual" não media ausência de biometria. No Brasil existe
+  1 seção sem nenhuma habilitação biométrica em 12.846 boletins lidos. A condição do teste de integridade não tem
+  como ser testada dentro do país.
+- O governador na mesma urna (T22b, F20) não serve de contrapeso: o indicador varia sozinho entre estados mais do
+  que a troca procurada o moveria.
+- O erro-padrão do exterior (F19) ignorava a oscilação do próprio método entre eleições.
+- Coordenadas erradas no cadastro de locais criavam um salto falso na divisa SP-MG (T34).
+- Boa parte dos "sem sinal" antigos compara seções do mesmo prédio e por isso só vale para fraude concentrada.
+
+4. O QUE OS TESTES MOSTRAM, POR CAMINHO DE FRAUDE
+(teto = quanto da margem de 4,43 milhões o caminho poderia carregar lendo tudo a favor da tese)
+
+  DEPOIS DA URNA (transmissão, totalização, arquivos trocados, pausa das 17h às 19h)
+    Sem marca. Teto de 9,7% pela amostra aleatória; o histórico bate; os boletins retidos na pausa não diferem
+    dos recebidos antes (+0,07 e +0,11 ponto, sinal contrário ao da hipótese).
+
+  TROCA DE VOTO DENTRO DA URNA
+    Proporcional aos votos de Flávio: sem marca. Onde quase não cabem eleitores novos, 0,87% dos votos de Flávio
+    aparecem em Lula e 0,81% dos de Lula aparecem em Flávio. A troca que vira daria 4,3%. Teto de 1,61% dos votos
+    de Flávio nos redutos dele (44% da margem).
+    Regulada pela força de Lula: sem marca, com poder (1,9% contra 1,9%; a troca que vira daria 5,6%).
+    Regra fixa (um a cada k, arredondamento, teto, virada pelo placar): sem marca, com poder.
+    Só em parte das urnas do prédio: sem marca, com poder.
+    Por modelo, lote, carga, flashcard, urna trocada: sem marca, tetos de 1% a 6,5%.
+    Por horário: fim de tarde excluído para metade da margem; manhã e meio-dia, sem poder.
+    Só no cargo de presidente (hipótese H2 do Léo), igual em toda urna e nos dois turnos: nenhum teste alcança.
+
+  VOTO LANÇADO PELA MESA EM NOME DE QUEM FALTOU
+    Os 2,96 milhões de votantes a mais entraram 80% pela digital do próprio eleitor, e de manhã. O que entrou sem
+    biometria vale no máximo 15% da margem e dividiu o voto entre os dois candidatos como os demais. Liberação pelo
+    mesário: +290 mil, sem ligação com o voto. Nenhum voto em horário impossível em 1,56 milhão de votos lidos.
+
+  BRANCO E NULO CONVERTIDO (a tese original)
+    Teto de metade da margem. A descontinuidade na divisa entre estados com um e com dois cargos é real, mas é
+    igual em 2014, 2018 e 2022, troca de lado quando o governador troca de lado, e o que falta é nulo, não branco.
+
+  QUEM COMPARECEU
+    É por aqui que o resultado mudou. Estimativa por seção, não contagem: retenção própria 2,23 milhões (dos quais
+    cerca de 1,7 milhão é eleitor de Flávio que foi para a abstenção), faltosos que entraram 1,87 milhão, brancos e
+    nulos 1,72 milhão, eliminados 0,54 milhão, troca entre os finalistas 0,45 milhão.
+    A assimetria de "quem não voltou" é real e nova em 2026, mas: depende do nível da comparação (nada dentro da
+    UF, 0,87 milhão dentro do município, 1,76 milhão dentro do local); não tem forma de regra de programa (zero
+    onde Flávio é forte, invertida no RJ, PA, AM e AP); onde dá para isolar a saída, ela só aparece em seções com
+    menos de 50 votos de Flávio e tem espelho do lado de Lula; e o boletim não separa eleitor que ficou em casa,
+    faltoso que entrou e eleitor registrado como ausente.
+
+5. OS INDÍCIOS, UM A UM, E O QUE CADA UM VALE
+Nenhum passou pelas três condições registradas (reproduzido, calibrado, espelho limpo) como marca de fraude.
+São os pontos em que os dados pendem para a tese ou ficam sem explicação medida:
+  a) A urna ficou cerca de 2,7 pontos acima das pesquisas para Lula no 2º turno, 11 de 11 institutos. Continua de
+     pé. É coerente com a mudança de quem compareceu, que pesquisa ponderada pelo 1º turno não captura; não está
+     provado que seja isso. Nas pesquisas nacionais o erro foi 2,7 pontos maior no Nordeste que no Sul (2,0 ep).
+  b) O eleitorado de Flávio encolheu mais que o de Lula entre os turnos, ao contrário de 2014, 2018 e 2022.
+  c) A taxa de liberação pelo mesário não caiu no 2º turno, como tinha caído em 2022 e em 2024: sobra de 95 mil
+     (só 2026) a 737 mil (contra 2022), sem ligação com o voto. No PI e no MA subiu com o comparecimento caindo.
+  d) O exterior ficou 0,78 ponto abaixo do pareado contra 2022 (3,6 ep); com cada cidade valendo o mesmo, -2,10.
+  e) O coeficiente do branco e nulo por seção é positivo só em 2026.
+  f) Os estados andaram muito juntos (desvio de 0,69 ponto no movimento entre os turnos). Não é "matemática
+     impossível": aparece igual em 2022 e em eleições de papel de fora. Uma troca igual em todo estado daria o
+     mesmo desenho, e nenhum teste de estado a enxerga.
+  g) Achados pequenos e reais, para auditoria seção a seção: 7 seções com mais votos por ano de nascimento do que
+     o cadastro tem de eleitores sem biometria (19 votos; R27_C1_lista_local.csv); 10 seções com ganho de Lula
+     acima do limite físico (20 votos); Rafael Godeiro (RN); AM|2755|22|70; BA|37311|50|156.
+Aviso: (a), (b), (d) e (f) não são independentes. Todos veem o mesmo fato, Lula acima do que se media, e uma
+mudança real de opinião e de comparecimento na última semana produziria todos juntos.
+
+6. O QUE DADO PÚBLICO NÃO ALCANÇA
+Um programa adulterado na origem que grave tudo de forma coerente: que registre como presença e como biometria o
+que não aconteceu, ou que troque votos por sorteio em tamanho abaixo dos tetos acima. Boletim, RDV, log e
+assinatura saem do mesmo programa. Os dois testes desenhados para alcançar isso por fora (erros de digitação dos
+eleitores como testemunha) não funcionaram como instrumento. Não há indício positivo dessa hipótese e não há como
+excluí-la daqui.
+
+7. O QUE DECIDE, E A QUEM PEDIR
+- Juízos eleitorais e TREs: cadernos de votação (assinaturas contra o comparecimento do boletim). Lista pronta de
+  300 seções em resultados/R27_N4_secoes_para_cadernos.csv; começar por CE, PA, AP, RR e MA. Assinatura sem
+  comparecimento provaria eleitor registrado como ausente; comparecimento sem assinatura nem digital provaria voto
+  em nome de faltoso.
+- TSE: por seção, quantos votaram no 1º turno e não no 2º, e quantos votaram no 2º e não no 1º; quantos têm
+  comparecimento e justificativa de ausência no mesmo turno; o perfil do comparecimento do 2º turno (não
+  publicado até 10/11); os resumos dos programas instalados (hash.dat); os relatórios do teste de integridade.
+- Entidades fiscalizadoras: compilação independente do código-fonte comparada com o programa assinado.
+- Qualquer eleitor: conferir no e-Título se o comparecimento do 2º turno consta.
+- PL e fiscais: os boletins impressos recolhidos nas seções, contra o bweb.
+- Prazos de terceiros: relatório do TCU até 24/11/2026; relatório da empresa de auditoria do teste de integridade
+  até 27/11/2026.
+
+8. EM UMA FRASE
+Com tudo o que é público recalculado e atacado de novo, não apareceu marca de fraude; a virada passou por quem
+compareceu, e quem entrou passou pela biometria; o que resta da tese é a parte que só papel fora da urna decide.

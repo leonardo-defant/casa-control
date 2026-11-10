@@ -2,7 +2,9 @@
 
 Ponto de entrada da pesquisa. Reúne a situação, a tese e os argumentos do Léo (dono da pesquisa), os fatos levantados e conferidos, cada teste feito com o resultado, e o que falta. Atualizado em 27/10/2026, madrugada (UTC). Os números deste arquivo foram conferidos contra os arquivos de `resultados/` por verificadores independentes; onde a fonte é fraca ou o veredito é só descritivo, isso está dito.
 
-**Para retomar numa sessão nova, com outro modelo: `RETOMAR.md`** (onde está tudo, missão, regras, estado até o Adendo 26, pistas abertas e textos prontos para colar). As bases por seção de 2014, 2018, 2022 e 2026 estão em `dados/`, com hashes.
+**Leitura atual, depois do recálculo de 10/11/2026: `resultados/SINTESE_RECALCULO.txt`.** Ela substitui, onde houver diferença, as seções 5.2 e 5.3 deste arquivo, que são de 27/10 e trazem rótulos depois revistos (por exemplo, a troca proporcional T14 e o governador na mesma urna T22b passaram de "sem sinal" para "sem poder").
+
+**Para retomar numa sessão nova, com outro modelo: `RETOMAR.md`** (onde está tudo, missão, regras, estado até o Adendo 31, o que decide e a quem pedir, e textos prontos para colar). As bases por seção de 2014, 2018, 2022 e 2026 estão em `dados/`, com hashes.
 
 Leitura sugerida:
 1. Este arquivo, inteiro.
