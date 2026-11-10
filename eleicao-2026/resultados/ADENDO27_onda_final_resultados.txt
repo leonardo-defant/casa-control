@@ -1,0 +1,105 @@
+ADENDOS 27 E 30, ÚLTIMA ONDA (RESULTADOS)
+
+Registro: Adendo 27 (commit 2748895), Adendo 28 (938be19) e Adendo 30 (a7218fb, 10/11/2026 10:08:24 UTC), antes de
+rodar. Dez testes, cada um refeito por outro agente com código próprio. Em dois (N4 e C3) o conferente NÃO
+confirmou o rótulo do primeiro agente, e vale o do conferente. Números completos e correções em
+resultados/testes_adendo27_onda_final_com_conferencia.json.
+
+RESUMO EM QUATRO LINHAS
+1. Nas 3.000 seções sorteadas ao acaso no país, o boletim publicado é, voto a voto, o que entrou na soma e o que a
+   urna assinou. Zero diferença. Alteração depois da urna fica limitada a 9,7% da margem.
+2. Os dois testes de "testemunha", os únicos desenhados para enxergar uma alteração coerente dentro da urna, NÃO
+   FUNCIONARAM como instrumento. Não acusam e não absolvem.
+3. Regra fixa dentro da urna, troca em parte das urnas e gatilho de fim de tarde: sem marca, com poder.
+4. Nenhum teste desta onda deu sinal que passe pelas três condições do Adendo 27. Vários "sem sinal" antigos
+   caíram para "sem poder", o que tira contrapesos que as sínteses anteriores usavam.
+
+W3, TESTEMUNHAS NA TELA DE GOVERNADOR (AC e TO, todas as 6.654 seções, pacotes oficiais do TSE): SEM PODER
+  A ideia: no 2º turno com governador, parte dos eleitores digita 13 ou 22 na tela de governador, onde esses
+  números não são candidatos. Vira nulo com os dígitos gravados. É uma amostra da intenção para presidente que não
+  passa pela contagem de presidente.
+  Testemunhas: 81.406 no 1º turno e 57.959 no 2º. Os RDV batem com o bweb em 6.654 de 6.654 seções.
+  Resultado: Theta = -0,152 (ep 0,012), sinal CONTRÁRIO ao da tese: entre as testemunhas, o 13 cresceu MAIS do que
+  na contagem oficial. A troca que vira a eleição daria +0,081.
+  Por que não vale: o instrumento muda sozinho entre os turnos, por causa da eleição de governador, em 0,10 a 0,30
+  (AC -0,33; TO -0,09; placebo de AL em 2022 +0,22), mais que o efeito procurado. Com a troca de 3,57% plantada, o
+  critério não dispara. Não acusa e não absolve, nem 2026 nem 2022.
+
+W4, NULOS DE DIGITAÇÃO NO RDV DE PRESIDENTE (amostra aleatória de 3.000 seções): SEM PODER
+  O erro é 9 vezes o limite; seriam precisas de 200 a 270 mil seções. E o instrumento falha: o código do lado do 22
+  não acompanha o voto de Flávio (22 é a mesma tecla duas vezes e quase não tem como ser errado), e os erros do lado
+  do 13 mais que dobraram sozinhos entre os turnos. Peso zero para os dois lados.
+  Fato útil: os RDV batem com a base oficial nas 3.000 seções, nos dois turnos.
+
+DA, AMOSTRA ALEATÓRIA NOVA DE PONTA A PONTA (3.000 seções sorteadas com semente registrada)
+  bweb contra o boletim assinado: 770.364 votos conferidos um a um, zero diferença. 32.970 de 32.970 assinaturas
+  de arquivo válidas, certificados emitidos por autoridade publicada, nenhuma chave repetida, nenhuma seção sem
+  arquivo, nenhum pacote alterado desde 26/10.
+  Teto para alteração depois da urna: 499 seções no país, 9,7% da margem no pior caso absoluto.
+  Coerência entre boletim, RDV e log: uma seção em 3.000 (BA|37311|50|156) tem 185 confirmações no log e 184 votos,
+  explicada no próprio log (a urna desligou por bateria antes de computar e a votação foi reiniciada). Alcance zero.
+  Só metadado fora do lugar: hora de recebimento com 1 a 7 segundos de diferença em 58 seções.
+  O RDV publicado vem ordenado por candidato: não guarda a ordem de votação. Teste de ordem: sem poder.
+  Limite dito no próprio teste: boletim, RDV, log e assinatura saem da mesma urna. Isso é cego para programa
+  adulterado na origem.
+
+C2, GATILHO POR HORÁRIO (logs das duas amostras, 6.897 seções)
+  Fim de tarde (14h, 15h, 16h): SEM SINAL, com poder. Um gatilho que explicasse metade da margem está excluído.
+  Manhã e meio-dia (10h, 12h): SEM PODER. O teste não acusa nem absolve um gatilho que começasse cedo.
+  Reteste do T30 (18 cortes): nenhum sinal e nenhum sem sinal; inclinações positivas e pequenas dentro do prédio
+  (1,4 a 2,9 até as 15h; 9,6 às 16h, z 2,3). Enxerga troca de 10% dos votos de Flávio depois do corte, não de 5%.
+  Prorrogação: 35.491 votos depois das 17h de Brasília no país, 1,6% da margem. Depois das 19h, zero.
+  A associação "mais voto à tarde, mais virada para Lula" que aparece sem controle está entre bairros, não dentro
+  do prédio, e some com o perfil do eleitorado.
+
+N4, SAÍDA CONTRA ENTRADA: o conferente NÃO confirmou o "sinal". Vale: SEM PODER, na prática INCONCLUSIVO
+  Na faixa de seções com menos de 10% de abstenção no 1º turno a assimetria existe: -0,0223 (ep 0,0060; 3,7 ep).
+  Mas a calibração exigida pelo registro (a entrada plantada mover menos de um terço do que a retirada move) dá
+  0,348, acima de um terço. O teste não separa saída de entrada.
+  Onde mora: em seções com menos de 50 votos de Flávio (-0,075) e no Nordeste (-0,037). Com 50 ou mais votos de
+  Flávio é zero (+0,0002). E o espelho mostra o mesmo do outro lado: onde Lula é muito fraco, o eleitor de Lula
+  também voltou menos (+0,034 e +0,048). O eleitor do candidato muito minoritário no lugar volta menos, dos dois
+  lados.
+  Em votos: 12.721 na faixa (0,3% da margem). O que tem forma de saída, somando todas as faixas: 132 mil (3%).
+  Produto: resultados/R27_N4_secoes_para_cadernos.csv, 300 seções para pedido de conferência de cadernos.
+
+B4, REGRA DETERMINÍSTICA: SEM SINAL, com poder
+  "Um a cada k votos", fração arredondada, teto e virada pelo placar da urna não deixaram marca nos votos de Flávio
+  nem de Lula. Teriam deixado com folga se movessem 14% da troca necessária. Limiar de contagem ("só age depois do
+  voto K"): excluído para K = 200; sem poder para K de 50 a 150. A conta de pente em brancos e nulos acusa pela
+  letra, mas é artefato de contagens pequenas (histogramas sorteados sem regra acusam em 100% das vezes).
+
+B6, VIZINHO DE SALA E "LINEARIDADE": SEM SINAL, com poder
+  A dispersão da virada entre seções do mesmo prédio em 2026 (1,64 vez o acaso) é menor que em 2014 e 2018 e igual
+  à de 2022. Uma troca do tamanho que vira concentrada em até metade das urnas teria aparecido.
+  Sobre a suspeita de linearidade: não há dispersão MENOR que o acaso em nenhum nível, em nenhum ano. As seções do
+  mesmo prédio não viraram "parecido demais".
+  Teste de caudas (F5 recalibrado): sem poder.
+
+T22, GOVERNADOR NA MESMA URNA COM RÉGUA: SEM PODER
+  O indicador varia sozinho entre estados (desvio de 0,051 em 10 pares de 2018 e 2022) mais do que a troca que
+  vira a eleição o moveria (0,035). Não serve de contrapeso nem de indício.
+  Correção das sínteses antigas: caem o "sem sinal" do T22b e a "exclusão" do F20.
+
+C3, COERÊNCIA INTERNA E REAÇÃO NA TELA
+  (a) Boletim contra RDV e log: SEM SINAL. (b) Uma só versão de programa por modelo de urna, todas as etapas de
+  verificação com sucesso: SEM SINAL.
+  (c) Reação do eleitor na tela: o conferente corrigiu para SEM PODER. A tecla CORRIGE subiu no 2º turno onde Lula
+  é forte, não onde Flávio é forte (sentido contrário ao da tese). Mas o teste absolveria uma troca visível de um
+  quarto da margem plantada; só enxerga troca visível de metade da margem ou mais com metade dos atingidos
+  corrigindo.
+
+L5, PESQUISAS ESTADUAIS: SEM PODER
+  Só 6 UFs têm pesquisa estadual de presidente na última semana (as 6 com 2º turno de governador). Nelas a urna
+  ficou em média 1,4 ponto acima das pesquisas para Lula (de -0,5 no AC a +2,7 no RN).
+  Nas pesquisas nacionais, o erro foi 2,7 pontos maior no Nordeste que no Sul (2,0 ep, três institutos): aponta
+  para erro maior onde Lula é forte, com incerteza que cobre o zero.
+
+LEITURA
+1. O que ficou mais firme: o que foi publicado é o que as urnas assinaram, e a soma é a soma. Regra fixa,
+   troca parcial e gatilho de fim de tarde não deixaram marca.
+2. O que caiu: as testemunhas não servem como instrumento; o governador na mesma urna não serve; a reação na tela
+   não tem poder para o tamanho relevante. A hipótese de programa adulterado na origem, coerente e invisível,
+   continua sem teste possível com dado público.
+3. O indício do comparecimento não virou sinal: a "saída" só aparece onde Flávio tem poucos votos e tem espelho do
+   lado de Lula.
