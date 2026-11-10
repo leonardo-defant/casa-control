@@ -1,113 +1,115 @@
 R29: CARROSSEL "A MATEMÁTICA IMPOSSÍVEL DA ELEIÇÃO" (R² de 99,8% por estado)
 Critérios fixados antes de rodar: PRE-REGISTRO-2026-10-26.md, Adendo 29 (commit 3929135).
-Decisões que o registro não fixa: D1 a D13 do docstring de scripts/analisar_R29_J.py, escritas antes das contas.
+Decisões que o registro não fixa: D1 a D13 do docstring de scripts/analisar_R29_J.py, escritas antes das contas
+(SHA-256 do docstring: 201b07093a7f7f4dcff475551fd598f9b1ed664e567417bd24460e48e57a5b9e). O que veio depois de ver o resultado está marcado EXPLORATÓRIO.
 
 LEITURA PELA LETRA: NENHUMA DAS DUAS PELA LETRA (INCONCLUSIVO)
-  Propriedade do gráfico: mediana do melhor R² na simulação com ruído de 5 pontos = 0,9649 (pede 0,98 ou mais: NÃO); outros anos com 0,98 ou mais: 2 de 3 (2022 0,9960, 2018 0,9824, 2014 0,7891; pede 2: SIM). Vale: NÃO.
-  Anomalia de 2026: desvio-padrão dos resíduos de 2026 = 1,207 ponto; outros anos: 2022 1,008, 2018 2,392, 2014 6,178; metade do menor = 0,504 (2026 abaixo disso: NÃO); percentil 1 da simulação com ruído de 2 pontos = 1,018 (2026 abaixo disso: NÃO). Vale: NÃO.
+  'Propriedade do gráfico' pede duas coisas. (1) Mediana do melhor R² na simulação com ruído de 5 pontos de 0,98 ou mais: deu 0,9649. NÃO. (2) R² de 0,98 ou mais em pelo menos dois dos outros anos: 2022 0,9960, 2018 0,9824, 2014 0,7891. SIM (2 de 3). Vale: NÃO.
+  'Anomalia de 2026' pede duas coisas. (1) Desvio-padrão dos resíduos de 2026 abaixo da metade do menor dos outros anos: 2026 1,207 ponto; 2022 1,008; 2018 2,392; 2014 6,178; metade do menor 0,504. NÃO. (2) Abaixo do percentil 1 da simulação com ruído de 2 pontos (1,018): NÃO. Vale: NÃO.
+  Ao lado (outras definições de x, outras taxas, ruído comum): a cláusula (1) da propriedade falha nas 32 combinações (a maior mediana com ruído de 5 pontos é 0,9659). A cláusula (1) da anomalia falha também com x = adversário mais outros (2026 1,166; 2022 0,963). A cláusula (2) da anomalia mudaria para SIM em 16 das 32 combinações, todas com ruído comum (o estado inteiro balança junto): aí o percentil 1 com ruído de 2 pontos é 1,679 e 2026 fica abaixo. Como a cláusula (1) falha sempre, a leitura não muda.
 
-J1. REPRODUÇÃO DO GRÁFICO (27 UFs, 2026)
-  Candidatos do 1º turno e classificação fixada antes: 
-    22 FLAVIO BOLSONARO (PL) 56.104.503: direita (finalista)
-    13 LULA (PT) 53.879.538: esquerda (finalista)
-    70 ESCRITOR AUGUSTO CURY (Avante) 3.448.569: centro ou indefinido
-    14 RENAN SANTOS (Missão) 2.675.887: direita
-    55 RONALDO CAIADO (PSD) 2.605.148: direita
-    30 ZEMA (Novo) 326.488: direita
-    80 SAMARA (UP) 122.911: esquerda
-    16 HERTZ DIAS (PSTU) 43.103: esquerda
-    27 CLARIANA BARAO (DC) 40.043: indefinido
-    21 EDMILSON COSTA (PCB) 22.693: esquerda
-    35 VETERINÁRIO WILSON GRASSI (PMB) 16.881: indefinido
-    29 RUI COSTA PIMENTA (PCO) 15.024: esquerda
-    28 LEONARDO AVALANCHE (anulado) 5.246: candidatura anulada, fora dos válidos
-  Definição que melhor reproduz os pontos legíveis (regra D4): N2 bloco de direita (22+55+30+14) sobre válidos.
-  As seis melhores da família (x calculado em PI, BA e SC; soma dos quadrados contra 25, 30 e 75):
-    N2 bloco de direita (22+55+30+14) sobre válidos: PI 26,66, BA 31,42, SC 71,75; soma 15,33
-    N3 bloco mais Cury (22+55+30+14+70) sobre comparecimento: PI 27,67, BA 31,86, SC 72,37; soma 17,52
-    N5 tudo menos Lula sobre comparecimento: PI 27,79, BA 31,98, SC 72,58; soma 17,54
-    N4 tudo menos a esquerda (22+55+30+14+70+27+35) sobre comparecimento: PI 27,70, BA 31,89, SC 72,41; soma 17,56
-    N3 bloco mais Cury (22+55+30+14+70) sobre válidos: PI 28,88, BA 33,70, SC 74,73; soma 28,85
-    N4 tudo menos a esquerda (22+55+30+14+70+27+35) sobre válidos: PI 28,92, BA 33,73, SC 74,78; soma 29,28
-  y calculado contra o y lido no gráfico: PI 3,145 (gráfico 3,1); BA 2,486 (gráfico 2,5); SC 0,440 (gráfico 0,4).
-  Rótulos duvidosos (posição lida no gráfico, onde a UF está de fato, e as UFs mais perto da posição lida):
-    MG: lido x 69,0 e y 0,50; real x 53,05 e y 1,018; perto da posição lida: MT (68,6; 0,51), AC (68,2; 0,50), RO (71,3; 0,44)
-    RS: lido x 61,5 e y 0,78; real x 61,02 e y 0,729; perto da posição lida: RS (61,0; 0,73), MS (62,5; 0,68), ES (59,1; 0,77)
-    SP: lido x 61,5 e y 0,78; real x 57,87 e y 0,857; perto da posição lida: RS (61,0; 0,73), MS (62,5; 0,68), ES (59,1; 0,77)
-  R² dos ajustes (gráfico do autor: linear 0,935; quadrático 0,995; exponencial 0,999):
-    (a) Flávio sozinho: linear 0,9257; quadrático 0,9955; exponencial (não linear) 0,9975; exponencial pelo log 0,9944 na escala do log e 0,9972 na de y; leitura literal a*x*exp(bx) 0,9920; resíduo da reta de fatia 1,207 ponto
-    (b) bloco de direita (22+55+30+14): linear 0,9382; quadrático 0,9926; exponencial (não linear) 0,9969; exponencial pelo log 0,9922 na escala do log e 0,9969 na de y; leitura literal a*x*exp(bx) 0,9898; resíduo da reta de fatia 1,219 ponto
-    (c) a que melhor reproduz: linear 0,9382; quadrático 0,9926; exponencial (não linear) 0,9969; exponencial pelo log 0,9922 na escala do log e 0,9969 na de y; leitura literal a*x*exp(bx) 0,9898; resíduo da reta de fatia 1,219 ponto
-    sens. bloco mais Cury: linear 0,9460; quadrático 0,9933; exponencial (não linear) 0,9971; exponencial pelo log 0,9934 na escala do log e 0,9970 na de y; leitura literal a*x*exp(bx) 0,9923; resíduo da reta de fatia 1,146 ponto
-    sens. tudo menos a esquerda: linear 0,9461; quadrático 0,9933; exponencial (não linear) 0,9971; exponencial pelo log 0,9934 na escala do log e 0,9969 na de y; leitura literal a*x*exp(bx) 0,9923; resíduo da reta de fatia 1,144 ponto
-    sens. tudo menos Lula: linear 0,9463; quadrático 0,9932; exponencial (não linear) 0,9970; exponencial pelo log 0,9932 na escala do log e 0,9968 na de y; leitura literal a*x*exp(bx) 0,9922; resíduo da reta de fatia 1,166 ponto
-  Com o exterior como 28º ponto (bloco de direita): linear 0,9336; quadrático 0,9924; exponencial 0,9968.
+EM UMA FRASE: o R² altíssimo existe, mas aparece igual em 2022 e sai da própria fórmula do eixo y; ele mostra que cada estado
+votou no 2º turno parecido com o que tinha votado três semanas antes, não mede chance de fraude e também não a afasta.
 
-J2. A MESMA CONTA NOS OUTROS ANOS (27 UFs; y = PT sobre adversário no 2º turno)
-    2026 Flávio, x = adversário sozinho: linear 0,9257; quadrático 0,9955; exponencial 0,9975 (pelo log 0,9944); resíduo da reta de fatia 1,207 ponto (maior 4,56)
-    2026 Flávio, x = adversário mais outros: linear 0,9463; quadrático 0,9932; exponencial 0,9970 (pelo log 0,9932); resíduo da reta de fatia 1,166 ponto (maior 3,17)
-    2022 Bolsonaro, x = adversário sozinho: linear 0,9013; quadrático 0,9901; exponencial 0,9960 (pelo log 0,9958); resíduo da reta de fatia 1,008 ponto (maior 2,44)
-    2022 Bolsonaro, x = adversário mais outros: linear 0,9214; quadrático 0,9879; exponencial 0,9950 (pelo log 0,9947); resíduo da reta de fatia 0,963 ponto (maior 2,67)
-    2018 Bolsonaro, x = adversário sozinho: linear 0,9122; quadrático 0,9801; exponencial 0,9824 (pelo log 0,9806); resíduo da reta de fatia 2,392 ponto (maior 5,75)
-    2018 Bolsonaro, x = adversário mais outros: linear 0,8377; quadrático 0,8607; exponencial 0,8513 (pelo log 0,8773); resíduo da reta de fatia 6,248 ponto (maior 23,69)
-    2014 Aécio, x = adversário sozinho: linear 0,7397; quadrático 0,7891; exponencial 0,7690 (pelo log 0,8104); resíduo da reta de fatia 6,178 ponto (maior 20,05)
-    2014 Aécio, x = adversário mais outros: linear 0,8381; quadrático 0,9088; exponencial 0,9128 (pelo log 0,8903); resíduo da reta de fatia 4,875 ponto (maior 16,31)
+1. O GRÁFICO SE REPRODUZ? (J1, 27 UFs, dados por seção somados)
+  Definição de 'direita no 1º turno' que melhor cai nos pontos legíveis: N2 bloco de direita (22+55+30+14) sobre válidos.
+  x calculado: PI 26,66 (gráfico perto de 25); BA 31,42 (gráfico perto de 30); SC 71,75 (gráfico perto de 75). y calculado: PI 3,145 (gráfico 3,1); BA 2,486 (gráfico 2,5); SC 0,440 (gráfico 0,4).
+  Rótulos: o ponto lido como MG (x 69; y 0,5) não é Minas, que está em x 53,05 e y 1,018. Naquela posição estão MT (68,59; 0,514) e AC (68,21; 0,502). RS está em (61,02; 0,729) e SP em (57,87; 0,857).
+  R² (legenda do gráfico: linear 0,935; quadrático 0,995; exponencial 0,999):
+    (a) Flávio sozinho: linear 0,9257; quadrático 0,9955; exponencial 0,9975 (mínimos quadrados não lineares) ou 0,9944 (pelo log)
+    (b) bloco de direita (22+55+30+14): linear 0,9382; quadrático 0,9926; exponencial 0,9969 (mínimos quadrados não lineares) ou 0,9922 (pelo log)
+    bloco mais Cury: linear 0,9460; quadrático 0,9933; exponencial 0,9971 (mínimos quadrados não lineares) ou 0,9934 (pelo log)
+    tudo menos a esquerda: linear 0,9461; quadrático 0,9933; exponencial 0,9971 (mínimos quadrados não lineares) ou 0,9934 (pelo log)
+    tudo menos Lula: linear 0,9463; quadrático 0,9932; exponencial 0,9970 (mínimos quadrados não lineares) ou 0,9932 (pelo log)
+  A definição (c) é a (b). O exterior como 28º ponto não muda nada (bloco: 0,9336; 0,9924; 0,9968).
+  Resultado: o gráfico é feito com dados reais e os R² são dessa ordem. O 0,999 da legenda não sai dos dados em nenhuma definição.
+  EXPLORATÓRIO E1: nas 24 definições da família, o maior R² exponencial com dados reais é 0,9975. A curva pura do item 6 dá 0,9419; 0,9951; 0,9991.
 
-J3. SIMULAÇÃO SEM FRAUDE (1º turno real de 2026 por UF; 1.000 sorteios por nível)
-  Curva pura, sem nenhum dado do 2º turno: y = (100 menos x) / x calculado só com o x real de cada UF.
-    x = a_flavio_sozinho: linear 0,9287; quadrático 0,9940; exponencial 0,9984
-    x = b_bloco_direita: linear 0,9419; quadrático 0,9951; exponencial 0,9991
-    x = c_melhor_reproduz: linear 0,9419; quadrático 0,9951; exponencial 0,9991
-    x = p2_real_contra_ele_mesmo: linear 0,9320; quadrático 0,9940; exponencial 0,9985
-  Mediana [percentil 5; percentil 95] do R² de cada ajuste e do desvio-padrão dos resíduos (x = definição (c)):
-    versão A, ruído independente de 2,0 ponto(s): linear 0,9393 [0,9212; 0,9563]; quadrático 0,9862 [0,9761; 0,9920]; exponencial 0,9898 [0,9819; 0,9941]; melhor 0,9898; resíduo 1,395 [1,029 no percentil 1]; sorteios com melhor R² >= 0,98: 96,9%; >= 0,999: 0,0%
-    versão A, ruído independente de 5,0 ponto(s): linear 0,9190 [0,8778; 0,9501]; quadrático 0,9620 [0,9322; 0,9795]; exponencial 0,9641 [0,9349; 0,9811]; melhor 0,9649; resíduo 2,366 [1,669 no percentil 1]; sorteios com melhor R² >= 0,98: 8,0%; >= 0,999: 0,0%
-    versão A, ruído independente de 10,0 ponto(s): linear 0,8468 [0,7640; 0,9075]; quadrático 0,8911 [0,8062; 0,9440]; exponencial 0,8911 [0,8033; 0,9439]; melhor 0,8934; resíduo 3,999 [2,741 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão A, ruído comum de 2,0 ponto(s): linear 0,9161 [0,8810; 0,9483]; quadrático 0,9619 [0,9369; 0,9794]; exponencial 0,9652 [0,9415; 0,9808]; melhor 0,9657; resíduo 2,402 [1,742 no percentil 1]; sorteios com melhor R² >= 0,98: 6,3%; >= 0,999: 0,0%
-    versão A, ruído comum de 5,0 ponto(s): linear 0,8242 [0,7336; 0,8885]; quadrático 0,8645 [0,7773; 0,9280]; exponencial 0,8649 [0,7754; 0,9280]; melhor 0,8672; resíduo 4,810 [3,516 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão A, ruído comum de 10,0 ponto(s): linear 0,6336 [0,4775; 0,7632]; quadrático 0,6752 [0,5035; 0,8174]; exponencial 0,6733 [0,4852; 0,8143]; melhor 0,6785; resíduo 8,323 [6,167 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão B, ruído independente de 2,0 ponto(s): linear 0,9404 [0,9208; 0,9567]; quadrático 0,9857 [0,9755; 0,9918]; exponencial 0,9891 [0,9812; 0,9939]; melhor 0,9891; resíduo 1,456 [1,073 no percentil 1]; sorteios com melhor R² >= 0,98: 96,6%; >= 0,999: 0,0%
-    versão B, ruído independente de 5,0 ponto(s): linear 0,9138 [0,8678; 0,9467]; quadrático 0,9590 [0,9239; 0,9791]; exponencial 0,9610 [0,9271; 0,9807]; melhor 0,9616; resíduo 2,471 [1,601 no percentil 1]; sorteios com melhor R² >= 0,98: 5,8%; >= 0,999: 0,0%
-    versão B, ruído independente de 10,0 ponto(s): linear 0,8445 [0,7599; 0,9070]; quadrático 0,8820 [0,7966; 0,9395]; exponencial 0,8830 [0,7943; 0,9412]; melhor 0,8853; resíduo 4,118 [2,761 no percentil 1]; sorteios com melhor R² >= 0,98: 0,1%; >= 0,999: 0,0%
-    versão B, ruído comum de 2,0 ponto(s): linear 0,9117 [0,8686; 0,9444]; quadrático 0,9554 [0,9257; 0,9752]; exponencial 0,9583 [0,9277; 0,9768]; melhor 0,9586; resíduo 2,594 [1,879 no percentil 1]; sorteios com melhor R² >= 0,98: 1,9%; >= 0,999: 0,0%
-    versão B, ruído comum de 5,0 ponto(s): linear 0,8044 [0,7077; 0,8780]; quadrático 0,8466 [0,7549; 0,9167]; exponencial 0,8461 [0,7523; 0,9160]; melhor 0,8494; resíduo 5,095 [3,716 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão B, ruído comum de 10,0 ponto(s): linear 0,6158 [0,4603; 0,7589]; quadrático 0,6583 [0,4828; 0,8145]; exponencial 0,6509 [0,4638; 0,8161]; melhor 0,6614; resíduo 8,445 [6,193 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão C, ruído independente de 2,0 ponto(s): linear 0,9508 [0,9283; 0,9684]; quadrático 0,9838 [0,9678; 0,9918]; exponencial 0,9856 [0,9711; 0,9932]; melhor 0,9857; resíduo 1,361 [0,807 no percentil 1]; sorteios com melhor R² >= 0,98: 78,2%; >= 0,999: 0,0%
-    versão C, ruído independente de 5,0 ponto(s): linear 0,9170 [0,8652; 0,9518]; quadrático 0,9489 [0,9015; 0,9762]; exponencial 0,9486 [0,9023; 0,9769]; melhor 0,9497; resíduo 2,373 [1,597 no percentil 1]; sorteios com melhor R² >= 0,98: 2,9%; >= 0,999: 0,0%
-    versão C, ruído independente de 10,0 ponto(s): linear 0,8249 [0,7101; 0,8924]; quadrático 0,8571 [0,7454; 0,9245]; exponencial 0,8542 [0,7355; 0,9234]; melhor 0,8583; resíduo 4,032 [2,746 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão C, ruído comum de 2,0 ponto(s): linear 0,9184 [0,8646; 0,9503]; quadrático 0,9512 [0,9036; 0,9756]; exponencial 0,9516 [0,9051; 0,9769]; melhor 0,9525; resíduo 2,390 [1,547 no percentil 1]; sorteios com melhor R² >= 0,98: 3,0%; >= 0,999: 0,0%
-    versão C, ruído comum de 5,0 ponto(s): linear 0,7769 [0,6292; 0,8763]; quadrático 0,8094 [0,6484; 0,9023]; exponencial 0,8036 [0,6422; 0,9007]; melhor 0,8101; resíduo 4,985 [3,354 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão C, ruído comum de 10,0 ponto(s): linear 0,5250 [0,2988; 0,7155]; quadrático 0,5627 [0,3229; 0,7663]; exponencial 0,5500 [0,3080; 0,7644]; melhor 0,5634; resíduo 8,972 [6,079 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão D, ruído independente de 2,0 ponto(s): linear 0,7742 [0,0348; 0,9536]; quadrático 0,7905 [0,0815; 0,9720]; exponencial 0,7799 [0,0347; 0,9708]; melhor 0,7905; resíduo 1,581 [0,870 no percentil 1]; sorteios com melhor R² >= 0,98: 2,5%; >= 0,999: 0,0%
-    versão D, ruído independente de 5,0 ponto(s): linear 0,4499 [0,0064; 0,8693]; quadrático 0,4769 [0,0319; 0,8898]; exponencial 0,4537 [0,0062; 0,8876]; melhor 0,4769; resíduo 3,202 [1,911 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão D, ruído independente de 10,0 ponto(s): linear 0,1956 [0,0015; 0,7019]; quadrático 0,2341 [0,0177; 0,7376]; exponencial 0,1951 [0,0016; 0,7287]; melhor 0,2341; resíduo 5,739 [3,421 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão D, ruído comum de 2,0 ponto(s): linear 0,4558 [0,0064; 0,8811]; quadrático 0,4802 [0,0369; 0,9054]; exponencial 0,4612 [0,0066; 0,8998]; melhor 0,4802; resíduo 3,105 [1,945 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão D, ruído comum de 5,0 ponto(s): linear 0,1534 [0,0013; 0,6153]; quadrático 0,1920 [0,0151; 0,6558]; exponencial 0,1537 [0,0013; 0,6278]; melhor 0,1921; resíduo 7,097 [4,202 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão D, ruído comum de 10,0 ponto(s): linear n/d [n/d; n/d]; quadrático n/d [n/d; n/d]; exponencial n/d [n/d; n/d]; melhor n/d; resíduo 13,266 [8,433 no percentil 1]; sorteios com melhor R² >= 0,98: 0,0%; >= 0,999: 0,0%
-    versão A, ruído independente de 0,0 ponto(s): linear 0,9455 [0,9455; 0,9455]; quadrático 0,9923 [0,9923; 0,9923]; exponencial 0,9963 [0,9963; 0,9963]; melhor 0,9963; resíduo 1,048 [1,048 no percentil 1]; sorteios com melhor R² >= 0,98: 100,0%; >= 0,999: 0,0%
-    versão A, ruído independente de 0,5 ponto(s): linear 0,9451 [0,9396; 0,9505]; quadrático 0,9919 [0,9895; 0,9937]; exponencial 0,9958 [0,9943; 0,9969]; melhor 0,9958; resíduo 1,080 [0,961 no percentil 1]; sorteios com melhor R² >= 0,98: 100,0%; >= 0,999: 0,0%
-    versão A, ruído independente de 1,0 ponto(s): linear 0,9435 [0,9345; 0,9539]; quadrático 0,9906 [0,9860; 0,9939]; exponencial 0,9945 [0,9913; 0,9965]; melhor 0,9945; resíduo 1,163 [0,943 no percentil 1]; sorteios com melhor R² >= 0,98: 100,0%; >= 0,999: 0,0%
-  Versão D (tudo arbitrário), separando os sorteios em que os dois finalistas guardam pelo menos metade dos seus eleitores:
-    ruído 2: 66 sorteios com finalistas fiéis, mediana do melhor R² 0,9660; nos demais, 0,7637
-    ruído 5: 65 sorteios com finalistas fiéis, mediana do melhor R² 0,8659; nos demais, 0,4496
-    ruído 10: 55 sorteios com finalistas fiéis, mediana do melhor R² 0,6644; nos demais, 0,2166
+2. A MESMA CONTA NOS OUTROS ANOS (J2; y = PT sobre adversário no 2º turno; resíduo = pontos de fatia em torno da reta)
+    2026 (Lula x Flávio). Adversário sozinho: linear 0,9257; quadrático 0,9955; exponencial 0,9975; resíduo 1,207. Adversário mais outros: 0,9463; 0,9932; 0,9970; resíduo 1,166.
+    2022 (Lula x Bolsonaro). Adversário sozinho: linear 0,9013; quadrático 0,9901; exponencial 0,9960; resíduo 1,008. Adversário mais outros: 0,9214; 0,9879; 0,9950; resíduo 0,963.
+    2018 (Haddad x Bolsonaro). Adversário sozinho: linear 0,9122; quadrático 0,9801; exponencial 0,9824; resíduo 2,392. Adversário mais outros: 0,8377; 0,8607; 0,8513; resíduo 6,248.
+    2014 (Dilma x Aécio). Adversário sozinho: linear 0,7397; quadrático 0,7891; exponencial 0,7690; resíduo 6,178. Adversário mais outros: 0,8381; 0,9088; 0,9128; resíduo 4,875.
+  2022 tem o mesmo desenho de 2026 e resíduo menor. 2018 (ano em que a direita venceu) passa de 0,98. 2014 não: Marina teve
+  21% no 1º turno e uma reta só com Aécio não dá conta.
 
-CALIBRAÇÃO COM FRAUDE PLANTADA (D11): o gráfico enxerga uma troca de 2.215.096 votos?
-    resultado oficial: fatia de Flávio nas 27 UFs 48,22%; linear 0,9382; quadrático 0,9926; exponencial 0,9969; resíduo 1,219 ponto
-    desfeita a troca, uniforme: fatia de Flávio nas 27 UFs 50,01%; linear 0,9432; quadrático 0,9933; exponencial 0,9971; resíduo 1,219 ponto
-    desfeita a troca, só no Nordeste: fatia de Flávio nas 27 UFs 50,01%; linear 0,9690; quadrático 0,9826; exponencial 0,9829; resíduo 1,944 ponto
+3. SIMULAÇÃO SEM FRAUDE (J3; 1º turno real por UF; 1.000 sorteios por nível; x = definição (c))
+  Mediana do melhor R² | mediana do resíduo em pontos (percentil 1), por nível de ruído nas taxas (2, 5 e 10 pontos):
+    A, taxas publicadas no R27_A2, ruído independente: 2 pts 0,9898 | 1,39 (1,03); 5 pts 0,9649 | 2,37 (1,67); 10 pts 0,8934 | 4,00 (2,74)
+    B, taxas simples e simétricas, ruído independente: 2 pts 0,9891 | 1,46 (1,07); 5 pts 0,9616 | 2,47 (1,60); 10 pts 0,8853 | 4,12 (2,76)
+    C, finalistas fiéis e o resto ao acaso, ruído independente: 2 pts 0,9857 | 1,36 (0,81); 5 pts 0,9497 | 2,37 (1,60); 10 pts 0,8583 | 4,03 (2,75)
+    D, tudo ao acaso, ruído independente: 2 pts 0,7905 | 1,58 (0,87); 5 pts 0,4769 | 3,20 (1,91); 10 pts 0,2341 | 5,74 (3,42)
+    A, taxas publicadas no R27_A2, ruído comum: 2 pts 0,9657 | 2,40 (1,74); 5 pts 0,8672 | 4,81 (3,52); 10 pts 0,6785 | 8,32 (6,17)
+    B, taxas simples e simétricas, ruído comum: 2 pts 0,9586 | 2,59 (1,88); 5 pts 0,8494 | 5,09 (3,72); 10 pts 0,6614 | 8,45 (6,19)
+    C, finalistas fiéis e o resto ao acaso, ruído comum: 2 pts 0,9525 | 2,39 (1,55); 5 pts 0,8101 | 4,98 (3,35); 10 pts 0,5634 | 8,97 (6,08)
+    D, tudo ao acaso, ruído comum: 2 pts 0,4802 | 3,10 (1,94); 5 pts 0,1921 | 7,10 (4,20); 10 pts 0,1035 | 13,27 (8,43)
+    Sorteios fora por razão infinita: D, comum, 10: 1.
+  Dados reais de 2026 na mesma régua: melhor R² 0,9969; resíduo 1,219. Versão A sem ruído nenhum: 0,9963 e 1,048; com 1 ponto: 0,9945 e 1,163.
+  Onde o real cai: o resíduo real é maior que o de 73,7% dos sorteios com 1 ponto e que o de 12,9% dos sorteios com 2 pontos. O R² real é alcançado por 1,5% dos sorteios com 1 ponto, 0,2% com 2 e 0,0% com 5.
+  O R² depende das taxas? Depende de duas coisas e só delas: os finalistas guardarem os seus eleitores e as taxas variarem pouco
+  de UF para UF. Quem recebe os votos dos eliminados, dos brancos, dos nulos e dos faltosos quase não importa (A, B e C dão o mesmo).
+  Com tudo ao acaso (D) o R² desaba; nos 66 sorteios de D em que os dois finalistas guardam pelo menos metade dos seus, volta a 0,9660 (ruído de 2 pontos).
 
-J4. ONDE ESTÁ A VARIAÇÃO (2026)
-  Município: 5.571 unidades usadas (0 fora por Flávio com zero voto no 2º turno).
-    (a) Flávio sozinho: R² de y sem peso: linear 0,7948; quadrático 0,9434; exponencial 0,9769 (pelo log 0,9877); com peso: 0,7878; 0,9521; 0,9805; Spearman -0,9951; reta de fatia: R² 0,9920, resíduo 1,67 pontos, percentis 5 e 95 -2,10 e 2,69
-    (b) bloco de direita (22+55+30+14): R² de y sem peso: linear 0,8028; quadrático 0,9412; exponencial 0,9745 (pelo log 0,9879); com peso: 0,8100; 0,9500; 0,9769; Spearman -0,9958; reta de fatia: R² 0,9931, resíduo 1,55 pontos, percentis 5 e 95 -2,11 e 2,04
-    (c) a que melhor reproduz: R² de y sem peso: linear 0,8028; quadrático 0,9412; exponencial 0,9745 (pelo log 0,9879); com peso: 0,8100; 0,9500; 0,9769; Spearman -0,9958; reta de fatia: R² 0,9931, resíduo 1,55 pontos, percentis 5 e 95 -2,11 e 2,04
-  Seção: 497.791 unidades usadas (106 fora por Flávio com zero voto no 2º turno).
-    (a) Flávio sozinho: R² de y sem peso: linear 0,2244; quadrático 0,3583; exponencial 0,5587 (pelo log 0,9563); com peso: 0,2165; 0,3426; 0,5358; Spearman -0,9847; reta de fatia: R² 0,9741, resíduo 2,78 pontos, percentis 5 e 95 -4,30 e 4,71
-    (b) bloco de direita (22+55+30+14): R² de y sem peso: linear 0,2320; quadrático 0,3621; exponencial 0,5513 (pelo log 0,9610); com peso: 0,2241; 0,3461; 0,5267; Spearman -0,9882; reta de fatia: R² 0,9781, resíduo 2,56 pontos, percentis 5 e 95 -4,28 e 3,96
-    (c) a que melhor reproduz: R² de y sem peso: linear 0,2320; quadrático 0,3621; exponencial 0,5513 (pelo log 0,9610); com peso: 0,2241; 0,3461; 0,5267; Spearman -0,9882; reta de fatia: R² 0,9781, resíduo 2,56 pontos, percentis 5 e 95 -4,28 e 3,96
-  Por UF, (c) a que melhor reproduz: fatia de Flávio no 2º turno = -3,144 + 1,0003 * x; desvio-padrão dos resíduos 1,219 ponto. Resíduo positivo = Flávio acima do previsto.
+4. O GRÁFICO ENXERGA UMA FRAUDE? (D11: desfazendo uma troca hipotética de 2.215.096 votos de Flávio para Lula)
+    resultado oficial: linear 0,9382; quadrático 0,9926; exponencial 0,9969; resíduo 1,219
+    sem a troca, se ela fosse uniforme no país: linear 0,9432; quadrático 0,9933; exponencial 0,9971; resíduo 1,219
+    sem a troca, se ela fosse só no Nordeste: linear 0,9690; quadrático 0,9826; exponencial 0,9829; resíduo 1,944
+  Uma troca uniforme desse tamanho não mexe no gráfico: com ela ou sem ela a curva é a mesma. Logo o gráfico não prova fraude
+  e tampouco prova que não houve. Uma troca concentrada mexeria (a eleição "verdadeira" teria resíduo maior que a oficial),
+  mas o valor que resultaria ainda cabe entre os anos anteriores (2018 teve 2,392).
+
+5. ONDE ESTÁ A VARIAÇÃO (J4, 2026)
+  Por município (5.571 pontos; 0 fora por Flávio com zero voto no 2º turno), bloco de direita: R² linear 0,8028; quadrático 0,9412; exponencial 0,9745; resíduo da fatia 1,55 pontos (90% dos pontos entre -2,11 e +2,04; de 1% a 99%: -5,90 a +2,88). Com Flávio sozinho: 0,7948; 0,9434; 0,9769; resíduo 1,67.
+  Por seção (497.791 pontos; 106 fora por Flávio com zero voto no 2º turno), bloco de direita: R² linear 0,2320; quadrático 0,3621; exponencial 0,5513; resíduo da fatia 2,56 pontos (90% dos pontos entre -4,28 e +3,96; de 1% a 99%: -6,72 a +5,67). Com Flávio sozinho: 0,2244; 0,3583; 0,5587; resíduo 2,78.
+  O espalhamento existe e cresce quando se desce de nível: 1,22 ponto por UF, 1,55 por município, 2,56 por seção. Somar milhões de votos em 27 pontos apaga o ruído.
+  Por UF, x = bloco de direita: fatia de Flávio no 2º turno = -3,144 + 1,0003 vezes x. Desvio de cada UF (positivo = Flávio acima do previsto):
     GO -4,63; DF -1,62; RJ -1,41; SP -0,90; SE -0,63; AL -0,41; MG -0,36; MA -0,17; RS -0,05; PE -0,04; PB +0,06; RN +0,07; CE +0,13; PR +0,23; MS +0,24; AP +0,29; ES +0,35; BA +0,41; TO +0,43; MT +0,59; PI +0,60; PA +0,76; SC +0,80; AM +1,10; RR +1,27; RO +1,41; AC +1,48
-  Por UF, (a) Flávio sozinho: fatia de Flávio no 2º turno = -2,166 + 1,0683 * x; desvio-padrão dos resíduos 1,207 ponto. Resíduo positivo = Flávio acima do previsto.
+  Por UF, x = (a) Flávio sozinho: fatia de Flávio no 2º turno = -2,166 + 1,0683 vezes x. Desvio de cada UF (positivo = Flávio acima do previsto):
     AL -1,82; MT -1,37; RJ -1,36; RR -1,29; MS -0,84; RN -0,70; PB -0,63; PA -0,39; MA -0,38; TO -0,35; RO -0,29; AC -0,23; PE -0,19; CE -0,17; SE -0,09; ES +0,01; AM +0,08; MG +0,19; BA +0,37; SC +0,38; AP +0,50; SP +0,53; PI +0,56; RS +0,56; PR +0,74; DF +1,63; GO +4,56
+  Quem mais se afasta: Goiás, -4,63 com o bloco e +4,56 com Flávio sozinho. É o estado de Caiado: os votos dele contam no bloco e nem todos foram para Flávio; fora do bloco, a maior parte foi. Depois, com o bloco: DF -1,62, RJ -1,41, SP -0,90 (Flávio abaixo) e AC +1,48, RO +1,41, RR +1,27, AM +1,10 (Flávio acima). Com Flávio sozinho: AL -1,82, MT -1,37, RJ -1,36, RR -1,29 (abaixo) e DF +1,63, PR +0,74, RS +0,56 (acima).
+  As 9 UFs do Nordeste: média +0,00 com o bloco e -0,34 com Flávio sozinho.
 
+6. POR QUE A CURVA É LISA, E O QUE O R² MEDE
+  (i) O eixo y é Lula dividido por Flávio. Se p é a fatia de Flávio nos válidos do 2º turno, y = (1 - p) / p. Isso é uma
+  identidade, não um resultado: p = 25% dá 3,00; 30% dá 2,33; 50% dá 1,00; 70% dá 0,43; 75% dá 0,33.
+  (ii) Em toda UF, p ficou perto da fatia da direita no 1º turno: p = x -3,14 (inclinação 1,0003), com desvio de 1,22 ponto. É o esperado: Lula e Flávio já tinham 92,2% dos votos nominais no 1º turno, três semanas antes.
+  (iii) O log de (1 - p) / p entre 25% e 75% é quase uma reta em p: vale +1,10 em 25%, 0 em 50% e -1,10 em 75%; a reta
+  2 - 4p daria +1,00, 0 e -1,00. Reta no log é exponencial. Por isso o exponencial ganha do quadrático, que ganha do linear.
+  (iv) Prova sem nenhum voto do 2º turno: com o x real de cada UF e y = (100 - x) / x, os ajustes dão linear 0,9419; quadrático 0,9951; exponencial 0,9991. A legenda do gráfico diz 0,935; 0,995; 0,999.
+  (v) R² não é probabilidade. É a parcela da variação de y entre os pontos que a curva acompanha. Sobe quando os pontos se
+  espalham ao longo do eixo x (aqui de 26,7 a 74,3: é justamente o Piauí não pensar como Santa Catarina
+  que estica o eixo) e quando cada ponto fica perto da curva (cada estado parecido com ele mesmo três semanas antes). Não há
+  hipótese de fraude sendo testada nem conta de chances por trás de "a probabilidade de ser orgânico é zero".
+
+7. O QUE PESA A FAVOR E CONTRA A TESE DE FRAUDE, NESTE GRÁFICO
+  A favor ou neutro:
+  (a) Pela letra, 'propriedade do gráfico' não fechou: com ruído de 5 pontos nas taxas a mediana é 0,9649 e nenhum dos 1.000 sorteios chega ao R² real. O alinhamento real equivale a taxas que variam cerca de 1 a 2 pontos de UF para UF
+  (ruído independente) ou menos de 2 pontos se o estado inteiro balança junto (aí o real fica abaixo do percentil 1 da simulação
+  de 2 pontos). Os estados se comportaram de modo muito uniforme em relação ao padrão nacional. Isso é o que um movimento
+  nacional de opinião produz e também o que uma troca uniforme produziria; o gráfico não separa um do outro.
+  (b) O R² exponencial de 2026 com Flávio sozinho (0,9975) é o maior dos quatro anos, por 0,0015 sobre 2022.
+  (c) O item 4: a curva lisa não afasta uma troca uniforme.
+  Contra:
+  (d) Não é coisa de 2026. Em 2022 o R² é 0,9960 e o resíduo é menor (1,008 contra 1,207). As duas cláusulas de 'anomalia' falharam.
+  (e) Os três R² da legenda saem da fórmula do eixo y sem nenhum voto do 2º turno (item 6, iv).
+  (f) Os pontos se espalham, sim, quando se olha município e seção (item 5).
+  (g) Onde havia motivo local, o estado saiu da linha: Goiás fica a mais de 4 pontos da reta nas duas definições.
+
+8. EXPLORATÓRIO E2 (depois de ver o resultado): 2026 é mais alinhado que os outros anos quando os "outros" entram na conta?
+  Fatia do adversário no 2º turno contra duas variáveis do 1º (fatia do adversário e fatia dos outros candidatos), 27 UFs.
+  Desvio-padrão dos resíduos em pontos: 2026 0,530 (maior 1,42); 2022 0,487 (maior 0,96); 2018 1,959 (maior 4,74); 2014 2,509 (maior 8,59). Parcela dos "outros" que aparece no adversário: 2026 0,510; 2022 0,534; 2018 0,222; 2014 0,620.
+  Simulação A na mesma medida (mediana; percentil 1): sem ruído 0,297; 1 ponto 0,582 (0,398); 2 pontos 0,988 (0,675); 5 pontos 2,149 (1,480); comum de 2 pontos 2,188 (1,534).
+  Maiores desvios de 2026 nesta conta: RJ -1,42, AL -0,87, SP -0,73 e PI +0,92, BA +0,69, RO +0,59.
+
+DESVIOS E LIMITES
+  1. O registro pede três definições de x; a regra da "que melhor reproduz" (família de 25 candidatas e soma dos quadrados em PI, BA e SC) é minha (D4). A vencedora foi o próprio bloco de direita, então (b) e (c) coincidem.
+  2. A classificação dos candidatos (D4) foi fixada antes das contas, mas eu já tinha lido resultados/T38_pontos_por_uf.txt, que deixa antever por alto a posição de cada UF no eixo x.
+  3. O registro pede os outros anos com o adversário do PT; a pedido da tarefa rodei também adversário mais outros. A leitura usa o adversário sozinho (D9).
+  4. O registro não diz que definição de x entra em cada cláusula da leitura nem como se mede o resíduo; fixei em D7 e D9 e mostro as outras combinações ao lado. Em nenhuma delas a leitura muda.
+  5. O registro diz "um ruído sorteado por UF". Tomei como principal um ruído para cada taxa de cada UF e rodei ao lado um ruído único por UF (D10). Com o segundo, a cláusula (2) da anomalia passaria; a (1) não.
+  6. As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão o mesmo que A.
+  7. A fórmula "y = a x exp(b x)" foi lida como a vezes exp(b x). A leitura literal (a vezes x vezes exp(b x)) dá R² um pouco menor e está no JSON.
+  8. A calibração com fraude plantada (D11), os níveis de ruído de 0, 0,5 e 1 ponto e a curva pura não estão no registro; foram declarados no docstring antes de rodar.
+  9. Depois de ver o resultado: correção da razão infinita na versão D com ruído comum, reorganização do texto e os exploratórios E1 e E2. Nada disso entra na leitura.
+  10. Limite da régua: os níveis de 2 e 5 pontos do registro são arbitrários. Não existe aqui uma eleição fora de suspeita que diga quanto as taxas variam de UF para UF numa eleição limpa; 2022 e 2018 saem das mesmas urnas.
+  11. Bases: 2018 difere do oficial no 1º turno em 46 votos de Haddad e 20 de Bolsonaro (dados/LEIAME.md). Em 2026 a soma das seções bate com o oficial nos dois turnos.

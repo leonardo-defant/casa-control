@@ -1,7 +1,7 @@
 {
  "teste": "R29_J (Adendo 29, J1 a J4)",
  "registro": "PRE-REGISTRO-2026-10-26.md, Adendo 29, commit 3929135",
- "origem_dos_dados": "bases",
+ "origem_dos_dados": "cache",
  "semente": 20261129,
  "secoes_por_ano": {
   "2026": {
@@ -2726,6 +2726,7 @@
     "ruido": "independente",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -3050,6 +3051,7 @@
     "ruido": "independente",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -3374,6 +3376,7 @@
     "ruido": "independente",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -3698,6 +3701,7 @@
     "ruido": "comum",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -4022,6 +4026,7 @@
     "ruido": "comum",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -4346,6 +4351,7 @@
     "ruido": "comum",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -4670,6 +4676,7 @@
     "ruido": "independente",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -4994,6 +5001,7 @@
     "ruido": "independente",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -5318,6 +5326,7 @@
     "ruido": "independente",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -5642,6 +5651,7 @@
     "ruido": "comum",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -5966,6 +5976,7 @@
     "ruido": "comum",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -6290,6 +6301,7 @@
     "ruido": "comum",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -6614,6 +6626,7 @@
     "ruido": "independente",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -6938,6 +6951,7 @@
     "ruido": "independente",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -7262,6 +7276,7 @@
     "ruido": "independente",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -7586,6 +7601,7 @@
     "ruido": "comum",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -7910,6 +7926,7 @@
     "ruido": "comum",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -8234,6 +8251,7 @@
     "ruido": "comum",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -8558,6 +8576,7 @@
     "ruido": "independente",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -8990,6 +9009,7 @@
     "ruido": "independente",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -9422,6 +9442,7 @@
     "ruido": "independente",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -9854,6 +9875,7 @@
     "ruido": "comum",
     "desvio_pontos": 2.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -10286,6 +10308,7 @@
     "ruido": "comum",
     "desvio_pontos": 5.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -10718,77 +10741,78 @@
     "ruido": "comum",
     "desvio_pontos": 10.0,
     "sorteios": 1000,
+    "sorteios_validos": 999,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 4.990857077369127e-05,
+       "p5": 0.0011988100603748557,
+       "p25": 0.015256432406063558,
+       "p50": 0.054955535271369316,
+       "p75": 0.15051114229773765,
+       "p95": 0.34383026086437896,
+       "p99": 0.5029443279300881,
+       "media": 0.1006427486134517,
+       "min": 3.842872372539219e-07,
+       "max": 0.7258186639035504
       },
       "quadratico": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.002422749215240061,
+       "p5": 0.011799874906646813,
+       "p25": 0.04626500903720626,
+       "p50": 0.09939987418388252,
+       "p75": 0.20038699183354797,
+       "p95": 0.3960693696379806,
+       "p99": 0.5822442216813534,
+       "media": 0.14222640921158297,
+       "min": 4.456921647144618e-05,
+       "max": 0.7366293249750064
       },
       "exponencial": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 6.735836394757833e-05,
+       "p5": 0.0010401539812534336,
+       "p25": 0.015322986266567806,
+       "p50": 0.05628068942896591,
+       "p75": 0.160989068466887,
+       "p95": 0.39409475514878994,
+       "p99": 0.5860079475877048,
+       "media": 0.11066330930928069,
+       "min": 6.359004063316576e-07,
+       "max": 0.9075708555217381
       },
       "exp_log_escala_log": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 3.9304927868244466e-05,
+       "p5": 0.0005111916304129106,
+       "p25": 0.015441257432562583,
+       "p50": 0.05935385007597804,
+       "p75": 0.16775290859050712,
+       "p95": 0.4015856716514182,
+       "p99": 0.5429933285740826,
+       "media": 0.11269834407543955,
+       "min": 8.330838985326494e-08,
+       "max": 0.731473599465932
       },
       "melhor": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.002422749215240061,
+       "p5": 0.011799874906646813,
+       "p25": 0.046608453488822754,
+       "p50": 0.10015328643374666,
+       "p75": 0.20122550375542203,
+       "p95": 0.42639769823119633,
+       "p99": 0.6072137906463575,
+       "media": 0.14527924188874713,
+       "min": 4.456921647144618e-05,
+       "max": 0.9075708555217381
       },
       "dp_residuos": {
-       "p1": 8.364794803839882,
-       "p5": 9.44295512354139,
-       "p25": 11.524441428202726,
-       "p50": 13.280330725669511,
-       "p75": 15.530009695193721,
-       "p95": 19.79582368097791,
-       "p99": 22.9038982610676,
-       "media": 13.751505331933124,
+       "p1": 8.364043884839587,
+       "p5": 9.44280957554282,
+       "p25": 11.531913574174188,
+       "p50": 13.288011795293144,
+       "p75": 15.54169899268378,
+       "p95": 19.796314300233508,
+       "p99": 22.907269302459298,
+       "media": 13.753910910065974,
        "min": 6.333791443988529,
        "max": 25.250640535073924
       },
@@ -10800,101 +10824,101 @@
       "finalistas_guardam_metade": {
        "sorteios": 60,
        "melhor": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.020611316221759567,
+        "p5": 0.05633550789360396,
+        "p25": 0.15624169871535828,
+        "p50": 0.2871792555469342,
+        "p75": 0.39921836777545827,
+        "p95": 0.6091174069431572,
+        "p99": 0.697802893797781,
+        "media": 0.2974125642430087,
+        "min": 0.012771061935379358,
+        "max": 0.7366293249750064
        },
        "melhor_nos_demais": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.002007246580257039,
+        "p5": 0.011300147789505045,
+        "p25": 0.04450598061138217,
+        "p50": 0.09668273848161513,
+        "p75": 0.1886217982937507,
+        "p95": 0.3803950287819064,
+        "p99": 0.5750724467467087,
+        "media": 0.13555826282457703,
+        "min": 4.456921647144618e-05,
+        "max": 0.9075708555217381
        }
       }
      },
      "b_bloco_direita": {
       "linear": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 4.7354444998832794e-05,
+       "p5": 0.0010137057514498116,
+       "p25": 0.014439525378512397,
+       "p50": 0.05518939049413618,
+       "p75": 0.1514041205864915,
+       "p95": 0.3411737593609062,
+       "p99": 0.485050944094179,
+       "media": 0.10043197829413399,
+       "min": 7.539226876129845e-08,
+       "max": 0.7384785867986663
       },
       "quadratico": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0031190839201198674,
+       "p5": 0.012077405206204237,
+       "p25": 0.046973079415668806,
+       "p50": 0.1030982659669154,
+       "p75": 0.19856452977784378,
+       "p95": 0.40481609985104994,
+       "p99": 0.5804209582761299,
+       "media": 0.14062135969539608,
+       "min": 0.00012144934374902494,
+       "max": 0.7422052692878249
       },
       "exponencial": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 4.742107140092822e-05,
+       "p5": 0.0010583626557830073,
+       "p25": 0.014468925605212346,
+       "p50": 0.05524640557827443,
+       "p75": 0.16126486882588015,
+       "p95": 0.36692373856577193,
+       "p99": 0.5742070913496068,
+       "media": 0.10971840920053402,
+       "min": 8.737578960360537e-08,
+       "max": 0.9074972286113729
       },
       "exp_log_escala_log": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 5.1055999824485273e-05,
+       "p5": 0.0006084086388163048,
+       "p25": 0.015470913375403794,
+       "p50": 0.0607850293277199,
+       "p75": 0.16905203864365276,
+       "p95": 0.3992292172752648,
+       "p99": 0.5625669982705003,
+       "media": 0.11258214495429532,
+       "min": 1.161498815793749e-06,
+       "max": 0.7325382830064354
       },
       "melhor": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0031190839201198674,
+       "p5": 0.012252762601044043,
+       "p25": 0.04723683254286992,
+       "p50": 0.10348700881804263,
+       "p75": 0.19953765233431192,
+       "p95": 0.4208090710072017,
+       "p99": 0.6038175250632033,
+       "media": 0.14374022578500473,
+       "min": 0.00012144934374902494,
+       "max": 0.9074972286113729
       },
       "dp_residuos": {
-       "p1": 8.43286905312236,
-       "p5": 9.431802284779748,
-       "p25": 11.525635939024067,
-       "p50": 13.26589444038261,
-       "p75": 15.566123435038993,
-       "p95": 19.75475750375205,
-       "p99": 22.970257915740735,
-       "media": 13.749743865291345,
+       "p1": 8.432607479505279,
+       "p5": 9.431800060198904,
+       "p25": 11.539714758435764,
+       "p50": 13.268026456280294,
+       "p75": 15.567357431715497,
+       "p95": 19.755628626920718,
+       "p99": 22.971808127456477,
+       "media": 13.752225610782636,
        "min": 6.157836543927283,
        "max": 25.40508804910518
       },
@@ -10906,101 +10930,101 @@
       "finalistas_guardam_metade": {
        "sorteios": 60,
        "melhor": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.025183989310519767,
+        "p5": 0.06619317923894137,
+        "p25": 0.1489610010885725,
+        "p50": 0.288613411904092,
+        "p75": 0.3868504655974092,
+        "p95": 0.6093576311640605,
+        "p99": 0.7061541641484754,
+        "media": 0.29845780648180226,
+        "min": 0.020262351951873536,
+        "max": 0.7422052692878249
        },
        "melhor_nos_demais": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.0027960757480812374,
+        "p5": 0.010545454749089933,
+        "p25": 0.04479599485794039,
+        "p50": 0.09618487330095127,
+        "p75": 0.18708209881781757,
+        "p95": 0.3906155740775974,
+        "p99": 0.5607708211624518,
+        "media": 0.1338541183922381,
+        "min": 0.00012144934374902494,
+        "max": 0.9074972286113729
        }
       }
      },
      "c_melhor_reproduz": {
       "linear": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 4.7354444998832794e-05,
+       "p5": 0.0010137057514498116,
+       "p25": 0.014439525378512397,
+       "p50": 0.05518939049413618,
+       "p75": 0.1514041205864915,
+       "p95": 0.3411737593609062,
+       "p99": 0.485050944094179,
+       "media": 0.10043197829413399,
+       "min": 7.539226876129845e-08,
+       "max": 0.7384785867986663
       },
       "quadratico": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0031190839201198674,
+       "p5": 0.012077405206204237,
+       "p25": 0.046973079415668806,
+       "p50": 0.1030982659669154,
+       "p75": 0.19856452977784378,
+       "p95": 0.40481609985104994,
+       "p99": 0.5804209582761299,
+       "media": 0.14062135969539608,
+       "min": 0.00012144934374902494,
+       "max": 0.7422052692878249
       },
       "exponencial": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 4.742107140092822e-05,
+       "p5": 0.0010583626557830073,
+       "p25": 0.014468925605212346,
+       "p50": 0.05524640557827443,
+       "p75": 0.16126486882588015,
+       "p95": 0.36692373856577193,
+       "p99": 0.5742070913496068,
+       "media": 0.10971840920053402,
+       "min": 8.737578960360537e-08,
+       "max": 0.9074972286113729
       },
       "exp_log_escala_log": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 5.1055999824485273e-05,
+       "p5": 0.0006084086388163048,
+       "p25": 0.015470913375403794,
+       "p50": 0.0607850293277199,
+       "p75": 0.16905203864365276,
+       "p95": 0.3992292172752648,
+       "p99": 0.5625669982705003,
+       "media": 0.11258214495429532,
+       "min": 1.161498815793749e-06,
+       "max": 0.7325382830064354
       },
       "melhor": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0031190839201198674,
+       "p5": 0.012252762601044043,
+       "p25": 0.04723683254286992,
+       "p50": 0.10348700881804263,
+       "p75": 0.19953765233431192,
+       "p95": 0.4208090710072017,
+       "p99": 0.6038175250632033,
+       "media": 0.14374022578500473,
+       "min": 0.00012144934374902494,
+       "max": 0.9074972286113729
       },
       "dp_residuos": {
-       "p1": 8.43286905312236,
-       "p5": 9.431802284779748,
-       "p25": 11.525635939024067,
-       "p50": 13.26589444038261,
-       "p75": 15.566123435038993,
-       "p95": 19.75475750375205,
-       "p99": 22.970257915740735,
-       "media": 13.749743865291345,
+       "p1": 8.432607479505279,
+       "p5": 9.431800060198904,
+       "p25": 11.539714758435764,
+       "p50": 13.268026456280294,
+       "p75": 15.567357431715497,
+       "p95": 19.755628626920718,
+       "p99": 22.971808127456477,
+       "media": 13.752225610782636,
        "min": 6.157836543927283,
        "max": 25.40508804910518
       },
@@ -11012,101 +11036,101 @@
       "finalistas_guardam_metade": {
        "sorteios": 60,
        "melhor": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.025183989310519767,
+        "p5": 0.06619317923894137,
+        "p25": 0.1489610010885725,
+        "p50": 0.288613411904092,
+        "p75": 0.3868504655974092,
+        "p95": 0.6093576311640605,
+        "p99": 0.7061541641484754,
+        "media": 0.29845780648180226,
+        "min": 0.020262351951873536,
+        "max": 0.7422052692878249
        },
        "melhor_nos_demais": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.0027960757480812374,
+        "p5": 0.010545454749089933,
+        "p25": 0.04479599485794039,
+        "p50": 0.09618487330095127,
+        "p75": 0.18708209881781757,
+        "p95": 0.3906155740775974,
+        "p99": 0.5607708211624518,
+        "media": 0.1338541183922381,
+        "min": 0.00012144934374902494,
+        "max": 0.9074972286113729
        }
       }
      },
      "s_tudo_menos_lula": {
       "linear": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 6.277814807677862e-05,
+       "p5": 0.0009991938438611903,
+       "p25": 0.014577558945399527,
+       "p50": 0.05382763587180839,
+       "p75": 0.14951245628610127,
+       "p95": 0.34583364186765186,
+       "p99": 0.502521988762067,
+       "media": 0.10043655570478488,
+       "min": 6.405071062420831e-08,
+       "max": 0.736890956883808
       },
       "quadratico": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0033628233409641896,
+       "p5": 0.012041404718773909,
+       "p25": 0.04696290481767501,
+       "p50": 0.10453751324200777,
+       "p75": 0.1975463814159581,
+       "p95": 0.39596943658310324,
+       "p99": 0.5789412572005852,
+       "media": 0.14098586022659199,
+       "min": 0.0003593019680490084,
+       "max": 0.7392678914951181
       },
       "exponencial": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 5.450122294582638e-05,
+       "p5": 0.0010630626286880277,
+       "p25": 0.015211108979921506,
+       "p50": 0.055343769896780914,
+       "p75": 0.16254099011650774,
+       "p95": 0.37123008404271035,
+       "p99": 0.5746049480654843,
+       "media": 0.10973673741292338,
+       "min": 5.537978242653452e-08,
+       "max": 0.9074328969844694
       },
       "exp_log_escala_log": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 2.120365911764122e-05,
+       "p5": 0.0005652141154704138,
+       "p25": 0.015426098216044015,
+       "p50": 0.061204420333249576,
+       "p75": 0.16975457005676342,
+       "p95": 0.40392372134736987,
+       "p99": 0.56647431892809,
+       "media": 0.11272340108097,
+       "min": 1.723810398868153e-07,
+       "max": 0.7259669689205983
       },
       "melhor": {
-       "p1": NaN,
-       "p5": NaN,
-       "p25": NaN,
-       "p50": NaN,
-       "p75": NaN,
-       "p95": NaN,
-       "p99": NaN,
-       "media": NaN,
-       "min": NaN,
-       "max": NaN
+       "p1": 0.0033628233409641896,
+       "p5": 0.012041404718773909,
+       "p25": 0.04705153999756645,
+       "p50": 0.10470420036761263,
+       "p75": 0.19971375684243597,
+       "p95": 0.4258725498792409,
+       "p99": 0.5991087611987063,
+       "media": 0.1440230126517537,
+       "min": 0.0003593019680490084,
+       "max": 0.9074328969844694
       },
       "dp_residuos": {
-       "p1": 8.412389939173593,
-       "p5": 9.40713290709415,
-       "p25": 11.538722715444763,
-       "p50": 13.256488841129844,
-       "p75": 15.57019312756687,
-       "p95": 19.770324686277494,
-       "p99": 22.974218101458366,
-       "media": 13.748599195786987,
+       "p1": 8.411710046216307,
+       "p5": 9.40617881214123,
+       "p25": 11.544614355859713,
+       "p50": 13.258046150760098,
+       "p75": 15.571235648182146,
+       "p95": 19.770796335329194,
+       "p99": 22.976046170378257,
+       "media": 13.751075327144651,
        "min": 6.257907073240818,
        "max": 25.356223960957344
       },
@@ -11118,28 +11142,28 @@
       "finalistas_guardam_metade": {
        "sorteios": 60,
        "melhor": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.025835197095699515,
+        "p5": 0.06922996334773894,
+        "p25": 0.14868385034357468,
+        "p50": 0.29117531361068044,
+        "p75": 0.3901833913721915,
+        "p95": 0.5992421326103247,
+        "p99": 0.7002146432136821,
+        "media": 0.2992305487000159,
+        "min": 0.018913571256778394,
+        "max": 0.7392678914951181
        },
        "melhor_nos_demais": {
-        "p1": NaN,
-        "p5": NaN,
-        "p25": NaN,
-        "p50": NaN,
-        "p75": NaN,
-        "p95": NaN,
-        "p99": NaN,
-        "media": NaN,
-        "min": NaN,
-        "max": NaN
+        "p1": 0.0031168047302916405,
+        "p5": 0.011015203207051663,
+        "p25": 0.04555056968900156,
+        "p50": 0.09744475893532356,
+        "p75": 0.1874032506205806,
+        "p95": 0.38660586185909046,
+        "p99": 0.5660673378274583,
+        "media": 0.1341055982077753,
+        "min": 0.0003593019680490084,
+        "max": 0.9074328969844694
        }
       }
      }
@@ -11150,6 +11174,7 @@
     "ruido": "independente",
     "desvio_pontos": 0.0,
     "sorteios": 1,
+    "sorteios_validos": 1,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -11474,6 +11499,7 @@
     "ruido": "independente",
     "desvio_pontos": 0.5,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -11798,6 +11824,7 @@
     "ruido": "independente",
     "desvio_pontos": 1.0,
     "sorteios": 1000,
+    "sorteios_validos": 1000,
     "definicoes": {
      "a_flavio_sozinho": {
       "linear": {
@@ -13706,7 +13733,7 @@
    "D|comum|a_flavio_sozinho": {
     "mediana_melhor_R2_ruido2": 0.47346566588178923,
     "mediana_melhor_R2_ruido5": 0.1972356943043489,
-    "mediana_melhor_R2_ruido10": NaN,
+    "mediana_melhor_R2_ruido10": 0.10015328643374666,
     "p1_dp_ruido2": 1.9017205064529232,
     "dp_real_2026": 1.2070094769054496,
     "real_abaixo_do_p1": true
@@ -13714,7 +13741,7 @@
    "D|comum|b_bloco_direita": {
     "mediana_melhor_R2_ruido2": 0.48019169260111993,
     "mediana_melhor_R2_ruido5": 0.19212249377658525,
-    "mediana_melhor_R2_ruido10": NaN,
+    "mediana_melhor_R2_ruido10": 0.10348700881804263,
     "p1_dp_ruido2": 1.944839861864158,
     "dp_real_2026": 1.2194095807827035,
     "real_abaixo_do_p1": true
@@ -13722,7 +13749,7 @@
    "D|comum|c_melhor_reproduz": {
     "mediana_melhor_R2_ruido2": 0.48019169260111993,
     "mediana_melhor_R2_ruido5": 0.19212249377658525,
-    "mediana_melhor_R2_ruido10": NaN,
+    "mediana_melhor_R2_ruido10": 0.10348700881804263,
     "p1_dp_ruido2": 1.944839861864158,
     "dp_real_2026": 1.2194095807827035,
     "real_abaixo_do_p1": true
@@ -13730,7 +13757,7 @@
    "D|comum|s_tudo_menos_lula": {
     "mediana_melhor_R2_ruido2": 0.4842394265019536,
     "mediana_melhor_R2_ruido5": 0.1929227063236063,
-    "mediana_melhor_R2_ruido10": NaN,
+    "mediana_melhor_R2_ruido10": 0.10470420036761263,
     "p1_dp_ruido2": 1.9325640637757122,
     "dp_real_2026": 1.166491798272202,
     "real_abaixo_do_p1": true
@@ -13753,5 +13780,820 @@
    "clausula_anos_anomalia": false
   }
  },
- "segundos": 131.5
+ "sha256_docstring": "201b07093a7f7f4dcff475551fd598f9b1ed664e567417bd24460e48e57a5b9e",
+ "depois_de_ver_o_resultado": [
+  "Sorteios da simulação em que alguma UF fica com zero voto de um dos dois (razão infinita) saem da conta e são contados; só ocorre na versão D com ruído comum. Na primeira rodada esse cenário saiu sem número.",
+  "O texto de saída foi reorganizado para ficar curto; nenhuma conta do registro mudou.",
+  "E1 (exploratório): qual definição de x devolve os três R² da legenda do gráfico (0,935; 0,995; 0,999).",
+  "E2 (exploratório): resíduo da fatia de Flávio com dois regressores (adversário e outros candidatos do 1º turno), para comparar 2026 com 2014 e 2018 sem que Marina e Ciro estraguem a reta de um regressor só."
+ ],
+ "desvios": [
+  "O registro pede três definições de x; a regra da \"que melhor reproduz\" (família de 25 candidatas e soma dos quadrados em PI, BA e SC) é minha (D4). A vencedora foi o próprio bloco de direita, então (b) e (c) coincidem.",
+  "A classificação dos candidatos (D4) foi fixada antes das contas, mas eu já tinha lido resultados/T38_pontos_por_uf.txt, que deixa antever por alto a posição de cada UF no eixo x.",
+  "O registro pede os outros anos com o adversário do PT; a pedido da tarefa rodei também adversário mais outros. A leitura usa o adversário sozinho (D9).",
+  "O registro não diz que definição de x entra em cada cláusula da leitura nem como se mede o resíduo; fixei em D7 e D9 e mostro as outras combinações ao lado. Em nenhuma delas a leitura muda.",
+  "O registro diz \"um ruído sorteado por UF\". Tomei como principal um ruído para cada taxa de cada UF e rodei ao lado um ruído único por UF (D10). Com o segundo, a cláusula (2) da anomalia passaria; a (1) não.",
+  "As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e D, que não usam nenhum dado do 2º turno; B e C dão o mesmo que A.",
+  "A fórmula \"y = a x exp(b x)\" foi lida como a vezes exp(b x). A leitura literal (a vezes x vezes exp(b x)) dá R² um pouco menor e está no JSON.",
+  "A calibração com fraude plantada (D11), os níveis de ruído de 0, 0,5 e 1 ponto e a curva pura não estão no registro; foram declarados no docstring antes de rodar.",
+  "Depois de ver o resultado: correção da razão infinita na versão D com ruído comum, reorganização do texto e os exploratórios E1 e E2. Nada disso entra na leitura.",
+  "Limite da régua: os níveis de 2 e 5 pontos do registro são arbitrários. Não existe aqui uma eleição fora de suspeita que diga quanto as taxas variam de UF para UF numa eleição limpa; 2022 e 2018 saem das mesmas urnas.",
+  "Bases: 2018 difere do oficial no 1º turno em 46 votos de Haddad e 20 de Bolsonaro (dados/LEIAME.md). Em 2026 a soma das seções bate com o oficial nos dois turnos."
+ ],
+ "exploratorio": {
+  "exploratorio_E1_r2_da_legenda": {
+   "aviso": "EXPLORATÓRIO, feito depois de ver o resultado",
+   "legenda_do_grafico": [
+    0.935,
+    0.995,
+    0.999
+   ],
+   "linhas": [
+    {
+     "definicao": "N1 Flávio sozinho (22) sobre válidos",
+     "dados_reais": [
+      0.9256716011689976,
+      0.9955197354351472,
+      0.9974787133658747
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9256716011689976,
+      0.9955197354351472,
+      0.9944499319264983
+     ],
+     "curva_pura": [
+      0.9287219007681624,
+      0.9939552566687186,
+      0.9983619190586863
+     ],
+     "distancia_dados_reais": 0.009465910558206421,
+     "distancia_dados_reais_exp_pelo_log": 0.01039193288788446,
+     "distancia_curva_pura": 0.006396340037922076
+    },
+    {
+     "definicao": "N1 Flávio sozinho (22) sobre comparecimento",
+     "dados_reais": [
+      0.9181637682325701,
+      0.9946583616389152,
+      0.9970012474917683
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9181637682325701,
+      0.9946583616389152,
+      0.9936881524383772
+     ],
+     "curva_pura": [
+      0.9259987253249898,
+      0.9938436848982596,
+      0.9980466299527877
+     ],
+     "distancia_dados_reais": 0.016957901653375212,
+     "distancia_dados_reais_exp_pelo_log": 0.01765760859840035,
+     "distancia_curva_pura": 0.009125180811162857
+    },
+    {
+     "definicao": "N1 Flávio sozinho (22) sobre aptos",
+     "dados_reais": [
+      0.8958110311287876,
+      0.9915017956793998,
+      0.9923874710623823
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.8958110311287876,
+      0.9915017956793998,
+      0.9833189173529606
+     ],
+     "curva_pura": [
+      0.9216124300028725,
+      0.9935663022886976,
+      0.9957285538223026
+     ],
+     "distancia_dados_reais": 0.03989659451141611,
+     "distancia_dados_reais_exp_pelo_log": 0.04235456371680396,
+     "distancia_curva_pura": 0.013855860841137005
+    },
+    {
+     "definicao": "N2 bloco de direita (22+55+30+14) sobre válidos",
+     "dados_reais": [
+      0.9382030042950127,
+      0.992631301729526,
+      0.9969324046488417
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9382030042950127,
+      0.992631301729526,
+      0.9921876704922384
+     ],
+     "curva_pura": [
+      0.9418643855092123,
+      0.9951144407435274,
+      0.9991289221357575
+     ],
+     "distancia_dados_reais": 0.0044883090965916654,
+     "distancia_dados_reais_exp_pelo_log": 0.007891628560236152,
+     "distancia_curva_pura": 0.006866549790102001
+    },
+    {
+     "definicao": "N2 bloco de direita (22+55+30+14) sobre comparecimento",
+     "dados_reais": [
+      0.9319556524919322,
+      0.9914052430203765,
+      0.9960812022778386
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9319556524919322,
+      0.9914052430203765,
+      0.99309004822395
+     ],
+     "curva_pura": [
+      0.9397154225475335,
+      0.9950096178618708,
+      0.9989101646123855
+     ],
+     "distancia_dados_reais": 0.005541634202590912,
+     "distancia_dados_reais_exp_pelo_log": 0.00755763583984222,
+     "distancia_curva_pura": 0.004716288021518777
+    },
+    {
+     "definicao": "N2 bloco de direita (22+55+30+14) sobre aptos",
+     "dados_reais": [
+      0.91394659502848,
+      0.9887732556836492,
+      0.9923680180279654
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.91394659502848,
+      0.9887732556836492,
+      0.987461729105393
+     ],
+     "curva_pura": [
+      0.9363429097762201,
+      0.9947604240602452,
+      0.9970021074800582
+     ],
+     "distancia_dados_reais": 0.02293472019784472,
+     "distancia_dados_reais_exp_pelo_log": 0.024802215645247695,
+     "distancia_curva_pura": 0.002419168828175516
+    },
+    {
+     "definicao": "N3 bloco mais Cury (22+55+30+14+70) sobre válidos",
+     "dados_reais": [
+      0.9460317266071011,
+      0.9933431451589767,
+      0.9971324982330741
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9460317266071011,
+      0.9933431451589767,
+      0.9934064121202214
+     ],
+     "curva_pura": [
+      0.9470890584007436,
+      0.9957714216033127,
+      0.9994190240667385
+     ],
+     "distancia_dados_reais": 0.011310690639722884,
+     "distancia_dados_reais_exp_pelo_log": 0.01247927823501222,
+     "distancia_curva_pura": 0.012120891282209934
+    },
+    {
+     "definicao": "N3 bloco mais Cury (22+55+30+14+70) sobre comparecimento",
+     "dados_reais": [
+      0.9396800632474099,
+      0.9919730374362028,
+      0.9964489303267918
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9396800632474099,
+      0.9919730374362028,
+      0.9945996291260012
+     ],
+     "curva_pura": [
+      0.9451983081064407,
+      0.9956625837908268,
+      0.9993153498577796
+     ],
+     "distancia_dados_reais": 0.006129718659118776,
+     "distancia_dados_reais_exp_pelo_log": 0.007101320876507654,
+     "distancia_curva_pura": 0.010224673640100237
+    },
+    {
+     "definicao": "N3 bloco mais Cury (22+55+30+14+70) sobre aptos",
+     "dados_reais": [
+      0.9195634948117699,
+      0.9879258594514355,
+      0.9909459131717168
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9195634948117699,
+      0.9879258594514355,
+      0.9872698953062697
+     ],
+     "curva_pura": [
+      0.9413699246206596,
+      0.9954459274224168,
+      0.9978184221365674
+     ],
+     "distancia_dados_reais": 0.018793548668748692,
+     "distancia_dados_reais_exp_pelo_log": 0.02063793868226604,
+     "distancia_curva_pura": 0.006493913857320719
+    },
+    {
+     "definicao": "N4 tudo menos a esquerda (22+55+30+14+70+27+35) sobre válidos",
+     "dados_reais": [
+      0.946073108635378,
+      0.9933107651426901,
+      0.9971088626768642
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.946073108635378,
+      0.9933107651426901,
+      0.9934211849434413
+     ],
+     "curva_pura": [
+      0.9471511319361979,
+      0.99578201468238,
+      0.9994213829759464
+     ],
+     "distancia_dados_reais": 0.011359738096848405,
+     "distancia_dados_reais_exp_pelo_log": 0.012513609658660337,
+     "distancia_curva_pura": 0.012183559328322878
+    },
+    {
+     "definicao": "N4 tudo menos a esquerda (22+55+30+14+70+27+35) sobre comparecimento",
+     "dados_reais": [
+      0.9397188059355779,
+      0.9919393676981144,
+      0.9964228443501876
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9397188059355779,
+      0.9919393676981144,
+      0.994613315025273
+     ],
+     "curva_pura": [
+      0.9452575173309777,
+      0.9956728374291474,
+      0.9993202053343393
+     ],
+     "distancia_dados_reais": 0.006186786790277331,
+     "distancia_dados_reais_exp_pelo_log": 0.0071328538897475,
+     "distancia_curva_pura": 0.010284546828008929
+    },
+    {
+     "definicao": "N4 tudo menos a esquerda (22+55+30+14+70+27+35) sobre aptos",
+     "dados_reais": [
+      0.9196265881411908,
+      0.9879027785900066,
+      0.990929645161682
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9196265881411908,
+      0.9879027785900066,
+      0.9873121787848639
+     ],
+     "curva_pura": [
+      0.9414269854334603,
+      0.9954548603429612,
+      0.9978308698419647
+     ],
+     "distancia_dados_reais": 0.01875747773927527,
+     "distancia_dados_reais_exp_pelo_log": 0.020574681253424824,
+     "distancia_curva_pura": 0.006548274965205428
+    },
+    {
+     "definicao": "N5 tudo menos Lula sobre válidos",
+     "dados_reais": [
+      0.9463451823544379,
+      0.9931694227855731,
+      0.9969946946267148
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9463451823544379,
+      0.9931694227855731,
+      0.9931846850957357
+     ],
+     "curva_pura": [
+      0.947431652148796,
+      0.9958058584322853,
+      0.9994278460340248
+     ],
+     "distancia_dados_reais": 0.011665565791403048,
+     "distancia_dados_reais_exp_pelo_log": 0.012879521071421304,
+     "distancia_curva_pura": 0.012465088655536258
+    },
+    {
+     "definicao": "N5 tudo menos Lula sobre comparecimento",
+     "dados_reais": [
+      0.9400771085731023,
+      0.9918346569968616,
+      0.9963455968451499
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9400771085731023,
+      0.9918346569968616,
+      0.9944885476679903
+     ],
+     "curva_pura": [
+      0.945546905280422,
+      0.995695808527344,
+      0.9993324677843842
+     ],
+     "distancia_dados_reais": 0.006545401737026098,
+     "distancia_dados_reais_exp_pelo_log": 0.007493305674706028,
+     "distancia_curva_pura": 0.01057506006264595
+    },
+    {
+     "definicao": "N5 tudo menos Lula sobre aptos",
+     "dados_reais": [
+      0.9200742546834451,
+      0.9878546686796729,
+      0.9908891734629625
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9200742546834451,
+      0.9878546686796729,
+      0.9872976548950526
+     ],
+     "curva_pura": [
+      0.9416962606628606,
+      0.995479516043054,
+      0.9978635144959361
+     ],
+     "distancia_dados_reais": 0.018428758505277115,
+     "distancia_dados_reais_exp_pelo_log": 0.020267671644448884,
+     "distancia_curva_pura": 0.006808923688914944
+    },
+    {
+     "definicao": "N6 Flávio e Caiado (22+55) sobre válidos",
+     "dados_reais": [
+      0.93313801517528,
+      0.9931992621929412,
+      0.9968195083910631
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.93313801517528,
+      0.9931992621929412,
+      0.9911741163068136
+     ],
+     "curva_pura": [
+      0.9367666433167122,
+      0.9945554693684833,
+      0.9987155936933029
+     ],
+     "distancia_dados_reais": 0.0033858806526372055,
+     "distancia_dados_reais_exp_pelo_log": 0.008243427667938827,
+     "distancia_curva_pura": 0.001843779552476253
+    },
+    {
+     "definicao": "N6 Flávio e Caiado (22+55) sobre comparecimento",
+     "dados_reais": [
+      0.9262275760625367,
+      0.9917589123244672,
+      0.9957680594962559
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9262275760625367,
+      0.9917589123244672,
+      0.9911400039114574
+     ],
+     "curva_pura": [
+      0.9345651713570327,
+      0.9944534509354859,
+      0.9984294714220657
+     ],
+     "distancia_dados_reais": 0.00989472134417196,
+     "distancia_dados_reais_exp_pelo_log": 0.012216366463518336,
+     "distancia_curva_pura": 0.0009018285241141108
+    },
+    {
+     "definicao": "N6 Flávio e Caiado (22+55) sobre aptos",
+     "dados_reais": [
+      0.9083117453794777,
+      0.989049471870378,
+      0.9923820127169293
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9083117453794777,
+      0.989049471870378,
+      0.9852572164011869
+     ],
+     "curva_pura": [
+      0.9317411156644011,
+      0.9941950893503049,
+      0.996255970561906
+     ],
+     "distancia_dados_reais": 0.028133067294380525,
+     "distancia_dados_reais_exp_pelo_log": 0.030602872753306403,
+     "distancia_curva_pura": 0.004335655178162993
+    },
+    {
+     "definicao": "N7 Flávio, Caiado e Zema (22+55+30) sobre válidos",
+     "dados_reais": [
+      0.9345796002979277,
+      0.9929993626101381,
+      0.9967940212715226
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9345796002979277,
+      0.9929993626101381,
+      0.9914025632178215
+     ],
+     "curva_pura": [
+      0.9373294965056429,
+      0.9945523830121699,
+      0.9987341688854668
+     ],
+     "distancia_dados_reais": 0.003007595056803791,
+     "distancia_dados_reais_exp_pelo_log": 0.007867676374534905,
+     "distancia_curva_pura": 0.002386960644637925
+    },
+    {
+     "definicao": "N7 Flávio, Caiado e Zema (22+55+30) sobre comparecimento",
+     "dados_reais": [
+      0.9279395678012758,
+      0.9917377171656206,
+      0.9958919963137595
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9279395678012758,
+      0.9917377171656206,
+      0.9917059713629303
+     ],
+     "curva_pura": [
+      0.9351161083712187,
+      0.9944550675368876,
+      0.9984510816982293
+     ],
+     "distancia_dados_reais": 0.008375671855914157,
+     "distancia_dados_reais_exp_pelo_log": 0.010662787903858032,
+     "distancia_curva_pura": 0.0007821405533787637
+    },
+    {
+     "definicao": "N7 Flávio, Caiado e Zema (22+55+30) sobre aptos",
+     "dados_reais": [
+      0.9105960323485056,
+      0.9896439041594945,
+      0.993007375864298
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9105960323485056,
+      0.9896439041594945,
+      0.9864656426701996
+     ],
+     "curva_pura": [
+      0.9321743606822077,
+      0.9942158938527051,
+      0.9962977340729886
+     ],
+     "distancia_dados_reais": 0.02569344164995544,
+     "distancia_dados_reais_exp_pelo_log": 0.027952665587721442,
+     "distancia_curva_pura": 0.003987643557888076
+    },
+    {
+     "definicao": "N8 Flávio e Renan (22+14) sobre válidos",
+     "dados_reais": [
+      0.9284582703298705,
+      0.9948011718664126,
+      0.9971327596727206
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9284582703298705,
+      0.9948011718664126,
+      0.993980515657512
+     ],
+     "curva_pura": [
+      0.9335488800308068,
+      0.9946125979595304,
+      0.9988597577556817
+     ],
+     "distancia_dados_reais": 0.006805905240567017,
+     "distancia_dados_reais_exp_pelo_log": 0.008247968402475936,
+     "distancia_curva_pura": 0.0015084751880766222
+    },
+    {
+     "definicao": "N8 Flávio e Renan (22+14) sobre comparecimento",
+     "dados_reais": [
+      0.9214317572817039,
+      0.9940066874087855,
+      0.9967283525331405
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.9214317572817039,
+      0.9940066874087855,
+      0.9939207354294902
+     ],
+     "curva_pura": [
+      0.9309170798876913,
+      0.9944989947056299,
+      0.9986000749352532
+     ],
+     "distancia_dados_reais": 0.013792906241258618,
+     "distancia_dados_reais_exp_pelo_log": 0.014521804603550405,
+     "distancia_curva_pura": 0.004132938785645709
+    },
+    {
+     "definicao": "N8 Flávio e Renan (22+14) sobre aptos",
+     "dados_reais": [
+      0.8984190360881655,
+      0.9901050453958166,
+      0.9911263042280057
+     ],
+     "dados_reais_exp_pelo_log": [
+      0.8984190360881655,
+      0.9901050453958166,
+      0.9831851177227671
+     ],
+     "curva_pura": [
+      0.9262365529437563,
+      0.994222512775908,
+      0.9965042735857796
+     ],
+     "distancia_dados_reais": 0.03773754875990061,
+     "distancia_dados_reais_exp_pelo_log": 0.04015268363059551,
+     "distancia_curva_pura": 0.009145006343674728
+    }
+   ],
+   "maior_exponencial_com_dados_reais": 0.9974787133658747,
+   "melhor_com_dados_reais": "N7 Flávio, Caiado e Zema (22+55+30) sobre válidos",
+   "melhor_com_curva_pura": "N7 Flávio, Caiado e Zema (22+55+30) sobre comparecimento",
+   "segundo_turno_contra_ele_mesmo": {
+    "curva_pura": [
+     0.9320294884712867,
+     0.9939966596095428,
+     0.9985287028109247
+    ],
+    "distancia": 0.0031706074688885514
+   }
+  },
+  "exploratorio_E2_dois_regressores": {
+   "aviso": "EXPLORATÓRIO, feito depois de ver o resultado",
+   "anos": {
+    "2026": {
+     "dp": 0.5297888424490593,
+     "maior": 1.419925224122963,
+     "coef_adversario": 1.0360720217268233,
+     "coef_outros": 0.5104539926783218,
+     "intercepto": -4.268460728909821,
+     "residuos": {
+      "RJ": -1.419925224122963,
+      "AL": -0.8686547330327414,
+      "SP": -0.7271330540397329,
+      "MG": -0.4513017012403253,
+      "SE": -0.37910382412534105,
+      "PB": -0.3302918990275714,
+      "AP": -0.32557925500181284,
+      "MS": -0.276366469546673,
+      "RN": -0.27327234088871677,
+      "MT": -0.06385789706369849,
+      "DF": -0.017073225045464824,
+      "RR": 0.0003029140007697606,
+      "RS": 0.05041519577061848,
+      "ES": 0.07299682220178028,
+      "PE": 0.10102058587140306,
+      "MA": 0.1064991220471434,
+      "CE": 0.16227380218512266,
+      "AM": 0.17206449979736504,
+      "PR": 0.2346648810041998,
+      "TO": 0.2448670916118516,
+      "PA": 0.2967501028217825,
+      "SC": 0.39424867709927014,
+      "AC": 0.5233322180763196,
+      "GO": 0.5658904864274916,
+      "RO": 0.5939778770247557,
+      "BA": 0.6909696296767152,
+      "PI": 0.922285717518669
+     }
+    },
+    "2022": {
+     "dp": 0.48744180172570506,
+     "maior": 0.9596655858837835,
+     "coef_adversario": 1.063804696527561,
+     "coef_outros": 0.5341769898912246,
+     "intercepto": -1.317473082303913,
+     "residuos": {
+      "DF": -0.9596655858837835,
+      "RJ": -0.9012580942423014,
+      "SE": -0.6562260375120488,
+      "RR": -0.5573374601878811,
+      "MT": -0.34314633687004914,
+      "CE": -0.3016562492277757,
+      "SP": -0.28761081210488726,
+      "PA": -0.2837183427901806,
+      "MA": -0.2400061415619028,
+      "ES": -0.13588956913689998,
+      "PB": -0.11727271792972971,
+      "RO": -0.04355824453914181,
+      "PE": -0.01181864275370259,
+      "SC": -0.000508715617542066,
+      "RN": 0.014245217050302017,
+      "GO": 0.0965010719830488,
+      "BA": 0.14895461907723018,
+      "TO": 0.16050910696474574,
+      "PI": 0.16231270517867813,
+      "PR": 0.25683881252645335,
+      "AL": 0.3082927389178778,
+      "MS": 0.33592227441878464,
+      "MG": 0.4008982808349373,
+      "AM": 0.6177769097124539,
+      "AP": 0.6648672432201863,
+      "AC": 0.7283766913229499,
+      "RS": 0.944177279150054
+     }
+    },
+    "2018": {
+     "dp": 1.959021319612862,
+     "maior": 4.74008491164787,
+     "coef_adversario": 1.1719021015879376,
+     "coef_outros": 0.22177685331343028,
+     "intercepto": -4.71802486387012,
+     "residuos": {
+      "RJ": -3.050300601267338,
+      "MT": -2.5947871658413817,
+      "PE": -2.1737954170156826,
+      "PB": -2.0932157978530626,
+      "CE": -1.8787154801008121,
+      "RR": -1.784773555829716,
+      "TO": -1.771943743542515,
+      "GO": -1.473725924546386,
+      "ES": -1.0607551073650825,
+      "SC": -0.7184066009997565,
+      "RN": -0.44217495624390324,
+      "DF": -0.2954659235313244,
+      "MA": -0.2031363646344495,
+      "AL": -0.1414473024880465,
+      "RO": 0.09824231297268682,
+      "SE": 0.258663314719513,
+      "AM": 0.43981392404129593,
+      "MS": 0.7431112363828305,
+      "RS": 0.8376613196774869,
+      "MG": 0.9627842311170909,
+      "BA": 0.9728833527078926,
+      "PR": 1.2866215158124135,
+      "AP": 1.3010847401445673,
+      "PI": 1.721243676957286,
+      "PA": 2.5279937007479987,
+      "SP": 3.7924557043304503,
+      "AC": 4.74008491164787
+     }
+    },
+    "2014": {
+     "dp": 2.5086420784448507,
+     "maior": 8.585787144712228,
+     "coef_adversario": 1.1142803865633668,
+     "coef_outros": 0.6198314266489564,
+     "intercepto": -3.9354519136596346,
+     "residuos": {
+      "RJ": -4.227885270326503,
+      "PE": -3.768728006649134,
+      "MG": -3.1634111458154806,
+      "SE": -2.227677164984115,
+      "GO": -1.5880828245685237,
+      "PR": -1.5138868463839543,
+      "ES": -1.034732362883446,
+      "MT": -0.8633713549411581,
+      "RN": -0.58210798643562,
+      "SC": -0.5521713259426377,
+      "AP": -0.40640451918763176,
+      "AL": -0.14706672978400093,
+      "RR": -0.13233944294584887,
+      "TO": -0.09057280974407433,
+      "CE": 0.1308496605388676,
+      "DF": 0.2735617636810872,
+      "SP": 0.39861680669393706,
+      "RO": 0.45311966154294936,
+      "MA": 0.5590169801112914,
+      "PI": 0.5753694099823186,
+      "PB": 0.5929454172805677,
+      "BA": 0.8411379157927037,
+      "MS": 1.1077072487642852,
+      "AM": 1.1353124079486605,
+      "RS": 1.7782340864688422,
+      "PA": 3.866779287074401,
+      "AC": 8.585787144712228
+     }
+    }
+   },
+   "simulacao": {
+    "A|independente|0": {
+     "p1": 0.2966819507487969,
+     "p5": 0.2966819507487969,
+     "p25": 0.2966819507487969,
+     "p50": 0.2966819507487969,
+     "p75": 0.2966819507487969,
+     "p95": 0.2966819507487969,
+     "p99": 0.2966819507487969,
+     "media": 0.2966819507487969,
+     "min": 0.2966819507487969,
+     "max": 0.2966819507487969,
+     "fracao_abaixo_do_real_2026": 1.0
+    },
+    "A|independente|0.5": {
+     "p1": 0.28538966006943706,
+     "p5": 0.31869658735835327,
+     "p25": 0.3608518606314778,
+     "p50": 0.3905630295673712,
+     "p75": 0.4232229521947108,
+     "p95": 0.466669322656427,
+     "p99": 0.5021157339250484,
+     "media": 0.3917431667237639,
+     "min": 0.26328721501505997,
+     "max": 0.545494709547269,
+     "fracao_abaixo_do_real_2026": 0.998
+    },
+    "A|independente|1": {
+     "p1": 0.3978509248594553,
+     "p5": 0.44478271942942904,
+     "p25": 0.5281148375141665,
+     "p50": 0.5824157956465679,
+     "p75": 0.638312302238163,
+     "p95": 0.7195831934244119,
+     "p99": 0.7779979138637613,
+     "media": 0.5819276968580075,
+     "min": 0.3453584467305878,
+     "max": 0.8806507569087013,
+     "fracao_abaixo_do_real_2026": 0.256
+    },
+    "A|independente|2": {
+     "p1": 0.6750786859436776,
+     "p5": 0.7582483184646177,
+     "p25": 0.8832057023754775,
+     "p50": 0.9883316206216386,
+     "p75": 1.0739849036641678,
+     "p95": 1.2237444560843036,
+     "p99": 1.3536816815813442,
+     "media": 0.9836866551401852,
+     "min": 0.5588686142405901,
+     "max": 1.5183817262042478,
+     "fracao_abaixo_do_real_2026": 0.0
+    },
+    "A|independente|5": {
+     "p1": 1.479852837850004,
+     "p5": 1.6662316958176973,
+     "p25": 1.9453306943621964,
+     "p50": 2.1488468318899083,
+     "p75": 2.3701863375320444,
+     "p95": 2.7152354999336983,
+     "p99": 2.9011698825358945,
+     "media": 2.164991087344902,
+     "min": 1.130119596005718,
+     "max": 3.5131561866210066,
+     "fracao_abaixo_do_real_2026": 0.0
+    },
+    "A|independente|10": {
+     "p1": 2.503372829701925,
+     "p5": 2.9824434462316396,
+     "p25": 3.488347722871398,
+     "p50": 3.92113770282306,
+     "p75": 4.265204136085734,
+     "p95": 4.9409924642242915,
+     "p99": 5.451948892111,
+     "media": 3.9110364936874182,
+     "min": 2.0997959704986253,
+     "max": 5.866518741638009,
+     "fracao_abaixo_do_real_2026": 0.0
+    },
+    "A|comum|2": {
+     "p1": 1.5337831281475742,
+     "p5": 1.7260788407661185,
+     "p25": 1.9921569060908675,
+     "p50": 2.1883089033063587,
+     "p75": 2.3700959010487823,
+     "p95": 2.6807875584983285,
+     "p99": 2.8620428192417195,
+     "media": 2.187811916942412,
+     "min": 1.3766640068764175,
+     "max": 3.320649084427627,
+     "fracao_abaixo_do_real_2026": 0.0
+    },
+    "A|comum|5": {
+     "p1": 3.4363452579410354,
+     "p5": 3.767418045190794,
+     "p25": 4.3042005458304695,
+     "p50": 4.70841661354411,
+     "p75": 5.089277967758384,
+     "p95": 5.632893096544542,
+     "p99": 5.975580875269219,
+     "media": 4.700144348745333,
+     "min": 3.184395221057042,
+     "max": 6.641644318417045,
+     "fracao_abaixo_do_real_2026": 0.0
+    },
+    "A|comum|10": {
+     "p1": 6.059338013488766,
+     "p5": 6.564672932114581,
+     "p25": 7.495981229674484,
+     "p50": 8.230448652973276,
+     "p75": 8.89276221818687,
+     "p95": 9.935563150553351,
+     "p99": 10.3955115194773,
+     "media": 8.206818187445545,
+     "min": 4.632511896306046,
+     "max": 11.071426401933826,
+     "fracao_abaixo_do_real_2026": 0.0
+    }
+   }
+  }
+ },
+ "segundos": 90.1
 }

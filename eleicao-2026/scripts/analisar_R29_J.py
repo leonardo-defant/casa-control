@@ -154,7 +154,7 @@ D13. Arredondamento só na impressão; os limiares são comparados com os valore
 
 O QUE FOR FEITO DEPOIS DE VER O RESULTADO fica em funções com nome "exploratorio_" e sai marcado assim.
 """
-import sys, os, json, time, math
+import sys, os, json, time, math, hashlib
 import numpy as np
 
 RAIZ = '/home/user/casa-control/eleicao-2026'
@@ -768,6 +768,110 @@ def leitura(J1, J2, J3):
     return L
 
 
+# ------------------------------------------------------------------ depois de ver o resultado
+DEPOIS_DE_VER = [
+    'Sorteios da simulação em que alguma UF fica com zero voto de um dos dois (razão infinita) saem da conta e '
+    'são contados; só ocorre na versão D com ruído comum. Na primeira rodada esse cenário saiu sem número.',
+    'O texto de saída foi reorganizado para ficar curto; nenhuma conta do registro mudou.',
+    'E1 (exploratório): qual definição de x devolve os três R² da legenda do gráfico (0,935; 0,995; 0,999).',
+    'E2 (exploratório): resíduo da fatia de Flávio com dois regressores (adversário e outros candidatos do '
+    '1º turno), para comparar 2026 com 2014 e 2018 sem que Marina e Ciro estraguem a reta de um regressor só.',
+]
+
+
+DESVIOS = [
+    'O registro pede três definições de x; a regra da "que melhor reproduz" (família de 25 candidatas e soma dos '
+    'quadrados em PI, BA e SC) é minha (D4). A vencedora foi o próprio bloco de direita, então (b) e (c) coincidem.',
+    'A classificação dos candidatos (D4) foi fixada antes das contas, mas eu já tinha lido '
+    'resultados/T38_pontos_por_uf.txt, que deixa antever por alto a posição de cada UF no eixo x.',
+    'O registro pede os outros anos com o adversário do PT; a pedido da tarefa rodei também adversário mais outros. '
+    'A leitura usa o adversário sozinho (D9).',
+    'O registro não diz que definição de x entra em cada cláusula da leitura nem como se mede o resíduo; fixei em D7 '
+    'e D9 e mostro as outras combinações ao lado. Em nenhuma delas a leitura muda.',
+    'O registro diz "um ruído sorteado por UF". Tomei como principal um ruído para cada taxa de cada UF e rodei ao '
+    'lado um ruído único por UF (D10). Com o segundo, a cláusula (2) da anomalia passaria; a (1) não.',
+    'As taxas da versão A vêm de uma regressão feita com o próprio 2º turno de 2026. Por isso há as versões B, C e '
+    'D, que não usam nenhum dado do 2º turno; B e C dão o mesmo que A.',
+    'A fórmula "y = a x exp(b x)" foi lida como a vezes exp(b x). A leitura literal (a vezes x vezes exp(b x)) dá '
+    'R² um pouco menor e está no JSON.',
+    'A calibração com fraude plantada (D11), os níveis de ruído de 0, 0,5 e 1 ponto e a curva pura não estão no '
+    'registro; foram declarados no docstring antes de rodar.',
+    'Depois de ver o resultado: correção da razão infinita na versão D com ruído comum, reorganização do texto e os '
+    'exploratórios E1 e E2. Nada disso entra na leitura.',
+    'Limite da régua: os níveis de 2 e 5 pontos do registro são arbitrários. Não existe aqui uma eleição fora de '
+    'suspeita que diga quanto as taxas variam de UF para UF numa eleição limpa; 2022 e 2018 saem das mesmas urnas.',
+    'Bases: 2018 difere do oficial no 1º turno em 46 votos de Haddad e 20 de Bolsonaro (dados/LEIAME.md). Em 2026 '
+    'a soma das seções bate com o oficial nos dois turnos.',
+]
+
+
+def exploratorio_E1_r2_da_legenda(ag, S, R, ufs, T, defs, y, p2):
+    """EXPLORATÓRIO. Distância entre os três R² de cada definição e os da legenda do gráfico."""
+    alvo = np.array([GRAFICO_R2['linear'], GRAFICO_R2['quadratico'], GRAFICO_R2['exponencial']])
+    cands = [(f'{rot} sobre {dn}', x2026(T, nums, dc)) for rot, nums in NUMERADORES for dn, dc in DENOMINADORES]
+    linhas = []
+    for nome, x in cands:
+        a = ajustes_um(x, y)
+        t = np.array([a['linear'], a['quadratico'], a['exponencial']])
+        tl = np.array([a['linear'], a['quadratico'], a['exp_log_escala_log']])
+        ap = ajustes_um(x, (100 - x) / x)
+        tp = np.array([ap['linear'], ap['quadratico'], ap['exponencial']])
+        linhas.append({'definicao': nome, 'dados_reais': t.tolist(), 'dados_reais_exp_pelo_log': tl.tolist(),
+                       'curva_pura': tp.tolist(),
+                       'distancia_dados_reais': float(np.sqrt(((t - alvo) ** 2).sum())),
+                       'distancia_dados_reais_exp_pelo_log': float(np.sqrt(((tl - alvo) ** 2).sum())),
+                       'distancia_curva_pura': float(np.sqrt(((tp - alvo) ** 2).sum()))})
+    ap = ajustes_um(p2, (100 - p2) / p2)
+    tp = [ap['linear'], ap['quadratico'], ap['exponencial']]
+    return {'aviso': 'EXPLORATÓRIO, feito depois de ver o resultado', 'legenda_do_grafico': alvo.tolist(),
+            'linhas': linhas,
+            'maior_exponencial_com_dados_reais': max(l['dados_reais'][2] for l in linhas),
+            'melhor_com_dados_reais': min(linhas, key=lambda l: l['distancia_dados_reais'])['definicao'],
+            'melhor_com_curva_pura': min(linhas, key=lambda l: l['distancia_curva_pura'])['definicao'],
+            'segundo_turno_contra_ele_mesmo': {'curva_pura': tp,
+                                               'distancia': float(np.sqrt(((np.array(tp) - alvo) ** 2).sum()))}}
+
+
+def exploratorio_E2_dois_regressores(ag, S, R, ufs, T, defs, y, p2):
+    """EXPLORATÓRIO. p2 contra a fatia do adversário e a fatia dos outros no 1º turno (plano, 27 UFs)."""
+    out = {'aviso': 'EXPLORATÓRIO, feito depois de ver o resultado', 'anos': {}}
+
+    def plano(xr, xo, P):
+        X = np.column_stack([np.ones(len(xr)), xr, xo])
+        b, Pr = _mq(X, P)
+        E = P - Pr
+        return b, E, np.sqrt((E * E).sum(1) / (len(xr) - 3))
+    for ano in ANOS:
+        u, Ta = monta(ag, ano)
+        val = Ta['val']
+        xr = 100 * Ta['R1'] / val
+        xo = 100 * (val - Ta['L1'] - Ta['R1']) / val
+        p = 100 * Ta['R2'] / (Ta['L2'] + Ta['R2'])
+        b, E, dp = plano(xr, xo, p[None, :])
+        ordem = np.argsort(E[0])
+        out['anos'][str(ano)] = {'dp': float(dp[0]), 'maior': float(np.abs(E[0]).max()),
+                                 'coef_adversario': float(b[0, 1]), 'coef_outros': float(b[0, 2]),
+                                 'intercepto': float(b[0, 0]),
+                                 'residuos': {u[i]: float(E[0, i]) for i in ordem}}
+    # a mesma medida na simulação (versão A, ruído independente), com os mesmos sorteios do J3
+    Sx = np.column_stack([T['L1'], T['R1'], T['c70'], T['c14'], T['c55'],
+                          T['O1'] - T['c70'] - T['c14'] - T['c55'], T['B1'], T['N1'], T['apt1'] - T['comp1']])
+    xr = 100 * T['R1'] / T['val']
+    xo = 100 * (T['val'] - T['L1'] - T['R1']) / T['val']
+    sim = {}
+    for tipo in ('independente', 'comum'):
+        for s in ([0.0, 0.005, 0.01] if tipo == 'independente' else []) + NIVEIS:
+            rng = np.random.default_rng([SEMENTE, 0, ('independente', 'comum').index(tipo), int(round(s * 10000))])
+            m = 1 if s == 0 else NSORT
+            L2, R2 = simular(Sx, taxas_sorteadas('A', rng, m), s, tipo, rng)
+            _, _, dp = plano(xr, xo, 100 * R2 / (L2 + R2))
+            d = quantis(dp)
+            d['fracao_abaixo_do_real_2026'] = float((dp < out['anos']['2026']['dp']).mean())
+            sim[f'A|{tipo}|{s * 100:g}'] = d
+    out['simulacao'] = sim
+    return out
+
+
 # ------------------------------------------------------------------ texto
 def n(v, d=4):
     if v is None or (isinstance(v, float) and (math.isnan(v) or math.isinf(v))):
@@ -783,109 +887,203 @@ def sn(b):
     return 'SIM' if b else 'NÃO'
 
 
+def sinal(v, d=2):
+    return ('+' if v >= 0 else '') + n(v, d)
+
+
+ROT = {'a_flavio_sozinho': '(a) Flávio sozinho', 'b_bloco_direita': '(b) bloco de direita (22+55+30+14)',
+       'c_melhor_reproduz': '(c) a que melhor reproduz', 's_bloco_mais_cury': 'bloco mais Cury',
+       's_tudo_menos_esquerda': 'tudo menos a esquerda', 's_tudo_menos_lula': 'tudo menos Lula'}
+
+
 def texto(R):
     J1, J2, J3, J4, L, C = R['J1'], R['J2'], R['J3'], R['J4'], R['leitura'], R['calibracao']
+    X = R.get('exploratorio', {})
+    P, An = L['propriedade'], L['anomalia']
+    da, db = J1['definicoes']['a_flavio_sozinho'], J1['definicoes']['b_bloco_direita']
+    dc = J1['definicoes']['c_melhor_reproduz']
+    cp = J3['curva_pura']
+
+    def cen(v, t, s, nome='c_melhor_reproduz'):
+        return J3['cenarios'][f'{v}|{t}|{s:g}']['definicoes'][nome]
     o = []
     A = o.append
     A('R29: CARROSSEL "A MATEMÁTICA IMPOSSÍVEL DA ELEIÇÃO" (R² de 99,8% por estado)')
     A('Critérios fixados antes de rodar: PRE-REGISTRO-2026-10-26.md, Adendo 29 (commit 3929135).')
-    A('Decisões que o registro não fixa: D1 a D13 do docstring de scripts/analisar_R29_J.py, escritas antes das contas.')
+    A('Decisões que o registro não fixa: D1 a D13 do docstring de scripts/analisar_R29_J.py, escritas antes das contas')
+    A(f"(SHA-256 do docstring: {R['sha256_docstring']}). O que veio depois de ver o resultado está marcado EXPLORATÓRIO.")
     A('')
     A('LEITURA PELA LETRA: ' + L['veredito'])
-    P, An = L['propriedade'], L['anomalia']
-    A(f"  Propriedade do gráfico: mediana do melhor R² na simulação com ruído de 5 pontos = {n(P['mediana_melhor_R2_ruido5'])} "
-      f"(pede 0,98 ou mais: {sn(P['clausula_simulacao'])}); outros anos com 0,98 ou mais: {P['anos_com_098']} de 3 "
-      f"(2022 {n(P['melhor_R2_outros_anos']['2022'])}, 2018 {n(P['melhor_R2_outros_anos']['2018'])}, "
-      f"2014 {n(P['melhor_R2_outros_anos']['2014'])}; pede 2: {sn(P['clausula_anos'])}). Vale: {sn(P['vale'])}.")
-    A(f"  Anomalia de 2026: desvio-padrão dos resíduos de 2026 = {n(An['dp_2026'], 3)} ponto; outros anos: "
-      f"2022 {n(An['dp_outros_anos']['2022'], 3)}, 2018 {n(An['dp_outros_anos']['2018'], 3)}, 2014 {n(An['dp_outros_anos']['2014'], 3)}; "
-      f"metade do menor = {n(An['metade_do_menor'], 3)} (2026 abaixo disso: {sn(An['clausula_anos'])}); percentil 1 da simulação "
-      f"com ruído de 2 pontos = {n(An['percentil1_simulacao_ruido2'], 3)} (2026 abaixo disso: {sn(An['clausula_simulacao'])}). "
+    A(f"  'Propriedade do gráfico' pede duas coisas. (1) Mediana do melhor R² na simulação com ruído de 5 pontos de 0,98 ou mais: "
+      f"deu {n(P['mediana_melhor_R2_ruido5'])}. {sn(P['clausula_simulacao'])}. (2) R² de 0,98 ou mais em pelo menos dois dos outros anos: "
+      f"2022 {n(P['melhor_R2_outros_anos']['2022'])}, 2018 {n(P['melhor_R2_outros_anos']['2018'])}, 2014 {n(P['melhor_R2_outros_anos']['2014'])}. "
+      f"{sn(P['clausula_anos'])} ({P['anos_com_098']} de 3). Vale: {sn(P['vale'])}.")
+    A(f"  'Anomalia de 2026' pede duas coisas. (1) Desvio-padrão dos resíduos de 2026 abaixo da metade do menor dos outros anos: "
+      f"2026 {n(An['dp_2026'], 3)} ponto; 2022 {n(An['dp_outros_anos']['2022'], 3)}; 2018 {n(An['dp_outros_anos']['2018'], 3)}; "
+      f"2014 {n(An['dp_outros_anos']['2014'], 3)}; metade do menor {n(An['metade_do_menor'], 3)}. {sn(An['clausula_anos'])}. "
+      f"(2) Abaixo do percentil 1 da simulação com ruído de 2 pontos ({n(An['percentil1_simulacao_ruido2'], 3)}): {sn(An['clausula_simulacao'])}. "
       f"Vale: {sn(An['vale'])}.")
+    lado = L['ao_lado_simulacao']
+    mx5 = max(v['mediana_melhor_R2_ruido5'] for v in lado.values())
+    n_p1 = sum(v['real_abaixo_do_p1'] for v in lado.values())
+    lo = L['ao_lado_anos_adversario_mais_outros']
+    A(f"  Ao lado (outras definições de x, outras taxas, ruído comum): a cláusula (1) da propriedade falha nas {len(lado)} combinações "
+      f"(a maior mediana com ruído de 5 pontos é {n(mx5)}). A cláusula (1) da anomalia falha também com x = adversário mais outros "
+      f"(2026 {n(lo['dp_2026'], 3)}; 2022 {n(lo['dp_outros_anos']['2022'], 3)}). A cláusula (2) da anomalia mudaria para SIM em {n_p1} das "
+      f"{len(lado)} combinações, todas com ruído comum (o estado inteiro balança junto): aí o percentil 1 com ruído de 2 pontos é "
+      f"{n(lado['A|comum|a_flavio_sozinho']['p1_dp_ruido2'], 3)} e 2026 fica abaixo. Como a cláusula (1) falha sempre, a leitura não muda.")
     A('')
-    A('J1. REPRODUÇÃO DO GRÁFICO (27 UFs, 2026)')
-    A('  Candidatos do 1º turno e classificação fixada antes: ')
-    for c in CAND:
-        A(f"    {c} {R['candidatos'][c]['nome']} ({PARTIDO[c]}) {mil(R['candidatos'][c]['votos'])}: {CLASSE[c]}")
-    A(f"  Definição que melhor reproduz os pontos legíveis (regra D4): {J1['definicao_c']}.")
-    fam = sorted(J1['familia'], key=lambda r: r['soma_quadrados'])[:6]
-    A('  As seis melhores da família (x calculado em PI, BA e SC; soma dos quadrados contra 25, 30 e 75):')
-    for f in fam:
-        A(f"    {f['definicao']}: PI {n(f['x_PI'], 2)}, BA {n(f['x_BA'], 2)}, SC {n(f['x_SC'], 2)}; soma {n(f['soma_quadrados'], 2)}")
-    dc = J1['definicoes']['c_melhor_reproduz']
-    A('  y calculado contra o y lido no gráfico: ' + '; '.join(
-        f"{u} {n(dc['legiveis'][u]['y_calc'], 3)} (gráfico {n(dc['legiveis'][u]['y_grafico'], 1)})" for u in LEGIVEL) + '.')
-    A('  Rótulos duvidosos (posição lida no gráfico, onde a UF está de fato, e as UFs mais perto da posição lida):')
-    for u, d in J1['rotulos_duvidosos'].items():
-        A(f"    {u}: lido x {n(d['x_grafico'], 1)} e y {n(d['y_grafico'], 2)}; real x {n(d['x_calc'], 2)} e y {n(d['y_calc'], 3)}; "
-          'perto da posição lida: ' + ', '.join(f"{p['uf']} ({n(p['x'], 1)}; {n(p['y'], 2)})" for p in d['ufs_mais_perto_da_posicao']))
-    A('  R² dos ajustes (gráfico do autor: linear 0,935; quadrático 0,995; exponencial 0,999):')
-    rot = {'a_flavio_sozinho': '(a) Flávio sozinho', 'b_bloco_direita': '(b) bloco de direita (22+55+30+14)',
-           'c_melhor_reproduz': '(c) a que melhor reproduz', 's_bloco_mais_cury': 'sens. bloco mais Cury',
-           's_tudo_menos_esquerda': 'sens. tudo menos a esquerda', 's_tudo_menos_lula': 'sens. tudo menos Lula'}
-    for nome, d in J1['definicoes'].items():
-        a = d['ajustes']
-        A(f"    {rot[nome]}: linear {n(a['linear'])}; quadrático {n(a['quadratico'])}; exponencial (não linear) {n(a['exponencial'])}; "
-          f"exponencial pelo log {n(a['exp_log_escala_log'])} na escala do log e {n(a['exp_log_escala_y'])} na de y; "
-          f"leitura literal a*x*exp(bx) {n(a['exp_literal_a_x_exp_bx'])}; resíduo da reta de fatia {n(d['reta_p2']['dp'], 3)} ponto")
-    if 'com_exterior' in J1:
-        e = J1['com_exterior']['b_bloco_direita']
-        A(f"  Com o exterior como 28º ponto (bloco de direita): linear {n(e['linear'])}; quadrático {n(e['quadratico'])}; exponencial {n(e['exponencial'])}.")
+    A('EM UMA FRASE: o R² altíssimo existe, mas aparece igual em 2022 e sai da própria fórmula do eixo y; ele mostra que cada estado')
+    A('votou no 2º turno parecido com o que tinha votado três semanas antes, não mede chance de fraude e também não a afasta.')
     A('')
-    A('J2. A MESMA CONTA NOS OUTROS ANOS (27 UFs; y = PT sobre adversário no 2º turno)')
+    A('1. O GRÁFICO SE REPRODUZ? (J1, 27 UFs, dados por seção somados)')
+    A(f"  Definição de 'direita no 1º turno' que melhor cai nos pontos legíveis: {J1['definicao_c']}.")
+    A('  x calculado: ' + '; '.join(f"{u} {n(dc['legiveis'][u]['x_calc'], 2)} (gráfico perto de {n(LEGIVEL[u][0], 0)})" for u in LEGIVEL)
+      + '. y calculado: ' + '; '.join(f"{u} {n(dc['legiveis'][u]['y_calc'], 3)} (gráfico {n(LEGIVEL[u][1], 1)})" for u in LEGIVEL) + '.')
+    d = J1['rotulos_duvidosos']
+    A(f"  Rótulos: o ponto lido como MG (x 69; y 0,5) não é Minas, que está em x {n(d['MG']['x_calc'], 2)} e y {n(d['MG']['y_calc'], 3)}. "
+      'Naquela posição estão ' + ' e '.join(f"{p['uf']} ({n(p['x'], 2)}; {n(p['y'], 3)})" for p in d['MG']['ufs_mais_perto_da_posicao'][:2])
+      + f". RS está em ({n(d['RS']['x_calc'], 2)}; {n(d['RS']['y_calc'], 3)}) e SP em ({n(d['SP']['x_calc'], 2)}; {n(d['SP']['y_calc'], 3)}).")
+    A('  R² (legenda do gráfico: linear 0,935; quadrático 0,995; exponencial 0,999):')
+    for nome in ('a_flavio_sozinho', 'b_bloco_direita', 's_bloco_mais_cury', 's_tudo_menos_esquerda', 's_tudo_menos_lula'):
+        a = J1['definicoes'][nome]['ajustes']
+        A(f"    {ROT[nome]}: linear {n(a['linear'])}; quadrático {n(a['quadratico'])}; exponencial {n(a['exponencial'])} "
+          f"(mínimos quadrados não lineares) ou {n(a['exp_log_escala_log'])} (pelo log)")
+    A('  A definição (c) é a (b). O exterior como 28º ponto não muda nada '
+      f"(bloco: {n(J1['com_exterior']['b_bloco_direita']['linear'])}; {n(J1['com_exterior']['b_bloco_direita']['quadratico'])}; "
+      f"{n(J1['com_exterior']['b_bloco_direita']['exponencial'])}).")
+    A('  Resultado: o gráfico é feito com dados reais e os R² são dessa ordem. O 0,999 da legenda não sai dos dados em nenhuma definição.')
+    if 'exploratorio_E1_r2_da_legenda' in X:
+        e = X['exploratorio_E1_r2_da_legenda']
+        A(f"  EXPLORATÓRIO E1: nas 24 definições da família, o maior R² exponencial com dados reais é {n(e['maior_exponencial_com_dados_reais'])}. "
+          f"A curva pura do item 6 dá {n(cp['b_bloco_direita']['linear'])}; {n(cp['b_bloco_direita']['quadratico'])}; {n(cp['b_bloco_direita']['exponencial'])}.")
+    A('')
+    A('2. A MESMA CONTA NOS OUTROS ANOS (J2; y = PT sobre adversário no 2º turno; resíduo = pontos de fatia em torno da reta)')
     for ano in ('2026', '2022', '2018', '2014'):
-        for nome, r in (('adversario_sozinho', 'adversário sozinho'), ('adversario_mais_outros', 'adversário mais outros')):
-            a = J2[ano][nome]['ajustes']
-            A(f"    {ano} {NOME_ADV[int(ano)]}, x = {r}: linear {n(a['linear'])}; quadrático {n(a['quadratico'])}; "
-              f"exponencial {n(a['exponencial'])} (pelo log {n(a['exp_log_escala_log'])}); resíduo da reta de fatia "
-              f"{n(J2[ano][nome]['reta_p2']['dp'], 3)} ponto (maior {n(J2[ano][nome]['reta_p2']['max'], 2)})")
+        r, s = J2[ano]['adversario_sozinho'], J2[ano]['adversario_mais_outros']
+        A(f"    {ano} ({NOME_PT[int(ano)]} x {NOME_ADV[int(ano)]}). Adversário sozinho: linear {n(r['ajustes']['linear'])}; quadrático "
+          f"{n(r['ajustes']['quadratico'])}; exponencial {n(r['ajustes']['exponencial'])}; resíduo {n(r['reta_p2']['dp'], 3)}. "
+          f"Adversário mais outros: {n(s['ajustes']['linear'])}; {n(s['ajustes']['quadratico'])}; {n(s['ajustes']['exponencial'])}; "
+          f"resíduo {n(s['reta_p2']['dp'], 3)}.")
+    A('  2022 tem o mesmo desenho de 2026 e resíduo menor. 2018 (ano em que a direita venceu) passa de 0,98. 2014 não: Marina teve')
+    A('  21% no 1º turno e uma reta só com Aécio não dá conta.')
     A('')
-    A('J3. SIMULAÇÃO SEM FRAUDE (1º turno real de 2026 por UF; 1.000 sorteios por nível)')
-    cp = J3['curva_pura']
-    A('  Curva pura, sem nenhum dado do 2º turno: y = (100 menos x) / x calculado só com o x real de cada UF.')
-    for nome in ('a_flavio_sozinho', 'b_bloco_direita', 'c_melhor_reproduz', 'p2_real_contra_ele_mesmo'):
-        A(f"    x = {nome}: linear {n(cp[nome]['linear'])}; quadrático {n(cp[nome]['quadratico'])}; exponencial {n(cp[nome]['exponencial'])}")
-    A('  Mediana [percentil 5; percentil 95] do R² de cada ajuste e do desvio-padrão dos resíduos (x = definição (c)):')
-    for chave, cen in J3['cenarios'].items():
-        d = cen['definicoes']['c_melhor_reproduz']
-        A(f"    versão {cen['versao']}, ruído {cen['ruido']} de {n(cen['desvio_pontos'], 1)} ponto(s): "
-          f"linear {n(d['linear']['p50'])} [{n(d['linear']['p5'])}; {n(d['linear']['p95'])}]; "
-          f"quadrático {n(d['quadratico']['p50'])} [{n(d['quadratico']['p5'])}; {n(d['quadratico']['p95'])}]; "
-          f"exponencial {n(d['exponencial']['p50'])} [{n(d['exponencial']['p5'])}; {n(d['exponencial']['p95'])}]; "
-          f"melhor {n(d['melhor']['p50'])}; resíduo {n(d['dp_residuos']['p50'], 3)} "
-          f"[{n(d['dp_residuos']['p1'], 3)} no percentil 1]; sorteios com melhor R² >= 0,98: {n(100 * d['fracao_melhor_ge_098'], 1)}%; "
-          f">= 0,999: {n(100 * d['fracao_melhor_ge_0999'], 1)}%")
-    A('  Versão D (tudo arbitrário), separando os sorteios em que os dois finalistas guardam pelo menos metade dos seus eleitores:')
-    for s in (2, 5, 10):
-        d = J3['cenarios'][f'D|independente|{s:g}']['definicoes']['c_melhor_reproduz']['finalistas_guardam_metade']
-        if d['melhor'] and d['melhor_nos_demais']:
-            A(f"    ruído {s}: {d['sorteios']} sorteios com finalistas fiéis, mediana do melhor R² {n(d['melhor']['p50'])}; "
-              f"nos demais, {n(d['melhor_nos_demais']['p50'])}")
+    A('3. SIMULAÇÃO SEM FRAUDE (J3; 1º turno real por UF; 1.000 sorteios por nível; x = definição (c))')
+    A('  Mediana do melhor R² | mediana do resíduo em pontos (percentil 1), por nível de ruído nas taxas (2, 5 e 10 pontos):')
+    nomes_v = {'A': 'A, taxas publicadas no R27_A2', 'B': 'B, taxas simples e simétricas', 'C': 'C, finalistas fiéis e o resto ao acaso',
+               'D': 'D, tudo ao acaso'}
+    for t in ('independente', 'comum'):
+        for v in 'ABCD':
+            A(f"    {nomes_v[v]}, ruído {t}: " + '; '.join(
+                f"{s} pts {n(cen(v, t, s)['melhor']['p50'])} | {n(cen(v, t, s)['dp_residuos']['p50'], 2)} ({n(cen(v, t, s)['dp_residuos']['p1'], 2)})"
+                for s in (2, 5, 10)))
+    semv = [k for k, c in J3['cenarios'].items() if c['sorteios_validos'] < c['sorteios']]
+    if semv:
+        A('    Sorteios fora por razão infinita: ' + '; '.join(
+            f"{k.replace('|', ', ')}: {J3['cenarios'][k]['sorteios'] - J3['cenarios'][k]['sorteios_validos']}" for k in semv) + '.')
+    A(f"  Dados reais de 2026 na mesma régua: melhor R² {n(J3['real_2026']['c_melhor_reproduz']['melhor'])}; resíduo "
+      f"{n(J3['real_2026']['c_melhor_reproduz']['dp'], 3)}. Versão A sem ruído nenhum: {n(cen('A', 'independente', 0)['melhor']['p50'])} e "
+      f"{n(cen('A', 'independente', 0)['dp_residuos']['p50'], 3)}; com 1 ponto: {n(cen('A', 'independente', 1)['melhor']['p50'])} e "
+      f"{n(cen('A', 'independente', 1)['dp_residuos']['p50'], 3)}.")
+    A(f"  Onde o real cai: o resíduo real é maior que o de {n(100 * cen('A', 'independente', 1)['fracao_dp_menor_que_real'], 1)}% dos sorteios com "
+      f"1 ponto e que o de {n(100 * cen('A', 'independente', 2)['fracao_dp_menor_que_real'], 1)}% dos sorteios com 2 pontos. O R² real é alcançado por "
+      f"{n(100 * cen('A', 'independente', 1)['fracao_melhor_ge_real'], 1)}% dos sorteios com 1 ponto, {n(100 * cen('A', 'independente', 2)['fracao_melhor_ge_real'], 1)}% "
+      f"com 2 e {n(100 * cen('A', 'independente', 5)['fracao_melhor_ge_real'], 1)}% com 5.")
+    dd = cen('D', 'independente', 2)['finalistas_guardam_metade']
+    A('  O R² depende das taxas? Depende de duas coisas e só delas: os finalistas guardarem os seus eleitores e as taxas variarem pouco')
+    A(f"  de UF para UF. Quem recebe os votos dos eliminados, dos brancos, dos nulos e dos faltosos quase não importa (A, B e C dão o mesmo).")
+    A(f"  Com tudo ao acaso (D) o R² desaba; nos {dd['sorteios']} sorteios de D em que os dois finalistas guardam pelo menos metade dos seus, "
+      f"volta a {n(dd['melhor']['p50'])} (ruído de 2 pontos).")
     A('')
-    A('CALIBRAÇÃO COM FRAUDE PLANTADA (D11): o gráfico enxerga uma troca de 2.215.096 votos?')
-    for nome, r in (('oficial', 'resultado oficial'), ('sem_troca_uniforme', 'desfeita a troca, uniforme'),
-                    ('sem_troca_concentrada_nordeste', 'desfeita a troca, só no Nordeste')):
+    A('4. O GRÁFICO ENXERGA UMA FRAUDE? (D11: desfazendo uma troca hipotética de 2.215.096 votos de Flávio para Lula)')
+    for nome, r in (('oficial', 'resultado oficial'), ('sem_troca_uniforme', 'sem a troca, se ela fosse uniforme no país'),
+                    ('sem_troca_concentrada_nordeste', 'sem a troca, se ela fosse só no Nordeste')):
         c = C[nome]
-        A(f"    {r}: fatia de Flávio nas 27 UFs {n(c['fatia_flavio_27_ufs'], 2)}%; linear {n(c['linear'])}; quadrático {n(c['quadratico'])}; "
-          f"exponencial {n(c['exponencial'])}; resíduo {n(c['dp_residuos'], 3)} ponto")
+        A(f"    {r}: linear {n(c['linear'])}; quadrático {n(c['quadratico'])}; exponencial {n(c['exponencial'])}; resíduo {n(c['dp_residuos'], 3)}")
+    A('  Uma troca uniforme desse tamanho não mexe no gráfico: com ela ou sem ela a curva é a mesma. Logo o gráfico não prova fraude')
+    A('  e tampouco prova que não houve. Uma troca concentrada mexeria (a eleição "verdadeira" teria resíduo maior que a oficial),')
+    A('  mas o valor que resultaria ainda cabe entre os anos anteriores (2018 teve 2,392).')
     A('')
-    A('J4. ONDE ESTÁ A VARIAÇÃO (2026)')
-    for niv, r in (('municipio', 'Município'), ('secao', 'Seção')):
+    A('5. ONDE ESTÁ A VARIAÇÃO (J4, 2026)')
+    for niv, r in (('municipio', 'Por município'), ('secao', 'Por seção')):
         d = J4[niv]
-        A(f"  {r}: {mil(d['usadas'])} unidades usadas ({mil(d['excluidas_por_R2_zero'])} fora por Flávio com zero voto no 2º turno).")
-        for nome in ('a_flavio_sozinho', 'b_bloco_direita', 'c_melhor_reproduz'):
-            x = d['definicoes'][nome]
-            A(f"    {rot[nome]}: R² de y sem peso: linear {n(x['sem_peso']['linear'])}; quadrático {n(x['sem_peso']['quadratico'])}; "
-              f"exponencial {n(x['sem_peso']['exponencial'])} (pelo log {n(x['sem_peso']['exp_log_escala_log'])}); com peso: "
-              f"{n(x['com_peso']['linear'])}; {n(x['com_peso']['quadratico'])}; {n(x['com_peso']['exponencial'])}; Spearman {n(x['spearman_x_y'])}; "
-              f"reta de fatia: R² {n(x['reta_p2']['r2'])}, resíduo {n(x['reta_p2']['dp'], 2)} pontos, percentis 5 e 95 "
-              f"{n(x['reta_p2']['residuos']['p5'], 2)} e {n(x['reta_p2']['residuos']['p95'], 2)}")
+        x = d['definicoes']['c_melhor_reproduz']
+        xa = d['definicoes']['a_flavio_sozinho']
+        A(f"  {r} ({mil(d['usadas'])} pontos; {mil(d['excluidas_por_R2_zero'])} fora por Flávio com zero voto no 2º turno), bloco de direita: "
+          f"R² linear {n(x['sem_peso']['linear'])}; quadrático {n(x['sem_peso']['quadratico'])}; exponencial {n(x['sem_peso']['exponencial'])}; "
+          f"resíduo da fatia {n(x['reta_p2']['dp'], 2)} pontos (90% dos pontos entre {sinal(x['reta_p2']['residuos']['p5'])} e "
+          f"{sinal(x['reta_p2']['residuos']['p95'])}; de 1% a 99%: {sinal(x['reta_p2']['residuos']['p1'])} a {sinal(x['reta_p2']['residuos']['p99'])}). "
+          f"Com Flávio sozinho: {n(xa['sem_peso']['linear'])}; {n(xa['sem_peso']['quadratico'])}; {n(xa['sem_peso']['exponencial'])}; resíduo {n(xa['reta_p2']['dp'], 2)}.")
+    A(f"  O espalhamento existe e cresce quando se desce de nível: {n(dc['reta_p2']['dp'], 2)} ponto por UF, "
+      f"{n(J4['municipio']['definicoes']['c_melhor_reproduz']['reta_p2']['dp'], 2)} por município, "
+      f"{n(J4['secao']['definicoes']['c_melhor_reproduz']['reta_p2']['dp'], 2)} por seção. Somar milhões de votos em 27 pontos apaga o ruído.")
     for nome in ('c_melhor_reproduz', 'a_flavio_sozinho'):
         t = J4['por_uf'][nome]
-        A(f"  Por UF, {rot[nome]}: fatia de Flávio no 2º turno = {n(t['intercepto'], 3)} + {n(t['inclinacao'], 4)} * x; "
-          f"desvio-padrão dos resíduos {n(t['dp'], 3)} ponto. Resíduo positivo = Flávio acima do previsto.")
-        A('    ' + '; '.join(f"{r['uf']} {'+' if r['residuo'] >= 0 else ''}{n(r['residuo'], 2)}" for r in t['linhas']))
+        A(f"  Por UF, x = {ROT[nome] if nome != 'c_melhor_reproduz' else 'bloco de direita'}: fatia de Flávio no 2º turno = "
+          f"{n(t['intercepto'], 3)} + {n(t['inclinacao'], 4)} vezes x. Desvio de cada UF (positivo = Flávio acima do previsto):")
+        A('    ' + '; '.join(f"{r['uf']} {sinal(r['residuo'])}" for r in t['linhas']))
+    tb, ta = J4['por_uf']['c_melhor_reproduz']['linhas'], J4['por_uf']['a_flavio_sozinho']['linhas']
+    A(f"  Quem mais se afasta: Goiás, {sinal(tb[0]['residuo'])} com o bloco e {sinal(ta[-1]['residuo'])} com Flávio sozinho. É o estado de Caiado: "
+      'os votos dele contam no bloco e nem todos foram para Flávio; fora do bloco, a maior parte foi. Depois, com o bloco: '
+      + ', '.join(f"{r['uf']} {sinal(r['residuo'])}" for r in tb[1:4]) + ' (Flávio abaixo) e '
+      + ', '.join(f"{r['uf']} {sinal(r['residuo'])}" for r in tb[::-1][:4]) + ' (Flávio acima). Com Flávio sozinho: '
+      + ', '.join(f"{r['uf']} {sinal(r['residuo'])}" for r in ta[:4]) + ' (abaixo) e '
+      + ', '.join(f"{r['uf']} {sinal(r['residuo'])}" for r in ta[::-1][1:4]) + ' (acima).')
+    ne_b = [r['residuo'] for r in tb if r['uf'] in NORDESTE]
+    ne_a = [r['residuo'] for r in ta if r['uf'] in NORDESTE]
+    A(f"  As 9 UFs do Nordeste: média {sinal(sum(ne_b) / 9)} com o bloco e {sinal(sum(ne_a) / 9)} com Flávio sozinho.")
     A('')
+    A('6. POR QUE A CURVA É LISA, E O QUE O R² MEDE')
+    A('  (i) O eixo y é Lula dividido por Flávio. Se p é a fatia de Flávio nos válidos do 2º turno, y = (1 - p) / p. Isso é uma')
+    A('  identidade, não um resultado: p = 25% dá 3,00; 30% dá 2,33; 50% dá 1,00; 70% dá 0,43; 75% dá 0,33.')
+    A(f"  (ii) Em toda UF, p ficou perto da fatia da direita no 1º turno: p = x {sinal(J4['por_uf']['c_melhor_reproduz']['intercepto'])} "
+      f"(inclinação {n(J4['por_uf']['c_melhor_reproduz']['inclinacao'], 4)}), com desvio de {n(dc['reta_p2']['dp'], 2)} ponto. É o esperado: "
+      f"Lula e Flávio já tinham {n(100 * (J2['2026']['nacional']['L1'] + J2['2026']['nacional']['R1']) / (J2['2026']['nacional']['L1'] + J2['2026']['nacional']['R1'] + J2['2026']['nacional']['O1']), 1)}% "
+      'dos votos nominais no 1º turno, três semanas antes.')
+    A('  (iii) O log de (1 - p) / p entre 25% e 75% é quase uma reta em p: vale +1,10 em 25%, 0 em 50% e -1,10 em 75%; a reta')
+    A('  2 - 4p daria +1,00, 0 e -1,00. Reta no log é exponencial. Por isso o exponencial ganha do quadrático, que ganha do linear.')
+    A(f"  (iv) Prova sem nenhum voto do 2º turno: com o x real de cada UF e y = (100 - x) / x, os ajustes dão linear "
+      f"{n(cp['b_bloco_direita']['linear'])}; quadrático {n(cp['b_bloco_direita']['quadratico'])}; exponencial {n(cp['b_bloco_direita']['exponencial'])}. "
+      f"A legenda do gráfico diz 0,935; 0,995; 0,999.")
+    A('  (v) R² não é probabilidade. É a parcela da variação de y entre os pontos que a curva acompanha. Sobe quando os pontos se')
+    A(f"  espalham ao longo do eixo x (aqui de {n(min(dc['x']), 1)} a {n(max(dc['x']), 1)}: é justamente o Piauí não pensar como Santa Catarina")
+    A('  que estica o eixo) e quando cada ponto fica perto da curva (cada estado parecido com ele mesmo três semanas antes). Não há')
+    A('  hipótese de fraude sendo testada nem conta de chances por trás de "a probabilidade de ser orgânico é zero".')
+    A('')
+    A('7. O QUE PESA A FAVOR E CONTRA A TESE DE FRAUDE, NESTE GRÁFICO')
+    A('  A favor ou neutro:')
+    A(f"  (a) Pela letra, 'propriedade do gráfico' não fechou: com ruído de 5 pontos nas taxas a mediana é {n(P['mediana_melhor_R2_ruido5'])} e nenhum "
+      'dos 1.000 sorteios chega ao R² real. O alinhamento real equivale a taxas que variam cerca de 1 a 2 pontos de UF para UF')
+    A(f"  (ruído independente) ou menos de 2 pontos se o estado inteiro balança junto (aí o real fica abaixo do percentil 1 da simulação")
+    A('  de 2 pontos). Os estados se comportaram de modo muito uniforme em relação ao padrão nacional. Isso é o que um movimento')
+    A('  nacional de opinião produz e também o que uma troca uniforme produziria; o gráfico não separa um do outro.')
+    A(f"  (b) O R² exponencial de 2026 com Flávio sozinho ({n(da['ajustes']['exponencial'])}) é o maior dos quatro anos, por "
+      f"{n(da['ajustes']['exponencial'] - J2['2022']['adversario_sozinho']['ajustes']['exponencial'])} sobre 2022.")
+    A('  (c) O item 4: a curva lisa não afasta uma troca uniforme.')
+    A('  Contra:')
+    A(f"  (d) Não é coisa de 2026. Em 2022 o R² é {n(J2['2022']['adversario_sozinho']['ajustes']['exponencial'])} e o resíduo é menor "
+      f"({n(An['dp_outros_anos']['2022'], 3)} contra {n(An['dp_2026'], 3)}). As duas cláusulas de 'anomalia' falharam.")
+    A('  (e) Os três R² da legenda saem da fórmula do eixo y sem nenhum voto do 2º turno (item 6, iv).')
+    A('  (f) Os pontos se espalham, sim, quando se olha município e seção (item 5).')
+    A('  (g) Onde havia motivo local, o estado saiu da linha: Goiás fica a mais de 4 pontos da reta nas duas definições.')
+    if 'exploratorio_E2_dois_regressores' in X:
+        e = X['exploratorio_E2_dois_regressores']
+        an = e['anos']
+        A('')
+        A('8. EXPLORATÓRIO E2 (depois de ver o resultado): 2026 é mais alinhado que os outros anos quando os "outros" entram na conta?')
+        A('  Fatia do adversário no 2º turno contra duas variáveis do 1º (fatia do adversário e fatia dos outros candidatos), 27 UFs.')
+        A('  Desvio-padrão dos resíduos em pontos: ' + '; '.join(f"{a} {n(an[a]['dp'], 3)} (maior {n(an[a]['maior'], 2)})" for a in ('2026', '2022', '2018', '2014'))
+          + '. Parcela dos "outros" que aparece no adversário: ' + '; '.join(f"{a} {n(an[a]['coef_outros'], 3)}" for a in ('2026', '2022', '2018', '2014')) + '.')
+        s = e['simulacao']
+        A(f"  Simulação A na mesma medida (mediana; percentil 1): sem ruído {n(s['A|independente|0']['p50'], 3)}; 1 ponto {n(s['A|independente|1']['p50'], 3)} "
+          f"({n(s['A|independente|1']['p1'], 3)}); 2 pontos {n(s['A|independente|2']['p50'], 3)} ({n(s['A|independente|2']['p1'], 3)}); 5 pontos "
+          f"{n(s['A|independente|5']['p50'], 3)} ({n(s['A|independente|5']['p1'], 3)}); comum de 2 pontos {n(s['A|comum|2']['p50'], 3)} ({n(s['A|comum|2']['p1'], 3)}).")
+        A('  Maiores desvios de 2026 nesta conta: ' + ', '.join(f"{u} {sinal(v)}" for u, v in list(an['2026']['residuos'].items())[:3]) + ' e '
+          + ', '.join(f"{u} {sinal(v)}" for u, v in list(an['2026']['residuos'].items())[::-1][:3]) + '.')
+    A('')
+    A('DESVIOS E LIMITES')
+    for i, t in enumerate(R['desvios'], 1):
+        A(f'  {i}. {t}')
     return o
 
 
@@ -911,12 +1109,13 @@ def main():
     fm = [f for f in J1['familia'] if f['definicao'] == J1['definicao_c']][0]
     R['J4'] = j4(ag, S, ufs, T, defs, p2, (fm['nums'], fm['den']))
     R['leitura'] = leitura(R['J1'], R['J2'], R['J3'])
+    R['sha256_docstring'] = hashlib.sha256(__doc__.encode()).hexdigest()
+    R['depois_de_ver_o_resultado'] = DEPOIS_DE_VER
+    R['desvios'] = DESVIOS
     for nome, f in list(globals().items()):
         if nome.startswith('exploratorio_') and callable(f):
             R.setdefault('exploratorio', {})[nome] = f(ag, S, R, ufs, T, defs, y, p2)
     linhas = texto(R)
-    if 'texto_final' in globals():
-        linhas = globals()['texto_final'](R, linhas)
     R['segundos'] = round(time.time() - t0, 1)
     with open(SAIDA_JSON, 'w') as f:
         json.dump(R, f, ensure_ascii=False, indent=1)
