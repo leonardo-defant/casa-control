@@ -3,12 +3,10 @@ import { toggleCheck } from "@/app/(casa)/checks/actions";
 
 export function DayList({
   sections,
-  dueOn,
   returnTo,
   empty,
 }: {
   sections: DaySection[];
-  dueOn: string;
   returnTo: string;
   empty: string;
 }) {
@@ -35,7 +33,7 @@ export function DayList({
               <li key={item.key}>
                 {item.canToggle ? (
                   <form action={toggleCheck}>
-                    <input type="hidden" name="dueOn" value={dueOn} />
+                    <input type="hidden" name="dueOn" value={item.dueOn} />
                     <input type="hidden" name="returnTo" value={returnTo} />
                     <input
                       type="hidden"
@@ -80,19 +78,20 @@ function RowBody({
       <span
         aria-hidden
         className={`mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-lg border ${
-          item.checked
+          item.countsAsDone
             ? "border-emerald-800 bg-emerald-800 text-white"
             : "border-stone-300 bg-stone-50"
         }`}
       >
-        {item.checked ? "✓" : ""}
+        {item.countsAsDone ? "✓" : ""}
       </span>
       <span className="min-w-0 flex-1">
         <span
           className={`block text-base font-medium ${
-            item.checked ? "text-stone-400 line-through" : "text-stone-900"
+            item.countsAsDone ? "text-stone-400 line-through" : "text-stone-900"
           }`}
         >
+          {item.dateLabel ? `${item.dateLabel}. ` : ""}
           {item.timeLabel ? `${item.timeLabel} ` : ""}
           {item.title}
         </span>

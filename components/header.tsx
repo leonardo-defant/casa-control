@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { signOut } from "@/app/(casa)/session-actions";
-import { dateKeyInSaoPaulo } from "@/lib/dates";
+import { houseToday } from "@/lib/dates";
 import type { Profile } from "@/lib/types";
 
 export function Header({ profile }: { profile: Profile }) {
-  const today = dateKeyInSaoPaulo();
+  const today = houseToday();
   const roleLabel = profile.role === "manager" ? "acompanhamento" : "execução";
 
   return (

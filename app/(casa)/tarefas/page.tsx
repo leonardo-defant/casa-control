@@ -6,7 +6,7 @@ import {
   updateTemplate,
 } from "@/app/(casa)/tarefas/actions";
 import { getSessionState } from "@/lib/auth";
-import { WEEKDAY_NAMES, dateKeyInSaoPaulo } from "@/lib/dates";
+import { WEEKDAY_NAMES, houseToday } from "@/lib/dates";
 import { createClient } from "@/lib/supabase/server";
 import type { OneOffTask, TaskTemplate } from "@/lib/types";
 
@@ -30,7 +30,7 @@ export default async function TarefasPage({
 
   const { erro } = await searchParams;
   const supabase = await createClient();
-  const today = dateKeyInSaoPaulo();
+  const today = houseToday();
   const [templatesResult, oneOffResult] = await Promise.all([
     supabase.from("task_templates").select("*").order("sort_order"),
     supabase
