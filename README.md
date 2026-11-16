@@ -14,23 +14,22 @@ Um projeto Supabase novo. Este repositório não tem acesso à sua conta.
    - `20261116115311_seed_templates.sql`
    - `20261116115313_archive_checks.sql`
    - `20261116121049_fase2_instancias_e_horario.sql`
-3. A terceira migration confere que entraram 508 marcações antigas. A quarta cria o dia que não some.
-4. Em Authentication, Providers, deixe Email ligado.
-5. Em Authentication, Settings, desligue o cadastro público (sign ups). O acesso é só por convite.
-6. Em Authentication, URL Configuration:
-   - Site URL: a URL do preview, e depois a de produção quando você trocar.
-   - Redirect URLs: `https://SEU-PREVIEW.vercel.app/auth/callback` e `http://localhost:3000/auth/callback`.
-7. No SQL Editor, inclua os três e-mails reais. Troque os exemplos:
+   - `20261116130426_login_usuario_senha.sql`
+3. A terceira migration confere que entraram 508 marcações antigas. A quarta cria o dia que não some. A quinta grava Leo e Barbara como manager e Jonas como executor.
+4. Em Authentication, Providers, deixe Email ligado. A tela pede usuário e senha. O Auth guarda um endereço sintético.
+5. Em Authentication, Settings, desligue o cadastro público e desligue a confirmação de endereço. Ninguém se cadastra sozinho e não existe link de confirmação.
+6. Crie os três usuários com senha, sem colocar a senha no repositório:
 
-```sql
-insert into public.role_invites (email, full_name, role) values
-  ('jonas@seu-dominio', 'Jonas', 'executor'),
-  ('leo@seu-dominio', 'Léo', 'manager'),
-  ('barbara@seu-dominio', 'Bárbara', 'manager');
+```bash
+export NEXT_PUBLIC_SUPABASE_URL=...
+export SUPABASE_SERVICE_ROLE_KEY=...
+export CASA_PWD_LEO=...
+export CASA_PWD_BARBARA=...
+export CASA_PWD_JONAS=...
+npm run auth:users
 ```
 
-8. Em Authentication, Users, convide cada e-mail. O convite só funciona depois do insert acima. Quem não está na lista não ganha perfil.
-9. No primeiro acesso pelo link do convite, a pessoa cai em Senha e define a senha do celular.
+O script chama a Admin API com `email_confirm=true`. Usuários na tela: Leo, Barbara e Jonas. Maiúscula e acento não importam.
 
 ## Variáveis na Vercel
 

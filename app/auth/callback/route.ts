@@ -19,5 +19,5 @@ export async function GET(request: Request) {
     }
   }
 
-  return NextResponse.redirect(new URL("/login?erro=convite", url.origin));
+  return NextResponse.redirect(new URL("/login?erro=credencial", url.origin));
 }

@@ -14,8 +14,7 @@ export default async function CasaLayout({ children }: { children: ReactNode }) 
       <main className="mx-auto w-full max-w-lg px-4 py-10">
         <h1 className="text-2xl font-semibold">Conta sem acesso</h1>
         <p className="mt-3 text-base leading-6 text-stone-700">
-          O login entrou, mas este e-mail não está na lista da casa. O Léo
-          precisa cadastrar o convite antes de enviar o acesso.
+          O login entrou, mas esta conta não está liberada na casa.
         </p>
       </main>
     );
