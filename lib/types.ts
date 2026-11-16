@@ -35,6 +35,18 @@ export type OneOffTask = {
   sort_order: number;
 };
 
+export type TaskInstance = {
+  id: string;
+  template_id: string | null;
+  one_off_id: string | null;
+  due_on: string;
+  title: string;
+  scheduled_time: string | null;
+  category: string;
+  sort_order: number;
+  status: "pending" | "done";
+};
+
 export type TaskCheck = {
   id: string;
   template_id: string | null;

@@ -3,13 +3,13 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { getSessionState } from "@/lib/auth";
-import { dateKeyInSaoPaulo, isDateKey } from "@/lib/dates";
+import { houseToday, isDateKey } from "@/lib/dates";
 import { createClient } from "@/lib/supabase/server";
 
 function safeReturnTo(value: string, dueOn: string): string {
   if (value === "/hoje") return "/hoje";
   if (value === `/dia/${dueOn}`) return value;
-  return dueOn === dateKeyInSaoPaulo() ? "/hoje" : `/dia/${dueOn}`;
+  return dueOn === houseToday() ? "/hoje" : `/dia/${dueOn}`;
 }
 
 export async function toggleCheck(formData: FormData) {
@@ -26,8 +26,8 @@ export async function toggleCheck(formData: FormData) {
     redirect(`${returnTo}?erro=gravar`);
   }
 
-  const today = dateKeyInSaoPaulo();
-  if (state.profile.role !== "manager" && dueOn !== today) {
+  const today = houseToday();
+  if (state.profile.role !== "manager" && dueOn > today) {
     redirect("/hoje");
   }
 
@@ -61,7 +61,9 @@ export async function toggleCheck(formData: FormData) {
       template_id: hasTemplate ? templateId : null,
       one_off_id: hasOneOff ? oneOffId : null,
     });
-    if (error && error.code !== "23505") redirect(`${returnTo}?erro=gravar`);
+    if (error && error.code !== "23505") {
+      redirect(`${returnTo}?erro=${error.code === "42501" ? "cedo" : "gravar"}`);
+    }
   }
 
   revalidatePath("/hoje");

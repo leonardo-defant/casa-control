@@ -3,7 +3,7 @@ import { DayList } from "@/components/day-list";
 import { openDate } from "@/app/(casa)/session-actions";
 import { getSessionState } from "@/lib/auth";
 import { buildDay } from "@/lib/day";
-import { dateKeyInSaoPaulo, formatLongDate, isDateKey, parseDateKey } from "@/lib/dates";
+import { formatLongDate, houseToday, isDateKey, parseDateKey } from "@/lib/dates";
 import { loadDay } from "@/lib/load-day";
 
 export const dynamic = "force-dynamic";
@@ -22,7 +22,7 @@ export default async function DiaPage({
   const { date } = await params;
   if (!isDateKey(date)) notFound();
 
-  const today = dateKeyInSaoPaulo();
+  const today = houseToday();
   const loaded = await loadDay(date);
   const { erro } = await searchParams;
   const sunday = parseDateKey(date)?.getDay() === 0;
@@ -52,9 +52,11 @@ export default async function DiaPage({
           Ver
         </button>
       </form>
-      {erro === "gravar" ? (
+      {erro === "gravar" || erro === "cedo" ? (
         <p className="rounded-2xl bg-white px-4 py-3 text-sm text-stone-800 ring-1 ring-stone-200">
-          Não deu para gravar esta marcação. Tente de novo.
+          {erro === "cedo"
+            ? "Ainda não chegou a hora desta tarefa."
+            : "Não deu para gravar esta marcação. Tente de novo."}
         </p>
       ) : null}
       {sunday ? (
@@ -70,7 +72,6 @@ export default async function DiaPage({
             todayKey: today,
             role: state.profile.role,
           })}
-          dueOn={date}
           returnTo={`/dia/${date}`}
           empty="Nenhuma tarefa nesta data."
         />

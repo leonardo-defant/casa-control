@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { dateKeyInSaoPaulo, isDateKey } from "@/lib/dates";
-import { buildDay, progress } from "@/lib/day";
+import { houseToday, isBeforeWindow, isDateKey, markTiming } from "@/lib/dates";
+import { buildDay, buildOverdue, progress } from "@/lib/day";
 import { appliesOn } from "@/lib/schedule";
 import type { TaskTemplate } from "@/lib/types";
 
@@ -67,7 +67,7 @@ test("lista de hoje marca quem fez e o horario real", () => {
   const item = sections[0]?.items[0];
   assert.equal(item?.checked, true);
   assert.equal(item?.timeLabel, "08:00");
-  assert.match(item?.detail ?? "", /Feito às 11:05 por Jonas/);
+  assert.match(item?.detail ?? "", /Feito às 10:05 por Jonas/);
   assert.equal(progress(sections).done, 1);
 });
 
@@ -108,11 +108,101 @@ test("executor nao marca dia passado", () => {
   assert.equal(sections[0]?.items[0]?.canToggle, false);
 });
 
-test("data de Sao Paulo e chave valida", () => {
-  const key = dateKeyInSaoPaulo(new Date("2026-11-16T02:30:00.000Z"));
-  assert.equal(key, "2026-11-15");
+test("o dia da casa e o de Cuiaba", () => {
+  assert.equal(houseToday(new Date("2026-11-16T02:30:00.000Z")), "2026-11-15");
+  assert.equal(houseToday(new Date("2026-11-16T03:30:00.000Z")), "2026-11-15");
   assert.equal(isDateKey("2026-02-31"), false);
   assert.equal(isDateKey("2026-11-16"), true);
+});
+
+test("tarefa com hora fica fechada ate uma hora antes", () => {
+  const sections = buildDay({
+    templates: [template({ id: "1", title: "Creche", scheduled_time: "14:00:00", category: "weekday" })],
+    oneOffs: [],
+    checks: [],
+    dateKey: "2026-11-16",
+    todayKey: "2026-11-16",
+    role: "executor",
+    now: new Date("2026-11-16T15:00:00.000Z"),
+  });
+  const item = sections[0]?.items[0];
+  assert.equal(item?.canToggle, false);
+  assert.match(item?.detail ?? "", /Libera às 13:00/);
+  assert.equal(
+    isBeforeWindow({
+      dueOn: "2026-11-16",
+      todayKey: "2026-11-16",
+      scheduled: "14:00:00",
+      now: new Date("2026-11-16T17:30:00.000Z"),
+    }),
+    false,
+  );
+});
+
+test("marcacao muito antes nao conta e atraso fica visivel", () => {
+  assert.equal(
+    markTiming({
+      dueOn: "2026-11-16",
+      scheduled: "14:00:00",
+      checkedAt: "2026-11-16T12:00:00.000Z",
+    }),
+    "early",
+  );
+  assert.equal(
+    markTiming({
+      dueOn: "2026-11-16",
+      scheduled: "08:00:00",
+      checkedAt: "2026-11-16T16:30:00.000Z",
+    }),
+    "late",
+  );
+  const sections = buildDay({
+    templates: [template({ id: "1", title: "Creche", scheduled_time: "14:00:00" })],
+    oneOffs: [],
+    checks: [
+      {
+        id: "c1",
+        template_id: "1",
+        one_off_id: null,
+        due_on: "2026-11-16",
+        checked_at: "2026-11-16T12:00:00.000Z",
+        checked_by: "user",
+        actor_name: "Jonas",
+        source: "app",
+        legacy_code: null,
+      },
+    ],
+    dateKey: "2026-11-16",
+    todayKey: "2026-11-16",
+    role: "executor",
+    now: new Date("2026-11-16T12:00:00.000Z"),
+  });
+  assert.equal(sections[0]?.items[0]?.countsAsDone, false);
+  assert.equal(progress(sections).done, 0);
+  assert.match(sections[0]?.items[0]?.detail ?? "", /antes do horário/);
+});
+
+test("atrasada de ontem continua na lista de hoje", () => {
+  const sections = buildOverdue({
+    instances: [
+      {
+        id: "i1",
+        template_id: "t1",
+        one_off_id: null,
+        due_on: "2026-11-15",
+        title: "Piscina",
+        scheduled_time: "08:00:00",
+        category: "routine",
+        sort_order: 1,
+        status: "pending",
+      },
+    ],
+    todayKey: "2026-11-16",
+    role: "executor",
+  });
+  assert.equal(sections[0]?.title, "Atrasadas");
+  assert.equal(sections[0]?.items[0]?.canToggle, true);
+  assert.equal(sections[0]?.items[0]?.dueOn, "2026-11-15");
 });
 
 test("arquivo sql traz 508 marcacoes", () => {
