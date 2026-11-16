@@ -1,0 +1,2704 @@
+{
+  "checks": {
+    "2026-02-20": {
+      "d1": {
+        "at": "2026-02-20T12:11:30.238Z",
+        "by": "Léo",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-20T12:13:08.618Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-20T20:48:29.337Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-02-20T18:46:04.118Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-20T18:45:49.187Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-20T12:58:34.112Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-20T18:45:57.117Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-02-20T12:58:15.868Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-02-20T17:50:32.576Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-02-20T18:45:53.580Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-21": {
+      "d1": {
+        "at": "2026-02-21T10:57:21.402Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-21T11:14:10.094Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-21T11:14:13.050Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-21T11:19:48.388Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-21T11:19:50.722Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-21T11:19:53.319Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab1": {
+        "at": "2026-02-21T19:31:27.496Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab2": {
+        "at": "2026-02-21T19:31:27.693Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-23": {
+      "d1": {
+        "at": "2026-02-23T11:39:33.479Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-23T11:57:38.598Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-02-23T11:57:48.981Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-24": {
+      "d1": {
+        "at": "2026-02-24T11:34:11.910Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-24T11:34:17.993Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-25": {
+      "d1": {
+        "at": "2026-02-25T21:09:18.246Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-25T11:55:05.314Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-25T20:42:42.460Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-02-25T20:42:42.184Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-25T18:35:48.396Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-25T15:35:51.293Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-25T15:35:51.551Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-02-25T11:55:07.853Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-02-25T21:09:27.998Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-26": {
+      "d1": {
+        "at": "2026-02-26T11:35:11.081Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-26T11:35:13.443Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-26T20:39:22.091Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-02-26T20:39:21.645Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-26T20:39:22.826Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-26T20:39:23.359Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-26T20:39:24.393Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-27": {
+      "d1": {
+        "at": "2026-02-27T11:12:53.018Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-02-27T11:20:47.294Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-27T12:53:06.693Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-02-27T12:53:12.723Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-27T12:53:12.007Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-27T12:53:16.074Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-27T12:53:14.123Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-02-27T12:20:53.834Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex5": {
+        "at": "2026-02-27T12:20:57.655Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-02-27T20:51:52.052Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-02-28": {
+      "d2": {
+        "at": "2026-02-28T14:29:45.052Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-02-28T14:29:47.171Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-02-28T14:29:48.503Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-02-28T14:29:49.221Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-02-28T14:29:50.387Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-02-28T14:29:51.520Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab1": {
+        "at": "2026-02-28T14:29:55.052Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab2": {
+        "at": "2026-02-28T14:29:56.534Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-02": {
+      "d1": {
+        "at": "2026-03-02T11:35:12.050Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-02T11:35:13.317Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-02T12:19:53.502Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-02T12:19:56.157Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-02T12:19:57.888Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-03-02T12:20:06.991Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-03-02T18:03:08.609Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-03": {
+      "d1": {
+        "at": "2026-03-03T12:06:47.971Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-03T12:06:50.726Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-03T12:06:52.272Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-03T14:37:54.395Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-03T12:06:54.503Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-03T12:06:55.658Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-03T14:36:38.196Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-04": {
+      "d1": {
+        "at": "2026-03-04T18:19:14.720Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-04T10:31:54.607Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-04T18:19:28.820Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-04T18:19:24.156Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-04T18:19:22.821Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-04T18:19:21.471Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-04T18:19:20.407Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-03-04T13:52:11.463Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-03-04T18:19:18.773Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-05": {
+      "d1": {
+        "at": "2026-03-05T11:45:02.687Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-05T11:45:09.039Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-05T20:46:19.690Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-05T20:46:20.053Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-05T20:46:20.403Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-05T20:46:20.921Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-05T20:46:21.319Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-06": {
+      "d1": {
+        "at": "2026-03-06T12:29:39.802Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-06T12:29:40.400Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-06T20:40:05.723Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-06T20:40:06.176Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-06T20:40:06.678Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-06T20:40:07.198Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-06T20:40:07.713Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-03-06T12:29:44.919Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-03-06T20:40:19.800Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-03-06T20:40:16.926Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-07": {
+      "d2": {
+        "at": "2026-03-07T12:03:24.299Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-09": {
+      "d1": {
+        "at": "2026-03-09T13:28:54.047Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-09T13:28:54.698Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-09T13:28:56.194Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-09T13:28:58.760Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-09T13:28:59.814Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-09T13:29:01.744Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-09T13:29:02.647Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-03-09T13:29:04.815Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-10": {
+      "d1": {
+        "at": "2026-03-10T21:13:34.968Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-10T21:13:35.733Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-10T21:13:36.472Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-10T21:13:36.879Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-10T21:13:39.263Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-10T21:13:40.894Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-10T21:13:41.383Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-11": {
+      "d1": {
+        "at": "2026-03-11T11:36:57.350Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-11T11:36:59.753Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-11T21:00:58.957Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-11T21:00:59.540Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-11T21:00:53.104Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-11T21:00:54.007Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-11T21:00:55.510Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-03-11T21:01:04.076Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-03-11T21:01:02.907Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-13": {
+      "d1": {
+        "at": "2026-03-13T20:01:46.661Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-13T20:01:47.411Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-13T20:01:48.410Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-13T20:01:48.892Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-13T20:01:49.394Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-13T20:01:49.910Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-13T20:01:50.813Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-03-13T20:01:53.743Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-03-13T20:01:54.496Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-03-13T20:01:58.065Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-14": {
+      "d1": {
+        "at": "2026-03-14T11:52:51.864Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-14T11:52:52.401Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-14T11:52:53.899Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-14T13:25:08.117Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-14T13:25:08.511Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-14T13:25:09.650Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-14T13:25:10.368Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab1": {
+        "at": "2026-03-14T13:27:09.624Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sab2": {
+        "at": "2026-03-14T13:27:12.257Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-16": {
+      "d1": {
+        "at": "2026-03-16T12:14:01.771Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-16T12:14:03.120Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-16T21:52:17.145Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-16T21:52:16.900Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-16T21:52:18.812Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-16T21:52:18.603Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-16T21:52:19.515Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-03-16T12:14:06.542Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-03-16T21:52:22.215Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-17": {
+      "d1": {
+        "at": "2026-03-17T13:05:09.340Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-17T13:05:09.971Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-17T13:05:11.488Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-17T13:05:16.853Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-17T13:05:18.126Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-18": {
+      "d2": {
+        "at": "2026-03-18T13:25:31.970Z",
+        "by": "Léo",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-18T13:24:06.352Z",
+        "by": "Léo",
+        "checked": true
+      }
+    },
+    "2026-03-19": {
+      "d1": {
+        "at": "2026-03-19T17:39:51.427Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-19T17:39:51.656Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-19T17:39:53.625Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-19T17:39:54.613Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-19T17:39:56.091Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-20": {
+      "d1": {
+        "at": "2026-03-20T19:01:42.428Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-20T19:01:42.985Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-03-20T19:01:46.547Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-03-20T19:01:48.754Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-23": {
+      "d2": {
+        "at": "2026-03-23T12:19:22.876Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-23T12:19:27.150Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-23T12:53:52.288Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-25T11:46:57.870Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-25T11:46:57.621Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-25T11:46:57.344Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-03-23T12:19:25.782Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-03-25T11:46:59.778Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-24": {
+      "d1": {
+        "at": "2026-03-25T11:46:47.511Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-25T11:46:47.771Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-25T11:46:49.627Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-25T11:46:50.054Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-25T11:46:50.487Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-25T11:46:50.955Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-25T11:46:51.287Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-25": {
+      "d1": {
+        "at": "2026-03-25T11:46:38.127Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-25T11:46:38.789Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-25T21:18:33.631Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-25T21:18:34.215Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-25T21:18:35.259Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-25T21:18:35.710Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-25T21:18:37.317Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-03-25T11:46:41.293Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-03-25T21:18:41.550Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-26": {
+      "d1": {
+        "at": "2026-03-27T11:40:08.340Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-27T11:40:08.856Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-27T11:40:11.454Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-27T11:40:10.971Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-27T11:40:12.054Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-27T11:40:12.736Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-03-27T11:40:13.336Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-27": {
+      "d1": {
+        "at": "2026-03-27T11:39:38.623Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-27T11:39:40.275Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-03-27T11:39:51.458Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-30": {
+      "d1": {
+        "at": "2026-03-30T17:41:05.852Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-30T17:41:07.720Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-30T17:41:09.355Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-03-30T17:41:09.955Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-30T17:41:11.474Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-03-30T17:41:38.648Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-03-30T17:41:33.236Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-03-30T17:41:33.431Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-03-31": {
+      "d1": {
+        "at": "2026-03-31T12:02:54.890Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-03-31T12:03:00.175Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-03-31T12:03:02.277Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-03-31T12:03:09.193Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-01": {
+      "d1": {
+        "at": "2026-04-01T17:58:22.621Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-01T17:58:24.275Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-01T17:58:32.970Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-04-01T17:58:27.290Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-04-01T17:58:29.306Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-06": {
+      "d1": {
+        "at": "2026-04-06T20:55:41.329Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-06T20:55:41.585Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-06T20:55:42.991Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-06T20:55:44.256Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-06T20:55:44.856Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-06T20:55:46.070Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-06T20:55:46.638Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-04-06T20:55:48.204Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-04-06T20:55:48.499Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-07": {
+      "d1": {
+        "at": "2026-04-08T19:22:40.067Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-08T19:22:41.400Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-08T19:22:42.903Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-08T19:22:43.822Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-08T19:22:44.162Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-08T19:22:44.683Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-08T19:22:45.147Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-08": {
+      "d1": {
+        "at": "2026-04-08T19:22:52.185Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-08T19:22:52.447Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-08T19:22:59.315Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-08T19:22:59.796Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-08T19:23:04.132Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-08T19:23:01.432Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-13": {
+      "d1": {
+        "at": "2026-04-13T18:27:46.538Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-13T18:27:47.037Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-13T18:27:44.997Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-13T18:27:51.323Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-13T18:27:51.504Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-04-13T18:27:55.347Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-04-13T18:27:56.076Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-14": {
+      "d1": {
+        "at": "2026-04-18T12:53:49.051Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-18T12:53:49.329Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-18T12:53:49.986Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-18T12:53:50.280Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-18T12:53:50.630Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-18T12:53:53.064Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-18T12:53:52.652Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-15": {
+      "d1": {
+        "at": "2026-04-18T12:53:56.469Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-18T12:53:56.665Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-18T12:53:57.293Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-18T12:53:57.646Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-18T12:53:58.015Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-18T12:53:58.920Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-18T12:53:59.130Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-04-18T12:54:00.479Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-16": {
+      "d1": {
+        "at": "2026-04-18T12:54:04.633Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-18T12:54:04.830Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-18T12:54:06.696Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-18T12:54:06.482Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-18T12:54:05.962Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-18T12:54:08.929Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-18T12:54:08.717Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-17": {
+      "d1": {
+        "at": "2026-04-18T12:54:11.616Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-18T12:54:11.863Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-18T12:54:12.516Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-18T12:54:12.729Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-18T12:54:16.045Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-18T12:54:15.778Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-18T12:54:15.432Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-04-18T12:54:16.665Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex2": {
+        "at": "2026-04-18T12:54:17.581Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-04-18T12:54:18.567Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-04-18T12:54:23.149Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-18": {
+      "d1": {
+        "at": "2026-04-18T12:54:26.616Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-18T12:54:27.515Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-20": {
+      "d1": {
+        "at": "2026-04-24T11:44:07.223Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-20T11:51:09.185Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-24T11:44:08.275Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-24T11:44:08.653Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-24T11:44:09.056Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-24T11:44:09.436Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-24T11:44:09.786Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-04-20T11:51:14.054Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-04-24T11:44:11.686Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-22": {
+      "d2": {
+        "at": "2026-04-22T17:32:37.199Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-22T17:32:39.628Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-22T17:32:40.247Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-22T17:32:42.681Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-24T11:44:15.557Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-24T11:44:15.820Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-04-22T17:32:45.099Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-04-22T17:32:51.598Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-23": {
+      "d1": {
+        "at": "2026-04-24T11:44:18.323Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-24T11:44:18.603Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-24T11:44:21.674Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-24T11:44:21.952Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-24T11:44:24.675Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-24T11:44:25.188Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-24T11:44:25.488Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-24": {
+      "d1": {
+        "at": "2026-04-24T11:44:28.079Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-24T11:44:28.354Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-04-24T11:44:32.354Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-27": {
+      "d1": {
+        "at": "2026-04-27T18:56:52.772Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-27T18:56:52.455Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-27T18:56:53.525Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-27T18:56:54.411Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-04-27T18:56:54.770Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-04-27T18:56:55.480Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-04-27T18:56:56.674Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-04-27T18:56:59.281Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-04-27T18:56:58.676Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-04-28": {
+      "d1": {
+        "at": "2026-04-28T13:50:12.265Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-04-28T13:50:12.781Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-04-28T13:50:17.981Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-04-28T13:50:19.529Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-05-04": {
+      "d1": {
+        "at": "2026-05-06T11:46:11.235Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-05-06T11:46:11.028Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-05-06T11:46:12.193Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-05-06T11:46:13.253Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-05-06T11:46:13.517Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-05-06T11:46:13.867Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-05-06T11:46:15.459Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-05-06T11:46:15.733Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-05-05": {
+      "d1": {
+        "at": "2026-05-06T11:45:59.274Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-05-06T11:45:59.518Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-05-06T11:46:00.291Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-05-06T11:46:01.207Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-05-06T11:46:03.183Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-05-06T11:46:02.934Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-05-06T11:46:02.706Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-05-26": {
+      "d1": {
+        "at": "2026-05-26T12:16:57.658Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-05-26T12:16:58.350Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-05-26T12:17:07.138Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-05-26T12:17:01.067Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-05-26T12:17:02.968Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-05-26T12:17:04.217Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-05-26T12:17:04.950Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-01": {
+      "d1": {
+        "at": "2026-06-02T17:20:39.749Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-02T17:20:41.006Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-02T17:20:27.361Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-02T17:20:27.673Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-02T17:20:28.160Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-02T17:20:29.525Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-02T17:20:29.046Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-06-02T17:20:33.664Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-06-02T17:20:33.889Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-02": {
+      "d1": {
+        "at": "2026-06-02T17:20:17.729Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-05T11:48:53.781Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-02T17:20:20.246Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-02T17:20:19.379Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-02T17:20:21.514Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-02T17:20:21.972Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-02T17:20:22.438Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-03": {
+      "d1": {
+        "at": "2026-06-05T11:48:57.489Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-05T11:48:57.249Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-05T11:48:59.920Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-05T11:49:00.573Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-05T11:49:01.177Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-05T11:49:01.675Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-05T11:49:02.725Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-06-05T11:49:03.932Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua2": {
+        "at": "2026-06-05T11:49:04.492Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-06-05T11:49:04.819Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-04": {
+      "d1": {
+        "at": "2026-06-05T11:49:07.544Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-05T11:49:07.787Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-05T11:49:08.874Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-05T11:49:09.457Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-05T11:49:11.680Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-05T11:49:12.038Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-05T11:49:12.644Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-05": {
+      "d1": {
+        "at": "2026-06-05T11:49:20.541Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-05T11:49:21.109Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-06-05T11:51:54.326Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-08": {
+      "d1": {
+        "at": "2026-06-13T13:01:51.189Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:51.654Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:52.255Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-13T13:01:52.650Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-13T13:01:53.051Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-13T13:01:53.450Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-13T13:01:53.917Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-06-13T13:01:55.123Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-06-13T13:01:55.416Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-09": {
+      "d1": {
+        "at": "2026-06-13T13:01:44.105Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:44.675Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:46.054Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-13T13:01:46.535Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-13T13:01:47.020Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-13T13:01:47.469Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-13T13:01:47.935Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-10": {
+      "d1": {
+        "at": "2026-06-13T13:01:35.212Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:35.747Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:36.354Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-13T13:01:36.889Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-13T13:01:37.319Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-13T13:01:37.768Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-13T13:01:38.722Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-06-13T13:01:39.186Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua2": {
+        "at": "2026-06-13T13:01:41.035Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-06-13T13:01:40.575Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-11": {
+      "d1": {
+        "at": "2026-06-13T13:01:25.806Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:26.491Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:28.290Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-13T13:01:28.851Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-13T13:01:29.358Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-13T13:01:31.090Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-13T13:01:31.922Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-12": {
+      "d1": {
+        "at": "2026-06-13T13:01:08.308Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:08.538Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:09.592Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-13T13:01:09.903Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-13T13:01:11.036Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex1": {
+        "at": "2026-06-13T13:01:13.276Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex2": {
+        "at": "2026-06-13T13:01:13.537Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex3": {
+        "at": "2026-06-13T13:01:15.174Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex4": {
+        "at": "2026-06-13T13:01:21.987Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex5": {
+        "at": "2026-06-13T13:01:21.475Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_sex6": {
+        "at": "2026-06-13T13:01:22.790Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-13": {
+      "d1": {
+        "at": "2026-06-13T13:01:02.227Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-13T13:01:02.537Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-13T13:01:04.191Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-15": {
+      "d1": {
+        "at": "2026-06-15T12:03:28.663Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-15T12:03:30.884Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-06-15T12:03:40.053Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-29": {
+      "d1": {
+        "at": "2026-06-29T12:37:12.220Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-29T12:37:13.098Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-30T12:14:39.864Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-06-30T12:14:36.351Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-06-30T12:14:37.271Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-06-30T12:14:36.935Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-06-30T12:14:38.731Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-06-29T12:37:15.124Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-06-30T12:14:41.615Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-06-30": {
+      "d1": {
+        "at": "2026-06-30T12:14:25.518Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-06-30T12:14:26.523Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-06-30T12:14:27.867Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-07-01T14:47:05.745Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-07-01T14:47:06.022Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-07-01T14:47:07.075Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-07-01T14:47:07.272Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-07-01": {
+      "d1": {
+        "at": "2026-07-01T14:47:10.397Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-07-01T14:47:10.638Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-07-01T14:47:12.212Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-07-13": {
+      "d1": {
+        "at": "2026-07-13T11:51:40.304Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-07-13T11:51:42.010Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-08-17": {
+      "d1": {
+        "at": "2026-08-17T11:50:09.170Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-08-17T11:50:11.423Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-08-31": {
+      "d1": {
+        "at": "2026-08-31T18:10:57.763Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-08-31T18:10:58.146Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-08-31T18:10:59.540Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-09-01T12:03:22.690Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-09-01T12:03:25.573Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-01T12:03:26.003Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-08-31T18:11:05.220Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-08-31T18:11:06.532Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-01": {
+      "d1": {
+        "at": "2026-09-01T12:03:16.931Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-02": {
+      "d2": {
+        "at": "2026-08-31T18:13:15.820Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-08-31T18:13:12.358Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-08-31T18:13:10.863Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-08": {
+      "d1": {
+        "at": "2026-09-09T11:51:01.841Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-09T11:51:01.609Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-09T11:51:03.907Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-09T11:51:03.511Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-09-09T11:51:04.340Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-09-09T11:51:04.789Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-09T11:51:05.223Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-09": {
+      "d1": {
+        "at": "2026-09-09T11:51:09.277Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-09T11:51:10.460Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-10T02:59:00.459Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-10T02:59:01.023Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-09-10T02:59:01.453Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-09-10T02:59:01.938Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-10T02:59:02.353Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-09-10T02:58:55.710Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua2": {
+        "at": "2026-09-10T02:58:56.243Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-09-10T02:58:56.674Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-14": {
+      "d1": {
+        "at": "2026-09-14T14:22:39.018Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-14T14:22:39.461Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-14T14:22:40.836Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-14T14:22:44.408Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-09-14T14:22:47.003Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-09-17T12:00:01.597Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-17T12:00:01.890Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg1": {
+        "at": "2026-09-14T14:22:42.559Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_seg2": {
+        "at": "2026-09-17T12:00:00.494Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-15": {
+      "d1": {
+        "at": "2026-09-17T12:00:04.975Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-17T12:00:05.206Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-17T12:00:07.327Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-17T12:00:07.910Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr3": {
+        "at": "2026-09-17T12:00:08.461Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr4": {
+        "at": "2026-09-17T12:00:08.924Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-17T12:00:09.390Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-16": {
+      "d1": {
+        "at": "2026-09-17T12:00:12.532Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-17T12:00:12.741Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-17T12:00:13.495Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-17T12:00:13.772Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr5": {
+        "at": "2026-09-17T12:00:15.994Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua1": {
+        "at": "2026-09-17T12:00:16.930Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "w_qua3": {
+        "at": "2026-09-17T12:00:18.698Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    },
+    "2026-09-17": {
+      "d1": {
+        "at": "2026-09-17T11:59:49.680Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "d2": {
+        "at": "2026-09-17T11:59:50.007Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr1": {
+        "at": "2026-09-17T11:59:52.012Z",
+        "by": "Jonas",
+        "checked": true
+      },
+      "dr2": {
+        "at": "2026-09-17T11:59:52.825Z",
+        "by": "Jonas",
+        "checked": true
+      }
+    }
+  },
+  "notes": {
+    "2026-02-20": "Jonas tem lâmpadas queimadas na casa\nPrincipiante externo, verificar ",
+    "2026-02-25": "Faltou um restinho pra amanhã. Parte externa. ",
+    "2026-02-27": "Obs; Matheus levou seu carro pra fazer o polimento.",
+    "2026-03-03": "Passei veneno em td. Pra Kapina e insetos geral. ",
+    "2026-03-25": "Grama 100 % cortada ",
+    "2026-04-06": "Fiz o que pude e não fiz td. "
+  }
+}
